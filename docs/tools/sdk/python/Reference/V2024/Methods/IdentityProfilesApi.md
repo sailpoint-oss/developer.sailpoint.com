@@ -1,15 +1,15 @@
 ---
 id: v2024-identity-profiles
-title: IdentityProfiles
-pagination_label: IdentityProfiles
-sidebar_label: IdentityProfiles
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityProfiles', 'V2024IdentityProfiles'] 
-slug: /tools/sdk/go/v2024/methods/identity-profiles
-tags: ['SDK', 'Software Development Kit', 'IdentityProfiles', 'V2024IdentityProfiles']
+title: Identity_Profiles
+pagination_label: Identity_Profiles
+sidebar_label: Identity_Profiles
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'Identity_Profiles', 'V2024Identity_Profiles'] 
+slug: /tools/sdk/python/v2024/methods/identity-profiles
+tags: ['SDK', 'Software Development Kit', 'Identity_Profiles', 'V2024Identity_Profiles']
 ---
 
-# IdentityProfilesAPI
+# sailpoint.v2024.IdentityProfilesApi
   Use this API to implement identity profile functionality. 
 With this functionality in place, administrators can view identity profiles and their configurations. 
 
@@ -25,17 +25,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-identity-profile**](#create-identity-profile) | **Post** `/identity-profiles` | Create Identity Profile
-[**delete-identity-profile**](#delete-identity-profile) | **Delete** `/identity-profiles/{identity-profile-id}` | Delete Identity Profile
-[**delete-identity-profiles**](#delete-identity-profiles) | **Post** `/identity-profiles/bulk-delete` | Delete Identity Profiles
-[**export-identity-profiles**](#export-identity-profiles) | **Get** `/identity-profiles/export` | Export Identity Profiles
-[**generate-identity-preview**](#generate-identity-preview) | **Post** `/identity-profiles/identity-preview` | Generate Identity Profile Preview
-[**get-default-identity-attribute-config**](#get-default-identity-attribute-config) | **Get** `/identity-profiles/{identity-profile-id}/default-identity-attribute-config` | Get default Identity Attribute Config
-[**get-identity-profile**](#get-identity-profile) | **Get** `/identity-profiles/{identity-profile-id}` | Get Identity Profile
-[**import-identity-profiles**](#import-identity-profiles) | **Post** `/identity-profiles/import` | Import Identity Profiles
-[**list-identity-profiles**](#list-identity-profiles) | **Get** `/identity-profiles` | List Identity Profiles
-[**sync-identity-profile**](#sync-identity-profile) | **Post** `/identity-profiles/{identity-profile-id}/process-identities` | Process identities under profile
-[**update-identity-profile**](#update-identity-profile) | **Patch** `/identity-profiles/{identity-profile-id}` | Update Identity Profile
+[**create-identity-profile**](#create-identity-profile) | **POST** `/identity-profiles` | Create Identity Profile
+[**delete-identity-profile**](#delete-identity-profile) | **DELETE** `/identity-profiles/{identity-profile-id}` | Delete Identity Profile
+[**delete-identity-profiles**](#delete-identity-profiles) | **POST** `/identity-profiles/bulk-delete` | Delete Identity Profiles
+[**export-identity-profiles**](#export-identity-profiles) | **GET** `/identity-profiles/export` | Export Identity Profiles
+[**generate-identity-preview**](#generate-identity-preview) | **POST** `/identity-profiles/identity-preview` | Generate Identity Profile Preview
+[**get-default-identity-attribute-config**](#get-default-identity-attribute-config) | **GET** `/identity-profiles/{identity-profile-id}/default-identity-attribute-config` | Get default Identity Attribute Config
+[**get-identity-profile**](#get-identity-profile) | **GET** `/identity-profiles/{identity-profile-id}` | Get Identity Profile
+[**import-identity-profiles**](#import-identity-profiles) | **POST** `/identity-profiles/import` | Import Identity Profiles
+[**list-identity-profiles**](#list-identity-profiles) | **GET** `/identity-profiles` | List Identity Profiles
+[**sync-identity-profile**](#sync-identity-profile) | **POST** `/identity-profiles/{identity-profile-id}/process-identities` | Process identities under profile
+[**update-identity-profile**](#update-identity-profile) | **PATCH** `/identity-profiles/{identity-profile-id}` | Update Identity Profile
 
 
 ## create-identity-profile
@@ -44,43 +44,41 @@ Creates an identity profile.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-identity-profile)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateIdentityProfileRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **identityProfile** | [**IdentityProfile**](../models/identity-profile) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | identity_profile | [**IdentityProfile**](../models/identity-profile) | True  | 
 
 ### Return type
-
 [**IdentityProfile**](../models/identity-profile)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+201 | Created identity profile. | IdentityProfile |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.identity_profile import IdentityProfile
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    identityProfile := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    identity_profile = '''{
           "owner" : {
             "name" : "William Wilson",
             "id" : "2c9180835d191a86015d28455b4b232a",
@@ -128,21 +126,23 @@ func main() {
           "name" : "aName",
           "modified" : "2015-05-28T14:07:17Z",
           "id" : "id12345"
-        }`) # IdentityProfile | 
+        }''' # IdentityProfile | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.IdentityProfilesAPI.CreateIdentityProfile(context.Background()).IdentityProfile(identityProfile).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.CreateIdentityProfile``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateIdentityProfile`: IdentityProfile
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.CreateIdentityProfile`: %v\n", resp)
-}
+    try:
+        # Create Identity Profile
+        new_identity_profile = IdentityProfile.from_json(identity_profile)
+        results = IdentityProfilesApi(api_client).create_identity_profile(identity_profile=new_identity_profile)
+        # Below is a request that includes all optional parameters
+        # results = IdentityProfilesApi(api_client).create_identity_profile(new_identity_profile)
+        print("The response of IdentityProfilesApi->create_identity_profile:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentityProfilesApi->create_identity_profile: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## delete-identity-profile
 Delete Identity Profile
@@ -151,61 +151,58 @@ On success, this endpoint will return a reference to the bulk delete task result
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-identity-profile)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**identityProfileId** | **string** | Identity profile ID. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteIdentityProfileRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | identity_profile_id | **str** | True  | Identity profile ID.
 
 ### Return type
-
 [**TaskResultSimplified**](../models/task-result-simplified)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+202 | Accepted - Returns a TaskResult object referencing the bulk delete job created. | TaskResultSimplified |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.task_result_simplified import TaskResultSimplified
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    identityProfileId := ef38f94347e94562b5bb8424a56397d8 # string | Identity profile ID. # string | Identity profile ID.
+with ApiClient(configuration) as api_client:
+    identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity profile ID. # str | Identity profile ID.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.IdentityProfilesAPI.DeleteIdentityProfile(context.Background(), identityProfileId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.DeleteIdentityProfile``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `DeleteIdentityProfile`: TaskResultSimplified
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.DeleteIdentityProfile`: %v\n", resp)
-}
+    try:
+        # Delete Identity Profile
+        
+        results = IdentityProfilesApi(api_client).delete_identity_profile(identity_profile_id=identity_profile_id)
+        # Below is a request that includes all optional parameters
+        # results = IdentityProfilesApi(api_client).delete_identity_profile(identity_profile_id)
+        print("The response of IdentityProfilesApi->delete_identity_profile:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentityProfilesApi->delete_identity_profile: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## delete-identity-profiles
 Delete Identity Profiles
@@ -217,57 +214,57 @@ The following rights are required to access this endpoint: idn:identity-profile:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-identity-profiles)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteIdentityProfilesRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **requestBody** | **[]string** | Identity Profile bulk delete request body. | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | request_body | **[]str** | True  | Identity Profile bulk delete request body.
 
 ### Return type
-
 [**TaskResultSimplified**](../models/task-result-simplified)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+202 | Accepted - Returns a TaskResult object referencing the bulk delete job created. | TaskResultSimplified |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.task_result_simplified import TaskResultSimplified
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    requestBody := fmt.Sprintf(``) # []string | Identity Profile bulk delete request body.
+with ApiClient(configuration) as api_client:
+    request_body = '''['request_body_example']''' # List[str] | Identity Profile bulk delete request body.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.IdentityProfilesAPI.DeleteIdentityProfiles(context.Background()).RequestBody(requestBody).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.DeleteIdentityProfiles``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `DeleteIdentityProfiles`: TaskResultSimplified
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.DeleteIdentityProfiles`: %v\n", resp)
-}
+    try:
+        # Delete Identity Profiles
+        new_request_body = RequestBody.from_json(request_body)
+        results = IdentityProfilesApi(api_client).delete_identity_profiles(request_body=new_request_body)
+        # Below is a request that includes all optional parameters
+        # results = IdentityProfilesApi(api_client).delete_identity_profiles(new_request_body)
+        print("The response of IdentityProfilesApi->delete_identity_profiles:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentityProfilesApi->delete_identity_profiles: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## export-identity-profiles
 Export Identity Profiles
@@ -275,65 +272,65 @@ This exports existing identity profiles in the format specified by the sp-config
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/export-identity-profiles)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiExportIdentityProfilesRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
- **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
- **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
- **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, ne*  **priority**: *eq, ne* | 
- **sorters** | **string** | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority** | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, ne*  **priority**: *eq, ne*
+  Query | sorters | **str** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority**
 
 ### Return type
+[**List[IdentityProfileExportedObject]**](../models/identity-profile-exported-object)
 
-[**[]IdentityProfileExportedObject**](../models/identity-profile-exported-object)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of export objects with identity profiles. | List[IdentityProfileExportedObject] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.identity_profile_exported_object import IdentityProfileExportedObject
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-    filters := id eq "ef38f94347e94562b5bb8424a56397d8" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, ne*  **priority**: *eq, ne* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, ne*  **priority**: *eq, ne* (optional)
-    sorters := id,name # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority** (optional)
+with ApiClient(configuration) as api_client:
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
+    filters = 'id eq \"ef38f94347e94562b5bb8424a56397d8\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, ne*  **priority**: *eq, ne* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, ne*  **priority**: *eq, ne* (optional)
+    sorters = 'id,name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority** (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.IdentityProfilesAPI.ExportIdentityProfiles(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.ExportIdentityProfiles``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ExportIdentityProfiles`: []IdentityProfileExportedObject
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.ExportIdentityProfiles`: %v\n", resp)
-}
+    try:
+        # Export Identity Profiles
+        
+        results = IdentityProfilesApi(api_client).export_identity_profiles()
+        # Below is a request that includes all optional parameters
+        # results = IdentityProfilesApi(api_client).export_identity_profiles(limit, offset, count, filters, sorters)
+        print("The response of IdentityProfilesApi->export_identity_profiles:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentityProfilesApi->export_identity_profiles: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## generate-identity-preview
 :::warning experimental 
@@ -342,7 +339,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```go
+ ```python
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -352,45 +349,45 @@ This generates a non-persisted IdentityDetails object that will represent as the
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/generate-identity-preview)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGenerateIdentityPreviewRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
- **identityPreviewRequest** | [**IdentityPreviewRequest**](../models/identity-preview-request) | Identity Preview request body. | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+ Body  | identity_preview_request | [**IdentityPreviewRequest**](../models/identity-preview-request) | True  | Identity Preview request body.
 
 ### Return type
-
 [**IdentityPreviewResponse**](../models/identity-preview-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Object representing the preview object with all of the identity attributes using the current mappings. | IdentityPreviewResponse |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.identity_preview_request import IdentityPreviewRequest
+from sailpoint.v2024.models.identity_preview_response import IdentityPreviewResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
+configuration.experimental = true
 
-func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    identityPreviewRequest := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+    identity_preview_request = '''{
           "identityId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
           "identityAttributeConfig" : {
             "attributeTransforms" : [ {
@@ -416,21 +413,23 @@ func main() {
             } ],
             "enabled" : true
           }
-        }`) # IdentityPreviewRequest | Identity Preview request body.
+        }''' # IdentityPreviewRequest | Identity Preview request body.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.IdentityProfilesAPI.GenerateIdentityPreview(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityPreviewRequest(identityPreviewRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.GenerateIdentityPreview``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GenerateIdentityPreview`: IdentityPreviewResponse
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.GenerateIdentityPreview`: %v\n", resp)
-}
+    try:
+        # Generate Identity Profile Preview
+        new_identity_preview_request = IdentityPreviewRequest.from_json(identity_preview_request)
+        results = IdentityProfilesApi(api_client).generate_identity_preview(x_sail_point_experimental=x_sail_point_experimental, identity_preview_request=new_identity_preview_request)
+        # Below is a request that includes all optional parameters
+        # results = IdentityProfilesApi(api_client).generate_identity_preview(x_sail_point_experimental, new_identity_preview_request)
+        print("The response of IdentityProfilesApi->generate_identity_preview:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentityProfilesApi->generate_identity_preview: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-default-identity-attribute-config
 Get default Identity Attribute Config
@@ -438,61 +437,58 @@ This returns the default identity attribute config.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-default-identity-attribute-config)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**identityProfileId** | **string** | The Identity Profile ID. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetDefaultIdentityAttributeConfigRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | identity_profile_id | **str** | True  | The Identity Profile ID.
 
 ### Return type
-
 [**IdentityAttributeConfig**](../models/identity-attribute-config)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | An Identity Attribute Config object. | IdentityAttributeConfig |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.identity_attribute_config import IdentityAttributeConfig
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    identityProfileId := 2b838de9-db9b-abcf-e646-d4f274ad4238 # string | The Identity Profile ID. # string | The Identity Profile ID.
+with ApiClient(configuration) as api_client:
+    identity_profile_id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | The Identity Profile ID. # str | The Identity Profile ID.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.IdentityProfilesAPI.GetDefaultIdentityAttributeConfig(context.Background(), identityProfileId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.GetDefaultIdentityAttributeConfig``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetDefaultIdentityAttributeConfig`: IdentityAttributeConfig
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.GetDefaultIdentityAttributeConfig`: %v\n", resp)
-}
+    try:
+        # Get default Identity Attribute Config
+        
+        results = IdentityProfilesApi(api_client).get_default_identity_attribute_config(identity_profile_id=identity_profile_id)
+        # Below is a request that includes all optional parameters
+        # results = IdentityProfilesApi(api_client).get_default_identity_attribute_config(identity_profile_id)
+        print("The response of IdentityProfilesApi->get_default_identity_attribute_config:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentityProfilesApi->get_default_identity_attribute_config: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-identity-profile
 Get Identity Profile
@@ -500,61 +496,58 @@ Get a single identity profile by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-profile)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**identityProfileId** | **string** | Identity profile ID. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetIdentityProfileRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | identity_profile_id | **str** | True  | Identity profile ID.
 
 ### Return type
-
 [**IdentityProfile**](../models/identity-profile)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Identity profile object. | IdentityProfile |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.identity_profile import IdentityProfile
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    identityProfileId := 2b838de9-db9b-abcf-e646-d4f274ad4238 # string | Identity profile ID. # string | Identity profile ID.
+with ApiClient(configuration) as api_client:
+    identity_profile_id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | Identity profile ID. # str | Identity profile ID.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.IdentityProfilesAPI.GetIdentityProfile(context.Background(), identityProfileId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.GetIdentityProfile``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetIdentityProfile`: IdentityProfile
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.GetIdentityProfile`: %v\n", resp)
-}
+    try:
+        # Get Identity Profile
+        
+        results = IdentityProfilesApi(api_client).get_identity_profile(identity_profile_id=identity_profile_id)
+        # Below is a request that includes all optional parameters
+        # results = IdentityProfilesApi(api_client).get_identity_profile(identity_profile_id)
+        print("The response of IdentityProfilesApi->get_identity_profile:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentityProfilesApi->get_identity_profile: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## import-identity-profiles
 Import Identity Profiles
@@ -562,57 +555,58 @@ This imports previously exported identity profiles.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/import-identity-profiles)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiImportIdentityProfilesRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **identityProfileExportedObject** | [**[]IdentityProfileExportedObject**](../models/identity-profile-exported-object) | Previously exported Identity Profiles. | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | identity_profile_exported_object | [**[]IdentityProfileExportedObject**](../models/identity-profile-exported-object) | True  | Previously exported Identity Profiles.
 
 ### Return type
-
 [**ObjectImportResult**](../models/object-import-result)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The result of importing Identity Profiles. | ObjectImportResult |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.identity_profile_exported_object import IdentityProfileExportedObject
+from sailpoint.v2024.models.object_import_result import ObjectImportResult
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    identityProfileExportedObject := fmt.Sprintf(``) # []IdentityProfileExportedObject | Previously exported Identity Profiles.
+with ApiClient(configuration) as api_client:
+    identity_profile_exported_object = '''[sailpoint.v2024.IdentityProfileExportedObject()]''' # List[IdentityProfileExportedObject] | Previously exported Identity Profiles.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.IdentityProfilesAPI.ImportIdentityProfiles(context.Background()).IdentityProfileExportedObject(identityProfileExportedObject).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.ImportIdentityProfiles``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ImportIdentityProfiles`: ObjectImportResult
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.ImportIdentityProfiles`: %v\n", resp)
-}
+    try:
+        # Import Identity Profiles
+        new_identity_profile_exported_object = IdentityProfileExportedObject.from_json(identity_profile_exported_object)
+        results = IdentityProfilesApi(api_client).import_identity_profiles(identity_profile_exported_object=new_identity_profile_exported_object)
+        # Below is a request that includes all optional parameters
+        # results = IdentityProfilesApi(api_client).import_identity_profiles(new_identity_profile_exported_object)
+        print("The response of IdentityProfilesApi->import_identity_profiles:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentityProfilesApi->import_identity_profiles: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## list-identity-profiles
 List Identity Profiles
@@ -620,65 +614,65 @@ Get a list of identity profiles, based on the specified query parameters.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-identity-profiles)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListIdentityProfilesRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
- **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
- **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
- **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* | 
- **sorters** | **string** | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne*
+  Query | sorters | **str** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name**
 
 ### Return type
+[**List[IdentityProfile]**](../models/identity-profile)
 
-[**[]IdentityProfile**](../models/identity-profile)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of identity profiles. | List[IdentityProfile] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.identity_profile import IdentityProfile
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-    filters := id eq "ef38f94347e94562b5bb8424a56397d8" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* (optional)
-    sorters := id,name # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional)
+with ApiClient(configuration) as api_client:
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
+    filters = 'id eq \"ef38f94347e94562b5bb8424a56397d8\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* (optional)
+    sorters = 'id,name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.IdentityProfilesAPI.ListIdentityProfiles(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.ListIdentityProfiles``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListIdentityProfiles`: []IdentityProfile
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.ListIdentityProfiles`: %v\n", resp)
-}
+    try:
+        # List Identity Profiles
+        
+        results = IdentityProfilesApi(api_client).list_identity_profiles()
+        # Below is a request that includes all optional parameters
+        # results = IdentityProfilesApi(api_client).list_identity_profiles(limit, offset, count, filters, sorters)
+        print("The response of IdentityProfilesApi->list_identity_profiles:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentityProfilesApi->list_identity_profiles: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## sync-identity-profile
 Process identities under profile
@@ -690,61 +684,57 @@ This operation will perform the following activities on all identities under the
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/sync-identity-profile)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**identityProfileId** | **string** | The Identity Profile ID to be processed | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiSyncIdentityProfileRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | identity_profile_id | **str** | True  | The Identity Profile ID to be processed
 
 ### Return type
+**object**
 
-**map[string]interface{}**
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+202 | Accepted - Returned if the request was successfully accepted into the system. | object |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    identityProfileId := ef38f94347e94562b5bb8424a56397d8 # string | The Identity Profile ID to be processed # string | The Identity Profile ID to be processed
+with ApiClient(configuration) as api_client:
+    identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The Identity Profile ID to be processed # str | The Identity Profile ID to be processed
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.IdentityProfilesAPI.SyncIdentityProfile(context.Background(), identityProfileId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.SyncIdentityProfile``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SyncIdentityProfile`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.SyncIdentityProfile`: %v\n", resp)
-}
+    try:
+        # Process identities under profile
+        
+        results = IdentityProfilesApi(api_client).sync_identity_profile(identity_profile_id=identity_profile_id)
+        # Below is a request that includes all optional parameters
+        # results = IdentityProfilesApi(api_client).sync_identity_profile(identity_profile_id)
+        print("The response of IdentityProfilesApi->sync_identity_profile:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentityProfilesApi->sync_identity_profile: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## update-identity-profile
 Update Identity Profile
@@ -760,61 +750,61 @@ You cannot update these fields:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-identity-profile)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**identityProfileId** | **string** | Identity profile ID. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiUpdateIdentityProfileRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **jsonPatchOperation** | [**[]JsonPatchOperation**](../models/json-patch-operation) | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | identity_profile_id | **str** | True  | Identity profile ID.
+ Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Return type
-
 [**IdentityProfile**](../models/identity-profile)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Updated identity profile. | IdentityProfile |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json-patch+json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json-patch+json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.identity_profiles_api import IdentityProfilesApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.identity_profile import IdentityProfile
+from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    identityProfileId := ef38f94347e94562b5bb8424a56397d8 # string | Identity profile ID. # string | Identity profile ID.
-    jsonPatchOperation := fmt.Sprintf(`[{op=add, path=/identityAttributeConfig/attributeTransforms/0, value={identityAttributeName=location, transformDefinition={type=accountAttribute, attributes={sourceName=Employees, attributeName=location, sourceId=2c91808878b7d63b0178c66ffcdc4ce4}}}}]`) # []JsonPatchOperation | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+with ApiClient(configuration) as api_client:
+    identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity profile ID. # str | Identity profile ID.
+    json_patch_operation = '''[{op=add, path=/identityAttributeConfig/attributeTransforms/0, value={identityAttributeName=location, transformDefinition={type=accountAttribute, attributes={sourceName=Employees, attributeName=location, sourceId=2c91808878b7d63b0178c66ffcdc4ce4}}}}]''' # List[JsonPatchOperation] | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.IdentityProfilesAPI.UpdateIdentityProfile(context.Background(), identityProfileId).JsonPatchOperation(jsonPatchOperation).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.UpdateIdentityProfile``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `UpdateIdentityProfile`: IdentityProfile
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.UpdateIdentityProfile`: %v\n", resp)
-}
+    try:
+        # Update Identity Profile
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = IdentityProfilesApi(api_client).update_identity_profile(identity_profile_id=identity_profile_id, json_patch_operation=new_json_patch_operation)
+        # Below is a request that includes all optional parameters
+        # results = IdentityProfilesApi(api_client).update_identity_profile(identity_profile_id, new_json_patch_operation)
+        print("The response of IdentityProfilesApi->update_identity_profile:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentityProfilesApi->update_identity_profile: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
+
+
 

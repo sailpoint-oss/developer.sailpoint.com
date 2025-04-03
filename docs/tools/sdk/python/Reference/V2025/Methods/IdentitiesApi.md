@@ -3,13 +3,13 @@ id: v2025-identities
 title: Identities
 pagination_label: Identities
 sidebar_label: Identities
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Identities', 'V2025Identities'] 
-slug: /tools/sdk/go/v2025/methods/identities
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'Identities', 'V2025Identities'] 
+slug: /tools/sdk/python/v2025/methods/identities
 tags: ['SDK', 'Software Development Kit', 'Identities', 'V2025Identities']
 ---
 
-# IdentitiesAPI
+# sailpoint.v2025.IdentitiesApi
   Use this API to implement identity functionality.
 With this functionality in place, administrators can synchronize an identity&#39;s attributes with its various source attributes.
 
@@ -30,17 +30,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete-identity**](#delete-identity) | **Delete** `/identities/{id}` | Delete identity
-[**get-identity**](#get-identity) | **Get** `/identities/{id}` | Identity Details
-[**get-identity-ownership-details**](#get-identity-ownership-details) | **Get** `/identities/{identityId}/ownership` | Get ownership details
-[**get-role-assignment**](#get-role-assignment) | **Get** `/identities/{identityId}/role-assignments/{assignmentId}` | Role assignment details
-[**get-role-assignments**](#get-role-assignments) | **Get** `/identities/{identityId}/role-assignments` | List role assignments
-[**list-identities**](#list-identities) | **Get** `/identities` | List Identities
-[**reset-identity**](#reset-identity) | **Post** `/identities/{id}/reset` | Reset an identity
-[**send-identity-verification-account-token**](#send-identity-verification-account-token) | **Post** `/identities/{id}/verification/account/send` | Send password reset email
-[**start-identities-invite**](#start-identities-invite) | **Post** `/identities/invite` | Invite identities to register
-[**start-identity-processing**](#start-identity-processing) | **Post** `/identities/process` | Process a list of identityIds
-[**synchronize-attributes-for-identity**](#synchronize-attributes-for-identity) | **Post** `/identities/{identityId}/synchronize-attributes` | Attribute synchronization for single identity.
+[**delete-identity**](#delete-identity) | **DELETE** `/identities/{id}` | Delete identity
+[**get-identity**](#get-identity) | **GET** `/identities/{id}` | Identity Details
+[**get-identity-ownership-details**](#get-identity-ownership-details) | **GET** `/identities/{identityId}/ownership` | Get ownership details
+[**get-role-assignment**](#get-role-assignment) | **GET** `/identities/{identityId}/role-assignments/{assignmentId}` | Role assignment details
+[**get-role-assignments**](#get-role-assignments) | **GET** `/identities/{identityId}/role-assignments` | List role assignments
+[**list-identities**](#list-identities) | **GET** `/identities` | List Identities
+[**reset-identity**](#reset-identity) | **POST** `/identities/{id}/reset` | Reset an identity
+[**send-identity-verification-account-token**](#send-identity-verification-account-token) | **POST** `/identities/{id}/verification/account/send` | Send password reset email
+[**start-identities-invite**](#start-identities-invite) | **POST** `/identities/invite` | Invite identities to register
+[**start-identity-processing**](#start-identity-processing) | **POST** `/identities/process` | Process a list of identityIds
+[**synchronize-attributes-for-identity**](#synchronize-attributes-for-identity) | **POST** `/identities/{identityId}/synchronize-attributes` | Attribute synchronization for single identity.
 
 
 ## delete-identity
@@ -50,7 +50,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```go
+ ```python
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -60,61 +60,58 @@ The API returns successful response if the requested identity was deleted.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-identity)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Identity Id | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteIdentityRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | Identity Id
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
-
  (empty response body)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
+400 | Client Error - Returned if the request is invalid. It may indicate that the specified identity is marked as protected and cannot be deleted. | IdentityAssociationDetails |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2025.api.identities_api import IdentitiesApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
+configuration.experimental = true
 
-func main() {
-    id := ef38f94347e94562b5bb8424a56397d8 # string | Identity Id # string | Identity Id
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+with ApiClient(configuration) as api_client:
+    id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V2025.IdentitiesAPI.DeleteIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.DeleteIdentity``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
+    try:
+        # Delete identity
+        
+        IdentitiesApi(api_client).delete_identity(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        # Below is a request that includes all optional parameters
+        # IdentitiesApi(api_client).delete_identity(id, x_sail_point_experimental)
+    except Exception as e:
+        print("Exception when calling IdentitiesApi->delete_identity: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-identity
 :::warning experimental 
@@ -123,7 +120,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```go
+ ```python
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -133,63 +130,61 @@ This API returns a single identity using the Identity ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identity)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Identity Id | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetIdentityRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | Identity Id
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
-
 [**Identity**](../models/identity)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | An identity object | Identity |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2025.api.identities_api import IdentitiesApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.identity import Identity
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
+configuration.experimental = true
 
-func main() {
-    id := ef38f94347e94562b5bb8424a56397d8 # string | Identity Id # string | Identity Id
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+with ApiClient(configuration) as api_client:
+    id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.IdentitiesAPI.GetIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.GetIdentity``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetIdentity`: Identity
-	fmt.Fprintf(os.Stdout, "Response from `IdentitiesAPI.GetIdentity`: %v\n", resp)
-}
+    try:
+        # Identity Details
+        
+        results = IdentitiesApi(api_client).get_identity(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        # Below is a request that includes all optional parameters
+        # results = IdentitiesApi(api_client).get_identity(id, x_sail_point_experimental)
+        print("The response of IdentitiesApi->get_identity:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentitiesApi->get_identity: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-identity-ownership-details
 :::warning experimental 
@@ -198,7 +193,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```go
+ ```python
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -210,63 +205,61 @@ For a full list of objects owned by an identity, use the [Search API](https://de
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identity-ownership-details)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**identityId** | **string** | Identity ID. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetIdentityOwnershipDetailsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | identity_id | **str** | True  | Identity ID.
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
-
 [**IdentityOwnershipAssociationDetails**](../models/identity-ownership-association-details)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Identity&#39;s ownership association details. | IdentityOwnershipAssociationDetails |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2025.api.identities_api import IdentitiesApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.identity_ownership_association_details import IdentityOwnershipAssociationDetails
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
+configuration.experimental = true
 
-func main() {
-    identityId := ff8081814d2a8036014d701f3fbf53fa # string | Identity ID. # string | Identity ID.
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+with ApiClient(configuration) as api_client:
+    identity_id = 'ff8081814d2a8036014d701f3fbf53fa' # str | Identity ID. # str | Identity ID.
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.IdentitiesAPI.GetIdentityOwnershipDetails(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.GetIdentityOwnershipDetails``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetIdentityOwnershipDetails`: IdentityOwnershipAssociationDetails
-	fmt.Fprintf(os.Stdout, "Response from `IdentitiesAPI.GetIdentityOwnershipDetails`: %v\n", resp)
-}
+    try:
+        # Get ownership details
+        
+        results = IdentitiesApi(api_client).get_identity_ownership_details(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
+        # Below is a request that includes all optional parameters
+        # results = IdentitiesApi(api_client).get_identity_ownership_details(identity_id, x_sail_point_experimental)
+        print("The response of IdentitiesApi->get_identity_ownership_details:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentitiesApi->get_identity_ownership_details: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-role-assignment
 :::warning experimental 
@@ -275,7 +268,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```go
+ ```python
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -285,66 +278,63 @@ Role assignment details
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-role-assignment)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**identityId** | **string** | Identity Id | 
-**assignmentId** | **string** | Assignment Id | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetRoleAssignmentRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | identity_id | **str** | True  | Identity Id
+Path   | assignment_id | **str** | True  | Assignment Id
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
-
 [**RoleAssignmentDto**](../models/role-assignment-dto)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | A role assignment object | RoleAssignmentDto |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2025.api.identities_api import IdentitiesApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.role_assignment_dto import RoleAssignmentDto
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
+configuration.experimental = true
 
-func main() {
-    identityId := ef38f94347e94562b5bb8424a56397d8 # string | Identity Id # string | Identity Id
-    assignmentId := 1cbb0705b38c4226b1334eadd8874086 # string | Assignment Id # string | Assignment Id
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+with ApiClient(configuration) as api_client:
+    identity_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
+    assignment_id = '1cbb0705b38c4226b1334eadd8874086' # str | Assignment Id # str | Assignment Id
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.IdentitiesAPI.GetRoleAssignment(context.Background(), identityId, assignmentId).XSailPointExperimental(xSailPointExperimental).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.GetRoleAssignment``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetRoleAssignment`: RoleAssignmentDto
-	fmt.Fprintf(os.Stdout, "Response from `IdentitiesAPI.GetRoleAssignment`: %v\n", resp)
-}
+    try:
+        # Role assignment details
+        
+        results = IdentitiesApi(api_client).get_role_assignment(identity_id=identity_id, assignment_id=assignment_id, x_sail_point_experimental=x_sail_point_experimental)
+        # Below is a request that includes all optional parameters
+        # results = IdentitiesApi(api_client).get_role_assignment(identity_id, assignment_id, x_sail_point_experimental)
+        print("The response of IdentitiesApi->get_role_assignment:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentitiesApi->get_role_assignment: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-role-assignments
 :::warning experimental 
@@ -353,7 +343,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```go
+ ```python
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -363,67 +353,65 @@ This returns either a list of Role Assignments when querying with either a Role 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-role-assignments)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**identityId** | **string** | Identity Id to get the role assignments for | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetRoleAssignmentsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
- **roleId** | **string** | Role Id to filter the role assignments with | 
- **roleName** | **string** | Role name to filter the role assignments with | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | identity_id | **str** | True  | Identity Id to get the role assignments for
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+  Query | role_id | **str** |   (optional) | Role Id to filter the role assignments with
+  Query | role_name | **str** |   (optional) | Role name to filter the role assignments with
 
 ### Return type
+[**List[GetRoleAssignments200ResponseInner]**](../models/get-role-assignments200-response-inner)
 
-[**[]GetRoleAssignments200ResponseInner**](../models/get-role-assignments200-response-inner)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | A role assignment object | List[GetRoleAssignments200ResponseInner] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2025.api.identities_api import IdentitiesApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.get_role_assignments200_response_inner import GetRoleAssignments200ResponseInner
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
+configuration.experimental = true
 
-func main() {
-    identityId := ef38f94347e94562b5bb8424a56397d8 # string | Identity Id to get the role assignments for # string | Identity Id to get the role assignments for
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    roleId := e7697a1e96d04db1ac7b0f4544915d2c # string | Role Id to filter the role assignments with (optional) # string | Role Id to filter the role assignments with (optional)
-    roleName := Engineer # string | Role name to filter the role assignments with (optional) # string | Role name to filter the role assignments with (optional)
+with ApiClient(configuration) as api_client:
+    identity_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id to get the role assignments for # str | Identity Id to get the role assignments for
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+    role_id = 'e7697a1e96d04db1ac7b0f4544915d2c' # str | Role Id to filter the role assignments with (optional) # str | Role Id to filter the role assignments with (optional)
+    role_name = 'Engineer' # str | Role name to filter the role assignments with (optional) # str | Role name to filter the role assignments with (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.IdentitiesAPI.GetRoleAssignments(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).RoleId(roleId).RoleName(roleName).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.GetRoleAssignments``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetRoleAssignments`: []GetRoleAssignments200ResponseInner
-	fmt.Fprintf(os.Stdout, "Response from `IdentitiesAPI.GetRoleAssignments`: %v\n", resp)
-}
+    try:
+        # List role assignments
+        
+        results = IdentitiesApi(api_client).get_role_assignments(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
+        # Below is a request that includes all optional parameters
+        # results = IdentitiesApi(api_client).get_role_assignments(identity_id, x_sail_point_experimental, role_id, role_name)
+        print("The response of IdentitiesApi->get_role_assignments:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentitiesApi->get_role_assignments: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## list-identities
 :::warning experimental 
@@ -432,7 +420,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```go
+ ```python
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -442,69 +430,70 @@ This API returns a list of identities.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-identities)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListIdentitiesRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
- **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* | 
- **sorters** | **string** | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** | 
- **defaultFilter** | **string** | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated&#x3D;true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter. | [default to &quot;CORRELATED_ONLY&quot;]
- **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
- **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
- **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq*
+  Query | sorters | **str** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus**
+  Query | default_filter | **str** |   (optional) (default to CORRELATED_ONLY) | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated=true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter.
+  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
+[**List[Identity]**](../models/identity)
 
-[**[]Identity**](../models/identity)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of identities. | List[Identity] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2025.api.identities_api import IdentitiesApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.identity import Identity
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
+configuration.experimental = true
 
-func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    filters := id eq "6c9079b270a266a60170a2779fcb0006" or correlated eq false # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional)
-    sorters := name,-cloudStatus # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional)
-    defaultFilter := NONE # string | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated=true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter. (optional) (default to "CORRELATED_ONLY") # string | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated=true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter. (optional) (default to "CORRELATED_ONLY")
-    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+with ApiClient(configuration) as api_client:
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+    filters = 'id eq \"6c9079b270a266a60170a2779fcb0006\" or correlated eq false' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional)
+    sorters = 'name,-cloudStatus' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional)
+    default_filter = CORRELATED_ONLY # str | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated=true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter. (optional) (default to CORRELATED_ONLY) # str | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated=true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter. (optional) (default to CORRELATED_ONLY)
+    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.IdentitiesAPI.ListIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).Filters(filters).Sorters(sorters).DefaultFilter(defaultFilter).Count(count).Limit(limit).Offset(offset).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.ListIdentities``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListIdentities`: []Identity
-	fmt.Fprintf(os.Stdout, "Response from `IdentitiesAPI.ListIdentities`: %v\n", resp)
-}
+    try:
+        # List Identities
+        
+        results = IdentitiesApi(api_client).list_identities(x_sail_point_experimental=x_sail_point_experimental)
+        # Below is a request that includes all optional parameters
+        # results = IdentitiesApi(api_client).list_identities(x_sail_point_experimental, filters, sorters, default_filter, count, limit, offset)
+        print("The response of IdentitiesApi->list_identities:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentitiesApi->list_identities: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## reset-identity
 :::warning experimental 
@@ -513,7 +502,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```go
+ ```python
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -523,61 +512,58 @@ Use this endpoint to reset a user's identity if they have forgotten their authen
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/reset-identity)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**identityId** | **string** | Identity Id | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiResetIdentityRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | identity_id | **str** | True  | Identity Id
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
-
  (empty response body)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+202 | Accepted. The reset request accepted and is in progress. |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2025.api.identities_api import IdentitiesApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
+configuration.experimental = true
 
-func main() {
-    identityId := ef38f94347e94562b5bb8424a56397d8 # string | Identity Id # string | Identity Id
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+with ApiClient(configuration) as api_client:
+    identity_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V2025.IdentitiesAPI.ResetIdentity(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.ResetIdentity``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
+    try:
+        # Reset an identity
+        
+        IdentitiesApi(api_client).reset_identity(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
+        # Below is a request that includes all optional parameters
+        # IdentitiesApi(api_client).reset_identity(identity_id, x_sail_point_experimental)
+    except Exception as e:
+        print("Exception when calling IdentitiesApi->reset_identity: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## send-identity-verification-account-token
 :::warning experimental 
@@ -586,7 +572,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```go
+ ```python
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -597,66 +583,64 @@ This API sends an email with the link to start Password Reset. After selecting t
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/send-identity-verification-account-token)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Identity ID | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiSendIdentityVerificationAccountTokenRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
-
- **sendAccountVerificationRequest** | [**SendAccountVerificationRequest**](../models/send-account-verification-request) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+Path   | id | **str** | True  | Identity ID
+ Body  | send_account_verification_request | [**SendAccountVerificationRequest**](../models/send-account-verification-request) | True  | 
 
 ### Return type
-
  (empty response body)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The email was successfully sent |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2025.api.identities_api import IdentitiesApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.send_account_verification_request import SendAccountVerificationRequest
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
+configuration.experimental = true
 
-func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    id := ef38f94347e94562b5bb8424a56397d8 # string | Identity ID # string | Identity ID
-    sendAccountVerificationRequest := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+    id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity ID # str | Identity ID
+    send_account_verification_request = '''{
           "sourceName" : "Active Directory Source",
           "via" : "EMAIL_WORK"
-        }`) # SendAccountVerificationRequest | 
+        }''' # SendAccountVerificationRequest | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V2025.IdentitiesAPI.SendIdentityVerificationAccountToken(context.Background(), id).XSailPointExperimental(xSailPointExperimental).SendAccountVerificationRequest(sendAccountVerificationRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.SendIdentityVerificationAccountToken``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
+    try:
+        # Send password reset email
+        new_send_account_verification_request = SendAccountVerificationRequest.from_json(send_account_verification_request)
+        IdentitiesApi(api_client).send_identity_verification_account_token(x_sail_point_experimental=x_sail_point_experimental, id=id, send_account_verification_request=new_send_account_verification_request)
+        # Below is a request that includes all optional parameters
+        # IdentitiesApi(api_client).send_identity_verification_account_token(x_sail_point_experimental, id, new_send_account_verification_request)
+    except Exception as e:
+        print("Exception when calling IdentitiesApi->send_identity_verification_account_token: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## start-identities-invite
 :::warning experimental 
@@ -665,7 +649,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```go
+ ```python
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -680,62 +664,65 @@ The executed task status can be checked by Task Management > [Get task status by
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/start-identities-invite)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiStartIdentitiesInviteRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
- **inviteIdentitiesRequest** | [**InviteIdentitiesRequest**](../models/invite-identities-request) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+ Body  | invite_identities_request | [**InviteIdentitiesRequest**](../models/invite-identities-request) | True  | 
 
 ### Return type
-
 [**TaskStatus**](../models/task-status)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+202 | Responds with an initial TaskStatus for the executed task | TaskStatus |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2025.api.identities_api import IdentitiesApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.invite_identities_request import InviteIdentitiesRequest
+from sailpoint.v2025.models.task_status import TaskStatus
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
+configuration.experimental = true
 
-func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    inviteIdentitiesRequest := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+    invite_identities_request = '''{
           "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
           "uninvited" : false
-        }`) # InviteIdentitiesRequest | 
+        }''' # InviteIdentitiesRequest | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.IdentitiesAPI.StartIdentitiesInvite(context.Background()).XSailPointExperimental(xSailPointExperimental).InviteIdentitiesRequest(inviteIdentitiesRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.StartIdentitiesInvite``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `StartIdentitiesInvite`: TaskStatus
-	fmt.Fprintf(os.Stdout, "Response from `IdentitiesAPI.StartIdentitiesInvite`: %v\n", resp)
-}
+    try:
+        # Invite identities to register
+        new_invite_identities_request = InviteIdentitiesRequest.from_json(invite_identities_request)
+        results = IdentitiesApi(api_client).start_identities_invite(x_sail_point_experimental=x_sail_point_experimental, invite_identities_request=new_invite_identities_request)
+        # Below is a request that includes all optional parameters
+        # results = IdentitiesApi(api_client).start_identities_invite(x_sail_point_experimental, new_invite_identities_request)
+        print("The response of IdentitiesApi->start_identities_invite:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentitiesApi->start_identities_invite: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## start-identity-processing
 :::warning experimental 
@@ -744,7 +731,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```go
+ ```python
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -761,61 +748,64 @@ This endpoint will perform the following tasks:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/start-identity-processing)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiStartIdentityProcessingRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
- **processIdentitiesRequest** | [**ProcessIdentitiesRequest**](../models/process-identities-request) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+ Body  | process_identities_request | [**ProcessIdentitiesRequest**](../models/process-identities-request) | True  | 
 
 ### Return type
-
 [**TaskResultResponse**](../models/task-result-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+202 | Object containing the DTO type TASK_RESULT and the job id for the task | TaskResultResponse |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2025.api.identities_api import IdentitiesApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.process_identities_request import ProcessIdentitiesRequest
+from sailpoint.v2025.models.task_result_response import TaskResultResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
+configuration.experimental = true
 
-func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    processIdentitiesRequest := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+    process_identities_request = '''{
           "identityIds" : [ "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8" ]
-        }`) # ProcessIdentitiesRequest | 
+        }''' # ProcessIdentitiesRequest | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.IdentitiesAPI.StartIdentityProcessing(context.Background()).XSailPointExperimental(xSailPointExperimental).ProcessIdentitiesRequest(processIdentitiesRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.StartIdentityProcessing``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `StartIdentityProcessing`: TaskResultResponse
-	fmt.Fprintf(os.Stdout, "Response from `IdentitiesAPI.StartIdentityProcessing`: %v\n", resp)
-}
+    try:
+        # Process a list of identityIds
+        new_process_identities_request = ProcessIdentitiesRequest.from_json(process_identities_request)
+        results = IdentitiesApi(api_client).start_identity_processing(x_sail_point_experimental=x_sail_point_experimental, process_identities_request=new_process_identities_request)
+        # Below is a request that includes all optional parameters
+        # results = IdentitiesApi(api_client).start_identity_processing(x_sail_point_experimental, new_process_identities_request)
+        print("The response of IdentitiesApi->start_identity_processing:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentitiesApi->start_identity_processing: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## synchronize-attributes-for-identity
 :::warning experimental 
@@ -824,7 +814,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```go
+ ```python
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -834,61 +824,61 @@ This end-point performs attribute synchronization for a selected identity. The e
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/synchronize-attributes-for-identity)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**identityId** | **string** | The Identity id | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiSynchronizeAttributesForIdentityRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | identity_id | **str** | True  | The Identity id
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
-
 [**IdentitySyncJob**](../models/identity-sync-job)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+202 | An Identity Sync job | IdentitySyncJob |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2025.api.identities_api import IdentitiesApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.identity_sync_job import IdentitySyncJob
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
+configuration.experimental = true
 
-func main() {
-    identityId := identityId_example # string | The Identity id # string | The Identity id
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+with ApiClient(configuration) as api_client:
+    identity_id = 'identity_id_example' # str | The Identity id # str | The Identity id
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.IdentitiesAPI.SynchronizeAttributesForIdentity(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.SynchronizeAttributesForIdentity``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SynchronizeAttributesForIdentity`: IdentitySyncJob
-	fmt.Fprintf(os.Stdout, "Response from `IdentitiesAPI.SynchronizeAttributesForIdentity`: %v\n", resp)
-}
+    try:
+        # Attribute synchronization for single identity.
+        
+        results = IdentitiesApi(api_client).synchronize_attributes_for_identity(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
+        # Below is a request that includes all optional parameters
+        # results = IdentitiesApi(api_client).synchronize_attributes_for_identity(identity_id, x_sail_point_experimental)
+        print("The response of IdentitiesApi->synchronize_attributes_for_identity:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentitiesApi->synchronize_attributes_for_identity: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
+
+
 

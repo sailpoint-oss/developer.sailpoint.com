@@ -3,36 +3,30 @@ id: v2025-account-attributes-changed-changes-inner-old-value
 title: AccountAttributesChangedChangesInnerOldValue
 pagination_label: AccountAttributesChangedChangesInnerOldValue
 sidebar_label: AccountAttributesChangedChangesInnerOldValue
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountAttributesChangedChangesInnerOldValue', 'V2025AccountAttributesChangedChangesInnerOldValue'] 
-slug: /tools/sdk/go/v2025/models/account-attributes-changed-changes-inner-old-value
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'AccountAttributesChangedChangesInnerOldValue', 'V2025AccountAttributesChangedChangesInnerOldValue'] 
+slug: /tools/sdk/python/v2025/models/account-attributes-changed-changes-inner-old-value
 tags: ['SDK', 'Software Development Kit', 'AccountAttributesChangedChangesInnerOldValue', 'V2025AccountAttributesChangedChangesInnerOldValue']
 ---
 
 # AccountAttributesChangedChangesInnerOldValue
 
+The previous value of the attribute.
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+}
 
-## Methods
+## Example
 
-### NewAccountAttributesChangedChangesInnerOldValue
+```python
+from sailpoint.v2025.models.account_attributes_changed_changes_inner_old_value import AccountAttributesChangedChangesInnerOldValue
 
-`func NewAccountAttributesChangedChangesInnerOldValue() *AccountAttributesChangedChangesInnerOldValue`
+account_attributes_changed_changes_inner_old_value = AccountAttributesChangedChangesInnerOldValue(
+)
 
-NewAccountAttributesChangedChangesInnerOldValue instantiates a new AccountAttributesChangedChangesInnerOldValue object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewAccountAttributesChangedChangesInnerOldValueWithDefaults
-
-`func NewAccountAttributesChangedChangesInnerOldValueWithDefaults() *AccountAttributesChangedChangesInnerOldValue`
-
-NewAccountAttributesChangedChangesInnerOldValueWithDefaults instantiates a new AccountAttributesChangedChangesInnerOldValue object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
+```
+[[Back to top]](#) 
 

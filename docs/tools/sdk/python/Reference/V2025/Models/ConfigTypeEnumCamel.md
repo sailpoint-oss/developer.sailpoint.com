@@ -3,21 +3,23 @@ id: v2025-config-type-enum-camel
 title: ConfigTypeEnumCamel
 pagination_label: ConfigTypeEnumCamel
 sidebar_label: ConfigTypeEnumCamel
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConfigTypeEnumCamel', 'V2025ConfigTypeEnumCamel'] 
-slug: /tools/sdk/go/v2025/models/config-type-enum-camel
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'ConfigTypeEnumCamel', 'V2025ConfigTypeEnumCamel'] 
+slug: /tools/sdk/python/v2025/models/config-type-enum-camel
 tags: ['SDK', 'Software Development Kit', 'ConfigTypeEnumCamel', 'V2025ConfigTypeEnumCamel']
 ---
 
 # ConfigTypeEnumCamel
 
+Enum list of valid work types that can be selected for a Reassignment Configuration
+
 ## Enum
 
+* `ACCESSREQUESTS` (value: `'accessRequests'`)
 
-* `ACCESS_REQUESTS` (value: `"accessRequests"`)
+* `CERTIFICATIONS` (value: `'certifications'`)
 
-* `CERTIFICATIONS` (value: `"certifications"`)
+* `MANUALTASKS` (value: `'manualTasks'`)
 
-* `MANUAL_TASKS` (value: `"manualTasks"`)
-
+[[Back to top]](#) 
 

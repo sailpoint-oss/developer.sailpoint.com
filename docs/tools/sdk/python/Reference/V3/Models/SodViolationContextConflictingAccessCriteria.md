@@ -3,88 +3,48 @@ id: sod-violation-context-conflicting-access-criteria
 title: SodViolationContextConflictingAccessCriteria
 pagination_label: SodViolationContextConflictingAccessCriteria
 sidebar_label: SodViolationContextConflictingAccessCriteria
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SodViolationContextConflictingAccessCriteria', 'SodViolationContextConflictingAccessCriteria'] 
-slug: /tools/sdk/go/v3/models/sod-violation-context-conflicting-access-criteria
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'SodViolationContextConflictingAccessCriteria', 'SodViolationContextConflictingAccessCriteria'] 
+slug: /tools/sdk/python/v3/models/sod-violation-context-conflicting-access-criteria
 tags: ['SDK', 'Software Development Kit', 'SodViolationContextConflictingAccessCriteria', 'SodViolationContextConflictingAccessCriteria']
 ---
 
 # SodViolationContextConflictingAccessCriteria
 
+The object which contains the left and right hand side of the entitlements that got violated according to the policy.
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LeftCriteria** | Pointer to [**SodViolationContextConflictingAccessCriteriaLeftCriteria**](sod-violation-context-conflicting-access-criteria-left-criteria) |  | [optional] 
-**RightCriteria** | Pointer to [**SodViolationContextConflictingAccessCriteriaLeftCriteria**](sod-violation-context-conflicting-access-criteria-left-criteria) |  | [optional] 
+**left_criteria** | [**SodViolationContextConflictingAccessCriteriaLeftCriteria**](sod-violation-context-conflicting-access-criteria-left-criteria) |  | [optional] 
+**right_criteria** | [**SodViolationContextConflictingAccessCriteriaLeftCriteria**](sod-violation-context-conflicting-access-criteria-left-criteria) |  | [optional] 
+}
 
-## Methods
+## Example
 
-### NewSodViolationContextConflictingAccessCriteria
+```python
+from sailpoint.v3.models.sod_violation_context_conflicting_access_criteria import SodViolationContextConflictingAccessCriteria
 
-`func NewSodViolationContextConflictingAccessCriteria() *SodViolationContextConflictingAccessCriteria`
+sod_violation_context_conflicting_access_criteria = SodViolationContextConflictingAccessCriteria(
+left_criteria=sailpoint.v3.models.sod_violation_context_conflicting_access_criteria_left_criteria.SodViolationContext_conflictingAccessCriteria_leftCriteria(
+                    criteria_list = [
+                        sailpoint.v3.models.sod_exempt_criteria.SodExemptCriteria(
+                            existing = True, 
+                            type = 'IDENTITY', 
+                            id = '2c918085771e9d3301773b3cb66f6398', 
+                            name = 'My HR Entitlement', )
+                        ], ),
+right_criteria=sailpoint.v3.models.sod_violation_context_conflicting_access_criteria_left_criteria.SodViolationContext_conflictingAccessCriteria_leftCriteria(
+                    criteria_list = [
+                        sailpoint.v3.models.sod_exempt_criteria.SodExemptCriteria(
+                            existing = True, 
+                            type = 'IDENTITY', 
+                            id = '2c918085771e9d3301773b3cb66f6398', 
+                            name = 'My HR Entitlement', )
+                        ], )
+)
 
-NewSodViolationContextConflictingAccessCriteria instantiates a new SodViolationContextConflictingAccessCriteria object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewSodViolationContextConflictingAccessCriteriaWithDefaults
-
-`func NewSodViolationContextConflictingAccessCriteriaWithDefaults() *SodViolationContextConflictingAccessCriteria`
-
-NewSodViolationContextConflictingAccessCriteriaWithDefaults instantiates a new SodViolationContextConflictingAccessCriteria object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetLeftCriteria
-
-`func (o *SodViolationContextConflictingAccessCriteria) GetLeftCriteria() SodViolationContextConflictingAccessCriteriaLeftCriteria`
-
-GetLeftCriteria returns the LeftCriteria field if non-nil, zero value otherwise.
-
-### GetLeftCriteriaOk
-
-`func (o *SodViolationContextConflictingAccessCriteria) GetLeftCriteriaOk() (*SodViolationContextConflictingAccessCriteriaLeftCriteria, bool)`
-
-GetLeftCriteriaOk returns a tuple with the LeftCriteria field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLeftCriteria
-
-`func (o *SodViolationContextConflictingAccessCriteria) SetLeftCriteria(v SodViolationContextConflictingAccessCriteriaLeftCriteria)`
-
-SetLeftCriteria sets LeftCriteria field to given value.
-
-### HasLeftCriteria
-
-`func (o *SodViolationContextConflictingAccessCriteria) HasLeftCriteria() bool`
-
-HasLeftCriteria returns a boolean if a field has been set.
-
-### GetRightCriteria
-
-`func (o *SodViolationContextConflictingAccessCriteria) GetRightCriteria() SodViolationContextConflictingAccessCriteriaLeftCriteria`
-
-GetRightCriteria returns the RightCriteria field if non-nil, zero value otherwise.
-
-### GetRightCriteriaOk
-
-`func (o *SodViolationContextConflictingAccessCriteria) GetRightCriteriaOk() (*SodViolationContextConflictingAccessCriteriaLeftCriteria, bool)`
-
-GetRightCriteriaOk returns a tuple with the RightCriteria field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRightCriteria
-
-`func (o *SodViolationContextConflictingAccessCriteria) SetRightCriteria(v SodViolationContextConflictingAccessCriteriaLeftCriteria)`
-
-SetRightCriteria sets RightCriteria field to given value.
-
-### HasRightCriteria
-
-`func (o *SodViolationContextConflictingAccessCriteria) HasRightCriteria() bool`
-
-HasRightCriteria returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

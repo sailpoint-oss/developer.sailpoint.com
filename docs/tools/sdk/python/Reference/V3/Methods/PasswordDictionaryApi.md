@@ -1,15 +1,15 @@
 ---
 id: password-dictionary
-title: PasswordDictionary
-pagination_label: PasswordDictionary
-sidebar_label: PasswordDictionary
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PasswordDictionary', 'PasswordDictionary'] 
-slug: /tools/sdk/go/v3/methods/password-dictionary
-tags: ['SDK', 'Software Development Kit', 'PasswordDictionary', 'PasswordDictionary']
+title: Password_Dictionary
+pagination_label: Password_Dictionary
+sidebar_label: Password_Dictionary
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'Password_Dictionary', 'Password_Dictionary'] 
+slug: /tools/sdk/python/v3/methods/password-dictionary
+tags: ['SDK', 'Software Development Kit', 'Password_Dictionary', 'Password_Dictionary']
 ---
 
-# PasswordDictionaryAPI
+# sailpoint.v3.PasswordDictionaryApi
   Use this API to implement password dictionary functionality.  
 With this functionality in place, administrators can create password dictionaries to prevent users from using certain words or characters in their passwords. 
 
@@ -62,8 +62,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-password-dictionary**](#get-password-dictionary) | **Get** `/password-dictionary` | Get Password Dictionary
-[**put-password-dictionary**](#put-password-dictionary) | **Put** `/password-dictionary` | Update Password Dictionary
+[**get-password-dictionary**](#get-password-dictionary) | **GET** `/password-dictionary` | Get Password Dictionary
+[**put-password-dictionary**](#put-password-dictionary) | **PUT** `/password-dictionary` | Update Password Dictionary
 
 
 ## get-password-dictionary
@@ -100,52 +100,53 @@ qazxsws
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-password-dictionary)
 
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetPasswordDictionaryRequest struct via the builder pattern
-
+### Parameters 
+This endpoint does not need any parameter. 
 
 ### Return type
+**str**
 
-**string**
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | A password dictionary response | str |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.password_dictionary_api import PasswordDictionaryApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
+with ApiClient(configuration) as api_client:
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.PasswordDictionaryAPI.GetPasswordDictionary(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PasswordDictionaryAPI.GetPasswordDictionary``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetPasswordDictionary`: string
-	fmt.Fprintf(os.Stdout, "Response from `PasswordDictionaryAPI.GetPasswordDictionary`: %v\n", resp)
-}
+    try:
+        # Get Password Dictionary
+        
+        results = PasswordDictionaryApi(api_client).get_password_dictionary()
+        # Below is a request that includes all optional parameters
+        # results = PasswordDictionaryApi(api_client).get_password_dictionary()
+        print("The response of PasswordDictionaryApi->get_password_dictionary:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling PasswordDictionaryApi->get_password_dictionary: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## put-password-dictionary
 Update Password Dictionary
@@ -181,53 +182,56 @@ qazxsws
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/put-password-dictionary)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPutPasswordDictionaryRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **file** | ***os.File** |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | file | **bytearray** |   (optional) | 
 
 ### Return type
-
  (empty response body)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Successfully updated. |  |  -  |
+201 | Created. |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: multipart/form-data
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.password_dictionary_api import PasswordDictionaryApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    file := BINARY_DATA_HERE # *os.File |  (optional) # *os.File |  (optional)
+with ApiClient(configuration) as api_client:
+    file = None # bytearray |  (optional) # bytearray |  (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V3.PasswordDictionaryAPI.PutPasswordDictionary(context.Background()).File(file).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PasswordDictionaryAPI.PutPasswordDictionary``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
+    try:
+        # Update Password Dictionary
+        
+        PasswordDictionaryApi(api_client).put_password_dictionary()
+        # Below is a request that includes all optional parameters
+        # PasswordDictionaryApi(api_client).put_password_dictionary(file)
+    except Exception as e:
+        print("Exception when calling PasswordDictionaryApi->put_password_dictionary: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
+
+
 

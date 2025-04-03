@@ -3,13 +3,13 @@ id: v2024-icons
 title: Icons
 pagination_label: Icons
 sidebar_label: Icons
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Icons', 'V2024Icons'] 
-slug: /tools/sdk/go/v2024/methods/icons
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'Icons', 'V2024Icons'] 
+slug: /tools/sdk/python/v2024/methods/icons
 tags: ['SDK', 'Software Development Kit', 'Icons', 'V2024Icons']
 ---
 
-# IconsAPI
+# sailpoint.v2024.IconsApi
   Use this API to implement functionality related to object icons (application icons for example). 
 With this functionality in place, administrators can set or remove an icon for specific object type for use throughout Identity Security Cloud.
  
@@ -17,8 +17,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete-icon**](#delete-icon) | **Delete** `/icons/{objectType}/{objectId}` | Delete an icon
-[**set-icon**](#set-icon) | **Put** `/icons/{objectType}/{objectId}` | Update an icon
+[**delete-icon**](#delete-icon) | **DELETE** `/icons/{objectType}/{objectId}` | Delete an icon
+[**set-icon**](#set-icon) | **PUT** `/icons/{objectType}/{objectId}` | Update an icon
 
 
 ## delete-icon
@@ -28,7 +28,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```go
+ ```python
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -38,64 +38,60 @@ This API endpoint delete an icon by object type and object id. A token with ORG_
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-icon)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**objectType** | **string** | Object type. Available options [&#39;application&#39;] | 
-**objectId** | **string** | Object id. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteIconRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | object_type | **str** | True  | Object type. Available options ['application']
+Path   | object_id | **str** | True  | Object id.
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
-
  (empty response body)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.icons_api import IconsApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
+configuration.experimental = true
 
-func main() {
-    objectType := application # string | Object type. Available options ['application'] # string | Object type. Available options ['application']
-    objectId := a291e870-48c3-4953-b656-fb5ce2a93169 # string | Object id. # string | Object id.
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+with ApiClient(configuration) as api_client:
+    object_type = 'application' # str | Object type. Available options ['application'] # str | Object type. Available options ['application']
+    object_id = 'a291e870-48c3-4953-b656-fb5ce2a93169' # str | Object id. # str | Object id.
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V2024.IconsAPI.DeleteIcon(context.Background(), objectType, objectId).XSailPointExperimental(xSailPointExperimental).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IconsAPI.DeleteIcon``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
+    try:
+        # Delete an icon
+        
+        IconsApi(api_client).delete_icon(object_type=object_type, object_id=object_id, x_sail_point_experimental=x_sail_point_experimental)
+        # Below is a request that includes all optional parameters
+        # IconsApi(api_client).delete_icon(object_type, object_id, x_sail_point_experimental)
+    except Exception as e:
+        print("Exception when calling IconsApi->delete_icon: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## set-icon
 :::warning experimental 
@@ -104,7 +100,7 @@ This API is currently in an experimental state. The API is subject to change bas
 :::tip setting x-sailpoint-experimental header
  on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
  Example:
- ```go
+ ```python
    configuration = Configuration()
    configuration.experimental = True
  ```
@@ -114,66 +110,65 @@ This API endpoint updates an icon by object type and object id. A token with ORG
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/set-icon)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**objectType** | **string** | Object type. Available options [&#39;application&#39;] | 
-**objectId** | **string** | Object id. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiSetIconRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
- **image** | ***os.File** | file with icon. Allowed mime-types [&#39;image/png&#39;, &#39;image/jpeg&#39;] | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | object_type | **str** | True  | Object type. Available options ['application']
+Path   | object_id | **str** | True  | Object id.
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+   | image | **bytearray** | True  | file with icon. Allowed mime-types ['image/png', 'image/jpeg']
 
 ### Return type
-
 [**SetIcon200Response**](../models/set-icon200-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Icon updated | SetIcon200Response |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: multipart/form-data
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.icons_api import IconsApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.set_icon200_response import SetIcon200Response
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
+configuration.experimental = true
 
-func main() {
-    objectType := application # string | Object type. Available options ['application'] # string | Object type. Available options ['application']
-    objectId := a291e870-48c3-4953-b656-fb5ce2a93169 # string | Object id. # string | Object id.
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    image := BINARY_DATA_HERE # *os.File | file with icon. Allowed mime-types ['image/png', 'image/jpeg'] # *os.File | file with icon. Allowed mime-types ['image/png', 'image/jpeg']
+with ApiClient(configuration) as api_client:
+    object_type = 'application' # str | Object type. Available options ['application'] # str | Object type. Available options ['application']
+    object_id = 'a291e870-48c3-4953-b656-fb5ce2a93169' # str | Object id. # str | Object id.
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+    image = None # bytearray | file with icon. Allowed mime-types ['image/png', 'image/jpeg'] # bytearray | file with icon. Allowed mime-types ['image/png', 'image/jpeg']
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.IconsAPI.SetIcon(context.Background(), objectType, objectId).XSailPointExperimental(xSailPointExperimental).Image(image).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IconsAPI.SetIcon``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SetIcon`: SetIcon200Response
-	fmt.Fprintf(os.Stdout, "Response from `IconsAPI.SetIcon`: %v\n", resp)
-}
+    try:
+        # Update an icon
+        
+        results = IconsApi(api_client).set_icon(object_type=object_type, object_id=object_id, x_sail_point_experimental=x_sail_point_experimental, image=image)
+        # Below is a request that includes all optional parameters
+        # results = IconsApi(api_client).set_icon(object_type, object_id, x_sail_point_experimental, image)
+        print("The response of IconsApi->set_icon:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IconsApi->set_icon: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
+
+
 

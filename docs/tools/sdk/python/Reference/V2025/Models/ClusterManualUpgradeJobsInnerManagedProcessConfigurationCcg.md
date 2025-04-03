@@ -3,141 +3,40 @@ id: v2025-cluster-manual-upgrade-jobs-inner-managed-process-configuration-ccg
 title: ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg
 pagination_label: ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg
 sidebar_label: ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg', 'V2025ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg'] 
-slug: /tools/sdk/go/v2025/models/cluster-manual-upgrade-jobs-inner-managed-process-configuration-ccg
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg', 'V2025ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg'] 
+slug: /tools/sdk/python/v2025/models/cluster-manual-upgrade-jobs-inner-managed-process-configuration-ccg
 tags: ['SDK', 'Software Development Kit', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg', 'V2025ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg']
 ---
 
 # ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg
 
+Configuration details for the 'ccg' process.
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Version** | **string** | Version of the 'ccg' process. | 
-**Path** | **string** | Path to the 'ccg' process. | 
-**Description** | **string** | A brief description of the 'ccg' process. | 
-**RestartNeeded** | **bool** | Indicates whether the process needs to be restarted. | 
-**Dependencies** | **map[string]string** | A map of dependencies for the 'ccg' process. | 
+**version** | **str** | Version of the 'ccg' process. | [required]
+**path** | **str** | Path to the 'ccg' process. | [required]
+**description** | **str** | A brief description of the 'ccg' process. | [required]
+**restart_needed** | **bool** | Indicates whether the process needs to be restarted. | [required]
+**dependencies** | **map[string]str** | A map of dependencies for the 'ccg' process. | [required]
+}
 
-## Methods
+## Example
 
-### NewClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg
+```python
+from sailpoint.v2025.models.cluster_manual_upgrade_jobs_inner_managed_process_configuration_ccg import ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg
 
-`func NewClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg(version string, path string, description string, restartNeeded bool, dependencies map[string]string, ) *ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg`
+cluster_manual_upgrade_jobs_inner_managed_process_configuration_ccg = ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg(
+version='1798_1054_241.0.0',
+path='sailpoint/ccg',
+description='CCG Deployment through ops-cli',
+restart_needed=True,
+dependencies={IQService=743/IQService-743.zip, connector-bundle-jdbc=432/connector-bundle-jdbc-432.zip, connector-bundle-misc=437/connector-bundle-misc-437.zip, connector-bundle-unix=242/connector-bundle-unix-242.zip, connector-common-config=208/connector-common-config-208.zip, connector-bundle-filebased=222/connector-bundle-filebased-222.zip, connector-bundle-imprivata=3/connector-bundle-imprivata-3.zip, connector-bundle-mainframe=211/connector-bundle-mainframe-211.zip, connector-bundle-directories=681/connector-bundle-directories-681.zip, connector-bundle-sap-on-prem=196/connector-bundle-sap-on-prem-196.zip, connector-bundle-webservices=1535/connector-bundle-webservices-1535.zip, connector-bundle-sap-cloud-app=175/connector-bundle-sap-cloud-app-175.zip, connector-bundle-healthcare-epic=302/connector-bundle-healthcare-epic-302.zip, connector-bundle-hrms-oraclefusionhcm=166/connector-bundle-hrms-oraclefusionhcm-166.zip, connector-bundle-collaboration-connectors=246/connector-bundle-collaboration-connectors-246.zip}
+)
 
-NewClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg instantiates a new ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewClusterManualUpgradeJobsInnerManagedProcessConfigurationCcgWithDefaults
-
-`func NewClusterManualUpgradeJobsInnerManagedProcessConfigurationCcgWithDefaults() *ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg`
-
-NewClusterManualUpgradeJobsInnerManagedProcessConfigurationCcgWithDefaults instantiates a new ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetVersion
-
-`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg) GetVersion() string`
-
-GetVersion returns the Version field if non-nil, zero value otherwise.
-
-### GetVersionOk
-
-`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg) GetVersionOk() (*string, bool)`
-
-GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetVersion
-
-`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg) SetVersion(v string)`
-
-SetVersion sets Version field to given value.
-
-
-### GetPath
-
-`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg) GetPath() string`
-
-GetPath returns the Path field if non-nil, zero value otherwise.
-
-### GetPathOk
-
-`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg) GetPathOk() (*string, bool)`
-
-GetPathOk returns a tuple with the Path field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPath
-
-`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg) SetPath(v string)`
-
-SetPath sets Path field to given value.
-
-
-### GetDescription
-
-`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg) GetDescription() string`
-
-GetDescription returns the Description field if non-nil, zero value otherwise.
-
-### GetDescriptionOk
-
-`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg) GetDescriptionOk() (*string, bool)`
-
-GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDescription
-
-`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg) SetDescription(v string)`
-
-SetDescription sets Description field to given value.
-
-
-### GetRestartNeeded
-
-`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg) GetRestartNeeded() bool`
-
-GetRestartNeeded returns the RestartNeeded field if non-nil, zero value otherwise.
-
-### GetRestartNeededOk
-
-`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg) GetRestartNeededOk() (*bool, bool)`
-
-GetRestartNeededOk returns a tuple with the RestartNeeded field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRestartNeeded
-
-`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg) SetRestartNeeded(v bool)`
-
-SetRestartNeeded sets RestartNeeded field to given value.
-
-
-### GetDependencies
-
-`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg) GetDependencies() map[string]string`
-
-GetDependencies returns the Dependencies field if non-nil, zero value otherwise.
-
-### GetDependenciesOk
-
-`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg) GetDependenciesOk() (*map[string]string, bool)`
-
-GetDependenciesOk returns a tuple with the Dependencies field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDependencies
-
-`func (o *ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg) SetDependencies(v map[string]string)`
-
-SetDependencies sets Dependencies field to given value.
-
-
+```
+[[Back to top]](#) 
 

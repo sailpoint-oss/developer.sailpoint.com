@@ -3,37 +3,37 @@ id: workflows
 title: Workflows
 pagination_label: Workflows
 sidebar_label: Workflows
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Workflows', 'Workflows'] 
-slug: /tools/sdk/go/v3/methods/workflows
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'Workflows', 'Workflows'] 
+slug: /tools/sdk/python/v3/methods/workflows
 tags: ['SDK', 'Software Development Kit', 'Workflows', 'Workflows']
 ---
 
-# WorkflowsAPI
+# sailpoint.v3.WorkflowsApi
   Workflows allow administrators to create custom automation scripts directly within Identity Security Cloud.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/docs/extensibility/event-triggers/#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the Identity Security Cloud UI.  Workflows can be configured via a graphical user interface within Identity Security Cloud, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
  
 All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancel-workflow-execution**](#cancel-workflow-execution) | **Post** `/workflow-executions/{id}/cancel` | Cancel Workflow Execution by ID
-[**create-external-execute-workflow**](#create-external-execute-workflow) | **Post** `/workflows/execute/external/{id}` | Execute Workflow via External Trigger
-[**create-workflow**](#create-workflow) | **Post** `/workflows` | Create Workflow
-[**create-workflow-external-trigger**](#create-workflow-external-trigger) | **Post** `/workflows/{id}/external/oauth-clients` | Generate External Trigger OAuth Client
-[**delete-workflow**](#delete-workflow) | **Delete** `/workflows/{id}` | Delete Workflow By Id
-[**get-workflow**](#get-workflow) | **Get** `/workflows/{id}` | Get Workflow By Id
-[**get-workflow-execution**](#get-workflow-execution) | **Get** `/workflow-executions/{id}` | Get Workflow Execution
-[**get-workflow-execution-history**](#get-workflow-execution-history) | **Get** `/workflow-executions/{id}/history` | Get Workflow Execution History
-[**get-workflow-executions**](#get-workflow-executions) | **Get** `/workflows/{id}/executions` | List Workflow Executions
-[**list-complete-workflow-library**](#list-complete-workflow-library) | **Get** `/workflow-library` | List Complete Workflow Library
-[**list-workflow-library-actions**](#list-workflow-library-actions) | **Get** `/workflow-library/actions` | List Workflow Library Actions
-[**list-workflow-library-operators**](#list-workflow-library-operators) | **Get** `/workflow-library/operators` | List Workflow Library Operators
-[**list-workflow-library-triggers**](#list-workflow-library-triggers) | **Get** `/workflow-library/triggers` | List Workflow Library Triggers
-[**list-workflows**](#list-workflows) | **Get** `/workflows` | List Workflows
-[**patch-workflow**](#patch-workflow) | **Patch** `/workflows/{id}` | Patch Workflow
-[**put-workflow**](#put-workflow) | **Put** `/workflows/{id}` | Update Workflow
-[**test-external-execute-workflow**](#test-external-execute-workflow) | **Post** `/workflows/execute/external/{id}/test` | Test Workflow via External Trigger
-[**test-workflow**](#test-workflow) | **Post** `/workflows/{id}/test` | Test Workflow By Id
+[**cancel-workflow-execution**](#cancel-workflow-execution) | **POST** `/workflow-executions/{id}/cancel` | Cancel Workflow Execution by ID
+[**create-external-execute-workflow**](#create-external-execute-workflow) | **POST** `/workflows/execute/external/{id}` | Execute Workflow via External Trigger
+[**create-workflow**](#create-workflow) | **POST** `/workflows` | Create Workflow
+[**create-workflow-external-trigger**](#create-workflow-external-trigger) | **POST** `/workflows/{id}/external/oauth-clients` | Generate External Trigger OAuth Client
+[**delete-workflow**](#delete-workflow) | **DELETE** `/workflows/{id}` | Delete Workflow By Id
+[**get-workflow**](#get-workflow) | **GET** `/workflows/{id}` | Get Workflow By Id
+[**get-workflow-execution**](#get-workflow-execution) | **GET** `/workflow-executions/{id}` | Get Workflow Execution
+[**get-workflow-execution-history**](#get-workflow-execution-history) | **GET** `/workflow-executions/{id}/history` | Get Workflow Execution History
+[**get-workflow-executions**](#get-workflow-executions) | **GET** `/workflows/{id}/executions` | List Workflow Executions
+[**list-complete-workflow-library**](#list-complete-workflow-library) | **GET** `/workflow-library` | List Complete Workflow Library
+[**list-workflow-library-actions**](#list-workflow-library-actions) | **GET** `/workflow-library/actions` | List Workflow Library Actions
+[**list-workflow-library-operators**](#list-workflow-library-operators) | **GET** `/workflow-library/operators` | List Workflow Library Operators
+[**list-workflow-library-triggers**](#list-workflow-library-triggers) | **GET** `/workflow-library/triggers` | List Workflow Library Triggers
+[**list-workflows**](#list-workflows) | **GET** `/workflows` | List Workflows
+[**patch-workflow**](#patch-workflow) | **PATCH** `/workflows/{id}` | Patch Workflow
+[**put-workflow**](#put-workflow) | **PUT** `/workflows/{id}` | Update Workflow
+[**test-external-execute-workflow**](#test-external-execute-workflow) | **POST** `/workflows/execute/external/{id}/test` | Test Workflow via External Trigger
+[**test-workflow**](#test-workflow) | **POST** `/workflows/{id}/test` | Test Workflow By Id
 
 
 ## cancel-workflow-execution
@@ -42,59 +42,55 @@ Use this API to cancel a running workflow execution.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/cancel-workflow-execution)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The workflow execution ID | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCancelWorkflowExecutionRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The workflow execution ID
 
 ### Return type
-
  (empty response body)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := c17bea3a-574d-453c-9e04-4365fbf5af0b # string | The workflow execution ID # string | The workflow execution ID
+with ApiClient(configuration) as api_client:
+    id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | The workflow execution ID # str | The workflow execution ID
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V3.WorkflowsAPI.CancelWorkflowExecution(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.CancelWorkflowExecution``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
+    try:
+        # Cancel Workflow Execution by ID
+        
+        WorkflowsApi(api_client).cancel_workflow_execution(id=id)
+        # Below is a request that includes all optional parameters
+        # WorkflowsApi(api_client).cancel_workflow_execution(id)
+    except Exception as e:
+        print("Exception when calling WorkflowsApi->cancel_workflow_execution: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## create-external-execute-workflow
 Execute Workflow via External Trigger
@@ -102,63 +98,60 @@ This endpoint allows a service outside of IdentityNow to initiate a workflow tha
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-external-execute-workflow)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Id of the workflow | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateExternalExecuteWorkflowRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **createExternalExecuteWorkflowRequest** | [**CreateExternalExecuteWorkflowRequest**](../models/create-external-execute-workflow-request) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | Id of the workflow
+ Body  | create_external_execute_workflow_request | [**CreateExternalExecuteWorkflowRequest**](../models/create-external-execute-workflow-request) |   (optional) | 
 
 ### Return type
-
 [**CreateExternalExecuteWorkflow200Response**](../models/create-external-execute-workflow200-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The Workflow object | CreateExternalExecuteWorkflow200Response |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.create_external_execute_workflow200_response import CreateExternalExecuteWorkflow200Response
+from sailpoint.v3.models.create_external_execute_workflow_request import CreateExternalExecuteWorkflowRequest
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := c17bea3a-574d-453c-9e04-4365fbf5af0b # string | Id of the workflow # string | Id of the workflow
-    createExternalExecuteWorkflowRequest := fmt.Sprintf(``) # CreateExternalExecuteWorkflowRequest |  (optional)
+with ApiClient(configuration) as api_client:
+    id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the workflow # str | Id of the workflow
+    create_external_execute_workflow_request = '''sailpoint.v3.CreateExternalExecuteWorkflowRequest()''' # CreateExternalExecuteWorkflowRequest |  (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.WorkflowsAPI.CreateExternalExecuteWorkflow(context.Background(), id).CreateExternalExecuteWorkflowRequest(createExternalExecuteWorkflowRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.CreateExternalExecuteWorkflow``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateExternalExecuteWorkflow`: CreateExternalExecuteWorkflow200Response
-	fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.CreateExternalExecuteWorkflow`: %v\n", resp)
-}
+    try:
+        # Execute Workflow via External Trigger
+        
+        results = WorkflowsApi(api_client).create_external_execute_workflow(id=id)
+        # Below is a request that includes all optional parameters
+        # results = WorkflowsApi(api_client).create_external_execute_workflow(id, new_create_external_execute_workflow_request)
+        print("The response of WorkflowsApi->create_external_execute_workflow:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkflowsApi->create_external_execute_workflow: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## create-workflow
 Create Workflow
@@ -166,57 +159,58 @@ Create a new workflow with the desired trigger and steps specified in the reques
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-workflow)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateWorkflowRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **createWorkflowRequest** | [**CreateWorkflowRequest**](../models/create-workflow-request) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | create_workflow_request | [**CreateWorkflowRequest**](../models/create-workflow-request) | True  | 
 
 ### Return type
-
 [**Workflow**](../models/workflow)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The Workflow object | Workflow |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.create_workflow_request import CreateWorkflowRequest
+from sailpoint.v3.models.workflow import Workflow
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    createWorkflowRequest := fmt.Sprintf(`{name=Send Email, owner={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}, description=Send an email to the identity who's attributes changed., definition={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}, enabled=false, trigger={type=EVENT, attributes={id=idn:identity-attributes-changed, filter=$.changes[?(@.attribute == 'manager')]}}}`) # CreateWorkflowRequest | 
+with ApiClient(configuration) as api_client:
+    create_workflow_request = '''{name=Send Email, owner={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}, description=Send an email to the identity who's attributes changed., definition={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}, enabled=false, trigger={type=EVENT, attributes={id=idn:identity-attributes-changed, filter=$.changes[?(@.attribute == 'manager')]}}}''' # CreateWorkflowRequest | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.WorkflowsAPI.CreateWorkflow(context.Background()).CreateWorkflowRequest(createWorkflowRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.CreateWorkflow``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateWorkflow`: Workflow
-	fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.CreateWorkflow`: %v\n", resp)
-}
+    try:
+        # Create Workflow
+        new_create_workflow_request = CreateWorkflowRequest.from_json(create_workflow_request)
+        results = WorkflowsApi(api_client).create_workflow(create_workflow_request=new_create_workflow_request)
+        # Below is a request that includes all optional parameters
+        # results = WorkflowsApi(api_client).create_workflow(new_create_workflow_request)
+        print("The response of WorkflowsApi->create_workflow:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkflowsApi->create_workflow: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## create-workflow-external-trigger
 Generate External Trigger OAuth Client
@@ -224,61 +218,57 @@ Create OAuth client ID, client secret, and callback URL for use in an external t
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-workflow-external-trigger)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Id of the workflow | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateWorkflowExternalTriggerRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | Id of the workflow
 
 ### Return type
-
 [**WorkflowOAuthClient**](../models/workflow-o-auth-client)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The OAuth Client object | WorkflowOAuthClient |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.workflow_o_auth_client import WorkflowOAuthClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := c17bea3a-574d-453c-9e04-4365fbf5af0b # string | Id of the workflow # string | Id of the workflow
+with ApiClient(configuration) as api_client:
+    id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the workflow # str | Id of the workflow
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.WorkflowsAPI.CreateWorkflowExternalTrigger(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.CreateWorkflowExternalTrigger``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateWorkflowExternalTrigger`: WorkflowOAuthClient
-	fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.CreateWorkflowExternalTrigger`: %v\n", resp)
-}
+    try:
+        # Generate External Trigger OAuth Client
+        
+        results = WorkflowsApi(api_client).create_workflow_external_trigger(id=id)
+        # Below is a request that includes all optional parameters
+        # results = WorkflowsApi(api_client).create_workflow_external_trigger(id)
+        print("The response of WorkflowsApi->create_workflow_external_trigger:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkflowsApi->create_workflow_external_trigger: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## delete-workflow
 Delete Workflow By Id
@@ -286,59 +276,54 @@ Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-workflow)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Id of the Workflow | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteWorkflowRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | Id of the Workflow
 
 ### Return type
-
  (empty response body)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := c17bea3a-574d-453c-9e04-4365fbf5af0b # string | Id of the Workflow # string | Id of the Workflow
+with ApiClient(configuration) as api_client:
+    id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the Workflow # str | Id of the Workflow
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V3.WorkflowsAPI.DeleteWorkflow(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.DeleteWorkflow``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
+    try:
+        # Delete Workflow By Id
+        
+        WorkflowsApi(api_client).delete_workflow(id=id)
+        # Below is a request that includes all optional parameters
+        # WorkflowsApi(api_client).delete_workflow(id)
+    except Exception as e:
+        print("Exception when calling WorkflowsApi->delete_workflow: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-workflow
 Get Workflow By Id
@@ -346,61 +331,57 @@ Get a single workflow by id.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-workflow)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Id of the workflow | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetWorkflowRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | Id of the workflow
 
 ### Return type
-
 [**Workflow**](../models/workflow)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The workflow object | Workflow |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.workflow import Workflow
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := c17bea3a-574d-453c-9e04-4365fbf5af0b # string | Id of the workflow # string | Id of the workflow
+with ApiClient(configuration) as api_client:
+    id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the workflow # str | Id of the workflow
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.WorkflowsAPI.GetWorkflow(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.GetWorkflow``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetWorkflow`: Workflow
-	fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.GetWorkflow`: %v\n", resp)
-}
+    try:
+        # Get Workflow By Id
+        
+        results = WorkflowsApi(api_client).get_workflow(id=id)
+        # Below is a request that includes all optional parameters
+        # results = WorkflowsApi(api_client).get_workflow(id)
+        print("The response of WorkflowsApi->get_workflow:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkflowsApi->get_workflow: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-workflow-execution
 Get Workflow Execution
@@ -408,61 +389,57 @@ Use this API to get a single workflow execution. Workflow executions are availab
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-workflow-execution)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Workflow execution ID. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetWorkflowExecutionRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | Workflow execution ID.
 
 ### Return type
+**object**
 
-**map[string]interface{}**
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Workflow execution. | object |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := c17bea3a-574d-453c-9e04-4365fbf5af0b # string | Workflow execution ID. # string | Workflow execution ID.
+with ApiClient(configuration) as api_client:
+    id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Workflow execution ID. # str | Workflow execution ID.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.WorkflowsAPI.GetWorkflowExecution(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.GetWorkflowExecution``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetWorkflowExecution`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.GetWorkflowExecution`: %v\n", resp)
-}
+    try:
+        # Get Workflow Execution
+        
+        results = WorkflowsApi(api_client).get_workflow_execution(id=id)
+        # Below is a request that includes all optional parameters
+        # results = WorkflowsApi(api_client).get_workflow_execution(id)
+        print("The response of WorkflowsApi->get_workflow_execution:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkflowsApi->get_workflow_execution: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-workflow-execution-history
 Get Workflow Execution History
@@ -470,61 +447,58 @@ Get a detailed history of a single workflow execution.  Workflow executions are 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-workflow-execution-history)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Id of the workflow execution | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetWorkflowExecutionHistoryRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | Id of the workflow execution
 
 ### Return type
+[**List[WorkflowExecutionEvent]**](../models/workflow-execution-event)
 
-[**[]WorkflowExecutionEvent**](../models/workflow-execution-event)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of workflow execution events for the given workflow execution | List[WorkflowExecutionEvent] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.workflow_execution_event import WorkflowExecutionEvent
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := c17bea3a-574d-453c-9e04-4365fbf5af0b # string | Id of the workflow execution # string | Id of the workflow execution
+with ApiClient(configuration) as api_client:
+    id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the workflow execution # str | Id of the workflow execution
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.WorkflowsAPI.GetWorkflowExecutionHistory(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.GetWorkflowExecutionHistory``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetWorkflowExecutionHistory`: []WorkflowExecutionEvent
-	fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.GetWorkflowExecutionHistory`: %v\n", resp)
-}
+    try:
+        # Get Workflow Execution History
+        
+        results = WorkflowsApi(api_client).get_workflow_execution_history(id=id)
+        # Below is a request that includes all optional parameters
+        # results = WorkflowsApi(api_client).get_workflow_execution_history(id)
+        print("The response of WorkflowsApi->get_workflow_execution_history:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkflowsApi->get_workflow_execution_history: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-workflow-executions
 List Workflow Executions
@@ -542,69 +516,66 @@ Use this API to list a specified workflow's executions. Workflow executions are 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-workflow-executions)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Workflow ID. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetWorkflowExecutionsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
- **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
- **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
- **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq* | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | Workflow ID.
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq*
 
 ### Return type
+[**List[WorkflowExecution]**](../models/workflow-execution)
 
-[**[]WorkflowExecution**](../models/workflow-execution)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of workflow executions for the specified workflow. | List[WorkflowExecution] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.workflow_execution import WorkflowExecution
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := c17bea3a-574d-453c-9e04-4365fbf5af0b # string | Workflow ID. # string | Workflow ID.
-    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-    filters := status eq "Failed" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq* (optional)
+with ApiClient(configuration) as api_client:
+    id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Workflow ID. # str | Workflow ID.
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
+    filters = 'status eq \"Failed\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq* (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.WorkflowsAPI.GetWorkflowExecutions(context.Background(), id).Limit(limit).Offset(offset).Count(count).Filters(filters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.GetWorkflowExecutions``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetWorkflowExecutions`: []WorkflowExecution
-	fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.GetWorkflowExecutions`: %v\n", resp)
-}
+    try:
+        # List Workflow Executions
+        
+        results = WorkflowsApi(api_client).get_workflow_executions(id=id)
+        # Below is a request that includes all optional parameters
+        # results = WorkflowsApi(api_client).get_workflow_executions(id, limit, offset, count, filters)
+        print("The response of WorkflowsApi->get_workflow_executions:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkflowsApi->get_workflow_executions: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## list-complete-workflow-library
 List Complete Workflow Library
@@ -612,59 +583,59 @@ This lists all triggers, actions, and operators in the library
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-complete-workflow-library)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListCompleteWorkflowLibraryRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
- **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
+[**List[ListCompleteWorkflowLibrary200ResponseInner]**](../models/list-complete-workflow-library200-response-inner)
 
-[**[]ListCompleteWorkflowLibrary200ResponseInner**](../models/list-complete-workflow-library200-response-inner)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of workflow steps | List[ListCompleteWorkflowLibrary200ResponseInner] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.list_complete_workflow_library200_response_inner import ListCompleteWorkflowLibrary200ResponseInner
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+with ApiClient(configuration) as api_client:
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.WorkflowsAPI.ListCompleteWorkflowLibrary(context.Background()).Limit(limit).Offset(offset).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.ListCompleteWorkflowLibrary``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListCompleteWorkflowLibrary`: []ListCompleteWorkflowLibrary200ResponseInner
-	fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.ListCompleteWorkflowLibrary`: %v\n", resp)
-}
+    try:
+        # List Complete Workflow Library
+        
+        results = WorkflowsApi(api_client).list_complete_workflow_library()
+        # Below is a request that includes all optional parameters
+        # results = WorkflowsApi(api_client).list_complete_workflow_library(limit, offset)
+        print("The response of WorkflowsApi->list_complete_workflow_library:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkflowsApi->list_complete_workflow_library: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## list-workflow-library-actions
 List Workflow Library Actions
@@ -672,61 +643,61 @@ This lists the workflow actions available to you.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-workflow-library-actions)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListWorkflowLibraryActionsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
- **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
- **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*
 
 ### Return type
+[**List[WorkflowLibraryAction]**](../models/workflow-library-action)
 
-[**[]WorkflowLibraryAction**](../models/workflow-library-action)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of workflow actions | List[WorkflowLibraryAction] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.workflow_library_action import WorkflowLibraryAction
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    filters := id eq "sp:create-campaign" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional)
+with ApiClient(configuration) as api_client:
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    filters = 'id eq \"sp:create-campaign\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.WorkflowsAPI.ListWorkflowLibraryActions(context.Background()).Limit(limit).Offset(offset).Filters(filters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.ListWorkflowLibraryActions``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListWorkflowLibraryActions`: []WorkflowLibraryAction
-	fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.ListWorkflowLibraryActions`: %v\n", resp)
-}
+    try:
+        # List Workflow Library Actions
+        
+        results = WorkflowsApi(api_client).list_workflow_library_actions()
+        # Below is a request that includes all optional parameters
+        # results = WorkflowsApi(api_client).list_workflow_library_actions(limit, offset, filters)
+        print("The response of WorkflowsApi->list_workflow_library_actions:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkflowsApi->list_workflow_library_actions: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## list-workflow-library-operators
 List Workflow Library Operators
@@ -734,52 +705,53 @@ This lists the workflow operators available to you
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-workflow-library-operators)
 
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListWorkflowLibraryOperatorsRequest struct via the builder pattern
-
+### Parameters 
+This endpoint does not need any parameter. 
 
 ### Return type
+[**List[WorkflowLibraryOperator]**](../models/workflow-library-operator)
 
-[**[]WorkflowLibraryOperator**](../models/workflow-library-operator)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of workflow operators | List[WorkflowLibraryOperator] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.workflow_library_operator import WorkflowLibraryOperator
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
+with ApiClient(configuration) as api_client:
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.WorkflowsAPI.ListWorkflowLibraryOperators(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.ListWorkflowLibraryOperators``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListWorkflowLibraryOperators`: []WorkflowLibraryOperator
-	fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.ListWorkflowLibraryOperators`: %v\n", resp)
-}
+    try:
+        # List Workflow Library Operators
+        
+        results = WorkflowsApi(api_client).list_workflow_library_operators()
+        # Below is a request that includes all optional parameters
+        # results = WorkflowsApi(api_client).list_workflow_library_operators()
+        print("The response of WorkflowsApi->list_workflow_library_operators:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkflowsApi->list_workflow_library_operators: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## list-workflow-library-triggers
 List Workflow Library Triggers
@@ -787,61 +759,61 @@ This lists the workflow triggers available to you
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-workflow-library-triggers)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListWorkflowLibraryTriggersRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
- **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
- **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*
 
 ### Return type
+[**List[WorkflowLibraryTrigger]**](../models/workflow-library-trigger)
 
-[**[]WorkflowLibraryTrigger**](../models/workflow-library-trigger)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of workflow triggers | List[WorkflowLibraryTrigger] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.workflow_library_trigger import WorkflowLibraryTrigger
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    filters := id eq "idn:identity-attributes-changed" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional)
+with ApiClient(configuration) as api_client:
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    filters = 'id eq \"idn:identity-attributes-changed\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.WorkflowsAPI.ListWorkflowLibraryTriggers(context.Background()).Limit(limit).Offset(offset).Filters(filters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.ListWorkflowLibraryTriggers``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListWorkflowLibraryTriggers`: []WorkflowLibraryTrigger
-	fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.ListWorkflowLibraryTriggers`: %v\n", resp)
-}
+    try:
+        # List Workflow Library Triggers
+        
+        results = WorkflowsApi(api_client).list_workflow_library_triggers()
+        # Below is a request that includes all optional parameters
+        # results = WorkflowsApi(api_client).list_workflow_library_triggers(limit, offset, filters)
+        print("The response of WorkflowsApi->list_workflow_library_triggers:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkflowsApi->list_workflow_library_triggers: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## list-workflows
 List Workflows
@@ -849,52 +821,53 @@ List all workflows in the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-workflows)
 
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListWorkflowsRequest struct via the builder pattern
-
+### Parameters 
+This endpoint does not need any parameter. 
 
 ### Return type
+[**List[Workflow]**](../models/workflow)
 
-[**[]Workflow**](../models/workflow)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of workflows | List[Workflow] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.workflow import Workflow
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
+with ApiClient(configuration) as api_client:
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.WorkflowsAPI.ListWorkflows(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.ListWorkflows``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListWorkflows`: []Workflow
-	fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.ListWorkflows`: %v\n", resp)
-}
+    try:
+        # List Workflows
+        
+        results = WorkflowsApi(api_client).list_workflows()
+        # Below is a request that includes all optional parameters
+        # results = WorkflowsApi(api_client).list_workflows()
+        print("The response of WorkflowsApi->list_workflows:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkflowsApi->list_workflows: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## patch-workflow
 Patch Workflow
@@ -902,63 +875,60 @@ Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/patch-workflow)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Id of the Workflow | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPatchWorkflowRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **jsonPatchOperation** | [**[]JsonPatchOperation**](../models/json-patch-operation) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | Id of the Workflow
+ Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | 
 
 ### Return type
-
 [**Workflow**](../models/workflow)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The Workflow object | Workflow |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json-patch+json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json-patch+json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
+from sailpoint.v3.models.workflow import Workflow
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := c17bea3a-574d-453c-9e04-4365fbf5af0b # string | Id of the Workflow # string | Id of the Workflow
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/name, value=Send Email}, {op=replace, path=/owner, value={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}}, {op=replace, path=/description, value=Send an email to the identity who's attributes changed.}, {op=replace, path=/enabled, value=false}, {op=replace, path=/definition, value={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}}, {op=replace, path=/trigger, value={type=EVENT, attributes={id=idn:identity-attributes-changed}}}]`) # []JsonPatchOperation | 
+with ApiClient(configuration) as api_client:
+    id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the Workflow # str | Id of the Workflow
+    json_patch_operation = '''[{op=replace, path=/name, value=Send Email}, {op=replace, path=/owner, value={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}}, {op=replace, path=/description, value=Send an email to the identity who's attributes changed.}, {op=replace, path=/enabled, value=false}, {op=replace, path=/definition, value={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}}, {op=replace, path=/trigger, value={type=EVENT, attributes={id=idn:identity-attributes-changed}}}]''' # List[JsonPatchOperation] | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.WorkflowsAPI.PatchWorkflow(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.PatchWorkflow``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PatchWorkflow`: Workflow
-	fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.PatchWorkflow`: %v\n", resp)
-}
+    try:
+        # Patch Workflow
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = WorkflowsApi(api_client).patch_workflow(id=id, json_patch_operation=new_json_patch_operation)
+        # Below is a request that includes all optional parameters
+        # results = WorkflowsApi(api_client).patch_workflow(id, new_json_patch_operation)
+        print("The response of WorkflowsApi->patch_workflow:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkflowsApi->patch_workflow: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## put-workflow
 Update Workflow
@@ -966,49 +936,44 @@ Perform a full update of a workflow.  The updated workflow object is returned in
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/put-workflow)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Id of the Workflow | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPutWorkflowRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **workflowBody** | [**WorkflowBody**](../models/workflow-body) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | Id of the Workflow
+ Body  | workflow_body | [**WorkflowBody**](../models/workflow-body) | True  | 
 
 ### Return type
-
 [**Workflow**](../models/workflow)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The Workflow object | Workflow |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.workflow import Workflow
+from sailpoint.v3.models.workflow_body import WorkflowBody
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := c17bea3a-574d-453c-9e04-4365fbf5af0b # string | Id of the Workflow # string | Id of the Workflow
-    workflowBody := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the Workflow # str | Id of the Workflow
+    workflow_body = '''{
           "owner" : {
             "name" : "William Wilson",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -1047,21 +1012,23 @@ func main() {
             "type" : "EVENT"
           },
           "enabled" : false
-        }`) # WorkflowBody | 
+        }''' # WorkflowBody | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.WorkflowsAPI.PutWorkflow(context.Background(), id).WorkflowBody(workflowBody).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.PutWorkflow``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PutWorkflow`: Workflow
-	fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.PutWorkflow`: %v\n", resp)
-}
+    try:
+        # Update Workflow
+        new_workflow_body = WorkflowBody.from_json(workflow_body)
+        results = WorkflowsApi(api_client).put_workflow(id=id, workflow_body=new_workflow_body)
+        # Below is a request that includes all optional parameters
+        # results = WorkflowsApi(api_client).put_workflow(id, new_workflow_body)
+        print("The response of WorkflowsApi->put_workflow:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkflowsApi->put_workflow: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## test-external-execute-workflow
 Test Workflow via External Trigger
@@ -1069,63 +1036,60 @@ Validate a workflow with an "External Trigger" can receive input.  The response 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/test-external-execute-workflow)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Id of the workflow | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiTestExternalExecuteWorkflowRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **testExternalExecuteWorkflowRequest** | [**TestExternalExecuteWorkflowRequest**](../models/test-external-execute-workflow-request) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | Id of the workflow
+ Body  | test_external_execute_workflow_request | [**TestExternalExecuteWorkflowRequest**](../models/test-external-execute-workflow-request) |   (optional) | 
 
 ### Return type
-
 [**TestExternalExecuteWorkflow200Response**](../models/test-external-execute-workflow200-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Responds with the test input | TestExternalExecuteWorkflow200Response |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.test_external_execute_workflow200_response import TestExternalExecuteWorkflow200Response
+from sailpoint.v3.models.test_external_execute_workflow_request import TestExternalExecuteWorkflowRequest
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := c17bea3a-574d-453c-9e04-4365fbf5af0b # string | Id of the workflow # string | Id of the workflow
-    testExternalExecuteWorkflowRequest := fmt.Sprintf(``) # TestExternalExecuteWorkflowRequest |  (optional)
+with ApiClient(configuration) as api_client:
+    id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the workflow # str | Id of the workflow
+    test_external_execute_workflow_request = '''sailpoint.v3.TestExternalExecuteWorkflowRequest()''' # TestExternalExecuteWorkflowRequest |  (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.WorkflowsAPI.TestExternalExecuteWorkflow(context.Background(), id).TestExternalExecuteWorkflowRequest(testExternalExecuteWorkflowRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.TestExternalExecuteWorkflow``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `TestExternalExecuteWorkflow`: TestExternalExecuteWorkflow200Response
-	fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.TestExternalExecuteWorkflow`: %v\n", resp)
-}
+    try:
+        # Test Workflow via External Trigger
+        
+        results = WorkflowsApi(api_client).test_external_execute_workflow(id=id)
+        # Below is a request that includes all optional parameters
+        # results = WorkflowsApi(api_client).test_external_execute_workflow(id, new_test_external_execute_workflow_request)
+        print("The response of WorkflowsApi->test_external_execute_workflow:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkflowsApi->test_external_execute_workflow: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## test-workflow
 Test Workflow By Id
@@ -1135,61 +1099,60 @@ This endpoint will return an execution ID, which can be used to lookup more info
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/test-workflow)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Id of the workflow | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiTestWorkflowRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **testWorkflowRequest** | [**TestWorkflowRequest**](../models/test-workflow-request) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | Id of the workflow
+ Body  | test_workflow_request | [**TestWorkflowRequest**](../models/test-workflow-request) | True  | 
 
 ### Return type
-
 [**TestWorkflow200Response**](../models/test-workflow200-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The Workflow object | TestWorkflow200Response |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.workflows_api import WorkflowsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.test_workflow200_response import TestWorkflow200Response
+from sailpoint.v3.models.test_workflow_request import TestWorkflowRequest
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := c17bea3a-574d-453c-9e04-4365fbf5af0b # string | Id of the workflow # string | Id of the workflow
-    testWorkflowRequest := fmt.Sprintf(`{input={identity={id=ee769173319b41d19ccec6cea52f237b, name=john.doe, type=IDENTITY}, changes=[{attribute=department, oldValue=sales, newValue=marketing}, {attribute=manager, oldValue={id=ee769173319b41d19ccec6c235423237b, name=nice.guy, type=IDENTITY}, newValue={id=ee769173319b41d19ccec6c235423236c, name=mean.guy, type=IDENTITY}}, {attribute=email, oldValue=john.doe@hotmail.com, newValue=john.doe@gmail.com}]}}`) # TestWorkflowRequest | 
+with ApiClient(configuration) as api_client:
+    id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the workflow # str | Id of the workflow
+    test_workflow_request = '''{input={identity={id=ee769173319b41d19ccec6cea52f237b, name=john.doe, type=IDENTITY}, changes=[{attribute=department, oldValue=sales, newValue=marketing}, {attribute=manager, oldValue={id=ee769173319b41d19ccec6c235423237b, name=nice.guy, type=IDENTITY}, newValue={id=ee769173319b41d19ccec6c235423236c, name=mean.guy, type=IDENTITY}}, {attribute=email, oldValue=john.doe@hotmail.com, newValue=john.doe@gmail.com}]}}''' # TestWorkflowRequest | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.WorkflowsAPI.TestWorkflow(context.Background(), id).TestWorkflowRequest(testWorkflowRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.TestWorkflow``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `TestWorkflow`: TestWorkflow200Response
-	fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.TestWorkflow`: %v\n", resp)
-}
+    try:
+        # Test Workflow By Id
+        new_test_workflow_request = TestWorkflowRequest.from_json(test_workflow_request)
+        results = WorkflowsApi(api_client).test_workflow(id=id, test_workflow_request=new_test_workflow_request)
+        # Below is a request that includes all optional parameters
+        # results = WorkflowsApi(api_client).test_workflow(id, new_test_workflow_request)
+        print("The response of WorkflowsApi->test_workflow:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkflowsApi->test_workflow: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
+
+
 

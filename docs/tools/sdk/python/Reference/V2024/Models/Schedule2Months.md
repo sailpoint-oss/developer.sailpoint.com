@@ -3,88 +3,36 @@ id: v2024-schedule2-months
 title: Schedule2Months
 pagination_label: Schedule2Months
 sidebar_label: Schedule2Months
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Schedule2Months', 'V2024Schedule2Months'] 
-slug: /tools/sdk/go/v2024/models/schedule2-months
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'Schedule2Months', 'V2024Schedule2Months'] 
+slug: /tools/sdk/python/v2024/models/schedule2-months
 tags: ['SDK', 'Software Development Kit', 'Schedule2Months', 'V2024Schedule2Months']
 ---
 
 # Schedule2Months
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationId** | Pointer to **string** | The application id | [optional] 
-**AccountMatchConfig** | Pointer to [**SelectorAccountMatchConfig**](selector-account-match-config) |  | [optional] 
+**application_id** | **str** | The application id | [optional] 
+**account_match_config** | [**SelectorAccountMatchConfig**](selector-account-match-config) |  | [optional] 
+}
 
-## Methods
+## Example
 
-### NewSchedule2Months
+```python
+from sailpoint.v2024.models.schedule2_months import Schedule2Months
 
-`func NewSchedule2Months() *Schedule2Months`
+schedule2_months = Schedule2Months(
+application_id='2c91808874ff91550175097daaec161c"',
+account_match_config=sailpoint.v2024.models.selector_account_match_config.selector_accountMatchConfig(
+                    match_expression = sailpoint.v2024.models.selector_account_match_config_match_expression.selector_accountMatchConfig_matchExpression(
+                        match_terms = [{name=, value=, op=null, container=true, and=false, children=[{name=businessCategory, value=Service, op=eq, container=false, and=false, children=null}]}], 
+                        and = True, ), )
+)
 
-NewSchedule2Months instantiates a new Schedule2Months object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewSchedule2MonthsWithDefaults
-
-`func NewSchedule2MonthsWithDefaults() *Schedule2Months`
-
-NewSchedule2MonthsWithDefaults instantiates a new Schedule2Months object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetApplicationId
-
-`func (o *Schedule2Months) GetApplicationId() string`
-
-GetApplicationId returns the ApplicationId field if non-nil, zero value otherwise.
-
-### GetApplicationIdOk
-
-`func (o *Schedule2Months) GetApplicationIdOk() (*string, bool)`
-
-GetApplicationIdOk returns a tuple with the ApplicationId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetApplicationId
-
-`func (o *Schedule2Months) SetApplicationId(v string)`
-
-SetApplicationId sets ApplicationId field to given value.
-
-### HasApplicationId
-
-`func (o *Schedule2Months) HasApplicationId() bool`
-
-HasApplicationId returns a boolean if a field has been set.
-
-### GetAccountMatchConfig
-
-`func (o *Schedule2Months) GetAccountMatchConfig() SelectorAccountMatchConfig`
-
-GetAccountMatchConfig returns the AccountMatchConfig field if non-nil, zero value otherwise.
-
-### GetAccountMatchConfigOk
-
-`func (o *Schedule2Months) GetAccountMatchConfigOk() (*SelectorAccountMatchConfig, bool)`
-
-GetAccountMatchConfigOk returns a tuple with the AccountMatchConfig field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccountMatchConfig
-
-`func (o *Schedule2Months) SetAccountMatchConfig(v SelectorAccountMatchConfig)`
-
-SetAccountMatchConfig sets AccountMatchConfig field to given value.
-
-### HasAccountMatchConfig
-
-`func (o *Schedule2Months) HasAccountMatchConfig() bool`
-
-HasAccountMatchConfig returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

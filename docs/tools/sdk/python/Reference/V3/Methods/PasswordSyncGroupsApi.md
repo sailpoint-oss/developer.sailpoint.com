@@ -1,15 +1,15 @@
 ---
 id: password-sync-groups
-title: PasswordSyncGroups
-pagination_label: PasswordSyncGroups
-sidebar_label: PasswordSyncGroups
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PasswordSyncGroups', 'PasswordSyncGroups'] 
-slug: /tools/sdk/go/v3/methods/password-sync-groups
-tags: ['SDK', 'Software Development Kit', 'PasswordSyncGroups', 'PasswordSyncGroups']
+title: Password_Sync_Groups
+pagination_label: Password_Sync_Groups
+sidebar_label: Password_Sync_Groups
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'Password_Sync_Groups', 'Password_Sync_Groups'] 
+slug: /tools/sdk/python/v3/methods/password-sync-groups
+tags: ['SDK', 'Software Development Kit', 'Password_Sync_Groups', 'Password_Sync_Groups']
 ---
 
-# PasswordSyncGroupsAPI
+# sailpoint.v3.PasswordSyncGroupsApi
   Use this API to implement password sync group functionality. 
 With this functionality in place, administrators can group sources into password sync groups so that all their applications share the same password. 
 This allows users to update the password for all the applications in a sync group if they want, rather than updating each password individually. 
@@ -47,11 +47,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-password-sync-group**](#create-password-sync-group) | **Post** `/password-sync-groups` | Create Password Sync Group
-[**delete-password-sync-group**](#delete-password-sync-group) | **Delete** `/password-sync-groups/{id}` | Delete Password Sync Group by ID
-[**get-password-sync-group**](#get-password-sync-group) | **Get** `/password-sync-groups/{id}` | Get Password Sync Group by ID
-[**get-password-sync-groups**](#get-password-sync-groups) | **Get** `/password-sync-groups` | Get Password Sync Group List
-[**update-password-sync-group**](#update-password-sync-group) | **Put** `/password-sync-groups/{id}` | Update Password Sync Group by ID
+[**create-password-sync-group**](#create-password-sync-group) | **POST** `/password-sync-groups` | Create Password Sync Group
+[**delete-password-sync-group**](#delete-password-sync-group) | **DELETE** `/password-sync-groups/{id}` | Delete Password Sync Group by ID
+[**get-password-sync-group**](#get-password-sync-group) | **GET** `/password-sync-groups/{id}` | Get Password Sync Group by ID
+[**get-password-sync-groups**](#get-password-sync-groups) | **GET** `/password-sync-groups` | Get Password Sync Group List
+[**update-password-sync-group**](#update-password-sync-group) | **PUT** `/password-sync-groups/{id}` | Update Password Sync Group by ID
 
 
 ## create-password-sync-group
@@ -60,64 +60,64 @@ This API creates a password sync group based on the specifications provided.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-password-sync-group)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreatePasswordSyncGroupRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **passwordSyncGroup** | [**PasswordSyncGroup**](../models/password-sync-group) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | password_sync_group | [**PasswordSyncGroup**](../models/password-sync-group) | True  | 
 
 ### Return type
-
 [**PasswordSyncGroup**](../models/password-sync-group)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Reference to the password sync group. | PasswordSyncGroup |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.password_sync_groups_api import PasswordSyncGroupsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.password_sync_group import PasswordSyncGroup
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    passwordSyncGroup := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    password_sync_group = '''{
           "created" : "2023-03-16T04:00:00Z",
           "name" : "Password Sync Group 1",
           "modified" : "2023-03-16T04:00:00Z",
           "passwordPolicyId" : "2c91808d744ba0ce01746f93b6204501",
           "id" : "6881f631-3bd5-4213-9c75-8e05cc3e35dd",
           "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
-        }`) # PasswordSyncGroup | 
+        }''' # PasswordSyncGroup | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.PasswordSyncGroupsAPI.CreatePasswordSyncGroup(context.Background()).PasswordSyncGroup(passwordSyncGroup).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PasswordSyncGroupsAPI.CreatePasswordSyncGroup``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreatePasswordSyncGroup`: PasswordSyncGroup
-	fmt.Fprintf(os.Stdout, "Response from `PasswordSyncGroupsAPI.CreatePasswordSyncGroup`: %v\n", resp)
-}
+    try:
+        # Create Password Sync Group
+        new_password_sync_group = PasswordSyncGroup.from_json(password_sync_group)
+        results = PasswordSyncGroupsApi(api_client).create_password_sync_group(password_sync_group=new_password_sync_group)
+        # Below is a request that includes all optional parameters
+        # results = PasswordSyncGroupsApi(api_client).create_password_sync_group(new_password_sync_group)
+        print("The response of PasswordSyncGroupsApi->create_password_sync_group:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling PasswordSyncGroupsApi->create_password_sync_group: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## delete-password-sync-group
 Delete Password Sync Group by ID
@@ -125,59 +125,54 @@ This API deletes the specified password sync group.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-password-sync-group)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The ID of password sync group to delete. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeletePasswordSyncGroupRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The ID of password sync group to delete.
 
 ### Return type
-
  (empty response body)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.password_sync_groups_api import PasswordSyncGroupsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := 6881f631-3bd5-4213-9c75-8e05cc3e35dd # string | The ID of password sync group to delete. # string | The ID of password sync group to delete.
+with ApiClient(configuration) as api_client:
+    id = '6881f631-3bd5-4213-9c75-8e05cc3e35dd' # str | The ID of password sync group to delete. # str | The ID of password sync group to delete.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V3.PasswordSyncGroupsAPI.DeletePasswordSyncGroup(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PasswordSyncGroupsAPI.DeletePasswordSyncGroup``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
+    try:
+        # Delete Password Sync Group by ID
+        
+        PasswordSyncGroupsApi(api_client).delete_password_sync_group(id=id)
+        # Below is a request that includes all optional parameters
+        # PasswordSyncGroupsApi(api_client).delete_password_sync_group(id)
+    except Exception as e:
+        print("Exception when calling PasswordSyncGroupsApi->delete_password_sync_group: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-password-sync-group
 Get Password Sync Group by ID
@@ -185,61 +180,58 @@ This API returns the sync group for the specified ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-password-sync-group)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The ID of password sync group to retrieve. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetPasswordSyncGroupRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The ID of password sync group to retrieve.
 
 ### Return type
-
 [**PasswordSyncGroup**](../models/password-sync-group)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Reference to the password sync group. | PasswordSyncGroup |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.password_sync_groups_api import PasswordSyncGroupsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.password_sync_group import PasswordSyncGroup
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := 6881f631-3bd5-4213-9c75-8e05cc3e35dd # string | The ID of password sync group to retrieve. # string | The ID of password sync group to retrieve.
+with ApiClient(configuration) as api_client:
+    id = '6881f631-3bd5-4213-9c75-8e05cc3e35dd' # str | The ID of password sync group to retrieve. # str | The ID of password sync group to retrieve.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.PasswordSyncGroupsAPI.GetPasswordSyncGroup(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PasswordSyncGroupsAPI.GetPasswordSyncGroup``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetPasswordSyncGroup`: PasswordSyncGroup
-	fmt.Fprintf(os.Stdout, "Response from `PasswordSyncGroupsAPI.GetPasswordSyncGroup`: %v\n", resp)
-}
+    try:
+        # Get Password Sync Group by ID
+        
+        results = PasswordSyncGroupsApi(api_client).get_password_sync_group(id=id)
+        # Below is a request that includes all optional parameters
+        # results = PasswordSyncGroupsApi(api_client).get_password_sync_group(id)
+        print("The response of PasswordSyncGroupsApi->get_password_sync_group:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling PasswordSyncGroupsApi->get_password_sync_group: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-password-sync-groups
 Get Password Sync Group List
@@ -247,61 +239,61 @@ This API returns a list of password sync groups.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-password-sync-groups)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetPasswordSyncGroupsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
- **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
- **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
+[**List[PasswordSyncGroup]**](../models/password-sync-group)
 
-[**[]PasswordSyncGroup**](../models/password-sync-group)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | A list of password sync groups. | List[PasswordSyncGroup] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.password_sync_groups_api import PasswordSyncGroupsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.password_sync_group import PasswordSyncGroup
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+with ApiClient(configuration) as api_client:
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.PasswordSyncGroupsAPI.GetPasswordSyncGroups(context.Background()).Limit(limit).Offset(offset).Count(count).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PasswordSyncGroupsAPI.GetPasswordSyncGroups``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetPasswordSyncGroups`: []PasswordSyncGroup
-	fmt.Fprintf(os.Stdout, "Response from `PasswordSyncGroupsAPI.GetPasswordSyncGroups`: %v\n", resp)
-}
+    try:
+        # Get Password Sync Group List
+        
+        results = PasswordSyncGroupsApi(api_client).get_password_sync_groups()
+        # Below is a request that includes all optional parameters
+        # results = PasswordSyncGroupsApi(api_client).get_password_sync_groups(limit, offset, count)
+        print("The response of PasswordSyncGroupsApi->get_password_sync_groups:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling PasswordSyncGroupsApi->get_password_sync_groups: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## update-password-sync-group
 Update Password Sync Group by ID
@@ -309,68 +301,67 @@ This API updates the specified password sync group.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/update-password-sync-group)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The ID of password sync group to update. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiUpdatePasswordSyncGroupRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **passwordSyncGroup** | [**PasswordSyncGroup**](../models/password-sync-group) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The ID of password sync group to update.
+ Body  | password_sync_group | [**PasswordSyncGroup**](../models/password-sync-group) | True  | 
 
 ### Return type
-
 [**PasswordSyncGroup**](../models/password-sync-group)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Reference to the password sync group. | PasswordSyncGroup |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.password_sync_groups_api import PasswordSyncGroupsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.password_sync_group import PasswordSyncGroup
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := 6881f631-3bd5-4213-9c75-8e05cc3e35dd # string | The ID of password sync group to update. # string | The ID of password sync group to update.
-    passwordSyncGroup := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    id = '6881f631-3bd5-4213-9c75-8e05cc3e35dd' # str | The ID of password sync group to update. # str | The ID of password sync group to update.
+    password_sync_group = '''{
           "created" : "2023-03-16T04:00:00Z",
           "name" : "Password Sync Group 1",
           "modified" : "2023-03-16T04:00:00Z",
           "passwordPolicyId" : "2c91808d744ba0ce01746f93b6204501",
           "id" : "6881f631-3bd5-4213-9c75-8e05cc3e35dd",
           "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
-        }`) # PasswordSyncGroup | 
+        }''' # PasswordSyncGroup | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.PasswordSyncGroupsAPI.UpdatePasswordSyncGroup(context.Background(), id).PasswordSyncGroup(passwordSyncGroup).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PasswordSyncGroupsAPI.UpdatePasswordSyncGroup``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `UpdatePasswordSyncGroup`: PasswordSyncGroup
-	fmt.Fprintf(os.Stdout, "Response from `PasswordSyncGroupsAPI.UpdatePasswordSyncGroup`: %v\n", resp)
-}
+    try:
+        # Update Password Sync Group by ID
+        new_password_sync_group = PasswordSyncGroup.from_json(password_sync_group)
+        results = PasswordSyncGroupsApi(api_client).update_password_sync_group(id=id, password_sync_group=new_password_sync_group)
+        # Below is a request that includes all optional parameters
+        # results = PasswordSyncGroupsApi(api_client).update_password_sync_group(id, new_password_sync_group)
+        print("The response of PasswordSyncGroupsApi->update_password_sync_group:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling PasswordSyncGroupsApi->update_password_sync_group: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
+
+
 

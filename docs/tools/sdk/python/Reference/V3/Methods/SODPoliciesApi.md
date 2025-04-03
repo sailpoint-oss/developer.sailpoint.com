@@ -1,15 +1,15 @@
 ---
 id: sod-policies
-title: SODPolicies
-pagination_label: SODPolicies
-sidebar_label: SODPolicies
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SODPolicies', 'SODPolicies'] 
-slug: /tools/sdk/go/v3/methods/sod-policies
-tags: ['SDK', 'Software Development Kit', 'SODPolicies', 'SODPolicies']
+title: SOD_Policies
+pagination_label: SOD_Policies
+sidebar_label: SOD_Policies
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'SOD_Policies', 'SOD_Policies'] 
+slug: /tools/sdk/python/v3/methods/sod-policies
+tags: ['SDK', 'Software Development Kit', 'SOD_Policies', 'SOD_Policies']
 ---
 
-# SODPoliciesAPI
+# sailpoint.v3.SODPoliciesApi
   Use this API to implement and manage &quot;separation of duties&quot; (SOD) policies. 
 With SOD policy functionality in place, administrators can organize the access in their tenants to prevent individuals from gaining conflicting or excessive access. 
 
@@ -41,23 +41,23 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-sod-policy**](#create-sod-policy) | **Post** `/sod-policies` | Create SOD policy
-[**delete-sod-policy**](#delete-sod-policy) | **Delete** `/sod-policies/{id}` | Delete SOD policy by ID
-[**delete-sod-policy-schedule**](#delete-sod-policy-schedule) | **Delete** `/sod-policies/{id}/schedule` | Delete SOD policy schedule
-[**get-custom-violation-report**](#get-custom-violation-report) | **Get** `/sod-violation-report/{reportResultId}/download/{fileName}` | Download custom violation report
-[**get-default-violation-report**](#get-default-violation-report) | **Get** `/sod-violation-report/{reportResultId}/download` | Download violation report
-[**get-sod-all-report-run-status**](#get-sod-all-report-run-status) | **Get** `/sod-violation-report` | Get multi-report run task status
-[**get-sod-policy**](#get-sod-policy) | **Get** `/sod-policies/{id}` | Get SOD policy by ID
-[**get-sod-policy-schedule**](#get-sod-policy-schedule) | **Get** `/sod-policies/{id}/schedule` | Get SOD policy schedule
-[**get-sod-violation-report-run-status**](#get-sod-violation-report-run-status) | **Get** `/sod-policies/sod-violation-report-status/{reportResultId}` | Get violation report run status
-[**get-sod-violation-report-status**](#get-sod-violation-report-status) | **Get** `/sod-policies/{id}/violation-report` | Get SOD violation report status
-[**list-sod-policies**](#list-sod-policies) | **Get** `/sod-policies` | List SOD policies
-[**patch-sod-policy**](#patch-sod-policy) | **Patch** `/sod-policies/{id}` | Patch SOD policy by ID
-[**put-policy-schedule**](#put-policy-schedule) | **Put** `/sod-policies/{id}/schedule` | Update SOD Policy schedule
-[**put-sod-policy**](#put-sod-policy) | **Put** `/sod-policies/{id}` | Update SOD policy by ID
-[**start-evaluate-sod-policy**](#start-evaluate-sod-policy) | **Post** `/sod-policies/{id}/evaluate` | Evaluate one policy by ID
-[**start-sod-all-policies-for-org**](#start-sod-all-policies-for-org) | **Post** `/sod-violation-report/run` | Runs all policies for org
-[**start-sod-policy**](#start-sod-policy) | **Post** `/sod-policies/{id}/violation-report/run` | Runs SOD policy violation report
+[**create-sod-policy**](#create-sod-policy) | **POST** `/sod-policies` | Create SOD policy
+[**delete-sod-policy**](#delete-sod-policy) | **DELETE** `/sod-policies/{id}` | Delete SOD policy by ID
+[**delete-sod-policy-schedule**](#delete-sod-policy-schedule) | **DELETE** `/sod-policies/{id}/schedule` | Delete SOD policy schedule
+[**get-custom-violation-report**](#get-custom-violation-report) | **GET** `/sod-violation-report/{reportResultId}/download/{fileName}` | Download custom violation report
+[**get-default-violation-report**](#get-default-violation-report) | **GET** `/sod-violation-report/{reportResultId}/download` | Download violation report
+[**get-sod-all-report-run-status**](#get-sod-all-report-run-status) | **GET** `/sod-violation-report` | Get multi-report run task status
+[**get-sod-policy**](#get-sod-policy) | **GET** `/sod-policies/{id}` | Get SOD policy by ID
+[**get-sod-policy-schedule**](#get-sod-policy-schedule) | **GET** `/sod-policies/{id}/schedule` | Get SOD policy schedule
+[**get-sod-violation-report-run-status**](#get-sod-violation-report-run-status) | **GET** `/sod-policies/sod-violation-report-status/{reportResultId}` | Get violation report run status
+[**get-sod-violation-report-status**](#get-sod-violation-report-status) | **GET** `/sod-policies/{id}/violation-report` | Get SOD violation report status
+[**list-sod-policies**](#list-sod-policies) | **GET** `/sod-policies` | List SOD policies
+[**patch-sod-policy**](#patch-sod-policy) | **PATCH** `/sod-policies/{id}` | Patch SOD policy by ID
+[**put-policy-schedule**](#put-policy-schedule) | **PUT** `/sod-policies/{id}/schedule` | Update SOD Policy schedule
+[**put-sod-policy**](#put-sod-policy) | **PUT** `/sod-policies/{id}` | Update SOD policy by ID
+[**start-evaluate-sod-policy**](#start-evaluate-sod-policy) | **POST** `/sod-policies/{id}/evaluate` | Evaluate one policy by ID
+[**start-sod-all-policies-for-org**](#start-sod-all-policies-for-org) | **POST** `/sod-violation-report/run` | Runs all policies for org
+[**start-sod-policy**](#start-sod-policy) | **POST** `/sod-policies/{id}/violation-report/run` | Runs SOD policy violation report
 
 
 ## create-sod-policy
@@ -67,43 +67,41 @@ Requires role of ORG_ADMIN.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-sod-policy)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateSodPolicyRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **sodPolicy** | [**SodPolicy**](../models/sod-policy) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | sod_policy | [**SodPolicy**](../models/sod-policy) | True  | 
 
 ### Return type
-
 [**SodPolicy**](../models/sod-policy)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+201 | SOD policy created | SodPolicy |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.sod_policy import SodPolicy
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    sodPolicy := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    sod_policy = '''{
           "conflictingAccessCriteria" : {
             "leftCriteria" : {
               "name" : "money-in",
@@ -158,21 +156,23 @@ func main() {
           "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
           "state" : "ENFORCED",
           "externalPolicyReference" : "XYZ policy"
-        }`) # SodPolicy | 
+        }''' # SodPolicy | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.SODPoliciesAPI.CreateSodPolicy(context.Background()).SodPolicy(sodPolicy).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.CreateSodPolicy``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateSodPolicy`: SodPolicy
-	fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.CreateSodPolicy`: %v\n", resp)
-}
+    try:
+        # Create SOD policy
+        new_sod_policy = SodPolicy.from_json(sod_policy)
+        results = SODPoliciesApi(api_client).create_sod_policy(sod_policy=new_sod_policy)
+        # Below is a request that includes all optional parameters
+        # results = SODPoliciesApi(api_client).create_sod_policy(new_sod_policy)
+        print("The response of SODPoliciesApi->create_sod_policy:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling SODPoliciesApi->create_sod_policy: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## delete-sod-policy
 Delete SOD policy by ID
@@ -181,61 +181,57 @@ Requires role of ORG_ADMIN.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-sod-policy)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The ID of the SOD Policy to delete. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteSodPolicyRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **logical** | **bool** | Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call. | [default to true]
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The ID of the SOD Policy to delete.
+  Query | logical | **bool** |   (optional) (default to True) | Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call.
 
 ### Return type
-
  (empty response body)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+204 | No content. |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := ef38f943-47e9-4562-b5bb-8424a56397d8 # string | The ID of the SOD Policy to delete. # string | The ID of the SOD Policy to delete.
-    logical := true # bool | Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call. (optional) (default to true) # bool | Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call. (optional) (default to true)
+with ApiClient(configuration) as api_client:
+    id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the SOD Policy to delete. # str | The ID of the SOD Policy to delete.
+    logical = True # bool | Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call. (optional) (default to True) # bool | Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call. (optional) (default to True)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V3.SODPoliciesAPI.DeleteSodPolicy(context.Background(), id).Logical(logical).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.DeleteSodPolicy``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
+    try:
+        # Delete SOD policy by ID
+        
+        SODPoliciesApi(api_client).delete_sod_policy(id=id)
+        # Below is a request that includes all optional parameters
+        # SODPoliciesApi(api_client).delete_sod_policy(id, logical)
+    except Exception as e:
+        print("Exception when calling SODPoliciesApi->delete_sod_policy: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## delete-sod-policy-schedule
 Delete SOD policy schedule
@@ -243,59 +239,55 @@ This deletes schedule for a specified SOD policy by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-sod-policy-schedule)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The ID of the SOD policy the schedule must be deleted for. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteSodPolicyScheduleRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The ID of the SOD policy the schedule must be deleted for.
 
 ### Return type
-
  (empty response body)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+204 | No content response. |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := ef38f943-47e9-4562-b5bb-8424a56397d8 # string | The ID of the SOD policy the schedule must be deleted for. # string | The ID of the SOD policy the schedule must be deleted for.
+with ApiClient(configuration) as api_client:
+    id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the SOD policy the schedule must be deleted for. # str | The ID of the SOD policy the schedule must be deleted for.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V3.SODPoliciesAPI.DeleteSodPolicySchedule(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.DeleteSodPolicySchedule``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
+    try:
+        # Delete SOD policy schedule
+        
+        SODPoliciesApi(api_client).delete_sod_policy_schedule(id=id)
+        # Below is a request that includes all optional parameters
+        # SODPoliciesApi(api_client).delete_sod_policy_schedule(id)
+    except Exception as e:
+        print("Exception when calling SODPoliciesApi->delete_sod_policy_schedule: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-custom-violation-report
 Download custom violation report
@@ -303,64 +295,59 @@ This allows to download a specified named violation report for a given report re
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-custom-violation-report)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**reportResultId** | **string** | The ID of the report reference to download. | 
-**fileName** | **string** | Custom Name for the  file. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetCustomViolationReportRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | report_result_id | **str** | True  | The ID of the report reference to download.
+Path   | file_name | **str** | True  | Custom Name for the  file.
 
 ### Return type
+**bytearray**
 
-[***os.File**](https://pkg.go.dev/os)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Returns the zip file with given custom name that contains the violation report file. | bytearray |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/zip, application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/zip, application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    reportResultId := ef38f94347e94562b5bb8424a56397d8 # string | The ID of the report reference to download. # string | The ID of the report reference to download.
-    fileName := custom-name # string | Custom Name for the  file. # string | Custom Name for the  file.
+with ApiClient(configuration) as api_client:
+    report_result_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the report reference to download. # str | The ID of the report reference to download.
+    file_name = 'custom-name' # str | Custom Name for the  file. # str | Custom Name for the  file.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.SODPoliciesAPI.GetCustomViolationReport(context.Background(), reportResultId, fileName).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.GetCustomViolationReport``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetCustomViolationReport`: *os.File
-	fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.GetCustomViolationReport`: %v\n", resp)
-}
+    try:
+        # Download custom violation report
+        
+        results = SODPoliciesApi(api_client).get_custom_violation_report(report_result_id=report_result_id, file_name=file_name)
+        # Below is a request that includes all optional parameters
+        # results = SODPoliciesApi(api_client).get_custom_violation_report(report_result_id, file_name)
+        print("The response of SODPoliciesApi->get_custom_violation_report:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling SODPoliciesApi->get_custom_violation_report: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-default-violation-report
 Download violation report
@@ -368,61 +355,57 @@ This allows to download a violation report for a given report reference.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-default-violation-report)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**reportResultId** | **string** | The ID of the report reference to download. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetDefaultViolationReportRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | report_result_id | **str** | True  | The ID of the report reference to download.
 
 ### Return type
+**bytearray**
 
-[***os.File**](https://pkg.go.dev/os)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Returns the PolicyReport.zip that contains the violation report file. | bytearray |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/zip, application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/zip, application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    reportResultId := ef38f94347e94562b5bb8424a56397d8 # string | The ID of the report reference to download. # string | The ID of the report reference to download.
+with ApiClient(configuration) as api_client:
+    report_result_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the report reference to download. # str | The ID of the report reference to download.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.SODPoliciesAPI.GetDefaultViolationReport(context.Background(), reportResultId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.GetDefaultViolationReport``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetDefaultViolationReport`: *os.File
-	fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.GetDefaultViolationReport`: %v\n", resp)
-}
+    try:
+        # Download violation report
+        
+        results = SODPoliciesApi(api_client).get_default_violation_report(report_result_id=report_result_id)
+        # Below is a request that includes all optional parameters
+        # results = SODPoliciesApi(api_client).get_default_violation_report(report_result_id)
+        print("The response of SODPoliciesApi->get_default_violation_report:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling SODPoliciesApi->get_default_violation_report: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-sod-all-report-run-status
 Get multi-report run task status
@@ -430,52 +413,53 @@ This endpoint gets the status for a violation report for all policy run.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-sod-all-report-run-status)
 
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetSodAllReportRunStatusRequest struct via the builder pattern
-
+### Parameters 
+This endpoint does not need any parameter. 
 
 ### Return type
-
 [**ReportResultReference**](../models/report-result-reference)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Status of the violation report run task for all policy run. | ReportResultReference |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.report_result_reference import ReportResultReference
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
+with ApiClient(configuration) as api_client:
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.SODPoliciesAPI.GetSodAllReportRunStatus(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.GetSodAllReportRunStatus``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetSodAllReportRunStatus`: ReportResultReference
-	fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.GetSodAllReportRunStatus`: %v\n", resp)
-}
+    try:
+        # Get multi-report run task status
+        
+        results = SODPoliciesApi(api_client).get_sod_all_report_run_status()
+        # Below is a request that includes all optional parameters
+        # results = SODPoliciesApi(api_client).get_sod_all_report_run_status()
+        print("The response of SODPoliciesApi->get_sod_all_report_run_status:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling SODPoliciesApi->get_sod_all_report_run_status: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-sod-policy
 Get SOD policy by ID
@@ -484,61 +468,58 @@ Requires role of ORG_ADMIN.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-sod-policy)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The ID of the SOD Policy to retrieve. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetSodPolicyRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The ID of the SOD Policy to retrieve.
 
 ### Return type
-
 [**SodPolicy**](../models/sod-policy)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | SOD policy ID. | SodPolicy |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.sod_policy import SodPolicy
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := ef38f943-47e9-4562-b5bb-8424a56397d8 # string | The ID of the SOD Policy to retrieve. # string | The ID of the SOD Policy to retrieve.
+with ApiClient(configuration) as api_client:
+    id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the SOD Policy to retrieve. # str | The ID of the SOD Policy to retrieve.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.SODPoliciesAPI.GetSodPolicy(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.GetSodPolicy``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetSodPolicy`: SodPolicy
-	fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.GetSodPolicy`: %v\n", resp)
-}
+    try:
+        # Get SOD policy by ID
+        
+        results = SODPoliciesApi(api_client).get_sod_policy(id=id)
+        # Below is a request that includes all optional parameters
+        # results = SODPoliciesApi(api_client).get_sod_policy(id)
+        print("The response of SODPoliciesApi->get_sod_policy:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling SODPoliciesApi->get_sod_policy: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-sod-policy-schedule
 Get SOD policy schedule
@@ -546,61 +527,57 @@ This endpoint gets a specified SOD policy's schedule.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-sod-policy-schedule)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The ID of the SOD policy schedule to retrieve. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetSodPolicyScheduleRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The ID of the SOD policy schedule to retrieve.
 
 ### Return type
-
 [**SodPolicySchedule**](../models/sod-policy-schedule)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | SOD policy schedule. | SodPolicySchedule |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.sod_policy_schedule import SodPolicySchedule
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := ef38f943-47e9-4562-b5bb-8424a56397d8 # string | The ID of the SOD policy schedule to retrieve. # string | The ID of the SOD policy schedule to retrieve.
+with ApiClient(configuration) as api_client:
+    id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the SOD policy schedule to retrieve. # str | The ID of the SOD policy schedule to retrieve.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.SODPoliciesAPI.GetSodPolicySchedule(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.GetSodPolicySchedule``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetSodPolicySchedule`: SodPolicySchedule
-	fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.GetSodPolicySchedule`: %v\n", resp)
-}
+    try:
+        # Get SOD policy schedule
+        
+        results = SODPoliciesApi(api_client).get_sod_policy_schedule(id=id)
+        # Below is a request that includes all optional parameters
+        # results = SODPoliciesApi(api_client).get_sod_policy_schedule(id)
+        print("The response of SODPoliciesApi->get_sod_policy_schedule:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling SODPoliciesApi->get_sod_policy_schedule: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-sod-violation-report-run-status
 Get violation report run status
@@ -608,61 +585,58 @@ This gets the status for a violation report run task that has already been invok
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-sod-violation-report-run-status)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**reportResultId** | **string** | The ID of the report reference to retrieve. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetSodViolationReportRunStatusRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | report_result_id | **str** | True  | The ID of the report reference to retrieve.
 
 ### Return type
-
 [**ReportResultReference**](../models/report-result-reference)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Status of the violation report run task. | ReportResultReference |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.report_result_reference import ReportResultReference
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    reportResultId := 2e8d8180-24bc-4d21-91c6-7affdb473b0d # string | The ID of the report reference to retrieve. # string | The ID of the report reference to retrieve.
+with ApiClient(configuration) as api_client:
+    report_result_id = '2e8d8180-24bc-4d21-91c6-7affdb473b0d' # str | The ID of the report reference to retrieve. # str | The ID of the report reference to retrieve.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.SODPoliciesAPI.GetSodViolationReportRunStatus(context.Background(), reportResultId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.GetSodViolationReportRunStatus``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetSodViolationReportRunStatus`: ReportResultReference
-	fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.GetSodViolationReportRunStatus`: %v\n", resp)
-}
+    try:
+        # Get violation report run status
+        
+        results = SODPoliciesApi(api_client).get_sod_violation_report_run_status(report_result_id=report_result_id)
+        # Below is a request that includes all optional parameters
+        # results = SODPoliciesApi(api_client).get_sod_violation_report_run_status(report_result_id)
+        print("The response of SODPoliciesApi->get_sod_violation_report_run_status:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling SODPoliciesApi->get_sod_violation_report_run_status: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-sod-violation-report-status
 Get SOD violation report status
@@ -670,61 +644,58 @@ This gets the status for a violation report run task that has already been invok
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-sod-violation-report-status)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The ID of the violation report to retrieve status for. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetSodViolationReportStatusRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The ID of the violation report to retrieve status for.
 
 ### Return type
-
 [**ReportResultReference**](../models/report-result-reference)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Status of the violation report run task. | ReportResultReference |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.report_result_reference import ReportResultReference
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := ef38f943-47e9-4562-b5bb-8424a56397d8 # string | The ID of the violation report to retrieve status for. # string | The ID of the violation report to retrieve status for.
+with ApiClient(configuration) as api_client:
+    id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the violation report to retrieve status for. # str | The ID of the violation report to retrieve status for.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.SODPoliciesAPI.GetSodViolationReportStatus(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.GetSodViolationReportStatus``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetSodViolationReportStatus`: ReportResultReference
-	fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.GetSodViolationReportStatus`: %v\n", resp)
-}
+    try:
+        # Get SOD violation report status
+        
+        results = SODPoliciesApi(api_client).get_sod_violation_report_status(id=id)
+        # Below is a request that includes all optional parameters
+        # results = SODPoliciesApi(api_client).get_sod_violation_report_status(id)
+        print("The response of SODPoliciesApi->get_sod_violation_report_status:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling SODPoliciesApi->get_sod_violation_report_status: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## list-sod-policies
 List SOD policies
@@ -733,65 +704,65 @@ Requires role of ORG_ADMIN
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-sod-policies)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListSodPoliciesRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
- **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
- **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
- **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in* | 
- **sorters** | **string** | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description** | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in*
+  Query | sorters | **str** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description**
 
 ### Return type
+[**List[SodPolicy]**](../models/sod-policy)
 
-[**[]SodPolicy**](../models/sod-policy)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of all SOD policies. | List[SodPolicy] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.sod_policy import SodPolicy
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-    filters := id eq "bc693f07e7b645539626c25954c58554" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in* (optional)
-    sorters := id,name # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description** (optional)
+with ApiClient(configuration) as api_client:
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
+    filters = 'id eq \"bc693f07e7b645539626c25954c58554\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in* (optional)
+    sorters = 'id,name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description** (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.SODPoliciesAPI.ListSodPolicies(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.ListSodPolicies``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListSodPolicies`: []SodPolicy
-	fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.ListSodPolicies`: %v\n", resp)
-}
+    try:
+        # List SOD policies
+        
+        results = SODPoliciesApi(api_client).list_sod_policies()
+        # Below is a request that includes all optional parameters
+        # results = SODPoliciesApi(api_client).list_sod_policies(limit, offset, count, filters, sorters)
+        print("The response of SODPoliciesApi->list_sod_policies:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling SODPoliciesApi->list_sod_policies: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## patch-sod-policy
 Patch SOD policy by ID
@@ -801,63 +772,61 @@ This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/patch-sod-policy)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The ID of the SOD policy being modified. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPatchSodPolicyRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **jsonPatchOperation** | [**[]JsonPatchOperation**](../models/json-patch-operation) | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The ID of the SOD policy being modified.
+ Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
 
 ### Return type
-
 [**SodPolicy**](../models/sod-policy)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Indicates the PATCH operation succeeded, and returns the SOD policy&#39;s new representation. | SodPolicy |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json-patch+json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json-patch+json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
+from sailpoint.v3.models.sod_policy import SodPolicy
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := 2c918083-5d19-1a86-015d-28455b4a2329 # string | The ID of the SOD policy being modified. # string | The ID of the SOD policy being modified.
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/description, value=Modified description}, {op=replace, path=/conflictingAccessCriteria/leftCriteria/name, value=money-in-modified}, {op=replace, path=/conflictingAccessCriteria/rightCriteria, value={name=money-out-modified, criteriaList=[{type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2}]}}]`) # []JsonPatchOperation | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
+with ApiClient(configuration) as api_client:
+    id = '2c918083-5d19-1a86-015d-28455b4a2329' # str | The ID of the SOD policy being modified. # str | The ID of the SOD policy being modified.
+    json_patch_operation = '''[{op=replace, path=/description, value=Modified description}, {op=replace, path=/conflictingAccessCriteria/leftCriteria/name, value=money-in-modified}, {op=replace, path=/conflictingAccessCriteria/rightCriteria, value={name=money-out-modified, criteriaList=[{type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2}]}}]''' # List[JsonPatchOperation] | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.SODPoliciesAPI.PatchSodPolicy(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.PatchSodPolicy``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PatchSodPolicy`: SodPolicy
-	fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.PatchSodPolicy`: %v\n", resp)
-}
+    try:
+        # Patch SOD policy by ID
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = SODPoliciesApi(api_client).patch_sod_policy(id=id, json_patch_operation=new_json_patch_operation)
+        # Below is a request that includes all optional parameters
+        # results = SODPoliciesApi(api_client).patch_sod_policy(id, new_json_patch_operation)
+        print("The response of SODPoliciesApi->patch_sod_policy:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling SODPoliciesApi->patch_sod_policy: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## put-policy-schedule
 Update SOD Policy schedule
@@ -865,49 +834,43 @@ This updates schedule for a specified SOD policy.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/put-policy-schedule)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The ID of the SOD policy to update its schedule. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPutPolicyScheduleRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **sodPolicySchedule** | [**SodPolicySchedule**](../models/sod-policy-schedule) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The ID of the SOD policy to update its schedule.
+ Body  | sod_policy_schedule | [**SodPolicySchedule**](../models/sod-policy-schedule) | True  | 
 
 ### Return type
-
 [**SodPolicySchedule**](../models/sod-policy-schedule)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Created or updated SOD policy schedule. | SodPolicySchedule |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.sod_policy_schedule import SodPolicySchedule
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := ef38f943-47e9-4562-b5bb-8424a56397d8 # string | The ID of the SOD policy to update its schedule. # string | The ID of the SOD policy to update its schedule.
-    sodPolicySchedule := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the SOD policy to update its schedule. # str | The ID of the SOD policy to update its schedule.
+    sod_policy_schedule = '''{
           "schedule" : {
             "hours" : {
               "values" : [ "MON", "WED" ],
@@ -944,21 +907,23 @@ func main() {
           "modified" : "2020-01-01T00:00:00Z",
           "description" : "Schedule for policy xyz",
           "emailEmptyResults" : false
-        }`) # SodPolicySchedule | 
+        }''' # SodPolicySchedule | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.SODPoliciesAPI.PutPolicySchedule(context.Background(), id).SodPolicySchedule(sodPolicySchedule).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.PutPolicySchedule``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PutPolicySchedule`: SodPolicySchedule
-	fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.PutPolicySchedule`: %v\n", resp)
-}
+    try:
+        # Update SOD Policy schedule
+        new_sod_policy_schedule = SodPolicySchedule.from_json(sod_policy_schedule)
+        results = SODPoliciesApi(api_client).put_policy_schedule(id=id, sod_policy_schedule=new_sod_policy_schedule)
+        # Below is a request that includes all optional parameters
+        # results = SODPoliciesApi(api_client).put_policy_schedule(id, new_sod_policy_schedule)
+        print("The response of SODPoliciesApi->put_policy_schedule:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling SODPoliciesApi->put_policy_schedule: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## put-sod-policy
 Update SOD policy by ID
@@ -967,49 +932,44 @@ Requires role of ORG_ADMIN.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/put-sod-policy)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The ID of the SOD policy to update. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPutSodPolicyRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **sodPolicy** | [**SodPolicy**](../models/sod-policy) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The ID of the SOD policy to update.
+ Body  | sod_policy | [**SodPolicy**](../models/sod-policy) | True  | 
 
 ### Return type
-
 [**SodPolicy**](../models/sod-policy)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | SOD Policy by ID | SodPolicy |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.sod_policy import SodPolicy
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := ef38f943-47e9-4562-b5bb-8424a56397d8 # string | The ID of the SOD policy to update. # string | The ID of the SOD policy to update.
-    sodPolicy := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the SOD policy to update. # str | The ID of the SOD policy to update.
+    sod_policy = '''{
           "conflictingAccessCriteria" : {
             "leftCriteria" : {
               "name" : "money-in",
@@ -1064,21 +1024,23 @@ func main() {
           "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
           "state" : "ENFORCED",
           "externalPolicyReference" : "XYZ policy"
-        }`) # SodPolicy | 
+        }''' # SodPolicy | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.SODPoliciesAPI.PutSodPolicy(context.Background(), id).SodPolicy(sodPolicy).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.PutSodPolicy``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PutSodPolicy`: SodPolicy
-	fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.PutSodPolicy`: %v\n", resp)
-}
+    try:
+        # Update SOD policy by ID
+        new_sod_policy = SodPolicy.from_json(sod_policy)
+        results = SODPoliciesApi(api_client).put_sod_policy(id=id, sod_policy=new_sod_policy)
+        # Below is a request that includes all optional parameters
+        # results = SODPoliciesApi(api_client).put_sod_policy(id, new_sod_policy)
+        print("The response of SODPoliciesApi->put_sod_policy:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling SODPoliciesApi->put_sod_policy: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## start-evaluate-sod-policy
 Evaluate one policy by ID
@@ -1086,61 +1048,57 @@ Runs the scheduled report for the policy retrieved by passed policy ID.  The rep
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/start-evaluate-sod-policy)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The SOD policy ID to run. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiStartEvaluateSodPolicyRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The SOD policy ID to run.
 
 ### Return type
-
 [**ReportResultReference**](../models/report-result-reference)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Reference to the violation report run task. | ReportResultReference |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.report_result_reference import ReportResultReference
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := ef38f943-47e9-4562-b5bb-8424a56397d8 # string | The SOD policy ID to run. # string | The SOD policy ID to run.
+with ApiClient(configuration) as api_client:
+    id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The SOD policy ID to run. # str | The SOD policy ID to run.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.SODPoliciesAPI.StartEvaluateSodPolicy(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.StartEvaluateSodPolicy``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `StartEvaluateSodPolicy`: ReportResultReference
-	fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.StartEvaluateSodPolicy`: %v\n", resp)
-}
+    try:
+        # Evaluate one policy by ID
+        
+        results = SODPoliciesApi(api_client).start_evaluate_sod_policy(id=id)
+        # Below is a request that includes all optional parameters
+        # results = SODPoliciesApi(api_client).start_evaluate_sod_policy(id)
+        print("The response of SODPoliciesApi->start_evaluate_sod_policy:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling SODPoliciesApi->start_evaluate_sod_policy: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## start-sod-all-policies-for-org
 Runs all policies for org
@@ -1148,59 +1106,60 @@ Runs multi-policy report for the org. If a policy reports more than 5000 violati
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/start-sod-all-policies-for-org)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiStartSodAllPoliciesForOrgRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **multiPolicyRequest** | [**MultiPolicyRequest**](../models/multi-policy-request) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | multi_policy_request | [**MultiPolicyRequest**](../models/multi-policy-request) |   (optional) | 
 
 ### Return type
-
 [**ReportResultReference**](../models/report-result-reference)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Reference to the violation report run task. | ReportResultReference |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.multi_policy_request import MultiPolicyRequest
+from sailpoint.v3.models.report_result_reference import ReportResultReference
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    multiPolicyRequest := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    multi_policy_request = '''{
           "filteredPolicyList" : [ "[b868cd40-ffa4-4337-9c07-1a51846cfa94, 63a07a7b-39a4-48aa-956d-50c827deba2a]", "[b868cd40-ffa4-4337-9c07-1a51846cfa94, 63a07a7b-39a4-48aa-956d-50c827deba2a]" ]
-        }`) # MultiPolicyRequest |  (optional)
+        }''' # MultiPolicyRequest |  (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.SODPoliciesAPI.StartSodAllPoliciesForOrg(context.Background()).MultiPolicyRequest(multiPolicyRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.StartSodAllPoliciesForOrg``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `StartSodAllPoliciesForOrg`: ReportResultReference
-	fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.StartSodAllPoliciesForOrg`: %v\n", resp)
-}
+    try:
+        # Runs all policies for org
+        
+        results = SODPoliciesApi(api_client).start_sod_all_policies_for_org()
+        # Below is a request that includes all optional parameters
+        # results = SODPoliciesApi(api_client).start_sod_all_policies_for_org(new_multi_policy_request)
+        print("The response of SODPoliciesApi->start_sod_all_policies_for_org:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling SODPoliciesApi->start_sod_all_policies_for_org: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## start-sod-policy
 Runs SOD policy violation report
@@ -1208,59 +1167,58 @@ This invokes processing of violation report for given SOD policy. If the policy 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/start-sod-policy)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The SOD policy ID to run. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiStartSodPolicyRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The SOD policy ID to run.
 
 ### Return type
-
 [**ReportResultReference**](../models/report-result-reference)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Reference to the violation report run task. | ReportResultReference |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.report_result_reference import ReportResultReference
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := ef38f943-47e9-4562-b5bb-8424a56397d8 # string | The SOD policy ID to run. # string | The SOD policy ID to run.
+with ApiClient(configuration) as api_client:
+    id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The SOD policy ID to run. # str | The SOD policy ID to run.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.SODPoliciesAPI.StartSodPolicy(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.StartSodPolicy``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `StartSodPolicy`: ReportResultReference
-	fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.StartSodPolicy`: %v\n", resp)
-}
+    try:
+        # Runs SOD policy violation report
+        
+        results = SODPoliciesApi(api_client).start_sod_policy(id=id)
+        # Below is a request that includes all optional parameters
+        # results = SODPoliciesApi(api_client).start_sod_policy(id)
+        print("The response of SODPoliciesApi->start_sod_policy:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling SODPoliciesApi->start_sod_policy: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
+
+
 

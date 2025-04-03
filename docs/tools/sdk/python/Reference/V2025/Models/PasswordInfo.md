@@ -3,192 +3,45 @@ id: v2025-password-info
 title: PasswordInfo
 pagination_label: PasswordInfo
 sidebar_label: PasswordInfo
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PasswordInfo', 'V2025PasswordInfo'] 
-slug: /tools/sdk/go/v2025/models/password-info
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'PasswordInfo', 'V2025PasswordInfo'] 
+slug: /tools/sdk/python/v2025/models/password-info
 tags: ['SDK', 'Software Development Kit', 'PasswordInfo', 'V2025PasswordInfo']
 ---
 
 # PasswordInfo
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityId** | Pointer to **string** | Identity ID | [optional] 
-**SourceId** | Pointer to **string** | source ID | [optional] 
-**PublicKeyId** | Pointer to **string** | public key ID | [optional] 
-**PublicKey** | Pointer to **string** | User's public key with Base64 encoding | [optional] 
-**Accounts** | Pointer to [**[]PasswordInfoAccount**](password-info-account) | Account info related to queried identity and source | [optional] 
-**Policies** | Pointer to **[]string** | Password constraints | [optional] 
-
-## Methods
-
-### NewPasswordInfo
-
-`func NewPasswordInfo() *PasswordInfo`
-
-NewPasswordInfo instantiates a new PasswordInfo object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewPasswordInfoWithDefaults
-
-`func NewPasswordInfoWithDefaults() *PasswordInfo`
-
-NewPasswordInfoWithDefaults instantiates a new PasswordInfo object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetIdentityId
-
-`func (o *PasswordInfo) GetIdentityId() string`
-
-GetIdentityId returns the IdentityId field if non-nil, zero value otherwise.
-
-### GetIdentityIdOk
-
-`func (o *PasswordInfo) GetIdentityIdOk() (*string, bool)`
-
-GetIdentityIdOk returns a tuple with the IdentityId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIdentityId
-
-`func (o *PasswordInfo) SetIdentityId(v string)`
-
-SetIdentityId sets IdentityId field to given value.
-
-### HasIdentityId
-
-`func (o *PasswordInfo) HasIdentityId() bool`
-
-HasIdentityId returns a boolean if a field has been set.
-
-### GetSourceId
-
-`func (o *PasswordInfo) GetSourceId() string`
-
-GetSourceId returns the SourceId field if non-nil, zero value otherwise.
-
-### GetSourceIdOk
-
-`func (o *PasswordInfo) GetSourceIdOk() (*string, bool)`
-
-GetSourceIdOk returns a tuple with the SourceId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSourceId
-
-`func (o *PasswordInfo) SetSourceId(v string)`
-
-SetSourceId sets SourceId field to given value.
-
-### HasSourceId
-
-`func (o *PasswordInfo) HasSourceId() bool`
-
-HasSourceId returns a boolean if a field has been set.
-
-### GetPublicKeyId
-
-`func (o *PasswordInfo) GetPublicKeyId() string`
-
-GetPublicKeyId returns the PublicKeyId field if non-nil, zero value otherwise.
-
-### GetPublicKeyIdOk
-
-`func (o *PasswordInfo) GetPublicKeyIdOk() (*string, bool)`
-
-GetPublicKeyIdOk returns a tuple with the PublicKeyId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPublicKeyId
-
-`func (o *PasswordInfo) SetPublicKeyId(v string)`
-
-SetPublicKeyId sets PublicKeyId field to given value.
-
-### HasPublicKeyId
-
-`func (o *PasswordInfo) HasPublicKeyId() bool`
-
-HasPublicKeyId returns a boolean if a field has been set.
-
-### GetPublicKey
-
-`func (o *PasswordInfo) GetPublicKey() string`
-
-GetPublicKey returns the PublicKey field if non-nil, zero value otherwise.
-
-### GetPublicKeyOk
-
-`func (o *PasswordInfo) GetPublicKeyOk() (*string, bool)`
-
-GetPublicKeyOk returns a tuple with the PublicKey field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPublicKey
-
-`func (o *PasswordInfo) SetPublicKey(v string)`
-
-SetPublicKey sets PublicKey field to given value.
-
-### HasPublicKey
-
-`func (o *PasswordInfo) HasPublicKey() bool`
-
-HasPublicKey returns a boolean if a field has been set.
-
-### GetAccounts
-
-`func (o *PasswordInfo) GetAccounts() []PasswordInfoAccount`
-
-GetAccounts returns the Accounts field if non-nil, zero value otherwise.
-
-### GetAccountsOk
-
-`func (o *PasswordInfo) GetAccountsOk() (*[]PasswordInfoAccount, bool)`
-
-GetAccountsOk returns a tuple with the Accounts field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccounts
-
-`func (o *PasswordInfo) SetAccounts(v []PasswordInfoAccount)`
-
-SetAccounts sets Accounts field to given value.
-
-### HasAccounts
-
-`func (o *PasswordInfo) HasAccounts() bool`
-
-HasAccounts returns a boolean if a field has been set.
-
-### GetPolicies
-
-`func (o *PasswordInfo) GetPolicies() []string`
-
-GetPolicies returns the Policies field if non-nil, zero value otherwise.
-
-### GetPoliciesOk
-
-`func (o *PasswordInfo) GetPoliciesOk() (*[]string, bool)`
-
-GetPoliciesOk returns a tuple with the Policies field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPolicies
-
-`func (o *PasswordInfo) SetPolicies(v []string)`
-
-SetPolicies sets Policies field to given value.
-
-### HasPolicies
-
-`func (o *PasswordInfo) HasPolicies() bool`
-
-HasPolicies returns a boolean if a field has been set.
-
+**identity_id** | **str** | Identity ID | [optional] 
+**source_id** | **str** | source ID | [optional] 
+**public_key_id** | **str** | public key ID | [optional] 
+**public_key** | **str** | User's public key with Base64 encoding | [optional] 
+**accounts** | [**[]PasswordInfoAccount**](password-info-account) | Account info related to queried identity and source | [optional] 
+**policies** | **[]str** | Password constraints | [optional] 
+}
+
+## Example
+
+```python
+from sailpoint.v2025.models.password_info import PasswordInfo
+
+password_info = PasswordInfo(
+identity_id='2c918085744fec4301746f9a5bce4605',
+source_id='2c918083746f642c01746f990884012a',
+public_key_id='N2M1OTJiMGEtMDJlZS00ZWU3LTkyYTEtNjA5YmI5NWE3ZWVh',
+public_key='MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuGFkWi2J75TztpbaPKd36bJnIB3J8gZ6UcoS9oSDYsqBzPpTsfZXYaEf4Y4BKGgJIXmE/lwhwuj7mU1itdZ2qTSNFtnXA8Fn75c3UUkk+h+wdZbkuSmqlsJo3R1OnJkwkJggcAy9Jvk9jlcrNLWorpQ1w9raUvxtvfgkSdq153KxotenQ1HciSyZ0nA/Kw0UaucLnho8xdRowZs11afXGXA9IT9H6D8T6zUdtSxm0nAyH+mluma5LdTfaM50W3l/L8q56Vrqmx2pZIiwdx/0+g3Y++jV70zom0ZBkC1MmSoLMrQYG5OICNjr72f78B2PaGXfarQHqARLjKpMVt9YIQIDAQAB',
+accounts=[
+                    sailpoint.v2025.models.password_info_account.PasswordInfoAccount(
+                        account_id = 'CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com', 
+                        account_name = 'Abby.Smith', )
+                    ],
+policies=[passwordRepeatedChar is 3, passwordMinAlpha is 1, passwordMinLength is 5, passwordMinNumeric is 1]
+)
+
+```
+[[Back to top]](#) 
 

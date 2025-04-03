@@ -3,99 +3,36 @@ id: v2024-access-request-post-approval-requested-items-status-inner-approval-inf
 title: AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
 pagination_label: AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
 sidebar_label: AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover', 'V2024AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover'] 
-slug: /tools/sdk/go/v2024/models/access-request-post-approval-requested-items-status-inner-approval-info-inner-approver
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover', 'V2024AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover'] 
+slug: /tools/sdk/python/v2024/models/access-request-post-approval-requested-items-status-inner-approval-info-inner-approver
 tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover', 'V2024AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover']
 ---
 
 # AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
 
+The identity of the approver.
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **map[string]interface{}** | The type of object that is referenced | 
-**Id** | **string** | ID of identity who approved the access item request. | 
-**Name** | **string** | Human-readable display name of identity who approved the access item request. | 
+**type** |  **Enum** [  'IDENTITY' ] | The type of object that is referenced | [required]
+**id** | **str** | ID of identity who approved the access item request. | [required]
+**name** | **str** | Human-readable display name of identity who approved the access item request. | [required]
+}
 
-## Methods
+## Example
 
-### NewAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
+```python
+from sailpoint.v2024.models.access_request_post_approval_requested_items_status_inner_approval_info_inner_approver import AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
 
-`func NewAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover(type_ map[string]interface{}, id string, name string, ) *AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover`
+access_request_post_approval_requested_items_status_inner_approval_info_inner_approver = AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover(
+type=IDENTITY,
+id='2c3780a46faadee4016fb4e018c20652',
+name='Allen Albertson'
+)
 
-NewAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover instantiates a new AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverWithDefaults
-
-`func NewAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverWithDefaults() *AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover`
-
-NewAccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApproverWithDefaults instantiates a new AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetType
-
-`func (o *AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover) GetType() map[string]interface{}`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover) GetTypeOk() (*map[string]interface{}, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover) SetType(v map[string]interface{})`
-
-SetType sets Type field to given value.
-
-
-### GetId
-
-`func (o *AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover) GetId() string`
-
-GetId returns the Id field if non-nil, zero value otherwise.
-
-### GetIdOk
-
-`func (o *AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover) GetIdOk() (*string, bool)`
-
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetId
-
-`func (o *AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover) SetId(v string)`
-
-SetId sets Id field to given value.
-
-
-### GetName
-
-`func (o *AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover) SetName(v string)`
-
-SetName sets Name field to given value.
-
-
+```
+[[Back to top]](#) 
 

@@ -3,140 +3,115 @@ id: v2025-import-form-definitions202-response
 title: ImportFormDefinitions202Response
 pagination_label: ImportFormDefinitions202Response
 sidebar_label: ImportFormDefinitions202Response
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ImportFormDefinitions202Response', 'V2025ImportFormDefinitions202Response'] 
-slug: /tools/sdk/go/v2025/models/import-form-definitions202-response
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'ImportFormDefinitions202Response', 'V2025ImportFormDefinitions202Response'] 
+slug: /tools/sdk/python/v2025/models/import-form-definitions202-response
 tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitions202Response', 'V2025ImportFormDefinitions202Response']
 ---
 
 # ImportFormDefinitions202Response
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Errors** | Pointer to [**[]ImportFormDefinitions202ResponseErrorsInner**](import-form-definitions202-response-errors-inner) |  | [optional] 
-**ImportedObjects** | Pointer to [**[]ImportFormDefinitionsRequestInner**](import-form-definitions-request-inner) |  | [optional] 
-**Infos** | Pointer to [**[]ImportFormDefinitions202ResponseErrorsInner**](import-form-definitions202-response-errors-inner) |  | [optional] 
-**Warnings** | Pointer to [**[]ImportFormDefinitions202ResponseErrorsInner**](import-form-definitions202-response-errors-inner) |  | [optional] 
+**errors** | [**[]ImportFormDefinitions202ResponseErrorsInner**](import-form-definitions202-response-errors-inner) |  | [optional] 
+**imported_objects** | [**[]ImportFormDefinitionsRequestInner**](import-form-definitions-request-inner) |  | [optional] 
+**infos** | [**[]ImportFormDefinitions202ResponseErrorsInner**](import-form-definitions202-response-errors-inner) |  | [optional] 
+**warnings** | [**[]ImportFormDefinitions202ResponseErrorsInner**](import-form-definitions202-response-errors-inner) |  | [optional] 
+}
 
-## Methods
+## Example
 
-### NewImportFormDefinitions202Response
+```python
+from sailpoint.v2025.models.import_form_definitions202_response import ImportFormDefinitions202Response
 
-`func NewImportFormDefinitions202Response() *ImportFormDefinitions202Response`
+import_form_definitions202_response = ImportFormDefinitions202Response(
+errors=[
+                    sailpoint.v2025.models.import_form_definitions_202_response_errors_inner.importFormDefinitions_202_response_errors_inner(
+                        detail = {
+                            'key' : None
+                            }, 
+                        key = '', 
+                        text = '', )
+                    ],
+imported_objects=[
+                    sailpoint.v2025.models.import_form_definitions_request_inner.importFormDefinitions_request_inner(
+                        object = sailpoint.v2025.models.form_definition_response.FormDefinitionResponse(
+                            id = '00000000-0000-0000-0000-000000000000', 
+                            name = 'My form', 
+                            description = 'My form description', 
+                            owner = sailpoint.v2025.models.form_owner.FormOwner(
+                                type = 'IDENTITY', 
+                                id = '2c9180867624cbd7017642d8c8c81f67', 
+                                name = 'Grant Smith', ), 
+                            used_by = [
+                                sailpoint.v2025.models.form_used_by.FormUsedBy(
+                                    type = 'WORKFLOW', 
+                                    id = '61940a92-5484-42bc-bc10-b9982b218cdf', 
+                                    name = 'Access Request Form', )
+                                ], 
+                            form_input = [
+                                sailpoint.v2025.models.form_definition_input.FormDefinitionInput(
+                                    id = '00000000-0000-0000-0000-000000000000', 
+                                    type = 'STRING', 
+                                    label = 'input1', 
+                                    description = 'A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic', )
+                                ], 
+                            form_elements = [
+                                sailpoint.v2025.models.form_element.FormElement(
+                                    id = '00000000-0000-0000-0000-000000000000', 
+                                    element_type = 'TEXT', 
+                                    config = {label=Department}, 
+                                    key = 'department', 
+                                    validations = [
+                                        sailpoint.v2025.models.form_element_validations_set.FormElementValidationsSet(
+                                            validation_type = 'REQUIRED', )
+                                        ], )
+                                ], 
+                            form_conditions = [
+                                sailpoint.v2025.models.form_condition.FormCondition(
+                                    rule_operator = 'AND', 
+                                    rules = [
+                                        sailpoint.v2025.models.condition_rule.ConditionRule(
+                                            source_type = 'ELEMENT', 
+                                            source = 'department', 
+                                            operator = 'EQ', 
+                                            value_type = 'STRING', 
+                                            value = 'Engineering', )
+                                        ], 
+                                    effects = [
+                                        sailpoint.v2025.models.condition_effect.ConditionEffect(
+                                            effect_type = 'HIDE', 
+                                            config = sailpoint.v2025.models.condition_effect_config.ConditionEffect_config(
+                                                default_value_label = 'Access to Remove', 
+                                                element = '8110662963316867', ), )
+                                        ], )
+                                ], 
+                            created = '2023-07-12T20:14:57.744860Z', 
+                            modified = '2023-07-12T20:14:57.744860Z', ), 
+                        self = '', 
+                        version = 56, )
+                    ],
+infos=[
+                    sailpoint.v2025.models.import_form_definitions_202_response_errors_inner.importFormDefinitions_202_response_errors_inner(
+                        detail = {
+                            'key' : None
+                            }, 
+                        key = '', 
+                        text = '', )
+                    ],
+warnings=[
+                    sailpoint.v2025.models.import_form_definitions_202_response_errors_inner.importFormDefinitions_202_response_errors_inner(
+                        detail = {
+                            'key' : None
+                            }, 
+                        key = '', 
+                        text = '', )
+                    ]
+)
 
-NewImportFormDefinitions202Response instantiates a new ImportFormDefinitions202Response object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewImportFormDefinitions202ResponseWithDefaults
-
-`func NewImportFormDefinitions202ResponseWithDefaults() *ImportFormDefinitions202Response`
-
-NewImportFormDefinitions202ResponseWithDefaults instantiates a new ImportFormDefinitions202Response object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetErrors
-
-`func (o *ImportFormDefinitions202Response) GetErrors() []ImportFormDefinitions202ResponseErrorsInner`
-
-GetErrors returns the Errors field if non-nil, zero value otherwise.
-
-### GetErrorsOk
-
-`func (o *ImportFormDefinitions202Response) GetErrorsOk() (*[]ImportFormDefinitions202ResponseErrorsInner, bool)`
-
-GetErrorsOk returns a tuple with the Errors field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetErrors
-
-`func (o *ImportFormDefinitions202Response) SetErrors(v []ImportFormDefinitions202ResponseErrorsInner)`
-
-SetErrors sets Errors field to given value.
-
-### HasErrors
-
-`func (o *ImportFormDefinitions202Response) HasErrors() bool`
-
-HasErrors returns a boolean if a field has been set.
-
-### GetImportedObjects
-
-`func (o *ImportFormDefinitions202Response) GetImportedObjects() []ImportFormDefinitionsRequestInner`
-
-GetImportedObjects returns the ImportedObjects field if non-nil, zero value otherwise.
-
-### GetImportedObjectsOk
-
-`func (o *ImportFormDefinitions202Response) GetImportedObjectsOk() (*[]ImportFormDefinitionsRequestInner, bool)`
-
-GetImportedObjectsOk returns a tuple with the ImportedObjects field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetImportedObjects
-
-`func (o *ImportFormDefinitions202Response) SetImportedObjects(v []ImportFormDefinitionsRequestInner)`
-
-SetImportedObjects sets ImportedObjects field to given value.
-
-### HasImportedObjects
-
-`func (o *ImportFormDefinitions202Response) HasImportedObjects() bool`
-
-HasImportedObjects returns a boolean if a field has been set.
-
-### GetInfos
-
-`func (o *ImportFormDefinitions202Response) GetInfos() []ImportFormDefinitions202ResponseErrorsInner`
-
-GetInfos returns the Infos field if non-nil, zero value otherwise.
-
-### GetInfosOk
-
-`func (o *ImportFormDefinitions202Response) GetInfosOk() (*[]ImportFormDefinitions202ResponseErrorsInner, bool)`
-
-GetInfosOk returns a tuple with the Infos field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetInfos
-
-`func (o *ImportFormDefinitions202Response) SetInfos(v []ImportFormDefinitions202ResponseErrorsInner)`
-
-SetInfos sets Infos field to given value.
-
-### HasInfos
-
-`func (o *ImportFormDefinitions202Response) HasInfos() bool`
-
-HasInfos returns a boolean if a field has been set.
-
-### GetWarnings
-
-`func (o *ImportFormDefinitions202Response) GetWarnings() []ImportFormDefinitions202ResponseErrorsInner`
-
-GetWarnings returns the Warnings field if non-nil, zero value otherwise.
-
-### GetWarningsOk
-
-`func (o *ImportFormDefinitions202Response) GetWarningsOk() (*[]ImportFormDefinitions202ResponseErrorsInner, bool)`
-
-GetWarningsOk returns a tuple with the Warnings field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetWarnings
-
-`func (o *ImportFormDefinitions202Response) SetWarnings(v []ImportFormDefinitions202ResponseErrorsInner)`
-
-SetWarnings sets Warnings field to given value.
-
-### HasWarnings
-
-`func (o *ImportFormDefinitions202Response) HasWarnings() bool`
-
-HasWarnings returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

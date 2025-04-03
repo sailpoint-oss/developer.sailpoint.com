@@ -3,29 +3,31 @@ id: standard-level
 title: StandardLevel
 pagination_label: StandardLevel
 sidebar_label: StandardLevel
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'StandardLevel', 'StandardLevel'] 
-slug: /tools/sdk/go/v3/models/standard-level
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'StandardLevel', 'StandardLevel'] 
+slug: /tools/sdk/python/v3/models/standard-level
 tags: ['SDK', 'Software Development Kit', 'StandardLevel', 'StandardLevel']
 ---
 
 # StandardLevel
 
+Standard Log4j log level
+
 ## Enum
 
+* `FALSE` (value: `'false'`)
 
-* `FALSE` (value: `"false"`)
+* `FATAL` (value: `'FATAL'`)
 
-* `FATAL` (value: `"FATAL"`)
+* `ERROR` (value: `'ERROR'`)
 
-* `ERROR` (value: `"ERROR"`)
+* `WARN` (value: `'WARN'`)
 
-* `WARN` (value: `"WARN"`)
+* `INFO` (value: `'INFO'`)
 
-* `INFO` (value: `"INFO"`)
+* `DEBUG` (value: `'DEBUG'`)
 
-* `DEBUG` (value: `"DEBUG"`)
+* `TRACE` (value: `'TRACE'`)
 
-* `TRACE` (value: `"TRACE"`)
-
+[[Back to top]](#) 
 

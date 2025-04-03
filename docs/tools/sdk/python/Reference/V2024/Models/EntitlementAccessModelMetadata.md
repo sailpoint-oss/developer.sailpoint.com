@@ -3,62 +3,49 @@ id: v2024-entitlement-access-model-metadata
 title: EntitlementAccessModelMetadata
 pagination_label: EntitlementAccessModelMetadata
 sidebar_label: EntitlementAccessModelMetadata
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EntitlementAccessModelMetadata', 'V2024EntitlementAccessModelMetadata'] 
-slug: /tools/sdk/go/v2024/models/entitlement-access-model-metadata
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'EntitlementAccessModelMetadata', 'V2024EntitlementAccessModelMetadata'] 
+slug: /tools/sdk/python/v2024/models/entitlement-access-model-metadata
 tags: ['SDK', 'Software Development Kit', 'EntitlementAccessModelMetadata', 'V2024EntitlementAccessModelMetadata']
 ---
 
 # EntitlementAccessModelMetadata
 
+Additional data to classify the entitlement
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attributes** | Pointer to [**[]AccessModelMetadata**](access-model-metadata) |  | [optional] 
+**attributes** | [**[]AccessModelMetadata**](access-model-metadata) |  | [optional] 
+}
 
-## Methods
+## Example
 
-### NewEntitlementAccessModelMetadata
+```python
+from sailpoint.v2024.models.entitlement_access_model_metadata import EntitlementAccessModelMetadata
 
-`func NewEntitlementAccessModelMetadata() *EntitlementAccessModelMetadata`
+entitlement_access_model_metadata = EntitlementAccessModelMetadata(
+attributes=[
+                    sailpoint.v2024.models.access_model_metadata.AccessModelMetadata(
+                        key = 'iscCsp', 
+                        name = 'CSP', 
+                        multiselect = True, 
+                        status = 'active', 
+                        type = 'governance', 
+                        object_types = [
+                            'general'
+                            ], 
+                        description = 'Indicates the type of deployment environment of an access item.', 
+                        values = [
+                            sailpoint.v2024.models.access_model_metadata_values_inner.AccessModelMetadata_values_inner(
+                                value = 'development', 
+                                name = 'Development', 
+                                status = 'active', )
+                            ], )
+                    ]
+)
 
-NewEntitlementAccessModelMetadata instantiates a new EntitlementAccessModelMetadata object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewEntitlementAccessModelMetadataWithDefaults
-
-`func NewEntitlementAccessModelMetadataWithDefaults() *EntitlementAccessModelMetadata`
-
-NewEntitlementAccessModelMetadataWithDefaults instantiates a new EntitlementAccessModelMetadata object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetAttributes
-
-`func (o *EntitlementAccessModelMetadata) GetAttributes() []AccessModelMetadata`
-
-GetAttributes returns the Attributes field if non-nil, zero value otherwise.
-
-### GetAttributesOk
-
-`func (o *EntitlementAccessModelMetadata) GetAttributesOk() (*[]AccessModelMetadata, bool)`
-
-GetAttributesOk returns a tuple with the Attributes field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAttributes
-
-`func (o *EntitlementAccessModelMetadata) SetAttributes(v []AccessModelMetadata)`
-
-SetAttributes sets Attributes field to given value.
-
-### HasAttributes
-
-`func (o *EntitlementAccessModelMetadata) HasAttributes() bool`
-
-HasAttributes returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

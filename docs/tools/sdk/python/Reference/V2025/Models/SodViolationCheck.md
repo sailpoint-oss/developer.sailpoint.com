@@ -3,83 +3,34 @@ id: v2025-sod-violation-check
 title: SodViolationCheck
 pagination_label: SodViolationCheck
 sidebar_label: SodViolationCheck
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SodViolationCheck', 'V2025SodViolationCheck'] 
-slug: /tools/sdk/go/v2025/models/sod-violation-check
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'SodViolationCheck', 'V2025SodViolationCheck'] 
+slug: /tools/sdk/python/v2025/models/sod-violation-check
 tags: ['SDK', 'Software Development Kit', 'SodViolationCheck', 'V2025SodViolationCheck']
 ---
 
 # SodViolationCheck
 
+An object referencing an SOD violation check
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RequestId** | **string** | The id of the original request | 
-**Created** | Pointer to **SailPointTime** | The date-time when this request was created. | [optional] [readonly] 
+**request_id** | **str** | The id of the original request | [required]
+**created** | **datetime** | The date-time when this request was created. | [optional] [readonly] 
+}
 
-## Methods
+## Example
 
-### NewSodViolationCheck
+```python
+from sailpoint.v2025.models.sod_violation_check import SodViolationCheck
 
-`func NewSodViolationCheck(requestId string, ) *SodViolationCheck`
+sod_violation_check = SodViolationCheck(
+request_id='089899f13a8f4da7824996191587bab9',
+created='2020-01-01T00:00Z'
+)
 
-NewSodViolationCheck instantiates a new SodViolationCheck object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewSodViolationCheckWithDefaults
-
-`func NewSodViolationCheckWithDefaults() *SodViolationCheck`
-
-NewSodViolationCheckWithDefaults instantiates a new SodViolationCheck object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetRequestId
-
-`func (o *SodViolationCheck) GetRequestId() string`
-
-GetRequestId returns the RequestId field if non-nil, zero value otherwise.
-
-### GetRequestIdOk
-
-`func (o *SodViolationCheck) GetRequestIdOk() (*string, bool)`
-
-GetRequestIdOk returns a tuple with the RequestId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRequestId
-
-`func (o *SodViolationCheck) SetRequestId(v string)`
-
-SetRequestId sets RequestId field to given value.
-
-
-### GetCreated
-
-`func (o *SodViolationCheck) GetCreated() SailPointTime`
-
-GetCreated returns the Created field if non-nil, zero value otherwise.
-
-### GetCreatedOk
-
-`func (o *SodViolationCheck) GetCreatedOk() (*SailPointTime, bool)`
-
-GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCreated
-
-`func (o *SodViolationCheck) SetCreated(v SailPointTime)`
-
-SetCreated sets Created field to given value.
-
-### HasCreated
-
-`func (o *SodViolationCheck) HasCreated() bool`
-
-HasCreated returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

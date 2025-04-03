@@ -3,62 +3,41 @@ id: object-mapping-bulk-patch-response
 title: ObjectMappingBulkPatchResponse
 pagination_label: ObjectMappingBulkPatchResponse
 sidebar_label: ObjectMappingBulkPatchResponse
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ObjectMappingBulkPatchResponse', 'ObjectMappingBulkPatchResponse'] 
-slug: /tools/sdk/go/v3/models/object-mapping-bulk-patch-response
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'ObjectMappingBulkPatchResponse', 'ObjectMappingBulkPatchResponse'] 
+slug: /tools/sdk/python/v3/models/object-mapping-bulk-patch-response
 tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkPatchResponse', 'ObjectMappingBulkPatchResponse']
 ---
 
 # ObjectMappingBulkPatchResponse
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PatchedObjects** | Pointer to [**[]ObjectMappingResponse**](object-mapping-response) |  | [optional] 
+**patched_objects** | [**[]ObjectMappingResponse**](object-mapping-response) |  | [optional] 
+}
 
-## Methods
+## Example
 
-### NewObjectMappingBulkPatchResponse
+```python
+from sailpoint.v3.models.object_mapping_bulk_patch_response import ObjectMappingBulkPatchResponse
 
-`func NewObjectMappingBulkPatchResponse() *ObjectMappingBulkPatchResponse`
+object_mapping_bulk_patch_response = ObjectMappingBulkPatchResponse(
+patched_objects=[
+                    sailpoint.v3.models.object_mapping_response.Object Mapping Response(
+                        object_mapping_id = '3d6e0144-963f-4bd6-8d8d-d77b4e507ce4', 
+                        object_type = 'IDENTITY', 
+                        json_path = '$.name', 
+                        source_value = 'My Governance Group Name', 
+                        target_value = 'My New Governance Group Name', 
+                        enabled = False, 
+                        created = '2024-03-19T23:18:53.732Z', 
+                        modified = '2024-03-19T23:18:53.732Z', )
+                    ]
+)
 
-NewObjectMappingBulkPatchResponse instantiates a new ObjectMappingBulkPatchResponse object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewObjectMappingBulkPatchResponseWithDefaults
-
-`func NewObjectMappingBulkPatchResponseWithDefaults() *ObjectMappingBulkPatchResponse`
-
-NewObjectMappingBulkPatchResponseWithDefaults instantiates a new ObjectMappingBulkPatchResponse object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetPatchedObjects
-
-`func (o *ObjectMappingBulkPatchResponse) GetPatchedObjects() []ObjectMappingResponse`
-
-GetPatchedObjects returns the PatchedObjects field if non-nil, zero value otherwise.
-
-### GetPatchedObjectsOk
-
-`func (o *ObjectMappingBulkPatchResponse) GetPatchedObjectsOk() (*[]ObjectMappingResponse, bool)`
-
-GetPatchedObjectsOk returns a tuple with the PatchedObjects field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPatchedObjects
-
-`func (o *ObjectMappingBulkPatchResponse) SetPatchedObjects(v []ObjectMappingResponse)`
-
-SetPatchedObjects sets PatchedObjects field to given value.
-
-### HasPatchedObjects
-
-`func (o *ObjectMappingBulkPatchResponse) HasPatchedObjects() bool`
-
-HasPatchedObjects returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

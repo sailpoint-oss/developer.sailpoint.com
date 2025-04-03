@@ -3,83 +3,44 @@ id: v2025-import-sp-config-request
 title: ImportSpConfigRequest
 pagination_label: ImportSpConfigRequest
 sidebar_label: ImportSpConfigRequest
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ImportSpConfigRequest', 'V2025ImportSpConfigRequest'] 
-slug: /tools/sdk/go/v2025/models/import-sp-config-request
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'ImportSpConfigRequest', 'V2025ImportSpConfigRequest'] 
+slug: /tools/sdk/python/v2025/models/import-sp-config-request
 tags: ['SDK', 'Software Development Kit', 'ImportSpConfigRequest', 'V2025ImportSpConfigRequest']
 ---
 
 # ImportSpConfigRequest
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Data** | ***os.File** | JSON file containing the objects to be imported. | 
-**Options** | Pointer to [**ImportOptions**](import-options) |  | [optional] 
+**data** | **bytearray** | JSON file containing the objects to be imported. | [required]
+**options** | [**ImportOptions**](import-options) |  | [optional] 
+}
 
-## Methods
+## Example
 
-### NewImportSpConfigRequest
+```python
+from sailpoint.v2025.models.import_sp_config_request import ImportSpConfigRequest
 
-`func NewImportSpConfigRequest(data *os.File, ) *ImportSpConfigRequest`
+import_sp_config_request = ImportSpConfigRequest(
+data=bytes(b'blah'),
+options=sailpoint.v2025.models.import_options.ImportOptions(
+                    exclude_types = [
+                        'SOURCE'
+                        ], 
+                    include_types = [
+                        'TRIGGER_SUBSCRIPTION'
+                        ], 
+                    object_options = {TRIGGER_SUBSCRIPTION={includedIds=[be9e116d-08e1-49fc-ab7f-fa585e96c9e4], includedNames=[Test 2]}}, 
+                    default_references = [
+                        'TRIGGER_SUBSCRIPTION'
+                        ], 
+                    exclude_backup = False, )
+)
 
-NewImportSpConfigRequest instantiates a new ImportSpConfigRequest object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewImportSpConfigRequestWithDefaults
-
-`func NewImportSpConfigRequestWithDefaults() *ImportSpConfigRequest`
-
-NewImportSpConfigRequestWithDefaults instantiates a new ImportSpConfigRequest object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetData
-
-`func (o *ImportSpConfigRequest) GetData() *os.File`
-
-GetData returns the Data field if non-nil, zero value otherwise.
-
-### GetDataOk
-
-`func (o *ImportSpConfigRequest) GetDataOk() (**os.File, bool)`
-
-GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetData
-
-`func (o *ImportSpConfigRequest) SetData(v *os.File)`
-
-SetData sets Data field to given value.
-
-
-### GetOptions
-
-`func (o *ImportSpConfigRequest) GetOptions() ImportOptions`
-
-GetOptions returns the Options field if non-nil, zero value otherwise.
-
-### GetOptionsOk
-
-`func (o *ImportSpConfigRequest) GetOptionsOk() (*ImportOptions, bool)`
-
-GetOptionsOk returns a tuple with the Options field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOptions
-
-`func (o *ImportSpConfigRequest) SetOptions(v ImportOptions)`
-
-SetOptions sets Options field to given value.
-
-### HasOptions
-
-`func (o *ImportSpConfigRequest) HasOptions() bool`
-
-HasOptions returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

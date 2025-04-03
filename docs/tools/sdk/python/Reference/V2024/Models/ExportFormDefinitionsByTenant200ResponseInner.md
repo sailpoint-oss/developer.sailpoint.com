@@ -3,114 +3,91 @@ id: v2024-export-form-definitions-by-tenant200-response-inner
 title: ExportFormDefinitionsByTenant200ResponseInner
 pagination_label: ExportFormDefinitionsByTenant200ResponseInner
 sidebar_label: ExportFormDefinitionsByTenant200ResponseInner
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ExportFormDefinitionsByTenant200ResponseInner', 'V2024ExportFormDefinitionsByTenant200ResponseInner'] 
-slug: /tools/sdk/go/v2024/models/export-form-definitions-by-tenant200-response-inner
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'ExportFormDefinitionsByTenant200ResponseInner', 'V2024ExportFormDefinitionsByTenant200ResponseInner'] 
+slug: /tools/sdk/python/v2024/models/export-form-definitions-by-tenant200-response-inner
 tags: ['SDK', 'Software Development Kit', 'ExportFormDefinitionsByTenant200ResponseInner', 'V2024ExportFormDefinitionsByTenant200ResponseInner']
 ---
 
 # ExportFormDefinitionsByTenant200ResponseInner
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Object** | Pointer to [**FormDefinitionResponse**](form-definition-response) |  | [optional] 
-**Self** | Pointer to [**ExportFormDefinitionsByTenant200ResponseInnerSelf**](export-form-definitions-by-tenant200-response-inner-self) |  | [optional] 
-**Version** | Pointer to **int32** |  | [optional] 
+**object** | [**FormDefinitionResponse**](form-definition-response) |  | [optional] 
+**var_self** | [**ExportFormDefinitionsByTenant200ResponseInnerSelf**](export-form-definitions-by-tenant200-response-inner-self) |  | [optional] 
+**version** | **int** |  | [optional] 
+}
 
-## Methods
+## Example
 
-### NewExportFormDefinitionsByTenant200ResponseInner
+```python
+from sailpoint.v2024.models.export_form_definitions_by_tenant200_response_inner import ExportFormDefinitionsByTenant200ResponseInner
 
-`func NewExportFormDefinitionsByTenant200ResponseInner() *ExportFormDefinitionsByTenant200ResponseInner`
+export_form_definitions_by_tenant200_response_inner = ExportFormDefinitionsByTenant200ResponseInner(
+object=sailpoint.v2024.models.form_definition_response.FormDefinitionResponse(
+                    id = '00000000-0000-0000-0000-000000000000', 
+                    name = 'My form', 
+                    description = 'My form description', 
+                    owner = sailpoint.v2024.models.form_owner.FormOwner(
+                        type = 'IDENTITY', 
+                        id = '2c9180867624cbd7017642d8c8c81f67', 
+                        name = 'Grant Smith', ), 
+                    used_by = [
+                        sailpoint.v2024.models.form_used_by.FormUsedBy(
+                            type = 'WORKFLOW', 
+                            id = '61940a92-5484-42bc-bc10-b9982b218cdf', 
+                            name = 'Access Request Form', )
+                        ], 
+                    form_input = [
+                        sailpoint.v2024.models.form_definition_input.FormDefinitionInput(
+                            id = '00000000-0000-0000-0000-000000000000', 
+                            type = 'STRING', 
+                            label = 'input1', 
+                            description = 'A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic', )
+                        ], 
+                    form_elements = [
+                        sailpoint.v2024.models.form_element.FormElement(
+                            id = '00000000-0000-0000-0000-000000000000', 
+                            element_type = 'TEXT', 
+                            config = {label=Department}, 
+                            key = 'department', 
+                            validations = [
+                                sailpoint.v2024.models.form_element_validations_set.FormElementValidationsSet(
+                                    validation_type = 'REQUIRED', )
+                                ], )
+                        ], 
+                    form_conditions = [
+                        sailpoint.v2024.models.form_condition.FormCondition(
+                            rule_operator = 'AND', 
+                            rules = [
+                                sailpoint.v2024.models.condition_rule.ConditionRule(
+                                    source_type = 'ELEMENT', 
+                                    source = 'department', 
+                                    operator = 'EQ', 
+                                    value_type = 'STRING', 
+                                    value = 'Engineering', )
+                                ], 
+                            effects = [
+                                sailpoint.v2024.models.condition_effect.ConditionEffect(
+                                    effect_type = 'HIDE', 
+                                    config = sailpoint.v2024.models.condition_effect_config.ConditionEffect_config(
+                                        default_value_label = 'Access to Remove', 
+                                        element = '8110662963316867', ), )
+                                ], )
+                        ], 
+                    created = '2023-07-12T20:14:57.744860Z', 
+                    modified = '2023-07-12T20:14:57.744860Z', ),
+var_self=sailpoint.v2024.models.export_form_definitions_by_tenant_200_response_inner_self.exportFormDefinitionsByTenant_200_response_inner_self(
+                    object = sailpoint.v2024.models.form_definition_self_import_export_dto.FormDefinitionSelfImportExportDto(
+                        type = 'FORM_DEFINITION', 
+                        id = '2c9180835d191a86015d28455b4b232a', 
+                        name = 'Temporary User Level Permissions - Requester', ), ),
+version=56
+)
 
-NewExportFormDefinitionsByTenant200ResponseInner instantiates a new ExportFormDefinitionsByTenant200ResponseInner object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewExportFormDefinitionsByTenant200ResponseInnerWithDefaults
-
-`func NewExportFormDefinitionsByTenant200ResponseInnerWithDefaults() *ExportFormDefinitionsByTenant200ResponseInner`
-
-NewExportFormDefinitionsByTenant200ResponseInnerWithDefaults instantiates a new ExportFormDefinitionsByTenant200ResponseInner object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetObject
-
-`func (o *ExportFormDefinitionsByTenant200ResponseInner) GetObject() FormDefinitionResponse`
-
-GetObject returns the Object field if non-nil, zero value otherwise.
-
-### GetObjectOk
-
-`func (o *ExportFormDefinitionsByTenant200ResponseInner) GetObjectOk() (*FormDefinitionResponse, bool)`
-
-GetObjectOk returns a tuple with the Object field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetObject
-
-`func (o *ExportFormDefinitionsByTenant200ResponseInner) SetObject(v FormDefinitionResponse)`
-
-SetObject sets Object field to given value.
-
-### HasObject
-
-`func (o *ExportFormDefinitionsByTenant200ResponseInner) HasObject() bool`
-
-HasObject returns a boolean if a field has been set.
-
-### GetSelf
-
-`func (o *ExportFormDefinitionsByTenant200ResponseInner) GetSelf() ExportFormDefinitionsByTenant200ResponseInnerSelf`
-
-GetSelf returns the Self field if non-nil, zero value otherwise.
-
-### GetSelfOk
-
-`func (o *ExportFormDefinitionsByTenant200ResponseInner) GetSelfOk() (*ExportFormDefinitionsByTenant200ResponseInnerSelf, bool)`
-
-GetSelfOk returns a tuple with the Self field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSelf
-
-`func (o *ExportFormDefinitionsByTenant200ResponseInner) SetSelf(v ExportFormDefinitionsByTenant200ResponseInnerSelf)`
-
-SetSelf sets Self field to given value.
-
-### HasSelf
-
-`func (o *ExportFormDefinitionsByTenant200ResponseInner) HasSelf() bool`
-
-HasSelf returns a boolean if a field has been set.
-
-### GetVersion
-
-`func (o *ExportFormDefinitionsByTenant200ResponseInner) GetVersion() int32`
-
-GetVersion returns the Version field if non-nil, zero value otherwise.
-
-### GetVersionOk
-
-`func (o *ExportFormDefinitionsByTenant200ResponseInner) GetVersionOk() (*int32, bool)`
-
-GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetVersion
-
-`func (o *ExportFormDefinitionsByTenant200ResponseInner) SetVersion(v int32)`
-
-SetVersion sets Version field to given value.
-
-### HasVersion
-
-`func (o *ExportFormDefinitionsByTenant200ResponseInner) HasVersion() bool`
-
-HasVersion returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

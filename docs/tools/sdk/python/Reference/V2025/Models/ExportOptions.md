@@ -3,114 +3,39 @@ id: v2025-export-options
 title: ExportOptions
 pagination_label: ExportOptions
 sidebar_label: ExportOptions
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ExportOptions', 'V2025ExportOptions'] 
-slug: /tools/sdk/go/v2025/models/export-options
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'ExportOptions', 'V2025ExportOptions'] 
+slug: /tools/sdk/python/v2025/models/export-options
 tags: ['SDK', 'Software Development Kit', 'ExportOptions', 'V2025ExportOptions']
 ---
 
 # ExportOptions
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ExcludeTypes** | Pointer to **[]string** | Object type names to be excluded from an sp-config export command. | [optional] 
-**IncludeTypes** | Pointer to **[]string** | Object type names to be included in an sp-config export command. IncludeTypes takes precedence over excludeTypes. | [optional] 
-**ObjectOptions** | Pointer to [**map[string]ObjectExportImportOptions**](object-export-import-options) | Additional options targeting specific objects related to each item in the includeTypes field | [optional] 
+**exclude_types** | **[]str** | Object type names to be excluded from an sp-config export command. | [optional] 
+**include_types** | **[]str** | Object type names to be included in an sp-config export command. IncludeTypes takes precedence over excludeTypes. | [optional] 
+**object_options** | [**map[string]ObjectExportImportOptions**](object-export-import-options) | Additional options targeting specific objects related to each item in the includeTypes field | [optional] 
+}
 
-## Methods
+## Example
 
-### NewExportOptions
+```python
+from sailpoint.v2025.models.export_options import ExportOptions
 
-`func NewExportOptions() *ExportOptions`
+export_options = ExportOptions(
+exclude_types=[
+                    'SOURCE'
+                    ],
+include_types=[
+                    'TRIGGER_SUBSCRIPTION'
+                    ],
+object_options={TRIGGER_SUBSCRIPTION={includedIds=[be9e116d-08e1-49fc-ab7f-fa585e96c9e4], includedNames=[Test 2]}}
+)
 
-NewExportOptions instantiates a new ExportOptions object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewExportOptionsWithDefaults
-
-`func NewExportOptionsWithDefaults() *ExportOptions`
-
-NewExportOptionsWithDefaults instantiates a new ExportOptions object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetExcludeTypes
-
-`func (o *ExportOptions) GetExcludeTypes() []string`
-
-GetExcludeTypes returns the ExcludeTypes field if non-nil, zero value otherwise.
-
-### GetExcludeTypesOk
-
-`func (o *ExportOptions) GetExcludeTypesOk() (*[]string, bool)`
-
-GetExcludeTypesOk returns a tuple with the ExcludeTypes field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetExcludeTypes
-
-`func (o *ExportOptions) SetExcludeTypes(v []string)`
-
-SetExcludeTypes sets ExcludeTypes field to given value.
-
-### HasExcludeTypes
-
-`func (o *ExportOptions) HasExcludeTypes() bool`
-
-HasExcludeTypes returns a boolean if a field has been set.
-
-### GetIncludeTypes
-
-`func (o *ExportOptions) GetIncludeTypes() []string`
-
-GetIncludeTypes returns the IncludeTypes field if non-nil, zero value otherwise.
-
-### GetIncludeTypesOk
-
-`func (o *ExportOptions) GetIncludeTypesOk() (*[]string, bool)`
-
-GetIncludeTypesOk returns a tuple with the IncludeTypes field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIncludeTypes
-
-`func (o *ExportOptions) SetIncludeTypes(v []string)`
-
-SetIncludeTypes sets IncludeTypes field to given value.
-
-### HasIncludeTypes
-
-`func (o *ExportOptions) HasIncludeTypes() bool`
-
-HasIncludeTypes returns a boolean if a field has been set.
-
-### GetObjectOptions
-
-`func (o *ExportOptions) GetObjectOptions() map[string]ObjectExportImportOptions`
-
-GetObjectOptions returns the ObjectOptions field if non-nil, zero value otherwise.
-
-### GetObjectOptionsOk
-
-`func (o *ExportOptions) GetObjectOptionsOk() (*map[string]ObjectExportImportOptions, bool)`
-
-GetObjectOptionsOk returns a tuple with the ObjectOptions field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetObjectOptions
-
-`func (o *ExportOptions) SetObjectOptions(v map[string]ObjectExportImportOptions)`
-
-SetObjectOptions sets ObjectOptions field to given value.
-
-### HasObjectOptions
-
-`func (o *ExportOptions) HasObjectOptions() bool`
-
-HasObjectOptions returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

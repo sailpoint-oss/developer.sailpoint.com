@@ -3,78 +3,33 @@ id: reassign-reference
 title: ReassignReference
 pagination_label: ReassignReference
 sidebar_label: ReassignReference
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ReassignReference', 'ReassignReference'] 
-slug: /tools/sdk/go/v3/models/reassign-reference
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'ReassignReference', 'ReassignReference'] 
+slug: /tools/sdk/python/v3/models/reassign-reference
 tags: ['SDK', 'Software Development Kit', 'ReassignReference', 'ReassignReference']
 ---
 
 # ReassignReference
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | The ID of item or identity being reassigned. | 
-**Type** | **string** | The type of item or identity being reassigned. | 
+**id** | **str** | The ID of item or identity being reassigned. | [required]
+**type** |  **Enum** [  'TARGET_SUMMARY',    'ITEM',    'IDENTITY_SUMMARY' ] | The type of item or identity being reassigned. | [required]
+}
 
-## Methods
+## Example
 
-### NewReassignReference
+```python
+from sailpoint.v3.models.reassign_reference import ReassignReference
 
-`func NewReassignReference(id string, type_ string, ) *ReassignReference`
+reassign_reference = ReassignReference(
+id='ef38f94347e94562b5bb8424a56397d8',
+type='ITEM'
+)
 
-NewReassignReference instantiates a new ReassignReference object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewReassignReferenceWithDefaults
-
-`func NewReassignReferenceWithDefaults() *ReassignReference`
-
-NewReassignReferenceWithDefaults instantiates a new ReassignReference object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetId
-
-`func (o *ReassignReference) GetId() string`
-
-GetId returns the Id field if non-nil, zero value otherwise.
-
-### GetIdOk
-
-`func (o *ReassignReference) GetIdOk() (*string, bool)`
-
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetId
-
-`func (o *ReassignReference) SetId(v string)`
-
-SetId sets Id field to given value.
-
-
-### GetType
-
-`func (o *ReassignReference) GetType() string`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *ReassignReference) GetTypeOk() (*string, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *ReassignReference) SetType(v string)`
-
-SetType sets Type field to given value.
-
-
+```
+[[Back to top]](#) 
 

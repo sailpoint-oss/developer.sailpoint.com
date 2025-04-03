@@ -3,114 +3,36 @@ id: v2025-self-import-export-dto
 title: SelfImportExportDto
 pagination_label: SelfImportExportDto
 sidebar_label: SelfImportExportDto
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SelfImportExportDto', 'V2025SelfImportExportDto'] 
-slug: /tools/sdk/go/v2025/models/self-import-export-dto
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'SelfImportExportDto', 'V2025SelfImportExportDto'] 
+slug: /tools/sdk/python/v2025/models/self-import-export-dto
 tags: ['SDK', 'Software Development Kit', 'SelfImportExportDto', 'V2025SelfImportExportDto']
 ---
 
 # SelfImportExportDto
 
+Self block for imported/exported object.
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | Imported/exported object's DTO type. Import is currently only possible with the CONNECTOR_RULE, IDENTITY_OBJECT_CONFIG, IDENTITY_PROFILE, RULE, SOURCE, TRANSFORM, and TRIGGER_SUBSCRIPTION object types. | [optional] 
-**Id** | Pointer to **string** | Imported/exported object's ID. | [optional] 
-**Name** | Pointer to **string** | Imported/exported object's display name. | [optional] 
+**type** |  **Enum** [  'ACCESS_PROFILE',    'ACCESS_REQUEST_CONFIG',    'ATTR_SYNC_SOURCE_CONFIG',    'AUTH_ORG',    'CAMPAIGN_FILTER',    'CONNECTOR_RULE',    'FORM_DEFINITION',    'GOVERNANCE_GROUP',    'IDENTITY_OBJECT_CONFIG',    'IDENTITY_PROFILE',    'LIFECYCLE_STATE',    'NOTIFICATION_TEMPLATE',    'PASSWORD_POLICY',    'PASSWORD_SYNC_GROUP',    'PUBLIC_IDENTITIES_CONFIG',    'ROLE',    'RULE',    'SEGMENT',    'SERVICE_DESK_INTEGRATION',    'SOD_POLICY',    'SOURCE',    'TAG',    'TRANSFORM',    'TRIGGER_SUBSCRIPTION',    'WORKFLOW' ] | Imported/exported object's DTO type. Import is currently only possible with the CONNECTOR_RULE, IDENTITY_OBJECT_CONFIG, IDENTITY_PROFILE, RULE, SOURCE, TRANSFORM, and TRIGGER_SUBSCRIPTION object types. | [optional] 
+**id** | **str** | Imported/exported object's ID. | [optional] 
+**name** | **str** | Imported/exported object's display name. | [optional] 
+}
 
-## Methods
+## Example
 
-### NewSelfImportExportDto
+```python
+from sailpoint.v2025.models.self_import_export_dto import SelfImportExportDto
 
-`func NewSelfImportExportDto() *SelfImportExportDto`
+self_import_export_dto = SelfImportExportDto(
+type='SOURCE',
+id='2c9180835d191a86015d28455b4b232a',
+name='HR Active Directory'
+)
 
-NewSelfImportExportDto instantiates a new SelfImportExportDto object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewSelfImportExportDtoWithDefaults
-
-`func NewSelfImportExportDtoWithDefaults() *SelfImportExportDto`
-
-NewSelfImportExportDtoWithDefaults instantiates a new SelfImportExportDto object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetType
-
-`func (o *SelfImportExportDto) GetType() string`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *SelfImportExportDto) GetTypeOk() (*string, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *SelfImportExportDto) SetType(v string)`
-
-SetType sets Type field to given value.
-
-### HasType
-
-`func (o *SelfImportExportDto) HasType() bool`
-
-HasType returns a boolean if a field has been set.
-
-### GetId
-
-`func (o *SelfImportExportDto) GetId() string`
-
-GetId returns the Id field if non-nil, zero value otherwise.
-
-### GetIdOk
-
-`func (o *SelfImportExportDto) GetIdOk() (*string, bool)`
-
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetId
-
-`func (o *SelfImportExportDto) SetId(v string)`
-
-SetId sets Id field to given value.
-
-### HasId
-
-`func (o *SelfImportExportDto) HasId() bool`
-
-HasId returns a boolean if a field has been set.
-
-### GetName
-
-`func (o *SelfImportExportDto) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *SelfImportExportDto) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *SelfImportExportDto) SetName(v string)`
-
-SetName sets Name field to given value.
-
-### HasName
-
-`func (o *SelfImportExportDto) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

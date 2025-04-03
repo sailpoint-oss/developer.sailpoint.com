@@ -3,27 +3,29 @@ id: v2024-work-item-state-manual-work-items
 title: WorkItemStateManualWorkItems
 pagination_label: WorkItemStateManualWorkItems
 sidebar_label: WorkItemStateManualWorkItems
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkItemStateManualWorkItems', 'V2024WorkItemStateManualWorkItems'] 
-slug: /tools/sdk/go/v2024/models/work-item-state-manual-work-items
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'WorkItemStateManualWorkItems', 'V2024WorkItemStateManualWorkItems'] 
+slug: /tools/sdk/python/v2024/models/work-item-state-manual-work-items
 tags: ['SDK', 'Software Development Kit', 'WorkItemStateManualWorkItems', 'V2024WorkItemStateManualWorkItems']
 ---
 
 # WorkItemStateManualWorkItems
 
+The state of a work item
+
 ## Enum
 
+* `FINISHED` (value: `'Finished'`)
 
-* `FINISHED` (value: `"Finished"`)
+* `REJECTED` (value: `'Rejected'`)
 
-* `REJECTED` (value: `"Rejected"`)
+* `RETURNED` (value: `'Returned'`)
 
-* `RETURNED` (value: `"Returned"`)
+* `EXPIRED` (value: `'Expired'`)
 
-* `EXPIRED` (value: `"Expired"`)
+* `PENDING` (value: `'Pending'`)
 
-* `PENDING` (value: `"Pending"`)
+* `CANCELED` (value: `'Canceled'`)
 
-* `CANCELED` (value: `"Canceled"`)
-
+[[Back to top]](#) 
 

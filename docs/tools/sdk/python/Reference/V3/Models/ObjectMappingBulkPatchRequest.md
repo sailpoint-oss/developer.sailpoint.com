@@ -3,57 +3,31 @@ id: object-mapping-bulk-patch-request
 title: ObjectMappingBulkPatchRequest
 pagination_label: ObjectMappingBulkPatchRequest
 sidebar_label: ObjectMappingBulkPatchRequest
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ObjectMappingBulkPatchRequest', 'ObjectMappingBulkPatchRequest'] 
-slug: /tools/sdk/go/v3/models/object-mapping-bulk-patch-request
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'ObjectMappingBulkPatchRequest', 'ObjectMappingBulkPatchRequest'] 
+slug: /tools/sdk/python/v3/models/object-mapping-bulk-patch-request
 tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkPatchRequest', 'ObjectMappingBulkPatchRequest']
 ---
 
 # ObjectMappingBulkPatchRequest
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Patches** | [**map[string][]JsonPatchOperation**](https://go.dev/tour/moretypes/6) | Map of id of the object mapping to a JsonPatchOperation describing what to patch on that object mapping. | 
+**patches** | [**map[string]List[JsonPatchOperation]**](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists) | Map of id of the object mapping to a JsonPatchOperation describing what to patch on that object mapping. | [required]
+}
 
-## Methods
+## Example
 
-### NewObjectMappingBulkPatchRequest
+```python
+from sailpoint.v3.models.object_mapping_bulk_patch_request import ObjectMappingBulkPatchRequest
 
-`func NewObjectMappingBulkPatchRequest(patches map[string][]JsonPatchOperation, ) *ObjectMappingBulkPatchRequest`
+object_mapping_bulk_patch_request = ObjectMappingBulkPatchRequest(
+patches={603b1a61-d03d-4ed1-864f-a508fbd1995d=[{op=replace, path=/enabled, value=true}], 00bece34-f50d-4227-8878-76f620b5a971=[{op=replace, path=/targetValue, value=New Target Value}]}
+)
 
-NewObjectMappingBulkPatchRequest instantiates a new ObjectMappingBulkPatchRequest object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewObjectMappingBulkPatchRequestWithDefaults
-
-`func NewObjectMappingBulkPatchRequestWithDefaults() *ObjectMappingBulkPatchRequest`
-
-NewObjectMappingBulkPatchRequestWithDefaults instantiates a new ObjectMappingBulkPatchRequest object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetPatches
-
-`func (o *ObjectMappingBulkPatchRequest) GetPatches() map[string][]JsonPatchOperation`
-
-GetPatches returns the Patches field if non-nil, zero value otherwise.
-
-### GetPatchesOk
-
-`func (o *ObjectMappingBulkPatchRequest) GetPatchesOk() (*map[string][]JsonPatchOperation, bool)`
-
-GetPatchesOk returns a tuple with the Patches field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPatches
-
-`func (o *ObjectMappingBulkPatchRequest) SetPatches(v map[string][]JsonPatchOperation)`
-
-SetPatches sets Patches field to given value.
-
-
+```
+[[Back to top]](#) 
 

@@ -3,78 +3,33 @@ id: v2024-identity-lifecycle-state
 title: IdentityLifecycleState
 pagination_label: IdentityLifecycleState
 sidebar_label: IdentityLifecycleState
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityLifecycleState', 'V2024IdentityLifecycleState'] 
-slug: /tools/sdk/go/v2024/models/identity-lifecycle-state
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'IdentityLifecycleState', 'V2024IdentityLifecycleState'] 
+slug: /tools/sdk/python/v2024/models/identity-lifecycle-state
 tags: ['SDK', 'Software Development Kit', 'IdentityLifecycleState', 'V2024IdentityLifecycleState']
 ---
 
 # IdentityLifecycleState
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**StateName** | **string** | The name of the lifecycle state | 
-**ManuallyUpdated** | **bool** | Whether the lifecycle state has been manually or automatically set | 
+**state_name** | **str** | The name of the lifecycle state | [required]
+**manually_updated** | **bool** | Whether the lifecycle state has been manually or automatically set | [required]
+}
 
-## Methods
+## Example
 
-### NewIdentityLifecycleState
+```python
+from sailpoint.v2024.models.identity_lifecycle_state import IdentityLifecycleState
 
-`func NewIdentityLifecycleState(stateName string, manuallyUpdated bool, ) *IdentityLifecycleState`
+identity_lifecycle_state = IdentityLifecycleState(
+state_name='active',
+manually_updated=True
+)
 
-NewIdentityLifecycleState instantiates a new IdentityLifecycleState object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewIdentityLifecycleStateWithDefaults
-
-`func NewIdentityLifecycleStateWithDefaults() *IdentityLifecycleState`
-
-NewIdentityLifecycleStateWithDefaults instantiates a new IdentityLifecycleState object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetStateName
-
-`func (o *IdentityLifecycleState) GetStateName() string`
-
-GetStateName returns the StateName field if non-nil, zero value otherwise.
-
-### GetStateNameOk
-
-`func (o *IdentityLifecycleState) GetStateNameOk() (*string, bool)`
-
-GetStateNameOk returns a tuple with the StateName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetStateName
-
-`func (o *IdentityLifecycleState) SetStateName(v string)`
-
-SetStateName sets StateName field to given value.
-
-
-### GetManuallyUpdated
-
-`func (o *IdentityLifecycleState) GetManuallyUpdated() bool`
-
-GetManuallyUpdated returns the ManuallyUpdated field if non-nil, zero value otherwise.
-
-### GetManuallyUpdatedOk
-
-`func (o *IdentityLifecycleState) GetManuallyUpdatedOk() (*bool, bool)`
-
-GetManuallyUpdatedOk returns a tuple with the ManuallyUpdated field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetManuallyUpdated
-
-`func (o *IdentityLifecycleState) SetManuallyUpdated(v bool)`
-
-SetManuallyUpdated sets ManuallyUpdated field to given value.
-
-
+```
+[[Back to top]](#) 
 

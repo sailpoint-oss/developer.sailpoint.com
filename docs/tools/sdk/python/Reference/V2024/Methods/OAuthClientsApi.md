@@ -1,15 +1,15 @@
 ---
 id: v2024-o-auth-clients
-title: OAuthClients
-pagination_label: OAuthClients
-sidebar_label: OAuthClients
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'OAuthClients', 'V2024OAuthClients'] 
-slug: /tools/sdk/go/v2024/methods/o-auth-clients
-tags: ['SDK', 'Software Development Kit', 'OAuthClients', 'V2024OAuthClients']
+title: OAuth_Clients
+pagination_label: OAuth_Clients
+sidebar_label: OAuth_Clients
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'OAuth_Clients', 'V2024OAuth_Clients'] 
+slug: /tools/sdk/python/v2024/methods/o-auth-clients
+tags: ['SDK', 'Software Development Kit', 'OAuth_Clients', 'V2024OAuth_Clients']
 ---
 
-# OAuthClientsAPI
+# sailpoint.v2024.OAuthClientsApi
   Use this API to implement OAuth client functionality.   
 With this functionality in place, users with the appropriate security scopes can create and configure OAuth clients to use as a way to obtain authorization to use the Identity Security Cloud REST API.
 Refer to [Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information about OAuth and how it works with the Identity Security Cloud REST API.
@@ -18,11 +18,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-oauth-client**](#create-oauth-client) | **Post** `/oauth-clients` | Create OAuth Client
-[**delete-oauth-client**](#delete-oauth-client) | **Delete** `/oauth-clients/{id}` | Delete OAuth Client
-[**get-oauth-client**](#get-oauth-client) | **Get** `/oauth-clients/{id}` | Get OAuth Client
-[**list-oauth-clients**](#list-oauth-clients) | **Get** `/oauth-clients` | List OAuth Clients
-[**patch-oauth-client**](#patch-oauth-client) | **Patch** `/oauth-clients/{id}` | Patch OAuth Client
+[**create-oauth-client**](#create-oauth-client) | **POST** `/oauth-clients` | Create OAuth Client
+[**delete-oauth-client**](#delete-oauth-client) | **DELETE** `/oauth-clients/{id}` | Delete OAuth Client
+[**get-oauth-client**](#get-oauth-client) | **GET** `/oauth-clients/{id}` | Get OAuth Client
+[**list-oauth-clients**](#list-oauth-clients) | **GET** `/oauth-clients` | List OAuth Clients
+[**patch-oauth-client**](#patch-oauth-client) | **PATCH** `/oauth-clients/{id}` | Patch OAuth Client
 
 
 ## create-oauth-client
@@ -31,43 +31,42 @@ This creates an OAuth client.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-oauth-client)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateOauthClientRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **createOAuthClientRequest** | [**CreateOAuthClientRequest**](../models/create-o-auth-client-request) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | create_o_auth_client_request | [**CreateOAuthClientRequest**](../models/create-o-auth-client-request) | True  | 
 
 ### Return type
-
 [**CreateOAuthClientResponse**](../models/create-o-auth-client-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Request succeeded. | CreateOAuthClientResponse |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.o_auth_clients_api import OAuthClientsApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.create_o_auth_client_request import CreateOAuthClientRequest
+from sailpoint.v2024.models.create_o_auth_client_response import CreateOAuthClientResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    createOAuthClientRequest := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    create_o_auth_client_request = '''{
           "internal" : false,
           "businessName" : "Acme-Solar",
           "description" : "An API client used for the authorization_code, refresh_token, and client_credentials flows",
@@ -83,21 +82,23 @@ func main() {
           "scope" : [ "demo:api-client-scope:first", "demo:api-client-scope:second" ],
           "name" : "Demo API Client",
           "claimsSupported" : false
-        }`) # CreateOAuthClientRequest | 
+        }''' # CreateOAuthClientRequest | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.OAuthClientsAPI.CreateOauthClient(context.Background()).CreateOAuthClientRequest(createOAuthClientRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OAuthClientsAPI.CreateOauthClient``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateOauthClient`: CreateOAuthClientResponse
-	fmt.Fprintf(os.Stdout, "Response from `OAuthClientsAPI.CreateOauthClient`: %v\n", resp)
-}
+    try:
+        # Create OAuth Client
+        new_create_o_auth_client_request = CreateOAuthClientRequest.from_json(create_o_auth_client_request)
+        results = OAuthClientsApi(api_client).create_oauth_client(create_o_auth_client_request=new_create_o_auth_client_request)
+        # Below is a request that includes all optional parameters
+        # results = OAuthClientsApi(api_client).create_oauth_client(new_create_o_auth_client_request)
+        print("The response of OAuthClientsApi->create_oauth_client:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling OAuthClientsApi->create_oauth_client: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## delete-oauth-client
 Delete OAuth Client
@@ -105,59 +106,55 @@ This deletes an OAuth client.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-oauth-client)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The OAuth client id | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteOauthClientRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The OAuth client id
 
 ### Return type
-
  (empty response body)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+204 | No content. |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.o_auth_clients_api import OAuthClientsApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := ef38f94347e94562b5bb8424a56397d8 # string | The OAuth client id # string | The OAuth client id
+with ApiClient(configuration) as api_client:
+    id = 'ef38f94347e94562b5bb8424a56397d8' # str | The OAuth client id # str | The OAuth client id
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V2024.OAuthClientsAPI.DeleteOauthClient(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OAuthClientsAPI.DeleteOauthClient``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
+    try:
+        # Delete OAuth Client
+        
+        OAuthClientsApi(api_client).delete_oauth_client(id=id)
+        # Below is a request that includes all optional parameters
+        # OAuthClientsApi(api_client).delete_oauth_client(id)
+    except Exception as e:
+        print("Exception when calling OAuthClientsApi->delete_oauth_client: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-oauth-client
 Get OAuth Client
@@ -165,61 +162,58 @@ This gets details of an OAuth client.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-oauth-client)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The OAuth client id | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetOauthClientRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The OAuth client id
 
 ### Return type
-
 [**GetOAuthClientResponse**](../models/get-o-auth-client-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Request succeeded. | GetOAuthClientResponse |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.o_auth_clients_api import OAuthClientsApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.get_o_auth_client_response import GetOAuthClientResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := ef38f94347e94562b5bb8424a56397d8 # string | The OAuth client id # string | The OAuth client id
+with ApiClient(configuration) as api_client:
+    id = 'ef38f94347e94562b5bb8424a56397d8' # str | The OAuth client id # str | The OAuth client id
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.OAuthClientsAPI.GetOauthClient(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OAuthClientsAPI.GetOauthClient``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetOauthClient`: GetOAuthClientResponse
-	fmt.Fprintf(os.Stdout, "Response from `OAuthClientsAPI.GetOauthClient`: %v\n", resp)
-}
+    try:
+        # Get OAuth Client
+        
+        results = OAuthClientsApi(api_client).get_oauth_client(id=id)
+        # Below is a request that includes all optional parameters
+        # results = OAuthClientsApi(api_client).get_oauth_client(id)
+        print("The response of OAuthClientsApi->get_oauth_client:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling OAuthClientsApi->get_oauth_client: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## list-oauth-clients
 List OAuth Clients
@@ -227,57 +221,57 @@ This gets a list of OAuth clients.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-oauth-clients)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListOauthClientsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull*
 
 ### Return type
+[**List[GetOAuthClientResponse]**](../models/get-o-auth-client-response)
 
-[**[]GetOAuthClientResponse**](../models/get-o-auth-client-response)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of OAuth clients. | List[GetOAuthClientResponse] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.o_auth_clients_api import OAuthClientsApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.get_o_auth_client_response import GetOAuthClientResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    filters := lastUsed le 2023-02-05T10:59:27.214Z # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
+with ApiClient(configuration) as api_client:
+    filters = 'lastUsed le 2023-02-05T10:59:27.214Z' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.OAuthClientsAPI.ListOauthClients(context.Background()).Filters(filters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OAuthClientsAPI.ListOauthClients``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListOauthClients`: []GetOAuthClientResponse
-	fmt.Fprintf(os.Stdout, "Response from `OAuthClientsAPI.ListOauthClients`: %v\n", resp)
-}
+    try:
+        # List OAuth Clients
+        
+        results = OAuthClientsApi(api_client).list_oauth_clients()
+        # Below is a request that includes all optional parameters
+        # results = OAuthClientsApi(api_client).list_oauth_clients(filters)
+        print("The response of OAuthClientsApi->list_oauth_clients:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling OAuthClientsApi->list_oauth_clients: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## patch-oauth-client
 Patch OAuth Client
@@ -285,61 +279,61 @@ This performs a targeted update to the field(s) of an OAuth client.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-oauth-client)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The OAuth client id | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPatchOauthClientRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **jsonPatchOperation** | [**[]JsonPatchOperation**](../models/json-patch-operation) | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The OAuth client id
+ Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
 
 ### Return type
-
 [**GetOAuthClientResponse**](../models/get-o-auth-client-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Indicates the PATCH operation succeeded, and returns the OAuth client&#39;s new representation. | GetOAuthClientResponse |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json-patch+json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json-patch+json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.o_auth_clients_api import OAuthClientsApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.get_o_auth_client_response import GetOAuthClientResponse
+from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := ef38f94347e94562b5bb8424a56397d8 # string | The OAuth client id # string | The OAuth client id
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/strongAuthSupported, value=true}, {op=replace, path=/businessName, value=acme-solar}]`) # []JsonPatchOperation | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
+with ApiClient(configuration) as api_client:
+    id = 'ef38f94347e94562b5bb8424a56397d8' # str | The OAuth client id # str | The OAuth client id
+    json_patch_operation = '''[{op=replace, path=/strongAuthSupported, value=true}, {op=replace, path=/businessName, value=acme-solar}]''' # List[JsonPatchOperation] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.OAuthClientsAPI.PatchOauthClient(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `OAuthClientsAPI.PatchOauthClient``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PatchOauthClient`: GetOAuthClientResponse
-	fmt.Fprintf(os.Stdout, "Response from `OAuthClientsAPI.PatchOauthClient`: %v\n", resp)
-}
+    try:
+        # Patch OAuth Client
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = OAuthClientsApi(api_client).patch_oauth_client(id=id, json_patch_operation=new_json_patch_operation)
+        # Below is a request that includes all optional parameters
+        # results = OAuthClientsApi(api_client).patch_oauth_client(id, new_json_patch_operation)
+        print("The response of OAuthClientsApi->patch_oauth_client:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling OAuthClientsApi->patch_oauth_client: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
+
+
 

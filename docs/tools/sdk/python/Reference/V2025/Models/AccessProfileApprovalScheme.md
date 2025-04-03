@@ -3,98 +3,33 @@ id: v2025-access-profile-approval-scheme
 title: AccessProfileApprovalScheme
 pagination_label: AccessProfileApprovalScheme
 sidebar_label: AccessProfileApprovalScheme
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessProfileApprovalScheme', 'V2025AccessProfileApprovalScheme'] 
-slug: /tools/sdk/go/v2025/models/access-profile-approval-scheme
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'AccessProfileApprovalScheme', 'V2025AccessProfileApprovalScheme'] 
+slug: /tools/sdk/python/v2025/models/access-profile-approval-scheme
 tags: ['SDK', 'Software Development Kit', 'AccessProfileApprovalScheme', 'V2025AccessProfileApprovalScheme']
 ---
 
 # AccessProfileApprovalScheme
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApproverType** | Pointer to **string** | Describes the individual or group that is responsible for an approval step. These are the possible values: **APP_OWNER**: The owner of the Application  **OWNER**: Owner of the associated Access Profile or Role  **SOURCE_OWNER**: Owner of the Source associated with an Access Profile  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field | [optional] 
-**ApproverId** | Pointer to **NullableString** | Specific approver ID. Only use this when the `approverType` is `GOVERNANCE_GROUP`. | [optional] 
+**approver_type** |  **Enum** [  'APP_OWNER',    'OWNER',    'SOURCE_OWNER',    'MANAGER',    'GOVERNANCE_GROUP' ] | Describes the individual or group that is responsible for an approval step. Values are as follows. **APP_OWNER**: The owner of the Application  **OWNER**: Owner of the associated Access Profile or Role  **SOURCE_OWNER**: Owner of the Source associated with an Access Profile  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field | [optional] 
+**approver_id** | **str** | Id of the specific approver, used only when approverType is GOVERNANCE_GROUP | [optional] 
+}
 
-## Methods
+## Example
 
-### NewAccessProfileApprovalScheme
+```python
+from sailpoint.v2025.models.access_profile_approval_scheme import AccessProfileApprovalScheme
 
-`func NewAccessProfileApprovalScheme() *AccessProfileApprovalScheme`
+access_profile_approval_scheme = AccessProfileApprovalScheme(
+approver_type='GOVERNANCE_GROUP',
+approver_id='46c79819-a69f-49a2-becb-12c971ae66c6'
+)
 
-NewAccessProfileApprovalScheme instantiates a new AccessProfileApprovalScheme object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewAccessProfileApprovalSchemeWithDefaults
-
-`func NewAccessProfileApprovalSchemeWithDefaults() *AccessProfileApprovalScheme`
-
-NewAccessProfileApprovalSchemeWithDefaults instantiates a new AccessProfileApprovalScheme object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetApproverType
-
-`func (o *AccessProfileApprovalScheme) GetApproverType() string`
-
-GetApproverType returns the ApproverType field if non-nil, zero value otherwise.
-
-### GetApproverTypeOk
-
-`func (o *AccessProfileApprovalScheme) GetApproverTypeOk() (*string, bool)`
-
-GetApproverTypeOk returns a tuple with the ApproverType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetApproverType
-
-`func (o *AccessProfileApprovalScheme) SetApproverType(v string)`
-
-SetApproverType sets ApproverType field to given value.
-
-### HasApproverType
-
-`func (o *AccessProfileApprovalScheme) HasApproverType() bool`
-
-HasApproverType returns a boolean if a field has been set.
-
-### GetApproverId
-
-`func (o *AccessProfileApprovalScheme) GetApproverId() string`
-
-GetApproverId returns the ApproverId field if non-nil, zero value otherwise.
-
-### GetApproverIdOk
-
-`func (o *AccessProfileApprovalScheme) GetApproverIdOk() (*string, bool)`
-
-GetApproverIdOk returns a tuple with the ApproverId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetApproverId
-
-`func (o *AccessProfileApprovalScheme) SetApproverId(v string)`
-
-SetApproverId sets ApproverId field to given value.
-
-### HasApproverId
-
-`func (o *AccessProfileApprovalScheme) HasApproverId() bool`
-
-HasApproverId returns a boolean if a field has been set.
-
-### SetApproverIdNil
-
-`func (o *AccessProfileApprovalScheme) SetApproverIdNil(b bool)`
-
- SetApproverIdNil sets the value for ApproverId to be an explicit nil
-
-### UnsetApproverId
-`func (o *AccessProfileApprovalScheme) UnsetApproverId()`
-
-UnsetApproverId ensures that no value is present for ApproverId, not even an explicit nil
+```
+[[Back to top]](#) 
 

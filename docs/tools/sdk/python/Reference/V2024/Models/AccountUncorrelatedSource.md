@@ -3,99 +3,36 @@ id: v2024-account-uncorrelated-source
 title: AccountUncorrelatedSource
 pagination_label: AccountUncorrelatedSource
 sidebar_label: AccountUncorrelatedSource
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountUncorrelatedSource', 'V2024AccountUncorrelatedSource'] 
-slug: /tools/sdk/go/v2024/models/account-uncorrelated-source
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'AccountUncorrelatedSource', 'V2024AccountUncorrelatedSource'] 
+slug: /tools/sdk/python/v2024/models/account-uncorrelated-source
 tags: ['SDK', 'Software Development Kit', 'AccountUncorrelatedSource', 'V2024AccountUncorrelatedSource']
 ---
 
 # AccountUncorrelatedSource
 
+The source the accounts are uncorrelated from.
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | The DTO type of the source the accounts are uncorrelated from. | 
-**Id** | **string** | The ID of the source the accounts are uncorrelated from. | 
-**Name** | **string** | Display name of the source the accounts are uncorrelated from. | 
+**type** |  **Enum** [  'SOURCE' ] | The DTO type of the source the accounts are uncorrelated from. | [required]
+**id** | **str** | The ID of the source the accounts are uncorrelated from. | [required]
+**name** | **str** | Display name of the source the accounts are uncorrelated from. | [required]
+}
 
-## Methods
+## Example
 
-### NewAccountUncorrelatedSource
+```python
+from sailpoint.v2024.models.account_uncorrelated_source import AccountUncorrelatedSource
 
-`func NewAccountUncorrelatedSource(type_ string, id string, name string, ) *AccountUncorrelatedSource`
+account_uncorrelated_source = AccountUncorrelatedSource(
+type='SOURCE',
+id='2c6180835d191a86015d28455b4b231b',
+name='Corporate Directory'
+)
 
-NewAccountUncorrelatedSource instantiates a new AccountUncorrelatedSource object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewAccountUncorrelatedSourceWithDefaults
-
-`func NewAccountUncorrelatedSourceWithDefaults() *AccountUncorrelatedSource`
-
-NewAccountUncorrelatedSourceWithDefaults instantiates a new AccountUncorrelatedSource object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetType
-
-`func (o *AccountUncorrelatedSource) GetType() string`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *AccountUncorrelatedSource) GetTypeOk() (*string, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *AccountUncorrelatedSource) SetType(v string)`
-
-SetType sets Type field to given value.
-
-
-### GetId
-
-`func (o *AccountUncorrelatedSource) GetId() string`
-
-GetId returns the Id field if non-nil, zero value otherwise.
-
-### GetIdOk
-
-`func (o *AccountUncorrelatedSource) GetIdOk() (*string, bool)`
-
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetId
-
-`func (o *AccountUncorrelatedSource) SetId(v string)`
-
-SetId sets Id field to given value.
-
-
-### GetName
-
-`func (o *AccountUncorrelatedSource) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *AccountUncorrelatedSource) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *AccountUncorrelatedSource) SetName(v string)`
-
-SetName sets Name field to given value.
-
-
+```
+[[Back to top]](#) 
 

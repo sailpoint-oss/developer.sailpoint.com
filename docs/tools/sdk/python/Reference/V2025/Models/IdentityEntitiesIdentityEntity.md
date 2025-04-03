@@ -3,114 +3,35 @@ id: v2025-identity-entities-identity-entity
 title: IdentityEntitiesIdentityEntity
 pagination_label: IdentityEntitiesIdentityEntity
 sidebar_label: IdentityEntitiesIdentityEntity
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityEntitiesIdentityEntity', 'V2025IdentityEntitiesIdentityEntity'] 
-slug: /tools/sdk/go/v2025/models/identity-entities-identity-entity
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'IdentityEntitiesIdentityEntity', 'V2025IdentityEntitiesIdentityEntity'] 
+slug: /tools/sdk/python/v2025/models/identity-entities-identity-entity
 tags: ['SDK', 'Software Development Kit', 'IdentityEntitiesIdentityEntity', 'V2025IdentityEntitiesIdentityEntity']
 ---
 
 # IdentityEntitiesIdentityEntity
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | id of the resource to which the identity is associated | [optional] 
-**Name** | Pointer to **string** | name of the resource to which the identity is associated | [optional] 
-**Type** | Pointer to **string** | type of the resource to which the identity is associated | [optional] 
+**id** | **str** | id of the resource to which the identity is associated | [optional] 
+**name** | **str** | name of the resource to which the identity is associated | [optional] 
+**type** | **str** | type of the resource to which the identity is associated | [optional] 
+}
 
-## Methods
+## Example
 
-### NewIdentityEntitiesIdentityEntity
+```python
+from sailpoint.v2025.models.identity_entities_identity_entity import IdentityEntitiesIdentityEntity
 
-`func NewIdentityEntitiesIdentityEntity() *IdentityEntitiesIdentityEntity`
+identity_entities_identity_entity = IdentityEntitiesIdentityEntity(
+id='031034e97f094a4096c1be53f75f6b91',
+name='Gaston.800ddf9640a',
+type='CAMPAIGN_CAMPAIGNER'
+)
 
-NewIdentityEntitiesIdentityEntity instantiates a new IdentityEntitiesIdentityEntity object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewIdentityEntitiesIdentityEntityWithDefaults
-
-`func NewIdentityEntitiesIdentityEntityWithDefaults() *IdentityEntitiesIdentityEntity`
-
-NewIdentityEntitiesIdentityEntityWithDefaults instantiates a new IdentityEntitiesIdentityEntity object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetId
-
-`func (o *IdentityEntitiesIdentityEntity) GetId() string`
-
-GetId returns the Id field if non-nil, zero value otherwise.
-
-### GetIdOk
-
-`func (o *IdentityEntitiesIdentityEntity) GetIdOk() (*string, bool)`
-
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetId
-
-`func (o *IdentityEntitiesIdentityEntity) SetId(v string)`
-
-SetId sets Id field to given value.
-
-### HasId
-
-`func (o *IdentityEntitiesIdentityEntity) HasId() bool`
-
-HasId returns a boolean if a field has been set.
-
-### GetName
-
-`func (o *IdentityEntitiesIdentityEntity) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *IdentityEntitiesIdentityEntity) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *IdentityEntitiesIdentityEntity) SetName(v string)`
-
-SetName sets Name field to given value.
-
-### HasName
-
-`func (o *IdentityEntitiesIdentityEntity) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### GetType
-
-`func (o *IdentityEntitiesIdentityEntity) GetType() string`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *IdentityEntitiesIdentityEntity) GetTypeOk() (*string, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *IdentityEntitiesIdentityEntity) SetType(v string)`
-
-SetType sets Type field to given value.
-
-### HasType
-
-`func (o *IdentityEntitiesIdentityEntity) HasType() bool`
-
-HasType returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

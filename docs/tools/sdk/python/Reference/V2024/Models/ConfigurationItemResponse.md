@@ -3,88 +3,51 @@ id: v2024-configuration-item-response
 title: ConfigurationItemResponse
 pagination_label: ConfigurationItemResponse
 sidebar_label: ConfigurationItemResponse
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConfigurationItemResponse', 'V2024ConfigurationItemResponse'] 
-slug: /tools/sdk/go/v2024/models/configuration-item-response
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'ConfigurationItemResponse', 'V2024ConfigurationItemResponse'] 
+slug: /tools/sdk/python/v2024/models/configuration-item-response
 tags: ['SDK', 'Software Development Kit', 'ConfigurationItemResponse', 'V2024ConfigurationItemResponse']
 ---
 
 # ConfigurationItemResponse
 
+The response body of a Reassignment Configuration for a single identity
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Identity** | Pointer to [**Identity1**](identity1) |  | [optional] 
-**ConfigDetails** | Pointer to [**[]ConfigurationDetailsResponse**](configuration-details-response) | Details of how work should be reassigned for an Identity | [optional] 
+**identity** | [**Identity1**](identity1) |  | [optional] 
+**config_details** | [**[]ConfigurationDetailsResponse**](configuration-details-response) | Details of how work should be reassigned for an Identity | [optional] 
+}
 
-## Methods
+## Example
 
-### NewConfigurationItemResponse
+```python
+from sailpoint.v2024.models.configuration_item_response import ConfigurationItemResponse
 
-`func NewConfigurationItemResponse() *ConfigurationItemResponse`
+configuration_item_response = ConfigurationItemResponse(
+identity=sailpoint.v2024.models.identity_1.Identity_1(
+                    id = '2c91808380aa05580180aaaaf1940410', 
+                    name = 'William Wilson', ),
+config_details=[
+                    sailpoint.v2024.models.configuration_details_response.ConfigurationDetailsResponse(
+                        config_type = 'ACCESS_REQUESTS', 
+                        target_identity = sailpoint.v2024.models.identity_1.Identity_1(
+                            id = '2c91808380aa05580180aaaaf1940410', 
+                            name = 'William Wilson', ), 
+                        start_date = '2022-07-21T11:13:12.345Z', 
+                        end_date = '0001-01-01T00:00Z', 
+                        audit_details = sailpoint.v2024.models.audit_details.AuditDetails(
+                            created = '2022-07-21T11:13:12.345Z', 
+                            created_by = sailpoint.v2024.models.identity_1.Identity_1(
+                                id = '2c91808380aa05580180aaaaf1940410', 
+                                name = 'William Wilson', ), 
+                            modified = '2022-07-21T11:13:12.345Z', 
+                            modified_by = , ), )
+                    ]
+)
 
-NewConfigurationItemResponse instantiates a new ConfigurationItemResponse object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewConfigurationItemResponseWithDefaults
-
-`func NewConfigurationItemResponseWithDefaults() *ConfigurationItemResponse`
-
-NewConfigurationItemResponseWithDefaults instantiates a new ConfigurationItemResponse object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetIdentity
-
-`func (o *ConfigurationItemResponse) GetIdentity() Identity1`
-
-GetIdentity returns the Identity field if non-nil, zero value otherwise.
-
-### GetIdentityOk
-
-`func (o *ConfigurationItemResponse) GetIdentityOk() (*Identity1, bool)`
-
-GetIdentityOk returns a tuple with the Identity field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIdentity
-
-`func (o *ConfigurationItemResponse) SetIdentity(v Identity1)`
-
-SetIdentity sets Identity field to given value.
-
-### HasIdentity
-
-`func (o *ConfigurationItemResponse) HasIdentity() bool`
-
-HasIdentity returns a boolean if a field has been set.
-
-### GetConfigDetails
-
-`func (o *ConfigurationItemResponse) GetConfigDetails() []ConfigurationDetailsResponse`
-
-GetConfigDetails returns the ConfigDetails field if non-nil, zero value otherwise.
-
-### GetConfigDetailsOk
-
-`func (o *ConfigurationItemResponse) GetConfigDetailsOk() (*[]ConfigurationDetailsResponse, bool)`
-
-GetConfigDetailsOk returns a tuple with the ConfigDetails field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetConfigDetails
-
-`func (o *ConfigurationItemResponse) SetConfigDetails(v []ConfigurationDetailsResponse)`
-
-SetConfigDetails sets ConfigDetails field to given value.
-
-### HasConfigDetails
-
-`func (o *ConfigurationItemResponse) HasConfigDetails() bool`
-
-HasConfigDetails returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

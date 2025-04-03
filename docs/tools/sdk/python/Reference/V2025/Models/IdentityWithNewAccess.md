@@ -3,78 +3,34 @@ id: v2025-identity-with-new-access
 title: IdentityWithNewAccess
 pagination_label: IdentityWithNewAccess
 sidebar_label: IdentityWithNewAccess
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityWithNewAccess', 'V2025IdentityWithNewAccess'] 
-slug: /tools/sdk/go/v2025/models/identity-with-new-access
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'IdentityWithNewAccess', 'V2025IdentityWithNewAccess'] 
+slug: /tools/sdk/python/v2025/models/identity-with-new-access
 tags: ['SDK', 'Software Development Kit', 'IdentityWithNewAccess', 'V2025IdentityWithNewAccess']
 ---
 
 # IdentityWithNewAccess
 
+An identity with a set of access to be added
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityId** | **string** | Identity id to be checked. | 
-**AccessRefs** | [**[]IdentityWithNewAccessAccessRefsInner**](identity-with-new-access-access-refs-inner) | The list of entitlements to consider for possible violations in a preventive check. | 
+**identity_id** | **str** | Identity id to be checked. | [required]
+**access_refs** | [**[]IdentityWithNewAccessAccessRefsInner**](identity-with-new-access-access-refs-inner) | The list of entitlements to consider for possible violations in a preventive check. | [required]
+}
 
-## Methods
+## Example
 
-### NewIdentityWithNewAccess
+```python
+from sailpoint.v2025.models.identity_with_new_access import IdentityWithNewAccess
 
-`func NewIdentityWithNewAccess(identityId string, accessRefs []IdentityWithNewAccessAccessRefsInner, ) *IdentityWithNewAccess`
+identity_with_new_access = IdentityWithNewAccess(
+identity_id='2c91808568c529c60168cca6f90c1313',
+access_refs=[{type=ENTITLEMENT, id=2c918087682f9a86016839c050861ab1, name=CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local}, {type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2, name=CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local}]
+)
 
-NewIdentityWithNewAccess instantiates a new IdentityWithNewAccess object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewIdentityWithNewAccessWithDefaults
-
-`func NewIdentityWithNewAccessWithDefaults() *IdentityWithNewAccess`
-
-NewIdentityWithNewAccessWithDefaults instantiates a new IdentityWithNewAccess object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetIdentityId
-
-`func (o *IdentityWithNewAccess) GetIdentityId() string`
-
-GetIdentityId returns the IdentityId field if non-nil, zero value otherwise.
-
-### GetIdentityIdOk
-
-`func (o *IdentityWithNewAccess) GetIdentityIdOk() (*string, bool)`
-
-GetIdentityIdOk returns a tuple with the IdentityId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIdentityId
-
-`func (o *IdentityWithNewAccess) SetIdentityId(v string)`
-
-SetIdentityId sets IdentityId field to given value.
-
-
-### GetAccessRefs
-
-`func (o *IdentityWithNewAccess) GetAccessRefs() []IdentityWithNewAccessAccessRefsInner`
-
-GetAccessRefs returns the AccessRefs field if non-nil, zero value otherwise.
-
-### GetAccessRefsOk
-
-`func (o *IdentityWithNewAccess) GetAccessRefsOk() (*[]IdentityWithNewAccessAccessRefsInner, bool)`
-
-GetAccessRefsOk returns a tuple with the AccessRefs field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccessRefs
-
-`func (o *IdentityWithNewAccess) SetAccessRefs(v []IdentityWithNewAccessAccessRefsInner)`
-
-SetAccessRefs sets AccessRefs field to given value.
-
-
+```
+[[Back to top]](#) 
 

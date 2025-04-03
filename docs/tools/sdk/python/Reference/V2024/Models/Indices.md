@@ -3,29 +3,31 @@ id: v2024-index
 title: Index
 pagination_label: Index
 sidebar_label: Index
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Index', 'V2024Index'] 
-slug: /tools/sdk/go/v2024/models/index
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'Index', 'V2024Index'] 
+slug: /tools/sdk/python/v2024/models/index
 tags: ['SDK', 'Software Development Kit', 'Index', 'V2024Index']
 ---
 
 # Index
 
+Enum representing the currently supported indices. Additional values may be added in the future without notice.
+
 ## Enum
 
+* `ACCESSPROFILES` (value: `'accessprofiles'`)
 
-* `ACCESSPROFILES` (value: `"accessprofiles"`)
+* `ACCOUNTACTIVITIES` (value: `'accountactivities'`)
 
-* `ACCOUNTACTIVITIES` (value: `"accountactivities"`)
+* `ENTITLEMENTS` (value: `'entitlements'`)
 
-* `ENTITLEMENTS` (value: `"entitlements"`)
+* `EVENTS` (value: `'events'`)
 
-* `EVENTS` (value: `"events"`)
+* `IDENTITIES` (value: `'identities'`)
 
-* `IDENTITIES` (value: `"identities"`)
+* `ROLES` (value: `'roles'`)
 
-* `ROLES` (value: `"roles"`)
+* `STAR` (value: `'*'`)
 
-* `STAR` (value: `"*"`)
-
+[[Back to top]](#) 
 

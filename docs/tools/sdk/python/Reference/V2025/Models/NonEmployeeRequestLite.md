@@ -3,88 +3,35 @@ id: v2025-non-employee-request-lite
 title: NonEmployeeRequestLite
 pagination_label: NonEmployeeRequestLite
 sidebar_label: NonEmployeeRequestLite
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NonEmployeeRequestLite', 'V2025NonEmployeeRequestLite'] 
-slug: /tools/sdk/go/v2025/models/non-employee-request-lite
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'NonEmployeeRequestLite', 'V2025NonEmployeeRequestLite'] 
+slug: /tools/sdk/python/v2025/models/non-employee-request-lite
 tags: ['SDK', 'Software Development Kit', 'NonEmployeeRequestLite', 'V2025NonEmployeeRequestLite']
 ---
 
 # NonEmployeeRequestLite
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Non-Employee request id. | [optional] 
-**Requester** | Pointer to [**NonEmployeeIdentityReferenceWithId**](non-employee-identity-reference-with-id) |  | [optional] 
+**id** | **str** | Non-Employee request id. | [optional] 
+**requester** | [**NonEmployeeIdentityReferenceWithId**](non-employee-identity-reference-with-id) |  | [optional] 
+}
 
-## Methods
+## Example
 
-### NewNonEmployeeRequestLite
+```python
+from sailpoint.v2025.models.non_employee_request_lite import NonEmployeeRequestLite
 
-`func NewNonEmployeeRequestLite() *NonEmployeeRequestLite`
+non_employee_request_lite = NonEmployeeRequestLite(
+id='ac110005-7156-1150-8171-5b292e3e0084',
+requester=sailpoint.v2025.models.non_employee_identity_reference_with_id.NonEmployeeIdentityReferenceWithId(
+                    type = 'IDENTITY', 
+                    id = '5168015d32f890ca15812c9180835d2e', )
+)
 
-NewNonEmployeeRequestLite instantiates a new NonEmployeeRequestLite object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewNonEmployeeRequestLiteWithDefaults
-
-`func NewNonEmployeeRequestLiteWithDefaults() *NonEmployeeRequestLite`
-
-NewNonEmployeeRequestLiteWithDefaults instantiates a new NonEmployeeRequestLite object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetId
-
-`func (o *NonEmployeeRequestLite) GetId() string`
-
-GetId returns the Id field if non-nil, zero value otherwise.
-
-### GetIdOk
-
-`func (o *NonEmployeeRequestLite) GetIdOk() (*string, bool)`
-
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetId
-
-`func (o *NonEmployeeRequestLite) SetId(v string)`
-
-SetId sets Id field to given value.
-
-### HasId
-
-`func (o *NonEmployeeRequestLite) HasId() bool`
-
-HasId returns a boolean if a field has been set.
-
-### GetRequester
-
-`func (o *NonEmployeeRequestLite) GetRequester() NonEmployeeIdentityReferenceWithId`
-
-GetRequester returns the Requester field if non-nil, zero value otherwise.
-
-### GetRequesterOk
-
-`func (o *NonEmployeeRequestLite) GetRequesterOk() (*NonEmployeeIdentityReferenceWithId, bool)`
-
-GetRequesterOk returns a tuple with the Requester field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRequester
-
-`func (o *NonEmployeeRequestLite) SetRequester(v NonEmployeeIdentityReferenceWithId)`
-
-SetRequester sets Requester field to given value.
-
-### HasRequester
-
-`func (o *NonEmployeeRequestLite) HasRequester() bool`
-
-HasRequester returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

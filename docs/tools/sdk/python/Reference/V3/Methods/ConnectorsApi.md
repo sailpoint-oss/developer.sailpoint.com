@@ -3,13 +3,13 @@ id: connectors
 title: Connectors
 pagination_label: Connectors
 sidebar_label: Connectors
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Connectors', 'Connectors'] 
-slug: /tools/sdk/go/v3/methods/connectors
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'Connectors', 'Connectors'] 
+slug: /tools/sdk/python/v3/methods/connectors
 tags: ['SDK', 'Software Development Kit', 'Connectors', 'Connectors']
 ---
 
-# ConnectorsAPI
+# sailpoint.v3.ConnectorsApi
   Use this API to implement connector functionality.
 With this functionality in place, administrators can view available connectors.
 
@@ -29,17 +29,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-custom-connector**](#create-custom-connector) | **Post** `/connectors` | Create Custom Connector
-[**delete-custom-connector**](#delete-custom-connector) | **Delete** `/connectors/{scriptName}` | Delete Connector by Script Name
-[**get-connector**](#get-connector) | **Get** `/connectors/{scriptName}` | Get Connector by Script Name
-[**get-connector-list**](#get-connector-list) | **Get** `/connectors` | Get Connector List
-[**get-connector-source-config**](#get-connector-source-config) | **Get** `/connectors/{scriptName}/source-config` | Get Connector Source Configuration
-[**get-connector-source-template**](#get-connector-source-template) | **Get** `/connectors/{scriptName}/source-template` | Get Connector Source Template
-[**get-connector-translations**](#get-connector-translations) | **Get** `/connectors/{scriptName}/translations/{locale}` | Get Connector Translations
-[**put-connector-source-config**](#put-connector-source-config) | **Put** `/connectors/{scriptName}/source-config` | Update Connector Source Configuration
-[**put-connector-source-template**](#put-connector-source-template) | **Put** `/connectors/{scriptName}/source-template` | Update Connector Source Template
-[**put-connector-translations**](#put-connector-translations) | **Put** `/connectors/{scriptName}/translations/{locale}` | Update Connector Translations
-[**update-connector**](#update-connector) | **Patch** `/connectors/{scriptName}` | Update Connector by Script Name
+[**create-custom-connector**](#create-custom-connector) | **POST** `/connectors` | Create Custom Connector
+[**delete-custom-connector**](#delete-custom-connector) | **DELETE** `/connectors/{scriptName}` | Delete Connector by Script Name
+[**get-connector**](#get-connector) | **GET** `/connectors/{scriptName}` | Get Connector by Script Name
+[**get-connector-list**](#get-connector-list) | **GET** `/connectors` | Get Connector List
+[**get-connector-source-config**](#get-connector-source-config) | **GET** `/connectors/{scriptName}/source-config` | Get Connector Source Configuration
+[**get-connector-source-template**](#get-connector-source-template) | **GET** `/connectors/{scriptName}/source-template` | Get Connector Source Template
+[**get-connector-translations**](#get-connector-translations) | **GET** `/connectors/{scriptName}/translations/{locale}` | Get Connector Translations
+[**put-connector-source-config**](#put-connector-source-config) | **PUT** `/connectors/{scriptName}/source-config` | Update Connector Source Configuration
+[**put-connector-source-template**](#put-connector-source-template) | **PUT** `/connectors/{scriptName}/source-template` | Update Connector Source Template
+[**put-connector-translations**](#put-connector-translations) | **PUT** `/connectors/{scriptName}/translations/{locale}` | Update Connector Translations
+[**update-connector**](#update-connector) | **PATCH** `/connectors/{scriptName}` | Update Connector by Script Name
 
 
 ## create-custom-connector
@@ -48,63 +48,65 @@ Create custom connector.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-custom-connector)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateCustomConnectorRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **v3CreateConnectorDto** | [**V3CreateConnectorDto**](../models/v3-create-connector-dto) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | v3_create_connector_dto | [**V3CreateConnectorDto**](../models/v3-create-connector-dto) | True  | 
 
 ### Return type
-
 [**V3ConnectorDto**](../models/v3-connector-dto)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | A Connector Dto object | V3ConnectorDto |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.connectors_api import ConnectorsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.v3_connector_dto import V3ConnectorDto
+from sailpoint.v3.models.v3_create_connector_dto import V3CreateConnectorDto
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    v3CreateConnectorDto := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    v3_create_connector_dto = '''{
           "name" : "custom connector",
           "directConnect" : true,
           "className" : "sailpoint.connector.OpenConnectorAdapter",
           "type" : "custom connector type",
           "status" : "RELEASED"
-        }`) # V3CreateConnectorDto | 
+        }''' # V3CreateConnectorDto | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ConnectorsAPI.CreateCustomConnector(context.Background()).V3CreateConnectorDto(v3CreateConnectorDto).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.CreateCustomConnector``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateCustomConnector`: V3ConnectorDto
-	fmt.Fprintf(os.Stdout, "Response from `ConnectorsAPI.CreateCustomConnector`: %v\n", resp)
-}
+    try:
+        # Create Custom Connector
+        new_v3_create_connector_dto = V3CreateConnectorDto.from_json(v3_create_connector_dto)
+        results = ConnectorsApi(api_client).create_custom_connector(v3_create_connector_dto=new_v3_create_connector_dto)
+        # Below is a request that includes all optional parameters
+        # results = ConnectorsApi(api_client).create_custom_connector(new_v3_create_connector_dto)
+        print("The response of ConnectorsApi->create_custom_connector:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConnectorsApi->create_custom_connector: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## delete-custom-connector
 Delete Connector by Script Name
@@ -112,59 +114,55 @@ Delete a custom connector that using its script name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-custom-connector)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**scriptName** | **string** | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteCustomConnectorRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | script_name | **str** | True  | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
 ### Return type
-
  (empty response body)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.connectors_api import ConnectorsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    scriptName := aScriptName # string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+with ApiClient(configuration) as api_client:
+    script_name = 'aScriptName' # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V3.ConnectorsAPI.DeleteCustomConnector(context.Background(), scriptName).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.DeleteCustomConnector``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
+    try:
+        # Delete Connector by Script Name
+        
+        ConnectorsApi(api_client).delete_custom_connector(script_name=script_name)
+        # Below is a request that includes all optional parameters
+        # ConnectorsApi(api_client).delete_custom_connector(script_name)
+    except Exception as e:
+        print("Exception when calling ConnectorsApi->delete_custom_connector: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-connector
 Get Connector by Script Name
@@ -172,63 +170,60 @@ Fetches a connector that using its script name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**scriptName** | **string** | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetConnectorRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **locale** | **string** | The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot; | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | script_name | **str** | True  | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+  Query | locale | **str** |   (optional) | The locale to apply to the config. If no viable locale is given, it will default to \"en\"
 
 ### Return type
-
 [**ConnectorDetail**](../models/connector-detail)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | A Connector Dto object | ConnectorDetail |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.connectors_api import ConnectorsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.connector_detail import ConnectorDetail
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    scriptName := aScriptName # string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
-    locale := de # string | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional) # string | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional)
+with ApiClient(configuration) as api_client:
+    script_name = 'aScriptName' # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+    locale = 'de' # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional) # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ConnectorsAPI.GetConnector(context.Background(), scriptName).Locale(locale).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.GetConnector``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetConnector`: ConnectorDetail
-	fmt.Fprintf(os.Stdout, "Response from `ConnectorsAPI.GetConnector`: %v\n", resp)
-}
+    try:
+        # Get Connector by Script Name
+        
+        results = ConnectorsApi(api_client).get_connector(script_name=script_name)
+        # Below is a request that includes all optional parameters
+        # results = ConnectorsApi(api_client).get_connector(script_name, locale)
+        print("The response of ConnectorsApi->get_connector:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConnectorsApi->get_connector: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-connector-list
 Get Connector List
@@ -236,65 +231,66 @@ Fetches list of connectors that have 'RELEASED' status using filtering and pagin
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-list)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetConnectorListRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca* | 
- **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
- **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
- **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
- **locale** | **string** | The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot; | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca*
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | locale | **str** |   (optional) | The locale to apply to the config. If no viable locale is given, it will default to \"en\"
 
 ### Return type
+[**List[V3ConnectorDto]**](../models/v3-connector-dto)
 
-[**[]V3ConnectorDto**](../models/v3-connector-dto)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | A Connector Dto object | List[V3ConnectorDto] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.connectors_api import ConnectorsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.v3_connector_dto import V3ConnectorDto
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    filters := directConnect eq "true" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca* (optional)
-    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-    locale := de # string | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional) # string | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional)
+with ApiClient(configuration) as api_client:
+    filters = 'directConnect eq \"true\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *sw, co*  **type**: *sw, co, eq*  **directConnect**: *eq*  **category**: *eq*  **features**: *ca*  **labels**: *ca* (optional)
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
+    locale = 'de' # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional) # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ConnectorsAPI.GetConnectorList(context.Background()).Filters(filters).Limit(limit).Offset(offset).Count(count).Locale(locale).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.GetConnectorList``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetConnectorList`: []V3ConnectorDto
-	fmt.Fprintf(os.Stdout, "Response from `ConnectorsAPI.GetConnectorList`: %v\n", resp)
-}
+    try:
+        # Get Connector List
+        
+        results = ConnectorsApi(api_client).get_connector_list()
+        # Below is a request that includes all optional parameters
+        # results = ConnectorsApi(api_client).get_connector_list(filters, limit, offset, count, locale)
+        print("The response of ConnectorsApi->get_connector_list:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConnectorsApi->get_connector_list: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-connector-source-config
 Get Connector Source Configuration
@@ -302,61 +298,57 @@ Fetches a connector's source config using its script name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-source-config)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**scriptName** | **string** | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetConnectorSourceConfigRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | script_name | **str** | True  | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
 ### Return type
+**str**
 
-**string**
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The connector&#39;s source template | str |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/xml, application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/xml, application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.connectors_api import ConnectorsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    scriptName := aScriptName # string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+with ApiClient(configuration) as api_client:
+    script_name = 'aScriptName' # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ConnectorsAPI.GetConnectorSourceConfig(context.Background(), scriptName).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.GetConnectorSourceConfig``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetConnectorSourceConfig`: string
-	fmt.Fprintf(os.Stdout, "Response from `ConnectorsAPI.GetConnectorSourceConfig`: %v\n", resp)
-}
+    try:
+        # Get Connector Source Configuration
+        
+        results = ConnectorsApi(api_client).get_connector_source_config(script_name=script_name)
+        # Below is a request that includes all optional parameters
+        # results = ConnectorsApi(api_client).get_connector_source_config(script_name)
+        print("The response of ConnectorsApi->get_connector_source_config:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConnectorsApi->get_connector_source_config: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-connector-source-template
 Get Connector Source Template
@@ -364,61 +356,57 @@ Fetches a connector's source template using its script name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-source-template)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**scriptName** | **string** | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetConnectorSourceTemplateRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | script_name | **str** | True  | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
 ### Return type
+**str**
 
-**string**
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The connector&#39;s source template | str |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/xml, application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/xml, application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.connectors_api import ConnectorsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    scriptName := aScriptName # string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+with ApiClient(configuration) as api_client:
+    script_name = 'aScriptName' # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ConnectorsAPI.GetConnectorSourceTemplate(context.Background(), scriptName).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.GetConnectorSourceTemplate``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetConnectorSourceTemplate`: string
-	fmt.Fprintf(os.Stdout, "Response from `ConnectorsAPI.GetConnectorSourceTemplate`: %v\n", resp)
-}
+    try:
+        # Get Connector Source Template
+        
+        results = ConnectorsApi(api_client).get_connector_source_template(script_name=script_name)
+        # Below is a request that includes all optional parameters
+        # results = ConnectorsApi(api_client).get_connector_source_template(script_name)
+        print("The response of ConnectorsApi->get_connector_source_template:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConnectorsApi->get_connector_source_template: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-connector-translations
 Get Connector Translations
@@ -426,64 +414,59 @@ Fetches a connector's translations using its script name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-translations)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**scriptName** | **string** | The scriptName value of the connector. Scriptname is the unique id generated at connector creation. | 
-**locale** | **string** | The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot; | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetConnectorTranslationsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | script_name | **str** | True  | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+Path   | locale | **str** | True  | The locale to apply to the config. If no viable locale is given, it will default to \"en\"
 
 ### Return type
+**str**
 
-**string**
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The connector&#39;s translations | str |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/plain, application/json
+ - **Content-Type**: Not defined
+ - **Accept**: text/plain, application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.connectors_api import ConnectorsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    scriptName := aScriptName # string | The scriptName value of the connector. Scriptname is the unique id generated at connector creation. # string | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-    locale := de # string | The locale to apply to the config. If no viable locale is given, it will default to \"en\" # string | The locale to apply to the config. If no viable locale is given, it will default to \"en\"
+with ApiClient(configuration) as api_client:
+    script_name = 'aScriptName' # str | The scriptName value of the connector. Scriptname is the unique id generated at connector creation. # str | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+    locale = 'de' # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\"
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ConnectorsAPI.GetConnectorTranslations(context.Background(), scriptName, locale).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.GetConnectorTranslations``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetConnectorTranslations`: string
-	fmt.Fprintf(os.Stdout, "Response from `ConnectorsAPI.GetConnectorTranslations`: %v\n", resp)
-}
+    try:
+        # Get Connector Translations
+        
+        results = ConnectorsApi(api_client).get_connector_translations(script_name=script_name, locale=locale)
+        # Below is a request that includes all optional parameters
+        # results = ConnectorsApi(api_client).get_connector_translations(script_name, locale)
+        print("The response of ConnectorsApi->get_connector_translations:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConnectorsApi->get_connector_translations: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## put-connector-source-config
 Update Connector Source Configuration
@@ -491,63 +474,60 @@ Update a connector's source config using its script name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/put-connector-source-config)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**scriptName** | **string** | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPutConnectorSourceConfigRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **file** | ***os.File** | connector source config xml file | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | script_name | **str** | True  | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+   | file | **bytearray** | True  | connector source config xml file
 
 ### Return type
-
 [**UpdateDetail**](../models/update-detail)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The connector&#39;s update detail | UpdateDetail |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: multipart/form-data
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.connectors_api import ConnectorsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.update_detail import UpdateDetail
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    scriptName := aScriptName # string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
-    file := BINARY_DATA_HERE # *os.File | connector source config xml file # *os.File | connector source config xml file
+with ApiClient(configuration) as api_client:
+    script_name = 'aScriptName' # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+    file = None # bytearray | connector source config xml file # bytearray | connector source config xml file
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ConnectorsAPI.PutConnectorSourceConfig(context.Background(), scriptName).File(file).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.PutConnectorSourceConfig``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PutConnectorSourceConfig`: UpdateDetail
-	fmt.Fprintf(os.Stdout, "Response from `ConnectorsAPI.PutConnectorSourceConfig`: %v\n", resp)
-}
+    try:
+        # Update Connector Source Configuration
+        
+        results = ConnectorsApi(api_client).put_connector_source_config(script_name=script_name, file=file)
+        # Below is a request that includes all optional parameters
+        # results = ConnectorsApi(api_client).put_connector_source_config(script_name, file)
+        print("The response of ConnectorsApi->put_connector_source_config:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConnectorsApi->put_connector_source_config: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## put-connector-source-template
 Update Connector Source Template
@@ -555,63 +535,60 @@ Update a connector's source template using its script name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/put-connector-source-template)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**scriptName** | **string** | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPutConnectorSourceTemplateRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **file** | ***os.File** | connector source template xml file | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | script_name | **str** | True  | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+   | file | **bytearray** | True  | connector source template xml file
 
 ### Return type
-
 [**UpdateDetail**](../models/update-detail)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The connector&#39;s update detail | UpdateDetail |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: multipart/form-data
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.connectors_api import ConnectorsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.update_detail import UpdateDetail
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    scriptName := aScriptName # string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
-    file := BINARY_DATA_HERE # *os.File | connector source template xml file # *os.File | connector source template xml file
+with ApiClient(configuration) as api_client:
+    script_name = 'aScriptName' # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+    file = None # bytearray | connector source template xml file # bytearray | connector source template xml file
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ConnectorsAPI.PutConnectorSourceTemplate(context.Background(), scriptName).File(file).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.PutConnectorSourceTemplate``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PutConnectorSourceTemplate`: UpdateDetail
-	fmt.Fprintf(os.Stdout, "Response from `ConnectorsAPI.PutConnectorSourceTemplate`: %v\n", resp)
-}
+    try:
+        # Update Connector Source Template
+        
+        results = ConnectorsApi(api_client).put_connector_source_template(script_name=script_name, file=file)
+        # Below is a request that includes all optional parameters
+        # results = ConnectorsApi(api_client).put_connector_source_template(script_name, file)
+        print("The response of ConnectorsApi->put_connector_source_template:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConnectorsApi->put_connector_source_template: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## put-connector-translations
 Update Connector Translations
@@ -619,64 +596,60 @@ Update a connector's translations using its script name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/put-connector-translations)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**scriptName** | **string** | The scriptName value of the connector. Scriptname is the unique id generated at connector creation. | 
-**locale** | **string** | The locale to apply to the config. If no viable locale is given, it will default to \&quot;en\&quot; | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiPutConnectorTranslationsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | script_name | **str** | True  | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+Path   | locale | **str** | True  | The locale to apply to the config. If no viable locale is given, it will default to \"en\"
 
 ### Return type
-
 [**UpdateDetail**](../models/update-detail)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The connector&#39;s update detail | UpdateDetail |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: multipart/form-data
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.connectors_api import ConnectorsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.update_detail import UpdateDetail
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    scriptName := aScriptName # string | The scriptName value of the connector. Scriptname is the unique id generated at connector creation. # string | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
-    locale := de # string | The locale to apply to the config. If no viable locale is given, it will default to \"en\" # string | The locale to apply to the config. If no viable locale is given, it will default to \"en\"
+with ApiClient(configuration) as api_client:
+    script_name = 'aScriptName' # str | The scriptName value of the connector. Scriptname is the unique id generated at connector creation. # str | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+    locale = 'de' # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\"
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ConnectorsAPI.PutConnectorTranslations(context.Background(), scriptName, locale).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.PutConnectorTranslations``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PutConnectorTranslations`: UpdateDetail
-	fmt.Fprintf(os.Stdout, "Response from `ConnectorsAPI.PutConnectorTranslations`: %v\n", resp)
-}
+    try:
+        # Update Connector Translations
+        
+        results = ConnectorsApi(api_client).put_connector_translations(script_name=script_name, locale=locale)
+        # Below is a request that includes all optional parameters
+        # results = ConnectorsApi(api_client).put_connector_translations(script_name, locale)
+        print("The response of ConnectorsApi->put_connector_translations:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConnectorsApi->put_connector_translations: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## update-connector
 Update Connector by Script Name
@@ -696,61 +669,61 @@ The following fields are patchable:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/update-connector)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**scriptName** | **string** | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiUpdateConnectorRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **jsonPatchOperation** | [**[]JsonPatchOperation**](../models/json-patch-operation) | A list of connector detail update operations  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | script_name | **str** | True  | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+ Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of connector detail update operations 
 
 ### Return type
-
 [**ConnectorDetail**](../models/connector-detail)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | A updated Connector Dto object | ConnectorDetail |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json-patch+json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json-patch+json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v3.api.connectors_api import ConnectorsApi
+from sailpoint.v3.api_client import ApiClient
+from sailpoint.v3.models.connector_detail import ConnectorDetail
+from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    scriptName := aScriptName # string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
-    jsonPatchOperation := fmt.Sprintf(``) # []JsonPatchOperation | A list of connector detail update operations 
+with ApiClient(configuration) as api_client:
+    script_name = 'aScriptName' # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+    json_patch_operation = '''[sailpoint.v3.JsonPatchOperation()]''' # List[JsonPatchOperation] | A list of connector detail update operations 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ConnectorsAPI.UpdateConnector(context.Background(), scriptName).JsonPatchOperation(jsonPatchOperation).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.UpdateConnector``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `UpdateConnector`: ConnectorDetail
-	fmt.Fprintf(os.Stdout, "Response from `ConnectorsAPI.UpdateConnector`: %v\n", resp)
-}
+    try:
+        # Update Connector by Script Name
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = ConnectorsApi(api_client).update_connector(script_name=script_name, json_patch_operation=new_json_patch_operation)
+        # Below is a request that includes all optional parameters
+        # results = ConnectorsApi(api_client).update_connector(script_name, new_json_patch_operation)
+        print("The response of ConnectorsApi->update_connector:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConnectorsApi->update_connector: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
+
+
 

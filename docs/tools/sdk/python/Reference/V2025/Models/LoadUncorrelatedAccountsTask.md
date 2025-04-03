@@ -3,88 +3,49 @@ id: v2025-load-uncorrelated-accounts-task
 title: LoadUncorrelatedAccountsTask
 pagination_label: LoadUncorrelatedAccountsTask
 sidebar_label: LoadUncorrelatedAccountsTask
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'LoadUncorrelatedAccountsTask', 'V2025LoadUncorrelatedAccountsTask'] 
-slug: /tools/sdk/go/v2025/models/load-uncorrelated-accounts-task
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'LoadUncorrelatedAccountsTask', 'V2025LoadUncorrelatedAccountsTask'] 
+slug: /tools/sdk/python/v2025/models/load-uncorrelated-accounts-task
 tags: ['SDK', 'Software Development Kit', 'LoadUncorrelatedAccountsTask', 'V2025LoadUncorrelatedAccountsTask']
 ---
 
 # LoadUncorrelatedAccountsTask
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Success** | Pointer to **bool** | The status of the result | [optional] [default to true]
-**Task** | Pointer to [**LoadUncorrelatedAccountsTaskTask**](load-uncorrelated-accounts-task-task) |  | [optional] 
+**success** | **bool** | The status of the result | [optional] [default to True]
+**task** | [**LoadUncorrelatedAccountsTaskTask**](load-uncorrelated-accounts-task-task) |  | [optional] 
+}
 
-## Methods
+## Example
 
-### NewLoadUncorrelatedAccountsTask
+```python
+from sailpoint.v2025.models.load_uncorrelated_accounts_task import LoadUncorrelatedAccountsTask
 
-`func NewLoadUncorrelatedAccountsTask() *LoadUncorrelatedAccountsTask`
+load_uncorrelated_accounts_task = LoadUncorrelatedAccountsTask(
+success=True,
+task=sailpoint.v2025.models.load_uncorrelated_accounts_task_task.LoadUncorrelatedAccountsTask_task(
+                    id = '90b83a6bb737489494794f84cd3a51e6', 
+                    type = 'QUARTZ', 
+                    name = 'Cloud Process Uncorrelated Accounts', 
+                    description = 'Processes uncorrelated accounts for the specified application.', 
+                    launcher = 'John Doe', 
+                    created = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    launched = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    completed = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                    completion_status = 'Success', 
+                    parent_name = 'Audit Report', 
+                    messages = [], 
+                    progress = 'Initializing...', 
+                    attributes = sailpoint.v2025.models.load_uncorrelated_accounts_task_task_attributes.LoadUncorrelatedAccountsTask_task_attributes(
+                        qpoc_job_id = '5d303d46-fc51-48cd-9c6d-4e211e3ab63c', 
+                        task_start_delay = sailpoint.v2025.models.task_start_delay.taskStartDelay(), ), 
+                    returns = [{displayLabel=TASK_OUT_ACCOUNT_CORRELATION_APPLICATIONS, attributeName=applications}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_TOTAL, attributeName=total}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_IGNORED, attributeName=correlationFailures}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_FAILURES, attributeName=ignored}, {displayLabel=TASK_OUT_UNCHANGED_ACCOUNTS, attributeName=optimized}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION__CREATED, attributeName=created}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_UPDATED, attributeName=updated}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_DELETED, attributeName=deleted}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_MANAGER_CHANGES, attributeName=managerChanges}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_BUSINESS_ROLE_CHANGES, attributeName=detectedRoleChanges}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_EXCEPTION_CHANGES, attributeName=exceptionChanges}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_POLICIES, attributeName=policies}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_POLICY_VIOLATIONS, attributeName=policyViolations}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_POLICY_NOTIFICATIONS, attributeName=policyNotifications}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_SCORES_CHANGED, attributeName=scoresChanged}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_SNAPSHOTS_CREATED, attributeName=snapshotsCreated}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_SCOPES_CREATED, attributeName=scopesCreated}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_SCOPES_CORRELATED, attributeName=scopesCorrelated}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_SCOPES_SELECTED, attributeName=scopesSelected}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_SCOPES_DORMANT, attributeName=scopesDormant}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_UNSCOPED_IDENTITIES, attributeName=unscopedIdentities}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_CERTIFICATIONS_CREATED, attributeName=certificationsCreated}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_CERTIFICATIONS_DELETED, attributeName=certificationsDeleted}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_APPLICATIONS_GENERATED, attributeName=applicationsGenerated}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_MANAGED_ATTRIBUTES_PROMOTED, attributeName=managedAttributesCreated}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_MANAGED_ATTRIBUTES_PROMOTED_BY_APP, attributeName=managedAttributesCreatedByApplication}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_IDENTITYENTITLEMENTS_CREATED, attributeName=identityEntitlementsCreated}, {displayLabel=TASK_OUT_ACCOUNT_CORRELATION_GROUPS_CREATED, attributeName=groupsCreated}], )
+)
 
-NewLoadUncorrelatedAccountsTask instantiates a new LoadUncorrelatedAccountsTask object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewLoadUncorrelatedAccountsTaskWithDefaults
-
-`func NewLoadUncorrelatedAccountsTaskWithDefaults() *LoadUncorrelatedAccountsTask`
-
-NewLoadUncorrelatedAccountsTaskWithDefaults instantiates a new LoadUncorrelatedAccountsTask object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetSuccess
-
-`func (o *LoadUncorrelatedAccountsTask) GetSuccess() bool`
-
-GetSuccess returns the Success field if non-nil, zero value otherwise.
-
-### GetSuccessOk
-
-`func (o *LoadUncorrelatedAccountsTask) GetSuccessOk() (*bool, bool)`
-
-GetSuccessOk returns a tuple with the Success field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSuccess
-
-`func (o *LoadUncorrelatedAccountsTask) SetSuccess(v bool)`
-
-SetSuccess sets Success field to given value.
-
-### HasSuccess
-
-`func (o *LoadUncorrelatedAccountsTask) HasSuccess() bool`
-
-HasSuccess returns a boolean if a field has been set.
-
-### GetTask
-
-`func (o *LoadUncorrelatedAccountsTask) GetTask() LoadUncorrelatedAccountsTaskTask`
-
-GetTask returns the Task field if non-nil, zero value otherwise.
-
-### GetTaskOk
-
-`func (o *LoadUncorrelatedAccountsTask) GetTaskOk() (*LoadUncorrelatedAccountsTaskTask, bool)`
-
-GetTaskOk returns a tuple with the Task field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTask
-
-`func (o *LoadUncorrelatedAccountsTask) SetTask(v LoadUncorrelatedAccountsTaskTask)`
-
-SetTask sets Task field to given value.
-
-### HasTask
-
-`func (o *LoadUncorrelatedAccountsTask) HasTask() bool`
-
-HasTask returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

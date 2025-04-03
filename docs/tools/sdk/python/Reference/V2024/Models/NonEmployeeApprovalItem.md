@@ -3,270 +3,53 @@ id: v2024-non-employee-approval-item
 title: NonEmployeeApprovalItem
 pagination_label: NonEmployeeApprovalItem
 sidebar_label: NonEmployeeApprovalItem
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NonEmployeeApprovalItem', 'V2024NonEmployeeApprovalItem'] 
-slug: /tools/sdk/go/v2024/models/non-employee-approval-item
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'NonEmployeeApprovalItem', 'V2024NonEmployeeApprovalItem'] 
+slug: /tools/sdk/python/v2024/models/non-employee-approval-item
 tags: ['SDK', 'Software Development Kit', 'NonEmployeeApprovalItem', 'V2024NonEmployeeApprovalItem']
 ---
 
 # NonEmployeeApprovalItem
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Non-Employee approval item id | [optional] 
-**Approver** | Pointer to [**NonEmployeeIdentityReferenceWithId**](non-employee-identity-reference-with-id) |  | [optional] 
-**AccountName** | Pointer to **string** | Requested identity account name | [optional] 
-**ApprovalStatus** | Pointer to [**ApprovalStatus**](approval-status) |  | [optional] 
-**ApprovalOrder** | Pointer to **float32** | Approval order | [optional] 
-**Comment** | Pointer to **string** | comment of approver | [optional] 
-**Modified** | Pointer to **SailPointTime** | When the request was last modified. | [optional] 
-**Created** | Pointer to **SailPointTime** | When the request was created. | [optional] 
-**NonEmployeeRequest** | Pointer to [**NonEmployeeRequestLite**](non-employee-request-lite) |  | [optional] 
-
-## Methods
-
-### NewNonEmployeeApprovalItem
-
-`func NewNonEmployeeApprovalItem() *NonEmployeeApprovalItem`
-
-NewNonEmployeeApprovalItem instantiates a new NonEmployeeApprovalItem object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewNonEmployeeApprovalItemWithDefaults
-
-`func NewNonEmployeeApprovalItemWithDefaults() *NonEmployeeApprovalItem`
-
-NewNonEmployeeApprovalItemWithDefaults instantiates a new NonEmployeeApprovalItem object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetId
-
-`func (o *NonEmployeeApprovalItem) GetId() string`
-
-GetId returns the Id field if non-nil, zero value otherwise.
-
-### GetIdOk
-
-`func (o *NonEmployeeApprovalItem) GetIdOk() (*string, bool)`
-
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetId
-
-`func (o *NonEmployeeApprovalItem) SetId(v string)`
-
-SetId sets Id field to given value.
-
-### HasId
-
-`func (o *NonEmployeeApprovalItem) HasId() bool`
-
-HasId returns a boolean if a field has been set.
-
-### GetApprover
-
-`func (o *NonEmployeeApprovalItem) GetApprover() NonEmployeeIdentityReferenceWithId`
-
-GetApprover returns the Approver field if non-nil, zero value otherwise.
-
-### GetApproverOk
-
-`func (o *NonEmployeeApprovalItem) GetApproverOk() (*NonEmployeeIdentityReferenceWithId, bool)`
-
-GetApproverOk returns a tuple with the Approver field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetApprover
-
-`func (o *NonEmployeeApprovalItem) SetApprover(v NonEmployeeIdentityReferenceWithId)`
-
-SetApprover sets Approver field to given value.
-
-### HasApprover
-
-`func (o *NonEmployeeApprovalItem) HasApprover() bool`
-
-HasApprover returns a boolean if a field has been set.
-
-### GetAccountName
-
-`func (o *NonEmployeeApprovalItem) GetAccountName() string`
-
-GetAccountName returns the AccountName field if non-nil, zero value otherwise.
-
-### GetAccountNameOk
-
-`func (o *NonEmployeeApprovalItem) GetAccountNameOk() (*string, bool)`
-
-GetAccountNameOk returns a tuple with the AccountName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccountName
-
-`func (o *NonEmployeeApprovalItem) SetAccountName(v string)`
-
-SetAccountName sets AccountName field to given value.
-
-### HasAccountName
-
-`func (o *NonEmployeeApprovalItem) HasAccountName() bool`
-
-HasAccountName returns a boolean if a field has been set.
-
-### GetApprovalStatus
-
-`func (o *NonEmployeeApprovalItem) GetApprovalStatus() ApprovalStatus`
-
-GetApprovalStatus returns the ApprovalStatus field if non-nil, zero value otherwise.
-
-### GetApprovalStatusOk
-
-`func (o *NonEmployeeApprovalItem) GetApprovalStatusOk() (*ApprovalStatus, bool)`
-
-GetApprovalStatusOk returns a tuple with the ApprovalStatus field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetApprovalStatus
-
-`func (o *NonEmployeeApprovalItem) SetApprovalStatus(v ApprovalStatus)`
-
-SetApprovalStatus sets ApprovalStatus field to given value.
-
-### HasApprovalStatus
-
-`func (o *NonEmployeeApprovalItem) HasApprovalStatus() bool`
-
-HasApprovalStatus returns a boolean if a field has been set.
-
-### GetApprovalOrder
-
-`func (o *NonEmployeeApprovalItem) GetApprovalOrder() float32`
-
-GetApprovalOrder returns the ApprovalOrder field if non-nil, zero value otherwise.
-
-### GetApprovalOrderOk
-
-`func (o *NonEmployeeApprovalItem) GetApprovalOrderOk() (*float32, bool)`
-
-GetApprovalOrderOk returns a tuple with the ApprovalOrder field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetApprovalOrder
-
-`func (o *NonEmployeeApprovalItem) SetApprovalOrder(v float32)`
-
-SetApprovalOrder sets ApprovalOrder field to given value.
-
-### HasApprovalOrder
-
-`func (o *NonEmployeeApprovalItem) HasApprovalOrder() bool`
-
-HasApprovalOrder returns a boolean if a field has been set.
-
-### GetComment
-
-`func (o *NonEmployeeApprovalItem) GetComment() string`
-
-GetComment returns the Comment field if non-nil, zero value otherwise.
-
-### GetCommentOk
-
-`func (o *NonEmployeeApprovalItem) GetCommentOk() (*string, bool)`
-
-GetCommentOk returns a tuple with the Comment field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetComment
-
-`func (o *NonEmployeeApprovalItem) SetComment(v string)`
-
-SetComment sets Comment field to given value.
-
-### HasComment
-
-`func (o *NonEmployeeApprovalItem) HasComment() bool`
-
-HasComment returns a boolean if a field has been set.
-
-### GetModified
-
-`func (o *NonEmployeeApprovalItem) GetModified() SailPointTime`
-
-GetModified returns the Modified field if non-nil, zero value otherwise.
-
-### GetModifiedOk
-
-`func (o *NonEmployeeApprovalItem) GetModifiedOk() (*SailPointTime, bool)`
-
-GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetModified
-
-`func (o *NonEmployeeApprovalItem) SetModified(v SailPointTime)`
-
-SetModified sets Modified field to given value.
-
-### HasModified
-
-`func (o *NonEmployeeApprovalItem) HasModified() bool`
-
-HasModified returns a boolean if a field has been set.
-
-### GetCreated
-
-`func (o *NonEmployeeApprovalItem) GetCreated() SailPointTime`
-
-GetCreated returns the Created field if non-nil, zero value otherwise.
-
-### GetCreatedOk
-
-`func (o *NonEmployeeApprovalItem) GetCreatedOk() (*SailPointTime, bool)`
-
-GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCreated
-
-`func (o *NonEmployeeApprovalItem) SetCreated(v SailPointTime)`
-
-SetCreated sets Created field to given value.
-
-### HasCreated
-
-`func (o *NonEmployeeApprovalItem) HasCreated() bool`
-
-HasCreated returns a boolean if a field has been set.
-
-### GetNonEmployeeRequest
-
-`func (o *NonEmployeeApprovalItem) GetNonEmployeeRequest() NonEmployeeRequestLite`
-
-GetNonEmployeeRequest returns the NonEmployeeRequest field if non-nil, zero value otherwise.
-
-### GetNonEmployeeRequestOk
-
-`func (o *NonEmployeeApprovalItem) GetNonEmployeeRequestOk() (*NonEmployeeRequestLite, bool)`
-
-GetNonEmployeeRequestOk returns a tuple with the NonEmployeeRequest field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNonEmployeeRequest
-
-`func (o *NonEmployeeApprovalItem) SetNonEmployeeRequest(v NonEmployeeRequestLite)`
-
-SetNonEmployeeRequest sets NonEmployeeRequest field to given value.
-
-### HasNonEmployeeRequest
-
-`func (o *NonEmployeeApprovalItem) HasNonEmployeeRequest() bool`
-
-HasNonEmployeeRequest returns a boolean if a field has been set.
-
+**id** | **str** | Non-Employee approval item id | [optional] 
+**approver** | [**NonEmployeeIdentityReferenceWithId**](non-employee-identity-reference-with-id) |  | [optional] 
+**account_name** | **str** | Requested identity account name | [optional] 
+**approval_status** | [**ApprovalStatus**](approval-status) |  | [optional] 
+**approval_order** | **float** | Approval order | [optional] 
+**comment** | **str** | comment of approver | [optional] 
+**modified** | **datetime** | When the request was last modified. | [optional] 
+**created** | **datetime** | When the request was created. | [optional] 
+**non_employee_request** | [**NonEmployeeRequestLite**](non-employee-request-lite) |  | [optional] 
+}
+
+## Example
+
+```python
+from sailpoint.v2024.models.non_employee_approval_item import NonEmployeeApprovalItem
+
+non_employee_approval_item = NonEmployeeApprovalItem(
+id='2c1e388b-1e55-4b0a-ab5c-897f1204159c',
+approver=sailpoint.v2024.models.non_employee_identity_reference_with_id.NonEmployeeIdentityReferenceWithId(
+                    type = 'IDENTITY', 
+                    id = '5168015d32f890ca15812c9180835d2e', ),
+account_name='test.account',
+approval_status='APPROVED',
+approval_order=1,
+comment='I approve',
+modified='2019-08-23T18:52:59.162Z',
+created='2019-08-23T18:40:35.772Z',
+non_employee_request=sailpoint.v2024.models.non_employee_request_lite.NonEmployeeRequestLite(
+                    id = 'ac110005-7156-1150-8171-5b292e3e0084', 
+                    requester = sailpoint.v2024.models.non_employee_identity_reference_with_id.NonEmployeeIdentityReferenceWithId(
+                        type = 'IDENTITY', 
+                        id = '5168015d32f890ca15812c9180835d2e', ), )
+)
+
+```
+[[Back to top]](#) 
 

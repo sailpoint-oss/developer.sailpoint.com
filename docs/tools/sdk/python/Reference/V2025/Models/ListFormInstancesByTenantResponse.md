@@ -3,88 +3,93 @@ id: v2025-list-form-instances-by-tenant-response
 title: ListFormInstancesByTenantResponse
 pagination_label: ListFormInstancesByTenantResponse
 sidebar_label: ListFormInstancesByTenantResponse
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ListFormInstancesByTenantResponse', 'V2025ListFormInstancesByTenantResponse'] 
-slug: /tools/sdk/go/v2025/models/list-form-instances-by-tenant-response
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'ListFormInstancesByTenantResponse', 'V2025ListFormInstancesByTenantResponse'] 
+slug: /tools/sdk/python/v2025/models/list-form-instances-by-tenant-response
 tags: ['SDK', 'Software Development Kit', 'ListFormInstancesByTenantResponse', 'V2025ListFormInstancesByTenantResponse']
 ---
 
 # ListFormInstancesByTenantResponse
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Count** | Pointer to **int64** | Count number of Results | [optional] 
-**Results** | Pointer to [**[]FormInstanceResponse**](form-instance-response) | Results holds a list of FormInstanceResponse items | [optional] 
+**count** | **int** | Count number of Results | [optional] 
+**results** | [**[]FormInstanceResponse**](form-instance-response) | Results holds a list of FormInstanceResponse items | [optional] 
+}
 
-## Methods
+## Example
 
-### NewListFormInstancesByTenantResponse
+```python
+from sailpoint.v2025.models.list_form_instances_by_tenant_response import ListFormInstancesByTenantResponse
 
-`func NewListFormInstancesByTenantResponse() *ListFormInstancesByTenantResponse`
+list_form_instances_by_tenant_response = ListFormInstancesByTenantResponse(
+count=1,
+results=[
+                    sailpoint.v2025.models.form_instance_response.FormInstanceResponse(
+                        created = '2023-07-12T20:14:57.744860Z', 
+                        created_by = sailpoint.v2025.models.form_instance_created_by.FormInstanceCreatedBy(
+                            id = '00000000-0000-0000-0000-000000000000', 
+                            type = 'WORKFLOW_EXECUTION', ), 
+                        expire = '2023-08-12T20:14:57.74486Z', 
+                        form_conditions = [
+                            sailpoint.v2025.models.form_condition.FormCondition(
+                                rule_operator = 'AND', 
+                                rules = [
+                                    sailpoint.v2025.models.condition_rule.ConditionRule(
+                                        source_type = 'ELEMENT', 
+                                        source = 'department', 
+                                        operator = 'EQ', 
+                                        value_type = 'STRING', 
+                                        value = 'Engineering', )
+                                    ], 
+                                effects = [
+                                    sailpoint.v2025.models.condition_effect.ConditionEffect(
+                                        effect_type = 'HIDE', 
+                                        config = sailpoint.v2025.models.condition_effect_config.ConditionEffect_config(
+                                            default_value_label = 'Access to Remove', 
+                                            element = '8110662963316867', ), )
+                                    ], )
+                            ], 
+                        form_data = {department=Engineering}, 
+                        form_definition_id = '49841cb8-00a5-4fbd-9888-8bbb28d48331', 
+                        form_elements = [
+                            sailpoint.v2025.models.form_element.FormElement(
+                                id = '00000000-0000-0000-0000-000000000000', 
+                                element_type = 'TEXT', 
+                                key = 'department', 
+                                validations = [
+                                    sailpoint.v2025.models.form_element_validations_set.FormElementValidationsSet(
+                                        validation_type = 'REQUIRED', )
+                                    ], )
+                            ], 
+                        form_errors = [
+                            sailpoint.v2025.models.form_error.FormError(
+                                key = 'department', 
+                                messages = [
+                                    sailpoint.v2025.models.error_message_is_the_standard_api_error_response_message_type/.ErrorMessage is the standard API error response message type.(
+                                        locale = 'en-US', 
+                                        locale_origin = 'DEFAULT', 
+                                        text = 'This is an error', )
+                                    ], 
+                                value = Engineering, )
+                            ], 
+                        form_input = {input1=Sales}, 
+                        id = '06a2d961-07fa-44d1-8d0a-2f6470e30fd2', 
+                        modified = '2023-07-12T20:14:57.744860Z', 
+                        recipients = [
+                            sailpoint.v2025.models.form_instance_recipient.FormInstanceRecipient(
+                                id = '00000000-0000-0000-0000-000000000000', 
+                                type = 'IDENTITY', )
+                            ], 
+                        stand_alone_form = False, 
+                        stand_alone_form_url = 'https://my-org.identitynow.com/ui/d/forms/00000000-0000-0000-0000-000000000000', 
+                        state = 'ASSIGNED', )
+                    ]
+)
 
-NewListFormInstancesByTenantResponse instantiates a new ListFormInstancesByTenantResponse object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewListFormInstancesByTenantResponseWithDefaults
-
-`func NewListFormInstancesByTenantResponseWithDefaults() *ListFormInstancesByTenantResponse`
-
-NewListFormInstancesByTenantResponseWithDefaults instantiates a new ListFormInstancesByTenantResponse object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetCount
-
-`func (o *ListFormInstancesByTenantResponse) GetCount() int64`
-
-GetCount returns the Count field if non-nil, zero value otherwise.
-
-### GetCountOk
-
-`func (o *ListFormInstancesByTenantResponse) GetCountOk() (*int64, bool)`
-
-GetCountOk returns a tuple with the Count field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCount
-
-`func (o *ListFormInstancesByTenantResponse) SetCount(v int64)`
-
-SetCount sets Count field to given value.
-
-### HasCount
-
-`func (o *ListFormInstancesByTenantResponse) HasCount() bool`
-
-HasCount returns a boolean if a field has been set.
-
-### GetResults
-
-`func (o *ListFormInstancesByTenantResponse) GetResults() []FormInstanceResponse`
-
-GetResults returns the Results field if non-nil, zero value otherwise.
-
-### GetResultsOk
-
-`func (o *ListFormInstancesByTenantResponse) GetResultsOk() (*[]FormInstanceResponse, bool)`
-
-GetResultsOk returns a tuple with the Results field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetResults
-
-`func (o *ListFormInstancesByTenantResponse) SetResults(v []FormInstanceResponse)`
-
-SetResults sets Results field to given value.
-
-### HasResults
-
-`func (o *ListFormInstancesByTenantResponse) HasResults() bool`
-
-HasResults returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

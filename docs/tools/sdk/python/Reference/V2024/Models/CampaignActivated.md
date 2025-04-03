@@ -3,57 +3,43 @@ id: v2024-campaign-activated
 title: CampaignActivated
 pagination_label: CampaignActivated
 sidebar_label: CampaignActivated
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignActivated', 'V2024CampaignActivated'] 
-slug: /tools/sdk/go/v2024/models/campaign-activated
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'CampaignActivated', 'V2024CampaignActivated'] 
+slug: /tools/sdk/python/v2024/models/campaign-activated
 tags: ['SDK', 'Software Development Kit', 'CampaignActivated', 'V2024CampaignActivated']
 ---
 
 # CampaignActivated
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Campaign** | [**CampaignActivatedCampaign**](campaign-activated-campaign) |  | 
+**campaign** | [**CampaignActivatedCampaign**](campaign-activated-campaign) |  | [required]
+}
 
-## Methods
+## Example
 
-### NewCampaignActivated
+```python
+from sailpoint.v2024.models.campaign_activated import CampaignActivated
 
-`func NewCampaignActivated(campaign CampaignActivatedCampaign, ) *CampaignActivated`
+campaign_activated = CampaignActivated(
+campaign=sailpoint.v2024.models.campaign_activated_campaign.CampaignActivated_campaign(
+                    id = '2c91808576f886190176f88cac5a0010', 
+                    name = 'Manager Access Campaign', 
+                    description = 'Audit access for all employees.', 
+                    created = '2021-02-16T03:04:45.815Z', 
+                    modified = '2021-02-16T03:06:45.815Z', 
+                    deadline = '2021-03-16T03:04:45.815Z', 
+                    type = MANAGER, 
+                    campaign_owner = sailpoint.v2024.models.campaign_activated_campaign_campaign_owner.CampaignActivated_campaign_campaignOwner(
+                        id = '37f080867702c1910177031320c40n27', 
+                        display_name = 'John Snow', 
+                        email = 'john.snow@example.com', ), 
+                    status = ACTIVE, )
+)
 
-NewCampaignActivated instantiates a new CampaignActivated object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewCampaignActivatedWithDefaults
-
-`func NewCampaignActivatedWithDefaults() *CampaignActivated`
-
-NewCampaignActivatedWithDefaults instantiates a new CampaignActivated object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetCampaign
-
-`func (o *CampaignActivated) GetCampaign() CampaignActivatedCampaign`
-
-GetCampaign returns the Campaign field if non-nil, zero value otherwise.
-
-### GetCampaignOk
-
-`func (o *CampaignActivated) GetCampaignOk() (*CampaignActivatedCampaign, bool)`
-
-GetCampaignOk returns a tuple with the Campaign field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCampaign
-
-`func (o *CampaignActivated) SetCampaign(v CampaignActivatedCampaign)`
-
-SetCampaign sets Campaign field to given value.
-
-
+```
+[[Back to top]](#) 
 

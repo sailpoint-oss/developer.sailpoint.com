@@ -3,114 +3,36 @@ id: v2025-schedule-days
 title: ScheduleDays
 pagination_label: ScheduleDays
 sidebar_label: ScheduleDays
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ScheduleDays', 'V2025ScheduleDays'] 
-slug: /tools/sdk/go/v2025/models/schedule-days
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'ScheduleDays', 'V2025ScheduleDays'] 
+slug: /tools/sdk/python/v2025/models/schedule-days
 tags: ['SDK', 'Software Development Kit', 'ScheduleDays', 'V2025ScheduleDays']
 ---
 
 # ScheduleDays
 
+Specifies which day(s) a schedule is active for. This is required for all schedule types. The \"values\" field holds different data depending on the type of schedule: * WEEKLY: days of the week (1-7) * MONTHLY: days of the month (1-31, L, L-1...) * ANNUALLY: if the \"months\" field is also set: days of the month (1-31, L, L-1...); otherwise: ISO-8601 dates without year (\"--12-31\") * CALENDAR: ISO-8601 dates (\"2020-12-31\")  Note that CALENDAR only supports the LIST type, and ANNUALLY does not support the RANGE type when provided with ISO-8601 dates without year.  Examples:  On Sundays: * type LIST * values \"1\"  The second to last day of the month: * type LIST * values \"L-1\"  From the 20th to the last day of the month: * type RANGE * values \"20\", \"L\"  Every March 2nd: * type LIST * values \"--03-02\"  On March 2nd, 2021: * type: LIST * values \"2021-03-02\" 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **string** | Enum type to specify days value | 
-**Values** | **[]string** | Values of the days based on the enum type mentioned above | 
-**Interval** | Pointer to **NullableInt64** | Interval between the cert generations | [optional] 
+**type** |  **Enum** [  'LIST',    'RANGE' ] | Enum type to specify days value | [required]
+**values** | **[]str** | Values of the days based on the enum type mentioned above | [required]
+**interval** | **int** | Interval between the cert generations | [optional] 
+}
 
-## Methods
+## Example
 
-### NewScheduleDays
+```python
+from sailpoint.v2025.models.schedule_days import ScheduleDays
 
-`func NewScheduleDays(type_ string, values []string, ) *ScheduleDays`
+schedule_days = ScheduleDays(
+type='LIST',
+values=[1],
+interval=2
+)
 
-NewScheduleDays instantiates a new ScheduleDays object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewScheduleDaysWithDefaults
-
-`func NewScheduleDaysWithDefaults() *ScheduleDays`
-
-NewScheduleDaysWithDefaults instantiates a new ScheduleDays object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetType
-
-`func (o *ScheduleDays) GetType() string`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *ScheduleDays) GetTypeOk() (*string, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *ScheduleDays) SetType(v string)`
-
-SetType sets Type field to given value.
-
-
-### GetValues
-
-`func (o *ScheduleDays) GetValues() []string`
-
-GetValues returns the Values field if non-nil, zero value otherwise.
-
-### GetValuesOk
-
-`func (o *ScheduleDays) GetValuesOk() (*[]string, bool)`
-
-GetValuesOk returns a tuple with the Values field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetValues
-
-`func (o *ScheduleDays) SetValues(v []string)`
-
-SetValues sets Values field to given value.
-
-
-### GetInterval
-
-`func (o *ScheduleDays) GetInterval() int64`
-
-GetInterval returns the Interval field if non-nil, zero value otherwise.
-
-### GetIntervalOk
-
-`func (o *ScheduleDays) GetIntervalOk() (*int64, bool)`
-
-GetIntervalOk returns a tuple with the Interval field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetInterval
-
-`func (o *ScheduleDays) SetInterval(v int64)`
-
-SetInterval sets Interval field to given value.
-
-### HasInterval
-
-`func (o *ScheduleDays) HasInterval() bool`
-
-HasInterval returns a boolean if a field has been set.
-
-### SetIntervalNil
-
-`func (o *ScheduleDays) SetIntervalNil(b bool)`
-
- SetIntervalNil sets the value for Interval to be an explicit nil
-
-### UnsetInterval
-`func (o *ScheduleDays) UnsetInterval()`
-
-UnsetInterval ensures that no value is present for Interval, not even an explicit nil
+```
+[[Back to top]](#) 
 

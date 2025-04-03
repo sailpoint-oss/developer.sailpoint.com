@@ -3,160 +3,231 @@ id: access-summary
 title: AccessSummary
 pagination_label: AccessSummary
 sidebar_label: AccessSummary
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessSummary', 'AccessSummary'] 
-slug: /tools/sdk/go/v3/models/access-summary
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'AccessSummary', 'AccessSummary'] 
+slug: /tools/sdk/python/v3/models/access-summary
 tags: ['SDK', 'Software Development Kit', 'AccessSummary', 'AccessSummary']
 ---
 
 # AccessSummary
 
+An object holding the access that is being reviewed
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Access** | Pointer to [**AccessSummaryAccess**](access-summary-access) |  | [optional] 
-**Entitlement** | Pointer to [**NullableReviewableEntitlement**](reviewable-entitlement) |  | [optional] 
-**AccessProfile** | Pointer to [**ReviewableAccessProfile**](reviewable-access-profile) |  | [optional] 
-**Role** | Pointer to [**NullableReviewableRole**](reviewable-role) |  | [optional] 
-
-## Methods
-
-### NewAccessSummary
-
-`func NewAccessSummary() *AccessSummary`
-
-NewAccessSummary instantiates a new AccessSummary object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewAccessSummaryWithDefaults
-
-`func NewAccessSummaryWithDefaults() *AccessSummary`
-
-NewAccessSummaryWithDefaults instantiates a new AccessSummary object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetAccess
-
-`func (o *AccessSummary) GetAccess() AccessSummaryAccess`
-
-GetAccess returns the Access field if non-nil, zero value otherwise.
-
-### GetAccessOk
-
-`func (o *AccessSummary) GetAccessOk() (*AccessSummaryAccess, bool)`
-
-GetAccessOk returns a tuple with the Access field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccess
-
-`func (o *AccessSummary) SetAccess(v AccessSummaryAccess)`
-
-SetAccess sets Access field to given value.
-
-### HasAccess
-
-`func (o *AccessSummary) HasAccess() bool`
-
-HasAccess returns a boolean if a field has been set.
-
-### GetEntitlement
-
-`func (o *AccessSummary) GetEntitlement() ReviewableEntitlement`
-
-GetEntitlement returns the Entitlement field if non-nil, zero value otherwise.
-
-### GetEntitlementOk
-
-`func (o *AccessSummary) GetEntitlementOk() (*ReviewableEntitlement, bool)`
-
-GetEntitlementOk returns a tuple with the Entitlement field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEntitlement
-
-`func (o *AccessSummary) SetEntitlement(v ReviewableEntitlement)`
-
-SetEntitlement sets Entitlement field to given value.
-
-### HasEntitlement
-
-`func (o *AccessSummary) HasEntitlement() bool`
-
-HasEntitlement returns a boolean if a field has been set.
-
-### SetEntitlementNil
-
-`func (o *AccessSummary) SetEntitlementNil(b bool)`
-
- SetEntitlementNil sets the value for Entitlement to be an explicit nil
-
-### UnsetEntitlement
-`func (o *AccessSummary) UnsetEntitlement()`
-
-UnsetEntitlement ensures that no value is present for Entitlement, not even an explicit nil
-### GetAccessProfile
-
-`func (o *AccessSummary) GetAccessProfile() ReviewableAccessProfile`
-
-GetAccessProfile returns the AccessProfile field if non-nil, zero value otherwise.
-
-### GetAccessProfileOk
-
-`func (o *AccessSummary) GetAccessProfileOk() (*ReviewableAccessProfile, bool)`
-
-GetAccessProfileOk returns a tuple with the AccessProfile field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccessProfile
-
-`func (o *AccessSummary) SetAccessProfile(v ReviewableAccessProfile)`
-
-SetAccessProfile sets AccessProfile field to given value.
-
-### HasAccessProfile
-
-`func (o *AccessSummary) HasAccessProfile() bool`
-
-HasAccessProfile returns a boolean if a field has been set.
-
-### GetRole
-
-`func (o *AccessSummary) GetRole() ReviewableRole`
-
-GetRole returns the Role field if non-nil, zero value otherwise.
-
-### GetRoleOk
-
-`func (o *AccessSummary) GetRoleOk() (*ReviewableRole, bool)`
-
-GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetRole
-
-`func (o *AccessSummary) SetRole(v ReviewableRole)`
-
-SetRole sets Role field to given value.
-
-### HasRole
-
-`func (o *AccessSummary) HasRole() bool`
-
-HasRole returns a boolean if a field has been set.
-
-### SetRoleNil
-
-`func (o *AccessSummary) SetRoleNil(b bool)`
-
- SetRoleNil sets the value for Role to be an explicit nil
-
-### UnsetRole
-`func (o *AccessSummary) UnsetRole()`
-
-UnsetRole ensures that no value is present for Role, not even an explicit nil
+**access** | [**AccessSummaryAccess**](access-summary-access) |  | [optional] 
+**entitlement** | [**ReviewableEntitlement**](reviewable-entitlement) |  | [optional] 
+**access_profile** | [**ReviewableAccessProfile**](reviewable-access-profile) |  | [optional] 
+**role** | [**ReviewableRole**](reviewable-role) |  | [optional] 
+}
+
+## Example
+
+```python
+from sailpoint.v3.models.access_summary import AccessSummary
+
+access_summary = AccessSummary(
+access=sailpoint.v3.models.access_summary_access.AccessSummary_access(
+                    type = 'IDENTITY', 
+                    id = '2c9180867160846801719932c5153fb7', 
+                    name = 'Entitlement for Company Database', ),
+entitlement=sailpoint.v3.models.reviewable_entitlement.ReviewableEntitlement(
+                    id = '2c918085718230600171993742c63558', 
+                    name = 'CN=entitlement.bbb7c650', 
+                    description = 'Gives read/write access to the company database', 
+                    privileged = False, 
+                    owner = sailpoint.v3.models.identity_reference_with_name_and_email.IdentityReferenceWithNameAndEmail(
+                        type = 'IDENTITY', 
+                        id = '5168015d32f890ca15812c9180835d2e', 
+                        name = 'Alison Ferguso', 
+                        email = 'alison.ferguso@identitysoon.com', ), 
+                    attribute_name = 'memberOf', 
+                    attribute_value = 'CN=entitlement.bbb7c650', 
+                    source_schema_object_type = 'groups', 
+                    source_name = 'ODS-AD-Source', 
+                    source_type = 'Active Directory - Direct', 
+                    source_id = '78ca6be511cb41fbb86dba2fcca7780c', 
+                    has_permissions = False, 
+                    is_permission = False, 
+                    revocable = True, 
+                    cloud_governed = False, 
+                    contains_data_access = True, 
+                    data_access = sailpoint.v3.models.data_access.DataAccess(
+                        policies = [
+                            sailpoint.v3.models.data_access_policies_inner.DataAccess_policies_inner(
+                                value = 'GDPR-20', )
+                            ], 
+                        categories = [
+                            sailpoint.v3.models.data_access_categories_inner.DataAccess_categories_inner(
+                                value = 'email-7', 
+                                match_count = 10, )
+                            ], 
+                        impact_score = sailpoint.v3.models.data_access_impact_score.DataAccess_impactScore(
+                            value = 'Medium', ), ), 
+                    account = sailpoint.v3.models.reviewable_entitlement_account.ReviewableEntitlement_account(
+                        native_identity = 'CN=Alison Ferguso', 
+                        disabled = False, 
+                        locked = False, 
+                        type = 'IDENTITY', 
+                        id = '2c9180857182305e0171993737eb29e6', 
+                        name = 'Alison Ferguso', 
+                        created = '2020-04-20T20:11:05.067Z', 
+                        modified = '2020-05-20T18:57:16.987Z', 
+                        activity_insights = sailpoint.v3.models.activity_insights.ActivityInsights(
+                            account_id = 'c4ddd5421d8549f0abd309162cafd3b1', 
+                            usage_days = 45, 
+                            usage_days_state = 'COMPLETE', ), 
+                        description = 'Account for Read/write to the company database', 
+                        governance_group_id = '2c9180857182305e0171993737eb29e6', ), ),
+access_profile=sailpoint.v3.models.reviewable_access_profile.ReviewableAccessProfile(
+                    id = '2c91808a7190d06e01719938fcd20792', 
+                    name = 'Employee-database-read-write', 
+                    description = 'Collection of entitlements to read/write the employee database', 
+                    privileged = False, 
+                    cloud_governed = False, 
+                    end_date = '2021-12-25T00:00Z', 
+                    owner = sailpoint.v3.models.identity_reference_with_name_and_email.IdentityReferenceWithNameAndEmail(
+                        type = 'IDENTITY', 
+                        id = '5168015d32f890ca15812c9180835d2e', 
+                        name = 'Alison Ferguso', 
+                        email = 'alison.ferguso@identitysoon.com', ), 
+                    entitlements = [
+                        sailpoint.v3.models.reviewable_entitlement.ReviewableEntitlement(
+                            id = '2c918085718230600171993742c63558', 
+                            name = 'CN=entitlement.bbb7c650', 
+                            description = 'Gives read/write access to the company database', 
+                            privileged = False, 
+                            attribute_name = 'memberOf', 
+                            attribute_value = 'CN=entitlement.bbb7c650', 
+                            source_schema_object_type = 'groups', 
+                            source_name = 'ODS-AD-Source', 
+                            source_type = 'Active Directory - Direct', 
+                            source_id = '78ca6be511cb41fbb86dba2fcca7780c', 
+                            has_permissions = False, 
+                            is_permission = False, 
+                            revocable = True, 
+                            cloud_governed = False, 
+                            contains_data_access = True, 
+                            data_access = sailpoint.v3.models.data_access.DataAccess(
+                                policies = [
+                                    sailpoint.v3.models.data_access_policies_inner.DataAccess_policies_inner(
+                                        value = 'GDPR-20', )
+                                    ], 
+                                categories = [
+                                    sailpoint.v3.models.data_access_categories_inner.DataAccess_categories_inner(
+                                        value = 'email-7', 
+                                        match_count = 10, )
+                                    ], 
+                                impact_score = sailpoint.v3.models.data_access_impact_score.DataAccess_impactScore(
+                                    value = 'Medium', ), ), 
+                            account = sailpoint.v3.models.reviewable_entitlement_account.ReviewableEntitlement_account(
+                                native_identity = 'CN=Alison Ferguso', 
+                                disabled = False, 
+                                locked = False, 
+                                type = 'IDENTITY', 
+                                id = '2c9180857182305e0171993737eb29e6', 
+                                name = 'Alison Ferguso', 
+                                created = '2020-04-20T20:11:05.067Z', 
+                                modified = '2020-05-20T18:57:16.987Z', 
+                                activity_insights = sailpoint.v3.models.activity_insights.ActivityInsights(
+                                    account_id = 'c4ddd5421d8549f0abd309162cafd3b1', 
+                                    usage_days = 45, 
+                                    usage_days_state = 'COMPLETE', ), 
+                                description = 'Account for Read/write to the company database', 
+                                governance_group_id = '2c9180857182305e0171993737eb29e6', ), )
+                        ], 
+                    created = '2021-01-01T22:32:58.104Z', 
+                    modified = '2021-02-01T22:32:58.104Z', ),
+role=sailpoint.v3.models.reviewable_role.ReviewableRole(
+                    id = '2c91808a7190d06e0171993907fd0794', 
+                    name = 'Accounting-Employees', 
+                    description = 'Role for members of the accounting department with the necessary Access Profiles', 
+                    privileged = False, 
+                    owner = sailpoint.v3.models.identity_reference_with_name_and_email.IdentityReferenceWithNameAndEmail(
+                        type = 'IDENTITY', 
+                        id = '5168015d32f890ca15812c9180835d2e', 
+                        name = 'Alison Ferguso', 
+                        email = 'alison.ferguso@identitysoon.com', ), 
+                    revocable = False, 
+                    end_date = '2021-12-25T00:00Z', 
+                    access_profiles = [
+                        sailpoint.v3.models.reviewable_access_profile.ReviewableAccessProfile(
+                            id = '2c91808a7190d06e01719938fcd20792', 
+                            name = 'Employee-database-read-write', 
+                            description = 'Collection of entitlements to read/write the employee database', 
+                            privileged = False, 
+                            cloud_governed = False, 
+                            end_date = '2021-12-25T00:00Z', 
+                            entitlements = [
+                                sailpoint.v3.models.reviewable_entitlement.ReviewableEntitlement(
+                                    id = '2c918085718230600171993742c63558', 
+                                    name = 'CN=entitlement.bbb7c650', 
+                                    description = 'Gives read/write access to the company database', 
+                                    privileged = False, 
+                                    attribute_name = 'memberOf', 
+                                    attribute_value = 'CN=entitlement.bbb7c650', 
+                                    source_schema_object_type = 'groups', 
+                                    source_name = 'ODS-AD-Source', 
+                                    source_type = 'Active Directory - Direct', 
+                                    source_id = '78ca6be511cb41fbb86dba2fcca7780c', 
+                                    has_permissions = False, 
+                                    is_permission = False, 
+                                    revocable = True, 
+                                    cloud_governed = False, 
+                                    contains_data_access = True, 
+                                    data_access = sailpoint.v3.models.data_access.DataAccess(
+                                        policies = [
+                                            sailpoint.v3.models.data_access_policies_inner.DataAccess_policies_inner(
+                                                value = 'GDPR-20', )
+                                            ], 
+                                        categories = [
+                                            sailpoint.v3.models.data_access_categories_inner.DataAccess_categories_inner(
+                                                value = 'email-7', 
+                                                match_count = 10, )
+                                            ], 
+                                        impact_score = sailpoint.v3.models.data_access_impact_score.DataAccess_impactScore(
+                                            value = 'Medium', ), ), 
+                                    account = sailpoint.v3.models.reviewable_entitlement_account.ReviewableEntitlement_account(
+                                        native_identity = 'CN=Alison Ferguso', 
+                                        disabled = False, 
+                                        locked = False, 
+                                        type = 'IDENTITY', 
+                                        id = '2c9180857182305e0171993737eb29e6', 
+                                        name = 'Alison Ferguso', 
+                                        created = '2020-04-20T20:11:05.067Z', 
+                                        modified = '2020-05-20T18:57:16.987Z', 
+                                        activity_insights = sailpoint.v3.models.activity_insights.ActivityInsights(
+                                            account_id = 'c4ddd5421d8549f0abd309162cafd3b1', 
+                                            usage_days = 45, 
+                                            usage_days_state = 'COMPLETE', ), 
+                                        description = 'Account for Read/write to the company database', 
+                                        governance_group_id = '2c9180857182305e0171993737eb29e6', ), )
+                                ], 
+                            created = '2021-01-01T22:32:58.104Z', 
+                            modified = '2021-02-01T22:32:58.104Z', )
+                        ], 
+                    entitlements = [
+                        sailpoint.v3.models.reviewable_entitlement.ReviewableEntitlement(
+                            id = '2c918085718230600171993742c63558', 
+                            name = 'CN=entitlement.bbb7c650', 
+                            description = 'Gives read/write access to the company database', 
+                            privileged = False, 
+                            attribute_name = 'memberOf', 
+                            attribute_value = 'CN=entitlement.bbb7c650', 
+                            source_schema_object_type = 'groups', 
+                            source_name = 'ODS-AD-Source', 
+                            source_type = 'Active Directory - Direct', 
+                            source_id = '78ca6be511cb41fbb86dba2fcca7780c', 
+                            has_permissions = False, 
+                            is_permission = False, 
+                            revocable = True, 
+                            cloud_governed = False, 
+                            contains_data_access = True, )
+                        ], )
+)
+
+```
+[[Back to top]](#) 
 

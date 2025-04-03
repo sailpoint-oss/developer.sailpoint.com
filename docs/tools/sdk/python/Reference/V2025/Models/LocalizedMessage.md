@@ -3,78 +3,34 @@ id: v2025-localized-message
 title: LocalizedMessage
 pagination_label: LocalizedMessage
 sidebar_label: LocalizedMessage
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'LocalizedMessage', 'V2025LocalizedMessage'] 
-slug: /tools/sdk/go/v2025/models/localized-message
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'LocalizedMessage', 'V2025LocalizedMessage'] 
+slug: /tools/sdk/python/v2025/models/localized-message
 tags: ['SDK', 'Software Development Kit', 'LocalizedMessage', 'V2025LocalizedMessage']
 ---
 
 # LocalizedMessage
 
+Localized error message to indicate a failed invocation or error if any.
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Locale** | **string** | Message locale | 
-**Message** | **string** | Message text | 
+**locale** | **str** | Message locale | [required]
+**message** | **str** | Message text | [required]
+}
 
-## Methods
+## Example
 
-### NewLocalizedMessage
+```python
+from sailpoint.v2025.models.localized_message import LocalizedMessage
 
-`func NewLocalizedMessage(locale string, message string, ) *LocalizedMessage`
+localized_message = LocalizedMessage(
+locale='An error has occurred!',
+message='Error has occurred!'
+)
 
-NewLocalizedMessage instantiates a new LocalizedMessage object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewLocalizedMessageWithDefaults
-
-`func NewLocalizedMessageWithDefaults() *LocalizedMessage`
-
-NewLocalizedMessageWithDefaults instantiates a new LocalizedMessage object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetLocale
-
-`func (o *LocalizedMessage) GetLocale() string`
-
-GetLocale returns the Locale field if non-nil, zero value otherwise.
-
-### GetLocaleOk
-
-`func (o *LocalizedMessage) GetLocaleOk() (*string, bool)`
-
-GetLocaleOk returns a tuple with the Locale field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetLocale
-
-`func (o *LocalizedMessage) SetLocale(v string)`
-
-SetLocale sets Locale field to given value.
-
-
-### GetMessage
-
-`func (o *LocalizedMessage) GetMessage() string`
-
-GetMessage returns the Message field if non-nil, zero value otherwise.
-
-### GetMessageOk
-
-`func (o *LocalizedMessage) GetMessageOk() (*string, bool)`
-
-GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMessage
-
-`func (o *LocalizedMessage) SetMessage(v string)`
-
-SetMessage sets Message field to given value.
-
-
+```
+[[Back to top]](#) 
 

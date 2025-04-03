@@ -3,358 +3,61 @@ id: workflow-library-action
 title: WorkflowLibraryAction
 pagination_label: WorkflowLibraryAction
 sidebar_label: WorkflowLibraryAction
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkflowLibraryAction', 'WorkflowLibraryAction'] 
-slug: /tools/sdk/go/v3/models/workflow-library-action
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'WorkflowLibraryAction', 'WorkflowLibraryAction'] 
+slug: /tools/sdk/python/v3/models/workflow-library-action
 tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryAction', 'WorkflowLibraryAction']
 ---
 
 # WorkflowLibraryAction
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | Action ID. This is a static namespaced ID for the action | [optional] 
-**Name** | Pointer to **string** | Action Name | [optional] 
-**Type** | Pointer to **string** | Action type | [optional] 
-**Description** | Pointer to **string** | Action Description | [optional] 
-**FormFields** | Pointer to [**[]WorkflowLibraryFormFields**](workflow-library-form-fields) | One or more inputs that the action accepts | [optional] 
-**ExampleOutput** | Pointer to [**WorkflowLibraryActionExampleOutput**](workflow-library-action-example-output) |  | [optional] 
-**Deprecated** | Pointer to **bool** |  | [optional] 
-**DeprecatedBy** | Pointer to **SailPointTime** |  | [optional] 
-**VersionNumber** | Pointer to **int32** | Version number | [optional] 
-**IsSimulationEnabled** | Pointer to **bool** |  | [optional] 
-**IsDynamicSchema** | Pointer to **bool** | Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] [default to false]
-**OutputSchema** | Pointer to **map[string]interface{}** | Defines the output schema, if any, that this action produces. | [optional] 
-
-## Methods
-
-### NewWorkflowLibraryAction
-
-`func NewWorkflowLibraryAction() *WorkflowLibraryAction`
-
-NewWorkflowLibraryAction instantiates a new WorkflowLibraryAction object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewWorkflowLibraryActionWithDefaults
-
-`func NewWorkflowLibraryActionWithDefaults() *WorkflowLibraryAction`
-
-NewWorkflowLibraryActionWithDefaults instantiates a new WorkflowLibraryAction object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetId
-
-`func (o *WorkflowLibraryAction) GetId() string`
-
-GetId returns the Id field if non-nil, zero value otherwise.
-
-### GetIdOk
-
-`func (o *WorkflowLibraryAction) GetIdOk() (*string, bool)`
-
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetId
-
-`func (o *WorkflowLibraryAction) SetId(v string)`
-
-SetId sets Id field to given value.
-
-### HasId
-
-`func (o *WorkflowLibraryAction) HasId() bool`
-
-HasId returns a boolean if a field has been set.
-
-### GetName
-
-`func (o *WorkflowLibraryAction) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *WorkflowLibraryAction) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *WorkflowLibraryAction) SetName(v string)`
-
-SetName sets Name field to given value.
-
-### HasName
-
-`func (o *WorkflowLibraryAction) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
-### GetType
-
-`func (o *WorkflowLibraryAction) GetType() string`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *WorkflowLibraryAction) GetTypeOk() (*string, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *WorkflowLibraryAction) SetType(v string)`
-
-SetType sets Type field to given value.
-
-### HasType
-
-`func (o *WorkflowLibraryAction) HasType() bool`
-
-HasType returns a boolean if a field has been set.
-
-### GetDescription
-
-`func (o *WorkflowLibraryAction) GetDescription() string`
-
-GetDescription returns the Description field if non-nil, zero value otherwise.
-
-### GetDescriptionOk
-
-`func (o *WorkflowLibraryAction) GetDescriptionOk() (*string, bool)`
-
-GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDescription
-
-`func (o *WorkflowLibraryAction) SetDescription(v string)`
-
-SetDescription sets Description field to given value.
-
-### HasDescription
-
-`func (o *WorkflowLibraryAction) HasDescription() bool`
-
-HasDescription returns a boolean if a field has been set.
-
-### GetFormFields
-
-`func (o *WorkflowLibraryAction) GetFormFields() []WorkflowLibraryFormFields`
-
-GetFormFields returns the FormFields field if non-nil, zero value otherwise.
-
-### GetFormFieldsOk
-
-`func (o *WorkflowLibraryAction) GetFormFieldsOk() (*[]WorkflowLibraryFormFields, bool)`
-
-GetFormFieldsOk returns a tuple with the FormFields field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFormFields
-
-`func (o *WorkflowLibraryAction) SetFormFields(v []WorkflowLibraryFormFields)`
-
-SetFormFields sets FormFields field to given value.
-
-### HasFormFields
-
-`func (o *WorkflowLibraryAction) HasFormFields() bool`
-
-HasFormFields returns a boolean if a field has been set.
-
-### SetFormFieldsNil
-
-`func (o *WorkflowLibraryAction) SetFormFieldsNil(b bool)`
-
- SetFormFieldsNil sets the value for FormFields to be an explicit nil
-
-### UnsetFormFields
-`func (o *WorkflowLibraryAction) UnsetFormFields()`
-
-UnsetFormFields ensures that no value is present for FormFields, not even an explicit nil
-### GetExampleOutput
-
-`func (o *WorkflowLibraryAction) GetExampleOutput() WorkflowLibraryActionExampleOutput`
-
-GetExampleOutput returns the ExampleOutput field if non-nil, zero value otherwise.
-
-### GetExampleOutputOk
-
-`func (o *WorkflowLibraryAction) GetExampleOutputOk() (*WorkflowLibraryActionExampleOutput, bool)`
-
-GetExampleOutputOk returns a tuple with the ExampleOutput field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetExampleOutput
-
-`func (o *WorkflowLibraryAction) SetExampleOutput(v WorkflowLibraryActionExampleOutput)`
-
-SetExampleOutput sets ExampleOutput field to given value.
-
-### HasExampleOutput
-
-`func (o *WorkflowLibraryAction) HasExampleOutput() bool`
-
-HasExampleOutput returns a boolean if a field has been set.
-
-### GetDeprecated
-
-`func (o *WorkflowLibraryAction) GetDeprecated() bool`
-
-GetDeprecated returns the Deprecated field if non-nil, zero value otherwise.
-
-### GetDeprecatedOk
-
-`func (o *WorkflowLibraryAction) GetDeprecatedOk() (*bool, bool)`
-
-GetDeprecatedOk returns a tuple with the Deprecated field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDeprecated
-
-`func (o *WorkflowLibraryAction) SetDeprecated(v bool)`
-
-SetDeprecated sets Deprecated field to given value.
-
-### HasDeprecated
-
-`func (o *WorkflowLibraryAction) HasDeprecated() bool`
-
-HasDeprecated returns a boolean if a field has been set.
-
-### GetDeprecatedBy
-
-`func (o *WorkflowLibraryAction) GetDeprecatedBy() SailPointTime`
-
-GetDeprecatedBy returns the DeprecatedBy field if non-nil, zero value otherwise.
-
-### GetDeprecatedByOk
-
-`func (o *WorkflowLibraryAction) GetDeprecatedByOk() (*SailPointTime, bool)`
-
-GetDeprecatedByOk returns a tuple with the DeprecatedBy field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDeprecatedBy
-
-`func (o *WorkflowLibraryAction) SetDeprecatedBy(v SailPointTime)`
-
-SetDeprecatedBy sets DeprecatedBy field to given value.
-
-### HasDeprecatedBy
-
-`func (o *WorkflowLibraryAction) HasDeprecatedBy() bool`
-
-HasDeprecatedBy returns a boolean if a field has been set.
-
-### GetVersionNumber
-
-`func (o *WorkflowLibraryAction) GetVersionNumber() int32`
-
-GetVersionNumber returns the VersionNumber field if non-nil, zero value otherwise.
-
-### GetVersionNumberOk
-
-`func (o *WorkflowLibraryAction) GetVersionNumberOk() (*int32, bool)`
-
-GetVersionNumberOk returns a tuple with the VersionNumber field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetVersionNumber
-
-`func (o *WorkflowLibraryAction) SetVersionNumber(v int32)`
-
-SetVersionNumber sets VersionNumber field to given value.
-
-### HasVersionNumber
-
-`func (o *WorkflowLibraryAction) HasVersionNumber() bool`
-
-HasVersionNumber returns a boolean if a field has been set.
-
-### GetIsSimulationEnabled
-
-`func (o *WorkflowLibraryAction) GetIsSimulationEnabled() bool`
-
-GetIsSimulationEnabled returns the IsSimulationEnabled field if non-nil, zero value otherwise.
-
-### GetIsSimulationEnabledOk
-
-`func (o *WorkflowLibraryAction) GetIsSimulationEnabledOk() (*bool, bool)`
-
-GetIsSimulationEnabledOk returns a tuple with the IsSimulationEnabled field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsSimulationEnabled
-
-`func (o *WorkflowLibraryAction) SetIsSimulationEnabled(v bool)`
-
-SetIsSimulationEnabled sets IsSimulationEnabled field to given value.
-
-### HasIsSimulationEnabled
-
-`func (o *WorkflowLibraryAction) HasIsSimulationEnabled() bool`
-
-HasIsSimulationEnabled returns a boolean if a field has been set.
-
-### GetIsDynamicSchema
-
-`func (o *WorkflowLibraryAction) GetIsDynamicSchema() bool`
-
-GetIsDynamicSchema returns the IsDynamicSchema field if non-nil, zero value otherwise.
-
-### GetIsDynamicSchemaOk
-
-`func (o *WorkflowLibraryAction) GetIsDynamicSchemaOk() (*bool, bool)`
-
-GetIsDynamicSchemaOk returns a tuple with the IsDynamicSchema field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIsDynamicSchema
-
-`func (o *WorkflowLibraryAction) SetIsDynamicSchema(v bool)`
-
-SetIsDynamicSchema sets IsDynamicSchema field to given value.
-
-### HasIsDynamicSchema
-
-`func (o *WorkflowLibraryAction) HasIsDynamicSchema() bool`
-
-HasIsDynamicSchema returns a boolean if a field has been set.
-
-### GetOutputSchema
-
-`func (o *WorkflowLibraryAction) GetOutputSchema() map[string]interface{}`
-
-GetOutputSchema returns the OutputSchema field if non-nil, zero value otherwise.
-
-### GetOutputSchemaOk
-
-`func (o *WorkflowLibraryAction) GetOutputSchemaOk() (*map[string]interface{}, bool)`
-
-GetOutputSchemaOk returns a tuple with the OutputSchema field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetOutputSchema
-
-`func (o *WorkflowLibraryAction) SetOutputSchema(v map[string]interface{})`
-
-SetOutputSchema sets OutputSchema field to given value.
-
-### HasOutputSchema
-
-`func (o *WorkflowLibraryAction) HasOutputSchema() bool`
-
-HasOutputSchema returns a boolean if a field has been set.
-
+**id** | **str** | Action ID. This is a static namespaced ID for the action | [optional] 
+**name** | **str** | Action Name | [optional] 
+**type** | **str** | Action type | [optional] 
+**description** | **str** | Action Description | [optional] 
+**form_fields** | [**[]WorkflowLibraryFormFields**](workflow-library-form-fields) | One or more inputs that the action accepts | [optional] 
+**example_output** | [**WorkflowLibraryActionExampleOutput**](workflow-library-action-example-output) |  | [optional] 
+**deprecated** | **bool** |  | [optional] 
+**deprecated_by** | **datetime** |  | [optional] 
+**version_number** | **int** | Version number | [optional] 
+**is_simulation_enabled** | **bool** |  | [optional] 
+**is_dynamic_schema** | **bool** | Determines whether the dynamic output schema is returned in place of the action's output schema. The dynamic schema lists non-static properties, like properties of a workflow form where each form has different fields. These will be provided dynamically based on available form fields. | [optional] [default to False]
+**output_schema** | **object** | Defines the output schema, if any, that this action produces. | [optional] 
+}
+
+## Example
+
+```python
+from sailpoint.v3.models.workflow_library_action import WorkflowLibraryAction
+
+workflow_library_action = WorkflowLibraryAction(
+id='sp:create-campaign',
+name='Create Certification Campaign',
+type='ACTION',
+description='Generates a certification campaign.',
+form_fields=[
+                    sailpoint.v3.models.workflow_library_form_fields.WorkflowLibraryFormFields(
+                        description = 'First value to compare', 
+                        help_text = 'The name to give to this certification campaign.', 
+                        label = 'Campaign Name', 
+                        name = 'name', 
+                        required = False, 
+                        type = 'text', )
+                    ],
+example_output=,
+deprecated=True,
+deprecated_by=datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+version_number=56,
+is_simulation_enabled=True,
+is_dynamic_schema=False,
+output_schema={definitions={}, properties={autoRevokeAllowed={$id=#sp:create-campaign/autoRevokeAllowed, default=true, examples=[false], title=autoRevokeAllowed, type=boolean}, deadline={$id=#sp:create-campaign/deadline, default=, examples=[2020-12-25T06:00:00.468Z], format=date-time, pattern=^.*$, title=deadline, type=string}, description={$id=#sp:create-campaign/description, default=, examples=[A review of everyone's access by their manager.], pattern=^.*$, title=description, type=string}, emailNotificationEnabled={$id=#sp:create-campaign/emailNotificationEnabled, default=true, examples=[false], title=emailNotificationEnabled, type=boolean}, filter={$id=#sp:create-campaign/filter, properties={id={$id=#sp:create-campaign/filter/id, default=, examples=[e0adaae69852e8fe8b8a3d48e5ce757c], pattern=^.*$, title=id, type=string}, type={$id=#sp:create-campaign/filter/type, default=, examples=[CAMPAIGN_FILTER], pattern=^.*$, title=type, type=string}}, title=filter, type=object}, id={$id=#sp:create-campaign/id, default=, examples=[2c918086719eec070171a7e3355a360a], pattern=^.*$, title=id, type=string}, name={$id=#sp:create-campaign/name, default=, examples=[Manager Review], pattern=^.*$, title=name, type=string}, recommendationsEnabled={$id=#sp:create-campaign/recommendationsEnabled, default=true, examples=[false], title=recommendationEnabled, type=boolean}, type={$id=#sp:create-campaign/type, default=, examples=[MANAGER], pattern=^.*$, title=type, type=string}}, title=sp:create-campaign, type=object}
+)
+
+```
+[[Back to top]](#) 
 

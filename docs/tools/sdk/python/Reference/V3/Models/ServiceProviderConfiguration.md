@@ -3,140 +3,38 @@ id: service-provider-configuration
 title: ServiceProviderConfiguration
 pagination_label: ServiceProviderConfiguration
 sidebar_label: ServiceProviderConfiguration
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ServiceProviderConfiguration', 'ServiceProviderConfiguration'] 
-slug: /tools/sdk/go/v3/models/service-provider-configuration
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'ServiceProviderConfiguration', 'ServiceProviderConfiguration'] 
+slug: /tools/sdk/python/v3/models/service-provider-configuration
 tags: ['SDK', 'Software Development Kit', 'ServiceProviderConfiguration', 'ServiceProviderConfiguration']
 ---
 
 # ServiceProviderConfiguration
 
+Represents the IdentityNow as Service Provider Configuration allowing customers to log into IDN via an Identity Provider
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** | Pointer to **bool** | This determines whether or not the SAML authentication flow is enabled for an org | [optional] [default to false]
-**BypassIdp** | Pointer to **bool** | This allows basic login with the parameter prompt=true. This is often toggled on when debugging SAML authentication setup. When false, only org admins with MFA-enabled can bypass the IDP. | [optional] [default to false]
-**SamlConfigurationValid** | Pointer to **bool** | This indicates whether or not the SAML configuration is valid. | [optional] [default to false]
-**FederationProtocolDetails** | Pointer to [**[]ServiceProviderConfigurationFederationProtocolDetailsInner**](service-provider-configuration-federation-protocol-details-inner) | A list of the abstract implementations of the Federation Protocol details. Typically, this will include on SpDetails object and one IdpDetails object used in tandem to define a SAML integration between a customer's identity provider and a customer's SailPoint instance (i.e., the service provider). | [optional] 
+**enabled** | **bool** | This determines whether or not the SAML authentication flow is enabled for an org | [optional] [default to False]
+**bypass_idp** | **bool** | This allows basic login with the parameter prompt=true. This is often toggled on when debugging SAML authentication setup. When false, only org admins with MFA-enabled can bypass the IDP. | [optional] [default to False]
+**saml_configuration_valid** | **bool** | This indicates whether or not the SAML configuration is valid. | [optional] [default to False]
+**federation_protocol_details** | [**[]ServiceProviderConfigurationFederationProtocolDetailsInner**](service-provider-configuration-federation-protocol-details-inner) | A list of the abstract implementations of the Federation Protocol details. Typically, this will include on SpDetails object and one IdpDetails object used in tandem to define a SAML integration between a customer's identity provider and a customer's SailPoint instance (i.e., the service provider). | [optional] 
+}
 
-## Methods
+## Example
 
-### NewServiceProviderConfiguration
+```python
+from sailpoint.v3.models.service_provider_configuration import ServiceProviderConfiguration
 
-`func NewServiceProviderConfiguration() *ServiceProviderConfiguration`
+service_provider_configuration = ServiceProviderConfiguration(
+enabled=True,
+bypass_idp=True,
+saml_configuration_valid=True,
+federation_protocol_details=[{role=SAML_IDP, entityId=http://www.okta.com/exktq4o24bmQA4fr60h7, cert=MIIDpDCCAoygAwIBAgIGAYhZ+b29MA0GCSqGSIb3DQEBCwUAMIGSMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxEzARBgNVBAMMCmRldi0yMDY0NDUxHDAaBgkqhkiG9w0BCQEWDWluZm9Ab2t0YS5jb20wHhcNMjMwNTI2MjEzMDU5WhcNMzMwNTI2MjEzMTU5WjCBkjELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNhbiBGcmFuY2lzY28xDTALBgNVBAoMBE9rdGExFDASBgNVBAsMC1NTT1Byb3ZpZGVyMRMwEQYDVQQDDApkZXYtMjA2NDQ1MRwwGgYJKoZIhvcNAQkBFg1pbmZvQG9rdGEuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwvi1+WbF2ceGlLCrLl5PrG1lpj04IsrHX6OE666ObC2WFh+Nxvpxy+Vmzon9c9+akhK3bTv+9ifEoVc6tA1qWuCfXISAn9g81JqI68I1PGUbe6eF8pmOA18rjOrt7x94k4QukpR3+I8DfPJ+TynatltB51laLb8H4jchMafA4rDTjV/ZiYPxV0LMEIbprVyGuvBEhiEWha3wwVdDuJq996okX36YNS8PcGH+5CJ8c3YWZp/wrspgJmfCooMXeV+6zBpZfXqPpMWlUo0gcZqDOFgy3r4vkXehJdVYRlInMfDv04Lvy8VI1YAZClG/duO/6o9YVUFLjD9s+mQfhgaF5wIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQB1CTrA/pTHkarbhMHsdSFAjVoYWwdAfrssG99rIjwwr/CW9tavTC3keaoUmUeddcnLY4V/TfL07+xgQGHCBR88cnzG9h6rC9qWxt6C3nug3YDVQfkdCDgnW9A8QEvLeq/KVLoRccpJNEENb2Y5ESUXHi1+PtjkFBtvfSgZ4eEhVggirL0bJdWVm700hCnjb2iCGSbSX7WflfPi0GSmjht983caG9OwZDnDzNFt8qGWCxo4bNSThT00JnWEN/6f1BWNOt9YDrxqEyNclqhLL+RDqFsPBFIrQlsoXzqpWqCL8oS9UMNxbGATK2v3d5ueE9+SswBAFBhirCuqZw19Ri2W, loginUrlPost=https://dev-206445.oktapreview.com/app/tivolidev206445_acmeidntest_1/exktq4o24bmQA4fr60h7/sso/saml, loginUrlRedirect=https://dev-206445.oktapreview.com/app/tivolidev206445_acmeidntest_1/exktq4o24bmQA4fr60h7/sso/saml, logoutUrl=https://dev-206445.oktapreview.com/login/signout, nameId=urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress, binding=urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST, authnContext=urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport, includeAuthnContext=true, mappingAttribute=email, jitConfiguration={enabled=true, sourceId=2c9180897427f3a501745042afc83144, sourceAttributeMappings={firstName=okta.firstName, lastName=okta.lastName, email=okta.email}}, certificateExpirationDate=Thu May 26 21:31:59 GMT 2033, certificateName=EMAILADDRESS=info@okta.com, CN=dev-206445, OU=SSOProvider, O=Okta, L=San Francisco, ST=California, C=US}, {role=SAML_SP, entityId=https://acme.identitysoon.com/sp, alias=acme-sp, callbackUrl=https://acme.test-login.sailpoint.com/saml/SSO/alias/acme-sp, legacyAcsUrl=https://megapod-useast1-sso.identitysoon.com/sso/Consumer/metaAlias/acme/sp}]
+)
 
-NewServiceProviderConfiguration instantiates a new ServiceProviderConfiguration object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewServiceProviderConfigurationWithDefaults
-
-`func NewServiceProviderConfigurationWithDefaults() *ServiceProviderConfiguration`
-
-NewServiceProviderConfigurationWithDefaults instantiates a new ServiceProviderConfiguration object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetEnabled
-
-`func (o *ServiceProviderConfiguration) GetEnabled() bool`
-
-GetEnabled returns the Enabled field if non-nil, zero value otherwise.
-
-### GetEnabledOk
-
-`func (o *ServiceProviderConfiguration) GetEnabledOk() (*bool, bool)`
-
-GetEnabledOk returns a tuple with the Enabled field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEnabled
-
-`func (o *ServiceProviderConfiguration) SetEnabled(v bool)`
-
-SetEnabled sets Enabled field to given value.
-
-### HasEnabled
-
-`func (o *ServiceProviderConfiguration) HasEnabled() bool`
-
-HasEnabled returns a boolean if a field has been set.
-
-### GetBypassIdp
-
-`func (o *ServiceProviderConfiguration) GetBypassIdp() bool`
-
-GetBypassIdp returns the BypassIdp field if non-nil, zero value otherwise.
-
-### GetBypassIdpOk
-
-`func (o *ServiceProviderConfiguration) GetBypassIdpOk() (*bool, bool)`
-
-GetBypassIdpOk returns a tuple with the BypassIdp field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBypassIdp
-
-`func (o *ServiceProviderConfiguration) SetBypassIdp(v bool)`
-
-SetBypassIdp sets BypassIdp field to given value.
-
-### HasBypassIdp
-
-`func (o *ServiceProviderConfiguration) HasBypassIdp() bool`
-
-HasBypassIdp returns a boolean if a field has been set.
-
-### GetSamlConfigurationValid
-
-`func (o *ServiceProviderConfiguration) GetSamlConfigurationValid() bool`
-
-GetSamlConfigurationValid returns the SamlConfigurationValid field if non-nil, zero value otherwise.
-
-### GetSamlConfigurationValidOk
-
-`func (o *ServiceProviderConfiguration) GetSamlConfigurationValidOk() (*bool, bool)`
-
-GetSamlConfigurationValidOk returns a tuple with the SamlConfigurationValid field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSamlConfigurationValid
-
-`func (o *ServiceProviderConfiguration) SetSamlConfigurationValid(v bool)`
-
-SetSamlConfigurationValid sets SamlConfigurationValid field to given value.
-
-### HasSamlConfigurationValid
-
-`func (o *ServiceProviderConfiguration) HasSamlConfigurationValid() bool`
-
-HasSamlConfigurationValid returns a boolean if a field has been set.
-
-### GetFederationProtocolDetails
-
-`func (o *ServiceProviderConfiguration) GetFederationProtocolDetails() []ServiceProviderConfigurationFederationProtocolDetailsInner`
-
-GetFederationProtocolDetails returns the FederationProtocolDetails field if non-nil, zero value otherwise.
-
-### GetFederationProtocolDetailsOk
-
-`func (o *ServiceProviderConfiguration) GetFederationProtocolDetailsOk() (*[]ServiceProviderConfigurationFederationProtocolDetailsInner, bool)`
-
-GetFederationProtocolDetailsOk returns a tuple with the FederationProtocolDetails field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFederationProtocolDetails
-
-`func (o *ServiceProviderConfiguration) SetFederationProtocolDetails(v []ServiceProviderConfigurationFederationProtocolDetailsInner)`
-
-SetFederationProtocolDetails sets FederationProtocolDetails field to given value.
-
-### HasFederationProtocolDetails
-
-`func (o *ServiceProviderConfiguration) HasFederationProtocolDetails() bool`
-
-HasFederationProtocolDetails returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

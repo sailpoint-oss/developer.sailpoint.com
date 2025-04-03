@@ -3,114 +3,35 @@ id: v2024-workflow-o-auth-client
 title: WorkflowOAuthClient
 pagination_label: WorkflowOAuthClient
 sidebar_label: WorkflowOAuthClient
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkflowOAuthClient', 'V2024WorkflowOAuthClient'] 
-slug: /tools/sdk/go/v2024/models/workflow-o-auth-client
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'WorkflowOAuthClient', 'V2024WorkflowOAuthClient'] 
+slug: /tools/sdk/python/v2024/models/workflow-o-auth-client
 tags: ['SDK', 'Software Development Kit', 'WorkflowOAuthClient', 'V2024WorkflowOAuthClient']
 ---
 
 # WorkflowOAuthClient
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | OAuth client ID for the trigger. This is a UUID generated upon creation. | [optional] 
-**Secret** | Pointer to **string** | OAuthClient secret. | [optional] 
-**Url** | Pointer to **string** | URL for the external trigger to invoke | [optional] 
+**id** | **str** | OAuth client ID for the trigger. This is a UUID generated upon creation. | [optional] 
+**secret** | **str** | OAuthClient secret. | [optional] 
+**url** | **str** | URL for the external trigger to invoke | [optional] 
+}
 
-## Methods
+## Example
 
-### NewWorkflowOAuthClient
+```python
+from sailpoint.v2024.models.workflow_o_auth_client import WorkflowOAuthClient
 
-`func NewWorkflowOAuthClient() *WorkflowOAuthClient`
+workflow_o_auth_client = WorkflowOAuthClient(
+id='1a58c03a6bf64dc2876f6988c6e2c7b7',
+secret='00cc24a7fe810fe06a7cb38bc168ae104d703c7abb296f9944dc68e69ddb578b',
+url='https://tenant.api.identitynow.com/beta/workflows/execute/external/c17bea3a-574d-453c-9e04-4365fbf5af0b'
+)
 
-NewWorkflowOAuthClient instantiates a new WorkflowOAuthClient object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewWorkflowOAuthClientWithDefaults
-
-`func NewWorkflowOAuthClientWithDefaults() *WorkflowOAuthClient`
-
-NewWorkflowOAuthClientWithDefaults instantiates a new WorkflowOAuthClient object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetId
-
-`func (o *WorkflowOAuthClient) GetId() string`
-
-GetId returns the Id field if non-nil, zero value otherwise.
-
-### GetIdOk
-
-`func (o *WorkflowOAuthClient) GetIdOk() (*string, bool)`
-
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetId
-
-`func (o *WorkflowOAuthClient) SetId(v string)`
-
-SetId sets Id field to given value.
-
-### HasId
-
-`func (o *WorkflowOAuthClient) HasId() bool`
-
-HasId returns a boolean if a field has been set.
-
-### GetSecret
-
-`func (o *WorkflowOAuthClient) GetSecret() string`
-
-GetSecret returns the Secret field if non-nil, zero value otherwise.
-
-### GetSecretOk
-
-`func (o *WorkflowOAuthClient) GetSecretOk() (*string, bool)`
-
-GetSecretOk returns a tuple with the Secret field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSecret
-
-`func (o *WorkflowOAuthClient) SetSecret(v string)`
-
-SetSecret sets Secret field to given value.
-
-### HasSecret
-
-`func (o *WorkflowOAuthClient) HasSecret() bool`
-
-HasSecret returns a boolean if a field has been set.
-
-### GetUrl
-
-`func (o *WorkflowOAuthClient) GetUrl() string`
-
-GetUrl returns the Url field if non-nil, zero value otherwise.
-
-### GetUrlOk
-
-`func (o *WorkflowOAuthClient) GetUrlOk() (*string, bool)`
-
-GetUrlOk returns a tuple with the Url field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUrl
-
-`func (o *WorkflowOAuthClient) SetUrl(v string)`
-
-SetUrl sets Url field to given value.
-
-### HasUrl
-
-`func (o *WorkflowOAuthClient) HasUrl() bool`
-
-HasUrl returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

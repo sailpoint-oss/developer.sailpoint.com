@@ -3,57 +3,43 @@ id: v2024-campaign-generated
 title: CampaignGenerated
 pagination_label: CampaignGenerated
 sidebar_label: CampaignGenerated
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignGenerated', 'V2024CampaignGenerated'] 
-slug: /tools/sdk/go/v2024/models/campaign-generated
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'CampaignGenerated', 'V2024CampaignGenerated'] 
+slug: /tools/sdk/python/v2024/models/campaign-generated
 tags: ['SDK', 'Software Development Kit', 'CampaignGenerated', 'V2024CampaignGenerated']
 ---
 
 # CampaignGenerated
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Campaign** | [**CampaignGeneratedCampaign**](campaign-generated-campaign) |  | 
+**campaign** | [**CampaignGeneratedCampaign**](campaign-generated-campaign) |  | [required]
+}
 
-## Methods
+## Example
 
-### NewCampaignGenerated
+```python
+from sailpoint.v2024.models.campaign_generated import CampaignGenerated
 
-`func NewCampaignGenerated(campaign CampaignGeneratedCampaign, ) *CampaignGenerated`
+campaign_generated = CampaignGenerated(
+campaign=sailpoint.v2024.models.campaign_generated_campaign.CampaignGenerated_campaign(
+                    id = '2c91808576f886190176f88cac5a0010', 
+                    name = 'Manager Access Campaign', 
+                    description = 'Audit access for all employees.', 
+                    created = '2021-02-16T03:04:45.815Z', 
+                    modified = '2021-02-17T03:04:45.815Z', 
+                    deadline = '2021-02-18T03:04:45.815Z', 
+                    type = MANAGER, 
+                    campaign_owner = sailpoint.v2024.models.campaign_generated_campaign_campaign_owner.CampaignGenerated_campaign_campaignOwner(
+                        id = '37f080867702c1910177031320c40n27', 
+                        display_name = 'John Snow', 
+                        email = 'john.snow@example.com', ), 
+                    status = STAGED, )
+)
 
-NewCampaignGenerated instantiates a new CampaignGenerated object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewCampaignGeneratedWithDefaults
-
-`func NewCampaignGeneratedWithDefaults() *CampaignGenerated`
-
-NewCampaignGeneratedWithDefaults instantiates a new CampaignGenerated object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetCampaign
-
-`func (o *CampaignGenerated) GetCampaign() CampaignGeneratedCampaign`
-
-GetCampaign returns the Campaign field if non-nil, zero value otherwise.
-
-### GetCampaignOk
-
-`func (o *CampaignGenerated) GetCampaignOk() (*CampaignGeneratedCampaign, bool)`
-
-GetCampaignOk returns a tuple with the Campaign field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetCampaign
-
-`func (o *CampaignGenerated) SetCampaign(v CampaignGeneratedCampaign)`
-
-SetCampaign sets Campaign field to given value.
-
-
+```
+[[Back to top]](#) 
 

@@ -3,78 +3,33 @@ id: v2025-source-app-bulk-update-request
 title: SourceAppBulkUpdateRequest
 pagination_label: SourceAppBulkUpdateRequest
 sidebar_label: SourceAppBulkUpdateRequest
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceAppBulkUpdateRequest', 'V2025SourceAppBulkUpdateRequest'] 
-slug: /tools/sdk/go/v2025/models/source-app-bulk-update-request
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'SourceAppBulkUpdateRequest', 'V2025SourceAppBulkUpdateRequest'] 
+slug: /tools/sdk/python/v2025/models/source-app-bulk-update-request
 tags: ['SDK', 'Software Development Kit', 'SourceAppBulkUpdateRequest', 'V2025SourceAppBulkUpdateRequest']
 ---
 
 # SourceAppBulkUpdateRequest
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AppIds** | **[]string** | List of source app ids to update | 
-**JsonPatch** | [**[]JsonPatchOperation**](json-patch-operation) | The JSONPatch payload used to update the source app. | 
+**app_ids** | **[]str** | List of source app ids to update | [required]
+**json_patch** | [**[]JsonPatchOperation**](json-patch-operation) | The JSONPatch payload used to update the source app. | [required]
+}
 
-## Methods
+## Example
 
-### NewSourceAppBulkUpdateRequest
+```python
+from sailpoint.v2025.models.source_app_bulk_update_request import SourceAppBulkUpdateRequest
 
-`func NewSourceAppBulkUpdateRequest(appIds []string, jsonPatch []JsonPatchOperation, ) *SourceAppBulkUpdateRequest`
+source_app_bulk_update_request = SourceAppBulkUpdateRequest(
+app_ids=[2c91808a7624751a01762f19d665220d, 2c91808a7624751a01762f19d67c220e, 2c91808a7624751a01762f19d692220f],
+json_patch=[{op=replace, path=/enabled, value=false}, {op=replace, path=/matchAllAccounts, value=false}]
+)
 
-NewSourceAppBulkUpdateRequest instantiates a new SourceAppBulkUpdateRequest object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewSourceAppBulkUpdateRequestWithDefaults
-
-`func NewSourceAppBulkUpdateRequestWithDefaults() *SourceAppBulkUpdateRequest`
-
-NewSourceAppBulkUpdateRequestWithDefaults instantiates a new SourceAppBulkUpdateRequest object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetAppIds
-
-`func (o *SourceAppBulkUpdateRequest) GetAppIds() []string`
-
-GetAppIds returns the AppIds field if non-nil, zero value otherwise.
-
-### GetAppIdsOk
-
-`func (o *SourceAppBulkUpdateRequest) GetAppIdsOk() (*[]string, bool)`
-
-GetAppIdsOk returns a tuple with the AppIds field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAppIds
-
-`func (o *SourceAppBulkUpdateRequest) SetAppIds(v []string)`
-
-SetAppIds sets AppIds field to given value.
-
-
-### GetJsonPatch
-
-`func (o *SourceAppBulkUpdateRequest) GetJsonPatch() []JsonPatchOperation`
-
-GetJsonPatch returns the JsonPatch field if non-nil, zero value otherwise.
-
-### GetJsonPatchOk
-
-`func (o *SourceAppBulkUpdateRequest) GetJsonPatchOk() (*[]JsonPatchOperation, bool)`
-
-GetJsonPatchOk returns a tuple with the JsonPatch field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetJsonPatch
-
-`func (o *SourceAppBulkUpdateRequest) SetJsonPatch(v []JsonPatchOperation)`
-
-SetJsonPatch sets JsonPatch field to given value.
-
-
+```
+[[Back to top]](#) 
 

@@ -3,72 +3,35 @@ id: revocability
 title: Revocability
 pagination_label: Revocability
 sidebar_label: Revocability
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Revocability', 'Revocability'] 
-slug: /tools/sdk/go/v3/models/revocability
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'Revocability', 'Revocability'] 
+slug: /tools/sdk/python/v3/models/revocability
 tags: ['SDK', 'Software Development Kit', 'Revocability', 'Revocability']
 ---
 
 # Revocability
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApprovalSchemes** | Pointer to [**[]AccessProfileApprovalScheme**](access-profile-approval-scheme) | List describing the steps in approving the revocation request | [optional] 
+**approval_schemes** | [**[]AccessProfileApprovalScheme**](access-profile-approval-scheme) | List describing the steps in approving the revocation request | [optional] 
+}
 
-## Methods
+## Example
 
-### NewRevocability
+```python
+from sailpoint.v3.models.revocability import Revocability
 
-`func NewRevocability() *Revocability`
+revocability = Revocability(
+approval_schemes=[
+                    sailpoint.v3.models.access_profile_approval_scheme.AccessProfileApprovalScheme(
+                        approver_type = 'GOVERNANCE_GROUP', 
+                        approver_id = '46c79819-a69f-49a2-becb-12c971ae66c6', )
+                    ]
+)
 
-NewRevocability instantiates a new Revocability object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewRevocabilityWithDefaults
-
-`func NewRevocabilityWithDefaults() *Revocability`
-
-NewRevocabilityWithDefaults instantiates a new Revocability object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetApprovalSchemes
-
-`func (o *Revocability) GetApprovalSchemes() []AccessProfileApprovalScheme`
-
-GetApprovalSchemes returns the ApprovalSchemes field if non-nil, zero value otherwise.
-
-### GetApprovalSchemesOk
-
-`func (o *Revocability) GetApprovalSchemesOk() (*[]AccessProfileApprovalScheme, bool)`
-
-GetApprovalSchemesOk returns a tuple with the ApprovalSchemes field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetApprovalSchemes
-
-`func (o *Revocability) SetApprovalSchemes(v []AccessProfileApprovalScheme)`
-
-SetApprovalSchemes sets ApprovalSchemes field to given value.
-
-### HasApprovalSchemes
-
-`func (o *Revocability) HasApprovalSchemes() bool`
-
-HasApprovalSchemes returns a boolean if a field has been set.
-
-### SetApprovalSchemesNil
-
-`func (o *Revocability) SetApprovalSchemesNil(b bool)`
-
- SetApprovalSchemesNil sets the value for ApprovalSchemes to be an explicit nil
-
-### UnsetApprovalSchemes
-`func (o *Revocability) UnsetApprovalSchemes()`
-
-UnsetApprovalSchemes ensures that no value is present for ApprovalSchemes, not even an explicit nil
+```
+[[Back to top]](#) 
 

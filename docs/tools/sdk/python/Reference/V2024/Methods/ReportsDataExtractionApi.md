@@ -1,15 +1,15 @@
 ---
 id: v2024-reports-data-extraction
-title: ReportsDataExtraction
-pagination_label: ReportsDataExtraction
-sidebar_label: ReportsDataExtraction
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ReportsDataExtraction', 'V2024ReportsDataExtraction'] 
-slug: /tools/sdk/go/v2024/methods/reports-data-extraction
-tags: ['SDK', 'Software Development Kit', 'ReportsDataExtraction', 'V2024ReportsDataExtraction']
+title: Reports_Data_Extraction
+pagination_label: Reports_Data_Extraction
+sidebar_label: Reports_Data_Extraction
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'Reports_Data_Extraction', 'V2024Reports_Data_Extraction'] 
+slug: /tools/sdk/python/v2024/methods/reports-data-extraction
+tags: ['SDK', 'Software Development Kit', 'Reports_Data_Extraction', 'V2024Reports_Data_Extraction']
 ---
 
-# ReportsDataExtractionAPI
+# sailpoint.v2024.ReportsDataExtractionApi
   Use this API to implement reports lifecycle managing and monitoring.
 With this functionality in place, users can run reports, view their results, and cancel reports in progress. 
 This can be potentially helpful for auditing purposes. 
@@ -18,10 +18,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancel-report**](#cancel-report) | **Post** `/reports/{id}/cancel` | Cancel Report
-[**get-report**](#get-report) | **Get** `/reports/{taskResultId}` | Get Report File
-[**get-report-result**](#get-report-result) | **Get** `/reports/{taskResultId}/result` | Get Report Result
-[**start-report**](#start-report) | **Post** `/reports/run` | Run Report
+[**cancel-report**](#cancel-report) | **POST** `/reports/{id}/cancel` | Cancel Report
+[**get-report**](#get-report) | **GET** `/reports/{taskResultId}` | Get Report File
+[**get-report-result**](#get-report-result) | **GET** `/reports/{taskResultId}/result` | Get Report Result
+[**start-report**](#start-report) | **POST** `/reports/run` | Run Report
 
 
 ## cancel-report
@@ -30,59 +30,54 @@ Cancels a running report.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/cancel-report)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | ID of the running Report to cancel | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCancelReportRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | ID of the running Report to cancel
 
 ### Return type
-
  (empty response body)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.reports_data_extraction_api import ReportsDataExtractionApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := a1ed223247144cc29d23c632624b4767 # string | ID of the running Report to cancel # string | ID of the running Report to cancel
+with ApiClient(configuration) as api_client:
+    id = 'a1ed223247144cc29d23c632624b4767' # str | ID of the running Report to cancel # str | ID of the running Report to cancel
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V2024.ReportsDataExtractionAPI.CancelReport(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ReportsDataExtractionAPI.CancelReport``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
+    try:
+        # Cancel Report
+        
+        ReportsDataExtractionApi(api_client).cancel_report(id=id)
+        # Below is a request that includes all optional parameters
+        # ReportsDataExtractionApi(api_client).cancel_report(id)
+    except Exception as e:
+        print("Exception when calling ReportsDataExtractionApi->cancel_report: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-report
 Get Report File
@@ -90,67 +85,63 @@ Gets a report in file format.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-report)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**taskResultId** | **string** | Unique identifier of the task result which handled report | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetReportRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **fileFormat** | **string** | Output format of the requested report file | 
- **name** | **string** | preferred Report file name, by default will be used report name from task result. | 
- **auditable** | **bool** | Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId. | [default to false]
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | task_result_id | **str** | True  | Unique identifier of the task result which handled report
+  Query | file_format | **str** | True  | Output format of the requested report file
+  Query | name | **str** |   (optional) | preferred Report file name, by default will be used report name from task result.
+  Query | auditable | **bool** |   (optional) (default to False) | Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId.
 
 ### Return type
+**bytearray**
 
-[***os.File**](https://pkg.go.dev/os)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Report file in selected format. CSV by default. | bytearray |  * Content-disposition - The requested report's filename  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/csv, application/pdf, application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/csv, application/pdf, application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.reports_data_extraction_api import ReportsDataExtractionApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    taskResultId := ef38f94347e94562b5bb8424a56397d8 # string | Unique identifier of the task result which handled report # string | Unique identifier of the task result which handled report
-    fileFormat := csv # string | Output format of the requested report file # string | Output format of the requested report file
-    name := Identities Details Report # string | preferred Report file name, by default will be used report name from task result. (optional) # string | preferred Report file name, by default will be used report name from task result. (optional)
-    auditable := true # bool | Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId. (optional) (default to false) # bool | Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId. (optional) (default to false)
+with ApiClient(configuration) as api_client:
+    task_result_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Unique identifier of the task result which handled report # str | Unique identifier of the task result which handled report
+    file_format = 'csv' # str | Output format of the requested report file # str | Output format of the requested report file
+    name = 'Identities Details Report' # str | preferred Report file name, by default will be used report name from task result. (optional) # str | preferred Report file name, by default will be used report name from task result. (optional)
+    auditable = False # bool | Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId. (optional) (default to False) # bool | Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId. (optional) (default to False)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.ReportsDataExtractionAPI.GetReport(context.Background(), taskResultId).FileFormat(fileFormat).Name(name).Auditable(auditable).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ReportsDataExtractionAPI.GetReport``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetReport`: *os.File
-	fmt.Fprintf(os.Stdout, "Response from `ReportsDataExtractionAPI.GetReport`: %v\n", resp)
-}
+    try:
+        # Get Report File
+        
+        results = ReportsDataExtractionApi(api_client).get_report(task_result_id=task_result_id, file_format=file_format)
+        # Below is a request that includes all optional parameters
+        # results = ReportsDataExtractionApi(api_client).get_report(task_result_id, file_format, name, auditable)
+        print("The response of ReportsDataExtractionApi->get_report:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ReportsDataExtractionApi->get_report: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-report-result
 Get Report Result
@@ -158,63 +149,59 @@ Get the report results for a report that was run or is running. Returns empty re
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-report-result)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**taskResultId** | **string** | Unique identifier of the task result which handled report | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetReportResultRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **completed** | **bool** | state of task result to apply ordering when results are fetching from the DB | [default to false]
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | task_result_id | **str** | True  | Unique identifier of the task result which handled report
+  Query | completed | **bool** |   (optional) (default to False) | state of task result to apply ordering when results are fetching from the DB
 
 ### Return type
-
 [**ReportResults**](../models/report-results)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Details about report that was run or is running. | ReportResults |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.reports_data_extraction_api import ReportsDataExtractionApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.report_results import ReportResults
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    taskResultId := ef38f94347e94562b5bb8424a56397d8 # string | Unique identifier of the task result which handled report # string | Unique identifier of the task result which handled report
-    completed := true # bool | state of task result to apply ordering when results are fetching from the DB (optional) (default to false) # bool | state of task result to apply ordering when results are fetching from the DB (optional) (default to false)
+with ApiClient(configuration) as api_client:
+    task_result_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Unique identifier of the task result which handled report # str | Unique identifier of the task result which handled report
+    completed = False # bool | state of task result to apply ordering when results are fetching from the DB (optional) (default to False) # bool | state of task result to apply ordering when results are fetching from the DB (optional) (default to False)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.ReportsDataExtractionAPI.GetReportResult(context.Background(), taskResultId).Completed(completed).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ReportsDataExtractionAPI.GetReportResult``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetReportResult`: ReportResults
-	fmt.Fprintf(os.Stdout, "Response from `ReportsDataExtractionAPI.GetReportResult`: %v\n", resp)
-}
+    try:
+        # Get Report Result
+        
+        results = ReportsDataExtractionApi(api_client).get_report_result(task_result_id=task_result_id)
+        # Below is a request that includes all optional parameters
+        # results = ReportsDataExtractionApi(api_client).get_report_result(task_result_id, completed)
+        print("The response of ReportsDataExtractionApi->get_report_result:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ReportsDataExtractionApi->get_report_result: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## start-report
 Run Report
@@ -222,61 +209,64 @@ Use this API to run a report according to report input details. If non-concurren
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/start-report)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiStartReportRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **reportDetails** | [**ReportDetails**](../models/report-details) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | report_details | [**ReportDetails**](../models/report-details) | True  | 
 
 ### Return type
-
 [**TaskResultDetails**](../models/task-result-details)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Details about running report task. | TaskResultDetails |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.reports_data_extraction_api import ReportsDataExtractionApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.report_details import ReportDetails
+from sailpoint.v2024.models.task_result_details import TaskResultDetails
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    reportDetails := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    report_details = '''{
           "reportType" : "ACCOUNTS",
           "arguments" : {
             "application" : "2c9180897e7742b2017e781782f705b9",
             "sourceName" : "Active Directory"
           }
-        }`) # ReportDetails | 
+        }''' # ReportDetails | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.ReportsDataExtractionAPI.StartReport(context.Background()).ReportDetails(reportDetails).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ReportsDataExtractionAPI.StartReport``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `StartReport`: TaskResultDetails
-	fmt.Fprintf(os.Stdout, "Response from `ReportsDataExtractionAPI.StartReport`: %v\n", resp)
-}
+    try:
+        # Run Report
+        new_report_details = ReportDetails.from_json(report_details)
+        results = ReportsDataExtractionApi(api_client).start_report(report_details=new_report_details)
+        # Below is a request that includes all optional parameters
+        # results = ReportsDataExtractionApi(api_client).start_report(new_report_details)
+        print("The response of ReportsDataExtractionApi->start_report:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ReportsDataExtractionApi->start_report: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
+
+
 

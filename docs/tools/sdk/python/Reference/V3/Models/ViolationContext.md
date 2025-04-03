@@ -3,88 +3,38 @@ id: violation-context
 title: ViolationContext
 pagination_label: ViolationContext
 sidebar_label: ViolationContext
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ViolationContext', 'ViolationContext'] 
-slug: /tools/sdk/go/v3/models/violation-context
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'ViolationContext', 'ViolationContext'] 
+slug: /tools/sdk/python/v3/models/violation-context
 tags: ['SDK', 'Software Development Kit', 'ViolationContext', 'ViolationContext']
 ---
 
 # ViolationContext
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Policy** | Pointer to [**ViolationContextPolicy**](violation-context-policy) |  | [optional] 
-**ConflictingAccessCriteria** | Pointer to [**ExceptionAccessCriteria**](exception-access-criteria) |  | [optional] 
+**policy** | [**ViolationContextPolicy**](violation-context-policy) |  | [optional] 
+**conflicting_access_criteria** | [**ExceptionAccessCriteria**](exception-access-criteria) |  | [optional] 
+}
 
-## Methods
+## Example
 
-### NewViolationContext
+```python
+from sailpoint.v3.models.violation_context import ViolationContext
 
-`func NewViolationContext() *ViolationContext`
+violation_context = ViolationContext(
+policy=sailpoint.v3.models.violation_context_policy.ViolationContext_policy(
+                    type = ENTITLEMENT, ),
+conflicting_access_criteria=sailpoint.v3.models.exception_access_criteria.ExceptionAccessCriteria(
+                    left_criteria = sailpoint.v3.models.exception_criteria.ExceptionCriteria(
+                        criteria_list = [{type=ENTITLEMENT, id=2c9180866166b5b0016167c32ef31a66, existing=true}, {type=ENTITLEMENT, id=2c9180866166b5b0016167c32ef31a67, existing=false}], ), 
+                    right_criteria = sailpoint.v3.models.exception_criteria.ExceptionCriteria(
+                        criteria_list = [{type=ENTITLEMENT, id=2c9180866166b5b0016167c32ef31a66, existing=true}, {type=ENTITLEMENT, id=2c9180866166b5b0016167c32ef31a67, existing=false}], ), )
+)
 
-NewViolationContext instantiates a new ViolationContext object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewViolationContextWithDefaults
-
-`func NewViolationContextWithDefaults() *ViolationContext`
-
-NewViolationContextWithDefaults instantiates a new ViolationContext object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetPolicy
-
-`func (o *ViolationContext) GetPolicy() ViolationContextPolicy`
-
-GetPolicy returns the Policy field if non-nil, zero value otherwise.
-
-### GetPolicyOk
-
-`func (o *ViolationContext) GetPolicyOk() (*ViolationContextPolicy, bool)`
-
-GetPolicyOk returns a tuple with the Policy field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetPolicy
-
-`func (o *ViolationContext) SetPolicy(v ViolationContextPolicy)`
-
-SetPolicy sets Policy field to given value.
-
-### HasPolicy
-
-`func (o *ViolationContext) HasPolicy() bool`
-
-HasPolicy returns a boolean if a field has been set.
-
-### GetConflictingAccessCriteria
-
-`func (o *ViolationContext) GetConflictingAccessCriteria() ExceptionAccessCriteria`
-
-GetConflictingAccessCriteria returns the ConflictingAccessCriteria field if non-nil, zero value otherwise.
-
-### GetConflictingAccessCriteriaOk
-
-`func (o *ViolationContext) GetConflictingAccessCriteriaOk() (*ExceptionAccessCriteria, bool)`
-
-GetConflictingAccessCriteriaOk returns a tuple with the ConflictingAccessCriteria field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetConflictingAccessCriteria
-
-`func (o *ViolationContext) SetConflictingAccessCriteria(v ExceptionAccessCriteria)`
-
-SetConflictingAccessCriteria sets ConflictingAccessCriteria field to given value.
-
-### HasConflictingAccessCriteria
-
-`func (o *ViolationContext) HasConflictingAccessCriteria() bool`
-
-HasConflictingAccessCriteria returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

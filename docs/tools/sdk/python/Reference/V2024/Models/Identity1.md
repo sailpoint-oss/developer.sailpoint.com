@@ -3,88 +3,34 @@ id: v2024-identity1
 title: Identity1
 pagination_label: Identity1
 sidebar_label: Identity1
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Identity1', 'V2024Identity1'] 
-slug: /tools/sdk/go/v2024/models/identity1
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'Identity1', 'V2024Identity1'] 
+slug: /tools/sdk/python/v2024/models/identity1
 tags: ['SDK', 'Software Development Kit', 'Identity1', 'V2024Identity1']
 ---
 
 # Identity1
 
+The definition of an Identity according to the Reassignment Configuration service
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | The ID of the object | [optional] 
-**Name** | Pointer to **string** | Human-readable display name of the object | [optional] 
+**id** | **str** | The ID of the object | [optional] 
+**name** | **str** | Human-readable display name of the object | [optional] 
+}
 
-## Methods
+## Example
 
-### NewIdentity1
+```python
+from sailpoint.v2024.models.identity1 import Identity1
 
-`func NewIdentity1() *Identity1`
+identity1 = Identity1(
+id='2c91808380aa05580180aaaaf1940410',
+name='William Wilson'
+)
 
-NewIdentity1 instantiates a new Identity1 object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewIdentity1WithDefaults
-
-`func NewIdentity1WithDefaults() *Identity1`
-
-NewIdentity1WithDefaults instantiates a new Identity1 object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetId
-
-`func (o *Identity1) GetId() string`
-
-GetId returns the Id field if non-nil, zero value otherwise.
-
-### GetIdOk
-
-`func (o *Identity1) GetIdOk() (*string, bool)`
-
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetId
-
-`func (o *Identity1) SetId(v string)`
-
-SetId sets Id field to given value.
-
-### HasId
-
-`func (o *Identity1) HasId() bool`
-
-HasId returns a boolean if a field has been set.
-
-### GetName
-
-`func (o *Identity1) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *Identity1) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *Identity1) SetName(v string)`
-
-SetName sets Name field to given value.
-
-### HasName
-
-`func (o *Identity1) HasName() bool`
-
-HasName returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

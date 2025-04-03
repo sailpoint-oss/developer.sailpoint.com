@@ -3,99 +3,36 @@ id: v2025-va-cluster-status-change-event-previous-health-check-result
 title: VAClusterStatusChangeEventPreviousHealthCheckResult
 pagination_label: VAClusterStatusChangeEventPreviousHealthCheckResult
 sidebar_label: VAClusterStatusChangeEventPreviousHealthCheckResult
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'VAClusterStatusChangeEventPreviousHealthCheckResult', 'V2025VAClusterStatusChangeEventPreviousHealthCheckResult'] 
-slug: /tools/sdk/go/v2025/models/va-cluster-status-change-event-previous-health-check-result
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'VAClusterStatusChangeEventPreviousHealthCheckResult', 'V2025VAClusterStatusChangeEventPreviousHealthCheckResult'] 
+slug: /tools/sdk/python/v2025/models/va-cluster-status-change-event-previous-health-check-result
 tags: ['SDK', 'Software Development Kit', 'VAClusterStatusChangeEventPreviousHealthCheckResult', 'V2025VAClusterStatusChangeEventPreviousHealthCheckResult']
 ---
 
 # VAClusterStatusChangeEventPreviousHealthCheckResult
 
+The results of the last health check.
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Message** | **string** | Detailed message of the result of the health check. | 
-**ResultType** | **string** | The type of the health check result. | 
-**Status** | **map[string]interface{}** | The status of the health check. | 
+**message** | **str** | Detailed message of the result of the health check. | [required]
+**result_type** | **str** | The type of the health check result. | [required]
+**status** |  **Enum** [  'Succeeded',    'Failed' ] | The status of the health check. | [required]
+}
 
-## Methods
+## Example
 
-### NewVAClusterStatusChangeEventPreviousHealthCheckResult
+```python
+from sailpoint.v2025.models.va_cluster_status_change_event_previous_health_check_result import VAClusterStatusChangeEventPreviousHealthCheckResult
 
-`func NewVAClusterStatusChangeEventPreviousHealthCheckResult(message string, resultType string, status map[string]interface{}, ) *VAClusterStatusChangeEventPreviousHealthCheckResult`
+va_cluster_status_change_event_previous_health_check_result = VAClusterStatusChangeEventPreviousHealthCheckResult(
+message='Test Connection failed with exception. Error message - java.lang Exception',
+result_type='SOURCE_STATE_ERROR_CLUSTER',
+status=Failed
+)
 
-NewVAClusterStatusChangeEventPreviousHealthCheckResult instantiates a new VAClusterStatusChangeEventPreviousHealthCheckResult object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewVAClusterStatusChangeEventPreviousHealthCheckResultWithDefaults
-
-`func NewVAClusterStatusChangeEventPreviousHealthCheckResultWithDefaults() *VAClusterStatusChangeEventPreviousHealthCheckResult`
-
-NewVAClusterStatusChangeEventPreviousHealthCheckResultWithDefaults instantiates a new VAClusterStatusChangeEventPreviousHealthCheckResult object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetMessage
-
-`func (o *VAClusterStatusChangeEventPreviousHealthCheckResult) GetMessage() string`
-
-GetMessage returns the Message field if non-nil, zero value otherwise.
-
-### GetMessageOk
-
-`func (o *VAClusterStatusChangeEventPreviousHealthCheckResult) GetMessageOk() (*string, bool)`
-
-GetMessageOk returns a tuple with the Message field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMessage
-
-`func (o *VAClusterStatusChangeEventPreviousHealthCheckResult) SetMessage(v string)`
-
-SetMessage sets Message field to given value.
-
-
-### GetResultType
-
-`func (o *VAClusterStatusChangeEventPreviousHealthCheckResult) GetResultType() string`
-
-GetResultType returns the ResultType field if non-nil, zero value otherwise.
-
-### GetResultTypeOk
-
-`func (o *VAClusterStatusChangeEventPreviousHealthCheckResult) GetResultTypeOk() (*string, bool)`
-
-GetResultTypeOk returns a tuple with the ResultType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetResultType
-
-`func (o *VAClusterStatusChangeEventPreviousHealthCheckResult) SetResultType(v string)`
-
-SetResultType sets ResultType field to given value.
-
-
-### GetStatus
-
-`func (o *VAClusterStatusChangeEventPreviousHealthCheckResult) GetStatus() map[string]interface{}`
-
-GetStatus returns the Status field if non-nil, zero value otherwise.
-
-### GetStatusOk
-
-`func (o *VAClusterStatusChangeEventPreviousHealthCheckResult) GetStatusOk() (*map[string]interface{}, bool)`
-
-GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetStatus
-
-`func (o *VAClusterStatusChangeEventPreviousHealthCheckResult) SetStatus(v map[string]interface{})`
-
-SetStatus sets Status field to given value.
-
-
+```
+[[Back to top]](#) 
 

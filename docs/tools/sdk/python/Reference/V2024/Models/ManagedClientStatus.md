@@ -3,130 +3,38 @@ id: v2024-managed-client-status
 title: ManagedClientStatus
 pagination_label: ManagedClientStatus
 sidebar_label: ManagedClientStatus
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ManagedClientStatus', 'V2024ManagedClientStatus'] 
-slug: /tools/sdk/go/v2024/models/managed-client-status
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'ManagedClientStatus', 'V2024ManagedClientStatus'] 
+slug: /tools/sdk/python/v2024/models/managed-client-status
 tags: ['SDK', 'Software Development Kit', 'ManagedClientStatus', 'V2024ManagedClientStatus']
 ---
 
 # ManagedClientStatus
 
+Managed Client Status
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Body** | **map[string]interface{}** | ManagedClientStatus body information | 
-**Status** | [**ManagedClientStatusCode**](managed-client-status-code) |  | 
-**Type** | [**NullableManagedClientType**](managed-client-type) |  | 
-**Timestamp** | **SailPointTime** | timestamp on the Client Status update | 
+**body** | **object** | ManagedClientStatus body information | [required]
+**status** | [**ManagedClientStatusCode**](managed-client-status-code) |  | [required]
+**type** | [**ManagedClientType**](managed-client-type) |  | [required]
+**timestamp** | **datetime** | timestamp on the Client Status update | [required]
+}
 
-## Methods
+## Example
 
-### NewManagedClientStatus
+```python
+from sailpoint.v2024.models.managed_client_status import ManagedClientStatus
 
-`func NewManagedClientStatus(body map[string]interface{}, status ManagedClientStatusCode, type_ NullableManagedClientType, timestamp SailPointTime, ) *ManagedClientStatus`
+managed_client_status = ManagedClientStatus(
+body={alertKey=, id=5678, clusterId=1234, ccg_etag=ccg_etag123xyz456, ccg_pin=NONE, cookbook_etag=20210420125956-20210511144538, hostname=megapod-useast1-secret-hostname.sailpoint.com, internal_ip=127.0.0.1, lastSeen=1620843964604, sinceSeen=14708, sinceSeenMillis=14708, localDev=false, stacktrace=, state=null, status=NORMAL, uuid=null, product=idn, va_version=null, platform_version=2, os_version=2345.3.1, os_type=flatcar, hypervisor=unknown},
+status='NORMAL',
+type='CCG',
+timestamp='2020-01-01T00:00Z'
+)
 
-NewManagedClientStatus instantiates a new ManagedClientStatus object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewManagedClientStatusWithDefaults
-
-`func NewManagedClientStatusWithDefaults() *ManagedClientStatus`
-
-NewManagedClientStatusWithDefaults instantiates a new ManagedClientStatus object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetBody
-
-`func (o *ManagedClientStatus) GetBody() map[string]interface{}`
-
-GetBody returns the Body field if non-nil, zero value otherwise.
-
-### GetBodyOk
-
-`func (o *ManagedClientStatus) GetBodyOk() (*map[string]interface{}, bool)`
-
-GetBodyOk returns a tuple with the Body field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetBody
-
-`func (o *ManagedClientStatus) SetBody(v map[string]interface{})`
-
-SetBody sets Body field to given value.
-
-
-### GetStatus
-
-`func (o *ManagedClientStatus) GetStatus() ManagedClientStatusCode`
-
-GetStatus returns the Status field if non-nil, zero value otherwise.
-
-### GetStatusOk
-
-`func (o *ManagedClientStatus) GetStatusOk() (*ManagedClientStatusCode, bool)`
-
-GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetStatus
-
-`func (o *ManagedClientStatus) SetStatus(v ManagedClientStatusCode)`
-
-SetStatus sets Status field to given value.
-
-
-### GetType
-
-`func (o *ManagedClientStatus) GetType() ManagedClientType`
-
-GetType returns the Type field if non-nil, zero value otherwise.
-
-### GetTypeOk
-
-`func (o *ManagedClientStatus) GetTypeOk() (*ManagedClientType, bool)`
-
-GetTypeOk returns a tuple with the Type field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetType
-
-`func (o *ManagedClientStatus) SetType(v ManagedClientType)`
-
-SetType sets Type field to given value.
-
-
-### SetTypeNil
-
-`func (o *ManagedClientStatus) SetTypeNil(b bool)`
-
- SetTypeNil sets the value for Type to be an explicit nil
-
-### UnsetType
-`func (o *ManagedClientStatus) UnsetType()`
-
-UnsetType ensures that no value is present for Type, not even an explicit nil
-### GetTimestamp
-
-`func (o *ManagedClientStatus) GetTimestamp() SailPointTime`
-
-GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
-
-### GetTimestampOk
-
-`func (o *ManagedClientStatus) GetTimestampOk() (*SailPointTime, bool)`
-
-GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTimestamp
-
-`func (o *ManagedClientStatus) SetTimestamp(v SailPointTime)`
-
-SetTimestamp sets Timestamp field to given value.
-
-
+```
+[[Back to top]](#) 
 

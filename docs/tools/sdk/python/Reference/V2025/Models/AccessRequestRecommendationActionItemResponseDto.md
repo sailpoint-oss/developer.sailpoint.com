@@ -3,114 +3,37 @@ id: v2025-access-request-recommendation-action-item-response-dto
 title: AccessRequestRecommendationActionItemResponseDto
 pagination_label: AccessRequestRecommendationActionItemResponseDto
 sidebar_label: AccessRequestRecommendationActionItemResponseDto
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestRecommendationActionItemResponseDto', 'V2025AccessRequestRecommendationActionItemResponseDto'] 
-slug: /tools/sdk/go/v2025/models/access-request-recommendation-action-item-response-dto
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'AccessRequestRecommendationActionItemResponseDto', 'V2025AccessRequestRecommendationActionItemResponseDto'] 
+slug: /tools/sdk/python/v2025/models/access-request-recommendation-action-item-response-dto
 tags: ['SDK', 'Software Development Kit', 'AccessRequestRecommendationActionItemResponseDto', 'V2025AccessRequestRecommendationActionItemResponseDto']
 ---
 
 # AccessRequestRecommendationActionItemResponseDto
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IdentityId** | Pointer to **string** | The identity ID taking the action. | [optional] 
-**Access** | Pointer to [**AccessRequestRecommendationItem**](access-request-recommendation-item) |  | [optional] 
-**Timestamp** | Pointer to **SailPointTime** |  | [optional] 
+**identity_id** | **str** | The identity ID taking the action. | [optional] 
+**access** | [**AccessRequestRecommendationItem**](access-request-recommendation-item) |  | [optional] 
+**timestamp** | **datetime** |  | [optional] 
+}
 
-## Methods
+## Example
 
-### NewAccessRequestRecommendationActionItemResponseDto
+```python
+from sailpoint.v2025.models.access_request_recommendation_action_item_response_dto import AccessRequestRecommendationActionItemResponseDto
 
-`func NewAccessRequestRecommendationActionItemResponseDto() *AccessRequestRecommendationActionItemResponseDto`
+access_request_recommendation_action_item_response_dto = AccessRequestRecommendationActionItemResponseDto(
+identity_id='2c91808570313110017040b06f344ec9',
+access=sailpoint.v2025.models.access_request_recommendation_item.AccessRequestRecommendationItem(
+                    id = '2c9180835d2e5168015d32f890ca1581', 
+                    type = 'ACCESS_PROFILE', ),
+timestamp='2017-07-11T18:45:37.098Z'
+)
 
-NewAccessRequestRecommendationActionItemResponseDto instantiates a new AccessRequestRecommendationActionItemResponseDto object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewAccessRequestRecommendationActionItemResponseDtoWithDefaults
-
-`func NewAccessRequestRecommendationActionItemResponseDtoWithDefaults() *AccessRequestRecommendationActionItemResponseDto`
-
-NewAccessRequestRecommendationActionItemResponseDtoWithDefaults instantiates a new AccessRequestRecommendationActionItemResponseDto object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetIdentityId
-
-`func (o *AccessRequestRecommendationActionItemResponseDto) GetIdentityId() string`
-
-GetIdentityId returns the IdentityId field if non-nil, zero value otherwise.
-
-### GetIdentityIdOk
-
-`func (o *AccessRequestRecommendationActionItemResponseDto) GetIdentityIdOk() (*string, bool)`
-
-GetIdentityIdOk returns a tuple with the IdentityId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIdentityId
-
-`func (o *AccessRequestRecommendationActionItemResponseDto) SetIdentityId(v string)`
-
-SetIdentityId sets IdentityId field to given value.
-
-### HasIdentityId
-
-`func (o *AccessRequestRecommendationActionItemResponseDto) HasIdentityId() bool`
-
-HasIdentityId returns a boolean if a field has been set.
-
-### GetAccess
-
-`func (o *AccessRequestRecommendationActionItemResponseDto) GetAccess() AccessRequestRecommendationItem`
-
-GetAccess returns the Access field if non-nil, zero value otherwise.
-
-### GetAccessOk
-
-`func (o *AccessRequestRecommendationActionItemResponseDto) GetAccessOk() (*AccessRequestRecommendationItem, bool)`
-
-GetAccessOk returns a tuple with the Access field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccess
-
-`func (o *AccessRequestRecommendationActionItemResponseDto) SetAccess(v AccessRequestRecommendationItem)`
-
-SetAccess sets Access field to given value.
-
-### HasAccess
-
-`func (o *AccessRequestRecommendationActionItemResponseDto) HasAccess() bool`
-
-HasAccess returns a boolean if a field has been set.
-
-### GetTimestamp
-
-`func (o *AccessRequestRecommendationActionItemResponseDto) GetTimestamp() SailPointTime`
-
-GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
-
-### GetTimestampOk
-
-`func (o *AccessRequestRecommendationActionItemResponseDto) GetTimestampOk() (*SailPointTime, bool)`
-
-GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTimestamp
-
-`func (o *AccessRequestRecommendationActionItemResponseDto) SetTimestamp(v SailPointTime)`
-
-SetTimestamp sets Timestamp field to given value.
-
-### HasTimestamp
-
-`func (o *AccessRequestRecommendationActionItemResponseDto) HasTimestamp() bool`
-
-HasTimestamp returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

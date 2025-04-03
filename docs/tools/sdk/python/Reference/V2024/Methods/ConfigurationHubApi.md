@@ -1,15 +1,15 @@
 ---
 id: v2024-configuration-hub
-title: ConfigurationHub
-pagination_label: ConfigurationHub
-sidebar_label: ConfigurationHub
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConfigurationHub', 'V2024ConfigurationHub'] 
-slug: /tools/sdk/go/v2024/methods/configuration-hub
-tags: ['SDK', 'Software Development Kit', 'ConfigurationHub', 'V2024ConfigurationHub']
+title: Configuration_Hub
+pagination_label: Configuration_Hub
+sidebar_label: Configuration_Hub
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'Configuration_Hub', 'V2024Configuration_Hub'] 
+slug: /tools/sdk/python/v2024/methods/configuration-hub
+tags: ['SDK', 'Software Development Kit', 'Configuration_Hub', 'V2024Configuration_Hub']
 ---
 
-# ConfigurationHubAPI
+# sailpoint.v2024.ConfigurationHubApi
   Use this API to implement and customize configuration settings management. With this functionality, you can access the Configuration Hub actions and build your own automated pipeline for Identity Security Cloud configuration change delivery and deployment.
 
 Common usages for Configuration Hub includes:
@@ -26,26 +26,26 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-deploy**](#create-deploy) | **Post** `/configuration-hub/deploys` | Create a Deploy
-[**create-object-mapping**](#create-object-mapping) | **Post** `/configuration-hub/object-mappings/{sourceOrg}` | Creates an object mapping
-[**create-object-mappings**](#create-object-mappings) | **Post** `/configuration-hub/object-mappings/{sourceOrg}/bulk-create` | Bulk creates object mappings
-[**create-scheduled-action**](#create-scheduled-action) | **Post** `/configuration-hub/scheduled-actions` | Create Scheduled Action
-[**create-uploaded-configuration**](#create-uploaded-configuration) | **Post** `/configuration-hub/backups/uploads` | Upload a Configuration
-[**delete-backup**](#delete-backup) | **Delete** `/configuration-hub/backups/{id}` | Delete a Backup
-[**delete-draft**](#delete-draft) | **Delete** `/configuration-hub/drafts/{id}` | Delete a draft
-[**delete-object-mapping**](#delete-object-mapping) | **Delete** `/configuration-hub/object-mappings/{sourceOrg}/{objectMappingId}` | Deletes an object mapping
-[**delete-scheduled-action**](#delete-scheduled-action) | **Delete** `/configuration-hub/scheduled-actions/{id}` | Delete Scheduled Action
-[**delete-uploaded-configuration**](#delete-uploaded-configuration) | **Delete** `/configuration-hub/backups/uploads/{id}` | Delete an Uploaded Configuration
-[**get-deploy**](#get-deploy) | **Get** `/configuration-hub/deploys/{id}` | Get a Deploy
-[**get-object-mappings**](#get-object-mappings) | **Get** `/configuration-hub/object-mappings/{sourceOrg}` | Gets list of object mappings
-[**get-uploaded-configuration**](#get-uploaded-configuration) | **Get** `/configuration-hub/backups/uploads/{id}` | Get an Uploaded Configuration
-[**list-backups**](#list-backups) | **Get** `/configuration-hub/backups` | List Backups
-[**list-deploys**](#list-deploys) | **Get** `/configuration-hub/deploys` | List Deploys
-[**list-drafts**](#list-drafts) | **Get** `/configuration-hub/drafts` | List Drafts
-[**list-scheduled-actions**](#list-scheduled-actions) | **Get** `/configuration-hub/scheduled-actions` | List Scheduled Actions
-[**list-uploaded-configurations**](#list-uploaded-configurations) | **Get** `/configuration-hub/backups/uploads` | List Uploaded Configurations
-[**update-object-mappings**](#update-object-mappings) | **Post** `/configuration-hub/object-mappings/{sourceOrg}/bulk-patch` | Bulk updates object mappings
-[**update-scheduled-action**](#update-scheduled-action) | **Patch** `/configuration-hub/scheduled-actions/{id}` | Update Scheduled Action
+[**create-deploy**](#create-deploy) | **POST** `/configuration-hub/deploys` | Create a Deploy
+[**create-object-mapping**](#create-object-mapping) | **POST** `/configuration-hub/object-mappings/{sourceOrg}` | Creates an object mapping
+[**create-object-mappings**](#create-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-create` | Bulk creates object mappings
+[**create-scheduled-action**](#create-scheduled-action) | **POST** `/configuration-hub/scheduled-actions` | Create Scheduled Action
+[**create-uploaded-configuration**](#create-uploaded-configuration) | **POST** `/configuration-hub/backups/uploads` | Upload a Configuration
+[**delete-backup**](#delete-backup) | **DELETE** `/configuration-hub/backups/{id}` | Delete a Backup
+[**delete-draft**](#delete-draft) | **DELETE** `/configuration-hub/drafts/{id}` | Delete a draft
+[**delete-object-mapping**](#delete-object-mapping) | **DELETE** `/configuration-hub/object-mappings/{sourceOrg}/{objectMappingId}` | Deletes an object mapping
+[**delete-scheduled-action**](#delete-scheduled-action) | **DELETE** `/configuration-hub/scheduled-actions/{id}` | Delete Scheduled Action
+[**delete-uploaded-configuration**](#delete-uploaded-configuration) | **DELETE** `/configuration-hub/backups/uploads/{id}` | Delete an Uploaded Configuration
+[**get-deploy**](#get-deploy) | **GET** `/configuration-hub/deploys/{id}` | Get a Deploy
+[**get-object-mappings**](#get-object-mappings) | **GET** `/configuration-hub/object-mappings/{sourceOrg}` | Gets list of object mappings
+[**get-uploaded-configuration**](#get-uploaded-configuration) | **GET** `/configuration-hub/backups/uploads/{id}` | Get an Uploaded Configuration
+[**list-backups**](#list-backups) | **GET** `/configuration-hub/backups` | List Backups
+[**list-deploys**](#list-deploys) | **GET** `/configuration-hub/deploys` | List Deploys
+[**list-drafts**](#list-drafts) | **GET** `/configuration-hub/drafts` | List Drafts
+[**list-scheduled-actions**](#list-scheduled-actions) | **GET** `/configuration-hub/scheduled-actions` | List Scheduled Actions
+[**list-uploaded-configurations**](#list-uploaded-configurations) | **GET** `/configuration-hub/backups/uploads` | List Uploaded Configurations
+[**update-object-mappings**](#update-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-patch` | Bulk updates object mappings
+[**update-scheduled-action**](#update-scheduled-action) | **PATCH** `/configuration-hub/scheduled-actions/{id}` | Update Scheduled Action
 
 
 ## create-deploy
@@ -54,59 +54,60 @@ This API performs a deploy based on an existing daft.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-deploy)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateDeployRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **deployRequest** | [**DeployRequest**](../models/deploy-request) | The deploy request body. | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | deploy_request | [**DeployRequest**](../models/deploy-request) | True  | The deploy request body.
 
 ### Return type
-
 [**DeployResponse**](../models/deploy-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+202 | Deploy job accepted and queued for processing. | DeployResponse |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.deploy_request import DeployRequest
+from sailpoint.v2024.models.deploy_response import DeployResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    deployRequest := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    deploy_request = '''{
           "draftId" : "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b"
-        }`) # DeployRequest | The deploy request body.
+        }''' # DeployRequest | The deploy request body.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.ConfigurationHubAPI.CreateDeploy(context.Background()).DeployRequest(deployRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.CreateDeploy``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateDeploy`: DeployResponse
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.CreateDeploy`: %v\n", resp)
-}
+    try:
+        # Create a Deploy
+        new_deploy_request = DeployRequest.from_json(deploy_request)
+        results = ConfigurationHubApi(api_client).create_deploy(deploy_request=new_deploy_request)
+        # Below is a request that includes all optional parameters
+        # results = ConfigurationHubApi(api_client).create_deploy(new_deploy_request)
+        print("The response of ConfigurationHubApi->create_deploy:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->create_deploy: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## create-object-mapping
 Creates an object mapping
@@ -117,69 +118,67 @@ The request will need the following security scope:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-object-mapping)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**sourceOrg** | **string** | The name of the source org. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateObjectMappingRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **objectMappingRequest** | [**ObjectMappingRequest**](../models/object-mapping-request) | The object mapping request body. | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | source_org | **str** | True  | The name of the source org.
+ Body  | object_mapping_request | [**ObjectMappingRequest**](../models/object-mapping-request) | True  | The object mapping request body.
 
 ### Return type
-
 [**ObjectMappingResponse**](../models/object-mapping-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The created object mapping between current org and source org. | ObjectMappingResponse |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.object_mapping_request import ObjectMappingRequest
+from sailpoint.v2024.models.object_mapping_response import ObjectMappingResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    sourceOrg := source-org # string | The name of the source org. # string | The name of the source org.
-    objectMappingRequest := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    source_org = 'source-org' # str | The name of the source org. # str | The name of the source org.
+    object_mapping_request = '''{
           "targetValue" : "My New Governance Group Name",
           "jsonPath" : "$.name",
           "sourceValue" : "My Governance Group Name",
           "enabled" : false,
           "objectType" : "IDENTITY"
-        }`) # ObjectMappingRequest | The object mapping request body.
+        }''' # ObjectMappingRequest | The object mapping request body.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.ConfigurationHubAPI.CreateObjectMapping(context.Background(), sourceOrg).ObjectMappingRequest(objectMappingRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.CreateObjectMapping``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateObjectMapping`: ObjectMappingResponse
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.CreateObjectMapping`: %v\n", resp)
-}
+    try:
+        # Creates an object mapping
+        new_object_mapping_request = ObjectMappingRequest.from_json(object_mapping_request)
+        results = ConfigurationHubApi(api_client).create_object_mapping(source_org=source_org, object_mapping_request=new_object_mapping_request)
+        # Below is a request that includes all optional parameters
+        # results = ConfigurationHubApi(api_client).create_object_mapping(source_org, new_object_mapping_request)
+        print("The response of ConfigurationHubApi->create_object_mapping:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->create_object_mapping: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## create-object-mappings
 Bulk creates object mappings
@@ -190,49 +189,45 @@ The request will need the following security scope:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-object-mappings)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**sourceOrg** | **string** | The name of the source org. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateObjectMappingsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **objectMappingBulkCreateRequest** | [**ObjectMappingBulkCreateRequest**](../models/object-mapping-bulk-create-request) | The bulk create object mapping request body. | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | source_org | **str** | True  | The name of the source org.
+ Body  | object_mapping_bulk_create_request | [**ObjectMappingBulkCreateRequest**](../models/object-mapping-bulk-create-request) | True  | The bulk create object mapping request body.
 
 ### Return type
-
 [**ObjectMappingBulkCreateResponse**](../models/object-mapping-bulk-create-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The created object mapping between current org and source org. | ObjectMappingBulkCreateResponse |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.object_mapping_bulk_create_request import ObjectMappingBulkCreateRequest
+from sailpoint.v2024.models.object_mapping_bulk_create_response import ObjectMappingBulkCreateResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    sourceOrg := source-org # string | The name of the source org. # string | The name of the source org.
-    objectMappingBulkCreateRequest := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    source_org = 'source-org' # str | The name of the source org. # str | The name of the source org.
+    object_mapping_bulk_create_request = '''{
           "newObjectsMappings" : [ {
             "targetValue" : "My New Governance Group Name",
             "jsonPath" : "$.name",
@@ -246,21 +241,23 @@ func main() {
             "enabled" : false,
             "objectType" : "IDENTITY"
           } ]
-        }`) # ObjectMappingBulkCreateRequest | The bulk create object mapping request body.
+        }''' # ObjectMappingBulkCreateRequest | The bulk create object mapping request body.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.ConfigurationHubAPI.CreateObjectMappings(context.Background(), sourceOrg).ObjectMappingBulkCreateRequest(objectMappingBulkCreateRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.CreateObjectMappings``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateObjectMappings`: ObjectMappingBulkCreateResponse
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.CreateObjectMappings`: %v\n", resp)
-}
+    try:
+        # Bulk creates object mappings
+        new_object_mapping_bulk_create_request = ObjectMappingBulkCreateRequest.from_json(object_mapping_bulk_create_request)
+        results = ConfigurationHubApi(api_client).create_object_mappings(source_org=source_org, object_mapping_bulk_create_request=new_object_mapping_bulk_create_request)
+        # Below is a request that includes all optional parameters
+        # results = ConfigurationHubApi(api_client).create_object_mappings(source_org, new_object_mapping_bulk_create_request)
+        print("The response of ConfigurationHubApi->create_object_mappings:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->create_object_mappings: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## create-scheduled-action
 Create Scheduled Action
@@ -268,43 +265,42 @@ This API creates a new scheduled action for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-scheduled-action)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateScheduledActionRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **scheduledActionPayload** | [**ScheduledActionPayload**](../models/scheduled-action-payload) | The scheduled action creation request body. | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | scheduled_action_payload | [**ScheduledActionPayload**](../models/scheduled-action-payload) | True  | The scheduled action creation request body.
 
 ### Return type
-
 [**ScheduledActionResponse**](../models/scheduled-action-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The created scheduled action. | ScheduledActionResponse |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.scheduled_action_payload import ScheduledActionPayload
+from sailpoint.v2024.models.scheduled_action_response import ScheduledActionResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    scheduledActionPayload := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    scheduled_action_payload = '''{
           "cronString" : "0 0 12 * * ?",
           "timeZoneId" : "America/Chicago",
           "startTime" : "2024-08-16T14:16:58.389Z",
@@ -326,21 +322,23 @@ func main() {
             },
             "sourceBackupId" : "5678b87d-48ca-439a-868f-2160001da8c2"
           }
-        }`) # ScheduledActionPayload | The scheduled action creation request body.
+        }''' # ScheduledActionPayload | The scheduled action creation request body.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.ConfigurationHubAPI.CreateScheduledAction(context.Background()).ScheduledActionPayload(scheduledActionPayload).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.CreateScheduledAction``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateScheduledAction`: ScheduledActionResponse
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.CreateScheduledAction`: %v\n", resp)
-}
+    try:
+        # Create Scheduled Action
+        new_scheduled_action_payload = ScheduledActionPayload.from_json(scheduled_action_payload)
+        results = ConfigurationHubApi(api_client).create_scheduled_action(scheduled_action_payload=new_scheduled_action_payload)
+        # Below is a request that includes all optional parameters
+        # results = ConfigurationHubApi(api_client).create_scheduled_action(new_scheduled_action_payload)
+        print("The response of ConfigurationHubApi->create_scheduled_action:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->create_scheduled_action: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## create-uploaded-configuration
 Upload a Configuration
@@ -352,59 +350,59 @@ Refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-conf
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-uploaded-configuration)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateUploadedConfigurationRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **data** | ***os.File** | JSON file containing the objects to be imported. | 
- **name** | **string** | Name that will be assigned to the uploaded configuration file. | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+   | data | **bytearray** | True  | JSON file containing the objects to be imported.
+   | name | **str** | True  | Name that will be assigned to the uploaded configuration file.
 
 ### Return type
-
 [**BackupResponse**](../models/backup-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+202 | Upload job accepted and queued for processing. | BackupResponse |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: multipart/form-data
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.backup_response import BackupResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    data := BINARY_DATA_HERE # *os.File | JSON file containing the objects to be imported. # *os.File | JSON file containing the objects to be imported.
-    name := name_example # string | Name that will be assigned to the uploaded configuration file. # string | Name that will be assigned to the uploaded configuration file.
+with ApiClient(configuration) as api_client:
+    data = None # bytearray | JSON file containing the objects to be imported. # bytearray | JSON file containing the objects to be imported.
+    name = 'name_example' # str | Name that will be assigned to the uploaded configuration file. # str | Name that will be assigned to the uploaded configuration file.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.ConfigurationHubAPI.CreateUploadedConfiguration(context.Background()).Data(data).Name(name).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.CreateUploadedConfiguration``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateUploadedConfiguration`: BackupResponse
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.CreateUploadedConfiguration`: %v\n", resp)
-}
+    try:
+        # Upload a Configuration
+        
+        results = ConfigurationHubApi(api_client).create_uploaded_configuration(data=data, name=name)
+        # Below is a request that includes all optional parameters
+        # results = ConfigurationHubApi(api_client).create_uploaded_configuration(data, name)
+        print("The response of ConfigurationHubApi->create_uploaded_configuration:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->create_uploaded_configuration: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## delete-backup
 Delete a Backup
@@ -416,59 +414,55 @@ The backup id can be obtained from the response after a backup was successfully 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-backup)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The id of the backup to delete. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteBackupRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The id of the backup to delete.
 
 ### Return type
-
  (empty response body)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := 07659d7d-2cce-47c0-9e49-185787ee565a # string | The id of the backup to delete. # string | The id of the backup to delete.
+with ApiClient(configuration) as api_client:
+    id = '07659d7d-2cce-47c0-9e49-185787ee565a' # str | The id of the backup to delete. # str | The id of the backup to delete.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V2024.ConfigurationHubAPI.DeleteBackup(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.DeleteBackup``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
+    try:
+        # Delete a Backup
+        
+        ConfigurationHubApi(api_client).delete_backup(id=id)
+        # Below is a request that includes all optional parameters
+        # ConfigurationHubApi(api_client).delete_backup(id)
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->delete_backup: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## delete-draft
 Delete a draft
@@ -480,59 +474,55 @@ The draft id can be obtained from the response after a draft was successfully cr
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-draft)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The id of the draft to delete. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteDraftRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The id of the draft to delete.
 
 ### Return type
-
  (empty response body)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := 07659d7d-2cce-47c0-9e49-185787ee565a # string | The id of the draft to delete. # string | The id of the draft to delete.
+with ApiClient(configuration) as api_client:
+    id = '07659d7d-2cce-47c0-9e49-185787ee565a' # str | The id of the draft to delete. # str | The id of the draft to delete.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V2024.ConfigurationHubAPI.DeleteDraft(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.DeleteDraft``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
+    try:
+        # Delete a draft
+        
+        ConfigurationHubApi(api_client).delete_draft(id=id)
+        # Below is a request that includes all optional parameters
+        # ConfigurationHubApi(api_client).delete_draft(id)
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->delete_draft: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## delete-object-mapping
 Deletes an object mapping
@@ -543,62 +533,57 @@ The request will need the following security scope:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-object-mapping)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**sourceOrg** | **string** | The name of the source org. | 
-**objectMappingId** | **string** | The id of the object mapping to be deleted. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteObjectMappingRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | source_org | **str** | True  | The name of the source org.
+Path   | object_mapping_id | **str** | True  | The id of the object mapping to be deleted.
 
 ### Return type
-
  (empty response body)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    sourceOrg := source-org # string | The name of the source org. # string | The name of the source org.
-    objectMappingId := 3d6e0144-963f-4bd6-8d8d-d77b4e507ce4 # string | The id of the object mapping to be deleted. # string | The id of the object mapping to be deleted.
+with ApiClient(configuration) as api_client:
+    source_org = 'source-org' # str | The name of the source org. # str | The name of the source org.
+    object_mapping_id = '3d6e0144-963f-4bd6-8d8d-d77b4e507ce4' # str | The id of the object mapping to be deleted. # str | The id of the object mapping to be deleted.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V2024.ConfigurationHubAPI.DeleteObjectMapping(context.Background(), sourceOrg, objectMappingId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.DeleteObjectMapping``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
+    try:
+        # Deletes an object mapping
+        
+        ConfigurationHubApi(api_client).delete_object_mapping(source_org=source_org, object_mapping_id=object_mapping_id)
+        # Below is a request that includes all optional parameters
+        # ConfigurationHubApi(api_client).delete_object_mapping(source_org, object_mapping_id)
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->delete_object_mapping: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## delete-scheduled-action
 Delete Scheduled Action
@@ -606,59 +591,55 @@ This API deletes an existing scheduled action.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-scheduled-action)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**scheduledActionId** | **string** | The ID of the scheduled action. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteScheduledActionRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | scheduled_action_id | **str** | True  | The ID of the scheduled action.
 
 ### Return type
-
  (empty response body)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    scheduledActionId := 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde # string | The ID of the scheduled action. # string | The ID of the scheduled action.
+with ApiClient(configuration) as api_client:
+    scheduled_action_id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | The ID of the scheduled action. # str | The ID of the scheduled action.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V2024.ConfigurationHubAPI.DeleteScheduledAction(context.Background(), scheduledActionId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.DeleteScheduledAction``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
+    try:
+        # Delete Scheduled Action
+        
+        ConfigurationHubApi(api_client).delete_scheduled_action(scheduled_action_id=scheduled_action_id)
+        # Below is a request that includes all optional parameters
+        # ConfigurationHubApi(api_client).delete_scheduled_action(scheduled_action_id)
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->delete_scheduled_action: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## delete-uploaded-configuration
 Delete an Uploaded Configuration
@@ -670,59 +651,55 @@ The uploaded configuration id can be obtained from the response after a successf
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-uploaded-configuration)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The id of the uploaded configuration. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteUploadedConfigurationRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The id of the uploaded configuration.
 
 ### Return type
-
  (empty response body)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := 3d0fe04b-57df-4a46-a83b-8f04b0f9d10b # string | The id of the uploaded configuration. # string | The id of the uploaded configuration.
+with ApiClient(configuration) as api_client:
+    id = '3d0fe04b-57df-4a46-a83b-8f04b0f9d10b' # str | The id of the uploaded configuration. # str | The id of the uploaded configuration.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V2024.ConfigurationHubAPI.DeleteUploadedConfiguration(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.DeleteUploadedConfiguration``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
+    try:
+        # Delete an Uploaded Configuration
+        
+        ConfigurationHubApi(api_client).delete_uploaded_configuration(id=id)
+        # Below is a request that includes all optional parameters
+        # ConfigurationHubApi(api_client).delete_uploaded_configuration(id)
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->delete_uploaded_configuration: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-deploy
 Get a Deploy
@@ -730,61 +707,58 @@ This API gets an existing deploy for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-deploy)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The id of the deploy. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetDeployRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The id of the deploy.
 
 ### Return type
-
 [**DeployResponse**](../models/deploy-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Gets the details of a deploy. | DeployResponse |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.deploy_response import DeployResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := 3d0fe04b-57df-4a46-a83b-8f04b0f9d10b # string | The id of the deploy. # string | The id of the deploy.
+with ApiClient(configuration) as api_client:
+    id = '3d0fe04b-57df-4a46-a83b-8f04b0f9d10b' # str | The id of the deploy. # str | The id of the deploy.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.ConfigurationHubAPI.GetDeploy(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.GetDeploy``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetDeploy`: DeployResponse
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.GetDeploy`: %v\n", resp)
-}
+    try:
+        # Get a Deploy
+        
+        results = ConfigurationHubApi(api_client).get_deploy(id=id)
+        # Below is a request that includes all optional parameters
+        # results = ConfigurationHubApi(api_client).get_deploy(id)
+        print("The response of ConfigurationHubApi->get_deploy:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->get_deploy: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-object-mappings
 Gets list of object mappings
@@ -795,61 +769,58 @@ The request will need the following security scope:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-object-mappings)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**sourceOrg** | **string** | The name of the source org. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetObjectMappingsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | source_org | **str** | True  | The name of the source org.
 
 ### Return type
+[**List[ObjectMappingResponse]**](../models/object-mapping-response)
 
-[**[]ObjectMappingResponse**](../models/object-mapping-response)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of existing object mappings between current org and source org. | List[ObjectMappingResponse] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.object_mapping_response import ObjectMappingResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    sourceOrg := source-org # string | The name of the source org. # string | The name of the source org.
+with ApiClient(configuration) as api_client:
+    source_org = 'source-org' # str | The name of the source org. # str | The name of the source org.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.ConfigurationHubAPI.GetObjectMappings(context.Background(), sourceOrg).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.GetObjectMappings``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetObjectMappings`: []ObjectMappingResponse
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.GetObjectMappings`: %v\n", resp)
-}
+    try:
+        # Gets list of object mappings
+        
+        results = ConfigurationHubApi(api_client).get_object_mappings(source_org=source_org)
+        # Below is a request that includes all optional parameters
+        # results = ConfigurationHubApi(api_client).get_object_mappings(source_org)
+        print("The response of ConfigurationHubApi->get_object_mappings:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->get_object_mappings: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-uploaded-configuration
 Get an Uploaded Configuration
@@ -857,61 +828,58 @@ This API gets an existing uploaded configuration for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-uploaded-configuration)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The id of the uploaded configuration. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetUploadedConfigurationRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The id of the uploaded configuration.
 
 ### Return type
-
 [**BackupResponse**](../models/backup-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Gets an uploaded configuration details. | BackupResponse |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.backup_response import BackupResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := 3d0fe04b-57df-4a46-a83b-8f04b0f9d10b # string | The id of the uploaded configuration. # string | The id of the uploaded configuration.
+with ApiClient(configuration) as api_client:
+    id = '3d0fe04b-57df-4a46-a83b-8f04b0f9d10b' # str | The id of the uploaded configuration. # str | The id of the uploaded configuration.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.ConfigurationHubAPI.GetUploadedConfiguration(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.GetUploadedConfiguration``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetUploadedConfiguration`: BackupResponse
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.GetUploadedConfiguration`: %v\n", resp)
-}
+    try:
+        # Get an Uploaded Configuration
+        
+        results = ConfigurationHubApi(api_client).get_uploaded_configuration(id=id)
+        # Below is a request that includes all optional parameters
+        # results = ConfigurationHubApi(api_client).get_uploaded_configuration(id)
+        print("The response of ConfigurationHubApi->get_uploaded_configuration:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->get_uploaded_configuration: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## list-backups
 List Backups
@@ -919,57 +887,57 @@ This API gets a list of existing backups for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-backups)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListBackupsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*
 
 ### Return type
+[**List[BackupResponse]**](../models/backup-response)
 
-[**[]BackupResponse**](../models/backup-response)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of existing backups. | List[BackupResponse] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.backup_response import BackupResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    filters := status eq "COMPLETE" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
+with ApiClient(configuration) as api_client:
+    filters = 'status eq \"COMPLETE\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.ConfigurationHubAPI.ListBackups(context.Background()).Filters(filters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.ListBackups``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListBackups`: []BackupResponse
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.ListBackups`: %v\n", resp)
-}
+    try:
+        # List Backups
+        
+        results = ConfigurationHubApi(api_client).list_backups()
+        # Below is a request that includes all optional parameters
+        # results = ConfigurationHubApi(api_client).list_backups(filters)
+        print("The response of ConfigurationHubApi->list_backups:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->list_backups: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## list-deploys
 List Deploys
@@ -977,52 +945,53 @@ This API gets a list of deploys for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-deploys)
 
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListDeploysRequest struct via the builder pattern
-
+### Parameters 
+This endpoint does not need any parameter. 
 
 ### Return type
-
 [**ListDeploys200Response**](../models/list-deploys200-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of existing deploys. | ListDeploys200Response |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.list_deploys200_response import ListDeploys200Response
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
+with ApiClient(configuration) as api_client:
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.ConfigurationHubAPI.ListDeploys(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.ListDeploys``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListDeploys`: ListDeploys200Response
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.ListDeploys`: %v\n", resp)
-}
+    try:
+        # List Deploys
+        
+        results = ConfigurationHubApi(api_client).list_deploys()
+        # Below is a request that includes all optional parameters
+        # results = ConfigurationHubApi(api_client).list_deploys()
+        print("The response of ConfigurationHubApi->list_deploys:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->list_deploys: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## list-drafts
 List Drafts
@@ -1030,57 +999,57 @@ This API gets a list of existing drafts for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-drafts)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListDraftsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq* | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq*
 
 ### Return type
+[**List[DraftResponse]**](../models/draft-response)
 
-[**[]DraftResponse**](../models/draft-response)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of existing drafts. | List[DraftResponse] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.draft_response import DraftResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    filters := status eq "COMPLETE" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq* (optional)
+with ApiClient(configuration) as api_client:
+    filters = 'status eq \"COMPLETE\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq* (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.ConfigurationHubAPI.ListDrafts(context.Background()).Filters(filters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.ListDrafts``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListDrafts`: []DraftResponse
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.ListDrafts`: %v\n", resp)
-}
+    try:
+        # List Drafts
+        
+        results = ConfigurationHubApi(api_client).list_drafts()
+        # Below is a request that includes all optional parameters
+        # results = ConfigurationHubApi(api_client).list_drafts(filters)
+        print("The response of ConfigurationHubApi->list_drafts:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->list_drafts: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## list-scheduled-actions
 List Scheduled Actions
@@ -1088,52 +1057,53 @@ This API gets a list of existing scheduled actions for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-scheduled-actions)
 
-### Path Parameters
-
-This endpoint does not need any parameter.
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListScheduledActionsRequest struct via the builder pattern
-
+### Parameters 
+This endpoint does not need any parameter. 
 
 ### Return type
+[**List[ScheduledActionResponse]**](../models/scheduled-action-response)
 
-[**[]ScheduledActionResponse**](../models/scheduled-action-response)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of existing scheduled actions. | List[ScheduledActionResponse] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.scheduled_action_response import ScheduledActionResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
+with ApiClient(configuration) as api_client:
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.ConfigurationHubAPI.ListScheduledActions(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.ListScheduledActions``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListScheduledActions`: []ScheduledActionResponse
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.ListScheduledActions`: %v\n", resp)
-}
+    try:
+        # List Scheduled Actions
+        
+        results = ConfigurationHubApi(api_client).list_scheduled_actions()
+        # Below is a request that includes all optional parameters
+        # results = ConfigurationHubApi(api_client).list_scheduled_actions()
+        print("The response of ConfigurationHubApi->list_scheduled_actions:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->list_scheduled_actions: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## list-uploaded-configurations
 List Uploaded Configurations
@@ -1141,57 +1111,58 @@ This API gets a list of existing uploaded configurations for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-uploaded-configurations)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListUploadedConfigurationsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*
 
 ### Return type
+[**List[BackupResponse]**](../models/backup-response)
 
-[**[]BackupResponse**](../models/backup-response)
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of existing uploaded configurations. | List[BackupResponse] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.backup_response import BackupResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    filters := status eq "COMPLETE" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
+with ApiClient(configuration) as api_client:
+    filters = 'status eq \"COMPLETE\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.ConfigurationHubAPI.ListUploadedConfigurations(context.Background()).Filters(filters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.ListUploadedConfigurations``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListUploadedConfigurations`: []BackupResponse
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.ListUploadedConfigurations`: %v\n", resp)
-}
+    try:
+        # List Uploaded Configurations
+        
+        results = ConfigurationHubApi(api_client).list_uploaded_configurations()
+        # Below is a request that includes all optional parameters
+        # results = ConfigurationHubApi(api_client).list_uploaded_configurations(filters)
+        print("The response of ConfigurationHubApi->list_uploaded_configurations:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->list_uploaded_configurations: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## update-object-mappings
 Bulk updates object mappings
@@ -1202,49 +1173,45 @@ The request will need the following security scope:
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-object-mappings)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**sourceOrg** | **string** | The name of the source org. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiUpdateObjectMappingsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **objectMappingBulkPatchRequest** | [**ObjectMappingBulkPatchRequest**](../models/object-mapping-bulk-patch-request) | The object mapping request body. | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | source_org | **str** | True  | The name of the source org.
+ Body  | object_mapping_bulk_patch_request | [**ObjectMappingBulkPatchRequest**](../models/object-mapping-bulk-patch-request) | True  | The object mapping request body.
 
 ### Return type
-
 [**ObjectMappingBulkPatchResponse**](../models/object-mapping-bulk-patch-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The updated object mappings. | ObjectMappingBulkPatchResponse |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.object_mapping_bulk_patch_request import ObjectMappingBulkPatchRequest
+from sailpoint.v2024.models.object_mapping_bulk_patch_response import ObjectMappingBulkPatchResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    sourceOrg := source-org # string | The name of the source org. # string | The name of the source org.
-    objectMappingBulkPatchRequest := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    source_org = 'source-org' # str | The name of the source org. # str | The name of the source org.
+    object_mapping_bulk_patch_request = '''{
           "patches" : {
             "603b1a61-d03d-4ed1-864f-a508fbd1995d" : [ {
               "op" : "replace",
@@ -1257,21 +1224,23 @@ func main() {
               "value" : "New Target Value"
             } ]
           }
-        }`) # ObjectMappingBulkPatchRequest | The object mapping request body.
+        }''' # ObjectMappingBulkPatchRequest | The object mapping request body.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.ConfigurationHubAPI.UpdateObjectMappings(context.Background(), sourceOrg).ObjectMappingBulkPatchRequest(objectMappingBulkPatchRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.UpdateObjectMappings``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `UpdateObjectMappings`: ObjectMappingBulkPatchResponse
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.UpdateObjectMappings`: %v\n", resp)
-}
+    try:
+        # Bulk updates object mappings
+        new_object_mapping_bulk_patch_request = ObjectMappingBulkPatchRequest.from_json(object_mapping_bulk_patch_request)
+        results = ConfigurationHubApi(api_client).update_object_mappings(source_org=source_org, object_mapping_bulk_patch_request=new_object_mapping_bulk_patch_request)
+        # Below is a request that includes all optional parameters
+        # results = ConfigurationHubApi(api_client).update_object_mappings(source_org, new_object_mapping_bulk_patch_request)
+        print("The response of ConfigurationHubApi->update_object_mappings:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->update_object_mappings: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## update-scheduled-action
 Update Scheduled Action
@@ -1279,49 +1248,45 @@ This API updates an existing scheduled action using JSON Patch format.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-scheduled-action)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**scheduledActionId** | **string** | The ID of the scheduled action. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiUpdateScheduledActionRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **jsonPatch** | [**JsonPatch**](../models/json-patch) | The JSON Patch document containing the changes to apply to the scheduled action. | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | scheduled_action_id | **str** | True  | The ID of the scheduled action.
+ Body  | json_patch | [**JsonPatch**](../models/json-patch) | True  | The JSON Patch document containing the changes to apply to the scheduled action.
 
 ### Return type
-
 [**ScheduledActionResponse**](../models/scheduled-action-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The updated scheduled action. | ScheduledActionResponse |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json-patch+json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json-patch+json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.json_patch import JsonPatch
+from sailpoint.v2024.models.scheduled_action_response import ScheduledActionResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    scheduledActionId := 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde # string | The ID of the scheduled action. # string | The ID of the scheduled action.
-    jsonPatch := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    scheduled_action_id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | The ID of the scheduled action. # str | The ID of the scheduled action.
+    json_patch = '''{
           "operations" : [ {
             "op" : "replace",
             "path" : "/description",
@@ -1331,19 +1296,23 @@ func main() {
             "path" : "/description",
             "value" : "New description"
           } ]
-        }`) # JsonPatch | The JSON Patch document containing the changes to apply to the scheduled action.
+        }''' # JsonPatch | The JSON Patch document containing the changes to apply to the scheduled action.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.ConfigurationHubAPI.UpdateScheduledAction(context.Background(), scheduledActionId).JsonPatch(jsonPatch).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.UpdateScheduledAction``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `UpdateScheduledAction`: ScheduledActionResponse
-	fmt.Fprintf(os.Stdout, "Response from `ConfigurationHubAPI.UpdateScheduledAction`: %v\n", resp)
-}
+    try:
+        # Update Scheduled Action
+        new_json_patch = JsonPatch.from_json(json_patch)
+        results = ConfigurationHubApi(api_client).update_scheduled_action(scheduled_action_id=scheduled_action_id, json_patch=new_json_patch)
+        # Below is a request that includes all optional parameters
+        # results = ConfigurationHubApi(api_client).update_scheduled_action(scheduled_action_id, new_json_patch)
+        print("The response of ConfigurationHubApi->update_scheduled_action:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->update_scheduled_action: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
+
+
 

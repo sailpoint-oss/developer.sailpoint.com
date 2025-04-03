@@ -3,134 +3,62 @@ id: v2025-requested-item-status-sod-violation-context
 title: RequestedItemStatusSodViolationContext
 pagination_label: RequestedItemStatusSodViolationContext
 sidebar_label: RequestedItemStatusSodViolationContext
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RequestedItemStatusSodViolationContext', 'V2025RequestedItemStatusSodViolationContext'] 
-slug: /tools/sdk/go/v2025/models/requested-item-status-sod-violation-context
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'RequestedItemStatusSodViolationContext', 'V2025RequestedItemStatusSodViolationContext'] 
+slug: /tools/sdk/python/v2025/models/requested-item-status-sod-violation-context
 tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusSodViolationContext', 'V2025RequestedItemStatusSodViolationContext']
 ---
 
 # RequestedItemStatusSodViolationContext
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**State** | Pointer to **NullableString** | The status of SOD violation check | [optional] 
-**Uuid** | Pointer to **NullableString** | The id of the Violation check event | [optional] 
-**ViolationCheckResult** | Pointer to [**SodViolationCheckResult**](sod-violation-check-result) |  | [optional] 
+**state** |  **Enum** [  'SUCCESS',    'ERROR' ] | The status of SOD violation check | [optional] 
+**uuid** | **str** | The id of the Violation check event | [optional] 
+**violation_check_result** | [**SodViolationCheckResult**](sod-violation-check-result) |  | [optional] 
+}
 
-## Methods
+## Example
 
-### NewRequestedItemStatusSodViolationContext
+```python
+from sailpoint.v2025.models.requested_item_status_sod_violation_context import RequestedItemStatusSodViolationContext
 
-`func NewRequestedItemStatusSodViolationContext() *RequestedItemStatusSodViolationContext`
+requested_item_status_sod_violation_context = RequestedItemStatusSodViolationContext(
+state='SUCCESS',
+uuid='f73d16e9-a038-46c5-b217-1246e15fdbdd',
+violation_check_result=sailpoint.v2025.models.sod_violation_check_result.SodViolationCheckResult(
+                    message = sailpoint.v2025.models.error_message_dto.ErrorMessageDto(
+                        locale = 'en-US', 
+                        locale_origin = 'DEFAULT', 
+                        text = 'The request was syntactically correct but its content is semantically invalid.', ), 
+                    client_metadata = {requestedAppName=test-app, requestedAppId=2c91808f7892918f0178b78da4a305a1}, 
+                    violation_contexts = [
+                        sailpoint.v2025.models.sod_violation_context.SodViolationContext(
+                            policy = sailpoint.v2025.models.sod_policy_dto.SodPolicyDto(
+                                type = 'SOD_POLICY', 
+                                id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde', 
+                                name = 'Business SOD Policy', ), 
+                            conflicting_access_criteria = sailpoint.v2025.models.sod_violation_context_conflicting_access_criteria.SodViolationContext_conflictingAccessCriteria(
+                                left_criteria = sailpoint.v2025.models.sod_violation_context_conflicting_access_criteria_left_criteria.SodViolationContext_conflictingAccessCriteria_leftCriteria(
+                                    criteria_list = [
+                                        sailpoint.v2025.models.sod_exempt_criteria.SodExemptCriteria(
+                                            existing = True, 
+                                            type = 'IDENTITY', 
+                                            id = '2c918085771e9d3301773b3cb66f6398', 
+                                            name = 'My HR Entitlement', )
+                                        ], ), 
+                                right_criteria = sailpoint.v2025.models.sod_violation_context_conflicting_access_criteria_left_criteria.SodViolationContext_conflictingAccessCriteria_leftCriteria(), ), )
+                        ], 
+                    violated_policies = [
+                        sailpoint.v2025.models.sod_policy_dto.SodPolicyDto(
+                            id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde', 
+                            name = 'Business SOD Policy', )
+                        ], )
+)
 
-NewRequestedItemStatusSodViolationContext instantiates a new RequestedItemStatusSodViolationContext object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewRequestedItemStatusSodViolationContextWithDefaults
-
-`func NewRequestedItemStatusSodViolationContextWithDefaults() *RequestedItemStatusSodViolationContext`
-
-NewRequestedItemStatusSodViolationContextWithDefaults instantiates a new RequestedItemStatusSodViolationContext object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetState
-
-`func (o *RequestedItemStatusSodViolationContext) GetState() string`
-
-GetState returns the State field if non-nil, zero value otherwise.
-
-### GetStateOk
-
-`func (o *RequestedItemStatusSodViolationContext) GetStateOk() (*string, bool)`
-
-GetStateOk returns a tuple with the State field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetState
-
-`func (o *RequestedItemStatusSodViolationContext) SetState(v string)`
-
-SetState sets State field to given value.
-
-### HasState
-
-`func (o *RequestedItemStatusSodViolationContext) HasState() bool`
-
-HasState returns a boolean if a field has been set.
-
-### SetStateNil
-
-`func (o *RequestedItemStatusSodViolationContext) SetStateNil(b bool)`
-
- SetStateNil sets the value for State to be an explicit nil
-
-### UnsetState
-`func (o *RequestedItemStatusSodViolationContext) UnsetState()`
-
-UnsetState ensures that no value is present for State, not even an explicit nil
-### GetUuid
-
-`func (o *RequestedItemStatusSodViolationContext) GetUuid() string`
-
-GetUuid returns the Uuid field if non-nil, zero value otherwise.
-
-### GetUuidOk
-
-`func (o *RequestedItemStatusSodViolationContext) GetUuidOk() (*string, bool)`
-
-GetUuidOk returns a tuple with the Uuid field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetUuid
-
-`func (o *RequestedItemStatusSodViolationContext) SetUuid(v string)`
-
-SetUuid sets Uuid field to given value.
-
-### HasUuid
-
-`func (o *RequestedItemStatusSodViolationContext) HasUuid() bool`
-
-HasUuid returns a boolean if a field has been set.
-
-### SetUuidNil
-
-`func (o *RequestedItemStatusSodViolationContext) SetUuidNil(b bool)`
-
- SetUuidNil sets the value for Uuid to be an explicit nil
-
-### UnsetUuid
-`func (o *RequestedItemStatusSodViolationContext) UnsetUuid()`
-
-UnsetUuid ensures that no value is present for Uuid, not even an explicit nil
-### GetViolationCheckResult
-
-`func (o *RequestedItemStatusSodViolationContext) GetViolationCheckResult() SodViolationCheckResult`
-
-GetViolationCheckResult returns the ViolationCheckResult field if non-nil, zero value otherwise.
-
-### GetViolationCheckResultOk
-
-`func (o *RequestedItemStatusSodViolationContext) GetViolationCheckResultOk() (*SodViolationCheckResult, bool)`
-
-GetViolationCheckResultOk returns a tuple with the ViolationCheckResult field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetViolationCheckResult
-
-`func (o *RequestedItemStatusSodViolationContext) SetViolationCheckResult(v SodViolationCheckResult)`
-
-SetViolationCheckResult sets ViolationCheckResult field to given value.
-
-### HasViolationCheckResult
-
-`func (o *RequestedItemStatusSodViolationContext) HasViolationCheckResult() bool`
-
-HasViolationCheckResult returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

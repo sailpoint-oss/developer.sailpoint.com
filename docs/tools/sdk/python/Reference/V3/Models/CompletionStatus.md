@@ -3,23 +3,25 @@ id: completion-status
 title: CompletionStatus
 pagination_label: CompletionStatus
 sidebar_label: CompletionStatus
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CompletionStatus', 'CompletionStatus'] 
-slug: /tools/sdk/go/v3/models/completion-status
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'CompletionStatus', 'CompletionStatus'] 
+slug: /tools/sdk/python/v3/models/completion-status
 tags: ['SDK', 'Software Development Kit', 'CompletionStatus', 'CompletionStatus']
 ---
 
 # CompletionStatus
 
+The status after completion.
+
 ## Enum
 
+* `SUCCESS` (value: `'SUCCESS'`)
 
-* `SUCCESS` (value: `"SUCCESS"`)
+* `FAILURE` (value: `'FAILURE'`)
 
-* `FAILURE` (value: `"FAILURE"`)
+* `INCOMPLETE` (value: `'INCOMPLETE'`)
 
-* `INCOMPLETE` (value: `"INCOMPLETE"`)
+* `PENDING` (value: `'PENDING'`)
 
-* `PENDING` (value: `"PENDING"`)
-
+[[Back to top]](#) 
 

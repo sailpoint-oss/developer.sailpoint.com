@@ -3,62 +3,31 @@ id: result
 title: Result
 pagination_label: Result
 sidebar_label: Result
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Result', 'Result'] 
-slug: /tools/sdk/go/v3/models/result
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'Result', 'Result'] 
+slug: /tools/sdk/python/v3/models/result
 tags: ['SDK', 'Software Development Kit', 'Result', 'Result']
 ---
 
 # Result
 
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | Pointer to **string** | Request result status | [optional] 
+**status** | **str** | Request result status | [optional] 
+}
 
-## Methods
+## Example
 
-### NewResult
+```python
+from sailpoint.v3.models.result import Result
 
-`func NewResult() *Result`
+result = Result(
+status='Manual Task Created'
+)
 
-NewResult instantiates a new Result object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewResultWithDefaults
-
-`func NewResultWithDefaults() *Result`
-
-NewResultWithDefaults instantiates a new Result object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetStatus
-
-`func (o *Result) GetStatus() string`
-
-GetStatus returns the Status field if non-nil, zero value otherwise.
-
-### GetStatusOk
-
-`func (o *Result) GetStatusOk() (*string, bool)`
-
-GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetStatus
-
-`func (o *Result) SetStatus(v string)`
-
-SetStatus sets Status field to given value.
-
-### HasStatus
-
-`func (o *Result) HasStatus() bool`
-
-HasStatus returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

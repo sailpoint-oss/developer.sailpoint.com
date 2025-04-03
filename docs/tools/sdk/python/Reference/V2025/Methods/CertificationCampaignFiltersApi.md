@@ -1,15 +1,15 @@
 ---
 id: v2025-certification-campaign-filters
-title: CertificationCampaignFilters
-pagination_label: CertificationCampaignFilters
-sidebar_label: CertificationCampaignFilters
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CertificationCampaignFilters', 'V2025CertificationCampaignFilters'] 
-slug: /tools/sdk/go/v2025/methods/certification-campaign-filters
-tags: ['SDK', 'Software Development Kit', 'CertificationCampaignFilters', 'V2025CertificationCampaignFilters']
+title: Certification_Campaign_Filters
+pagination_label: Certification_Campaign_Filters
+sidebar_label: Certification_Campaign_Filters
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'Certification_Campaign_Filters', 'V2025Certification_Campaign_Filters'] 
+slug: /tools/sdk/python/v2025/methods/certification-campaign-filters
+tags: ['SDK', 'Software Development Kit', 'Certification_Campaign_Filters', 'V2025Certification_Campaign_Filters']
 ---
 
-# CertificationCampaignFiltersAPI
+# sailpoint.v2025.CertificationCampaignFiltersApi
   Use this API to implement the certification campaign filter functionality. These filters can be used to create a certification campaign that includes a subset of your entitlements or users to certify.
 
 For example, if for a certification campaign an organization wants to certify only specific users or entitlements, then those can be included/excluded on the basis of campaign filters.
@@ -42,11 +42,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-campaign-filter**](#create-campaign-filter) | **Post** `/campaign-filters` | Create Campaign Filter
-[**delete-campaign-filters**](#delete-campaign-filters) | **Post** `/campaign-filters/delete` | Deletes Campaign Filters
-[**get-campaign-filter-by-id**](#get-campaign-filter-by-id) | **Get** `/campaign-filters/{id}` | Get Campaign Filter by ID
-[**list-campaign-filters**](#list-campaign-filters) | **Get** `/campaign-filters` | List Campaign Filters
-[**update-campaign-filter**](#update-campaign-filter) | **Post** `/campaign-filters/{id}` | Updates a Campaign Filter
+[**create-campaign-filter**](#create-campaign-filter) | **POST** `/campaign-filters` | Create Campaign Filter
+[**delete-campaign-filters**](#delete-campaign-filters) | **POST** `/campaign-filters/delete` | Deletes Campaign Filters
+[**get-campaign-filter-by-id**](#get-campaign-filter-by-id) | **GET** `/campaign-filters/{id}` | Get Campaign Filter by ID
+[**list-campaign-filters**](#list-campaign-filters) | **GET** `/campaign-filters` | List Campaign Filters
+[**update-campaign-filter**](#update-campaign-filter) | **POST** `/campaign-filters/{id}` | Updates a Campaign Filter
 
 
 ## create-campaign-filter
@@ -55,43 +55,41 @@ Use this API to create a campaign filter based on filter details and criteria.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-campaign-filter)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiCreateCampaignFilterRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **campaignFilterDetails** | [**CampaignFilterDetails**](../models/campaign-filter-details) |  | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | campaign_filter_details | [**CampaignFilterDetails**](../models/campaign-filter-details) | True  | 
 
 ### Return type
-
 [**CampaignFilterDetails**](../models/campaign-filter-details)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Created successfully. | CampaignFilterDetails |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2025.api.certification_campaign_filters_api import CertificationCampaignFiltersApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.campaign_filter_details import CampaignFilterDetails
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    campaignFilterDetails := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    campaign_filter_details = '''{
           "owner" : "SailPoint Support",
           "mode" : "INCLUSION",
           "isSystemFilter" : false,
@@ -108,21 +106,23 @@ func main() {
             "recordChildMatches" : false,
             "suppressMatchedItems" : false
           } ]
-        }`) # CampaignFilterDetails | 
+        }''' # CampaignFilterDetails | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.CertificationCampaignFiltersAPI.CreateCampaignFilter(context.Background()).CampaignFilterDetails(campaignFilterDetails).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignFiltersAPI.CreateCampaignFilter``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateCampaignFilter`: CampaignFilterDetails
-	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignFiltersAPI.CreateCampaignFilter`: %v\n", resp)
-}
+    try:
+        # Create Campaign Filter
+        new_campaign_filter_details = CampaignFilterDetails.from_json(campaign_filter_details)
+        results = CertificationCampaignFiltersApi(api_client).create_campaign_filter(campaign_filter_details=new_campaign_filter_details)
+        # Below is a request that includes all optional parameters
+        # results = CertificationCampaignFiltersApi(api_client).create_campaign_filter(new_campaign_filter_details)
+        print("The response of CertificationCampaignFiltersApi->create_campaign_filter:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling CertificationCampaignFiltersApi->create_campaign_filter: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## delete-campaign-filters
 Deletes Campaign Filters
@@ -130,55 +130,55 @@ Deletes campaign filters whose Ids are specified in the provided list of campaig
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-campaign-filters)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiDeleteCampaignFiltersRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **requestBody** | **[]string** | A json list of IDs of campaign filters to delete. | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | request_body | **[]str** | True  | A json list of IDs of campaign filters to delete.
 
 ### Return type
-
  (empty response body)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2025.api.certification_campaign_filters_api import CertificationCampaignFiltersApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    requestBody := fmt.Sprintf(``) # []string | A json list of IDs of campaign filters to delete.
+with ApiClient(configuration) as api_client:
+    request_body = '''['request_body_example']''' # List[str] | A json list of IDs of campaign filters to delete.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V2025.CertificationCampaignFiltersAPI.DeleteCampaignFilters(context.Background()).RequestBody(requestBody).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignFiltersAPI.DeleteCampaignFilters``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-}
+    try:
+        # Deletes Campaign Filters
+        new_request_body = RequestBody.from_json(request_body)
+        CertificationCampaignFiltersApi(api_client).delete_campaign_filters(request_body=new_request_body)
+        # Below is a request that includes all optional parameters
+        # CertificationCampaignFiltersApi(api_client).delete_campaign_filters(new_request_body)
+    except Exception as e:
+        print("Exception when calling CertificationCampaignFiltersApi->delete_campaign_filters: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## get-campaign-filter-by-id
 Get Campaign Filter by ID
@@ -186,61 +186,58 @@ Retrieves information for an existing campaign filter using the filter's ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-campaign-filter-by-id)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | The ID of the campaign filter to be retrieved. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiGetCampaignFilterByIdRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The ID of the campaign filter to be retrieved.
 
 ### Return type
-
 [**CampaignFilterDetails**](../models/campaign-filter-details)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | A campaign filter object. | CampaignFilterDetails |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2025.api.certification_campaign_filters_api import CertificationCampaignFiltersApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.campaign_filter_details import CampaignFilterDetails
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    id := e9f9a1397b842fd5a65842087040d3ac # string | The ID of the campaign filter to be retrieved. # string | The ID of the campaign filter to be retrieved.
+with ApiClient(configuration) as api_client:
+    id = 'e9f9a1397b842fd5a65842087040d3ac' # str | The ID of the campaign filter to be retrieved. # str | The ID of the campaign filter to be retrieved.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.CertificationCampaignFiltersAPI.GetCampaignFilterById(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignFiltersAPI.GetCampaignFilterById``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetCampaignFilterById`: CampaignFilterDetails
-	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignFiltersAPI.GetCampaignFilterById`: %v\n", resp)
-}
+    try:
+        # Get Campaign Filter by ID
+        
+        results = CertificationCampaignFiltersApi(api_client).get_campaign_filter_by_id(id=id)
+        # Below is a request that includes all optional parameters
+        # results = CertificationCampaignFiltersApi(api_client).get_campaign_filter_by_id(id)
+        print("The response of CertificationCampaignFiltersApi->get_campaign_filter_by_id:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling CertificationCampaignFiltersApi->get_campaign_filter_by_id: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## list-campaign-filters
 List Campaign Filters
@@ -248,61 +245,61 @@ Use this API to list all campaign filters. You can reduce scope with standard V3
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-campaign-filters)
 
-### Path Parameters
+### Parameters 
 
-
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiListCampaignFiltersRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
- **start** | **int32** | Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
- **includeSystemFilters** | **bool** | If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true.  | [default to true]
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | start | **int** |   (optional) (default to 0) | Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | include_system_filters | **bool** |   (optional) (default to True) | If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true. 
 
 ### Return type
-
 [**ListCampaignFilters200Response**](../models/list-campaign-filters200-response)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of campaign filter objects. | ListCampaignFilters200Response |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: Not defined
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2025.api.certification_campaign_filters_api import CertificationCampaignFiltersApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.list_campaign_filters200_response import ListCampaignFilters200Response
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    start := 0 # int32 | Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    includeSystemFilters := true # bool | If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true.  (optional) (default to true) # bool | If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true.  (optional) (default to true)
+with ApiClient(configuration) as api_client:
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    start = 0 # int | Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    include_system_filters = True # bool | If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true.  (optional) (default to True) # bool | If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true.  (optional) (default to True)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.CertificationCampaignFiltersAPI.ListCampaignFilters(context.Background()).Limit(limit).Start(start).IncludeSystemFilters(includeSystemFilters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignFiltersAPI.ListCampaignFilters``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListCampaignFilters`: ListCampaignFilters200Response
-	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignFiltersAPI.ListCampaignFilters`: %v\n", resp)
-}
+    try:
+        # List Campaign Filters
+        
+        results = CertificationCampaignFiltersApi(api_client).list_campaign_filters()
+        # Below is a request that includes all optional parameters
+        # results = CertificationCampaignFiltersApi(api_client).list_campaign_filters(limit, start, include_system_filters)
+        print("The response of CertificationCampaignFiltersApi->list_campaign_filters:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling CertificationCampaignFiltersApi->list_campaign_filters: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
 
 ## update-campaign-filter
 Updates a Campaign Filter
@@ -310,49 +307,43 @@ Updates an existing campaign filter using the filter's ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/update-campaign-filter)
 
-### Path Parameters
+### Parameters 
 
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**filterId** | **string** | The ID of the campaign filter being modified. | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiUpdateCampaignFilterRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **campaignFilterDetails** | [**CampaignFilterDetails**](../models/campaign-filter-details) | A campaign filter details with updated field values. | 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | filter_id | **str** | True  | The ID of the campaign filter being modified.
+ Body  | campaign_filter_details | [**CampaignFilterDetails**](../models/campaign-filter-details) | True  | A campaign filter details with updated field values.
 
 ### Return type
-
 [**CampaignFilterDetails**](../models/campaign-filter-details)
 
-### HTTP request headers
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Created successfully. | CampaignFilterDetails |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
-- **Content-Type**: application/json
-- **Accept**: application/json
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### Example
 
-```go
-package main
+```python
+from sailpoint.v2025.api.certification_campaign_filters_api import CertificationCampaignFiltersApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.campaign_filter_details import CampaignFilterDetails
+from sailpoint.configuration import Configuration
+configuration = Configuration()
 
-import (
-	"context"
-	"fmt"
-	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
-)
 
-func main() {
-    filterId := e9f9a1397b842fd5a65842087040d3ac # string | The ID of the campaign filter being modified. # string | The ID of the campaign filter being modified.
-    campaignFilterDetails := fmt.Sprintf(`{
+with ApiClient(configuration) as api_client:
+    filter_id = 'e9f9a1397b842fd5a65842087040d3ac' # str | The ID of the campaign filter being modified. # str | The ID of the campaign filter being modified.
+    campaign_filter_details = '''{
           "owner" : "SailPoint Support",
           "mode" : "INCLUSION",
           "isSystemFilter" : false,
@@ -369,19 +360,23 @@ func main() {
             "recordChildMatches" : false,
             "suppressMatchedItems" : false
           } ]
-        }`) # CampaignFilterDetails | A campaign filter details with updated field values.
+        }''' # CampaignFilterDetails | A campaign filter details with updated field values.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.CertificationCampaignFiltersAPI.UpdateCampaignFilter(context.Background(), filterId).CampaignFilterDetails(campaignFilterDetails).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignFiltersAPI.UpdateCampaignFilter``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `UpdateCampaignFilter`: CampaignFilterDetails
-	fmt.Fprintf(os.Stdout, "Response from `CertificationCampaignFiltersAPI.UpdateCampaignFilter`: %v\n", resp)
-}
+    try:
+        # Updates a Campaign Filter
+        new_campaign_filter_details = CampaignFilterDetails.from_json(campaign_filter_details)
+        results = CertificationCampaignFiltersApi(api_client).update_campaign_filter(filter_id=filter_id, campaign_filter_details=new_campaign_filter_details)
+        # Below is a request that includes all optional parameters
+        # results = CertificationCampaignFiltersApi(api_client).update_campaign_filter(filter_id, new_campaign_filter_details)
+        print("The response of CertificationCampaignFiltersApi->update_campaign_filter:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling CertificationCampaignFiltersApi->update_campaign_filter: %s\n" % e)
 ```
 
-[[Back to top]](#)
+
+
+[[Back to top]](#) 
+
+
 

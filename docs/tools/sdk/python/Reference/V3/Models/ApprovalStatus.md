@@ -3,25 +3,27 @@ id: approval-status
 title: ApprovalStatus
 pagination_label: ApprovalStatus
 sidebar_label: ApprovalStatus
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ApprovalStatus', 'ApprovalStatus'] 
-slug: /tools/sdk/go/v3/models/approval-status
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'ApprovalStatus', 'ApprovalStatus'] 
+slug: /tools/sdk/python/v3/models/approval-status
 tags: ['SDK', 'Software Development Kit', 'ApprovalStatus', 'ApprovalStatus']
 ---
 
 # ApprovalStatus
 
+Enum representing the non-employee request approval status
+
 ## Enum
 
+* `APPROVED` (value: `'APPROVED'`)
 
-* `APPROVED` (value: `"APPROVED"`)
+* `REJECTED` (value: `'REJECTED'`)
 
-* `REJECTED` (value: `"REJECTED"`)
+* `PENDING` (value: `'PENDING'`)
 
-* `PENDING` (value: `"PENDING"`)
+* `NOT_READY` (value: `'NOT_READY'`)
 
-* `NOT_READY` (value: `"NOT_READY"`)
+* `CANCELLED` (value: `'CANCELLED'`)
 
-* `CANCELLED` (value: `"CANCELLED"`)
-
+[[Back to top]](#) 
 

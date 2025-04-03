@@ -3,88 +3,34 @@ id: v2024-role-mining-potential-role-summary-created-by
 title: RoleMiningPotentialRoleSummaryCreatedBy
 pagination_label: RoleMiningPotentialRoleSummaryCreatedBy
 sidebar_label: RoleMiningPotentialRoleSummaryCreatedBy
-sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMiningPotentialRoleSummaryCreatedBy', 'V2024RoleMiningPotentialRoleSummaryCreatedBy'] 
-slug: /tools/sdk/go/v2024/models/role-mining-potential-role-summary-created-by
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'RoleMiningPotentialRoleSummaryCreatedBy', 'V2024RoleMiningPotentialRoleSummaryCreatedBy'] 
+slug: /tools/sdk/python/v2024/models/role-mining-potential-role-summary-created-by
 tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleSummaryCreatedBy', 'V2024RoleMiningPotentialRoleSummaryCreatedBy']
 ---
 
 # RoleMiningPotentialRoleSummaryCreatedBy
 
+The potential role created by details
+
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | ID of the creator | [optional] 
-**DisplayName** | Pointer to **string** | The display name of the creator | [optional] 
+**id** | **str** | ID of the creator | [optional] 
+**display_name** | **str** | The display name of the creator | [optional] 
+}
 
-## Methods
+## Example
 
-### NewRoleMiningPotentialRoleSummaryCreatedBy
+```python
+from sailpoint.v2024.models.role_mining_potential_role_summary_created_by import RoleMiningPotentialRoleSummaryCreatedBy
 
-`func NewRoleMiningPotentialRoleSummaryCreatedBy() *RoleMiningPotentialRoleSummaryCreatedBy`
+role_mining_potential_role_summary_created_by = RoleMiningPotentialRoleSummaryCreatedBy(
+id='2c918090761a5aac0176215c46a62d58',
+display_name='Ashley.Pierce'
+)
 
-NewRoleMiningPotentialRoleSummaryCreatedBy instantiates a new RoleMiningPotentialRoleSummaryCreatedBy object
-This constructor will assign default values to properties that have it defined,
-and makes sure properties required by API are set, but the set of arguments
-will change when the set of required properties is changed
-
-### NewRoleMiningPotentialRoleSummaryCreatedByWithDefaults
-
-`func NewRoleMiningPotentialRoleSummaryCreatedByWithDefaults() *RoleMiningPotentialRoleSummaryCreatedBy`
-
-NewRoleMiningPotentialRoleSummaryCreatedByWithDefaults instantiates a new RoleMiningPotentialRoleSummaryCreatedBy object
-This constructor will only assign default values to properties that have it defined,
-but it doesn't guarantee that properties required by API are set
-
-### GetId
-
-`func (o *RoleMiningPotentialRoleSummaryCreatedBy) GetId() string`
-
-GetId returns the Id field if non-nil, zero value otherwise.
-
-### GetIdOk
-
-`func (o *RoleMiningPotentialRoleSummaryCreatedBy) GetIdOk() (*string, bool)`
-
-GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetId
-
-`func (o *RoleMiningPotentialRoleSummaryCreatedBy) SetId(v string)`
-
-SetId sets Id field to given value.
-
-### HasId
-
-`func (o *RoleMiningPotentialRoleSummaryCreatedBy) HasId() bool`
-
-HasId returns a boolean if a field has been set.
-
-### GetDisplayName
-
-`func (o *RoleMiningPotentialRoleSummaryCreatedBy) GetDisplayName() string`
-
-GetDisplayName returns the DisplayName field if non-nil, zero value otherwise.
-
-### GetDisplayNameOk
-
-`func (o *RoleMiningPotentialRoleSummaryCreatedBy) GetDisplayNameOk() (*string, bool)`
-
-GetDisplayNameOk returns a tuple with the DisplayName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDisplayName
-
-`func (o *RoleMiningPotentialRoleSummaryCreatedBy) SetDisplayName(v string)`
-
-SetDisplayName sets DisplayName field to given value.
-
-### HasDisplayName
-
-`func (o *RoleMiningPotentialRoleSummaryCreatedBy) HasDisplayName() bool`
-
-HasDisplayName returns a boolean if a field has been set.
-
+```
+[[Back to top]](#) 
 

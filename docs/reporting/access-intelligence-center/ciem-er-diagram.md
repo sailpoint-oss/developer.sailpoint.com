@@ -20,7 +20,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
 
 <MermaidViewer diagram='erDiagram
     "Entitlement Service Usage" {
-        varchar ENTITLEMENT_VALUE PK "ISC entitlement value associated with the access. Usually the cloud native ID."
+        varchar ENTITLEMENT_VALUE PK "Identity Security Cloud entitlement value associated with the access. Usually the cloud native ID."
         varchar CIEM_KEY PK "composite key: CLOUD_PROVIDER-SERVICE-ENTITLEMENT_ACCOUNT_NATIVE_IDENTITY-CLOUD_SOURCE_NATIVE_ID"
         varchar ACCESS_ASSIGNMENT_ID "Cloud native ID of the access assignment object. AWS: <policy arn>|<statement id> GCP: <policy id>:<role id>, Azure: RoleAssignment, RoleAssignmentScheduleInstance (PIM) or RoleEligibilityScheduleInstance (PIM)"
         varchar ACCOUNT_CLOUD_NAME "Cloud provider associated with the account (AWS|GCP|Okta|Azure). When the access is federated, this will be different than CLOUD_PROVIDER."
@@ -33,7 +33,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar CLOUD_SUB_SOURCE_DISPLAY_NAME "Cloud native display name of the service sub-source (if applicable). AWS: Managed account, Azure: Subscription, GCP: Project"
         varchar CLOUD_SUB_SOURCE_NATIVE_ID "Cloud native ID of the service’s sub-source (if applicable)"
         varchar SERVICE "Cloud service for which usage is being determined"
-        varchar SOURCE_NAME "ISC source name associated with the cloud service"
+        varchar SOURCE_NAME "Identity Security Cloud source name associated with the cloud service"
         array ENTITLEMENT_USAGE "Aggregated usage across all accounts and services for the ENTITLEMENT_VALUE"
     }
     "Resource Access" {
@@ -49,19 +49,19 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar RESOURCE_NAME "Human readable name of the resource (if available)"
         varchar RESOURCE_TYPE "Resource type, derived from the cloud API response types"
         varchar RESOURCE_ACCESS_SERVICE "Cloud service associated with the resource"
-        varchar RESOURCE_ACCESS_SOURCE_NAME "ISC source name associated with the resource"
+        varchar RESOURCE_ACCESS_SOURCE_NAME "Identity Security Cloud source name associated with the resource"
     }
     ENTITLEMENT {
-        varchar ENTITLEMENT_VALUE PK "ISC entitlement value associated with the access. Usually the cloud native ID."
-        varchar ENTITLEMENT_ATTRIBUTE "Entitlement type as determined by ISC sources"
-        varchar ENTITLEMENT_DISPLAY_NAME "Human readable name of the entitlement as constructed by ISC"
+        varchar ENTITLEMENT_VALUE PK "Identity Security Cloud entitlement value associated with the access. Usually the cloud native ID."
+        varchar ENTITLEMENT_ATTRIBUTE "Entitlement type as determined by Identity Security Cloud sources"
+        varchar ENTITLEMENT_DISPLAY_NAME "Human readable name of the entitlement as constructed by Identity Security Cloud"
         timestamp ENTITLEMENT_SYNC_DATE "Timestamp of latest sync of entitlement to source tables"
     }
     IDENTITY {
         varchar IDENTITY_ID PK "Unique identifier of the identity"
         varchar TENANT_ID PK "Tenant unique identifier"
-        timestamp IDENTITY_CREATED "Identity created date in ISC"
-        timestamp IDENTITY_UPDATED "Identity modified date in ISC"
+        timestamp IDENTITY_CREATED "Identity created date in Identity Security Cloud"
+        timestamp IDENTITY_UPDATED "Identity modified date in Identity Security Cloud"
         varchar NAME "Name of the identity"
         varchar IDENTITY_DISPLAY_NAME "User friendly label for the identity. Usually First Name Last Name."
         varchar IDENTITY_MANAGERS_NAME "Name of the manager of the identity"
@@ -75,13 +75,14 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     }
     ACCOUNT {
         varchar ACCOUNT_NATIVE_IDENTITY PK "Cloud native ID of account"
-        varchar IDENTITY_ID PK "ISC unique identifier of the identity correlated with the account (null if uncorrelated)"
-        varchar ACCOUNT_ID "ISC unique identifier of account"
-        varchar ACCOUNT_NAME "Name of account as configured in ISC"
-        varchar ACCOUNT_CREATED_DATE "Account creation date (ingestion/creation in ISC)"
-        varchar ACCOUNT_UPDATED_DATE "Account update date (updated in ISC)"
-        varchar ACCOUNT_DISPLAY_NAME "Display name of account as configured in ISC"
+        varchar IDENTITY_ID PK "Identity Security Cloud unique identifier of the identity correlated with the account (null if uncorrelated)"
+        varchar ACCOUNT_ID "Identity Security Cloud unique identifier of account"
+        varchar ACCOUNT_NAME "Name of account as configured in Identity Security Cloud"
+        varchar ACCOUNT_CREATED_DATE "Account creation date (ingestion/creation in Identity Security Cloud)"
+        varchar ACCOUNT_UPDATED_DATE "Account update date (updated in Identity Security Cloud)"
+        varchar ACCOUNT_DISPLAY_NAME "Display name of account as configured in Identity Security Cloud"
         varchar ACCOUNT_STATUS "Status of account (Enabled|Disabled|Locked)"
+        varchar ACCOUNT_SOURCE_DISPLAY_NAME "The Identity Security Cloud source"
         varchar ACCOUNT_SYNC_DATE "Timestamp of latest sync of record to source tables"
     }
     IDENTITY ||--o{ ACCOUNT : "associated to"

@@ -706,12 +706,12 @@ Path   | Id | **String** | True  | ID of the campaign to be retrieved.
   Query | Detail | **String** |   (optional) | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
 
 ### Return type
-[**GetActiveCampaigns200ResponseInner**](../models/get-active-campaigns200-response-inner)
+[**GetCampaign200Response**](../models/get-campaign200-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Requested campaign object. | GetActiveCampaigns200ResponseInner
+200 | Requested campaign object. | GetCampaign200Response
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto

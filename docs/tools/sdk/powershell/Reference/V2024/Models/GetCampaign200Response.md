@@ -1,16 +1,16 @@
 ---
-id: beta-get-active-campaigns200-response-inner
-title: GetActiveCampaigns200ResponseInner
-pagination_label: GetActiveCampaigns200ResponseInner
-sidebar_label: GetActiveCampaigns200ResponseInner
+id: v2024-get-campaign200-response
+title: GetCampaign200Response
+pagination_label: GetCampaign200Response
+sidebar_label: GetCampaign200Response
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'GetActiveCampaigns200ResponseInner', 'BetaGetActiveCampaigns200ResponseInner'] 
-slug: /tools/sdk/powershell/beta/models/get-active-campaigns200-response-inner
-tags: ['SDK', 'Software Development Kit', 'GetActiveCampaigns200ResponseInner', 'BetaGetActiveCampaigns200ResponseInner']
+keywords: ['powershell', 'PowerShell', 'sdk', 'GetCampaign200Response', 'V2024GetCampaign200Response'] 
+slug: /tools/sdk/powershell/v2024/models/get-campaign200-response
+tags: ['SDK', 'Software Development Kit', 'GetCampaign200Response', 'V2024GetCampaign200Response']
 ---
 
 
-# GetActiveCampaigns200ResponseInner
+# GetCampaign200Response
 
 ## Properties
 
@@ -23,28 +23,28 @@ Name | Type | Description | Notes
 **Type** |  **Enum** [  "MANAGER",    "SOURCE_OWNER",    "SEARCH",    "ROLE_COMPOSITION",    "MACHINE_ACCOUNT" ] | The type of campaign. Could be extended in the future. | [required]
 **EmailNotificationEnabled** | **Boolean** | Enables email notification for this campaign | [optional] [default to $false]
 **AutoRevokeAllowed** | **Boolean** | Allows auto revoke for this campaign | [optional] [default to $false]
-**RecommendationsEnabled** | **Boolean** | Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off then campaigns generated from this template will indicate false. The real value will then be returned if IAI is ever enabled for the org in the future.  | [optional] [default to $false]
+**RecommendationsEnabled** | **Boolean** | Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off then campaigns generated from this template will indicate false. The real value will then be returned if IAI is ever enabled for the org in the future. | [optional] [default to $false]
 **Status** |  **Enum** [  "PENDING",    "STAGED",    "CANCELING",    "ACTIVATING",    "ACTIVE",    "COMPLETING",    "COMPLETED",    "ERROR",    "ARCHIVED" ] | The campaign's current status. | [optional] [readonly] 
-**CorrelatedStatus** |  **Enum** [  "CORRELATED",    "UNCORRELATED" ] | The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).  | [optional] 
+**CorrelatedStatus** |  **Enum** [  "CORRELATED",    "UNCORRELATED" ] | The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source). | [optional] 
 **Created** | **System.DateTime** | Created time of the campaign | [optional] [readonly] 
 **TotalCertifications** | **Int32** | The total number of certifications in this campaign. | [optional] [readonly] 
 **CompletedCertifications** | **Int32** | The number of completed certifications in this campaign. | [optional] [readonly] 
 **Alerts** | [**[]CampaignAlert**](campaign-alert) | A list of errors and warnings that have accumulated. | [optional] [readonly] 
 **Modified** | **System.DateTime** | Modified time of the campaign | [optional] [readonly] 
-**VarFilter** | [**FullcampaignAllOfFilter**](fullcampaign-all-of-filter) |  | [optional] 
+**VarFilter** | [**CampaignAllOfFilter**](campaign-all-of-filter) |  | [optional] 
 **SunsetCommentsRequired** | **Boolean** | Determines if comments on sunset date changes are required. | [optional] [default to $true]
-**SourceOwnerCampaignInfo** | [**FullcampaignAllOfSourceOwnerCampaignInfo**](fullcampaign-all-of-source-owner-campaign-info) |  | [optional] 
-**SearchCampaignInfo** | [**FullcampaignAllOfSearchCampaignInfo**](fullcampaign-all-of-search-campaign-info) |  | [optional] 
-**RoleCompositionCampaignInfo** | [**FullcampaignAllOfRoleCompositionCampaignInfo**](fullcampaign-all-of-role-composition-campaign-info) |  | [optional] 
-**MachineAccountCampaignInfo** | [**FullcampaignAllOfMachineAccountCampaignInfo**](fullcampaign-all-of-machine-account-campaign-info) |  | [optional] 
-**SourcesWithOrphanEntitlements** | [**[]FullcampaignAllOfSourcesWithOrphanEntitlements**](fullcampaign-all-of-sources-with-orphan-entitlements) | A list of sources in the campaign that contain \""orphan entitlements\"" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented). | [optional] [readonly] 
+**SourceOwnerCampaignInfo** | [**CampaignAllOfSourceOwnerCampaignInfo**](campaign-all-of-source-owner-campaign-info) |  | [optional] 
+**SearchCampaignInfo** | [**CampaignAllOfSearchCampaignInfo**](campaign-all-of-search-campaign-info) |  | [optional] 
+**RoleCompositionCampaignInfo** | [**CampaignAllOfRoleCompositionCampaignInfo**](campaign-all-of-role-composition-campaign-info) |  | [optional] 
+**MachineAccountCampaignInfo** | [**CampaignAllOfMachineAccountCampaignInfo**](campaign-all-of-machine-account-campaign-info) |  | [optional] 
+**SourcesWithOrphanEntitlements** | [**[]CampaignAllOfSourcesWithOrphanEntitlements**](campaign-all-of-sources-with-orphan-entitlements) | A list of sources in the campaign that contain \""orphan entitlements\"" (entitlements without a corresponding Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented). | [optional] [readonly] 
 **MandatoryCommentRequirement** |  **Enum** [  "ALL_DECISIONS",    "REVOKE_ONLY_DECISIONS",    "NO_DECISIONS" ] | Determines whether comments are required for decisions during certification reviews. You can require comments for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$GetActiveCampaigns200ResponseInner = Initialize-PSSailpoint.BetaGetActiveCampaigns200ResponseInner  -Id 2c9079b270a266a60170a2779fcb0007 `
+$GetCampaign200Response = Initialize-PSSailpoint.V2024GetCampaign200Response  -Id 2c9079b270a266a60170a2779fcb0007 `
  -Name Manager Campaign `
  -Description Everyone needs to be reviewed by their manager `
  -Deadline 2020-03-15T10:00:01.456Z `
@@ -71,7 +71,7 @@ $GetActiveCampaigns200ResponseInner = Initialize-PSSailpoint.BetaGetActiveCampai
 
 - Convert the resource to JSON
 ```powershell
-$GetActiveCampaigns200ResponseInner | ConvertTo-JSON
+$GetCampaign200Response | ConvertTo-JSON
 ```
 
 

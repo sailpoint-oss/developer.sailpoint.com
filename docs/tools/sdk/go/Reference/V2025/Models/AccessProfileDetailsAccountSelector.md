@@ -1,12 +1,12 @@
 ---
-id: access-profile-details-account-selector
+id: v2025-access-profile-details-account-selector
 title: AccessProfileDetailsAccountSelector
 pagination_label: AccessProfileDetailsAccountSelector
 sidebar_label: AccessProfileDetailsAccountSelector
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessProfileDetailsAccountSelector', 'AccessProfileDetailsAccountSelector'] 
-slug: /tools/sdk/go//models/access-profile-details-account-selector
-tags: ['SDK', 'Software Development Kit', 'AccessProfileDetailsAccountSelector', 'AccessProfileDetailsAccountSelector']
+keywords: ['go', 'Golang', 'sdk', 'AccessProfileDetailsAccountSelector', 'V2025AccessProfileDetailsAccountSelector'] 
+slug: /tools/sdk/go/v2025/models/access-profile-details-account-selector
+tags: ['SDK', 'Software Development Kit', 'AccessProfileDetailsAccountSelector', 'V2025AccessProfileDetailsAccountSelector']
 ---
 
 # AccessProfileDetailsAccountSelector

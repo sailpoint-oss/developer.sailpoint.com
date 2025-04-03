@@ -1,12 +1,12 @@
 ---
-id: provisioning-completed-requester
+id: v2025-provisioning-completed-requester
 title: ProvisioningCompletedRequester
 pagination_label: ProvisioningCompletedRequester
 sidebar_label: ProvisioningCompletedRequester
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ProvisioningCompletedRequester', 'ProvisioningCompletedRequester'] 
-slug: /tools/sdk/go//models/provisioning-completed-requester
-tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedRequester', 'ProvisioningCompletedRequester']
+keywords: ['go', 'Golang', 'sdk', 'ProvisioningCompletedRequester', 'V2025ProvisioningCompletedRequester'] 
+slug: /tools/sdk/go/v2025/models/provisioning-completed-requester
+tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedRequester', 'V2025ProvisioningCompletedRequester']
 ---
 
 # ProvisioningCompletedRequester

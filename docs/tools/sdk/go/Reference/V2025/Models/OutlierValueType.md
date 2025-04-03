@@ -1,12 +1,12 @@
 ---
-id: outlier-value-type
+id: v2025-outlier-value-type
 title: OutlierValueType
 pagination_label: OutlierValueType
 sidebar_label: OutlierValueType
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'OutlierValueType', 'OutlierValueType'] 
-slug: /tools/sdk/go//models/outlier-value-type
-tags: ['SDK', 'Software Development Kit', 'OutlierValueType', 'OutlierValueType']
+keywords: ['go', 'Golang', 'sdk', 'OutlierValueType', 'V2025OutlierValueType'] 
+slug: /tools/sdk/go/v2025/models/outlier-value-type
+tags: ['SDK', 'Software Development Kit', 'OutlierValueType', 'V2025OutlierValueType']
 ---
 
 # OutlierValueType

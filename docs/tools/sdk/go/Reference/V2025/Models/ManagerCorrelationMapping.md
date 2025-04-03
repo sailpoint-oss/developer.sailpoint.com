@@ -1,12 +1,12 @@
 ---
-id: manager-correlation-mapping
+id: v2025-manager-correlation-mapping
 title: ManagerCorrelationMapping
 pagination_label: ManagerCorrelationMapping
 sidebar_label: ManagerCorrelationMapping
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ManagerCorrelationMapping', 'ManagerCorrelationMapping'] 
-slug: /tools/sdk/go//models/manager-correlation-mapping
-tags: ['SDK', 'Software Development Kit', 'ManagerCorrelationMapping', 'ManagerCorrelationMapping']
+keywords: ['go', 'Golang', 'sdk', 'ManagerCorrelationMapping', 'V2025ManagerCorrelationMapping'] 
+slug: /tools/sdk/go/v2025/models/manager-correlation-mapping
+tags: ['SDK', 'Software Development Kit', 'ManagerCorrelationMapping', 'V2025ManagerCorrelationMapping']
 ---
 
 # ManagerCorrelationMapping

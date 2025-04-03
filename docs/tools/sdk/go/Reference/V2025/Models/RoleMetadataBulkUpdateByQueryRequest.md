@@ -1,12 +1,12 @@
 ---
-id: role-metadata-bulk-update-by-query-request
+id: v2025-role-metadata-bulk-update-by-query-request
 title: RoleMetadataBulkUpdateByQueryRequest
 pagination_label: RoleMetadataBulkUpdateByQueryRequest
 sidebar_label: RoleMetadataBulkUpdateByQueryRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMetadataBulkUpdateByQueryRequest', 'RoleMetadataBulkUpdateByQueryRequest'] 
-slug: /tools/sdk/go//models/role-metadata-bulk-update-by-query-request
-tags: ['SDK', 'Software Development Kit', 'RoleMetadataBulkUpdateByQueryRequest', 'RoleMetadataBulkUpdateByQueryRequest']
+keywords: ['go', 'Golang', 'sdk', 'RoleMetadataBulkUpdateByQueryRequest', 'V2025RoleMetadataBulkUpdateByQueryRequest'] 
+slug: /tools/sdk/go/v2025/models/role-metadata-bulk-update-by-query-request
+tags: ['SDK', 'Software Development Kit', 'RoleMetadataBulkUpdateByQueryRequest', 'V2025RoleMetadataBulkUpdateByQueryRequest']
 ---
 
 # RoleMetadataBulkUpdateByQueryRequest

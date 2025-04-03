@@ -1,12 +1,12 @@
 ---
-id: load-uncorrelated-accounts-task-task-attributes
+id: v2025-load-uncorrelated-accounts-task-task-attributes
 title: LoadUncorrelatedAccountsTaskTaskAttributes
 pagination_label: LoadUncorrelatedAccountsTaskTaskAttributes
 sidebar_label: LoadUncorrelatedAccountsTaskTaskAttributes
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'LoadUncorrelatedAccountsTaskTaskAttributes', 'LoadUncorrelatedAccountsTaskTaskAttributes'] 
-slug: /tools/sdk/go//models/load-uncorrelated-accounts-task-task-attributes
-tags: ['SDK', 'Software Development Kit', 'LoadUncorrelatedAccountsTaskTaskAttributes', 'LoadUncorrelatedAccountsTaskTaskAttributes']
+keywords: ['go', 'Golang', 'sdk', 'LoadUncorrelatedAccountsTaskTaskAttributes', 'V2025LoadUncorrelatedAccountsTaskTaskAttributes'] 
+slug: /tools/sdk/go/v2025/models/load-uncorrelated-accounts-task-task-attributes
+tags: ['SDK', 'Software Development Kit', 'LoadUncorrelatedAccountsTaskTaskAttributes', 'V2025LoadUncorrelatedAccountsTaskTaskAttributes']
 ---
 
 # LoadUncorrelatedAccountsTaskTaskAttributes

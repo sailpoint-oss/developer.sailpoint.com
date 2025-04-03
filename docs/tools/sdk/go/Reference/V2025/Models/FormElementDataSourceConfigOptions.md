@@ -1,12 +1,12 @@
 ---
-id: form-element-data-source-config-options
+id: v2025-form-element-data-source-config-options
 title: FormElementDataSourceConfigOptions
 pagination_label: FormElementDataSourceConfigOptions
 sidebar_label: FormElementDataSourceConfigOptions
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FormElementDataSourceConfigOptions', 'FormElementDataSourceConfigOptions'] 
-slug: /tools/sdk/go//models/form-element-data-source-config-options
-tags: ['SDK', 'Software Development Kit', 'FormElementDataSourceConfigOptions', 'FormElementDataSourceConfigOptions']
+keywords: ['go', 'Golang', 'sdk', 'FormElementDataSourceConfigOptions', 'V2025FormElementDataSourceConfigOptions'] 
+slug: /tools/sdk/go/v2025/models/form-element-data-source-config-options
+tags: ['SDK', 'Software Development Kit', 'FormElementDataSourceConfigOptions', 'V2025FormElementDataSourceConfigOptions']
 ---
 
 # FormElementDataSourceConfigOptions

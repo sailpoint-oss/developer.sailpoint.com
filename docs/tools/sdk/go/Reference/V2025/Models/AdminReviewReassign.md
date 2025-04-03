@@ -1,12 +1,12 @@
 ---
-id: admin-review-reassign
+id: v2025-admin-review-reassign
 title: AdminReviewReassign
 pagination_label: AdminReviewReassign
 sidebar_label: AdminReviewReassign
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AdminReviewReassign', 'AdminReviewReassign'] 
-slug: /tools/sdk/go//models/admin-review-reassign
-tags: ['SDK', 'Software Development Kit', 'AdminReviewReassign', 'AdminReviewReassign']
+keywords: ['go', 'Golang', 'sdk', 'AdminReviewReassign', 'V2025AdminReviewReassign'] 
+slug: /tools/sdk/go/v2025/models/admin-review-reassign
+tags: ['SDK', 'Software Development Kit', 'AdminReviewReassign', 'V2025AdminReviewReassign']
 ---
 
 # AdminReviewReassign

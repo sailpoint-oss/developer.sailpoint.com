@@ -1,12 +1,12 @@
 ---
-id: account-all-of-recommendation
+id: v2025-account-all-of-recommendation
 title: AccountAllOfRecommendation
 pagination_label: AccountAllOfRecommendation
 sidebar_label: AccountAllOfRecommendation
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountAllOfRecommendation', 'AccountAllOfRecommendation'] 
-slug: /tools/sdk/go//models/account-all-of-recommendation
-tags: ['SDK', 'Software Development Kit', 'AccountAllOfRecommendation', 'AccountAllOfRecommendation']
+keywords: ['go', 'Golang', 'sdk', 'AccountAllOfRecommendation', 'V2025AccountAllOfRecommendation'] 
+slug: /tools/sdk/go/v2025/models/account-all-of-recommendation
+tags: ['SDK', 'Software Development Kit', 'AccountAllOfRecommendation', 'V2025AccountAllOfRecommendation']
 ---
 
 # AccountAllOfRecommendation

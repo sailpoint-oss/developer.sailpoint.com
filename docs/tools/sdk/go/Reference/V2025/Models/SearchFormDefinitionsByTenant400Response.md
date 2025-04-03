@@ -1,12 +1,12 @@
 ---
-id: search-form-definitions-by-tenant400-response
+id: v2025-search-form-definitions-by-tenant400-response
 title: SearchFormDefinitionsByTenant400Response
 pagination_label: SearchFormDefinitionsByTenant400Response
 sidebar_label: SearchFormDefinitionsByTenant400Response
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SearchFormDefinitionsByTenant400Response', 'SearchFormDefinitionsByTenant400Response'] 
-slug: /tools/sdk/go//models/search-form-definitions-by-tenant400-response
-tags: ['SDK', 'Software Development Kit', 'SearchFormDefinitionsByTenant400Response', 'SearchFormDefinitionsByTenant400Response']
+keywords: ['go', 'Golang', 'sdk', 'SearchFormDefinitionsByTenant400Response', 'V2025SearchFormDefinitionsByTenant400Response'] 
+slug: /tools/sdk/go/v2025/models/search-form-definitions-by-tenant400-response
+tags: ['SDK', 'Software Development Kit', 'SearchFormDefinitionsByTenant400Response', 'V2025SearchFormDefinitionsByTenant400Response']
 ---
 
 # SearchFormDefinitionsByTenant400Response

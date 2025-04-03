@@ -1,12 +1,12 @@
 ---
-id: access-item-requester-dto
+id: v2025-access-item-requester-dto
 title: AccessItemRequesterDto
 pagination_label: AccessItemRequesterDto
 sidebar_label: AccessItemRequesterDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessItemRequesterDto', 'AccessItemRequesterDto'] 
-slug: /tools/sdk/go//models/access-item-requester-dto
-tags: ['SDK', 'Software Development Kit', 'AccessItemRequesterDto', 'AccessItemRequesterDto']
+keywords: ['go', 'Golang', 'sdk', 'AccessItemRequesterDto', 'V2025AccessItemRequesterDto'] 
+slug: /tools/sdk/go/v2025/models/access-item-requester-dto
+tags: ['SDK', 'Software Development Kit', 'AccessItemRequesterDto', 'V2025AccessItemRequesterDto']
 ---
 
 # AccessItemRequesterDto

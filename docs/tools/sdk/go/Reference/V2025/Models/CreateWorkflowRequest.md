@@ -1,12 +1,12 @@
 ---
-id: create-workflow-request
+id: v2025-create-workflow-request
 title: CreateWorkflowRequest
 pagination_label: CreateWorkflowRequest
 sidebar_label: CreateWorkflowRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CreateWorkflowRequest', 'CreateWorkflowRequest'] 
-slug: /tools/sdk/go//models/create-workflow-request
-tags: ['SDK', 'Software Development Kit', 'CreateWorkflowRequest', 'CreateWorkflowRequest']
+keywords: ['go', 'Golang', 'sdk', 'CreateWorkflowRequest', 'V2025CreateWorkflowRequest'] 
+slug: /tools/sdk/go/v2025/models/create-workflow-request
+tags: ['SDK', 'Software Development Kit', 'CreateWorkflowRequest', 'V2025CreateWorkflowRequest']
 ---
 
 # CreateWorkflowRequest

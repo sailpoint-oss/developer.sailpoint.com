@@ -1,12 +1,12 @@
 ---
-id: latest-outlier-summary
+id: v2025-latest-outlier-summary
 title: LatestOutlierSummary
 pagination_label: LatestOutlierSummary
 sidebar_label: LatestOutlierSummary
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'LatestOutlierSummary', 'LatestOutlierSummary'] 
-slug: /tools/sdk/go//models/latest-outlier-summary
-tags: ['SDK', 'Software Development Kit', 'LatestOutlierSummary', 'LatestOutlierSummary']
+keywords: ['go', 'Golang', 'sdk', 'LatestOutlierSummary', 'V2025LatestOutlierSummary'] 
+slug: /tools/sdk/go/v2025/models/latest-outlier-summary
+tags: ['SDK', 'Software Development Kit', 'LatestOutlierSummary', 'V2025LatestOutlierSummary']
 ---
 
 # LatestOutlierSummary

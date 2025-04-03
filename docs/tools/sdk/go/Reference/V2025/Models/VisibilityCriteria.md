@@ -1,12 +1,12 @@
 ---
-id: visibility-criteria
+id: v2025-visibility-criteria
 title: VisibilityCriteria
 pagination_label: VisibilityCriteria
 sidebar_label: VisibilityCriteria
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'VisibilityCriteria', 'VisibilityCriteria'] 
-slug: /tools/sdk/go//models/visibility-criteria
-tags: ['SDK', 'Software Development Kit', 'VisibilityCriteria', 'VisibilityCriteria']
+keywords: ['go', 'Golang', 'sdk', 'VisibilityCriteria', 'V2025VisibilityCriteria'] 
+slug: /tools/sdk/go/v2025/models/visibility-criteria
+tags: ['SDK', 'Software Development Kit', 'VisibilityCriteria', 'V2025VisibilityCriteria']
 ---
 
 # VisibilityCriteria

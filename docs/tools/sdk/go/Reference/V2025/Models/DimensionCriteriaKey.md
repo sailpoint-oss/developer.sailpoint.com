@@ -1,12 +1,12 @@
 ---
-id: dimension-criteria-key
+id: v2025-dimension-criteria-key
 title: DimensionCriteriaKey
 pagination_label: DimensionCriteriaKey
 sidebar_label: DimensionCriteriaKey
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DimensionCriteriaKey', 'DimensionCriteriaKey'] 
-slug: /tools/sdk/go//models/dimension-criteria-key
-tags: ['SDK', 'Software Development Kit', 'DimensionCriteriaKey', 'DimensionCriteriaKey']
+keywords: ['go', 'Golang', 'sdk', 'DimensionCriteriaKey', 'V2025DimensionCriteriaKey'] 
+slug: /tools/sdk/go/v2025/models/dimension-criteria-key
+tags: ['SDK', 'Software Development Kit', 'DimensionCriteriaKey', 'V2025DimensionCriteriaKey']
 ---
 
 # DimensionCriteriaKey

@@ -1,12 +1,12 @@
 ---
-id: workflow
+id: v2025-workflow
 title: Workflow
 pagination_label: Workflow
 sidebar_label: Workflow
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Workflow', 'Workflow'] 
-slug: /tools/sdk/go//models/workflow
-tags: ['SDK', 'Software Development Kit', 'Workflow', 'Workflow']
+keywords: ['go', 'Golang', 'sdk', 'Workflow', 'V2025Workflow'] 
+slug: /tools/sdk/go/v2025/models/workflow
+tags: ['SDK', 'Software Development Kit', 'Workflow', 'V2025Workflow']
 ---
 
 # Workflow

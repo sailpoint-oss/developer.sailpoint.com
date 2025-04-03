@@ -1,12 +1,12 @@
 ---
-id: saved-search-complete-search-results-entitlement
+id: v2025-saved-search-complete-search-results-entitlement
 title: SavedSearchCompleteSearchResultsEntitlement
 pagination_label: SavedSearchCompleteSearchResultsEntitlement
 sidebar_label: SavedSearchCompleteSearchResultsEntitlement
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SavedSearchCompleteSearchResultsEntitlement', 'SavedSearchCompleteSearchResultsEntitlement'] 
-slug: /tools/sdk/go//models/saved-search-complete-search-results-entitlement
-tags: ['SDK', 'Software Development Kit', 'SavedSearchCompleteSearchResultsEntitlement', 'SavedSearchCompleteSearchResultsEntitlement']
+keywords: ['go', 'Golang', 'sdk', 'SavedSearchCompleteSearchResultsEntitlement', 'V2025SavedSearchCompleteSearchResultsEntitlement'] 
+slug: /tools/sdk/go/v2025/models/saved-search-complete-search-results-entitlement
+tags: ['SDK', 'Software Development Kit', 'SavedSearchCompleteSearchResultsEntitlement', 'V2025SavedSearchCompleteSearchResultsEntitlement']
 ---
 
 # SavedSearchCompleteSearchResultsEntitlement

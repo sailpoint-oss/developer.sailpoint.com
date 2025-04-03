@@ -1,12 +1,12 @@
 ---
-id: role-list-filter-dto
+id: v2025-role-list-filter-dto
 title: RoleListFilterDTO
 pagination_label: RoleListFilterDTO
 sidebar_label: RoleListFilterDTO
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleListFilterDTO', 'RoleListFilterDTO'] 
-slug: /tools/sdk/go//models/role-list-filter-dto
-tags: ['SDK', 'Software Development Kit', 'RoleListFilterDTO', 'RoleListFilterDTO']
+keywords: ['go', 'Golang', 'sdk', 'RoleListFilterDTO', 'V2025RoleListFilterDTO'] 
+slug: /tools/sdk/go/v2025/models/role-list-filter-dto
+tags: ['SDK', 'Software Development Kit', 'RoleListFilterDTO', 'V2025RoleListFilterDTO']
 ---
 
 # RoleListFilterDTO

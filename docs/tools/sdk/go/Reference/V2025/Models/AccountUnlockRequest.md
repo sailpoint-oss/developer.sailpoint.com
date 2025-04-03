@@ -1,12 +1,12 @@
 ---
-id: account-unlock-request
+id: v2025-account-unlock-request
 title: AccountUnlockRequest
 pagination_label: AccountUnlockRequest
 sidebar_label: AccountUnlockRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountUnlockRequest', 'AccountUnlockRequest'] 
-slug: /tools/sdk/go//models/account-unlock-request
-tags: ['SDK', 'Software Development Kit', 'AccountUnlockRequest', 'AccountUnlockRequest']
+keywords: ['go', 'Golang', 'sdk', 'AccountUnlockRequest', 'V2025AccountUnlockRequest'] 
+slug: /tools/sdk/go/v2025/models/account-unlock-request
+tags: ['SDK', 'Software Development Kit', 'AccountUnlockRequest', 'V2025AccountUnlockRequest']
 ---
 
 # AccountUnlockRequest

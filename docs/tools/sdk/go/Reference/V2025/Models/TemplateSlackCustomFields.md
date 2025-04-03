@@ -1,12 +1,12 @@
 ---
-id: template-slack-custom-fields
+id: v2025-template-slack-custom-fields
 title: TemplateSlackCustomFields
 pagination_label: TemplateSlackCustomFields
 sidebar_label: TemplateSlackCustomFields
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TemplateSlackCustomFields', 'TemplateSlackCustomFields'] 
-slug: /tools/sdk/go//models/template-slack-custom-fields
-tags: ['SDK', 'Software Development Kit', 'TemplateSlackCustomFields', 'TemplateSlackCustomFields']
+keywords: ['go', 'Golang', 'sdk', 'TemplateSlackCustomFields', 'V2025TemplateSlackCustomFields'] 
+slug: /tools/sdk/go/v2025/models/template-slack-custom-fields
+tags: ['SDK', 'Software Development Kit', 'TemplateSlackCustomFields', 'V2025TemplateSlackCustomFields']
 ---
 
 # TemplateSlackCustomFields

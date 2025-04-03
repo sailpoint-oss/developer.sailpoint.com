@@ -1,12 +1,12 @@
 ---
-id: workflow-all-of-creator
+id: v2025-workflow-all-of-creator
 title: WorkflowAllOfCreator
 pagination_label: WorkflowAllOfCreator
 sidebar_label: WorkflowAllOfCreator
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkflowAllOfCreator', 'WorkflowAllOfCreator'] 
-slug: /tools/sdk/go//models/workflow-all-of-creator
-tags: ['SDK', 'Software Development Kit', 'WorkflowAllOfCreator', 'WorkflowAllOfCreator']
+keywords: ['go', 'Golang', 'sdk', 'WorkflowAllOfCreator', 'V2025WorkflowAllOfCreator'] 
+slug: /tools/sdk/go/v2025/models/workflow-all-of-creator
+tags: ['SDK', 'Software Development Kit', 'WorkflowAllOfCreator', 'V2025WorkflowAllOfCreator']
 ---
 
 # WorkflowAllOfCreator

@@ -1,12 +1,12 @@
 ---
-id: outlier-feature-translation
+id: v2025-outlier-feature-translation
 title: OutlierFeatureTranslation
 pagination_label: OutlierFeatureTranslation
 sidebar_label: OutlierFeatureTranslation
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'OutlierFeatureTranslation', 'OutlierFeatureTranslation'] 
-slug: /tools/sdk/go//models/outlier-feature-translation
-tags: ['SDK', 'Software Development Kit', 'OutlierFeatureTranslation', 'OutlierFeatureTranslation']
+keywords: ['go', 'Golang', 'sdk', 'OutlierFeatureTranslation', 'V2025OutlierFeatureTranslation'] 
+slug: /tools/sdk/go/v2025/models/outlier-feature-translation
+tags: ['SDK', 'Software Development Kit', 'OutlierFeatureTranslation', 'V2025OutlierFeatureTranslation']
 ---
 
 # OutlierFeatureTranslation

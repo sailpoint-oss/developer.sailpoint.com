@@ -1,12 +1,12 @@
 ---
-id: outlier-contributing-feature
+id: v2025-outlier-contributing-feature
 title: OutlierContributingFeature
 pagination_label: OutlierContributingFeature
 sidebar_label: OutlierContributingFeature
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'OutlierContributingFeature', 'OutlierContributingFeature'] 
-slug: /tools/sdk/go//models/outlier-contributing-feature
-tags: ['SDK', 'Software Development Kit', 'OutlierContributingFeature', 'OutlierContributingFeature']
+keywords: ['go', 'Golang', 'sdk', 'OutlierContributingFeature', 'V2025OutlierContributingFeature'] 
+slug: /tools/sdk/go/v2025/models/outlier-contributing-feature
+tags: ['SDK', 'Software Development Kit', 'OutlierContributingFeature', 'V2025OutlierContributingFeature']
 ---
 
 # OutlierContributingFeature

@@ -1,12 +1,12 @@
 ---
-id: app-all-of-account
+id: v2025-app-all-of-account
 title: AppAllOfAccount
 pagination_label: AppAllOfAccount
 sidebar_label: AppAllOfAccount
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AppAllOfAccount', 'AppAllOfAccount'] 
-slug: /tools/sdk/go//models/app-all-of-account
-tags: ['SDK', 'Software Development Kit', 'AppAllOfAccount', 'AppAllOfAccount']
+keywords: ['go', 'Golang', 'sdk', 'AppAllOfAccount', 'V2025AppAllOfAccount'] 
+slug: /tools/sdk/go/v2025/models/app-all-of-account
+tags: ['SDK', 'Software Development Kit', 'AppAllOfAccount', 'V2025AppAllOfAccount']
 ---
 
 # AppAllOfAccount

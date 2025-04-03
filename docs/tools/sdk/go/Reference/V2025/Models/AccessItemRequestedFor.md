@@ -1,12 +1,12 @@
 ---
-id: access-item-requested-for
+id: v2025-access-item-requested-for
 title: AccessItemRequestedFor
 pagination_label: AccessItemRequestedFor
 sidebar_label: AccessItemRequestedFor
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessItemRequestedFor', 'AccessItemRequestedFor'] 
-slug: /tools/sdk/go//models/access-item-requested-for
-tags: ['SDK', 'Software Development Kit', 'AccessItemRequestedFor', 'AccessItemRequestedFor']
+keywords: ['go', 'Golang', 'sdk', 'AccessItemRequestedFor', 'V2025AccessItemRequestedFor'] 
+slug: /tools/sdk/go/v2025/models/access-item-requested-for
+tags: ['SDK', 'Software Development Kit', 'AccessItemRequestedFor', 'V2025AccessItemRequestedFor']
 ---
 
 # AccessItemRequestedFor

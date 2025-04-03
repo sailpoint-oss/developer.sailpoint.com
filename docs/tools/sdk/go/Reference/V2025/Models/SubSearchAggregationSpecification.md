@@ -1,12 +1,12 @@
 ---
-id: sub-search-aggregation-specification
+id: v2025-sub-search-aggregation-specification
 title: SubSearchAggregationSpecification
 pagination_label: SubSearchAggregationSpecification
 sidebar_label: SubSearchAggregationSpecification
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SubSearchAggregationSpecification', 'SubSearchAggregationSpecification'] 
-slug: /tools/sdk/go//models/sub-search-aggregation-specification
-tags: ['SDK', 'Software Development Kit', 'SubSearchAggregationSpecification', 'SubSearchAggregationSpecification']
+keywords: ['go', 'Golang', 'sdk', 'SubSearchAggregationSpecification', 'V2025SubSearchAggregationSpecification'] 
+slug: /tools/sdk/go/v2025/models/sub-search-aggregation-specification
+tags: ['SDK', 'Software Development Kit', 'SubSearchAggregationSpecification', 'V2025SubSearchAggregationSpecification']
 ---
 
 # SubSearchAggregationSpecification

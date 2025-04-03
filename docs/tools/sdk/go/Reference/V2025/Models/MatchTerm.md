@@ -1,12 +1,12 @@
 ---
-id: match-term
+id: v2025-match-term
 title: MatchTerm
 pagination_label: MatchTerm
 sidebar_label: MatchTerm
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MatchTerm', 'MatchTerm'] 
-slug: /tools/sdk/go//models/match-term
-tags: ['SDK', 'Software Development Kit', 'MatchTerm', 'MatchTerm']
+keywords: ['go', 'Golang', 'sdk', 'MatchTerm', 'V2025MatchTerm'] 
+slug: /tools/sdk/go/v2025/models/match-term
+tags: ['SDK', 'Software Development Kit', 'MatchTerm', 'V2025MatchTerm']
 ---
 
 # MatchTerm

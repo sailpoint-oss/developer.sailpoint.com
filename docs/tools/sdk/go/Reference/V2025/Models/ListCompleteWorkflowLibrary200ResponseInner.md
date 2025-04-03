@@ -1,12 +1,12 @@
 ---
-id: list-complete-workflow-library200-response-inner
+id: v2025-list-complete-workflow-library200-response-inner
 title: ListCompleteWorkflowLibrary200ResponseInner
 pagination_label: ListCompleteWorkflowLibrary200ResponseInner
 sidebar_label: ListCompleteWorkflowLibrary200ResponseInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ListCompleteWorkflowLibrary200ResponseInner', 'ListCompleteWorkflowLibrary200ResponseInner'] 
-slug: /tools/sdk/go//models/list-complete-workflow-library200-response-inner
-tags: ['SDK', 'Software Development Kit', 'ListCompleteWorkflowLibrary200ResponseInner', 'ListCompleteWorkflowLibrary200ResponseInner']
+keywords: ['go', 'Golang', 'sdk', 'ListCompleteWorkflowLibrary200ResponseInner', 'V2025ListCompleteWorkflowLibrary200ResponseInner'] 
+slug: /tools/sdk/go/v2025/models/list-complete-workflow-library200-response-inner
+tags: ['SDK', 'Software Development Kit', 'ListCompleteWorkflowLibrary200ResponseInner', 'V2025ListCompleteWorkflowLibrary200ResponseInner']
 ---
 
 # ListCompleteWorkflowLibrary200ResponseInner

@@ -1,12 +1,12 @@
 ---
-id: entitlement-owner
+id: v2025-entitlement-owner
 title: EntitlementOwner
 pagination_label: EntitlementOwner
 sidebar_label: EntitlementOwner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EntitlementOwner', 'EntitlementOwner'] 
-slug: /tools/sdk/go//models/entitlement-owner
-tags: ['SDK', 'Software Development Kit', 'EntitlementOwner', 'EntitlementOwner']
+keywords: ['go', 'Golang', 'sdk', 'EntitlementOwner', 'V2025EntitlementOwner'] 
+slug: /tools/sdk/go/v2025/models/entitlement-owner
+tags: ['SDK', 'Software Development Kit', 'EntitlementOwner', 'V2025EntitlementOwner']
 ---
 
 # EntitlementOwner

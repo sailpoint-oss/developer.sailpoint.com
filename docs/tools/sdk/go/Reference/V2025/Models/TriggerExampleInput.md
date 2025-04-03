@@ -1,12 +1,12 @@
 ---
-id: trigger-example-input
+id: v2025-trigger-example-input
 title: TriggerExampleInput
 pagination_label: TriggerExampleInput
 sidebar_label: TriggerExampleInput
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TriggerExampleInput', 'TriggerExampleInput'] 
-slug: /tools/sdk/go//models/trigger-example-input
-tags: ['SDK', 'Software Development Kit', 'TriggerExampleInput', 'TriggerExampleInput']
+keywords: ['go', 'Golang', 'sdk', 'TriggerExampleInput', 'V2025TriggerExampleInput'] 
+slug: /tools/sdk/go/v2025/models/trigger-example-input
+tags: ['SDK', 'Software Development Kit', 'TriggerExampleInput', 'V2025TriggerExampleInput']
 ---
 
 # TriggerExampleInput

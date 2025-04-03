@@ -1,12 +1,12 @@
 ---
-id: password-policy-holders-dto-attributes-identity-attr-inner
+id: v2025-password-policy-holders-dto-attributes-identity-attr-inner
 title: PasswordPolicyHoldersDtoAttributesIdentityAttrInner
 pagination_label: PasswordPolicyHoldersDtoAttributesIdentityAttrInner
 sidebar_label: PasswordPolicyHoldersDtoAttributesIdentityAttrInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PasswordPolicyHoldersDtoAttributesIdentityAttrInner', 'PasswordPolicyHoldersDtoAttributesIdentityAttrInner'] 
-slug: /tools/sdk/go//models/password-policy-holders-dto-attributes-identity-attr-inner
-tags: ['SDK', 'Software Development Kit', 'PasswordPolicyHoldersDtoAttributesIdentityAttrInner', 'PasswordPolicyHoldersDtoAttributesIdentityAttrInner']
+keywords: ['go', 'Golang', 'sdk', 'PasswordPolicyHoldersDtoAttributesIdentityAttrInner', 'V2025PasswordPolicyHoldersDtoAttributesIdentityAttrInner'] 
+slug: /tools/sdk/go/v2025/models/password-policy-holders-dto-attributes-identity-attr-inner
+tags: ['SDK', 'Software Development Kit', 'PasswordPolicyHoldersDtoAttributesIdentityAttrInner', 'V2025PasswordPolicyHoldersDtoAttributesIdentityAttrInner']
 ---
 
 # PasswordPolicyHoldersDtoAttributesIdentityAttrInner

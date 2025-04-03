@@ -1,12 +1,12 @@
 ---
-id: owner-dto
+id: v2025-owner-dto
 title: OwnerDto
 pagination_label: OwnerDto
 sidebar_label: OwnerDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'OwnerDto', 'OwnerDto'] 
-slug: /tools/sdk/go//models/owner-dto
-tags: ['SDK', 'Software Development Kit', 'OwnerDto', 'OwnerDto']
+keywords: ['go', 'Golang', 'sdk', 'OwnerDto', 'V2025OwnerDto'] 
+slug: /tools/sdk/go/v2025/models/owner-dto
+tags: ['SDK', 'Software Development Kit', 'OwnerDto', 'V2025OwnerDto']
 ---
 
 # OwnerDto

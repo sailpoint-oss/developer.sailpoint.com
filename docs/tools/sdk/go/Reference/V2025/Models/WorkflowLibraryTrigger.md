@@ -1,12 +1,12 @@
 ---
-id: workflow-library-trigger
+id: v2025-workflow-library-trigger
 title: WorkflowLibraryTrigger
 pagination_label: WorkflowLibraryTrigger
 sidebar_label: WorkflowLibraryTrigger
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkflowLibraryTrigger', 'WorkflowLibraryTrigger'] 
-slug: /tools/sdk/go//models/workflow-library-trigger
-tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryTrigger', 'WorkflowLibraryTrigger']
+keywords: ['go', 'Golang', 'sdk', 'WorkflowLibraryTrigger', 'V2025WorkflowLibraryTrigger'] 
+slug: /tools/sdk/go/v2025/models/workflow-library-trigger
+tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryTrigger', 'V2025WorkflowLibraryTrigger']
 ---
 
 # WorkflowLibraryTrigger

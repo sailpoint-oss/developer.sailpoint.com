@@ -1,12 +1,12 @@
 ---
-id: source-created
+id: v2025-source-created
 title: SourceCreated
 pagination_label: SourceCreated
 sidebar_label: SourceCreated
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceCreated', 'SourceCreated'] 
-slug: /tools/sdk/go//models/source-created
-tags: ['SDK', 'Software Development Kit', 'SourceCreated', 'SourceCreated']
+keywords: ['go', 'Golang', 'sdk', 'SourceCreated', 'V2025SourceCreated'] 
+slug: /tools/sdk/go/v2025/models/source-created
+tags: ['SDK', 'Software Development Kit', 'SourceCreated', 'V2025SourceCreated']
 ---
 
 # SourceCreated

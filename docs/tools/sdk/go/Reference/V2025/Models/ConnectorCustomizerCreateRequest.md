@@ -1,12 +1,12 @@
 ---
-id: connector-customizer-create-request
+id: v2025-connector-customizer-create-request
 title: ConnectorCustomizerCreateRequest
 pagination_label: ConnectorCustomizerCreateRequest
 sidebar_label: ConnectorCustomizerCreateRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConnectorCustomizerCreateRequest', 'ConnectorCustomizerCreateRequest'] 
-slug: /tools/sdk/go//models/connector-customizer-create-request
-tags: ['SDK', 'Software Development Kit', 'ConnectorCustomizerCreateRequest', 'ConnectorCustomizerCreateRequest']
+keywords: ['go', 'Golang', 'sdk', 'ConnectorCustomizerCreateRequest', 'V2025ConnectorCustomizerCreateRequest'] 
+slug: /tools/sdk/go/v2025/models/connector-customizer-create-request
+tags: ['SDK', 'Software Development Kit', 'ConnectorCustomizerCreateRequest', 'V2025ConnectorCustomizerCreateRequest']
 ---
 
 # ConnectorCustomizerCreateRequest

@@ -1,12 +1,12 @@
 ---
-id: access-item-diff
+id: v2025-access-item-diff
 title: AccessItemDiff
 pagination_label: AccessItemDiff
 sidebar_label: AccessItemDiff
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessItemDiff', 'AccessItemDiff'] 
-slug: /tools/sdk/go//models/access-item-diff
-tags: ['SDK', 'Software Development Kit', 'AccessItemDiff', 'AccessItemDiff']
+keywords: ['go', 'Golang', 'sdk', 'AccessItemDiff', 'V2025AccessItemDiff'] 
+slug: /tools/sdk/go/v2025/models/access-item-diff
+tags: ['SDK', 'Software Development Kit', 'AccessItemDiff', 'V2025AccessItemDiff']
 ---
 
 # AccessItemDiff

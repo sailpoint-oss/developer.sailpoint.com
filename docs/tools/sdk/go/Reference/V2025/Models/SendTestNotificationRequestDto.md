@@ -1,12 +1,12 @@
 ---
-id: send-test-notification-request-dto
+id: v2025-send-test-notification-request-dto
 title: SendTestNotificationRequestDto
 pagination_label: SendTestNotificationRequestDto
 sidebar_label: SendTestNotificationRequestDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SendTestNotificationRequestDto', 'SendTestNotificationRequestDto'] 
-slug: /tools/sdk/go//models/send-test-notification-request-dto
-tags: ['SDK', 'Software Development Kit', 'SendTestNotificationRequestDto', 'SendTestNotificationRequestDto']
+keywords: ['go', 'Golang', 'sdk', 'SendTestNotificationRequestDto', 'V2025SendTestNotificationRequestDto'] 
+slug: /tools/sdk/go/v2025/models/send-test-notification-request-dto
+tags: ['SDK', 'Software Development Kit', 'SendTestNotificationRequestDto', 'V2025SendTestNotificationRequestDto']
 ---
 
 # SendTestNotificationRequestDto

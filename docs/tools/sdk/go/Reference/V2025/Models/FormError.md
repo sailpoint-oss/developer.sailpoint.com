@@ -1,12 +1,12 @@
 ---
-id: form-error
+id: v2025-form-error
 title: FormError
 pagination_label: FormError
 sidebar_label: FormError
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FormError', 'FormError'] 
-slug: /tools/sdk/go//models/form-error
-tags: ['SDK', 'Software Development Kit', 'FormError', 'FormError']
+keywords: ['go', 'Golang', 'sdk', 'FormError', 'V2025FormError'] 
+slug: /tools/sdk/go/v2025/models/form-error
+tags: ['SDK', 'Software Development Kit', 'FormError', 'V2025FormError']
 ---
 
 # FormError

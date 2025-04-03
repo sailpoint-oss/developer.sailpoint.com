@@ -1,12 +1,12 @@
 ---
-id: field-details-dto
+id: v2025-field-details-dto
 title: FieldDetailsDto
 pagination_label: FieldDetailsDto
 sidebar_label: FieldDetailsDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FieldDetailsDto', 'FieldDetailsDto'] 
-slug: /tools/sdk/go//models/field-details-dto
-tags: ['SDK', 'Software Development Kit', 'FieldDetailsDto', 'FieldDetailsDto']
+keywords: ['go', 'Golang', 'sdk', 'FieldDetailsDto', 'V2025FieldDetailsDto'] 
+slug: /tools/sdk/go/v2025/models/field-details-dto
+tags: ['SDK', 'Software Development Kit', 'FieldDetailsDto', 'V2025FieldDetailsDto']
 ---
 
 # FieldDetailsDto

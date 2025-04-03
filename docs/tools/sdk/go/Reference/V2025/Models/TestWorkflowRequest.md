@@ -1,12 +1,12 @@
 ---
-id: test-workflow-request
+id: v2025-test-workflow-request
 title: TestWorkflowRequest
 pagination_label: TestWorkflowRequest
 sidebar_label: TestWorkflowRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TestWorkflowRequest', 'TestWorkflowRequest'] 
-slug: /tools/sdk/go//models/test-workflow-request
-tags: ['SDK', 'Software Development Kit', 'TestWorkflowRequest', 'TestWorkflowRequest']
+keywords: ['go', 'Golang', 'sdk', 'TestWorkflowRequest', 'V2025TestWorkflowRequest'] 
+slug: /tools/sdk/go/v2025/models/test-workflow-request
+tags: ['SDK', 'Software Development Kit', 'TestWorkflowRequest', 'V2025TestWorkflowRequest']
 ---
 
 # TestWorkflowRequest

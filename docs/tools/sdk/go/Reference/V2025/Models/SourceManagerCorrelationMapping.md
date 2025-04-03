@@ -1,12 +1,12 @@
 ---
-id: source-manager-correlation-mapping
+id: v2025-source-manager-correlation-mapping
 title: SourceManagerCorrelationMapping
 pagination_label: SourceManagerCorrelationMapping
 sidebar_label: SourceManagerCorrelationMapping
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceManagerCorrelationMapping', 'SourceManagerCorrelationMapping'] 
-slug: /tools/sdk/go//models/source-manager-correlation-mapping
-tags: ['SDK', 'Software Development Kit', 'SourceManagerCorrelationMapping', 'SourceManagerCorrelationMapping']
+keywords: ['go', 'Golang', 'sdk', 'SourceManagerCorrelationMapping', 'V2025SourceManagerCorrelationMapping'] 
+slug: /tools/sdk/go/v2025/models/source-manager-correlation-mapping
+tags: ['SDK', 'Software Development Kit', 'SourceManagerCorrelationMapping', 'V2025SourceManagerCorrelationMapping']
 ---
 
 # SourceManagerCorrelationMapping

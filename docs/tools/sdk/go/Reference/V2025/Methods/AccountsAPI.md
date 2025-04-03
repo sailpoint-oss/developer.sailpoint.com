@@ -1,12 +1,12 @@
 ---
-id: accounts
+id: v2025-accounts
 title: Accounts
 pagination_label: Accounts
 sidebar_label: Accounts
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Accounts', 'Accounts'] 
-slug: /tools/sdk/go//methods/accounts
-tags: ['SDK', 'Software Development Kit', 'Accounts', 'Accounts']
+keywords: ['go', 'Golang', 'sdk', 'Accounts', 'V2025Accounts'] 
+slug: /tools/sdk/go/v2025/methods/accounts
+tags: ['SDK', 'Software Development Kit', 'Accounts', 'V2025Accounts']
 ---
 
 # AccountsAPI
@@ -75,7 +75,7 @@ The endpoint doesn't actually provision the account on the target source, which 
 By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-account)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-account)
 
 ### Path Parameters
 
@@ -108,7 +108,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -126,7 +126,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountsAPI.CreateAccount(context.Background()).AccountAttributesCreate(accountAttributesCreate).Execute()
+	resp, r, err := apiClient.V2025.AccountsAPI.CreateAccount(context.Background()).AccountAttributesCreate(accountAttributesCreate).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.CreateAccount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -145,7 +145,7 @@ This endpoint submits an account delete task and returns the task ID.
 This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account's returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future. 
 >**NOTE: You can only delete accounts from sources of the "DelimitedFile" type.**
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-account)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-account)
 
 ### Path Parameters
 
@@ -182,7 +182,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -191,7 +191,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountsAPI.DeleteAccount(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.AccountsAPI.DeleteAccount(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.DeleteAccount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -224,7 +224,7 @@ This endpoint is good for:
 * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-account-async)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-account-async)
 
 ### Path Parameters
 
@@ -262,7 +262,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -272,7 +272,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountsAPI.DeleteAccountAsync(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.AccountsAPI.DeleteAccountAsync(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.DeleteAccountAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -288,7 +288,7 @@ func main() {
 Disable Account
 This API submits a task to disable the account and returns the task ID.      
 
-[API Spec](https://developer.sailpoint.com/docs/api//disable-account)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/disable-account)
 
 ### Path Parameters
 
@@ -326,7 +326,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -339,7 +339,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountsAPI.DisableAccount(context.Background(), id).AccountToggleRequest(accountToggleRequest).Execute()
+	resp, r, err := apiClient.V2025.AccountsAPI.DisableAccount(context.Background(), id).AccountToggleRequest(accountToggleRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.DisableAccount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -366,7 +366,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Disable IDN Account for Identity
 This API submits a task to disable IDN account for a single identity.
 
-[API Spec](https://developer.sailpoint.com/docs/api//disable-account-for-identity)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/disable-account-for-identity)
 
 ### Path Parameters
 
@@ -404,7 +404,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -414,7 +414,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountsAPI.DisableAccountForIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.AccountsAPI.DisableAccountForIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.DisableAccountForIdentity``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -441,7 +441,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Disable IDN Accounts for Identities
 This API submits tasks to disable IDN account for each identity provided in the request body.
 
-[API Spec](https://developer.sailpoint.com/docs/api//disable-accounts-for-identities)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/disable-accounts-for-identities)
 
 ### Path Parameters
 
@@ -475,7 +475,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -487,7 +487,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountsAPI.DisableAccountsForIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
+	resp, r, err := apiClient.V2025.AccountsAPI.DisableAccountsForIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.DisableAccountsForIdentities``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -503,7 +503,7 @@ func main() {
 Enable Account
 This API submits a task to enable account and returns the task ID.      
 
-[API Spec](https://developer.sailpoint.com/docs/api//enable-account)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/enable-account)
 
 ### Path Parameters
 
@@ -541,7 +541,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -554,7 +554,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountsAPI.EnableAccount(context.Background(), id).AccountToggleRequest(accountToggleRequest).Execute()
+	resp, r, err := apiClient.V2025.AccountsAPI.EnableAccount(context.Background(), id).AccountToggleRequest(accountToggleRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.EnableAccount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -581,7 +581,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Enable IDN Account for Identity
 This API submits a task to enable IDN account for a single identity.
 
-[API Spec](https://developer.sailpoint.com/docs/api//enable-account-for-identity)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/enable-account-for-identity)
 
 ### Path Parameters
 
@@ -619,7 +619,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -629,7 +629,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountsAPI.EnableAccountForIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.AccountsAPI.EnableAccountForIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.EnableAccountForIdentity``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -656,7 +656,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Enable IDN Accounts for Identities
 This API submits tasks to enable IDN account for each identity provided in the request body.
 
-[API Spec](https://developer.sailpoint.com/docs/api//enable-accounts-for-identities)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/enable-accounts-for-identities)
 
 ### Path Parameters
 
@@ -690,7 +690,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -702,7 +702,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountsAPI.EnableAccountsForIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
+	resp, r, err := apiClient.V2025.AccountsAPI.EnableAccountsForIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.EnableAccountsForIdentities``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -718,7 +718,7 @@ func main() {
 Account Details
 Use this API to return the details for a single account by its ID.  
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-account)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-account)
 
 ### Path Parameters
 
@@ -755,7 +755,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -764,7 +764,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountsAPI.GetAccount(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.AccountsAPI.GetAccount(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetAccount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -780,7 +780,7 @@ func main() {
 Account Entitlements
 This API returns entitlements of the account.      
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-account-entitlements)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-account-entitlements)
 
 ### Path Parameters
 
@@ -820,7 +820,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -832,7 +832,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountsAPI.GetAccountEntitlements(context.Background(), id).Limit(limit).Offset(offset).Count(count).Execute()
+	resp, r, err := apiClient.V2025.AccountsAPI.GetAccountEntitlements(context.Background(), id).Limit(limit).Offset(offset).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.GetAccountEntitlements``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -848,7 +848,7 @@ func main() {
 Accounts List
 List accounts. 
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-accounts)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-accounts)
 
 ### Path Parameters
 
@@ -886,7 +886,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -900,7 +900,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountsAPI.ListAccounts(context.Background()).Limit(limit).Offset(offset).Count(count).DetailLevel(detailLevel).Filters(filters).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.AccountsAPI.ListAccounts(context.Background()).Limit(limit).Offset(offset).Count(count).DetailLevel(detailLevel).Filters(filters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.ListAccounts``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -921,7 +921,7 @@ This endpoint submits an account update task and returns the task ID.
 >**Note: You can only use this PUT endpoint to update accounts from flat file sources.**
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//put-account)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-account)
 
 ### Path Parameters
 
@@ -959,7 +959,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -977,7 +977,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountsAPI.PutAccount(context.Background(), id).AccountAttributes(accountAttributes).Execute()
+	resp, r, err := apiClient.V2025.AccountsAPI.PutAccount(context.Background(), id).AccountAttributes(accountAttributes).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.PutAccount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -993,7 +993,7 @@ func main() {
 Reload Account
 This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.      
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-reload-account)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/submit-reload-account)
 
 ### Path Parameters
 
@@ -1030,7 +1030,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1039,7 +1039,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountsAPI.SubmitReloadAccount(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.AccountsAPI.SubmitReloadAccount(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.SubmitReloadAccount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1056,7 +1056,7 @@ Unlock Account
 This API submits a task to unlock an account and returns the task ID.  
 To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required. 
 
-[API Spec](https://developer.sailpoint.com/docs/api//unlock-account)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/unlock-account)
 
 ### Path Parameters
 
@@ -1094,7 +1094,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1108,7 +1108,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountsAPI.UnlockAccount(context.Background(), id).AccountUnlockRequest(accountUnlockRequest).Execute()
+	resp, r, err := apiClient.V2025.AccountsAPI.UnlockAccount(context.Background(), id).AccountUnlockRequest(accountUnlockRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.UnlockAccount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1134,7 +1134,7 @@ All accounts that are reassigned will be set to `manuallyCorrelated: true` unles
 >**Note:** The `attributes` field can only be modified for flat file accounts. 
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-account)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-account)
 
 ### Path Parameters
 
@@ -1172,7 +1172,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1182,7 +1182,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountsAPI.UpdateAccount(context.Background(), id).RequestBody(requestBody).Execute()
+	resp, r, err := apiClient.V2025.AccountsAPI.UpdateAccount(context.Background(), id).RequestBody(requestBody).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.UpdateAccount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

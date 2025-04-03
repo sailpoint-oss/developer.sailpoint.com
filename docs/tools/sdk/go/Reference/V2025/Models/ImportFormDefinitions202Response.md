@@ -1,12 +1,12 @@
 ---
-id: import-form-definitions202-response
+id: v2025-import-form-definitions202-response
 title: ImportFormDefinitions202Response
 pagination_label: ImportFormDefinitions202Response
 sidebar_label: ImportFormDefinitions202Response
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ImportFormDefinitions202Response', 'ImportFormDefinitions202Response'] 
-slug: /tools/sdk/go//models/import-form-definitions202-response
-tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitions202Response', 'ImportFormDefinitions202Response']
+keywords: ['go', 'Golang', 'sdk', 'ImportFormDefinitions202Response', 'V2025ImportFormDefinitions202Response'] 
+slug: /tools/sdk/go/v2025/models/import-form-definitions202-response
+tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitions202Response', 'V2025ImportFormDefinitions202Response']
 ---
 
 # ImportFormDefinitions202Response

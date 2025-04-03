@@ -1,12 +1,12 @@
 ---
-id: access-summary
+id: v2025-access-summary
 title: AccessSummary
 pagination_label: AccessSummary
 sidebar_label: AccessSummary
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessSummary', 'AccessSummary'] 
-slug: /tools/sdk/go//models/access-summary
-tags: ['SDK', 'Software Development Kit', 'AccessSummary', 'AccessSummary']
+keywords: ['go', 'Golang', 'sdk', 'AccessSummary', 'V2025AccessSummary'] 
+slug: /tools/sdk/go/v2025/models/access-summary
+tags: ['SDK', 'Software Development Kit', 'AccessSummary', 'V2025AccessSummary']
 ---
 
 # AccessSummary

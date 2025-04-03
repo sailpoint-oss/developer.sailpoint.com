@@ -1,12 +1,12 @@
 ---
-id: password-change-response
+id: v2025-password-change-response
 title: PasswordChangeResponse
 pagination_label: PasswordChangeResponse
 sidebar_label: PasswordChangeResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PasswordChangeResponse', 'PasswordChangeResponse'] 
-slug: /tools/sdk/go//models/password-change-response
-tags: ['SDK', 'Software Development Kit', 'PasswordChangeResponse', 'PasswordChangeResponse']
+keywords: ['go', 'Golang', 'sdk', 'PasswordChangeResponse', 'V2025PasswordChangeResponse'] 
+slug: /tools/sdk/go/v2025/models/password-change-response
+tags: ['SDK', 'Software Development Kit', 'PasswordChangeResponse', 'V2025PasswordChangeResponse']
 ---
 
 # PasswordChangeResponse

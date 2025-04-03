@@ -1,12 +1,12 @@
 ---
-id: workgroup-bulk-delete-request
+id: v2025-workgroup-bulk-delete-request
 title: WorkgroupBulkDeleteRequest
 pagination_label: WorkgroupBulkDeleteRequest
 sidebar_label: WorkgroupBulkDeleteRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkgroupBulkDeleteRequest', 'WorkgroupBulkDeleteRequest'] 
-slug: /tools/sdk/go//models/workgroup-bulk-delete-request
-tags: ['SDK', 'Software Development Kit', 'WorkgroupBulkDeleteRequest', 'WorkgroupBulkDeleteRequest']
+keywords: ['go', 'Golang', 'sdk', 'WorkgroupBulkDeleteRequest', 'V2025WorkgroupBulkDeleteRequest'] 
+slug: /tools/sdk/go/v2025/models/workgroup-bulk-delete-request
+tags: ['SDK', 'Software Development Kit', 'WorkgroupBulkDeleteRequest', 'V2025WorkgroupBulkDeleteRequest']
 ---
 
 # WorkgroupBulkDeleteRequest

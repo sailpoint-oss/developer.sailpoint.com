@@ -1,12 +1,12 @@
 ---
-id: non-employee-source-with-ne-count
+id: v2025-non-employee-source-with-ne-count
 title: NonEmployeeSourceWithNECount
 pagination_label: NonEmployeeSourceWithNECount
 sidebar_label: NonEmployeeSourceWithNECount
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NonEmployeeSourceWithNECount', 'NonEmployeeSourceWithNECount'] 
-slug: /tools/sdk/go//models/non-employee-source-with-ne-count
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceWithNECount', 'NonEmployeeSourceWithNECount']
+keywords: ['go', 'Golang', 'sdk', 'NonEmployeeSourceWithNECount', 'V2025NonEmployeeSourceWithNECount'] 
+slug: /tools/sdk/go/v2025/models/non-employee-source-with-ne-count
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceWithNECount', 'V2025NonEmployeeSourceWithNECount']
 ---
 
 # NonEmployeeSourceWithNECount

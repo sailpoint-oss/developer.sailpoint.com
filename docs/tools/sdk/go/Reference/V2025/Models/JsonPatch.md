@@ -1,12 +1,12 @@
 ---
-id: json-patch
+id: v2025-json-patch
 title: JsonPatch
 pagination_label: JsonPatch
 sidebar_label: JsonPatch
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'JsonPatch', 'JsonPatch'] 
-slug: /tools/sdk/go//models/json-patch
-tags: ['SDK', 'Software Development Kit', 'JsonPatch', 'JsonPatch']
+keywords: ['go', 'Golang', 'sdk', 'JsonPatch', 'V2025JsonPatch'] 
+slug: /tools/sdk/go/v2025/models/json-patch
+tags: ['SDK', 'Software Development Kit', 'JsonPatch', 'V2025JsonPatch']
 ---
 
 # JsonPatch

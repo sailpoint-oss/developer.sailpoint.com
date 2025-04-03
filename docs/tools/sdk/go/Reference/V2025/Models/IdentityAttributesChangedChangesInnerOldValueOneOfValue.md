@@ -1,12 +1,12 @@
 ---
-id: identity-attributes-changed-changes-inner-old-value-one-of-value
+id: v2025-identity-attributes-changed-changes-inner-old-value-one-of-value
 title: IdentityAttributesChangedChangesInnerOldValueOneOfValue
 pagination_label: IdentityAttributesChangedChangesInnerOldValueOneOfValue
 sidebar_label: IdentityAttributesChangedChangesInnerOldValueOneOfValue
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityAttributesChangedChangesInnerOldValueOneOfValue', 'IdentityAttributesChangedChangesInnerOldValueOneOfValue'] 
-slug: /tools/sdk/go//models/identity-attributes-changed-changes-inner-old-value-one-of-value
-tags: ['SDK', 'Software Development Kit', 'IdentityAttributesChangedChangesInnerOldValueOneOfValue', 'IdentityAttributesChangedChangesInnerOldValueOneOfValue']
+keywords: ['go', 'Golang', 'sdk', 'IdentityAttributesChangedChangesInnerOldValueOneOfValue', 'V2025IdentityAttributesChangedChangesInnerOldValueOneOfValue'] 
+slug: /tools/sdk/go/v2025/models/identity-attributes-changed-changes-inner-old-value-one-of-value
+tags: ['SDK', 'Software Development Kit', 'IdentityAttributesChangedChangesInnerOldValueOneOfValue', 'V2025IdentityAttributesChangedChangesInnerOldValueOneOfValue']
 ---
 
 # IdentityAttributesChangedChangesInnerOldValueOneOfValue

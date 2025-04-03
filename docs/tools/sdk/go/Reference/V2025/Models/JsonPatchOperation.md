@@ -1,12 +1,12 @@
 ---
-id: json-patch-operation
+id: v2025-json-patch-operation
 title: JsonPatchOperation
 pagination_label: JsonPatchOperation
 sidebar_label: JsonPatchOperation
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'JsonPatchOperation', 'JsonPatchOperation'] 
-slug: /tools/sdk/go//models/json-patch-operation
-tags: ['SDK', 'Software Development Kit', 'JsonPatchOperation', 'JsonPatchOperation']
+keywords: ['go', 'Golang', 'sdk', 'JsonPatchOperation', 'V2025JsonPatchOperation'] 
+slug: /tools/sdk/go/v2025/models/json-patch-operation
+tags: ['SDK', 'Software Development Kit', 'JsonPatchOperation', 'V2025JsonPatchOperation']
 ---
 
 # JsonPatchOperation

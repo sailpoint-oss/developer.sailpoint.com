@@ -1,12 +1,12 @@
 ---
-id: exception-criteria-criteria-list-inner
+id: v2025-exception-criteria-criteria-list-inner
 title: ExceptionCriteriaCriteriaListInner
 pagination_label: ExceptionCriteriaCriteriaListInner
 sidebar_label: ExceptionCriteriaCriteriaListInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ExceptionCriteriaCriteriaListInner', 'ExceptionCriteriaCriteriaListInner'] 
-slug: /tools/sdk/go//models/exception-criteria-criteria-list-inner
-tags: ['SDK', 'Software Development Kit', 'ExceptionCriteriaCriteriaListInner', 'ExceptionCriteriaCriteriaListInner']
+keywords: ['go', 'Golang', 'sdk', 'ExceptionCriteriaCriteriaListInner', 'V2025ExceptionCriteriaCriteriaListInner'] 
+slug: /tools/sdk/go/v2025/models/exception-criteria-criteria-list-inner
+tags: ['SDK', 'Software Development Kit', 'ExceptionCriteriaCriteriaListInner', 'V2025ExceptionCriteriaCriteriaListInner']
 ---
 
 # ExceptionCriteriaCriteriaListInner

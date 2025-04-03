@@ -1,12 +1,12 @@
 ---
-id: kba-answer-request-item
+id: v2025-kba-answer-request-item
 title: KbaAnswerRequestItem
 pagination_label: KbaAnswerRequestItem
 sidebar_label: KbaAnswerRequestItem
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'KbaAnswerRequestItem', 'KbaAnswerRequestItem'] 
-slug: /tools/sdk/go//models/kba-answer-request-item
-tags: ['SDK', 'Software Development Kit', 'KbaAnswerRequestItem', 'KbaAnswerRequestItem']
+keywords: ['go', 'Golang', 'sdk', 'KbaAnswerRequestItem', 'V2025KbaAnswerRequestItem'] 
+slug: /tools/sdk/go/v2025/models/kba-answer-request-item
+tags: ['SDK', 'Software Development Kit', 'KbaAnswerRequestItem', 'V2025KbaAnswerRequestItem']
 ---
 
 # KbaAnswerRequestItem

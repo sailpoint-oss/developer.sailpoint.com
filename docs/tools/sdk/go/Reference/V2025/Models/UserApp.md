@@ -1,12 +1,12 @@
 ---
-id: user-app
+id: v2025-user-app
 title: UserApp
 pagination_label: UserApp
 sidebar_label: UserApp
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'UserApp', 'UserApp'] 
-slug: /tools/sdk/go//models/user-app
-tags: ['SDK', 'Software Development Kit', 'UserApp', 'UserApp']
+keywords: ['go', 'Golang', 'sdk', 'UserApp', 'V2025UserApp'] 
+slug: /tools/sdk/go/v2025/models/user-app
+tags: ['SDK', 'Software Development Kit', 'UserApp', 'V2025UserApp']
 ---
 
 # UserApp

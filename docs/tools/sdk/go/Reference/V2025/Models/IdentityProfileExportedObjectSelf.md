@@ -1,12 +1,12 @@
 ---
-id: identity-profile-exported-object-self
+id: v2025-identity-profile-exported-object-self
 title: IdentityProfileExportedObjectSelf
 pagination_label: IdentityProfileExportedObjectSelf
 sidebar_label: IdentityProfileExportedObjectSelf
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityProfileExportedObjectSelf', 'IdentityProfileExportedObjectSelf'] 
-slug: /tools/sdk/go//models/identity-profile-exported-object-self
-tags: ['SDK', 'Software Development Kit', 'IdentityProfileExportedObjectSelf', 'IdentityProfileExportedObjectSelf']
+keywords: ['go', 'Golang', 'sdk', 'IdentityProfileExportedObjectSelf', 'V2025IdentityProfileExportedObjectSelf'] 
+slug: /tools/sdk/go/v2025/models/identity-profile-exported-object-self
+tags: ['SDK', 'Software Development Kit', 'IdentityProfileExportedObjectSelf', 'V2025IdentityProfileExportedObjectSelf']
 ---
 
 # IdentityProfileExportedObjectSelf

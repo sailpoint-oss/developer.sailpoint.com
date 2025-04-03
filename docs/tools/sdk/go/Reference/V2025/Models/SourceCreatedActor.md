@@ -1,12 +1,12 @@
 ---
-id: source-created-actor
+id: v2025-source-created-actor
 title: SourceCreatedActor
 pagination_label: SourceCreatedActor
 sidebar_label: SourceCreatedActor
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceCreatedActor', 'SourceCreatedActor'] 
-slug: /tools/sdk/go//models/source-created-actor
-tags: ['SDK', 'Software Development Kit', 'SourceCreatedActor', 'SourceCreatedActor']
+keywords: ['go', 'Golang', 'sdk', 'SourceCreatedActor', 'V2025SourceCreatedActor'] 
+slug: /tools/sdk/go/v2025/models/source-created-actor
+tags: ['SDK', 'Software Development Kit', 'SourceCreatedActor', 'V2025SourceCreatedActor']
 ---
 
 # SourceCreatedActor

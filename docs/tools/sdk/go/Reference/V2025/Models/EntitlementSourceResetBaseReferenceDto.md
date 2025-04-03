@@ -1,12 +1,12 @@
 ---
-id: entitlement-source-reset-base-reference-dto
+id: v2025-entitlement-source-reset-base-reference-dto
 title: EntitlementSourceResetBaseReferenceDto
 pagination_label: EntitlementSourceResetBaseReferenceDto
 sidebar_label: EntitlementSourceResetBaseReferenceDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EntitlementSourceResetBaseReferenceDto', 'EntitlementSourceResetBaseReferenceDto'] 
-slug: /tools/sdk/go//models/entitlement-source-reset-base-reference-dto
-tags: ['SDK', 'Software Development Kit', 'EntitlementSourceResetBaseReferenceDto', 'EntitlementSourceResetBaseReferenceDto']
+keywords: ['go', 'Golang', 'sdk', 'EntitlementSourceResetBaseReferenceDto', 'V2025EntitlementSourceResetBaseReferenceDto'] 
+slug: /tools/sdk/go/v2025/models/entitlement-source-reset-base-reference-dto
+tags: ['SDK', 'Software Development Kit', 'EntitlementSourceResetBaseReferenceDto', 'V2025EntitlementSourceResetBaseReferenceDto']
 ---
 
 # EntitlementSourceResetBaseReferenceDto

@@ -1,12 +1,12 @@
 ---
-id: native-change-detection-config
+id: v2025-native-change-detection-config
 title: NativeChangeDetectionConfig
 pagination_label: NativeChangeDetectionConfig
 sidebar_label: NativeChangeDetectionConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NativeChangeDetectionConfig', 'NativeChangeDetectionConfig'] 
-slug: /tools/sdk/go//models/native-change-detection-config
-tags: ['SDK', 'Software Development Kit', 'NativeChangeDetectionConfig', 'NativeChangeDetectionConfig']
+keywords: ['go', 'Golang', 'sdk', 'NativeChangeDetectionConfig', 'V2025NativeChangeDetectionConfig'] 
+slug: /tools/sdk/go/v2025/models/native-change-detection-config
+tags: ['SDK', 'Software Development Kit', 'NativeChangeDetectionConfig', 'V2025NativeChangeDetectionConfig']
 ---
 
 # NativeChangeDetectionConfig

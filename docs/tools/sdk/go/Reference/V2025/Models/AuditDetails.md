@@ -1,12 +1,12 @@
 ---
-id: audit-details
+id: v2025-audit-details
 title: AuditDetails
 pagination_label: AuditDetails
 sidebar_label: AuditDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AuditDetails', 'AuditDetails'] 
-slug: /tools/sdk/go//models/audit-details
-tags: ['SDK', 'Software Development Kit', 'AuditDetails', 'AuditDetails']
+keywords: ['go', 'Golang', 'sdk', 'AuditDetails', 'V2025AuditDetails'] 
+slug: /tools/sdk/go/v2025/models/audit-details
+tags: ['SDK', 'Software Development Kit', 'AuditDetails', 'V2025AuditDetails']
 ---
 
 # AuditDetails

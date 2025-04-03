@@ -1,12 +1,12 @@
 ---
-id: network-configuration
+id: v2025-network-configuration
 title: NetworkConfiguration
 pagination_label: NetworkConfiguration
 sidebar_label: NetworkConfiguration
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NetworkConfiguration', 'NetworkConfiguration'] 
-slug: /tools/sdk/go//models/network-configuration
-tags: ['SDK', 'Software Development Kit', 'NetworkConfiguration', 'NetworkConfiguration']
+keywords: ['go', 'Golang', 'sdk', 'NetworkConfiguration', 'V2025NetworkConfiguration'] 
+slug: /tools/sdk/go/v2025/models/network-configuration
+tags: ['SDK', 'Software Development Kit', 'NetworkConfiguration', 'V2025NetworkConfiguration']
 ---
 
 # NetworkConfiguration

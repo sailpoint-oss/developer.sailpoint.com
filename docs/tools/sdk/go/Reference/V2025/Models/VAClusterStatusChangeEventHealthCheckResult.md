@@ -1,12 +1,12 @@
 ---
-id: va-cluster-status-change-event-health-check-result
+id: v2025-va-cluster-status-change-event-health-check-result
 title: VAClusterStatusChangeEventHealthCheckResult
 pagination_label: VAClusterStatusChangeEventHealthCheckResult
 sidebar_label: VAClusterStatusChangeEventHealthCheckResult
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'VAClusterStatusChangeEventHealthCheckResult', 'VAClusterStatusChangeEventHealthCheckResult'] 
-slug: /tools/sdk/go//models/va-cluster-status-change-event-health-check-result
-tags: ['SDK', 'Software Development Kit', 'VAClusterStatusChangeEventHealthCheckResult', 'VAClusterStatusChangeEventHealthCheckResult']
+keywords: ['go', 'Golang', 'sdk', 'VAClusterStatusChangeEventHealthCheckResult', 'V2025VAClusterStatusChangeEventHealthCheckResult'] 
+slug: /tools/sdk/go/v2025/models/va-cluster-status-change-event-health-check-result
+tags: ['SDK', 'Software Development Kit', 'VAClusterStatusChangeEventHealthCheckResult', 'V2025VAClusterStatusChangeEventHealthCheckResult']
 ---
 
 # VAClusterStatusChangeEventHealthCheckResult

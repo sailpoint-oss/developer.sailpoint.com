@@ -1,12 +1,12 @@
 ---
-id: error-response-dto
+id: v2025-error-response-dto
 title: ErrorResponseDto
 pagination_label: ErrorResponseDto
 sidebar_label: ErrorResponseDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ErrorResponseDto', 'ErrorResponseDto'] 
-slug: /tools/sdk/go//models/error-response-dto
-tags: ['SDK', 'Software Development Kit', 'ErrorResponseDto', 'ErrorResponseDto']
+keywords: ['go', 'Golang', 'sdk', 'ErrorResponseDto', 'V2025ErrorResponseDto'] 
+slug: /tools/sdk/go/v2025/models/error-response-dto
+tags: ['SDK', 'Software Development Kit', 'ErrorResponseDto', 'V2025ErrorResponseDto']
 ---
 
 # ErrorResponseDto

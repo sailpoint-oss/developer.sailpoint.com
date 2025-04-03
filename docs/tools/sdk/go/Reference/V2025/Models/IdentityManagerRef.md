@@ -1,12 +1,12 @@
 ---
-id: identity-manager-ref
+id: v2025-identity-manager-ref
 title: IdentityManagerRef
 pagination_label: IdentityManagerRef
 sidebar_label: IdentityManagerRef
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityManagerRef', 'IdentityManagerRef'] 
-slug: /tools/sdk/go//models/identity-manager-ref
-tags: ['SDK', 'Software Development Kit', 'IdentityManagerRef', 'IdentityManagerRef']
+keywords: ['go', 'Golang', 'sdk', 'IdentityManagerRef', 'V2025IdentityManagerRef'] 
+slug: /tools/sdk/go/v2025/models/identity-manager-ref
+tags: ['SDK', 'Software Development Kit', 'IdentityManagerRef', 'V2025IdentityManagerRef']
 ---
 
 # IdentityManagerRef

@@ -1,12 +1,12 @@
 ---
-id: role-metadata-bulk-update-by-filter-request
+id: v2025-role-metadata-bulk-update-by-filter-request
 title: RoleMetadataBulkUpdateByFilterRequest
 pagination_label: RoleMetadataBulkUpdateByFilterRequest
 sidebar_label: RoleMetadataBulkUpdateByFilterRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMetadataBulkUpdateByFilterRequest', 'RoleMetadataBulkUpdateByFilterRequest'] 
-slug: /tools/sdk/go//models/role-metadata-bulk-update-by-filter-request
-tags: ['SDK', 'Software Development Kit', 'RoleMetadataBulkUpdateByFilterRequest', 'RoleMetadataBulkUpdateByFilterRequest']
+keywords: ['go', 'Golang', 'sdk', 'RoleMetadataBulkUpdateByFilterRequest', 'V2025RoleMetadataBulkUpdateByFilterRequest'] 
+slug: /tools/sdk/go/v2025/models/role-metadata-bulk-update-by-filter-request
+tags: ['SDK', 'Software Development Kit', 'RoleMetadataBulkUpdateByFilterRequest', 'V2025RoleMetadataBulkUpdateByFilterRequest']
 ---
 
 # RoleMetadataBulkUpdateByFilterRequest

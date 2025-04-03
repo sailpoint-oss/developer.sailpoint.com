@@ -1,12 +1,12 @@
 ---
-id: attribute-request-value
+id: v2025-attribute-request-value
 title: AttributeRequestValue
 pagination_label: AttributeRequestValue
 sidebar_label: AttributeRequestValue
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AttributeRequestValue', 'AttributeRequestValue'] 
-slug: /tools/sdk/go//models/attribute-request-value
-tags: ['SDK', 'Software Development Kit', 'AttributeRequestValue', 'AttributeRequestValue']
+keywords: ['go', 'Golang', 'sdk', 'AttributeRequestValue', 'V2025AttributeRequestValue'] 
+slug: /tools/sdk/go/v2025/models/attribute-request-value
+tags: ['SDK', 'Software Development Kit', 'AttributeRequestValue', 'V2025AttributeRequestValue']
 ---
 
 # AttributeRequestValue

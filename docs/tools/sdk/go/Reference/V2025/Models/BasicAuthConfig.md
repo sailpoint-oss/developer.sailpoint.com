@@ -1,12 +1,12 @@
 ---
-id: basic-auth-config
+id: v2025-basic-auth-config
 title: BasicAuthConfig
 pagination_label: BasicAuthConfig
 sidebar_label: BasicAuthConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BasicAuthConfig', 'BasicAuthConfig'] 
-slug: /tools/sdk/go//models/basic-auth-config
-tags: ['SDK', 'Software Development Kit', 'BasicAuthConfig', 'BasicAuthConfig']
+keywords: ['go', 'Golang', 'sdk', 'BasicAuthConfig', 'V2025BasicAuthConfig'] 
+slug: /tools/sdk/go/v2025/models/basic-auth-config
+tags: ['SDK', 'Software Development Kit', 'BasicAuthConfig', 'V2025BasicAuthConfig']
 ---
 
 # BasicAuthConfig

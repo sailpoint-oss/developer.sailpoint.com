@@ -1,12 +1,12 @@
 ---
-id: role-summary
+id: v2025-role-summary
 title: RoleSummary
 pagination_label: RoleSummary
 sidebar_label: RoleSummary
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleSummary', 'RoleSummary'] 
-slug: /tools/sdk/go//models/role-summary
-tags: ['SDK', 'Software Development Kit', 'RoleSummary', 'RoleSummary']
+keywords: ['go', 'Golang', 'sdk', 'RoleSummary', 'V2025RoleSummary'] 
+slug: /tools/sdk/go/v2025/models/role-summary
+tags: ['SDK', 'Software Development Kit', 'RoleSummary', 'V2025RoleSummary']
 ---
 
 # RoleSummary

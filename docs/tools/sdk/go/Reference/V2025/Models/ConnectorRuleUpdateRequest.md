@@ -1,12 +1,12 @@
 ---
-id: connector-rule-update-request
+id: v2025-connector-rule-update-request
 title: ConnectorRuleUpdateRequest
 pagination_label: ConnectorRuleUpdateRequest
 sidebar_label: ConnectorRuleUpdateRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConnectorRuleUpdateRequest', 'ConnectorRuleUpdateRequest'] 
-slug: /tools/sdk/go//models/connector-rule-update-request
-tags: ['SDK', 'Software Development Kit', 'ConnectorRuleUpdateRequest', 'ConnectorRuleUpdateRequest']
+keywords: ['go', 'Golang', 'sdk', 'ConnectorRuleUpdateRequest', 'V2025ConnectorRuleUpdateRequest'] 
+slug: /tools/sdk/go/v2025/models/connector-rule-update-request
+tags: ['SDK', 'Software Development Kit', 'ConnectorRuleUpdateRequest', 'V2025ConnectorRuleUpdateRequest']
 ---
 
 # ConnectorRuleUpdateRequest

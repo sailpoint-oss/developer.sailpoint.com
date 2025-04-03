@@ -1,12 +1,12 @@
 ---
-id: multi-host-integrations-accounts-file
+id: v2025-multi-host-integrations-accounts-file
 title: MultiHostIntegrationsAccountsFile
 pagination_label: MultiHostIntegrationsAccountsFile
 sidebar_label: MultiHostIntegrationsAccountsFile
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MultiHostIntegrationsAccountsFile', 'MultiHostIntegrationsAccountsFile'] 
-slug: /tools/sdk/go//models/multi-host-integrations-accounts-file
-tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsAccountsFile', 'MultiHostIntegrationsAccountsFile']
+keywords: ['go', 'Golang', 'sdk', 'MultiHostIntegrationsAccountsFile', 'V2025MultiHostIntegrationsAccountsFile'] 
+slug: /tools/sdk/go/v2025/models/multi-host-integrations-accounts-file
+tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsAccountsFile', 'V2025MultiHostIntegrationsAccountsFile']
 ---
 
 # MultiHostIntegrationsAccountsFile

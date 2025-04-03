@@ -1,12 +1,12 @@
 ---
-id: accounts-export-report-arguments
+id: v2025-accounts-export-report-arguments
 title: AccountsExportReportArguments
 pagination_label: AccountsExportReportArguments
 sidebar_label: AccountsExportReportArguments
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountsExportReportArguments', 'AccountsExportReportArguments'] 
-slug: /tools/sdk/go//models/accounts-export-report-arguments
-tags: ['SDK', 'Software Development Kit', 'AccountsExportReportArguments', 'AccountsExportReportArguments']
+keywords: ['go', 'Golang', 'sdk', 'AccountsExportReportArguments', 'V2025AccountsExportReportArguments'] 
+slug: /tools/sdk/go/v2025/models/accounts-export-report-arguments
+tags: ['SDK', 'Software Development Kit', 'AccountsExportReportArguments', 'V2025AccountsExportReportArguments']
 ---
 
 # AccountsExportReportArguments

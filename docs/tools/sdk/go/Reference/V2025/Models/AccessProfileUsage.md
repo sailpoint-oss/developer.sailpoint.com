@@ -1,12 +1,12 @@
 ---
-id: access-profile-usage
+id: v2025-access-profile-usage
 title: AccessProfileUsage
 pagination_label: AccessProfileUsage
 sidebar_label: AccessProfileUsage
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessProfileUsage', 'AccessProfileUsage'] 
-slug: /tools/sdk/go//models/access-profile-usage
-tags: ['SDK', 'Software Development Kit', 'AccessProfileUsage', 'AccessProfileUsage']
+keywords: ['go', 'Golang', 'sdk', 'AccessProfileUsage', 'V2025AccessProfileUsage'] 
+slug: /tools/sdk/go/v2025/models/access-profile-usage
+tags: ['SDK', 'Software Development Kit', 'AccessProfileUsage', 'V2025AccessProfileUsage']
 ---
 
 # AccessProfileUsage

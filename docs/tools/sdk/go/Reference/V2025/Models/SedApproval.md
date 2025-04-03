@@ -1,12 +1,12 @@
 ---
-id: sed-approval
+id: v2025-sed-approval
 title: SedApproval
 pagination_label: SedApproval
 sidebar_label: SedApproval
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SedApproval', 'SedApproval'] 
-slug: /tools/sdk/go//models/sed-approval
-tags: ['SDK', 'Software Development Kit', 'SedApproval', 'SedApproval']
+keywords: ['go', 'Golang', 'sdk', 'SedApproval', 'V2025SedApproval'] 
+slug: /tools/sdk/go/v2025/models/sed-approval
+tags: ['SDK', 'Software Development Kit', 'SedApproval', 'V2025SedApproval']
 ---
 
 # SedApproval

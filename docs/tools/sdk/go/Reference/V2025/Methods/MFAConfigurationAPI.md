@@ -1,12 +1,12 @@
 ---
-id: mfa-configuration
+id: v2025-mfa-configuration
 title: MFAConfiguration
 pagination_label: MFAConfiguration
 sidebar_label: MFAConfiguration
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MFAConfiguration', 'MFAConfiguration'] 
-slug: /tools/sdk/go//methods/mfa-configuration
-tags: ['SDK', 'Software Development Kit', 'MFAConfiguration', 'MFAConfiguration']
+keywords: ['go', 'Golang', 'sdk', 'MFAConfiguration', 'V2025MFAConfiguration'] 
+slug: /tools/sdk/go/v2025/methods/mfa-configuration
+tags: ['SDK', 'Software Development Kit', 'MFAConfiguration', 'V2025MFAConfiguration']
 ---
 
 # MFAConfigurationAPI
@@ -28,7 +28,7 @@ Method | HTTP request | Description
 Configuration of Duo MFA method
 This API returns the configuration of an Duo MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-mfa-duo-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-mfa-duo-config)
 
 ### Path Parameters
 
@@ -57,7 +57,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -65,7 +65,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..MFAConfigurationAPI.GetMFADuoConfig(context.Background()).Execute()
+	resp, r, err := apiClient.V2025.MFAConfigurationAPI.GetMFADuoConfig(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MFAConfigurationAPI.GetMFADuoConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -81,7 +81,7 @@ func main() {
 Configuration of KBA MFA method
 This API returns the KBA configuration for MFA.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-mfa-kba-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-mfa-kba-config)
 
 ### Path Parameters
 
@@ -114,7 +114,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -123,7 +123,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..MFAConfigurationAPI.GetMFAKbaConfig(context.Background()).AllLanguages(allLanguages).Execute()
+	resp, r, err := apiClient.V2025.MFAConfigurationAPI.GetMFAKbaConfig(context.Background()).AllLanguages(allLanguages).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MFAConfigurationAPI.GetMFAKbaConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -139,7 +139,7 @@ func main() {
 Configuration of Okta MFA method
 This API returns the configuration of an Okta MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-mfa-okta-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-mfa-okta-config)
 
 ### Path Parameters
 
@@ -168,7 +168,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -176,7 +176,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..MFAConfigurationAPI.GetMFAOktaConfig(context.Background()).Execute()
+	resp, r, err := apiClient.V2025.MFAConfigurationAPI.GetMFAOktaConfig(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MFAConfigurationAPI.GetMFAOktaConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -192,7 +192,7 @@ func main() {
 Set Duo MFA configuration
 This API sets the configuration of an Duo MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api//set-mfa-duo-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/set-mfa-duo-config)
 
 ### Path Parameters
 
@@ -225,7 +225,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -244,7 +244,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..MFAConfigurationAPI.SetMFADuoConfig(context.Background()).MfaDuoConfig(mfaDuoConfig).Execute()
+	resp, r, err := apiClient.V2025.MFAConfigurationAPI.SetMFADuoConfig(context.Background()).MfaDuoConfig(mfaDuoConfig).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MFAConfigurationAPI.SetMFADuoConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -260,7 +260,7 @@ func main() {
 Set MFA KBA configuration
 This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration.    
 
-[API Spec](https://developer.sailpoint.com/docs/api//set-mfakba-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/set-mfakba-config)
 
 ### Path Parameters
 
@@ -293,7 +293,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -302,7 +302,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..MFAConfigurationAPI.SetMFAKBAConfig(context.Background()).KbaAnswerRequestItem(kbaAnswerRequestItem).Execute()
+	resp, r, err := apiClient.V2025.MFAConfigurationAPI.SetMFAKBAConfig(context.Background()).KbaAnswerRequestItem(kbaAnswerRequestItem).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MFAConfigurationAPI.SetMFAKBAConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -318,7 +318,7 @@ func main() {
 Set Okta MFA configuration
 This API sets the configuration of an Okta MFA method.
 
-[API Spec](https://developer.sailpoint.com/docs/api//set-mfa-okta-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/set-mfa-okta-config)
 
 ### Path Parameters
 
@@ -351,7 +351,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -366,7 +366,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..MFAConfigurationAPI.SetMFAOktaConfig(context.Background()).MfaOktaConfig(mfaOktaConfig).Execute()
+	resp, r, err := apiClient.V2025.MFAConfigurationAPI.SetMFAOktaConfig(context.Background()).MfaOktaConfig(mfaOktaConfig).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MFAConfigurationAPI.SetMFAOktaConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -382,7 +382,7 @@ func main() {
 MFA method's test configuration
 This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter.
 
-[API Spec](https://developer.sailpoint.com/docs/api//test-mfa-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/test-mfa-config)
 
 ### Path Parameters
 
@@ -419,7 +419,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -428,7 +428,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..MFAConfigurationAPI.TestMFAConfig(context.Background(), method).Execute()
+	resp, r, err := apiClient.V2025.MFAConfigurationAPI.TestMFAConfig(context.Background(), method).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MFAConfigurationAPI.TestMFAConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -1,12 +1,12 @@
 ---
-id: provisioning-details
+id: v2025-provisioning-details
 title: ProvisioningDetails
 pagination_label: ProvisioningDetails
 sidebar_label: ProvisioningDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ProvisioningDetails', 'ProvisioningDetails'] 
-slug: /tools/sdk/go//models/provisioning-details
-tags: ['SDK', 'Software Development Kit', 'ProvisioningDetails', 'ProvisioningDetails']
+keywords: ['go', 'Golang', 'sdk', 'ProvisioningDetails', 'V2025ProvisioningDetails'] 
+slug: /tools/sdk/go/v2025/models/provisioning-details
+tags: ['SDK', 'Software Development Kit', 'ProvisioningDetails', 'V2025ProvisioningDetails']
 ---
 
 # ProvisioningDetails

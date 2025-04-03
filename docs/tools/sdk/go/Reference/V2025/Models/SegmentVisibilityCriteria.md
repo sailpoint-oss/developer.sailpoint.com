@@ -1,12 +1,12 @@
 ---
-id: segment-visibility-criteria
+id: v2025-segment-visibility-criteria
 title: SegmentVisibilityCriteria
 pagination_label: SegmentVisibilityCriteria
 sidebar_label: SegmentVisibilityCriteria
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SegmentVisibilityCriteria', 'SegmentVisibilityCriteria'] 
-slug: /tools/sdk/go//models/segment-visibility-criteria
-tags: ['SDK', 'Software Development Kit', 'SegmentVisibilityCriteria', 'SegmentVisibilityCriteria']
+keywords: ['go', 'Golang', 'sdk', 'SegmentVisibilityCriteria', 'V2025SegmentVisibilityCriteria'] 
+slug: /tools/sdk/go/v2025/models/segment-visibility-criteria
+tags: ['SDK', 'Software Development Kit', 'SegmentVisibilityCriteria', 'V2025SegmentVisibilityCriteria']
 ---
 
 # SegmentVisibilityCriteria

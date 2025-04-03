@@ -1,12 +1,12 @@
 ---
-id: access-model-metadata
+id: v2025-access-model-metadata
 title: AccessModelMetadata
 pagination_label: AccessModelMetadata
 sidebar_label: AccessModelMetadata
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessModelMetadata', 'AccessModelMetadata'] 
-slug: /tools/sdk/go//models/access-model-metadata
-tags: ['SDK', 'Software Development Kit', 'AccessModelMetadata', 'AccessModelMetadata']
+keywords: ['go', 'Golang', 'sdk', 'AccessModelMetadata', 'V2025AccessModelMetadata'] 
+slug: /tools/sdk/go/v2025/models/access-model-metadata
+tags: ['SDK', 'Software Development Kit', 'AccessModelMetadata', 'V2025AccessModelMetadata']
 ---
 
 # AccessModelMetadata

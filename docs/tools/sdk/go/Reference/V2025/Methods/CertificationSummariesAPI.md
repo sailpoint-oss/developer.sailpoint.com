@@ -1,12 +1,12 @@
 ---
-id: certification-summaries
+id: v2025-certification-summaries
 title: CertificationSummaries
 pagination_label: CertificationSummaries
 sidebar_label: CertificationSummaries
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CertificationSummaries', 'CertificationSummaries'] 
-slug: /tools/sdk/go//methods/certification-summaries
-tags: ['SDK', 'Software Development Kit', 'CertificationSummaries', 'CertificationSummaries']
+keywords: ['go', 'Golang', 'sdk', 'CertificationSummaries', 'V2025CertificationSummaries'] 
+slug: /tools/sdk/go/v2025/methods/certification-summaries
+tags: ['SDK', 'Software Development Kit', 'CertificationSummaries', 'V2025CertificationSummaries']
 ---
 
 # CertificationSummariesAPI
@@ -39,7 +39,7 @@ Method | HTTP request | Description
 Access Summaries
 This API returns a list of access summaries for the specified identity campaign certification and type. Reviewers for this certification can also call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-identity-access-summaries)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identity-access-summaries)
 
 ### Path Parameters
 
@@ -83,7 +83,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -98,7 +98,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..CertificationSummariesAPI.GetIdentityAccessSummaries(context.Background(), id, type_).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.CertificationSummariesAPI.GetIdentityAccessSummaries(context.Background(), id, type_).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CertificationSummariesAPI.GetIdentityAccessSummaries``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -114,7 +114,7 @@ func main() {
 Summary of Certification Decisions
 This API returns a summary of the decisions made on an identity campaign certification. The decisions are summarized by type. Reviewers for this certification can also call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-identity-decision-summary)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identity-decision-summary)
 
 ### Path Parameters
 
@@ -152,7 +152,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -162,7 +162,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..CertificationSummariesAPI.GetIdentityDecisionSummary(context.Background(), id).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.CertificationSummariesAPI.GetIdentityDecisionSummary(context.Background(), id).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CertificationSummariesAPI.GetIdentityDecisionSummary``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -178,7 +178,7 @@ func main() {
 Identity Summaries for Campaign Certification
 This API returns a list of the identity summaries for a specific identity campaign certification. Reviewers for this certification can also call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-identity-summaries)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identity-summaries)
 
 ### Path Parameters
 
@@ -220,7 +220,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -234,7 +234,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..CertificationSummariesAPI.GetIdentitySummaries(context.Background(), id).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.CertificationSummariesAPI.GetIdentitySummaries(context.Background(), id).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CertificationSummariesAPI.GetIdentitySummaries``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -250,7 +250,7 @@ func main() {
 Summary for Identity
 This API returns the summary for an identity on a specified identity campaign certification. Reviewers for this certification can also call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-identity-summary)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identity-summary)
 
 ### Path Parameters
 
@@ -289,7 +289,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -299,7 +299,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..CertificationSummariesAPI.GetIdentitySummary(context.Background(), id, identitySummaryId).Execute()
+	resp, r, err := apiClient.V2025.CertificationSummariesAPI.GetIdentitySummary(context.Background(), id, identitySummaryId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CertificationSummariesAPI.GetIdentitySummary``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

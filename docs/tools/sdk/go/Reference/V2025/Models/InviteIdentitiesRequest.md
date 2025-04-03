@@ -1,12 +1,12 @@
 ---
-id: invite-identities-request
+id: v2025-invite-identities-request
 title: InviteIdentitiesRequest
 pagination_label: InviteIdentitiesRequest
 sidebar_label: InviteIdentitiesRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'InviteIdentitiesRequest', 'InviteIdentitiesRequest'] 
-slug: /tools/sdk/go//models/invite-identities-request
-tags: ['SDK', 'Software Development Kit', 'InviteIdentitiesRequest', 'InviteIdentitiesRequest']
+keywords: ['go', 'Golang', 'sdk', 'InviteIdentitiesRequest', 'V2025InviteIdentitiesRequest'] 
+slug: /tools/sdk/go/v2025/models/invite-identities-request
+tags: ['SDK', 'Software Development Kit', 'InviteIdentitiesRequest', 'V2025InviteIdentitiesRequest']
 ---
 
 # InviteIdentitiesRequest

@@ -1,12 +1,12 @@
 ---
-id: approval-comment2
+id: v2025-approval-comment2
 title: ApprovalComment2
 pagination_label: ApprovalComment2
 sidebar_label: ApprovalComment2
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ApprovalComment2', 'ApprovalComment2'] 
-slug: /tools/sdk/go//models/approval-comment2
-tags: ['SDK', 'Software Development Kit', 'ApprovalComment2', 'ApprovalComment2']
+keywords: ['go', 'Golang', 'sdk', 'ApprovalComment2', 'V2025ApprovalComment2'] 
+slug: /tools/sdk/go/v2025/models/approval-comment2
+tags: ['SDK', 'Software Development Kit', 'ApprovalComment2', 'V2025ApprovalComment2']
 ---
 
 # ApprovalComment2

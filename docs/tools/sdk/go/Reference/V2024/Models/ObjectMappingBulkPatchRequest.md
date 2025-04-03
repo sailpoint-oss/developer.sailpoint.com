@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkPatchRequest', 'V202
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Patches** | [**map[string][]JsonPatchOperation**](array) | Map of id of the object mapping to a JsonPatchOperation describing what to patch on that object mapping. | 
+**Patches** | [**map[string][]JsonPatchOperation**](https://go.dev/tour/moretypes/6) | Map of id of the object mapping to a JsonPatchOperation describing what to patch on that object mapping. | 
 
 ## Methods
 

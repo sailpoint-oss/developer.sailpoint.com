@@ -1,12 +1,12 @@
 ---
-id: password-digit-token
+id: v2025-password-digit-token
 title: PasswordDigitToken
 pagination_label: PasswordDigitToken
 sidebar_label: PasswordDigitToken
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PasswordDigitToken', 'PasswordDigitToken'] 
-slug: /tools/sdk/go//models/password-digit-token
-tags: ['SDK', 'Software Development Kit', 'PasswordDigitToken', 'PasswordDigitToken']
+keywords: ['go', 'Golang', 'sdk', 'PasswordDigitToken', 'V2025PasswordDigitToken'] 
+slug: /tools/sdk/go/v2025/models/password-digit-token
+tags: ['SDK', 'Software Development Kit', 'PasswordDigitToken', 'V2025PasswordDigitToken']
 ---
 
 # PasswordDigitToken

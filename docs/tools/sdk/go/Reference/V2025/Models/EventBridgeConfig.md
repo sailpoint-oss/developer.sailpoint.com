@@ -1,12 +1,12 @@
 ---
-id: event-bridge-config
+id: v2025-event-bridge-config
 title: EventBridgeConfig
 pagination_label: EventBridgeConfig
 sidebar_label: EventBridgeConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EventBridgeConfig', 'EventBridgeConfig'] 
-slug: /tools/sdk/go//models/event-bridge-config
-tags: ['SDK', 'Software Development Kit', 'EventBridgeConfig', 'EventBridgeConfig']
+keywords: ['go', 'Golang', 'sdk', 'EventBridgeConfig', 'V2025EventBridgeConfig'] 
+slug: /tools/sdk/go/v2025/models/event-bridge-config
+tags: ['SDK', 'Software Development Kit', 'EventBridgeConfig', 'V2025EventBridgeConfig']
 ---
 
 # EventBridgeConfig

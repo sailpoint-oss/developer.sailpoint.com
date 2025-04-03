@@ -1,12 +1,12 @@
 ---
-id: permission-dto
+id: v2025-permission-dto
 title: PermissionDto
 pagination_label: PermissionDto
 sidebar_label: PermissionDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PermissionDto', 'PermissionDto'] 
-slug: /tools/sdk/go//models/permission-dto
-tags: ['SDK', 'Software Development Kit', 'PermissionDto', 'PermissionDto']
+keywords: ['go', 'Golang', 'sdk', 'PermissionDto', 'V2025PermissionDto'] 
+slug: /tools/sdk/go/v2025/models/permission-dto
+tags: ['SDK', 'Software Development Kit', 'PermissionDto', 'V2025PermissionDto']
 ---
 
 # PermissionDto

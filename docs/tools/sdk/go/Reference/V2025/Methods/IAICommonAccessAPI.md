@@ -1,12 +1,12 @@
 ---
-id: iai-common-access
+id: v2025-iai-common-access
 title: IAICommonAccess
 pagination_label: IAICommonAccess
 sidebar_label: IAICommonAccess
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IAICommonAccess', 'IAICommonAccess'] 
-slug: /tools/sdk/go//methods/iai-common-access
-tags: ['SDK', 'Software Development Kit', 'IAICommonAccess', 'IAICommonAccess']
+keywords: ['go', 'Golang', 'sdk', 'IAICommonAccess', 'V2025IAICommonAccess'] 
+slug: /tools/sdk/go/v2025/methods/iai-common-access
+tags: ['SDK', 'Software Development Kit', 'IAICommonAccess', 'V2025IAICommonAccess']
 ---
 
 # IAICommonAccessAPI
@@ -35,7 +35,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Create common access items
 This API is used to add roles/access profiles to the list of common access for a customer. Requires authorization scope of iai:access-modeling:create
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-common-access)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-common-access)
 
 ### Path Parameters
 
@@ -69,7 +69,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -89,7 +89,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAICommonAccessAPI.CreateCommonAccess(context.Background()).XSailPointExperimental(xSailPointExperimental).CommonAccessItemRequest(commonAccessItemRequest).Execute()
+	resp, r, err := apiClient.V2025.IAICommonAccessAPI.CreateCommonAccess(context.Background()).XSailPointExperimental(xSailPointExperimental).CommonAccessItemRequest(commonAccessItemRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAICommonAccessAPI.CreateCommonAccess``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -116,7 +116,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get a paginated list of common access
 This endpoint returns the current common access for a customer. The returned items can be filtered and sorted. Requires authorization scope of iai:access-modeling:read
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-common-access)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-common-access)
 
 ### Path Parameters
 
@@ -154,7 +154,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -168,7 +168,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAICommonAccessAPI.GetCommonAccess(context.Background()).XSailPointExperimental(xSailPointExperimental).Offset(offset).Limit(limit).Count(count).Filters(filters).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.IAICommonAccessAPI.GetCommonAccess(context.Background()).XSailPointExperimental(xSailPointExperimental).Offset(offset).Limit(limit).Count(count).Filters(filters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAICommonAccessAPI.GetCommonAccess``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -195,7 +195,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Bulk update common access status
 This submits an update request to the common access application. At this time there are no parameters. Requires authorization scope of iai:access-modeling:update
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-common-access-status-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-common-access-status-in-bulk)
 
 ### Path Parameters
 
@@ -229,7 +229,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -239,7 +239,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAICommonAccessAPI.UpdateCommonAccessStatusInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).CommonAccessIDStatus(commonAccessIDStatus).Execute()
+	resp, r, err := apiClient.V2025.IAICommonAccessAPI.UpdateCommonAccessStatusInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).CommonAccessIDStatus(commonAccessIDStatus).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAICommonAccessAPI.UpdateCommonAccessStatusInBulk``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

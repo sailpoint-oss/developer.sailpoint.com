@@ -1,12 +1,12 @@
 ---
-id: multi-host-sources
+id: v2025-multi-host-sources
 title: MultiHostSources
 pagination_label: MultiHostSources
 sidebar_label: MultiHostSources
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MultiHostSources', 'MultiHostSources'] 
-slug: /tools/sdk/go//models/multi-host-sources
-tags: ['SDK', 'Software Development Kit', 'MultiHostSources', 'MultiHostSources']
+keywords: ['go', 'Golang', 'sdk', 'MultiHostSources', 'V2025MultiHostSources'] 
+slug: /tools/sdk/go/v2025/models/multi-host-sources
+tags: ['SDK', 'Software Development Kit', 'MultiHostSources', 'V2025MultiHostSources']
 ---
 
 # MultiHostSources

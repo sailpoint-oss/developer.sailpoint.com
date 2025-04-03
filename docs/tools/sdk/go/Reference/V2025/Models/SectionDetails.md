@@ -1,12 +1,12 @@
 ---
-id: section-details
+id: v2025-section-details
 title: SectionDetails
 pagination_label: SectionDetails
 sidebar_label: SectionDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SectionDetails', 'SectionDetails'] 
-slug: /tools/sdk/go//models/section-details
-tags: ['SDK', 'Software Development Kit', 'SectionDetails', 'SectionDetails']
+keywords: ['go', 'Golang', 'sdk', 'SectionDetails', 'V2025SectionDetails'] 
+slug: /tools/sdk/go/v2025/models/section-details
+tags: ['SDK', 'Software Development Kit', 'SectionDetails', 'V2025SectionDetails']
 ---
 
 # SectionDetails

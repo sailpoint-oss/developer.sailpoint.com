@@ -1,12 +1,12 @@
 ---
-id: object-mapping-bulk-create-response
+id: v2025-object-mapping-bulk-create-response
 title: ObjectMappingBulkCreateResponse
 pagination_label: ObjectMappingBulkCreateResponse
 sidebar_label: ObjectMappingBulkCreateResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ObjectMappingBulkCreateResponse', 'ObjectMappingBulkCreateResponse'] 
-slug: /tools/sdk/go//models/object-mapping-bulk-create-response
-tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkCreateResponse', 'ObjectMappingBulkCreateResponse']
+keywords: ['go', 'Golang', 'sdk', 'ObjectMappingBulkCreateResponse', 'V2025ObjectMappingBulkCreateResponse'] 
+slug: /tools/sdk/go/v2025/models/object-mapping-bulk-create-response
+tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkCreateResponse', 'V2025ObjectMappingBulkCreateResponse']
 ---
 
 # ObjectMappingBulkCreateResponse

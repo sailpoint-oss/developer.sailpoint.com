@@ -1,12 +1,12 @@
 ---
-id: requested-item-status-requester-comment
+id: v2025-requested-item-status-requester-comment
 title: RequestedItemStatusRequesterComment
 pagination_label: RequestedItemStatusRequesterComment
 sidebar_label: RequestedItemStatusRequesterComment
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RequestedItemStatusRequesterComment', 'RequestedItemStatusRequesterComment'] 
-slug: /tools/sdk/go//models/requested-item-status-requester-comment
-tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusRequesterComment', 'RequestedItemStatusRequesterComment']
+keywords: ['go', 'Golang', 'sdk', 'RequestedItemStatusRequesterComment', 'V2025RequestedItemStatusRequesterComment'] 
+slug: /tools/sdk/go/v2025/models/requested-item-status-requester-comment
+tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusRequesterComment', 'V2025RequestedItemStatusRequesterComment']
 ---
 
 # RequestedItemStatusRequesterComment

@@ -1,12 +1,12 @@
 ---
-id: form-element
+id: v2025-form-element
 title: FormElement
 pagination_label: FormElement
 sidebar_label: FormElement
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FormElement', 'FormElement'] 
-slug: /tools/sdk/go//models/form-element
-tags: ['SDK', 'Software Development Kit', 'FormElement', 'FormElement']
+keywords: ['go', 'Golang', 'sdk', 'FormElement', 'V2025FormElement'] 
+slug: /tools/sdk/go/v2025/models/form-element
+tags: ['SDK', 'Software Development Kit', 'FormElement', 'V2025FormElement']
 ---
 
 # FormElement

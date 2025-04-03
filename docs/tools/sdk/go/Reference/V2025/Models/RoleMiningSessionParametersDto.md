@@ -1,12 +1,12 @@
 ---
-id: role-mining-session-parameters-dto
+id: v2025-role-mining-session-parameters-dto
 title: RoleMiningSessionParametersDto
 pagination_label: RoleMiningSessionParametersDto
 sidebar_label: RoleMiningSessionParametersDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMiningSessionParametersDto', 'RoleMiningSessionParametersDto'] 
-slug: /tools/sdk/go//models/role-mining-session-parameters-dto
-tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionParametersDto', 'RoleMiningSessionParametersDto']
+keywords: ['go', 'Golang', 'sdk', 'RoleMiningSessionParametersDto', 'V2025RoleMiningSessionParametersDto'] 
+slug: /tools/sdk/go/v2025/models/role-mining-session-parameters-dto
+tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionParametersDto', 'V2025RoleMiningSessionParametersDto']
 ---
 
 # RoleMiningSessionParametersDto

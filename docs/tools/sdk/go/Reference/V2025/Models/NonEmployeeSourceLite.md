@@ -1,12 +1,12 @@
 ---
-id: non-employee-source-lite
+id: v2025-non-employee-source-lite
 title: NonEmployeeSourceLite
 pagination_label: NonEmployeeSourceLite
 sidebar_label: NonEmployeeSourceLite
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NonEmployeeSourceLite', 'NonEmployeeSourceLite'] 
-slug: /tools/sdk/go//models/non-employee-source-lite
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceLite', 'NonEmployeeSourceLite']
+keywords: ['go', 'Golang', 'sdk', 'NonEmployeeSourceLite', 'V2025NonEmployeeSourceLite'] 
+slug: /tools/sdk/go/v2025/models/non-employee-source-lite
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceLite', 'V2025NonEmployeeSourceLite']
 ---
 
 # NonEmployeeSourceLite

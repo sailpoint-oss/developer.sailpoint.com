@@ -1,12 +1,12 @@
 ---
-id: iai-role-mining
+id: v2025-iai-role-mining
 title: IAIRoleMining
 pagination_label: IAIRoleMining
 sidebar_label: IAIRoleMining
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IAIRoleMining', 'IAIRoleMining'] 
-slug: /tools/sdk/go//methods/iai-role-mining
-tags: ['SDK', 'Software Development Kit', 'IAIRoleMining', 'IAIRoleMining']
+keywords: ['go', 'Golang', 'sdk', 'IAIRoleMining', 'V2025IAIRoleMining'] 
+slug: /tools/sdk/go/v2025/methods/iai-role-mining
+tags: ['SDK', 'Software Development Kit', 'IAIRoleMining', 'V2025IAIRoleMining']
 ---
 
 # IAIRoleMiningAPI
@@ -57,7 +57,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Create request to provision a potential role into an actual role.
 This method starts a job to provision a potential role
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-potential-role-provision-request)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-potential-role-provision-request)
 
 ### Path Parameters
 
@@ -100,7 +100,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -120,7 +120,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.CreatePotentialRoleProvisionRequest(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).MinEntitlementPopularity(minEntitlementPopularity).IncludeCommonAccess(includeCommonAccess).RoleMiningPotentialRoleProvisionRequest(roleMiningPotentialRoleProvisionRequest).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.CreatePotentialRoleProvisionRequest(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).MinEntitlementPopularity(minEntitlementPopularity).IncludeCommonAccess(includeCommonAccess).RoleMiningPotentialRoleProvisionRequest(roleMiningPotentialRoleProvisionRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.CreatePotentialRoleProvisionRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -147,7 +147,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Create a role mining session
 This submits a create role mining session request to the role mining application.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-role-mining-sessions)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-role-mining-sessions)
 
 ### Path Parameters
 
@@ -181,7 +181,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -222,7 +222,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.CreateRoleMiningSessions(context.Background()).XSailPointExperimental(xSailPointExperimental).RoleMiningSessionDto(roleMiningSessionDto).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.CreateRoleMiningSessions(context.Background()).XSailPointExperimental(xSailPointExperimental).RoleMiningSessionDto(roleMiningSessionDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.CreateRoleMiningSessions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -249,7 +249,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Export (download) details for a potential role in a role mining session
 This endpoint downloads a completed export of information for a potential role in a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api//download-role-mining-potential-role-zip)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/download-role-mining-potential-role-zip)
 
 ### Path Parameters
 
@@ -291,7 +291,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -303,7 +303,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.DownloadRoleMiningPotentialRoleZip(context.Background(), sessionId, potentialRoleId, exportId).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.DownloadRoleMiningPotentialRoleZip(context.Background(), sessionId, potentialRoleId, exportId).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.DownloadRoleMiningPotentialRoleZip``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -330,7 +330,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Export (download) details for a potential role in a role mining session
 This endpoint downloads all the information for a potential role in a role mining session. Includes identities and entitlements in the potential role.
 
-[API Spec](https://developer.sailpoint.com/docs/api//export-role-mining-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/export-role-mining-potential-role)
 
 ### Path Parameters
 
@@ -370,7 +370,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -381,7 +381,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.ExportRoleMiningPotentialRole(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.ExportRoleMiningPotentialRole(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.ExportRoleMiningPotentialRole``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -408,7 +408,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Asynchronously export details for a potential role in a role mining session and upload to S3
 This endpoint uploads all the information for a potential role in a role mining session to S3 as a downloadable zip archive.  Includes identities and entitlements in the potential role.
 
-[API Spec](https://developer.sailpoint.com/docs/api//export-role-mining-potential-role-async)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/export-role-mining-potential-role-async)
 
 ### Path Parameters
 
@@ -449,7 +449,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -464,7 +464,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.ExportRoleMiningPotentialRoleAsync(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).RoleMiningPotentialRoleExportRequest(roleMiningPotentialRoleExportRequest).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.ExportRoleMiningPotentialRoleAsync(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).RoleMiningPotentialRoleExportRequest(roleMiningPotentialRoleExportRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.ExportRoleMiningPotentialRoleAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -491,7 +491,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieve status of a potential role export job
 This endpoint retrieves information about the current status of a potential role export.
 
-[API Spec](https://developer.sailpoint.com/docs/api//export-role-mining-potential-role-status)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/export-role-mining-potential-role-status)
 
 ### Path Parameters
 
@@ -533,7 +533,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -545,7 +545,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.ExportRoleMiningPotentialRoleStatus(context.Background(), sessionId, potentialRoleId, exportId).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.ExportRoleMiningPotentialRoleStatus(context.Background(), sessionId, potentialRoleId, exportId).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.ExportRoleMiningPotentialRoleStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -572,7 +572,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves all potential role summaries
 Returns all potential role summaries that match the query parameters
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-all-potential-role-summaries)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-all-potential-role-summaries)
 
 ### Path Parameters
 
@@ -610,7 +610,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -624,7 +624,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.GetAllPotentialRoleSummaries(context.Background()).XSailPointExperimental(xSailPointExperimental).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.GetAllPotentialRoleSummaries(context.Background()).XSailPointExperimental(xSailPointExperimental).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetAllPotentialRoleSummaries``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -651,7 +651,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves entitlement popularity distribution for a potential role in a role mining session
 This method returns entitlement popularity distribution for a potential role in a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-entitlement-distribution-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-entitlement-distribution-potential-role)
 
 ### Path Parameters
 
@@ -692,7 +692,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -704,7 +704,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.GetEntitlementDistributionPotentialRole(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).IncludeCommonAccess(includeCommonAccess).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.GetEntitlementDistributionPotentialRole(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).IncludeCommonAccess(includeCommonAccess).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetEntitlementDistributionPotentialRole``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -731,7 +731,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves entitlements for a potential role in a role mining session
 This method returns entitlements for a potential role in a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-entitlements-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-entitlements-potential-role)
 
 ### Path Parameters
 
@@ -777,7 +777,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -794,7 +794,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.GetEntitlementsPotentialRole(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).IncludeCommonAccess(includeCommonAccess).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.GetEntitlementsPotentialRole(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).IncludeCommonAccess(includeCommonAccess).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetEntitlementsPotentialRole``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -821,7 +821,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves excluded entitlements for a potential role in a role mining session
 This method returns excluded entitlements for a potential role in a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-excluded-entitlements-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-excluded-entitlements-potential-role)
 
 ### Path Parameters
 
@@ -866,7 +866,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -882,7 +882,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.GetExcludedEntitlementsPotentialRole(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.GetExcludedEntitlementsPotentialRole(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetExcludedEntitlementsPotentialRole``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -909,7 +909,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves identities for a potential role in a role mining session
 This method returns identities for a potential role in a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-identities-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identities-potential-role)
 
 ### Path Parameters
 
@@ -954,7 +954,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -970,7 +970,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.GetIdentitiesPotentialRole(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.GetIdentitiesPotentialRole(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetIdentitiesPotentialRole``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -997,7 +997,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves a specific potential role
 This method returns a specific potential role for a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-potential-role)
 
 ### Path Parameters
 
@@ -1037,7 +1037,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1048,7 +1048,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.GetPotentialRole(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.GetPotentialRole(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetPotentialRole``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1075,7 +1075,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves the applications of a potential role for a role mining session
 This method returns the applications of a potential role for a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-potential-role-applications)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-potential-role-applications)
 
 ### Path Parameters
 
@@ -1119,7 +1119,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1134,7 +1134,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.GetPotentialRoleApplications(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.GetPotentialRoleApplications(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetPotentialRoleApplications``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1161,7 +1161,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves the entitlements of a potential role for a role mining session
 This method returns the entitlements of a potential role for a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-potential-role-entitlements)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-potential-role-entitlements)
 
 ### Path Parameters
 
@@ -1205,7 +1205,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1220,7 +1220,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.GetPotentialRoleEntitlements(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.GetPotentialRoleEntitlements(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetPotentialRoleEntitlements``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1247,7 +1247,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves potential role source usage
 This method returns source usageCount (as number of days in the last 90 days) for each identity in a potential role.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-potential-role-source-identity-usage)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-potential-role-source-identity-usage)
 
 ### Path Parameters
 
@@ -1291,7 +1291,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1306,7 +1306,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.GetPotentialRoleSourceIdentityUsage(context.Background(), potentialRoleId, sourceId).XSailPointExperimental(xSailPointExperimental).Sorters(sorters).Offset(offset).Limit(limit).Count(count).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.GetPotentialRoleSourceIdentityUsage(context.Background(), potentialRoleId, sourceId).XSailPointExperimental(xSailPointExperimental).Sorters(sorters).Offset(offset).Limit(limit).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetPotentialRoleSourceIdentityUsage``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1333,7 +1333,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves all potential role summaries
 This method returns the potential role summaries for a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-potential-role-summaries)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-potential-role-summaries)
 
 ### Path Parameters
 
@@ -1376,7 +1376,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1391,7 +1391,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.GetPotentialRoleSummaries(context.Background(), sessionId).XSailPointExperimental(xSailPointExperimental).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.GetPotentialRoleSummaries(context.Background(), sessionId).XSailPointExperimental(xSailPointExperimental).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetPotentialRoleSummaries``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1418,7 +1418,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves a specific potential role
 This method returns a specific potential role.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-role-mining-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-role-mining-potential-role)
 
 ### Path Parameters
 
@@ -1456,7 +1456,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1466,7 +1466,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.GetRoleMiningPotentialRole(context.Background(), potentialRoleId).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.GetRoleMiningPotentialRole(context.Background(), potentialRoleId).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetRoleMiningPotentialRole``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1493,7 +1493,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get a role mining session
 The method retrieves a role mining session.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-role-mining-session)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-role-mining-session)
 
 ### Path Parameters
 
@@ -1531,7 +1531,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1541,7 +1541,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.GetRoleMiningSession(context.Background(), sessionId).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.GetRoleMiningSession(context.Background(), sessionId).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetRoleMiningSession``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1568,7 +1568,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get role mining session status state
 This method returns a role mining session status for a customer.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-role-mining-session-status)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-role-mining-session-status)
 
 ### Path Parameters
 
@@ -1606,7 +1606,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1616,7 +1616,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.GetRoleMiningSessionStatus(context.Background(), sessionId).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.GetRoleMiningSessionStatus(context.Background(), sessionId).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetRoleMiningSessionStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1643,7 +1643,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves all role mining sessions
 Returns all role mining sessions that match the query parameters
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-role-mining-sessions)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-role-mining-sessions)
 
 ### Path Parameters
 
@@ -1681,7 +1681,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1695,7 +1695,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.GetRoleMiningSessions(context.Background()).XSailPointExperimental(xSailPointExperimental).Filters(filters).Sorters(sorters).Offset(offset).Limit(limit).Count(count).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.GetRoleMiningSessions(context.Background()).XSailPointExperimental(xSailPointExperimental).Filters(filters).Sorters(sorters).Offset(offset).Limit(limit).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetRoleMiningSessions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1722,7 +1722,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Retrieves all saved potential roles
 This method returns all saved potential roles (draft roles).
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-saved-potential-roles)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-saved-potential-roles)
 
 ### Path Parameters
 
@@ -1759,7 +1759,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1772,7 +1772,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.GetSavedPotentialRoles(context.Background()).XSailPointExperimental(xSailPointExperimental).Sorters(sorters).Offset(offset).Limit(limit).Count(count).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.GetSavedPotentialRoles(context.Background()).XSailPointExperimental(xSailPointExperimental).Sorters(sorters).Offset(offset).Limit(limit).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetSavedPotentialRoles``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1811,7 +1811,7 @@ The following fields can be modified:
 >**NOTE: All other fields cannot be modified.**
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-potential-role)
 
 ### Path Parameters
 
@@ -1852,7 +1852,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1864,7 +1864,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.PatchPotentialRole(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).PatchPotentialRoleRequestInner(patchPotentialRoleRequestInner).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.PatchPotentialRole(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).PatchPotentialRoleRequestInner(patchPotentialRoleRequestInner).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.PatchPotentialRole``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1903,7 +1903,7 @@ The following fields can be modified:
 >**NOTE: All other fields cannot be modified.**
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-potential-role-0)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-potential-role-0)
 
 ### Path Parameters
 
@@ -1944,7 +1944,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1956,7 +1956,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.PatchPotentialRole_0(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).PatchPotentialRoleRequestInner(patchPotentialRoleRequestInner).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.PatchPotentialRole_0(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).PatchPotentialRoleRequestInner(patchPotentialRoleRequestInner).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.PatchPotentialRole_0``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1983,7 +1983,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Patch a role mining session
 The  method updates an existing role mining session using PATCH. Supports op in {"replace"} and changes to pruneThreshold and/or minNumIdentitiesInPotentialRole. The potential roles in this role mining session is then re-calculated.
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-role-mining-session)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-role-mining-session)
 
 ### Path Parameters
 
@@ -2022,7 +2022,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -2033,7 +2033,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.PatchRoleMiningSession(context.Background(), sessionId).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.PatchRoleMiningSession(context.Background(), sessionId).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.PatchRoleMiningSession``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2060,7 +2060,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Edit entitlements for a potential role to exclude some entitlements
 This endpoint adds or removes entitlements from an exclusion list for a potential role.
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-entitlements-potential-role)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-entitlements-potential-role)
 
 ### Path Parameters
 
@@ -2101,7 +2101,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -2116,7 +2116,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRoleMiningAPI.UpdateEntitlementsPotentialRole(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).RoleMiningPotentialRoleEditEntitlements(roleMiningPotentialRoleEditEntitlements).Execute()
+	resp, r, err := apiClient.V2025.IAIRoleMiningAPI.UpdateEntitlementsPotentialRole(context.Background(), sessionId, potentialRoleId).XSailPointExperimental(xSailPointExperimental).RoleMiningPotentialRoleEditEntitlements(roleMiningPotentialRoleEditEntitlements).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.UpdateEntitlementsPotentialRole``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

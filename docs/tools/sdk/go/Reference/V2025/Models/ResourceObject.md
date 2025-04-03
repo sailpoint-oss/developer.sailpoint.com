@@ -1,12 +1,12 @@
 ---
-id: resource-object
+id: v2025-resource-object
 title: ResourceObject
 pagination_label: ResourceObject
 sidebar_label: ResourceObject
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ResourceObject', 'ResourceObject'] 
-slug: /tools/sdk/go//models/resource-object
-tags: ['SDK', 'Software Development Kit', 'ResourceObject', 'ResourceObject']
+keywords: ['go', 'Golang', 'sdk', 'ResourceObject', 'V2025ResourceObject'] 
+slug: /tools/sdk/go/v2025/models/resource-object
+tags: ['SDK', 'Software Development Kit', 'ResourceObject', 'V2025ResourceObject']
 ---
 
 # ResourceObject

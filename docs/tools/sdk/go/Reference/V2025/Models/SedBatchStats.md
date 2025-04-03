@@ -1,12 +1,12 @@
 ---
-id: sed-batch-stats
+id: v2025-sed-batch-stats
 title: SedBatchStats
 pagination_label: SedBatchStats
 sidebar_label: SedBatchStats
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SedBatchStats', 'SedBatchStats'] 
-slug: /tools/sdk/go//models/sed-batch-stats
-tags: ['SDK', 'Software Development Kit', 'SedBatchStats', 'SedBatchStats']
+keywords: ['go', 'Golang', 'sdk', 'SedBatchStats', 'V2025SedBatchStats'] 
+slug: /tools/sdk/go/v2025/models/sed-batch-stats
+tags: ['SDK', 'Software Development Kit', 'SedBatchStats', 'V2025SedBatchStats']
 ---
 
 # SedBatchStats

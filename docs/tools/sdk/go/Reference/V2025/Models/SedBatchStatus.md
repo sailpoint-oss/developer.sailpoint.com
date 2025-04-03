@@ -1,12 +1,12 @@
 ---
-id: sed-batch-status
+id: v2025-sed-batch-status
 title: SedBatchStatus
 pagination_label: SedBatchStatus
 sidebar_label: SedBatchStatus
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SedBatchStatus', 'SedBatchStatus'] 
-slug: /tools/sdk/go//models/sed-batch-status
-tags: ['SDK', 'Software Development Kit', 'SedBatchStatus', 'SedBatchStatus']
+keywords: ['go', 'Golang', 'sdk', 'SedBatchStatus', 'V2025SedBatchStatus'] 
+slug: /tools/sdk/go/v2025/models/sed-batch-status
+tags: ['SDK', 'Software Development Kit', 'SedBatchStatus', 'V2025SedBatchStatus']
 ---
 
 # SedBatchStatus

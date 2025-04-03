@@ -1,12 +1,12 @@
 ---
-id: multi-host-integrations-before-provisioning-rule
+id: v2025-multi-host-integrations-before-provisioning-rule
 title: MultiHostIntegrationsBeforeProvisioningRule
 pagination_label: MultiHostIntegrationsBeforeProvisioningRule
 sidebar_label: MultiHostIntegrationsBeforeProvisioningRule
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MultiHostIntegrationsBeforeProvisioningRule', 'MultiHostIntegrationsBeforeProvisioningRule'] 
-slug: /tools/sdk/go//models/multi-host-integrations-before-provisioning-rule
-tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsBeforeProvisioningRule', 'MultiHostIntegrationsBeforeProvisioningRule']
+keywords: ['go', 'Golang', 'sdk', 'MultiHostIntegrationsBeforeProvisioningRule', 'V2025MultiHostIntegrationsBeforeProvisioningRule'] 
+slug: /tools/sdk/go/v2025/models/multi-host-integrations-before-provisioning-rule
+tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsBeforeProvisioningRule', 'V2025MultiHostIntegrationsBeforeProvisioningRule']
 ---
 
 # MultiHostIntegrationsBeforeProvisioningRule

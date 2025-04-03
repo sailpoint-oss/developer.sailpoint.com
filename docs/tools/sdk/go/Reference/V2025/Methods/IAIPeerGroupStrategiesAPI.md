@@ -1,12 +1,12 @@
 ---
-id: iai-peer-group-strategies
+id: v2025-iai-peer-group-strategies
 title: IAIPeerGroupStrategies
 pagination_label: IAIPeerGroupStrategies
 sidebar_label: IAIPeerGroupStrategies
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IAIPeerGroupStrategies', 'IAIPeerGroupStrategies'] 
-slug: /tools/sdk/go//methods/iai-peer-group-strategies
-tags: ['SDK', 'Software Development Kit', 'IAIPeerGroupStrategies', 'IAIPeerGroupStrategies']
+keywords: ['go', 'Golang', 'sdk', 'IAIPeerGroupStrategies', 'V2025IAIPeerGroupStrategies'] 
+slug: /tools/sdk/go/v2025/methods/iai-peer-group-strategies
+tags: ['SDK', 'Software Development Kit', 'IAIPeerGroupStrategies', 'V2025IAIPeerGroupStrategies']
 ---
 
 # IAIPeerGroupStrategiesAPI
@@ -36,7 +36,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Identity Outliers List
 -- Deprecated : See 'IAI Outliers' This API will be used by Identity Governance systems to identify identities that are not included in an organization's peer groups. By default, 250 identities are returned. You can specify between 1 and 1000 number of identities that can be returned.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-peer-group-outliers)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-peer-group-outliers)
 
 ### Path Parameters
 
@@ -77,7 +77,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -90,7 +90,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIPeerGroupStrategiesAPI.GetPeerGroupOutliers(context.Background(), strategy).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Execute()
+	resp, r, err := apiClient.V2025.IAIPeerGroupStrategiesAPI.GetPeerGroupOutliers(context.Background(), strategy).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIPeerGroupStrategiesAPI.GetPeerGroupOutliers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

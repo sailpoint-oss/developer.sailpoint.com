@@ -1,12 +1,12 @@
 ---
-id: attribute-definition-schema
+id: v2025-attribute-definition-schema
 title: AttributeDefinitionSchema
 pagination_label: AttributeDefinitionSchema
 sidebar_label: AttributeDefinitionSchema
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AttributeDefinitionSchema', 'AttributeDefinitionSchema'] 
-slug: /tools/sdk/go//models/attribute-definition-schema
-tags: ['SDK', 'Software Development Kit', 'AttributeDefinitionSchema', 'AttributeDefinitionSchema']
+keywords: ['go', 'Golang', 'sdk', 'AttributeDefinitionSchema', 'V2025AttributeDefinitionSchema'] 
+slug: /tools/sdk/go/v2025/models/attribute-definition-schema
+tags: ['SDK', 'Software Development Kit', 'AttributeDefinitionSchema', 'V2025AttributeDefinitionSchema']
 ---
 
 # AttributeDefinitionSchema

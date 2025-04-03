@@ -1,12 +1,12 @@
 ---
-id: tagged-objects
+id: v2025-tagged-objects
 title: TaggedObjects
 pagination_label: TaggedObjects
 sidebar_label: TaggedObjects
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TaggedObjects', 'TaggedObjects'] 
-slug: /tools/sdk/go//methods/tagged-objects
-tags: ['SDK', 'Software Development Kit', 'TaggedObjects', 'TaggedObjects']
+keywords: ['go', 'Golang', 'sdk', 'TaggedObjects', 'V2025TaggedObjects'] 
+slug: /tools/sdk/go/v2025/methods/tagged-objects
+tags: ['SDK', 'Software Development Kit', 'TaggedObjects', 'V2025TaggedObjects']
 ---
 
 # TaggedObjectsAPI
@@ -82,7 +82,7 @@ Method | HTTP request | Description
 Delete Object Tags
 Delete all tags from a tagged object.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-tagged-object)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-tagged-object)
 
 ### Path Parameters
 
@@ -121,7 +121,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -131,7 +131,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..TaggedObjectsAPI.DeleteTaggedObject(context.Background(), type_, id).Execute()
+	r, err := apiClient.V2025.TaggedObjectsAPI.DeleteTaggedObject(context.Background(), type_, id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.DeleteTaggedObject``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -145,7 +145,7 @@ func main() {
 Remove Tags from Multiple Objects
 This API removes tags from multiple objects.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-tags-to-many-object)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-tags-to-many-object)
 
 ### Path Parameters
 
@@ -178,7 +178,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -198,7 +198,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..TaggedObjectsAPI.DeleteTagsToManyObject(context.Background()).BulkRemoveTaggedObject(bulkRemoveTaggedObject).Execute()
+	r, err := apiClient.V2025.TaggedObjectsAPI.DeleteTagsToManyObject(context.Background()).BulkRemoveTaggedObject(bulkRemoveTaggedObject).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.DeleteTagsToManyObject``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -212,7 +212,7 @@ func main() {
 Get Tagged Object
 This gets a tagged object for the specified type.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-tagged-object)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-tagged-object)
 
 ### Path Parameters
 
@@ -251,7 +251,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -261,7 +261,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..TaggedObjectsAPI.GetTaggedObject(context.Background(), type_, id).Execute()
+	resp, r, err := apiClient.V2025.TaggedObjectsAPI.GetTaggedObject(context.Background(), type_, id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.GetTaggedObject``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -279,7 +279,7 @@ This API returns a list of all tagged objects.
 
 Any authenticated token may be used to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-tagged-objects)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-tagged-objects)
 
 ### Path Parameters
 
@@ -315,7 +315,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -327,7 +327,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..TaggedObjectsAPI.ListTaggedObjects(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.TaggedObjectsAPI.ListTaggedObjects(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.ListTaggedObjects``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -345,7 +345,7 @@ This API returns a list of all tagged objects by type.
 
 Any authenticated token may be used to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-tagged-objects-by-type)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-tagged-objects-by-type)
 
 ### Path Parameters
 
@@ -386,7 +386,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -399,7 +399,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..TaggedObjectsAPI.ListTaggedObjectsByType(context.Background(), type_).Limit(limit).Offset(offset).Count(count).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.TaggedObjectsAPI.ListTaggedObjectsByType(context.Background(), type_).Limit(limit).Offset(offset).Count(count).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.ListTaggedObjectsByType``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -415,7 +415,7 @@ func main() {
 Update Tagged Object
 This updates a tagged object for the specified type.
 
-[API Spec](https://developer.sailpoint.com/docs/api//put-tagged-object)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-tagged-object)
 
 ### Path Parameters
 
@@ -455,7 +455,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -473,7 +473,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..TaggedObjectsAPI.PutTaggedObject(context.Background(), type_, id).TaggedObject(taggedObject).Execute()
+	resp, r, err := apiClient.V2025.TaggedObjectsAPI.PutTaggedObject(context.Background(), type_, id).TaggedObject(taggedObject).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.PutTaggedObject``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -491,7 +491,7 @@ This adds a tag to an object.
 
 Any authenticated token may be used to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api//set-tag-to-object)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/set-tag-to-object)
 
 ### Path Parameters
 
@@ -524,7 +524,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -540,7 +540,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..TaggedObjectsAPI.SetTagToObject(context.Background()).TaggedObject(taggedObject).Execute()
+	r, err := apiClient.V2025.TaggedObjectsAPI.SetTagToObject(context.Background()).TaggedObject(taggedObject).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.SetTagToObject``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -554,7 +554,7 @@ func main() {
 Tag Multiple Objects
 This API adds tags to multiple objects.
 
-[API Spec](https://developer.sailpoint.com/docs/api//set-tags-to-many-objects)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/set-tags-to-many-objects)
 
 ### Path Parameters
 
@@ -587,7 +587,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -608,7 +608,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..TaggedObjectsAPI.SetTagsToManyObjects(context.Background()).BulkAddTaggedObject(bulkAddTaggedObject).Execute()
+	resp, r, err := apiClient.V2025.TaggedObjectsAPI.SetTagsToManyObjects(context.Background()).BulkAddTaggedObject(bulkAddTaggedObject).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.SetTagsToManyObjects``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

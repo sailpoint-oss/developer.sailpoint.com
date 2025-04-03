@@ -1,12 +1,12 @@
 ---
-id: campaign-complete-options
+id: v2025-campaign-complete-options
 title: CampaignCompleteOptions
 pagination_label: CampaignCompleteOptions
 sidebar_label: CampaignCompleteOptions
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignCompleteOptions', 'CampaignCompleteOptions'] 
-slug: /tools/sdk/go//models/campaign-complete-options
-tags: ['SDK', 'Software Development Kit', 'CampaignCompleteOptions', 'CampaignCompleteOptions']
+keywords: ['go', 'Golang', 'sdk', 'CampaignCompleteOptions', 'V2025CampaignCompleteOptions'] 
+slug: /tools/sdk/go/v2025/models/campaign-complete-options
+tags: ['SDK', 'Software Development Kit', 'CampaignCompleteOptions', 'V2025CampaignCompleteOptions']
 ---
 
 # CampaignCompleteOptions

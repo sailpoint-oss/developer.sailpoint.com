@@ -1,12 +1,12 @@
 ---
-id: campaign-filter-details
+id: v2025-campaign-filter-details
 title: CampaignFilterDetails
 pagination_label: CampaignFilterDetails
 sidebar_label: CampaignFilterDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignFilterDetails', 'CampaignFilterDetails'] 
-slug: /tools/sdk/go//models/campaign-filter-details
-tags: ['SDK', 'Software Development Kit', 'CampaignFilterDetails', 'CampaignFilterDetails']
+keywords: ['go', 'Golang', 'sdk', 'CampaignFilterDetails', 'V2025CampaignFilterDetails'] 
+slug: /tools/sdk/go/v2025/models/campaign-filter-details
+tags: ['SDK', 'Software Development Kit', 'CampaignFilterDetails', 'V2025CampaignFilterDetails']
 ---
 
 # CampaignFilterDetails

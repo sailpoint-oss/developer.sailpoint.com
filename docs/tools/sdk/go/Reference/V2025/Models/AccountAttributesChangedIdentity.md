@@ -1,12 +1,12 @@
 ---
-id: account-attributes-changed-identity
+id: v2025-account-attributes-changed-identity
 title: AccountAttributesChangedIdentity
 pagination_label: AccountAttributesChangedIdentity
 sidebar_label: AccountAttributesChangedIdentity
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountAttributesChangedIdentity', 'AccountAttributesChangedIdentity'] 
-slug: /tools/sdk/go//models/account-attributes-changed-identity
-tags: ['SDK', 'Software Development Kit', 'AccountAttributesChangedIdentity', 'AccountAttributesChangedIdentity']
+keywords: ['go', 'Golang', 'sdk', 'AccountAttributesChangedIdentity', 'V2025AccountAttributesChangedIdentity'] 
+slug: /tools/sdk/go/v2025/models/account-attributes-changed-identity
+tags: ['SDK', 'Software Development Kit', 'AccountAttributesChangedIdentity', 'V2025AccountAttributesChangedIdentity']
 ---
 
 # AccountAttributesChangedIdentity

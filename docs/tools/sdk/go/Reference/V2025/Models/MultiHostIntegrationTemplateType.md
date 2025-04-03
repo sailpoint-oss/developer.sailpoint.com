@@ -1,12 +1,12 @@
 ---
-id: multi-host-integration-template-type
+id: v2025-multi-host-integration-template-type
 title: MultiHostIntegrationTemplateType
 pagination_label: MultiHostIntegrationTemplateType
 sidebar_label: MultiHostIntegrationTemplateType
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MultiHostIntegrationTemplateType', 'MultiHostIntegrationTemplateType'] 
-slug: /tools/sdk/go//models/multi-host-integration-template-type
-tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationTemplateType', 'MultiHostIntegrationTemplateType']
+keywords: ['go', 'Golang', 'sdk', 'MultiHostIntegrationTemplateType', 'V2025MultiHostIntegrationTemplateType'] 
+slug: /tools/sdk/go/v2025/models/multi-host-integration-template-type
+tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationTemplateType', 'V2025MultiHostIntegrationTemplateType']
 ---
 
 # MultiHostIntegrationTemplateType

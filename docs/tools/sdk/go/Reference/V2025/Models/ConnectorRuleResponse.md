@@ -1,12 +1,12 @@
 ---
-id: connector-rule-response
+id: v2025-connector-rule-response
 title: ConnectorRuleResponse
 pagination_label: ConnectorRuleResponse
 sidebar_label: ConnectorRuleResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConnectorRuleResponse', 'ConnectorRuleResponse'] 
-slug: /tools/sdk/go//models/connector-rule-response
-tags: ['SDK', 'Software Development Kit', 'ConnectorRuleResponse', 'ConnectorRuleResponse']
+keywords: ['go', 'Golang', 'sdk', 'ConnectorRuleResponse', 'V2025ConnectorRuleResponse'] 
+slug: /tools/sdk/go/v2025/models/connector-rule-response
+tags: ['SDK', 'Software Development Kit', 'ConnectorRuleResponse', 'V2025ConnectorRuleResponse']
 ---
 
 # ConnectorRuleResponse

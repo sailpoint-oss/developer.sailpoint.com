@@ -1,12 +1,12 @@
 ---
-id: request-on-behalf-of-config
+id: v2025-request-on-behalf-of-config
 title: RequestOnBehalfOfConfig
 pagination_label: RequestOnBehalfOfConfig
 sidebar_label: RequestOnBehalfOfConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RequestOnBehalfOfConfig', 'RequestOnBehalfOfConfig'] 
-slug: /tools/sdk/go//models/request-on-behalf-of-config
-tags: ['SDK', 'Software Development Kit', 'RequestOnBehalfOfConfig', 'RequestOnBehalfOfConfig']
+keywords: ['go', 'Golang', 'sdk', 'RequestOnBehalfOfConfig', 'V2025RequestOnBehalfOfConfig'] 
+slug: /tools/sdk/go/v2025/models/request-on-behalf-of-config
+tags: ['SDK', 'Software Development Kit', 'RequestOnBehalfOfConfig', 'V2025RequestOnBehalfOfConfig']
 ---
 
 # RequestOnBehalfOfConfig

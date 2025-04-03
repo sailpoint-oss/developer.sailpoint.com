@@ -1,12 +1,12 @@
 ---
-id: list-deploys200-response
+id: v2025-list-deploys200-response
 title: ListDeploys200Response
 pagination_label: ListDeploys200Response
 sidebar_label: ListDeploys200Response
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ListDeploys200Response', 'ListDeploys200Response'] 
-slug: /tools/sdk/go//models/list-deploys200-response
-tags: ['SDK', 'Software Development Kit', 'ListDeploys200Response', 'ListDeploys200Response']
+keywords: ['go', 'Golang', 'sdk', 'ListDeploys200Response', 'V2025ListDeploys200Response'] 
+slug: /tools/sdk/go/v2025/models/list-deploys200-response
+tags: ['SDK', 'Software Development Kit', 'ListDeploys200Response', 'V2025ListDeploys200Response']
 ---
 
 # ListDeploys200Response

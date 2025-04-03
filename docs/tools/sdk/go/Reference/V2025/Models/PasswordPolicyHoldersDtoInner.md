@@ -1,12 +1,12 @@
 ---
-id: password-policy-holders-dto-inner
+id: v2025-password-policy-holders-dto-inner
 title: PasswordPolicyHoldersDtoInner
 pagination_label: PasswordPolicyHoldersDtoInner
 sidebar_label: PasswordPolicyHoldersDtoInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PasswordPolicyHoldersDtoInner', 'PasswordPolicyHoldersDtoInner'] 
-slug: /tools/sdk/go//models/password-policy-holders-dto-inner
-tags: ['SDK', 'Software Development Kit', 'PasswordPolicyHoldersDtoInner', 'PasswordPolicyHoldersDtoInner']
+keywords: ['go', 'Golang', 'sdk', 'PasswordPolicyHoldersDtoInner', 'V2025PasswordPolicyHoldersDtoInner'] 
+slug: /tools/sdk/go/v2025/models/password-policy-holders-dto-inner
+tags: ['SDK', 'Software Development Kit', 'PasswordPolicyHoldersDtoInner', 'V2025PasswordPolicyHoldersDtoInner']
 ---
 
 # PasswordPolicyHoldersDtoInner

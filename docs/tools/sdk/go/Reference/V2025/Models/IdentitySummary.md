@@ -1,12 +1,12 @@
 ---
-id: identity-summary
+id: v2025-identity-summary
 title: IdentitySummary
 pagination_label: IdentitySummary
 sidebar_label: IdentitySummary
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentitySummary', 'IdentitySummary'] 
-slug: /tools/sdk/go//models/identity-summary
-tags: ['SDK', 'Software Development Kit', 'IdentitySummary', 'IdentitySummary']
+keywords: ['go', 'Golang', 'sdk', 'IdentitySummary', 'V2025IdentitySummary'] 
+slug: /tools/sdk/go/v2025/models/identity-summary
+tags: ['SDK', 'Software Development Kit', 'IdentitySummary', 'V2025IdentitySummary']
 ---
 
 # IdentitySummary

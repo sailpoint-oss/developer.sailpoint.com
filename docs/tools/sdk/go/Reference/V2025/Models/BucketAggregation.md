@@ -1,12 +1,12 @@
 ---
-id: bucket-aggregation
+id: v2025-bucket-aggregation
 title: BucketAggregation
 pagination_label: BucketAggregation
 sidebar_label: BucketAggregation
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BucketAggregation', 'BucketAggregation'] 
-slug: /tools/sdk/go//models/bucket-aggregation
-tags: ['SDK', 'Software Development Kit', 'BucketAggregation', 'BucketAggregation']
+keywords: ['go', 'Golang', 'sdk', 'BucketAggregation', 'V2025BucketAggregation'] 
+slug: /tools/sdk/go/v2025/models/bucket-aggregation
+tags: ['SDK', 'Software Development Kit', 'BucketAggregation', 'V2025BucketAggregation']
 ---
 
 # BucketAggregation

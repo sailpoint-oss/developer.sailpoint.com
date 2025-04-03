@@ -1,12 +1,12 @@
 ---
-id: role-match-dto
+id: v2025-role-match-dto
 title: RoleMatchDto
 pagination_label: RoleMatchDto
 sidebar_label: RoleMatchDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMatchDto', 'RoleMatchDto'] 
-slug: /tools/sdk/go//models/role-match-dto
-tags: ['SDK', 'Software Development Kit', 'RoleMatchDto', 'RoleMatchDto']
+keywords: ['go', 'Golang', 'sdk', 'RoleMatchDto', 'V2025RoleMatchDto'] 
+slug: /tools/sdk/go/v2025/models/role-match-dto
+tags: ['SDK', 'Software Development Kit', 'RoleMatchDto', 'V2025RoleMatchDto']
 ---
 
 # RoleMatchDto

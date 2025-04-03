@@ -1,12 +1,12 @@
 ---
-id: reference
+id: v2025-reference
 title: Reference
 pagination_label: Reference
 sidebar_label: Reference
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Reference', 'Reference'] 
-slug: /tools/sdk/go//models/reference
-tags: ['SDK', 'Software Development Kit', 'Reference', 'Reference']
+keywords: ['go', 'Golang', 'sdk', 'Reference', 'V2025Reference'] 
+slug: /tools/sdk/go/v2025/models/reference
+tags: ['SDK', 'Software Development Kit', 'Reference', 'V2025Reference']
 ---
 
 # Reference

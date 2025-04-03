@@ -1,12 +1,12 @@
 ---
-id: campaign-all-of-source-owner-campaign-info
+id: v2025-campaign-all-of-source-owner-campaign-info
 title: CampaignAllOfSourceOwnerCampaignInfo
 pagination_label: CampaignAllOfSourceOwnerCampaignInfo
 sidebar_label: CampaignAllOfSourceOwnerCampaignInfo
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignAllOfSourceOwnerCampaignInfo', 'CampaignAllOfSourceOwnerCampaignInfo'] 
-slug: /tools/sdk/go//models/campaign-all-of-source-owner-campaign-info
-tags: ['SDK', 'Software Development Kit', 'CampaignAllOfSourceOwnerCampaignInfo', 'CampaignAllOfSourceOwnerCampaignInfo']
+keywords: ['go', 'Golang', 'sdk', 'CampaignAllOfSourceOwnerCampaignInfo', 'V2025CampaignAllOfSourceOwnerCampaignInfo'] 
+slug: /tools/sdk/go/v2025/models/campaign-all-of-source-owner-campaign-info
+tags: ['SDK', 'Software Development Kit', 'CampaignAllOfSourceOwnerCampaignInfo', 'V2025CampaignAllOfSourceOwnerCampaignInfo']
 ---
 
 # CampaignAllOfSourceOwnerCampaignInfo

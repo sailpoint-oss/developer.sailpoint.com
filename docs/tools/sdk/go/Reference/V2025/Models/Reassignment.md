@@ -1,12 +1,12 @@
 ---
-id: reassignment
+id: v2025-reassignment
 title: Reassignment
 pagination_label: Reassignment
 sidebar_label: Reassignment
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Reassignment', 'Reassignment'] 
-slug: /tools/sdk/go//models/reassignment
-tags: ['SDK', 'Software Development Kit', 'Reassignment', 'Reassignment']
+keywords: ['go', 'Golang', 'sdk', 'Reassignment', 'V2025Reassignment'] 
+slug: /tools/sdk/go/v2025/models/reassignment
+tags: ['SDK', 'Software Development Kit', 'Reassignment', 'V2025Reassignment']
 ---
 
 # Reassignment

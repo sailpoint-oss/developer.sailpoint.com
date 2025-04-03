@@ -1,12 +1,12 @@
 ---
-id: attribute-definition
+id: v2025-attribute-definition
 title: AttributeDefinition
 pagination_label: AttributeDefinition
 sidebar_label: AttributeDefinition
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AttributeDefinition', 'AttributeDefinition'] 
-slug: /tools/sdk/go//models/attribute-definition
-tags: ['SDK', 'Software Development Kit', 'AttributeDefinition', 'AttributeDefinition']
+keywords: ['go', 'Golang', 'sdk', 'AttributeDefinition', 'V2025AttributeDefinition'] 
+slug: /tools/sdk/go/v2025/models/attribute-definition
+tags: ['SDK', 'Software Development Kit', 'AttributeDefinition', 'V2025AttributeDefinition']
 ---
 
 # AttributeDefinition

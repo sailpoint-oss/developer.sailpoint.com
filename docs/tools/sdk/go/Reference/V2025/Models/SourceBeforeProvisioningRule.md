@@ -1,12 +1,12 @@
 ---
-id: source-before-provisioning-rule
+id: v2025-source-before-provisioning-rule
 title: SourceBeforeProvisioningRule
 pagination_label: SourceBeforeProvisioningRule
 sidebar_label: SourceBeforeProvisioningRule
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceBeforeProvisioningRule', 'SourceBeforeProvisioningRule'] 
-slug: /tools/sdk/go//models/source-before-provisioning-rule
-tags: ['SDK', 'Software Development Kit', 'SourceBeforeProvisioningRule', 'SourceBeforeProvisioningRule']
+keywords: ['go', 'Golang', 'sdk', 'SourceBeforeProvisioningRule', 'V2025SourceBeforeProvisioningRule'] 
+slug: /tools/sdk/go/v2025/models/source-before-provisioning-rule
+tags: ['SDK', 'Software Development Kit', 'SourceBeforeProvisioningRule', 'V2025SourceBeforeProvisioningRule']
 ---
 
 # SourceBeforeProvisioningRule

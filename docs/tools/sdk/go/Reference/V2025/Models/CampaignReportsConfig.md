@@ -1,12 +1,12 @@
 ---
-id: campaign-reports-config
+id: v2025-campaign-reports-config
 title: CampaignReportsConfig
 pagination_label: CampaignReportsConfig
 sidebar_label: CampaignReportsConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignReportsConfig', 'CampaignReportsConfig'] 
-slug: /tools/sdk/go//models/campaign-reports-config
-tags: ['SDK', 'Software Development Kit', 'CampaignReportsConfig', 'CampaignReportsConfig']
+keywords: ['go', 'Golang', 'sdk', 'CampaignReportsConfig', 'V2025CampaignReportsConfig'] 
+slug: /tools/sdk/go/v2025/models/campaign-reports-config
+tags: ['SDK', 'Software Development Kit', 'CampaignReportsConfig', 'V2025CampaignReportsConfig']
 ---
 
 # CampaignReportsConfig

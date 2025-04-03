@@ -1,12 +1,12 @@
 ---
-id: source-management-workgroup
+id: v2025-source-management-workgroup
 title: SourceManagementWorkgroup
 pagination_label: SourceManagementWorkgroup
 sidebar_label: SourceManagementWorkgroup
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceManagementWorkgroup', 'SourceManagementWorkgroup'] 
-slug: /tools/sdk/go//models/source-management-workgroup
-tags: ['SDK', 'Software Development Kit', 'SourceManagementWorkgroup', 'SourceManagementWorkgroup']
+keywords: ['go', 'Golang', 'sdk', 'SourceManagementWorkgroup', 'V2025SourceManagementWorkgroup'] 
+slug: /tools/sdk/go/v2025/models/source-management-workgroup
+tags: ['SDK', 'Software Development Kit', 'SourceManagementWorkgroup', 'V2025SourceManagementWorkgroup']
 ---
 
 # SourceManagementWorkgroup

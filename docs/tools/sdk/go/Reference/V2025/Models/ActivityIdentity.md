@@ -1,12 +1,12 @@
 ---
-id: activity-identity
+id: v2025-activity-identity
 title: ActivityIdentity
 pagination_label: ActivityIdentity
 sidebar_label: ActivityIdentity
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ActivityIdentity', 'ActivityIdentity'] 
-slug: /tools/sdk/go//models/activity-identity
-tags: ['SDK', 'Software Development Kit', 'ActivityIdentity', 'ActivityIdentity']
+keywords: ['go', 'Golang', 'sdk', 'ActivityIdentity', 'V2025ActivityIdentity'] 
+slug: /tools/sdk/go/v2025/models/activity-identity
+tags: ['SDK', 'Software Development Kit', 'ActivityIdentity', 'V2025ActivityIdentity']
 ---
 
 # ActivityIdentity

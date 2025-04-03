@@ -1,12 +1,12 @@
 ---
-id: saved-search-complete-search-results-account
+id: v2025-saved-search-complete-search-results-account
 title: SavedSearchCompleteSearchResultsAccount
 pagination_label: SavedSearchCompleteSearchResultsAccount
 sidebar_label: SavedSearchCompleteSearchResultsAccount
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SavedSearchCompleteSearchResultsAccount', 'SavedSearchCompleteSearchResultsAccount'] 
-slug: /tools/sdk/go//models/saved-search-complete-search-results-account
-tags: ['SDK', 'Software Development Kit', 'SavedSearchCompleteSearchResultsAccount', 'SavedSearchCompleteSearchResultsAccount']
+keywords: ['go', 'Golang', 'sdk', 'SavedSearchCompleteSearchResultsAccount', 'V2025SavedSearchCompleteSearchResultsAccount'] 
+slug: /tools/sdk/go/v2025/models/saved-search-complete-search-results-account
+tags: ['SDK', 'Software Development Kit', 'SavedSearchCompleteSearchResultsAccount', 'V2025SavedSearchCompleteSearchResultsAccount']
 ---
 
 # SavedSearchCompleteSearchResultsAccount

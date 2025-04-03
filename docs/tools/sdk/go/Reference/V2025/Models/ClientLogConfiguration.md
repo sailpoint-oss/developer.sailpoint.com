@@ -1,12 +1,12 @@
 ---
-id: client-log-configuration
+id: v2025-client-log-configuration
 title: ClientLogConfiguration
 pagination_label: ClientLogConfiguration
 sidebar_label: ClientLogConfiguration
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ClientLogConfiguration', 'ClientLogConfiguration'] 
-slug: /tools/sdk/go//models/client-log-configuration
-tags: ['SDK', 'Software Development Kit', 'ClientLogConfiguration', 'ClientLogConfiguration']
+keywords: ['go', 'Golang', 'sdk', 'ClientLogConfiguration', 'V2025ClientLogConfiguration'] 
+slug: /tools/sdk/go/v2025/models/client-log-configuration
+tags: ['SDK', 'Software Development Kit', 'ClientLogConfiguration', 'V2025ClientLogConfiguration']
 ---
 
 # ClientLogConfiguration

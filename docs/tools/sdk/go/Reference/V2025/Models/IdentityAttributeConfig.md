@@ -1,12 +1,12 @@
 ---
-id: identity-attribute-config
+id: v2025-identity-attribute-config
 title: IdentityAttributeConfig
 pagination_label: IdentityAttributeConfig
 sidebar_label: IdentityAttributeConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityAttributeConfig', 'IdentityAttributeConfig'] 
-slug: /tools/sdk/go//models/identity-attribute-config
-tags: ['SDK', 'Software Development Kit', 'IdentityAttributeConfig', 'IdentityAttributeConfig']
+keywords: ['go', 'Golang', 'sdk', 'IdentityAttributeConfig', 'V2025IdentityAttributeConfig'] 
+slug: /tools/sdk/go/v2025/models/identity-attribute-config
+tags: ['SDK', 'Software Development Kit', 'IdentityAttributeConfig', 'V2025IdentityAttributeConfig']
 ---
 
 # IdentityAttributeConfig

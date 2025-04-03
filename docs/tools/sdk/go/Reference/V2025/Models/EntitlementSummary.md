@@ -1,12 +1,12 @@
 ---
-id: entitlement-summary
+id: v2025-entitlement-summary
 title: EntitlementSummary
 pagination_label: EntitlementSummary
 sidebar_label: EntitlementSummary
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EntitlementSummary', 'EntitlementSummary'] 
-slug: /tools/sdk/go//models/entitlement-summary
-tags: ['SDK', 'Software Development Kit', 'EntitlementSummary', 'EntitlementSummary']
+keywords: ['go', 'Golang', 'sdk', 'EntitlementSummary', 'V2025EntitlementSummary'] 
+slug: /tools/sdk/go/v2025/models/entitlement-summary
+tags: ['SDK', 'Software Development Kit', 'EntitlementSummary', 'V2025EntitlementSummary']
 ---
 
 # EntitlementSummary

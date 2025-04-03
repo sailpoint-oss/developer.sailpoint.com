@@ -1,12 +1,12 @@
 ---
-id: close-access-request
+id: v2025-close-access-request
 title: CloseAccessRequest
 pagination_label: CloseAccessRequest
 sidebar_label: CloseAccessRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CloseAccessRequest', 'CloseAccessRequest'] 
-slug: /tools/sdk/go//models/close-access-request
-tags: ['SDK', 'Software Development Kit', 'CloseAccessRequest', 'CloseAccessRequest']
+keywords: ['go', 'Golang', 'sdk', 'CloseAccessRequest', 'V2025CloseAccessRequest'] 
+slug: /tools/sdk/go/v2025/models/close-access-request
+tags: ['SDK', 'Software Development Kit', 'CloseAccessRequest', 'V2025CloseAccessRequest']
 ---
 
 # CloseAccessRequest

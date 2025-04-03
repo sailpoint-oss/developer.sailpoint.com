@@ -1,12 +1,12 @@
 ---
-id: attr-sync-source-config
+id: v2025-attr-sync-source-config
 title: AttrSyncSourceConfig
 pagination_label: AttrSyncSourceConfig
 sidebar_label: AttrSyncSourceConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AttrSyncSourceConfig', 'AttrSyncSourceConfig'] 
-slug: /tools/sdk/go//models/attr-sync-source-config
-tags: ['SDK', 'Software Development Kit', 'AttrSyncSourceConfig', 'AttrSyncSourceConfig']
+keywords: ['go', 'Golang', 'sdk', 'AttrSyncSourceConfig', 'V2025AttrSyncSourceConfig'] 
+slug: /tools/sdk/go/v2025/models/attr-sync-source-config
+tags: ['SDK', 'Software Development Kit', 'AttrSyncSourceConfig', 'V2025AttrSyncSourceConfig']
 ---
 
 # AttrSyncSourceConfig

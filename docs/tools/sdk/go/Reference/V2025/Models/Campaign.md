@@ -1,12 +1,12 @@
 ---
-id: campaign
+id: v2025-campaign
 title: Campaign
 pagination_label: Campaign
 sidebar_label: Campaign
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Campaign', 'Campaign'] 
-slug: /tools/sdk/go//models/campaign
-tags: ['SDK', 'Software Development Kit', 'Campaign', 'Campaign']
+keywords: ['go', 'Golang', 'sdk', 'Campaign', 'V2025Campaign'] 
+slug: /tools/sdk/go/v2025/models/campaign
+tags: ['SDK', 'Software Development Kit', 'Campaign', 'V2025Campaign']
 ---
 
 # Campaign

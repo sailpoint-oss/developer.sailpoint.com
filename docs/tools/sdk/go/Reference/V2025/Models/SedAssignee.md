@@ -1,12 +1,12 @@
 ---
-id: sed-assignee
+id: v2025-sed-assignee
 title: SedAssignee
 pagination_label: SedAssignee
 sidebar_label: SedAssignee
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SedAssignee', 'SedAssignee'] 
-slug: /tools/sdk/go//models/sed-assignee
-tags: ['SDK', 'Software Development Kit', 'SedAssignee', 'SedAssignee']
+keywords: ['go', 'Golang', 'sdk', 'SedAssignee', 'V2025SedAssignee'] 
+slug: /tools/sdk/go/v2025/models/sed-assignee
+tags: ['SDK', 'Software Development Kit', 'SedAssignee', 'V2025SedAssignee']
 ---
 
 # SedAssignee

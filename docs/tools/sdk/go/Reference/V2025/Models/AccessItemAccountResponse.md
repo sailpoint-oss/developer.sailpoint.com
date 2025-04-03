@@ -1,12 +1,12 @@
 ---
-id: access-item-account-response
+id: v2025-access-item-account-response
 title: AccessItemAccountResponse
 pagination_label: AccessItemAccountResponse
 sidebar_label: AccessItemAccountResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessItemAccountResponse', 'AccessItemAccountResponse'] 
-slug: /tools/sdk/go//models/access-item-account-response
-tags: ['SDK', 'Software Development Kit', 'AccessItemAccountResponse', 'AccessItemAccountResponse']
+keywords: ['go', 'Golang', 'sdk', 'AccessItemAccountResponse', 'V2025AccessItemAccountResponse'] 
+slug: /tools/sdk/go/v2025/models/access-item-account-response
+tags: ['SDK', 'Software Development Kit', 'AccessItemAccountResponse', 'V2025AccessItemAccountResponse']
 ---
 
 # AccessItemAccountResponse

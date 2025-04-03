@@ -1,12 +1,12 @@
 ---
-id: entitlement-document-all-of-manually-updated-fields
+id: v2025-entitlement-document-all-of-manually-updated-fields
 title: EntitlementDocumentAllOfManuallyUpdatedFields
 pagination_label: EntitlementDocumentAllOfManuallyUpdatedFields
 sidebar_label: EntitlementDocumentAllOfManuallyUpdatedFields
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EntitlementDocumentAllOfManuallyUpdatedFields', 'EntitlementDocumentAllOfManuallyUpdatedFields'] 
-slug: /tools/sdk/go//models/entitlement-document-all-of-manually-updated-fields
-tags: ['SDK', 'Software Development Kit', 'EntitlementDocumentAllOfManuallyUpdatedFields', 'EntitlementDocumentAllOfManuallyUpdatedFields']
+keywords: ['go', 'Golang', 'sdk', 'EntitlementDocumentAllOfManuallyUpdatedFields', 'V2025EntitlementDocumentAllOfManuallyUpdatedFields'] 
+slug: /tools/sdk/go/v2025/models/entitlement-document-all-of-manually-updated-fields
+tags: ['SDK', 'Software Development Kit', 'EntitlementDocumentAllOfManuallyUpdatedFields', 'V2025EntitlementDocumentAllOfManuallyUpdatedFields']
 ---
 
 # EntitlementDocumentAllOfManuallyUpdatedFields

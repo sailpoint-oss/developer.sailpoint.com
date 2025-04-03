@@ -1,12 +1,12 @@
 ---
-id: standard-level
+id: v2025-standard-level
 title: StandardLevel
 pagination_label: StandardLevel
 sidebar_label: StandardLevel
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'StandardLevel', 'StandardLevel'] 
-slug: /tools/sdk/go//models/standard-level
-tags: ['SDK', 'Software Development Kit', 'StandardLevel', 'StandardLevel']
+keywords: ['go', 'Golang', 'sdk', 'StandardLevel', 'V2025StandardLevel'] 
+slug: /tools/sdk/go/v2025/models/standard-level
+tags: ['SDK', 'Software Development Kit', 'StandardLevel', 'V2025StandardLevel']
 ---
 
 # StandardLevel

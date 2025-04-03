@@ -1,12 +1,12 @@
 ---
-id: source-app-create-dto-account-source
+id: v2025-source-app-create-dto-account-source
 title: SourceAppCreateDtoAccountSource
 pagination_label: SourceAppCreateDtoAccountSource
 sidebar_label: SourceAppCreateDtoAccountSource
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceAppCreateDtoAccountSource', 'SourceAppCreateDtoAccountSource'] 
-slug: /tools/sdk/go//models/source-app-create-dto-account-source
-tags: ['SDK', 'Software Development Kit', 'SourceAppCreateDtoAccountSource', 'SourceAppCreateDtoAccountSource']
+keywords: ['go', 'Golang', 'sdk', 'SourceAppCreateDtoAccountSource', 'V2025SourceAppCreateDtoAccountSource'] 
+slug: /tools/sdk/go/v2025/models/source-app-create-dto-account-source
+tags: ['SDK', 'Software Development Kit', 'SourceAppCreateDtoAccountSource', 'V2025SourceAppCreateDtoAccountSource']
 ---
 
 # SourceAppCreateDtoAccountSource

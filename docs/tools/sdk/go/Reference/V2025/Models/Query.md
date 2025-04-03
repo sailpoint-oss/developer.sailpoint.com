@@ -1,12 +1,12 @@
 ---
-id: query
+id: v2025-query
 title: Query
 pagination_label: Query
 sidebar_label: Query
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Query', 'Query'] 
-slug: /tools/sdk/go//models/query
-tags: ['SDK', 'Software Development Kit', 'Query', 'Query']
+keywords: ['go', 'Golang', 'sdk', 'Query', 'V2025Query'] 
+slug: /tools/sdk/go/v2025/models/query
+tags: ['SDK', 'Software Development Kit', 'Query', 'V2025Query']
 ---
 
 # Query

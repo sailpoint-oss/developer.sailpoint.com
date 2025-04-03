@@ -1,12 +1,12 @@
 ---
-id: sp-config-job
+id: v2025-sp-config-job
 title: SpConfigJob
 pagination_label: SpConfigJob
 sidebar_label: SpConfigJob
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SpConfigJob', 'SpConfigJob'] 
-slug: /tools/sdk/go//models/sp-config-job
-tags: ['SDK', 'Software Development Kit', 'SpConfigJob', 'SpConfigJob']
+keywords: ['go', 'Golang', 'sdk', 'SpConfigJob', 'V2025SpConfigJob'] 
+slug: /tools/sdk/go/v2025/models/sp-config-job
+tags: ['SDK', 'Software Development Kit', 'SpConfigJob', 'V2025SpConfigJob']
 ---
 
 # SpConfigJob

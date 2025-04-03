@@ -1,12 +1,12 @@
 ---
-id: account-aggregation-status
+id: v2025-account-aggregation-status
 title: AccountAggregationStatus
 pagination_label: AccountAggregationStatus
 sidebar_label: AccountAggregationStatus
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountAggregationStatus', 'AccountAggregationStatus'] 
-slug: /tools/sdk/go//models/account-aggregation-status
-tags: ['SDK', 'Software Development Kit', 'AccountAggregationStatus', 'AccountAggregationStatus']
+keywords: ['go', 'Golang', 'sdk', 'AccountAggregationStatus', 'V2025AccountAggregationStatus'] 
+slug: /tools/sdk/go/v2025/models/account-aggregation-status
+tags: ['SDK', 'Software Development Kit', 'AccountAggregationStatus', 'V2025AccountAggregationStatus']
 ---
 
 # AccountAggregationStatus

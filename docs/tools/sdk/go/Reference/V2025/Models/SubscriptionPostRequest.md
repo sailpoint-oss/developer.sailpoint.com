@@ -1,12 +1,12 @@
 ---
-id: subscription-post-request
+id: v2025-subscription-post-request
 title: SubscriptionPostRequest
 pagination_label: SubscriptionPostRequest
 sidebar_label: SubscriptionPostRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SubscriptionPostRequest', 'SubscriptionPostRequest'] 
-slug: /tools/sdk/go//models/subscription-post-request
-tags: ['SDK', 'Software Development Kit', 'SubscriptionPostRequest', 'SubscriptionPostRequest']
+keywords: ['go', 'Golang', 'sdk', 'SubscriptionPostRequest', 'V2025SubscriptionPostRequest'] 
+slug: /tools/sdk/go/v2025/models/subscription-post-request
+tags: ['SDK', 'Software Development Kit', 'SubscriptionPostRequest', 'V2025SubscriptionPostRequest']
 ---
 
 # SubscriptionPostRequest

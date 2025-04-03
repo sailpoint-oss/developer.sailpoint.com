@@ -1,12 +1,12 @@
 ---
-id: reassignment-type
+id: v2025-reassignment-type
 title: ReassignmentType
 pagination_label: ReassignmentType
 sidebar_label: ReassignmentType
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ReassignmentType', 'ReassignmentType'] 
-slug: /tools/sdk/go//models/reassignment-type
-tags: ['SDK', 'Software Development Kit', 'ReassignmentType', 'ReassignmentType']
+keywords: ['go', 'Golang', 'sdk', 'ReassignmentType', 'V2025ReassignmentType'] 
+slug: /tools/sdk/go/v2025/models/reassignment-type
+tags: ['SDK', 'Software Development Kit', 'ReassignmentType', 'V2025ReassignmentType']
 ---
 
 # ReassignmentType

@@ -1,12 +1,12 @@
 ---
-id: trigger
+id: v2025-trigger
 title: Trigger
 pagination_label: Trigger
 sidebar_label: Trigger
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Trigger', 'Trigger'] 
-slug: /tools/sdk/go//models/trigger
-tags: ['SDK', 'Software Development Kit', 'Trigger', 'Trigger']
+keywords: ['go', 'Golang', 'sdk', 'Trigger', 'V2025Trigger'] 
+slug: /tools/sdk/go/v2025/models/trigger
+tags: ['SDK', 'Software Development Kit', 'Trigger', 'V2025Trigger']
 ---
 
 # Trigger

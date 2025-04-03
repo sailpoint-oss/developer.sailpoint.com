@@ -1,12 +1,12 @@
 ---
-id: role-assignment-dto-assignment-context
+id: v2025-role-assignment-dto-assignment-context
 title: RoleAssignmentDtoAssignmentContext
 pagination_label: RoleAssignmentDtoAssignmentContext
 sidebar_label: RoleAssignmentDtoAssignmentContext
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleAssignmentDtoAssignmentContext', 'RoleAssignmentDtoAssignmentContext'] 
-slug: /tools/sdk/go//models/role-assignment-dto-assignment-context
-tags: ['SDK', 'Software Development Kit', 'RoleAssignmentDtoAssignmentContext', 'RoleAssignmentDtoAssignmentContext']
+keywords: ['go', 'Golang', 'sdk', 'RoleAssignmentDtoAssignmentContext', 'V2025RoleAssignmentDtoAssignmentContext'] 
+slug: /tools/sdk/go/v2025/models/role-assignment-dto-assignment-context
+tags: ['SDK', 'Software Development Kit', 'RoleAssignmentDtoAssignmentContext', 'V2025RoleAssignmentDtoAssignmentContext']
 ---
 
 # RoleAssignmentDtoAssignmentContext

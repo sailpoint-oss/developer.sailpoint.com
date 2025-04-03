@@ -1,12 +1,12 @@
 ---
-id: bulk-cancel-access-request
+id: v2025-bulk-cancel-access-request
 title: BulkCancelAccessRequest
 pagination_label: BulkCancelAccessRequest
 sidebar_label: BulkCancelAccessRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BulkCancelAccessRequest', 'BulkCancelAccessRequest'] 
-slug: /tools/sdk/go//models/bulk-cancel-access-request
-tags: ['SDK', 'Software Development Kit', 'BulkCancelAccessRequest', 'BulkCancelAccessRequest']
+keywords: ['go', 'Golang', 'sdk', 'BulkCancelAccessRequest', 'V2025BulkCancelAccessRequest'] 
+slug: /tools/sdk/go/v2025/models/bulk-cancel-access-request
+tags: ['SDK', 'Software Development Kit', 'BulkCancelAccessRequest', 'V2025BulkCancelAccessRequest']
 ---
 
 # BulkCancelAccessRequest

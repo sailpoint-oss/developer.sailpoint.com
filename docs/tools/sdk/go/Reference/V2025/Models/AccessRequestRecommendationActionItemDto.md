@@ -1,12 +1,12 @@
 ---
-id: access-request-recommendation-action-item-dto
+id: v2025-access-request-recommendation-action-item-dto
 title: AccessRequestRecommendationActionItemDto
 pagination_label: AccessRequestRecommendationActionItemDto
 sidebar_label: AccessRequestRecommendationActionItemDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestRecommendationActionItemDto', 'AccessRequestRecommendationActionItemDto'] 
-slug: /tools/sdk/go//models/access-request-recommendation-action-item-dto
-tags: ['SDK', 'Software Development Kit', 'AccessRequestRecommendationActionItemDto', 'AccessRequestRecommendationActionItemDto']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestRecommendationActionItemDto', 'V2025AccessRequestRecommendationActionItemDto'] 
+slug: /tools/sdk/go/v2025/models/access-request-recommendation-action-item-dto
+tags: ['SDK', 'Software Development Kit', 'AccessRequestRecommendationActionItemDto', 'V2025AccessRequestRecommendationActionItemDto']
 ---
 
 # AccessRequestRecommendationActionItemDto

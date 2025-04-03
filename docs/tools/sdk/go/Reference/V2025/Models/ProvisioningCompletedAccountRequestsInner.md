@@ -1,12 +1,12 @@
 ---
-id: provisioning-completed-account-requests-inner
+id: v2025-provisioning-completed-account-requests-inner
 title: ProvisioningCompletedAccountRequestsInner
 pagination_label: ProvisioningCompletedAccountRequestsInner
 sidebar_label: ProvisioningCompletedAccountRequestsInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ProvisioningCompletedAccountRequestsInner', 'ProvisioningCompletedAccountRequestsInner'] 
-slug: /tools/sdk/go//models/provisioning-completed-account-requests-inner
-tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedAccountRequestsInner', 'ProvisioningCompletedAccountRequestsInner']
+keywords: ['go', 'Golang', 'sdk', 'ProvisioningCompletedAccountRequestsInner', 'V2025ProvisioningCompletedAccountRequestsInner'] 
+slug: /tools/sdk/go/v2025/models/provisioning-completed-account-requests-inner
+tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedAccountRequestsInner', 'V2025ProvisioningCompletedAccountRequestsInner']
 ---
 
 # ProvisioningCompletedAccountRequestsInner

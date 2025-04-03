@@ -1,12 +1,12 @@
 ---
-id: transform-definition
+id: v2025-transform-definition
 title: TransformDefinition
 pagination_label: TransformDefinition
 sidebar_label: TransformDefinition
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TransformDefinition', 'TransformDefinition'] 
-slug: /tools/sdk/go//models/transform-definition
-tags: ['SDK', 'Software Development Kit', 'TransformDefinition', 'TransformDefinition']
+keywords: ['go', 'Golang', 'sdk', 'TransformDefinition', 'V2025TransformDefinition'] 
+slug: /tools/sdk/go/v2025/models/transform-definition
+tags: ['SDK', 'Software Development Kit', 'TransformDefinition', 'V2025TransformDefinition']
 ---
 
 # TransformDefinition

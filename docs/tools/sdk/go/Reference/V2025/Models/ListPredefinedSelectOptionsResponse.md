@@ -1,12 +1,12 @@
 ---
-id: list-predefined-select-options-response
+id: v2025-list-predefined-select-options-response
 title: ListPredefinedSelectOptionsResponse
 pagination_label: ListPredefinedSelectOptionsResponse
 sidebar_label: ListPredefinedSelectOptionsResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ListPredefinedSelectOptionsResponse', 'ListPredefinedSelectOptionsResponse'] 
-slug: /tools/sdk/go//models/list-predefined-select-options-response
-tags: ['SDK', 'Software Development Kit', 'ListPredefinedSelectOptionsResponse', 'ListPredefinedSelectOptionsResponse']
+keywords: ['go', 'Golang', 'sdk', 'ListPredefinedSelectOptionsResponse', 'V2025ListPredefinedSelectOptionsResponse'] 
+slug: /tools/sdk/go/v2025/models/list-predefined-select-options-response
+tags: ['SDK', 'Software Development Kit', 'ListPredefinedSelectOptionsResponse', 'V2025ListPredefinedSelectOptionsResponse']
 ---
 
 # ListPredefinedSelectOptionsResponse

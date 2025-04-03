@@ -1,12 +1,12 @@
 ---
-id: account-aggregations
+id: v2025-account-aggregations
 title: AccountAggregations
 pagination_label: AccountAggregations
 sidebar_label: AccountAggregations
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountAggregations', 'AccountAggregations'] 
-slug: /tools/sdk/go//methods/account-aggregations
-tags: ['SDK', 'Software Development Kit', 'AccountAggregations', 'AccountAggregations']
+keywords: ['go', 'Golang', 'sdk', 'AccountAggregations', 'V2025AccountAggregations'] 
+slug: /tools/sdk/go/v2025/methods/account-aggregations
+tags: ['SDK', 'Software Development Kit', 'AccountAggregations', 'V2025AccountAggregations']
 ---
 
 # AccountAggregationsAPI
@@ -50,7 +50,7 @@ Since this endpoint reports on the status of an *in-progress* account aggregatio
 *Only available up to an hour after the aggregation completes. May respond with *404 Not Found* after that.*
 required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-account-aggregation-status)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-account-aggregation-status)
 
 ### Path Parameters
 
@@ -88,7 +88,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -98,7 +98,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountAggregationsAPI.GetAccountAggregationStatus(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.AccountAggregationsAPI.GetAccountAggregationStatus(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountAggregationsAPI.GetAccountAggregationStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

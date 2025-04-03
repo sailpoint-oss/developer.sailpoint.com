@@ -1,12 +1,12 @@
 ---
-id: password-change-request
+id: v2025-password-change-request
 title: PasswordChangeRequest
 pagination_label: PasswordChangeRequest
 sidebar_label: PasswordChangeRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PasswordChangeRequest', 'PasswordChangeRequest'] 
-slug: /tools/sdk/go//models/password-change-request
-tags: ['SDK', 'Software Development Kit', 'PasswordChangeRequest', 'PasswordChangeRequest']
+keywords: ['go', 'Golang', 'sdk', 'PasswordChangeRequest', 'V2025PasswordChangeRequest'] 
+slug: /tools/sdk/go/v2025/models/password-change-request
+tags: ['SDK', 'Software Development Kit', 'PasswordChangeRequest', 'V2025PasswordChangeRequest']
 ---
 
 # PasswordChangeRequest

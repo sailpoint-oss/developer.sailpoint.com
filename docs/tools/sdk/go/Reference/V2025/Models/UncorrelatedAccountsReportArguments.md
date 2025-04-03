@@ -1,12 +1,12 @@
 ---
-id: uncorrelated-accounts-report-arguments
+id: v2025-uncorrelated-accounts-report-arguments
 title: UncorrelatedAccountsReportArguments
 pagination_label: UncorrelatedAccountsReportArguments
 sidebar_label: UncorrelatedAccountsReportArguments
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'UncorrelatedAccountsReportArguments', 'UncorrelatedAccountsReportArguments'] 
-slug: /tools/sdk/go//models/uncorrelated-accounts-report-arguments
-tags: ['SDK', 'Software Development Kit', 'UncorrelatedAccountsReportArguments', 'UncorrelatedAccountsReportArguments']
+keywords: ['go', 'Golang', 'sdk', 'UncorrelatedAccountsReportArguments', 'V2025UncorrelatedAccountsReportArguments'] 
+slug: /tools/sdk/go/v2025/models/uncorrelated-accounts-report-arguments
+tags: ['SDK', 'Software Development Kit', 'UncorrelatedAccountsReportArguments', 'V2025UncorrelatedAccountsReportArguments']
 ---
 
 # UncorrelatedAccountsReportArguments

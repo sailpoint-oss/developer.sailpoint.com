@@ -1,12 +1,12 @@
 ---
-id: account-attributes-changed-changes-inner-old-value
+id: v2025-account-attributes-changed-changes-inner-old-value
 title: AccountAttributesChangedChangesInnerOldValue
 pagination_label: AccountAttributesChangedChangesInnerOldValue
 sidebar_label: AccountAttributesChangedChangesInnerOldValue
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountAttributesChangedChangesInnerOldValue', 'AccountAttributesChangedChangesInnerOldValue'] 
-slug: /tools/sdk/go//models/account-attributes-changed-changes-inner-old-value
-tags: ['SDK', 'Software Development Kit', 'AccountAttributesChangedChangesInnerOldValue', 'AccountAttributesChangedChangesInnerOldValue']
+keywords: ['go', 'Golang', 'sdk', 'AccountAttributesChangedChangesInnerOldValue', 'V2025AccountAttributesChangedChangesInnerOldValue'] 
+slug: /tools/sdk/go/v2025/models/account-attributes-changed-changes-inner-old-value
+tags: ['SDK', 'Software Development Kit', 'AccountAttributesChangedChangesInnerOldValue', 'V2025AccountAttributesChangedChangesInnerOldValue']
 ---
 
 # AccountAttributesChangedChangesInnerOldValue

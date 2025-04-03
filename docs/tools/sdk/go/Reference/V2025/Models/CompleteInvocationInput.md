@@ -1,12 +1,12 @@
 ---
-id: complete-invocation-input
+id: v2025-complete-invocation-input
 title: CompleteInvocationInput
 pagination_label: CompleteInvocationInput
 sidebar_label: CompleteInvocationInput
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CompleteInvocationInput', 'CompleteInvocationInput'] 
-slug: /tools/sdk/go//models/complete-invocation-input
-tags: ['SDK', 'Software Development Kit', 'CompleteInvocationInput', 'CompleteInvocationInput']
+keywords: ['go', 'Golang', 'sdk', 'CompleteInvocationInput', 'V2025CompleteInvocationInput'] 
+slug: /tools/sdk/go/v2025/models/complete-invocation-input
+tags: ['SDK', 'Software Development Kit', 'CompleteInvocationInput', 'V2025CompleteInvocationInput']
 ---
 
 # CompleteInvocationInput

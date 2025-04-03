@@ -1,12 +1,12 @@
 ---
-id: create-personal-access-token-response
+id: v2025-create-personal-access-token-response
 title: CreatePersonalAccessTokenResponse
 pagination_label: CreatePersonalAccessTokenResponse
 sidebar_label: CreatePersonalAccessTokenResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CreatePersonalAccessTokenResponse', 'CreatePersonalAccessTokenResponse'] 
-slug: /tools/sdk/go//models/create-personal-access-token-response
-tags: ['SDK', 'Software Development Kit', 'CreatePersonalAccessTokenResponse', 'CreatePersonalAccessTokenResponse']
+keywords: ['go', 'Golang', 'sdk', 'CreatePersonalAccessTokenResponse', 'V2025CreatePersonalAccessTokenResponse'] 
+slug: /tools/sdk/go/v2025/models/create-personal-access-token-response
+tags: ['SDK', 'Software Development Kit', 'CreatePersonalAccessTokenResponse', 'V2025CreatePersonalAccessTokenResponse']
 ---
 
 # CreatePersonalAccessTokenResponse

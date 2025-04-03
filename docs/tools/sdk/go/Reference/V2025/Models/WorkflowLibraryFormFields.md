@@ -1,12 +1,12 @@
 ---
-id: workflow-library-form-fields
+id: v2025-workflow-library-form-fields
 title: WorkflowLibraryFormFields
 pagination_label: WorkflowLibraryFormFields
 sidebar_label: WorkflowLibraryFormFields
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkflowLibraryFormFields', 'WorkflowLibraryFormFields'] 
-slug: /tools/sdk/go//models/workflow-library-form-fields
-tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryFormFields', 'WorkflowLibraryFormFields']
+keywords: ['go', 'Golang', 'sdk', 'WorkflowLibraryFormFields', 'V2025WorkflowLibraryFormFields'] 
+slug: /tools/sdk/go/v2025/models/workflow-library-form-fields
+tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryFormFields', 'V2025WorkflowLibraryFormFields']
 ---
 
 # WorkflowLibraryFormFields

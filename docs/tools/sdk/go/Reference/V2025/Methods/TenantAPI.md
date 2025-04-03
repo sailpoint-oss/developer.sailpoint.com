@@ -1,12 +1,12 @@
 ---
-id: tenant
+id: v2025-tenant
 title: Tenant
 pagination_label: Tenant
 sidebar_label: Tenant
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Tenant', 'Tenant'] 
-slug: /tools/sdk/go//methods/tenant
-tags: ['SDK', 'Software Development Kit', 'Tenant', 'Tenant']
+keywords: ['go', 'Golang', 'sdk', 'Tenant', 'V2025Tenant'] 
+slug: /tools/sdk/go/v2025/methods/tenant
+tags: ['SDK', 'Software Development Kit', 'Tenant', 'V2025Tenant']
 ---
 
 # TenantAPI
@@ -22,7 +22,7 @@ Method | HTTP request | Description
 Get Tenant Information.
 This rest endpoint can be used to retrieve tenant details.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-tenant)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-tenant)
 
 ### Path Parameters
 
@@ -51,7 +51,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -59,7 +59,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..TenantAPI.GetTenant(context.Background()).Execute()
+	resp, r, err := apiClient.V2025.TenantAPI.GetTenant(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenantAPI.GetTenant``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

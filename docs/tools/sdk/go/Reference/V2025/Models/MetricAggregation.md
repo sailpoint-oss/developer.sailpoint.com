@@ -1,12 +1,12 @@
 ---
-id: metric-aggregation
+id: v2025-metric-aggregation
 title: MetricAggregation
 pagination_label: MetricAggregation
 sidebar_label: MetricAggregation
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MetricAggregation', 'MetricAggregation'] 
-slug: /tools/sdk/go//models/metric-aggregation
-tags: ['SDK', 'Software Development Kit', 'MetricAggregation', 'MetricAggregation']
+keywords: ['go', 'Golang', 'sdk', 'MetricAggregation', 'V2025MetricAggregation'] 
+slug: /tools/sdk/go/v2025/models/metric-aggregation
+tags: ['SDK', 'Software Development Kit', 'MetricAggregation', 'V2025MetricAggregation']
 ---
 
 # MetricAggregation

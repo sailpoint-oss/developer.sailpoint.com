@@ -1,12 +1,12 @@
 ---
-id: metric-type
+id: v2025-metric-type
 title: MetricType
 pagination_label: MetricType
 sidebar_label: MetricType
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MetricType', 'MetricType'] 
-slug: /tools/sdk/go//models/metric-type
-tags: ['SDK', 'Software Development Kit', 'MetricType', 'MetricType']
+keywords: ['go', 'Golang', 'sdk', 'MetricType', 'V2025MetricType'] 
+slug: /tools/sdk/go/v2025/models/metric-type
+tags: ['SDK', 'Software Development Kit', 'MetricType', 'V2025MetricType']
 ---
 
 # MetricType

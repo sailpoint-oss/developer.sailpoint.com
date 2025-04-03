@@ -1,12 +1,12 @@
 ---
-id: multi-host-integrations-create-sources
+id: v2025-multi-host-integrations-create-sources
 title: MultiHostIntegrationsCreateSources
 pagination_label: MultiHostIntegrationsCreateSources
 sidebar_label: MultiHostIntegrationsCreateSources
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MultiHostIntegrationsCreateSources', 'MultiHostIntegrationsCreateSources'] 
-slug: /tools/sdk/go//models/multi-host-integrations-create-sources
-tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsCreateSources', 'MultiHostIntegrationsCreateSources']
+keywords: ['go', 'Golang', 'sdk', 'MultiHostIntegrationsCreateSources', 'V2025MultiHostIntegrationsCreateSources'] 
+slug: /tools/sdk/go/v2025/models/multi-host-integrations-create-sources
+tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsCreateSources', 'V2025MultiHostIntegrationsCreateSources']
 ---
 
 # MultiHostIntegrationsCreateSources

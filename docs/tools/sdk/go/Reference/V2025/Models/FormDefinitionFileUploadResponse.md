@@ -1,12 +1,12 @@
 ---
-id: form-definition-file-upload-response
+id: v2025-form-definition-file-upload-response
 title: FormDefinitionFileUploadResponse
 pagination_label: FormDefinitionFileUploadResponse
 sidebar_label: FormDefinitionFileUploadResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FormDefinitionFileUploadResponse', 'FormDefinitionFileUploadResponse'] 
-slug: /tools/sdk/go//models/form-definition-file-upload-response
-tags: ['SDK', 'Software Development Kit', 'FormDefinitionFileUploadResponse', 'FormDefinitionFileUploadResponse']
+keywords: ['go', 'Golang', 'sdk', 'FormDefinitionFileUploadResponse', 'V2025FormDefinitionFileUploadResponse'] 
+slug: /tools/sdk/go/v2025/models/form-definition-file-upload-response
+tags: ['SDK', 'Software Development Kit', 'FormDefinitionFileUploadResponse', 'V2025FormDefinitionFileUploadResponse']
 ---
 
 # FormDefinitionFileUploadResponse

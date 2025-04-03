@@ -1,12 +1,12 @@
 ---
-id: access-request-pre-approval-requested-items-inner
+id: v2025-access-request-pre-approval-requested-items-inner
 title: AccessRequestPreApprovalRequestedItemsInner
 pagination_label: AccessRequestPreApprovalRequestedItemsInner
 sidebar_label: AccessRequestPreApprovalRequestedItemsInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestPreApprovalRequestedItemsInner', 'AccessRequestPreApprovalRequestedItemsInner'] 
-slug: /tools/sdk/go//models/access-request-pre-approval-requested-items-inner
-tags: ['SDK', 'Software Development Kit', 'AccessRequestPreApprovalRequestedItemsInner', 'AccessRequestPreApprovalRequestedItemsInner']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestPreApprovalRequestedItemsInner', 'V2025AccessRequestPreApprovalRequestedItemsInner'] 
+slug: /tools/sdk/go/v2025/models/access-request-pre-approval-requested-items-inner
+tags: ['SDK', 'Software Development Kit', 'AccessRequestPreApprovalRequestedItemsInner', 'V2025AccessRequestPreApprovalRequestedItemsInner']
 ---
 
 # AccessRequestPreApprovalRequestedItemsInner

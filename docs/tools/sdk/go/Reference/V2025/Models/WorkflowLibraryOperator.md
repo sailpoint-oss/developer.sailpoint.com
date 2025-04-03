@@ -1,12 +1,12 @@
 ---
-id: workflow-library-operator
+id: v2025-workflow-library-operator
 title: WorkflowLibraryOperator
 pagination_label: WorkflowLibraryOperator
 sidebar_label: WorkflowLibraryOperator
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkflowLibraryOperator', 'WorkflowLibraryOperator'] 
-slug: /tools/sdk/go//models/workflow-library-operator
-tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryOperator', 'WorkflowLibraryOperator']
+keywords: ['go', 'Golang', 'sdk', 'WorkflowLibraryOperator', 'V2025WorkflowLibraryOperator'] 
+slug: /tools/sdk/go/v2025/models/workflow-library-operator
+tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryOperator', 'V2025WorkflowLibraryOperator']
 ---
 
 # WorkflowLibraryOperator

@@ -1,12 +1,12 @@
 ---
-id: condition-rule
+id: v2025-condition-rule
 title: ConditionRule
 pagination_label: ConditionRule
 sidebar_label: ConditionRule
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConditionRule', 'ConditionRule'] 
-slug: /tools/sdk/go//models/condition-rule
-tags: ['SDK', 'Software Development Kit', 'ConditionRule', 'ConditionRule']
+keywords: ['go', 'Golang', 'sdk', 'ConditionRule', 'V2025ConditionRule'] 
+slug: /tools/sdk/go/v2025/models/condition-rule
+tags: ['SDK', 'Software Development Kit', 'ConditionRule', 'V2025ConditionRule']
 ---
 
 # ConditionRule

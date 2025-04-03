@@ -1,12 +1,12 @@
 ---
-id: sim-integration-details
+id: v2025-sim-integration-details
 title: SimIntegrationDetails
 pagination_label: SimIntegrationDetails
 sidebar_label: SimIntegrationDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SimIntegrationDetails', 'SimIntegrationDetails'] 
-slug: /tools/sdk/go//models/sim-integration-details
-tags: ['SDK', 'Software Development Kit', 'SimIntegrationDetails', 'SimIntegrationDetails']
+keywords: ['go', 'Golang', 'sdk', 'SimIntegrationDetails', 'V2025SimIntegrationDetails'] 
+slug: /tools/sdk/go/v2025/models/sim-integration-details
+tags: ['SDK', 'Software Development Kit', 'SimIntegrationDetails', 'V2025SimIntegrationDetails']
 ---
 
 # SimIntegrationDetails

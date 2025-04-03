@@ -1,12 +1,12 @@
 ---
-id: update-access-profiles-in-bulk412-response
+id: v2025-update-access-profiles-in-bulk412-response
 title: UpdateAccessProfilesInBulk412Response
 pagination_label: UpdateAccessProfilesInBulk412Response
 sidebar_label: UpdateAccessProfilesInBulk412Response
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'UpdateAccessProfilesInBulk412Response', 'UpdateAccessProfilesInBulk412Response'] 
-slug: /tools/sdk/go//models/update-access-profiles-in-bulk412-response
-tags: ['SDK', 'Software Development Kit', 'UpdateAccessProfilesInBulk412Response', 'UpdateAccessProfilesInBulk412Response']
+keywords: ['go', 'Golang', 'sdk', 'UpdateAccessProfilesInBulk412Response', 'V2025UpdateAccessProfilesInBulk412Response'] 
+slug: /tools/sdk/go/v2025/models/update-access-profiles-in-bulk412-response
+tags: ['SDK', 'Software Development Kit', 'UpdateAccessProfilesInBulk412Response', 'V2025UpdateAccessProfilesInBulk412Response']
 ---
 
 # UpdateAccessProfilesInBulk412Response

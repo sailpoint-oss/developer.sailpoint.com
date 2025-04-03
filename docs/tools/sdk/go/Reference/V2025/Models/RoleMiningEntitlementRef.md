@@ -1,12 +1,12 @@
 ---
-id: role-mining-entitlement-ref
+id: v2025-role-mining-entitlement-ref
 title: RoleMiningEntitlementRef
 pagination_label: RoleMiningEntitlementRef
 sidebar_label: RoleMiningEntitlementRef
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMiningEntitlementRef', 'RoleMiningEntitlementRef'] 
-slug: /tools/sdk/go//models/role-mining-entitlement-ref
-tags: ['SDK', 'Software Development Kit', 'RoleMiningEntitlementRef', 'RoleMiningEntitlementRef']
+keywords: ['go', 'Golang', 'sdk', 'RoleMiningEntitlementRef', 'V2025RoleMiningEntitlementRef'] 
+slug: /tools/sdk/go/v2025/models/role-mining-entitlement-ref
+tags: ['SDK', 'Software Development Kit', 'RoleMiningEntitlementRef', 'V2025RoleMiningEntitlementRef']
 ---
 
 # RoleMiningEntitlementRef

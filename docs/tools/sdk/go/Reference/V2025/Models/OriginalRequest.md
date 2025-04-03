@@ -1,12 +1,12 @@
 ---
-id: original-request
+id: v2025-original-request
 title: OriginalRequest
 pagination_label: OriginalRequest
 sidebar_label: OriginalRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'OriginalRequest', 'OriginalRequest'] 
-slug: /tools/sdk/go//models/original-request
-tags: ['SDK', 'Software Development Kit', 'OriginalRequest', 'OriginalRequest']
+keywords: ['go', 'Golang', 'sdk', 'OriginalRequest', 'V2025OriginalRequest'] 
+slug: /tools/sdk/go/v2025/models/original-request
+tags: ['SDK', 'Software Development Kit', 'OriginalRequest', 'V2025OriginalRequest']
 ---
 
 # OriginalRequest

@@ -1,12 +1,12 @@
 ---
-id: transform-read
+id: v2025-transform-read
 title: TransformRead
 pagination_label: TransformRead
 sidebar_label: TransformRead
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TransformRead', 'TransformRead'] 
-slug: /tools/sdk/go//models/transform-read
-tags: ['SDK', 'Software Development Kit', 'TransformRead', 'TransformRead']
+keywords: ['go', 'Golang', 'sdk', 'TransformRead', 'V2025TransformRead'] 
+slug: /tools/sdk/go/v2025/models/transform-read
+tags: ['SDK', 'Software Development Kit', 'TransformRead', 'V2025TransformRead']
 ---
 
 # TransformRead

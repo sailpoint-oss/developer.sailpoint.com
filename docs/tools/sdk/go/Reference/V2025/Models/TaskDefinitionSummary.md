@@ -1,12 +1,12 @@
 ---
-id: task-definition-summary
+id: v2025-task-definition-summary
 title: TaskDefinitionSummary
 pagination_label: TaskDefinitionSummary
 sidebar_label: TaskDefinitionSummary
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TaskDefinitionSummary', 'TaskDefinitionSummary'] 
-slug: /tools/sdk/go//models/task-definition-summary
-tags: ['SDK', 'Software Development Kit', 'TaskDefinitionSummary', 'TaskDefinitionSummary']
+keywords: ['go', 'Golang', 'sdk', 'TaskDefinitionSummary', 'V2025TaskDefinitionSummary'] 
+slug: /tools/sdk/go/v2025/models/task-definition-summary
+tags: ['SDK', 'Software Development Kit', 'TaskDefinitionSummary', 'V2025TaskDefinitionSummary']
 ---
 
 # TaskDefinitionSummary

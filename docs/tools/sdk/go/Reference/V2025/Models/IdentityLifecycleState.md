@@ -1,12 +1,12 @@
 ---
-id: identity-lifecycle-state
+id: v2025-identity-lifecycle-state
 title: IdentityLifecycleState
 pagination_label: IdentityLifecycleState
 sidebar_label: IdentityLifecycleState
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityLifecycleState', 'IdentityLifecycleState'] 
-slug: /tools/sdk/go//models/identity-lifecycle-state
-tags: ['SDK', 'Software Development Kit', 'IdentityLifecycleState', 'IdentityLifecycleState']
+keywords: ['go', 'Golang', 'sdk', 'IdentityLifecycleState', 'V2025IdentityLifecycleState'] 
+slug: /tools/sdk/go/v2025/models/identity-lifecycle-state
+tags: ['SDK', 'Software Development Kit', 'IdentityLifecycleState', 'V2025IdentityLifecycleState']
 ---
 
 # IdentityLifecycleState

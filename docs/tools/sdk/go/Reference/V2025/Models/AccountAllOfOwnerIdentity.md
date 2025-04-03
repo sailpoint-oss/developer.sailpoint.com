@@ -1,12 +1,12 @@
 ---
-id: account-all-of-owner-identity
+id: v2025-account-all-of-owner-identity
 title: AccountAllOfOwnerIdentity
 pagination_label: AccountAllOfOwnerIdentity
 sidebar_label: AccountAllOfOwnerIdentity
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountAllOfOwnerIdentity', 'AccountAllOfOwnerIdentity'] 
-slug: /tools/sdk/go//models/account-all-of-owner-identity
-tags: ['SDK', 'Software Development Kit', 'AccountAllOfOwnerIdentity', 'AccountAllOfOwnerIdentity']
+keywords: ['go', 'Golang', 'sdk', 'AccountAllOfOwnerIdentity', 'V2025AccountAllOfOwnerIdentity'] 
+slug: /tools/sdk/go/v2025/models/account-all-of-owner-identity
+tags: ['SDK', 'Software Development Kit', 'AccountAllOfOwnerIdentity', 'V2025AccountAllOfOwnerIdentity']
 ---
 
 # AccountAllOfOwnerIdentity

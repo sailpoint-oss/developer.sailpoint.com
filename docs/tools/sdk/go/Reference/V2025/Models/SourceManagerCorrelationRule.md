@@ -1,12 +1,12 @@
 ---
-id: source-manager-correlation-rule
+id: v2025-source-manager-correlation-rule
 title: SourceManagerCorrelationRule
 pagination_label: SourceManagerCorrelationRule
 sidebar_label: SourceManagerCorrelationRule
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceManagerCorrelationRule', 'SourceManagerCorrelationRule'] 
-slug: /tools/sdk/go//models/source-manager-correlation-rule
-tags: ['SDK', 'Software Development Kit', 'SourceManagerCorrelationRule', 'SourceManagerCorrelationRule']
+keywords: ['go', 'Golang', 'sdk', 'SourceManagerCorrelationRule', 'V2025SourceManagerCorrelationRule'] 
+slug: /tools/sdk/go/v2025/models/source-manager-correlation-rule
+tags: ['SDK', 'Software Development Kit', 'SourceManagerCorrelationRule', 'V2025SourceManagerCorrelationRule']
 ---
 
 # SourceManagerCorrelationRule

@@ -1,12 +1,12 @@
 ---
-id: email-notification-option
+id: v2025-email-notification-option
 title: EmailNotificationOption
 pagination_label: EmailNotificationOption
 sidebar_label: EmailNotificationOption
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EmailNotificationOption', 'EmailNotificationOption'] 
-slug: /tools/sdk/go//models/email-notification-option
-tags: ['SDK', 'Software Development Kit', 'EmailNotificationOption', 'EmailNotificationOption']
+keywords: ['go', 'Golang', 'sdk', 'EmailNotificationOption', 'V2025EmailNotificationOption'] 
+slug: /tools/sdk/go/v2025/models/email-notification-option
+tags: ['SDK', 'Software Development Kit', 'EmailNotificationOption', 'V2025EmailNotificationOption']
 ---
 
 # EmailNotificationOption

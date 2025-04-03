@@ -1,12 +1,12 @@
 ---
-id: search
+id: v2025-search
 title: Search
 pagination_label: Search
 sidebar_label: Search
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Search', 'Search'] 
-slug: /tools/sdk/go//models/search
-tags: ['SDK', 'Software Development Kit', 'Search', 'Search']
+keywords: ['go', 'Golang', 'sdk', 'Search', 'V2025Search'] 
+slug: /tools/sdk/go/v2025/models/search
+tags: ['SDK', 'Software Development Kit', 'Search', 'V2025Search']
 ---
 
 # Search

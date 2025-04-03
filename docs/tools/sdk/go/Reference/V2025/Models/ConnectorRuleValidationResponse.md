@@ -1,12 +1,12 @@
 ---
-id: connector-rule-validation-response
+id: v2025-connector-rule-validation-response
 title: ConnectorRuleValidationResponse
 pagination_label: ConnectorRuleValidationResponse
 sidebar_label: ConnectorRuleValidationResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConnectorRuleValidationResponse', 'ConnectorRuleValidationResponse'] 
-slug: /tools/sdk/go//models/connector-rule-validation-response
-tags: ['SDK', 'Software Development Kit', 'ConnectorRuleValidationResponse', 'ConnectorRuleValidationResponse']
+keywords: ['go', 'Golang', 'sdk', 'ConnectorRuleValidationResponse', 'V2025ConnectorRuleValidationResponse'] 
+slug: /tools/sdk/go/v2025/models/connector-rule-validation-response
+tags: ['SDK', 'Software Development Kit', 'ConnectorRuleValidationResponse', 'V2025ConnectorRuleValidationResponse']
 ---
 
 # ConnectorRuleValidationResponse

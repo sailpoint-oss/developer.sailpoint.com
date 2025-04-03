@@ -1,12 +1,12 @@
 ---
-id: branding-item
+id: v2025-branding-item
 title: BrandingItem
 pagination_label: BrandingItem
 sidebar_label: BrandingItem
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BrandingItem', 'BrandingItem'] 
-slug: /tools/sdk/go//models/branding-item
-tags: ['SDK', 'Software Development Kit', 'BrandingItem', 'BrandingItem']
+keywords: ['go', 'Golang', 'sdk', 'BrandingItem', 'V2025BrandingItem'] 
+slug: /tools/sdk/go/v2025/models/branding-item
+tags: ['SDK', 'Software Development Kit', 'BrandingItem', 'V2025BrandingItem']
 ---
 
 # BrandingItem

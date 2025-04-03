@@ -1,12 +1,12 @@
 ---
-id: sed-assignment
+id: v2025-sed-assignment
 title: SedAssignment
 pagination_label: SedAssignment
 sidebar_label: SedAssignment
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SedAssignment', 'SedAssignment'] 
-slug: /tools/sdk/go//models/sed-assignment
-tags: ['SDK', 'Software Development Kit', 'SedAssignment', 'SedAssignment']
+keywords: ['go', 'Golang', 'sdk', 'SedAssignment', 'V2025SedAssignment'] 
+slug: /tools/sdk/go/v2025/models/sed-assignment
+tags: ['SDK', 'Software Development Kit', 'SedAssignment', 'V2025SedAssignment']
 ---
 
 # SedAssignment

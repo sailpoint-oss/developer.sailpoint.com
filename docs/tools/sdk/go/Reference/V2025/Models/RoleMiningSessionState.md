@@ -1,12 +1,12 @@
 ---
-id: role-mining-session-state
+id: v2025-role-mining-session-state
 title: RoleMiningSessionState
 pagination_label: RoleMiningSessionState
 sidebar_label: RoleMiningSessionState
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMiningSessionState', 'RoleMiningSessionState'] 
-slug: /tools/sdk/go//models/role-mining-session-state
-tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionState', 'RoleMiningSessionState']
+keywords: ['go', 'Golang', 'sdk', 'RoleMiningSessionState', 'V2025RoleMiningSessionState'] 
+slug: /tools/sdk/go/v2025/models/role-mining-session-state
+tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionState', 'V2025RoleMiningSessionState']
 ---
 
 # RoleMiningSessionState

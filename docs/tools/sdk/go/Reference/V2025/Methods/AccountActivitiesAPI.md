@@ -1,12 +1,12 @@
 ---
-id: account-activities
+id: v2025-account-activities
 title: AccountActivities
 pagination_label: AccountActivities
 sidebar_label: AccountActivities
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountActivities', 'AccountActivities'] 
-slug: /tools/sdk/go//methods/account-activities
-tags: ['SDK', 'Software Development Kit', 'AccountActivities', 'AccountActivities']
+keywords: ['go', 'Golang', 'sdk', 'AccountActivities', 'V2025AccountActivities'] 
+slug: /tools/sdk/go/v2025/methods/account-activities
+tags: ['SDK', 'Software Development Kit', 'AccountActivities', 'V2025AccountActivities']
 ---
 
 # AccountActivitiesAPI
@@ -56,7 +56,7 @@ Method | HTTP request | Description
 Get an Account Activity
 This gets a single account activity by its id.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-account-activity)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-account-activity)
 
 ### Path Parameters
 
@@ -93,7 +93,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -102,7 +102,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountActivitiesAPI.GetAccountActivity(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.AccountActivitiesAPI.GetAccountActivity(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountActivitiesAPI.GetAccountActivity``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -118,7 +118,7 @@ func main() {
 List Account Activities
 This gets a collection of account activities that satisfy the given query parameters.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-account-activities)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-account-activities)
 
 ### Path Parameters
 
@@ -158,7 +158,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -174,7 +174,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountActivitiesAPI.ListAccountActivities(context.Background()).RequestedFor(requestedFor).RequestedBy(requestedBy).RegardingIdentity(regardingIdentity).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.AccountActivitiesAPI.ListAccountActivities(context.Background()).RequestedFor(requestedFor).RequestedBy(requestedBy).RegardingIdentity(regardingIdentity).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountActivitiesAPI.ListAccountActivities``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

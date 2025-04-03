@@ -1,12 +1,12 @@
 ---
-id: bulk-add-tagged-object
+id: v2025-bulk-add-tagged-object
 title: BulkAddTaggedObject
 pagination_label: BulkAddTaggedObject
 sidebar_label: BulkAddTaggedObject
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BulkAddTaggedObject', 'BulkAddTaggedObject'] 
-slug: /tools/sdk/go//models/bulk-add-tagged-object
-tags: ['SDK', 'Software Development Kit', 'BulkAddTaggedObject', 'BulkAddTaggedObject']
+keywords: ['go', 'Golang', 'sdk', 'BulkAddTaggedObject', 'V2025BulkAddTaggedObject'] 
+slug: /tools/sdk/go/v2025/models/bulk-add-tagged-object
+tags: ['SDK', 'Software Development Kit', 'BulkAddTaggedObject', 'V2025BulkAddTaggedObject']
 ---
 
 # BulkAddTaggedObject

@@ -1,12 +1,12 @@
 ---
-id: entitlement-bulk-update-request
+id: v2025-entitlement-bulk-update-request
 title: EntitlementBulkUpdateRequest
 pagination_label: EntitlementBulkUpdateRequest
 sidebar_label: EntitlementBulkUpdateRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EntitlementBulkUpdateRequest', 'EntitlementBulkUpdateRequest'] 
-slug: /tools/sdk/go//models/entitlement-bulk-update-request
-tags: ['SDK', 'Software Development Kit', 'EntitlementBulkUpdateRequest', 'EntitlementBulkUpdateRequest']
+keywords: ['go', 'Golang', 'sdk', 'EntitlementBulkUpdateRequest', 'V2025EntitlementBulkUpdateRequest'] 
+slug: /tools/sdk/go/v2025/models/entitlement-bulk-update-request
+tags: ['SDK', 'Software Development Kit', 'EntitlementBulkUpdateRequest', 'V2025EntitlementBulkUpdateRequest']
 ---
 
 # EntitlementBulkUpdateRequest

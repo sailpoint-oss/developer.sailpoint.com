@@ -1,12 +1,12 @@
 ---
-id: cluster-manual-upgrade-jobs-inner-managed-process-configuration-otel-agent
+id: v2025-cluster-manual-upgrade-jobs-inner-managed-process-configuration-otel-agent
 title: ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent
 pagination_label: ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent
 sidebar_label: ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent'] 
-slug: /tools/sdk/go//models/cluster-manual-upgrade-jobs-inner-managed-process-configuration-otel-agent
-tags: ['SDK', 'Software Development Kit', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent']
+keywords: ['go', 'Golang', 'sdk', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent', 'V2025ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent'] 
+slug: /tools/sdk/go/v2025/models/cluster-manual-upgrade-jobs-inner-managed-process-configuration-otel-agent
+tags: ['SDK', 'Software Development Kit', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent', 'V2025ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent']
 ---
 
 # ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent

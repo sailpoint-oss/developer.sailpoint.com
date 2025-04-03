@@ -1,12 +1,12 @@
 ---
-id: tagged-object
+id: v2025-tagged-object
 title: TaggedObject
 pagination_label: TaggedObject
 sidebar_label: TaggedObject
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TaggedObject', 'TaggedObject'] 
-slug: /tools/sdk/go//models/tagged-object
-tags: ['SDK', 'Software Development Kit', 'TaggedObject', 'TaggedObject']
+keywords: ['go', 'Golang', 'sdk', 'TaggedObject', 'V2025TaggedObject'] 
+slug: /tools/sdk/go/v2025/models/tagged-object
+tags: ['SDK', 'Software Development Kit', 'TaggedObject', 'V2025TaggedObject']
 ---
 
 # TaggedObject

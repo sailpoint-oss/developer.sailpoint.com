@@ -1,12 +1,12 @@
 ---
-id: comment-dto
+id: v2025-comment-dto
 title: CommentDto
 pagination_label: CommentDto
 sidebar_label: CommentDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CommentDto', 'CommentDto'] 
-slug: /tools/sdk/go//models/comment-dto
-tags: ['SDK', 'Software Development Kit', 'CommentDto', 'CommentDto']
+keywords: ['go', 'Golang', 'sdk', 'CommentDto', 'V2025CommentDto'] 
+slug: /tools/sdk/go/v2025/models/comment-dto
+tags: ['SDK', 'Software Development Kit', 'CommentDto', 'V2025CommentDto']
 ---
 
 # CommentDto

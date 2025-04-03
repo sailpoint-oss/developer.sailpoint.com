@@ -1,12 +1,12 @@
 ---
-id: patch-service-desk-integration-request
+id: v2025-patch-service-desk-integration-request
 title: PatchServiceDeskIntegrationRequest
 pagination_label: PatchServiceDeskIntegrationRequest
 sidebar_label: PatchServiceDeskIntegrationRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PatchServiceDeskIntegrationRequest', 'PatchServiceDeskIntegrationRequest'] 
-slug: /tools/sdk/go//models/patch-service-desk-integration-request
-tags: ['SDK', 'Software Development Kit', 'PatchServiceDeskIntegrationRequest', 'PatchServiceDeskIntegrationRequest']
+keywords: ['go', 'Golang', 'sdk', 'PatchServiceDeskIntegrationRequest', 'V2025PatchServiceDeskIntegrationRequest'] 
+slug: /tools/sdk/go/v2025/models/patch-service-desk-integration-request
+tags: ['SDK', 'Software Development Kit', 'PatchServiceDeskIntegrationRequest', 'V2025PatchServiceDeskIntegrationRequest']
 ---
 
 # PatchServiceDeskIntegrationRequest

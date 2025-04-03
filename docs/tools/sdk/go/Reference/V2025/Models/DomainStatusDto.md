@@ -1,12 +1,12 @@
 ---
-id: domain-status-dto
+id: v2025-domain-status-dto
 title: DomainStatusDto
 pagination_label: DomainStatusDto
 sidebar_label: DomainStatusDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DomainStatusDto', 'DomainStatusDto'] 
-slug: /tools/sdk/go//models/domain-status-dto
-tags: ['SDK', 'Software Development Kit', 'DomainStatusDto', 'DomainStatusDto']
+keywords: ['go', 'Golang', 'sdk', 'DomainStatusDto', 'V2025DomainStatusDto'] 
+slug: /tools/sdk/go/v2025/models/domain-status-dto
+tags: ['SDK', 'Software Development Kit', 'DomainStatusDto', 'V2025DomainStatusDto']
 ---
 
 # DomainStatusDto

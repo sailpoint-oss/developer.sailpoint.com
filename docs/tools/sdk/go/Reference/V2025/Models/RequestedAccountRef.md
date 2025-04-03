@@ -1,12 +1,12 @@
 ---
-id: requested-account-ref
+id: v2025-requested-account-ref
 title: RequestedAccountRef
 pagination_label: RequestedAccountRef
 sidebar_label: RequestedAccountRef
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RequestedAccountRef', 'RequestedAccountRef'] 
-slug: /tools/sdk/go//models/requested-account-ref
-tags: ['SDK', 'Software Development Kit', 'RequestedAccountRef', 'RequestedAccountRef']
+keywords: ['go', 'Golang', 'sdk', 'RequestedAccountRef', 'V2025RequestedAccountRef'] 
+slug: /tools/sdk/go/v2025/models/requested-account-ref
+tags: ['SDK', 'Software Development Kit', 'RequestedAccountRef', 'V2025RequestedAccountRef']
 ---
 
 # RequestedAccountRef

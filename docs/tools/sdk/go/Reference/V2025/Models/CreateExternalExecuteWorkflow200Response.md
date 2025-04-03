@@ -1,12 +1,12 @@
 ---
-id: create-external-execute-workflow200-response
+id: v2025-create-external-execute-workflow200-response
 title: CreateExternalExecuteWorkflow200Response
 pagination_label: CreateExternalExecuteWorkflow200Response
 sidebar_label: CreateExternalExecuteWorkflow200Response
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CreateExternalExecuteWorkflow200Response', 'CreateExternalExecuteWorkflow200Response'] 
-slug: /tools/sdk/go//models/create-external-execute-workflow200-response
-tags: ['SDK', 'Software Development Kit', 'CreateExternalExecuteWorkflow200Response', 'CreateExternalExecuteWorkflow200Response']
+keywords: ['go', 'Golang', 'sdk', 'CreateExternalExecuteWorkflow200Response', 'V2025CreateExternalExecuteWorkflow200Response'] 
+slug: /tools/sdk/go/v2025/models/create-external-execute-workflow200-response
+tags: ['SDK', 'Software Development Kit', 'CreateExternalExecuteWorkflow200Response', 'V2025CreateExternalExecuteWorkflow200Response']
 ---
 
 # CreateExternalExecuteWorkflow200Response

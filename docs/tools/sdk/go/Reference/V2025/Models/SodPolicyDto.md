@@ -1,12 +1,12 @@
 ---
-id: sod-policy-dto
+id: v2025-sod-policy-dto
 title: SodPolicyDto
 pagination_label: SodPolicyDto
 sidebar_label: SodPolicyDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SodPolicyDto', 'SodPolicyDto'] 
-slug: /tools/sdk/go//models/sod-policy-dto
-tags: ['SDK', 'Software Development Kit', 'SodPolicyDto', 'SodPolicyDto']
+keywords: ['go', 'Golang', 'sdk', 'SodPolicyDto', 'V2025SodPolicyDto'] 
+slug: /tools/sdk/go/v2025/models/sod-policy-dto
+tags: ['SDK', 'Software Development Kit', 'SodPolicyDto', 'V2025SodPolicyDto']
 ---
 
 # SodPolicyDto

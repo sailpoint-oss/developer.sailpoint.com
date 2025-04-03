@@ -1,12 +1,12 @@
 ---
-id: identity-entities
+id: v2025-identity-entities
 title: IdentityEntities
 pagination_label: IdentityEntities
 sidebar_label: IdentityEntities
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityEntities', 'IdentityEntities'] 
-slug: /tools/sdk/go//models/identity-entities
-tags: ['SDK', 'Software Development Kit', 'IdentityEntities', 'IdentityEntities']
+keywords: ['go', 'Golang', 'sdk', 'IdentityEntities', 'V2025IdentityEntities'] 
+slug: /tools/sdk/go/v2025/models/identity-entities
+tags: ['SDK', 'Software Development Kit', 'IdentityEntities', 'V2025IdentityEntities']
 ---
 
 # IdentityEntities

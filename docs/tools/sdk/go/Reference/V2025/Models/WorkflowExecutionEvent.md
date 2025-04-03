@@ -1,12 +1,12 @@
 ---
-id: workflow-execution-event
+id: v2025-workflow-execution-event
 title: WorkflowExecutionEvent
 pagination_label: WorkflowExecutionEvent
 sidebar_label: WorkflowExecutionEvent
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkflowExecutionEvent', 'WorkflowExecutionEvent'] 
-slug: /tools/sdk/go//models/workflow-execution-event
-tags: ['SDK', 'Software Development Kit', 'WorkflowExecutionEvent', 'WorkflowExecutionEvent']
+keywords: ['go', 'Golang', 'sdk', 'WorkflowExecutionEvent', 'V2025WorkflowExecutionEvent'] 
+slug: /tools/sdk/go/v2025/models/workflow-execution-event
+tags: ['SDK', 'Software Development Kit', 'WorkflowExecutionEvent', 'V2025WorkflowExecutionEvent']
 ---
 
 # WorkflowExecutionEvent

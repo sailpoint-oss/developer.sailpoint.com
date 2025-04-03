@@ -1,12 +1,12 @@
 ---
-id: access-request-post-approval-requested-items-status-inner-approval-info-inner-approver
+id: v2025-access-request-post-approval-requested-items-status-inner-approval-info-inner-approver
 title: AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
 pagination_label: AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
 sidebar_label: AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover', 'AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover'] 
-slug: /tools/sdk/go//models/access-request-post-approval-requested-items-status-inner-approval-info-inner-approver
-tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover', 'AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover', 'V2025AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover'] 
+slug: /tools/sdk/go/v2025/models/access-request-post-approval-requested-items-status-inner-approval-info-inner-approver
+tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover', 'V2025AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover']
 ---
 
 # AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInnerApprover

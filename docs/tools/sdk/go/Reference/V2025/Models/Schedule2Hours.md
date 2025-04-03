@@ -1,12 +1,12 @@
 ---
-id: schedule2-hours
+id: v2025-schedule2-hours
 title: Schedule2Hours
 pagination_label: Schedule2Hours
 sidebar_label: Schedule2Hours
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Schedule2Hours', 'Schedule2Hours'] 
-slug: /tools/sdk/go//models/schedule2-hours
-tags: ['SDK', 'Software Development Kit', 'Schedule2Hours', 'Schedule2Hours']
+keywords: ['go', 'Golang', 'sdk', 'Schedule2Hours', 'V2025Schedule2Hours'] 
+slug: /tools/sdk/go/v2025/models/schedule2-hours
+tags: ['SDK', 'Software Development Kit', 'Schedule2Hours', 'V2025Schedule2Hours']
 ---
 
 # Schedule2Hours

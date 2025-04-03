@@ -1,12 +1,12 @@
 ---
-id: source-password-policies-inner
+id: v2025-source-password-policies-inner
 title: SourcePasswordPoliciesInner
 pagination_label: SourcePasswordPoliciesInner
 sidebar_label: SourcePasswordPoliciesInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourcePasswordPoliciesInner', 'SourcePasswordPoliciesInner'] 
-slug: /tools/sdk/go//models/source-password-policies-inner
-tags: ['SDK', 'Software Development Kit', 'SourcePasswordPoliciesInner', 'SourcePasswordPoliciesInner']
+keywords: ['go', 'Golang', 'sdk', 'SourcePasswordPoliciesInner', 'V2025SourcePasswordPoliciesInner'] 
+slug: /tools/sdk/go/v2025/models/source-password-policies-inner
+tags: ['SDK', 'Software Development Kit', 'SourcePasswordPoliciesInner', 'V2025SourcePasswordPoliciesInner']
 ---
 
 # SourcePasswordPoliciesInner

@@ -1,12 +1,12 @@
 ---
-id: preferences-dto
+id: v2025-preferences-dto
 title: PreferencesDto
 pagination_label: PreferencesDto
 sidebar_label: PreferencesDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PreferencesDto', 'PreferencesDto'] 
-slug: /tools/sdk/go//models/preferences-dto
-tags: ['SDK', 'Software Development Kit', 'PreferencesDto', 'PreferencesDto']
+keywords: ['go', 'Golang', 'sdk', 'PreferencesDto', 'V2025PreferencesDto'] 
+slug: /tools/sdk/go/v2025/models/preferences-dto
+tags: ['SDK', 'Software Development Kit', 'PreferencesDto', 'V2025PreferencesDto']
 ---
 
 # PreferencesDto

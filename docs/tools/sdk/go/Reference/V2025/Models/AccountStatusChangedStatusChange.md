@@ -1,12 +1,12 @@
 ---
-id: account-status-changed-status-change
+id: v2025-account-status-changed-status-change
 title: AccountStatusChangedStatusChange
 pagination_label: AccountStatusChangedStatusChange
 sidebar_label: AccountStatusChangedStatusChange
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountStatusChangedStatusChange', 'AccountStatusChangedStatusChange'] 
-slug: /tools/sdk/go//models/account-status-changed-status-change
-tags: ['SDK', 'Software Development Kit', 'AccountStatusChangedStatusChange', 'AccountStatusChangedStatusChange']
+keywords: ['go', 'Golang', 'sdk', 'AccountStatusChangedStatusChange', 'V2025AccountStatusChangedStatusChange'] 
+slug: /tools/sdk/go/v2025/models/account-status-changed-status-change
+tags: ['SDK', 'Software Development Kit', 'AccountStatusChangedStatusChange', 'V2025AccountStatusChangedStatusChange']
 ---
 
 # AccountStatusChangedStatusChange

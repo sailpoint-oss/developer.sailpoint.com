@@ -1,12 +1,12 @@
 ---
-id: approval-scheme-for-role
+id: v2025-approval-scheme-for-role
 title: ApprovalSchemeForRole
 pagination_label: ApprovalSchemeForRole
 sidebar_label: ApprovalSchemeForRole
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ApprovalSchemeForRole', 'ApprovalSchemeForRole'] 
-slug: /tools/sdk/go//models/approval-scheme-for-role
-tags: ['SDK', 'Software Development Kit', 'ApprovalSchemeForRole', 'ApprovalSchemeForRole']
+keywords: ['go', 'Golang', 'sdk', 'ApprovalSchemeForRole', 'V2025ApprovalSchemeForRole'] 
+slug: /tools/sdk/go/v2025/models/approval-scheme-for-role
+tags: ['SDK', 'Software Development Kit', 'ApprovalSchemeForRole', 'V2025ApprovalSchemeForRole']
 ---
 
 # ApprovalSchemeForRole

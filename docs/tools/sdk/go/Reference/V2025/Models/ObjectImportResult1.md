@@ -1,12 +1,12 @@
 ---
-id: object-import-result1
+id: v2025-object-import-result1
 title: ObjectImportResult1
 pagination_label: ObjectImportResult1
 sidebar_label: ObjectImportResult1
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ObjectImportResult1', 'ObjectImportResult1'] 
-slug: /tools/sdk/go//models/object-import-result1
-tags: ['SDK', 'Software Development Kit', 'ObjectImportResult1', 'ObjectImportResult1']
+keywords: ['go', 'Golang', 'sdk', 'ObjectImportResult1', 'V2025ObjectImportResult1'] 
+slug: /tools/sdk/go/v2025/models/object-import-result1
+tags: ['SDK', 'Software Development Kit', 'ObjectImportResult1', 'V2025ObjectImportResult1']
 ---
 
 # ObjectImportResult1

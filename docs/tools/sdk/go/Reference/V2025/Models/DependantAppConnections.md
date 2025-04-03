@@ -1,12 +1,12 @@
 ---
-id: dependant-app-connections
+id: v2025-dependant-app-connections
 title: DependantAppConnections
 pagination_label: DependantAppConnections
 sidebar_label: DependantAppConnections
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DependantAppConnections', 'DependantAppConnections'] 
-slug: /tools/sdk/go//models/dependant-app-connections
-tags: ['SDK', 'Software Development Kit', 'DependantAppConnections', 'DependantAppConnections']
+keywords: ['go', 'Golang', 'sdk', 'DependantAppConnections', 'V2025DependantAppConnections'] 
+slug: /tools/sdk/go/v2025/models/dependant-app-connections
+tags: ['SDK', 'Software Development Kit', 'DependantAppConnections', 'V2025DependantAppConnections']
 ---
 
 # DependantAppConnections

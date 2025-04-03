@@ -1,12 +1,12 @@
 ---
-id: service-desk-source
+id: v2025-service-desk-source
 title: ServiceDeskSource
 pagination_label: ServiceDeskSource
 sidebar_label: ServiceDeskSource
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ServiceDeskSource', 'ServiceDeskSource'] 
-slug: /tools/sdk/go//models/service-desk-source
-tags: ['SDK', 'Software Development Kit', 'ServiceDeskSource', 'ServiceDeskSource']
+keywords: ['go', 'Golang', 'sdk', 'ServiceDeskSource', 'V2025ServiceDeskSource'] 
+slug: /tools/sdk/go/v2025/models/service-desk-source
+tags: ['SDK', 'Software Development Kit', 'ServiceDeskSource', 'V2025ServiceDeskSource']
 ---
 
 # ServiceDeskSource

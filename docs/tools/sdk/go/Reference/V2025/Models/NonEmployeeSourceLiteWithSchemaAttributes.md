@@ -1,12 +1,12 @@
 ---
-id: non-employee-source-lite-with-schema-attributes
+id: v2025-non-employee-source-lite-with-schema-attributes
 title: NonEmployeeSourceLiteWithSchemaAttributes
 pagination_label: NonEmployeeSourceLiteWithSchemaAttributes
 sidebar_label: NonEmployeeSourceLiteWithSchemaAttributes
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NonEmployeeSourceLiteWithSchemaAttributes', 'NonEmployeeSourceLiteWithSchemaAttributes'] 
-slug: /tools/sdk/go//models/non-employee-source-lite-with-schema-attributes
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceLiteWithSchemaAttributes', 'NonEmployeeSourceLiteWithSchemaAttributes']
+keywords: ['go', 'Golang', 'sdk', 'NonEmployeeSourceLiteWithSchemaAttributes', 'V2025NonEmployeeSourceLiteWithSchemaAttributes'] 
+slug: /tools/sdk/go/v2025/models/non-employee-source-lite-with-schema-attributes
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceLiteWithSchemaAttributes', 'V2025NonEmployeeSourceLiteWithSchemaAttributes']
 ---
 
 # NonEmployeeSourceLiteWithSchemaAttributes

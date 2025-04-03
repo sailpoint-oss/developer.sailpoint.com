@@ -1,12 +1,12 @@
 ---
-id: access-request-phases
+id: v2025-access-request-phases
 title: AccessRequestPhases
 pagination_label: AccessRequestPhases
 sidebar_label: AccessRequestPhases
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestPhases', 'AccessRequestPhases'] 
-slug: /tools/sdk/go//models/access-request-phases
-tags: ['SDK', 'Software Development Kit', 'AccessRequestPhases', 'AccessRequestPhases']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestPhases', 'V2025AccessRequestPhases'] 
+slug: /tools/sdk/go/v2025/models/access-request-phases
+tags: ['SDK', 'Software Development Kit', 'AccessRequestPhases', 'V2025AccessRequestPhases']
 ---
 
 # AccessRequestPhases

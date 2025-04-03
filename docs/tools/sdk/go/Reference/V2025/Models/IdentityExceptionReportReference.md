@@ -1,12 +1,12 @@
 ---
-id: identity-exception-report-reference
+id: v2025-identity-exception-report-reference
 title: IdentityExceptionReportReference
 pagination_label: IdentityExceptionReportReference
 sidebar_label: IdentityExceptionReportReference
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityExceptionReportReference', 'IdentityExceptionReportReference'] 
-slug: /tools/sdk/go//models/identity-exception-report-reference
-tags: ['SDK', 'Software Development Kit', 'IdentityExceptionReportReference', 'IdentityExceptionReportReference']
+keywords: ['go', 'Golang', 'sdk', 'IdentityExceptionReportReference', 'V2025IdentityExceptionReportReference'] 
+slug: /tools/sdk/go/v2025/models/identity-exception-report-reference
+tags: ['SDK', 'Software Development Kit', 'IdentityExceptionReportReference', 'V2025IdentityExceptionReportReference']
 ---
 
 # IdentityExceptionReportReference

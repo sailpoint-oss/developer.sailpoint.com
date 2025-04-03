@@ -1,12 +1,12 @@
 ---
-id: access-item-associated-access-item
+id: v2025-access-item-associated-access-item
 title: AccessItemAssociatedAccessItem
 pagination_label: AccessItemAssociatedAccessItem
 sidebar_label: AccessItemAssociatedAccessItem
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessItemAssociatedAccessItem', 'AccessItemAssociatedAccessItem'] 
-slug: /tools/sdk/go//models/access-item-associated-access-item
-tags: ['SDK', 'Software Development Kit', 'AccessItemAssociatedAccessItem', 'AccessItemAssociatedAccessItem']
+keywords: ['go', 'Golang', 'sdk', 'AccessItemAssociatedAccessItem', 'V2025AccessItemAssociatedAccessItem'] 
+slug: /tools/sdk/go/v2025/models/access-item-associated-access-item
+tags: ['SDK', 'Software Development Kit', 'AccessItemAssociatedAccessItem', 'V2025AccessItemAssociatedAccessItem']
 ---
 
 # AccessItemAssociatedAccessItem

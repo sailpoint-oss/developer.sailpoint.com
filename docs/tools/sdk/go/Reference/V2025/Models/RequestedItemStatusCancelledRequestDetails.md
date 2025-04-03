@@ -1,12 +1,12 @@
 ---
-id: requested-item-status-cancelled-request-details
+id: v2025-requested-item-status-cancelled-request-details
 title: RequestedItemStatusCancelledRequestDetails
 pagination_label: RequestedItemStatusCancelledRequestDetails
 sidebar_label: RequestedItemStatusCancelledRequestDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RequestedItemStatusCancelledRequestDetails', 'RequestedItemStatusCancelledRequestDetails'] 
-slug: /tools/sdk/go//models/requested-item-status-cancelled-request-details
-tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusCancelledRequestDetails', 'RequestedItemStatusCancelledRequestDetails']
+keywords: ['go', 'Golang', 'sdk', 'RequestedItemStatusCancelledRequestDetails', 'V2025RequestedItemStatusCancelledRequestDetails'] 
+slug: /tools/sdk/go/v2025/models/requested-item-status-cancelled-request-details
+tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusCancelledRequestDetails', 'V2025RequestedItemStatusCancelledRequestDetails']
 ---
 
 # RequestedItemStatusCancelledRequestDetails

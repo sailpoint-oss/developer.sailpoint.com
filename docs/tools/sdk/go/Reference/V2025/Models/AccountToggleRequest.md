@@ -1,12 +1,12 @@
 ---
-id: account-toggle-request
+id: v2025-account-toggle-request
 title: AccountToggleRequest
 pagination_label: AccountToggleRequest
 sidebar_label: AccountToggleRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountToggleRequest', 'AccountToggleRequest'] 
-slug: /tools/sdk/go//models/account-toggle-request
-tags: ['SDK', 'Software Development Kit', 'AccountToggleRequest', 'AccountToggleRequest']
+keywords: ['go', 'Golang', 'sdk', 'AccountToggleRequest', 'V2025AccountToggleRequest'] 
+slug: /tools/sdk/go/v2025/models/account-toggle-request
+tags: ['SDK', 'Software Development Kit', 'AccountToggleRequest', 'V2025AccountToggleRequest']
 ---
 
 # AccountToggleRequest

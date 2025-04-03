@@ -1,12 +1,12 @@
 ---
-id: export-payload
+id: v2025-export-payload
 title: ExportPayload
 pagination_label: ExportPayload
 sidebar_label: ExportPayload
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ExportPayload', 'ExportPayload'] 
-slug: /tools/sdk/go//models/export-payload
-tags: ['SDK', 'Software Development Kit', 'ExportPayload', 'ExportPayload']
+keywords: ['go', 'Golang', 'sdk', 'ExportPayload', 'V2025ExportPayload'] 
+slug: /tools/sdk/go/v2025/models/export-payload
+tags: ['SDK', 'Software Development Kit', 'ExportPayload', 'V2025ExportPayload']
 ---
 
 # ExportPayload

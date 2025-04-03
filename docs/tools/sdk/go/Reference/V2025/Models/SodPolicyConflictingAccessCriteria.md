@@ -1,12 +1,12 @@
 ---
-id: sod-policy-conflicting-access-criteria
+id: v2025-sod-policy-conflicting-access-criteria
 title: SodPolicyConflictingAccessCriteria
 pagination_label: SodPolicyConflictingAccessCriteria
 sidebar_label: SodPolicyConflictingAccessCriteria
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SodPolicyConflictingAccessCriteria', 'SodPolicyConflictingAccessCriteria'] 
-slug: /tools/sdk/go//models/sod-policy-conflicting-access-criteria
-tags: ['SDK', 'Software Development Kit', 'SodPolicyConflictingAccessCriteria', 'SodPolicyConflictingAccessCriteria']
+keywords: ['go', 'Golang', 'sdk', 'SodPolicyConflictingAccessCriteria', 'V2025SodPolicyConflictingAccessCriteria'] 
+slug: /tools/sdk/go/v2025/models/sod-policy-conflicting-access-criteria
+tags: ['SDK', 'Software Development Kit', 'SodPolicyConflictingAccessCriteria', 'V2025SodPolicyConflictingAccessCriteria']
 ---
 
 # SodPolicyConflictingAccessCriteria

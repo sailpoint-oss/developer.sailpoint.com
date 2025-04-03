@@ -1,12 +1,12 @@
 ---
-id: correlation-config-attribute-assignments-inner
+id: v2025-correlation-config-attribute-assignments-inner
 title: CorrelationConfigAttributeAssignmentsInner
 pagination_label: CorrelationConfigAttributeAssignmentsInner
 sidebar_label: CorrelationConfigAttributeAssignmentsInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CorrelationConfigAttributeAssignmentsInner', 'CorrelationConfigAttributeAssignmentsInner'] 
-slug: /tools/sdk/go//models/correlation-config-attribute-assignments-inner
-tags: ['SDK', 'Software Development Kit', 'CorrelationConfigAttributeAssignmentsInner', 'CorrelationConfigAttributeAssignmentsInner']
+keywords: ['go', 'Golang', 'sdk', 'CorrelationConfigAttributeAssignmentsInner', 'V2025CorrelationConfigAttributeAssignmentsInner'] 
+slug: /tools/sdk/go/v2025/models/correlation-config-attribute-assignments-inner
+tags: ['SDK', 'Software Development Kit', 'CorrelationConfigAttributeAssignmentsInner', 'V2025CorrelationConfigAttributeAssignmentsInner']
 ---
 
 # CorrelationConfigAttributeAssignmentsInner

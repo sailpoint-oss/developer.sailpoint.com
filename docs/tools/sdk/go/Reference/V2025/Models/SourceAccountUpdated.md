@@ -1,12 +1,12 @@
 ---
-id: source-account-updated
+id: v2025-source-account-updated
 title: SourceAccountUpdated
 pagination_label: SourceAccountUpdated
 sidebar_label: SourceAccountUpdated
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceAccountUpdated', 'SourceAccountUpdated'] 
-slug: /tools/sdk/go//models/source-account-updated
-tags: ['SDK', 'Software Development Kit', 'SourceAccountUpdated', 'SourceAccountUpdated']
+keywords: ['go', 'Golang', 'sdk', 'SourceAccountUpdated', 'V2025SourceAccountUpdated'] 
+slug: /tools/sdk/go/v2025/models/source-account-updated
+tags: ['SDK', 'Software Development Kit', 'SourceAccountUpdated', 'V2025SourceAccountUpdated']
 ---
 
 # SourceAccountUpdated

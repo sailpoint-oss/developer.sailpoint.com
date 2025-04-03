@@ -1,12 +1,12 @@
 ---
-id: form-element-dynamic-data-source-config
+id: v2025-form-element-dynamic-data-source-config
 title: FormElementDynamicDataSourceConfig
 pagination_label: FormElementDynamicDataSourceConfig
 sidebar_label: FormElementDynamicDataSourceConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FormElementDynamicDataSourceConfig', 'FormElementDynamicDataSourceConfig'] 
-slug: /tools/sdk/go//models/form-element-dynamic-data-source-config
-tags: ['SDK', 'Software Development Kit', 'FormElementDynamicDataSourceConfig', 'FormElementDynamicDataSourceConfig']
+keywords: ['go', 'Golang', 'sdk', 'FormElementDynamicDataSourceConfig', 'V2025FormElementDynamicDataSourceConfig'] 
+slug: /tools/sdk/go/v2025/models/form-element-dynamic-data-source-config
+tags: ['SDK', 'Software Development Kit', 'FormElementDynamicDataSourceConfig', 'V2025FormElementDynamicDataSourceConfig']
 ---
 
 # FormElementDynamicDataSourceConfig

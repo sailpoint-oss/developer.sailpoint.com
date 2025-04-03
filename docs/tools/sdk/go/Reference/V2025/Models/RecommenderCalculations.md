@@ -1,12 +1,12 @@
 ---
-id: recommender-calculations
+id: v2025-recommender-calculations
 title: RecommenderCalculations
 pagination_label: RecommenderCalculations
 sidebar_label: RecommenderCalculations
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RecommenderCalculations', 'RecommenderCalculations'] 
-slug: /tools/sdk/go//models/recommender-calculations
-tags: ['SDK', 'Software Development Kit', 'RecommenderCalculations', 'RecommenderCalculations']
+keywords: ['go', 'Golang', 'sdk', 'RecommenderCalculations', 'V2025RecommenderCalculations'] 
+slug: /tools/sdk/go/v2025/models/recommender-calculations
+tags: ['SDK', 'Software Development Kit', 'RecommenderCalculations', 'V2025RecommenderCalculations']
 ---
 
 # RecommenderCalculations

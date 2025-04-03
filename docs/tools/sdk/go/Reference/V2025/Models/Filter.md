@@ -1,12 +1,12 @@
 ---
-id: filter
+id: v2025-filter
 title: Filter
 pagination_label: Filter
 sidebar_label: Filter
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Filter', 'Filter'] 
-slug: /tools/sdk/go//models/filter
-tags: ['SDK', 'Software Development Kit', 'Filter', 'Filter']
+keywords: ['go', 'Golang', 'sdk', 'Filter', 'V2025Filter'] 
+slug: /tools/sdk/go/v2025/models/filter
+tags: ['SDK', 'Software Development Kit', 'Filter', 'V2025Filter']
 ---
 
 # Filter

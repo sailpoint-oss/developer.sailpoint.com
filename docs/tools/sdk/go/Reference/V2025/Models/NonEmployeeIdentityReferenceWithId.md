@@ -1,12 +1,12 @@
 ---
-id: non-employee-identity-reference-with-id
+id: v2025-non-employee-identity-reference-with-id
 title: NonEmployeeIdentityReferenceWithId
 pagination_label: NonEmployeeIdentityReferenceWithId
 sidebar_label: NonEmployeeIdentityReferenceWithId
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NonEmployeeIdentityReferenceWithId', 'NonEmployeeIdentityReferenceWithId'] 
-slug: /tools/sdk/go//models/non-employee-identity-reference-with-id
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeIdentityReferenceWithId', 'NonEmployeeIdentityReferenceWithId']
+keywords: ['go', 'Golang', 'sdk', 'NonEmployeeIdentityReferenceWithId', 'V2025NonEmployeeIdentityReferenceWithId'] 
+slug: /tools/sdk/go/v2025/models/non-employee-identity-reference-with-id
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeIdentityReferenceWithId', 'V2025NonEmployeeIdentityReferenceWithId']
 ---
 
 # NonEmployeeIdentityReferenceWithId

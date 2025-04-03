@@ -1,12 +1,12 @@
 ---
-id: accounts-collected-for-aggregation-stats
+id: v2025-accounts-collected-for-aggregation-stats
 title: AccountsCollectedForAggregationStats
 pagination_label: AccountsCollectedForAggregationStats
 sidebar_label: AccountsCollectedForAggregationStats
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountsCollectedForAggregationStats', 'AccountsCollectedForAggregationStats'] 
-slug: /tools/sdk/go//models/accounts-collected-for-aggregation-stats
-tags: ['SDK', 'Software Development Kit', 'AccountsCollectedForAggregationStats', 'AccountsCollectedForAggregationStats']
+keywords: ['go', 'Golang', 'sdk', 'AccountsCollectedForAggregationStats', 'V2025AccountsCollectedForAggregationStats'] 
+slug: /tools/sdk/go/v2025/models/accounts-collected-for-aggregation-stats
+tags: ['SDK', 'Software Development Kit', 'AccountsCollectedForAggregationStats', 'V2025AccountsCollectedForAggregationStats']
 ---
 
 # AccountsCollectedForAggregationStats

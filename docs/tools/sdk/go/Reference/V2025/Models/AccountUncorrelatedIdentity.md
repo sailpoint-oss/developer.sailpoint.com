@@ -1,12 +1,12 @@
 ---
-id: account-uncorrelated-identity
+id: v2025-account-uncorrelated-identity
 title: AccountUncorrelatedIdentity
 pagination_label: AccountUncorrelatedIdentity
 sidebar_label: AccountUncorrelatedIdentity
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountUncorrelatedIdentity', 'AccountUncorrelatedIdentity'] 
-slug: /tools/sdk/go//models/account-uncorrelated-identity
-tags: ['SDK', 'Software Development Kit', 'AccountUncorrelatedIdentity', 'AccountUncorrelatedIdentity']
+keywords: ['go', 'Golang', 'sdk', 'AccountUncorrelatedIdentity', 'V2025AccountUncorrelatedIdentity'] 
+slug: /tools/sdk/go/v2025/models/account-uncorrelated-identity
+tags: ['SDK', 'Software Development Kit', 'AccountUncorrelatedIdentity', 'V2025AccountUncorrelatedIdentity']
 ---
 
 # AccountUncorrelatedIdentity

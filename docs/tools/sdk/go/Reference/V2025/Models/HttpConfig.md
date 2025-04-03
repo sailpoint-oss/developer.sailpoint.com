@@ -1,12 +1,12 @@
 ---
-id: http-config
+id: v2025-http-config
 title: HttpConfig
 pagination_label: HttpConfig
 sidebar_label: HttpConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'HttpConfig', 'HttpConfig'] 
-slug: /tools/sdk/go//models/http-config
-tags: ['SDK', 'Software Development Kit', 'HttpConfig', 'HttpConfig']
+keywords: ['go', 'Golang', 'sdk', 'HttpConfig', 'V2025HttpConfig'] 
+slug: /tools/sdk/go/v2025/models/http-config
+tags: ['SDK', 'Software Development Kit', 'HttpConfig', 'V2025HttpConfig']
 ---
 
 # HttpConfig

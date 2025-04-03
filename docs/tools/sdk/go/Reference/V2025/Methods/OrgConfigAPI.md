@@ -1,12 +1,12 @@
 ---
-id: org-config
+id: v2025-org-config
 title: OrgConfig
 pagination_label: OrgConfig
 sidebar_label: OrgConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'OrgConfig', 'OrgConfig'] 
-slug: /tools/sdk/go//methods/org-config
-tags: ['SDK', 'Software Development Kit', 'OrgConfig', 'OrgConfig']
+keywords: ['go', 'Golang', 'sdk', 'OrgConfig', 'V2025OrgConfig'] 
+slug: /tools/sdk/go/v2025/methods/org-config
+tags: ['SDK', 'Software Development Kit', 'OrgConfig', 'V2025OrgConfig']
 ---
 
 # OrgConfigAPI
@@ -37,7 +37,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get Org Config Settings
 Get the current organization's configuration settings, only external accessible properties.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-org-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-org-config)
 
 ### Path Parameters
 
@@ -70,7 +70,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -79,7 +79,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..OrgConfigAPI.GetOrgConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.OrgConfigAPI.GetOrgConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OrgConfigAPI.GetOrgConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -106,7 +106,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get Valid Time Zones
 List the valid time zones that can be set in organization configurations.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-valid-time-zones)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-valid-time-zones)
 
 ### Path Parameters
 
@@ -142,7 +142,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -154,7 +154,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..OrgConfigAPI.GetValidTimeZones(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Execute()
+	resp, r, err := apiClient.V2025.OrgConfigAPI.GetValidTimeZones(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OrgConfigAPI.GetValidTimeZones``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -181,7 +181,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Patch Org Config
 Patch the current organization's configuration, using http://jsonpatch.com/ syntax. This is commonly used to changing an organization's time zone.
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-org-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-org-config)
 
 ### Path Parameters
 
@@ -215,7 +215,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -225,7 +225,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..OrgConfigAPI.PatchOrgConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
+	resp, r, err := apiClient.V2025.OrgConfigAPI.PatchOrgConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `OrgConfigAPI.PatchOrgConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

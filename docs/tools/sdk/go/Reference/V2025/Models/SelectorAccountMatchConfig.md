@@ -1,12 +1,12 @@
 ---
-id: selector-account-match-config
+id: v2025-selector-account-match-config
 title: SelectorAccountMatchConfig
 pagination_label: SelectorAccountMatchConfig
 sidebar_label: SelectorAccountMatchConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SelectorAccountMatchConfig', 'SelectorAccountMatchConfig'] 
-slug: /tools/sdk/go//models/selector-account-match-config
-tags: ['SDK', 'Software Development Kit', 'SelectorAccountMatchConfig', 'SelectorAccountMatchConfig']
+keywords: ['go', 'Golang', 'sdk', 'SelectorAccountMatchConfig', 'V2025SelectorAccountMatchConfig'] 
+slug: /tools/sdk/go/v2025/models/selector-account-match-config
+tags: ['SDK', 'Software Development Kit', 'SelectorAccountMatchConfig', 'V2025SelectorAccountMatchConfig']
 ---
 
 # SelectorAccountMatchConfig

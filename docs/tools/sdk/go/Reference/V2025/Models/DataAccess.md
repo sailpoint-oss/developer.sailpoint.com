@@ -1,12 +1,12 @@
 ---
-id: data-access
+id: v2025-data-access
 title: DataAccess
 pagination_label: DataAccess
 sidebar_label: DataAccess
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DataAccess', 'DataAccess'] 
-slug: /tools/sdk/go//models/data-access
-tags: ['SDK', 'Software Development Kit', 'DataAccess', 'DataAccess']
+keywords: ['go', 'Golang', 'sdk', 'DataAccess', 'V2025DataAccess'] 
+slug: /tools/sdk/go/v2025/models/data-access
+tags: ['SDK', 'Software Development Kit', 'DataAccess', 'V2025DataAccess']
 ---
 
 # DataAccess

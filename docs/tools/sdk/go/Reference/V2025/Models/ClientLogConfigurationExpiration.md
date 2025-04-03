@@ -1,12 +1,12 @@
 ---
-id: client-log-configuration-expiration
+id: v2025-client-log-configuration-expiration
 title: ClientLogConfigurationExpiration
 pagination_label: ClientLogConfigurationExpiration
 sidebar_label: ClientLogConfigurationExpiration
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ClientLogConfigurationExpiration', 'ClientLogConfigurationExpiration'] 
-slug: /tools/sdk/go//models/client-log-configuration-expiration
-tags: ['SDK', 'Software Development Kit', 'ClientLogConfigurationExpiration', 'ClientLogConfigurationExpiration']
+keywords: ['go', 'Golang', 'sdk', 'ClientLogConfigurationExpiration', 'V2025ClientLogConfigurationExpiration'] 
+slug: /tools/sdk/go/v2025/models/client-log-configuration-expiration
+tags: ['SDK', 'Software Development Kit', 'ClientLogConfigurationExpiration', 'V2025ClientLogConfigurationExpiration']
 ---
 
 # ClientLogConfigurationExpiration

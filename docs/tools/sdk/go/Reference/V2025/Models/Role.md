@@ -1,12 +1,12 @@
 ---
-id: role
+id: v2025-role
 title: Role
 pagination_label: Role
 sidebar_label: Role
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Role', 'Role'] 
-slug: /tools/sdk/go//models/role
-tags: ['SDK', 'Software Development Kit', 'Role', 'Role']
+keywords: ['go', 'Golang', 'sdk', 'Role', 'V2025Role'] 
+slug: /tools/sdk/go/v2025/models/role
+tags: ['SDK', 'Software Development Kit', 'Role', 'V2025Role']
 ---
 
 # Role

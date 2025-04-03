@@ -1,12 +1,12 @@
 ---
-id: access-request-recommendation-item-detail-access
+id: v2025-access-request-recommendation-item-detail-access
 title: AccessRequestRecommendationItemDetailAccess
 pagination_label: AccessRequestRecommendationItemDetailAccess
 sidebar_label: AccessRequestRecommendationItemDetailAccess
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestRecommendationItemDetailAccess', 'AccessRequestRecommendationItemDetailAccess'] 
-slug: /tools/sdk/go//models/access-request-recommendation-item-detail-access
-tags: ['SDK', 'Software Development Kit', 'AccessRequestRecommendationItemDetailAccess', 'AccessRequestRecommendationItemDetailAccess']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestRecommendationItemDetailAccess', 'V2025AccessRequestRecommendationItemDetailAccess'] 
+slug: /tools/sdk/go/v2025/models/access-request-recommendation-item-detail-access
+tags: ['SDK', 'Software Development Kit', 'AccessRequestRecommendationItemDetailAccess', 'V2025AccessRequestRecommendationItemDetailAccess']
 ---
 
 # AccessRequestRecommendationItemDetailAccess

@@ -1,12 +1,12 @@
 ---
-id: connector-detail
+id: v2025-connector-detail
 title: ConnectorDetail
 pagination_label: ConnectorDetail
 sidebar_label: ConnectorDetail
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConnectorDetail', 'ConnectorDetail'] 
-slug: /tools/sdk/go//models/connector-detail
-tags: ['SDK', 'Software Development Kit', 'ConnectorDetail', 'ConnectorDetail']
+keywords: ['go', 'Golang', 'sdk', 'ConnectorDetail', 'V2025ConnectorDetail'] 
+slug: /tools/sdk/go/v2025/models/connector-detail
+tags: ['SDK', 'Software Development Kit', 'ConnectorDetail', 'V2025ConnectorDetail']
 ---
 
 # ConnectorDetail

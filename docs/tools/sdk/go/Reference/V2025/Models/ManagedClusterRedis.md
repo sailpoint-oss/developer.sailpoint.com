@@ -1,12 +1,12 @@
 ---
-id: managed-cluster-redis
+id: v2025-managed-cluster-redis
 title: ManagedClusterRedis
 pagination_label: ManagedClusterRedis
 sidebar_label: ManagedClusterRedis
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ManagedClusterRedis', 'ManagedClusterRedis'] 
-slug: /tools/sdk/go//models/managed-cluster-redis
-tags: ['SDK', 'Software Development Kit', 'ManagedClusterRedis', 'ManagedClusterRedis']
+keywords: ['go', 'Golang', 'sdk', 'ManagedClusterRedis', 'V2025ManagedClusterRedis'] 
+slug: /tools/sdk/go/v2025/models/managed-cluster-redis
+tags: ['SDK', 'Software Development Kit', 'ManagedClusterRedis', 'V2025ManagedClusterRedis']
 ---
 
 # ManagedClusterRedis

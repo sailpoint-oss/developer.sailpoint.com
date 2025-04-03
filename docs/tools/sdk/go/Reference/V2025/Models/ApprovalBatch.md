@@ -1,12 +1,12 @@
 ---
-id: approval-batch
+id: v2025-approval-batch
 title: ApprovalBatch
 pagination_label: ApprovalBatch
 sidebar_label: ApprovalBatch
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ApprovalBatch', 'ApprovalBatch'] 
-slug: /tools/sdk/go//models/approval-batch
-tags: ['SDK', 'Software Development Kit', 'ApprovalBatch', 'ApprovalBatch']
+keywords: ['go', 'Golang', 'sdk', 'ApprovalBatch', 'V2025ApprovalBatch'] 
+slug: /tools/sdk/go/v2025/models/approval-batch
+tags: ['SDK', 'Software Development Kit', 'ApprovalBatch', 'V2025ApprovalBatch']
 ---
 
 # ApprovalBatch

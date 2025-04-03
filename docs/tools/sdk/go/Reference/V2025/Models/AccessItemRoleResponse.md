@@ -1,12 +1,12 @@
 ---
-id: access-item-role-response
+id: v2025-access-item-role-response
 title: AccessItemRoleResponse
 pagination_label: AccessItemRoleResponse
 sidebar_label: AccessItemRoleResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessItemRoleResponse', 'AccessItemRoleResponse'] 
-slug: /tools/sdk/go//models/access-item-role-response
-tags: ['SDK', 'Software Development Kit', 'AccessItemRoleResponse', 'AccessItemRoleResponse']
+keywords: ['go', 'Golang', 'sdk', 'AccessItemRoleResponse', 'V2025AccessItemRoleResponse'] 
+slug: /tools/sdk/go/v2025/models/access-item-role-response
+tags: ['SDK', 'Software Development Kit', 'AccessItemRoleResponse', 'V2025AccessItemRoleResponse']
 ---
 
 # AccessItemRoleResponse

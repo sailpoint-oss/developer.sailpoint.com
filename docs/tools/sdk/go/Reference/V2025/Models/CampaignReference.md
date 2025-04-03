@@ -1,12 +1,12 @@
 ---
-id: campaign-reference
+id: v2025-campaign-reference
 title: CampaignReference
 pagination_label: CampaignReference
 sidebar_label: CampaignReference
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignReference', 'CampaignReference'] 
-slug: /tools/sdk/go//models/campaign-reference
-tags: ['SDK', 'Software Development Kit', 'CampaignReference', 'CampaignReference']
+keywords: ['go', 'Golang', 'sdk', 'CampaignReference', 'V2025CampaignReference'] 
+slug: /tools/sdk/go/v2025/models/campaign-reference
+tags: ['SDK', 'Software Development Kit', 'CampaignReference', 'V2025CampaignReference']
 ---
 
 # CampaignReference

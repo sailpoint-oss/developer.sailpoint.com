@@ -1,12 +1,12 @@
 ---
-id: service-desk-integration-template-type
+id: v2025-service-desk-integration-template-type
 title: ServiceDeskIntegrationTemplateType
 pagination_label: ServiceDeskIntegrationTemplateType
 sidebar_label: ServiceDeskIntegrationTemplateType
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ServiceDeskIntegrationTemplateType', 'ServiceDeskIntegrationTemplateType'] 
-slug: /tools/sdk/go//models/service-desk-integration-template-type
-tags: ['SDK', 'Software Development Kit', 'ServiceDeskIntegrationTemplateType', 'ServiceDeskIntegrationTemplateType']
+keywords: ['go', 'Golang', 'sdk', 'ServiceDeskIntegrationTemplateType', 'V2025ServiceDeskIntegrationTemplateType'] 
+slug: /tools/sdk/go/v2025/models/service-desk-integration-template-type
+tags: ['SDK', 'Software Development Kit', 'ServiceDeskIntegrationTemplateType', 'V2025ServiceDeskIntegrationTemplateType']
 ---
 
 # ServiceDeskIntegrationTemplateType

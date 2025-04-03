@@ -1,12 +1,12 @@
 ---
-id: role-mining-potential-role
+id: v2025-role-mining-potential-role
 title: RoleMiningPotentialRole
 pagination_label: RoleMiningPotentialRole
 sidebar_label: RoleMiningPotentialRole
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMiningPotentialRole', 'RoleMiningPotentialRole'] 
-slug: /tools/sdk/go//models/role-mining-potential-role
-tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRole', 'RoleMiningPotentialRole']
+keywords: ['go', 'Golang', 'sdk', 'RoleMiningPotentialRole', 'V2025RoleMiningPotentialRole'] 
+slug: /tools/sdk/go/v2025/models/role-mining-potential-role
+tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRole', 'V2025RoleMiningPotentialRole']
 ---
 
 # RoleMiningPotentialRole

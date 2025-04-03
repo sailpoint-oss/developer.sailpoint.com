@@ -1,12 +1,12 @@
 ---
-id: campaign-alert
+id: v2025-campaign-alert
 title: CampaignAlert
 pagination_label: CampaignAlert
 sidebar_label: CampaignAlert
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignAlert', 'CampaignAlert'] 
-slug: /tools/sdk/go//models/campaign-alert
-tags: ['SDK', 'Software Development Kit', 'CampaignAlert', 'CampaignAlert']
+keywords: ['go', 'Golang', 'sdk', 'CampaignAlert', 'V2025CampaignAlert'] 
+slug: /tools/sdk/go/v2025/models/campaign-alert
+tags: ['SDK', 'Software Development Kit', 'CampaignAlert', 'V2025CampaignAlert']
 ---
 
 # CampaignAlert

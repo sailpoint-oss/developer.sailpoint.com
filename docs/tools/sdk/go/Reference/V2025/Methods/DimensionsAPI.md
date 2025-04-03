@@ -1,12 +1,12 @@
 ---
-id: dimensions
+id: v2025-dimensions
 title: Dimensions
 pagination_label: Dimensions
 sidebar_label: Dimensions
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Dimensions', 'Dimensions'] 
-slug: /tools/sdk/go//methods/dimensions
-tags: ['SDK', 'Software Development Kit', 'Dimensions', 'Dimensions']
+keywords: ['go', 'Golang', 'sdk', 'Dimensions', 'V2025Dimensions'] 
+slug: /tools/sdk/go/v2025/methods/dimensions
+tags: ['SDK', 'Software Development Kit', 'Dimensions', 'V2025Dimensions']
 ---
 
 # DimensionsAPI
@@ -33,7 +33,7 @@ You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authorit
 Additionally, a ROLE_SUBADMIN cannot create a dimension that includes an access profile or entitlement if that access profile or entitlement is linked to a source that the ROLE_SUBADMIN is not associated with. 
 The maximum supported length for the description field is 2000 characters.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-dimension)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-dimension)
 
 ### Path Parameters
 
@@ -71,7 +71,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -167,7 +167,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..DimensionsAPI.CreateDimension(context.Background(), roleId).Dimension(dimension).Execute()
+	resp, r, err := apiClient.V2025.DimensionsAPI.CreateDimension(context.Background(), roleId).Dimension(dimension).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DimensionsAPI.CreateDimension``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -186,7 +186,7 @@ When the request is successful, the endpoint returns the bulk delete's task resu
 This endpoint can only bulk delete up to a limit of 50 roles per request. 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this endpoint. In addition, a token with ROLE_SUBADMIN authority can only call this endpoint if all dimensions included in the request are associated with sources with management workgroups the ROLE_SUBADMIN is a member of.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-bulk-dimensions)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-bulk-dimensions)
 
 ### Path Parameters
 
@@ -224,7 +224,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -236,7 +236,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..DimensionsAPI.DeleteBulkDimensions(context.Background(), roleId).DimensionBulkDeleteRequest(dimensionBulkDeleteRequest).Execute()
+	resp, r, err := apiClient.V2025.DimensionsAPI.DeleteBulkDimensions(context.Background(), roleId).DimensionBulkDeleteRequest(dimensionBulkDeleteRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DimensionsAPI.DeleteBulkDimensions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -253,7 +253,7 @@ Delete a Dimension
 This API deletes a Dimension by its ID.
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles/Entitlements included in the Dimension are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-dimension)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-dimension)
 
 ### Path Parameters
 
@@ -292,7 +292,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -302,7 +302,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..DimensionsAPI.DeleteDimension(context.Background(), roleId, dimensionId).Execute()
+	r, err := apiClient.V2025.DimensionsAPI.DeleteDimension(context.Background(), roleId, dimensionId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DimensionsAPI.DeleteDimension``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -318,7 +318,7 @@ This API returns a Dimension by its ID.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles or Entitlements included in the Dimension or Parent Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-dimension)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-dimension)
 
 ### Path Parameters
 
@@ -357,7 +357,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -367,7 +367,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..DimensionsAPI.GetDimension(context.Background(), roleId, dimensionId).Execute()
+	resp, r, err := apiClient.V2025.DimensionsAPI.GetDimension(context.Background(), roleId, dimensionId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DimensionsAPI.GetDimension``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -385,7 +385,7 @@ This API lists the Entitlements associated with a given dimension.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-dimension-entitlements)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-dimension-entitlements)
 
 ### Path Parameters
 
@@ -429,7 +429,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -444,7 +444,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..DimensionsAPI.GetDimensionEntitlements(context.Background(), roleId, dimensionId).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.DimensionsAPI.GetDimensionEntitlements(context.Background(), roleId, dimensionId).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DimensionsAPI.GetDimensionEntitlements``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -462,7 +462,7 @@ This API lists the Access Profiles associated with a given Dimension
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-dimension-access-profiles)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-dimension-access-profiles)
 
 ### Path Parameters
 
@@ -506,7 +506,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -521,7 +521,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..DimensionsAPI.ListDimensionAccessProfiles(context.Background(), roleId, dimensionId).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.DimensionsAPI.ListDimensionAccessProfiles(context.Background(), roleId, dimensionId).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DimensionsAPI.ListDimensionAccessProfiles``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -539,7 +539,7 @@ This API returns a list of dimensions under a specified role.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-dimensions)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-dimensions)
 
 ### Path Parameters
 
@@ -582,7 +582,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -597,7 +597,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..DimensionsAPI.ListDimensions(context.Background(), roleId).ForSubadmin(forSubadmin).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.DimensionsAPI.ListDimensions(context.Background(), roleId).ForSubadmin(forSubadmin).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DimensionsAPI.ListDimensions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -617,7 +617,7 @@ A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required 
 The maximum supported length for the description field is 2000 characters.
 When you use this API to modify a dimension's membership identities, you can only modify up to a limit of 500 membership identities at a time.
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-dimension)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-dimension)
 
 ### Path Parameters
 
@@ -657,7 +657,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -668,7 +668,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..DimensionsAPI.PatchDimension(context.Background(), roleId, dimensionId).JsonPatchOperation(jsonPatchOperation).Execute()
+	resp, r, err := apiClient.V2025.DimensionsAPI.PatchDimension(context.Background(), roleId, dimensionId).JsonPatchOperation(jsonPatchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DimensionsAPI.PatchDimension``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

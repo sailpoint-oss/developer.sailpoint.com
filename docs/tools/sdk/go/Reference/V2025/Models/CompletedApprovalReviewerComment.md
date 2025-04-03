@@ -1,12 +1,12 @@
 ---
-id: completed-approval-reviewer-comment
+id: v2025-completed-approval-reviewer-comment
 title: CompletedApprovalReviewerComment
 pagination_label: CompletedApprovalReviewerComment
 sidebar_label: CompletedApprovalReviewerComment
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CompletedApprovalReviewerComment', 'CompletedApprovalReviewerComment'] 
-slug: /tools/sdk/go//models/completed-approval-reviewer-comment
-tags: ['SDK', 'Software Development Kit', 'CompletedApprovalReviewerComment', 'CompletedApprovalReviewerComment']
+keywords: ['go', 'Golang', 'sdk', 'CompletedApprovalReviewerComment', 'V2025CompletedApprovalReviewerComment'] 
+slug: /tools/sdk/go/v2025/models/completed-approval-reviewer-comment
+tags: ['SDK', 'Software Development Kit', 'CompletedApprovalReviewerComment', 'V2025CompletedApprovalReviewerComment']
 ---
 
 # CompletedApprovalReviewerComment

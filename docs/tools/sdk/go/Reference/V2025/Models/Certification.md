@@ -1,12 +1,12 @@
 ---
-id: certification
+id: v2025-certification
 title: Certification
 pagination_label: Certification
 sidebar_label: Certification
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Certification', 'Certification'] 
-slug: /tools/sdk/go//models/certification
-tags: ['SDK', 'Software Development Kit', 'Certification', 'Certification']
+keywords: ['go', 'Golang', 'sdk', 'Certification', 'V2025Certification'] 
+slug: /tools/sdk/go/v2025/models/certification
+tags: ['SDK', 'Software Development Kit', 'Certification', 'V2025Certification']
 ---
 
 # Certification

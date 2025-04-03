@@ -1,12 +1,12 @@
 ---
-id: review-decision
+id: v2025-review-decision
 title: ReviewDecision
 pagination_label: ReviewDecision
 sidebar_label: ReviewDecision
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ReviewDecision', 'ReviewDecision'] 
-slug: /tools/sdk/go//models/review-decision
-tags: ['SDK', 'Software Development Kit', 'ReviewDecision', 'ReviewDecision']
+keywords: ['go', 'Golang', 'sdk', 'ReviewDecision', 'V2025ReviewDecision'] 
+slug: /tools/sdk/go/v2025/models/review-decision
+tags: ['SDK', 'Software Development Kit', 'ReviewDecision', 'V2025ReviewDecision']
 ---
 
 # ReviewDecision

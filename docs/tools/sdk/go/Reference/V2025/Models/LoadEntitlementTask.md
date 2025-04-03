@@ -1,12 +1,12 @@
 ---
-id: load-entitlement-task
+id: v2025-load-entitlement-task
 title: LoadEntitlementTask
 pagination_label: LoadEntitlementTask
 sidebar_label: LoadEntitlementTask
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'LoadEntitlementTask', 'LoadEntitlementTask'] 
-slug: /tools/sdk/go//models/load-entitlement-task
-tags: ['SDK', 'Software Development Kit', 'LoadEntitlementTask', 'LoadEntitlementTask']
+keywords: ['go', 'Golang', 'sdk', 'LoadEntitlementTask', 'V2025LoadEntitlementTask'] 
+slug: /tools/sdk/go/v2025/models/load-entitlement-task
+tags: ['SDK', 'Software Development Kit', 'LoadEntitlementTask', 'V2025LoadEntitlementTask']
 ---
 
 # LoadEntitlementTask

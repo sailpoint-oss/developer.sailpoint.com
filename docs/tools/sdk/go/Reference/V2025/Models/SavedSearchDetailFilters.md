@@ -1,12 +1,12 @@
 ---
-id: saved-search-detail-filters
+id: v2025-saved-search-detail-filters
 title: SavedSearchDetailFilters
 pagination_label: SavedSearchDetailFilters
 sidebar_label: SavedSearchDetailFilters
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SavedSearchDetailFilters', 'SavedSearchDetailFilters'] 
-slug: /tools/sdk/go//models/saved-search-detail-filters
-tags: ['SDK', 'Software Development Kit', 'SavedSearchDetailFilters', 'SavedSearchDetailFilters']
+keywords: ['go', 'Golang', 'sdk', 'SavedSearchDetailFilters', 'V2025SavedSearchDetailFilters'] 
+slug: /tools/sdk/go/v2025/models/saved-search-detail-filters
+tags: ['SDK', 'Software Development Kit', 'SavedSearchDetailFilters', 'V2025SavedSearchDetailFilters']
 ---
 
 # SavedSearchDetailFilters

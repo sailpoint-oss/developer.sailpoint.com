@@ -1,12 +1,12 @@
 ---
-id: list-workgroup-members200-response-inner
+id: v2025-list-workgroup-members200-response-inner
 title: ListWorkgroupMembers200ResponseInner
 pagination_label: ListWorkgroupMembers200ResponseInner
 sidebar_label: ListWorkgroupMembers200ResponseInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ListWorkgroupMembers200ResponseInner', 'ListWorkgroupMembers200ResponseInner'] 
-slug: /tools/sdk/go//models/list-workgroup-members200-response-inner
-tags: ['SDK', 'Software Development Kit', 'ListWorkgroupMembers200ResponseInner', 'ListWorkgroupMembers200ResponseInner']
+keywords: ['go', 'Golang', 'sdk', 'ListWorkgroupMembers200ResponseInner', 'V2025ListWorkgroupMembers200ResponseInner'] 
+slug: /tools/sdk/go/v2025/models/list-workgroup-members200-response-inner
+tags: ['SDK', 'Software Development Kit', 'ListWorkgroupMembers200ResponseInner', 'V2025ListWorkgroupMembers200ResponseInner']
 ---
 
 # ListWorkgroupMembers200ResponseInner

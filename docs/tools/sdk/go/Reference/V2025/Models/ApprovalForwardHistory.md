@@ -1,12 +1,12 @@
 ---
-id: approval-forward-history
+id: v2025-approval-forward-history
 title: ApprovalForwardHistory
 pagination_label: ApprovalForwardHistory
 sidebar_label: ApprovalForwardHistory
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ApprovalForwardHistory', 'ApprovalForwardHistory'] 
-slug: /tools/sdk/go//models/approval-forward-history
-tags: ['SDK', 'Software Development Kit', 'ApprovalForwardHistory', 'ApprovalForwardHistory']
+keywords: ['go', 'Golang', 'sdk', 'ApprovalForwardHistory', 'V2025ApprovalForwardHistory'] 
+slug: /tools/sdk/go/v2025/models/approval-forward-history
+tags: ['SDK', 'Software Development Kit', 'ApprovalForwardHistory', 'V2025ApprovalForwardHistory']
 ---
 
 # ApprovalForwardHistory

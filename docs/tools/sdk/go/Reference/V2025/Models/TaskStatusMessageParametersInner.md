@@ -1,12 +1,12 @@
 ---
-id: task-status-message-parameters-inner
+id: v2025-task-status-message-parameters-inner
 title: TaskStatusMessageParametersInner
 pagination_label: TaskStatusMessageParametersInner
 sidebar_label: TaskStatusMessageParametersInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TaskStatusMessageParametersInner', 'TaskStatusMessageParametersInner'] 
-slug: /tools/sdk/go//models/task-status-message-parameters-inner
-tags: ['SDK', 'Software Development Kit', 'TaskStatusMessageParametersInner', 'TaskStatusMessageParametersInner']
+keywords: ['go', 'Golang', 'sdk', 'TaskStatusMessageParametersInner', 'V2025TaskStatusMessageParametersInner'] 
+slug: /tools/sdk/go/v2025/models/task-status-message-parameters-inner
+tags: ['SDK', 'Software Development Kit', 'TaskStatusMessageParametersInner', 'V2025TaskStatusMessageParametersInner']
 ---
 
 # TaskStatusMessageParametersInner

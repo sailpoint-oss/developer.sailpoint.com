@@ -1,12 +1,12 @@
 ---
-id: sod-violation-context-conflicting-access-criteria
+id: v2025-sod-violation-context-conflicting-access-criteria
 title: SodViolationContextConflictingAccessCriteria
 pagination_label: SodViolationContextConflictingAccessCriteria
 sidebar_label: SodViolationContextConflictingAccessCriteria
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SodViolationContextConflictingAccessCriteria', 'SodViolationContextConflictingAccessCriteria'] 
-slug: /tools/sdk/go//models/sod-violation-context-conflicting-access-criteria
-tags: ['SDK', 'Software Development Kit', 'SodViolationContextConflictingAccessCriteria', 'SodViolationContextConflictingAccessCriteria']
+keywords: ['go', 'Golang', 'sdk', 'SodViolationContextConflictingAccessCriteria', 'V2025SodViolationContextConflictingAccessCriteria'] 
+slug: /tools/sdk/go/v2025/models/sod-violation-context-conflicting-access-criteria
+tags: ['SDK', 'Software Development Kit', 'SodViolationContextConflictingAccessCriteria', 'V2025SodViolationContextConflictingAccessCriteria']
 ---
 
 # SodViolationContextConflictingAccessCriteria

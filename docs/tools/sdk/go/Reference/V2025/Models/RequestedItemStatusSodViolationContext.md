@@ -1,12 +1,12 @@
 ---
-id: requested-item-status-sod-violation-context
+id: v2025-requested-item-status-sod-violation-context
 title: RequestedItemStatusSodViolationContext
 pagination_label: RequestedItemStatusSodViolationContext
 sidebar_label: RequestedItemStatusSodViolationContext
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RequestedItemStatusSodViolationContext', 'RequestedItemStatusSodViolationContext'] 
-slug: /tools/sdk/go//models/requested-item-status-sod-violation-context
-tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusSodViolationContext', 'RequestedItemStatusSodViolationContext']
+keywords: ['go', 'Golang', 'sdk', 'RequestedItemStatusSodViolationContext', 'V2025RequestedItemStatusSodViolationContext'] 
+slug: /tools/sdk/go/v2025/models/requested-item-status-sod-violation-context
+tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusSodViolationContext', 'V2025RequestedItemStatusSodViolationContext']
 ---
 
 # RequestedItemStatusSodViolationContext

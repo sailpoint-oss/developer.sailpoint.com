@@ -1,12 +1,12 @@
 ---
-id: form-element-preview-request
+id: v2025-form-element-preview-request
 title: FormElementPreviewRequest
 pagination_label: FormElementPreviewRequest
 sidebar_label: FormElementPreviewRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FormElementPreviewRequest', 'FormElementPreviewRequest'] 
-slug: /tools/sdk/go//models/form-element-preview-request
-tags: ['SDK', 'Software Development Kit', 'FormElementPreviewRequest', 'FormElementPreviewRequest']
+keywords: ['go', 'Golang', 'sdk', 'FormElementPreviewRequest', 'V2025FormElementPreviewRequest'] 
+slug: /tools/sdk/go/v2025/models/form-element-preview-request
+tags: ['SDK', 'Software Development Kit', 'FormElementPreviewRequest', 'V2025FormElementPreviewRequest']
 ---
 
 # FormElementPreviewRequest

@@ -1,12 +1,12 @@
 ---
-id: pending-approval
+id: v2025-pending-approval
 title: PendingApproval
 pagination_label: PendingApproval
 sidebar_label: PendingApproval
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PendingApproval', 'PendingApproval'] 
-slug: /tools/sdk/go//models/pending-approval
-tags: ['SDK', 'Software Development Kit', 'PendingApproval', 'PendingApproval']
+keywords: ['go', 'Golang', 'sdk', 'PendingApproval', 'V2025PendingApproval'] 
+slug: /tools/sdk/go/v2025/models/pending-approval
+tags: ['SDK', 'Software Development Kit', 'PendingApproval', 'V2025PendingApproval']
 ---
 
 # PendingApproval

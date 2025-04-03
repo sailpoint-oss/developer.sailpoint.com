@@ -1,12 +1,12 @@
 ---
-id: form-definition-response
+id: v2025-form-definition-response
 title: FormDefinitionResponse
 pagination_label: FormDefinitionResponse
 sidebar_label: FormDefinitionResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FormDefinitionResponse', 'FormDefinitionResponse'] 
-slug: /tools/sdk/go//models/form-definition-response
-tags: ['SDK', 'Software Development Kit', 'FormDefinitionResponse', 'FormDefinitionResponse']
+keywords: ['go', 'Golang', 'sdk', 'FormDefinitionResponse', 'V2025FormDefinitionResponse'] 
+slug: /tools/sdk/go/v2025/models/form-definition-response
+tags: ['SDK', 'Software Development Kit', 'FormDefinitionResponse', 'V2025FormDefinitionResponse']
 ---
 
 # FormDefinitionResponse

@@ -1,12 +1,12 @@
 ---
-id: access-apps
+id: v2025-access-apps
 title: AccessApps
 pagination_label: AccessApps
 sidebar_label: AccessApps
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessApps', 'AccessApps'] 
-slug: /tools/sdk/go//models/access-apps
-tags: ['SDK', 'Software Development Kit', 'AccessApps', 'AccessApps']
+keywords: ['go', 'Golang', 'sdk', 'AccessApps', 'V2025AccessApps'] 
+slug: /tools/sdk/go/v2025/models/access-apps
+tags: ['SDK', 'Software Development Kit', 'AccessApps', 'V2025AccessApps']
 ---
 
 # AccessApps

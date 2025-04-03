@@ -1,12 +1,12 @@
 ---
-id: form-definition-dynamic-schema-request
+id: v2025-form-definition-dynamic-schema-request
 title: FormDefinitionDynamicSchemaRequest
 pagination_label: FormDefinitionDynamicSchemaRequest
 sidebar_label: FormDefinitionDynamicSchemaRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FormDefinitionDynamicSchemaRequest', 'FormDefinitionDynamicSchemaRequest'] 
-slug: /tools/sdk/go//models/form-definition-dynamic-schema-request
-tags: ['SDK', 'Software Development Kit', 'FormDefinitionDynamicSchemaRequest', 'FormDefinitionDynamicSchemaRequest']
+keywords: ['go', 'Golang', 'sdk', 'FormDefinitionDynamicSchemaRequest', 'V2025FormDefinitionDynamicSchemaRequest'] 
+slug: /tools/sdk/go/v2025/models/form-definition-dynamic-schema-request
+tags: ['SDK', 'Software Development Kit', 'FormDefinitionDynamicSchemaRequest', 'V2025FormDefinitionDynamicSchemaRequest']
 ---
 
 # FormDefinitionDynamicSchemaRequest

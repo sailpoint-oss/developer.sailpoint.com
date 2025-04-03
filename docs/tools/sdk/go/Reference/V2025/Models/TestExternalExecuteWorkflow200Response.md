@@ -1,12 +1,12 @@
 ---
-id: test-external-execute-workflow200-response
+id: v2025-test-external-execute-workflow200-response
 title: TestExternalExecuteWorkflow200Response
 pagination_label: TestExternalExecuteWorkflow200Response
 sidebar_label: TestExternalExecuteWorkflow200Response
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TestExternalExecuteWorkflow200Response', 'TestExternalExecuteWorkflow200Response'] 
-slug: /tools/sdk/go//models/test-external-execute-workflow200-response
-tags: ['SDK', 'Software Development Kit', 'TestExternalExecuteWorkflow200Response', 'TestExternalExecuteWorkflow200Response']
+keywords: ['go', 'Golang', 'sdk', 'TestExternalExecuteWorkflow200Response', 'V2025TestExternalExecuteWorkflow200Response'] 
+slug: /tools/sdk/go/v2025/models/test-external-execute-workflow200-response
+tags: ['SDK', 'Software Development Kit', 'TestExternalExecuteWorkflow200Response', 'V2025TestExternalExecuteWorkflow200Response']
 ---
 
 # TestExternalExecuteWorkflow200Response

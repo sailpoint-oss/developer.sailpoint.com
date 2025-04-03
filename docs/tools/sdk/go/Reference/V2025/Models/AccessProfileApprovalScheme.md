@@ -1,12 +1,12 @@
 ---
-id: access-profile-approval-scheme
+id: v2025-access-profile-approval-scheme
 title: AccessProfileApprovalScheme
 pagination_label: AccessProfileApprovalScheme
 sidebar_label: AccessProfileApprovalScheme
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessProfileApprovalScheme', 'AccessProfileApprovalScheme'] 
-slug: /tools/sdk/go//models/access-profile-approval-scheme
-tags: ['SDK', 'Software Development Kit', 'AccessProfileApprovalScheme', 'AccessProfileApprovalScheme']
+keywords: ['go', 'Golang', 'sdk', 'AccessProfileApprovalScheme', 'V2025AccessProfileApprovalScheme'] 
+slug: /tools/sdk/go/v2025/models/access-profile-approval-scheme
+tags: ['SDK', 'Software Development Kit', 'AccessProfileApprovalScheme', 'V2025AccessProfileApprovalScheme']
 ---
 
 # AccessProfileApprovalScheme

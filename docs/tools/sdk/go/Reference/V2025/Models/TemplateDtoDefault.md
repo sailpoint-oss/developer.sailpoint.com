@@ -1,12 +1,12 @@
 ---
-id: template-dto-default
+id: v2025-template-dto-default
 title: TemplateDtoDefault
 pagination_label: TemplateDtoDefault
 sidebar_label: TemplateDtoDefault
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TemplateDtoDefault', 'TemplateDtoDefault'] 
-slug: /tools/sdk/go//models/template-dto-default
-tags: ['SDK', 'Software Development Kit', 'TemplateDtoDefault', 'TemplateDtoDefault']
+keywords: ['go', 'Golang', 'sdk', 'TemplateDtoDefault', 'V2025TemplateDtoDefault'] 
+slug: /tools/sdk/go/v2025/models/template-dto-default
+tags: ['SDK', 'Software Development Kit', 'TemplateDtoDefault', 'V2025TemplateDtoDefault']
 ---
 
 # TemplateDtoDefault

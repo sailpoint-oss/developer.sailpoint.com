@@ -1,12 +1,12 @@
 ---
-id: campaign-all-of-role-composition-campaign-info-remediator-ref
+id: v2025-campaign-all-of-role-composition-campaign-info-remediator-ref
 title: CampaignAllOfRoleCompositionCampaignInfoRemediatorRef
 pagination_label: CampaignAllOfRoleCompositionCampaignInfoRemediatorRef
 sidebar_label: CampaignAllOfRoleCompositionCampaignInfoRemediatorRef
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignAllOfRoleCompositionCampaignInfoRemediatorRef', 'CampaignAllOfRoleCompositionCampaignInfoRemediatorRef'] 
-slug: /tools/sdk/go//models/campaign-all-of-role-composition-campaign-info-remediator-ref
-tags: ['SDK', 'Software Development Kit', 'CampaignAllOfRoleCompositionCampaignInfoRemediatorRef', 'CampaignAllOfRoleCompositionCampaignInfoRemediatorRef']
+keywords: ['go', 'Golang', 'sdk', 'CampaignAllOfRoleCompositionCampaignInfoRemediatorRef', 'V2025CampaignAllOfRoleCompositionCampaignInfoRemediatorRef'] 
+slug: /tools/sdk/go/v2025/models/campaign-all-of-role-composition-campaign-info-remediator-ref
+tags: ['SDK', 'Software Development Kit', 'CampaignAllOfRoleCompositionCampaignInfoRemediatorRef', 'V2025CampaignAllOfRoleCompositionCampaignInfoRemediatorRef']
 ---
 
 # CampaignAllOfRoleCompositionCampaignInfoRemediatorRef

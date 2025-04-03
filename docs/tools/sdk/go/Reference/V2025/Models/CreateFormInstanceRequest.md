@@ -1,12 +1,12 @@
 ---
-id: create-form-instance-request
+id: v2025-create-form-instance-request
 title: CreateFormInstanceRequest
 pagination_label: CreateFormInstanceRequest
 sidebar_label: CreateFormInstanceRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CreateFormInstanceRequest', 'CreateFormInstanceRequest'] 
-slug: /tools/sdk/go//models/create-form-instance-request
-tags: ['SDK', 'Software Development Kit', 'CreateFormInstanceRequest', 'CreateFormInstanceRequest']
+keywords: ['go', 'Golang', 'sdk', 'CreateFormInstanceRequest', 'V2025CreateFormInstanceRequest'] 
+slug: /tools/sdk/go/v2025/models/create-form-instance-request
+tags: ['SDK', 'Software Development Kit', 'CreateFormInstanceRequest', 'V2025CreateFormInstanceRequest']
 ---
 
 # CreateFormInstanceRequest

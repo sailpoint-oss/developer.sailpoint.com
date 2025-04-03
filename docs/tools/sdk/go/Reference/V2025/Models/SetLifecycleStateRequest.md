@@ -1,12 +1,12 @@
 ---
-id: set-lifecycle-state-request
+id: v2025-set-lifecycle-state-request
 title: SetLifecycleStateRequest
 pagination_label: SetLifecycleStateRequest
 sidebar_label: SetLifecycleStateRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SetLifecycleStateRequest', 'SetLifecycleStateRequest'] 
-slug: /tools/sdk/go//models/set-lifecycle-state-request
-tags: ['SDK', 'Software Development Kit', 'SetLifecycleStateRequest', 'SetLifecycleStateRequest']
+keywords: ['go', 'Golang', 'sdk', 'SetLifecycleStateRequest', 'V2025SetLifecycleStateRequest'] 
+slug: /tools/sdk/go/v2025/models/set-lifecycle-state-request
+tags: ['SDK', 'Software Development Kit', 'SetLifecycleStateRequest', 'V2025SetLifecycleStateRequest']
 ---
 
 # SetLifecycleStateRequest

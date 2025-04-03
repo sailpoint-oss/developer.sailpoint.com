@@ -1,12 +1,12 @@
 ---
-id: target
+id: v2025-target
 title: Target
 pagination_label: Target
 sidebar_label: Target
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Target', 'Target'] 
-slug: /tools/sdk/go//models/target
-tags: ['SDK', 'Software Development Kit', 'Target', 'Target']
+keywords: ['go', 'Golang', 'sdk', 'Target', 'V2025Target'] 
+slug: /tools/sdk/go/v2025/models/target
+tags: ['SDK', 'Software Development Kit', 'Target', 'V2025Target']
 ---
 
 # Target

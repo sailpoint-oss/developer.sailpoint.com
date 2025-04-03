@@ -1,12 +1,12 @@
 ---
-id: owner-reference-segments
+id: v2025-owner-reference-segments
 title: OwnerReferenceSegments
 pagination_label: OwnerReferenceSegments
 sidebar_label: OwnerReferenceSegments
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'OwnerReferenceSegments', 'OwnerReferenceSegments'] 
-slug: /tools/sdk/go//models/owner-reference-segments
-tags: ['SDK', 'Software Development Kit', 'OwnerReferenceSegments', 'OwnerReferenceSegments']
+keywords: ['go', 'Golang', 'sdk', 'OwnerReferenceSegments', 'V2025OwnerReferenceSegments'] 
+slug: /tools/sdk/go/v2025/models/owner-reference-segments
+tags: ['SDK', 'Software Development Kit', 'OwnerReferenceSegments', 'V2025OwnerReferenceSegments']
 ---
 
 # OwnerReferenceSegments

@@ -1,12 +1,12 @@
 ---
-id: identity-profile-identity-error-report-arguments
+id: v2025-identity-profile-identity-error-report-arguments
 title: IdentityProfileIdentityErrorReportArguments
 pagination_label: IdentityProfileIdentityErrorReportArguments
 sidebar_label: IdentityProfileIdentityErrorReportArguments
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityProfileIdentityErrorReportArguments', 'IdentityProfileIdentityErrorReportArguments'] 
-slug: /tools/sdk/go//models/identity-profile-identity-error-report-arguments
-tags: ['SDK', 'Software Development Kit', 'IdentityProfileIdentityErrorReportArguments', 'IdentityProfileIdentityErrorReportArguments']
+keywords: ['go', 'Golang', 'sdk', 'IdentityProfileIdentityErrorReportArguments', 'V2025IdentityProfileIdentityErrorReportArguments'] 
+slug: /tools/sdk/go/v2025/models/identity-profile-identity-error-report-arguments
+tags: ['SDK', 'Software Development Kit', 'IdentityProfileIdentityErrorReportArguments', 'V2025IdentityProfileIdentityErrorReportArguments']
 ---
 
 # IdentityProfileIdentityErrorReportArguments

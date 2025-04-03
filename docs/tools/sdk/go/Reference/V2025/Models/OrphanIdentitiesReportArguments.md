@@ -1,12 +1,12 @@
 ---
-id: orphan-identities-report-arguments
+id: v2025-orphan-identities-report-arguments
 title: OrphanIdentitiesReportArguments
 pagination_label: OrphanIdentitiesReportArguments
 sidebar_label: OrphanIdentitiesReportArguments
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'OrphanIdentitiesReportArguments', 'OrphanIdentitiesReportArguments'] 
-slug: /tools/sdk/go//models/orphan-identities-report-arguments
-tags: ['SDK', 'Software Development Kit', 'OrphanIdentitiesReportArguments', 'OrphanIdentitiesReportArguments']
+keywords: ['go', 'Golang', 'sdk', 'OrphanIdentitiesReportArguments', 'V2025OrphanIdentitiesReportArguments'] 
+slug: /tools/sdk/go/v2025/models/orphan-identities-report-arguments
+tags: ['SDK', 'Software Development Kit', 'OrphanIdentitiesReportArguments', 'V2025OrphanIdentitiesReportArguments']
 ---
 
 # OrphanIdentitiesReportArguments

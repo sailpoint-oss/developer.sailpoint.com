@@ -1,12 +1,12 @@
 ---
-id: email-status-dto
+id: v2025-email-status-dto
 title: EmailStatusDto
 pagination_label: EmailStatusDto
 sidebar_label: EmailStatusDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EmailStatusDto', 'EmailStatusDto'] 
-slug: /tools/sdk/go//models/email-status-dto
-tags: ['SDK', 'Software Development Kit', 'EmailStatusDto', 'EmailStatusDto']
+keywords: ['go', 'Golang', 'sdk', 'EmailStatusDto', 'V2025EmailStatusDto'] 
+slug: /tools/sdk/go/v2025/models/email-status-dto
+tags: ['SDK', 'Software Development Kit', 'EmailStatusDto', 'V2025EmailStatusDto']
 ---
 
 # EmailStatusDto

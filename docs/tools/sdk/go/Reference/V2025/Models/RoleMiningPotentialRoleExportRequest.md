@@ -1,12 +1,12 @@
 ---
-id: role-mining-potential-role-export-request
+id: v2025-role-mining-potential-role-export-request
 title: RoleMiningPotentialRoleExportRequest
 pagination_label: RoleMiningPotentialRoleExportRequest
 sidebar_label: RoleMiningPotentialRoleExportRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMiningPotentialRoleExportRequest', 'RoleMiningPotentialRoleExportRequest'] 
-slug: /tools/sdk/go//models/role-mining-potential-role-export-request
-tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleExportRequest', 'RoleMiningPotentialRoleExportRequest']
+keywords: ['go', 'Golang', 'sdk', 'RoleMiningPotentialRoleExportRequest', 'V2025RoleMiningPotentialRoleExportRequest'] 
+slug: /tools/sdk/go/v2025/models/role-mining-potential-role-export-request
+tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleExportRequest', 'V2025RoleMiningPotentialRoleExportRequest']
 ---
 
 # RoleMiningPotentialRoleExportRequest

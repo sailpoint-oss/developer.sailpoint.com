@@ -1,12 +1,12 @@
 ---
-id: search-schedule
+id: v2025-search-schedule
 title: SearchSchedule
 pagination_label: SearchSchedule
 sidebar_label: SearchSchedule
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SearchSchedule', 'SearchSchedule'] 
-slug: /tools/sdk/go//models/search-schedule
-tags: ['SDK', 'Software Development Kit', 'SearchSchedule', 'SearchSchedule']
+keywords: ['go', 'Golang', 'sdk', 'SearchSchedule', 'V2025SearchSchedule'] 
+slug: /tools/sdk/go/v2025/models/search-schedule
+tags: ['SDK', 'Software Development Kit', 'SearchSchedule', 'V2025SearchSchedule']
 ---
 
 # SearchSchedule

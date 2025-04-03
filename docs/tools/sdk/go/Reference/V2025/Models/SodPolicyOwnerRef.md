@@ -1,12 +1,12 @@
 ---
-id: sod-policy-owner-ref
+id: v2025-sod-policy-owner-ref
 title: SodPolicyOwnerRef
 pagination_label: SodPolicyOwnerRef
 sidebar_label: SodPolicyOwnerRef
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SodPolicyOwnerRef', 'SodPolicyOwnerRef'] 
-slug: /tools/sdk/go//models/sod-policy-owner-ref
-tags: ['SDK', 'Software Development Kit', 'SodPolicyOwnerRef', 'SodPolicyOwnerRef']
+keywords: ['go', 'Golang', 'sdk', 'SodPolicyOwnerRef', 'V2025SodPolicyOwnerRef'] 
+slug: /tools/sdk/go/v2025/models/sod-policy-owner-ref
+tags: ['SDK', 'Software Development Kit', 'SodPolicyOwnerRef', 'V2025SodPolicyOwnerRef']
 ---
 
 # SodPolicyOwnerRef

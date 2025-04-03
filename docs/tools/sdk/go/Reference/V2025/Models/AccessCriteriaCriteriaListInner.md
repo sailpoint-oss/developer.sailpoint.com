@@ -1,12 +1,12 @@
 ---
-id: access-criteria-criteria-list-inner
+id: v2025-access-criteria-criteria-list-inner
 title: AccessCriteriaCriteriaListInner
 pagination_label: AccessCriteriaCriteriaListInner
 sidebar_label: AccessCriteriaCriteriaListInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessCriteriaCriteriaListInner', 'AccessCriteriaCriteriaListInner'] 
-slug: /tools/sdk/go//models/access-criteria-criteria-list-inner
-tags: ['SDK', 'Software Development Kit', 'AccessCriteriaCriteriaListInner', 'AccessCriteriaCriteriaListInner']
+keywords: ['go', 'Golang', 'sdk', 'AccessCriteriaCriteriaListInner', 'V2025AccessCriteriaCriteriaListInner'] 
+slug: /tools/sdk/go/v2025/models/access-criteria-criteria-list-inner
+tags: ['SDK', 'Software Development Kit', 'AccessCriteriaCriteriaListInner', 'V2025AccessCriteriaCriteriaListInner']
 ---
 
 # AccessCriteriaCriteriaListInner

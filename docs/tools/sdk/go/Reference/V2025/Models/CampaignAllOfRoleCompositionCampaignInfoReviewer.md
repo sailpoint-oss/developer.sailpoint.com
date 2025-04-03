@@ -1,12 +1,12 @@
 ---
-id: campaign-all-of-role-composition-campaign-info-reviewer
+id: v2025-campaign-all-of-role-composition-campaign-info-reviewer
 title: CampaignAllOfRoleCompositionCampaignInfoReviewer
 pagination_label: CampaignAllOfRoleCompositionCampaignInfoReviewer
 sidebar_label: CampaignAllOfRoleCompositionCampaignInfoReviewer
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignAllOfRoleCompositionCampaignInfoReviewer', 'CampaignAllOfRoleCompositionCampaignInfoReviewer'] 
-slug: /tools/sdk/go//models/campaign-all-of-role-composition-campaign-info-reviewer
-tags: ['SDK', 'Software Development Kit', 'CampaignAllOfRoleCompositionCampaignInfoReviewer', 'CampaignAllOfRoleCompositionCampaignInfoReviewer']
+keywords: ['go', 'Golang', 'sdk', 'CampaignAllOfRoleCompositionCampaignInfoReviewer', 'V2025CampaignAllOfRoleCompositionCampaignInfoReviewer'] 
+slug: /tools/sdk/go/v2025/models/campaign-all-of-role-composition-campaign-info-reviewer
+tags: ['SDK', 'Software Development Kit', 'CampaignAllOfRoleCompositionCampaignInfoReviewer', 'V2025CampaignAllOfRoleCompositionCampaignInfoReviewer']
 ---
 
 # CampaignAllOfRoleCompositionCampaignInfoReviewer

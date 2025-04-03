@@ -1,12 +1,12 @@
 ---
-id: iai-outliers
+id: v2025-iai-outliers
 title: IAIOutliers
 pagination_label: IAIOutliers
 sidebar_label: IAIOutliers
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IAIOutliers', 'IAIOutliers'] 
-slug: /tools/sdk/go//methods/iai-outliers
-tags: ['SDK', 'Software Development Kit', 'IAIOutliers', 'IAIOutliers']
+keywords: ['go', 'Golang', 'sdk', 'IAIOutliers', 'V2025IAIOutliers'] 
+slug: /tools/sdk/go/v2025/methods/iai-outliers
+tags: ['SDK', 'Software Development Kit', 'IAIOutliers', 'V2025IAIOutliers']
 ---
 
 # IAIOutliersAPI
@@ -44,7 +44,7 @@ This API exports a list of ignored outliers to a CSV as well as list of non-igno
 Columns will include: identityId, type, firstDetectionDate, latestDetectionDate, ignored, & attributes (defined set of identity attributes).
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//export-outliers-zip)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/export-outliers-zip)
 
 ### Path Parameters
 
@@ -78,7 +78,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -88,7 +88,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIOutliersAPI.ExportOutliersZip(context.Background()).XSailPointExperimental(xSailPointExperimental).Type_(type_).Execute()
+	resp, r, err := apiClient.V2025.IAIOutliersAPI.ExportOutliersZip(context.Background()).XSailPointExperimental(xSailPointExperimental).Type_(type_).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIOutliersAPI.ExportOutliersZip``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -115,7 +115,7 @@ This API is currently in an experimental state. The API is subject to change bas
 IAI Identity Outliers Summary
 This API returns a summary containing the number of identities that customer has, the number of outliers, and the type of outlier.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-identity-outlier-snapshots)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identity-outlier-snapshots)
 
 ### Path Parameters
 
@@ -153,7 +153,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -167,7 +167,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIOutliersAPI.GetIdentityOutlierSnapshots(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Type_(type_).Filters(filters).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.IAIOutliersAPI.GetIdentityOutlierSnapshots(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Type_(type_).Filters(filters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIOutliersAPI.GetIdentityOutlierSnapshots``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -194,7 +194,7 @@ This API is currently in an experimental state. The API is subject to change bas
 IAI Get Identity Outliers
 This API returns a list of outliers, containing data such as identity ID, outlier type, detection dates, identity attributes, if identity is ignored, and certification information.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-identity-outliers)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identity-outliers)
 
 ### Path Parameters
 
@@ -233,7 +233,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -248,7 +248,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIOutliersAPI.GetIdentityOutliers(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Type_(type_).Filters(filters).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.IAIOutliersAPI.GetIdentityOutliers(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Type_(type_).Filters(filters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIOutliersAPI.GetIdentityOutliers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -275,7 +275,7 @@ This API is currently in an experimental state. The API is subject to change bas
 IAI Identity Outliers Latest Summary
 This API returns a most recent snapshot of each outlier type, each containing the number of identities that customer has, the number of outliers, and the type of outlier.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-latest-identity-outlier-snapshots)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-latest-identity-outlier-snapshots)
 
 ### Path Parameters
 
@@ -309,7 +309,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -319,7 +319,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIOutliersAPI.GetLatestIdentityOutlierSnapshots(context.Background()).XSailPointExperimental(xSailPointExperimental).Type_(type_).Execute()
+	resp, r, err := apiClient.V2025.IAIOutliersAPI.GetLatestIdentityOutlierSnapshots(context.Background()).XSailPointExperimental(xSailPointExperimental).Type_(type_).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIOutliersAPI.GetLatestIdentityOutlierSnapshots``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -349,7 +349,7 @@ This API returns a summary of a contributing feature for an identity outlier.
 The object contains: contributing feature name (translated text or message key), identity outlier display name, feature values, feature definition and explanation (translated text or message key), peer display name and identityId, access item reference, translation messages object.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-outlier-contributing-feature-summary)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-outlier-contributing-feature-summary)
 
 ### Path Parameters
 
@@ -387,7 +387,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -397,7 +397,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIOutliersAPI.GetOutlierContributingFeatureSummary(context.Background(), outlierFeatureId).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.IAIOutliersAPI.GetOutlierContributingFeatureSummary(context.Background(), outlierFeatureId).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIOutliersAPI.GetOutlierContributingFeatureSummary``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -427,7 +427,7 @@ This API returns a list of contributing feature objects for a single outlier.
 The object contains: feature name, feature value type, value, importance, display name (translated text or message key), description (translated text or message key), translation messages object.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-peer-group-outliers-contributing-features)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-peer-group-outliers-contributing-features)
 
 ### Path Parameters
 
@@ -470,7 +470,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -485,7 +485,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIOutliersAPI.GetPeerGroupOutliersContributingFeatures(context.Background(), outlierId).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).IncludeTranslationMessages(includeTranslationMessages).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.IAIOutliersAPI.GetPeerGroupOutliersContributingFeatures(context.Background(), outlierId).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).IncludeTranslationMessages(includeTranslationMessages).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIOutliersAPI.GetPeerGroupOutliersContributingFeatures``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -512,7 +512,7 @@ This API is currently in an experimental state. The API is subject to change bas
 IAI Identity Outliers Ignore
 This API receives a list of identity IDs in the request, changes the outliers to be ignored.
 
-[API Spec](https://developer.sailpoint.com/docs/api//ignore-identity-outliers)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/ignore-identity-outliers)
 
 ### Path Parameters
 
@@ -546,7 +546,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -556,7 +556,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..IAIOutliersAPI.IgnoreIdentityOutliers(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
+	r, err := apiClient.V2025.IAIOutliersAPI.IgnoreIdentityOutliers(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIOutliersAPI.IgnoreIdentityOutliers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -584,7 +584,7 @@ This API returns a list of the enriched access items associated with each featur
 The object contains: accessItemId, display name (translated text or message key), description (translated text or message key), accessType, sourceName, extremelyRare.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-outliers-contributing-feature-access-items)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-outliers-contributing-feature-access-items)
 
 ### Path Parameters
 
@@ -629,7 +629,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -645,7 +645,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIOutliersAPI.ListOutliersContributingFeatureAccessItems(context.Background(), outlierId, contributingFeatureName).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).AccessType(accessType).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.IAIOutliersAPI.ListOutliersContributingFeatureAccessItems(context.Background(), outlierId, contributingFeatureName).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).AccessType(accessType).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIOutliersAPI.ListOutliersContributingFeatureAccessItems``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -672,7 +672,7 @@ This API is currently in an experimental state. The API is subject to change bas
 IAI Identity Outliers Unignore
 This API receives a list of identity IDs in the request, changes the outliers to be un-ignored.
 
-[API Spec](https://developer.sailpoint.com/docs/api//un-ignore-identity-outliers)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/un-ignore-identity-outliers)
 
 ### Path Parameters
 
@@ -706,7 +706,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -716,7 +716,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..IAIOutliersAPI.UnIgnoreIdentityOutliers(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
+	r, err := apiClient.V2025.IAIOutliersAPI.UnIgnoreIdentityOutliers(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIOutliersAPI.UnIgnoreIdentityOutliers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -1,12 +1,12 @@
 ---
-id: provisioning-completed-account-requests-inner-attribute-requests-inner
+id: v2025-provisioning-completed-account-requests-inner-attribute-requests-inner
 title: ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner
 pagination_label: ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner
 sidebar_label: ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner', 'ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner'] 
-slug: /tools/sdk/go//models/provisioning-completed-account-requests-inner-attribute-requests-inner
-tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner', 'ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner']
+keywords: ['go', 'Golang', 'sdk', 'ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner', 'V2025ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner'] 
+slug: /tools/sdk/go/v2025/models/provisioning-completed-account-requests-inner-attribute-requests-inner
+tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner', 'V2025ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner']
 ---
 
 # ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner

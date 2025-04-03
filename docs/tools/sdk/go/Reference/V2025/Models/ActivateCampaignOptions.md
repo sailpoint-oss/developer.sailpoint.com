@@ -1,12 +1,12 @@
 ---
-id: activate-campaign-options
+id: v2025-activate-campaign-options
 title: ActivateCampaignOptions
 pagination_label: ActivateCampaignOptions
 sidebar_label: ActivateCampaignOptions
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ActivateCampaignOptions', 'ActivateCampaignOptions'] 
-slug: /tools/sdk/go//models/activate-campaign-options
-tags: ['SDK', 'Software Development Kit', 'ActivateCampaignOptions', 'ActivateCampaignOptions']
+keywords: ['go', 'Golang', 'sdk', 'ActivateCampaignOptions', 'V2025ActivateCampaignOptions'] 
+slug: /tools/sdk/go/v2025/models/activate-campaign-options
+tags: ['SDK', 'Software Development Kit', 'ActivateCampaignOptions', 'V2025ActivateCampaignOptions']
 ---
 
 # ActivateCampaignOptions

@@ -1,12 +1,12 @@
 ---
-id: approvals
+id: v2025-approvals
 title: Approvals
 pagination_label: Approvals
 sidebar_label: Approvals
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Approvals', 'Approvals'] 
-slug: /tools/sdk/go//methods/approvals
-tags: ['SDK', 'Software Development Kit', 'Approvals', 'Approvals']
+keywords: ['go', 'Golang', 'sdk', 'Approvals', 'V2025Approvals'] 
+slug: /tools/sdk/go/v2025/methods/approvals
+tags: ['SDK', 'Software Development Kit', 'Approvals', 'V2025Approvals']
 ---
 
 # ApprovalsAPI
@@ -37,7 +37,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get an approval
 Retrieve a single approval for a given approval ID. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-approval)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-approval)
 
 ### Path Parameters
 
@@ -75,7 +75,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -85,7 +85,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ApprovalsAPI.GetApproval(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.ApprovalsAPI.GetApproval(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.GetApproval``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -113,7 +113,7 @@ Get Approvals
 Retrieve a list of approvals, which can be filtered by requester ID, status, or reference type. "Mine" query parameter can be used and it will return all approvals for the current approver. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals. 
 Absence of all query parameters will will default to mine=true.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-approvals)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-approvals)
 
 ### Path Parameters
 
@@ -149,7 +149,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -161,7 +161,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ApprovalsAPI.GetApprovals(context.Background()).XSailPointExperimental(xSailPointExperimental).Mine(mine).RequesterId(requesterId).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.ApprovalsAPI.GetApprovals(context.Background()).XSailPointExperimental(xSailPointExperimental).Mine(mine).RequesterId(requesterId).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.GetApprovals``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

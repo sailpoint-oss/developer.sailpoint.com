@@ -1,12 +1,12 @@
 ---
-id: access
+id: v2025-access
 title: Access
 pagination_label: Access
 sidebar_label: Access
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Access', 'Access'] 
-slug: /tools/sdk/go//models/access
-tags: ['SDK', 'Software Development Kit', 'Access', 'Access']
+keywords: ['go', 'Golang', 'sdk', 'Access', 'V2025Access'] 
+slug: /tools/sdk/go/v2025/models/access
+tags: ['SDK', 'Software Development Kit', 'Access', 'V2025Access']
 ---
 
 # Access

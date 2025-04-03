@@ -1,12 +1,12 @@
 ---
-id: role-document-all-of-entitlements1
+id: v2025-role-document-all-of-entitlements1
 title: RoleDocumentAllOfEntitlements1
 pagination_label: RoleDocumentAllOfEntitlements1
 sidebar_label: RoleDocumentAllOfEntitlements1
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleDocumentAllOfEntitlements1', 'RoleDocumentAllOfEntitlements1'] 
-slug: /tools/sdk/go//models/role-document-all-of-entitlements1
-tags: ['SDK', 'Software Development Kit', 'RoleDocumentAllOfEntitlements1', 'RoleDocumentAllOfEntitlements1']
+keywords: ['go', 'Golang', 'sdk', 'RoleDocumentAllOfEntitlements1', 'V2025RoleDocumentAllOfEntitlements1'] 
+slug: /tools/sdk/go/v2025/models/role-document-all-of-entitlements1
+tags: ['SDK', 'Software Development Kit', 'RoleDocumentAllOfEntitlements1', 'V2025RoleDocumentAllOfEntitlements1']
 ---
 
 # RoleDocumentAllOfEntitlements1

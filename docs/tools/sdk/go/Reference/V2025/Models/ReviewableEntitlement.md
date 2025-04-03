@@ -1,12 +1,12 @@
 ---
-id: reviewable-entitlement
+id: v2025-reviewable-entitlement
 title: ReviewableEntitlement
 pagination_label: ReviewableEntitlement
 sidebar_label: ReviewableEntitlement
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ReviewableEntitlement', 'ReviewableEntitlement'] 
-slug: /tools/sdk/go//models/reviewable-entitlement
-tags: ['SDK', 'Software Development Kit', 'ReviewableEntitlement', 'ReviewableEntitlement']
+keywords: ['go', 'Golang', 'sdk', 'ReviewableEntitlement', 'V2025ReviewableEntitlement'] 
+slug: /tools/sdk/go/v2025/models/reviewable-entitlement
+tags: ['SDK', 'Software Development Kit', 'ReviewableEntitlement', 'V2025ReviewableEntitlement']
 ---
 
 # ReviewableEntitlement

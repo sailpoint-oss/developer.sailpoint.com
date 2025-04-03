@@ -1,12 +1,12 @@
 ---
-id: source-creation-errors
+id: v2025-source-creation-errors
 title: SourceCreationErrors
 pagination_label: SourceCreationErrors
 sidebar_label: SourceCreationErrors
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceCreationErrors', 'SourceCreationErrors'] 
-slug: /tools/sdk/go//models/source-creation-errors
-tags: ['SDK', 'Software Development Kit', 'SourceCreationErrors', 'SourceCreationErrors']
+keywords: ['go', 'Golang', 'sdk', 'SourceCreationErrors', 'V2025SourceCreationErrors'] 
+slug: /tools/sdk/go/v2025/models/source-creation-errors
+tags: ['SDK', 'Software Development Kit', 'SourceCreationErrors', 'V2025SourceCreationErrors']
 ---
 
 # SourceCreationErrors

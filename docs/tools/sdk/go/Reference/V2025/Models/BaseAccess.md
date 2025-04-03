@@ -1,12 +1,12 @@
 ---
-id: base-access
+id: v2025-base-access
 title: BaseAccess
 pagination_label: BaseAccess
 sidebar_label: BaseAccess
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BaseAccess', 'BaseAccess'] 
-slug: /tools/sdk/go//models/base-access
-tags: ['SDK', 'Software Development Kit', 'BaseAccess', 'BaseAccess']
+keywords: ['go', 'Golang', 'sdk', 'BaseAccess', 'V2025BaseAccess'] 
+slug: /tools/sdk/go/v2025/models/base-access
+tags: ['SDK', 'Software Development Kit', 'BaseAccess', 'V2025BaseAccess']
 ---
 
 # BaseAccess

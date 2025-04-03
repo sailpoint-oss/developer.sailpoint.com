@@ -1,12 +1,12 @@
 ---
-id: object-export-import-options
+id: v2025-object-export-import-options
 title: ObjectExportImportOptions
 pagination_label: ObjectExportImportOptions
 sidebar_label: ObjectExportImportOptions
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ObjectExportImportOptions', 'ObjectExportImportOptions'] 
-slug: /tools/sdk/go//models/object-export-import-options
-tags: ['SDK', 'Software Development Kit', 'ObjectExportImportOptions', 'ObjectExportImportOptions']
+keywords: ['go', 'Golang', 'sdk', 'ObjectExportImportOptions', 'V2025ObjectExportImportOptions'] 
+slug: /tools/sdk/go/v2025/models/object-export-import-options
+tags: ['SDK', 'Software Development Kit', 'ObjectExportImportOptions', 'V2025ObjectExportImportOptions']
 ---
 
 # ObjectExportImportOptions

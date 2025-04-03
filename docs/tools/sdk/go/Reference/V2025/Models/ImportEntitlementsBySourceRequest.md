@@ -1,12 +1,12 @@
 ---
-id: import-entitlements-by-source-request
+id: v2025-import-entitlements-by-source-request
 title: ImportEntitlementsBySourceRequest
 pagination_label: ImportEntitlementsBySourceRequest
 sidebar_label: ImportEntitlementsBySourceRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ImportEntitlementsBySourceRequest', 'ImportEntitlementsBySourceRequest'] 
-slug: /tools/sdk/go//models/import-entitlements-by-source-request
-tags: ['SDK', 'Software Development Kit', 'ImportEntitlementsBySourceRequest', 'ImportEntitlementsBySourceRequest']
+keywords: ['go', 'Golang', 'sdk', 'ImportEntitlementsBySourceRequest', 'V2025ImportEntitlementsBySourceRequest'] 
+slug: /tools/sdk/go/v2025/models/import-entitlements-by-source-request
+tags: ['SDK', 'Software Development Kit', 'ImportEntitlementsBySourceRequest', 'V2025ImportEntitlementsBySourceRequest']
 ---
 
 # ImportEntitlementsBySourceRequest

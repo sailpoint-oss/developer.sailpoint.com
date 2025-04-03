@@ -1,12 +1,12 @@
 ---
-id: identity-document-all-of-identity-profile
+id: v2025-identity-document-all-of-identity-profile
 title: IdentityDocumentAllOfIdentityProfile
 pagination_label: IdentityDocumentAllOfIdentityProfile
 sidebar_label: IdentityDocumentAllOfIdentityProfile
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityDocumentAllOfIdentityProfile', 'IdentityDocumentAllOfIdentityProfile'] 
-slug: /tools/sdk/go//models/identity-document-all-of-identity-profile
-tags: ['SDK', 'Software Development Kit', 'IdentityDocumentAllOfIdentityProfile', 'IdentityDocumentAllOfIdentityProfile']
+keywords: ['go', 'Golang', 'sdk', 'IdentityDocumentAllOfIdentityProfile', 'V2025IdentityDocumentAllOfIdentityProfile'] 
+slug: /tools/sdk/go/v2025/models/identity-document-all-of-identity-profile
+tags: ['SDK', 'Software Development Kit', 'IdentityDocumentAllOfIdentityProfile', 'V2025IdentityDocumentAllOfIdentityProfile']
 ---
 
 # IdentityDocumentAllOfIdentityProfile

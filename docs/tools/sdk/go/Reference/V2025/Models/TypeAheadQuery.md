@@ -1,12 +1,12 @@
 ---
-id: type-ahead-query
+id: v2025-type-ahead-query
 title: TypeAheadQuery
 pagination_label: TypeAheadQuery
 sidebar_label: TypeAheadQuery
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TypeAheadQuery', 'TypeAheadQuery'] 
-slug: /tools/sdk/go//models/type-ahead-query
-tags: ['SDK', 'Software Development Kit', 'TypeAheadQuery', 'TypeAheadQuery']
+keywords: ['go', 'Golang', 'sdk', 'TypeAheadQuery', 'V2025TypeAheadQuery'] 
+slug: /tools/sdk/go/v2025/models/type-ahead-query
+tags: ['SDK', 'Software Development Kit', 'TypeAheadQuery', 'V2025TypeAheadQuery']
 ---
 
 # TypeAheadQuery

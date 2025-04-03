@@ -1,12 +1,12 @@
 ---
-id: provisioning-completed
+id: v2025-provisioning-completed
 title: ProvisioningCompleted
 pagination_label: ProvisioningCompleted
 sidebar_label: ProvisioningCompleted
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ProvisioningCompleted', 'ProvisioningCompleted'] 
-slug: /tools/sdk/go//models/provisioning-completed
-tags: ['SDK', 'Software Development Kit', 'ProvisioningCompleted', 'ProvisioningCompleted']
+keywords: ['go', 'Golang', 'sdk', 'ProvisioningCompleted', 'V2025ProvisioningCompleted'] 
+slug: /tools/sdk/go/v2025/models/provisioning-completed
+tags: ['SDK', 'Software Development Kit', 'ProvisioningCompleted', 'V2025ProvisioningCompleted']
 ---
 
 # ProvisioningCompleted

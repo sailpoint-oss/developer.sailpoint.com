@@ -1,12 +1,12 @@
 ---
-id: account-attributes-changed-source
+id: v2025-account-attributes-changed-source
 title: AccountAttributesChangedSource
 pagination_label: AccountAttributesChangedSource
 sidebar_label: AccountAttributesChangedSource
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountAttributesChangedSource', 'AccountAttributesChangedSource'] 
-slug: /tools/sdk/go//models/account-attributes-changed-source
-tags: ['SDK', 'Software Development Kit', 'AccountAttributesChangedSource', 'AccountAttributesChangedSource']
+keywords: ['go', 'Golang', 'sdk', 'AccountAttributesChangedSource', 'V2025AccountAttributesChangedSource'] 
+slug: /tools/sdk/go/v2025/models/account-attributes-changed-source
+tags: ['SDK', 'Software Development Kit', 'AccountAttributesChangedSource', 'V2025AccountAttributesChangedSource']
 ---
 
 # AccountAttributesChangedSource

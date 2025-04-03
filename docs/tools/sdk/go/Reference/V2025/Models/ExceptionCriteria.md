@@ -1,12 +1,12 @@
 ---
-id: exception-criteria
+id: v2025-exception-criteria
 title: ExceptionCriteria
 pagination_label: ExceptionCriteria
 sidebar_label: ExceptionCriteria
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ExceptionCriteria', 'ExceptionCriteria'] 
-slug: /tools/sdk/go//models/exception-criteria
-tags: ['SDK', 'Software Development Kit', 'ExceptionCriteria', 'ExceptionCriteria']
+keywords: ['go', 'Golang', 'sdk', 'ExceptionCriteria', 'V2025ExceptionCriteria'] 
+slug: /tools/sdk/go/v2025/models/exception-criteria
+tags: ['SDK', 'Software Development Kit', 'ExceptionCriteria', 'V2025ExceptionCriteria']
 ---
 
 # ExceptionCriteria

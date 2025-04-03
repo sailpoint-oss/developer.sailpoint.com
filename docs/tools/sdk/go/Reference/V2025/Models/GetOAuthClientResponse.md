@@ -1,12 +1,12 @@
 ---
-id: get-o-auth-client-response
+id: v2025-get-o-auth-client-response
 title: GetOAuthClientResponse
 pagination_label: GetOAuthClientResponse
 sidebar_label: GetOAuthClientResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'GetOAuthClientResponse', 'GetOAuthClientResponse'] 
-slug: /tools/sdk/go//models/get-o-auth-client-response
-tags: ['SDK', 'Software Development Kit', 'GetOAuthClientResponse', 'GetOAuthClientResponse']
+keywords: ['go', 'Golang', 'sdk', 'GetOAuthClientResponse', 'V2025GetOAuthClientResponse'] 
+slug: /tools/sdk/go/v2025/models/get-o-auth-client-response
+tags: ['SDK', 'Software Development Kit', 'GetOAuthClientResponse', 'V2025GetOAuthClientResponse']
 ---
 
 # GetOAuthClientResponse

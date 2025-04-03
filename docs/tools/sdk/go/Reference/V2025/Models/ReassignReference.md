@@ -1,12 +1,12 @@
 ---
-id: reassign-reference
+id: v2025-reassign-reference
 title: ReassignReference
 pagination_label: ReassignReference
 sidebar_label: ReassignReference
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ReassignReference', 'ReassignReference'] 
-slug: /tools/sdk/go//models/reassign-reference
-tags: ['SDK', 'Software Development Kit', 'ReassignReference', 'ReassignReference']
+keywords: ['go', 'Golang', 'sdk', 'ReassignReference', 'V2025ReassignReference'] 
+slug: /tools/sdk/go/v2025/models/reassign-reference
+tags: ['SDK', 'Software Development Kit', 'ReassignReference', 'V2025ReassignReference']
 ---
 
 # ReassignReference

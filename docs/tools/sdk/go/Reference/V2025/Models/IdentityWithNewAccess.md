@@ -1,12 +1,12 @@
 ---
-id: identity-with-new-access
+id: v2025-identity-with-new-access
 title: IdentityWithNewAccess
 pagination_label: IdentityWithNewAccess
 sidebar_label: IdentityWithNewAccess
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityWithNewAccess', 'IdentityWithNewAccess'] 
-slug: /tools/sdk/go//models/identity-with-new-access
-tags: ['SDK', 'Software Development Kit', 'IdentityWithNewAccess', 'IdentityWithNewAccess']
+keywords: ['go', 'Golang', 'sdk', 'IdentityWithNewAccess', 'V2025IdentityWithNewAccess'] 
+slug: /tools/sdk/go/v2025/models/identity-with-new-access
+tags: ['SDK', 'Software Development Kit', 'IdentityWithNewAccess', 'V2025IdentityWithNewAccess']
 ---
 
 # IdentityWithNewAccess

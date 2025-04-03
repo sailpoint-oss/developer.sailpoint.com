@@ -1,12 +1,12 @@
 ---
-id: auth-profile-summary
+id: v2025-auth-profile-summary
 title: AuthProfileSummary
 pagination_label: AuthProfileSummary
 sidebar_label: AuthProfileSummary
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AuthProfileSummary', 'AuthProfileSummary'] 
-slug: /tools/sdk/go//models/auth-profile-summary
-tags: ['SDK', 'Software Development Kit', 'AuthProfileSummary', 'AuthProfileSummary']
+keywords: ['go', 'Golang', 'sdk', 'AuthProfileSummary', 'V2025AuthProfileSummary'] 
+slug: /tools/sdk/go/v2025/models/auth-profile-summary
+tags: ['SDK', 'Software Development Kit', 'AuthProfileSummary', 'V2025AuthProfileSummary']
 ---
 
 # AuthProfileSummary

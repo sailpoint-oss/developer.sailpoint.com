@@ -1,12 +1,12 @@
 ---
-id: tenant-configuration-response
+id: v2025-tenant-configuration-response
 title: TenantConfigurationResponse
 pagination_label: TenantConfigurationResponse
 sidebar_label: TenantConfigurationResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TenantConfigurationResponse', 'TenantConfigurationResponse'] 
-slug: /tools/sdk/go//models/tenant-configuration-response
-tags: ['SDK', 'Software Development Kit', 'TenantConfigurationResponse', 'TenantConfigurationResponse']
+keywords: ['go', 'Golang', 'sdk', 'TenantConfigurationResponse', 'V2025TenantConfigurationResponse'] 
+slug: /tools/sdk/go/v2025/models/tenant-configuration-response
+tags: ['SDK', 'Software Development Kit', 'TenantConfigurationResponse', 'V2025TenantConfigurationResponse']
 ---
 
 # TenantConfigurationResponse

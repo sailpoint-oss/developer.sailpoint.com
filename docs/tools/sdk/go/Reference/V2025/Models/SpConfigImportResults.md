@@ -1,12 +1,12 @@
 ---
-id: sp-config-import-results
+id: v2025-sp-config-import-results
 title: SpConfigImportResults
 pagination_label: SpConfigImportResults
 sidebar_label: SpConfigImportResults
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SpConfigImportResults', 'SpConfigImportResults'] 
-slug: /tools/sdk/go//models/sp-config-import-results
-tags: ['SDK', 'Software Development Kit', 'SpConfigImportResults', 'SpConfigImportResults']
+keywords: ['go', 'Golang', 'sdk', 'SpConfigImportResults', 'V2025SpConfigImportResults'] 
+slug: /tools/sdk/go/v2025/models/sp-config-import-results
+tags: ['SDK', 'Software Development Kit', 'SpConfigImportResults', 'V2025SpConfigImportResults']
 ---
 
 # SpConfigImportResults

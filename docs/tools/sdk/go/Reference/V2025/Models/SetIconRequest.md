@@ -1,12 +1,12 @@
 ---
-id: set-icon-request
+id: v2025-set-icon-request
 title: SetIconRequest
 pagination_label: SetIconRequest
 sidebar_label: SetIconRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SetIconRequest', 'SetIconRequest'] 
-slug: /tools/sdk/go//models/set-icon-request
-tags: ['SDK', 'Software Development Kit', 'SetIconRequest', 'SetIconRequest']
+keywords: ['go', 'Golang', 'sdk', 'SetIconRequest', 'V2025SetIconRequest'] 
+slug: /tools/sdk/go/v2025/models/set-icon-request
+tags: ['SDK', 'Software Development Kit', 'SetIconRequest', 'V2025SetIconRequest']
 ---
 
 # SetIconRequest

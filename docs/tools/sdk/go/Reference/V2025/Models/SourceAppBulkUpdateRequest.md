@@ -1,12 +1,12 @@
 ---
-id: source-app-bulk-update-request
+id: v2025-source-app-bulk-update-request
 title: SourceAppBulkUpdateRequest
 pagination_label: SourceAppBulkUpdateRequest
 sidebar_label: SourceAppBulkUpdateRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceAppBulkUpdateRequest', 'SourceAppBulkUpdateRequest'] 
-slug: /tools/sdk/go//models/source-app-bulk-update-request
-tags: ['SDK', 'Software Development Kit', 'SourceAppBulkUpdateRequest', 'SourceAppBulkUpdateRequest']
+keywords: ['go', 'Golang', 'sdk', 'SourceAppBulkUpdateRequest', 'V2025SourceAppBulkUpdateRequest'] 
+slug: /tools/sdk/go/v2025/models/source-app-bulk-update-request
+tags: ['SDK', 'Software Development Kit', 'SourceAppBulkUpdateRequest', 'V2025SourceAppBulkUpdateRequest']
 ---
 
 # SourceAppBulkUpdateRequest

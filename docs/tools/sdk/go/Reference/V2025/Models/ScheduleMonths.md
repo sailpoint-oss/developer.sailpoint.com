@@ -1,12 +1,12 @@
 ---
-id: schedule-months
+id: v2025-schedule-months
 title: ScheduleMonths
 pagination_label: ScheduleMonths
 sidebar_label: ScheduleMonths
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ScheduleMonths', 'ScheduleMonths'] 
-slug: /tools/sdk/go//models/schedule-months
-tags: ['SDK', 'Software Development Kit', 'ScheduleMonths', 'ScheduleMonths']
+keywords: ['go', 'Golang', 'sdk', 'ScheduleMonths', 'V2025ScheduleMonths'] 
+slug: /tools/sdk/go/v2025/models/schedule-months
+tags: ['SDK', 'Software Development Kit', 'ScheduleMonths', 'V2025ScheduleMonths']
 ---
 
 # ScheduleMonths

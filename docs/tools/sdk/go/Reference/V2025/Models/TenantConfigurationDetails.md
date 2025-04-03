@@ -1,12 +1,12 @@
 ---
-id: tenant-configuration-details
+id: v2025-tenant-configuration-details
 title: TenantConfigurationDetails
 pagination_label: TenantConfigurationDetails
 sidebar_label: TenantConfigurationDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TenantConfigurationDetails', 'TenantConfigurationDetails'] 
-slug: /tools/sdk/go//models/tenant-configuration-details
-tags: ['SDK', 'Software Development Kit', 'TenantConfigurationDetails', 'TenantConfigurationDetails']
+keywords: ['go', 'Golang', 'sdk', 'TenantConfigurationDetails', 'V2025TenantConfigurationDetails'] 
+slug: /tools/sdk/go/v2025/models/tenant-configuration-details
+tags: ['SDK', 'Software Development Kit', 'TenantConfigurationDetails', 'V2025TenantConfigurationDetails']
 ---
 
 # TenantConfigurationDetails

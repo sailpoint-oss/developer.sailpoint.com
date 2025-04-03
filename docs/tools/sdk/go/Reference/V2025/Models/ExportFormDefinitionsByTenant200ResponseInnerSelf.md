@@ -1,12 +1,12 @@
 ---
-id: export-form-definitions-by-tenant200-response-inner-self
+id: v2025-export-form-definitions-by-tenant200-response-inner-self
 title: ExportFormDefinitionsByTenant200ResponseInnerSelf
 pagination_label: ExportFormDefinitionsByTenant200ResponseInnerSelf
 sidebar_label: ExportFormDefinitionsByTenant200ResponseInnerSelf
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ExportFormDefinitionsByTenant200ResponseInnerSelf', 'ExportFormDefinitionsByTenant200ResponseInnerSelf'] 
-slug: /tools/sdk/go//models/export-form-definitions-by-tenant200-response-inner-self
-tags: ['SDK', 'Software Development Kit', 'ExportFormDefinitionsByTenant200ResponseInnerSelf', 'ExportFormDefinitionsByTenant200ResponseInnerSelf']
+keywords: ['go', 'Golang', 'sdk', 'ExportFormDefinitionsByTenant200ResponseInnerSelf', 'V2025ExportFormDefinitionsByTenant200ResponseInnerSelf'] 
+slug: /tools/sdk/go/v2025/models/export-form-definitions-by-tenant200-response-inner-self
+tags: ['SDK', 'Software Development Kit', 'ExportFormDefinitionsByTenant200ResponseInnerSelf', 'V2025ExportFormDefinitionsByTenant200ResponseInnerSelf']
 ---
 
 # ExportFormDefinitionsByTenant200ResponseInnerSelf

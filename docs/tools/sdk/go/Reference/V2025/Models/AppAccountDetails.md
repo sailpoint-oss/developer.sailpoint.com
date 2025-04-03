@@ -1,12 +1,12 @@
 ---
-id: app-account-details
+id: v2025-app-account-details
 title: AppAccountDetails
 pagination_label: AppAccountDetails
 sidebar_label: AppAccountDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AppAccountDetails', 'AppAccountDetails'] 
-slug: /tools/sdk/go//models/app-account-details
-tags: ['SDK', 'Software Development Kit', 'AppAccountDetails', 'AppAccountDetails']
+keywords: ['go', 'Golang', 'sdk', 'AppAccountDetails', 'V2025AppAccountDetails'] 
+slug: /tools/sdk/go/v2025/models/app-account-details
+tags: ['SDK', 'Software Development Kit', 'AppAccountDetails', 'V2025AppAccountDetails']
 ---
 
 # AppAccountDetails

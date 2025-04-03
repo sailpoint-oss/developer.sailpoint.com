@@ -1,12 +1,12 @@
 ---
-id: identity-ownership-association-details
+id: v2025-identity-ownership-association-details
 title: IdentityOwnershipAssociationDetails
 pagination_label: IdentityOwnershipAssociationDetails
 sidebar_label: IdentityOwnershipAssociationDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityOwnershipAssociationDetails', 'IdentityOwnershipAssociationDetails'] 
-slug: /tools/sdk/go//models/identity-ownership-association-details
-tags: ['SDK', 'Software Development Kit', 'IdentityOwnershipAssociationDetails', 'IdentityOwnershipAssociationDetails']
+keywords: ['go', 'Golang', 'sdk', 'IdentityOwnershipAssociationDetails', 'V2025IdentityOwnershipAssociationDetails'] 
+slug: /tools/sdk/go/v2025/models/identity-ownership-association-details
+tags: ['SDK', 'Software Development Kit', 'IdentityOwnershipAssociationDetails', 'V2025IdentityOwnershipAssociationDetails']
 ---
 
 # IdentityOwnershipAssociationDetails

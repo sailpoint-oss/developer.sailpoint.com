@@ -1,12 +1,12 @@
 ---
-id: vendor-connector-mapping
+id: v2025-vendor-connector-mapping
 title: VendorConnectorMapping
 pagination_label: VendorConnectorMapping
 sidebar_label: VendorConnectorMapping
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'VendorConnectorMapping', 'VendorConnectorMapping'] 
-slug: /tools/sdk/go//models/vendor-connector-mapping
-tags: ['SDK', 'Software Development Kit', 'VendorConnectorMapping', 'VendorConnectorMapping']
+keywords: ['go', 'Golang', 'sdk', 'VendorConnectorMapping', 'V2025VendorConnectorMapping'] 
+slug: /tools/sdk/go/v2025/models/vendor-connector-mapping
+tags: ['SDK', 'Software Development Kit', 'VendorConnectorMapping', 'V2025VendorConnectorMapping']
 ---
 
 # VendorConnectorMapping

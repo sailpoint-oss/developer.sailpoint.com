@@ -1,12 +1,12 @@
 ---
-id: identity-certification-dto
+id: v2025-identity-certification-dto
 title: IdentityCertificationDto
 pagination_label: IdentityCertificationDto
 sidebar_label: IdentityCertificationDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityCertificationDto', 'IdentityCertificationDto'] 
-slug: /tools/sdk/go//models/identity-certification-dto
-tags: ['SDK', 'Software Development Kit', 'IdentityCertificationDto', 'IdentityCertificationDto']
+keywords: ['go', 'Golang', 'sdk', 'IdentityCertificationDto', 'V2025IdentityCertificationDto'] 
+slug: /tools/sdk/go/v2025/models/identity-certification-dto
+tags: ['SDK', 'Software Development Kit', 'IdentityCertificationDto', 'V2025IdentityCertificationDto']
 ---
 
 # IdentityCertificationDto

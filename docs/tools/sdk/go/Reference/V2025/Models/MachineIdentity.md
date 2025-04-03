@@ -1,12 +1,12 @@
 ---
-id: machine-identity
+id: v2025-machine-identity
 title: MachineIdentity
 pagination_label: MachineIdentity
 sidebar_label: MachineIdentity
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MachineIdentity', 'MachineIdentity'] 
-slug: /tools/sdk/go//models/machine-identity
-tags: ['SDK', 'Software Development Kit', 'MachineIdentity', 'MachineIdentity']
+keywords: ['go', 'Golang', 'sdk', 'MachineIdentity', 'V2025MachineIdentity'] 
+slug: /tools/sdk/go/v2025/models/machine-identity
+tags: ['SDK', 'Software Development Kit', 'MachineIdentity', 'V2025MachineIdentity']
 ---
 
 # MachineIdentity

@@ -1,12 +1,12 @@
 ---
-id: requestability
+id: v2025-requestability
 title: Requestability
 pagination_label: Requestability
 sidebar_label: Requestability
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Requestability', 'Requestability'] 
-slug: /tools/sdk/go//models/requestability
-tags: ['SDK', 'Software Development Kit', 'Requestability', 'Requestability']
+keywords: ['go', 'Golang', 'sdk', 'Requestability', 'V2025Requestability'] 
+slug: /tools/sdk/go/v2025/models/requestability
+tags: ['SDK', 'Software Development Kit', 'Requestability', 'V2025Requestability']
 ---
 
 # Requestability

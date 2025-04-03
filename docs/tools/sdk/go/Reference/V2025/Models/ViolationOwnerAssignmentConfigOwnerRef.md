@@ -1,12 +1,12 @@
 ---
-id: violation-owner-assignment-config-owner-ref
+id: v2025-violation-owner-assignment-config-owner-ref
 title: ViolationOwnerAssignmentConfigOwnerRef
 pagination_label: ViolationOwnerAssignmentConfigOwnerRef
 sidebar_label: ViolationOwnerAssignmentConfigOwnerRef
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ViolationOwnerAssignmentConfigOwnerRef', 'ViolationOwnerAssignmentConfigOwnerRef'] 
-slug: /tools/sdk/go//models/violation-owner-assignment-config-owner-ref
-tags: ['SDK', 'Software Development Kit', 'ViolationOwnerAssignmentConfigOwnerRef', 'ViolationOwnerAssignmentConfigOwnerRef']
+keywords: ['go', 'Golang', 'sdk', 'ViolationOwnerAssignmentConfigOwnerRef', 'V2025ViolationOwnerAssignmentConfigOwnerRef'] 
+slug: /tools/sdk/go/v2025/models/violation-owner-assignment-config-owner-ref
+tags: ['SDK', 'Software Development Kit', 'ViolationOwnerAssignmentConfigOwnerRef', 'V2025ViolationOwnerAssignmentConfigOwnerRef']
 ---
 
 # ViolationOwnerAssignmentConfigOwnerRef

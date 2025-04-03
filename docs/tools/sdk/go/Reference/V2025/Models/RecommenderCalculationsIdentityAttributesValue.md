@@ -1,12 +1,12 @@
 ---
-id: recommender-calculations-identity-attributes-value
+id: v2025-recommender-calculations-identity-attributes-value
 title: RecommenderCalculationsIdentityAttributesValue
 pagination_label: RecommenderCalculationsIdentityAttributesValue
 sidebar_label: RecommenderCalculationsIdentityAttributesValue
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RecommenderCalculationsIdentityAttributesValue', 'RecommenderCalculationsIdentityAttributesValue'] 
-slug: /tools/sdk/go//models/recommender-calculations-identity-attributes-value
-tags: ['SDK', 'Software Development Kit', 'RecommenderCalculationsIdentityAttributesValue', 'RecommenderCalculationsIdentityAttributesValue']
+keywords: ['go', 'Golang', 'sdk', 'RecommenderCalculationsIdentityAttributesValue', 'V2025RecommenderCalculationsIdentityAttributesValue'] 
+slug: /tools/sdk/go/v2025/models/recommender-calculations-identity-attributes-value
+tags: ['SDK', 'Software Development Kit', 'RecommenderCalculationsIdentityAttributesValue', 'V2025RecommenderCalculationsIdentityAttributesValue']
 ---
 
 # RecommenderCalculationsIdentityAttributesValue

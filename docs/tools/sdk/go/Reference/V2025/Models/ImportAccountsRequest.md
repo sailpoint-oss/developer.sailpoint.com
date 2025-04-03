@@ -1,12 +1,12 @@
 ---
-id: import-accounts-request
+id: v2025-import-accounts-request
 title: ImportAccountsRequest
 pagination_label: ImportAccountsRequest
 sidebar_label: ImportAccountsRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ImportAccountsRequest', 'ImportAccountsRequest'] 
-slug: /tools/sdk/go//models/import-accounts-request
-tags: ['SDK', 'Software Development Kit', 'ImportAccountsRequest', 'ImportAccountsRequest']
+keywords: ['go', 'Golang', 'sdk', 'ImportAccountsRequest', 'V2025ImportAccountsRequest'] 
+slug: /tools/sdk/go/v2025/models/import-accounts-request
+tags: ['SDK', 'Software Development Kit', 'ImportAccountsRequest', 'V2025ImportAccountsRequest']
 ---
 
 # ImportAccountsRequest

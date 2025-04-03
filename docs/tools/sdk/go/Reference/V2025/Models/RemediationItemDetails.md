@@ -1,12 +1,12 @@
 ---
-id: remediation-item-details
+id: v2025-remediation-item-details
 title: RemediationItemDetails
 pagination_label: RemediationItemDetails
 sidebar_label: RemediationItemDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RemediationItemDetails', 'RemediationItemDetails'] 
-slug: /tools/sdk/go//models/remediation-item-details
-tags: ['SDK', 'Software Development Kit', 'RemediationItemDetails', 'RemediationItemDetails']
+keywords: ['go', 'Golang', 'sdk', 'RemediationItemDetails', 'V2025RemediationItemDetails'] 
+slug: /tools/sdk/go/v2025/models/remediation-item-details
+tags: ['SDK', 'Software Development Kit', 'RemediationItemDetails', 'V2025RemediationItemDetails']
 ---
 
 # RemediationItemDetails

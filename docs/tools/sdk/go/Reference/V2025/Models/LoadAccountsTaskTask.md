@@ -1,12 +1,12 @@
 ---
-id: load-accounts-task-task
+id: v2025-load-accounts-task-task
 title: LoadAccountsTaskTask
 pagination_label: LoadAccountsTaskTask
 sidebar_label: LoadAccountsTaskTask
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'LoadAccountsTaskTask', 'LoadAccountsTaskTask'] 
-slug: /tools/sdk/go//models/load-accounts-task-task
-tags: ['SDK', 'Software Development Kit', 'LoadAccountsTaskTask', 'LoadAccountsTaskTask']
+keywords: ['go', 'Golang', 'sdk', 'LoadAccountsTaskTask', 'V2025LoadAccountsTaskTask'] 
+slug: /tools/sdk/go/v2025/models/load-accounts-task-task
+tags: ['SDK', 'Software Development Kit', 'LoadAccountsTaskTask', 'V2025LoadAccountsTaskTask']
 ---
 
 # LoadAccountsTaskTask

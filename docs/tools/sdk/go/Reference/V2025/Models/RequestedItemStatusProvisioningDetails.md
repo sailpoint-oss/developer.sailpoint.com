@@ -1,12 +1,12 @@
 ---
-id: requested-item-status-provisioning-details
+id: v2025-requested-item-status-provisioning-details
 title: RequestedItemStatusProvisioningDetails
 pagination_label: RequestedItemStatusProvisioningDetails
 sidebar_label: RequestedItemStatusProvisioningDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RequestedItemStatusProvisioningDetails', 'RequestedItemStatusProvisioningDetails'] 
-slug: /tools/sdk/go//models/requested-item-status-provisioning-details
-tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusProvisioningDetails', 'RequestedItemStatusProvisioningDetails']
+keywords: ['go', 'Golang', 'sdk', 'RequestedItemStatusProvisioningDetails', 'V2025RequestedItemStatusProvisioningDetails'] 
+slug: /tools/sdk/go/v2025/models/requested-item-status-provisioning-details
+tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusProvisioningDetails', 'V2025RequestedItemStatusProvisioningDetails']
 ---
 
 # RequestedItemStatusProvisioningDetails

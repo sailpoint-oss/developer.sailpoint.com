@@ -1,12 +1,12 @@
 ---
-id: template-bulk-delete-dto
+id: v2025-template-bulk-delete-dto
 title: TemplateBulkDeleteDto
 pagination_label: TemplateBulkDeleteDto
 sidebar_label: TemplateBulkDeleteDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TemplateBulkDeleteDto', 'TemplateBulkDeleteDto'] 
-slug: /tools/sdk/go//models/template-bulk-delete-dto
-tags: ['SDK', 'Software Development Kit', 'TemplateBulkDeleteDto', 'TemplateBulkDeleteDto']
+keywords: ['go', 'Golang', 'sdk', 'TemplateBulkDeleteDto', 'V2025TemplateBulkDeleteDto'] 
+slug: /tools/sdk/go/v2025/models/template-bulk-delete-dto
+tags: ['SDK', 'Software Development Kit', 'TemplateBulkDeleteDto', 'V2025TemplateBulkDeleteDto']
 ---
 
 # TemplateBulkDeleteDto

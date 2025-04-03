@@ -1,12 +1,12 @@
 ---
-id: deploy-response
+id: v2025-deploy-response
 title: DeployResponse
 pagination_label: DeployResponse
 sidebar_label: DeployResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DeployResponse', 'DeployResponse'] 
-slug: /tools/sdk/go//models/deploy-response
-tags: ['SDK', 'Software Development Kit', 'DeployResponse', 'DeployResponse']
+keywords: ['go', 'Golang', 'sdk', 'DeployResponse', 'V2025DeployResponse'] 
+slug: /tools/sdk/go/v2025/models/deploy-response
+tags: ['SDK', 'Software Development Kit', 'DeployResponse', 'V2025DeployResponse']
 ---
 
 # DeployResponse

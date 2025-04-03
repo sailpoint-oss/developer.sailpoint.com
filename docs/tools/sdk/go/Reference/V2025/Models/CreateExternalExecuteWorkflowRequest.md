@@ -1,12 +1,12 @@
 ---
-id: create-external-execute-workflow-request
+id: v2025-create-external-execute-workflow-request
 title: CreateExternalExecuteWorkflowRequest
 pagination_label: CreateExternalExecuteWorkflowRequest
 sidebar_label: CreateExternalExecuteWorkflowRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CreateExternalExecuteWorkflowRequest', 'CreateExternalExecuteWorkflowRequest'] 
-slug: /tools/sdk/go//models/create-external-execute-workflow-request
-tags: ['SDK', 'Software Development Kit', 'CreateExternalExecuteWorkflowRequest', 'CreateExternalExecuteWorkflowRequest']
+keywords: ['go', 'Golang', 'sdk', 'CreateExternalExecuteWorkflowRequest', 'V2025CreateExternalExecuteWorkflowRequest'] 
+slug: /tools/sdk/go/v2025/models/create-external-execute-workflow-request
+tags: ['SDK', 'Software Development Kit', 'CreateExternalExecuteWorkflowRequest', 'V2025CreateExternalExecuteWorkflowRequest']
 ---
 
 # CreateExternalExecuteWorkflowRequest

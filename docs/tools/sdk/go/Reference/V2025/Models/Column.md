@@ -1,12 +1,12 @@
 ---
-id: column
+id: v2025-column
 title: Column
 pagination_label: Column
 sidebar_label: Column
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Column', 'Column'] 
-slug: /tools/sdk/go//models/column
-tags: ['SDK', 'Software Development Kit', 'Column', 'Column']
+keywords: ['go', 'Golang', 'sdk', 'Column', 'V2025Column'] 
+slug: /tools/sdk/go/v2025/models/column
+tags: ['SDK', 'Software Development Kit', 'Column', 'V2025Column']
 ---
 
 # Column

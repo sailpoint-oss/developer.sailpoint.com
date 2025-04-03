@@ -1,12 +1,12 @@
 ---
-id: validate-filter-input-dto
+id: v2025-validate-filter-input-dto
 title: ValidateFilterInputDto
 pagination_label: ValidateFilterInputDto
 sidebar_label: ValidateFilterInputDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ValidateFilterInputDto', 'ValidateFilterInputDto'] 
-slug: /tools/sdk/go//models/validate-filter-input-dto
-tags: ['SDK', 'Software Development Kit', 'ValidateFilterInputDto', 'ValidateFilterInputDto']
+keywords: ['go', 'Golang', 'sdk', 'ValidateFilterInputDto', 'V2025ValidateFilterInputDto'] 
+slug: /tools/sdk/go/v2025/models/validate-filter-input-dto
+tags: ['SDK', 'Software Development Kit', 'ValidateFilterInputDto', 'V2025ValidateFilterInputDto']
 ---
 
 # ValidateFilterInputDto

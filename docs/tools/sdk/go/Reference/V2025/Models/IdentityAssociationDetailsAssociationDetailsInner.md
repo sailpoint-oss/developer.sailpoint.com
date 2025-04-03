@@ -1,12 +1,12 @@
 ---
-id: identity-association-details-association-details-inner
+id: v2025-identity-association-details-association-details-inner
 title: IdentityAssociationDetailsAssociationDetailsInner
 pagination_label: IdentityAssociationDetailsAssociationDetailsInner
 sidebar_label: IdentityAssociationDetailsAssociationDetailsInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityAssociationDetailsAssociationDetailsInner', 'IdentityAssociationDetailsAssociationDetailsInner'] 
-slug: /tools/sdk/go//models/identity-association-details-association-details-inner
-tags: ['SDK', 'Software Development Kit', 'IdentityAssociationDetailsAssociationDetailsInner', 'IdentityAssociationDetailsAssociationDetailsInner']
+keywords: ['go', 'Golang', 'sdk', 'IdentityAssociationDetailsAssociationDetailsInner', 'V2025IdentityAssociationDetailsAssociationDetailsInner'] 
+slug: /tools/sdk/go/v2025/models/identity-association-details-association-details-inner
+tags: ['SDK', 'Software Development Kit', 'IdentityAssociationDetailsAssociationDetailsInner', 'V2025IdentityAssociationDetailsAssociationDetailsInner']
 ---
 
 # IdentityAssociationDetailsAssociationDetailsInner

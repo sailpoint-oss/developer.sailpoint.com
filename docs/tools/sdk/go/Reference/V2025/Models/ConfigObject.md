@@ -1,12 +1,12 @@
 ---
-id: config-object
+id: v2025-config-object
 title: ConfigObject
 pagination_label: ConfigObject
 sidebar_label: ConfigObject
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConfigObject', 'ConfigObject'] 
-slug: /tools/sdk/go//models/config-object
-tags: ['SDK', 'Software Development Kit', 'ConfigObject', 'ConfigObject']
+keywords: ['go', 'Golang', 'sdk', 'ConfigObject', 'V2025ConfigObject'] 
+slug: /tools/sdk/go/v2025/models/config-object
+tags: ['SDK', 'Software Development Kit', 'ConfigObject', 'V2025ConfigObject']
 ---
 
 # ConfigObject

@@ -1,12 +1,12 @@
 ---
-id: identity-profile-all-of-owner
+id: v2025-identity-profile-all-of-owner
 title: IdentityProfileAllOfOwner
 pagination_label: IdentityProfileAllOfOwner
 sidebar_label: IdentityProfileAllOfOwner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityProfileAllOfOwner', 'IdentityProfileAllOfOwner'] 
-slug: /tools/sdk/go//models/identity-profile-all-of-owner
-tags: ['SDK', 'Software Development Kit', 'IdentityProfileAllOfOwner', 'IdentityProfileAllOfOwner']
+keywords: ['go', 'Golang', 'sdk', 'IdentityProfileAllOfOwner', 'V2025IdentityProfileAllOfOwner'] 
+slug: /tools/sdk/go/v2025/models/identity-profile-all-of-owner
+tags: ['SDK', 'Software Development Kit', 'IdentityProfileAllOfOwner', 'V2025IdentityProfileAllOfOwner']
 ---
 
 # IdentityProfileAllOfOwner

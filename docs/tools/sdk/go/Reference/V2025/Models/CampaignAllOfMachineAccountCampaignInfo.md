@@ -1,12 +1,12 @@
 ---
-id: campaign-all-of-machine-account-campaign-info
+id: v2025-campaign-all-of-machine-account-campaign-info
 title: CampaignAllOfMachineAccountCampaignInfo
 pagination_label: CampaignAllOfMachineAccountCampaignInfo
 sidebar_label: CampaignAllOfMachineAccountCampaignInfo
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignAllOfMachineAccountCampaignInfo', 'CampaignAllOfMachineAccountCampaignInfo'] 
-slug: /tools/sdk/go//models/campaign-all-of-machine-account-campaign-info
-tags: ['SDK', 'Software Development Kit', 'CampaignAllOfMachineAccountCampaignInfo', 'CampaignAllOfMachineAccountCampaignInfo']
+keywords: ['go', 'Golang', 'sdk', 'CampaignAllOfMachineAccountCampaignInfo', 'V2025CampaignAllOfMachineAccountCampaignInfo'] 
+slug: /tools/sdk/go/v2025/models/campaign-all-of-machine-account-campaign-info
+tags: ['SDK', 'Software Development Kit', 'CampaignAllOfMachineAccountCampaignInfo', 'V2025CampaignAllOfMachineAccountCampaignInfo']
 ---
 
 # CampaignAllOfMachineAccountCampaignInfo

@@ -1,12 +1,12 @@
 ---
-id: outliers-contributing-feature-access-items
+id: v2025-outliers-contributing-feature-access-items
 title: OutliersContributingFeatureAccessItems
 pagination_label: OutliersContributingFeatureAccessItems
 sidebar_label: OutliersContributingFeatureAccessItems
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'OutliersContributingFeatureAccessItems', 'OutliersContributingFeatureAccessItems'] 
-slug: /tools/sdk/go//models/outliers-contributing-feature-access-items
-tags: ['SDK', 'Software Development Kit', 'OutliersContributingFeatureAccessItems', 'OutliersContributingFeatureAccessItems']
+keywords: ['go', 'Golang', 'sdk', 'OutliersContributingFeatureAccessItems', 'V2025OutliersContributingFeatureAccessItems'] 
+slug: /tools/sdk/go/v2025/models/outliers-contributing-feature-access-items
+tags: ['SDK', 'Software Development Kit', 'OutliersContributingFeatureAccessItems', 'V2025OutliersContributingFeatureAccessItems']
 ---
 
 # OutliersContributingFeatureAccessItems

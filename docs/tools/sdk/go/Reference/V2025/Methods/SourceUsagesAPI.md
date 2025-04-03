@@ -1,12 +1,12 @@
 ---
-id: source-usages
+id: v2025-source-usages
 title: SourceUsages
 pagination_label: SourceUsages
 sidebar_label: SourceUsages
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceUsages', 'SourceUsages'] 
-slug: /tools/sdk/go//methods/source-usages
-tags: ['SDK', 'Software Development Kit', 'SourceUsages', 'SourceUsages']
+keywords: ['go', 'Golang', 'sdk', 'SourceUsages', 'V2025SourceUsages'] 
+slug: /tools/sdk/go/v2025/methods/source-usages
+tags: ['SDK', 'Software Development Kit', 'SourceUsages', 'V2025SourceUsages']
 ---
 
 # SourceUsagesAPI
@@ -26,7 +26,7 @@ Method | HTTP request | Description
 Finds status of source usage
 This API returns the status of the source usage insights setup by IDN source ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-status-by-source-id)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-status-by-source-id)
 
 ### Path Parameters
 
@@ -63,7 +63,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -72,7 +72,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourceUsagesAPI.GetStatusBySourceId(context.Background(), sourceId).Execute()
+	resp, r, err := apiClient.V2025.SourceUsagesAPI.GetStatusBySourceId(context.Background(), sourceId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourceUsagesAPI.GetStatusBySourceId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -88,7 +88,7 @@ func main() {
 Returns source usage insights
 This API returns a summary of source usage insights for past 12 months.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-usages-by-source-id)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-usages-by-source-id)
 
 ### Path Parameters
 
@@ -129,7 +129,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -142,7 +142,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourceUsagesAPI.GetUsagesBySourceId(context.Background(), sourceId).Limit(limit).Offset(offset).Count(count).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.SourceUsagesAPI.GetUsagesBySourceId(context.Background(), sourceId).Limit(limit).Offset(offset).Count(count).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourceUsagesAPI.GetUsagesBySourceId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

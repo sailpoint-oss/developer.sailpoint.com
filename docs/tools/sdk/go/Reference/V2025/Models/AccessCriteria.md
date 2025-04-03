@@ -1,12 +1,12 @@
 ---
-id: access-criteria
+id: v2025-access-criteria
 title: AccessCriteria
 pagination_label: AccessCriteria
 sidebar_label: AccessCriteria
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessCriteria', 'AccessCriteria'] 
-slug: /tools/sdk/go//models/access-criteria
-tags: ['SDK', 'Software Development Kit', 'AccessCriteria', 'AccessCriteria']
+keywords: ['go', 'Golang', 'sdk', 'AccessCriteria', 'V2025AccessCriteria'] 
+slug: /tools/sdk/go/v2025/models/access-criteria
+tags: ['SDK', 'Software Development Kit', 'AccessCriteria', 'V2025AccessCriteria']
 ---
 
 # AccessCriteria

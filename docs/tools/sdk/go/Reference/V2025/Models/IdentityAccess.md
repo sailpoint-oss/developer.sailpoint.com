@@ -1,12 +1,12 @@
 ---
-id: identity-access
+id: v2025-identity-access
 title: IdentityAccess
 pagination_label: IdentityAccess
 sidebar_label: IdentityAccess
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityAccess', 'IdentityAccess'] 
-slug: /tools/sdk/go//models/identity-access
-tags: ['SDK', 'Software Development Kit', 'IdentityAccess', 'IdentityAccess']
+keywords: ['go', 'Golang', 'sdk', 'IdentityAccess', 'V2025IdentityAccess'] 
+slug: /tools/sdk/go/v2025/models/identity-access
+tags: ['SDK', 'Software Development Kit', 'IdentityAccess', 'V2025IdentityAccess']
 ---
 
 # IdentityAccess

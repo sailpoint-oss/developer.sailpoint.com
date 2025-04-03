@@ -1,12 +1,12 @@
 ---
-id: base-account
+id: v2025-base-account
 title: BaseAccount
 pagination_label: BaseAccount
 sidebar_label: BaseAccount
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BaseAccount', 'BaseAccount'] 
-slug: /tools/sdk/go//models/base-account
-tags: ['SDK', 'Software Development Kit', 'BaseAccount', 'BaseAccount']
+keywords: ['go', 'Golang', 'sdk', 'BaseAccount', 'V2025BaseAccount'] 
+slug: /tools/sdk/go/v2025/models/base-account
+tags: ['SDK', 'Software Development Kit', 'BaseAccount', 'V2025BaseAccount']
 ---
 
 # BaseAccount

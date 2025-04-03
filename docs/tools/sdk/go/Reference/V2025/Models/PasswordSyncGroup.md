@@ -1,12 +1,12 @@
 ---
-id: password-sync-group
+id: v2025-password-sync-group
 title: PasswordSyncGroup
 pagination_label: PasswordSyncGroup
 sidebar_label: PasswordSyncGroup
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PasswordSyncGroup', 'PasswordSyncGroup'] 
-slug: /tools/sdk/go//models/password-sync-group
-tags: ['SDK', 'Software Development Kit', 'PasswordSyncGroup', 'PasswordSyncGroup']
+keywords: ['go', 'Golang', 'sdk', 'PasswordSyncGroup', 'V2025PasswordSyncGroup'] 
+slug: /tools/sdk/go/v2025/models/password-sync-group
+tags: ['SDK', 'Software Development Kit', 'PasswordSyncGroup', 'V2025PasswordSyncGroup']
 ---
 
 # PasswordSyncGroup

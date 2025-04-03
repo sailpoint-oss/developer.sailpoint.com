@@ -1,12 +1,12 @@
 ---
-id: triggers
+id: v2025-triggers
 title: Triggers
 pagination_label: Triggers
 sidebar_label: Triggers
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Triggers', 'Triggers'] 
-slug: /tools/sdk/go//methods/triggers
-tags: ['SDK', 'Software Development Kit', 'Triggers', 'Triggers']
+keywords: ['go', 'Golang', 'sdk', 'Triggers', 'V2025Triggers'] 
+slug: /tools/sdk/go/v2025/methods/triggers
+tags: ['SDK', 'Software Development Kit', 'Triggers', 'V2025Triggers']
 ---
 
 # TriggersAPI
@@ -83,7 +83,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Complete Trigger Invocation
 Completes an invocation to a REQUEST_RESPONSE type trigger.
 
-[API Spec](https://developer.sailpoint.com/docs/api//complete-trigger-invocation)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/complete-trigger-invocation)
 
 ### Path Parameters
 
@@ -122,7 +122,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -139,7 +139,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..TriggersAPI.CompleteTriggerInvocation(context.Background(), id).XSailPointExperimental(xSailPointExperimental).CompleteInvocation(completeInvocation).Execute()
+	r, err := apiClient.V2025.TriggersAPI.CompleteTriggerInvocation(context.Background(), id).XSailPointExperimental(xSailPointExperimental).CompleteInvocation(completeInvocation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TriggersAPI.CompleteTriggerInvocation``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -166,7 +166,7 @@ This API creates a new subscription to a trigger and defines trigger invocation 
 * HTTP subscriptions require httpConfig
 * EventBridge subscriptions require eventBridgeConfig
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-subscription)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-subscription)
 
 ### Path Parameters
 
@@ -200,7 +200,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -234,7 +234,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..TriggersAPI.CreateSubscription(context.Background()).XSailPointExperimental(xSailPointExperimental).SubscriptionPostRequest(subscriptionPostRequest).Execute()
+	resp, r, err := apiClient.V2025.TriggersAPI.CreateSubscription(context.Background()).XSailPointExperimental(xSailPointExperimental).SubscriptionPostRequest(subscriptionPostRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TriggersAPI.CreateSubscription``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -261,7 +261,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Delete a Subscription
 Deletes an existing subscription to a trigger.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-subscription)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-subscription)
 
 ### Path Parameters
 
@@ -299,7 +299,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -309,7 +309,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..TriggersAPI.DeleteSubscription(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	r, err := apiClient.V2025.TriggersAPI.DeleteSubscription(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TriggersAPI.DeleteSubscription``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -334,7 +334,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List Subscriptions
 Gets a list of all trigger subscriptions.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-subscriptions)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-subscriptions)
 
 ### Path Parameters
 
@@ -372,7 +372,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -386,7 +386,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..TriggersAPI.ListSubscriptions(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.TriggersAPI.ListSubscriptions(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TriggersAPI.ListSubscriptions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -415,7 +415,7 @@ Gets a list of latest invocation statuses.
 Statuses of successful invocations are available for up to 24 hours. Statuses of failed invocations are available for up to 48 hours.
 This endpoint may only fetch up to 2000 invocations, and should not be treated as a representation of the full history of invocations.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-trigger-invocation-status)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-trigger-invocation-status)
 
 ### Path Parameters
 
@@ -453,7 +453,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -467,7 +467,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..TriggersAPI.ListTriggerInvocationStatus(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.TriggersAPI.ListTriggerInvocationStatus(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TriggersAPI.ListTriggerInvocationStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -494,7 +494,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List Triggers
 Gets a list of triggers that are available in the tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-triggers)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-triggers)
 
 ### Path Parameters
 
@@ -532,7 +532,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -546,7 +546,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..TriggersAPI.ListTriggers(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.TriggersAPI.ListTriggers(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TriggersAPI.ListTriggers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -575,7 +575,7 @@ This API updates a trigger subscription in IdentityNow, using a set of instructi
 
 **name**, **description**, **enabled**, **type**, **filter**, **responseDeadline**, **httpConfig**, **eventBridgeConfig**, **workflowConfig**
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-subscription)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-subscription)
 
 ### Path Parameters
 
@@ -614,7 +614,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -625,7 +625,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..TriggersAPI.PatchSubscription(context.Background(), id).XSailPointExperimental(xSailPointExperimental).SubscriptionPatchRequestInner(subscriptionPatchRequestInner).Execute()
+	resp, r, err := apiClient.V2025.TriggersAPI.PatchSubscription(context.Background(), id).XSailPointExperimental(xSailPointExperimental).SubscriptionPatchRequestInner(subscriptionPatchRequestInner).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TriggersAPI.PatchSubscription``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -652,7 +652,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Start a Test Invocation
 Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
 
-[API Spec](https://developer.sailpoint.com/docs/api//start-test-trigger-invocation)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/start-test-trigger-invocation)
 
 ### Path Parameters
 
@@ -686,7 +686,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -705,7 +705,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..TriggersAPI.StartTestTriggerInvocation(context.Background()).XSailPointExperimental(xSailPointExperimental).TestInvocation(testInvocation).Execute()
+	resp, r, err := apiClient.V2025.TriggersAPI.StartTestTriggerInvocation(context.Background()).XSailPointExperimental(xSailPointExperimental).TestInvocation(testInvocation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TriggersAPI.StartTestTriggerInvocation``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -733,7 +733,7 @@ Validate a Subscription Filter
 Validates a JSONPath filter expression against a provided mock input.
 Request requires a security scope of: 
 
-[API Spec](https://developer.sailpoint.com/docs/api//test-subscription-filter)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/test-subscription-filter)
 
 ### Path Parameters
 
@@ -767,7 +767,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -782,7 +782,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..TriggersAPI.TestSubscriptionFilter(context.Background()).XSailPointExperimental(xSailPointExperimental).ValidateFilterInputDto(validateFilterInputDto).Execute()
+	resp, r, err := apiClient.V2025.TriggersAPI.TestSubscriptionFilter(context.Background()).XSailPointExperimental(xSailPointExperimental).ValidateFilterInputDto(validateFilterInputDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TriggersAPI.TestSubscriptionFilter``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -818,7 +818,7 @@ This API updates a trigger subscription in IdentityNow, using a full object repr
 
   Attempts to modify these fields result in 400.
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-subscription)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-subscription)
 
 ### Path Parameters
 
@@ -857,7 +857,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -891,7 +891,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..TriggersAPI.UpdateSubscription(context.Background(), id).XSailPointExperimental(xSailPointExperimental).SubscriptionPutRequest(subscriptionPutRequest).Execute()
+	resp, r, err := apiClient.V2025.TriggersAPI.UpdateSubscription(context.Background(), id).XSailPointExperimental(xSailPointExperimental).SubscriptionPutRequest(subscriptionPutRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TriggersAPI.UpdateSubscription``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

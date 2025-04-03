@@ -1,12 +1,12 @@
 ---
-id: identities-report-arguments
+id: v2025-identities-report-arguments
 title: IdentitiesReportArguments
 pagination_label: IdentitiesReportArguments
 sidebar_label: IdentitiesReportArguments
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentitiesReportArguments', 'IdentitiesReportArguments'] 
-slug: /tools/sdk/go//models/identities-report-arguments
-tags: ['SDK', 'Software Development Kit', 'IdentitiesReportArguments', 'IdentitiesReportArguments']
+keywords: ['go', 'Golang', 'sdk', 'IdentitiesReportArguments', 'V2025IdentitiesReportArguments'] 
+slug: /tools/sdk/go/v2025/models/identities-report-arguments
+tags: ['SDK', 'Software Development Kit', 'IdentitiesReportArguments', 'V2025IdentitiesReportArguments']
 ---
 
 # IdentitiesReportArguments

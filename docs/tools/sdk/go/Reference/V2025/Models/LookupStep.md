@@ -1,12 +1,12 @@
 ---
-id: lookup-step
+id: v2025-lookup-step
 title: LookupStep
 pagination_label: LookupStep
 sidebar_label: LookupStep
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'LookupStep', 'LookupStep'] 
-slug: /tools/sdk/go//models/lookup-step
-tags: ['SDK', 'Software Development Kit', 'LookupStep', 'LookupStep']
+keywords: ['go', 'Golang', 'sdk', 'LookupStep', 'V2025LookupStep'] 
+slug: /tools/sdk/go/v2025/models/lookup-step
+tags: ['SDK', 'Software Development Kit', 'LookupStep', 'V2025LookupStep']
 ---
 
 # LookupStep

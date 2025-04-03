@@ -1,12 +1,12 @@
 ---
-id: status-response
+id: v2025-status-response
 title: StatusResponse
 pagination_label: StatusResponse
 sidebar_label: StatusResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'StatusResponse', 'StatusResponse'] 
-slug: /tools/sdk/go//models/status-response
-tags: ['SDK', 'Software Development Kit', 'StatusResponse', 'StatusResponse']
+keywords: ['go', 'Golang', 'sdk', 'StatusResponse', 'V2025StatusResponse'] 
+slug: /tools/sdk/go/v2025/models/status-response
+tags: ['SDK', 'Software Development Kit', 'StatusResponse', 'V2025StatusResponse']
 ---
 
 # StatusResponse

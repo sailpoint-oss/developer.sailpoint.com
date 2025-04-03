@@ -1,12 +1,12 @@
 ---
-id: sod-violations
+id: v2025-sod-violations
 title: SODViolations
 pagination_label: SODViolations
 sidebar_label: SODViolations
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SODViolations', 'SODViolations'] 
-slug: /tools/sdk/go//methods/sod-violations
-tags: ['SDK', 'Software Development Kit', 'SODViolations', 'SODViolations']
+keywords: ['go', 'Golang', 'sdk', 'SODViolations', 'V2025SODViolations'] 
+slug: /tools/sdk/go/v2025/methods/sod-violations
+tags: ['SDK', 'Software Development Kit', 'SODViolations', 'V2025SODViolations']
 ---
 
 # SODViolationsAPI
@@ -41,7 +41,7 @@ Method | HTTP request | Description
 Predict SOD violations for identity.
 This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
 
-[API Spec](https://developer.sailpoint.com/docs/api//start-predict-sod-violations)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/start-predict-sod-violations)
 
 ### Path Parameters
 
@@ -74,7 +74,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -94,7 +94,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SODViolationsAPI.StartPredictSodViolations(context.Background()).IdentityWithNewAccess(identityWithNewAccess).Execute()
+	resp, r, err := apiClient.V2025.SODViolationsAPI.StartPredictSodViolations(context.Background()).IdentityWithNewAccess(identityWithNewAccess).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SODViolationsAPI.StartPredictSodViolations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -110,7 +110,7 @@ func main() {
 Check SOD violations
 This API initiates a SOD policy verification asynchronously.
 
-[API Spec](https://developer.sailpoint.com/docs/api//start-violation-check)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/start-violation-check)
 
 ### Path Parameters
 
@@ -143,7 +143,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -152,7 +152,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SODViolationsAPI.StartViolationCheck(context.Background()).IdentityWithNewAccess1(identityWithNewAccess1).Execute()
+	resp, r, err := apiClient.V2025.SODViolationsAPI.StartViolationCheck(context.Background()).IdentityWithNewAccess1(identityWithNewAccess1).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SODViolationsAPI.StartViolationCheck``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

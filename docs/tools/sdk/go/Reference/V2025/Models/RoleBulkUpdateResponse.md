@@ -1,12 +1,12 @@
 ---
-id: role-bulk-update-response
+id: v2025-role-bulk-update-response
 title: RoleBulkUpdateResponse
 pagination_label: RoleBulkUpdateResponse
 sidebar_label: RoleBulkUpdateResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleBulkUpdateResponse', 'RoleBulkUpdateResponse'] 
-slug: /tools/sdk/go//models/role-bulk-update-response
-tags: ['SDK', 'Software Development Kit', 'RoleBulkUpdateResponse', 'RoleBulkUpdateResponse']
+keywords: ['go', 'Golang', 'sdk', 'RoleBulkUpdateResponse', 'V2025RoleBulkUpdateResponse'] 
+slug: /tools/sdk/go/v2025/models/role-bulk-update-response
+tags: ['SDK', 'Software Development Kit', 'RoleBulkUpdateResponse', 'V2025RoleBulkUpdateResponse']
 ---
 
 # RoleBulkUpdateResponse

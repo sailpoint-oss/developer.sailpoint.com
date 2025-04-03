@@ -1,12 +1,12 @@
 ---
-id: resource-objects-response
+id: v2025-resource-objects-response
 title: ResourceObjectsResponse
 pagination_label: ResourceObjectsResponse
 sidebar_label: ResourceObjectsResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ResourceObjectsResponse', 'ResourceObjectsResponse'] 
-slug: /tools/sdk/go//models/resource-objects-response
-tags: ['SDK', 'Software Development Kit', 'ResourceObjectsResponse', 'ResourceObjectsResponse']
+keywords: ['go', 'Golang', 'sdk', 'ResourceObjectsResponse', 'V2025ResourceObjectsResponse'] 
+slug: /tools/sdk/go/v2025/models/resource-objects-response
+tags: ['SDK', 'Software Development Kit', 'ResourceObjectsResponse', 'V2025ResourceObjectsResponse']
 ---
 
 # ResourceObjectsResponse

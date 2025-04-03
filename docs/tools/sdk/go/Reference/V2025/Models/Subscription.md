@@ -1,12 +1,12 @@
 ---
-id: subscription
+id: v2025-subscription
 title: Subscription
 pagination_label: Subscription
 sidebar_label: Subscription
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Subscription', 'Subscription'] 
-slug: /tools/sdk/go//models/subscription
-tags: ['SDK', 'Software Development Kit', 'Subscription', 'Subscription']
+keywords: ['go', 'Golang', 'sdk', 'Subscription', 'V2025Subscription'] 
+slug: /tools/sdk/go/v2025/models/subscription
+tags: ['SDK', 'Software Development Kit', 'Subscription', 'V2025Subscription']
 ---
 
 # Subscription

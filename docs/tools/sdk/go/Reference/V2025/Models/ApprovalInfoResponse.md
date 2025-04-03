@@ -1,12 +1,12 @@
 ---
-id: approval-info-response
+id: v2025-approval-info-response
 title: ApprovalInfoResponse
 pagination_label: ApprovalInfoResponse
 sidebar_label: ApprovalInfoResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ApprovalInfoResponse', 'ApprovalInfoResponse'] 
-slug: /tools/sdk/go//models/approval-info-response
-tags: ['SDK', 'Software Development Kit', 'ApprovalInfoResponse', 'ApprovalInfoResponse']
+keywords: ['go', 'Golang', 'sdk', 'ApprovalInfoResponse', 'V2025ApprovalInfoResponse'] 
+slug: /tools/sdk/go/v2025/models/approval-info-response
+tags: ['SDK', 'Software Development Kit', 'ApprovalInfoResponse', 'V2025ApprovalInfoResponse']
 ---
 
 # ApprovalInfoResponse

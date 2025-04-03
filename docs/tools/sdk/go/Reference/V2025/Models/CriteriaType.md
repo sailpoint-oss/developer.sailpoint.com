@@ -1,12 +1,12 @@
 ---
-id: criteria-type
+id: v2025-criteria-type
 title: CriteriaType
 pagination_label: CriteriaType
 sidebar_label: CriteriaType
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CriteriaType', 'CriteriaType'] 
-slug: /tools/sdk/go//models/criteria-type
-tags: ['SDK', 'Software Development Kit', 'CriteriaType', 'CriteriaType']
+keywords: ['go', 'Golang', 'sdk', 'CriteriaType', 'V2025CriteriaType'] 
+slug: /tools/sdk/go/v2025/models/criteria-type
+tags: ['SDK', 'Software Development Kit', 'CriteriaType', 'V2025CriteriaType']
 ---
 
 # CriteriaType

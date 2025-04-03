@@ -1,12 +1,12 @@
 ---
-id: sod-policy
+id: v2025-sod-policy
 title: SodPolicy
 pagination_label: SodPolicy
 sidebar_label: SodPolicy
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SodPolicy', 'SodPolicy'] 
-slug: /tools/sdk/go//models/sod-policy
-tags: ['SDK', 'Software Development Kit', 'SodPolicy', 'SodPolicy']
+keywords: ['go', 'Golang', 'sdk', 'SodPolicy', 'V2025SodPolicy'] 
+slug: /tools/sdk/go/v2025/models/sod-policy
+tags: ['SDK', 'Software Development Kit', 'SodPolicy', 'V2025SodPolicy']
 ---
 
 # SodPolicy

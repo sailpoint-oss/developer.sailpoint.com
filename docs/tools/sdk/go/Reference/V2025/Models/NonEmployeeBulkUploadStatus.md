@@ -1,12 +1,12 @@
 ---
-id: non-employee-bulk-upload-status
+id: v2025-non-employee-bulk-upload-status
 title: NonEmployeeBulkUploadStatus
 pagination_label: NonEmployeeBulkUploadStatus
 sidebar_label: NonEmployeeBulkUploadStatus
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NonEmployeeBulkUploadStatus', 'NonEmployeeBulkUploadStatus'] 
-slug: /tools/sdk/go//models/non-employee-bulk-upload-status
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeBulkUploadStatus', 'NonEmployeeBulkUploadStatus']
+keywords: ['go', 'Golang', 'sdk', 'NonEmployeeBulkUploadStatus', 'V2025NonEmployeeBulkUploadStatus'] 
+slug: /tools/sdk/go/v2025/models/non-employee-bulk-upload-status
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeBulkUploadStatus', 'V2025NonEmployeeBulkUploadStatus']
 ---
 
 # NonEmployeeBulkUploadStatus

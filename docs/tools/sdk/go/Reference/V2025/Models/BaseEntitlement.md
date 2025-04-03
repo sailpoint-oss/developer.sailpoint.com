@@ -1,12 +1,12 @@
 ---
-id: base-entitlement
+id: v2025-base-entitlement
 title: BaseEntitlement
 pagination_label: BaseEntitlement
 sidebar_label: BaseEntitlement
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BaseEntitlement', 'BaseEntitlement'] 
-slug: /tools/sdk/go//models/base-entitlement
-tags: ['SDK', 'Software Development Kit', 'BaseEntitlement', 'BaseEntitlement']
+keywords: ['go', 'Golang', 'sdk', 'BaseEntitlement', 'V2025BaseEntitlement'] 
+slug: /tools/sdk/go/v2025/models/base-entitlement
+tags: ['SDK', 'Software Development Kit', 'BaseEntitlement', 'V2025BaseEntitlement']
 ---
 
 # BaseEntitlement

@@ -1,12 +1,12 @@
 ---
-id: event-document
+id: v2025-event-document
 title: EventDocument
 pagination_label: EventDocument
 sidebar_label: EventDocument
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EventDocument', 'EventDocument'] 
-slug: /tools/sdk/go//models/event-document
-tags: ['SDK', 'Software Development Kit', 'EventDocument', 'EventDocument']
+keywords: ['go', 'Golang', 'sdk', 'EventDocument', 'V2025EventDocument'] 
+slug: /tools/sdk/go/v2025/models/event-document
+tags: ['SDK', 'Software Development Kit', 'EventDocument', 'V2025EventDocument']
 ---
 
 # EventDocument

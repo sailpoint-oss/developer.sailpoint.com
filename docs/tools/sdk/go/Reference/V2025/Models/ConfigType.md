@@ -1,12 +1,12 @@
 ---
-id: config-type
+id: v2025-config-type
 title: ConfigType
 pagination_label: ConfigType
 sidebar_label: ConfigType
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConfigType', 'ConfigType'] 
-slug: /tools/sdk/go//models/config-type
-tags: ['SDK', 'Software Development Kit', 'ConfigType', 'ConfigType']
+keywords: ['go', 'Golang', 'sdk', 'ConfigType', 'V2025ConfigType'] 
+slug: /tools/sdk/go/v2025/models/config-type
+tags: ['SDK', 'Software Development Kit', 'ConfigType', 'V2025ConfigType']
 ---
 
 # ConfigType

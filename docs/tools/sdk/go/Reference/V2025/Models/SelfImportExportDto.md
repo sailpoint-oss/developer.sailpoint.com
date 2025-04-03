@@ -1,12 +1,12 @@
 ---
-id: self-import-export-dto
+id: v2025-self-import-export-dto
 title: SelfImportExportDto
 pagination_label: SelfImportExportDto
 sidebar_label: SelfImportExportDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SelfImportExportDto', 'SelfImportExportDto'] 
-slug: /tools/sdk/go//models/self-import-export-dto
-tags: ['SDK', 'Software Development Kit', 'SelfImportExportDto', 'SelfImportExportDto']
+keywords: ['go', 'Golang', 'sdk', 'SelfImportExportDto', 'V2025SelfImportExportDto'] 
+slug: /tools/sdk/go/v2025/models/self-import-export-dto
+tags: ['SDK', 'Software Development Kit', 'SelfImportExportDto', 'V2025SelfImportExportDto']
 ---
 
 # SelfImportExportDto

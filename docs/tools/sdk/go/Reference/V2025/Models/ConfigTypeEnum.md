@@ -1,12 +1,12 @@
 ---
-id: config-type-enum
+id: v2025-config-type-enum
 title: ConfigTypeEnum
 pagination_label: ConfigTypeEnum
 sidebar_label: ConfigTypeEnum
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConfigTypeEnum', 'ConfigTypeEnum'] 
-slug: /tools/sdk/go//models/config-type-enum
-tags: ['SDK', 'Software Development Kit', 'ConfigTypeEnum', 'ConfigTypeEnum']
+keywords: ['go', 'Golang', 'sdk', 'ConfigTypeEnum', 'V2025ConfigTypeEnum'] 
+slug: /tools/sdk/go/v2025/models/config-type-enum
+tags: ['SDK', 'Software Development Kit', 'ConfigTypeEnum', 'V2025ConfigTypeEnum']
 ---
 
 # ConfigTypeEnum

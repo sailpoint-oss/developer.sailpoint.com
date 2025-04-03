@@ -1,12 +1,12 @@
 ---
-id: identity-list-item
+id: v2025-identity-list-item
 title: IdentityListItem
 pagination_label: IdentityListItem
 sidebar_label: IdentityListItem
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityListItem', 'IdentityListItem'] 
-slug: /tools/sdk/go//models/identity-list-item
-tags: ['SDK', 'Software Development Kit', 'IdentityListItem', 'IdentityListItem']
+keywords: ['go', 'Golang', 'sdk', 'IdentityListItem', 'V2025IdentityListItem'] 
+slug: /tools/sdk/go/v2025/models/identity-list-item
+tags: ['SDK', 'Software Development Kit', 'IdentityListItem', 'V2025IdentityListItem']
 ---
 
 # IdentityListItem

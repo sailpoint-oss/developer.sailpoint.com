@@ -1,12 +1,12 @@
 ---
-id: transform
+id: v2025-transform
 title: Transform
 pagination_label: Transform
 sidebar_label: Transform
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Transform', 'Transform'] 
-slug: /tools/sdk/go//models/transform
-tags: ['SDK', 'Software Development Kit', 'Transform', 'Transform']
+keywords: ['go', 'Golang', 'sdk', 'Transform', 'V2025Transform'] 
+slug: /tools/sdk/go/v2025/models/transform
+tags: ['SDK', 'Software Development Kit', 'Transform', 'V2025Transform']
 ---
 
 # Transform

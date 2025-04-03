@@ -1,12 +1,12 @@
 ---
-id: campaign-generated-campaign
+id: v2025-campaign-generated-campaign
 title: CampaignGeneratedCampaign
 pagination_label: CampaignGeneratedCampaign
 sidebar_label: CampaignGeneratedCampaign
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignGeneratedCampaign', 'CampaignGeneratedCampaign'] 
-slug: /tools/sdk/go//models/campaign-generated-campaign
-tags: ['SDK', 'Software Development Kit', 'CampaignGeneratedCampaign', 'CampaignGeneratedCampaign']
+keywords: ['go', 'Golang', 'sdk', 'CampaignGeneratedCampaign', 'V2025CampaignGeneratedCampaign'] 
+slug: /tools/sdk/go/v2025/models/campaign-generated-campaign
+tags: ['SDK', 'Software Development Kit', 'CampaignGeneratedCampaign', 'V2025CampaignGeneratedCampaign']
 ---
 
 # CampaignGeneratedCampaign

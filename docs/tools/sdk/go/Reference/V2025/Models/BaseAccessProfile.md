@@ -1,12 +1,12 @@
 ---
-id: base-access-profile
+id: v2025-base-access-profile
 title: BaseAccessProfile
 pagination_label: BaseAccessProfile
 sidebar_label: BaseAccessProfile
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BaseAccessProfile', 'BaseAccessProfile'] 
-slug: /tools/sdk/go//models/base-access-profile
-tags: ['SDK', 'Software Development Kit', 'BaseAccessProfile', 'BaseAccessProfile']
+keywords: ['go', 'Golang', 'sdk', 'BaseAccessProfile', 'V2025BaseAccessProfile'] 
+slug: /tools/sdk/go/v2025/models/base-access-profile
+tags: ['SDK', 'Software Development Kit', 'BaseAccessProfile', 'V2025BaseAccessProfile']
 ---
 
 # BaseAccessProfile

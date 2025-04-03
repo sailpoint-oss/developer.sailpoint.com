@@ -1,12 +1,12 @@
 ---
-id: provisioning-policy-dto
+id: v2025-provisioning-policy-dto
 title: ProvisioningPolicyDto
 pagination_label: ProvisioningPolicyDto
 sidebar_label: ProvisioningPolicyDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ProvisioningPolicyDto', 'ProvisioningPolicyDto'] 
-slug: /tools/sdk/go//models/provisioning-policy-dto
-tags: ['SDK', 'Software Development Kit', 'ProvisioningPolicyDto', 'ProvisioningPolicyDto']
+keywords: ['go', 'Golang', 'sdk', 'ProvisioningPolicyDto', 'V2025ProvisioningPolicyDto'] 
+slug: /tools/sdk/go/v2025/models/provisioning-policy-dto
+tags: ['SDK', 'Software Development Kit', 'ProvisioningPolicyDto', 'V2025ProvisioningPolicyDto']
 ---
 
 # ProvisioningPolicyDto

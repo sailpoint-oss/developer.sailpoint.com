@@ -1,12 +1,12 @@
 ---
-id: bulk-identities-accounts-response
+id: v2025-bulk-identities-accounts-response
 title: BulkIdentitiesAccountsResponse
 pagination_label: BulkIdentitiesAccountsResponse
 sidebar_label: BulkIdentitiesAccountsResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BulkIdentitiesAccountsResponse', 'BulkIdentitiesAccountsResponse'] 
-slug: /tools/sdk/go//models/bulk-identities-accounts-response
-tags: ['SDK', 'Software Development Kit', 'BulkIdentitiesAccountsResponse', 'BulkIdentitiesAccountsResponse']
+keywords: ['go', 'Golang', 'sdk', 'BulkIdentitiesAccountsResponse', 'V2025BulkIdentitiesAccountsResponse'] 
+slug: /tools/sdk/go/v2025/models/bulk-identities-accounts-response
+tags: ['SDK', 'Software Development Kit', 'BulkIdentitiesAccountsResponse', 'V2025BulkIdentitiesAccountsResponse']
 ---
 
 # BulkIdentitiesAccountsResponse

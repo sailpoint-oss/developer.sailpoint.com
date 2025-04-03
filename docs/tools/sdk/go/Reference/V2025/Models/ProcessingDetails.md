@@ -1,12 +1,12 @@
 ---
-id: processing-details
+id: v2025-processing-details
 title: ProcessingDetails
 pagination_label: ProcessingDetails
 sidebar_label: ProcessingDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ProcessingDetails', 'ProcessingDetails'] 
-slug: /tools/sdk/go//models/processing-details
-tags: ['SDK', 'Software Development Kit', 'ProcessingDetails', 'ProcessingDetails']
+keywords: ['go', 'Golang', 'sdk', 'ProcessingDetails', 'V2025ProcessingDetails'] 
+slug: /tools/sdk/go/v2025/models/processing-details
+tags: ['SDK', 'Software Development Kit', 'ProcessingDetails', 'V2025ProcessingDetails']
 ---
 
 # ProcessingDetails

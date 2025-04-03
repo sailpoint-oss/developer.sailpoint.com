@@ -1,12 +1,12 @@
 ---
-id: cluster-manual-upgrade
+id: v2025-cluster-manual-upgrade
 title: ClusterManualUpgrade
 pagination_label: ClusterManualUpgrade
 sidebar_label: ClusterManualUpgrade
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ClusterManualUpgrade', 'ClusterManualUpgrade'] 
-slug: /tools/sdk/go//models/cluster-manual-upgrade
-tags: ['SDK', 'Software Development Kit', 'ClusterManualUpgrade', 'ClusterManualUpgrade']
+keywords: ['go', 'Golang', 'sdk', 'ClusterManualUpgrade', 'V2025ClusterManualUpgrade'] 
+slug: /tools/sdk/go/v2025/models/cluster-manual-upgrade
+tags: ['SDK', 'Software Development Kit', 'ClusterManualUpgrade', 'V2025ClusterManualUpgrade']
 ---
 
 # ClusterManualUpgrade

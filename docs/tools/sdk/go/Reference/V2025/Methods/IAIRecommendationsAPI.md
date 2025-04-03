@@ -1,12 +1,12 @@
 ---
-id: iai-recommendations
+id: v2025-iai-recommendations
 title: IAIRecommendations
 pagination_label: IAIRecommendations
 sidebar_label: IAIRecommendations
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IAIRecommendations', 'IAIRecommendations'] 
-slug: /tools/sdk/go//methods/iai-recommendations
-tags: ['SDK', 'Software Development Kit', 'IAIRecommendations', 'IAIRecommendations']
+keywords: ['go', 'Golang', 'sdk', 'IAIRecommendations', 'V2025IAIRecommendations'] 
+slug: /tools/sdk/go/v2025/methods/iai-recommendations
+tags: ['SDK', 'Software Development Kit', 'IAIRecommendations', 'V2025IAIRecommendations']
 ---
 
 # IAIRecommendationsAPI
@@ -35,7 +35,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Returns Recommendation Based on Object
 The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-recommendations)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-recommendations)
 
 ### Path Parameters
 
@@ -69,7 +69,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -97,7 +97,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRecommendationsAPI.GetRecommendations(context.Background()).XSailPointExperimental(xSailPointExperimental).RecommendationRequestDto(recommendationRequestDto).Execute()
+	resp, r, err := apiClient.V2025.IAIRecommendationsAPI.GetRecommendations(context.Background()).XSailPointExperimental(xSailPointExperimental).RecommendationRequestDto(recommendationRequestDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRecommendationsAPI.GetRecommendations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -124,7 +124,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get certification recommendation config values
 Retrieves configuration attributes used by certification recommendations.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-recommendations-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-recommendations-config)
 
 ### Path Parameters
 
@@ -157,7 +157,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -166,7 +166,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRecommendationsAPI.GetRecommendationsConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.IAIRecommendationsAPI.GetRecommendationsConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRecommendationsAPI.GetRecommendationsConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -193,7 +193,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Update certification recommendation config values
 Updates configuration attributes used by certification recommendations.
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-recommendations-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-recommendations-config)
 
 ### Path Parameters
 
@@ -227,7 +227,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -242,7 +242,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IAIRecommendationsAPI.UpdateRecommendationsConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).RecommendationConfigDto(recommendationConfigDto).Execute()
+	resp, r, err := apiClient.V2025.IAIRecommendationsAPI.UpdateRecommendationsConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).RecommendationConfigDto(recommendationConfigDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRecommendationsAPI.UpdateRecommendationsConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

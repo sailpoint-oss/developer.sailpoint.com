@@ -1,12 +1,12 @@
 ---
-id: common-access-item-access
+id: v2025-common-access-item-access
 title: CommonAccessItemAccess
 pagination_label: CommonAccessItemAccess
 sidebar_label: CommonAccessItemAccess
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CommonAccessItemAccess', 'CommonAccessItemAccess'] 
-slug: /tools/sdk/go//models/common-access-item-access
-tags: ['SDK', 'Software Development Kit', 'CommonAccessItemAccess', 'CommonAccessItemAccess']
+keywords: ['go', 'Golang', 'sdk', 'CommonAccessItemAccess', 'V2025CommonAccessItemAccess'] 
+slug: /tools/sdk/go/v2025/models/common-access-item-access
+tags: ['SDK', 'Software Development Kit', 'CommonAccessItemAccess', 'V2025CommonAccessItemAccess']
 ---
 
 # CommonAccessItemAccess

@@ -1,12 +1,12 @@
 ---
-id: slim-discovered-applications
+id: v2025-slim-discovered-applications
 title: SlimDiscoveredApplications
 pagination_label: SlimDiscoveredApplications
 sidebar_label: SlimDiscoveredApplications
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SlimDiscoveredApplications', 'SlimDiscoveredApplications'] 
-slug: /tools/sdk/go//models/slim-discovered-applications
-tags: ['SDK', 'Software Development Kit', 'SlimDiscoveredApplications', 'SlimDiscoveredApplications']
+keywords: ['go', 'Golang', 'sdk', 'SlimDiscoveredApplications', 'V2025SlimDiscoveredApplications'] 
+slug: /tools/sdk/go/v2025/models/slim-discovered-applications
+tags: ['SDK', 'Software Development Kit', 'SlimDiscoveredApplications', 'V2025SlimDiscoveredApplications']
 ---
 
 # SlimDiscoveredApplications

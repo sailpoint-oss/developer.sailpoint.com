@@ -1,12 +1,12 @@
 ---
-id: recommendation-response-dto
+id: v2025-recommendation-response-dto
 title: RecommendationResponseDto
 pagination_label: RecommendationResponseDto
 sidebar_label: RecommendationResponseDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RecommendationResponseDto', 'RecommendationResponseDto'] 
-slug: /tools/sdk/go//models/recommendation-response-dto
-tags: ['SDK', 'Software Development Kit', 'RecommendationResponseDto', 'RecommendationResponseDto']
+keywords: ['go', 'Golang', 'sdk', 'RecommendationResponseDto', 'V2025RecommendationResponseDto'] 
+slug: /tools/sdk/go/v2025/models/recommendation-response-dto
+tags: ['SDK', 'Software Development Kit', 'RecommendationResponseDto', 'V2025RecommendationResponseDto']
 ---
 
 # RecommendationResponseDto

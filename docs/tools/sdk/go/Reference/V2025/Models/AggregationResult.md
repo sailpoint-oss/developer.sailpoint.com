@@ -1,12 +1,12 @@
 ---
-id: aggregation-result
+id: v2025-aggregation-result
 title: AggregationResult
 pagination_label: AggregationResult
 sidebar_label: AggregationResult
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AggregationResult', 'AggregationResult'] 
-slug: /tools/sdk/go//models/aggregation-result
-tags: ['SDK', 'Software Development Kit', 'AggregationResult', 'AggregationResult']
+keywords: ['go', 'Golang', 'sdk', 'AggregationResult', 'V2025AggregationResult'] 
+slug: /tools/sdk/go/v2025/models/aggregation-result
+tags: ['SDK', 'Software Development Kit', 'AggregationResult', 'V2025AggregationResult']
 ---
 
 # AggregationResult

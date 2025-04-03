@@ -1,12 +1,12 @@
 ---
-id: lifecycle-state
+id: v2025-lifecycle-state
 title: LifecycleState
 pagination_label: LifecycleState
 sidebar_label: LifecycleState
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'LifecycleState', 'LifecycleState'] 
-slug: /tools/sdk/go//models/lifecycle-state
-tags: ['SDK', 'Software Development Kit', 'LifecycleState', 'LifecycleState']
+keywords: ['go', 'Golang', 'sdk', 'LifecycleState', 'V2025LifecycleState'] 
+slug: /tools/sdk/go/v2025/models/lifecycle-state
+tags: ['SDK', 'Software Development Kit', 'LifecycleState', 'V2025LifecycleState']
 ---
 
 # LifecycleState

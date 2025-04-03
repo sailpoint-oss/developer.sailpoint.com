@@ -1,12 +1,12 @@
 ---
-id: sed-patch
+id: v2025-sed-patch
 title: SedPatch
 pagination_label: SedPatch
 sidebar_label: SedPatch
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SedPatch', 'SedPatch'] 
-slug: /tools/sdk/go//models/sed-patch
-tags: ['SDK', 'Software Development Kit', 'SedPatch', 'SedPatch']
+keywords: ['go', 'Golang', 'sdk', 'SedPatch', 'V2025SedPatch'] 
+slug: /tools/sdk/go/v2025/models/sed-patch
+tags: ['SDK', 'Software Development Kit', 'SedPatch', 'V2025SedPatch']
 ---
 
 # SedPatch

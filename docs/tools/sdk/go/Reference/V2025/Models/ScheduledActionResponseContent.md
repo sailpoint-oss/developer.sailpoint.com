@@ -1,12 +1,12 @@
 ---
-id: scheduled-action-response-content
+id: v2025-scheduled-action-response-content
 title: ScheduledActionResponseContent
 pagination_label: ScheduledActionResponseContent
 sidebar_label: ScheduledActionResponseContent
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ScheduledActionResponseContent', 'ScheduledActionResponseContent'] 
-slug: /tools/sdk/go//models/scheduled-action-response-content
-tags: ['SDK', 'Software Development Kit', 'ScheduledActionResponseContent', 'ScheduledActionResponseContent']
+keywords: ['go', 'Golang', 'sdk', 'ScheduledActionResponseContent', 'V2025ScheduledActionResponseContent'] 
+slug: /tools/sdk/go/v2025/models/scheduled-action-response-content
+tags: ['SDK', 'Software Development Kit', 'ScheduledActionResponseContent', 'V2025ScheduledActionResponseContent']
 ---
 
 # ScheduledActionResponseContent

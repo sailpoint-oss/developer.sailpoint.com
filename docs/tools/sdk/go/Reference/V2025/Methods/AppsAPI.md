@@ -1,12 +1,12 @@
 ---
-id: apps
+id: v2025-apps
 title: Apps
 pagination_label: Apps
 sidebar_label: Apps
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Apps', 'Apps'] 
-slug: /tools/sdk/go//methods/apps
-tags: ['SDK', 'Software Development Kit', 'Apps', 'Apps']
+keywords: ['go', 'Golang', 'sdk', 'Apps', 'V2025Apps'] 
+slug: /tools/sdk/go/v2025/methods/apps
+tags: ['SDK', 'Software Development Kit', 'Apps', 'V2025Apps']
 ---
 
 # AppsAPI
@@ -48,7 +48,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Create source app
 This endpoint creates a source app using the given source app payload
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-source-app)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-source-app)
 
 ### Path Parameters
 
@@ -82,7 +82,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -101,7 +101,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AppsAPI.CreateSourceApp(context.Background()).XSailPointExperimental(xSailPointExperimental).SourceAppCreateDto(sourceAppCreateDto).Execute()
+	resp, r, err := apiClient.V2025.AppsAPI.CreateSourceApp(context.Background()).XSailPointExperimental(xSailPointExperimental).SourceAppCreateDto(sourceAppCreateDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AppsAPI.CreateSourceApp``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -128,7 +128,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Bulk remove access profiles from the specified source app
 This API returns the final list of access profiles for the specified source app after removing
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-access-profiles-from-source-app-by-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-access-profiles-from-source-app-by-bulk)
 
 ### Path Parameters
 
@@ -168,7 +168,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -180,7 +180,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AppsAPI.DeleteAccessProfilesFromSourceAppByBulk(context.Background(), id).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Limit(limit).Execute()
+	resp, r, err := apiClient.V2025.AppsAPI.DeleteAccessProfilesFromSourceAppByBulk(context.Background(), id).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Limit(limit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AppsAPI.DeleteAccessProfilesFromSourceAppByBulk``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -207,7 +207,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Delete source app by ID
 Use this API to delete a specific source app
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-source-app)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-source-app)
 
 ### Path Parameters
 
@@ -245,7 +245,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -255,7 +255,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AppsAPI.DeleteSourceApp(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.AppsAPI.DeleteSourceApp(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AppsAPI.DeleteSourceApp``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -282,7 +282,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get source app by ID
 This API returns a source app by its ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-source-app)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source-app)
 
 ### Path Parameters
 
@@ -320,7 +320,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -330,7 +330,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AppsAPI.GetSourceApp(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.AppsAPI.GetSourceApp(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AppsAPI.GetSourceApp``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -357,7 +357,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List access profiles for the specified source app
 This API returns the list of access profiles for the specified source app
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-access-profiles-for-source-app)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-access-profiles-for-source-app)
 
 ### Path Parameters
 
@@ -398,7 +398,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -411,7 +411,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AppsAPI.ListAccessProfilesForSourceApp(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.AppsAPI.ListAccessProfilesForSourceApp(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AppsAPI.ListAccessProfilesForSourceApp``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -438,7 +438,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List all source apps
 This API returns the list of all source apps for the org.    
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-all-source-app)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-all-source-app)
 
 ### Path Parameters
 
@@ -476,7 +476,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -490,7 +490,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AppsAPI.ListAllSourceApp(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Count(count).Offset(offset).Sorters(sorters).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.AppsAPI.ListAllSourceApp(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Count(count).Offset(offset).Sorters(sorters).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AppsAPI.ListAllSourceApp``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -518,7 +518,7 @@ List all user apps
 This API returns the list of all user apps with specified filters.
 This API must be used with **filters** query parameter.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-all-user-apps)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-all-user-apps)
 
 ### Path Parameters
 
@@ -555,7 +555,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -568,7 +568,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AppsAPI.ListAllUserApps(context.Background()).Filters(filters).XSailPointExperimental(xSailPointExperimental).Limit(limit).Count(count).Offset(offset).Execute()
+	resp, r, err := apiClient.V2025.AppsAPI.ListAllUserApps(context.Background()).Filters(filters).XSailPointExperimental(xSailPointExperimental).Limit(limit).Count(count).Offset(offset).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AppsAPI.ListAllUserApps``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -595,7 +595,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List assigned source apps
 This API returns the list of source apps assigned for logged in user.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-assigned-source-app)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-assigned-source-app)
 
 ### Path Parameters
 
@@ -633,7 +633,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -647,7 +647,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AppsAPI.ListAssignedSourceApp(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Count(count).Offset(offset).Sorters(sorters).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.AppsAPI.ListAssignedSourceApp(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Count(count).Offset(offset).Sorters(sorters).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AppsAPI.ListAssignedSourceApp``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -674,7 +674,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List available accounts for user app
 This API returns the list of available accounts for the specified user app. The user app needs to belong lo logged in user.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-available-accounts-for-user-app)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-available-accounts-for-user-app)
 
 ### Path Parameters
 
@@ -714,7 +714,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -726,7 +726,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AppsAPI.ListAvailableAccountsForUserApp(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Limit(limit).Count(count).Execute()
+	resp, r, err := apiClient.V2025.AppsAPI.ListAvailableAccountsForUserApp(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Limit(limit).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AppsAPI.ListAvailableAccountsForUserApp``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -753,7 +753,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List available source apps
 This API returns the list of source apps available for access request.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-available-source-apps)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-available-source-apps)
 
 ### Path Parameters
 
@@ -791,7 +791,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -805,7 +805,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AppsAPI.ListAvailableSourceApps(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Count(count).Offset(offset).Sorters(sorters).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.AppsAPI.ListAvailableSourceApps(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Count(count).Offset(offset).Sorters(sorters).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AppsAPI.ListAvailableSourceApps``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -832,7 +832,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List owned user apps
 This API returns the list of user apps assigned to logged in user
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-owned-user-apps)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-owned-user-apps)
 
 ### Path Parameters
 
@@ -869,7 +869,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -882,7 +882,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AppsAPI.ListOwnedUserApps(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Count(count).Offset(offset).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.AppsAPI.ListOwnedUserApps(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Count(count).Offset(offset).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AppsAPI.ListOwnedUserApps``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -911,7 +911,7 @@ This API updates an existing source app using [JSON Patch](https://tools.ietf.or
 The following fields are patchable: **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**,  **matchAllAccounts** and **accessProfiles**.
 Name, description and owner can't be empty or null.
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-source-app)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-source-app)
 
 ### Path Parameters
 
@@ -950,7 +950,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -961,7 +961,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AppsAPI.PatchSourceApp(context.Background(), id).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
+	resp, r, err := apiClient.V2025.AppsAPI.PatchSourceApp(context.Background(), id).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AppsAPI.PatchSourceApp``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -989,7 +989,7 @@ Patch user app by ID
 This API updates an existing user app using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 The following fields are patchable: **account**
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-user-app)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-user-app)
 
 ### Path Parameters
 
@@ -1028,7 +1028,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1039,7 +1039,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AppsAPI.PatchUserApp(context.Background(), id).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
+	resp, r, err := apiClient.V2025.AppsAPI.PatchUserApp(context.Background(), id).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AppsAPI.PatchUserApp``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1068,7 +1068,7 @@ This API updates source apps using [JSON Patch](https://tools.ietf.org/html/rfc6
 The following fields can be updated: **name**, **description**, **enabled**, **owner**, **provisionRequestEnabled**, **appCenterEnabled**, **accountSource**,  **matchAllAccounts**, and **accessProfiles**.
 Name, description and owner can't be empty or null.
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-source-apps-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-source-apps-in-bulk)
 
 ### Path Parameters
 
@@ -1102,7 +1102,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1123,7 +1123,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..AppsAPI.UpdateSourceAppsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).SourceAppBulkUpdateRequest(sourceAppBulkUpdateRequest).Execute()
+	r, err := apiClient.V2025.AppsAPI.UpdateSourceAppsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).SourceAppBulkUpdateRequest(sourceAppBulkUpdateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AppsAPI.UpdateSourceAppsInBulk``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

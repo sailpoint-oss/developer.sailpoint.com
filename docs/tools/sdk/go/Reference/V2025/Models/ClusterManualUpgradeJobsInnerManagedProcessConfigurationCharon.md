@@ -1,12 +1,12 @@
 ---
-id: cluster-manual-upgrade-jobs-inner-managed-process-configuration-charon
+id: v2025-cluster-manual-upgrade-jobs-inner-managed-process-configuration-charon
 title: ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon
 pagination_label: ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon
 sidebar_label: ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon'] 
-slug: /tools/sdk/go//models/cluster-manual-upgrade-jobs-inner-managed-process-configuration-charon
-tags: ['SDK', 'Software Development Kit', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon']
+keywords: ['go', 'Golang', 'sdk', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon', 'V2025ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon'] 
+slug: /tools/sdk/go/v2025/models/cluster-manual-upgrade-jobs-inner-managed-process-configuration-charon
+tags: ['SDK', 'Software Development Kit', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon', 'V2025ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon']
 ---
 
 # ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon

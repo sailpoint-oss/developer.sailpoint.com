@@ -1,12 +1,12 @@
 ---
-id: data-segment
+id: v2025-data-segment
 title: DataSegment
 pagination_label: DataSegment
 sidebar_label: DataSegment
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DataSegment', 'DataSegment'] 
-slug: /tools/sdk/go//models/data-segment
-tags: ['SDK', 'Software Development Kit', 'DataSegment', 'DataSegment']
+keywords: ['go', 'Golang', 'sdk', 'DataSegment', 'V2025DataSegment'] 
+slug: /tools/sdk/go/v2025/models/data-segment
+tags: ['SDK', 'Software Development Kit', 'DataSegment', 'V2025DataSegment']
 ---
 
 # DataSegment

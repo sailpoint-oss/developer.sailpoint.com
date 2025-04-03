@@ -1,12 +1,12 @@
 ---
-id: account-correlated-identity
+id: v2025-account-correlated-identity
 title: AccountCorrelatedIdentity
 pagination_label: AccountCorrelatedIdentity
 sidebar_label: AccountCorrelatedIdentity
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountCorrelatedIdentity', 'AccountCorrelatedIdentity'] 
-slug: /tools/sdk/go//models/account-correlated-identity
-tags: ['SDK', 'Software Development Kit', 'AccountCorrelatedIdentity', 'AccountCorrelatedIdentity']
+keywords: ['go', 'Golang', 'sdk', 'AccountCorrelatedIdentity', 'V2025AccountCorrelatedIdentity'] 
+slug: /tools/sdk/go/v2025/models/account-correlated-identity
+tags: ['SDK', 'Software Development Kit', 'AccountCorrelatedIdentity', 'V2025AccountCorrelatedIdentity']
 ---
 
 # AccountCorrelatedIdentity

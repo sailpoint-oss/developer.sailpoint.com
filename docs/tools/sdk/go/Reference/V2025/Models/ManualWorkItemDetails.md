@@ -1,12 +1,12 @@
 ---
-id: manual-work-item-details
+id: v2025-manual-work-item-details
 title: ManualWorkItemDetails
 pagination_label: ManualWorkItemDetails
 sidebar_label: ManualWorkItemDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ManualWorkItemDetails', 'ManualWorkItemDetails'] 
-slug: /tools/sdk/go//models/manual-work-item-details
-tags: ['SDK', 'Software Development Kit', 'ManualWorkItemDetails', 'ManualWorkItemDetails']
+keywords: ['go', 'Golang', 'sdk', 'ManualWorkItemDetails', 'V2025ManualWorkItemDetails'] 
+slug: /tools/sdk/go/v2025/models/manual-work-item-details
+tags: ['SDK', 'Software Development Kit', 'ManualWorkItemDetails', 'V2025ManualWorkItemDetails']
 ---
 
 # ManualWorkItemDetails

@@ -1,12 +1,12 @@
 ---
-id: configuration-item-request
+id: v2025-configuration-item-request
 title: ConfigurationItemRequest
 pagination_label: ConfigurationItemRequest
 sidebar_label: ConfigurationItemRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConfigurationItemRequest', 'ConfigurationItemRequest'] 
-slug: /tools/sdk/go//models/configuration-item-request
-tags: ['SDK', 'Software Development Kit', 'ConfigurationItemRequest', 'ConfigurationItemRequest']
+keywords: ['go', 'Golang', 'sdk', 'ConfigurationItemRequest', 'V2025ConfigurationItemRequest'] 
+slug: /tools/sdk/go/v2025/models/configuration-item-request
+tags: ['SDK', 'Software Development Kit', 'ConfigurationItemRequest', 'V2025ConfigurationItemRequest']
 ---
 
 # ConfigurationItemRequest

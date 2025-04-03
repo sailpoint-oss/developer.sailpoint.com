@@ -1,12 +1,12 @@
 ---
-id: non-employee-schema-attribute-body
+id: v2025-non-employee-schema-attribute-body
 title: NonEmployeeSchemaAttributeBody
 pagination_label: NonEmployeeSchemaAttributeBody
 sidebar_label: NonEmployeeSchemaAttributeBody
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NonEmployeeSchemaAttributeBody', 'NonEmployeeSchemaAttributeBody'] 
-slug: /tools/sdk/go//models/non-employee-schema-attribute-body
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeSchemaAttributeBody', 'NonEmployeeSchemaAttributeBody']
+keywords: ['go', 'Golang', 'sdk', 'NonEmployeeSchemaAttributeBody', 'V2025NonEmployeeSchemaAttributeBody'] 
+slug: /tools/sdk/go/v2025/models/non-employee-schema-attribute-body
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeSchemaAttributeBody', 'V2025NonEmployeeSchemaAttributeBody']
 ---
 
 # NonEmployeeSchemaAttributeBody

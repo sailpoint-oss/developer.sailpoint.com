@@ -1,12 +1,12 @@
 ---
-id: data-access-impact-score
+id: v2025-data-access-impact-score
 title: DataAccessImpactScore
 pagination_label: DataAccessImpactScore
 sidebar_label: DataAccessImpactScore
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DataAccessImpactScore', 'DataAccessImpactScore'] 
-slug: /tools/sdk/go//models/data-access-impact-score
-tags: ['SDK', 'Software Development Kit', 'DataAccessImpactScore', 'DataAccessImpactScore']
+keywords: ['go', 'Golang', 'sdk', 'DataAccessImpactScore', 'V2025DataAccessImpactScore'] 
+slug: /tools/sdk/go/v2025/models/data-access-impact-score
+tags: ['SDK', 'Software Development Kit', 'DataAccessImpactScore', 'V2025DataAccessImpactScore']
 ---
 
 # DataAccessImpactScore

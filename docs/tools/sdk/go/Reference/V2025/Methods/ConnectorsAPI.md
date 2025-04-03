@@ -1,12 +1,12 @@
 ---
-id: connectors
+id: v2025-connectors
 title: Connectors
 pagination_label: Connectors
 sidebar_label: Connectors
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Connectors', 'Connectors'] 
-slug: /tools/sdk/go//methods/connectors
-tags: ['SDK', 'Software Development Kit', 'Connectors', 'Connectors']
+keywords: ['go', 'Golang', 'sdk', 'Connectors', 'V2025Connectors'] 
+slug: /tools/sdk/go/v2025/methods/connectors
+tags: ['SDK', 'Software Development Kit', 'Connectors', 'V2025Connectors']
 ---
 
 # ConnectorsAPI
@@ -48,7 +48,7 @@ Method | HTTP request | Description
 Create Custom Connector
 Create custom connector.    
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-custom-connector)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-custom-connector)
 
 ### Path Parameters
 
@@ -81,7 +81,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -96,7 +96,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ConnectorsAPI.CreateCustomConnector(context.Background()).V3CreateConnectorDto(v3CreateConnectorDto).Execute()
+	resp, r, err := apiClient.V2025.ConnectorsAPI.CreateCustomConnector(context.Background()).V3CreateConnectorDto(v3CreateConnectorDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.CreateCustomConnector``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -112,7 +112,7 @@ func main() {
 Delete Connector by Script Name
 Delete a custom connector that using its script name.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-custom-connector)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-custom-connector)
 
 ### Path Parameters
 
@@ -149,7 +149,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -158,7 +158,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..ConnectorsAPI.DeleteCustomConnector(context.Background(), scriptName).Execute()
+	r, err := apiClient.V2025.ConnectorsAPI.DeleteCustomConnector(context.Background(), scriptName).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.DeleteCustomConnector``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -172,7 +172,7 @@ func main() {
 Get Connector by Script Name
 Fetches a connector that using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-connector)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-connector)
 
 ### Path Parameters
 
@@ -210,7 +210,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -220,7 +220,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ConnectorsAPI.GetConnector(context.Background(), scriptName).Locale(locale).Execute()
+	resp, r, err := apiClient.V2025.ConnectorsAPI.GetConnector(context.Background(), scriptName).Locale(locale).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.GetConnector``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -236,7 +236,7 @@ func main() {
 Get Connector Correlation Configuration
 Fetches a connector's correlation config using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-connector-correlation-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-connector-correlation-config)
 
 ### Path Parameters
 
@@ -273,7 +273,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -282,7 +282,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ConnectorsAPI.GetConnectorCorrelationConfig(context.Background(), scriptName).Execute()
+	resp, r, err := apiClient.V2025.ConnectorsAPI.GetConnectorCorrelationConfig(context.Background(), scriptName).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.GetConnectorCorrelationConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -298,7 +298,7 @@ func main() {
 Get Connector List
 Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-connector-list)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-connector-list)
 
 ### Path Parameters
 
@@ -335,7 +335,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -348,7 +348,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ConnectorsAPI.GetConnectorList(context.Background()).Filters(filters).Limit(limit).Offset(offset).Count(count).Locale(locale).Execute()
+	resp, r, err := apiClient.V2025.ConnectorsAPI.GetConnectorList(context.Background()).Filters(filters).Limit(limit).Offset(offset).Count(count).Locale(locale).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.GetConnectorList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -364,7 +364,7 @@ func main() {
 Get Connector Source Configuration
 Fetches a connector's source config using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-connector-source-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-connector-source-config)
 
 ### Path Parameters
 
@@ -401,7 +401,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -410,7 +410,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ConnectorsAPI.GetConnectorSourceConfig(context.Background(), scriptName).Execute()
+	resp, r, err := apiClient.V2025.ConnectorsAPI.GetConnectorSourceConfig(context.Background(), scriptName).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.GetConnectorSourceConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -426,7 +426,7 @@ func main() {
 Get Connector Source Template
 Fetches a connector's source template using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-connector-source-template)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-connector-source-template)
 
 ### Path Parameters
 
@@ -463,7 +463,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -472,7 +472,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ConnectorsAPI.GetConnectorSourceTemplate(context.Background(), scriptName).Execute()
+	resp, r, err := apiClient.V2025.ConnectorsAPI.GetConnectorSourceTemplate(context.Background(), scriptName).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.GetConnectorSourceTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -488,7 +488,7 @@ func main() {
 Get Connector Translations
 Fetches a connector's translations using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-connector-translations)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-connector-translations)
 
 ### Path Parameters
 
@@ -527,7 +527,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -537,7 +537,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ConnectorsAPI.GetConnectorTranslations(context.Background(), scriptName, locale).Execute()
+	resp, r, err := apiClient.V2025.ConnectorsAPI.GetConnectorTranslations(context.Background(), scriptName, locale).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.GetConnectorTranslations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -553,7 +553,7 @@ func main() {
 Update Connector Correlation Configuration
 Update a connector's correlation config using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api//put-connector-correlation-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-connector-correlation-config)
 
 ### Path Parameters
 
@@ -591,7 +591,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -601,7 +601,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ConnectorsAPI.PutConnectorCorrelationConfig(context.Background(), scriptName).File(file).Execute()
+	resp, r, err := apiClient.V2025.ConnectorsAPI.PutConnectorCorrelationConfig(context.Background(), scriptName).File(file).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.PutConnectorCorrelationConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -617,7 +617,7 @@ func main() {
 Update Connector Source Configuration
 Update a connector's source config using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api//put-connector-source-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-connector-source-config)
 
 ### Path Parameters
 
@@ -655,7 +655,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -665,7 +665,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ConnectorsAPI.PutConnectorSourceConfig(context.Background(), scriptName).File(file).Execute()
+	resp, r, err := apiClient.V2025.ConnectorsAPI.PutConnectorSourceConfig(context.Background(), scriptName).File(file).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.PutConnectorSourceConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -681,7 +681,7 @@ func main() {
 Update Connector Source Template
 Update a connector's source template using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api//put-connector-source-template)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-connector-source-template)
 
 ### Path Parameters
 
@@ -719,7 +719,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -729,7 +729,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ConnectorsAPI.PutConnectorSourceTemplate(context.Background(), scriptName).File(file).Execute()
+	resp, r, err := apiClient.V2025.ConnectorsAPI.PutConnectorSourceTemplate(context.Background(), scriptName).File(file).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.PutConnectorSourceTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -745,7 +745,7 @@ func main() {
 Update Connector Translations
 Update a connector's translations using its script name.    
 
-[API Spec](https://developer.sailpoint.com/docs/api//put-connector-translations)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-connector-translations)
 
 ### Path Parameters
 
@@ -784,7 +784,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -794,7 +794,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ConnectorsAPI.PutConnectorTranslations(context.Background(), scriptName, locale).Execute()
+	resp, r, err := apiClient.V2025.ConnectorsAPI.PutConnectorTranslations(context.Background(), scriptName, locale).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.PutConnectorTranslations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -822,7 +822,7 @@ The following fields are patchable:
 * sourceConfigXml
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-connector)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-connector)
 
 ### Path Parameters
 
@@ -860,7 +860,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -870,7 +870,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ConnectorsAPI.UpdateConnector(context.Background(), scriptName).JsonPatchOperation(jsonPatchOperation).Execute()
+	resp, r, err := apiClient.V2025.ConnectorsAPI.UpdateConnector(context.Background(), scriptName).JsonPatchOperation(jsonPatchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConnectorsAPI.UpdateConnector``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

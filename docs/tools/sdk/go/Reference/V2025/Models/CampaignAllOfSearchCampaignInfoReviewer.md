@@ -1,12 +1,12 @@
 ---
-id: campaign-all-of-search-campaign-info-reviewer
+id: v2025-campaign-all-of-search-campaign-info-reviewer
 title: CampaignAllOfSearchCampaignInfoReviewer
 pagination_label: CampaignAllOfSearchCampaignInfoReviewer
 sidebar_label: CampaignAllOfSearchCampaignInfoReviewer
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignAllOfSearchCampaignInfoReviewer', 'CampaignAllOfSearchCampaignInfoReviewer'] 
-slug: /tools/sdk/go//models/campaign-all-of-search-campaign-info-reviewer
-tags: ['SDK', 'Software Development Kit', 'CampaignAllOfSearchCampaignInfoReviewer', 'CampaignAllOfSearchCampaignInfoReviewer']
+keywords: ['go', 'Golang', 'sdk', 'CampaignAllOfSearchCampaignInfoReviewer', 'V2025CampaignAllOfSearchCampaignInfoReviewer'] 
+slug: /tools/sdk/go/v2025/models/campaign-all-of-search-campaign-info-reviewer
+tags: ['SDK', 'Software Development Kit', 'CampaignAllOfSearchCampaignInfoReviewer', 'V2025CampaignAllOfSearchCampaignInfoReviewer']
 ---
 
 # CampaignAllOfSearchCampaignInfoReviewer

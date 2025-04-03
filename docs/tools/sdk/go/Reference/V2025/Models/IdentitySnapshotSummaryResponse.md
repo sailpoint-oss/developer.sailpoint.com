@@ -1,12 +1,12 @@
 ---
-id: identity-snapshot-summary-response
+id: v2025-identity-snapshot-summary-response
 title: IdentitySnapshotSummaryResponse
 pagination_label: IdentitySnapshotSummaryResponse
 sidebar_label: IdentitySnapshotSummaryResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentitySnapshotSummaryResponse', 'IdentitySnapshotSummaryResponse'] 
-slug: /tools/sdk/go//models/identity-snapshot-summary-response
-tags: ['SDK', 'Software Development Kit', 'IdentitySnapshotSummaryResponse', 'IdentitySnapshotSummaryResponse']
+keywords: ['go', 'Golang', 'sdk', 'IdentitySnapshotSummaryResponse', 'V2025IdentitySnapshotSummaryResponse'] 
+slug: /tools/sdk/go/v2025/models/identity-snapshot-summary-response
+tags: ['SDK', 'Software Development Kit', 'IdentitySnapshotSummaryResponse', 'V2025IdentitySnapshotSummaryResponse']
 ---
 
 # IdentitySnapshotSummaryResponse

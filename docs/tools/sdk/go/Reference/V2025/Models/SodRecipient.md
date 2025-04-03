@@ -1,12 +1,12 @@
 ---
-id: sod-recipient
+id: v2025-sod-recipient
 title: SodRecipient
 pagination_label: SodRecipient
 sidebar_label: SodRecipient
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SodRecipient', 'SodRecipient'] 
-slug: /tools/sdk/go//models/sod-recipient
-tags: ['SDK', 'Software Development Kit', 'SodRecipient', 'SodRecipient']
+keywords: ['go', 'Golang', 'sdk', 'SodRecipient', 'V2025SodRecipient'] 
+slug: /tools/sdk/go/v2025/models/sod-recipient
+tags: ['SDK', 'Software Development Kit', 'SodRecipient', 'V2025SodRecipient']
 ---
 
 # SodRecipient

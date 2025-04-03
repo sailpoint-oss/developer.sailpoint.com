@@ -1,12 +1,12 @@
 ---
-id: form-definition-input
+id: v2025-form-definition-input
 title: FormDefinitionInput
 pagination_label: FormDefinitionInput
 sidebar_label: FormDefinitionInput
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FormDefinitionInput', 'FormDefinitionInput'] 
-slug: /tools/sdk/go//models/form-definition-input
-tags: ['SDK', 'Software Development Kit', 'FormDefinitionInput', 'FormDefinitionInput']
+keywords: ['go', 'Golang', 'sdk', 'FormDefinitionInput', 'V2025FormDefinitionInput'] 
+slug: /tools/sdk/go/v2025/models/form-definition-input
+tags: ['SDK', 'Software Development Kit', 'FormDefinitionInput', 'V2025FormDefinitionInput']
 ---
 
 # FormDefinitionInput

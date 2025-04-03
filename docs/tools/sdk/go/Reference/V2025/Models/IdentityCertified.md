@@ -1,12 +1,12 @@
 ---
-id: identity-certified
+id: v2025-identity-certified
 title: IdentityCertified
 pagination_label: IdentityCertified
 sidebar_label: IdentityCertified
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityCertified', 'IdentityCertified'] 
-slug: /tools/sdk/go//models/identity-certified
-tags: ['SDK', 'Software Development Kit', 'IdentityCertified', 'IdentityCertified']
+keywords: ['go', 'Golang', 'sdk', 'IdentityCertified', 'V2025IdentityCertified'] 
+slug: /tools/sdk/go/v2025/models/identity-certified
+tags: ['SDK', 'Software Development Kit', 'IdentityCertified', 'V2025IdentityCertified']
 ---
 
 # IdentityCertified

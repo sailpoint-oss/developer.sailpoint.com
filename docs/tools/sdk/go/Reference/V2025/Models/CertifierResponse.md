@@ -1,12 +1,12 @@
 ---
-id: certifier-response
+id: v2025-certifier-response
 title: CertifierResponse
 pagination_label: CertifierResponse
 sidebar_label: CertifierResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CertifierResponse', 'CertifierResponse'] 
-slug: /tools/sdk/go//models/certifier-response
-tags: ['SDK', 'Software Development Kit', 'CertifierResponse', 'CertifierResponse']
+keywords: ['go', 'Golang', 'sdk', 'CertifierResponse', 'V2025CertifierResponse'] 
+slug: /tools/sdk/go/v2025/models/certifier-response
+tags: ['SDK', 'Software Development Kit', 'CertifierResponse', 'V2025CertifierResponse']
 ---
 
 # CertifierResponse

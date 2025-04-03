@@ -1,12 +1,12 @@
 ---
-id: app
+id: v2025-app
 title: App
 pagination_label: App
 sidebar_label: App
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'App', 'App'] 
-slug: /tools/sdk/go//models/app
-tags: ['SDK', 'Software Development Kit', 'App', 'App']
+keywords: ['go', 'Golang', 'sdk', 'App', 'V2025App'] 
+slug: /tools/sdk/go/v2025/models/app
+tags: ['SDK', 'Software Development Kit', 'App', 'V2025App']
 ---
 
 # App

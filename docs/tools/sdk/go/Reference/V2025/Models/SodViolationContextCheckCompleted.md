@@ -1,12 +1,12 @@
 ---
-id: sod-violation-context-check-completed
+id: v2025-sod-violation-context-check-completed
 title: SodViolationContextCheckCompleted
 pagination_label: SodViolationContextCheckCompleted
 sidebar_label: SodViolationContextCheckCompleted
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SodViolationContextCheckCompleted', 'SodViolationContextCheckCompleted'] 
-slug: /tools/sdk/go//models/sod-violation-context-check-completed
-tags: ['SDK', 'Software Development Kit', 'SodViolationContextCheckCompleted', 'SodViolationContextCheckCompleted']
+keywords: ['go', 'Golang', 'sdk', 'SodViolationContextCheckCompleted', 'V2025SodViolationContextCheckCompleted'] 
+slug: /tools/sdk/go/v2025/models/sod-violation-context-check-completed
+tags: ['SDK', 'Software Development Kit', 'SodViolationContextCheckCompleted', 'V2025SodViolationContextCheckCompleted']
 ---
 
 # SodViolationContextCheckCompleted

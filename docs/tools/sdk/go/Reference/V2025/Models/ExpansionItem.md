@@ -1,12 +1,12 @@
 ---
-id: expansion-item
+id: v2025-expansion-item
 title: ExpansionItem
 pagination_label: ExpansionItem
 sidebar_label: ExpansionItem
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ExpansionItem', 'ExpansionItem'] 
-slug: /tools/sdk/go//models/expansion-item
-tags: ['SDK', 'Software Development Kit', 'ExpansionItem', 'ExpansionItem']
+keywords: ['go', 'Golang', 'sdk', 'ExpansionItem', 'V2025ExpansionItem'] 
+slug: /tools/sdk/go/v2025/models/expansion-item
+tags: ['SDK', 'Software Development Kit', 'ExpansionItem', 'V2025ExpansionItem']
 ---
 
 # ExpansionItem

@@ -1,12 +1,12 @@
 ---
-id: search-schedule-recipients-inner
+id: v2025-search-schedule-recipients-inner
 title: SearchScheduleRecipientsInner
 pagination_label: SearchScheduleRecipientsInner
 sidebar_label: SearchScheduleRecipientsInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SearchScheduleRecipientsInner', 'SearchScheduleRecipientsInner'] 
-slug: /tools/sdk/go//models/search-schedule-recipients-inner
-tags: ['SDK', 'Software Development Kit', 'SearchScheduleRecipientsInner', 'SearchScheduleRecipientsInner']
+keywords: ['go', 'Golang', 'sdk', 'SearchScheduleRecipientsInner', 'V2025SearchScheduleRecipientsInner'] 
+slug: /tools/sdk/go/v2025/models/search-schedule-recipients-inner
+tags: ['SDK', 'Software Development Kit', 'SearchScheduleRecipientsInner', 'V2025SearchScheduleRecipientsInner']
 ---
 
 # SearchScheduleRecipientsInner

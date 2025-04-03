@@ -1,12 +1,12 @@
 ---
-id: put-password-dictionary-request
+id: v2025-put-password-dictionary-request
 title: PutPasswordDictionaryRequest
 pagination_label: PutPasswordDictionaryRequest
 sidebar_label: PutPasswordDictionaryRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PutPasswordDictionaryRequest', 'PutPasswordDictionaryRequest'] 
-slug: /tools/sdk/go//models/put-password-dictionary-request
-tags: ['SDK', 'Software Development Kit', 'PutPasswordDictionaryRequest', 'PutPasswordDictionaryRequest']
+keywords: ['go', 'Golang', 'sdk', 'PutPasswordDictionaryRequest', 'V2025PutPasswordDictionaryRequest'] 
+slug: /tools/sdk/go/v2025/models/put-password-dictionary-request
+tags: ['SDK', 'Software Development Kit', 'PutPasswordDictionaryRequest', 'V2025PutPasswordDictionaryRequest']
 ---
 
 # PutPasswordDictionaryRequest

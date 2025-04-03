@@ -1,12 +1,12 @@
 ---
-id: reviewable-entitlement-account-owner
+id: v2025-reviewable-entitlement-account-owner
 title: ReviewableEntitlementAccountOwner
 pagination_label: ReviewableEntitlementAccountOwner
 sidebar_label: ReviewableEntitlementAccountOwner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ReviewableEntitlementAccountOwner', 'ReviewableEntitlementAccountOwner'] 
-slug: /tools/sdk/go//models/reviewable-entitlement-account-owner
-tags: ['SDK', 'Software Development Kit', 'ReviewableEntitlementAccountOwner', 'ReviewableEntitlementAccountOwner']
+keywords: ['go', 'Golang', 'sdk', 'ReviewableEntitlementAccountOwner', 'V2025ReviewableEntitlementAccountOwner'] 
+slug: /tools/sdk/go/v2025/models/reviewable-entitlement-account-owner
+tags: ['SDK', 'Software Development Kit', 'ReviewableEntitlementAccountOwner', 'V2025ReviewableEntitlementAccountOwner']
 ---
 
 # ReviewableEntitlementAccountOwner

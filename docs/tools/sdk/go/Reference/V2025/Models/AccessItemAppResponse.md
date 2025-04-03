@@ -1,12 +1,12 @@
 ---
-id: access-item-app-response
+id: v2025-access-item-app-response
 title: AccessItemAppResponse
 pagination_label: AccessItemAppResponse
 sidebar_label: AccessItemAppResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessItemAppResponse', 'AccessItemAppResponse'] 
-slug: /tools/sdk/go//models/access-item-app-response
-tags: ['SDK', 'Software Development Kit', 'AccessItemAppResponse', 'AccessItemAppResponse']
+keywords: ['go', 'Golang', 'sdk', 'AccessItemAppResponse', 'V2025AccessItemAppResponse'] 
+slug: /tools/sdk/go/v2025/models/access-item-app-response
+tags: ['SDK', 'Software Development Kit', 'AccessItemAppResponse', 'V2025AccessItemAppResponse']
 ---
 
 # AccessItemAppResponse

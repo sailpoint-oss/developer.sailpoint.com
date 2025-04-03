@@ -1,12 +1,12 @@
 ---
-id: role-identity
+id: v2025-role-identity
 title: RoleIdentity
 pagination_label: RoleIdentity
 sidebar_label: RoleIdentity
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleIdentity', 'RoleIdentity'] 
-slug: /tools/sdk/go//models/role-identity
-tags: ['SDK', 'Software Development Kit', 'RoleIdentity', 'RoleIdentity']
+keywords: ['go', 'Golang', 'sdk', 'RoleIdentity', 'V2025RoleIdentity'] 
+slug: /tools/sdk/go/v2025/models/role-identity
+tags: ['SDK', 'Software Development Kit', 'RoleIdentity', 'V2025RoleIdentity']
 ---
 
 # RoleIdentity

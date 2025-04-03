@@ -1,12 +1,12 @@
 ---
-id: task-return-details
+id: v2025-task-return-details
 title: TaskReturnDetails
 pagination_label: TaskReturnDetails
 sidebar_label: TaskReturnDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TaskReturnDetails', 'TaskReturnDetails'] 
-slug: /tools/sdk/go//models/task-return-details
-tags: ['SDK', 'Software Development Kit', 'TaskReturnDetails', 'TaskReturnDetails']
+keywords: ['go', 'Golang', 'sdk', 'TaskReturnDetails', 'V2025TaskReturnDetails'] 
+slug: /tools/sdk/go/v2025/models/task-return-details
+tags: ['SDK', 'Software Development Kit', 'TaskReturnDetails', 'V2025TaskReturnDetails']
 ---
 
 # TaskReturnDetails

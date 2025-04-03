@@ -1,12 +1,12 @@
 ---
-id: service-desk-integration-dto
+id: v2025-service-desk-integration-dto
 title: ServiceDeskIntegrationDto
 pagination_label: ServiceDeskIntegrationDto
 sidebar_label: ServiceDeskIntegrationDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ServiceDeskIntegrationDto', 'ServiceDeskIntegrationDto'] 
-slug: /tools/sdk/go//models/service-desk-integration-dto
-tags: ['SDK', 'Software Development Kit', 'ServiceDeskIntegrationDto', 'ServiceDeskIntegrationDto']
+keywords: ['go', 'Golang', 'sdk', 'ServiceDeskIntegrationDto', 'V2025ServiceDeskIntegrationDto'] 
+slug: /tools/sdk/go/v2025/models/service-desk-integration-dto
+tags: ['SDK', 'Software Development Kit', 'ServiceDeskIntegrationDto', 'V2025ServiceDeskIntegrationDto']
 ---
 
 # ServiceDeskIntegrationDto

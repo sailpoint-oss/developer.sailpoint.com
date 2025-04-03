@@ -1,12 +1,12 @@
 ---
-id: non-employee-source-with-cloud-external-id
+id: v2025-non-employee-source-with-cloud-external-id
 title: NonEmployeeSourceWithCloudExternalId
 pagination_label: NonEmployeeSourceWithCloudExternalId
 sidebar_label: NonEmployeeSourceWithCloudExternalId
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NonEmployeeSourceWithCloudExternalId', 'NonEmployeeSourceWithCloudExternalId'] 
-slug: /tools/sdk/go//models/non-employee-source-with-cloud-external-id
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceWithCloudExternalId', 'NonEmployeeSourceWithCloudExternalId']
+keywords: ['go', 'Golang', 'sdk', 'NonEmployeeSourceWithCloudExternalId', 'V2025NonEmployeeSourceWithCloudExternalId'] 
+slug: /tools/sdk/go/v2025/models/non-employee-source-with-cloud-external-id
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceWithCloudExternalId', 'V2025NonEmployeeSourceWithCloudExternalId']
 ---
 
 # NonEmployeeSourceWithCloudExternalId

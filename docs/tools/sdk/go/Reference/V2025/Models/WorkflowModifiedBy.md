@@ -1,12 +1,12 @@
 ---
-id: workflow-modified-by
+id: v2025-workflow-modified-by
 title: WorkflowModifiedBy
 pagination_label: WorkflowModifiedBy
 sidebar_label: WorkflowModifiedBy
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkflowModifiedBy', 'WorkflowModifiedBy'] 
-slug: /tools/sdk/go//models/workflow-modified-by
-tags: ['SDK', 'Software Development Kit', 'WorkflowModifiedBy', 'WorkflowModifiedBy']
+keywords: ['go', 'Golang', 'sdk', 'WorkflowModifiedBy', 'V2025WorkflowModifiedBy'] 
+slug: /tools/sdk/go/v2025/models/workflow-modified-by
+tags: ['SDK', 'Software Development Kit', 'WorkflowModifiedBy', 'V2025WorkflowModifiedBy']
 ---
 
 # WorkflowModifiedBy

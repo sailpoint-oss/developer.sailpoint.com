@@ -1,12 +1,12 @@
 ---
-id: va-cluster-status-change-event
+id: v2025-va-cluster-status-change-event
 title: VAClusterStatusChangeEvent
 pagination_label: VAClusterStatusChangeEvent
 sidebar_label: VAClusterStatusChangeEvent
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'VAClusterStatusChangeEvent', 'VAClusterStatusChangeEvent'] 
-slug: /tools/sdk/go//models/va-cluster-status-change-event
-tags: ['SDK', 'Software Development Kit', 'VAClusterStatusChangeEvent', 'VAClusterStatusChangeEvent']
+keywords: ['go', 'Golang', 'sdk', 'VAClusterStatusChangeEvent', 'V2025VAClusterStatusChangeEvent'] 
+slug: /tools/sdk/go/v2025/models/va-cluster-status-change-event
+tags: ['SDK', 'Software Development Kit', 'VAClusterStatusChangeEvent', 'V2025VAClusterStatusChangeEvent']
 ---
 
 # VAClusterStatusChangeEvent

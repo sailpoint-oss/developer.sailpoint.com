@@ -1,12 +1,12 @@
 ---
-id: access-model-metadata-values-inner
+id: v2025-access-model-metadata-values-inner
 title: AccessModelMetadataValuesInner
 pagination_label: AccessModelMetadataValuesInner
 sidebar_label: AccessModelMetadataValuesInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessModelMetadataValuesInner', 'AccessModelMetadataValuesInner'] 
-slug: /tools/sdk/go//models/access-model-metadata-values-inner
-tags: ['SDK', 'Software Development Kit', 'AccessModelMetadataValuesInner', 'AccessModelMetadataValuesInner']
+keywords: ['go', 'Golang', 'sdk', 'AccessModelMetadataValuesInner', 'V2025AccessModelMetadataValuesInner'] 
+slug: /tools/sdk/go/v2025/models/access-model-metadata-values-inner
+tags: ['SDK', 'Software Development Kit', 'AccessModelMetadataValuesInner', 'V2025AccessModelMetadataValuesInner']
 ---
 
 # AccessModelMetadataValuesInner

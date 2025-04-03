@@ -1,12 +1,12 @@
 ---
-id: base-common-dto
+id: v2025-base-common-dto
 title: BaseCommonDto
 pagination_label: BaseCommonDto
 sidebar_label: BaseCommonDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BaseCommonDto', 'BaseCommonDto'] 
-slug: /tools/sdk/go//models/base-common-dto
-tags: ['SDK', 'Software Development Kit', 'BaseCommonDto', 'BaseCommonDto']
+keywords: ['go', 'Golang', 'sdk', 'BaseCommonDto', 'V2025BaseCommonDto'] 
+slug: /tools/sdk/go/v2025/models/base-common-dto
+tags: ['SDK', 'Software Development Kit', 'BaseCommonDto', 'V2025BaseCommonDto']
 ---
 
 # BaseCommonDto

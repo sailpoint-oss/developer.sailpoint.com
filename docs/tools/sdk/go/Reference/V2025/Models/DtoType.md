@@ -1,12 +1,12 @@
 ---
-id: dto-type
+id: v2025-dto-type
 title: DtoType
 pagination_label: DtoType
 sidebar_label: DtoType
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DtoType', 'DtoType'] 
-slug: /tools/sdk/go//models/dto-type
-tags: ['SDK', 'Software Development Kit', 'DtoType', 'DtoType']
+keywords: ['go', 'Golang', 'sdk', 'DtoType', 'V2025DtoType'] 
+slug: /tools/sdk/go/v2025/models/dto-type
+tags: ['SDK', 'Software Development Kit', 'DtoType', 'V2025DtoType']
 ---
 
 # DtoType

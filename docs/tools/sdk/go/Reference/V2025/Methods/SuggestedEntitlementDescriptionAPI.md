@@ -1,12 +1,12 @@
 ---
-id: suggested-entitlement-description
+id: v2025-suggested-entitlement-description
 title: SuggestedEntitlementDescription
 pagination_label: SuggestedEntitlementDescription
 sidebar_label: SuggestedEntitlementDescription
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SuggestedEntitlementDescription', 'SuggestedEntitlementDescription'] 
-slug: /tools/sdk/go//methods/suggested-entitlement-description
-tags: ['SDK', 'Software Development Kit', 'SuggestedEntitlementDescription', 'SuggestedEntitlementDescription']
+keywords: ['go', 'Golang', 'sdk', 'SuggestedEntitlementDescription', 'V2025SuggestedEntitlementDescription'] 
+slug: /tools/sdk/go/v2025/methods/suggested-entitlement-description
+tags: ['SDK', 'Software Development Kit', 'SuggestedEntitlementDescription', 'V2025SuggestedEntitlementDescription']
 ---
 
 # SuggestedEntitlementDescriptionAPI
@@ -35,7 +35,7 @@ Submit Sed Batch Stats Request
  of the batchId.'
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-sed-batch-stats)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-sed-batch-stats)
 
 ### Path Parameters
 
@@ -72,7 +72,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -81,7 +81,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SuggestedEntitlementDescriptionAPI.GetSedBatchStats(context.Background(), batchId).Execute()
+	resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.GetSedBatchStats(context.Background(), batchId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.GetSedBatchStats``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -98,7 +98,7 @@ List Sed Batch Request
 List Sed Batches.
 API responses with Sed Batch Status
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-sed-batches)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-sed-batches)
 
 ### Path Parameters
 
@@ -127,7 +127,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -135,7 +135,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SuggestedEntitlementDescriptionAPI.GetSedBatches(context.Background()).Execute()
+	resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.GetSedBatches(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.GetSedBatches``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -165,7 +165,7 @@ SED field descriptions:
 
 **fullText**: will filter suggested entitlement description records by text found in any of the following fields: entitlement name, entitlement display name, suggested description, source name
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-seds)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-seds)
 
 ### Path Parameters
 
@@ -205,7 +205,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -221,7 +221,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SuggestedEntitlementDescriptionAPI.ListSeds(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).CountOnly(countOnly).RequestedByAnyone(requestedByAnyone).ShowPendingStatusOnly(showPendingStatusOnly).Execute()
+	resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.ListSeds(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).CountOnly(countOnly).RequestedByAnyone(requestedByAnyone).ShowPendingStatusOnly(showPendingStatusOnly).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.ListSeds``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -237,7 +237,7 @@ func main() {
 Patch Suggested Entitlement Description
 Patch Suggested Entitlement Description
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-sed)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-sed)
 
 ### Path Parameters
 
@@ -275,7 +275,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -285,7 +285,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SuggestedEntitlementDescriptionAPI.PatchSed(context.Background(), id).SedPatch(sedPatch).Execute()
+	resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.PatchSed(context.Background(), id).SedPatch(sedPatch).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.PatchSed``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -302,7 +302,7 @@ Submit Bulk Approval Request
 Submit Bulk Approval Request for SED.
 Request body takes list of SED Ids. API responses with list of SED Approval Status
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-sed-approval)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/submit-sed-approval)
 
 ### Path Parameters
 
@@ -335,7 +335,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -344,7 +344,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SuggestedEntitlementDescriptionAPI.SubmitSedApproval(context.Background()).SedApproval(sedApproval).Execute()
+	resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.SubmitSedApproval(context.Background()).SedApproval(sedApproval).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.SubmitSedApproval``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -361,7 +361,7 @@ Submit Sed Assignment Request
 Submit Assignment Request.
 Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-sed-assignment)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/submit-sed-assignment)
 
 ### Path Parameters
 
@@ -394,7 +394,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -409,7 +409,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SuggestedEntitlementDescriptionAPI.SubmitSedAssignment(context.Background()).SedAssignment(sedAssignment).Execute()
+	resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.SubmitSedAssignment(context.Background()).SedAssignment(sedAssignment).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.SubmitSedAssignment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -426,7 +426,7 @@ Submit Sed Batch Request
 Submit Sed Batch Request.
 Request body has one of the following: - a list of entitlement Ids - a list of SED Ids that user wants to have description generated by LLM. API responses with batchId that groups Ids together
 
-[API Spec](https://developer.sailpoint.com/docs/api//submit-sed-batch-request)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/submit-sed-batch-request)
 
 ### Path Parameters
 
@@ -459,7 +459,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -471,7 +471,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SuggestedEntitlementDescriptionAPI.SubmitSedBatchRequest(context.Background()).SedBatchRequest(sedBatchRequest).Execute()
+	resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.SubmitSedBatchRequest(context.Background()).SedBatchRequest(sedBatchRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.SubmitSedBatchRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

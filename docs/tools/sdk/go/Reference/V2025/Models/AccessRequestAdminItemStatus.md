@@ -1,12 +1,12 @@
 ---
-id: access-request-admin-item-status
+id: v2025-access-request-admin-item-status
 title: AccessRequestAdminItemStatus
 pagination_label: AccessRequestAdminItemStatus
 sidebar_label: AccessRequestAdminItemStatus
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestAdminItemStatus', 'AccessRequestAdminItemStatus'] 
-slug: /tools/sdk/go//models/access-request-admin-item-status
-tags: ['SDK', 'Software Development Kit', 'AccessRequestAdminItemStatus', 'AccessRequestAdminItemStatus']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestAdminItemStatus', 'V2025AccessRequestAdminItemStatus'] 
+slug: /tools/sdk/go/v2025/models/access-request-admin-item-status
+tags: ['SDK', 'Software Development Kit', 'AccessRequestAdminItemStatus', 'V2025AccessRequestAdminItemStatus']
 ---
 
 # AccessRequestAdminItemStatus

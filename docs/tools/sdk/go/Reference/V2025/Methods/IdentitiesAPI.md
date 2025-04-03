@@ -1,12 +1,12 @@
 ---
-id: identities
+id: v2025-identities
 title: Identities
 pagination_label: Identities
 sidebar_label: Identities
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Identities', 'Identities'] 
-slug: /tools/sdk/go//methods/identities
-tags: ['SDK', 'Software Development Kit', 'Identities', 'Identities']
+keywords: ['go', 'Golang', 'sdk', 'Identities', 'V2025Identities'] 
+slug: /tools/sdk/go/v2025/methods/identities
+tags: ['SDK', 'Software Development Kit', 'Identities', 'V2025Identities']
 ---
 
 # IdentitiesAPI
@@ -58,7 +58,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Delete identity
 The API returns successful response if the requested identity was deleted.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-identity)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-identity)
 
 ### Path Parameters
 
@@ -96,7 +96,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -106,7 +106,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..IdentitiesAPI.DeleteIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	r, err := apiClient.V2025.IdentitiesAPI.DeleteIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.DeleteIdentity``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -131,7 +131,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Identity Details
 This API returns a single identity using the Identity ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-identity)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identity)
 
 ### Path Parameters
 
@@ -169,7 +169,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -179,7 +179,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IdentitiesAPI.GetIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.IdentitiesAPI.GetIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.GetIdentity``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -208,7 +208,7 @@ Use this API to return an identity's owned objects that will cause problems for 
 Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity. 
 For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/v3/search-post/).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity's owned objects.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-identity-ownership-details)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identity-ownership-details)
 
 ### Path Parameters
 
@@ -246,7 +246,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -256,7 +256,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IdentitiesAPI.GetIdentityOwnershipDetails(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.IdentitiesAPI.GetIdentityOwnershipDetails(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.GetIdentityOwnershipDetails``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -283,7 +283,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Role assignment details
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-role-assignment)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-role-assignment)
 
 ### Path Parameters
 
@@ -323,7 +323,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -334,7 +334,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IdentitiesAPI.GetRoleAssignment(context.Background(), identityId, assignmentId).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.IdentitiesAPI.GetRoleAssignment(context.Background(), identityId, assignmentId).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.GetRoleAssignment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -361,7 +361,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List role assignments
 This returns either a list of Role Assignments when querying with either a Role Id or Role Name, or a list of Role Assignment References if querying with only identity Id.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-role-assignments)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-role-assignments)
 
 ### Path Parameters
 
@@ -401,7 +401,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -413,7 +413,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IdentitiesAPI.GetRoleAssignments(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).RoleId(roleId).RoleName(roleName).Execute()
+	resp, r, err := apiClient.V2025.IdentitiesAPI.GetRoleAssignments(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).RoleId(roleId).RoleName(roleName).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.GetRoleAssignments``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -440,7 +440,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List Identities
 This API returns a list of identities.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-identities)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-identities)
 
 ### Path Parameters
 
@@ -479,7 +479,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -494,7 +494,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IdentitiesAPI.ListIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).Filters(filters).Sorters(sorters).DefaultFilter(defaultFilter).Count(count).Limit(limit).Offset(offset).Execute()
+	resp, r, err := apiClient.V2025.IdentitiesAPI.ListIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).Filters(filters).Sorters(sorters).DefaultFilter(defaultFilter).Count(count).Limit(limit).Offset(offset).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.ListIdentities``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -521,7 +521,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Reset an identity
 Use this endpoint to reset a user's identity if they have forgotten their authentication information like their answers to knowledge-based questions. Resetting an identity de-registers the user and removes any elevated user levels they have.
 
-[API Spec](https://developer.sailpoint.com/docs/api//reset-identity)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/reset-identity)
 
 ### Path Parameters
 
@@ -559,7 +559,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -569,7 +569,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..IdentitiesAPI.ResetIdentity(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
+	r, err := apiClient.V2025.IdentitiesAPI.ResetIdentity(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.ResetIdentity``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -595,7 +595,7 @@ Send password reset email
 This API sends an email with the link to start Password Reset. After selecting the link an identity will be able to set up a new password. Emails expire after 2 hours.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//send-identity-verification-account-token)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/send-identity-verification-account-token)
 
 ### Path Parameters
 
@@ -634,7 +634,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -648,7 +648,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..IdentitiesAPI.SendIdentityVerificationAccountToken(context.Background(), id).XSailPointExperimental(xSailPointExperimental).SendAccountVerificationRequest(sendAccountVerificationRequest).Execute()
+	r, err := apiClient.V2025.IdentitiesAPI.SendIdentityVerificationAccountToken(context.Background(), id).XSailPointExperimental(xSailPointExperimental).SendAccountVerificationRequest(sendAccountVerificationRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.SendIdentityVerificationAccountToken``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -678,7 +678,7 @@ This task will send an invitation email only for unregistered identities.
 The executed task status can be checked by Task Management > [Get task status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status).
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//start-identities-invite)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/start-identities-invite)
 
 ### Path Parameters
 
@@ -712,7 +712,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -725,7 +725,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IdentitiesAPI.StartIdentitiesInvite(context.Background()).XSailPointExperimental(xSailPointExperimental).InviteIdentitiesRequest(inviteIdentitiesRequest).Execute()
+	resp, r, err := apiClient.V2025.IdentitiesAPI.StartIdentitiesInvite(context.Background()).XSailPointExperimental(xSailPointExperimental).InviteIdentitiesRequest(inviteIdentitiesRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.StartIdentitiesInvite``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -759,7 +759,7 @@ This endpoint will perform the following tasks:
 4. Recalculate manager relationships.
 5. Potentially clean-up identity processing errors, assuming the error has been resolved.
 
-[API Spec](https://developer.sailpoint.com/docs/api//start-identity-processing)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/start-identity-processing)
 
 ### Path Parameters
 
@@ -793,7 +793,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -805,7 +805,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IdentitiesAPI.StartIdentityProcessing(context.Background()).XSailPointExperimental(xSailPointExperimental).ProcessIdentitiesRequest(processIdentitiesRequest).Execute()
+	resp, r, err := apiClient.V2025.IdentitiesAPI.StartIdentityProcessing(context.Background()).XSailPointExperimental(xSailPointExperimental).ProcessIdentitiesRequest(processIdentitiesRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.StartIdentityProcessing``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -832,7 +832,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Attribute synchronization for single identity.
 This end-point performs attribute synchronization for a selected identity. The endpoint can be called once in 10 seconds per identity.
 
-[API Spec](https://developer.sailpoint.com/docs/api//synchronize-attributes-for-identity)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/synchronize-attributes-for-identity)
 
 ### Path Parameters
 
@@ -870,7 +870,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -880,7 +880,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IdentitiesAPI.SynchronizeAttributesForIdentity(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.IdentitiesAPI.SynchronizeAttributesForIdentity(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.SynchronizeAttributesForIdentity``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

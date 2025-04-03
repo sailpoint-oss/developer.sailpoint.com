@@ -1,12 +1,12 @@
 ---
-id: search-arguments
+id: v2025-search-arguments
 title: SearchArguments
 pagination_label: SearchArguments
 sidebar_label: SearchArguments
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SearchArguments', 'SearchArguments'] 
-slug: /tools/sdk/go//models/search-arguments
-tags: ['SDK', 'Software Development Kit', 'SearchArguments', 'SearchArguments']
+keywords: ['go', 'Golang', 'sdk', 'SearchArguments', 'V2025SearchArguments'] 
+slug: /tools/sdk/go/v2025/models/search-arguments
+tags: ['SDK', 'Software Development Kit', 'SearchArguments', 'V2025SearchArguments']
 ---
 
 # SearchArguments

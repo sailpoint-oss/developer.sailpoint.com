@@ -1,12 +1,12 @@
 ---
-id: managed-cluster-types
+id: v2025-managed-cluster-types
 title: ManagedClusterTypes
 pagination_label: ManagedClusterTypes
 sidebar_label: ManagedClusterTypes
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ManagedClusterTypes', 'ManagedClusterTypes'] 
-slug: /tools/sdk/go//methods/managed-cluster-types
-tags: ['SDK', 'Software Development Kit', 'ManagedClusterTypes', 'ManagedClusterTypes']
+keywords: ['go', 'Golang', 'sdk', 'ManagedClusterTypes', 'V2025ManagedClusterTypes'] 
+slug: /tools/sdk/go/v2025/methods/managed-cluster-types
+tags: ['SDK', 'Software Development Kit', 'ManagedClusterTypes', 'V2025ManagedClusterTypes']
 ---
 
 # ManagedClusterTypesAPI
@@ -30,7 +30,7 @@ Create a new Managed Cluster Type.
 
 The API returns a result that includes the Managed Cluster Type ID
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-managed-cluster-type)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-managed-cluster-type)
 
 ### Path Parameters
 
@@ -63,7 +63,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -78,7 +78,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ManagedClusterTypesAPI.CreateManagedClusterType(context.Background()).ManagedClusterType(managedClusterType).Execute()
+	resp, r, err := apiClient.V2025.ManagedClusterTypesAPI.CreateManagedClusterType(context.Background()).ManagedClusterType(managedClusterType).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClusterTypesAPI.CreateManagedClusterType``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -94,7 +94,7 @@ func main() {
 Delete a Managed Cluster Type
 Delete an existing Managed Cluster Type.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-managed-cluster-type)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-managed-cluster-type)
 
 ### Path Parameters
 
@@ -131,7 +131,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -140,7 +140,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..ManagedClusterTypesAPI.DeleteManagedClusterType(context.Background(), id).Execute()
+	r, err := apiClient.V2025.ManagedClusterTypesAPI.DeleteManagedClusterType(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClusterTypesAPI.DeleteManagedClusterType``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -154,7 +154,7 @@ func main() {
 Get a Managed Cluster Type
 Get a Managed Cluster Type.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-managed-cluster-type)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-managed-cluster-type)
 
 ### Path Parameters
 
@@ -191,7 +191,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -200,7 +200,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ManagedClusterTypesAPI.GetManagedClusterType(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.ManagedClusterTypesAPI.GetManagedClusterType(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClusterTypesAPI.GetManagedClusterType``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -216,7 +216,7 @@ func main() {
 List Managed Cluster Types
 Get a list of Managed Cluster Types.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-managed-cluster-types)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-managed-cluster-types)
 
 ### Path Parameters
 
@@ -253,7 +253,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -266,7 +266,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ManagedClusterTypesAPI.GetManagedClusterTypes(context.Background()).Type_(type_).Pod(pod).Org(org).Offset(offset).Limit(limit).Execute()
+	resp, r, err := apiClient.V2025.ManagedClusterTypesAPI.GetManagedClusterTypes(context.Background()).Type_(type_).Pod(pod).Org(org).Offset(offset).Limit(limit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClusterTypesAPI.GetManagedClusterTypes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -282,7 +282,7 @@ func main() {
 Update a Managed Cluster Type
 Update an existing Managed Cluster Type.
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-managed-cluster-type)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-managed-cluster-type)
 
 ### Path Parameters
 
@@ -320,7 +320,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -340,7 +340,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ManagedClusterTypesAPI.UpdateManagedClusterType(context.Background(), id).JsonPatch(jsonPatch).Execute()
+	resp, r, err := apiClient.V2025.ManagedClusterTypesAPI.UpdateManagedClusterType(context.Background(), id).JsonPatch(jsonPatch).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClusterTypesAPI.UpdateManagedClusterType``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

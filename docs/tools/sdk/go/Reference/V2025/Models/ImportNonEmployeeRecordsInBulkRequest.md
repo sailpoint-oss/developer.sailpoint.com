@@ -1,12 +1,12 @@
 ---
-id: import-non-employee-records-in-bulk-request
+id: v2025-import-non-employee-records-in-bulk-request
 title: ImportNonEmployeeRecordsInBulkRequest
 pagination_label: ImportNonEmployeeRecordsInBulkRequest
 sidebar_label: ImportNonEmployeeRecordsInBulkRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ImportNonEmployeeRecordsInBulkRequest', 'ImportNonEmployeeRecordsInBulkRequest'] 
-slug: /tools/sdk/go//models/import-non-employee-records-in-bulk-request
-tags: ['SDK', 'Software Development Kit', 'ImportNonEmployeeRecordsInBulkRequest', 'ImportNonEmployeeRecordsInBulkRequest']
+keywords: ['go', 'Golang', 'sdk', 'ImportNonEmployeeRecordsInBulkRequest', 'V2025ImportNonEmployeeRecordsInBulkRequest'] 
+slug: /tools/sdk/go/v2025/models/import-non-employee-records-in-bulk-request
+tags: ['SDK', 'Software Development Kit', 'ImportNonEmployeeRecordsInBulkRequest', 'V2025ImportNonEmployeeRecordsInBulkRequest']
 ---
 
 # ImportNonEmployeeRecordsInBulkRequest

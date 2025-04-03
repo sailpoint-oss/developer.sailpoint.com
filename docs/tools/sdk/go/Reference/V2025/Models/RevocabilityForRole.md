@@ -1,12 +1,12 @@
 ---
-id: revocability-for-role
+id: v2025-revocability-for-role
 title: RevocabilityForRole
 pagination_label: RevocabilityForRole
 sidebar_label: RevocabilityForRole
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RevocabilityForRole', 'RevocabilityForRole'] 
-slug: /tools/sdk/go//models/revocability-for-role
-tags: ['SDK', 'Software Development Kit', 'RevocabilityForRole', 'RevocabilityForRole']
+keywords: ['go', 'Golang', 'sdk', 'RevocabilityForRole', 'V2025RevocabilityForRole'] 
+slug: /tools/sdk/go/v2025/models/revocability-for-role
+tags: ['SDK', 'Software Development Kit', 'RevocabilityForRole', 'V2025RevocabilityForRole']
 ---
 
 # RevocabilityForRole

@@ -1,12 +1,12 @@
 ---
-id: source-app-patch-dto
+id: v2025-source-app-patch-dto
 title: SourceAppPatchDto
 pagination_label: SourceAppPatchDto
 sidebar_label: SourceAppPatchDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceAppPatchDto', 'SourceAppPatchDto'] 
-slug: /tools/sdk/go//models/source-app-patch-dto
-tags: ['SDK', 'Software Development Kit', 'SourceAppPatchDto', 'SourceAppPatchDto']
+keywords: ['go', 'Golang', 'sdk', 'SourceAppPatchDto', 'V2025SourceAppPatchDto'] 
+slug: /tools/sdk/go/v2025/models/source-app-patch-dto
+tags: ['SDK', 'Software Development Kit', 'SourceAppPatchDto', 'V2025SourceAppPatchDto']
 ---
 
 # SourceAppPatchDto

@@ -1,12 +1,12 @@
 ---
-id: role-mining-session-draft-role-dto
+id: v2025-role-mining-session-draft-role-dto
 title: RoleMiningSessionDraftRoleDto
 pagination_label: RoleMiningSessionDraftRoleDto
 sidebar_label: RoleMiningSessionDraftRoleDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMiningSessionDraftRoleDto', 'RoleMiningSessionDraftRoleDto'] 
-slug: /tools/sdk/go//models/role-mining-session-draft-role-dto
-tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionDraftRoleDto', 'RoleMiningSessionDraftRoleDto']
+keywords: ['go', 'Golang', 'sdk', 'RoleMiningSessionDraftRoleDto', 'V2025RoleMiningSessionDraftRoleDto'] 
+slug: /tools/sdk/go/v2025/models/role-mining-session-draft-role-dto
+tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionDraftRoleDto', 'V2025RoleMiningSessionDraftRoleDto']
 ---
 
 # RoleMiningSessionDraftRoleDto

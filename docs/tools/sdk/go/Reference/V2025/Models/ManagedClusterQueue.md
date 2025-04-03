@@ -1,12 +1,12 @@
 ---
-id: managed-cluster-queue
+id: v2025-managed-cluster-queue
 title: ManagedClusterQueue
 pagination_label: ManagedClusterQueue
 sidebar_label: ManagedClusterQueue
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ManagedClusterQueue', 'ManagedClusterQueue'] 
-slug: /tools/sdk/go//models/managed-cluster-queue
-tags: ['SDK', 'Software Development Kit', 'ManagedClusterQueue', 'ManagedClusterQueue']
+keywords: ['go', 'Golang', 'sdk', 'ManagedClusterQueue', 'V2025ManagedClusterQueue'] 
+slug: /tools/sdk/go/v2025/models/managed-cluster-queue
+tags: ['SDK', 'Software Development Kit', 'ManagedClusterQueue', 'V2025ManagedClusterQueue']
 ---
 
 # ManagedClusterQueue

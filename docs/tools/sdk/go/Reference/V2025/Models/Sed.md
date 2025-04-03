@@ -1,12 +1,12 @@
 ---
-id: sed
+id: v2025-sed
 title: Sed
 pagination_label: Sed
 sidebar_label: Sed
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Sed', 'Sed'] 
-slug: /tools/sdk/go//models/sed
-tags: ['SDK', 'Software Development Kit', 'Sed', 'Sed']
+keywords: ['go', 'Golang', 'sdk', 'Sed', 'V2025Sed'] 
+slug: /tools/sdk/go/v2025/models/sed
+tags: ['SDK', 'Software Development Kit', 'Sed', 'V2025Sed']
 ---
 
 # Sed

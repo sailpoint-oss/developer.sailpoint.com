@@ -1,12 +1,12 @@
 ---
-id: event-target
+id: v2025-event-target
 title: EventTarget
 pagination_label: EventTarget
 sidebar_label: EventTarget
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EventTarget', 'EventTarget'] 
-slug: /tools/sdk/go//models/event-target
-tags: ['SDK', 'Software Development Kit', 'EventTarget', 'EventTarget']
+keywords: ['go', 'Golang', 'sdk', 'EventTarget', 'V2025EventTarget'] 
+slug: /tools/sdk/go/v2025/models/event-target
+tags: ['SDK', 'Software Development Kit', 'EventTarget', 'V2025EventTarget']
 ---
 
 # EventTarget

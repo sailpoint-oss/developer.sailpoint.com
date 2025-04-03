@@ -1,12 +1,12 @@
 ---
-id: public-identities
+id: v2025-public-identities
 title: PublicIdentities
 pagination_label: PublicIdentities
 sidebar_label: PublicIdentities
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PublicIdentities', 'PublicIdentities'] 
-slug: /tools/sdk/go//methods/public-identities
-tags: ['SDK', 'Software Development Kit', 'PublicIdentities', 'PublicIdentities']
+keywords: ['go', 'Golang', 'sdk', 'PublicIdentities', 'V2025PublicIdentities'] 
+slug: /tools/sdk/go/v2025/methods/public-identities
+tags: ['SDK', 'Software Development Kit', 'PublicIdentities', 'V2025PublicIdentities']
 ---
 
 # PublicIdentitiesAPI
@@ -25,7 +25,7 @@ Method | HTTP request | Description
 Get list of public identities
 Get a list of public identities.  Set `add-core-filters` to `true` to exclude incomplete identities and uncorrelated accounts.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-public-identities)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-public-identities)
 
 ### Path Parameters
 
@@ -63,7 +63,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -77,7 +77,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..PublicIdentitiesAPI.GetPublicIdentities(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).AddCoreFilters(addCoreFilters).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.PublicIdentitiesAPI.GetPublicIdentities(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).AddCoreFilters(addCoreFilters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicIdentitiesAPI.GetPublicIdentities``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

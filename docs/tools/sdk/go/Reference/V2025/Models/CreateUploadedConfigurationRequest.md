@@ -1,12 +1,12 @@
 ---
-id: create-uploaded-configuration-request
+id: v2025-create-uploaded-configuration-request
 title: CreateUploadedConfigurationRequest
 pagination_label: CreateUploadedConfigurationRequest
 sidebar_label: CreateUploadedConfigurationRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CreateUploadedConfigurationRequest', 'CreateUploadedConfigurationRequest'] 
-slug: /tools/sdk/go//models/create-uploaded-configuration-request
-tags: ['SDK', 'Software Development Kit', 'CreateUploadedConfigurationRequest', 'CreateUploadedConfigurationRequest']
+keywords: ['go', 'Golang', 'sdk', 'CreateUploadedConfigurationRequest', 'V2025CreateUploadedConfigurationRequest'] 
+slug: /tools/sdk/go/v2025/models/create-uploaded-configuration-request
+tags: ['SDK', 'Software Development Kit', 'CreateUploadedConfigurationRequest', 'V2025CreateUploadedConfigurationRequest']
 ---
 
 # CreateUploadedConfigurationRequest

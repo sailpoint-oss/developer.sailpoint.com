@@ -1,12 +1,12 @@
 ---
-id: error-message-dto
+id: v2025-error-message-dto
 title: ErrorMessageDto
 pagination_label: ErrorMessageDto
 sidebar_label: ErrorMessageDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ErrorMessageDto', 'ErrorMessageDto'] 
-slug: /tools/sdk/go//models/error-message-dto
-tags: ['SDK', 'Software Development Kit', 'ErrorMessageDto', 'ErrorMessageDto']
+keywords: ['go', 'Golang', 'sdk', 'ErrorMessageDto', 'V2025ErrorMessageDto'] 
+slug: /tools/sdk/go/v2025/models/error-message-dto
+tags: ['SDK', 'Software Development Kit', 'ErrorMessageDto', 'V2025ErrorMessageDto']
 ---
 
 # ErrorMessageDto

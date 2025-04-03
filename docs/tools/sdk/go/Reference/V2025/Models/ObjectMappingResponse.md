@@ -1,12 +1,12 @@
 ---
-id: object-mapping-response
+id: v2025-object-mapping-response
 title: ObjectMappingResponse
 pagination_label: ObjectMappingResponse
 sidebar_label: ObjectMappingResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ObjectMappingResponse', 'ObjectMappingResponse'] 
-slug: /tools/sdk/go//models/object-mapping-response
-tags: ['SDK', 'Software Development Kit', 'ObjectMappingResponse', 'ObjectMappingResponse']
+keywords: ['go', 'Golang', 'sdk', 'ObjectMappingResponse', 'V2025ObjectMappingResponse'] 
+slug: /tools/sdk/go/v2025/models/object-mapping-response
+tags: ['SDK', 'Software Development Kit', 'ObjectMappingResponse', 'V2025ObjectMappingResponse']
 ---
 
 # ObjectMappingResponse

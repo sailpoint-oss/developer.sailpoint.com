@@ -1,12 +1,12 @@
 ---
-id: outlier-feature-summary-outlier-feature-display-values-inner
+id: v2025-outlier-feature-summary-outlier-feature-display-values-inner
 title: OutlierFeatureSummaryOutlierFeatureDisplayValuesInner
 pagination_label: OutlierFeatureSummaryOutlierFeatureDisplayValuesInner
 sidebar_label: OutlierFeatureSummaryOutlierFeatureDisplayValuesInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'OutlierFeatureSummaryOutlierFeatureDisplayValuesInner', 'OutlierFeatureSummaryOutlierFeatureDisplayValuesInner'] 
-slug: /tools/sdk/go//models/outlier-feature-summary-outlier-feature-display-values-inner
-tags: ['SDK', 'Software Development Kit', 'OutlierFeatureSummaryOutlierFeatureDisplayValuesInner', 'OutlierFeatureSummaryOutlierFeatureDisplayValuesInner']
+keywords: ['go', 'Golang', 'sdk', 'OutlierFeatureSummaryOutlierFeatureDisplayValuesInner', 'V2025OutlierFeatureSummaryOutlierFeatureDisplayValuesInner'] 
+slug: /tools/sdk/go/v2025/models/outlier-feature-summary-outlier-feature-display-values-inner
+tags: ['SDK', 'Software Development Kit', 'OutlierFeatureSummaryOutlierFeatureDisplayValuesInner', 'V2025OutlierFeatureSummaryOutlierFeatureDisplayValuesInner']
 ---
 
 # OutlierFeatureSummaryOutlierFeatureDisplayValuesInner

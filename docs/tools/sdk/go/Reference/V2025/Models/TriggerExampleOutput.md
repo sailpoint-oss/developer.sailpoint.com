@@ -1,12 +1,12 @@
 ---
-id: trigger-example-output
+id: v2025-trigger-example-output
 title: TriggerExampleOutput
 pagination_label: TriggerExampleOutput
 sidebar_label: TriggerExampleOutput
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TriggerExampleOutput', 'TriggerExampleOutput'] 
-slug: /tools/sdk/go//models/trigger-example-output
-tags: ['SDK', 'Software Development Kit', 'TriggerExampleOutput', 'TriggerExampleOutput']
+keywords: ['go', 'Golang', 'sdk', 'TriggerExampleOutput', 'V2025TriggerExampleOutput'] 
+slug: /tools/sdk/go/v2025/models/trigger-example-output
+tags: ['SDK', 'Software Development Kit', 'TriggerExampleOutput', 'V2025TriggerExampleOutput']
 ---
 
 # TriggerExampleOutput

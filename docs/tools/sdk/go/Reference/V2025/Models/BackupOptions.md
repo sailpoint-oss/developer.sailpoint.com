@@ -1,12 +1,12 @@
 ---
-id: backup-options
+id: v2025-backup-options
 title: BackupOptions
 pagination_label: BackupOptions
 sidebar_label: BackupOptions
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BackupOptions', 'BackupOptions'] 
-slug: /tools/sdk/go//models/backup-options
-tags: ['SDK', 'Software Development Kit', 'BackupOptions', 'BackupOptions']
+keywords: ['go', 'Golang', 'sdk', 'BackupOptions', 'V2025BackupOptions'] 
+slug: /tools/sdk/go/v2025/models/backup-options
+tags: ['SDK', 'Software Development Kit', 'BackupOptions', 'V2025BackupOptions']
 ---
 
 # BackupOptions

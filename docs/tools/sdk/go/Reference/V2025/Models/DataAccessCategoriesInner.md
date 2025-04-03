@@ -1,12 +1,12 @@
 ---
-id: data-access-categories-inner
+id: v2025-data-access-categories-inner
 title: DataAccessCategoriesInner
 pagination_label: DataAccessCategoriesInner
 sidebar_label: DataAccessCategoriesInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DataAccessCategoriesInner', 'DataAccessCategoriesInner'] 
-slug: /tools/sdk/go//models/data-access-categories-inner
-tags: ['SDK', 'Software Development Kit', 'DataAccessCategoriesInner', 'DataAccessCategoriesInner']
+keywords: ['go', 'Golang', 'sdk', 'DataAccessCategoriesInner', 'V2025DataAccessCategoriesInner'] 
+slug: /tools/sdk/go/v2025/models/data-access-categories-inner
+tags: ['SDK', 'Software Development Kit', 'DataAccessCategoriesInner', 'V2025DataAccessCategoriesInner']
 ---
 
 # DataAccessCategoriesInner

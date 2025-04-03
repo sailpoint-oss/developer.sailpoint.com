@@ -1,12 +1,12 @@
 ---
-id: campaign-all-of-role-composition-campaign-info
+id: v2025-campaign-all-of-role-composition-campaign-info
 title: CampaignAllOfRoleCompositionCampaignInfo
 pagination_label: CampaignAllOfRoleCompositionCampaignInfo
 sidebar_label: CampaignAllOfRoleCompositionCampaignInfo
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignAllOfRoleCompositionCampaignInfo', 'CampaignAllOfRoleCompositionCampaignInfo'] 
-slug: /tools/sdk/go//models/campaign-all-of-role-composition-campaign-info
-tags: ['SDK', 'Software Development Kit', 'CampaignAllOfRoleCompositionCampaignInfo', 'CampaignAllOfRoleCompositionCampaignInfo']
+keywords: ['go', 'Golang', 'sdk', 'CampaignAllOfRoleCompositionCampaignInfo', 'V2025CampaignAllOfRoleCompositionCampaignInfo'] 
+slug: /tools/sdk/go/v2025/models/campaign-all-of-role-composition-campaign-info
+tags: ['SDK', 'Software Development Kit', 'CampaignAllOfRoleCompositionCampaignInfo', 'V2025CampaignAllOfRoleCompositionCampaignInfo']
 ---
 
 # CampaignAllOfRoleCompositionCampaignInfo

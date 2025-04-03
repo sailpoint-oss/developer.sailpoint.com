@@ -1,12 +1,12 @@
 ---
-id: backup-response
+id: v2025-backup-response
 title: BackupResponse
 pagination_label: BackupResponse
 sidebar_label: BackupResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BackupResponse', 'BackupResponse'] 
-slug: /tools/sdk/go//models/backup-response
-tags: ['SDK', 'Software Development Kit', 'BackupResponse', 'BackupResponse']
+keywords: ['go', 'Golang', 'sdk', 'BackupResponse', 'V2025BackupResponse'] 
+slug: /tools/sdk/go/v2025/models/backup-response
+tags: ['SDK', 'Software Development Kit', 'BackupResponse', 'V2025BackupResponse']
 ---
 
 # BackupResponse

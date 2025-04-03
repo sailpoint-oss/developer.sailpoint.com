@@ -1,12 +1,12 @@
 ---
-id: certification-dto
+id: v2025-certification-dto
 title: CertificationDto
 pagination_label: CertificationDto
 sidebar_label: CertificationDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CertificationDto', 'CertificationDto'] 
-slug: /tools/sdk/go//models/certification-dto
-tags: ['SDK', 'Software Development Kit', 'CertificationDto', 'CertificationDto']
+keywords: ['go', 'Golang', 'sdk', 'CertificationDto', 'V2025CertificationDto'] 
+slug: /tools/sdk/go/v2025/models/certification-dto
+tags: ['SDK', 'Software Development Kit', 'CertificationDto', 'V2025CertificationDto']
 ---
 
 # CertificationDto

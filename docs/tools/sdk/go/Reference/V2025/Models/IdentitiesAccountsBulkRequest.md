@@ -1,12 +1,12 @@
 ---
-id: identities-accounts-bulk-request
+id: v2025-identities-accounts-bulk-request
 title: IdentitiesAccountsBulkRequest
 pagination_label: IdentitiesAccountsBulkRequest
 sidebar_label: IdentitiesAccountsBulkRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentitiesAccountsBulkRequest', 'IdentitiesAccountsBulkRequest'] 
-slug: /tools/sdk/go//models/identities-accounts-bulk-request
-tags: ['SDK', 'Software Development Kit', 'IdentitiesAccountsBulkRequest', 'IdentitiesAccountsBulkRequest']
+keywords: ['go', 'Golang', 'sdk', 'IdentitiesAccountsBulkRequest', 'V2025IdentitiesAccountsBulkRequest'] 
+slug: /tools/sdk/go/v2025/models/identities-accounts-bulk-request
+tags: ['SDK', 'Software Development Kit', 'IdentitiesAccountsBulkRequest', 'V2025IdentitiesAccountsBulkRequest']
 ---
 
 # IdentitiesAccountsBulkRequest

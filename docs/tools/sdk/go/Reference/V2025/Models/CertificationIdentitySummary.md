@@ -1,12 +1,12 @@
 ---
-id: certification-identity-summary
+id: v2025-certification-identity-summary
 title: CertificationIdentitySummary
 pagination_label: CertificationIdentitySummary
 sidebar_label: CertificationIdentitySummary
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CertificationIdentitySummary', 'CertificationIdentitySummary'] 
-slug: /tools/sdk/go//models/certification-identity-summary
-tags: ['SDK', 'Software Development Kit', 'CertificationIdentitySummary', 'CertificationIdentitySummary']
+keywords: ['go', 'Golang', 'sdk', 'CertificationIdentitySummary', 'V2025CertificationIdentitySummary'] 
+slug: /tools/sdk/go/v2025/models/certification-identity-summary
+tags: ['SDK', 'Software Development Kit', 'CertificationIdentitySummary', 'V2025CertificationIdentitySummary']
 ---
 
 # CertificationIdentitySummary

@@ -1,12 +1,12 @@
 ---
-id: bearer-token-auth-config
+id: v2025-bearer-token-auth-config
 title: BearerTokenAuthConfig
 pagination_label: BearerTokenAuthConfig
 sidebar_label: BearerTokenAuthConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BearerTokenAuthConfig', 'BearerTokenAuthConfig'] 
-slug: /tools/sdk/go//models/bearer-token-auth-config
-tags: ['SDK', 'Software Development Kit', 'BearerTokenAuthConfig', 'BearerTokenAuthConfig']
+keywords: ['go', 'Golang', 'sdk', 'BearerTokenAuthConfig', 'V2025BearerTokenAuthConfig'] 
+slug: /tools/sdk/go/v2025/models/bearer-token-auth-config
+tags: ['SDK', 'Software Development Kit', 'BearerTokenAuthConfig', 'V2025BearerTokenAuthConfig']
 ---
 
 # BearerTokenAuthConfig

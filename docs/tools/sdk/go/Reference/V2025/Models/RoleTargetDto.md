@@ -1,12 +1,12 @@
 ---
-id: role-target-dto
+id: v2025-role-target-dto
 title: RoleTargetDto
 pagination_label: RoleTargetDto
 sidebar_label: RoleTargetDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleTargetDto', 'RoleTargetDto'] 
-slug: /tools/sdk/go//models/role-target-dto
-tags: ['SDK', 'Software Development Kit', 'RoleTargetDto', 'RoleTargetDto']
+keywords: ['go', 'Golang', 'sdk', 'RoleTargetDto', 'V2025RoleTargetDto'] 
+slug: /tools/sdk/go/v2025/models/role-target-dto
+tags: ['SDK', 'Software Development Kit', 'RoleTargetDto', 'V2025RoleTargetDto']
 ---
 
 # RoleTargetDto

@@ -1,12 +1,12 @@
 ---
-id: managed-cluster-attributes
+id: v2025-managed-cluster-attributes
 title: ManagedClusterAttributes
 pagination_label: ManagedClusterAttributes
 sidebar_label: ManagedClusterAttributes
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ManagedClusterAttributes', 'ManagedClusterAttributes'] 
-slug: /tools/sdk/go//models/managed-cluster-attributes
-tags: ['SDK', 'Software Development Kit', 'ManagedClusterAttributes', 'ManagedClusterAttributes']
+keywords: ['go', 'Golang', 'sdk', 'ManagedClusterAttributes', 'V2025ManagedClusterAttributes'] 
+slug: /tools/sdk/go/v2025/models/managed-cluster-attributes
+tags: ['SDK', 'Software Development Kit', 'ManagedClusterAttributes', 'V2025ManagedClusterAttributes']
 ---
 
 # ManagedClusterAttributes

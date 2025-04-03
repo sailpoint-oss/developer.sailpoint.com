@@ -1,12 +1,12 @@
 ---
-id: campaign-ended-campaign
+id: v2025-campaign-ended-campaign
 title: CampaignEndedCampaign
 pagination_label: CampaignEndedCampaign
 sidebar_label: CampaignEndedCampaign
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignEndedCampaign', 'CampaignEndedCampaign'] 
-slug: /tools/sdk/go//models/campaign-ended-campaign
-tags: ['SDK', 'Software Development Kit', 'CampaignEndedCampaign', 'CampaignEndedCampaign']
+keywords: ['go', 'Golang', 'sdk', 'CampaignEndedCampaign', 'V2025CampaignEndedCampaign'] 
+slug: /tools/sdk/go/v2025/models/campaign-ended-campaign
+tags: ['SDK', 'Software Development Kit', 'CampaignEndedCampaign', 'V2025CampaignEndedCampaign']
 ---
 
 # CampaignEndedCampaign

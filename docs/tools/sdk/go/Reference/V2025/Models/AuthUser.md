@@ -1,12 +1,12 @@
 ---
-id: auth-user
+id: v2025-auth-user
 title: AuthUser
 pagination_label: AuthUser
 sidebar_label: AuthUser
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AuthUser', 'AuthUser'] 
-slug: /tools/sdk/go//models/auth-user
-tags: ['SDK', 'Software Development Kit', 'AuthUser', 'AuthUser']
+keywords: ['go', 'Golang', 'sdk', 'AuthUser', 'V2025AuthUser'] 
+slug: /tools/sdk/go/v2025/models/auth-user
+tags: ['SDK', 'Software Development Kit', 'AuthUser', 'V2025AuthUser']
 ---
 
 # AuthUser

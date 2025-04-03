@@ -1,12 +1,12 @@
 ---
-id: role-membership-identity
+id: v2025-role-membership-identity
 title: RoleMembershipIdentity
 pagination_label: RoleMembershipIdentity
 sidebar_label: RoleMembershipIdentity
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMembershipIdentity', 'RoleMembershipIdentity'] 
-slug: /tools/sdk/go//models/role-membership-identity
-tags: ['SDK', 'Software Development Kit', 'RoleMembershipIdentity', 'RoleMembershipIdentity']
+keywords: ['go', 'Golang', 'sdk', 'RoleMembershipIdentity', 'V2025RoleMembershipIdentity'] 
+slug: /tools/sdk/go/v2025/models/role-membership-identity
+tags: ['SDK', 'Software Development Kit', 'RoleMembershipIdentity', 'V2025RoleMembershipIdentity']
 ---
 
 # RoleMembershipIdentity

@@ -1,12 +1,12 @@
 ---
-id: set-lifecycle-state200-response
+id: v2025-set-lifecycle-state200-response
 title: SetLifecycleState200Response
 pagination_label: SetLifecycleState200Response
 sidebar_label: SetLifecycleState200Response
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SetLifecycleState200Response', 'SetLifecycleState200Response'] 
-slug: /tools/sdk/go//models/set-lifecycle-state200-response
-tags: ['SDK', 'Software Development Kit', 'SetLifecycleState200Response', 'SetLifecycleState200Response']
+keywords: ['go', 'Golang', 'sdk', 'SetLifecycleState200Response', 'V2025SetLifecycleState200Response'] 
+slug: /tools/sdk/go/v2025/models/set-lifecycle-state200-response
+tags: ['SDK', 'Software Development Kit', 'SetLifecycleState200Response', 'V2025SetLifecycleState200Response']
 ---
 
 # SetLifecycleState200Response

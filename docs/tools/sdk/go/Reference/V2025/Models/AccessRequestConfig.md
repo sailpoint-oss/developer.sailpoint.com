@@ -1,12 +1,12 @@
 ---
-id: access-request-config
+id: v2025-access-request-config
 title: AccessRequestConfig
 pagination_label: AccessRequestConfig
 sidebar_label: AccessRequestConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestConfig', 'AccessRequestConfig'] 
-slug: /tools/sdk/go//models/access-request-config
-tags: ['SDK', 'Software Development Kit', 'AccessRequestConfig', 'AccessRequestConfig']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestConfig', 'V2025AccessRequestConfig'] 
+slug: /tools/sdk/go/v2025/models/access-request-config
+tags: ['SDK', 'Software Development Kit', 'AccessRequestConfig', 'V2025AccessRequestConfig']
 ---
 
 # AccessRequestConfig

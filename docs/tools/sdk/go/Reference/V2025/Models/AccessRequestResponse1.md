@@ -1,12 +1,12 @@
 ---
-id: access-request-response1
+id: v2025-access-request-response1
 title: AccessRequestResponse1
 pagination_label: AccessRequestResponse1
 sidebar_label: AccessRequestResponse1
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestResponse1', 'AccessRequestResponse1'] 
-slug: /tools/sdk/go//models/access-request-response1
-tags: ['SDK', 'Software Development Kit', 'AccessRequestResponse1', 'AccessRequestResponse1']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestResponse1', 'V2025AccessRequestResponse1'] 
+slug: /tools/sdk/go/v2025/models/access-request-response1
+tags: ['SDK', 'Software Development Kit', 'AccessRequestResponse1', 'V2025AccessRequestResponse1']
 ---
 
 # AccessRequestResponse1

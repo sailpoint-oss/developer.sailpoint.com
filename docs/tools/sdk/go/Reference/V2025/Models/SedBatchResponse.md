@@ -1,12 +1,12 @@
 ---
-id: sed-batch-response
+id: v2025-sed-batch-response
 title: SedBatchResponse
 pagination_label: SedBatchResponse
 sidebar_label: SedBatchResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SedBatchResponse', 'SedBatchResponse'] 
-slug: /tools/sdk/go//models/sed-batch-response
-tags: ['SDK', 'Software Development Kit', 'SedBatchResponse', 'SedBatchResponse']
+keywords: ['go', 'Golang', 'sdk', 'SedBatchResponse', 'V2025SedBatchResponse'] 
+slug: /tools/sdk/go/v2025/models/sed-batch-response
+tags: ['SDK', 'Software Development Kit', 'SedBatchResponse', 'V2025SedBatchResponse']
 ---
 
 # SedBatchResponse

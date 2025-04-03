@@ -1,12 +1,12 @@
 ---
-id: workflow-body-owner
+id: v2025-workflow-body-owner
 title: WorkflowBodyOwner
 pagination_label: WorkflowBodyOwner
 sidebar_label: WorkflowBodyOwner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkflowBodyOwner', 'WorkflowBodyOwner'] 
-slug: /tools/sdk/go//models/workflow-body-owner
-tags: ['SDK', 'Software Development Kit', 'WorkflowBodyOwner', 'WorkflowBodyOwner']
+keywords: ['go', 'Golang', 'sdk', 'WorkflowBodyOwner', 'V2025WorkflowBodyOwner'] 
+slug: /tools/sdk/go/v2025/models/workflow-body-owner
+tags: ['SDK', 'Software Development Kit', 'WorkflowBodyOwner', 'V2025WorkflowBodyOwner']
 ---
 
 # WorkflowBodyOwner

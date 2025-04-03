@@ -1,12 +1,12 @@
 ---
-id: tenant-ui-metadata-item-response
+id: v2025-tenant-ui-metadata-item-response
 title: TenantUiMetadataItemResponse
 pagination_label: TenantUiMetadataItemResponse
 sidebar_label: TenantUiMetadataItemResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TenantUiMetadataItemResponse', 'TenantUiMetadataItemResponse'] 
-slug: /tools/sdk/go//models/tenant-ui-metadata-item-response
-tags: ['SDK', 'Software Development Kit', 'TenantUiMetadataItemResponse', 'TenantUiMetadataItemResponse']
+keywords: ['go', 'Golang', 'sdk', 'TenantUiMetadataItemResponse', 'V2025TenantUiMetadataItemResponse'] 
+slug: /tools/sdk/go/v2025/models/tenant-ui-metadata-item-response
+tags: ['SDK', 'Software Development Kit', 'TenantUiMetadataItemResponse', 'V2025TenantUiMetadataItemResponse']
 ---
 
 # TenantUiMetadataItemResponse

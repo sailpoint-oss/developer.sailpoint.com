@@ -1,12 +1,12 @@
 ---
-id: common-access-item-response
+id: v2025-common-access-item-response
 title: CommonAccessItemResponse
 pagination_label: CommonAccessItemResponse
 sidebar_label: CommonAccessItemResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CommonAccessItemResponse', 'CommonAccessItemResponse'] 
-slug: /tools/sdk/go//models/common-access-item-response
-tags: ['SDK', 'Software Development Kit', 'CommonAccessItemResponse', 'CommonAccessItemResponse']
+keywords: ['go', 'Golang', 'sdk', 'CommonAccessItemResponse', 'V2025CommonAccessItemResponse'] 
+slug: /tools/sdk/go/v2025/models/common-access-item-response
+tags: ['SDK', 'Software Development Kit', 'CommonAccessItemResponse', 'V2025CommonAccessItemResponse']
 ---
 
 # CommonAccessItemResponse

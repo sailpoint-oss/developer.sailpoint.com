@@ -1,12 +1,12 @@
 ---
-id: non-employee-record
+id: v2025-non-employee-record
 title: NonEmployeeRecord
 pagination_label: NonEmployeeRecord
 sidebar_label: NonEmployeeRecord
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NonEmployeeRecord', 'NonEmployeeRecord'] 
-slug: /tools/sdk/go//models/non-employee-record
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeRecord', 'NonEmployeeRecord']
+keywords: ['go', 'Golang', 'sdk', 'NonEmployeeRecord', 'V2025NonEmployeeRecord'] 
+slug: /tools/sdk/go/v2025/models/non-employee-record
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeRecord', 'V2025NonEmployeeRecord']
 ---
 
 # NonEmployeeRecord

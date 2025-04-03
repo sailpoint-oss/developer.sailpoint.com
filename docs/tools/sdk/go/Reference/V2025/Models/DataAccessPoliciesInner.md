@@ -1,12 +1,12 @@
 ---
-id: data-access-policies-inner
+id: v2025-data-access-policies-inner
 title: DataAccessPoliciesInner
 pagination_label: DataAccessPoliciesInner
 sidebar_label: DataAccessPoliciesInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DataAccessPoliciesInner', 'DataAccessPoliciesInner'] 
-slug: /tools/sdk/go//models/data-access-policies-inner
-tags: ['SDK', 'Software Development Kit', 'DataAccessPoliciesInner', 'DataAccessPoliciesInner']
+keywords: ['go', 'Golang', 'sdk', 'DataAccessPoliciesInner', 'V2025DataAccessPoliciesInner'] 
+slug: /tools/sdk/go/v2025/models/data-access-policies-inner
+tags: ['SDK', 'Software Development Kit', 'DataAccessPoliciesInner', 'V2025DataAccessPoliciesInner']
 ---
 
 # DataAccessPoliciesInner

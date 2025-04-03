@@ -1,12 +1,12 @@
 ---
-id: common-access-id-status
+id: v2025-common-access-id-status
 title: CommonAccessIDStatus
 pagination_label: CommonAccessIDStatus
 sidebar_label: CommonAccessIDStatus
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CommonAccessIDStatus', 'CommonAccessIDStatus'] 
-slug: /tools/sdk/go//models/common-access-id-status
-tags: ['SDK', 'Software Development Kit', 'CommonAccessIDStatus', 'CommonAccessIDStatus']
+keywords: ['go', 'Golang', 'sdk', 'CommonAccessIDStatus', 'V2025CommonAccessIDStatus'] 
+slug: /tools/sdk/go/v2025/models/common-access-id-status
+tags: ['SDK', 'Software Development Kit', 'CommonAccessIDStatus', 'V2025CommonAccessIDStatus']
 ---
 
 # CommonAccessIDStatus

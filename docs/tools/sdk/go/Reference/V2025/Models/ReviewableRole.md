@@ -1,12 +1,12 @@
 ---
-id: reviewable-role
+id: v2025-reviewable-role
 title: ReviewableRole
 pagination_label: ReviewableRole
 sidebar_label: ReviewableRole
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ReviewableRole', 'ReviewableRole'] 
-slug: /tools/sdk/go//models/reviewable-role
-tags: ['SDK', 'Software Development Kit', 'ReviewableRole', 'ReviewableRole']
+keywords: ['go', 'Golang', 'sdk', 'ReviewableRole', 'V2025ReviewableRole'] 
+slug: /tools/sdk/go/v2025/models/reviewable-role
+tags: ['SDK', 'Software Development Kit', 'ReviewableRole', 'V2025ReviewableRole']
 ---
 
 # ReviewableRole

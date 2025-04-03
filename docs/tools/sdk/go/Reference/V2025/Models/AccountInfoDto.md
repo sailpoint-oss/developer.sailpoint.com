@@ -1,12 +1,12 @@
 ---
-id: account-info-dto
+id: v2025-account-info-dto
 title: AccountInfoDto
 pagination_label: AccountInfoDto
 sidebar_label: AccountInfoDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountInfoDto', 'AccountInfoDto'] 
-slug: /tools/sdk/go//models/account-info-dto
-tags: ['SDK', 'Software Development Kit', 'AccountInfoDto', 'AccountInfoDto']
+keywords: ['go', 'Golang', 'sdk', 'AccountInfoDto', 'V2025AccountInfoDto'] 
+slug: /tools/sdk/go/v2025/models/account-info-dto
+tags: ['SDK', 'Software Development Kit', 'AccountInfoDto', 'V2025AccountInfoDto']
 ---
 
 # AccountInfoDto

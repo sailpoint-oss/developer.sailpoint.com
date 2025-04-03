@@ -1,12 +1,12 @@
 ---
-id: access-apps-owner
+id: v2025-access-apps-owner
 title: AccessAppsOwner
 pagination_label: AccessAppsOwner
 sidebar_label: AccessAppsOwner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessAppsOwner', 'AccessAppsOwner'] 
-slug: /tools/sdk/go//models/access-apps-owner
-tags: ['SDK', 'Software Development Kit', 'AccessAppsOwner', 'AccessAppsOwner']
+keywords: ['go', 'Golang', 'sdk', 'AccessAppsOwner', 'V2025AccessAppsOwner'] 
+slug: /tools/sdk/go/v2025/models/access-apps-owner
+tags: ['SDK', 'Software Development Kit', 'AccessAppsOwner', 'V2025AccessAppsOwner']
 ---
 
 # AccessAppsOwner

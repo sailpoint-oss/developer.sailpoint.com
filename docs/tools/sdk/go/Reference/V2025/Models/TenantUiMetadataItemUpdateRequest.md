@@ -1,12 +1,12 @@
 ---
-id: tenant-ui-metadata-item-update-request
+id: v2025-tenant-ui-metadata-item-update-request
 title: TenantUiMetadataItemUpdateRequest
 pagination_label: TenantUiMetadataItemUpdateRequest
 sidebar_label: TenantUiMetadataItemUpdateRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TenantUiMetadataItemUpdateRequest', 'TenantUiMetadataItemUpdateRequest'] 
-slug: /tools/sdk/go//models/tenant-ui-metadata-item-update-request
-tags: ['SDK', 'Software Development Kit', 'TenantUiMetadataItemUpdateRequest', 'TenantUiMetadataItemUpdateRequest']
+keywords: ['go', 'Golang', 'sdk', 'TenantUiMetadataItemUpdateRequest', 'V2025TenantUiMetadataItemUpdateRequest'] 
+slug: /tools/sdk/go/v2025/models/tenant-ui-metadata-item-update-request
+tags: ['SDK', 'Software Development Kit', 'TenantUiMetadataItemUpdateRequest', 'V2025TenantUiMetadataItemUpdateRequest']
 ---
 
 # TenantUiMetadataItemUpdateRequest

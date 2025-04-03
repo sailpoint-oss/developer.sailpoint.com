@@ -1,12 +1,12 @@
 ---
-id: approval-identity
+id: v2025-approval-identity
 title: ApprovalIdentity
 pagination_label: ApprovalIdentity
 sidebar_label: ApprovalIdentity
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ApprovalIdentity', 'ApprovalIdentity'] 
-slug: /tools/sdk/go//models/approval-identity
-tags: ['SDK', 'Software Development Kit', 'ApprovalIdentity', 'ApprovalIdentity']
+keywords: ['go', 'Golang', 'sdk', 'ApprovalIdentity', 'V2025ApprovalIdentity'] 
+slug: /tools/sdk/go/v2025/models/approval-identity
+tags: ['SDK', 'Software Development Kit', 'ApprovalIdentity', 'V2025ApprovalIdentity']
 ---
 
 # ApprovalIdentity

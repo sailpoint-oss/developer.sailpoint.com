@@ -1,12 +1,12 @@
 ---
-id: import-sp-config-request
+id: v2025-import-sp-config-request
 title: ImportSpConfigRequest
 pagination_label: ImportSpConfigRequest
 sidebar_label: ImportSpConfigRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ImportSpConfigRequest', 'ImportSpConfigRequest'] 
-slug: /tools/sdk/go//models/import-sp-config-request
-tags: ['SDK', 'Software Development Kit', 'ImportSpConfigRequest', 'ImportSpConfigRequest']
+keywords: ['go', 'Golang', 'sdk', 'ImportSpConfigRequest', 'V2025ImportSpConfigRequest'] 
+slug: /tools/sdk/go/v2025/models/import-sp-config-request
+tags: ['SDK', 'Software Development Kit', 'ImportSpConfigRequest', 'V2025ImportSpConfigRequest']
 ---
 
 # ImportSpConfigRequest

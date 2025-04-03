@@ -1,12 +1,12 @@
 ---
-id: source-sync-job
+id: v2025-source-sync-job
 title: SourceSyncJob
 pagination_label: SourceSyncJob
 sidebar_label: SourceSyncJob
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceSyncJob', 'SourceSyncJob'] 
-slug: /tools/sdk/go//models/source-sync-job
-tags: ['SDK', 'Software Development Kit', 'SourceSyncJob', 'SourceSyncJob']
+keywords: ['go', 'Golang', 'sdk', 'SourceSyncJob', 'V2025SourceSyncJob'] 
+slug: /tools/sdk/go/v2025/models/source-sync-job
+tags: ['SDK', 'Software Development Kit', 'SourceSyncJob', 'V2025SourceSyncJob']
 ---
 
 # SourceSyncJob

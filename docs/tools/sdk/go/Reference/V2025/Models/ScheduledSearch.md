@@ -1,12 +1,12 @@
 ---
-id: scheduled-search
+id: v2025-scheduled-search
 title: ScheduledSearch
 pagination_label: ScheduledSearch
 sidebar_label: ScheduledSearch
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ScheduledSearch', 'ScheduledSearch'] 
-slug: /tools/sdk/go//models/scheduled-search
-tags: ['SDK', 'Software Development Kit', 'ScheduledSearch', 'ScheduledSearch']
+keywords: ['go', 'Golang', 'sdk', 'ScheduledSearch', 'V2025ScheduledSearch'] 
+slug: /tools/sdk/go/v2025/models/scheduled-search
+tags: ['SDK', 'Software Development Kit', 'ScheduledSearch', 'V2025ScheduledSearch']
 ---
 
 # ScheduledSearch

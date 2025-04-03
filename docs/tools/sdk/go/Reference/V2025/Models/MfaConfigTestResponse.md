@@ -1,12 +1,12 @@
 ---
-id: mfa-config-test-response
+id: v2025-mfa-config-test-response
 title: MfaConfigTestResponse
 pagination_label: MfaConfigTestResponse
 sidebar_label: MfaConfigTestResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MfaConfigTestResponse', 'MfaConfigTestResponse'] 
-slug: /tools/sdk/go//models/mfa-config-test-response
-tags: ['SDK', 'Software Development Kit', 'MfaConfigTestResponse', 'MfaConfigTestResponse']
+keywords: ['go', 'Golang', 'sdk', 'MfaConfigTestResponse', 'V2025MfaConfigTestResponse'] 
+slug: /tools/sdk/go/v2025/models/mfa-config-test-response
+tags: ['SDK', 'Software Development Kit', 'MfaConfigTestResponse', 'V2025MfaConfigTestResponse']
 ---
 
 # MfaConfigTestResponse

@@ -1,12 +1,12 @@
 ---
-id: source-deleted-actor
+id: v2025-source-deleted-actor
 title: SourceDeletedActor
 pagination_label: SourceDeletedActor
 sidebar_label: SourceDeletedActor
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceDeletedActor', 'SourceDeletedActor'] 
-slug: /tools/sdk/go//models/source-deleted-actor
-tags: ['SDK', 'Software Development Kit', 'SourceDeletedActor', 'SourceDeletedActor']
+keywords: ['go', 'Golang', 'sdk', 'SourceDeletedActor', 'V2025SourceDeletedActor'] 
+slug: /tools/sdk/go/v2025/models/source-deleted-actor
+tags: ['SDK', 'Software Development Kit', 'SourceDeletedActor', 'V2025SourceDeletedActor']
 ---
 
 # SourceDeletedActor

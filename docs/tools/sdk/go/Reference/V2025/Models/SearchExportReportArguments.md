@@ -1,12 +1,12 @@
 ---
-id: search-export-report-arguments
+id: v2025-search-export-report-arguments
 title: SearchExportReportArguments
 pagination_label: SearchExportReportArguments
 sidebar_label: SearchExportReportArguments
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SearchExportReportArguments', 'SearchExportReportArguments'] 
-slug: /tools/sdk/go//models/search-export-report-arguments
-tags: ['SDK', 'Software Development Kit', 'SearchExportReportArguments', 'SearchExportReportArguments']
+keywords: ['go', 'Golang', 'sdk', 'SearchExportReportArguments', 'V2025SearchExportReportArguments'] 
+slug: /tools/sdk/go/v2025/models/search-export-report-arguments
+tags: ['SDK', 'Software Development Kit', 'SearchExportReportArguments', 'V2025SearchExportReportArguments']
 ---
 
 # SearchExportReportArguments

@@ -1,12 +1,12 @@
 ---
-id: source
+id: v2025-source
 title: Source
 pagination_label: Source
 sidebar_label: Source
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Source', 'Source'] 
-slug: /tools/sdk/go//models/source
-tags: ['SDK', 'Software Development Kit', 'Source', 'Source']
+keywords: ['go', 'Golang', 'sdk', 'Source', 'V2025Source'] 
+slug: /tools/sdk/go/v2025/models/source
+tags: ['SDK', 'Software Development Kit', 'Source', 'V2025Source']
 ---
 
 # Source

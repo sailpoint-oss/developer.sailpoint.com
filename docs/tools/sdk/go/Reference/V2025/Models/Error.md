@@ -1,12 +1,12 @@
 ---
-id: error
+id: v2025-error
 title: Error
 pagination_label: Error
 sidebar_label: Error
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Error', 'Error'] 
-slug: /tools/sdk/go//models/error
-tags: ['SDK', 'Software Development Kit', 'Error', 'Error']
+keywords: ['go', 'Golang', 'sdk', 'Error', 'V2025Error'] 
+slug: /tools/sdk/go/v2025/models/error
+tags: ['SDK', 'Software Development Kit', 'Error', 'V2025Error']
 ---
 
 # Error

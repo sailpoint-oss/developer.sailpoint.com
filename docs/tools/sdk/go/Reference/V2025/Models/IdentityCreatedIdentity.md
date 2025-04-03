@@ -1,12 +1,12 @@
 ---
-id: identity-created-identity
+id: v2025-identity-created-identity
 title: IdentityCreatedIdentity
 pagination_label: IdentityCreatedIdentity
 sidebar_label: IdentityCreatedIdentity
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityCreatedIdentity', 'IdentityCreatedIdentity'] 
-slug: /tools/sdk/go//models/identity-created-identity
-tags: ['SDK', 'Software Development Kit', 'IdentityCreatedIdentity', 'IdentityCreatedIdentity']
+keywords: ['go', 'Golang', 'sdk', 'IdentityCreatedIdentity', 'V2025IdentityCreatedIdentity'] 
+slug: /tools/sdk/go/v2025/models/identity-created-identity
+tags: ['SDK', 'Software Development Kit', 'IdentityCreatedIdentity', 'V2025IdentityCreatedIdentity']
 ---
 
 # IdentityCreatedIdentity

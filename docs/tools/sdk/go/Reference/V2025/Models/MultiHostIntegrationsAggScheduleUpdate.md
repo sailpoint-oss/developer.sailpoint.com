@@ -1,12 +1,12 @@
 ---
-id: multi-host-integrations-agg-schedule-update
+id: v2025-multi-host-integrations-agg-schedule-update
 title: MultiHostIntegrationsAggScheduleUpdate
 pagination_label: MultiHostIntegrationsAggScheduleUpdate
 sidebar_label: MultiHostIntegrationsAggScheduleUpdate
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MultiHostIntegrationsAggScheduleUpdate', 'MultiHostIntegrationsAggScheduleUpdate'] 
-slug: /tools/sdk/go//models/multi-host-integrations-agg-schedule-update
-tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsAggScheduleUpdate', 'MultiHostIntegrationsAggScheduleUpdate']
+keywords: ['go', 'Golang', 'sdk', 'MultiHostIntegrationsAggScheduleUpdate', 'V2025MultiHostIntegrationsAggScheduleUpdate'] 
+slug: /tools/sdk/go/v2025/models/multi-host-integrations-agg-schedule-update
+tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsAggScheduleUpdate', 'V2025MultiHostIntegrationsAggScheduleUpdate']
 ---
 
 # MultiHostIntegrationsAggScheduleUpdate

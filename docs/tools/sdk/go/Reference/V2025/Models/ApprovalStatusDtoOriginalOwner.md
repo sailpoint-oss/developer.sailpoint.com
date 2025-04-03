@@ -1,12 +1,12 @@
 ---
-id: approval-status-dto-original-owner
+id: v2025-approval-status-dto-original-owner
 title: ApprovalStatusDtoOriginalOwner
 pagination_label: ApprovalStatusDtoOriginalOwner
 sidebar_label: ApprovalStatusDtoOriginalOwner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ApprovalStatusDtoOriginalOwner', 'ApprovalStatusDtoOriginalOwner'] 
-slug: /tools/sdk/go//models/approval-status-dto-original-owner
-tags: ['SDK', 'Software Development Kit', 'ApprovalStatusDtoOriginalOwner', 'ApprovalStatusDtoOriginalOwner']
+keywords: ['go', 'Golang', 'sdk', 'ApprovalStatusDtoOriginalOwner', 'V2025ApprovalStatusDtoOriginalOwner'] 
+slug: /tools/sdk/go/v2025/models/approval-status-dto-original-owner
+tags: ['SDK', 'Software Development Kit', 'ApprovalStatusDtoOriginalOwner', 'V2025ApprovalStatusDtoOriginalOwner']
 ---
 
 # ApprovalStatusDtoOriginalOwner

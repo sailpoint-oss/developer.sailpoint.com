@@ -1,12 +1,12 @@
 ---
-id: access-request-post-approval-requested-items-status-inner
+id: v2025-access-request-post-approval-requested-items-status-inner
 title: AccessRequestPostApprovalRequestedItemsStatusInner
 pagination_label: AccessRequestPostApprovalRequestedItemsStatusInner
 sidebar_label: AccessRequestPostApprovalRequestedItemsStatusInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestPostApprovalRequestedItemsStatusInner', 'AccessRequestPostApprovalRequestedItemsStatusInner'] 
-slug: /tools/sdk/go//models/access-request-post-approval-requested-items-status-inner
-tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApprovalRequestedItemsStatusInner', 'AccessRequestPostApprovalRequestedItemsStatusInner']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestPostApprovalRequestedItemsStatusInner', 'V2025AccessRequestPostApprovalRequestedItemsStatusInner'] 
+slug: /tools/sdk/go/v2025/models/access-request-post-approval-requested-items-status-inner
+tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApprovalRequestedItemsStatusInner', 'V2025AccessRequestPostApprovalRequestedItemsStatusInner']
 ---
 
 # AccessRequestPostApprovalRequestedItemsStatusInner

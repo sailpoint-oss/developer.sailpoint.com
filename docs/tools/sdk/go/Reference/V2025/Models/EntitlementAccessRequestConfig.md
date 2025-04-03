@@ -1,12 +1,12 @@
 ---
-id: entitlement-access-request-config
+id: v2025-entitlement-access-request-config
 title: EntitlementAccessRequestConfig
 pagination_label: EntitlementAccessRequestConfig
 sidebar_label: EntitlementAccessRequestConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EntitlementAccessRequestConfig', 'EntitlementAccessRequestConfig'] 
-slug: /tools/sdk/go//models/entitlement-access-request-config
-tags: ['SDK', 'Software Development Kit', 'EntitlementAccessRequestConfig', 'EntitlementAccessRequestConfig']
+keywords: ['go', 'Golang', 'sdk', 'EntitlementAccessRequestConfig', 'V2025EntitlementAccessRequestConfig'] 
+slug: /tools/sdk/go/v2025/models/entitlement-access-request-config
+tags: ['SDK', 'Software Development Kit', 'EntitlementAccessRequestConfig', 'V2025EntitlementAccessRequestConfig']
 ---
 
 # EntitlementAccessRequestConfig

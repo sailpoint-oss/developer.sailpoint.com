@@ -1,12 +1,12 @@
 ---
-id: role-mining-potential-role-edit-entitlements
+id: v2025-role-mining-potential-role-edit-entitlements
 title: RoleMiningPotentialRoleEditEntitlements
 pagination_label: RoleMiningPotentialRoleEditEntitlements
 sidebar_label: RoleMiningPotentialRoleEditEntitlements
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMiningPotentialRoleEditEntitlements', 'RoleMiningPotentialRoleEditEntitlements'] 
-slug: /tools/sdk/go//models/role-mining-potential-role-edit-entitlements
-tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleEditEntitlements', 'RoleMiningPotentialRoleEditEntitlements']
+keywords: ['go', 'Golang', 'sdk', 'RoleMiningPotentialRoleEditEntitlements', 'V2025RoleMiningPotentialRoleEditEntitlements'] 
+slug: /tools/sdk/go/v2025/models/role-mining-potential-role-edit-entitlements
+tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleEditEntitlements', 'V2025RoleMiningPotentialRoleEditEntitlements']
 ---
 
 # RoleMiningPotentialRoleEditEntitlements

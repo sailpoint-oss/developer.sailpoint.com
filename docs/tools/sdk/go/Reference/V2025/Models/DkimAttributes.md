@@ -1,12 +1,12 @@
 ---
-id: dkim-attributes
+id: v2025-dkim-attributes
 title: DkimAttributes
 pagination_label: DkimAttributes
 sidebar_label: DkimAttributes
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DkimAttributes', 'DkimAttributes'] 
-slug: /tools/sdk/go//models/dkim-attributes
-tags: ['SDK', 'Software Development Kit', 'DkimAttributes', 'DkimAttributes']
+keywords: ['go', 'Golang', 'sdk', 'DkimAttributes', 'V2025DkimAttributes'] 
+slug: /tools/sdk/go/v2025/models/dkim-attributes
+tags: ['SDK', 'Software Development Kit', 'DkimAttributes', 'V2025DkimAttributes']
 ---
 
 # DkimAttributes

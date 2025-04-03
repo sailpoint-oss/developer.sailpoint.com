@@ -1,12 +1,12 @@
 ---
-id: test-workflow200-response
+id: v2025-test-workflow200-response
 title: TestWorkflow200Response
 pagination_label: TestWorkflow200Response
 sidebar_label: TestWorkflow200Response
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TestWorkflow200Response', 'TestWorkflow200Response'] 
-slug: /tools/sdk/go//models/test-workflow200-response
-tags: ['SDK', 'Software Development Kit', 'TestWorkflow200Response', 'TestWorkflow200Response']
+keywords: ['go', 'Golang', 'sdk', 'TestWorkflow200Response', 'V2025TestWorkflow200Response'] 
+slug: /tools/sdk/go/v2025/models/test-workflow200-response
+tags: ['SDK', 'Software Development Kit', 'TestWorkflow200Response', 'V2025TestWorkflow200Response']
 ---
 
 # TestWorkflow200Response

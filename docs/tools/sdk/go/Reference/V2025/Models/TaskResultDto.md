@@ -1,12 +1,12 @@
 ---
-id: task-result-dto
+id: v2025-task-result-dto
 title: TaskResultDto
 pagination_label: TaskResultDto
 sidebar_label: TaskResultDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TaskResultDto', 'TaskResultDto'] 
-slug: /tools/sdk/go//models/task-result-dto
-tags: ['SDK', 'Software Development Kit', 'TaskResultDto', 'TaskResultDto']
+keywords: ['go', 'Golang', 'sdk', 'TaskResultDto', 'V2025TaskResultDto'] 
+slug: /tools/sdk/go/v2025/models/task-result-dto
+tags: ['SDK', 'Software Development Kit', 'TaskResultDto', 'V2025TaskResultDto']
 ---
 
 # TaskResultDto

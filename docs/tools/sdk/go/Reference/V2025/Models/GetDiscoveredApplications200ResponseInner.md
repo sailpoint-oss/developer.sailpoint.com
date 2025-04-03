@@ -1,12 +1,12 @@
 ---
-id: get-discovered-applications200-response-inner
+id: v2025-get-discovered-applications200-response-inner
 title: GetDiscoveredApplications200ResponseInner
 pagination_label: GetDiscoveredApplications200ResponseInner
 sidebar_label: GetDiscoveredApplications200ResponseInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'GetDiscoveredApplications200ResponseInner', 'GetDiscoveredApplications200ResponseInner'] 
-slug: /tools/sdk/go//models/get-discovered-applications200-response-inner
-tags: ['SDK', 'Software Development Kit', 'GetDiscoveredApplications200ResponseInner', 'GetDiscoveredApplications200ResponseInner']
+keywords: ['go', 'Golang', 'sdk', 'GetDiscoveredApplications200ResponseInner', 'V2025GetDiscoveredApplications200ResponseInner'] 
+slug: /tools/sdk/go/v2025/models/get-discovered-applications200-response-inner
+tags: ['SDK', 'Software Development Kit', 'GetDiscoveredApplications200ResponseInner', 'V2025GetDiscoveredApplications200ResponseInner']
 ---
 
 # GetDiscoveredApplications200ResponseInner

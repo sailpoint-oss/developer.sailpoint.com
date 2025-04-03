@@ -1,12 +1,12 @@
 ---
-id: access-profile-entitlement
+id: v2025-access-profile-entitlement
 title: AccessProfileEntitlement
 pagination_label: AccessProfileEntitlement
 sidebar_label: AccessProfileEntitlement
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessProfileEntitlement', 'AccessProfileEntitlement'] 
-slug: /tools/sdk/go//models/access-profile-entitlement
-tags: ['SDK', 'Software Development Kit', 'AccessProfileEntitlement', 'AccessProfileEntitlement']
+keywords: ['go', 'Golang', 'sdk', 'AccessProfileEntitlement', 'V2025AccessProfileEntitlement'] 
+slug: /tools/sdk/go/v2025/models/access-profile-entitlement
+tags: ['SDK', 'Software Development Kit', 'AccessProfileEntitlement', 'V2025AccessProfileEntitlement']
 ---
 
 # AccessProfileEntitlement

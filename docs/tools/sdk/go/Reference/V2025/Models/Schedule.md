@@ -1,12 +1,12 @@
 ---
-id: schedule
+id: v2025-schedule
 title: Schedule
 pagination_label: Schedule
 sidebar_label: Schedule
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Schedule', 'Schedule'] 
-slug: /tools/sdk/go//models/schedule
-tags: ['SDK', 'Software Development Kit', 'Schedule', 'Schedule']
+keywords: ['go', 'Golang', 'sdk', 'Schedule', 'V2025Schedule'] 
+slug: /tools/sdk/go/v2025/models/schedule
+tags: ['SDK', 'Software Development Kit', 'Schedule', 'V2025Schedule']
 ---
 
 # Schedule

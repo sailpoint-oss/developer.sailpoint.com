@@ -1,12 +1,12 @@
 ---
-id: auth-profile
+id: v2025-auth-profile
 title: AuthProfile
 pagination_label: AuthProfile
 sidebar_label: AuthProfile
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AuthProfile', 'AuthProfile'] 
-slug: /tools/sdk/go//models/auth-profile
-tags: ['SDK', 'Software Development Kit', 'AuthProfile', 'AuthProfile']
+keywords: ['go', 'Golang', 'sdk', 'AuthProfile', 'V2025AuthProfile'] 
+slug: /tools/sdk/go/v2025/models/auth-profile
+tags: ['SDK', 'Software Development Kit', 'AuthProfile', 'V2025AuthProfile']
 ---
 
 # AuthProfile

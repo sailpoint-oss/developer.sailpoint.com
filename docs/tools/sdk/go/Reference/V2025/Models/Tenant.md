@@ -1,12 +1,12 @@
 ---
-id: tenant
+id: v2025-tenant
 title: Tenant
 pagination_label: Tenant
 sidebar_label: Tenant
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Tenant', 'Tenant'] 
-slug: /tools/sdk/go//models/tenant
-tags: ['SDK', 'Software Development Kit', 'Tenant', 'Tenant']
+keywords: ['go', 'Golang', 'sdk', 'Tenant', 'V2025Tenant'] 
+slug: /tools/sdk/go/v2025/models/tenant
+tags: ['SDK', 'Software Development Kit', 'Tenant', 'V2025Tenant']
 ---
 
 # Tenant

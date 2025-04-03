@@ -1,12 +1,12 @@
 ---
-id: account-source
+id: v2025-account-source
 title: AccountSource
 pagination_label: AccountSource
 sidebar_label: AccountSource
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountSource', 'AccountSource'] 
-slug: /tools/sdk/go//models/account-source
-tags: ['SDK', 'Software Development Kit', 'AccountSource', 'AccountSource']
+keywords: ['go', 'Golang', 'sdk', 'AccountSource', 'V2025AccountSource'] 
+slug: /tools/sdk/go/v2025/models/account-source
+tags: ['SDK', 'Software Development Kit', 'AccountSource', 'V2025AccountSource']
 ---
 
 # AccountSource

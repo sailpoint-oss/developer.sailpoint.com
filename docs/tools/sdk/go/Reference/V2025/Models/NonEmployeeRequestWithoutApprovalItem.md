@@ -1,12 +1,12 @@
 ---
-id: non-employee-request-without-approval-item
+id: v2025-non-employee-request-without-approval-item
 title: NonEmployeeRequestWithoutApprovalItem
 pagination_label: NonEmployeeRequestWithoutApprovalItem
 sidebar_label: NonEmployeeRequestWithoutApprovalItem
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NonEmployeeRequestWithoutApprovalItem', 'NonEmployeeRequestWithoutApprovalItem'] 
-slug: /tools/sdk/go//models/non-employee-request-without-approval-item
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeRequestWithoutApprovalItem', 'NonEmployeeRequestWithoutApprovalItem']
+keywords: ['go', 'Golang', 'sdk', 'NonEmployeeRequestWithoutApprovalItem', 'V2025NonEmployeeRequestWithoutApprovalItem'] 
+slug: /tools/sdk/go/v2025/models/non-employee-request-without-approval-item
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeRequestWithoutApprovalItem', 'V2025NonEmployeeRequestWithoutApprovalItem']
 ---
 
 # NonEmployeeRequestWithoutApprovalItem

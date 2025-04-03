@@ -1,12 +1,12 @@
 ---
-id: load-accounts-task-task-returns-inner
+id: v2025-load-accounts-task-task-returns-inner
 title: LoadAccountsTaskTaskReturnsInner
 pagination_label: LoadAccountsTaskTaskReturnsInner
 sidebar_label: LoadAccountsTaskTaskReturnsInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'LoadAccountsTaskTaskReturnsInner', 'LoadAccountsTaskTaskReturnsInner'] 
-slug: /tools/sdk/go//models/load-accounts-task-task-returns-inner
-tags: ['SDK', 'Software Development Kit', 'LoadAccountsTaskTaskReturnsInner', 'LoadAccountsTaskTaskReturnsInner']
+keywords: ['go', 'Golang', 'sdk', 'LoadAccountsTaskTaskReturnsInner', 'V2025LoadAccountsTaskTaskReturnsInner'] 
+slug: /tools/sdk/go/v2025/models/load-accounts-task-task-returns-inner
+tags: ['SDK', 'Software Development Kit', 'LoadAccountsTaskTaskReturnsInner', 'V2025LoadAccountsTaskTaskReturnsInner']
 ---
 
 # LoadAccountsTaskTaskReturnsInner

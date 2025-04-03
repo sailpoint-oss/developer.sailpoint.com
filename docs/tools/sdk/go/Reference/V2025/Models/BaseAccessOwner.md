@@ -1,12 +1,12 @@
 ---
-id: base-access-owner
+id: v2025-base-access-owner
 title: BaseAccessOwner
 pagination_label: BaseAccessOwner
 sidebar_label: BaseAccessOwner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BaseAccessOwner', 'BaseAccessOwner'] 
-slug: /tools/sdk/go//models/base-access-owner
-tags: ['SDK', 'Software Development Kit', 'BaseAccessOwner', 'BaseAccessOwner']
+keywords: ['go', 'Golang', 'sdk', 'BaseAccessOwner', 'V2025BaseAccessOwner'] 
+slug: /tools/sdk/go/v2025/models/base-access-owner
+tags: ['SDK', 'Software Development Kit', 'BaseAccessOwner', 'V2025BaseAccessOwner']
 ---
 
 # BaseAccessOwner

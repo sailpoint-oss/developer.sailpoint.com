@@ -1,12 +1,12 @@
 ---
-id: bulk-remove-tagged-object
+id: v2025-bulk-remove-tagged-object
 title: BulkRemoveTaggedObject
 pagination_label: BulkRemoveTaggedObject
 sidebar_label: BulkRemoveTaggedObject
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BulkRemoveTaggedObject', 'BulkRemoveTaggedObject'] 
-slug: /tools/sdk/go//models/bulk-remove-tagged-object
-tags: ['SDK', 'Software Development Kit', 'BulkRemoveTaggedObject', 'BulkRemoveTaggedObject']
+keywords: ['go', 'Golang', 'sdk', 'BulkRemoveTaggedObject', 'V2025BulkRemoveTaggedObject'] 
+slug: /tools/sdk/go/v2025/models/bulk-remove-tagged-object
+tags: ['SDK', 'Software Development Kit', 'BulkRemoveTaggedObject', 'V2025BulkRemoveTaggedObject']
 ---
 
 # BulkRemoveTaggedObject

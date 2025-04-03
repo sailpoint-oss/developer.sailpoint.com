@@ -1,12 +1,12 @@
 ---
-id: dependant-connections-missing-dto
+id: v2025-dependant-connections-missing-dto
 title: DependantConnectionsMissingDto
 pagination_label: DependantConnectionsMissingDto
 sidebar_label: DependantConnectionsMissingDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DependantConnectionsMissingDto', 'DependantConnectionsMissingDto'] 
-slug: /tools/sdk/go//models/dependant-connections-missing-dto
-tags: ['SDK', 'Software Development Kit', 'DependantConnectionsMissingDto', 'DependantConnectionsMissingDto']
+keywords: ['go', 'Golang', 'sdk', 'DependantConnectionsMissingDto', 'V2025DependantConnectionsMissingDto'] 
+slug: /tools/sdk/go/v2025/models/dependant-connections-missing-dto
+tags: ['SDK', 'Software Development Kit', 'DependantConnectionsMissingDto', 'V2025DependantConnectionsMissingDto']
 ---
 
 # DependantConnectionsMissingDto

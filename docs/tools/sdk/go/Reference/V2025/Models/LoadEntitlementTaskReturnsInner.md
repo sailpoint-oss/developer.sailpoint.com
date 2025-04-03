@@ -1,12 +1,12 @@
 ---
-id: load-entitlement-task-returns-inner
+id: v2025-load-entitlement-task-returns-inner
 title: LoadEntitlementTaskReturnsInner
 pagination_label: LoadEntitlementTaskReturnsInner
 sidebar_label: LoadEntitlementTaskReturnsInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'LoadEntitlementTaskReturnsInner', 'LoadEntitlementTaskReturnsInner'] 
-slug: /tools/sdk/go//models/load-entitlement-task-returns-inner
-tags: ['SDK', 'Software Development Kit', 'LoadEntitlementTaskReturnsInner', 'LoadEntitlementTaskReturnsInner']
+keywords: ['go', 'Golang', 'sdk', 'LoadEntitlementTaskReturnsInner', 'V2025LoadEntitlementTaskReturnsInner'] 
+slug: /tools/sdk/go/v2025/models/load-entitlement-task-returns-inner
+tags: ['SDK', 'Software Development Kit', 'LoadEntitlementTaskReturnsInner', 'V2025LoadEntitlementTaskReturnsInner']
 ---
 
 # LoadEntitlementTaskReturnsInner

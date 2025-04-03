@@ -1,12 +1,12 @@
 ---
-id: list-form-definitions-by-tenant-response
+id: v2025-list-form-definitions-by-tenant-response
 title: ListFormDefinitionsByTenantResponse
 pagination_label: ListFormDefinitionsByTenantResponse
 sidebar_label: ListFormDefinitionsByTenantResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ListFormDefinitionsByTenantResponse', 'ListFormDefinitionsByTenantResponse'] 
-slug: /tools/sdk/go//models/list-form-definitions-by-tenant-response
-tags: ['SDK', 'Software Development Kit', 'ListFormDefinitionsByTenantResponse', 'ListFormDefinitionsByTenantResponse']
+keywords: ['go', 'Golang', 'sdk', 'ListFormDefinitionsByTenantResponse', 'V2025ListFormDefinitionsByTenantResponse'] 
+slug: /tools/sdk/go/v2025/models/list-form-definitions-by-tenant-response
+tags: ['SDK', 'Software Development Kit', 'ListFormDefinitionsByTenantResponse', 'V2025ListFormDefinitionsByTenantResponse']
 ---
 
 # ListFormDefinitionsByTenantResponse

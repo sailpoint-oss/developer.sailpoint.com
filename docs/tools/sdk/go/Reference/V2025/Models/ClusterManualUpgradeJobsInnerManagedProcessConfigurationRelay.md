@@ -1,12 +1,12 @@
 ---
-id: cluster-manual-upgrade-jobs-inner-managed-process-configuration-relay
+id: v2025-cluster-manual-upgrade-jobs-inner-managed-process-configuration-relay
 title: ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay
 pagination_label: ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay
 sidebar_label: ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay'] 
-slug: /tools/sdk/go//models/cluster-manual-upgrade-jobs-inner-managed-process-configuration-relay
-tags: ['SDK', 'Software Development Kit', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay']
+keywords: ['go', 'Golang', 'sdk', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay', 'V2025ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay'] 
+slug: /tools/sdk/go/v2025/models/cluster-manual-upgrade-jobs-inner-managed-process-configuration-relay
+tags: ['SDK', 'Software Development Kit', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay', 'V2025ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay']
 ---
 
 # ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay

@@ -1,12 +1,12 @@
 ---
-id: managed-clusters
+id: v2025-managed-clusters
 title: ManagedClusters
 pagination_label: ManagedClusters
 sidebar_label: ManagedClusters
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ManagedClusters', 'ManagedClusters'] 
-slug: /tools/sdk/go//methods/managed-clusters
-tags: ['SDK', 'Software Development Kit', 'ManagedClusters', 'ManagedClusters']
+keywords: ['go', 'Golang', 'sdk', 'ManagedClusters', 'V2025ManagedClusters'] 
+slug: /tools/sdk/go/v2025/methods/managed-clusters
+tags: ['SDK', 'Software Development Kit', 'ManagedClusters', 'V2025ManagedClusters']
 ---
 
 # ManagedClustersAPI
@@ -32,7 +32,7 @@ Create Create Managed Cluster
 Create a new Managed Cluster.
 The API returns a result that includes the managed cluster ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-managed-cluster)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-managed-cluster)
 
 ### Path Parameters
 
@@ -65,7 +65,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -82,7 +82,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ManagedClustersAPI.CreateManagedCluster(context.Background()).ManagedClusterRequest(managedClusterRequest).Execute()
+	resp, r, err := apiClient.V2025.ManagedClustersAPI.CreateManagedCluster(context.Background()).ManagedClusterRequest(managedClusterRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.CreateManagedCluster``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -98,7 +98,7 @@ func main() {
 Delete Managed Cluster
 Delete an existing managed cluster.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-managed-cluster)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-managed-cluster)
 
 ### Path Parameters
 
@@ -136,7 +136,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -146,7 +146,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..ManagedClustersAPI.DeleteManagedCluster(context.Background(), id).RemoveClients(removeClients).Execute()
+	r, err := apiClient.V2025.ManagedClustersAPI.DeleteManagedCluster(context.Background(), id).RemoveClients(removeClients).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.DeleteManagedCluster``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -160,7 +160,7 @@ func main() {
 Get Managed Cluster Log Configuration
 Get a managed cluster's log configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-client-log-configuration)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-client-log-configuration)
 
 ### Path Parameters
 
@@ -197,7 +197,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -206,7 +206,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ManagedClustersAPI.GetClientLogConfiguration(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.ManagedClustersAPI.GetClientLogConfiguration(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.GetClientLogConfiguration``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -222,7 +222,7 @@ func main() {
 Get Managed Cluster
 Get a managed cluster by ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-managed-cluster)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-managed-cluster)
 
 ### Path Parameters
 
@@ -259,7 +259,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -268,7 +268,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ManagedClustersAPI.GetManagedCluster(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.ManagedClustersAPI.GetManagedCluster(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.GetManagedCluster``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -284,7 +284,7 @@ func main() {
 Get Managed Clusters
 List current organization's managed clusters, based on request context.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-managed-clusters)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-managed-clusters)
 
 ### Path Parameters
 
@@ -320,7 +320,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -332,7 +332,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ManagedClustersAPI.GetManagedClusters(context.Background()).Offset(offset).Limit(limit).Count(count).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.ManagedClustersAPI.GetManagedClusters(context.Background()).Offset(offset).Limit(limit).Count(count).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.GetManagedClusters``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -348,7 +348,7 @@ func main() {
 Update Managed Cluster Log Configuration
 Update a managed cluster's log configuration. You may only specify one of `durationMinutes` or `expiration`, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` is 240.
 
-[API Spec](https://developer.sailpoint.com/docs/api//put-client-log-configuration)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-client-log-configuration)
 
 ### Path Parameters
 
@@ -386,7 +386,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -396,7 +396,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ManagedClustersAPI.PutClientLogConfiguration(context.Background(), id).PutClientLogConfigurationRequest(putClientLogConfigurationRequest).Execute()
+	resp, r, err := apiClient.V2025.ManagedClustersAPI.PutClientLogConfiguration(context.Background(), id).PutClientLogConfigurationRequest(putClientLogConfigurationRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.PutClientLogConfiguration``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -413,7 +413,7 @@ Trigger Manual Upgrade for Managed Cluster
 Trigger Manual Upgrade for Managed Cluster.
 AMS Security: API, Internal A token with SYSTEM_ADMINISTRATOR authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api//update)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update)
 
 ### Path Parameters
 
@@ -450,7 +450,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -459,7 +459,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ManagedClustersAPI.Update(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.ManagedClustersAPI.Update(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.Update``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -475,7 +475,7 @@ func main() {
 Update Managed Cluster
 Update an existing managed cluster.
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-managed-cluster)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-managed-cluster)
 
 ### Path Parameters
 
@@ -513,7 +513,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -523,7 +523,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ManagedClustersAPI.UpdateManagedCluster(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
+	resp, r, err := apiClient.V2025.ManagedClustersAPI.UpdateManagedCluster(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.UpdateManagedCluster``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

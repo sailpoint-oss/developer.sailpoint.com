@@ -1,12 +1,12 @@
 ---
-id: password-info
+id: v2025-password-info
 title: PasswordInfo
 pagination_label: PasswordInfo
 sidebar_label: PasswordInfo
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PasswordInfo', 'PasswordInfo'] 
-slug: /tools/sdk/go//models/password-info
-tags: ['SDK', 'Software Development Kit', 'PasswordInfo', 'PasswordInfo']
+keywords: ['go', 'Golang', 'sdk', 'PasswordInfo', 'V2025PasswordInfo'] 
+slug: /tools/sdk/go/v2025/models/password-info
+tags: ['SDK', 'Software Development Kit', 'PasswordInfo', 'V2025PasswordInfo']
 ---
 
 # PasswordInfo

@@ -1,12 +1,12 @@
 ---
-id: filter-aggregation
+id: v2025-filter-aggregation
 title: FilterAggregation
 pagination_label: FilterAggregation
 sidebar_label: FilterAggregation
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FilterAggregation', 'FilterAggregation'] 
-slug: /tools/sdk/go//models/filter-aggregation
-tags: ['SDK', 'Software Development Kit', 'FilterAggregation', 'FilterAggregation']
+keywords: ['go', 'Golang', 'sdk', 'FilterAggregation', 'V2025FilterAggregation'] 
+slug: /tools/sdk/go/v2025/models/filter-aggregation
+tags: ['SDK', 'Software Development Kit', 'FilterAggregation', 'V2025FilterAggregation']
 ---
 
 # FilterAggregation

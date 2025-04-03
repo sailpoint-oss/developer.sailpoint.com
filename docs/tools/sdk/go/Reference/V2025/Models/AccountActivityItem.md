@@ -1,12 +1,12 @@
 ---
-id: account-activity-item
+id: v2025-account-activity-item
 title: AccountActivityItem
 pagination_label: AccountActivityItem
 sidebar_label: AccountActivityItem
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountActivityItem', 'AccountActivityItem'] 
-slug: /tools/sdk/go//models/account-activity-item
-tags: ['SDK', 'Software Development Kit', 'AccountActivityItem', 'AccountActivityItem']
+keywords: ['go', 'Golang', 'sdk', 'AccountActivityItem', 'V2025AccountActivityItem'] 
+slug: /tools/sdk/go/v2025/models/account-activity-item
+tags: ['SDK', 'Software Development Kit', 'AccountActivityItem', 'V2025AccountActivityItem']
 ---
 
 # AccountActivityItem

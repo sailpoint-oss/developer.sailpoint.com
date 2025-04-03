@@ -1,12 +1,12 @@
 ---
-id: source-account-deleted
+id: v2025-source-account-deleted
 title: SourceAccountDeleted
 pagination_label: SourceAccountDeleted
 sidebar_label: SourceAccountDeleted
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceAccountDeleted', 'SourceAccountDeleted'] 
-slug: /tools/sdk/go//models/source-account-deleted
-tags: ['SDK', 'Software Development Kit', 'SourceAccountDeleted', 'SourceAccountDeleted']
+keywords: ['go', 'Golang', 'sdk', 'SourceAccountDeleted', 'V2025SourceAccountDeleted'] 
+slug: /tools/sdk/go/v2025/models/source-account-deleted
+tags: ['SDK', 'Software Development Kit', 'SourceAccountDeleted', 'V2025SourceAccountDeleted']
 ---
 
 # SourceAccountDeleted

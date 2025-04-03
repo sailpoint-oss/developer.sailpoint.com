@@ -1,12 +1,12 @@
 ---
-id: source-connections-dto
+id: v2025-source-connections-dto
 title: SourceConnectionsDto
 pagination_label: SourceConnectionsDto
 sidebar_label: SourceConnectionsDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceConnectionsDto', 'SourceConnectionsDto'] 
-slug: /tools/sdk/go//models/source-connections-dto
-tags: ['SDK', 'Software Development Kit', 'SourceConnectionsDto', 'SourceConnectionsDto']
+keywords: ['go', 'Golang', 'sdk', 'SourceConnectionsDto', 'V2025SourceConnectionsDto'] 
+slug: /tools/sdk/go/v2025/models/source-connections-dto
+tags: ['SDK', 'Software Development Kit', 'SourceConnectionsDto', 'V2025SourceConnectionsDto']
 ---
 
 # SourceConnectionsDto

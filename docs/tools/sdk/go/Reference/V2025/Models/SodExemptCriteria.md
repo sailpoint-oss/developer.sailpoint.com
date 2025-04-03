@@ -1,12 +1,12 @@
 ---
-id: sod-exempt-criteria
+id: v2025-sod-exempt-criteria
 title: SodExemptCriteria
 pagination_label: SodExemptCriteria
 sidebar_label: SodExemptCriteria
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SodExemptCriteria', 'SodExemptCriteria'] 
-slug: /tools/sdk/go//models/sod-exempt-criteria
-tags: ['SDK', 'Software Development Kit', 'SodExemptCriteria', 'SodExemptCriteria']
+keywords: ['go', 'Golang', 'sdk', 'SodExemptCriteria', 'V2025SodExemptCriteria'] 
+slug: /tools/sdk/go/v2025/models/sod-exempt-criteria
+tags: ['SDK', 'Software Development Kit', 'SodExemptCriteria', 'V2025SodExemptCriteria']
 ---
 
 # SodExemptCriteria

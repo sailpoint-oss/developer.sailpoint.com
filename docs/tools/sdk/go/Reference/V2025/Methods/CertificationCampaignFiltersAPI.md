@@ -1,12 +1,12 @@
 ---
-id: certification-campaign-filters
+id: v2025-certification-campaign-filters
 title: CertificationCampaignFilters
 pagination_label: CertificationCampaignFilters
 sidebar_label: CertificationCampaignFilters
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CertificationCampaignFilters', 'CertificationCampaignFilters'] 
-slug: /tools/sdk/go//methods/certification-campaign-filters
-tags: ['SDK', 'Software Development Kit', 'CertificationCampaignFilters', 'CertificationCampaignFilters']
+keywords: ['go', 'Golang', 'sdk', 'CertificationCampaignFilters', 'V2025CertificationCampaignFilters'] 
+slug: /tools/sdk/go/v2025/methods/certification-campaign-filters
+tags: ['SDK', 'Software Development Kit', 'CertificationCampaignFilters', 'V2025CertificationCampaignFilters']
 ---
 
 # CertificationCampaignFiltersAPI
@@ -53,7 +53,7 @@ Method | HTTP request | Description
 Create Campaign Filter
 Use this API to create a campaign filter based on filter details and criteria.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-campaign-filter)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-campaign-filter)
 
 ### Path Parameters
 
@@ -86,7 +86,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -112,7 +112,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..CertificationCampaignFiltersAPI.CreateCampaignFilter(context.Background()).CampaignFilterDetails(campaignFilterDetails).Execute()
+	resp, r, err := apiClient.V2025.CertificationCampaignFiltersAPI.CreateCampaignFilter(context.Background()).CampaignFilterDetails(campaignFilterDetails).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignFiltersAPI.CreateCampaignFilter``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -128,7 +128,7 @@ func main() {
 Deletes Campaign Filters
 Deletes campaign filters whose Ids are specified in the provided list of campaign filter Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-campaign-filters)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-campaign-filters)
 
 ### Path Parameters
 
@@ -161,7 +161,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -170,7 +170,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..CertificationCampaignFiltersAPI.DeleteCampaignFilters(context.Background()).RequestBody(requestBody).Execute()
+	r, err := apiClient.V2025.CertificationCampaignFiltersAPI.DeleteCampaignFilters(context.Background()).RequestBody(requestBody).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignFiltersAPI.DeleteCampaignFilters``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -184,7 +184,7 @@ func main() {
 Get Campaign Filter by ID
 Retrieves information for an existing campaign filter using the filter's ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-campaign-filter-by-id)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-campaign-filter-by-id)
 
 ### Path Parameters
 
@@ -221,7 +221,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -230,7 +230,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..CertificationCampaignFiltersAPI.GetCampaignFilterById(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.CertificationCampaignFiltersAPI.GetCampaignFilterById(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignFiltersAPI.GetCampaignFilterById``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -246,7 +246,7 @@ func main() {
 List Campaign Filters
 Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-campaign-filters)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-campaign-filters)
 
 ### Path Parameters
 
@@ -281,7 +281,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -292,7 +292,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..CertificationCampaignFiltersAPI.ListCampaignFilters(context.Background()).Limit(limit).Start(start).IncludeSystemFilters(includeSystemFilters).Execute()
+	resp, r, err := apiClient.V2025.CertificationCampaignFiltersAPI.ListCampaignFilters(context.Background()).Limit(limit).Start(start).IncludeSystemFilters(includeSystemFilters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignFiltersAPI.ListCampaignFilters``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -308,7 +308,7 @@ func main() {
 Updates a Campaign Filter
 Updates an existing campaign filter using the filter's ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-campaign-filter)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-campaign-filter)
 
 ### Path Parameters
 
@@ -346,7 +346,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -373,7 +373,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..CertificationCampaignFiltersAPI.UpdateCampaignFilter(context.Background(), filterId).CampaignFilterDetails(campaignFilterDetails).Execute()
+	resp, r, err := apiClient.V2025.CertificationCampaignFiltersAPI.UpdateCampaignFilter(context.Background(), filterId).CampaignFilterDetails(campaignFilterDetails).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CertificationCampaignFiltersAPI.UpdateCampaignFilter``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

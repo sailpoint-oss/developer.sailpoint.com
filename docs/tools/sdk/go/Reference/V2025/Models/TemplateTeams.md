@@ -1,12 +1,12 @@
 ---
-id: template-teams
+id: v2025-template-teams
 title: TemplateTeams
 pagination_label: TemplateTeams
 sidebar_label: TemplateTeams
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TemplateTeams', 'TemplateTeams'] 
-slug: /tools/sdk/go//models/template-teams
-tags: ['SDK', 'Software Development Kit', 'TemplateTeams', 'TemplateTeams']
+keywords: ['go', 'Golang', 'sdk', 'TemplateTeams', 'V2025TemplateTeams'] 
+slug: /tools/sdk/go/v2025/models/template-teams
+tags: ['SDK', 'Software Development Kit', 'TemplateTeams', 'V2025TemplateTeams']
 ---
 
 # TemplateTeams

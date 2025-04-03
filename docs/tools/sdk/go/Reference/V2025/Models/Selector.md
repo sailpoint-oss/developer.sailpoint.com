@@ -1,12 +1,12 @@
 ---
-id: selector
+id: v2025-selector
 title: Selector
 pagination_label: Selector
 sidebar_label: Selector
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Selector', 'Selector'] 
-slug: /tools/sdk/go//models/selector
-tags: ['SDK', 'Software Development Kit', 'Selector', 'Selector']
+keywords: ['go', 'Golang', 'sdk', 'Selector', 'V2025Selector'] 
+slug: /tools/sdk/go/v2025/models/selector
+tags: ['SDK', 'Software Development Kit', 'Selector', 'V2025Selector']
 ---
 
 # Selector

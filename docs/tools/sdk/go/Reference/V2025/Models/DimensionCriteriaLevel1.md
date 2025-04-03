@@ -1,12 +1,12 @@
 ---
-id: dimension-criteria-level1
+id: v2025-dimension-criteria-level1
 title: DimensionCriteriaLevel1
 pagination_label: DimensionCriteriaLevel1
 sidebar_label: DimensionCriteriaLevel1
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DimensionCriteriaLevel1', 'DimensionCriteriaLevel1'] 
-slug: /tools/sdk/go//models/dimension-criteria-level1
-tags: ['SDK', 'Software Development Kit', 'DimensionCriteriaLevel1', 'DimensionCriteriaLevel1']
+keywords: ['go', 'Golang', 'sdk', 'DimensionCriteriaLevel1', 'V2025DimensionCriteriaLevel1'] 
+slug: /tools/sdk/go/v2025/models/dimension-criteria-level1
+tags: ['SDK', 'Software Development Kit', 'DimensionCriteriaLevel1', 'V2025DimensionCriteriaLevel1']
 ---
 
 # DimensionCriteriaLevel1

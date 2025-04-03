@@ -1,12 +1,12 @@
 ---
-id: role-insights-entitlement-changes
+id: v2025-role-insights-entitlement-changes
 title: RoleInsightsEntitlementChanges
 pagination_label: RoleInsightsEntitlementChanges
 sidebar_label: RoleInsightsEntitlementChanges
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleInsightsEntitlementChanges', 'RoleInsightsEntitlementChanges'] 
-slug: /tools/sdk/go//models/role-insights-entitlement-changes
-tags: ['SDK', 'Software Development Kit', 'RoleInsightsEntitlementChanges', 'RoleInsightsEntitlementChanges']
+keywords: ['go', 'Golang', 'sdk', 'RoleInsightsEntitlementChanges', 'V2025RoleInsightsEntitlementChanges'] 
+slug: /tools/sdk/go/v2025/models/role-insights-entitlement-changes
+tags: ['SDK', 'Software Development Kit', 'RoleInsightsEntitlementChanges', 'V2025RoleInsightsEntitlementChanges']
 ---
 
 # RoleInsightsEntitlementChanges

@@ -1,12 +1,12 @@
 ---
-id: mfa-duo-config
+id: v2025-mfa-duo-config
 title: MfaDuoConfig
 pagination_label: MfaDuoConfig
 sidebar_label: MfaDuoConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MfaDuoConfig', 'MfaDuoConfig'] 
-slug: /tools/sdk/go//models/mfa-duo-config
-tags: ['SDK', 'Software Development Kit', 'MfaDuoConfig', 'MfaDuoConfig']
+keywords: ['go', 'Golang', 'sdk', 'MfaDuoConfig', 'V2025MfaDuoConfig'] 
+slug: /tools/sdk/go/v2025/models/mfa-duo-config
+tags: ['SDK', 'Software Development Kit', 'MfaDuoConfig', 'V2025MfaDuoConfig']
 ---
 
 # MfaDuoConfig

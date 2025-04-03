@@ -1,12 +1,12 @@
 ---
-id: role-criteria-key
+id: v2025-role-criteria-key
 title: RoleCriteriaKey
 pagination_label: RoleCriteriaKey
 sidebar_label: RoleCriteriaKey
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleCriteriaKey', 'RoleCriteriaKey'] 
-slug: /tools/sdk/go//models/role-criteria-key
-tags: ['SDK', 'Software Development Kit', 'RoleCriteriaKey', 'RoleCriteriaKey']
+keywords: ['go', 'Golang', 'sdk', 'RoleCriteriaKey', 'V2025RoleCriteriaKey'] 
+slug: /tools/sdk/go/v2025/models/role-criteria-key
+tags: ['SDK', 'Software Development Kit', 'RoleCriteriaKey', 'V2025RoleCriteriaKey']
 ---
 
 # RoleCriteriaKey

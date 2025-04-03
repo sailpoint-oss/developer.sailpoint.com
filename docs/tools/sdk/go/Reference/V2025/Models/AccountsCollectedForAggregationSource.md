@@ -1,12 +1,12 @@
 ---
-id: accounts-collected-for-aggregation-source
+id: v2025-accounts-collected-for-aggregation-source
 title: AccountsCollectedForAggregationSource
 pagination_label: AccountsCollectedForAggregationSource
 sidebar_label: AccountsCollectedForAggregationSource
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountsCollectedForAggregationSource', 'AccountsCollectedForAggregationSource'] 
-slug: /tools/sdk/go//models/accounts-collected-for-aggregation-source
-tags: ['SDK', 'Software Development Kit', 'AccountsCollectedForAggregationSource', 'AccountsCollectedForAggregationSource']
+keywords: ['go', 'Golang', 'sdk', 'AccountsCollectedForAggregationSource', 'V2025AccountsCollectedForAggregationSource'] 
+slug: /tools/sdk/go/v2025/models/accounts-collected-for-aggregation-source
+tags: ['SDK', 'Software Development Kit', 'AccountsCollectedForAggregationSource', 'V2025AccountsCollectedForAggregationSource']
 ---
 
 # AccountsCollectedForAggregationSource

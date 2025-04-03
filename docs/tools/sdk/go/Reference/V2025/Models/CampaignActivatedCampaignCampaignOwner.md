@@ -1,12 +1,12 @@
 ---
-id: campaign-activated-campaign-campaign-owner
+id: v2025-campaign-activated-campaign-campaign-owner
 title: CampaignActivatedCampaignCampaignOwner
 pagination_label: CampaignActivatedCampaignCampaignOwner
 sidebar_label: CampaignActivatedCampaignCampaignOwner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignActivatedCampaignCampaignOwner', 'CampaignActivatedCampaignCampaignOwner'] 
-slug: /tools/sdk/go//models/campaign-activated-campaign-campaign-owner
-tags: ['SDK', 'Software Development Kit', 'CampaignActivatedCampaignCampaignOwner', 'CampaignActivatedCampaignCampaignOwner']
+keywords: ['go', 'Golang', 'sdk', 'CampaignActivatedCampaignCampaignOwner', 'V2025CampaignActivatedCampaignCampaignOwner'] 
+slug: /tools/sdk/go/v2025/models/campaign-activated-campaign-campaign-owner
+tags: ['SDK', 'Software Development Kit', 'CampaignActivatedCampaignCampaignOwner', 'V2025CampaignActivatedCampaignCampaignOwner']
 ---
 
 # CampaignActivatedCampaignCampaignOwner

@@ -1,12 +1,12 @@
 ---
-id: role-insights-identities
+id: v2025-role-insights-identities
 title: RoleInsightsIdentities
 pagination_label: RoleInsightsIdentities
 sidebar_label: RoleInsightsIdentities
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleInsightsIdentities', 'RoleInsightsIdentities'] 
-slug: /tools/sdk/go//models/role-insights-identities
-tags: ['SDK', 'Software Development Kit', 'RoleInsightsIdentities', 'RoleInsightsIdentities']
+keywords: ['go', 'Golang', 'sdk', 'RoleInsightsIdentities', 'V2025RoleInsightsIdentities'] 
+slug: /tools/sdk/go/v2025/models/role-insights-identities
+tags: ['SDK', 'Software Development Kit', 'RoleInsightsIdentities', 'V2025RoleInsightsIdentities']
 ---
 
 # RoleInsightsIdentities

@@ -1,12 +1,12 @@
 ---
-id: approval-reference
+id: v2025-approval-reference
 title: ApprovalReference
 pagination_label: ApprovalReference
 sidebar_label: ApprovalReference
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ApprovalReference', 'ApprovalReference'] 
-slug: /tools/sdk/go//models/approval-reference
-tags: ['SDK', 'Software Development Kit', 'ApprovalReference', 'ApprovalReference']
+keywords: ['go', 'Golang', 'sdk', 'ApprovalReference', 'V2025ApprovalReference'] 
+slug: /tools/sdk/go/v2025/models/approval-reference
+tags: ['SDK', 'Software Development Kit', 'ApprovalReference', 'V2025ApprovalReference']
 ---
 
 # ApprovalReference

@@ -1,12 +1,12 @@
 ---
-id: multi-host-integrations-connector-attributes-connector-file-upload-history
+id: v2025-multi-host-integrations-connector-attributes-connector-file-upload-history
 title: MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory
 pagination_label: MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory
 sidebar_label: MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory', 'MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory'] 
-slug: /tools/sdk/go//models/multi-host-integrations-connector-attributes-connector-file-upload-history
-tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory', 'MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory']
+keywords: ['go', 'Golang', 'sdk', 'MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory', 'V2025MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory'] 
+slug: /tools/sdk/go/v2025/models/multi-host-integrations-connector-attributes-connector-file-upload-history
+tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory', 'V2025MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory']
 ---
 
 # MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory

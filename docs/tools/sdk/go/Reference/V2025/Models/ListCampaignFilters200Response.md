@@ -1,12 +1,12 @@
 ---
-id: list-campaign-filters200-response
+id: v2025-list-campaign-filters200-response
 title: ListCampaignFilters200Response
 pagination_label: ListCampaignFilters200Response
 sidebar_label: ListCampaignFilters200Response
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ListCampaignFilters200Response', 'ListCampaignFilters200Response'] 
-slug: /tools/sdk/go//models/list-campaign-filters200-response
-tags: ['SDK', 'Software Development Kit', 'ListCampaignFilters200Response', 'ListCampaignFilters200Response']
+keywords: ['go', 'Golang', 'sdk', 'ListCampaignFilters200Response', 'V2025ListCampaignFilters200Response'] 
+slug: /tools/sdk/go/v2025/models/list-campaign-filters200-response
+tags: ['SDK', 'Software Development Kit', 'ListCampaignFilters200Response', 'V2025ListCampaignFilters200Response']
 ---
 
 # ListCampaignFilters200Response

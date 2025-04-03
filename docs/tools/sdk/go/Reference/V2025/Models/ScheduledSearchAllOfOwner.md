@@ -1,12 +1,12 @@
 ---
-id: scheduled-search-all-of-owner
+id: v2025-scheduled-search-all-of-owner
 title: ScheduledSearchAllOfOwner
 pagination_label: ScheduledSearchAllOfOwner
 sidebar_label: ScheduledSearchAllOfOwner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ScheduledSearchAllOfOwner', 'ScheduledSearchAllOfOwner'] 
-slug: /tools/sdk/go//models/scheduled-search-all-of-owner
-tags: ['SDK', 'Software Development Kit', 'ScheduledSearchAllOfOwner', 'ScheduledSearchAllOfOwner']
+keywords: ['go', 'Golang', 'sdk', 'ScheduledSearchAllOfOwner', 'V2025ScheduledSearchAllOfOwner'] 
+slug: /tools/sdk/go/v2025/models/scheduled-search-all-of-owner
+tags: ['SDK', 'Software Development Kit', 'ScheduledSearchAllOfOwner', 'V2025ScheduledSearchAllOfOwner']
 ---
 
 # ScheduledSearchAllOfOwner

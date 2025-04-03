@@ -1,12 +1,12 @@
 ---
-id: campaign-template-owner-ref
+id: v2025-campaign-template-owner-ref
 title: CampaignTemplateOwnerRef
 pagination_label: CampaignTemplateOwnerRef
 sidebar_label: CampaignTemplateOwnerRef
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignTemplateOwnerRef', 'CampaignTemplateOwnerRef'] 
-slug: /tools/sdk/go//models/campaign-template-owner-ref
-tags: ['SDK', 'Software Development Kit', 'CampaignTemplateOwnerRef', 'CampaignTemplateOwnerRef']
+keywords: ['go', 'Golang', 'sdk', 'CampaignTemplateOwnerRef', 'V2025CampaignTemplateOwnerRef'] 
+slug: /tools/sdk/go/v2025/models/campaign-template-owner-ref
+tags: ['SDK', 'Software Development Kit', 'CampaignTemplateOwnerRef', 'V2025CampaignTemplateOwnerRef']
 ---
 
 # CampaignTemplateOwnerRef

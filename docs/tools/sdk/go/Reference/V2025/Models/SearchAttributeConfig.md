@@ -1,12 +1,12 @@
 ---
-id: search-attribute-config
+id: v2025-search-attribute-config
 title: SearchAttributeConfig
 pagination_label: SearchAttributeConfig
 sidebar_label: SearchAttributeConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SearchAttributeConfig', 'SearchAttributeConfig'] 
-slug: /tools/sdk/go//models/search-attribute-config
-tags: ['SDK', 'Software Development Kit', 'SearchAttributeConfig', 'SearchAttributeConfig']
+keywords: ['go', 'Golang', 'sdk', 'SearchAttributeConfig', 'V2025SearchAttributeConfig'] 
+slug: /tools/sdk/go/v2025/models/search-attribute-config
+tags: ['SDK', 'Software Development Kit', 'SearchAttributeConfig', 'V2025SearchAttributeConfig']
 ---
 
 # SearchAttributeConfig

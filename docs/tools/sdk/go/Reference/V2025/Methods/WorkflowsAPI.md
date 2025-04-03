@@ -1,12 +1,12 @@
 ---
-id: workflows
+id: v2025-workflows
 title: Workflows
 pagination_label: Workflows
 sidebar_label: Workflows
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Workflows', 'Workflows'] 
-slug: /tools/sdk/go//methods/workflows
-tags: ['SDK', 'Software Development Kit', 'Workflows', 'Workflows']
+keywords: ['go', 'Golang', 'sdk', 'Workflows', 'V2025Workflows'] 
+slug: /tools/sdk/go/v2025/methods/workflows
+tags: ['SDK', 'Software Development Kit', 'Workflows', 'V2025Workflows']
 ---
 
 # WorkflowsAPI
@@ -40,7 +40,7 @@ Method | HTTP request | Description
 Cancel Workflow Execution by ID
 Use this API to cancel a running workflow execution.
 
-[API Spec](https://developer.sailpoint.com/docs/api//cancel-workflow-execution)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/cancel-workflow-execution)
 
 ### Path Parameters
 
@@ -77,7 +77,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -86,7 +86,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..WorkflowsAPI.CancelWorkflowExecution(context.Background(), id).Execute()
+	r, err := apiClient.V2025.WorkflowsAPI.CancelWorkflowExecution(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.CancelWorkflowExecution``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -100,7 +100,7 @@ func main() {
 Execute Workflow via External Trigger
 This endpoint allows a service outside of IdentityNow to initiate a workflow that uses the "External Trigger" step.  The external service will invoke this endpoint with the input data it wants to send to the workflow in the body.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-external-execute-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-external-execute-workflow)
 
 ### Path Parameters
 
@@ -138,7 +138,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -148,7 +148,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..WorkflowsAPI.CreateExternalExecuteWorkflow(context.Background(), id).CreateExternalExecuteWorkflowRequest(createExternalExecuteWorkflowRequest).Execute()
+	resp, r, err := apiClient.V2025.WorkflowsAPI.CreateExternalExecuteWorkflow(context.Background(), id).CreateExternalExecuteWorkflowRequest(createExternalExecuteWorkflowRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.CreateExternalExecuteWorkflow``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -164,7 +164,7 @@ func main() {
 Create Workflow
 Create a new workflow with the desired trigger and steps specified in the request body.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-workflow)
 
 ### Path Parameters
 
@@ -197,7 +197,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -206,7 +206,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..WorkflowsAPI.CreateWorkflow(context.Background()).CreateWorkflowRequest(createWorkflowRequest).Execute()
+	resp, r, err := apiClient.V2025.WorkflowsAPI.CreateWorkflow(context.Background()).CreateWorkflowRequest(createWorkflowRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.CreateWorkflow``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -222,7 +222,7 @@ func main() {
 Generate External Trigger OAuth Client
 Create OAuth client ID, client secret, and callback URL for use in an external trigger.  External triggers will need this information to generate an access token to authenticate to the callback URL and submit a trigger payload that will initiate the workflow.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-workflow-external-trigger)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-workflow-external-trigger)
 
 ### Path Parameters
 
@@ -259,7 +259,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -268,7 +268,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..WorkflowsAPI.CreateWorkflowExternalTrigger(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.WorkflowsAPI.CreateWorkflowExternalTrigger(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.CreateWorkflowExternalTrigger``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -284,7 +284,7 @@ func main() {
 Delete Workflow By Id
 Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-workflow)
 
 ### Path Parameters
 
@@ -321,7 +321,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -330,7 +330,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..WorkflowsAPI.DeleteWorkflow(context.Background(), id).Execute()
+	r, err := apiClient.V2025.WorkflowsAPI.DeleteWorkflow(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.DeleteWorkflow``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -344,7 +344,7 @@ func main() {
 Get Workflow By Id
 Get a single workflow by id.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-workflow)
 
 ### Path Parameters
 
@@ -381,7 +381,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -390,7 +390,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..WorkflowsAPI.GetWorkflow(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.WorkflowsAPI.GetWorkflow(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.GetWorkflow``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -406,7 +406,7 @@ func main() {
 Get Workflow Execution
 Use this API to get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a "404 Not Found" response.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-workflow-execution)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-workflow-execution)
 
 ### Path Parameters
 
@@ -443,7 +443,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -452,7 +452,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..WorkflowsAPI.GetWorkflowExecution(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.WorkflowsAPI.GetWorkflowExecution(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.GetWorkflowExecution``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -468,7 +468,7 @@ func main() {
 Get Workflow Execution History
 Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-workflow-execution-history)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-workflow-execution-history)
 
 ### Path Parameters
 
@@ -505,7 +505,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -514,7 +514,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..WorkflowsAPI.GetWorkflowExecutionHistory(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.WorkflowsAPI.GetWorkflowExecutionHistory(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.GetWorkflowExecutionHistory``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -540,7 +540,7 @@ Use this API to list a specified workflow's executions. Workflow executions are 
   For example, you can page through 50 executions per page and use that as a way to get to the records past the first 250.
   Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-workflow-executions)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-workflow-executions)
 
 ### Path Parameters
 
@@ -581,7 +581,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -594,7 +594,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..WorkflowsAPI.GetWorkflowExecutions(context.Background(), id).Limit(limit).Offset(offset).Count(count).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.WorkflowsAPI.GetWorkflowExecutions(context.Background(), id).Limit(limit).Offset(offset).Count(count).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.GetWorkflowExecutions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -610,7 +610,7 @@ func main() {
 List Complete Workflow Library
 This lists all triggers, actions, and operators in the library
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-complete-workflow-library)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-complete-workflow-library)
 
 ### Path Parameters
 
@@ -644,7 +644,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -654,7 +654,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..WorkflowsAPI.ListCompleteWorkflowLibrary(context.Background()).Limit(limit).Offset(offset).Execute()
+	resp, r, err := apiClient.V2025.WorkflowsAPI.ListCompleteWorkflowLibrary(context.Background()).Limit(limit).Offset(offset).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.ListCompleteWorkflowLibrary``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -670,7 +670,7 @@ func main() {
 List Workflow Library Actions
 This lists the workflow actions available to you.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-workflow-library-actions)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-workflow-library-actions)
 
 ### Path Parameters
 
@@ -705,7 +705,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -716,7 +716,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..WorkflowsAPI.ListWorkflowLibraryActions(context.Background()).Limit(limit).Offset(offset).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.WorkflowsAPI.ListWorkflowLibraryActions(context.Background()).Limit(limit).Offset(offset).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.ListWorkflowLibraryActions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -732,7 +732,7 @@ func main() {
 List Workflow Library Operators
 This lists the workflow operators available to you
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-workflow-library-operators)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-workflow-library-operators)
 
 ### Path Parameters
 
@@ -761,7 +761,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -769,7 +769,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..WorkflowsAPI.ListWorkflowLibraryOperators(context.Background()).Execute()
+	resp, r, err := apiClient.V2025.WorkflowsAPI.ListWorkflowLibraryOperators(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.ListWorkflowLibraryOperators``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -785,7 +785,7 @@ func main() {
 List Workflow Library Triggers
 This lists the workflow triggers available to you
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-workflow-library-triggers)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-workflow-library-triggers)
 
 ### Path Parameters
 
@@ -820,7 +820,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -831,7 +831,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..WorkflowsAPI.ListWorkflowLibraryTriggers(context.Background()).Limit(limit).Offset(offset).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.WorkflowsAPI.ListWorkflowLibraryTriggers(context.Background()).Limit(limit).Offset(offset).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.ListWorkflowLibraryTriggers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -847,7 +847,7 @@ func main() {
 List Workflows
 List all workflows in the tenant.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-workflows)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-workflows)
 
 ### Path Parameters
 
@@ -876,7 +876,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -884,7 +884,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..WorkflowsAPI.ListWorkflows(context.Background()).Execute()
+	resp, r, err := apiClient.V2025.WorkflowsAPI.ListWorkflows(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.ListWorkflows``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -900,7 +900,7 @@ func main() {
 Patch Workflow
 Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-workflow)
 
 ### Path Parameters
 
@@ -938,7 +938,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -948,7 +948,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..WorkflowsAPI.PatchWorkflow(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
+	resp, r, err := apiClient.V2025.WorkflowsAPI.PatchWorkflow(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.PatchWorkflow``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -964,7 +964,7 @@ func main() {
 Update Workflow
 Perform a full update of a workflow.  The updated workflow object is returned in the response.
 
-[API Spec](https://developer.sailpoint.com/docs/api//put-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-workflow)
 
 ### Path Parameters
 
@@ -1002,7 +1002,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1051,7 +1051,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..WorkflowsAPI.PutWorkflow(context.Background(), id).WorkflowBody(workflowBody).Execute()
+	resp, r, err := apiClient.V2025.WorkflowsAPI.PutWorkflow(context.Background(), id).WorkflowBody(workflowBody).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.PutWorkflow``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1067,7 +1067,7 @@ func main() {
 Test Workflow via External Trigger
 Validate a workflow with an "External Trigger" can receive input.  The response includes the input that the workflow received, which can be used to validate that the input is intact when it reaches the workflow.
 
-[API Spec](https://developer.sailpoint.com/docs/api//test-external-execute-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/test-external-execute-workflow)
 
 ### Path Parameters
 
@@ -1105,7 +1105,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1115,7 +1115,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..WorkflowsAPI.TestExternalExecuteWorkflow(context.Background(), id).TestExternalExecuteWorkflowRequest(testExternalExecuteWorkflowRequest).Execute()
+	resp, r, err := apiClient.V2025.WorkflowsAPI.TestExternalExecuteWorkflow(context.Background(), id).TestExternalExecuteWorkflowRequest(testExternalExecuteWorkflowRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.TestExternalExecuteWorkflow``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1133,7 +1133,7 @@ Test a workflow with the provided input data.  The input data should resemble th
 This endpoint will return an execution ID, which can be used to lookup more information about the execution using the `Get a Workflow Execution` endpoint.
 **This will cause a live run of the workflow, which could result in unintended modifications to your IDN tenant.**
 
-[API Spec](https://developer.sailpoint.com/docs/api//test-workflow)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/test-workflow)
 
 ### Path Parameters
 
@@ -1171,7 +1171,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1181,7 +1181,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..WorkflowsAPI.TestWorkflow(context.Background(), id).TestWorkflowRequest(testWorkflowRequest).Execute()
+	resp, r, err := apiClient.V2025.WorkflowsAPI.TestWorkflow(context.Background(), id).TestWorkflowRequest(testWorkflowRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.TestWorkflow``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

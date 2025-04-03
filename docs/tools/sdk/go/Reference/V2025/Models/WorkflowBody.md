@@ -1,12 +1,12 @@
 ---
-id: workflow-body
+id: v2025-workflow-body
 title: WorkflowBody
 pagination_label: WorkflowBody
 sidebar_label: WorkflowBody
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkflowBody', 'WorkflowBody'] 
-slug: /tools/sdk/go//models/workflow-body
-tags: ['SDK', 'Software Development Kit', 'WorkflowBody', 'WorkflowBody']
+keywords: ['go', 'Golang', 'sdk', 'WorkflowBody', 'V2025WorkflowBody'] 
+slug: /tools/sdk/go/v2025/models/workflow-body
+tags: ['SDK', 'Software Development Kit', 'WorkflowBody', 'V2025WorkflowBody']
 ---
 
 # WorkflowBody

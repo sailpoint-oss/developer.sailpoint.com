@@ -1,12 +1,12 @@
 ---
-id: workflow-execution
+id: v2025-workflow-execution
 title: WorkflowExecution
 pagination_label: WorkflowExecution
 sidebar_label: WorkflowExecution
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkflowExecution', 'WorkflowExecution'] 
-slug: /tools/sdk/go//models/workflow-execution
-tags: ['SDK', 'Software Development Kit', 'WorkflowExecution', 'WorkflowExecution']
+keywords: ['go', 'Golang', 'sdk', 'WorkflowExecution', 'V2025WorkflowExecution'] 
+slug: /tools/sdk/go/v2025/models/workflow-execution
+tags: ['SDK', 'Software Development Kit', 'WorkflowExecution', 'V2025WorkflowExecution']
 ---
 
 # WorkflowExecution

@@ -1,12 +1,12 @@
 ---
-id: product
+id: v2025-product
 title: Product
 pagination_label: Product
 sidebar_label: Product
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Product', 'Product'] 
-slug: /tools/sdk/go//models/product
-tags: ['SDK', 'Software Development Kit', 'Product', 'Product']
+keywords: ['go', 'Golang', 'sdk', 'Product', 'V2025Product'] 
+slug: /tools/sdk/go/v2025/models/product
+tags: ['SDK', 'Software Development Kit', 'Product', 'V2025Product']
 ---
 
 # Product

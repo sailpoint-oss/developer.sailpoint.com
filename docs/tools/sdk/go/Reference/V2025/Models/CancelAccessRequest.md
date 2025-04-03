@@ -1,12 +1,12 @@
 ---
-id: cancel-access-request
+id: v2025-cancel-access-request
 title: CancelAccessRequest
 pagination_label: CancelAccessRequest
 sidebar_label: CancelAccessRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CancelAccessRequest', 'CancelAccessRequest'] 
-slug: /tools/sdk/go//models/cancel-access-request
-tags: ['SDK', 'Software Development Kit', 'CancelAccessRequest', 'CancelAccessRequest']
+keywords: ['go', 'Golang', 'sdk', 'CancelAccessRequest', 'V2025CancelAccessRequest'] 
+slug: /tools/sdk/go/v2025/models/cancel-access-request
+tags: ['SDK', 'Software Development Kit', 'CancelAccessRequest', 'V2025CancelAccessRequest']
 ---
 
 # CancelAccessRequest

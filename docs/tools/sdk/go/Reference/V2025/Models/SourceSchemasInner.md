@@ -1,12 +1,12 @@
 ---
-id: source-schemas-inner
+id: v2025-source-schemas-inner
 title: SourceSchemasInner
 pagination_label: SourceSchemasInner
 sidebar_label: SourceSchemasInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceSchemasInner', 'SourceSchemasInner'] 
-slug: /tools/sdk/go//models/source-schemas-inner
-tags: ['SDK', 'Software Development Kit', 'SourceSchemasInner', 'SourceSchemasInner']
+keywords: ['go', 'Golang', 'sdk', 'SourceSchemasInner', 'V2025SourceSchemasInner'] 
+slug: /tools/sdk/go/v2025/models/source-schemas-inner
+tags: ['SDK', 'Software Development Kit', 'SourceSchemasInner', 'V2025SourceSchemasInner']
 ---
 
 # SourceSchemasInner

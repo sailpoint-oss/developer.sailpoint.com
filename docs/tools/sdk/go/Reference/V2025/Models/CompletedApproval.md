@@ -1,12 +1,12 @@
 ---
-id: completed-approval
+id: v2025-completed-approval
 title: CompletedApproval
 pagination_label: CompletedApproval
 sidebar_label: CompletedApproval
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CompletedApproval', 'CompletedApproval'] 
-slug: /tools/sdk/go//models/completed-approval
-tags: ['SDK', 'Software Development Kit', 'CompletedApproval', 'CompletedApproval']
+keywords: ['go', 'Golang', 'sdk', 'CompletedApproval', 'V2025CompletedApproval'] 
+slug: /tools/sdk/go/v2025/models/completed-approval
+tags: ['SDK', 'Software Development Kit', 'CompletedApproval', 'V2025CompletedApproval']
 ---
 
 # CompletedApproval

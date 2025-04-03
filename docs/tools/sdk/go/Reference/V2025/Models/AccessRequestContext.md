@@ -1,12 +1,12 @@
 ---
-id: access-request-context
+id: v2025-access-request-context
 title: AccessRequestContext
 pagination_label: AccessRequestContext
 sidebar_label: AccessRequestContext
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestContext', 'AccessRequestContext'] 
-slug: /tools/sdk/go//models/access-request-context
-tags: ['SDK', 'Software Development Kit', 'AccessRequestContext', 'AccessRequestContext']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestContext', 'V2025AccessRequestContext'] 
+slug: /tools/sdk/go/v2025/models/access-request-context
+tags: ['SDK', 'Software Development Kit', 'AccessRequestContext', 'V2025AccessRequestContext']
 ---
 
 # AccessRequestContext

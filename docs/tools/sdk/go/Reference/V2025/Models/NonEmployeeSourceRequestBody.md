@@ -1,12 +1,12 @@
 ---
-id: non-employee-source-request-body
+id: v2025-non-employee-source-request-body
 title: NonEmployeeSourceRequestBody
 pagination_label: NonEmployeeSourceRequestBody
 sidebar_label: NonEmployeeSourceRequestBody
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NonEmployeeSourceRequestBody', 'NonEmployeeSourceRequestBody'] 
-slug: /tools/sdk/go//models/non-employee-source-request-body
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceRequestBody', 'NonEmployeeSourceRequestBody']
+keywords: ['go', 'Golang', 'sdk', 'NonEmployeeSourceRequestBody', 'V2025NonEmployeeSourceRequestBody'] 
+slug: /tools/sdk/go/v2025/models/non-employee-source-request-body
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeSourceRequestBody', 'V2025NonEmployeeSourceRequestBody']
 ---
 
 # NonEmployeeSourceRequestBody

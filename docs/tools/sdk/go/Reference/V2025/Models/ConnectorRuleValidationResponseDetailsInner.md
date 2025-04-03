@@ -1,12 +1,12 @@
 ---
-id: connector-rule-validation-response-details-inner
+id: v2025-connector-rule-validation-response-details-inner
 title: ConnectorRuleValidationResponseDetailsInner
 pagination_label: ConnectorRuleValidationResponseDetailsInner
 sidebar_label: ConnectorRuleValidationResponseDetailsInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConnectorRuleValidationResponseDetailsInner', 'ConnectorRuleValidationResponseDetailsInner'] 
-slug: /tools/sdk/go//models/connector-rule-validation-response-details-inner
-tags: ['SDK', 'Software Development Kit', 'ConnectorRuleValidationResponseDetailsInner', 'ConnectorRuleValidationResponseDetailsInner']
+keywords: ['go', 'Golang', 'sdk', 'ConnectorRuleValidationResponseDetailsInner', 'V2025ConnectorRuleValidationResponseDetailsInner'] 
+slug: /tools/sdk/go/v2025/models/connector-rule-validation-response-details-inner
+tags: ['SDK', 'Software Development Kit', 'ConnectorRuleValidationResponseDetailsInner', 'V2025ConnectorRuleValidationResponseDetailsInner']
 ---
 
 # ConnectorRuleValidationResponseDetailsInner

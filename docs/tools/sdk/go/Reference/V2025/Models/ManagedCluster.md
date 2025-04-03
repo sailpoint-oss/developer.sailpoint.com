@@ -1,12 +1,12 @@
 ---
-id: managed-cluster
+id: v2025-managed-cluster
 title: ManagedCluster
 pagination_label: ManagedCluster
 sidebar_label: ManagedCluster
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ManagedCluster', 'ManagedCluster'] 
-slug: /tools/sdk/go//models/managed-cluster
-tags: ['SDK', 'Software Development Kit', 'ManagedCluster', 'ManagedCluster']
+keywords: ['go', 'Golang', 'sdk', 'ManagedCluster', 'V2025ManagedCluster'] 
+slug: /tools/sdk/go/v2025/models/managed-cluster
+tags: ['SDK', 'Software Development Kit', 'ManagedCluster', 'V2025ManagedCluster']
 ---
 
 # ManagedCluster

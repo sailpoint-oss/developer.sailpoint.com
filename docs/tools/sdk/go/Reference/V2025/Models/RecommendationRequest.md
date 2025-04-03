@@ -1,12 +1,12 @@
 ---
-id: recommendation-request
+id: v2025-recommendation-request
 title: RecommendationRequest
 pagination_label: RecommendationRequest
 sidebar_label: RecommendationRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RecommendationRequest', 'RecommendationRequest'] 
-slug: /tools/sdk/go//models/recommendation-request
-tags: ['SDK', 'Software Development Kit', 'RecommendationRequest', 'RecommendationRequest']
+keywords: ['go', 'Golang', 'sdk', 'RecommendationRequest', 'V2025RecommendationRequest'] 
+slug: /tools/sdk/go/v2025/models/recommendation-request
+tags: ['SDK', 'Software Development Kit', 'RecommendationRequest', 'V2025RecommendationRequest']
 ---
 
 # RecommendationRequest

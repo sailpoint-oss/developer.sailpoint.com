@@ -1,12 +1,12 @@
 ---
-id: schedule2-days
+id: v2025-schedule2-days
 title: Schedule2Days
 pagination_label: Schedule2Days
 sidebar_label: Schedule2Days
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Schedule2Days', 'Schedule2Days'] 
-slug: /tools/sdk/go//models/schedule2-days
-tags: ['SDK', 'Software Development Kit', 'Schedule2Days', 'Schedule2Days']
+keywords: ['go', 'Golang', 'sdk', 'Schedule2Days', 'V2025Schedule2Days'] 
+slug: /tools/sdk/go/v2025/models/schedule2-days
+tags: ['SDK', 'Software Development Kit', 'Schedule2Days', 'V2025Schedule2Days']
 ---
 
 # Schedule2Days

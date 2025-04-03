@@ -1,12 +1,12 @@
 ---
-id: load-accounts-task-task-attributes
+id: v2025-load-accounts-task-task-attributes
 title: LoadAccountsTaskTaskAttributes
 pagination_label: LoadAccountsTaskTaskAttributes
 sidebar_label: LoadAccountsTaskTaskAttributes
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'LoadAccountsTaskTaskAttributes', 'LoadAccountsTaskTaskAttributes'] 
-slug: /tools/sdk/go//models/load-accounts-task-task-attributes
-tags: ['SDK', 'Software Development Kit', 'LoadAccountsTaskTaskAttributes', 'LoadAccountsTaskTaskAttributes']
+keywords: ['go', 'Golang', 'sdk', 'LoadAccountsTaskTaskAttributes', 'V2025LoadAccountsTaskTaskAttributes'] 
+slug: /tools/sdk/go/v2025/models/load-accounts-task-task-attributes
+tags: ['SDK', 'Software Development Kit', 'LoadAccountsTaskTaskAttributes', 'V2025LoadAccountsTaskTaskAttributes']
 ---
 
 # LoadAccountsTaskTaskAttributes

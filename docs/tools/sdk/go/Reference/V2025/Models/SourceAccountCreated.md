@@ -1,12 +1,12 @@
 ---
-id: source-account-created
+id: v2025-source-account-created
 title: SourceAccountCreated
 pagination_label: SourceAccountCreated
 sidebar_label: SourceAccountCreated
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceAccountCreated', 'SourceAccountCreated'] 
-slug: /tools/sdk/go//models/source-account-created
-tags: ['SDK', 'Software Development Kit', 'SourceAccountCreated', 'SourceAccountCreated']
+keywords: ['go', 'Golang', 'sdk', 'SourceAccountCreated', 'V2025SourceAccountCreated'] 
+slug: /tools/sdk/go/v2025/models/source-account-created
+tags: ['SDK', 'Software Development Kit', 'SourceAccountCreated', 'V2025SourceAccountCreated']
 ---
 
 # SourceAccountCreated

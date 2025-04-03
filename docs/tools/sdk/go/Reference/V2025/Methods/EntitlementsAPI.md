@@ -1,12 +1,12 @@
 ---
-id: entitlements
+id: v2025-entitlements
 title: Entitlements
 pagination_label: Entitlements
 sidebar_label: Entitlements
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Entitlements', 'Entitlements'] 
-slug: /tools/sdk/go//methods/entitlements
-tags: ['SDK', 'Software Development Kit', 'Entitlements', 'Entitlements']
+keywords: ['go', 'Golang', 'sdk', 'Entitlements', 'V2025Entitlements'] 
+slug: /tools/sdk/go/v2025/methods/entitlements
+tags: ['SDK', 'Software Development Kit', 'Entitlements', 'V2025Entitlements']
 ---
 
 # EntitlementsAPI
@@ -93,7 +93,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Add metadata to an entitlement.
 Add single Access Model Metadata to an entitlement.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-access-model-metadata-for-entitlement)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-access-model-metadata-for-entitlement)
 
 ### Path Parameters
 
@@ -135,7 +135,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -147,7 +147,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..EntitlementsAPI.CreateAccessModelMetadataForEntitlement(context.Background(), id, attributeKey, attributeValue).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.EntitlementsAPI.CreateAccessModelMetadataForEntitlement(context.Background(), id, attributeKey, attributeValue).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntitlementsAPI.CreateAccessModelMetadataForEntitlement``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -174,7 +174,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Remove metadata from an entitlement.
 Remove single Access Model Metadata from an entitlement.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-access-model-metadata-from-entitlement)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-access-model-metadata-from-entitlement)
 
 ### Path Parameters
 
@@ -216,7 +216,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -228,7 +228,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..EntitlementsAPI.DeleteAccessModelMetadataFromEntitlement(context.Background(), id, attributeKey, attributeValue).XSailPointExperimental(xSailPointExperimental).Execute()
+	r, err := apiClient.V2025.EntitlementsAPI.DeleteAccessModelMetadataFromEntitlement(context.Background(), id, attributeKey, attributeValue).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntitlementsAPI.DeleteAccessModelMetadataFromEntitlement``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -253,7 +253,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get an entitlement
 This API returns an entitlement by its ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-entitlement)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-entitlement)
 
 ### Path Parameters
 
@@ -291,7 +291,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -301,7 +301,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..EntitlementsAPI.GetEntitlement(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.EntitlementsAPI.GetEntitlement(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntitlementsAPI.GetEntitlement``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -328,7 +328,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get Entitlement Request Config
 This API returns the entitlement request config for a specified entitlement.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-entitlement-request-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-entitlement-request-config)
 
 ### Path Parameters
 
@@ -366,7 +366,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -376,7 +376,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..EntitlementsAPI.GetEntitlementRequestConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.EntitlementsAPI.GetEntitlementRequestConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntitlementsAPI.GetEntitlementRequestConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -410,7 +410,7 @@ If the target source is a direct connection, then the request body must be empty
 
 If the target source is a delimited file source, then the CSV file needs to be included in the request body. You will also need to set the Content-Type header to `multipart/form-data`.
 
-[API Spec](https://developer.sailpoint.com/docs/api//import-entitlements-by-source)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/import-entitlements-by-source)
 
 ### Path Parameters
 
@@ -449,7 +449,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -460,7 +460,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..EntitlementsAPI.ImportEntitlementsBySource(context.Background(), id).XSailPointExperimental(xSailPointExperimental).CsvFile(csvFile).Execute()
+	resp, r, err := apiClient.V2025.EntitlementsAPI.ImportEntitlementsBySource(context.Background(), id).XSailPointExperimental(xSailPointExperimental).CsvFile(csvFile).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntitlementsAPI.ImportEntitlementsBySource``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -487,7 +487,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List of entitlements children
 This API returns a list of all child entitlements of a given entitlement.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-entitlement-children)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-entitlement-children)
 
 ### Path Parameters
 
@@ -530,7 +530,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -545,7 +545,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..EntitlementsAPI.ListEntitlementChildren(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Sorters(sorters).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.EntitlementsAPI.ListEntitlementChildren(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Sorters(sorters).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntitlementsAPI.ListEntitlementChildren``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -572,7 +572,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List of entitlements parents
 This API returns a list of all parent entitlements of a given entitlement.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-entitlement-parents)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-entitlement-parents)
 
 ### Path Parameters
 
@@ -615,7 +615,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -630,7 +630,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..EntitlementsAPI.ListEntitlementParents(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Sorters(sorters).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.EntitlementsAPI.ListEntitlementParents(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Sorters(sorters).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntitlementsAPI.ListEntitlementParents``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -661,7 +661,7 @@ This API can be used in one of the two following ways: either getting entitlemen
 
 Any authenticated token can call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-entitlements)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-entitlements)
 
 ### Path Parameters
 
@@ -703,7 +703,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -721,7 +721,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..EntitlementsAPI.ListEntitlements(context.Background()).XSailPointExperimental(xSailPointExperimental).AccountId(accountId).SegmentedForIdentity(segmentedForIdentity).ForSegmentIds(forSegmentIds).IncludeUnsegmented(includeUnsegmented).Offset(offset).Limit(limit).Count(count).Sorters(sorters).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.EntitlementsAPI.ListEntitlements(context.Background()).XSailPointExperimental(xSailPointExperimental).AccountId(accountId).SegmentedForIdentity(segmentedForIdentity).ForSegmentIds(forSegmentIds).IncludeUnsegmented(includeUnsegmented).Offset(offset).Limit(limit).Count(count).Sorters(sorters).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntitlementsAPI.ListEntitlements``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -752,7 +752,7 @@ The following fields are patchable: **requestable**, **privileged**, **segments*
 
 When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-entitlement)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-entitlement)
 
 ### Path Parameters
 
@@ -791,7 +791,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -802,7 +802,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..EntitlementsAPI.PatchEntitlement(context.Background(), id).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
+	resp, r, err := apiClient.V2025.EntitlementsAPI.PatchEntitlement(context.Background(), id).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntitlementsAPI.PatchEntitlement``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -829,7 +829,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Replace Entitlement Request Config
 This API replaces the entitlement request config for a specified entitlement.
 
-[API Spec](https://developer.sailpoint.com/docs/api//put-entitlement-request-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-entitlement-request-config)
 
 ### Path Parameters
 
@@ -868,7 +868,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -884,7 +884,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..EntitlementsAPI.PutEntitlementRequestConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).EntitlementRequestConfig(entitlementRequestConfig).Execute()
+	resp, r, err := apiClient.V2025.EntitlementsAPI.PutEntitlementRequestConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).EntitlementRequestConfig(entitlementRequestConfig).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntitlementsAPI.PutEntitlementRequestConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -912,7 +912,7 @@ Reset Source Entitlements
 Remove all entitlements from a specific source.
 To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Account Aggregation](https://developer.sailpoint.com/docs/api/v2024/import-accounts/) with `disableOptimization` = `true`. 
 
-[API Spec](https://developer.sailpoint.com/docs/api//reset-source-entitlements)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/reset-source-entitlements)
 
 ### Path Parameters
 
@@ -950,7 +950,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -960,7 +960,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..EntitlementsAPI.ResetSourceEntitlements(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.EntitlementsAPI.ResetSourceEntitlements(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntitlementsAPI.ResetSourceEntitlements``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -993,7 +993,7 @@ Bulk update an entitlement list
  : boolean }**`"
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-entitlements-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-entitlements-in-bulk)
 
 ### Path Parameters
 
@@ -1027,7 +1027,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1048,7 +1048,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..EntitlementsAPI.UpdateEntitlementsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).EntitlementBulkUpdateRequest(entitlementBulkUpdateRequest).Execute()
+	r, err := apiClient.V2025.EntitlementsAPI.UpdateEntitlementsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).EntitlementBulkUpdateRequest(entitlementBulkUpdateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `EntitlementsAPI.UpdateEntitlementsInBulk``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

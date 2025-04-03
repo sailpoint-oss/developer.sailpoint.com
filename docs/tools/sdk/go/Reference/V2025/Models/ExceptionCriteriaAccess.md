@@ -1,12 +1,12 @@
 ---
-id: exception-criteria-access
+id: v2025-exception-criteria-access
 title: ExceptionCriteriaAccess
 pagination_label: ExceptionCriteriaAccess
 sidebar_label: ExceptionCriteriaAccess
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ExceptionCriteriaAccess', 'ExceptionCriteriaAccess'] 
-slug: /tools/sdk/go//models/exception-criteria-access
-tags: ['SDK', 'Software Development Kit', 'ExceptionCriteriaAccess', 'ExceptionCriteriaAccess']
+keywords: ['go', 'Golang', 'sdk', 'ExceptionCriteriaAccess', 'V2025ExceptionCriteriaAccess'] 
+slug: /tools/sdk/go/v2025/models/exception-criteria-access
+tags: ['SDK', 'Software Development Kit', 'ExceptionCriteriaAccess', 'V2025ExceptionCriteriaAccess']
 ---
 
 # ExceptionCriteriaAccess

@@ -1,12 +1,12 @@
 ---
-id: sp-config-import-job-status
+id: v2025-sp-config-import-job-status
 title: SpConfigImportJobStatus
 pagination_label: SpConfigImportJobStatus
 sidebar_label: SpConfigImportJobStatus
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SpConfigImportJobStatus', 'SpConfigImportJobStatus'] 
-slug: /tools/sdk/go//models/sp-config-import-job-status
-tags: ['SDK', 'Software Development Kit', 'SpConfigImportJobStatus', 'SpConfigImportJobStatus']
+keywords: ['go', 'Golang', 'sdk', 'SpConfigImportJobStatus', 'V2025SpConfigImportJobStatus'] 
+slug: /tools/sdk/go/v2025/models/sp-config-import-job-status
+tags: ['SDK', 'Software Development Kit', 'SpConfigImportJobStatus', 'V2025SpConfigImportJobStatus']
 ---
 
 # SpConfigImportJobStatus

@@ -1,12 +1,12 @@
 ---
-id: access-request-approvers-list-response
+id: v2025-access-request-approvers-list-response
 title: AccessRequestApproversListResponse
 pagination_label: AccessRequestApproversListResponse
 sidebar_label: AccessRequestApproversListResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestApproversListResponse', 'AccessRequestApproversListResponse'] 
-slug: /tools/sdk/go//models/access-request-approvers-list-response
-tags: ['SDK', 'Software Development Kit', 'AccessRequestApproversListResponse', 'AccessRequestApproversListResponse']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestApproversListResponse', 'V2025AccessRequestApproversListResponse'] 
+slug: /tools/sdk/go/v2025/models/access-request-approvers-list-response
+tags: ['SDK', 'Software Development Kit', 'AccessRequestApproversListResponse', 'V2025AccessRequestApproversListResponse']
 ---
 
 # AccessRequestApproversListResponse

@@ -1,12 +1,12 @@
 ---
-id: resource-objects-request
+id: v2025-resource-objects-request
 title: ResourceObjectsRequest
 pagination_label: ResourceObjectsRequest
 sidebar_label: ResourceObjectsRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ResourceObjectsRequest', 'ResourceObjectsRequest'] 
-slug: /tools/sdk/go//models/resource-objects-request
-tags: ['SDK', 'Software Development Kit', 'ResourceObjectsRequest', 'ResourceObjectsRequest']
+keywords: ['go', 'Golang', 'sdk', 'ResourceObjectsRequest', 'V2025ResourceObjectsRequest'] 
+slug: /tools/sdk/go/v2025/models/resource-objects-request
+tags: ['SDK', 'Software Development Kit', 'ResourceObjectsRequest', 'V2025ResourceObjectsRequest']
 ---
 
 # ResourceObjectsRequest

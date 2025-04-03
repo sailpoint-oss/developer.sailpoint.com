@@ -1,12 +1,12 @@
 ---
-id: conflicting-access-criteria
+id: v2025-conflicting-access-criteria
 title: ConflictingAccessCriteria
 pagination_label: ConflictingAccessCriteria
 sidebar_label: ConflictingAccessCriteria
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConflictingAccessCriteria', 'ConflictingAccessCriteria'] 
-slug: /tools/sdk/go//models/conflicting-access-criteria
-tags: ['SDK', 'Software Development Kit', 'ConflictingAccessCriteria', 'ConflictingAccessCriteria']
+keywords: ['go', 'Golang', 'sdk', 'ConflictingAccessCriteria', 'V2025ConflictingAccessCriteria'] 
+slug: /tools/sdk/go/v2025/models/conflicting-access-criteria
+tags: ['SDK', 'Software Development Kit', 'ConflictingAccessCriteria', 'V2025ConflictingAccessCriteria']
 ---
 
 # ConflictingAccessCriteria

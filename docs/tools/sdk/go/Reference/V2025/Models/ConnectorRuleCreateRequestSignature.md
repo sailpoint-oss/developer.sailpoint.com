@@ -1,12 +1,12 @@
 ---
-id: connector-rule-create-request-signature
+id: v2025-connector-rule-create-request-signature
 title: ConnectorRuleCreateRequestSignature
 pagination_label: ConnectorRuleCreateRequestSignature
 sidebar_label: ConnectorRuleCreateRequestSignature
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConnectorRuleCreateRequestSignature', 'ConnectorRuleCreateRequestSignature'] 
-slug: /tools/sdk/go//models/connector-rule-create-request-signature
-tags: ['SDK', 'Software Development Kit', 'ConnectorRuleCreateRequestSignature', 'ConnectorRuleCreateRequestSignature']
+keywords: ['go', 'Golang', 'sdk', 'ConnectorRuleCreateRequestSignature', 'V2025ConnectorRuleCreateRequestSignature'] 
+slug: /tools/sdk/go/v2025/models/connector-rule-create-request-signature
+tags: ['SDK', 'Software Development Kit', 'ConnectorRuleCreateRequestSignature', 'V2025ConnectorRuleCreateRequestSignature']
 ---
 
 # ConnectorRuleCreateRequestSignature

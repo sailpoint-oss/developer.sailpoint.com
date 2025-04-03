@@ -1,12 +1,12 @@
 ---
-id: sim-integration-details-all-of-before-provisioning-rule
+id: v2025-sim-integration-details-all-of-before-provisioning-rule
 title: SimIntegrationDetailsAllOfBeforeProvisioningRule
 pagination_label: SimIntegrationDetailsAllOfBeforeProvisioningRule
 sidebar_label: SimIntegrationDetailsAllOfBeforeProvisioningRule
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SimIntegrationDetailsAllOfBeforeProvisioningRule', 'SimIntegrationDetailsAllOfBeforeProvisioningRule'] 
-slug: /tools/sdk/go//models/sim-integration-details-all-of-before-provisioning-rule
-tags: ['SDK', 'Software Development Kit', 'SimIntegrationDetailsAllOfBeforeProvisioningRule', 'SimIntegrationDetailsAllOfBeforeProvisioningRule']
+keywords: ['go', 'Golang', 'sdk', 'SimIntegrationDetailsAllOfBeforeProvisioningRule', 'V2025SimIntegrationDetailsAllOfBeforeProvisioningRule'] 
+slug: /tools/sdk/go/v2025/models/sim-integration-details-all-of-before-provisioning-rule
+tags: ['SDK', 'Software Development Kit', 'SimIntegrationDetailsAllOfBeforeProvisioningRule', 'V2025SimIntegrationDetailsAllOfBeforeProvisioningRule']
 ---
 
 # SimIntegrationDetailsAllOfBeforeProvisioningRule

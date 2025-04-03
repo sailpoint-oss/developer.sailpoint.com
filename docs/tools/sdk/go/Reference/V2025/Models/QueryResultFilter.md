@@ -1,12 +1,12 @@
 ---
-id: query-result-filter
+id: v2025-query-result-filter
 title: QueryResultFilter
 pagination_label: QueryResultFilter
 sidebar_label: QueryResultFilter
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'QueryResultFilter', 'QueryResultFilter'] 
-slug: /tools/sdk/go//models/query-result-filter
-tags: ['SDK', 'Software Development Kit', 'QueryResultFilter', 'QueryResultFilter']
+keywords: ['go', 'Golang', 'sdk', 'QueryResultFilter', 'V2025QueryResultFilter'] 
+slug: /tools/sdk/go/v2025/models/query-result-filter
+tags: ['SDK', 'Software Development Kit', 'QueryResultFilter', 'V2025QueryResultFilter']
 ---
 
 # QueryResultFilter

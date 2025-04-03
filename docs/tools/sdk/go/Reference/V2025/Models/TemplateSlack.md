@@ -1,12 +1,12 @@
 ---
-id: template-slack
+id: v2025-template-slack
 title: TemplateSlack
 pagination_label: TemplateSlack
 sidebar_label: TemplateSlack
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TemplateSlack', 'TemplateSlack'] 
-slug: /tools/sdk/go//models/template-slack
-tags: ['SDK', 'Software Development Kit', 'TemplateSlack', 'TemplateSlack']
+keywords: ['go', 'Golang', 'sdk', 'TemplateSlack', 'V2025TemplateSlack'] 
+slug: /tools/sdk/go/v2025/models/template-slack
+tags: ['SDK', 'Software Development Kit', 'TemplateSlack', 'V2025TemplateSlack']
 ---
 
 # TemplateSlack

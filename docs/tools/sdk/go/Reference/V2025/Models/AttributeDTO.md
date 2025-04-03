@@ -1,12 +1,12 @@
 ---
-id: attribute-dto
+id: v2025-attribute-dto
 title: AttributeDTO
 pagination_label: AttributeDTO
 sidebar_label: AttributeDTO
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AttributeDTO', 'AttributeDTO'] 
-slug: /tools/sdk/go//models/attribute-dto
-tags: ['SDK', 'Software Development Kit', 'AttributeDTO', 'AttributeDTO']
+keywords: ['go', 'Golang', 'sdk', 'AttributeDTO', 'V2025AttributeDTO'] 
+slug: /tools/sdk/go/v2025/models/attribute-dto
+tags: ['SDK', 'Software Development Kit', 'AttributeDTO', 'V2025AttributeDTO']
 ---
 
 # AttributeDTO

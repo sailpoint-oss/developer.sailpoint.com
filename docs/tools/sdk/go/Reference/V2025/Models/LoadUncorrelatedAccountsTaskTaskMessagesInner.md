@@ -1,12 +1,12 @@
 ---
-id: load-uncorrelated-accounts-task-task-messages-inner
+id: v2025-load-uncorrelated-accounts-task-task-messages-inner
 title: LoadUncorrelatedAccountsTaskTaskMessagesInner
 pagination_label: LoadUncorrelatedAccountsTaskTaskMessagesInner
 sidebar_label: LoadUncorrelatedAccountsTaskTaskMessagesInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'LoadUncorrelatedAccountsTaskTaskMessagesInner', 'LoadUncorrelatedAccountsTaskTaskMessagesInner'] 
-slug: /tools/sdk/go//models/load-uncorrelated-accounts-task-task-messages-inner
-tags: ['SDK', 'Software Development Kit', 'LoadUncorrelatedAccountsTaskTaskMessagesInner', 'LoadUncorrelatedAccountsTaskTaskMessagesInner']
+keywords: ['go', 'Golang', 'sdk', 'LoadUncorrelatedAccountsTaskTaskMessagesInner', 'V2025LoadUncorrelatedAccountsTaskTaskMessagesInner'] 
+slug: /tools/sdk/go/v2025/models/load-uncorrelated-accounts-task-task-messages-inner
+tags: ['SDK', 'Software Development Kit', 'LoadUncorrelatedAccountsTaskTaskMessagesInner', 'V2025LoadUncorrelatedAccountsTaskTaskMessagesInner']
 ---
 
 # LoadUncorrelatedAccountsTaskTaskMessagesInner

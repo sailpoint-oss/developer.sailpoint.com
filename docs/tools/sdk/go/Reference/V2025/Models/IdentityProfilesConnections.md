@@ -1,12 +1,12 @@
 ---
-id: identity-profiles-connections
+id: v2025-identity-profiles-connections
 title: IdentityProfilesConnections
 pagination_label: IdentityProfilesConnections
 sidebar_label: IdentityProfilesConnections
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityProfilesConnections', 'IdentityProfilesConnections'] 
-slug: /tools/sdk/go//models/identity-profiles-connections
-tags: ['SDK', 'Software Development Kit', 'IdentityProfilesConnections', 'IdentityProfilesConnections']
+keywords: ['go', 'Golang', 'sdk', 'IdentityProfilesConnections', 'V2025IdentityProfilesConnections'] 
+slug: /tools/sdk/go/v2025/models/identity-profiles-connections
+tags: ['SDK', 'Software Development Kit', 'IdentityProfilesConnections', 'V2025IdentityProfilesConnections']
 ---
 
 # IdentityProfilesConnections

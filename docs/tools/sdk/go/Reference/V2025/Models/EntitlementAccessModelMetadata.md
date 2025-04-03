@@ -1,12 +1,12 @@
 ---
-id: entitlement-access-model-metadata
+id: v2025-entitlement-access-model-metadata
 title: EntitlementAccessModelMetadata
 pagination_label: EntitlementAccessModelMetadata
 sidebar_label: EntitlementAccessModelMetadata
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EntitlementAccessModelMetadata', 'EntitlementAccessModelMetadata'] 
-slug: /tools/sdk/go//models/entitlement-access-model-metadata
-tags: ['SDK', 'Software Development Kit', 'EntitlementAccessModelMetadata', 'EntitlementAccessModelMetadata']
+keywords: ['go', 'Golang', 'sdk', 'EntitlementAccessModelMetadata', 'V2025EntitlementAccessModelMetadata'] 
+slug: /tools/sdk/go/v2025/models/entitlement-access-model-metadata
+tags: ['SDK', 'Software Development Kit', 'EntitlementAccessModelMetadata', 'V2025EntitlementAccessModelMetadata']
 ---
 
 # EntitlementAccessModelMetadata

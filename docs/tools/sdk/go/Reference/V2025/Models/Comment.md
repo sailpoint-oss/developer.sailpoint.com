@@ -1,12 +1,12 @@
 ---
-id: comment
+id: v2025-comment
 title: Comment
 pagination_label: Comment
 sidebar_label: Comment
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Comment', 'Comment'] 
-slug: /tools/sdk/go//models/comment
-tags: ['SDK', 'Software Development Kit', 'Comment', 'Comment']
+keywords: ['go', 'Golang', 'sdk', 'Comment', 'V2025Comment'] 
+slug: /tools/sdk/go/v2025/models/comment
+tags: ['SDK', 'Software Development Kit', 'Comment', 'V2025Comment']
 ---
 
 # Comment

@@ -1,12 +1,12 @@
 ---
-id: put-connector-source-config-request
+id: v2025-put-connector-source-config-request
 title: PutConnectorSourceConfigRequest
 pagination_label: PutConnectorSourceConfigRequest
 sidebar_label: PutConnectorSourceConfigRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PutConnectorSourceConfigRequest', 'PutConnectorSourceConfigRequest'] 
-slug: /tools/sdk/go//models/put-connector-source-config-request
-tags: ['SDK', 'Software Development Kit', 'PutConnectorSourceConfigRequest', 'PutConnectorSourceConfigRequest']
+keywords: ['go', 'Golang', 'sdk', 'PutConnectorSourceConfigRequest', 'V2025PutConnectorSourceConfigRequest'] 
+slug: /tools/sdk/go/v2025/models/put-connector-source-config-request
+tags: ['SDK', 'Software Development Kit', 'PutConnectorSourceConfigRequest', 'V2025PutConnectorSourceConfigRequest']
 ---
 
 # PutConnectorSourceConfigRequest

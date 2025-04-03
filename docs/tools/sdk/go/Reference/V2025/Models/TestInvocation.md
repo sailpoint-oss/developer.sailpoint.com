@@ -1,12 +1,12 @@
 ---
-id: test-invocation
+id: v2025-test-invocation
 title: TestInvocation
 pagination_label: TestInvocation
 sidebar_label: TestInvocation
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TestInvocation', 'TestInvocation'] 
-slug: /tools/sdk/go//models/test-invocation
-tags: ['SDK', 'Software Development Kit', 'TestInvocation', 'TestInvocation']
+keywords: ['go', 'Golang', 'sdk', 'TestInvocation', 'V2025TestInvocation'] 
+slug: /tools/sdk/go/v2025/models/test-invocation
+tags: ['SDK', 'Software Development Kit', 'TestInvocation', 'V2025TestInvocation']
 ---
 
 # TestInvocation

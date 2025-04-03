@@ -1,12 +1,12 @@
 ---
-id: workgroup-member-delete-item
+id: v2025-workgroup-member-delete-item
 title: WorkgroupMemberDeleteItem
 pagination_label: WorkgroupMemberDeleteItem
 sidebar_label: WorkgroupMemberDeleteItem
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkgroupMemberDeleteItem', 'WorkgroupMemberDeleteItem'] 
-slug: /tools/sdk/go//models/workgroup-member-delete-item
-tags: ['SDK', 'Software Development Kit', 'WorkgroupMemberDeleteItem', 'WorkgroupMemberDeleteItem']
+keywords: ['go', 'Golang', 'sdk', 'WorkgroupMemberDeleteItem', 'V2025WorkgroupMemberDeleteItem'] 
+slug: /tools/sdk/go/v2025/models/workgroup-member-delete-item
+tags: ['SDK', 'Software Development Kit', 'WorkgroupMemberDeleteItem', 'V2025WorkgroupMemberDeleteItem']
 ---
 
 # WorkgroupMemberDeleteItem

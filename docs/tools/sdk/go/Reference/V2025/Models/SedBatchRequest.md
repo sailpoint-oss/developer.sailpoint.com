@@ -1,12 +1,12 @@
 ---
-id: sed-batch-request
+id: v2025-sed-batch-request
 title: SedBatchRequest
 pagination_label: SedBatchRequest
 sidebar_label: SedBatchRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SedBatchRequest', 'SedBatchRequest'] 
-slug: /tools/sdk/go//models/sed-batch-request
-tags: ['SDK', 'Software Development Kit', 'SedBatchRequest', 'SedBatchRequest']
+keywords: ['go', 'Golang', 'sdk', 'SedBatchRequest', 'V2025SedBatchRequest'] 
+slug: /tools/sdk/go/v2025/models/sed-batch-request
+tags: ['SDK', 'Software Development Kit', 'SedBatchRequest', 'V2025SedBatchRequest']
 ---
 
 # SedBatchRequest

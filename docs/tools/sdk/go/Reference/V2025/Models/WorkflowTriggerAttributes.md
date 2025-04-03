@@ -1,12 +1,12 @@
 ---
-id: workflow-trigger-attributes
+id: v2025-workflow-trigger-attributes
 title: WorkflowTriggerAttributes
 pagination_label: WorkflowTriggerAttributes
 sidebar_label: WorkflowTriggerAttributes
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkflowTriggerAttributes', 'WorkflowTriggerAttributes'] 
-slug: /tools/sdk/go//models/workflow-trigger-attributes
-tags: ['SDK', 'Software Development Kit', 'WorkflowTriggerAttributes', 'WorkflowTriggerAttributes']
+keywords: ['go', 'Golang', 'sdk', 'WorkflowTriggerAttributes', 'V2025WorkflowTriggerAttributes'] 
+slug: /tools/sdk/go/v2025/models/workflow-trigger-attributes
+tags: ['SDK', 'Software Development Kit', 'WorkflowTriggerAttributes', 'V2025WorkflowTriggerAttributes']
 ---
 
 # WorkflowTriggerAttributes

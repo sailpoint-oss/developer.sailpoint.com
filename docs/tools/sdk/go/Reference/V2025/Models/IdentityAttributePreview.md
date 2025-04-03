@@ -1,12 +1,12 @@
 ---
-id: identity-attribute-preview
+id: v2025-identity-attribute-preview
 title: IdentityAttributePreview
 pagination_label: IdentityAttributePreview
 sidebar_label: IdentityAttributePreview
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityAttributePreview', 'IdentityAttributePreview'] 
-slug: /tools/sdk/go//models/identity-attribute-preview
-tags: ['SDK', 'Software Development Kit', 'IdentityAttributePreview', 'IdentityAttributePreview']
+keywords: ['go', 'Golang', 'sdk', 'IdentityAttributePreview', 'V2025IdentityAttributePreview'] 
+slug: /tools/sdk/go/v2025/models/identity-attribute-preview
+tags: ['SDK', 'Software Development Kit', 'IdentityAttributePreview', 'V2025IdentityAttributePreview']
 ---
 
 # IdentityAttributePreview

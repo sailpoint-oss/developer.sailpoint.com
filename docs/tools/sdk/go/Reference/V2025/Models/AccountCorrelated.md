@@ -1,12 +1,12 @@
 ---
-id: account-correlated
+id: v2025-account-correlated
 title: AccountCorrelated
 pagination_label: AccountCorrelated
 sidebar_label: AccountCorrelated
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountCorrelated', 'AccountCorrelated'] 
-slug: /tools/sdk/go//models/account-correlated
-tags: ['SDK', 'Software Development Kit', 'AccountCorrelated', 'AccountCorrelated']
+keywords: ['go', 'Golang', 'sdk', 'AccountCorrelated', 'V2025AccountCorrelated'] 
+slug: /tools/sdk/go/v2025/models/account-correlated
+tags: ['SDK', 'Software Development Kit', 'AccountCorrelated', 'V2025AccountCorrelated']
 ---
 
 # AccountCorrelated

@@ -1,12 +1,12 @@
 ---
-id: process-identities-request
+id: v2025-process-identities-request
 title: ProcessIdentitiesRequest
 pagination_label: ProcessIdentitiesRequest
 sidebar_label: ProcessIdentitiesRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ProcessIdentitiesRequest', 'ProcessIdentitiesRequest'] 
-slug: /tools/sdk/go//models/process-identities-request
-tags: ['SDK', 'Software Development Kit', 'ProcessIdentitiesRequest', 'ProcessIdentitiesRequest']
+keywords: ['go', 'Golang', 'sdk', 'ProcessIdentitiesRequest', 'V2025ProcessIdentitiesRequest'] 
+slug: /tools/sdk/go/v2025/models/process-identities-request
+tags: ['SDK', 'Software Development Kit', 'ProcessIdentitiesRequest', 'V2025ProcessIdentitiesRequest']
 ---
 
 # ProcessIdentitiesRequest

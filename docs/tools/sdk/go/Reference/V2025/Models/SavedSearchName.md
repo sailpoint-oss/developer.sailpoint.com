@@ -1,12 +1,12 @@
 ---
-id: saved-search-name
+id: v2025-saved-search-name
 title: SavedSearchName
 pagination_label: SavedSearchName
 sidebar_label: SavedSearchName
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SavedSearchName', 'SavedSearchName'] 
-slug: /tools/sdk/go//models/saved-search-name
-tags: ['SDK', 'Software Development Kit', 'SavedSearchName', 'SavedSearchName']
+keywords: ['go', 'Golang', 'sdk', 'SavedSearchName', 'V2025SavedSearchName'] 
+slug: /tools/sdk/go/v2025/models/saved-search-name
+tags: ['SDK', 'Software Development Kit', 'SavedSearchName', 'V2025SavedSearchName']
 ---
 
 # SavedSearchName

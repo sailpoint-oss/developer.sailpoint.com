@@ -1,12 +1,12 @@
 ---
-id: account-attributes
+id: v2025-account-attributes
 title: AccountAttributes
 pagination_label: AccountAttributes
 sidebar_label: AccountAttributes
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountAttributes', 'AccountAttributes'] 
-slug: /tools/sdk/go//models/account-attributes
-tags: ['SDK', 'Software Development Kit', 'AccountAttributes', 'AccountAttributes']
+keywords: ['go', 'Golang', 'sdk', 'AccountAttributes', 'V2025AccountAttributes'] 
+slug: /tools/sdk/go/v2025/models/account-attributes
+tags: ['SDK', 'Software Development Kit', 'AccountAttributes', 'V2025AccountAttributes']
 ---
 
 # AccountAttributes

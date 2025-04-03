@@ -1,12 +1,12 @@
 ---
-id: sources
+id: v2025-sources
 title: Sources
 pagination_label: Sources
 sidebar_label: Sources
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Sources', 'Sources'] 
-slug: /tools/sdk/go//methods/sources
-tags: ['SDK', 'Software Development Kit', 'Sources', 'Sources']
+keywords: ['go', 'Golang', 'sdk', 'Sources', 'V2025Sources'] 
+slug: /tools/sdk/go/v2025/methods/sources
+tags: ['SDK', 'Software Development Kit', 'Sources', 'V2025Sources']
 ---
 
 # SourcesAPI
@@ -130,7 +130,7 @@ This API generates a create policy/template based on field value transforms. Thi
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-provisioning-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-provisioning-policy)
 
 ### Path Parameters
 
@@ -168,7 +168,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -217,7 +217,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.CreateProvisioningPolicy(context.Background(), sourceId).ProvisioningPolicyDto(provisioningPolicyDto).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.CreateProvisioningPolicy(context.Background(), sourceId).ProvisioningPolicyDto(provisioningPolicyDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.CreateProvisioningPolicy``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -233,7 +233,7 @@ func main() {
 Creates a source in IdentityNow.
 This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-source)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-source)
 
 ### Path Parameters
 
@@ -267,7 +267,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -359,7 +359,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.CreateSource(context.Background()).Source(source).ProvisionAsCsv(provisionAsCsv).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.CreateSource(context.Background()).Source(source).ProvisionAsCsv(provisionAsCsv).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.CreateSource``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -376,7 +376,7 @@ Create Schedule on Source
 Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC).
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-source-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-source-schedule)
 
 ### Path Parameters
 
@@ -414,7 +414,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -424,7 +424,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.CreateSourceSchedule(context.Background(), sourceId).Schedule1(schedule1).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.CreateSourceSchedule(context.Background(), sourceId).Schedule1(schedule1).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.CreateSourceSchedule``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -441,7 +441,7 @@ Create Schema on Source
 Use this API to create a new schema on the specified source in Identity Security Cloud (ISC).
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-source-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-source-schema)
 
 ### Path Parameters
 
@@ -479,7 +479,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -522,7 +522,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.CreateSourceSchema(context.Background(), sourceId).Schema(schema).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.CreateSourceSchema(context.Background(), sourceId).Schema(schema).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.CreateSourceSchema``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -555,7 +555,7 @@ This endpoint is good for:
 * Forcing accounts to be re-created following the next aggregation to re-run account processing, support testing, etc.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-accounts-async)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-accounts-async)
 
 ### Path Parameters
 
@@ -593,7 +593,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -603,7 +603,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.DeleteAccountsAsync(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.DeleteAccountsAsync(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.DeleteAccountsAsync``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -630,7 +630,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Delete Native Change Detection Configuration
 Deletes the native change detection configuration for the source specified by the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-native-change-detection-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-native-change-detection-config)
 
 ### Path Parameters
 
@@ -668,7 +668,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -678,7 +678,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..SourcesAPI.DeleteNativeChangeDetectionConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	r, err := apiClient.V2025.SourcesAPI.DeleteNativeChangeDetectionConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.DeleteNativeChangeDetectionConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -692,7 +692,7 @@ func main() {
 Delete Provisioning Policy by UsageType
 Deletes the provisioning policy with the specified usage on an application.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-provisioning-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-provisioning-policy)
 
 ### Path Parameters
 
@@ -731,7 +731,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -741,7 +741,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..SourcesAPI.DeleteProvisioningPolicy(context.Background(), sourceId, usageType).Execute()
+	r, err := apiClient.V2025.SourcesAPI.DeleteProvisioningPolicy(context.Background(), sourceId, usageType).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.DeleteProvisioningPolicy``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -756,7 +756,7 @@ Delete Source by ID
 Use this API to delete a specific source in Identity Security Cloud (ISC).
 The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-source)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-source)
 
 ### Path Parameters
 
@@ -793,7 +793,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -802,7 +802,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.DeleteSource(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.DeleteSource(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.DeleteSource``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -818,7 +818,7 @@ func main() {
 Delete Source Schedule by type.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-source-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-source-schedule)
 
 ### Path Parameters
 
@@ -857,7 +857,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -867,7 +867,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..SourcesAPI.DeleteSourceSchedule(context.Background(), sourceId, scheduleType).Execute()
+	r, err := apiClient.V2025.SourcesAPI.DeleteSourceSchedule(context.Background(), sourceId, scheduleType).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.DeleteSourceSchedule``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -881,7 +881,7 @@ func main() {
 Delete Source Schema by ID
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-source-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-source-schema)
 
 ### Path Parameters
 
@@ -920,7 +920,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -930,7 +930,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..SourcesAPI.DeleteSourceSchema(context.Background(), sourceId, schemaId).Execute()
+	r, err := apiClient.V2025.SourcesAPI.DeleteSourceSchema(context.Background(), sourceId, schemaId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.DeleteSourceSchema``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -945,7 +945,7 @@ Downloads source accounts schema template
 This API downloads the CSV schema that defines the account attributes on a source.
 >**NOTE: This API is designated only for Delimited File sources.**
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-accounts-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-accounts-schema)
 
 ### Path Parameters
 
@@ -982,7 +982,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -991,7 +991,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..SourcesAPI.GetAccountsSchema(context.Background(), id).Execute()
+	r, err := apiClient.V2025.SourcesAPI.GetAccountsSchema(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetAccountsSchema``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1005,7 +1005,7 @@ func main() {
 Get Source Correlation Configuration
 This API returns the existing correlation configuration for a source specified by the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-correlation-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-correlation-config)
 
 ### Path Parameters
 
@@ -1042,7 +1042,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1051,7 +1051,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.GetCorrelationConfig(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.GetCorrelationConfig(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetCorrelationConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1069,7 +1069,7 @@ This API downloads the CSV schema that defines the entitlement attributes on a s
 
 >**NOTE: This API is designated only for Delimited File sources.**
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-entitlements-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-entitlements-schema)
 
 ### Path Parameters
 
@@ -1107,7 +1107,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1117,7 +1117,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..SourcesAPI.GetEntitlementsSchema(context.Background(), id).SchemaName(schemaName).Execute()
+	r, err := apiClient.V2025.SourcesAPI.GetEntitlementsSchema(context.Background(), id).SchemaName(schemaName).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetEntitlementsSchema``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1142,7 +1142,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Native Change Detection Configuration
 This API returns the existing native change detection configuration for a source specified by the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-native-change-detection-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-native-change-detection-config)
 
 ### Path Parameters
 
@@ -1180,7 +1180,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1190,7 +1190,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.GetNativeChangeDetectionConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.GetNativeChangeDetectionConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetNativeChangeDetectionConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1206,7 +1206,7 @@ func main() {
 Get Provisioning Policy by UsageType
 This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-provisioning-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-provisioning-policy)
 
 ### Path Parameters
 
@@ -1245,7 +1245,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1255,7 +1255,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.GetProvisioningPolicy(context.Background(), sourceId, usageType).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.GetProvisioningPolicy(context.Background(), sourceId, usageType).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetProvisioningPolicy``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1271,7 +1271,7 @@ func main() {
 Get Source by ID
 Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-source)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source)
 
 ### Path Parameters
 
@@ -1308,7 +1308,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1317,7 +1317,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.GetSource(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.GetSource(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetSource``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1344,7 +1344,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Attribute Sync Config
 This API returns the existing attribute synchronization configuration for a source specified by the given ID. The response contains all attributes, regardless of whether they enabled or not.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-source-attr-sync-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source-attr-sync-config)
 
 ### Path Parameters
 
@@ -1382,7 +1382,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1392,7 +1392,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.GetSourceAttrSyncConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.GetSourceAttrSyncConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetSourceAttrSyncConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1408,7 +1408,7 @@ func main() {
 Gets source config with language-translations
 Looks up and returns the source config for the requested source id after populating the source config values and applying language translations.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-source-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source-config)
 
 ### Path Parameters
 
@@ -1446,7 +1446,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1456,7 +1456,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.GetSourceConfig(context.Background(), id).Locale(locale).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.GetSourceConfig(context.Background(), id).Locale(locale).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetSourceConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1472,7 +1472,7 @@ func main() {
 Get Source Connections by ID
 Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-source-connections)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source-connections)
 
 ### Path Parameters
 
@@ -1509,7 +1509,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1518,7 +1518,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.GetSourceConnections(context.Background(), sourceId).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.GetSourceConnections(context.Background(), sourceId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetSourceConnections``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1549,7 +1549,7 @@ Access request to any entitlements in the source should follow this configuratio
 - During access request, this source-level entitlement request configuration overrides the global organization-level configuration.
 - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-source-entitlement-request-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source-entitlement-request-config)
 
 ### Path Parameters
 
@@ -1582,7 +1582,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1591,7 +1591,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.GetSourceEntitlementRequestConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.GetSourceEntitlementRequestConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetSourceEntitlementRequestConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1607,7 +1607,7 @@ func main() {
 Fetches source health by id
 This endpoint fetches source health by source's id
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-source-health)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source-health)
 
 ### Path Parameters
 
@@ -1644,7 +1644,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1653,7 +1653,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.GetSourceHealth(context.Background(), sourceId).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.GetSourceHealth(context.Background(), sourceId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetSourceHealth``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1670,7 +1670,7 @@ Get Source Schedule by Type
 Get the source schedule by type in Identity Security Cloud (ISC).
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-source-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source-schedule)
 
 ### Path Parameters
 
@@ -1709,7 +1709,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1719,7 +1719,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.GetSourceSchedule(context.Background(), sourceId, scheduleType).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.GetSourceSchedule(context.Background(), sourceId, scheduleType).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetSourceSchedule``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1743,7 +1743,7 @@ For example, `0 0 12 1/1 * ? *` runs the task **daily at 12:00 PM**.
 :::
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-source-schedules)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source-schedules)
 
 ### Path Parameters
 
@@ -1780,7 +1780,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1789,7 +1789,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.GetSourceSchedules(context.Background(), sourceId).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.GetSourceSchedules(context.Background(), sourceId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetSourceSchedules``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1806,7 +1806,7 @@ Get Source Schema by ID
 Get the Source Schema by ID in IdentityNow.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-source-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source-schema)
 
 ### Path Parameters
 
@@ -1845,7 +1845,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1855,7 +1855,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.GetSourceSchema(context.Background(), sourceId, schemaId).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.GetSourceSchema(context.Background(), sourceId, schemaId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetSourceSchema``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1871,7 +1871,7 @@ func main() {
 List Schemas on Source
 Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-source-schemas)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-source-schemas)
 
 ### Path Parameters
 
@@ -1910,7 +1910,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -1921,7 +1921,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.GetSourceSchemas(context.Background(), sourceId).IncludeTypes(includeTypes).IncludeNames(includeNames).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.GetSourceSchemas(context.Background(), sourceId).IncludeTypes(includeTypes).IncludeNames(includeNames).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetSourceSchemas``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1950,7 +1950,7 @@ Starts an account aggregation on the specified source.
 If the target source is a delimited file source, then the CSV file needs to be included in the request body.
 You will also need to set the Content-Type header to `multipart/form-data`.
 
-[API Spec](https://developer.sailpoint.com/docs/api//import-accounts)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/import-accounts)
 
 ### Path Parameters
 
@@ -1990,7 +1990,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -2002,7 +2002,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.ImportAccounts(context.Background(), id).XSailPointExperimental(xSailPointExperimental).File(file).DisableOptimization(disableOptimization).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.ImportAccounts(context.Background(), id).XSailPointExperimental(xSailPointExperimental).File(file).DisableOptimization(disableOptimization).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.ImportAccounts``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2024,7 +2024,7 @@ Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Imp
 
 >**NOTE: This API is designated only for Delimited File sources.**
 
-[API Spec](https://developer.sailpoint.com/docs/api//import-accounts-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/import-accounts-schema)
 
 ### Path Parameters
 
@@ -2062,7 +2062,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -2072,7 +2072,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.ImportAccountsSchema(context.Background(), id).File(file).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.ImportAccountsSchema(context.Background(), id).File(file).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.ImportAccountsSchema``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2088,7 +2088,7 @@ func main() {
 Upload connector file to source
 This uploads a supplemental source connector file (like jdbc driver jars) to a source's S3 bucket. This also sends ETS and Audit events.
 
-[API Spec](https://developer.sailpoint.com/docs/api//import-connector-file)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/import-connector-file)
 
 ### Path Parameters
 
@@ -2126,7 +2126,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -2136,7 +2136,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.ImportConnectorFile(context.Background(), sourceId).File(file).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.ImportConnectorFile(context.Background(), sourceId).File(file).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.ImportConnectorFile``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2158,7 +2158,7 @@ Click **Admin** -> **Connections** -> **Sources** -> **`{SourceName}`** -> **Imp
 
 >**NOTE: This API is designated only for Delimited File sources.**
 
-[API Spec](https://developer.sailpoint.com/docs/api//import-entitlements-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/import-entitlements-schema)
 
 ### Path Parameters
 
@@ -2197,7 +2197,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -2208,7 +2208,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.ImportEntitlementsSchema(context.Background(), id).SchemaName(schemaName).File(file).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.ImportEntitlementsSchema(context.Background(), id).SchemaName(schemaName).File(file).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.ImportEntitlementsSchema``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2235,7 +2235,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Process Uncorrelated Accounts
 File is required for upload. You will also need to set the Content-Type header to `multipart/form-data`
 
-[API Spec](https://developer.sailpoint.com/docs/api//import-uncorrelated-accounts)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/import-uncorrelated-accounts)
 
 ### Path Parameters
 
@@ -2274,7 +2274,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -2285,7 +2285,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.ImportUncorrelatedAccounts(context.Background(), id).XSailPointExperimental(xSailPointExperimental).File(file).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.ImportUncorrelatedAccounts(context.Background(), id).XSailPointExperimental(xSailPointExperimental).File(file).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.ImportUncorrelatedAccounts``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2301,7 +2301,7 @@ func main() {
 Lists ProvisioningPolicies
 This end-point lists all the ProvisioningPolicies in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-provisioning-policies)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-provisioning-policies)
 
 ### Path Parameters
 
@@ -2338,7 +2338,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -2347,7 +2347,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.ListProvisioningPolicies(context.Background(), sourceId).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.ListProvisioningPolicies(context.Background(), sourceId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.ListProvisioningPolicies``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2363,7 +2363,7 @@ func main() {
 Lists all sources in IdentityNow.
 This end-point lists all the sources in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-sources)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-sources)
 
 ### Path Parameters
 
@@ -2402,7 +2402,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -2417,7 +2417,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.ListSources(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).ForSubadmin(forSubadmin).IncludeIDNSource(includeIDNSource).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.ListSources(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).ForSubadmin(forSubadmin).IncludeIDNSource(includeIDNSource).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.ListSources``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2433,7 +2433,7 @@ func main() {
 Ping cluster for source connector
 This endpoint validates that the cluster being used by the source is reachable from IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api//ping-cluster)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/ping-cluster)
 
 ### Path Parameters
 
@@ -2470,7 +2470,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -2479,7 +2479,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.PingCluster(context.Background(), sourceId).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.PingCluster(context.Background(), sourceId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.PingCluster``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2495,7 +2495,7 @@ func main() {
 Update Source Correlation Configuration
 Replaces the correlation configuration for the source specified by the given ID with the configuration provided in the request body.
 
-[API Spec](https://developer.sailpoint.com/docs/api//put-correlation-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-correlation-config)
 
 ### Path Parameters
 
@@ -2533,7 +2533,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -2563,7 +2563,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.PutCorrelationConfig(context.Background(), id).CorrelationConfig(correlationConfig).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.PutCorrelationConfig(context.Background(), id).CorrelationConfig(correlationConfig).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.PutCorrelationConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2590,7 +2590,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Update Native Change Detection Configuration
 Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.
 
-[API Spec](https://developer.sailpoint.com/docs/api//put-native-change-detection-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-native-change-detection-config)
 
 ### Path Parameters
 
@@ -2629,7 +2629,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -2647,7 +2647,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.PutNativeChangeDetectionConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).NativeChangeDetectionConfig(nativeChangeDetectionConfig).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.PutNativeChangeDetectionConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).NativeChangeDetectionConfig(nativeChangeDetectionConfig).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.PutNativeChangeDetectionConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2665,7 +2665,7 @@ This end-point updates the provisioning policy with the specified usage on the s
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
 
-[API Spec](https://developer.sailpoint.com/docs/api//put-provisioning-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-provisioning-policy)
 
 ### Path Parameters
 
@@ -2705,7 +2705,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -2755,7 +2755,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.PutProvisioningPolicy(context.Background(), sourceId, usageType).ProvisioningPolicyDto(provisioningPolicyDto).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.PutProvisioningPolicy(context.Background(), sourceId, usageType).ProvisioningPolicyDto(provisioningPolicyDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.PutProvisioningPolicy``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2783,7 +2783,7 @@ These fields are immutable, so they cannot be changed:
 Attempts to modify these fields will result in a 400 error.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//put-source)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-source)
 
 ### Path Parameters
 
@@ -2821,7 +2821,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -2913,7 +2913,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.PutSource(context.Background(), id).Source(source).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.PutSource(context.Background(), id).Source(source).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.PutSource``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2941,7 +2941,7 @@ Update Attribute Sync Config
 Replaces the attribute synchronization configuration for the source specified by the given ID with the configuration provided in the request body. Only the "enabled" field of the values in the "attributes" array is mutable. Attempting to change other attributes or add new values to the "attributes" array will result in an error.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//put-source-attr-sync-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-source-attr-sync-config)
 
 ### Path Parameters
 
@@ -2980,7 +2980,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -3008,7 +3008,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.PutSourceAttrSyncConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).AttrSyncSourceConfig(attrSyncSourceConfig).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.PutSourceAttrSyncConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).AttrSyncSourceConfig(attrSyncSourceConfig).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.PutSourceAttrSyncConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3034,7 +3034,7 @@ Any attempt to modify these fields will result in an error response with a statu
 > `id` must remain in the request body, but it cannot be changed.  If `id` is omitted from the request body, the result will be a 400 error.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//put-source-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-source-schema)
 
 ### Path Parameters
 
@@ -3074,7 +3074,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -3118,7 +3118,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.PutSourceSchema(context.Background(), sourceId, schemaId).Schema(schema).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.PutSourceSchema(context.Background(), sourceId, schemaId).Schema(schema).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.PutSourceSchema``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3134,7 +3134,7 @@ func main() {
 Peek source connector's resource objects
 Retrieves a sample of data returned from account and group aggregation requests.
 
-[API Spec](https://developer.sailpoint.com/docs/api//search-resource-objects)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/search-resource-objects)
 
 ### Path Parameters
 
@@ -3172,7 +3172,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -3185,7 +3185,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.SearchResourceObjects(context.Background(), sourceId).ResourceObjectsRequest(resourceObjectsRequest).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.SearchResourceObjects(context.Background(), sourceId).ResourceObjectsRequest(resourceObjectsRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.SearchResourceObjects``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3212,7 +3212,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Synchronize single source attributes.
 This end-point performs attribute synchronization for a selected source.
 
-[API Spec](https://developer.sailpoint.com/docs/api//sync-attributes-for-source)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/sync-attributes-for-source)
 
 ### Path Parameters
 
@@ -3250,7 +3250,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -3260,7 +3260,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.SyncAttributesForSource(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.SyncAttributesForSource(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.SyncAttributesForSource``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3276,7 +3276,7 @@ func main() {
 Test configuration for source connector
 This endpoint performs a more detailed validation of the source''s configuration that can take longer than the lighter weight credential validation performed by the checkConnection API.
 
-[API Spec](https://developer.sailpoint.com/docs/api//test-source-configuration)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/test-source-configuration)
 
 ### Path Parameters
 
@@ -3313,7 +3313,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -3322,7 +3322,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.TestSourceConfiguration(context.Background(), sourceId).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.TestSourceConfiguration(context.Background(), sourceId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.TestSourceConfiguration``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3338,7 +3338,7 @@ func main() {
 Check connection for source connector.
 This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter.
 
-[API Spec](https://developer.sailpoint.com/docs/api//test-source-connection)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/test-source-connection)
 
 ### Path Parameters
 
@@ -3375,7 +3375,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -3384,7 +3384,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.TestSourceConnection(context.Background(), sourceId).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.TestSourceConnection(context.Background(), sourceId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.TestSourceConnection``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3402,7 +3402,7 @@ This API can be used to set up or update Password Policy in IdentityNow for the 
 Source must support PASSWORD feature.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-password-policy-holders)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-password-policy-holders)
 
 ### Path Parameters
 
@@ -3440,7 +3440,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -3450,7 +3450,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.UpdatePasswordPolicyHolders(context.Background(), sourceId).PasswordPolicyHoldersDtoInner(passwordPolicyHoldersDtoInner).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.UpdatePasswordPolicyHolders(context.Background(), sourceId).PasswordPolicyHoldersDtoInner(passwordPolicyHoldersDtoInner).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.UpdatePasswordPolicyHolders``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3466,7 +3466,7 @@ func main() {
 Bulk Update Provisioning Policies
 This end-point updates a list of provisioning policies on the specified source in IdentityNow.
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-provisioning-policies-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-provisioning-policies-in-bulk)
 
 ### Path Parameters
 
@@ -3504,7 +3504,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -3514,7 +3514,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.UpdateProvisioningPoliciesInBulk(context.Background(), sourceId).ProvisioningPolicyDto(provisioningPolicyDto).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.UpdateProvisioningPoliciesInBulk(context.Background(), sourceId).ProvisioningPolicyDto(provisioningPolicyDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.UpdateProvisioningPoliciesInBulk``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3532,7 +3532,7 @@ This API selectively updates an existing Provisioning Policy using a JSONPatch p
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-provisioning-policy)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-provisioning-policy)
 
 ### Path Parameters
 
@@ -3572,7 +3572,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -3583,7 +3583,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.UpdateProvisioningPolicy(context.Background(), sourceId, usageType).JsonPatchOperation(jsonPatchOperation).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.UpdateProvisioningPolicy(context.Background(), sourceId, usageType).JsonPatchOperation(jsonPatchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.UpdateProvisioningPolicy``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3614,7 +3614,7 @@ These fields are immutable, so they cannot be changed:
 Attempts to modify these fields will result in a 400 error.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-source)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-source)
 
 ### Path Parameters
 
@@ -3652,7 +3652,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -3662,7 +3662,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.UpdateSource(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.UpdateSource(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.UpdateSource``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3693,7 +3693,7 @@ Access request to any entitlements in the source should follow this configuratio
 - During access request, this source-level entitlement request configuration overrides the global organization-level configuration.
 - However, the entitlement-level configuration (if defined) overrides this source-level configuration.
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-source-entitlement-request-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-source-entitlement-request-config)
 
 ### Path Parameters
 
@@ -3727,7 +3727,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -3749,7 +3749,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.UpdateSourceEntitlementRequestConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).SourceEntitlementRequestConfig(sourceEntitlementRequestConfig).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.UpdateSourceEntitlementRequestConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).SourceEntitlementRequestConfig(sourceEntitlementRequestConfig).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.UpdateSourceEntitlementRequestConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3770,7 +3770,7 @@ The following schedule fields are immutable and cannot be updated:
 - type
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-source-schedule)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-source-schedule)
 
 ### Path Parameters
 
@@ -3810,7 +3810,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -3821,7 +3821,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.UpdateSourceSchedule(context.Background(), sourceId, scheduleType).JsonPatchOperation(jsonPatchOperation).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.UpdateSourceSchedule(context.Background(), sourceId, scheduleType).JsonPatchOperation(jsonPatchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.UpdateSourceSchedule``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -3866,7 +3866,7 @@ To switch an account attribute to a group entitlement, you need to have the foll
 ```
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-source-schema)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-source-schema)
 
 ### Path Parameters
 
@@ -3906,7 +3906,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -3917,7 +3917,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SourcesAPI.UpdateSourceSchema(context.Background(), sourceId, schemaId).JsonPatchOperation(jsonPatchOperation).Execute()
+	resp, r, err := apiClient.V2025.SourcesAPI.UpdateSourceSchema(context.Background(), sourceId, schemaId).JsonPatchOperation(jsonPatchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.UpdateSourceSchema``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -1,12 +1,12 @@
 ---
-id: sed-approval-status
+id: v2025-sed-approval-status
 title: SedApprovalStatus
 pagination_label: SedApprovalStatus
 sidebar_label: SedApprovalStatus
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SedApprovalStatus', 'SedApprovalStatus'] 
-slug: /tools/sdk/go//models/sed-approval-status
-tags: ['SDK', 'Software Development Kit', 'SedApprovalStatus', 'SedApprovalStatus']
+keywords: ['go', 'Golang', 'sdk', 'SedApprovalStatus', 'V2025SedApprovalStatus'] 
+slug: /tools/sdk/go/v2025/models/sed-approval-status
+tags: ['SDK', 'Software Development Kit', 'SedApprovalStatus', 'V2025SedApprovalStatus']
 ---
 
 # SedApprovalStatus

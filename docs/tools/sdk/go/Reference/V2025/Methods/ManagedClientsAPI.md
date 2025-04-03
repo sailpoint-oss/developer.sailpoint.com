@@ -1,12 +1,12 @@
 ---
-id: managed-clients
+id: v2025-managed-clients
 title: ManagedClients
 pagination_label: ManagedClients
 sidebar_label: ManagedClients
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ManagedClients', 'ManagedClients'] 
-slug: /tools/sdk/go//methods/managed-clients
-tags: ['SDK', 'Software Development Kit', 'ManagedClients', 'ManagedClients']
+keywords: ['go', 'Golang', 'sdk', 'ManagedClients', 'V2025ManagedClients'] 
+slug: /tools/sdk/go/v2025/methods/managed-clients
+tags: ['SDK', 'Software Development Kit', 'ManagedClients', 'V2025ManagedClients']
 ---
 
 # ManagedClientsAPI
@@ -30,7 +30,7 @@ Create Managed Client
 Create a new managed client.
 The API returns a result that includes the managed client ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-managed-client)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-managed-client)
 
 ### Path Parameters
 
@@ -63,7 +63,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -77,7 +77,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ManagedClientsAPI.CreateManagedClient(context.Background()).ManagedClientRequest(managedClientRequest).Execute()
+	resp, r, err := apiClient.V2025.ManagedClientsAPI.CreateManagedClient(context.Background()).ManagedClientRequest(managedClientRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClientsAPI.CreateManagedClient``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -93,7 +93,7 @@ func main() {
 Delete Managed Client
 Delete an existing managed client.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-managed-client)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-managed-client)
 
 ### Path Parameters
 
@@ -130,7 +130,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -139,7 +139,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..ManagedClientsAPI.DeleteManagedClient(context.Background(), id).Execute()
+	r, err := apiClient.V2025.ManagedClientsAPI.DeleteManagedClient(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClientsAPI.DeleteManagedClient``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -153,7 +153,7 @@ func main() {
 Get Managed Client
 Get managed client by ID. 
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-managed-client)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-managed-client)
 
 ### Path Parameters
 
@@ -190,7 +190,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -199,7 +199,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ManagedClientsAPI.GetManagedClient(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.ManagedClientsAPI.GetManagedClient(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClientsAPI.GetManagedClient``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -215,7 +215,7 @@ func main() {
 Get Managed Client Status
 Get a managed client's status, using its ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-managed-client-status)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-managed-client-status)
 
 ### Path Parameters
 
@@ -253,7 +253,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -263,7 +263,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ManagedClientsAPI.GetManagedClientStatus(context.Background(), id).Type_(type_).Execute()
+	resp, r, err := apiClient.V2025.ManagedClientsAPI.GetManagedClientStatus(context.Background(), id).Type_(type_).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClientsAPI.GetManagedClientStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -279,7 +279,7 @@ func main() {
 Get Managed Clients
 List managed clients.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-managed-clients)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-managed-clients)
 
 ### Path Parameters
 
@@ -315,7 +315,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -327,7 +327,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ManagedClientsAPI.GetManagedClients(context.Background()).Offset(offset).Limit(limit).Count(count).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.ManagedClientsAPI.GetManagedClients(context.Background()).Offset(offset).Limit(limit).Count(count).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClientsAPI.GetManagedClients``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -343,7 +343,7 @@ func main() {
 Update Managed Client
 Update an existing managed client.
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-managed-client)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-managed-client)
 
 ### Path Parameters
 
@@ -381,7 +381,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -391,7 +391,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ManagedClientsAPI.UpdateManagedClient(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
+	resp, r, err := apiClient.V2025.ManagedClientsAPI.UpdateManagedClient(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClientsAPI.UpdateManagedClient``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

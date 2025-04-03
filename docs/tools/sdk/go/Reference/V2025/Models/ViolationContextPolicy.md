@@ -1,12 +1,12 @@
 ---
-id: violation-context-policy
+id: v2025-violation-context-policy
 title: ViolationContextPolicy
 pagination_label: ViolationContextPolicy
 sidebar_label: ViolationContextPolicy
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ViolationContextPolicy', 'ViolationContextPolicy'] 
-slug: /tools/sdk/go//models/violation-context-policy
-tags: ['SDK', 'Software Development Kit', 'ViolationContextPolicy', 'ViolationContextPolicy']
+keywords: ['go', 'Golang', 'sdk', 'ViolationContextPolicy', 'V2025ViolationContextPolicy'] 
+slug: /tools/sdk/go/v2025/models/violation-context-policy
+tags: ['SDK', 'Software Development Kit', 'ViolationContextPolicy', 'V2025ViolationContextPolicy']
 ---
 
 # ViolationContextPolicy

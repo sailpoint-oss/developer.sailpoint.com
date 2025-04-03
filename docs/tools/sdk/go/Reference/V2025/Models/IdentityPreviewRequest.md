@@ -1,12 +1,12 @@
 ---
-id: identity-preview-request
+id: v2025-identity-preview-request
 title: IdentityPreviewRequest
 pagination_label: IdentityPreviewRequest
 sidebar_label: IdentityPreviewRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityPreviewRequest', 'IdentityPreviewRequest'] 
-slug: /tools/sdk/go//models/identity-preview-request
-tags: ['SDK', 'Software Development Kit', 'IdentityPreviewRequest', 'IdentityPreviewRequest']
+keywords: ['go', 'Golang', 'sdk', 'IdentityPreviewRequest', 'V2025IdentityPreviewRequest'] 
+slug: /tools/sdk/go/v2025/models/identity-preview-request
+tags: ['SDK', 'Software Development Kit', 'IdentityPreviewRequest', 'V2025IdentityPreviewRequest']
 ---
 
 # IdentityPreviewRequest

@@ -1,12 +1,12 @@
 ---
-id: v3-create-connector-dto
+id: v2025-v3-create-connector-dto
 title: V3CreateConnectorDto
 pagination_label: V3CreateConnectorDto
 sidebar_label: V3CreateConnectorDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'V3CreateConnectorDto', 'V3CreateConnectorDto'] 
-slug: /tools/sdk/go//models/v3-create-connector-dto
-tags: ['SDK', 'Software Development Kit', 'V3CreateConnectorDto', 'V3CreateConnectorDto']
+keywords: ['go', 'Golang', 'sdk', 'V3CreateConnectorDto', 'V2025V3CreateConnectorDto'] 
+slug: /tools/sdk/go/v2025/models/v3-create-connector-dto
+tags: ['SDK', 'Software Development Kit', 'V3CreateConnectorDto', 'V2025V3CreateConnectorDto']
 ---
 
 # V3CreateConnectorDto

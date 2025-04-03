@@ -1,12 +1,12 @@
 ---
-id: subscription-put-request
+id: v2025-subscription-put-request
 title: SubscriptionPutRequest
 pagination_label: SubscriptionPutRequest
 sidebar_label: SubscriptionPutRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SubscriptionPutRequest', 'SubscriptionPutRequest'] 
-slug: /tools/sdk/go//models/subscription-put-request
-tags: ['SDK', 'Software Development Kit', 'SubscriptionPutRequest', 'SubscriptionPutRequest']
+keywords: ['go', 'Golang', 'sdk', 'SubscriptionPutRequest', 'V2025SubscriptionPutRequest'] 
+slug: /tools/sdk/go/v2025/models/subscription-put-request
+tags: ['SDK', 'Software Development Kit', 'SubscriptionPutRequest', 'V2025SubscriptionPutRequest']
 ---
 
 # SubscriptionPutRequest

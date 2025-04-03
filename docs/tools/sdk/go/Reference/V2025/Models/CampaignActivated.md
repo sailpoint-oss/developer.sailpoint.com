@@ -1,12 +1,12 @@
 ---
-id: campaign-activated
+id: v2025-campaign-activated
 title: CampaignActivated
 pagination_label: CampaignActivated
 sidebar_label: CampaignActivated
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignActivated', 'CampaignActivated'] 
-slug: /tools/sdk/go//models/campaign-activated
-tags: ['SDK', 'Software Development Kit', 'CampaignActivated', 'CampaignActivated']
+keywords: ['go', 'Golang', 'sdk', 'CampaignActivated', 'V2025CampaignActivated'] 
+slug: /tools/sdk/go/v2025/models/campaign-activated
+tags: ['SDK', 'Software Development Kit', 'CampaignActivated', 'V2025CampaignActivated']
 ---
 
 # CampaignActivated

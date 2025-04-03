@@ -1,12 +1,12 @@
 ---
-id: object-mapping-request
+id: v2025-object-mapping-request
 title: ObjectMappingRequest
 pagination_label: ObjectMappingRequest
 sidebar_label: ObjectMappingRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ObjectMappingRequest', 'ObjectMappingRequest'] 
-slug: /tools/sdk/go//models/object-mapping-request
-tags: ['SDK', 'Software Development Kit', 'ObjectMappingRequest', 'ObjectMappingRequest']
+keywords: ['go', 'Golang', 'sdk', 'ObjectMappingRequest', 'V2025ObjectMappingRequest'] 
+slug: /tools/sdk/go/v2025/models/object-mapping-request
+tags: ['SDK', 'Software Development Kit', 'ObjectMappingRequest', 'V2025ObjectMappingRequest']
 ---
 
 # ObjectMappingRequest

@@ -1,12 +1,12 @@
 ---
-id: license
+id: v2025-license
 title: License
 pagination_label: License
 sidebar_label: License
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'License', 'License'] 
-slug: /tools/sdk/go//models/license
-tags: ['SDK', 'Software Development Kit', 'License', 'License']
+keywords: ['go', 'Golang', 'sdk', 'License', 'V2025License'] 
+slug: /tools/sdk/go/v2025/models/license
+tags: ['SDK', 'Software Development Kit', 'License', 'V2025License']
 ---
 
 # License

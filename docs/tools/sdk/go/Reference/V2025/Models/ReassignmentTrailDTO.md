@@ -1,12 +1,12 @@
 ---
-id: reassignment-trail-dto
+id: v2025-reassignment-trail-dto
 title: ReassignmentTrailDTO
 pagination_label: ReassignmentTrailDTO
 sidebar_label: ReassignmentTrailDTO
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ReassignmentTrailDTO', 'ReassignmentTrailDTO'] 
-slug: /tools/sdk/go//models/reassignment-trail-dto
-tags: ['SDK', 'Software Development Kit', 'ReassignmentTrailDTO', 'ReassignmentTrailDTO']
+keywords: ['go', 'Golang', 'sdk', 'ReassignmentTrailDTO', 'V2025ReassignmentTrailDTO'] 
+slug: /tools/sdk/go/v2025/models/reassignment-trail-dto
+tags: ['SDK', 'Software Development Kit', 'ReassignmentTrailDTO', 'V2025ReassignmentTrailDTO']
 ---
 
 # ReassignmentTrailDTO

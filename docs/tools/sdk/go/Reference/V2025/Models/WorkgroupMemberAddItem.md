@@ -1,12 +1,12 @@
 ---
-id: workgroup-member-add-item
+id: v2025-workgroup-member-add-item
 title: WorkgroupMemberAddItem
 pagination_label: WorkgroupMemberAddItem
 sidebar_label: WorkgroupMemberAddItem
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkgroupMemberAddItem', 'WorkgroupMemberAddItem'] 
-slug: /tools/sdk/go//models/workgroup-member-add-item
-tags: ['SDK', 'Software Development Kit', 'WorkgroupMemberAddItem', 'WorkgroupMemberAddItem']
+keywords: ['go', 'Golang', 'sdk', 'WorkgroupMemberAddItem', 'V2025WorkgroupMemberAddItem'] 
+slug: /tools/sdk/go/v2025/models/workgroup-member-add-item
+tags: ['SDK', 'Software Development Kit', 'WorkgroupMemberAddItem', 'V2025WorkgroupMemberAddItem']
 ---
 
 # WorkgroupMemberAddItem

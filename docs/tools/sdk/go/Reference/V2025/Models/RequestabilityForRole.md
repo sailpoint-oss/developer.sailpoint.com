@@ -1,12 +1,12 @@
 ---
-id: requestability-for-role
+id: v2025-requestability-for-role
 title: RequestabilityForRole
 pagination_label: RequestabilityForRole
 sidebar_label: RequestabilityForRole
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RequestabilityForRole', 'RequestabilityForRole'] 
-slug: /tools/sdk/go//models/requestability-for-role
-tags: ['SDK', 'Software Development Kit', 'RequestabilityForRole', 'RequestabilityForRole']
+keywords: ['go', 'Golang', 'sdk', 'RequestabilityForRole', 'V2025RequestabilityForRole'] 
+slug: /tools/sdk/go/v2025/models/requestability-for-role
+tags: ['SDK', 'Software Development Kit', 'RequestabilityForRole', 'V2025RequestabilityForRole']
 ---
 
 # RequestabilityForRole

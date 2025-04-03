@@ -1,12 +1,12 @@
 ---
-id: non-employee-request
+id: v2025-non-employee-request
 title: NonEmployeeRequest
 pagination_label: NonEmployeeRequest
 sidebar_label: NonEmployeeRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NonEmployeeRequest', 'NonEmployeeRequest'] 
-slug: /tools/sdk/go//models/non-employee-request
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeRequest', 'NonEmployeeRequest']
+keywords: ['go', 'Golang', 'sdk', 'NonEmployeeRequest', 'V2025NonEmployeeRequest'] 
+slug: /tools/sdk/go/v2025/models/non-employee-request
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeRequest', 'V2025NonEmployeeRequest']
 ---
 
 # NonEmployeeRequest

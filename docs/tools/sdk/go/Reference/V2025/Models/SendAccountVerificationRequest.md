@@ -1,12 +1,12 @@
 ---
-id: send-account-verification-request
+id: v2025-send-account-verification-request
 title: SendAccountVerificationRequest
 pagination_label: SendAccountVerificationRequest
 sidebar_label: SendAccountVerificationRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SendAccountVerificationRequest', 'SendAccountVerificationRequest'] 
-slug: /tools/sdk/go//models/send-account-verification-request
-tags: ['SDK', 'Software Development Kit', 'SendAccountVerificationRequest', 'SendAccountVerificationRequest']
+keywords: ['go', 'Golang', 'sdk', 'SendAccountVerificationRequest', 'V2025SendAccountVerificationRequest'] 
+slug: /tools/sdk/go/v2025/models/send-account-verification-request
+tags: ['SDK', 'Software Development Kit', 'SendAccountVerificationRequest', 'V2025SendAccountVerificationRequest']
 ---
 
 # SendAccountVerificationRequest

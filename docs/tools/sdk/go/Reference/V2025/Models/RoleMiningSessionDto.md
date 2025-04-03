@@ -1,12 +1,12 @@
 ---
-id: role-mining-session-dto
+id: v2025-role-mining-session-dto
 title: RoleMiningSessionDto
 pagination_label: RoleMiningSessionDto
 sidebar_label: RoleMiningSessionDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMiningSessionDto', 'RoleMiningSessionDto'] 
-slug: /tools/sdk/go//models/role-mining-session-dto
-tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionDto', 'RoleMiningSessionDto']
+keywords: ['go', 'Golang', 'sdk', 'RoleMiningSessionDto', 'V2025RoleMiningSessionDto'] 
+slug: /tools/sdk/go/v2025/models/role-mining-session-dto
+tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionDto', 'V2025RoleMiningSessionDto']
 ---
 
 # RoleMiningSessionDto

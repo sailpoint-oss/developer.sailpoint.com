@@ -1,12 +1,12 @@
 ---
-id: translation-message
+id: v2025-translation-message
 title: TranslationMessage
 pagination_label: TranslationMessage
 sidebar_label: TranslationMessage
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TranslationMessage', 'TranslationMessage'] 
-slug: /tools/sdk/go//models/translation-message
-tags: ['SDK', 'Software Development Kit', 'TranslationMessage', 'TranslationMessage']
+keywords: ['go', 'Golang', 'sdk', 'TranslationMessage', 'V2025TranslationMessage'] 
+slug: /tools/sdk/go/v2025/models/translation-message
+tags: ['SDK', 'Software Development Kit', 'TranslationMessage', 'V2025TranslationMessage']
 ---
 
 # TranslationMessage

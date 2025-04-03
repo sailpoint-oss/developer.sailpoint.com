@@ -1,12 +1,12 @@
 ---
-id: outlier-feature-summary
+id: v2025-outlier-feature-summary
 title: OutlierFeatureSummary
 pagination_label: OutlierFeatureSummary
 sidebar_label: OutlierFeatureSummary
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'OutlierFeatureSummary', 'OutlierFeatureSummary'] 
-slug: /tools/sdk/go//models/outlier-feature-summary
-tags: ['SDK', 'Software Development Kit', 'OutlierFeatureSummary', 'OutlierFeatureSummary']
+keywords: ['go', 'Golang', 'sdk', 'OutlierFeatureSummary', 'V2025OutlierFeatureSummary'] 
+slug: /tools/sdk/go/v2025/models/outlier-feature-summary
+tags: ['SDK', 'Software Development Kit', 'OutlierFeatureSummary', 'V2025OutlierFeatureSummary']
 ---
 
 # OutlierFeatureSummary

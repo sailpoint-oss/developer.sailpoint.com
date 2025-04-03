@@ -1,12 +1,12 @@
 ---
-id: list-identity-access-items200-response-inner
+id: v2025-list-identity-access-items200-response-inner
 title: ListIdentityAccessItems200ResponseInner
 pagination_label: ListIdentityAccessItems200ResponseInner
 sidebar_label: ListIdentityAccessItems200ResponseInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ListIdentityAccessItems200ResponseInner', 'ListIdentityAccessItems200ResponseInner'] 
-slug: /tools/sdk/go//models/list-identity-access-items200-response-inner
-tags: ['SDK', 'Software Development Kit', 'ListIdentityAccessItems200ResponseInner', 'ListIdentityAccessItems200ResponseInner']
+keywords: ['go', 'Golang', 'sdk', 'ListIdentityAccessItems200ResponseInner', 'V2025ListIdentityAccessItems200ResponseInner'] 
+slug: /tools/sdk/go/v2025/models/list-identity-access-items200-response-inner
+tags: ['SDK', 'Software Development Kit', 'ListIdentityAccessItems200ResponseInner', 'V2025ListIdentityAccessItems200ResponseInner']
 ---
 
 # ListIdentityAccessItems200ResponseInner

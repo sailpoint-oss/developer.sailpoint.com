@@ -1,12 +1,12 @@
 ---
-id: access-recommendation-message
+id: v2025-access-recommendation-message
 title: AccessRecommendationMessage
 pagination_label: AccessRecommendationMessage
 sidebar_label: AccessRecommendationMessage
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRecommendationMessage', 'AccessRecommendationMessage'] 
-slug: /tools/sdk/go//models/access-recommendation-message
-tags: ['SDK', 'Software Development Kit', 'AccessRecommendationMessage', 'AccessRecommendationMessage']
+keywords: ['go', 'Golang', 'sdk', 'AccessRecommendationMessage', 'V2025AccessRecommendationMessage'] 
+slug: /tools/sdk/go/v2025/models/access-recommendation-message
+tags: ['SDK', 'Software Development Kit', 'AccessRecommendationMessage', 'V2025AccessRecommendationMessage']
 ---
 
 # AccessRecommendationMessage

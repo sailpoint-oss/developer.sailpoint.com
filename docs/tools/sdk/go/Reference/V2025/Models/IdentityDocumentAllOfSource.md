@@ -1,12 +1,12 @@
 ---
-id: identity-document-all-of-source
+id: v2025-identity-document-all-of-source
 title: IdentityDocumentAllOfSource
 pagination_label: IdentityDocumentAllOfSource
 sidebar_label: IdentityDocumentAllOfSource
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityDocumentAllOfSource', 'IdentityDocumentAllOfSource'] 
-slug: /tools/sdk/go//models/identity-document-all-of-source
-tags: ['SDK', 'Software Development Kit', 'IdentityDocumentAllOfSource', 'IdentityDocumentAllOfSource']
+keywords: ['go', 'Golang', 'sdk', 'IdentityDocumentAllOfSource', 'V2025IdentityDocumentAllOfSource'] 
+slug: /tools/sdk/go/v2025/models/identity-document-all-of-source
+tags: ['SDK', 'Software Development Kit', 'IdentityDocumentAllOfSource', 'V2025IdentityDocumentAllOfSource']
 ---
 
 # IdentityDocumentAllOfSource

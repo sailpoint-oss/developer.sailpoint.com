@@ -1,12 +1,12 @@
 ---
-id: complete-invocation
+id: v2025-complete-invocation
 title: CompleteInvocation
 pagination_label: CompleteInvocation
 sidebar_label: CompleteInvocation
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CompleteInvocation', 'CompleteInvocation'] 
-slug: /tools/sdk/go//models/complete-invocation
-tags: ['SDK', 'Software Development Kit', 'CompleteInvocation', 'CompleteInvocation']
+keywords: ['go', 'Golang', 'sdk', 'CompleteInvocation', 'V2025CompleteInvocation'] 
+slug: /tools/sdk/go/v2025/models/complete-invocation
+tags: ['SDK', 'Software Development Kit', 'CompleteInvocation', 'V2025CompleteInvocation']
 ---
 
 # CompleteInvocation

@@ -1,12 +1,12 @@
 ---
-id: form-instance-recipient
+id: v2025-form-instance-recipient
 title: FormInstanceRecipient
 pagination_label: FormInstanceRecipient
 sidebar_label: FormInstanceRecipient
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FormInstanceRecipient', 'FormInstanceRecipient'] 
-slug: /tools/sdk/go//models/form-instance-recipient
-tags: ['SDK', 'Software Development Kit', 'FormInstanceRecipient', 'FormInstanceRecipient']
+keywords: ['go', 'Golang', 'sdk', 'FormInstanceRecipient', 'V2025FormInstanceRecipient'] 
+slug: /tools/sdk/go/v2025/models/form-instance-recipient
+tags: ['SDK', 'Software Development Kit', 'FormInstanceRecipient', 'V2025FormInstanceRecipient']
 ---
 
 # FormInstanceRecipient

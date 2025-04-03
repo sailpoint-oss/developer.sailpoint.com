@@ -1,12 +1,12 @@
 ---
-id: identity-sync-payload
+id: v2025-identity-sync-payload
 title: IdentitySyncPayload
 pagination_label: IdentitySyncPayload
 sidebar_label: IdentitySyncPayload
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentitySyncPayload', 'IdentitySyncPayload'] 
-slug: /tools/sdk/go//models/identity-sync-payload
-tags: ['SDK', 'Software Development Kit', 'IdentitySyncPayload', 'IdentitySyncPayload']
+keywords: ['go', 'Golang', 'sdk', 'IdentitySyncPayload', 'V2025IdentitySyncPayload'] 
+slug: /tools/sdk/go/v2025/models/identity-sync-payload
+tags: ['SDK', 'Software Development Kit', 'IdentitySyncPayload', 'V2025IdentitySyncPayload']
 ---
 
 # IdentitySyncPayload

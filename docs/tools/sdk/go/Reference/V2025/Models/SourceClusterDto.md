@@ -1,12 +1,12 @@
 ---
-id: source-cluster-dto
+id: v2025-source-cluster-dto
 title: SourceClusterDto
 pagination_label: SourceClusterDto
 sidebar_label: SourceClusterDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceClusterDto', 'SourceClusterDto'] 
-slug: /tools/sdk/go//models/source-cluster-dto
-tags: ['SDK', 'Software Development Kit', 'SourceClusterDto', 'SourceClusterDto']
+keywords: ['go', 'Golang', 'sdk', 'SourceClusterDto', 'V2025SourceClusterDto'] 
+slug: /tools/sdk/go/v2025/models/source-cluster-dto
+tags: ['SDK', 'Software Development Kit', 'SourceClusterDto', 'V2025SourceClusterDto']
 ---
 
 # SourceClusterDto

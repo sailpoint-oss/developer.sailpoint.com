@@ -1,12 +1,12 @@
 ---
-id: import-options
+id: v2025-import-options
 title: ImportOptions
 pagination_label: ImportOptions
 sidebar_label: ImportOptions
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ImportOptions', 'ImportOptions'] 
-slug: /tools/sdk/go//models/import-options
-tags: ['SDK', 'Software Development Kit', 'ImportOptions', 'ImportOptions']
+keywords: ['go', 'Golang', 'sdk', 'ImportOptions', 'V2025ImportOptions'] 
+slug: /tools/sdk/go/v2025/models/import-options
+tags: ['SDK', 'Software Development Kit', 'ImportOptions', 'V2025ImportOptions']
 ---
 
 # ImportOptions

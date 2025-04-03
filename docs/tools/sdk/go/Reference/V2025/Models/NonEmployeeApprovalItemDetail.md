@@ -1,12 +1,12 @@
 ---
-id: non-employee-approval-item-detail
+id: v2025-non-employee-approval-item-detail
 title: NonEmployeeApprovalItemDetail
 pagination_label: NonEmployeeApprovalItemDetail
 sidebar_label: NonEmployeeApprovalItemDetail
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NonEmployeeApprovalItemDetail', 'NonEmployeeApprovalItemDetail'] 
-slug: /tools/sdk/go//models/non-employee-approval-item-detail
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeApprovalItemDetail', 'NonEmployeeApprovalItemDetail']
+keywords: ['go', 'Golang', 'sdk', 'NonEmployeeApprovalItemDetail', 'V2025NonEmployeeApprovalItemDetail'] 
+slug: /tools/sdk/go/v2025/models/non-employee-approval-item-detail
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeApprovalItemDetail', 'V2025NonEmployeeApprovalItemDetail']
 ---
 
 # NonEmployeeApprovalItemDetail

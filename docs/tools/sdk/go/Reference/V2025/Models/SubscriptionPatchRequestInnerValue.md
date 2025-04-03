@@ -1,12 +1,12 @@
 ---
-id: subscription-patch-request-inner-value
+id: v2025-subscription-patch-request-inner-value
 title: SubscriptionPatchRequestInnerValue
 pagination_label: SubscriptionPatchRequestInnerValue
 sidebar_label: SubscriptionPatchRequestInnerValue
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SubscriptionPatchRequestInnerValue', 'SubscriptionPatchRequestInnerValue'] 
-slug: /tools/sdk/go//models/subscription-patch-request-inner-value
-tags: ['SDK', 'Software Development Kit', 'SubscriptionPatchRequestInnerValue', 'SubscriptionPatchRequestInnerValue']
+keywords: ['go', 'Golang', 'sdk', 'SubscriptionPatchRequestInnerValue', 'V2025SubscriptionPatchRequestInnerValue'] 
+slug: /tools/sdk/go/v2025/models/subscription-patch-request-inner-value
+tags: ['SDK', 'Software Development Kit', 'SubscriptionPatchRequestInnerValue', 'V2025SubscriptionPatchRequestInnerValue']
 ---
 
 # SubscriptionPatchRequestInnerValue

@@ -1,12 +1,12 @@
 ---
-id: sp-config-export-job-status
+id: v2025-sp-config-export-job-status
 title: SpConfigExportJobStatus
 pagination_label: SpConfigExportJobStatus
 sidebar_label: SpConfigExportJobStatus
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SpConfigExportJobStatus', 'SpConfigExportJobStatus'] 
-slug: /tools/sdk/go//models/sp-config-export-job-status
-tags: ['SDK', 'Software Development Kit', 'SpConfigExportJobStatus', 'SpConfigExportJobStatus']
+keywords: ['go', 'Golang', 'sdk', 'SpConfigExportJobStatus', 'V2025SpConfigExportJobStatus'] 
+slug: /tools/sdk/go/v2025/models/sp-config-export-job-status
+tags: ['SDK', 'Software Development Kit', 'SpConfigExportJobStatus', 'V2025SpConfigExportJobStatus']
 ---
 
 # SpConfigExportJobStatus

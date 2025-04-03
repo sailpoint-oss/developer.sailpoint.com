@@ -1,12 +1,12 @@
 ---
-id: evaluate-response
+id: v2025-evaluate-response
 title: EvaluateResponse
 pagination_label: EvaluateResponse
 sidebar_label: EvaluateResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EvaluateResponse', 'EvaluateResponse'] 
-slug: /tools/sdk/go//models/evaluate-response
-tags: ['SDK', 'Software Development Kit', 'EvaluateResponse', 'EvaluateResponse']
+keywords: ['go', 'Golang', 'sdk', 'EvaluateResponse', 'V2025EvaluateResponse'] 
+slug: /tools/sdk/go/v2025/models/evaluate-response
+tags: ['SDK', 'Software Development Kit', 'EvaluateResponse', 'V2025EvaluateResponse']
 ---
 
 # EvaluateResponse

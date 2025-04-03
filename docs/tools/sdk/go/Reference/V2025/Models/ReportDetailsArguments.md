@@ -1,12 +1,12 @@
 ---
-id: report-details-arguments
+id: v2025-report-details-arguments
 title: ReportDetailsArguments
 pagination_label: ReportDetailsArguments
 sidebar_label: ReportDetailsArguments
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ReportDetailsArguments', 'ReportDetailsArguments'] 
-slug: /tools/sdk/go//models/report-details-arguments
-tags: ['SDK', 'Software Development Kit', 'ReportDetailsArguments', 'ReportDetailsArguments']
+keywords: ['go', 'Golang', 'sdk', 'ReportDetailsArguments', 'V2025ReportDetailsArguments'] 
+slug: /tools/sdk/go/v2025/models/report-details-arguments
+tags: ['SDK', 'Software Development Kit', 'ReportDetailsArguments', 'V2025ReportDetailsArguments']
 ---
 
 # ReportDetailsArguments

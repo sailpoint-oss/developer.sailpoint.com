@@ -1,12 +1,12 @@
 ---
-id: dimension-criteria-level3
+id: v2025-dimension-criteria-level3
 title: DimensionCriteriaLevel3
 pagination_label: DimensionCriteriaLevel3
 sidebar_label: DimensionCriteriaLevel3
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DimensionCriteriaLevel3', 'DimensionCriteriaLevel3'] 
-slug: /tools/sdk/go//models/dimension-criteria-level3
-tags: ['SDK', 'Software Development Kit', 'DimensionCriteriaLevel3', 'DimensionCriteriaLevel3']
+keywords: ['go', 'Golang', 'sdk', 'DimensionCriteriaLevel3', 'V2025DimensionCriteriaLevel3'] 
+slug: /tools/sdk/go/v2025/models/dimension-criteria-level3
+tags: ['SDK', 'Software Development Kit', 'DimensionCriteriaLevel3', 'V2025DimensionCriteriaLevel3']
 ---
 
 # DimensionCriteriaLevel3

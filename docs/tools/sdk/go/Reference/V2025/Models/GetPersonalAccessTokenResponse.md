@@ -1,12 +1,12 @@
 ---
-id: get-personal-access-token-response
+id: v2025-get-personal-access-token-response
 title: GetPersonalAccessTokenResponse
 pagination_label: GetPersonalAccessTokenResponse
 sidebar_label: GetPersonalAccessTokenResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'GetPersonalAccessTokenResponse', 'GetPersonalAccessTokenResponse'] 
-slug: /tools/sdk/go//models/get-personal-access-token-response
-tags: ['SDK', 'Software Development Kit', 'GetPersonalAccessTokenResponse', 'GetPersonalAccessTokenResponse']
+keywords: ['go', 'Golang', 'sdk', 'GetPersonalAccessTokenResponse', 'V2025GetPersonalAccessTokenResponse'] 
+slug: /tools/sdk/go/v2025/models/get-personal-access-token-response
+tags: ['SDK', 'Software Development Kit', 'GetPersonalAccessTokenResponse', 'V2025GetPersonalAccessTokenResponse']
 ---
 
 # GetPersonalAccessTokenResponse

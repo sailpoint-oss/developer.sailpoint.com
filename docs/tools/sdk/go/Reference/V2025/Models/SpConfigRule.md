@@ -1,12 +1,12 @@
 ---
-id: sp-config-rule
+id: v2025-sp-config-rule
 title: SpConfigRule
 pagination_label: SpConfigRule
 sidebar_label: SpConfigRule
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SpConfigRule', 'SpConfigRule'] 
-slug: /tools/sdk/go//models/sp-config-rule
-tags: ['SDK', 'Software Development Kit', 'SpConfigRule', 'SpConfigRule']
+keywords: ['go', 'Golang', 'sdk', 'SpConfigRule', 'V2025SpConfigRule'] 
+slug: /tools/sdk/go/v2025/models/sp-config-rule
+tags: ['SDK', 'Software Development Kit', 'SpConfigRule', 'V2025SpConfigRule']
 ---
 
 # SpConfigRule

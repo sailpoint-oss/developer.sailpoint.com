@@ -1,12 +1,12 @@
 ---
-id: approval-status-dto
+id: v2025-approval-status-dto
 title: ApprovalStatusDto
 pagination_label: ApprovalStatusDto
 sidebar_label: ApprovalStatusDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ApprovalStatusDto', 'ApprovalStatusDto'] 
-slug: /tools/sdk/go//models/approval-status-dto
-tags: ['SDK', 'Software Development Kit', 'ApprovalStatusDto', 'ApprovalStatusDto']
+keywords: ['go', 'Golang', 'sdk', 'ApprovalStatusDto', 'V2025ApprovalStatusDto'] 
+slug: /tools/sdk/go/v2025/models/approval-status-dto
+tags: ['SDK', 'Software Development Kit', 'ApprovalStatusDto', 'V2025ApprovalStatusDto']
 ---
 
 # ApprovalStatusDto

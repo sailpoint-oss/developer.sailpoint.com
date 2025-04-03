@@ -1,12 +1,12 @@
 ---
-id: dimension-bulk-delete-request
+id: v2025-dimension-bulk-delete-request
 title: DimensionBulkDeleteRequest
 pagination_label: DimensionBulkDeleteRequest
 sidebar_label: DimensionBulkDeleteRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DimensionBulkDeleteRequest', 'DimensionBulkDeleteRequest'] 
-slug: /tools/sdk/go//models/dimension-bulk-delete-request
-tags: ['SDK', 'Software Development Kit', 'DimensionBulkDeleteRequest', 'DimensionBulkDeleteRequest']
+keywords: ['go', 'Golang', 'sdk', 'DimensionBulkDeleteRequest', 'V2025DimensionBulkDeleteRequest'] 
+slug: /tools/sdk/go/v2025/models/dimension-bulk-delete-request
+tags: ['SDK', 'Software Development Kit', 'DimensionBulkDeleteRequest', 'V2025DimensionBulkDeleteRequest']
 ---
 
 # DimensionBulkDeleteRequest

@@ -1,12 +1,12 @@
 ---
-id: lifecycle-state-dto
+id: v2025-lifecycle-state-dto
 title: LifecycleStateDto
 pagination_label: LifecycleStateDto
 sidebar_label: LifecycleStateDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'LifecycleStateDto', 'LifecycleStateDto'] 
-slug: /tools/sdk/go//models/lifecycle-state-dto
-tags: ['SDK', 'Software Development Kit', 'LifecycleStateDto', 'LifecycleStateDto']
+keywords: ['go', 'Golang', 'sdk', 'LifecycleStateDto', 'V2025LifecycleStateDto'] 
+slug: /tools/sdk/go/v2025/models/lifecycle-state-dto
+tags: ['SDK', 'Software Development Kit', 'LifecycleStateDto', 'V2025LifecycleStateDto']
 ---
 
 # LifecycleStateDto

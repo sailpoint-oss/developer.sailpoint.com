@@ -1,12 +1,12 @@
 ---
-id: role-document
+id: v2025-role-document
 title: RoleDocument
 pagination_label: RoleDocument
 sidebar_label: RoleDocument
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleDocument', 'RoleDocument'] 
-slug: /tools/sdk/go//models/role-document
-tags: ['SDK', 'Software Development Kit', 'RoleDocument', 'RoleDocument']
+keywords: ['go', 'Golang', 'sdk', 'RoleDocument', 'V2025RoleDocument'] 
+slug: /tools/sdk/go/v2025/models/role-document
+tags: ['SDK', 'Software Development Kit', 'RoleDocument', 'V2025RoleDocument']
 ---
 
 # RoleDocument

@@ -1,12 +1,12 @@
 ---
-id: entitlement-document
+id: v2025-entitlement-document
 title: EntitlementDocument
 pagination_label: EntitlementDocument
 sidebar_label: EntitlementDocument
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EntitlementDocument', 'EntitlementDocument'] 
-slug: /tools/sdk/go//models/entitlement-document
-tags: ['SDK', 'Software Development Kit', 'EntitlementDocument', 'EntitlementDocument']
+keywords: ['go', 'Golang', 'sdk', 'EntitlementDocument', 'V2025EntitlementDocument'] 
+slug: /tools/sdk/go/v2025/models/entitlement-document
+tags: ['SDK', 'Software Development Kit', 'EntitlementDocument', 'V2025EntitlementDocument']
 ---
 
 # EntitlementDocument

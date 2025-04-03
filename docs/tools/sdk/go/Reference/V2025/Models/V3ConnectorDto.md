@@ -1,12 +1,12 @@
 ---
-id: v3-connector-dto
+id: v2025-v3-connector-dto
 title: V3ConnectorDto
 pagination_label: V3ConnectorDto
 sidebar_label: V3ConnectorDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'V3ConnectorDto', 'V3ConnectorDto'] 
-slug: /tools/sdk/go//models/v3-connector-dto
-tags: ['SDK', 'Software Development Kit', 'V3ConnectorDto', 'V3ConnectorDto']
+keywords: ['go', 'Golang', 'sdk', 'V3ConnectorDto', 'V2025V3ConnectorDto'] 
+slug: /tools/sdk/go/v2025/models/v3-connector-dto
+tags: ['SDK', 'Software Development Kit', 'V3ConnectorDto', 'V2025V3ConnectorDto']
 ---
 
 # V3ConnectorDto

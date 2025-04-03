@@ -1,12 +1,12 @@
 ---
-id: role-mining-session-response-created-by
+id: v2025-role-mining-session-response-created-by
 title: RoleMiningSessionResponseCreatedBy
 pagination_label: RoleMiningSessionResponseCreatedBy
 sidebar_label: RoleMiningSessionResponseCreatedBy
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMiningSessionResponseCreatedBy', 'RoleMiningSessionResponseCreatedBy'] 
-slug: /tools/sdk/go//models/role-mining-session-response-created-by
-tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionResponseCreatedBy', 'RoleMiningSessionResponseCreatedBy']
+keywords: ['go', 'Golang', 'sdk', 'RoleMiningSessionResponseCreatedBy', 'V2025RoleMiningSessionResponseCreatedBy'] 
+slug: /tools/sdk/go/v2025/models/role-mining-session-response-created-by
+tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionResponseCreatedBy', 'V2025RoleMiningSessionResponseCreatedBy']
 ---
 
 # RoleMiningSessionResponseCreatedBy

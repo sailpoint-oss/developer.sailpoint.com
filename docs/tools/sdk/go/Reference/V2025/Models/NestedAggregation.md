@@ -1,12 +1,12 @@
 ---
-id: nested-aggregation
+id: v2025-nested-aggregation
 title: NestedAggregation
 pagination_label: NestedAggregation
 sidebar_label: NestedAggregation
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NestedAggregation', 'NestedAggregation'] 
-slug: /tools/sdk/go//models/nested-aggregation
-tags: ['SDK', 'Software Development Kit', 'NestedAggregation', 'NestedAggregation']
+keywords: ['go', 'Golang', 'sdk', 'NestedAggregation', 'V2025NestedAggregation'] 
+slug: /tools/sdk/go/v2025/models/nested-aggregation
+tags: ['SDK', 'Software Development Kit', 'NestedAggregation', 'V2025NestedAggregation']
 ---
 
 # NestedAggregation

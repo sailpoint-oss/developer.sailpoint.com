@@ -1,12 +1,12 @@
 ---
-id: expression
+id: v2025-expression
 title: Expression
 pagination_label: Expression
 sidebar_label: Expression
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Expression', 'Expression'] 
-slug: /tools/sdk/go//models/expression
-tags: ['SDK', 'Software Development Kit', 'Expression', 'Expression']
+keywords: ['go', 'Golang', 'sdk', 'Expression', 'V2025Expression'] 
+slug: /tools/sdk/go/v2025/models/expression
+tags: ['SDK', 'Software Development Kit', 'Expression', 'V2025Expression']
 ---
 
 # Expression

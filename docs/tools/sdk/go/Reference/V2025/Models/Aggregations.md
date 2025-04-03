@@ -1,12 +1,12 @@
 ---
-id: aggregations
+id: v2025-aggregations
 title: Aggregations
 pagination_label: Aggregations
 sidebar_label: Aggregations
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Aggregations', 'Aggregations'] 
-slug: /tools/sdk/go//models/aggregations
-tags: ['SDK', 'Software Development Kit', 'Aggregations', 'Aggregations']
+keywords: ['go', 'Golang', 'sdk', 'Aggregations', 'V2025Aggregations'] 
+slug: /tools/sdk/go/v2025/models/aggregations
+tags: ['SDK', 'Software Development Kit', 'Aggregations', 'V2025Aggregations']
 ---
 
 # Aggregations

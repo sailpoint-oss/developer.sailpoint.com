@@ -1,12 +1,12 @@
 ---
-id: source-updated
+id: v2025-source-updated
 title: SourceUpdated
 pagination_label: SourceUpdated
 sidebar_label: SourceUpdated
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceUpdated', 'SourceUpdated'] 
-slug: /tools/sdk/go//models/source-updated
-tags: ['SDK', 'Software Development Kit', 'SourceUpdated', 'SourceUpdated']
+keywords: ['go', 'Golang', 'sdk', 'SourceUpdated', 'V2025SourceUpdated'] 
+slug: /tools/sdk/go/v2025/models/source-updated
+tags: ['SDK', 'Software Development Kit', 'SourceUpdated', 'V2025SourceUpdated']
 ---
 
 # SourceUpdated

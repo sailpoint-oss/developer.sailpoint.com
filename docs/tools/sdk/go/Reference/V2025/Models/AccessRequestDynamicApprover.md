@@ -1,12 +1,12 @@
 ---
-id: access-request-dynamic-approver
+id: v2025-access-request-dynamic-approver
 title: AccessRequestDynamicApprover
 pagination_label: AccessRequestDynamicApprover
 sidebar_label: AccessRequestDynamicApprover
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestDynamicApprover', 'AccessRequestDynamicApprover'] 
-slug: /tools/sdk/go//models/access-request-dynamic-approver
-tags: ['SDK', 'Software Development Kit', 'AccessRequestDynamicApprover', 'AccessRequestDynamicApprover']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestDynamicApprover', 'V2025AccessRequestDynamicApprover'] 
+slug: /tools/sdk/go/v2025/models/access-request-dynamic-approver
+tags: ['SDK', 'Software Development Kit', 'AccessRequestDynamicApprover', 'V2025AccessRequestDynamicApprover']
 ---
 
 # AccessRequestDynamicApprover

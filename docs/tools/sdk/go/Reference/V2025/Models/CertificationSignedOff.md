@@ -1,12 +1,12 @@
 ---
-id: certification-signed-off
+id: v2025-certification-signed-off
 title: CertificationSignedOff
 pagination_label: CertificationSignedOff
 sidebar_label: CertificationSignedOff
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CertificationSignedOff', 'CertificationSignedOff'] 
-slug: /tools/sdk/go//models/certification-signed-off
-tags: ['SDK', 'Software Development Kit', 'CertificationSignedOff', 'CertificationSignedOff']
+keywords: ['go', 'Golang', 'sdk', 'CertificationSignedOff', 'V2025CertificationSignedOff'] 
+slug: /tools/sdk/go/v2025/models/certification-signed-off
+tags: ['SDK', 'Software Development Kit', 'CertificationSignedOff', 'V2025CertificationSignedOff']
 ---
 
 # CertificationSignedOff

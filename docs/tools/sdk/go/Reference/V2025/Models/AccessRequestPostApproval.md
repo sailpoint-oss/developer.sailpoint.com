@@ -1,12 +1,12 @@
 ---
-id: access-request-post-approval
+id: v2025-access-request-post-approval
 title: AccessRequestPostApproval
 pagination_label: AccessRequestPostApproval
 sidebar_label: AccessRequestPostApproval
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestPostApproval', 'AccessRequestPostApproval'] 
-slug: /tools/sdk/go//models/access-request-post-approval
-tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApproval', 'AccessRequestPostApproval']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestPostApproval', 'V2025AccessRequestPostApproval'] 
+slug: /tools/sdk/go/v2025/models/access-request-post-approval
+tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApproval', 'V2025AccessRequestPostApproval']
 ---
 
 # AccessRequestPostApproval

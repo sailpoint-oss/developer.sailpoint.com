@@ -1,12 +1,12 @@
 ---
-id: tenant-context
+id: v2025-tenant-context
 title: TenantContext
 pagination_label: TenantContext
 sidebar_label: TenantContext
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TenantContext', 'TenantContext'] 
-slug: /tools/sdk/go//methods/tenant-context
-tags: ['SDK', 'Software Development Kit', 'TenantContext', 'TenantContext']
+keywords: ['go', 'Golang', 'sdk', 'TenantContext', 'V2025TenantContext'] 
+slug: /tools/sdk/go/v2025/methods/tenant-context
+tags: ['SDK', 'Software Development Kit', 'TenantContext', 'V2025TenantContext']
 ---
 
 # TenantContextAPI
@@ -37,7 +37,7 @@ Retrieve tenant context
 Returns a list of key-value pairs representing the current state of the tenant's context.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-tenant-context)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-tenant-context)
 
 ### Path Parameters
 
@@ -70,7 +70,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -79,7 +79,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..TenantContextAPI.GetTenantContext(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.TenantContextAPI.GetTenantContext(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenantContextAPI.GetTenantContext``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -111,7 +111,7 @@ This endpoint is specifically designed to modify the `/Key/*` field, supporting 
 Note that each tenant is limited to a maximum of 100 key-value pairs.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-tenant-context)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-tenant-context)
 
 ### Path Parameters
 
@@ -145,7 +145,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -159,7 +159,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..TenantContextAPI.PatchTenantContext(context.Background()).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
+	r, err := apiClient.V2025.TenantContextAPI.PatchTenantContext(context.Background()).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `TenantContextAPI.PatchTenantContext``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -1,12 +1,12 @@
 ---
-id: search
+id: v2025-search
 title: Search
 pagination_label: Search
 sidebar_label: Search
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Search', 'Search'] 
-slug: /tools/sdk/go//methods/search
-tags: ['SDK', 'Software Development Kit', 'Search', 'Search']
+keywords: ['go', 'Golang', 'sdk', 'Search', 'V2025Search'] 
+slug: /tools/sdk/go/v2025/methods/search
+tags: ['SDK', 'Software Development Kit', 'Search', 'V2025Search']
 ---
 
 # SearchAPI
@@ -48,7 +48,7 @@ Method | HTTP request | Description
 Perform a Search Query Aggregation
 Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
 
-[API Spec](https://developer.sailpoint.com/docs/api//search-aggregate)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/search-aggregate)
 
 ### Path Parameters
 
@@ -84,7 +84,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -212,7 +212,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SearchAPI.SearchAggregate(context.Background()).Search(search).Offset(offset).Limit(limit).Count(count).Execute()
+	resp, r, err := apiClient.V2025.SearchAPI.SearchAggregate(context.Background()).Search(search).Offset(offset).Limit(limit).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.SearchAggregate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -228,7 +228,7 @@ func main() {
 Count Documents Satisfying a Query
 Performs a search with a provided query and returns the count of results in the X-Total-Count header.
 
-[API Spec](https://developer.sailpoint.com/docs/api//search-count)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/search-count)
 
 ### Path Parameters
 
@@ -261,7 +261,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -386,7 +386,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..SearchAPI.SearchCount(context.Background()).Search(search).Execute()
+	r, err := apiClient.V2025.SearchAPI.SearchCount(context.Background()).Search(search).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.SearchCount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -400,7 +400,7 @@ func main() {
 Get a Document by ID
 Fetches a single document from the specified index, using the specified document ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//search-get)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/search-get)
 
 ### Path Parameters
 
@@ -439,7 +439,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -449,7 +449,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SearchAPI.SearchGet(context.Background(), index, id).Execute()
+	resp, r, err := apiClient.V2025.SearchAPI.SearchGet(context.Background(), index, id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.SearchGet``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -465,7 +465,7 @@ func main() {
 Perform Search
 Perform a search with the provided query and return a matching result collection. To page past 10,000 records, you can use `searchAfter` paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement `searchAfter` paging. 
 
-[API Spec](https://developer.sailpoint.com/docs/api//search-post)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/search-post)
 
 ### Path Parameters
 
@@ -501,7 +501,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -629,7 +629,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SearchAPI.SearchPost(context.Background()).Search(search).Offset(offset).Limit(limit).Count(count).Execute()
+	resp, r, err := apiClient.V2025.SearchAPI.SearchPost(context.Background()).Search(search).Offset(offset).Limit(limit).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SearchAPI.SearchPost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

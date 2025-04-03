@@ -1,12 +1,12 @@
 ---
-id: entity-created-by-dto
+id: v2025-entity-created-by-dto
 title: EntityCreatedByDTO
 pagination_label: EntityCreatedByDTO
 sidebar_label: EntityCreatedByDTO
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EntityCreatedByDTO', 'EntityCreatedByDTO'] 
-slug: /tools/sdk/go//models/entity-created-by-dto
-tags: ['SDK', 'Software Development Kit', 'EntityCreatedByDTO', 'EntityCreatedByDTO']
+keywords: ['go', 'Golang', 'sdk', 'EntityCreatedByDTO', 'V2025EntityCreatedByDTO'] 
+slug: /tools/sdk/go/v2025/models/entity-created-by-dto
+tags: ['SDK', 'Software Development Kit', 'EntityCreatedByDTO', 'V2025EntityCreatedByDTO']
 ---
 
 # EntityCreatedByDTO

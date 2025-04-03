@@ -1,12 +1,12 @@
 ---
-id: role-list-filter-dto-amm-key-values-inner
+id: v2025-role-list-filter-dto-amm-key-values-inner
 title: RoleListFilterDTOAmmKeyValuesInner
 pagination_label: RoleListFilterDTOAmmKeyValuesInner
 sidebar_label: RoleListFilterDTOAmmKeyValuesInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleListFilterDTOAmmKeyValuesInner', 'RoleListFilterDTOAmmKeyValuesInner'] 
-slug: /tools/sdk/go//models/role-list-filter-dto-amm-key-values-inner
-tags: ['SDK', 'Software Development Kit', 'RoleListFilterDTOAmmKeyValuesInner', 'RoleListFilterDTOAmmKeyValuesInner']
+keywords: ['go', 'Golang', 'sdk', 'RoleListFilterDTOAmmKeyValuesInner', 'V2025RoleListFilterDTOAmmKeyValuesInner'] 
+slug: /tools/sdk/go/v2025/models/role-list-filter-dto-amm-key-values-inner
+tags: ['SDK', 'Software Development Kit', 'RoleListFilterDTOAmmKeyValuesInner', 'V2025RoleListFilterDTOAmmKeyValuesInner']
 ---
 
 # RoleListFilterDTOAmmKeyValuesInner

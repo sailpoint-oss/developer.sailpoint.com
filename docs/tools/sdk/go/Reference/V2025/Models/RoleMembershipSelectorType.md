@@ -1,12 +1,12 @@
 ---
-id: role-membership-selector-type
+id: v2025-role-membership-selector-type
 title: RoleMembershipSelectorType
 pagination_label: RoleMembershipSelectorType
 sidebar_label: RoleMembershipSelectorType
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMembershipSelectorType', 'RoleMembershipSelectorType'] 
-slug: /tools/sdk/go//models/role-membership-selector-type
-tags: ['SDK', 'Software Development Kit', 'RoleMembershipSelectorType', 'RoleMembershipSelectorType']
+keywords: ['go', 'Golang', 'sdk', 'RoleMembershipSelectorType', 'V2025RoleMembershipSelectorType'] 
+slug: /tools/sdk/go/v2025/models/role-membership-selector-type
+tags: ['SDK', 'Software Development Kit', 'RoleMembershipSelectorType', 'V2025RoleMembershipSelectorType']
 ---
 
 # RoleMembershipSelectorType

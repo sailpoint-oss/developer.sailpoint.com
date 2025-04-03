@@ -1,12 +1,12 @@
 ---
-id: schema
+id: v2025-schema
 title: Schema
 pagination_label: Schema
 sidebar_label: Schema
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Schema', 'Schema'] 
-slug: /tools/sdk/go//models/schema
-tags: ['SDK', 'Software Development Kit', 'Schema', 'Schema']
+keywords: ['go', 'Golang', 'sdk', 'Schema', 'V2025Schema'] 
+slug: /tools/sdk/go/v2025/models/schema
+tags: ['SDK', 'Software Development Kit', 'Schema', 'V2025Schema']
 ---
 
 # Schema

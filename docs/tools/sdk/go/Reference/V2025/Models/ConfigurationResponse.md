@@ -1,12 +1,12 @@
 ---
-id: configuration-response
+id: v2025-configuration-response
 title: ConfigurationResponse
 pagination_label: ConfigurationResponse
 sidebar_label: ConfigurationResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConfigurationResponse', 'ConfigurationResponse'] 
-slug: /tools/sdk/go//models/configuration-response
-tags: ['SDK', 'Software Development Kit', 'ConfigurationResponse', 'ConfigurationResponse']
+keywords: ['go', 'Golang', 'sdk', 'ConfigurationResponse', 'V2025ConfigurationResponse'] 
+slug: /tools/sdk/go/v2025/models/configuration-response
+tags: ['SDK', 'Software Development Kit', 'ConfigurationResponse', 'V2025ConfigurationResponse']
 ---
 
 # ConfigurationResponse

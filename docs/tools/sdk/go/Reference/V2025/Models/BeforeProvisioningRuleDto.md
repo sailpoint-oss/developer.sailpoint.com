@@ -1,12 +1,12 @@
 ---
-id: before-provisioning-rule-dto
+id: v2025-before-provisioning-rule-dto
 title: BeforeProvisioningRuleDto
 pagination_label: BeforeProvisioningRuleDto
 sidebar_label: BeforeProvisioningRuleDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BeforeProvisioningRuleDto', 'BeforeProvisioningRuleDto'] 
-slug: /tools/sdk/go//models/before-provisioning-rule-dto
-tags: ['SDK', 'Software Development Kit', 'BeforeProvisioningRuleDto', 'BeforeProvisioningRuleDto']
+keywords: ['go', 'Golang', 'sdk', 'BeforeProvisioningRuleDto', 'V2025BeforeProvisioningRuleDto'] 
+slug: /tools/sdk/go/v2025/models/before-provisioning-rule-dto
+tags: ['SDK', 'Software Development Kit', 'BeforeProvisioningRuleDto', 'V2025BeforeProvisioningRuleDto']
 ---
 
 # BeforeProvisioningRuleDto

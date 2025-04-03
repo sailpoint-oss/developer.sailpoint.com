@@ -1,12 +1,12 @@
 ---
-id: create-personal-access-token-request
+id: v2025-create-personal-access-token-request
 title: CreatePersonalAccessTokenRequest
 pagination_label: CreatePersonalAccessTokenRequest
 sidebar_label: CreatePersonalAccessTokenRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CreatePersonalAccessTokenRequest', 'CreatePersonalAccessTokenRequest'] 
-slug: /tools/sdk/go//models/create-personal-access-token-request
-tags: ['SDK', 'Software Development Kit', 'CreatePersonalAccessTokenRequest', 'CreatePersonalAccessTokenRequest']
+keywords: ['go', 'Golang', 'sdk', 'CreatePersonalAccessTokenRequest', 'V2025CreatePersonalAccessTokenRequest'] 
+slug: /tools/sdk/go/v2025/models/create-personal-access-token-request
+tags: ['SDK', 'Software Development Kit', 'CreatePersonalAccessTokenRequest', 'V2025CreatePersonalAccessTokenRequest']
 ---
 
 # CreatePersonalAccessTokenRequest

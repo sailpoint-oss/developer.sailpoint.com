@@ -1,12 +1,12 @@
 ---
-id: assignment-context-dto
+id: v2025-assignment-context-dto
 title: AssignmentContextDto
 pagination_label: AssignmentContextDto
 sidebar_label: AssignmentContextDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AssignmentContextDto', 'AssignmentContextDto'] 
-slug: /tools/sdk/go//models/assignment-context-dto
-tags: ['SDK', 'Software Development Kit', 'AssignmentContextDto', 'AssignmentContextDto']
+keywords: ['go', 'Golang', 'sdk', 'AssignmentContextDto', 'V2025AssignmentContextDto'] 
+slug: /tools/sdk/go/v2025/models/assignment-context-dto
+tags: ['SDK', 'Software Development Kit', 'AssignmentContextDto', 'V2025AssignmentContextDto']
 ---
 
 # AssignmentContextDto

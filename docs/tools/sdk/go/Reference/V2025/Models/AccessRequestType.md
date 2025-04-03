@@ -1,12 +1,12 @@
 ---
-id: access-request-type
+id: v2025-access-request-type
 title: AccessRequestType
 pagination_label: AccessRequestType
 sidebar_label: AccessRequestType
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestType', 'AccessRequestType'] 
-slug: /tools/sdk/go//models/access-request-type
-tags: ['SDK', 'Software Development Kit', 'AccessRequestType', 'AccessRequestType']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestType', 'V2025AccessRequestType'] 
+slug: /tools/sdk/go/v2025/models/access-request-type
+tags: ['SDK', 'Software Development Kit', 'AccessRequestType', 'V2025AccessRequestType']
 ---
 
 # AccessRequestType

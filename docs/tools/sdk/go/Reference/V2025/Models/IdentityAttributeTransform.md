@@ -1,12 +1,12 @@
 ---
-id: identity-attribute-transform
+id: v2025-identity-attribute-transform
 title: IdentityAttributeTransform
 pagination_label: IdentityAttributeTransform
 sidebar_label: IdentityAttributeTransform
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityAttributeTransform', 'IdentityAttributeTransform'] 
-slug: /tools/sdk/go//models/identity-attribute-transform
-tags: ['SDK', 'Software Development Kit', 'IdentityAttributeTransform', 'IdentityAttributeTransform']
+keywords: ['go', 'Golang', 'sdk', 'IdentityAttributeTransform', 'V2025IdentityAttributeTransform'] 
+slug: /tools/sdk/go/v2025/models/identity-attribute-transform
+tags: ['SDK', 'Software Development Kit', 'IdentityAttributeTransform', 'V2025IdentityAttributeTransform']
 ---
 
 # IdentityAttributeTransform

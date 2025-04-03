@@ -1,12 +1,12 @@
 ---
-id: requested-item-status-requested-for
+id: v2025-requested-item-status-requested-for
 title: RequestedItemStatusRequestedFor
 pagination_label: RequestedItemStatusRequestedFor
 sidebar_label: RequestedItemStatusRequestedFor
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RequestedItemStatusRequestedFor', 'RequestedItemStatusRequestedFor'] 
-slug: /tools/sdk/go//models/requested-item-status-requested-for
-tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusRequestedFor', 'RequestedItemStatusRequestedFor']
+keywords: ['go', 'Golang', 'sdk', 'RequestedItemStatusRequestedFor', 'V2025RequestedItemStatusRequestedFor'] 
+slug: /tools/sdk/go/v2025/models/requested-item-status-requested-for
+tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusRequestedFor', 'V2025RequestedItemStatusRequestedFor']
 ---
 
 # RequestedItemStatusRequestedFor

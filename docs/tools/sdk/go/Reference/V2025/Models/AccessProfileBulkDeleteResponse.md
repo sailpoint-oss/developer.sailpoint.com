@@ -1,12 +1,12 @@
 ---
-id: access-profile-bulk-delete-response
+id: v2025-access-profile-bulk-delete-response
 title: AccessProfileBulkDeleteResponse
 pagination_label: AccessProfileBulkDeleteResponse
 sidebar_label: AccessProfileBulkDeleteResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessProfileBulkDeleteResponse', 'AccessProfileBulkDeleteResponse'] 
-slug: /tools/sdk/go//models/access-profile-bulk-delete-response
-tags: ['SDK', 'Software Development Kit', 'AccessProfileBulkDeleteResponse', 'AccessProfileBulkDeleteResponse']
+keywords: ['go', 'Golang', 'sdk', 'AccessProfileBulkDeleteResponse', 'V2025AccessProfileBulkDeleteResponse'] 
+slug: /tools/sdk/go/v2025/models/access-profile-bulk-delete-response
+tags: ['SDK', 'Software Development Kit', 'AccessProfileBulkDeleteResponse', 'V2025AccessProfileBulkDeleteResponse']
 ---
 
 # AccessProfileBulkDeleteResponse

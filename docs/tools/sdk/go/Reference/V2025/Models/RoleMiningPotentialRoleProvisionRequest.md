@@ -1,12 +1,12 @@
 ---
-id: role-mining-potential-role-provision-request
+id: v2025-role-mining-potential-role-provision-request
 title: RoleMiningPotentialRoleProvisionRequest
 pagination_label: RoleMiningPotentialRoleProvisionRequest
 sidebar_label: RoleMiningPotentialRoleProvisionRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMiningPotentialRoleProvisionRequest', 'RoleMiningPotentialRoleProvisionRequest'] 
-slug: /tools/sdk/go//models/role-mining-potential-role-provision-request
-tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleProvisionRequest', 'RoleMiningPotentialRoleProvisionRequest']
+keywords: ['go', 'Golang', 'sdk', 'RoleMiningPotentialRoleProvisionRequest', 'V2025RoleMiningPotentialRoleProvisionRequest'] 
+slug: /tools/sdk/go/v2025/models/role-mining-potential-role-provision-request
+tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleProvisionRequest', 'V2025RoleMiningPotentialRoleProvisionRequest']
 ---
 
 # RoleMiningPotentialRoleProvisionRequest

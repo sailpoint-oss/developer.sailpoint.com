@@ -1,12 +1,12 @@
 ---
-id: machine-accounts
+id: v2025-machine-accounts
 title: MachineAccounts
 pagination_label: MachineAccounts
 sidebar_label: MachineAccounts
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MachineAccounts', 'MachineAccounts'] 
-slug: /tools/sdk/go//methods/machine-accounts
-tags: ['SDK', 'Software Development Kit', 'MachineAccounts', 'MachineAccounts']
+keywords: ['go', 'Golang', 'sdk', 'MachineAccounts', 'V2025MachineAccounts'] 
+slug: /tools/sdk/go/v2025/methods/machine-accounts
+tags: ['SDK', 'Software Development Kit', 'MachineAccounts', 'V2025MachineAccounts']
 ---
 
 # MachineAccountsAPI
@@ -35,7 +35,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Machine Account Details
 Use this API to return the details for a single machine account by its ID.  
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-machine-account)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-machine-account)
 
 ### Path Parameters
 
@@ -73,7 +73,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -83,7 +83,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..MachineAccountsAPI.GetMachineAccount(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.MachineAccountsAPI.GetMachineAccount(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.GetMachineAccount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -110,7 +110,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Machine Accounts List
 This returns a list of machine accounts.  
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-machine-accounts)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-machine-accounts)
 
 ### Path Parameters
 
@@ -148,7 +148,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -162,7 +162,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..MachineAccountsAPI.ListMachineAccounts(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.MachineAccountsAPI.ListMachineAccounts(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.ListMachineAccounts``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -190,7 +190,7 @@ Update a Machine Account
 Use this API to update machine accounts details. 
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-machine-account)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-machine-account)
 
 ### Path Parameters
 
@@ -229,7 +229,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -240,7 +240,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..MachineAccountsAPI.UpdateMachineAccount(context.Background(), id).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
+	resp, r, err := apiClient.V2025.MachineAccountsAPI.UpdateMachineAccount(context.Background(), id).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.UpdateMachineAccount``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -1,12 +1,12 @@
 ---
-id: access-item-entitlement-response
+id: v2025-access-item-entitlement-response
 title: AccessItemEntitlementResponse
 pagination_label: AccessItemEntitlementResponse
 sidebar_label: AccessItemEntitlementResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessItemEntitlementResponse', 'AccessItemEntitlementResponse'] 
-slug: /tools/sdk/go//models/access-item-entitlement-response
-tags: ['SDK', 'Software Development Kit', 'AccessItemEntitlementResponse', 'AccessItemEntitlementResponse']
+keywords: ['go', 'Golang', 'sdk', 'AccessItemEntitlementResponse', 'V2025AccessItemEntitlementResponse'] 
+slug: /tools/sdk/go/v2025/models/access-item-entitlement-response
+tags: ['SDK', 'Software Development Kit', 'AccessItemEntitlementResponse', 'V2025AccessItemEntitlementResponse']
 ---
 
 # AccessItemEntitlementResponse

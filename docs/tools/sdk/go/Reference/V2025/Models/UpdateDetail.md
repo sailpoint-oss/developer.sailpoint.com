@@ -1,12 +1,12 @@
 ---
-id: update-detail
+id: v2025-update-detail
 title: UpdateDetail
 pagination_label: UpdateDetail
 sidebar_label: UpdateDetail
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'UpdateDetail', 'UpdateDetail'] 
-slug: /tools/sdk/go//models/update-detail
-tags: ['SDK', 'Software Development Kit', 'UpdateDetail', 'UpdateDetail']
+keywords: ['go', 'Golang', 'sdk', 'UpdateDetail', 'V2025UpdateDetail'] 
+slug: /tools/sdk/go/v2025/models/update-detail
+tags: ['SDK', 'Software Development Kit', 'UpdateDetail', 'V2025UpdateDetail']
 ---
 
 # UpdateDetail

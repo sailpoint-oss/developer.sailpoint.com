@@ -1,12 +1,12 @@
 ---
-id: localized-message
+id: v2025-localized-message
 title: LocalizedMessage
 pagination_label: LocalizedMessage
 sidebar_label: LocalizedMessage
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'LocalizedMessage', 'LocalizedMessage'] 
-slug: /tools/sdk/go//models/localized-message
-tags: ['SDK', 'Software Development Kit', 'LocalizedMessage', 'LocalizedMessage']
+keywords: ['go', 'Golang', 'sdk', 'LocalizedMessage', 'V2025LocalizedMessage'] 
+slug: /tools/sdk/go/v2025/models/localized-message
+tags: ['SDK', 'Software Development Kit', 'LocalizedMessage', 'V2025LocalizedMessage']
 ---
 
 # LocalizedMessage

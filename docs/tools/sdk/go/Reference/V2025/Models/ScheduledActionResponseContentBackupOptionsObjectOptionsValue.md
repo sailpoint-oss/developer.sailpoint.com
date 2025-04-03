@@ -1,12 +1,12 @@
 ---
-id: scheduled-action-response-content-backup-options-object-options-value
+id: v2025-scheduled-action-response-content-backup-options-object-options-value
 title: ScheduledActionResponseContentBackupOptionsObjectOptionsValue
 pagination_label: ScheduledActionResponseContentBackupOptionsObjectOptionsValue
 sidebar_label: ScheduledActionResponseContentBackupOptionsObjectOptionsValue
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ScheduledActionResponseContentBackupOptionsObjectOptionsValue', 'ScheduledActionResponseContentBackupOptionsObjectOptionsValue'] 
-slug: /tools/sdk/go//models/scheduled-action-response-content-backup-options-object-options-value
-tags: ['SDK', 'Software Development Kit', 'ScheduledActionResponseContentBackupOptionsObjectOptionsValue', 'ScheduledActionResponseContentBackupOptionsObjectOptionsValue']
+keywords: ['go', 'Golang', 'sdk', 'ScheduledActionResponseContentBackupOptionsObjectOptionsValue', 'V2025ScheduledActionResponseContentBackupOptionsObjectOptionsValue'] 
+slug: /tools/sdk/go/v2025/models/scheduled-action-response-content-backup-options-object-options-value
+tags: ['SDK', 'Software Development Kit', 'ScheduledActionResponseContentBackupOptionsObjectOptionsValue', 'V2025ScheduledActionResponseContentBackupOptionsObjectOptionsValue']
 ---
 
 # ScheduledActionResponseContentBackupOptionsObjectOptionsValue

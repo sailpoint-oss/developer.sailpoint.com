@@ -1,12 +1,12 @@
 ---
-id: identity
+id: v2025-identity
 title: Identity
 pagination_label: Identity
 sidebar_label: Identity
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Identity', 'Identity'] 
-slug: /tools/sdk/go//models/identity
-tags: ['SDK', 'Software Development Kit', 'Identity', 'Identity']
+keywords: ['go', 'Golang', 'sdk', 'Identity', 'V2025Identity'] 
+slug: /tools/sdk/go/v2025/models/identity
+tags: ['SDK', 'Software Development Kit', 'Identity', 'V2025Identity']
 ---
 
 # Identity

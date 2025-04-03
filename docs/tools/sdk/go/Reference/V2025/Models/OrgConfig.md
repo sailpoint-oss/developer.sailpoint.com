@@ -1,12 +1,12 @@
 ---
-id: org-config
+id: v2025-org-config
 title: OrgConfig
 pagination_label: OrgConfig
 sidebar_label: OrgConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'OrgConfig', 'OrgConfig'] 
-slug: /tools/sdk/go//models/org-config
-tags: ['SDK', 'Software Development Kit', 'OrgConfig', 'OrgConfig']
+keywords: ['go', 'Golang', 'sdk', 'OrgConfig', 'V2025OrgConfig'] 
+slug: /tools/sdk/go/v2025/models/org-config
+tags: ['SDK', 'Software Development Kit', 'OrgConfig', 'V2025OrgConfig']
 ---
 
 # OrgConfig

@@ -1,12 +1,12 @@
 ---
-id: segments
+id: v2025-segments
 title: Segments
 pagination_label: Segments
 sidebar_label: Segments
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Segments', 'Segments'] 
-slug: /tools/sdk/go//methods/segments
-tags: ['SDK', 'Software Development Kit', 'Segments', 'Segments']
+keywords: ['go', 'Golang', 'sdk', 'Segments', 'V2025Segments'] 
+slug: /tools/sdk/go/v2025/methods/segments
+tags: ['SDK', 'Software Development Kit', 'Segments', 'V2025Segments']
 ---
 
 # SegmentsAPI
@@ -44,7 +44,7 @@ Create Segment
 This API creates a segment. 
 >**Note:** Segment definitions may take time to propagate to all identities.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-segment)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-segment)
 
 ### Path Parameters
 
@@ -77,7 +77,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -109,7 +109,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SegmentsAPI.CreateSegment(context.Background()).Segment(segment).Execute()
+	resp, r, err := apiClient.V2025.SegmentsAPI.CreateSegment(context.Background()).Segment(segment).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SegmentsAPI.CreateSegment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -126,7 +126,7 @@ Delete Segment by ID
 This API deletes the segment specified by the given ID.
 >**Note:** that segment deletion may take some time to become effective.    
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-segment)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-segment)
 
 ### Path Parameters
 
@@ -163,7 +163,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -172,7 +172,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..SegmentsAPI.DeleteSegment(context.Background(), id).Execute()
+	r, err := apiClient.V2025.SegmentsAPI.DeleteSegment(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SegmentsAPI.DeleteSegment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -186,7 +186,7 @@ func main() {
 Get Segment by ID
 This API returns the segment specified by the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-segment)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-segment)
 
 ### Path Parameters
 
@@ -223,7 +223,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -232,7 +232,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SegmentsAPI.GetSegment(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.SegmentsAPI.GetSegment(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SegmentsAPI.GetSegment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -248,7 +248,7 @@ func main() {
 List Segments
 This API returns a list of all segments. 
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-segments)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-segments)
 
 ### Path Parameters
 
@@ -283,7 +283,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -294,7 +294,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SegmentsAPI.ListSegments(context.Background()).Limit(limit).Offset(offset).Count(count).Execute()
+	resp, r, err := apiClient.V2025.SegmentsAPI.ListSegments(context.Background()).Limit(limit).Offset(offset).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SegmentsAPI.ListSegments``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -311,7 +311,7 @@ Update Segment
 Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 >**Note:** Changes to a segment may take some time to propagate to all identities.
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-segment)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-segment)
 
 ### Path Parameters
 
@@ -349,7 +349,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -359,7 +359,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..SegmentsAPI.PatchSegment(context.Background(), id).RequestBody(requestBody).Execute()
+	resp, r, err := apiClient.V2025.SegmentsAPI.PatchSegment(context.Background(), id).RequestBody(requestBody).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SegmentsAPI.PatchSegment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

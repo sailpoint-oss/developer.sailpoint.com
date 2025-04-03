@@ -1,12 +1,12 @@
 ---
-id: access-request-dynamic-approver-requested-items-inner
+id: v2025-access-request-dynamic-approver-requested-items-inner
 title: AccessRequestDynamicApproverRequestedItemsInner
 pagination_label: AccessRequestDynamicApproverRequestedItemsInner
 sidebar_label: AccessRequestDynamicApproverRequestedItemsInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestDynamicApproverRequestedItemsInner', 'AccessRequestDynamicApproverRequestedItemsInner'] 
-slug: /tools/sdk/go//models/access-request-dynamic-approver-requested-items-inner
-tags: ['SDK', 'Software Development Kit', 'AccessRequestDynamicApproverRequestedItemsInner', 'AccessRequestDynamicApproverRequestedItemsInner']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestDynamicApproverRequestedItemsInner', 'V2025AccessRequestDynamicApproverRequestedItemsInner'] 
+slug: /tools/sdk/go/v2025/models/access-request-dynamic-approver-requested-items-inner
+tags: ['SDK', 'Software Development Kit', 'AccessRequestDynamicApproverRequestedItemsInner', 'V2025AccessRequestDynamicApproverRequestedItemsInner']
 ---
 
 # AccessRequestDynamicApproverRequestedItemsInner

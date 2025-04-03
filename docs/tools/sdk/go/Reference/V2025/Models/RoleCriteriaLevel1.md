@@ -1,12 +1,12 @@
 ---
-id: role-criteria-level1
+id: v2025-role-criteria-level1
 title: RoleCriteriaLevel1
 pagination_label: RoleCriteriaLevel1
 sidebar_label: RoleCriteriaLevel1
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleCriteriaLevel1', 'RoleCriteriaLevel1'] 
-slug: /tools/sdk/go//models/role-criteria-level1
-tags: ['SDK', 'Software Development Kit', 'RoleCriteriaLevel1', 'RoleCriteriaLevel1']
+keywords: ['go', 'Golang', 'sdk', 'RoleCriteriaLevel1', 'V2025RoleCriteriaLevel1'] 
+slug: /tools/sdk/go/v2025/models/role-criteria-level1
+tags: ['SDK', 'Software Development Kit', 'RoleCriteriaLevel1', 'V2025RoleCriteriaLevel1']
 ---
 
 # RoleCriteriaLevel1

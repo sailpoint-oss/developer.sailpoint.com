@@ -1,12 +1,12 @@
 ---
-id: workflow-o-auth-client
+id: v2025-workflow-o-auth-client
 title: WorkflowOAuthClient
 pagination_label: WorkflowOAuthClient
 sidebar_label: WorkflowOAuthClient
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkflowOAuthClient', 'WorkflowOAuthClient'] 
-slug: /tools/sdk/go//models/workflow-o-auth-client
-tags: ['SDK', 'Software Development Kit', 'WorkflowOAuthClient', 'WorkflowOAuthClient']
+keywords: ['go', 'Golang', 'sdk', 'WorkflowOAuthClient', 'V2025WorkflowOAuthClient'] 
+slug: /tools/sdk/go/v2025/models/workflow-o-auth-client
+tags: ['SDK', 'Software Development Kit', 'WorkflowOAuthClient', 'V2025WorkflowOAuthClient']
 ---
 
 # WorkflowOAuthClient

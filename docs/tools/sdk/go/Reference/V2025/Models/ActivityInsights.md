@@ -1,12 +1,12 @@
 ---
-id: activity-insights
+id: v2025-activity-insights
 title: ActivityInsights
 pagination_label: ActivityInsights
 sidebar_label: ActivityInsights
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ActivityInsights', 'ActivityInsights'] 
-slug: /tools/sdk/go//models/activity-insights
-tags: ['SDK', 'Software Development Kit', 'ActivityInsights', 'ActivityInsights']
+keywords: ['go', 'Golang', 'sdk', 'ActivityInsights', 'V2025ActivityInsights'] 
+slug: /tools/sdk/go/v2025/models/activity-insights
+tags: ['SDK', 'Software Development Kit', 'ActivityInsights', 'V2025ActivityInsights']
 ---
 
 # ActivityInsights

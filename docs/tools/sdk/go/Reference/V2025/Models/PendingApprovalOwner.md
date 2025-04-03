@@ -1,12 +1,12 @@
 ---
-id: pending-approval-owner
+id: v2025-pending-approval-owner
 title: PendingApprovalOwner
 pagination_label: PendingApprovalOwner
 sidebar_label: PendingApprovalOwner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PendingApprovalOwner', 'PendingApprovalOwner'] 
-slug: /tools/sdk/go//models/pending-approval-owner
-tags: ['SDK', 'Software Development Kit', 'PendingApprovalOwner', 'PendingApprovalOwner']
+keywords: ['go', 'Golang', 'sdk', 'PendingApprovalOwner', 'V2025PendingApprovalOwner'] 
+slug: /tools/sdk/go/v2025/models/pending-approval-owner
+tags: ['SDK', 'Software Development Kit', 'PendingApprovalOwner', 'V2025PendingApprovalOwner']
 ---
 
 # PendingApprovalOwner

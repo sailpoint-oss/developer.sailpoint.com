@@ -1,12 +1,12 @@
 ---
-id: base-document
+id: v2025-base-document
 title: BaseDocument
 pagination_label: BaseDocument
 sidebar_label: BaseDocument
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BaseDocument', 'BaseDocument'] 
-slug: /tools/sdk/go//models/base-document
-tags: ['SDK', 'Software Development Kit', 'BaseDocument', 'BaseDocument']
+keywords: ['go', 'Golang', 'sdk', 'BaseDocument', 'V2025BaseDocument'] 
+slug: /tools/sdk/go/v2025/models/base-document
+tags: ['SDK', 'Software Development Kit', 'BaseDocument', 'V2025BaseDocument']
 ---
 
 # BaseDocument

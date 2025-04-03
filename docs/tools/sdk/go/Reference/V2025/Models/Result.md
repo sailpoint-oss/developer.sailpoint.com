@@ -1,12 +1,12 @@
 ---
-id: result
+id: v2025-result
 title: Result
 pagination_label: Result
 sidebar_label: Result
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Result', 'Result'] 
-slug: /tools/sdk/go//models/result
-tags: ['SDK', 'Software Development Kit', 'Result', 'Result']
+keywords: ['go', 'Golang', 'sdk', 'Result', 'V2025Result'] 
+slug: /tools/sdk/go/v2025/models/result
+tags: ['SDK', 'Software Development Kit', 'Result', 'V2025Result']
 ---
 
 # Result

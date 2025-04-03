@@ -1,12 +1,12 @@
 ---
-id: event-attributes
+id: v2025-event-attributes
 title: EventAttributes
 pagination_label: EventAttributes
 sidebar_label: EventAttributes
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EventAttributes', 'EventAttributes'] 
-slug: /tools/sdk/go//models/event-attributes
-tags: ['SDK', 'Software Development Kit', 'EventAttributes', 'EventAttributes']
+keywords: ['go', 'Golang', 'sdk', 'EventAttributes', 'V2025EventAttributes'] 
+slug: /tools/sdk/go/v2025/models/event-attributes
+tags: ['SDK', 'Software Development Kit', 'EventAttributes', 'V2025EventAttributes']
 ---
 
 # EventAttributes

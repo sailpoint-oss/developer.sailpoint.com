@@ -1,12 +1,12 @@
 ---
-id: work-items-summary
+id: v2025-work-items-summary
 title: WorkItemsSummary
 pagination_label: WorkItemsSummary
 sidebar_label: WorkItemsSummary
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkItemsSummary', 'WorkItemsSummary'] 
-slug: /tools/sdk/go//models/work-items-summary
-tags: ['SDK', 'Software Development Kit', 'WorkItemsSummary', 'WorkItemsSummary']
+keywords: ['go', 'Golang', 'sdk', 'WorkItemsSummary', 'V2025WorkItemsSummary'] 
+slug: /tools/sdk/go/v2025/models/work-items-summary
+tags: ['SDK', 'Software Development Kit', 'WorkItemsSummary', 'V2025WorkItemsSummary']
 ---
 
 # WorkItemsSummary

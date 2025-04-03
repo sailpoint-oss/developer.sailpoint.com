@@ -1,12 +1,12 @@
 ---
-id: put-connector-correlation-config-request
+id: v2025-put-connector-correlation-config-request
 title: PutConnectorCorrelationConfigRequest
 pagination_label: PutConnectorCorrelationConfigRequest
 sidebar_label: PutConnectorCorrelationConfigRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PutConnectorCorrelationConfigRequest', 'PutConnectorCorrelationConfigRequest'] 
-slug: /tools/sdk/go//models/put-connector-correlation-config-request
-tags: ['SDK', 'Software Development Kit', 'PutConnectorCorrelationConfigRequest', 'PutConnectorCorrelationConfigRequest']
+keywords: ['go', 'Golang', 'sdk', 'PutConnectorCorrelationConfigRequest', 'V2025PutConnectorCorrelationConfigRequest'] 
+slug: /tools/sdk/go/v2025/models/put-connector-correlation-config-request
+tags: ['SDK', 'Software Development Kit', 'PutConnectorCorrelationConfigRequest', 'V2025PutConnectorCorrelationConfigRequest']
 ---
 
 # PutConnectorCorrelationConfigRequest

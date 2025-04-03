@@ -1,12 +1,12 @@
 ---
-id: account-aggregation-completed-source
+id: v2025-account-aggregation-completed-source
 title: AccountAggregationCompletedSource
 pagination_label: AccountAggregationCompletedSource
 sidebar_label: AccountAggregationCompletedSource
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountAggregationCompletedSource', 'AccountAggregationCompletedSource'] 
-slug: /tools/sdk/go//models/account-aggregation-completed-source
-tags: ['SDK', 'Software Development Kit', 'AccountAggregationCompletedSource', 'AccountAggregationCompletedSource']
+keywords: ['go', 'Golang', 'sdk', 'AccountAggregationCompletedSource', 'V2025AccountAggregationCompletedSource'] 
+slug: /tools/sdk/go/v2025/models/account-aggregation-completed-source
+tags: ['SDK', 'Software Development Kit', 'AccountAggregationCompletedSource', 'V2025AccountAggregationCompletedSource']
 ---
 
 # AccountAggregationCompletedSource

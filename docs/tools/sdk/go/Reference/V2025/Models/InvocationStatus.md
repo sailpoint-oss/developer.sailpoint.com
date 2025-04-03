@@ -1,12 +1,12 @@
 ---
-id: invocation-status
+id: v2025-invocation-status
 title: InvocationStatus
 pagination_label: InvocationStatus
 sidebar_label: InvocationStatus
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'InvocationStatus', 'InvocationStatus'] 
-slug: /tools/sdk/go//models/invocation-status
-tags: ['SDK', 'Software Development Kit', 'InvocationStatus', 'InvocationStatus']
+keywords: ['go', 'Golang', 'sdk', 'InvocationStatus', 'V2025InvocationStatus'] 
+slug: /tools/sdk/go/v2025/models/invocation-status
+tags: ['SDK', 'Software Development Kit', 'InvocationStatus', 'V2025InvocationStatus']
 ---
 
 # InvocationStatus

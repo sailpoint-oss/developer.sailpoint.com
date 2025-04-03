@@ -1,12 +1,12 @@
 ---
-id: saved-search-complete-search-results-identity
+id: v2025-saved-search-complete-search-results-identity
 title: SavedSearchCompleteSearchResultsIdentity
 pagination_label: SavedSearchCompleteSearchResultsIdentity
 sidebar_label: SavedSearchCompleteSearchResultsIdentity
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SavedSearchCompleteSearchResultsIdentity', 'SavedSearchCompleteSearchResultsIdentity'] 
-slug: /tools/sdk/go//models/saved-search-complete-search-results-identity
-tags: ['SDK', 'Software Development Kit', 'SavedSearchCompleteSearchResultsIdentity', 'SavedSearchCompleteSearchResultsIdentity']
+keywords: ['go', 'Golang', 'sdk', 'SavedSearchCompleteSearchResultsIdentity', 'V2025SavedSearchCompleteSearchResultsIdentity'] 
+slug: /tools/sdk/go/v2025/models/saved-search-complete-search-results-identity
+tags: ['SDK', 'Software Development Kit', 'SavedSearchCompleteSearchResultsIdentity', 'V2025SavedSearchCompleteSearchResultsIdentity']
 ---
 
 # SavedSearchCompleteSearchResultsIdentity

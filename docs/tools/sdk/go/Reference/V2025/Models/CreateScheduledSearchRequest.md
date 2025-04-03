@@ -1,12 +1,12 @@
 ---
-id: create-scheduled-search-request
+id: v2025-create-scheduled-search-request
 title: CreateScheduledSearchRequest
 pagination_label: CreateScheduledSearchRequest
 sidebar_label: CreateScheduledSearchRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CreateScheduledSearchRequest', 'CreateScheduledSearchRequest'] 
-slug: /tools/sdk/go//models/create-scheduled-search-request
-tags: ['SDK', 'Software Development Kit', 'CreateScheduledSearchRequest', 'CreateScheduledSearchRequest']
+keywords: ['go', 'Golang', 'sdk', 'CreateScheduledSearchRequest', 'V2025CreateScheduledSearchRequest'] 
+slug: /tools/sdk/go/v2025/models/create-scheduled-search-request
+tags: ['SDK', 'Software Development Kit', 'CreateScheduledSearchRequest', 'V2025CreateScheduledSearchRequest']
 ---
 
 # CreateScheduledSearchRequest

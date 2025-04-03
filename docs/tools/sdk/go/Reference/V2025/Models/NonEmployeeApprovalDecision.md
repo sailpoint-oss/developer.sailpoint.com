@@ -1,12 +1,12 @@
 ---
-id: non-employee-approval-decision
+id: v2025-non-employee-approval-decision
 title: NonEmployeeApprovalDecision
 pagination_label: NonEmployeeApprovalDecision
 sidebar_label: NonEmployeeApprovalDecision
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NonEmployeeApprovalDecision', 'NonEmployeeApprovalDecision'] 
-slug: /tools/sdk/go//models/non-employee-approval-decision
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeApprovalDecision', 'NonEmployeeApprovalDecision']
+keywords: ['go', 'Golang', 'sdk', 'NonEmployeeApprovalDecision', 'V2025NonEmployeeApprovalDecision'] 
+slug: /tools/sdk/go/v2025/models/non-employee-approval-decision
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeApprovalDecision', 'V2025NonEmployeeApprovalDecision']
 ---
 
 # NonEmployeeApprovalDecision

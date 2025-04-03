@@ -1,12 +1,12 @@
 ---
-id: role-mining-session-scope
+id: v2025-role-mining-session-scope
 title: RoleMiningSessionScope
 pagination_label: RoleMiningSessionScope
 sidebar_label: RoleMiningSessionScope
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMiningSessionScope', 'RoleMiningSessionScope'] 
-slug: /tools/sdk/go//models/role-mining-session-scope
-tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionScope', 'RoleMiningSessionScope']
+keywords: ['go', 'Golang', 'sdk', 'RoleMiningSessionScope', 'V2025RoleMiningSessionScope'] 
+slug: /tools/sdk/go/v2025/models/role-mining-session-scope
+tags: ['SDK', 'Software Development Kit', 'RoleMiningSessionScope', 'V2025RoleMiningSessionScope']
 ---
 
 # RoleMiningSessionScope

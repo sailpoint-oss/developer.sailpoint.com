@@ -1,12 +1,12 @@
 ---
-id: recommendation-config-dto
+id: v2025-recommendation-config-dto
 title: RecommendationConfigDto
 pagination_label: RecommendationConfigDto
 sidebar_label: RecommendationConfigDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RecommendationConfigDto', 'RecommendationConfigDto'] 
-slug: /tools/sdk/go//models/recommendation-config-dto
-tags: ['SDK', 'Software Development Kit', 'RecommendationConfigDto', 'RecommendationConfigDto']
+keywords: ['go', 'Golang', 'sdk', 'RecommendationConfigDto', 'V2025RecommendationConfigDto'] 
+slug: /tools/sdk/go/v2025/models/recommendation-config-dto
+tags: ['SDK', 'Software Development Kit', 'RecommendationConfigDto', 'V2025RecommendationConfigDto']
 ---
 
 # RecommendationConfigDto

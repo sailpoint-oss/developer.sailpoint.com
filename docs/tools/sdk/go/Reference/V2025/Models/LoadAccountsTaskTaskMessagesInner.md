@@ -1,12 +1,12 @@
 ---
-id: load-accounts-task-task-messages-inner
+id: v2025-load-accounts-task-task-messages-inner
 title: LoadAccountsTaskTaskMessagesInner
 pagination_label: LoadAccountsTaskTaskMessagesInner
 sidebar_label: LoadAccountsTaskTaskMessagesInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'LoadAccountsTaskTaskMessagesInner', 'LoadAccountsTaskTaskMessagesInner'] 
-slug: /tools/sdk/go//models/load-accounts-task-task-messages-inner
-tags: ['SDK', 'Software Development Kit', 'LoadAccountsTaskTaskMessagesInner', 'LoadAccountsTaskTaskMessagesInner']
+keywords: ['go', 'Golang', 'sdk', 'LoadAccountsTaskTaskMessagesInner', 'V2025LoadAccountsTaskTaskMessagesInner'] 
+slug: /tools/sdk/go/v2025/models/load-accounts-task-task-messages-inner
+tags: ['SDK', 'Software Development Kit', 'LoadAccountsTaskTaskMessagesInner', 'V2025LoadAccountsTaskTaskMessagesInner']
 ---
 
 # LoadAccountsTaskTaskMessagesInner

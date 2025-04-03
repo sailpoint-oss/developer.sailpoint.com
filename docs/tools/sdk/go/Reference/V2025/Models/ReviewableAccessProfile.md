@@ -1,12 +1,12 @@
 ---
-id: reviewable-access-profile
+id: v2025-reviewable-access-profile
 title: ReviewableAccessProfile
 pagination_label: ReviewableAccessProfile
 sidebar_label: ReviewableAccessProfile
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ReviewableAccessProfile', 'ReviewableAccessProfile'] 
-slug: /tools/sdk/go//models/reviewable-access-profile
-tags: ['SDK', 'Software Development Kit', 'ReviewableAccessProfile', 'ReviewableAccessProfile']
+keywords: ['go', 'Golang', 'sdk', 'ReviewableAccessProfile', 'V2025ReviewableAccessProfile'] 
+slug: /tools/sdk/go/v2025/models/reviewable-access-profile
+tags: ['SDK', 'Software Development Kit', 'ReviewableAccessProfile', 'V2025ReviewableAccessProfile']
 ---
 
 # ReviewableAccessProfile

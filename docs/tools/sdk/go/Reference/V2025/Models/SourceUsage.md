@@ -1,12 +1,12 @@
 ---
-id: source-usage
+id: v2025-source-usage
 title: SourceUsage
 pagination_label: SourceUsage
 sidebar_label: SourceUsage
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceUsage', 'SourceUsage'] 
-slug: /tools/sdk/go//models/source-usage
-tags: ['SDK', 'Software Development Kit', 'SourceUsage', 'SourceUsage']
+keywords: ['go', 'Golang', 'sdk', 'SourceUsage', 'V2025SourceUsage'] 
+slug: /tools/sdk/go/v2025/models/source-usage
+tags: ['SDK', 'Software Development Kit', 'SourceUsage', 'V2025SourceUsage']
 ---
 
 # SourceUsage

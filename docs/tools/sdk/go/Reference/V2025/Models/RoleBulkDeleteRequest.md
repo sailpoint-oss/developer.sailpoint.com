@@ -1,12 +1,12 @@
 ---
-id: role-bulk-delete-request
+id: v2025-role-bulk-delete-request
 title: RoleBulkDeleteRequest
 pagination_label: RoleBulkDeleteRequest
 sidebar_label: RoleBulkDeleteRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleBulkDeleteRequest', 'RoleBulkDeleteRequest'] 
-slug: /tools/sdk/go//models/role-bulk-delete-request
-tags: ['SDK', 'Software Development Kit', 'RoleBulkDeleteRequest', 'RoleBulkDeleteRequest']
+keywords: ['go', 'Golang', 'sdk', 'RoleBulkDeleteRequest', 'V2025RoleBulkDeleteRequest'] 
+slug: /tools/sdk/go/v2025/models/role-bulk-delete-request
+tags: ['SDK', 'Software Development Kit', 'RoleBulkDeleteRequest', 'V2025RoleBulkDeleteRequest']
 ---
 
 # RoleBulkDeleteRequest

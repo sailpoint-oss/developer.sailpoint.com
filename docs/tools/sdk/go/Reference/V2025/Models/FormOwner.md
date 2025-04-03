@@ -1,12 +1,12 @@
 ---
-id: form-owner
+id: v2025-form-owner
 title: FormOwner
 pagination_label: FormOwner
 sidebar_label: FormOwner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FormOwner', 'FormOwner'] 
-slug: /tools/sdk/go//models/form-owner
-tags: ['SDK', 'Software Development Kit', 'FormOwner', 'FormOwner']
+keywords: ['go', 'Golang', 'sdk', 'FormOwner', 'V2025FormOwner'] 
+slug: /tools/sdk/go/v2025/models/form-owner
+tags: ['SDK', 'Software Development Kit', 'FormOwner', 'V2025FormOwner']
 ---
 
 # FormOwner

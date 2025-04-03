@@ -1,12 +1,12 @@
 ---
-id: role-insights-entitlement
+id: v2025-role-insights-entitlement
 title: RoleInsightsEntitlement
 pagination_label: RoleInsightsEntitlement
 sidebar_label: RoleInsightsEntitlement
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleInsightsEntitlement', 'RoleInsightsEntitlement'] 
-slug: /tools/sdk/go//models/role-insights-entitlement
-tags: ['SDK', 'Software Development Kit', 'RoleInsightsEntitlement', 'RoleInsightsEntitlement']
+keywords: ['go', 'Golang', 'sdk', 'RoleInsightsEntitlement', 'V2025RoleInsightsEntitlement'] 
+slug: /tools/sdk/go/v2025/models/role-insights-entitlement
+tags: ['SDK', 'Software Development Kit', 'RoleInsightsEntitlement', 'V2025RoleInsightsEntitlement']
 ---
 
 # RoleInsightsEntitlement

@@ -1,12 +1,12 @@
 ---
-id: mfa-okta-config
+id: v2025-mfa-okta-config
 title: MfaOktaConfig
 pagination_label: MfaOktaConfig
 sidebar_label: MfaOktaConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MfaOktaConfig', 'MfaOktaConfig'] 
-slug: /tools/sdk/go//models/mfa-okta-config
-tags: ['SDK', 'Software Development Kit', 'MfaOktaConfig', 'MfaOktaConfig']
+keywords: ['go', 'Golang', 'sdk', 'MfaOktaConfig', 'V2025MfaOktaConfig'] 
+slug: /tools/sdk/go/v2025/models/mfa-okta-config
+tags: ['SDK', 'Software Development Kit', 'MfaOktaConfig', 'V2025MfaOktaConfig']
 ---
 
 # MfaOktaConfig

@@ -1,12 +1,12 @@
 ---
-id: work-items-form
+id: v2025-work-items-form
 title: WorkItemsForm
 pagination_label: WorkItemsForm
 sidebar_label: WorkItemsForm
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkItemsForm', 'WorkItemsForm'] 
-slug: /tools/sdk/go//models/work-items-form
-tags: ['SDK', 'Software Development Kit', 'WorkItemsForm', 'WorkItemsForm']
+keywords: ['go', 'Golang', 'sdk', 'WorkItemsForm', 'V2025WorkItemsForm'] 
+slug: /tools/sdk/go/v2025/models/work-items-form
+tags: ['SDK', 'Software Development Kit', 'WorkItemsForm', 'V2025WorkItemsForm']
 ---
 
 # WorkItemsForm

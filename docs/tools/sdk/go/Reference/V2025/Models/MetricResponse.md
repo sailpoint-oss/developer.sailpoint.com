@@ -1,12 +1,12 @@
 ---
-id: metric-response
+id: v2025-metric-response
 title: MetricResponse
 pagination_label: MetricResponse
 sidebar_label: MetricResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MetricResponse', 'MetricResponse'] 
-slug: /tools/sdk/go//models/metric-response
-tags: ['SDK', 'Software Development Kit', 'MetricResponse', 'MetricResponse']
+keywords: ['go', 'Golang', 'sdk', 'MetricResponse', 'V2025MetricResponse'] 
+slug: /tools/sdk/go/v2025/models/metric-response
+tags: ['SDK', 'Software Development Kit', 'MetricResponse', 'V2025MetricResponse']
 ---
 
 # MetricResponse

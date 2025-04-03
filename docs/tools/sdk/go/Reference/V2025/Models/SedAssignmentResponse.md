@@ -1,12 +1,12 @@
 ---
-id: sed-assignment-response
+id: v2025-sed-assignment-response
 title: SedAssignmentResponse
 pagination_label: SedAssignmentResponse
 sidebar_label: SedAssignmentResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SedAssignmentResponse', 'SedAssignmentResponse'] 
-slug: /tools/sdk/go//models/sed-assignment-response
-tags: ['SDK', 'Software Development Kit', 'SedAssignmentResponse', 'SedAssignmentResponse']
+keywords: ['go', 'Golang', 'sdk', 'SedAssignmentResponse', 'V2025SedAssignmentResponse'] 
+slug: /tools/sdk/go/v2025/models/sed-assignment-response
+tags: ['SDK', 'Software Development Kit', 'SedAssignmentResponse', 'V2025SedAssignmentResponse']
 ---
 
 # SedAssignmentResponse

@@ -1,12 +1,12 @@
 ---
-id: attribute-change
+id: v2025-attribute-change
 title: AttributeChange
 pagination_label: AttributeChange
 sidebar_label: AttributeChange
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AttributeChange', 'AttributeChange'] 
-slug: /tools/sdk/go//models/attribute-change
-tags: ['SDK', 'Software Development Kit', 'AttributeChange', 'AttributeChange']
+keywords: ['go', 'Golang', 'sdk', 'AttributeChange', 'V2025AttributeChange'] 
+slug: /tools/sdk/go/v2025/models/attribute-change
+tags: ['SDK', 'Software Development Kit', 'AttributeChange', 'V2025AttributeChange']
 ---
 
 # AttributeChange

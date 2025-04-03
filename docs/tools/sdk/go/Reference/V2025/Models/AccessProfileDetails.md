@@ -1,12 +1,12 @@
 ---
-id: access-profile-details
+id: v2025-access-profile-details
 title: AccessProfileDetails
 pagination_label: AccessProfileDetails
 sidebar_label: AccessProfileDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessProfileDetails', 'AccessProfileDetails'] 
-slug: /tools/sdk/go//models/access-profile-details
-tags: ['SDK', 'Software Development Kit', 'AccessProfileDetails', 'AccessProfileDetails']
+keywords: ['go', 'Golang', 'sdk', 'AccessProfileDetails', 'V2025AccessProfileDetails'] 
+slug: /tools/sdk/go/v2025/models/access-profile-details
+tags: ['SDK', 'Software Development Kit', 'AccessProfileDetails', 'V2025AccessProfileDetails']
 ---
 
 # AccessProfileDetails

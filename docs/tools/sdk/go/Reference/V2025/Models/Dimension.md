@@ -1,12 +1,12 @@
 ---
-id: dimension
+id: v2025-dimension
 title: Dimension
 pagination_label: Dimension
 sidebar_label: Dimension
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Dimension', 'Dimension'] 
-slug: /tools/sdk/go//models/dimension
-tags: ['SDK', 'Software Development Kit', 'Dimension', 'Dimension']
+keywords: ['go', 'Golang', 'sdk', 'Dimension', 'V2025Dimension'] 
+slug: /tools/sdk/go/v2025/models/dimension
+tags: ['SDK', 'Software Development Kit', 'Dimension', 'V2025Dimension']
 ---
 
 # Dimension

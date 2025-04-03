@@ -1,12 +1,12 @@
 ---
-id: owns
+id: v2025-owns
 title: Owns
 pagination_label: Owns
 sidebar_label: Owns
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Owns', 'Owns'] 
-slug: /tools/sdk/go//models/owns
-tags: ['SDK', 'Software Development Kit', 'Owns', 'Owns']
+keywords: ['go', 'Golang', 'sdk', 'Owns', 'V2025Owns'] 
+slug: /tools/sdk/go/v2025/models/owns
+tags: ['SDK', 'Software Development Kit', 'Owns', 'V2025Owns']
 ---
 
 # Owns

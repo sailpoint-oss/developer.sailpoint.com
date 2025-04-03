@@ -1,12 +1,12 @@
 ---
-id: source-deleted
+id: v2025-source-deleted
 title: SourceDeleted
 pagination_label: SourceDeleted
 sidebar_label: SourceDeleted
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceDeleted', 'SourceDeleted'] 
-slug: /tools/sdk/go//models/source-deleted
-tags: ['SDK', 'Software Development Kit', 'SourceDeleted', 'SourceDeleted']
+keywords: ['go', 'Golang', 'sdk', 'SourceDeleted', 'V2025SourceDeleted'] 
+slug: /tools/sdk/go/v2025/models/source-deleted
+tags: ['SDK', 'Software Development Kit', 'SourceDeleted', 'V2025SourceDeleted']
 ---
 
 # SourceDeleted

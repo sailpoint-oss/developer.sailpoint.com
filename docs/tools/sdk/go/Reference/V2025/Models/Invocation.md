@@ -1,12 +1,12 @@
 ---
-id: invocation
+id: v2025-invocation
 title: Invocation
 pagination_label: Invocation
 sidebar_label: Invocation
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Invocation', 'Invocation'] 
-slug: /tools/sdk/go//models/invocation
-tags: ['SDK', 'Software Development Kit', 'Invocation', 'Invocation']
+keywords: ['go', 'Golang', 'sdk', 'Invocation', 'V2025Invocation'] 
+slug: /tools/sdk/go/v2025/models/invocation
+tags: ['SDK', 'Software Development Kit', 'Invocation', 'V2025Invocation']
 ---
 
 # Invocation

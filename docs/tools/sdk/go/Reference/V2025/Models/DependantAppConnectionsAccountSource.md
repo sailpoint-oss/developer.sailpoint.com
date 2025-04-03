@@ -1,12 +1,12 @@
 ---
-id: dependant-app-connections-account-source
+id: v2025-dependant-app-connections-account-source
 title: DependantAppConnectionsAccountSource
 pagination_label: DependantAppConnectionsAccountSource
 sidebar_label: DependantAppConnectionsAccountSource
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DependantAppConnectionsAccountSource', 'DependantAppConnectionsAccountSource'] 
-slug: /tools/sdk/go//models/dependant-app-connections-account-source
-tags: ['SDK', 'Software Development Kit', 'DependantAppConnectionsAccountSource', 'DependantAppConnectionsAccountSource']
+keywords: ['go', 'Golang', 'sdk', 'DependantAppConnectionsAccountSource', 'V2025DependantAppConnectionsAccountSource'] 
+slug: /tools/sdk/go/v2025/models/dependant-app-connections-account-source
+tags: ['SDK', 'Software Development Kit', 'DependantAppConnectionsAccountSource', 'V2025DependantAppConnectionsAccountSource']
 ---
 
 # DependantAppConnectionsAccountSource

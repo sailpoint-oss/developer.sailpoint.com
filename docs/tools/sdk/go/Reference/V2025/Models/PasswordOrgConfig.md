@@ -1,12 +1,12 @@
 ---
-id: password-org-config
+id: v2025-password-org-config
 title: PasswordOrgConfig
 pagination_label: PasswordOrgConfig
 sidebar_label: PasswordOrgConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PasswordOrgConfig', 'PasswordOrgConfig'] 
-slug: /tools/sdk/go//models/password-org-config
-tags: ['SDK', 'Software Development Kit', 'PasswordOrgConfig', 'PasswordOrgConfig']
+keywords: ['go', 'Golang', 'sdk', 'PasswordOrgConfig', 'V2025PasswordOrgConfig'] 
+slug: /tools/sdk/go/v2025/models/password-org-config
+tags: ['SDK', 'Software Development Kit', 'PasswordOrgConfig', 'V2025PasswordOrgConfig']
 ---
 
 # PasswordOrgConfig

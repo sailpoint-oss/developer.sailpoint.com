@@ -1,12 +1,12 @@
 ---
-id: sp-config-message1
+id: v2025-sp-config-message1
 title: SpConfigMessage1
 pagination_label: SpConfigMessage1
 sidebar_label: SpConfigMessage1
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SpConfigMessage1', 'SpConfigMessage1'] 
-slug: /tools/sdk/go//models/sp-config-message1
-tags: ['SDK', 'Software Development Kit', 'SpConfigMessage1', 'SpConfigMessage1']
+keywords: ['go', 'Golang', 'sdk', 'SpConfigMessage1', 'V2025SpConfigMessage1'] 
+slug: /tools/sdk/go/v2025/models/sp-config-message1
+tags: ['SDK', 'Software Development Kit', 'SpConfigMessage1', 'V2025SpConfigMessage1']
 ---
 
 # SpConfigMessage1

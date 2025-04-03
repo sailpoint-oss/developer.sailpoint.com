@@ -1,12 +1,12 @@
 ---
-id: access-constraint
+id: v2025-access-constraint
 title: AccessConstraint
 pagination_label: AccessConstraint
 sidebar_label: AccessConstraint
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessConstraint', 'AccessConstraint'] 
-slug: /tools/sdk/go//models/access-constraint
-tags: ['SDK', 'Software Development Kit', 'AccessConstraint', 'AccessConstraint']
+keywords: ['go', 'Golang', 'sdk', 'AccessConstraint', 'V2025AccessConstraint'] 
+slug: /tools/sdk/go/v2025/models/access-constraint
+tags: ['SDK', 'Software Development Kit', 'AccessConstraint', 'V2025AccessConstraint']
 ---
 
 # AccessConstraint

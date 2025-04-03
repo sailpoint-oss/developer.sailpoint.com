@@ -1,12 +1,12 @@
 ---
-id: kba-question
+id: v2025-kba-question
 title: KbaQuestion
 pagination_label: KbaQuestion
 sidebar_label: KbaQuestion
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'KbaQuestion', 'KbaQuestion'] 
-slug: /tools/sdk/go//models/kba-question
-tags: ['SDK', 'Software Development Kit', 'KbaQuestion', 'KbaQuestion']
+keywords: ['go', 'Golang', 'sdk', 'KbaQuestion', 'V2025KbaQuestion'] 
+slug: /tools/sdk/go/v2025/models/kba-question
+tags: ['SDK', 'Software Development Kit', 'KbaQuestion', 'V2025KbaQuestion']
 ---
 
 # KbaQuestion

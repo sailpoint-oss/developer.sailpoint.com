@@ -1,12 +1,12 @@
 ---
-id: entitlement-document-all-of-source
+id: v2025-entitlement-document-all-of-source
 title: EntitlementDocumentAllOfSource
 pagination_label: EntitlementDocumentAllOfSource
 sidebar_label: EntitlementDocumentAllOfSource
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EntitlementDocumentAllOfSource', 'EntitlementDocumentAllOfSource'] 
-slug: /tools/sdk/go//models/entitlement-document-all-of-source
-tags: ['SDK', 'Software Development Kit', 'EntitlementDocumentAllOfSource', 'EntitlementDocumentAllOfSource']
+keywords: ['go', 'Golang', 'sdk', 'EntitlementDocumentAllOfSource', 'V2025EntitlementDocumentAllOfSource'] 
+slug: /tools/sdk/go/v2025/models/entitlement-document-all-of-source
+tags: ['SDK', 'Software Development Kit', 'EntitlementDocumentAllOfSource', 'V2025EntitlementDocumentAllOfSource']
 ---
 
 # EntitlementDocumentAllOfSource

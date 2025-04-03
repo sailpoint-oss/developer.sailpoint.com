@@ -1,12 +1,12 @@
 ---
-id: saved-search-detail
+id: v2025-saved-search-detail
 title: SavedSearchDetail
 pagination_label: SavedSearchDetail
 sidebar_label: SavedSearchDetail
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SavedSearchDetail', 'SavedSearchDetail'] 
-slug: /tools/sdk/go//models/saved-search-detail
-tags: ['SDK', 'Software Development Kit', 'SavedSearchDetail', 'SavedSearchDetail']
+keywords: ['go', 'Golang', 'sdk', 'SavedSearchDetail', 'V2025SavedSearchDetail'] 
+slug: /tools/sdk/go/v2025/models/saved-search-detail
+tags: ['SDK', 'Software Development Kit', 'SavedSearchDetail', 'V2025SavedSearchDetail']
 ---
 
 # SavedSearchDetail
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Created** | Pointer to **NullableTime** | A date-time in ISO-8601 format | [optional] 
 **Modified** | Pointer to **NullableTime** | A date-time in ISO-8601 format | [optional] 
 **Indices** | [**[]Index**](index) | The names of the Elasticsearch indices in which to search.  | 
-**Columns** | Pointer to [**map[string][]Column**](array) | The columns to be returned (specifies the order in which they will be presented) for each document type.  The currently supported document types are: _accessprofile_, _accountactivity_, _account_, _aggregation_, _entitlement_, _event_, _identity_, and _role_.  | [optional] 
+**Columns** | Pointer to [**map[string][]Column**](https://go.dev/tour/moretypes/6) | The columns to be returned (specifies the order in which they will be presented) for each document type.  The currently supported document types are: _accessprofile_, _accountactivity_, _account_, _aggregation_, _entitlement_, _event_, _identity_, and _role_.  | [optional] 
 **Query** | **string** | The search query using Elasticsearch [Query String Query](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/query-dsl-query-string-query.html#query-string) syntax from the Query DSL.  | 
 **Fields** | Pointer to **[]string** | The fields to be searched against in a multi-field query.  | [optional] 
 **OrderBy** | Pointer to **map[string][]string** | Sort by index. This takes precedence over the `sort` property.  | [optional] 

@@ -1,12 +1,12 @@
 ---
-id: create-o-auth-client-response
+id: v2025-create-o-auth-client-response
 title: CreateOAuthClientResponse
 pagination_label: CreateOAuthClientResponse
 sidebar_label: CreateOAuthClientResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CreateOAuthClientResponse', 'CreateOAuthClientResponse'] 
-slug: /tools/sdk/go//models/create-o-auth-client-response
-tags: ['SDK', 'Software Development Kit', 'CreateOAuthClientResponse', 'CreateOAuthClientResponse']
+keywords: ['go', 'Golang', 'sdk', 'CreateOAuthClientResponse', 'V2025CreateOAuthClientResponse'] 
+slug: /tools/sdk/go/v2025/models/create-o-auth-client-response
+tags: ['SDK', 'Software Development Kit', 'CreateOAuthClientResponse', 'V2025CreateOAuthClientResponse']
 ---
 
 # CreateOAuthClientResponse

@@ -1,12 +1,12 @@
 ---
-id: access-item-approver-dto
+id: v2025-access-item-approver-dto
 title: AccessItemApproverDto
 pagination_label: AccessItemApproverDto
 sidebar_label: AccessItemApproverDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessItemApproverDto', 'AccessItemApproverDto'] 
-slug: /tools/sdk/go//models/access-item-approver-dto
-tags: ['SDK', 'Software Development Kit', 'AccessItemApproverDto', 'AccessItemApproverDto']
+keywords: ['go', 'Golang', 'sdk', 'AccessItemApproverDto', 'V2025AccessItemApproverDto'] 
+slug: /tools/sdk/go/v2025/models/access-item-approver-dto
+tags: ['SDK', 'Software Development Kit', 'AccessItemApproverDto', 'V2025AccessItemApproverDto']
 ---
 
 # AccessItemApproverDto

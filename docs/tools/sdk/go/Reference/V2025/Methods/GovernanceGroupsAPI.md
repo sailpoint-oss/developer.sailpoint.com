@@ -1,12 +1,12 @@
 ---
-id: governance-groups
+id: v2025-governance-groups
 title: GovernanceGroups
 pagination_label: GovernanceGroups
 sidebar_label: GovernanceGroups
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'GovernanceGroups', 'GovernanceGroups'] 
-slug: /tools/sdk/go//methods/governance-groups
-tags: ['SDK', 'Software Development Kit', 'GovernanceGroups', 'GovernanceGroups']
+keywords: ['go', 'Golang', 'sdk', 'GovernanceGroups', 'V2025GovernanceGroups'] 
+slug: /tools/sdk/go/v2025/methods/governance-groups
+tags: ['SDK', 'Software Development Kit', 'GovernanceGroups', 'V2025GovernanceGroups']
 ---
 
 # GovernanceGroupsAPI
@@ -47,7 +47,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Create a new Governance Group.
 This API creates a new Governance Group.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-workgroup)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-workgroup)
 
 ### Path Parameters
 
@@ -81,7 +81,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -106,7 +106,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..GovernanceGroupsAPI.CreateWorkgroup(context.Background()).XSailPointExperimental(xSailPointExperimental).WorkgroupDto(workgroupDto).Execute()
+	resp, r, err := apiClient.V2025.GovernanceGroupsAPI.CreateWorkgroup(context.Background()).XSailPointExperimental(xSailPointExperimental).WorkgroupDto(workgroupDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GovernanceGroupsAPI.CreateWorkgroup``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -133,7 +133,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Delete a Governance Group
 This API deletes a Governance Group by its ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-workgroup)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-workgroup)
 
 ### Path Parameters
 
@@ -171,7 +171,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -181,7 +181,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..GovernanceGroupsAPI.DeleteWorkgroup(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	r, err := apiClient.V2025.GovernanceGroupsAPI.DeleteWorkgroup(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GovernanceGroupsAPI.DeleteWorkgroup``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -209,7 +209,7 @@ This API removes one or more  members from a Governance Group.  A
 
 >  **name**
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-workgroup-members)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-workgroup-members)
 
 ### Path Parameters
 
@@ -248,7 +248,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -259,7 +259,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..GovernanceGroupsAPI.DeleteWorkgroupMembers(context.Background(), workgroupId).XSailPointExperimental(xSailPointExperimental).IdentityPreviewResponseIdentity(identityPreviewResponseIdentity).Execute()
+	resp, r, err := apiClient.V2025.GovernanceGroupsAPI.DeleteWorkgroupMembers(context.Background(), workgroupId).XSailPointExperimental(xSailPointExperimental).IdentityPreviewResponseIdentity(identityPreviewResponseIdentity).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GovernanceGroupsAPI.DeleteWorkgroupMembers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -297,7 +297,7 @@ This API initiates a bulk deletion of one or more Governance Groups.
 
 >  **This API has limit number of Governance Groups can be deleted at one time. If the request contains more then 100 Governance Groups IDs to be deleted then the API will throw an exception.**
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-workgroups-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-workgroups-in-bulk)
 
 ### Path Parameters
 
@@ -331,7 +331,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -343,7 +343,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..GovernanceGroupsAPI.DeleteWorkgroupsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).WorkgroupBulkDeleteRequest(workgroupBulkDeleteRequest).Execute()
+	resp, r, err := apiClient.V2025.GovernanceGroupsAPI.DeleteWorkgroupsInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).WorkgroupBulkDeleteRequest(workgroupBulkDeleteRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GovernanceGroupsAPI.DeleteWorkgroupsInBulk``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -370,7 +370,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get Governance Group by Id
 This API returns a Governance Groups by its ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-workgroup)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-workgroup)
 
 ### Path Parameters
 
@@ -408,7 +408,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -418,7 +418,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..GovernanceGroupsAPI.GetWorkgroup(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.GovernanceGroupsAPI.GetWorkgroup(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GovernanceGroupsAPI.GetWorkgroup``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -445,7 +445,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List connections for Governance Group
 This API returns list of connections associated with a Governance Group.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-connections)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-connections)
 
 ### Path Parameters
 
@@ -487,7 +487,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -501,7 +501,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..GovernanceGroupsAPI.ListConnections(context.Background(), workgroupId).XSailPointExperimental(xSailPointExperimental).Offset(offset).Limit(limit).Count(count).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.GovernanceGroupsAPI.ListConnections(context.Background(), workgroupId).XSailPointExperimental(xSailPointExperimental).Offset(offset).Limit(limit).Count(count).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GovernanceGroupsAPI.ListConnections``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -528,7 +528,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List Governance Group Members
 This API returns list of members associated with a Governance Group.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-workgroup-members)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-workgroup-members)
 
 ### Path Parameters
 
@@ -570,7 +570,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -584,7 +584,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..GovernanceGroupsAPI.ListWorkgroupMembers(context.Background(), workgroupId).XSailPointExperimental(xSailPointExperimental).Offset(offset).Limit(limit).Count(count).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.GovernanceGroupsAPI.ListWorkgroupMembers(context.Background(), workgroupId).XSailPointExperimental(xSailPointExperimental).Offset(offset).Limit(limit).Count(count).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GovernanceGroupsAPI.ListWorkgroupMembers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -611,7 +611,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List Governance Groups
 This API returns list of Governance Groups
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-workgroups)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-workgroups)
 
 ### Path Parameters
 
@@ -649,7 +649,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -663,7 +663,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..GovernanceGroupsAPI.ListWorkgroups(context.Background()).XSailPointExperimental(xSailPointExperimental).Offset(offset).Limit(limit).Count(count).Filters(filters).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.GovernanceGroupsAPI.ListWorkgroups(context.Background()).XSailPointExperimental(xSailPointExperimental).Offset(offset).Limit(limit).Count(count).Filters(filters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GovernanceGroupsAPI.ListWorkgroups``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -693,7 +693,7 @@ This API updates an existing governance group by ID. The following fields and ob
 * description
 * owner
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-workgroup)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-workgroup)
 
 ### Path Parameters
 
@@ -732,7 +732,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -743,7 +743,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..GovernanceGroupsAPI.PatchWorkgroup(context.Background(), id).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
+	resp, r, err := apiClient.V2025.GovernanceGroupsAPI.PatchWorkgroup(context.Background(), id).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GovernanceGroupsAPI.PatchWorkgroup``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -774,7 +774,7 @@ This API adds one or more members to a Governance Group.  A token with API, ORG_
 
 >  **name**
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-workgroup-members)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-workgroup-members)
 
 ### Path Parameters
 
@@ -813,7 +813,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -824,7 +824,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..GovernanceGroupsAPI.UpdateWorkgroupMembers(context.Background(), workgroupId).XSailPointExperimental(xSailPointExperimental).IdentityPreviewResponseIdentity(identityPreviewResponseIdentity).Execute()
+	resp, r, err := apiClient.V2025.GovernanceGroupsAPI.UpdateWorkgroupMembers(context.Background(), workgroupId).XSailPointExperimental(xSailPointExperimental).IdentityPreviewResponseIdentity(identityPreviewResponseIdentity).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `GovernanceGroupsAPI.UpdateWorkgroupMembers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

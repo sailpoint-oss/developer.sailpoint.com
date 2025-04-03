@@ -1,12 +1,12 @@
 ---
-id: source-updated-actor
+id: v2025-source-updated-actor
 title: SourceUpdatedActor
 pagination_label: SourceUpdatedActor
 sidebar_label: SourceUpdatedActor
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceUpdatedActor', 'SourceUpdatedActor'] 
-slug: /tools/sdk/go//models/source-updated-actor
-tags: ['SDK', 'Software Development Kit', 'SourceUpdatedActor', 'SourceUpdatedActor']
+keywords: ['go', 'Golang', 'sdk', 'SourceUpdatedActor', 'V2025SourceUpdatedActor'] 
+slug: /tools/sdk/go/v2025/models/source-updated-actor
+tags: ['SDK', 'Software Development Kit', 'SourceUpdatedActor', 'V2025SourceUpdatedActor']
 ---
 
 # SourceUpdatedActor

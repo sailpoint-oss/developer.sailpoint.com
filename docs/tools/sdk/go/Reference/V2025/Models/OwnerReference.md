@@ -1,12 +1,12 @@
 ---
-id: owner-reference
+id: v2025-owner-reference
 title: OwnerReference
 pagination_label: OwnerReference
 sidebar_label: OwnerReference
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'OwnerReference', 'OwnerReference'] 
-slug: /tools/sdk/go//models/owner-reference
-tags: ['SDK', 'Software Development Kit', 'OwnerReference', 'OwnerReference']
+keywords: ['go', 'Golang', 'sdk', 'OwnerReference', 'V2025OwnerReference'] 
+slug: /tools/sdk/go/v2025/models/owner-reference
+tags: ['SDK', 'Software Development Kit', 'OwnerReference', 'V2025OwnerReference']
 ---
 
 # OwnerReference

@@ -1,12 +1,12 @@
 ---
-id: campaign-all-of-sources-with-orphan-entitlements
+id: v2025-campaign-all-of-sources-with-orphan-entitlements
 title: CampaignAllOfSourcesWithOrphanEntitlements
 pagination_label: CampaignAllOfSourcesWithOrphanEntitlements
 sidebar_label: CampaignAllOfSourcesWithOrphanEntitlements
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignAllOfSourcesWithOrphanEntitlements', 'CampaignAllOfSourcesWithOrphanEntitlements'] 
-slug: /tools/sdk/go//models/campaign-all-of-sources-with-orphan-entitlements
-tags: ['SDK', 'Software Development Kit', 'CampaignAllOfSourcesWithOrphanEntitlements', 'CampaignAllOfSourcesWithOrphanEntitlements']
+keywords: ['go', 'Golang', 'sdk', 'CampaignAllOfSourcesWithOrphanEntitlements', 'V2025CampaignAllOfSourcesWithOrphanEntitlements'] 
+slug: /tools/sdk/go/v2025/models/campaign-all-of-sources-with-orphan-entitlements
+tags: ['SDK', 'Software Development Kit', 'CampaignAllOfSourcesWithOrphanEntitlements', 'V2025CampaignAllOfSourcesWithOrphanEntitlements']
 ---
 
 # CampaignAllOfSourcesWithOrphanEntitlements

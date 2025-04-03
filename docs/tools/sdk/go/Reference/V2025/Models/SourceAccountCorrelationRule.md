@@ -1,12 +1,12 @@
 ---
-id: source-account-correlation-rule
+id: v2025-source-account-correlation-rule
 title: SourceAccountCorrelationRule
 pagination_label: SourceAccountCorrelationRule
 sidebar_label: SourceAccountCorrelationRule
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceAccountCorrelationRule', 'SourceAccountCorrelationRule'] 
-slug: /tools/sdk/go//models/source-account-correlation-rule
-tags: ['SDK', 'Software Development Kit', 'SourceAccountCorrelationRule', 'SourceAccountCorrelationRule']
+keywords: ['go', 'Golang', 'sdk', 'SourceAccountCorrelationRule', 'V2025SourceAccountCorrelationRule'] 
+slug: /tools/sdk/go/v2025/models/source-account-correlation-rule
+tags: ['SDK', 'Software Development Kit', 'SourceAccountCorrelationRule', 'V2025SourceAccountCorrelationRule']
 ---
 
 # SourceAccountCorrelationRule

@@ -1,12 +1,12 @@
 ---
-id: source-app
+id: v2025-source-app
 title: SourceApp
 pagination_label: SourceApp
 sidebar_label: SourceApp
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceApp', 'SourceApp'] 
-slug: /tools/sdk/go//models/source-app
-tags: ['SDK', 'Software Development Kit', 'SourceApp', 'SourceApp']
+keywords: ['go', 'Golang', 'sdk', 'SourceApp', 'V2025SourceApp'] 
+slug: /tools/sdk/go/v2025/models/source-app
+tags: ['SDK', 'Software Development Kit', 'SourceApp', 'V2025SourceApp']
 ---
 
 # SourceApp

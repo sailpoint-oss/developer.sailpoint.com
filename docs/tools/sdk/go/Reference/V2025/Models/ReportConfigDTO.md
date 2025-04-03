@@ -1,12 +1,12 @@
 ---
-id: report-config-dto
+id: v2025-report-config-dto
 title: ReportConfigDTO
 pagination_label: ReportConfigDTO
 sidebar_label: ReportConfigDTO
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ReportConfigDTO', 'ReportConfigDTO'] 
-slug: /tools/sdk/go//models/report-config-dto
-tags: ['SDK', 'Software Development Kit', 'ReportConfigDTO', 'ReportConfigDTO']
+keywords: ['go', 'Golang', 'sdk', 'ReportConfigDTO', 'V2025ReportConfigDTO'] 
+slug: /tools/sdk/go/v2025/models/report-config-dto
+tags: ['SDK', 'Software Development Kit', 'ReportConfigDTO', 'V2025ReportConfigDTO']
 ---
 
 # ReportConfigDTO

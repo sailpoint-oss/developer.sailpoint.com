@@ -1,12 +1,12 @@
 ---
-id: role-mining-potential-role-export-response
+id: v2025-role-mining-potential-role-export-response
 title: RoleMiningPotentialRoleExportResponse
 pagination_label: RoleMiningPotentialRoleExportResponse
 sidebar_label: RoleMiningPotentialRoleExportResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMiningPotentialRoleExportResponse', 'RoleMiningPotentialRoleExportResponse'] 
-slug: /tools/sdk/go//models/role-mining-potential-role-export-response
-tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleExportResponse', 'RoleMiningPotentialRoleExportResponse']
+keywords: ['go', 'Golang', 'sdk', 'RoleMiningPotentialRoleExportResponse', 'V2025RoleMiningPotentialRoleExportResponse'] 
+slug: /tools/sdk/go/v2025/models/role-mining-potential-role-export-response
+tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleExportResponse', 'V2025RoleMiningPotentialRoleExportResponse']
 ---
 
 # RoleMiningPotentialRoleExportResponse

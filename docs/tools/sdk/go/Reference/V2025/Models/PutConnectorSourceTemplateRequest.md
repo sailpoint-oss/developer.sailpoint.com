@@ -1,12 +1,12 @@
 ---
-id: put-connector-source-template-request
+id: v2025-put-connector-source-template-request
 title: PutConnectorSourceTemplateRequest
 pagination_label: PutConnectorSourceTemplateRequest
 sidebar_label: PutConnectorSourceTemplateRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PutConnectorSourceTemplateRequest', 'PutConnectorSourceTemplateRequest'] 
-slug: /tools/sdk/go//models/put-connector-source-template-request
-tags: ['SDK', 'Software Development Kit', 'PutConnectorSourceTemplateRequest', 'PutConnectorSourceTemplateRequest']
+keywords: ['go', 'Golang', 'sdk', 'PutConnectorSourceTemplateRequest', 'V2025PutConnectorSourceTemplateRequest'] 
+slug: /tools/sdk/go/v2025/models/put-connector-source-template-request
+tags: ['SDK', 'Software Development Kit', 'PutConnectorSourceTemplateRequest', 'V2025PutConnectorSourceTemplateRequest']
 ---
 
 # PutConnectorSourceTemplateRequest

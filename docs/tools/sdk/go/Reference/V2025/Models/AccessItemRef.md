@@ -1,12 +1,12 @@
 ---
-id: access-item-ref
+id: v2025-access-item-ref
 title: AccessItemRef
 pagination_label: AccessItemRef
 sidebar_label: AccessItemRef
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessItemRef', 'AccessItemRef'] 
-slug: /tools/sdk/go//models/access-item-ref
-tags: ['SDK', 'Software Development Kit', 'AccessItemRef', 'AccessItemRef']
+keywords: ['go', 'Golang', 'sdk', 'AccessItemRef', 'V2025AccessItemRef'] 
+slug: /tools/sdk/go/v2025/models/access-item-ref
+tags: ['SDK', 'Software Development Kit', 'AccessItemRef', 'V2025AccessItemRef']
 ---
 
 # AccessItemRef

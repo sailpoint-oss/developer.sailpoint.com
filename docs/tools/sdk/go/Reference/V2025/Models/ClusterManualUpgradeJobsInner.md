@@ -1,12 +1,12 @@
 ---
-id: cluster-manual-upgrade-jobs-inner
+id: v2025-cluster-manual-upgrade-jobs-inner
 title: ClusterManualUpgradeJobsInner
 pagination_label: ClusterManualUpgradeJobsInner
 sidebar_label: ClusterManualUpgradeJobsInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ClusterManualUpgradeJobsInner', 'ClusterManualUpgradeJobsInner'] 
-slug: /tools/sdk/go//models/cluster-manual-upgrade-jobs-inner
-tags: ['SDK', 'Software Development Kit', 'ClusterManualUpgradeJobsInner', 'ClusterManualUpgradeJobsInner']
+keywords: ['go', 'Golang', 'sdk', 'ClusterManualUpgradeJobsInner', 'V2025ClusterManualUpgradeJobsInner'] 
+slug: /tools/sdk/go/v2025/models/cluster-manual-upgrade-jobs-inner
+tags: ['SDK', 'Software Development Kit', 'ClusterManualUpgradeJobsInner', 'V2025ClusterManualUpgradeJobsInner']
 ---
 
 # ClusterManualUpgradeJobsInner

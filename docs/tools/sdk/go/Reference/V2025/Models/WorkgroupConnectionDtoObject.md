@@ -1,12 +1,12 @@
 ---
-id: workgroup-connection-dto-object
+id: v2025-workgroup-connection-dto-object
 title: WorkgroupConnectionDtoObject
 pagination_label: WorkgroupConnectionDtoObject
 sidebar_label: WorkgroupConnectionDtoObject
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkgroupConnectionDtoObject', 'WorkgroupConnectionDtoObject'] 
-slug: /tools/sdk/go//models/workgroup-connection-dto-object
-tags: ['SDK', 'Software Development Kit', 'WorkgroupConnectionDtoObject', 'WorkgroupConnectionDtoObject']
+keywords: ['go', 'Golang', 'sdk', 'WorkgroupConnectionDtoObject', 'V2025WorkgroupConnectionDtoObject'] 
+slug: /tools/sdk/go/v2025/models/workgroup-connection-dto-object
+tags: ['SDK', 'Software Development Kit', 'WorkgroupConnectionDtoObject', 'V2025WorkgroupConnectionDtoObject']
 ---
 
 # WorkgroupConnectionDtoObject

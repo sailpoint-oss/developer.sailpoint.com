@@ -1,12 +1,12 @@
 ---
-id: identity-cert-decision-summary
+id: v2025-identity-cert-decision-summary
 title: IdentityCertDecisionSummary
 pagination_label: IdentityCertDecisionSummary
 sidebar_label: IdentityCertDecisionSummary
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityCertDecisionSummary', 'IdentityCertDecisionSummary'] 
-slug: /tools/sdk/go//models/identity-cert-decision-summary
-tags: ['SDK', 'Software Development Kit', 'IdentityCertDecisionSummary', 'IdentityCertDecisionSummary']
+keywords: ['go', 'Golang', 'sdk', 'IdentityCertDecisionSummary', 'V2025IdentityCertDecisionSummary'] 
+slug: /tools/sdk/go/v2025/models/identity-cert-decision-summary
+tags: ['SDK', 'Software Development Kit', 'IdentityCertDecisionSummary', 'V2025IdentityCertDecisionSummary']
 ---
 
 # IdentityCertDecisionSummary

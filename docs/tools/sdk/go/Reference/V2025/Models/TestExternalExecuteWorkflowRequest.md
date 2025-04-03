@@ -1,12 +1,12 @@
 ---
-id: test-external-execute-workflow-request
+id: v2025-test-external-execute-workflow-request
 title: TestExternalExecuteWorkflowRequest
 pagination_label: TestExternalExecuteWorkflowRequest
 sidebar_label: TestExternalExecuteWorkflowRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TestExternalExecuteWorkflowRequest', 'TestExternalExecuteWorkflowRequest'] 
-slug: /tools/sdk/go//models/test-external-execute-workflow-request
-tags: ['SDK', 'Software Development Kit', 'TestExternalExecuteWorkflowRequest', 'TestExternalExecuteWorkflowRequest']
+keywords: ['go', 'Golang', 'sdk', 'TestExternalExecuteWorkflowRequest', 'V2025TestExternalExecuteWorkflowRequest'] 
+slug: /tools/sdk/go/v2025/models/test-external-execute-workflow-request
+tags: ['SDK', 'Software Development Kit', 'TestExternalExecuteWorkflowRequest', 'V2025TestExternalExecuteWorkflowRequest']
 ---
 
 # TestExternalExecuteWorkflowRequest

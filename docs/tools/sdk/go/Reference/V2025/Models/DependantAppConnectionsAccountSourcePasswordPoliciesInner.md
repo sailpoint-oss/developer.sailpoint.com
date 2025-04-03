@@ -1,12 +1,12 @@
 ---
-id: dependant-app-connections-account-source-password-policies-inner
+id: v2025-dependant-app-connections-account-source-password-policies-inner
 title: DependantAppConnectionsAccountSourcePasswordPoliciesInner
 pagination_label: DependantAppConnectionsAccountSourcePasswordPoliciesInner
 sidebar_label: DependantAppConnectionsAccountSourcePasswordPoliciesInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DependantAppConnectionsAccountSourcePasswordPoliciesInner', 'DependantAppConnectionsAccountSourcePasswordPoliciesInner'] 
-slug: /tools/sdk/go//models/dependant-app-connections-account-source-password-policies-inner
-tags: ['SDK', 'Software Development Kit', 'DependantAppConnectionsAccountSourcePasswordPoliciesInner', 'DependantAppConnectionsAccountSourcePasswordPoliciesInner']
+keywords: ['go', 'Golang', 'sdk', 'DependantAppConnectionsAccountSourcePasswordPoliciesInner', 'V2025DependantAppConnectionsAccountSourcePasswordPoliciesInner'] 
+slug: /tools/sdk/go/v2025/models/dependant-app-connections-account-source-password-policies-inner
+tags: ['SDK', 'Software Development Kit', 'DependantAppConnectionsAccountSourcePasswordPoliciesInner', 'V2025DependantAppConnectionsAccountSourcePasswordPoliciesInner']
 ---
 
 # DependantAppConnectionsAccountSourcePasswordPoliciesInner

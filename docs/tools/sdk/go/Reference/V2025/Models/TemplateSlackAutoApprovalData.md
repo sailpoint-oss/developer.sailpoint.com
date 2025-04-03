@@ -1,12 +1,12 @@
 ---
-id: template-slack-auto-approval-data
+id: v2025-template-slack-auto-approval-data
 title: TemplateSlackAutoApprovalData
 pagination_label: TemplateSlackAutoApprovalData
 sidebar_label: TemplateSlackAutoApprovalData
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TemplateSlackAutoApprovalData', 'TemplateSlackAutoApprovalData'] 
-slug: /tools/sdk/go//models/template-slack-auto-approval-data
-tags: ['SDK', 'Software Development Kit', 'TemplateSlackAutoApprovalData', 'TemplateSlackAutoApprovalData']
+keywords: ['go', 'Golang', 'sdk', 'TemplateSlackAutoApprovalData', 'V2025TemplateSlackAutoApprovalData'] 
+slug: /tools/sdk/go/v2025/models/template-slack-auto-approval-data
+tags: ['SDK', 'Software Development Kit', 'TemplateSlackAutoApprovalData', 'V2025TemplateSlackAutoApprovalData']
 ---
 
 # TemplateSlackAutoApprovalData

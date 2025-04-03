@@ -1,12 +1,12 @@
 ---
-id: task-status-message
+id: v2025-task-status-message
 title: TaskStatusMessage
 pagination_label: TaskStatusMessage
 sidebar_label: TaskStatusMessage
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TaskStatusMessage', 'TaskStatusMessage'] 
-slug: /tools/sdk/go//models/task-status-message
-tags: ['SDK', 'Software Development Kit', 'TaskStatusMessage', 'TaskStatusMessage']
+keywords: ['go', 'Golang', 'sdk', 'TaskStatusMessage', 'V2025TaskStatusMessage'] 
+slug: /tools/sdk/go/v2025/models/task-status-message
+tags: ['SDK', 'Software Development Kit', 'TaskStatusMessage', 'V2025TaskStatusMessage']
 ---
 
 # TaskStatusMessage

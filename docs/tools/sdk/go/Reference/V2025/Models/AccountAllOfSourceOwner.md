@@ -1,12 +1,12 @@
 ---
-id: account-all-of-source-owner
+id: v2025-account-all-of-source-owner
 title: AccountAllOfSourceOwner
 pagination_label: AccountAllOfSourceOwner
 sidebar_label: AccountAllOfSourceOwner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountAllOfSourceOwner', 'AccountAllOfSourceOwner'] 
-slug: /tools/sdk/go//models/account-all-of-source-owner
-tags: ['SDK', 'Software Development Kit', 'AccountAllOfSourceOwner', 'AccountAllOfSourceOwner']
+keywords: ['go', 'Golang', 'sdk', 'AccountAllOfSourceOwner', 'V2025AccountAllOfSourceOwner'] 
+slug: /tools/sdk/go/v2025/models/account-all-of-source-owner
+tags: ['SDK', 'Software Development Kit', 'AccountAllOfSourceOwner', 'V2025AccountAllOfSourceOwner']
 ---
 
 # AccountAllOfSourceOwner

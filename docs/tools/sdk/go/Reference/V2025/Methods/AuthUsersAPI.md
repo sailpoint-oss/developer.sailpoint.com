@@ -1,12 +1,12 @@
 ---
-id: auth-users
+id: v2025-auth-users
 title: AuthUsers
 pagination_label: AuthUsers
 sidebar_label: AuthUsers
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AuthUsers', 'AuthUsers'] 
-slug: /tools/sdk/go//methods/auth-users
-tags: ['SDK', 'Software Development Kit', 'AuthUsers', 'AuthUsers']
+keywords: ['go', 'Golang', 'sdk', 'AuthUsers', 'V2025AuthUsers'] 
+slug: /tools/sdk/go/v2025/methods/auth-users
+tags: ['SDK', 'Software Development Kit', 'AuthUsers', 'V2025AuthUsers']
 ---
 
 # AuthUsersAPI
@@ -28,7 +28,7 @@ Method | HTTP request | Description
 Auth User Details
 Return the specified user's authentication system details.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-auth-user)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-auth-user)
 
 ### Path Parameters
 
@@ -65,7 +65,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -74,7 +74,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AuthUsersAPI.GetAuthUser(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.AuthUsersAPI.GetAuthUser(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AuthUsersAPI.GetAuthUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -94,7 +94,7 @@ Use this endpoint to modify these fields:
 
 A '400.1.1 Illegal update attempt' detail code indicates that you attempted to PATCH a field that is not allowed.
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-auth-user)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-auth-user)
 
 ### Path Parameters
 
@@ -132,7 +132,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -142,7 +142,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AuthUsersAPI.PatchAuthUser(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
+	resp, r, err := apiClient.V2025.AuthUsersAPI.PatchAuthUser(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AuthUsersAPI.PatchAuthUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

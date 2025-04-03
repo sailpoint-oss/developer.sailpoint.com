@@ -1,12 +1,12 @@
 ---
-id: identity-reference
+id: v2025-identity-reference
 title: IdentityReference
 pagination_label: IdentityReference
 sidebar_label: IdentityReference
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityReference', 'IdentityReference'] 
-slug: /tools/sdk/go//models/identity-reference
-tags: ['SDK', 'Software Development Kit', 'IdentityReference', 'IdentityReference']
+keywords: ['go', 'Golang', 'sdk', 'IdentityReference', 'V2025IdentityReference'] 
+slug: /tools/sdk/go/v2025/models/identity-reference
+tags: ['SDK', 'Software Development Kit', 'IdentityReference', 'V2025IdentityReference']
 ---
 
 # IdentityReference

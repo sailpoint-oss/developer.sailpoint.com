@@ -1,12 +1,12 @@
 ---
-id: import-form-definitions202-response-errors-inner
+id: v2025-import-form-definitions202-response-errors-inner
 title: ImportFormDefinitions202ResponseErrorsInner
 pagination_label: ImportFormDefinitions202ResponseErrorsInner
 sidebar_label: ImportFormDefinitions202ResponseErrorsInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ImportFormDefinitions202ResponseErrorsInner', 'ImportFormDefinitions202ResponseErrorsInner'] 
-slug: /tools/sdk/go//models/import-form-definitions202-response-errors-inner
-tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitions202ResponseErrorsInner', 'ImportFormDefinitions202ResponseErrorsInner']
+keywords: ['go', 'Golang', 'sdk', 'ImportFormDefinitions202ResponseErrorsInner', 'V2025ImportFormDefinitions202ResponseErrorsInner'] 
+slug: /tools/sdk/go/v2025/models/import-form-definitions202-response-errors-inner
+tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitions202ResponseErrorsInner', 'V2025ImportFormDefinitions202ResponseErrorsInner']
 ---
 
 # ImportFormDefinitions202ResponseErrorsInner

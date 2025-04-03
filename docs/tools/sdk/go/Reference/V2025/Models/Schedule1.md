@@ -1,12 +1,12 @@
 ---
-id: schedule1
+id: v2025-schedule1
 title: Schedule1
 pagination_label: Schedule1
 sidebar_label: Schedule1
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Schedule1', 'Schedule1'] 
-slug: /tools/sdk/go//models/schedule1
-tags: ['SDK', 'Software Development Kit', 'Schedule1', 'Schedule1']
+keywords: ['go', 'Golang', 'sdk', 'Schedule1', 'V2025Schedule1'] 
+slug: /tools/sdk/go/v2025/models/schedule1
+tags: ['SDK', 'Software Development Kit', 'Schedule1', 'V2025Schedule1']
 ---
 
 # Schedule1

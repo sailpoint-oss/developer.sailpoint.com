@@ -1,12 +1,12 @@
 ---
-id: inner-hit
+id: v2025-inner-hit
 title: InnerHit
 pagination_label: InnerHit
 sidebar_label: InnerHit
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'InnerHit', 'InnerHit'] 
-slug: /tools/sdk/go//models/inner-hit
-tags: ['SDK', 'Software Development Kit', 'InnerHit', 'InnerHit']
+keywords: ['go', 'Golang', 'sdk', 'InnerHit', 'V2025InnerHit'] 
+slug: /tools/sdk/go/v2025/models/inner-hit
+tags: ['SDK', 'Software Development Kit', 'InnerHit', 'V2025InnerHit']
 ---
 
 # InnerHit

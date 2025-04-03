@@ -1,12 +1,12 @@
 ---
-id: report-results
+id: v2025-report-results
 title: ReportResults
 pagination_label: ReportResults
 sidebar_label: ReportResults
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ReportResults', 'ReportResults'] 
-slug: /tools/sdk/go//models/report-results
-tags: ['SDK', 'Software Development Kit', 'ReportResults', 'ReportResults']
+keywords: ['go', 'Golang', 'sdk', 'ReportResults', 'V2025ReportResults'] 
+slug: /tools/sdk/go/v2025/models/report-results
+tags: ['SDK', 'Software Development Kit', 'ReportResults', 'V2025ReportResults']
 ---
 
 # ReportResults

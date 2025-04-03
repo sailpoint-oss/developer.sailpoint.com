@@ -1,12 +1,12 @@
 ---
-id: connected-object
+id: v2025-connected-object
 title: ConnectedObject
 pagination_label: ConnectedObject
 sidebar_label: ConnectedObject
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConnectedObject', 'ConnectedObject'] 
-slug: /tools/sdk/go//models/connected-object
-tags: ['SDK', 'Software Development Kit', 'ConnectedObject', 'ConnectedObject']
+keywords: ['go', 'Golang', 'sdk', 'ConnectedObject', 'V2025ConnectedObject'] 
+slug: /tools/sdk/go/v2025/models/connected-object
+tags: ['SDK', 'Software Development Kit', 'ConnectedObject', 'V2025ConnectedObject']
 ---
 
 # ConnectedObject

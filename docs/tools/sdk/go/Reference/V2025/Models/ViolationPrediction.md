@@ -1,12 +1,12 @@
 ---
-id: violation-prediction
+id: v2025-violation-prediction
 title: ViolationPrediction
 pagination_label: ViolationPrediction
 sidebar_label: ViolationPrediction
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ViolationPrediction', 'ViolationPrediction'] 
-slug: /tools/sdk/go//models/violation-prediction
-tags: ['SDK', 'Software Development Kit', 'ViolationPrediction', 'ViolationPrediction']
+keywords: ['go', 'Golang', 'sdk', 'ViolationPrediction', 'V2025ViolationPrediction'] 
+slug: /tools/sdk/go/v2025/models/violation-prediction
+tags: ['SDK', 'Software Development Kit', 'ViolationPrediction', 'V2025ViolationPrediction']
 ---
 
 # ViolationPrediction

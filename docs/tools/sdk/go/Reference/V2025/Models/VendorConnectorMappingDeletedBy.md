@@ -1,12 +1,12 @@
 ---
-id: vendor-connector-mapping-deleted-by
+id: v2025-vendor-connector-mapping-deleted-by
 title: VendorConnectorMappingDeletedBy
 pagination_label: VendorConnectorMappingDeletedBy
 sidebar_label: VendorConnectorMappingDeletedBy
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'VendorConnectorMappingDeletedBy', 'VendorConnectorMappingDeletedBy'] 
-slug: /tools/sdk/go//models/vendor-connector-mapping-deleted-by
-tags: ['SDK', 'Software Development Kit', 'VendorConnectorMappingDeletedBy', 'VendorConnectorMappingDeletedBy']
+keywords: ['go', 'Golang', 'sdk', 'VendorConnectorMappingDeletedBy', 'V2025VendorConnectorMappingDeletedBy'] 
+slug: /tools/sdk/go/v2025/models/vendor-connector-mapping-deleted-by
+tags: ['SDK', 'Software Development Kit', 'VendorConnectorMappingDeletedBy', 'V2025VendorConnectorMappingDeletedBy']
 ---
 
 # VendorConnectorMappingDeletedBy

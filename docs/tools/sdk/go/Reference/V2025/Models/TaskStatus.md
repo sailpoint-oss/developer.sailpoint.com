@@ -1,12 +1,12 @@
 ---
-id: task-status
+id: v2025-task-status
 title: TaskStatus
 pagination_label: TaskStatus
 sidebar_label: TaskStatus
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TaskStatus', 'TaskStatus'] 
-slug: /tools/sdk/go//models/task-status
-tags: ['SDK', 'Software Development Kit', 'TaskStatus', 'TaskStatus']
+keywords: ['go', 'Golang', 'sdk', 'TaskStatus', 'V2025TaskStatus'] 
+slug: /tools/sdk/go/v2025/models/task-status
+tags: ['SDK', 'Software Development Kit', 'TaskStatus', 'V2025TaskStatus']
 ---
 
 # TaskStatus

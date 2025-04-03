@@ -1,12 +1,12 @@
 ---
-id: password-status
+id: v2025-password-status
 title: PasswordStatus
 pagination_label: PasswordStatus
 sidebar_label: PasswordStatus
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PasswordStatus', 'PasswordStatus'] 
-slug: /tools/sdk/go//models/password-status
-tags: ['SDK', 'Software Development Kit', 'PasswordStatus', 'PasswordStatus']
+keywords: ['go', 'Golang', 'sdk', 'PasswordStatus', 'V2025PasswordStatus'] 
+slug: /tools/sdk/go/v2025/models/password-status
+tags: ['SDK', 'Software Development Kit', 'PasswordStatus', 'V2025PasswordStatus']
 ---
 
 # PasswordStatus

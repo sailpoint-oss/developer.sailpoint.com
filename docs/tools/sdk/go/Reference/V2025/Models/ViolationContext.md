@@ -1,12 +1,12 @@
 ---
-id: violation-context
+id: v2025-violation-context
 title: ViolationContext
 pagination_label: ViolationContext
 sidebar_label: ViolationContext
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ViolationContext', 'ViolationContext'] 
-slug: /tools/sdk/go//models/violation-context
-tags: ['SDK', 'Software Development Kit', 'ViolationContext', 'ViolationContext']
+keywords: ['go', 'Golang', 'sdk', 'ViolationContext', 'V2025ViolationContext'] 
+slug: /tools/sdk/go/v2025/models/violation-context
+tags: ['SDK', 'Software Development Kit', 'ViolationContext', 'V2025ViolationContext']
 ---
 
 # ViolationContext

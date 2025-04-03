@@ -1,12 +1,12 @@
 ---
-id: reassignment-type-enum
+id: v2025-reassignment-type-enum
 title: ReassignmentTypeEnum
 pagination_label: ReassignmentTypeEnum
 sidebar_label: ReassignmentTypeEnum
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ReassignmentTypeEnum', 'ReassignmentTypeEnum'] 
-slug: /tools/sdk/go//models/reassignment-type-enum
-tags: ['SDK', 'Software Development Kit', 'ReassignmentTypeEnum', 'ReassignmentTypeEnum']
+keywords: ['go', 'Golang', 'sdk', 'ReassignmentTypeEnum', 'V2025ReassignmentTypeEnum'] 
+slug: /tools/sdk/go/v2025/models/reassignment-type-enum
+tags: ['SDK', 'Software Development Kit', 'ReassignmentTypeEnum', 'V2025ReassignmentTypeEnum']
 ---
 
 # ReassignmentTypeEnum

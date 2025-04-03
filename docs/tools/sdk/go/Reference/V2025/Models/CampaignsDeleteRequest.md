@@ -1,12 +1,12 @@
 ---
-id: campaigns-delete-request
+id: v2025-campaigns-delete-request
 title: CampaignsDeleteRequest
 pagination_label: CampaignsDeleteRequest
 sidebar_label: CampaignsDeleteRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignsDeleteRequest', 'CampaignsDeleteRequest'] 
-slug: /tools/sdk/go//models/campaigns-delete-request
-tags: ['SDK', 'Software Development Kit', 'CampaignsDeleteRequest', 'CampaignsDeleteRequest']
+keywords: ['go', 'Golang', 'sdk', 'CampaignsDeleteRequest', 'V2025CampaignsDeleteRequest'] 
+slug: /tools/sdk/go/v2025/models/campaigns-delete-request
+tags: ['SDK', 'Software Development Kit', 'CampaignsDeleteRequest', 'V2025CampaignsDeleteRequest']
 ---
 
 # CampaignsDeleteRequest

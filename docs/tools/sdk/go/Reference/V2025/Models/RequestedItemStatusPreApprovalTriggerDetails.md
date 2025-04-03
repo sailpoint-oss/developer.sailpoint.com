@@ -1,12 +1,12 @@
 ---
-id: requested-item-status-pre-approval-trigger-details
+id: v2025-requested-item-status-pre-approval-trigger-details
 title: RequestedItemStatusPreApprovalTriggerDetails
 pagination_label: RequestedItemStatusPreApprovalTriggerDetails
 sidebar_label: RequestedItemStatusPreApprovalTriggerDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RequestedItemStatusPreApprovalTriggerDetails', 'RequestedItemStatusPreApprovalTriggerDetails'] 
-slug: /tools/sdk/go//models/requested-item-status-pre-approval-trigger-details
-tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusPreApprovalTriggerDetails', 'RequestedItemStatusPreApprovalTriggerDetails']
+keywords: ['go', 'Golang', 'sdk', 'RequestedItemStatusPreApprovalTriggerDetails', 'V2025RequestedItemStatusPreApprovalTriggerDetails'] 
+slug: /tools/sdk/go/v2025/models/requested-item-status-pre-approval-trigger-details
+tags: ['SDK', 'Software Development Kit', 'RequestedItemStatusPreApprovalTriggerDetails', 'V2025RequestedItemStatusPreApprovalTriggerDetails']
 ---
 
 # RequestedItemStatusPreApprovalTriggerDetails

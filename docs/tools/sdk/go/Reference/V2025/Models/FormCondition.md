@@ -1,12 +1,12 @@
 ---
-id: form-condition
+id: v2025-form-condition
 title: FormCondition
 pagination_label: FormCondition
 sidebar_label: FormCondition
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FormCondition', 'FormCondition'] 
-slug: /tools/sdk/go//models/form-condition
-tags: ['SDK', 'Software Development Kit', 'FormCondition', 'FormCondition']
+keywords: ['go', 'Golang', 'sdk', 'FormCondition', 'V2025FormCondition'] 
+slug: /tools/sdk/go/v2025/models/form-condition
+tags: ['SDK', 'Software Development Kit', 'FormCondition', 'V2025FormCondition']
 ---
 
 # FormCondition

@@ -1,12 +1,12 @@
 ---
-id: access-request-recommendation-config-dto
+id: v2025-access-request-recommendation-config-dto
 title: AccessRequestRecommendationConfigDto
 pagination_label: AccessRequestRecommendationConfigDto
 sidebar_label: AccessRequestRecommendationConfigDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestRecommendationConfigDto', 'AccessRequestRecommendationConfigDto'] 
-slug: /tools/sdk/go//models/access-request-recommendation-config-dto
-tags: ['SDK', 'Software Development Kit', 'AccessRequestRecommendationConfigDto', 'AccessRequestRecommendationConfigDto']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestRecommendationConfigDto', 'V2025AccessRequestRecommendationConfigDto'] 
+slug: /tools/sdk/go/v2025/models/access-request-recommendation-config-dto
+tags: ['SDK', 'Software Development Kit', 'AccessRequestRecommendationConfigDto', 'V2025AccessRequestRecommendationConfigDto']
 ---
 
 # AccessRequestRecommendationConfigDto

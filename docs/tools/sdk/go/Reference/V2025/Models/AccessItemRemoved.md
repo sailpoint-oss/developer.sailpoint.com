@@ -1,12 +1,12 @@
 ---
-id: access-item-removed
+id: v2025-access-item-removed
 title: AccessItemRemoved
 pagination_label: AccessItemRemoved
 sidebar_label: AccessItemRemoved
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessItemRemoved', 'AccessItemRemoved'] 
-slug: /tools/sdk/go//models/access-item-removed
-tags: ['SDK', 'Software Development Kit', 'AccessItemRemoved', 'AccessItemRemoved']
+keywords: ['go', 'Golang', 'sdk', 'AccessItemRemoved', 'V2025AccessItemRemoved'] 
+slug: /tools/sdk/go/v2025/models/access-item-removed
+tags: ['SDK', 'Software Development Kit', 'AccessItemRemoved', 'V2025AccessItemRemoved']
 ---
 
 # AccessItemRemoved

@@ -1,12 +1,12 @@
 ---
-id: bound
+id: v2025-bound
 title: Bound
 pagination_label: Bound
 sidebar_label: Bound
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Bound', 'Bound'] 
-slug: /tools/sdk/go//models/bound
-tags: ['SDK', 'Software Development Kit', 'Bound', 'Bound']
+keywords: ['go', 'Golang', 'sdk', 'Bound', 'V2025Bound'] 
+slug: /tools/sdk/go/v2025/models/bound
+tags: ['SDK', 'Software Development Kit', 'Bound', 'V2025Bound']
 ---
 
 # Bound

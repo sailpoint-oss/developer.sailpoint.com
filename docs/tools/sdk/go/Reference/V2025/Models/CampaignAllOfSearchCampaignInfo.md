@@ -1,12 +1,12 @@
 ---
-id: campaign-all-of-search-campaign-info
+id: v2025-campaign-all-of-search-campaign-info
 title: CampaignAllOfSearchCampaignInfo
 pagination_label: CampaignAllOfSearchCampaignInfo
 sidebar_label: CampaignAllOfSearchCampaignInfo
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignAllOfSearchCampaignInfo', 'CampaignAllOfSearchCampaignInfo'] 
-slug: /tools/sdk/go//models/campaign-all-of-search-campaign-info
-tags: ['SDK', 'Software Development Kit', 'CampaignAllOfSearchCampaignInfo', 'CampaignAllOfSearchCampaignInfo']
+keywords: ['go', 'Golang', 'sdk', 'CampaignAllOfSearchCampaignInfo', 'V2025CampaignAllOfSearchCampaignInfo'] 
+slug: /tools/sdk/go/v2025/models/campaign-all-of-search-campaign-info
+tags: ['SDK', 'Software Development Kit', 'CampaignAllOfSearchCampaignInfo', 'V2025CampaignAllOfSearchCampaignInfo']
 ---
 
 # CampaignAllOfSearchCampaignInfo

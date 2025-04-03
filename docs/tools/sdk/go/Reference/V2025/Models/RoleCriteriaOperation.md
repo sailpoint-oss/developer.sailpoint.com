@@ -1,12 +1,12 @@
 ---
-id: role-criteria-operation
+id: v2025-role-criteria-operation
 title: RoleCriteriaOperation
 pagination_label: RoleCriteriaOperation
 sidebar_label: RoleCriteriaOperation
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleCriteriaOperation', 'RoleCriteriaOperation'] 
-slug: /tools/sdk/go//models/role-criteria-operation
-tags: ['SDK', 'Software Development Kit', 'RoleCriteriaOperation', 'RoleCriteriaOperation']
+keywords: ['go', 'Golang', 'sdk', 'RoleCriteriaOperation', 'V2025RoleCriteriaOperation'] 
+slug: /tools/sdk/go/v2025/models/role-criteria-operation
+tags: ['SDK', 'Software Development Kit', 'RoleCriteriaOperation', 'V2025RoleCriteriaOperation']
 ---
 
 # RoleCriteriaOperation

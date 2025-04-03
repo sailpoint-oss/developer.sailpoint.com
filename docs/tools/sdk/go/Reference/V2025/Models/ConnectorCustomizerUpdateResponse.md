@@ -1,12 +1,12 @@
 ---
-id: connector-customizer-update-response
+id: v2025-connector-customizer-update-response
 title: ConnectorCustomizerUpdateResponse
 pagination_label: ConnectorCustomizerUpdateResponse
 sidebar_label: ConnectorCustomizerUpdateResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConnectorCustomizerUpdateResponse', 'ConnectorCustomizerUpdateResponse'] 
-slug: /tools/sdk/go//models/connector-customizer-update-response
-tags: ['SDK', 'Software Development Kit', 'ConnectorCustomizerUpdateResponse', 'ConnectorCustomizerUpdateResponse']
+keywords: ['go', 'Golang', 'sdk', 'ConnectorCustomizerUpdateResponse', 'V2025ConnectorCustomizerUpdateResponse'] 
+slug: /tools/sdk/go/v2025/models/connector-customizer-update-response
+tags: ['SDK', 'Software Development Kit', 'ConnectorCustomizerUpdateResponse', 'V2025ConnectorCustomizerUpdateResponse']
 ---
 
 # ConnectorCustomizerUpdateResponse

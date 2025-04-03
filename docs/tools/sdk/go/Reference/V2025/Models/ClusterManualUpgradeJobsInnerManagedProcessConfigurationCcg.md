@@ -1,12 +1,12 @@
 ---
-id: cluster-manual-upgrade-jobs-inner-managed-process-configuration-ccg
+id: v2025-cluster-manual-upgrade-jobs-inner-managed-process-configuration-ccg
 title: ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg
 pagination_label: ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg
 sidebar_label: ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg'] 
-slug: /tools/sdk/go//models/cluster-manual-upgrade-jobs-inner-managed-process-configuration-ccg
-tags: ['SDK', 'Software Development Kit', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg']
+keywords: ['go', 'Golang', 'sdk', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg', 'V2025ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg'] 
+slug: /tools/sdk/go/v2025/models/cluster-manual-upgrade-jobs-inner-managed-process-configuration-ccg
+tags: ['SDK', 'Software Development Kit', 'ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg', 'V2025ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg']
 ---
 
 # ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg

@@ -1,12 +1,12 @@
 ---
-id: completed-approval-pre-approval-trigger-result
+id: v2025-completed-approval-pre-approval-trigger-result
 title: CompletedApprovalPreApprovalTriggerResult
 pagination_label: CompletedApprovalPreApprovalTriggerResult
 sidebar_label: CompletedApprovalPreApprovalTriggerResult
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CompletedApprovalPreApprovalTriggerResult', 'CompletedApprovalPreApprovalTriggerResult'] 
-slug: /tools/sdk/go//models/completed-approval-pre-approval-trigger-result
-tags: ['SDK', 'Software Development Kit', 'CompletedApprovalPreApprovalTriggerResult', 'CompletedApprovalPreApprovalTriggerResult']
+keywords: ['go', 'Golang', 'sdk', 'CompletedApprovalPreApprovalTriggerResult', 'V2025CompletedApprovalPreApprovalTriggerResult'] 
+slug: /tools/sdk/go/v2025/models/completed-approval-pre-approval-trigger-result
+tags: ['SDK', 'Software Development Kit', 'CompletedApprovalPreApprovalTriggerResult', 'V2025CompletedApprovalPreApprovalTriggerResult']
 ---
 
 # CompletedApprovalPreApprovalTriggerResult

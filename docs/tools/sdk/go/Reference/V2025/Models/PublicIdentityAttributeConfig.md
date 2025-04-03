@@ -1,12 +1,12 @@
 ---
-id: public-identity-attribute-config
+id: v2025-public-identity-attribute-config
 title: PublicIdentityAttributeConfig
 pagination_label: PublicIdentityAttributeConfig
 sidebar_label: PublicIdentityAttributeConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PublicIdentityAttributeConfig', 'PublicIdentityAttributeConfig'] 
-slug: /tools/sdk/go//models/public-identity-attribute-config
-tags: ['SDK', 'Software Development Kit', 'PublicIdentityAttributeConfig', 'PublicIdentityAttributeConfig']
+keywords: ['go', 'Golang', 'sdk', 'PublicIdentityAttributeConfig', 'V2025PublicIdentityAttributeConfig'] 
+slug: /tools/sdk/go/v2025/models/public-identity-attribute-config
+tags: ['SDK', 'Software Development Kit', 'PublicIdentityAttributeConfig', 'V2025PublicIdentityAttributeConfig']
 ---
 
 # PublicIdentityAttributeConfig

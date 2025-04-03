@@ -1,12 +1,12 @@
 ---
-id: password-policy-v3-dto
+id: v2025-password-policy-v3-dto
 title: PasswordPolicyV3Dto
 pagination_label: PasswordPolicyV3Dto
 sidebar_label: PasswordPolicyV3Dto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PasswordPolicyV3Dto', 'PasswordPolicyV3Dto'] 
-slug: /tools/sdk/go//models/password-policy-v3-dto
-tags: ['SDK', 'Software Development Kit', 'PasswordPolicyV3Dto', 'PasswordPolicyV3Dto']
+keywords: ['go', 'Golang', 'sdk', 'PasswordPolicyV3Dto', 'V2025PasswordPolicyV3Dto'] 
+slug: /tools/sdk/go/v2025/models/password-policy-v3-dto
+tags: ['SDK', 'Software Development Kit', 'PasswordPolicyV3Dto', 'V2025PasswordPolicyV3Dto']
 ---
 
 # PasswordPolicyV3Dto

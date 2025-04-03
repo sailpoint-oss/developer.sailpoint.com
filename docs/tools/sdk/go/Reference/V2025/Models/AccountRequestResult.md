@@ -1,12 +1,12 @@
 ---
-id: account-request-result
+id: v2025-account-request-result
 title: AccountRequestResult
 pagination_label: AccountRequestResult
 sidebar_label: AccountRequestResult
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountRequestResult', 'AccountRequestResult'] 
-slug: /tools/sdk/go//models/account-request-result
-tags: ['SDK', 'Software Development Kit', 'AccountRequestResult', 'AccountRequestResult']
+keywords: ['go', 'Golang', 'sdk', 'AccountRequestResult', 'V2025AccountRequestResult'] 
+slug: /tools/sdk/go/v2025/models/account-request-result
+tags: ['SDK', 'Software Development Kit', 'AccountRequestResult', 'V2025AccountRequestResult']
 ---
 
 # AccountRequestResult

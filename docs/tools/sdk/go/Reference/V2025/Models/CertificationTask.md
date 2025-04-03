@@ -1,12 +1,12 @@
 ---
-id: certification-task
+id: v2025-certification-task
 title: CertificationTask
 pagination_label: CertificationTask
 sidebar_label: CertificationTask
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CertificationTask', 'CertificationTask'] 
-slug: /tools/sdk/go//models/certification-task
-tags: ['SDK', 'Software Development Kit', 'CertificationTask', 'CertificationTask']
+keywords: ['go', 'Golang', 'sdk', 'CertificationTask', 'V2025CertificationTask'] 
+slug: /tools/sdk/go/v2025/models/certification-task
+tags: ['SDK', 'Software Development Kit', 'CertificationTask', 'V2025CertificationTask']
 ---
 
 # CertificationTask

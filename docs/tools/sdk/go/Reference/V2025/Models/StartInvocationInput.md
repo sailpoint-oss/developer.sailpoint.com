@@ -1,12 +1,12 @@
 ---
-id: start-invocation-input
+id: v2025-start-invocation-input
 title: StartInvocationInput
 pagination_label: StartInvocationInput
 sidebar_label: StartInvocationInput
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'StartInvocationInput', 'StartInvocationInput'] 
-slug: /tools/sdk/go//models/start-invocation-input
-tags: ['SDK', 'Software Development Kit', 'StartInvocationInput', 'StartInvocationInput']
+keywords: ['go', 'Golang', 'sdk', 'StartInvocationInput', 'V2025StartInvocationInput'] 
+slug: /tools/sdk/go/v2025/models/start-invocation-input
+tags: ['SDK', 'Software Development Kit', 'StartInvocationInput', 'V2025StartInvocationInput']
 ---
 
 # StartInvocationInput

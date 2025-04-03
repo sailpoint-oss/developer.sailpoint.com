@@ -1,12 +1,12 @@
 ---
-id: account-action
+id: v2025-account-action
 title: AccountAction
 pagination_label: AccountAction
 sidebar_label: AccountAction
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountAction', 'AccountAction'] 
-slug: /tools/sdk/go//models/account-action
-tags: ['SDK', 'Software Development Kit', 'AccountAction', 'AccountAction']
+keywords: ['go', 'Golang', 'sdk', 'AccountAction', 'V2025AccountAction'] 
+slug: /tools/sdk/go/v2025/models/account-action
+tags: ['SDK', 'Software Development Kit', 'AccountAction', 'V2025AccountAction']
 ---
 
 # AccountAction

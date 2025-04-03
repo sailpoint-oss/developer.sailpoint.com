@@ -1,12 +1,12 @@
 ---
-id: source-app-account-source
+id: v2025-source-app-account-source
 title: SourceAppAccountSource
 pagination_label: SourceAppAccountSource
 sidebar_label: SourceAppAccountSource
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceAppAccountSource', 'SourceAppAccountSource'] 
-slug: /tools/sdk/go//models/source-app-account-source
-tags: ['SDK', 'Software Development Kit', 'SourceAppAccountSource', 'SourceAppAccountSource']
+keywords: ['go', 'Golang', 'sdk', 'SourceAppAccountSource', 'V2025SourceAppAccountSource'] 
+slug: /tools/sdk/go/v2025/models/source-app-account-source
+tags: ['SDK', 'Software Development Kit', 'SourceAppAccountSource', 'V2025SourceAppAccountSource']
 ---
 
 # SourceAppAccountSource

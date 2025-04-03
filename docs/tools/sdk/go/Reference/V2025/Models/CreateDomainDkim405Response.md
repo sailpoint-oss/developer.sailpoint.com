@@ -1,12 +1,12 @@
 ---
-id: create-domain-dkim405-response
+id: v2025-create-domain-dkim405-response
 title: CreateDomainDkim405Response
 pagination_label: CreateDomainDkim405Response
 sidebar_label: CreateDomainDkim405Response
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CreateDomainDkim405Response', 'CreateDomainDkim405Response'] 
-slug: /tools/sdk/go//models/create-domain-dkim405-response
-tags: ['SDK', 'Software Development Kit', 'CreateDomainDkim405Response', 'CreateDomainDkim405Response']
+keywords: ['go', 'Golang', 'sdk', 'CreateDomainDkim405Response', 'V2025CreateDomainDkim405Response'] 
+slug: /tools/sdk/go/v2025/models/create-domain-dkim405-response
+tags: ['SDK', 'Software Development Kit', 'CreateDomainDkim405Response', 'V2025CreateDomainDkim405Response']
 ---
 
 # CreateDomainDkim405Response

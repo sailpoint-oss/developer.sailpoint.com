@@ -1,12 +1,12 @@
 ---
-id: source-entitlement-request-config
+id: v2025-source-entitlement-request-config
 title: SourceEntitlementRequestConfig
 pagination_label: SourceEntitlementRequestConfig
 sidebar_label: SourceEntitlementRequestConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceEntitlementRequestConfig', 'SourceEntitlementRequestConfig'] 
-slug: /tools/sdk/go//models/source-entitlement-request-config
-tags: ['SDK', 'Software Development Kit', 'SourceEntitlementRequestConfig', 'SourceEntitlementRequestConfig']
+keywords: ['go', 'Golang', 'sdk', 'SourceEntitlementRequestConfig', 'V2025SourceEntitlementRequestConfig'] 
+slug: /tools/sdk/go/v2025/models/source-entitlement-request-config
+tags: ['SDK', 'Software Development Kit', 'SourceEntitlementRequestConfig', 'V2025SourceEntitlementRequestConfig']
 ---
 
 # SourceEntitlementRequestConfig

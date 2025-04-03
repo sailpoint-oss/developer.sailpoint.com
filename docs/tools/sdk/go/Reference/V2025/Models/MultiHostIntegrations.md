@@ -1,12 +1,12 @@
 ---
-id: multi-host-integrations
+id: v2025-multi-host-integrations
 title: MultiHostIntegrations
 pagination_label: MultiHostIntegrations
 sidebar_label: MultiHostIntegrations
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MultiHostIntegrations', 'MultiHostIntegrations'] 
-slug: /tools/sdk/go//models/multi-host-integrations
-tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrations', 'MultiHostIntegrations']
+keywords: ['go', 'Golang', 'sdk', 'MultiHostIntegrations', 'V2025MultiHostIntegrations'] 
+slug: /tools/sdk/go/v2025/models/multi-host-integrations
+tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrations', 'V2025MultiHostIntegrations']
 ---
 
 # MultiHostIntegrations

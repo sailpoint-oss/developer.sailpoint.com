@@ -1,12 +1,12 @@
 ---
-id: connector-customizer-update-request
+id: v2025-connector-customizer-update-request
 title: ConnectorCustomizerUpdateRequest
 pagination_label: ConnectorCustomizerUpdateRequest
 sidebar_label: ConnectorCustomizerUpdateRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConnectorCustomizerUpdateRequest', 'ConnectorCustomizerUpdateRequest'] 
-slug: /tools/sdk/go//models/connector-customizer-update-request
-tags: ['SDK', 'Software Development Kit', 'ConnectorCustomizerUpdateRequest', 'ConnectorCustomizerUpdateRequest']
+keywords: ['go', 'Golang', 'sdk', 'ConnectorCustomizerUpdateRequest', 'V2025ConnectorCustomizerUpdateRequest'] 
+slug: /tools/sdk/go/v2025/models/connector-customizer-update-request
+tags: ['SDK', 'Software Development Kit', 'ConnectorCustomizerUpdateRequest', 'V2025ConnectorCustomizerUpdateRequest']
 ---
 
 # ConnectorCustomizerUpdateRequest

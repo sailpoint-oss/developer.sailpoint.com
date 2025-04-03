@@ -1,12 +1,12 @@
 ---
-id: role-assignment-ref
+id: v2025-role-assignment-ref
 title: RoleAssignmentRef
 pagination_label: RoleAssignmentRef
 sidebar_label: RoleAssignmentRef
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleAssignmentRef', 'RoleAssignmentRef'] 
-slug: /tools/sdk/go//models/role-assignment-ref
-tags: ['SDK', 'Software Development Kit', 'RoleAssignmentRef', 'RoleAssignmentRef']
+keywords: ['go', 'Golang', 'sdk', 'RoleAssignmentRef', 'V2025RoleAssignmentRef'] 
+slug: /tools/sdk/go/v2025/models/role-assignment-ref
+tags: ['SDK', 'Software Development Kit', 'RoleAssignmentRef', 'V2025RoleAssignmentRef']
 ---
 
 # RoleAssignmentRef

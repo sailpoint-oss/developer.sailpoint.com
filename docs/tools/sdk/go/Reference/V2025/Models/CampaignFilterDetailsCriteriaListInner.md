@@ -1,12 +1,12 @@
 ---
-id: campaign-filter-details-criteria-list-inner
+id: v2025-campaign-filter-details-criteria-list-inner
 title: CampaignFilterDetailsCriteriaListInner
 pagination_label: CampaignFilterDetailsCriteriaListInner
 sidebar_label: CampaignFilterDetailsCriteriaListInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignFilterDetailsCriteriaListInner', 'CampaignFilterDetailsCriteriaListInner'] 
-slug: /tools/sdk/go//models/campaign-filter-details-criteria-list-inner
-tags: ['SDK', 'Software Development Kit', 'CampaignFilterDetailsCriteriaListInner', 'CampaignFilterDetailsCriteriaListInner']
+keywords: ['go', 'Golang', 'sdk', 'CampaignFilterDetailsCriteriaListInner', 'V2025CampaignFilterDetailsCriteriaListInner'] 
+slug: /tools/sdk/go/v2025/models/campaign-filter-details-criteria-list-inner
+tags: ['SDK', 'Software Development Kit', 'CampaignFilterDetailsCriteriaListInner', 'V2025CampaignFilterDetailsCriteriaListInner']
 ---
 
 # CampaignFilterDetailsCriteriaListInner

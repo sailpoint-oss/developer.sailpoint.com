@@ -1,12 +1,12 @@
 ---
-id: base-segment
+id: v2025-base-segment
 title: BaseSegment
 pagination_label: BaseSegment
 sidebar_label: BaseSegment
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BaseSegment', 'BaseSegment'] 
-slug: /tools/sdk/go//models/base-segment
-tags: ['SDK', 'Software Development Kit', 'BaseSegment', 'BaseSegment']
+keywords: ['go', 'Golang', 'sdk', 'BaseSegment', 'V2025BaseSegment'] 
+slug: /tools/sdk/go/v2025/models/base-segment
+tags: ['SDK', 'Software Development Kit', 'BaseSegment', 'V2025BaseSegment']
 ---
 
 # BaseSegment

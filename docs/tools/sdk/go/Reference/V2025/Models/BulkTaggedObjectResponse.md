@@ -1,12 +1,12 @@
 ---
-id: bulk-tagged-object-response
+id: v2025-bulk-tagged-object-response
 title: BulkTaggedObjectResponse
 pagination_label: BulkTaggedObjectResponse
 sidebar_label: BulkTaggedObjectResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BulkTaggedObjectResponse', 'BulkTaggedObjectResponse'] 
-slug: /tools/sdk/go//models/bulk-tagged-object-response
-tags: ['SDK', 'Software Development Kit', 'BulkTaggedObjectResponse', 'BulkTaggedObjectResponse']
+keywords: ['go', 'Golang', 'sdk', 'BulkTaggedObjectResponse', 'V2025BulkTaggedObjectResponse'] 
+slug: /tools/sdk/go/v2025/models/bulk-tagged-object-response
+tags: ['SDK', 'Software Development Kit', 'BulkTaggedObjectResponse', 'V2025BulkTaggedObjectResponse']
 ---
 
 # BulkTaggedObjectResponse

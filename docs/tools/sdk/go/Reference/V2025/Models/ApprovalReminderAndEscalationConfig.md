@@ -1,12 +1,12 @@
 ---
-id: approval-reminder-and-escalation-config
+id: v2025-approval-reminder-and-escalation-config
 title: ApprovalReminderAndEscalationConfig
 pagination_label: ApprovalReminderAndEscalationConfig
 sidebar_label: ApprovalReminderAndEscalationConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ApprovalReminderAndEscalationConfig', 'ApprovalReminderAndEscalationConfig'] 
-slug: /tools/sdk/go//models/approval-reminder-and-escalation-config
-tags: ['SDK', 'Software Development Kit', 'ApprovalReminderAndEscalationConfig', 'ApprovalReminderAndEscalationConfig']
+keywords: ['go', 'Golang', 'sdk', 'ApprovalReminderAndEscalationConfig', 'V2025ApprovalReminderAndEscalationConfig'] 
+slug: /tools/sdk/go/v2025/models/approval-reminder-and-escalation-config
+tags: ['SDK', 'Software Development Kit', 'ApprovalReminderAndEscalationConfig', 'V2025ApprovalReminderAndEscalationConfig']
 ---
 
 # ApprovalReminderAndEscalationConfig

@@ -1,12 +1,12 @@
 ---
-id: external-attributes
+id: v2025-external-attributes
 title: ExternalAttributes
 pagination_label: ExternalAttributes
 sidebar_label: ExternalAttributes
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ExternalAttributes', 'ExternalAttributes'] 
-slug: /tools/sdk/go//models/external-attributes
-tags: ['SDK', 'Software Development Kit', 'ExternalAttributes', 'ExternalAttributes']
+keywords: ['go', 'Golang', 'sdk', 'ExternalAttributes', 'V2025ExternalAttributes'] 
+slug: /tools/sdk/go/v2025/models/external-attributes
+tags: ['SDK', 'Software Development Kit', 'ExternalAttributes', 'V2025ExternalAttributes']
 ---
 
 # ExternalAttributes

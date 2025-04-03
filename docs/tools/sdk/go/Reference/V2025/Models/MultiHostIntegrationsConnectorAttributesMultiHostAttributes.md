@@ -1,12 +1,12 @@
 ---
-id: multi-host-integrations-connector-attributes-multi-host-attributes
+id: v2025-multi-host-integrations-connector-attributes-multi-host-attributes
 title: MultiHostIntegrationsConnectorAttributesMultiHostAttributes
 pagination_label: MultiHostIntegrationsConnectorAttributesMultiHostAttributes
 sidebar_label: MultiHostIntegrationsConnectorAttributesMultiHostAttributes
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MultiHostIntegrationsConnectorAttributesMultiHostAttributes', 'MultiHostIntegrationsConnectorAttributesMultiHostAttributes'] 
-slug: /tools/sdk/go//models/multi-host-integrations-connector-attributes-multi-host-attributes
-tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsConnectorAttributesMultiHostAttributes', 'MultiHostIntegrationsConnectorAttributesMultiHostAttributes']
+keywords: ['go', 'Golang', 'sdk', 'MultiHostIntegrationsConnectorAttributesMultiHostAttributes', 'V2025MultiHostIntegrationsConnectorAttributesMultiHostAttributes'] 
+slug: /tools/sdk/go/v2025/models/multi-host-integrations-connector-attributes-multi-host-attributes
+tags: ['SDK', 'Software Development Kit', 'MultiHostIntegrationsConnectorAttributesMultiHostAttributes', 'V2025MultiHostIntegrationsConnectorAttributesMultiHostAttributes']
 ---
 
 # MultiHostIntegrationsConnectorAttributesMultiHostAttributes

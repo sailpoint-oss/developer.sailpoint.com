@@ -1,12 +1,12 @@
 ---
-id: provisioning-config
+id: v2025-provisioning-config
 title: ProvisioningConfig
 pagination_label: ProvisioningConfig
 sidebar_label: ProvisioningConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ProvisioningConfig', 'ProvisioningConfig'] 
-slug: /tools/sdk/go//models/provisioning-config
-tags: ['SDK', 'Software Development Kit', 'ProvisioningConfig', 'ProvisioningConfig']
+keywords: ['go', 'Golang', 'sdk', 'ProvisioningConfig', 'V2025ProvisioningConfig'] 
+slug: /tools/sdk/go/v2025/models/provisioning-config
+tags: ['SDK', 'Software Development Kit', 'ProvisioningConfig', 'V2025ProvisioningConfig']
 ---
 
 # ProvisioningConfig

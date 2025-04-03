@@ -1,12 +1,12 @@
 ---
-id: subscription-patch-request-inner
+id: v2025-subscription-patch-request-inner
 title: SubscriptionPatchRequestInner
 pagination_label: SubscriptionPatchRequestInner
 sidebar_label: SubscriptionPatchRequestInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SubscriptionPatchRequestInner', 'SubscriptionPatchRequestInner'] 
-slug: /tools/sdk/go//models/subscription-patch-request-inner
-tags: ['SDK', 'Software Development Kit', 'SubscriptionPatchRequestInner', 'SubscriptionPatchRequestInner']
+keywords: ['go', 'Golang', 'sdk', 'SubscriptionPatchRequestInner', 'V2025SubscriptionPatchRequestInner'] 
+slug: /tools/sdk/go/v2025/models/subscription-patch-request-inner
+tags: ['SDK', 'Software Development Kit', 'SubscriptionPatchRequestInner', 'V2025SubscriptionPatchRequestInner']
 ---
 
 # SubscriptionPatchRequestInner

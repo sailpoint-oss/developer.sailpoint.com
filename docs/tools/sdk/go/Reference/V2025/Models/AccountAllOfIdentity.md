@@ -1,12 +1,12 @@
 ---
-id: account-all-of-identity
+id: v2025-account-all-of-identity
 title: AccountAllOfIdentity
 pagination_label: AccountAllOfIdentity
 sidebar_label: AccountAllOfIdentity
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountAllOfIdentity', 'AccountAllOfIdentity'] 
-slug: /tools/sdk/go//models/account-all-of-identity
-tags: ['SDK', 'Software Development Kit', 'AccountAllOfIdentity', 'AccountAllOfIdentity']
+keywords: ['go', 'Golang', 'sdk', 'AccountAllOfIdentity', 'V2025AccountAllOfIdentity'] 
+slug: /tools/sdk/go/v2025/models/account-all-of-identity
+tags: ['SDK', 'Software Development Kit', 'AccountAllOfIdentity', 'V2025AccountAllOfIdentity']
 ---
 
 # AccountAllOfIdentity

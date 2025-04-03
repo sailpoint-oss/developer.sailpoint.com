@@ -1,12 +1,12 @@
 ---
-id: scheduled-action-payload-content-backup-options
+id: v2025-scheduled-action-payload-content-backup-options
 title: ScheduledActionPayloadContentBackupOptions
 pagination_label: ScheduledActionPayloadContentBackupOptions
 sidebar_label: ScheduledActionPayloadContentBackupOptions
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ScheduledActionPayloadContentBackupOptions', 'ScheduledActionPayloadContentBackupOptions'] 
-slug: /tools/sdk/go//models/scheduled-action-payload-content-backup-options
-tags: ['SDK', 'Software Development Kit', 'ScheduledActionPayloadContentBackupOptions', 'ScheduledActionPayloadContentBackupOptions']
+keywords: ['go', 'Golang', 'sdk', 'ScheduledActionPayloadContentBackupOptions', 'V2025ScheduledActionPayloadContentBackupOptions'] 
+slug: /tools/sdk/go/v2025/models/scheduled-action-payload-content-backup-options
+tags: ['SDK', 'Software Development Kit', 'ScheduledActionPayloadContentBackupOptions', 'V2025ScheduledActionPayloadContentBackupOptions']
 ---
 
 # ScheduledActionPayloadContentBackupOptions

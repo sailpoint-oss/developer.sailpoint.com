@@ -1,12 +1,12 @@
 ---
-id: bulk-approve-access-request
+id: v2025-bulk-approve-access-request
 title: BulkApproveAccessRequest
 pagination_label: BulkApproveAccessRequest
 sidebar_label: BulkApproveAccessRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BulkApproveAccessRequest', 'BulkApproveAccessRequest'] 
-slug: /tools/sdk/go//models/bulk-approve-access-request
-tags: ['SDK', 'Software Development Kit', 'BulkApproveAccessRequest', 'BulkApproveAccessRequest']
+keywords: ['go', 'Golang', 'sdk', 'BulkApproveAccessRequest', 'V2025BulkApproveAccessRequest'] 
+slug: /tools/sdk/go/v2025/models/bulk-approve-access-request
+tags: ['SDK', 'Software Development Kit', 'BulkApproveAccessRequest', 'V2025BulkApproveAccessRequest']
 ---
 
 # BulkApproveAccessRequest

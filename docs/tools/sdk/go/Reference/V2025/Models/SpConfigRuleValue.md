@@ -1,12 +1,12 @@
 ---
-id: sp-config-rule-value
+id: v2025-sp-config-rule-value
 title: SpConfigRuleValue
 pagination_label: SpConfigRuleValue
 sidebar_label: SpConfigRuleValue
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SpConfigRuleValue', 'SpConfigRuleValue'] 
-slug: /tools/sdk/go//models/sp-config-rule-value
-tags: ['SDK', 'Software Development Kit', 'SpConfigRuleValue', 'SpConfigRuleValue']
+keywords: ['go', 'Golang', 'sdk', 'SpConfigRuleValue', 'V2025SpConfigRuleValue'] 
+slug: /tools/sdk/go/v2025/models/sp-config-rule-value
+tags: ['SDK', 'Software Development Kit', 'SpConfigRuleValue', 'V2025SpConfigRuleValue']
 ---
 
 # SpConfigRuleValue

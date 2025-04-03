@@ -1,12 +1,12 @@
 ---
-id: connector-customizer-version-create-response
+id: v2025-connector-customizer-version-create-response
 title: ConnectorCustomizerVersionCreateResponse
 pagination_label: ConnectorCustomizerVersionCreateResponse
 sidebar_label: ConnectorCustomizerVersionCreateResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConnectorCustomizerVersionCreateResponse', 'ConnectorCustomizerVersionCreateResponse'] 
-slug: /tools/sdk/go//models/connector-customizer-version-create-response
-tags: ['SDK', 'Software Development Kit', 'ConnectorCustomizerVersionCreateResponse', 'ConnectorCustomizerVersionCreateResponse']
+keywords: ['go', 'Golang', 'sdk', 'ConnectorCustomizerVersionCreateResponse', 'V2025ConnectorCustomizerVersionCreateResponse'] 
+slug: /tools/sdk/go/v2025/models/connector-customizer-version-create-response
+tags: ['SDK', 'Software Development Kit', 'ConnectorCustomizerVersionCreateResponse', 'V2025ConnectorCustomizerVersionCreateResponse']
 ---
 
 # ConnectorCustomizerVersionCreateResponse

@@ -1,12 +1,12 @@
 ---
-id: work-item-forward
+id: v2025-work-item-forward
 title: WorkItemForward
 pagination_label: WorkItemForward
 sidebar_label: WorkItemForward
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkItemForward', 'WorkItemForward'] 
-slug: /tools/sdk/go//models/work-item-forward
-tags: ['SDK', 'Software Development Kit', 'WorkItemForward', 'WorkItemForward']
+keywords: ['go', 'Golang', 'sdk', 'WorkItemForward', 'V2025WorkItemForward'] 
+slug: /tools/sdk/go/v2025/models/work-item-forward
+tags: ['SDK', 'Software Development Kit', 'WorkItemForward', 'V2025WorkItemForward']
 ---
 
 # WorkItemForward

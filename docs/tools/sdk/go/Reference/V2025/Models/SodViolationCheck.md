@@ -1,12 +1,12 @@
 ---
-id: sod-violation-check
+id: v2025-sod-violation-check
 title: SodViolationCheck
 pagination_label: SodViolationCheck
 sidebar_label: SodViolationCheck
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SodViolationCheck', 'SodViolationCheck'] 
-slug: /tools/sdk/go//models/sod-violation-check
-tags: ['SDK', 'Software Development Kit', 'SodViolationCheck', 'SodViolationCheck']
+keywords: ['go', 'Golang', 'sdk', 'SodViolationCheck', 'V2025SodViolationCheck'] 
+slug: /tools/sdk/go/v2025/models/sod-violation-check
+tags: ['SDK', 'Software Development Kit', 'SodViolationCheck', 'V2025SodViolationCheck']
 ---
 
 # SodViolationCheck

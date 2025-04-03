@@ -1,12 +1,12 @@
 ---
-id: accounts-async-result
+id: v2025-accounts-async-result
 title: AccountsAsyncResult
 pagination_label: AccountsAsyncResult
 sidebar_label: AccountsAsyncResult
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountsAsyncResult', 'AccountsAsyncResult'] 
-slug: /tools/sdk/go//models/accounts-async-result
-tags: ['SDK', 'Software Development Kit', 'AccountsAsyncResult', 'AccountsAsyncResult']
+keywords: ['go', 'Golang', 'sdk', 'AccountsAsyncResult', 'V2025AccountsAsyncResult'] 
+slug: /tools/sdk/go/v2025/models/accounts-async-result
+tags: ['SDK', 'Software Development Kit', 'AccountsAsyncResult', 'V2025AccountsAsyncResult']
 ---
 
 # AccountsAsyncResult

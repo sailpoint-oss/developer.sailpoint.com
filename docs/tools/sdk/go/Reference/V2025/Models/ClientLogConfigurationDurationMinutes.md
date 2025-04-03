@@ -1,12 +1,12 @@
 ---
-id: client-log-configuration-duration-minutes
+id: v2025-client-log-configuration-duration-minutes
 title: ClientLogConfigurationDurationMinutes
 pagination_label: ClientLogConfigurationDurationMinutes
 sidebar_label: ClientLogConfigurationDurationMinutes
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ClientLogConfigurationDurationMinutes', 'ClientLogConfigurationDurationMinutes'] 
-slug: /tools/sdk/go//models/client-log-configuration-duration-minutes
-tags: ['SDK', 'Software Development Kit', 'ClientLogConfigurationDurationMinutes', 'ClientLogConfigurationDurationMinutes']
+keywords: ['go', 'Golang', 'sdk', 'ClientLogConfigurationDurationMinutes', 'V2025ClientLogConfigurationDurationMinutes'] 
+slug: /tools/sdk/go/v2025/models/client-log-configuration-duration-minutes
+tags: ['SDK', 'Software Development Kit', 'ClientLogConfigurationDurationMinutes', 'V2025ClientLogConfigurationDurationMinutes']
 ---
 
 # ClientLogConfigurationDurationMinutes

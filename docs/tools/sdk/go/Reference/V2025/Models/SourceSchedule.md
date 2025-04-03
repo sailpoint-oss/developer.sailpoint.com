@@ -1,12 +1,12 @@
 ---
-id: source-schedule
+id: v2025-source-schedule
 title: SourceSchedule
 pagination_label: SourceSchedule
 sidebar_label: SourceSchedule
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceSchedule', 'SourceSchedule'] 
-slug: /tools/sdk/go//models/source-schedule
-tags: ['SDK', 'Software Development Kit', 'SourceSchedule', 'SourceSchedule']
+keywords: ['go', 'Golang', 'sdk', 'SourceSchedule', 'V2025SourceSchedule'] 
+slug: /tools/sdk/go/v2025/models/source-schedule
+tags: ['SDK', 'Software Development Kit', 'SourceSchedule', 'V2025SourceSchedule']
 ---
 
 # SourceSchedule

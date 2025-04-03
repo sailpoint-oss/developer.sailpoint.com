@@ -1,12 +1,12 @@
 ---
-id: workflow-library-action
+id: v2025-workflow-library-action
 title: WorkflowLibraryAction
 pagination_label: WorkflowLibraryAction
 sidebar_label: WorkflowLibraryAction
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkflowLibraryAction', 'WorkflowLibraryAction'] 
-slug: /tools/sdk/go//models/workflow-library-action
-tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryAction', 'WorkflowLibraryAction']
+keywords: ['go', 'Golang', 'sdk', 'WorkflowLibraryAction', 'V2025WorkflowLibraryAction'] 
+slug: /tools/sdk/go/v2025/models/workflow-library-action
+tags: ['SDK', 'Software Development Kit', 'WorkflowLibraryAction', 'V2025WorkflowLibraryAction']
 ---
 
 # WorkflowLibraryAction

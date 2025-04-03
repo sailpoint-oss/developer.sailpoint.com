@@ -1,12 +1,12 @@
 ---
-id: access-review-reassignment
+id: v2025-access-review-reassignment
 title: AccessReviewReassignment
 pagination_label: AccessReviewReassignment
 sidebar_label: AccessReviewReassignment
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessReviewReassignment', 'AccessReviewReassignment'] 
-slug: /tools/sdk/go//models/access-review-reassignment
-tags: ['SDK', 'Software Development Kit', 'AccessReviewReassignment', 'AccessReviewReassignment']
+keywords: ['go', 'Golang', 'sdk', 'AccessReviewReassignment', 'V2025AccessReviewReassignment'] 
+slug: /tools/sdk/go/v2025/models/access-review-reassignment
+tags: ['SDK', 'Software Development Kit', 'AccessReviewReassignment', 'V2025AccessReviewReassignment']
 ---
 
 # AccessReviewReassignment

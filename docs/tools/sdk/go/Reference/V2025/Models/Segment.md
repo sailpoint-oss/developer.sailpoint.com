@@ -1,12 +1,12 @@
 ---
-id: segment
+id: v2025-segment
 title: Segment
 pagination_label: Segment
 sidebar_label: Segment
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Segment', 'Segment'] 
-slug: /tools/sdk/go//models/segment
-tags: ['SDK', 'Software Development Kit', 'Segment', 'Segment']
+keywords: ['go', 'Golang', 'sdk', 'Segment', 'V2025Segment'] 
+slug: /tools/sdk/go/v2025/models/segment
+tags: ['SDK', 'Software Development Kit', 'Segment', 'V2025Segment']
 ---
 
 # Segment

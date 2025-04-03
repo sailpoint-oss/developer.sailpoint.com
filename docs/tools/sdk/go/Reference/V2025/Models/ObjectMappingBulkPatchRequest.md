@@ -1,12 +1,12 @@
 ---
-id: object-mapping-bulk-patch-request
+id: v2025-object-mapping-bulk-patch-request
 title: ObjectMappingBulkPatchRequest
 pagination_label: ObjectMappingBulkPatchRequest
 sidebar_label: ObjectMappingBulkPatchRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ObjectMappingBulkPatchRequest', 'ObjectMappingBulkPatchRequest'] 
-slug: /tools/sdk/go//models/object-mapping-bulk-patch-request
-tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkPatchRequest', 'ObjectMappingBulkPatchRequest']
+keywords: ['go', 'Golang', 'sdk', 'ObjectMappingBulkPatchRequest', 'V2025ObjectMappingBulkPatchRequest'] 
+slug: /tools/sdk/go/v2025/models/object-mapping-bulk-patch-request
+tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkPatchRequest', 'V2025ObjectMappingBulkPatchRequest']
 ---
 
 # ObjectMappingBulkPatchRequest
@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkPatchRequest', 'Obje
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Patches** | [**map[string][]JsonPatchOperation**](array) | Map of id of the object mapping to a JsonPatchOperation describing what to patch on that object mapping. | 
+**Patches** | [**map[string][]JsonPatchOperation**](https://go.dev/tour/moretypes/6) | Map of id of the object mapping to a JsonPatchOperation describing what to patch on that object mapping. | 
 
 ## Methods
 

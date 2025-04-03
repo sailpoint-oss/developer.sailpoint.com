@@ -1,12 +1,12 @@
 ---
-id: forward-approval-dto
+id: v2025-forward-approval-dto
 title: ForwardApprovalDto
 pagination_label: ForwardApprovalDto
 sidebar_label: ForwardApprovalDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ForwardApprovalDto', 'ForwardApprovalDto'] 
-slug: /tools/sdk/go//models/forward-approval-dto
-tags: ['SDK', 'Software Development Kit', 'ForwardApprovalDto', 'ForwardApprovalDto']
+keywords: ['go', 'Golang', 'sdk', 'ForwardApprovalDto', 'V2025ForwardApprovalDto'] 
+slug: /tools/sdk/go/v2025/models/forward-approval-dto
+tags: ['SDK', 'Software Development Kit', 'ForwardApprovalDto', 'V2025ForwardApprovalDto']
 ---
 
 # ForwardApprovalDto

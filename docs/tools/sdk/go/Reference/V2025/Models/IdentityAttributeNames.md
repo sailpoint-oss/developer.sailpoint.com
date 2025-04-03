@@ -1,12 +1,12 @@
 ---
-id: identity-attribute-names
+id: v2025-identity-attribute-names
 title: IdentityAttributeNames
 pagination_label: IdentityAttributeNames
 sidebar_label: IdentityAttributeNames
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityAttributeNames', 'IdentityAttributeNames'] 
-slug: /tools/sdk/go//models/identity-attribute-names
-tags: ['SDK', 'Software Development Kit', 'IdentityAttributeNames', 'IdentityAttributeNames']
+keywords: ['go', 'Golang', 'sdk', 'IdentityAttributeNames', 'V2025IdentityAttributeNames'] 
+slug: /tools/sdk/go/v2025/models/identity-attribute-names
+tags: ['SDK', 'Software Development Kit', 'IdentityAttributeNames', 'V2025IdentityAttributeNames']
 ---
 
 # IdentityAttributeNames

@@ -1,12 +1,12 @@
 ---
-id: test-source-connection-multihost200-response
+id: v2025-test-source-connection-multihost200-response
 title: TestSourceConnectionMultihost200Response
 pagination_label: TestSourceConnectionMultihost200Response
 sidebar_label: TestSourceConnectionMultihost200Response
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TestSourceConnectionMultihost200Response', 'TestSourceConnectionMultihost200Response'] 
-slug: /tools/sdk/go//models/test-source-connection-multihost200-response
-tags: ['SDK', 'Software Development Kit', 'TestSourceConnectionMultihost200Response', 'TestSourceConnectionMultihost200Response']
+keywords: ['go', 'Golang', 'sdk', 'TestSourceConnectionMultihost200Response', 'V2025TestSourceConnectionMultihost200Response'] 
+slug: /tools/sdk/go/v2025/models/test-source-connection-multihost200-response
+tags: ['SDK', 'Software Development Kit', 'TestSourceConnectionMultihost200Response', 'V2025TestSourceConnectionMultihost200Response']
 ---
 
 # TestSourceConnectionMultihost200Response

@@ -1,12 +1,12 @@
 ---
-id: get-tenant-context200-response-inner
+id: v2025-get-tenant-context200-response-inner
 title: GetTenantContext200ResponseInner
 pagination_label: GetTenantContext200ResponseInner
 sidebar_label: GetTenantContext200ResponseInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'GetTenantContext200ResponseInner', 'GetTenantContext200ResponseInner'] 
-slug: /tools/sdk/go//models/get-tenant-context200-response-inner
-tags: ['SDK', 'Software Development Kit', 'GetTenantContext200ResponseInner', 'GetTenantContext200ResponseInner']
+keywords: ['go', 'Golang', 'sdk', 'GetTenantContext200ResponseInner', 'V2025GetTenantContext200ResponseInner'] 
+slug: /tools/sdk/go/v2025/models/get-tenant-context200-response-inner
+tags: ['SDK', 'Software Development Kit', 'GetTenantContext200ResponseInner', 'V2025GetTenantContext200ResponseInner']
 ---
 
 # GetTenantContext200ResponseInner

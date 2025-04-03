@@ -1,12 +1,12 @@
 ---
-id: patch-potential-role-request-inner
+id: v2025-patch-potential-role-request-inner
 title: PatchPotentialRoleRequestInner
 pagination_label: PatchPotentialRoleRequestInner
 sidebar_label: PatchPotentialRoleRequestInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PatchPotentialRoleRequestInner', 'PatchPotentialRoleRequestInner'] 
-slug: /tools/sdk/go//models/patch-potential-role-request-inner
-tags: ['SDK', 'Software Development Kit', 'PatchPotentialRoleRequestInner', 'PatchPotentialRoleRequestInner']
+keywords: ['go', 'Golang', 'sdk', 'PatchPotentialRoleRequestInner', 'V2025PatchPotentialRoleRequestInner'] 
+slug: /tools/sdk/go/v2025/models/patch-potential-role-request-inner
+tags: ['SDK', 'Software Development Kit', 'PatchPotentialRoleRequestInner', 'V2025PatchPotentialRoleRequestInner']
 ---
 
 # PatchPotentialRoleRequestInner

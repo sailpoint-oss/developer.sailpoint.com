@@ -1,12 +1,12 @@
 ---
-id: get-historical-identity-events200-response-inner
+id: v2025-get-historical-identity-events200-response-inner
 title: GetHistoricalIdentityEvents200ResponseInner
 pagination_label: GetHistoricalIdentityEvents200ResponseInner
 sidebar_label: GetHistoricalIdentityEvents200ResponseInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'GetHistoricalIdentityEvents200ResponseInner', 'GetHistoricalIdentityEvents200ResponseInner'] 
-slug: /tools/sdk/go//models/get-historical-identity-events200-response-inner
-tags: ['SDK', 'Software Development Kit', 'GetHistoricalIdentityEvents200ResponseInner', 'GetHistoricalIdentityEvents200ResponseInner']
+keywords: ['go', 'Golang', 'sdk', 'GetHistoricalIdentityEvents200ResponseInner', 'V2025GetHistoricalIdentityEvents200ResponseInner'] 
+slug: /tools/sdk/go/v2025/models/get-historical-identity-events200-response-inner
+tags: ['SDK', 'Software Development Kit', 'GetHistoricalIdentityEvents200ResponseInner', 'V2025GetHistoricalIdentityEvents200ResponseInner']
 ---
 
 # GetHistoricalIdentityEvents200ResponseInner

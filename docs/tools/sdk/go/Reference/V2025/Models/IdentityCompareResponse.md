@@ -1,12 +1,12 @@
 ---
-id: identity-compare-response
+id: v2025-identity-compare-response
 title: IdentityCompareResponse
 pagination_label: IdentityCompareResponse
 sidebar_label: IdentityCompareResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityCompareResponse', 'IdentityCompareResponse'] 
-slug: /tools/sdk/go//models/identity-compare-response
-tags: ['SDK', 'Software Development Kit', 'IdentityCompareResponse', 'IdentityCompareResponse']
+keywords: ['go', 'Golang', 'sdk', 'IdentityCompareResponse', 'V2025IdentityCompareResponse'] 
+slug: /tools/sdk/go/v2025/models/identity-compare-response
+tags: ['SDK', 'Software Development Kit', 'IdentityCompareResponse', 'V2025IdentityCompareResponse']
 ---
 
 # IdentityCompareResponse

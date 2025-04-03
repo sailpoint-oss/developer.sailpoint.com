@@ -1,12 +1,12 @@
 ---
-id: approval-item-details
+id: v2025-approval-item-details
 title: ApprovalItemDetails
 pagination_label: ApprovalItemDetails
 sidebar_label: ApprovalItemDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ApprovalItemDetails', 'ApprovalItemDetails'] 
-slug: /tools/sdk/go//models/approval-item-details
-tags: ['SDK', 'Software Development Kit', 'ApprovalItemDetails', 'ApprovalItemDetails']
+keywords: ['go', 'Golang', 'sdk', 'ApprovalItemDetails', 'V2025ApprovalItemDetails'] 
+slug: /tools/sdk/go/v2025/models/approval-item-details
+tags: ['SDK', 'Software Development Kit', 'ApprovalItemDetails', 'V2025ApprovalItemDetails']
 ---
 
 # ApprovalItemDetails

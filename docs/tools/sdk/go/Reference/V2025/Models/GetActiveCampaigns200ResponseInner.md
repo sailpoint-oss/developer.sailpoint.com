@@ -1,12 +1,12 @@
 ---
-id: get-active-campaigns200-response-inner
+id: v2025-get-active-campaigns200-response-inner
 title: GetActiveCampaigns200ResponseInner
 pagination_label: GetActiveCampaigns200ResponseInner
 sidebar_label: GetActiveCampaigns200ResponseInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'GetActiveCampaigns200ResponseInner', 'GetActiveCampaigns200ResponseInner'] 
-slug: /tools/sdk/go//models/get-active-campaigns200-response-inner
-tags: ['SDK', 'Software Development Kit', 'GetActiveCampaigns200ResponseInner', 'GetActiveCampaigns200ResponseInner']
+keywords: ['go', 'Golang', 'sdk', 'GetActiveCampaigns200ResponseInner', 'V2025GetActiveCampaigns200ResponseInner'] 
+slug: /tools/sdk/go/v2025/models/get-active-campaigns200-response-inner
+tags: ['SDK', 'Software Development Kit', 'GetActiveCampaigns200ResponseInner', 'V2025GetActiveCampaigns200ResponseInner']
 ---
 
 # GetActiveCampaigns200ResponseInner

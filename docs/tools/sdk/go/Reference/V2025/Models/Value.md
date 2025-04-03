@@ -1,12 +1,12 @@
 ---
-id: value
+id: v2025-value
 title: Value
 pagination_label: Value
 sidebar_label: Value
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Value', 'Value'] 
-slug: /tools/sdk/go//models/value
-tags: ['SDK', 'Software Development Kit', 'Value', 'Value']
+keywords: ['go', 'Golang', 'sdk', 'Value', 'V2025Value'] 
+slug: /tools/sdk/go/v2025/models/value
+tags: ['SDK', 'Software Development Kit', 'Value', 'V2025Value']
 ---
 
 # Value

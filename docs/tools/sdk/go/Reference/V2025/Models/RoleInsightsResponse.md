@@ -1,12 +1,12 @@
 ---
-id: role-insights-response
+id: v2025-role-insights-response
 title: RoleInsightsResponse
 pagination_label: RoleInsightsResponse
 sidebar_label: RoleInsightsResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleInsightsResponse', 'RoleInsightsResponse'] 
-slug: /tools/sdk/go//models/role-insights-response
-tags: ['SDK', 'Software Development Kit', 'RoleInsightsResponse', 'RoleInsightsResponse']
+keywords: ['go', 'Golang', 'sdk', 'RoleInsightsResponse', 'V2025RoleInsightsResponse'] 
+slug: /tools/sdk/go/v2025/models/role-insights-response
+tags: ['SDK', 'Software Development Kit', 'RoleInsightsResponse', 'V2025RoleInsightsResponse']
 ---
 
 # RoleInsightsResponse

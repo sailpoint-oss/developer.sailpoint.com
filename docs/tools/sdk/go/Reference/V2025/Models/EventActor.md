@@ -1,12 +1,12 @@
 ---
-id: event-actor
+id: v2025-event-actor
 title: EventActor
 pagination_label: EventActor
 sidebar_label: EventActor
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EventActor', 'EventActor'] 
-slug: /tools/sdk/go//models/event-actor
-tags: ['SDK', 'Software Development Kit', 'EventActor', 'EventActor']
+keywords: ['go', 'Golang', 'sdk', 'EventActor', 'V2025EventActor'] 
+slug: /tools/sdk/go/v2025/models/event-actor
+tags: ['SDK', 'Software Development Kit', 'EventActor', 'V2025EventActor']
 ---
 
 # EventActor

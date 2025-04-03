@@ -1,12 +1,12 @@
 ---
-id: provisioning-completed-recipient
+id: v2025-provisioning-completed-recipient
 title: ProvisioningCompletedRecipient
 pagination_label: ProvisioningCompletedRecipient
 sidebar_label: ProvisioningCompletedRecipient
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ProvisioningCompletedRecipient', 'ProvisioningCompletedRecipient'] 
-slug: /tools/sdk/go//models/provisioning-completed-recipient
-tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedRecipient', 'ProvisioningCompletedRecipient']
+keywords: ['go', 'Golang', 'sdk', 'ProvisioningCompletedRecipient', 'V2025ProvisioningCompletedRecipient'] 
+slug: /tools/sdk/go/v2025/models/provisioning-completed-recipient
+tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedRecipient', 'V2025ProvisioningCompletedRecipient']
 ---
 
 # ProvisioningCompletedRecipient

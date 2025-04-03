@@ -1,12 +1,12 @@
 ---
-id: mail-from-attributes
+id: v2025-mail-from-attributes
 title: MailFromAttributes
 pagination_label: MailFromAttributes
 sidebar_label: MailFromAttributes
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MailFromAttributes', 'MailFromAttributes'] 
-slug: /tools/sdk/go//models/mail-from-attributes
-tags: ['SDK', 'Software Development Kit', 'MailFromAttributes', 'MailFromAttributes']
+keywords: ['go', 'Golang', 'sdk', 'MailFromAttributes', 'V2025MailFromAttributes'] 
+slug: /tools/sdk/go/v2025/models/mail-from-attributes
+tags: ['SDK', 'Software Development Kit', 'MailFromAttributes', 'V2025MailFromAttributes']
 ---
 
 # MailFromAttributes

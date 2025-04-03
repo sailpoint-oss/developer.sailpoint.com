@@ -1,12 +1,12 @@
 ---
-id: manual-discover-applications-template
+id: v2025-manual-discover-applications-template
 title: ManualDiscoverApplicationsTemplate
 pagination_label: ManualDiscoverApplicationsTemplate
 sidebar_label: ManualDiscoverApplicationsTemplate
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ManualDiscoverApplicationsTemplate', 'ManualDiscoverApplicationsTemplate'] 
-slug: /tools/sdk/go//models/manual-discover-applications-template
-tags: ['SDK', 'Software Development Kit', 'ManualDiscoverApplicationsTemplate', 'ManualDiscoverApplicationsTemplate']
+keywords: ['go', 'Golang', 'sdk', 'ManualDiscoverApplicationsTemplate', 'V2025ManualDiscoverApplicationsTemplate'] 
+slug: /tools/sdk/go/v2025/models/manual-discover-applications-template
+tags: ['SDK', 'Software Development Kit', 'ManualDiscoverApplicationsTemplate', 'V2025ManualDiscoverApplicationsTemplate']
 ---
 
 # ManualDiscoverApplicationsTemplate

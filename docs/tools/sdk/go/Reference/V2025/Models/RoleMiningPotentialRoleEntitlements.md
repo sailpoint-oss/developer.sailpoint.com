@@ -1,12 +1,12 @@
 ---
-id: role-mining-potential-role-entitlements
+id: v2025-role-mining-potential-role-entitlements
 title: RoleMiningPotentialRoleEntitlements
 pagination_label: RoleMiningPotentialRoleEntitlements
 sidebar_label: RoleMiningPotentialRoleEntitlements
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMiningPotentialRoleEntitlements', 'RoleMiningPotentialRoleEntitlements'] 
-slug: /tools/sdk/go//models/role-mining-potential-role-entitlements
-tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleEntitlements', 'RoleMiningPotentialRoleEntitlements']
+keywords: ['go', 'Golang', 'sdk', 'RoleMiningPotentialRoleEntitlements', 'V2025RoleMiningPotentialRoleEntitlements'] 
+slug: /tools/sdk/go/v2025/models/role-mining-potential-role-entitlements
+tags: ['SDK', 'Software Development Kit', 'RoleMiningPotentialRoleEntitlements', 'V2025RoleMiningPotentialRoleEntitlements']
 ---
 
 # RoleMiningPotentialRoleEntitlements

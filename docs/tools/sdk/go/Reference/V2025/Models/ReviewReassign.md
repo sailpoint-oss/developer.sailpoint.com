@@ -1,12 +1,12 @@
 ---
-id: review-reassign
+id: v2025-review-reassign
 title: ReviewReassign
 pagination_label: ReviewReassign
 sidebar_label: ReviewReassign
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ReviewReassign', 'ReviewReassign'] 
-slug: /tools/sdk/go//models/review-reassign
-tags: ['SDK', 'Software Development Kit', 'ReviewReassign', 'ReviewReassign']
+keywords: ['go', 'Golang', 'sdk', 'ReviewReassign', 'V2025ReviewReassign'] 
+slug: /tools/sdk/go/v2025/models/review-reassign
+tags: ['SDK', 'Software Development Kit', 'ReviewReassign', 'V2025ReviewReassign']
 ---
 
 # ReviewReassign

@@ -1,12 +1,12 @@
 ---
-id: display-reference
+id: v2025-display-reference
 title: DisplayReference
 pagination_label: DisplayReference
 sidebar_label: DisplayReference
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DisplayReference', 'DisplayReference'] 
-slug: /tools/sdk/go//models/display-reference
-tags: ['SDK', 'Software Development Kit', 'DisplayReference', 'DisplayReference']
+keywords: ['go', 'Golang', 'sdk', 'DisplayReference', 'V2025DisplayReference'] 
+slug: /tools/sdk/go/v2025/models/display-reference
+tags: ['SDK', 'Software Development Kit', 'DisplayReference', 'V2025DisplayReference']
 ---
 
 # DisplayReference

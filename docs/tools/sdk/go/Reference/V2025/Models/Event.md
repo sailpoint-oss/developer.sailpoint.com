@@ -1,12 +1,12 @@
 ---
-id: event
+id: v2025-event
 title: Event
 pagination_label: Event
 sidebar_label: Event
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Event', 'Event'] 
-slug: /tools/sdk/go//models/event
-tags: ['SDK', 'Software Development Kit', 'Event', 'Event']
+keywords: ['go', 'Golang', 'sdk', 'Event', 'V2025Event'] 
+slug: /tools/sdk/go/v2025/models/event
+tags: ['SDK', 'Software Development Kit', 'Event', 'V2025Event']
 ---
 
 # Event

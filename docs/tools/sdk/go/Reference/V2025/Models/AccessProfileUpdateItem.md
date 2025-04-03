@@ -1,12 +1,12 @@
 ---
-id: access-profile-update-item
+id: v2025-access-profile-update-item
 title: AccessProfileUpdateItem
 pagination_label: AccessProfileUpdateItem
 sidebar_label: AccessProfileUpdateItem
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessProfileUpdateItem', 'AccessProfileUpdateItem'] 
-slug: /tools/sdk/go//models/access-profile-update-item
-tags: ['SDK', 'Software Development Kit', 'AccessProfileUpdateItem', 'AccessProfileUpdateItem']
+keywords: ['go', 'Golang', 'sdk', 'AccessProfileUpdateItem', 'V2025AccessProfileUpdateItem'] 
+slug: /tools/sdk/go/v2025/models/access-profile-update-item
+tags: ['SDK', 'Software Development Kit', 'AccessProfileUpdateItem', 'V2025AccessProfileUpdateItem']
 ---
 
 # AccessProfileUpdateItem

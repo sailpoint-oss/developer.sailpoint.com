@@ -1,12 +1,12 @@
 ---
-id: attribute-dto-list
+id: v2025-attribute-dto-list
 title: AttributeDTOList
 pagination_label: AttributeDTOList
 sidebar_label: AttributeDTOList
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AttributeDTOList', 'AttributeDTOList'] 
-slug: /tools/sdk/go//models/attribute-dto-list
-tags: ['SDK', 'Software Development Kit', 'AttributeDTOList', 'AttributeDTOList']
+keywords: ['go', 'Golang', 'sdk', 'AttributeDTOList', 'V2025AttributeDTOList'] 
+slug: /tools/sdk/go/v2025/models/attribute-dto-list
+tags: ['SDK', 'Software Development Kit', 'AttributeDTOList', 'V2025AttributeDTOList']
 ---
 
 # AttributeDTOList

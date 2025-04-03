@@ -1,12 +1,12 @@
 ---
-id: text-query
+id: v2025-text-query
 title: TextQuery
 pagination_label: TextQuery
 sidebar_label: TextQuery
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TextQuery', 'TextQuery'] 
-slug: /tools/sdk/go//models/text-query
-tags: ['SDK', 'Software Development Kit', 'TextQuery', 'TextQuery']
+keywords: ['go', 'Golang', 'sdk', 'TextQuery', 'V2025TextQuery'] 
+slug: /tools/sdk/go/v2025/models/text-query
+tags: ['SDK', 'Software Development Kit', 'TextQuery', 'V2025TextQuery']
 ---
 
 # TextQuery

@@ -1,12 +1,12 @@
 ---
-id: access-profile-document-all-of-source
+id: v2025-access-profile-document-all-of-source
 title: AccessProfileDocumentAllOfSource
 pagination_label: AccessProfileDocumentAllOfSource
 sidebar_label: AccessProfileDocumentAllOfSource
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessProfileDocumentAllOfSource', 'AccessProfileDocumentAllOfSource'] 
-slug: /tools/sdk/go//models/access-profile-document-all-of-source
-tags: ['SDK', 'Software Development Kit', 'AccessProfileDocumentAllOfSource', 'AccessProfileDocumentAllOfSource']
+keywords: ['go', 'Golang', 'sdk', 'AccessProfileDocumentAllOfSource', 'V2025AccessProfileDocumentAllOfSource'] 
+slug: /tools/sdk/go/v2025/models/access-profile-document-all-of-source
+tags: ['SDK', 'Software Development Kit', 'AccessProfileDocumentAllOfSource', 'V2025AccessProfileDocumentAllOfSource']
 ---
 
 # AccessProfileDocumentAllOfSource

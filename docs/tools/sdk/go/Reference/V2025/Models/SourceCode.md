@@ -1,12 +1,12 @@
 ---
-id: source-code
+id: v2025-source-code
 title: SourceCode
 pagination_label: SourceCode
 sidebar_label: SourceCode
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceCode', 'SourceCode'] 
-slug: /tools/sdk/go//models/source-code
-tags: ['SDK', 'Software Development Kit', 'SourceCode', 'SourceCode']
+keywords: ['go', 'Golang', 'sdk', 'SourceCode', 'V2025SourceCode'] 
+slug: /tools/sdk/go/v2025/models/source-code
+tags: ['SDK', 'Software Development Kit', 'SourceCode', 'V2025SourceCode']
 ---
 
 # SourceCode

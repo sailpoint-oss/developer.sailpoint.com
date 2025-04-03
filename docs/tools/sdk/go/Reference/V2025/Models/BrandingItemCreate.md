@@ -1,12 +1,12 @@
 ---
-id: branding-item-create
+id: v2025-branding-item-create
 title: BrandingItemCreate
 pagination_label: BrandingItemCreate
 sidebar_label: BrandingItemCreate
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BrandingItemCreate', 'BrandingItemCreate'] 
-slug: /tools/sdk/go//models/branding-item-create
-tags: ['SDK', 'Software Development Kit', 'BrandingItemCreate', 'BrandingItemCreate']
+keywords: ['go', 'Golang', 'sdk', 'BrandingItemCreate', 'V2025BrandingItemCreate'] 
+slug: /tools/sdk/go/v2025/models/branding-item-create
+tags: ['SDK', 'Software Development Kit', 'BrandingItemCreate', 'V2025BrandingItemCreate']
 ---
 
 # BrandingItemCreate

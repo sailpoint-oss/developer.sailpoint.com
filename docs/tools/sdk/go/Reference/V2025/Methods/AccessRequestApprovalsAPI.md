@@ -1,12 +1,12 @@
 ---
-id: access-request-approvals
+id: v2025-access-request-approvals
 title: AccessRequestApprovals
 pagination_label: AccessRequestApprovals
 sidebar_label: AccessRequestApprovals
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestApprovals', 'AccessRequestApprovals'] 
-slug: /tools/sdk/go//methods/access-request-approvals
-tags: ['SDK', 'Software Development Kit', 'AccessRequestApprovals', 'AccessRequestApprovals']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestApprovals', 'V2025AccessRequestApprovals'] 
+slug: /tools/sdk/go/v2025/methods/access-request-approvals
+tags: ['SDK', 'Software Development Kit', 'AccessRequestApprovals', 'V2025AccessRequestApprovals']
 ---
 
 # AccessRequestApprovalsAPI
@@ -45,7 +45,7 @@ Method | HTTP request | Description
 Approve Access Request Approval
 Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
 
-[API Spec](https://developer.sailpoint.com/docs/api//approve-access-request)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/approve-access-request)
 
 ### Path Parameters
 
@@ -83,7 +83,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -101,7 +101,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccessRequestApprovalsAPI.ApproveAccessRequest(context.Background(), approvalId).CommentDto(commentDto).Execute()
+	resp, r, err := apiClient.V2025.AccessRequestApprovalsAPI.ApproveAccessRequest(context.Background(), approvalId).CommentDto(commentDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestApprovalsAPI.ApproveAccessRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -117,7 +117,7 @@ func main() {
 Forward Access Request Approval
 Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
 
-[API Spec](https://developer.sailpoint.com/docs/api//forward-access-request)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/forward-access-request)
 
 ### Path Parameters
 
@@ -155,7 +155,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -168,7 +168,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccessRequestApprovalsAPI.ForwardAccessRequest(context.Background(), approvalId).ForwardApprovalDto(forwardApprovalDto).Execute()
+	resp, r, err := apiClient.V2025.AccessRequestApprovalsAPI.ForwardAccessRequest(context.Background(), approvalId).ForwardApprovalDto(forwardApprovalDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestApprovalsAPI.ForwardAccessRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -184,7 +184,7 @@ func main() {
 Get Access Requests Approvals Number
 Use this API to return the number of pending, approved and rejected access requests approvals. See the "owner-id" query parameter for authorization information. info.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-access-request-approval-summary)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-request-approval-summary)
 
 ### Path Parameters
 
@@ -218,7 +218,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -228,7 +228,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccessRequestApprovalsAPI.GetAccessRequestApprovalSummary(context.Background()).OwnerId(ownerId).FromDate(fromDate).Execute()
+	resp, r, err := apiClient.V2025.AccessRequestApprovalsAPI.GetAccessRequestApprovalSummary(context.Background()).OwnerId(ownerId).FromDate(fromDate).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestApprovalsAPI.GetAccessRequestApprovalSummary``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -245,7 +245,7 @@ Access Request Approvers
 This API endpoint returns the list of approvers for the given access request id.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-access-request-approvers)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-access-request-approvers)
 
 ### Path Parameters
 
@@ -285,7 +285,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -297,7 +297,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccessRequestApprovalsAPI.ListAccessRequestApprovers(context.Background(), accessRequestId).Limit(limit).Offset(offset).Count(count).Execute()
+	resp, r, err := apiClient.V2025.AccessRequestApprovalsAPI.ListAccessRequestApprovers(context.Background(), accessRequestId).Limit(limit).Offset(offset).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestApprovalsAPI.ListAccessRequestApprovers``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -313,7 +313,7 @@ func main() {
 Completed Access Request Approvals List
 This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-completed-approvals)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-completed-approvals)
 
 ### Path Parameters
 
@@ -351,7 +351,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -365,7 +365,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccessRequestApprovalsAPI.ListCompletedApprovals(context.Background()).OwnerId(ownerId).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.AccessRequestApprovalsAPI.ListCompletedApprovals(context.Background()).OwnerId(ownerId).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestApprovalsAPI.ListCompletedApprovals``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -381,7 +381,7 @@ func main() {
 Pending Access Request Approvals List
 This endpoint returns a list of pending approvals. See "owner-id" query parameter below for authorization info.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-pending-approvals)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-pending-approvals)
 
 ### Path Parameters
 
@@ -419,7 +419,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -433,7 +433,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccessRequestApprovalsAPI.ListPendingApprovals(context.Background()).OwnerId(ownerId).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.AccessRequestApprovalsAPI.ListPendingApprovals(context.Background()).OwnerId(ownerId).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestApprovalsAPI.ListPendingApprovals``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -449,7 +449,7 @@ func main() {
 Reject Access Request Approval
 Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
 
-[API Spec](https://developer.sailpoint.com/docs/api//reject-access-request)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/reject-access-request)
 
 ### Path Parameters
 
@@ -487,7 +487,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -505,7 +505,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccessRequestApprovalsAPI.RejectAccessRequest(context.Background(), approvalId).CommentDto(commentDto).Execute()
+	resp, r, err := apiClient.V2025.AccessRequestApprovalsAPI.RejectAccessRequest(context.Background(), approvalId).CommentDto(commentDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestApprovalsAPI.RejectAccessRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -1,12 +1,12 @@
 ---
-id: provisioning-criteria-level2
+id: v2025-provisioning-criteria-level2
 title: ProvisioningCriteriaLevel2
 pagination_label: ProvisioningCriteriaLevel2
 sidebar_label: ProvisioningCriteriaLevel2
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ProvisioningCriteriaLevel2', 'ProvisioningCriteriaLevel2'] 
-slug: /tools/sdk/go//models/provisioning-criteria-level2
-tags: ['SDK', 'Software Development Kit', 'ProvisioningCriteriaLevel2', 'ProvisioningCriteriaLevel2']
+keywords: ['go', 'Golang', 'sdk', 'ProvisioningCriteriaLevel2', 'V2025ProvisioningCriteriaLevel2'] 
+slug: /tools/sdk/go/v2025/models/provisioning-criteria-level2
+tags: ['SDK', 'Software Development Kit', 'ProvisioningCriteriaLevel2', 'V2025ProvisioningCriteriaLevel2']
 ---
 
 # ProvisioningCriteriaLevel2

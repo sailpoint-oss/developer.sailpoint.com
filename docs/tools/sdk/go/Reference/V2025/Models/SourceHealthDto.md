@@ -1,12 +1,12 @@
 ---
-id: source-health-dto
+id: v2025-source-health-dto
 title: SourceHealthDto
 pagination_label: SourceHealthDto
 sidebar_label: SourceHealthDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceHealthDto', 'SourceHealthDto'] 
-slug: /tools/sdk/go//models/source-health-dto
-tags: ['SDK', 'Software Development Kit', 'SourceHealthDto', 'SourceHealthDto']
+keywords: ['go', 'Golang', 'sdk', 'SourceHealthDto', 'V2025SourceHealthDto'] 
+slug: /tools/sdk/go/v2025/models/source-health-dto
+tags: ['SDK', 'Software Development Kit', 'SourceHealthDto', 'V2025SourceHealthDto']
 ---
 
 # SourceHealthDto

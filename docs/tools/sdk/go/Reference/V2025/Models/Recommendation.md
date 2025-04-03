@@ -1,12 +1,12 @@
 ---
-id: recommendation
+id: v2025-recommendation
 title: Recommendation
 pagination_label: Recommendation
 sidebar_label: Recommendation
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Recommendation', 'Recommendation'] 
-slug: /tools/sdk/go//models/recommendation
-tags: ['SDK', 'Software Development Kit', 'Recommendation', 'Recommendation']
+keywords: ['go', 'Golang', 'sdk', 'Recommendation', 'V2025Recommendation'] 
+slug: /tools/sdk/go/v2025/models/recommendation
+tags: ['SDK', 'Software Development Kit', 'Recommendation', 'V2025Recommendation']
 ---
 
 # Recommendation

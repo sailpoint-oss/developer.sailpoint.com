@@ -1,12 +1,12 @@
 ---
-id: argument
+id: v2025-argument
 title: Argument
 pagination_label: Argument
 sidebar_label: Argument
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Argument', 'Argument'] 
-slug: /tools/sdk/go//models/argument
-tags: ['SDK', 'Software Development Kit', 'Argument', 'Argument']
+keywords: ['go', 'Golang', 'sdk', 'Argument', 'V2025Argument'] 
+slug: /tools/sdk/go/v2025/models/argument
+tags: ['SDK', 'Software Development Kit', 'Argument', 'V2025Argument']
 ---
 
 # Argument

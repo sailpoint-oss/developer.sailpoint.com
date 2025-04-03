@@ -1,12 +1,12 @@
 ---
-id: export-options
+id: v2025-export-options
 title: ExportOptions
 pagination_label: ExportOptions
 sidebar_label: ExportOptions
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ExportOptions', 'ExportOptions'] 
-slug: /tools/sdk/go//models/export-options
-tags: ['SDK', 'Software Development Kit', 'ExportOptions', 'ExportOptions']
+keywords: ['go', 'Golang', 'sdk', 'ExportOptions', 'V2025ExportOptions'] 
+slug: /tools/sdk/go/v2025/models/export-options
+tags: ['SDK', 'Software Development Kit', 'ExportOptions', 'V2025ExportOptions']
 ---
 
 # ExportOptions

@@ -1,12 +1,12 @@
 ---
-id: queued-check-config-details
+id: v2025-queued-check-config-details
 title: QueuedCheckConfigDetails
 pagination_label: QueuedCheckConfigDetails
 sidebar_label: QueuedCheckConfigDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'QueuedCheckConfigDetails', 'QueuedCheckConfigDetails'] 
-slug: /tools/sdk/go//models/queued-check-config-details
-tags: ['SDK', 'Software Development Kit', 'QueuedCheckConfigDetails', 'QueuedCheckConfigDetails']
+keywords: ['go', 'Golang', 'sdk', 'QueuedCheckConfigDetails', 'V2025QueuedCheckConfigDetails'] 
+slug: /tools/sdk/go/v2025/models/queued-check-config-details
+tags: ['SDK', 'Software Development Kit', 'QueuedCheckConfigDetails', 'V2025QueuedCheckConfigDetails']
 ---
 
 # QueuedCheckConfigDetails

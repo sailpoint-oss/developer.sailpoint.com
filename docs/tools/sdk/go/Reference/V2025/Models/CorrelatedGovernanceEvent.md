@@ -1,12 +1,12 @@
 ---
-id: correlated-governance-event
+id: v2025-correlated-governance-event
 title: CorrelatedGovernanceEvent
 pagination_label: CorrelatedGovernanceEvent
 sidebar_label: CorrelatedGovernanceEvent
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CorrelatedGovernanceEvent', 'CorrelatedGovernanceEvent'] 
-slug: /tools/sdk/go//models/correlated-governance-event
-tags: ['SDK', 'Software Development Kit', 'CorrelatedGovernanceEvent', 'CorrelatedGovernanceEvent']
+keywords: ['go', 'Golang', 'sdk', 'CorrelatedGovernanceEvent', 'V2025CorrelatedGovernanceEvent'] 
+slug: /tools/sdk/go/v2025/models/correlated-governance-event
+tags: ['SDK', 'Software Development Kit', 'CorrelatedGovernanceEvent', 'V2025CorrelatedGovernanceEvent']
 ---
 
 # CorrelatedGovernanceEvent

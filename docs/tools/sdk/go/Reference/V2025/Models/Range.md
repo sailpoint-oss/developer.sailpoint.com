@@ -1,12 +1,12 @@
 ---
-id: range
+id: v2025-range
 title: Range
 pagination_label: Range
 sidebar_label: Range
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Range', 'Range'] 
-slug: /tools/sdk/go//models/range
-tags: ['SDK', 'Software Development Kit', 'Range', 'Range']
+keywords: ['go', 'Golang', 'sdk', 'Range', 'V2025Range'] 
+slug: /tools/sdk/go/v2025/models/range
+tags: ['SDK', 'Software Development Kit', 'Range', 'V2025Range']
 ---
 
 # Range

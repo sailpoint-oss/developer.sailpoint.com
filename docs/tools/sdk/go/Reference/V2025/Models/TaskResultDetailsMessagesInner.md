@@ -1,12 +1,12 @@
 ---
-id: task-result-details-messages-inner
+id: v2025-task-result-details-messages-inner
 title: TaskResultDetailsMessagesInner
 pagination_label: TaskResultDetailsMessagesInner
 sidebar_label: TaskResultDetailsMessagesInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TaskResultDetailsMessagesInner', 'TaskResultDetailsMessagesInner'] 
-slug: /tools/sdk/go//models/task-result-details-messages-inner
-tags: ['SDK', 'Software Development Kit', 'TaskResultDetailsMessagesInner', 'TaskResultDetailsMessagesInner']
+keywords: ['go', 'Golang', 'sdk', 'TaskResultDetailsMessagesInner', 'V2025TaskResultDetailsMessagesInner'] 
+slug: /tools/sdk/go/v2025/models/task-result-details-messages-inner
+tags: ['SDK', 'Software Development Kit', 'TaskResultDetailsMessagesInner', 'V2025TaskResultDetailsMessagesInner']
 ---
 
 # TaskResultDetailsMessagesInner

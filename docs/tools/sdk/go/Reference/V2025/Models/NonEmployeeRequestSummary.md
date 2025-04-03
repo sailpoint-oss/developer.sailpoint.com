@@ -1,12 +1,12 @@
 ---
-id: non-employee-request-summary
+id: v2025-non-employee-request-summary
 title: NonEmployeeRequestSummary
 pagination_label: NonEmployeeRequestSummary
 sidebar_label: NonEmployeeRequestSummary
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NonEmployeeRequestSummary', 'NonEmployeeRequestSummary'] 
-slug: /tools/sdk/go//models/non-employee-request-summary
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeRequestSummary', 'NonEmployeeRequestSummary']
+keywords: ['go', 'Golang', 'sdk', 'NonEmployeeRequestSummary', 'V2025NonEmployeeRequestSummary'] 
+slug: /tools/sdk/go/v2025/models/non-employee-request-summary
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeRequestSummary', 'V2025NonEmployeeRequestSummary']
 ---
 
 # NonEmployeeRequestSummary

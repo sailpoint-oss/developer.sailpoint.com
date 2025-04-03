@@ -1,12 +1,12 @@
 ---
-id: multi-policy-request
+id: v2025-multi-policy-request
 title: MultiPolicyRequest
 pagination_label: MultiPolicyRequest
 sidebar_label: MultiPolicyRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MultiPolicyRequest', 'MultiPolicyRequest'] 
-slug: /tools/sdk/go//models/multi-policy-request
-tags: ['SDK', 'Software Development Kit', 'MultiPolicyRequest', 'MultiPolicyRequest']
+keywords: ['go', 'Golang', 'sdk', 'MultiPolicyRequest', 'V2025MultiPolicyRequest'] 
+slug: /tools/sdk/go/v2025/models/multi-policy-request
+tags: ['SDK', 'Software Development Kit', 'MultiPolicyRequest', 'V2025MultiPolicyRequest']
 ---
 
 # MultiPolicyRequest

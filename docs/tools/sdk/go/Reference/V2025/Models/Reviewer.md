@@ -1,12 +1,12 @@
 ---
-id: reviewer
+id: v2025-reviewer
 title: Reviewer
 pagination_label: Reviewer
 sidebar_label: Reviewer
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Reviewer', 'Reviewer'] 
-slug: /tools/sdk/go//models/reviewer
-tags: ['SDK', 'Software Development Kit', 'Reviewer', 'Reviewer']
+keywords: ['go', 'Golang', 'sdk', 'Reviewer', 'V2025Reviewer'] 
+slug: /tools/sdk/go/v2025/models/reviewer
+tags: ['SDK', 'Software Development Kit', 'Reviewer', 'V2025Reviewer']
 ---
 
 # Reviewer

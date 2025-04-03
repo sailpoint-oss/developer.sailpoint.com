@@ -1,12 +1,12 @@
 ---
-id: account-usages
+id: v2025-account-usages
 title: AccountUsages
 pagination_label: AccountUsages
 sidebar_label: AccountUsages
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountUsages', 'AccountUsages'] 
-slug: /tools/sdk/go//methods/account-usages
-tags: ['SDK', 'Software Development Kit', 'AccountUsages', 'AccountUsages']
+keywords: ['go', 'Golang', 'sdk', 'AccountUsages', 'V2025AccountUsages'] 
+slug: /tools/sdk/go/v2025/methods/account-usages
+tags: ['SDK', 'Software Development Kit', 'AccountUsages', 'V2025AccountUsages']
 ---
 
 # AccountUsagesAPI
@@ -25,7 +25,7 @@ Method | HTTP request | Description
 Returns account usage insights
 This API returns a summary of account usage insights for past 12 months.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-usages-by-account-id)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-usages-by-account-id)
 
 ### Path Parameters
 
@@ -66,7 +66,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -79,7 +79,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccountUsagesAPI.GetUsagesByAccountId(context.Background(), accountId).Limit(limit).Offset(offset).Count(count).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.AccountUsagesAPI.GetUsagesByAccountId(context.Background(), accountId).Limit(limit).Offset(offset).Count(count).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccountUsagesAPI.GetUsagesByAccountId``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

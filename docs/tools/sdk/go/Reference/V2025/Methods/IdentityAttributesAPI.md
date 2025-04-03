@@ -1,12 +1,12 @@
 ---
-id: identity-attributes
+id: v2025-identity-attributes
 title: IdentityAttributes
 pagination_label: IdentityAttributes
 sidebar_label: IdentityAttributes
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityAttributes', 'IdentityAttributes'] 
-slug: /tools/sdk/go//methods/identity-attributes
-tags: ['SDK', 'Software Development Kit', 'IdentityAttributes', 'IdentityAttributes']
+keywords: ['go', 'Golang', 'sdk', 'IdentityAttributes', 'V2025IdentityAttributes'] 
+slug: /tools/sdk/go/v2025/methods/identity-attributes
+tags: ['SDK', 'Software Development Kit', 'IdentityAttributes', 'V2025IdentityAttributes']
 ---
 
 # IdentityAttributesAPI
@@ -38,7 +38,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Create Identity Attribute
 Use this API to create a new identity attribute.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-identity-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-identity-attribute)
 
 ### Path Parameters
 
@@ -72,7 +72,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -103,7 +103,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IdentityAttributesAPI.CreateIdentityAttribute(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityAttribute(identityAttribute).Execute()
+	resp, r, err := apiClient.V2025.IdentityAttributesAPI.CreateIdentityAttribute(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityAttribute(identityAttribute).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.CreateIdentityAttribute``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -130,7 +130,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Delete Identity Attribute
 This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-identity-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-identity-attribute)
 
 ### Path Parameters
 
@@ -168,7 +168,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -178,7 +178,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..IdentityAttributesAPI.DeleteIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).Execute()
+	r, err := apiClient.V2025.IdentityAttributesAPI.DeleteIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.DeleteIdentityAttribute``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -203,7 +203,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Bulk delete Identity Attributes
 Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-identity-attributes-in-bulk)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-identity-attributes-in-bulk)
 
 ### Path Parameters
 
@@ -237,7 +237,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -249,7 +249,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..IdentityAttributesAPI.DeleteIdentityAttributesInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityAttributeNames(identityAttributeNames).Execute()
+	r, err := apiClient.V2025.IdentityAttributesAPI.DeleteIdentityAttributesInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityAttributeNames(identityAttributeNames).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.DeleteIdentityAttributesInBulk``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -274,7 +274,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get Identity Attribute
 This gets an identity attribute for a given technical name.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-identity-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identity-attribute)
 
 ### Path Parameters
 
@@ -312,7 +312,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -322,7 +322,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IdentityAttributesAPI.GetIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.IdentityAttributesAPI.GetIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.GetIdentityAttribute``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -349,7 +349,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List Identity Attributes
 Use this API to get a collection of identity attributes.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-identity-attributes)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-identity-attributes)
 
 ### Path Parameters
 
@@ -386,7 +386,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -399,7 +399,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IdentityAttributesAPI.ListIdentityAttributes(context.Background()).XSailPointExperimental(xSailPointExperimental).IncludeSystem(includeSystem).IncludeSilent(includeSilent).SearchableOnly(searchableOnly).Count(count).Execute()
+	resp, r, err := apiClient.V2025.IdentityAttributesAPI.ListIdentityAttributes(context.Background()).XSailPointExperimental(xSailPointExperimental).IncludeSystem(includeSystem).IncludeSilent(includeSilent).SearchableOnly(searchableOnly).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.ListIdentityAttributes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -426,7 +426,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Update Identity Attribute
 This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.
 
-[API Spec](https://developer.sailpoint.com/docs/api//put-identity-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/put-identity-attribute)
 
 ### Path Parameters
 
@@ -465,7 +465,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -497,7 +497,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IdentityAttributesAPI.PutIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).IdentityAttribute(identityAttribute).Execute()
+	resp, r, err := apiClient.V2025.IdentityAttributesAPI.PutIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).IdentityAttribute(identityAttribute).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.PutIdentityAttribute``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

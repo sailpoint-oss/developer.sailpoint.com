@@ -1,12 +1,12 @@
 ---
-id: entitlement-approval-scheme
+id: v2025-entitlement-approval-scheme
 title: EntitlementApprovalScheme
 pagination_label: EntitlementApprovalScheme
 sidebar_label: EntitlementApprovalScheme
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EntitlementApprovalScheme', 'EntitlementApprovalScheme'] 
-slug: /tools/sdk/go//models/entitlement-approval-scheme
-tags: ['SDK', 'Software Development Kit', 'EntitlementApprovalScheme', 'EntitlementApprovalScheme']
+keywords: ['go', 'Golang', 'sdk', 'EntitlementApprovalScheme', 'V2025EntitlementApprovalScheme'] 
+slug: /tools/sdk/go/v2025/models/entitlement-approval-scheme
+tags: ['SDK', 'Software Development Kit', 'EntitlementApprovalScheme', 'V2025EntitlementApprovalScheme']
 ---
 
 # EntitlementApprovalScheme

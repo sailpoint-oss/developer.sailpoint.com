@@ -1,12 +1,12 @@
 ---
-id: requestable-object-type
+id: v2025-requestable-object-type
 title: RequestableObjectType
 pagination_label: RequestableObjectType
 sidebar_label: RequestableObjectType
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RequestableObjectType', 'RequestableObjectType'] 
-slug: /tools/sdk/go//models/requestable-object-type
-tags: ['SDK', 'Software Development Kit', 'RequestableObjectType', 'RequestableObjectType']
+keywords: ['go', 'Golang', 'sdk', 'RequestableObjectType', 'V2025RequestableObjectType'] 
+slug: /tools/sdk/go/v2025/models/requestable-object-type
+tags: ['SDK', 'Software Development Kit', 'RequestableObjectType', 'V2025RequestableObjectType']
 ---
 
 # RequestableObjectType

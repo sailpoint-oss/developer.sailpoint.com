@@ -1,12 +1,12 @@
 ---
-id: access-review-item
+id: v2025-access-review-item
 title: AccessReviewItem
 pagination_label: AccessReviewItem
 sidebar_label: AccessReviewItem
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessReviewItem', 'AccessReviewItem'] 
-slug: /tools/sdk/go//models/access-review-item
-tags: ['SDK', 'Software Development Kit', 'AccessReviewItem', 'AccessReviewItem']
+keywords: ['go', 'Golang', 'sdk', 'AccessReviewItem', 'V2025AccessReviewItem'] 
+slug: /tools/sdk/go/v2025/models/access-review-item
+tags: ['SDK', 'Software Development Kit', 'AccessReviewItem', 'V2025AccessReviewItem']
 ---
 
 # AccessReviewItem

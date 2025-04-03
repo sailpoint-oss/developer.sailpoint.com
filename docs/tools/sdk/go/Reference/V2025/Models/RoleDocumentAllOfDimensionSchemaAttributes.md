@@ -1,12 +1,12 @@
 ---
-id: role-document-all-of-dimension-schema-attributes
+id: v2025-role-document-all-of-dimension-schema-attributes
 title: RoleDocumentAllOfDimensionSchemaAttributes
 pagination_label: RoleDocumentAllOfDimensionSchemaAttributes
 sidebar_label: RoleDocumentAllOfDimensionSchemaAttributes
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleDocumentAllOfDimensionSchemaAttributes', 'RoleDocumentAllOfDimensionSchemaAttributes'] 
-slug: /tools/sdk/go//models/role-document-all-of-dimension-schema-attributes
-tags: ['SDK', 'Software Development Kit', 'RoleDocumentAllOfDimensionSchemaAttributes', 'RoleDocumentAllOfDimensionSchemaAttributes']
+keywords: ['go', 'Golang', 'sdk', 'RoleDocumentAllOfDimensionSchemaAttributes', 'V2025RoleDocumentAllOfDimensionSchemaAttributes'] 
+slug: /tools/sdk/go/v2025/models/role-document-all-of-dimension-schema-attributes
+tags: ['SDK', 'Software Development Kit', 'RoleDocumentAllOfDimensionSchemaAttributes', 'V2025RoleDocumentAllOfDimensionSchemaAttributes']
 ---
 
 # RoleDocumentAllOfDimensionSchemaAttributes

@@ -1,12 +1,12 @@
 ---
-id: pat-owner
+id: v2025-pat-owner
 title: PatOwner
 pagination_label: PatOwner
 sidebar_label: PatOwner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PatOwner', 'PatOwner'] 
-slug: /tools/sdk/go//models/pat-owner
-tags: ['SDK', 'Software Development Kit', 'PatOwner', 'PatOwner']
+keywords: ['go', 'Golang', 'sdk', 'PatOwner', 'V2025PatOwner'] 
+slug: /tools/sdk/go/v2025/models/pat-owner
+tags: ['SDK', 'Software Development Kit', 'PatOwner', 'V2025PatOwner']
 ---
 
 # PatOwner

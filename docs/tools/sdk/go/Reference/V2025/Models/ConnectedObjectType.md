@@ -1,12 +1,12 @@
 ---
-id: connected-object-type
+id: v2025-connected-object-type
 title: ConnectedObjectType
 pagination_label: ConnectedObjectType
 sidebar_label: ConnectedObjectType
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConnectedObjectType', 'ConnectedObjectType'] 
-slug: /tools/sdk/go//models/connected-object-type
-tags: ['SDK', 'Software Development Kit', 'ConnectedObjectType', 'ConnectedObjectType']
+keywords: ['go', 'Golang', 'sdk', 'ConnectedObjectType', 'V2025ConnectedObjectType'] 
+slug: /tools/sdk/go/v2025/models/connected-object-type
+tags: ['SDK', 'Software Development Kit', 'ConnectedObjectType', 'V2025ConnectedObjectType']
 ---
 
 # ConnectedObjectType

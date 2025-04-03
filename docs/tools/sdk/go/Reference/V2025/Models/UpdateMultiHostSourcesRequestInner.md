@@ -1,12 +1,12 @@
 ---
-id: update-multi-host-sources-request-inner
+id: v2025-update-multi-host-sources-request-inner
 title: UpdateMultiHostSourcesRequestInner
 pagination_label: UpdateMultiHostSourcesRequestInner
 sidebar_label: UpdateMultiHostSourcesRequestInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'UpdateMultiHostSourcesRequestInner', 'UpdateMultiHostSourcesRequestInner'] 
-slug: /tools/sdk/go//models/update-multi-host-sources-request-inner
-tags: ['SDK', 'Software Development Kit', 'UpdateMultiHostSourcesRequestInner', 'UpdateMultiHostSourcesRequestInner']
+keywords: ['go', 'Golang', 'sdk', 'UpdateMultiHostSourcesRequestInner', 'V2025UpdateMultiHostSourcesRequestInner'] 
+slug: /tools/sdk/go/v2025/models/update-multi-host-sources-request-inner
+tags: ['SDK', 'Software Development Kit', 'UpdateMultiHostSourcesRequestInner', 'V2025UpdateMultiHostSourcesRequestInner']
 ---
 
 # UpdateMultiHostSourcesRequestInner

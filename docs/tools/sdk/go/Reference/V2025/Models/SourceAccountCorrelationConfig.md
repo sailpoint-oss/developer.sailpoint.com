@@ -1,12 +1,12 @@
 ---
-id: source-account-correlation-config
+id: v2025-source-account-correlation-config
 title: SourceAccountCorrelationConfig
 pagination_label: SourceAccountCorrelationConfig
 sidebar_label: SourceAccountCorrelationConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceAccountCorrelationConfig', 'SourceAccountCorrelationConfig'] 
-slug: /tools/sdk/go//models/source-account-correlation-config
-tags: ['SDK', 'Software Development Kit', 'SourceAccountCorrelationConfig', 'SourceAccountCorrelationConfig']
+keywords: ['go', 'Golang', 'sdk', 'SourceAccountCorrelationConfig', 'V2025SourceAccountCorrelationConfig'] 
+slug: /tools/sdk/go/v2025/models/source-account-correlation-config
+tags: ['SDK', 'Software Development Kit', 'SourceAccountCorrelationConfig', 'V2025SourceAccountCorrelationConfig']
 ---
 
 # SourceAccountCorrelationConfig

@@ -1,12 +1,12 @@
 ---
-id: task-result-simplified
+id: v2025-task-result-simplified
 title: TaskResultSimplified
 pagination_label: TaskResultSimplified
 sidebar_label: TaskResultSimplified
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TaskResultSimplified', 'TaskResultSimplified'] 
-slug: /tools/sdk/go//models/task-result-simplified
-tags: ['SDK', 'Software Development Kit', 'TaskResultSimplified', 'TaskResultSimplified']
+keywords: ['go', 'Golang', 'sdk', 'TaskResultSimplified', 'V2025TaskResultSimplified'] 
+slug: /tools/sdk/go/v2025/models/task-result-simplified
+tags: ['SDK', 'Software Development Kit', 'TaskResultSimplified', 'V2025TaskResultSimplified']
 ---
 
 # TaskResultSimplified

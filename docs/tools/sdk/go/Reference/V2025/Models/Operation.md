@@ -1,12 +1,12 @@
 ---
-id: operation
+id: v2025-operation
 title: Operation
 pagination_label: Operation
 sidebar_label: Operation
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Operation', 'Operation'] 
-slug: /tools/sdk/go//models/operation
-tags: ['SDK', 'Software Development Kit', 'Operation', 'Operation']
+keywords: ['go', 'Golang', 'sdk', 'Operation', 'V2025Operation'] 
+slug: /tools/sdk/go/v2025/models/operation
+tags: ['SDK', 'Software Development Kit', 'Operation', 'V2025Operation']
 ---
 
 # Operation

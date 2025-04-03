@@ -1,12 +1,12 @@
 ---
-id: entitlement-document-all-of-permissions
+id: v2025-entitlement-document-all-of-permissions
 title: EntitlementDocumentAllOfPermissions
 pagination_label: EntitlementDocumentAllOfPermissions
 sidebar_label: EntitlementDocumentAllOfPermissions
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'EntitlementDocumentAllOfPermissions', 'EntitlementDocumentAllOfPermissions'] 
-slug: /tools/sdk/go//models/entitlement-document-all-of-permissions
-tags: ['SDK', 'Software Development Kit', 'EntitlementDocumentAllOfPermissions', 'EntitlementDocumentAllOfPermissions']
+keywords: ['go', 'Golang', 'sdk', 'EntitlementDocumentAllOfPermissions', 'V2025EntitlementDocumentAllOfPermissions'] 
+slug: /tools/sdk/go/v2025/models/entitlement-document-all-of-permissions
+tags: ['SDK', 'Software Development Kit', 'EntitlementDocumentAllOfPermissions', 'V2025EntitlementDocumentAllOfPermissions']
 ---
 
 # EntitlementDocumentAllOfPermissions

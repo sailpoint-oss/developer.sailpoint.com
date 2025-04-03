@@ -1,12 +1,12 @@
 ---
-id: context-attribute-dto
+id: v2025-context-attribute-dto
 title: ContextAttributeDto
 pagination_label: ContextAttributeDto
 sidebar_label: ContextAttributeDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ContextAttributeDto', 'ContextAttributeDto'] 
-slug: /tools/sdk/go//models/context-attribute-dto
-tags: ['SDK', 'Software Development Kit', 'ContextAttributeDto', 'ContextAttributeDto']
+keywords: ['go', 'Golang', 'sdk', 'ContextAttributeDto', 'V2025ContextAttributeDto'] 
+slug: /tools/sdk/go/v2025/models/context-attribute-dto
+tags: ['SDK', 'Software Development Kit', 'ContextAttributeDto', 'V2025ContextAttributeDto']
 ---
 
 # ContextAttributeDto

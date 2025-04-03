@@ -1,12 +1,12 @@
 ---
-id: task-result-details
+id: v2025-task-result-details
 title: TaskResultDetails
 pagination_label: TaskResultDetails
 sidebar_label: TaskResultDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TaskResultDetails', 'TaskResultDetails'] 
-slug: /tools/sdk/go//models/task-result-details
-tags: ['SDK', 'Software Development Kit', 'TaskResultDetails', 'TaskResultDetails']
+keywords: ['go', 'Golang', 'sdk', 'TaskResultDetails', 'V2025TaskResultDetails'] 
+slug: /tools/sdk/go/v2025/models/task-result-details
+tags: ['SDK', 'Software Development Kit', 'TaskResultDetails', 'V2025TaskResultDetails']
 ---
 
 # TaskResultDetails

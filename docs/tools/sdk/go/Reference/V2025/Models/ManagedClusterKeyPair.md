@@ -1,12 +1,12 @@
 ---
-id: managed-cluster-key-pair
+id: v2025-managed-cluster-key-pair
 title: ManagedClusterKeyPair
 pagination_label: ManagedClusterKeyPair
 sidebar_label: ManagedClusterKeyPair
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ManagedClusterKeyPair', 'ManagedClusterKeyPair'] 
-slug: /tools/sdk/go//models/managed-cluster-key-pair
-tags: ['SDK', 'Software Development Kit', 'ManagedClusterKeyPair', 'ManagedClusterKeyPair']
+keywords: ['go', 'Golang', 'sdk', 'ManagedClusterKeyPair', 'V2025ManagedClusterKeyPair'] 
+slug: /tools/sdk/go/v2025/models/managed-cluster-key-pair
+tags: ['SDK', 'Software Development Kit', 'ManagedClusterKeyPair', 'V2025ManagedClusterKeyPair']
 ---
 
 # ManagedClusterKeyPair

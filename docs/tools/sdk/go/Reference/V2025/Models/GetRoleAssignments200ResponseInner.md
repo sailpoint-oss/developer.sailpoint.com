@@ -1,12 +1,12 @@
 ---
-id: get-role-assignments200-response-inner
+id: v2025-get-role-assignments200-response-inner
 title: GetRoleAssignments200ResponseInner
 pagination_label: GetRoleAssignments200ResponseInner
 sidebar_label: GetRoleAssignments200ResponseInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'GetRoleAssignments200ResponseInner', 'GetRoleAssignments200ResponseInner'] 
-slug: /tools/sdk/go//models/get-role-assignments200-response-inner
-tags: ['SDK', 'Software Development Kit', 'GetRoleAssignments200ResponseInner', 'GetRoleAssignments200ResponseInner']
+keywords: ['go', 'Golang', 'sdk', 'GetRoleAssignments200ResponseInner', 'V2025GetRoleAssignments200ResponseInner'] 
+slug: /tools/sdk/go/v2025/models/get-role-assignments200-response-inner
+tags: ['SDK', 'Software Development Kit', 'GetRoleAssignments200ResponseInner', 'V2025GetRoleAssignments200ResponseInner']
 ---
 
 # GetRoleAssignments200ResponseInner

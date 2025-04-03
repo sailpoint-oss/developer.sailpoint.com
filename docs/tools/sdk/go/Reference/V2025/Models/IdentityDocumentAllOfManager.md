@@ -1,12 +1,12 @@
 ---
-id: identity-document-all-of-manager
+id: v2025-identity-document-all-of-manager
 title: IdentityDocumentAllOfManager
 pagination_label: IdentityDocumentAllOfManager
 sidebar_label: IdentityDocumentAllOfManager
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityDocumentAllOfManager', 'IdentityDocumentAllOfManager'] 
-slug: /tools/sdk/go//models/identity-document-all-of-manager
-tags: ['SDK', 'Software Development Kit', 'IdentityDocumentAllOfManager', 'IdentityDocumentAllOfManager']
+keywords: ['go', 'Golang', 'sdk', 'IdentityDocumentAllOfManager', 'V2025IdentityDocumentAllOfManager'] 
+slug: /tools/sdk/go/v2025/models/identity-document-all-of-manager
+tags: ['SDK', 'Software Development Kit', 'IdentityDocumentAllOfManager', 'V2025IdentityDocumentAllOfManager']
 ---
 
 # IdentityDocumentAllOfManager

@@ -1,12 +1,12 @@
 ---
-id: aggregation-type
+id: v2025-aggregation-type
 title: AggregationType
 pagination_label: AggregationType
 sidebar_label: AggregationType
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AggregationType', 'AggregationType'] 
-slug: /tools/sdk/go//models/aggregation-type
-tags: ['SDK', 'Software Development Kit', 'AggregationType', 'AggregationType']
+keywords: ['go', 'Golang', 'sdk', 'AggregationType', 'V2025AggregationType'] 
+slug: /tools/sdk/go/v2025/models/aggregation-type
+tags: ['SDK', 'Software Development Kit', 'AggregationType', 'V2025AggregationType']
 ---
 
 # AggregationType

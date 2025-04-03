@@ -1,12 +1,12 @@
 ---
-id: scope
+id: v2025-scope
 title: Scope
 pagination_label: Scope
 sidebar_label: Scope
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Scope', 'Scope'] 
-slug: /tools/sdk/go//models/scope
-tags: ['SDK', 'Software Development Kit', 'Scope', 'Scope']
+keywords: ['go', 'Golang', 'sdk', 'Scope', 'V2025Scope'] 
+slug: /tools/sdk/go/v2025/models/scope
+tags: ['SDK', 'Software Development Kit', 'Scope', 'V2025Scope']
 ---
 
 # Scope

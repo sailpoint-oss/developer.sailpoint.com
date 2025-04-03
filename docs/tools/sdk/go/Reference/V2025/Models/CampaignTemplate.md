@@ -1,12 +1,12 @@
 ---
-id: campaign-template
+id: v2025-campaign-template
 title: CampaignTemplate
 pagination_label: CampaignTemplate
 sidebar_label: CampaignTemplate
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignTemplate', 'CampaignTemplate'] 
-slug: /tools/sdk/go//models/campaign-template
-tags: ['SDK', 'Software Development Kit', 'CampaignTemplate', 'CampaignTemplate']
+keywords: ['go', 'Golang', 'sdk', 'CampaignTemplate', 'V2025CampaignTemplate'] 
+slug: /tools/sdk/go/v2025/models/campaign-template
+tags: ['SDK', 'Software Development Kit', 'CampaignTemplate', 'V2025CampaignTemplate']
 ---
 
 # CampaignTemplate

@@ -1,12 +1,12 @@
 ---
-id: delete-source202-response
+id: v2025-delete-source202-response
 title: DeleteSource202Response
 pagination_label: DeleteSource202Response
 sidebar_label: DeleteSource202Response
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DeleteSource202Response', 'DeleteSource202Response'] 
-slug: /tools/sdk/go//models/delete-source202-response
-tags: ['SDK', 'Software Development Kit', 'DeleteSource202Response', 'DeleteSource202Response']
+keywords: ['go', 'Golang', 'sdk', 'DeleteSource202Response', 'V2025DeleteSource202Response'] 
+slug: /tools/sdk/go/v2025/models/delete-source202-response
+tags: ['SDK', 'Software Development Kit', 'DeleteSource202Response', 'V2025DeleteSource202Response']
 ---
 
 # DeleteSource202Response

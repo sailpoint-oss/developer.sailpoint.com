@@ -1,12 +1,12 @@
 ---
-id: import-form-definitions-request-inner
+id: v2025-import-form-definitions-request-inner
 title: ImportFormDefinitionsRequestInner
 pagination_label: ImportFormDefinitionsRequestInner
 sidebar_label: ImportFormDefinitionsRequestInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ImportFormDefinitionsRequestInner', 'ImportFormDefinitionsRequestInner'] 
-slug: /tools/sdk/go//models/import-form-definitions-request-inner
-tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitionsRequestInner', 'ImportFormDefinitionsRequestInner']
+keywords: ['go', 'Golang', 'sdk', 'ImportFormDefinitionsRequestInner', 'V2025ImportFormDefinitionsRequestInner'] 
+slug: /tools/sdk/go/v2025/models/import-form-definitions-request-inner
+tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitionsRequestInner', 'V2025ImportFormDefinitionsRequestInner']
 ---
 
 # ImportFormDefinitionsRequestInner

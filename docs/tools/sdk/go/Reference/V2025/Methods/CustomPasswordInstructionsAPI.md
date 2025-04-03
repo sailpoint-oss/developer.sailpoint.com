@@ -1,12 +1,12 @@
 ---
-id: custom-password-instructions
+id: v2025-custom-password-instructions
 title: CustomPasswordInstructions
 pagination_label: CustomPasswordInstructions
 sidebar_label: CustomPasswordInstructions
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CustomPasswordInstructions', 'CustomPasswordInstructions'] 
-slug: /tools/sdk/go//methods/custom-password-instructions
-tags: ['SDK', 'Software Development Kit', 'CustomPasswordInstructions', 'CustomPasswordInstructions']
+keywords: ['go', 'Golang', 'sdk', 'CustomPasswordInstructions', 'V2025CustomPasswordInstructions'] 
+slug: /tools/sdk/go/v2025/methods/custom-password-instructions
+tags: ['SDK', 'Software Development Kit', 'CustomPasswordInstructions', 'V2025CustomPasswordInstructions']
 ---
 
 # CustomPasswordInstructionsAPI
@@ -46,7 +46,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Create Custom Password Instructions
 This API creates the custom password instructions for the specified page ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-custom-password-instructions)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-custom-password-instructions)
 
 ### Path Parameters
 
@@ -80,7 +80,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -94,7 +94,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..CustomPasswordInstructionsAPI.CreateCustomPasswordInstructions(context.Background()).XSailPointExperimental(xSailPointExperimental).CustomPasswordInstruction(customPasswordInstruction).Execute()
+	resp, r, err := apiClient.V2025.CustomPasswordInstructionsAPI.CreateCustomPasswordInstructions(context.Background()).XSailPointExperimental(xSailPointExperimental).CustomPasswordInstruction(customPasswordInstruction).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CustomPasswordInstructionsAPI.CreateCustomPasswordInstructions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -121,7 +121,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Delete Custom Password Instructions by page ID
 This API delete the custom password instructions for the specified page ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-custom-password-instructions)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-custom-password-instructions)
 
 ### Path Parameters
 
@@ -160,7 +160,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -171,7 +171,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..CustomPasswordInstructionsAPI.DeleteCustomPasswordInstructions(context.Background(), pageId).XSailPointExperimental(xSailPointExperimental).Locale(locale).Execute()
+	r, err := apiClient.V2025.CustomPasswordInstructionsAPI.DeleteCustomPasswordInstructions(context.Background(), pageId).XSailPointExperimental(xSailPointExperimental).Locale(locale).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CustomPasswordInstructionsAPI.DeleteCustomPasswordInstructions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -196,7 +196,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get Custom Password Instructions by Page ID
 This API returns the custom password instructions for the specified page ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-custom-password-instructions)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-custom-password-instructions)
 
 ### Path Parameters
 
@@ -235,7 +235,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -246,7 +246,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..CustomPasswordInstructionsAPI.GetCustomPasswordInstructions(context.Background(), pageId).XSailPointExperimental(xSailPointExperimental).Locale(locale).Execute()
+	resp, r, err := apiClient.V2025.CustomPasswordInstructionsAPI.GetCustomPasswordInstructions(context.Background(), pageId).XSailPointExperimental(xSailPointExperimental).Locale(locale).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CustomPasswordInstructionsAPI.GetCustomPasswordInstructions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

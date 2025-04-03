@@ -1,12 +1,12 @@
 ---
-id: requestable-object-reference
+id: v2025-requestable-object-reference
 title: RequestableObjectReference
 pagination_label: RequestableObjectReference
 sidebar_label: RequestableObjectReference
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RequestableObjectReference', 'RequestableObjectReference'] 
-slug: /tools/sdk/go//models/requestable-object-reference
-tags: ['SDK', 'Software Development Kit', 'RequestableObjectReference', 'RequestableObjectReference']
+keywords: ['go', 'Golang', 'sdk', 'RequestableObjectReference', 'V2025RequestableObjectReference'] 
+slug: /tools/sdk/go/v2025/models/requestable-object-reference
+tags: ['SDK', 'Software Development Kit', 'RequestableObjectReference', 'V2025RequestableObjectReference']
 ---
 
 # RequestableObjectReference

@@ -1,12 +1,12 @@
 ---
-id: object-export-import-names
+id: v2025-object-export-import-names
 title: ObjectExportImportNames
 pagination_label: ObjectExportImportNames
 sidebar_label: ObjectExportImportNames
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ObjectExportImportNames', 'ObjectExportImportNames'] 
-slug: /tools/sdk/go//models/object-export-import-names
-tags: ['SDK', 'Software Development Kit', 'ObjectExportImportNames', 'ObjectExportImportNames']
+keywords: ['go', 'Golang', 'sdk', 'ObjectExportImportNames', 'V2025ObjectExportImportNames'] 
+slug: /tools/sdk/go/v2025/models/object-export-import-names
+tags: ['SDK', 'Software Development Kit', 'ObjectExportImportNames', 'V2025ObjectExportImportNames']
 ---
 
 # ObjectExportImportNames

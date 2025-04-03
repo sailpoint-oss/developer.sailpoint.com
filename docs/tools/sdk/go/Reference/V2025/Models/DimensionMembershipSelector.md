@@ -1,12 +1,12 @@
 ---
-id: dimension-membership-selector
+id: v2025-dimension-membership-selector
 title: DimensionMembershipSelector
 pagination_label: DimensionMembershipSelector
 sidebar_label: DimensionMembershipSelector
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DimensionMembershipSelector', 'DimensionMembershipSelector'] 
-slug: /tools/sdk/go//models/dimension-membership-selector
-tags: ['SDK', 'Software Development Kit', 'DimensionMembershipSelector', 'DimensionMembershipSelector']
+keywords: ['go', 'Golang', 'sdk', 'DimensionMembershipSelector', 'V2025DimensionMembershipSelector'] 
+slug: /tools/sdk/go/v2025/models/dimension-membership-selector
+tags: ['SDK', 'Software Development Kit', 'DimensionMembershipSelector', 'V2025DimensionMembershipSelector']
 ---
 
 # DimensionMembershipSelector

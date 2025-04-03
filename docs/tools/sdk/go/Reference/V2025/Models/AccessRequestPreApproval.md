@@ -1,12 +1,12 @@
 ---
-id: access-request-pre-approval
+id: v2025-access-request-pre-approval
 title: AccessRequestPreApproval
 pagination_label: AccessRequestPreApproval
 sidebar_label: AccessRequestPreApproval
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestPreApproval', 'AccessRequestPreApproval'] 
-slug: /tools/sdk/go//models/access-request-pre-approval
-tags: ['SDK', 'Software Development Kit', 'AccessRequestPreApproval', 'AccessRequestPreApproval']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestPreApproval', 'V2025AccessRequestPreApproval'] 
+slug: /tools/sdk/go/v2025/models/access-request-pre-approval
+tags: ['SDK', 'Software Development Kit', 'AccessRequestPreApproval', 'V2025AccessRequestPreApproval']
 ---
 
 # AccessRequestPreApproval

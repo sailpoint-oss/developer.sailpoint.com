@@ -1,12 +1,12 @@
 ---
-id: dimension-ref
+id: v2025-dimension-ref
 title: DimensionRef
 pagination_label: DimensionRef
 sidebar_label: DimensionRef
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DimensionRef', 'DimensionRef'] 
-slug: /tools/sdk/go//models/dimension-ref
-tags: ['SDK', 'Software Development Kit', 'DimensionRef', 'DimensionRef']
+keywords: ['go', 'Golang', 'sdk', 'DimensionRef', 'V2025DimensionRef'] 
+slug: /tools/sdk/go/v2025/models/dimension-ref
+tags: ['SDK', 'Software Development Kit', 'DimensionRef', 'V2025DimensionRef']
 ---
 
 # DimensionRef

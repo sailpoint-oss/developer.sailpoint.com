@@ -1,12 +1,12 @@
 ---
-id: identity-history-response
+id: v2025-identity-history-response
 title: IdentityHistoryResponse
 pagination_label: IdentityHistoryResponse
 sidebar_label: IdentityHistoryResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityHistoryResponse', 'IdentityHistoryResponse'] 
-slug: /tools/sdk/go//models/identity-history-response
-tags: ['SDK', 'Software Development Kit', 'IdentityHistoryResponse', 'IdentityHistoryResponse']
+keywords: ['go', 'Golang', 'sdk', 'IdentityHistoryResponse', 'V2025IdentityHistoryResponse'] 
+slug: /tools/sdk/go/v2025/models/identity-history-response
+tags: ['SDK', 'Software Development Kit', 'IdentityHistoryResponse', 'V2025IdentityHistoryResponse']
 ---
 
 # IdentityHistoryResponse

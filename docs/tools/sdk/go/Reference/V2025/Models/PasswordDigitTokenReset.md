@@ -1,12 +1,12 @@
 ---
-id: password-digit-token-reset
+id: v2025-password-digit-token-reset
 title: PasswordDigitTokenReset
 pagination_label: PasswordDigitTokenReset
 sidebar_label: PasswordDigitTokenReset
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PasswordDigitTokenReset', 'PasswordDigitTokenReset'] 
-slug: /tools/sdk/go//models/password-digit-token-reset
-tags: ['SDK', 'Software Development Kit', 'PasswordDigitTokenReset', 'PasswordDigitTokenReset']
+keywords: ['go', 'Golang', 'sdk', 'PasswordDigitTokenReset', 'V2025PasswordDigitTokenReset'] 
+slug: /tools/sdk/go/v2025/models/password-digit-token-reset
+tags: ['SDK', 'Software Development Kit', 'PasswordDigitTokenReset', 'V2025PasswordDigitTokenReset']
 ---
 
 # PasswordDigitTokenReset

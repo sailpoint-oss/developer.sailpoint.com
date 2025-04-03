@@ -1,12 +1,12 @@
 ---
-id: object-mapping-bulk-patch-response
+id: v2025-object-mapping-bulk-patch-response
 title: ObjectMappingBulkPatchResponse
 pagination_label: ObjectMappingBulkPatchResponse
 sidebar_label: ObjectMappingBulkPatchResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ObjectMappingBulkPatchResponse', 'ObjectMappingBulkPatchResponse'] 
-slug: /tools/sdk/go//models/object-mapping-bulk-patch-response
-tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkPatchResponse', 'ObjectMappingBulkPatchResponse']
+keywords: ['go', 'Golang', 'sdk', 'ObjectMappingBulkPatchResponse', 'V2025ObjectMappingBulkPatchResponse'] 
+slug: /tools/sdk/go/v2025/models/object-mapping-bulk-patch-response
+tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkPatchResponse', 'V2025ObjectMappingBulkPatchResponse']
 ---
 
 # ObjectMappingBulkPatchResponse

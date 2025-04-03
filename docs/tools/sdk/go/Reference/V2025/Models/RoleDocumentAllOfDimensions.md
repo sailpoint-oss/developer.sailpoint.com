@@ -1,12 +1,12 @@
 ---
-id: role-document-all-of-dimensions
+id: v2025-role-document-all-of-dimensions
 title: RoleDocumentAllOfDimensions
 pagination_label: RoleDocumentAllOfDimensions
 sidebar_label: RoleDocumentAllOfDimensions
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleDocumentAllOfDimensions', 'RoleDocumentAllOfDimensions'] 
-slug: /tools/sdk/go//models/role-document-all-of-dimensions
-tags: ['SDK', 'Software Development Kit', 'RoleDocumentAllOfDimensions', 'RoleDocumentAllOfDimensions']
+keywords: ['go', 'Golang', 'sdk', 'RoleDocumentAllOfDimensions', 'V2025RoleDocumentAllOfDimensions'] 
+slug: /tools/sdk/go/v2025/models/role-document-all-of-dimensions
+tags: ['SDK', 'Software Development Kit', 'RoleDocumentAllOfDimensions', 'V2025RoleDocumentAllOfDimensions']
 ---
 
 # RoleDocumentAllOfDimensions

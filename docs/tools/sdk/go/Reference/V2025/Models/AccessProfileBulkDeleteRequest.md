@@ -1,12 +1,12 @@
 ---
-id: access-profile-bulk-delete-request
+id: v2025-access-profile-bulk-delete-request
 title: AccessProfileBulkDeleteRequest
 pagination_label: AccessProfileBulkDeleteRequest
 sidebar_label: AccessProfileBulkDeleteRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessProfileBulkDeleteRequest', 'AccessProfileBulkDeleteRequest'] 
-slug: /tools/sdk/go//models/access-profile-bulk-delete-request
-tags: ['SDK', 'Software Development Kit', 'AccessProfileBulkDeleteRequest', 'AccessProfileBulkDeleteRequest']
+keywords: ['go', 'Golang', 'sdk', 'AccessProfileBulkDeleteRequest', 'V2025AccessProfileBulkDeleteRequest'] 
+slug: /tools/sdk/go/v2025/models/access-profile-bulk-delete-request
+tags: ['SDK', 'Software Development Kit', 'AccessProfileBulkDeleteRequest', 'V2025AccessProfileBulkDeleteRequest']
 ---
 
 # AccessProfileBulkDeleteRequest

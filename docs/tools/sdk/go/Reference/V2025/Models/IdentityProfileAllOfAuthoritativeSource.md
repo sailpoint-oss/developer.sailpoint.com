@@ -1,12 +1,12 @@
 ---
-id: identity-profile-all-of-authoritative-source
+id: v2025-identity-profile-all-of-authoritative-source
 title: IdentityProfileAllOfAuthoritativeSource
 pagination_label: IdentityProfileAllOfAuthoritativeSource
 sidebar_label: IdentityProfileAllOfAuthoritativeSource
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityProfileAllOfAuthoritativeSource', 'IdentityProfileAllOfAuthoritativeSource'] 
-slug: /tools/sdk/go//models/identity-profile-all-of-authoritative-source
-tags: ['SDK', 'Software Development Kit', 'IdentityProfileAllOfAuthoritativeSource', 'IdentityProfileAllOfAuthoritativeSource']
+keywords: ['go', 'Golang', 'sdk', 'IdentityProfileAllOfAuthoritativeSource', 'V2025IdentityProfileAllOfAuthoritativeSource'] 
+slug: /tools/sdk/go/v2025/models/identity-profile-all-of-authoritative-source
+tags: ['SDK', 'Software Development Kit', 'IdentityProfileAllOfAuthoritativeSource', 'V2025IdentityProfileAllOfAuthoritativeSource']
 ---
 
 # IdentityProfileAllOfAuthoritativeSource

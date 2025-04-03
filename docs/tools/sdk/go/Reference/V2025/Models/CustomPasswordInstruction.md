@@ -1,12 +1,12 @@
 ---
-id: custom-password-instruction
+id: v2025-custom-password-instruction
 title: CustomPasswordInstruction
 pagination_label: CustomPasswordInstruction
 sidebar_label: CustomPasswordInstruction
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CustomPasswordInstruction', 'CustomPasswordInstruction'] 
-slug: /tools/sdk/go//models/custom-password-instruction
-tags: ['SDK', 'Software Development Kit', 'CustomPasswordInstruction', 'CustomPasswordInstruction']
+keywords: ['go', 'Golang', 'sdk', 'CustomPasswordInstruction', 'V2025CustomPasswordInstruction'] 
+slug: /tools/sdk/go/v2025/models/custom-password-instruction
+tags: ['SDK', 'Software Development Kit', 'CustomPasswordInstruction', 'V2025CustomPasswordInstruction']
 ---
 
 # CustomPasswordInstruction

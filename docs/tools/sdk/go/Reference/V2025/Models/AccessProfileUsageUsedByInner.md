@@ -1,12 +1,12 @@
 ---
-id: access-profile-usage-used-by-inner
+id: v2025-access-profile-usage-used-by-inner
 title: AccessProfileUsageUsedByInner
 pagination_label: AccessProfileUsageUsedByInner
 sidebar_label: AccessProfileUsageUsedByInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessProfileUsageUsedByInner', 'AccessProfileUsageUsedByInner'] 
-slug: /tools/sdk/go//models/access-profile-usage-used-by-inner
-tags: ['SDK', 'Software Development Kit', 'AccessProfileUsageUsedByInner', 'AccessProfileUsageUsedByInner']
+keywords: ['go', 'Golang', 'sdk', 'AccessProfileUsageUsedByInner', 'V2025AccessProfileUsageUsedByInner'] 
+slug: /tools/sdk/go/v2025/models/access-profile-usage-used-by-inner
+tags: ['SDK', 'Software Development Kit', 'AccessProfileUsageUsedByInner', 'V2025AccessProfileUsageUsedByInner']
 ---
 
 # AccessProfileUsageUsedByInner

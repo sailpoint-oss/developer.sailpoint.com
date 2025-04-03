@@ -1,12 +1,12 @@
 ---
-id: role-criteria-level3
+id: v2025-role-criteria-level3
 title: RoleCriteriaLevel3
 pagination_label: RoleCriteriaLevel3
 sidebar_label: RoleCriteriaLevel3
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleCriteriaLevel3', 'RoleCriteriaLevel3'] 
-slug: /tools/sdk/go//models/role-criteria-level3
-tags: ['SDK', 'Software Development Kit', 'RoleCriteriaLevel3', 'RoleCriteriaLevel3']
+keywords: ['go', 'Golang', 'sdk', 'RoleCriteriaLevel3', 'V2025RoleCriteriaLevel3'] 
+slug: /tools/sdk/go/v2025/models/role-criteria-level3
+tags: ['SDK', 'Software Development Kit', 'RoleCriteriaLevel3', 'V2025RoleCriteriaLevel3']
 ---
 
 # RoleCriteriaLevel3

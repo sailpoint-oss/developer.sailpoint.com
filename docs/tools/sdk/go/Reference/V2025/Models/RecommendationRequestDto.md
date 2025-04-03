@@ -1,12 +1,12 @@
 ---
-id: recommendation-request-dto
+id: v2025-recommendation-request-dto
 title: RecommendationRequestDto
 pagination_label: RecommendationRequestDto
 sidebar_label: RecommendationRequestDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RecommendationRequestDto', 'RecommendationRequestDto'] 
-slug: /tools/sdk/go//models/recommendation-request-dto
-tags: ['SDK', 'Software Development Kit', 'RecommendationRequestDto', 'RecommendationRequestDto']
+keywords: ['go', 'Golang', 'sdk', 'RecommendationRequestDto', 'V2025RecommendationRequestDto'] 
+slug: /tools/sdk/go/v2025/models/recommendation-request-dto
+tags: ['SDK', 'Software Development Kit', 'RecommendationRequestDto', 'V2025RecommendationRequestDto']
 ---
 
 # RecommendationRequestDto

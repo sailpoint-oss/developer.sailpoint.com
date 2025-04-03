@@ -1,12 +1,12 @@
 ---
-id: recommendation-response
+id: v2025-recommendation-response
 title: RecommendationResponse
 pagination_label: RecommendationResponse
 sidebar_label: RecommendationResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RecommendationResponse', 'RecommendationResponse'] 
-slug: /tools/sdk/go//models/recommendation-response
-tags: ['SDK', 'Software Development Kit', 'RecommendationResponse', 'RecommendationResponse']
+keywords: ['go', 'Golang', 'sdk', 'RecommendationResponse', 'V2025RecommendationResponse'] 
+slug: /tools/sdk/go/v2025/models/recommendation-response
+tags: ['SDK', 'Software Development Kit', 'RecommendationResponse', 'V2025RecommendationResponse']
 ---
 
 # RecommendationResponse

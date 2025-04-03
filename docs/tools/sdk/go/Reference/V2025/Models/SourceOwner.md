@@ -1,12 +1,12 @@
 ---
-id: source-owner
+id: v2025-source-owner
 title: SourceOwner
 pagination_label: SourceOwner
 sidebar_label: SourceOwner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceOwner', 'SourceOwner'] 
-slug: /tools/sdk/go//models/source-owner
-tags: ['SDK', 'Software Development Kit', 'SourceOwner', 'SourceOwner']
+keywords: ['go', 'Golang', 'sdk', 'SourceOwner', 'V2025SourceOwner'] 
+slug: /tools/sdk/go/v2025/models/source-owner
+tags: ['SDK', 'Software Development Kit', 'SourceOwner', 'V2025SourceOwner']
 ---
 
 # SourceOwner

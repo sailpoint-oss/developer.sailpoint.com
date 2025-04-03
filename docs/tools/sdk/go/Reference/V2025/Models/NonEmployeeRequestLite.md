@@ -1,12 +1,12 @@
 ---
-id: non-employee-request-lite
+id: v2025-non-employee-request-lite
 title: NonEmployeeRequestLite
 pagination_label: NonEmployeeRequestLite
 sidebar_label: NonEmployeeRequestLite
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NonEmployeeRequestLite', 'NonEmployeeRequestLite'] 
-slug: /tools/sdk/go//models/non-employee-request-lite
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeRequestLite', 'NonEmployeeRequestLite']
+keywords: ['go', 'Golang', 'sdk', 'NonEmployeeRequestLite', 'V2025NonEmployeeRequestLite'] 
+slug: /tools/sdk/go/v2025/models/non-employee-request-lite
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeRequestLite', 'V2025NonEmployeeRequestLite']
 ---
 
 # NonEmployeeRequestLite

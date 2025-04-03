@@ -1,12 +1,12 @@
 ---
-id: validate-filter-output-dto
+id: v2025-validate-filter-output-dto
 title: ValidateFilterOutputDto
 pagination_label: ValidateFilterOutputDto
 sidebar_label: ValidateFilterOutputDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ValidateFilterOutputDto', 'ValidateFilterOutputDto'] 
-slug: /tools/sdk/go//models/validate-filter-output-dto
-tags: ['SDK', 'Software Development Kit', 'ValidateFilterOutputDto', 'ValidateFilterOutputDto']
+keywords: ['go', 'Golang', 'sdk', 'ValidateFilterOutputDto', 'V2025ValidateFilterOutputDto'] 
+slug: /tools/sdk/go/v2025/models/validate-filter-output-dto
+tags: ['SDK', 'Software Development Kit', 'ValidateFilterOutputDto', 'V2025ValidateFilterOutputDto']
 ---
 
 # ValidateFilterOutputDto

@@ -1,12 +1,12 @@
 ---
-id: scheduled-search
+id: v2025-scheduled-search
 title: ScheduledSearch
 pagination_label: ScheduledSearch
 sidebar_label: ScheduledSearch
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ScheduledSearch', 'ScheduledSearch'] 
-slug: /tools/sdk/go//methods/scheduled-search
-tags: ['SDK', 'Software Development Kit', 'ScheduledSearch', 'ScheduledSearch']
+keywords: ['go', 'Golang', 'sdk', 'ScheduledSearch', 'V2025ScheduledSearch'] 
+slug: /tools/sdk/go/v2025/methods/scheduled-search
+tags: ['SDK', 'Software Development Kit', 'ScheduledSearch', 'V2025ScheduledSearch']
 ---
 
 # ScheduledSearchAPI
@@ -54,7 +54,7 @@ Create a new scheduled search
 Creates a new scheduled search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-scheduled-search)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-scheduled-search)
 
 ### Path Parameters
 
@@ -87,7 +87,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -96,7 +96,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ScheduledSearchAPI.CreateScheduledSearch(context.Background()).CreateScheduledSearchRequest(createScheduledSearchRequest).Execute()
+	resp, r, err := apiClient.V2025.ScheduledSearchAPI.CreateScheduledSearch(context.Background()).CreateScheduledSearchRequest(createScheduledSearchRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ScheduledSearchAPI.CreateScheduledSearch``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -113,7 +113,7 @@ Delete a Scheduled Search
 Deletes the specified scheduled search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-scheduled-search)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-scheduled-search)
 
 ### Path Parameters
 
@@ -150,7 +150,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -159,7 +159,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..ScheduledSearchAPI.DeleteScheduledSearch(context.Background(), id).Execute()
+	r, err := apiClient.V2025.ScheduledSearchAPI.DeleteScheduledSearch(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ScheduledSearchAPI.DeleteScheduledSearch``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -173,7 +173,7 @@ func main() {
 Get a Scheduled Search
 Returns the specified scheduled search.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-scheduled-search)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-scheduled-search)
 
 ### Path Parameters
 
@@ -210,7 +210,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -219,7 +219,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ScheduledSearchAPI.GetScheduledSearch(context.Background(), id).Execute()
+	resp, r, err := apiClient.V2025.ScheduledSearchAPI.GetScheduledSearch(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ScheduledSearchAPI.GetScheduledSearch``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -236,7 +236,7 @@ List scheduled searches
 Returns a list of scheduled searches.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-scheduled-search)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-scheduled-search)
 
 ### Path Parameters
 
@@ -272,7 +272,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -284,7 +284,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ScheduledSearchAPI.ListScheduledSearch(context.Background()).Offset(offset).Limit(limit).Count(count).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.ScheduledSearchAPI.ListScheduledSearch(context.Background()).Offset(offset).Limit(limit).Count(count).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ScheduledSearchAPI.ListScheduledSearch``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -301,7 +301,7 @@ Unsubscribe a recipient from Scheduled Search
 Unsubscribes a recipient from the specified scheduled search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//unsubscribe-scheduled-search)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/unsubscribe-scheduled-search)
 
 ### Path Parameters
 
@@ -339,7 +339,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -352,7 +352,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..ScheduledSearchAPI.UnsubscribeScheduledSearch(context.Background(), id).TypedReference(typedReference).Execute()
+	r, err := apiClient.V2025.ScheduledSearchAPI.UnsubscribeScheduledSearch(context.Background(), id).TypedReference(typedReference).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ScheduledSearchAPI.UnsubscribeScheduledSearch``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -367,7 +367,7 @@ Update an existing Scheduled Search
 Updates an existing scheduled search.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-scheduled-search)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-scheduled-search)
 
 ### Path Parameters
 
@@ -405,7 +405,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -505,7 +505,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..ScheduledSearchAPI.UpdateScheduledSearch(context.Background(), id).ScheduledSearch(scheduledSearch).Execute()
+	resp, r, err := apiClient.V2025.ScheduledSearchAPI.UpdateScheduledSearch(context.Background(), id).ScheduledSearch(scheduledSearch).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ScheduledSearchAPI.UpdateScheduledSearch``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

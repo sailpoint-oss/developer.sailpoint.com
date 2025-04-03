@@ -1,12 +1,12 @@
 ---
-id: identity-sync-job
+id: v2025-identity-sync-job
 title: IdentitySyncJob
 pagination_label: IdentitySyncJob
 sidebar_label: IdentitySyncJob
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentitySyncJob', 'IdentitySyncJob'] 
-slug: /tools/sdk/go//models/identity-sync-job
-tags: ['SDK', 'Software Development Kit', 'IdentitySyncJob', 'IdentitySyncJob']
+keywords: ['go', 'Golang', 'sdk', 'IdentitySyncJob', 'V2025IdentitySyncJob'] 
+slug: /tools/sdk/go/v2025/models/identity-sync-job
+tags: ['SDK', 'Software Development Kit', 'IdentitySyncJob', 'V2025IdentitySyncJob']
 ---
 
 # IdentitySyncJob

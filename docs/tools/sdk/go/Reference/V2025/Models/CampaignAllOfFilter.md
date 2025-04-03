@@ -1,12 +1,12 @@
 ---
-id: campaign-all-of-filter
+id: v2025-campaign-all-of-filter
 title: CampaignAllOfFilter
 pagination_label: CampaignAllOfFilter
 sidebar_label: CampaignAllOfFilter
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CampaignAllOfFilter', 'CampaignAllOfFilter'] 
-slug: /tools/sdk/go//models/campaign-all-of-filter
-tags: ['SDK', 'Software Development Kit', 'CampaignAllOfFilter', 'CampaignAllOfFilter']
+keywords: ['go', 'Golang', 'sdk', 'CampaignAllOfFilter', 'V2025CampaignAllOfFilter'] 
+slug: /tools/sdk/go/v2025/models/campaign-all-of-filter
+tags: ['SDK', 'Software Development Kit', 'CampaignAllOfFilter', 'V2025CampaignAllOfFilter']
 ---
 
 # CampaignAllOfFilter

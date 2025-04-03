@@ -1,12 +1,12 @@
 ---
-id: source-usage-status
+id: v2025-source-usage-status
 title: SourceUsageStatus
 pagination_label: SourceUsageStatus
 sidebar_label: SourceUsageStatus
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceUsageStatus', 'SourceUsageStatus'] 
-slug: /tools/sdk/go//models/source-usage-status
-tags: ['SDK', 'Software Development Kit', 'SourceUsageStatus', 'SourceUsageStatus']
+keywords: ['go', 'Golang', 'sdk', 'SourceUsageStatus', 'V2025SourceUsageStatus'] 
+slug: /tools/sdk/go/v2025/models/source-usage-status
+tags: ['SDK', 'Software Development Kit', 'SourceUsageStatus', 'V2025SourceUsageStatus']
 ---
 
 # SourceUsageStatus

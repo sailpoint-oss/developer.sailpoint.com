@@ -1,12 +1,12 @@
 ---
-id: auth-profile
+id: v2025-auth-profile
 title: AuthProfile
 pagination_label: AuthProfile
 sidebar_label: AuthProfile
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AuthProfile', 'AuthProfile'] 
-slug: /tools/sdk/go//methods/auth-profile
-tags: ['SDK', 'Software Development Kit', 'AuthProfile', 'AuthProfile']
+keywords: ['go', 'Golang', 'sdk', 'AuthProfile', 'V2025AuthProfile'] 
+slug: /tools/sdk/go/v2025/methods/auth-profile
+tags: ['SDK', 'Software Development Kit', 'AuthProfile', 'V2025AuthProfile']
 ---
 
 # AuthProfileAPI
@@ -41,7 +41,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get Auth Profile
 This API returns auth profile information.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-profile-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-profile-config)
 
 ### Path Parameters
 
@@ -79,7 +79,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -89,7 +89,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AuthProfileAPI.GetProfileConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.AuthProfileAPI.GetProfileConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AuthProfileAPI.GetProfileConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -116,7 +116,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get list of Auth Profiles
 This API returns a list of auth profiles.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-profile-config-list)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-profile-config-list)
 
 ### Path Parameters
 
@@ -149,7 +149,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -158,7 +158,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AuthProfileAPI.GetProfileConfigList(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.AuthProfileAPI.GetProfileConfigList(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AuthProfileAPI.GetProfileConfigList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -186,7 +186,7 @@ Patch a specified Auth Profile
 This API updates an existing Auth Profile. The following fields are patchable:
 **offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-profile-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-profile-config)
 
 ### Path Parameters
 
@@ -225,7 +225,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -236,7 +236,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AuthProfileAPI.PatchProfileConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
+	resp, r, err := apiClient.V2025.AuthProfileAPI.PatchProfileConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AuthProfileAPI.PatchProfileConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

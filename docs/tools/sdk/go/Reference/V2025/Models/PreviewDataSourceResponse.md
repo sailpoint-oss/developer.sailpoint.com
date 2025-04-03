@@ -1,12 +1,12 @@
 ---
-id: preview-data-source-response
+id: v2025-preview-data-source-response
 title: PreviewDataSourceResponse
 pagination_label: PreviewDataSourceResponse
 sidebar_label: PreviewDataSourceResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PreviewDataSourceResponse', 'PreviewDataSourceResponse'] 
-slug: /tools/sdk/go//models/preview-data-source-response
-tags: ['SDK', 'Software Development Kit', 'PreviewDataSourceResponse', 'PreviewDataSourceResponse']
+keywords: ['go', 'Golang', 'sdk', 'PreviewDataSourceResponse', 'V2025PreviewDataSourceResponse'] 
+slug: /tools/sdk/go/v2025/models/preview-data-source-response
+tags: ['SDK', 'Software Development Kit', 'PreviewDataSourceResponse', 'V2025PreviewDataSourceResponse']
 ---
 
 # PreviewDataSourceResponse

@@ -1,12 +1,12 @@
 ---
-id: user-app-owner
+id: v2025-user-app-owner
 title: UserAppOwner
 pagination_label: UserAppOwner
 sidebar_label: UserAppOwner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'UserAppOwner', 'UserAppOwner'] 
-slug: /tools/sdk/go//models/user-app-owner
-tags: ['SDK', 'Software Development Kit', 'UserAppOwner', 'UserAppOwner']
+keywords: ['go', 'Golang', 'sdk', 'UserAppOwner', 'V2025UserAppOwner'] 
+slug: /tools/sdk/go/v2025/models/user-app-owner
+tags: ['SDK', 'Software Development Kit', 'UserAppOwner', 'V2025UserAppOwner']
 ---
 
 # UserAppOwner

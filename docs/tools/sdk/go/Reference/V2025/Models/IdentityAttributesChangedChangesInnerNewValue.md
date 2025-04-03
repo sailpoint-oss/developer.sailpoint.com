@@ -1,12 +1,12 @@
 ---
-id: identity-attributes-changed-changes-inner-new-value
+id: v2025-identity-attributes-changed-changes-inner-new-value
 title: IdentityAttributesChangedChangesInnerNewValue
 pagination_label: IdentityAttributesChangedChangesInnerNewValue
 sidebar_label: IdentityAttributesChangedChangesInnerNewValue
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityAttributesChangedChangesInnerNewValue', 'IdentityAttributesChangedChangesInnerNewValue'] 
-slug: /tools/sdk/go//models/identity-attributes-changed-changes-inner-new-value
-tags: ['SDK', 'Software Development Kit', 'IdentityAttributesChangedChangesInnerNewValue', 'IdentityAttributesChangedChangesInnerNewValue']
+keywords: ['go', 'Golang', 'sdk', 'IdentityAttributesChangedChangesInnerNewValue', 'V2025IdentityAttributesChangedChangesInnerNewValue'] 
+slug: /tools/sdk/go/v2025/models/identity-attributes-changed-changes-inner-new-value
+tags: ['SDK', 'Software Development Kit', 'IdentityAttributesChangedChangesInnerNewValue', 'V2025IdentityAttributesChangedChangesInnerNewValue']
 ---
 
 # IdentityAttributesChangedChangesInnerNewValue

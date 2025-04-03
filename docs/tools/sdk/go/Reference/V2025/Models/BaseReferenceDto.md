@@ -1,12 +1,12 @@
 ---
-id: base-reference-dto
+id: v2025-base-reference-dto
 title: BaseReferenceDto
 pagination_label: BaseReferenceDto
 sidebar_label: BaseReferenceDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'BaseReferenceDto', 'BaseReferenceDto'] 
-slug: /tools/sdk/go//models/base-reference-dto
-tags: ['SDK', 'Software Development Kit', 'BaseReferenceDto', 'BaseReferenceDto']
+keywords: ['go', 'Golang', 'sdk', 'BaseReferenceDto', 'V2025BaseReferenceDto'] 
+slug: /tools/sdk/go/v2025/models/base-reference-dto
+tags: ['SDK', 'Software Development Kit', 'BaseReferenceDto', 'V2025BaseReferenceDto']
 ---
 
 # BaseReferenceDto

@@ -1,12 +1,12 @@
 ---
-id: reviewable-entitlement-account
+id: v2025-reviewable-entitlement-account
 title: ReviewableEntitlementAccount
 pagination_label: ReviewableEntitlementAccount
 sidebar_label: ReviewableEntitlementAccount
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ReviewableEntitlementAccount', 'ReviewableEntitlementAccount'] 
-slug: /tools/sdk/go//models/reviewable-entitlement-account
-tags: ['SDK', 'Software Development Kit', 'ReviewableEntitlementAccount', 'ReviewableEntitlementAccount']
+keywords: ['go', 'Golang', 'sdk', 'ReviewableEntitlementAccount', 'V2025ReviewableEntitlementAccount'] 
+slug: /tools/sdk/go/v2025/models/reviewable-entitlement-account
+tags: ['SDK', 'Software Development Kit', 'ReviewableEntitlementAccount', 'V2025ReviewableEntitlementAccount']
 ---
 
 # ReviewableEntitlementAccount

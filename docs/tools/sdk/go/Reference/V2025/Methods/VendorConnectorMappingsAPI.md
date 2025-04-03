@@ -1,12 +1,12 @@
 ---
-id: vendor-connector-mappings
+id: v2025-vendor-connector-mappings
 title: VendorConnectorMappings
 pagination_label: VendorConnectorMappings
 sidebar_label: VendorConnectorMappings
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'VendorConnectorMappings', 'VendorConnectorMappings'] 
-slug: /tools/sdk/go//methods/vendor-connector-mappings
-tags: ['SDK', 'Software Development Kit', 'VendorConnectorMappings', 'VendorConnectorMappings']
+keywords: ['go', 'Golang', 'sdk', 'VendorConnectorMappings', 'V2025VendorConnectorMappings'] 
+slug: /tools/sdk/go/v2025/methods/vendor-connector-mappings
+tags: ['SDK', 'Software Development Kit', 'VendorConnectorMappings', 'V2025VendorConnectorMappings']
 ---
 
 # VendorConnectorMappingsAPI
@@ -29,7 +29,7 @@ Create Vendor Connector Mapping
 Create a new mapping between a SaaS vendor and an ISC connector to establish correlation paths.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-vendor-connector-mapping)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-vendor-connector-mapping)
 
 ### Path Parameters
 
@@ -62,7 +62,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -93,7 +93,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..VendorConnectorMappingsAPI.CreateVendorConnectorMapping(context.Background()).VendorConnectorMapping(vendorConnectorMapping).Execute()
+	resp, r, err := apiClient.V2025.VendorConnectorMappingsAPI.CreateVendorConnectorMapping(context.Background()).VendorConnectorMapping(vendorConnectorMapping).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VendorConnectorMappingsAPI.CreateVendorConnectorMapping``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -110,7 +110,7 @@ Delete Vendor Connector Mapping
 Soft delete a mapping between a SaaS vendor and an ISC connector, removing the established correlation.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-vendor-connector-mapping)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-vendor-connector-mapping)
 
 ### Path Parameters
 
@@ -143,7 +143,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -174,7 +174,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..VendorConnectorMappingsAPI.DeleteVendorConnectorMapping(context.Background()).VendorConnectorMapping(vendorConnectorMapping).Execute()
+	resp, r, err := apiClient.V2025.VendorConnectorMappingsAPI.DeleteVendorConnectorMapping(context.Background()).VendorConnectorMapping(vendorConnectorMapping).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VendorConnectorMappingsAPI.DeleteVendorConnectorMapping``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -191,7 +191,7 @@ List Vendor Connector Mappings
 Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-vendor-connector-mappings)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-vendor-connector-mappings)
 
 ### Path Parameters
 
@@ -220,7 +220,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -228,7 +228,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..VendorConnectorMappingsAPI.GetVendorConnectorMappings(context.Background()).Execute()
+	resp, r, err := apiClient.V2025.VendorConnectorMappingsAPI.GetVendorConnectorMappings(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VendorConnectorMappingsAPI.GetVendorConnectorMappings``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

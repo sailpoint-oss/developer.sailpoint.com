@@ -1,12 +1,12 @@
 ---
-id: form-item-details
+id: v2025-form-item-details
 title: FormItemDetails
 pagination_label: FormItemDetails
 sidebar_label: FormItemDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FormItemDetails', 'FormItemDetails'] 
-slug: /tools/sdk/go//models/form-item-details
-tags: ['SDK', 'Software Development Kit', 'FormItemDetails', 'FormItemDetails']
+keywords: ['go', 'Golang', 'sdk', 'FormItemDetails', 'V2025FormItemDetails'] 
+slug: /tools/sdk/go/v2025/models/form-item-details
+tags: ['SDK', 'Software Development Kit', 'FormItemDetails', 'V2025FormItemDetails']
 ---
 
 # FormItemDetails

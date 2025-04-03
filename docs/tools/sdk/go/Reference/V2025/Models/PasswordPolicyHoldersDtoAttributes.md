@@ -1,12 +1,12 @@
 ---
-id: password-policy-holders-dto-attributes
+id: v2025-password-policy-holders-dto-attributes
 title: PasswordPolicyHoldersDtoAttributes
 pagination_label: PasswordPolicyHoldersDtoAttributes
 sidebar_label: PasswordPolicyHoldersDtoAttributes
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PasswordPolicyHoldersDtoAttributes', 'PasswordPolicyHoldersDtoAttributes'] 
-slug: /tools/sdk/go//models/password-policy-holders-dto-attributes
-tags: ['SDK', 'Software Development Kit', 'PasswordPolicyHoldersDtoAttributes', 'PasswordPolicyHoldersDtoAttributes']
+keywords: ['go', 'Golang', 'sdk', 'PasswordPolicyHoldersDtoAttributes', 'V2025PasswordPolicyHoldersDtoAttributes'] 
+slug: /tools/sdk/go/v2025/models/password-policy-holders-dto-attributes
+tags: ['SDK', 'Software Development Kit', 'PasswordPolicyHoldersDtoAttributes', 'V2025PasswordPolicyHoldersDtoAttributes']
 ---
 
 # PasswordPolicyHoldersDtoAttributes

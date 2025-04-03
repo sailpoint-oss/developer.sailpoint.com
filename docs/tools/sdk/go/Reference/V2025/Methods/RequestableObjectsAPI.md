@@ -1,12 +1,12 @@
 ---
-id: requestable-objects
+id: v2025-requestable-objects
 title: RequestableObjects
 pagination_label: RequestableObjects
 sidebar_label: RequestableObjects
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RequestableObjects', 'RequestableObjects'] 
-slug: /tools/sdk/go//methods/requestable-objects
-tags: ['SDK', 'Software Development Kit', 'RequestableObjects', 'RequestableObjects']
+keywords: ['go', 'Golang', 'sdk', 'RequestableObjects', 'V2025RequestableObjects'] 
+slug: /tools/sdk/go/v2025/methods/requestable-objects
+tags: ['SDK', 'Software Development Kit', 'RequestableObjects', 'V2025RequestableObjects']
 ---
 
 # RequestableObjectsAPI
@@ -26,7 +26,7 @@ Requestable Objects List
 Get a list of acccess items that can be requested through the [Access Request endpoints](https://developer.sailpoint.com/docs/api/v2024/access-requests). Access items are marked with `AVAILABLE`, `PENDING` or `ASSIGNED` with respect to the identity provided using `identity-id` query parameter.
 Any authenticated token can call this endpoint to see their requestable access items.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-requestable-objects)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-requestable-objects)
 
 ### Path Parameters
 
@@ -67,7 +67,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -84,7 +84,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..RequestableObjectsAPI.ListRequestableObjects(context.Background()).IdentityId(identityId).Types(types).Term(term).Statuses(statuses).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+	resp, r, err := apiClient.V2025.RequestableObjectsAPI.ListRequestableObjects(context.Background()).IdentityId(identityId).Types(types).Term(term).Statuses(statuses).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RequestableObjectsAPI.ListRequestableObjects``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -1,12 +1,12 @@
 ---
-id: array-inner
+id: v2025-array-inner
 title: ArrayInner
 pagination_label: ArrayInner
 sidebar_label: ArrayInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ArrayInner', 'ArrayInner'] 
-slug: /tools/sdk/go//models/array-inner
-tags: ['SDK', 'Software Development Kit', 'ArrayInner', 'ArrayInner']
+keywords: ['go', 'Golang', 'sdk', 'ArrayInner', 'V2025ArrayInner'] 
+slug: /tools/sdk/go/v2025/models/array-inner
+tags: ['SDK', 'Software Development Kit', 'ArrayInner', 'V2025ArrayInner']
 ---
 
 # ArrayInner

@@ -1,12 +1,12 @@
 ---
-id: create-o-auth-client-request
+id: v2025-create-o-auth-client-request
 title: CreateOAuthClientRequest
 pagination_label: CreateOAuthClientRequest
 sidebar_label: CreateOAuthClientRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CreateOAuthClientRequest', 'CreateOAuthClientRequest'] 
-slug: /tools/sdk/go//models/create-o-auth-client-request
-tags: ['SDK', 'Software Development Kit', 'CreateOAuthClientRequest', 'CreateOAuthClientRequest']
+keywords: ['go', 'Golang', 'sdk', 'CreateOAuthClientRequest', 'V2025CreateOAuthClientRequest'] 
+slug: /tools/sdk/go/v2025/models/create-o-auth-client-request
+tags: ['SDK', 'Software Development Kit', 'CreateOAuthClientRequest', 'V2025CreateOAuthClientRequest']
 ---
 
 # CreateOAuthClientRequest

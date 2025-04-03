@@ -1,12 +1,12 @@
 ---
-id: access-request-tracking
+id: v2025-access-request-tracking
 title: AccessRequestTracking
 pagination_label: AccessRequestTracking
 sidebar_label: AccessRequestTracking
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestTracking', 'AccessRequestTracking'] 
-slug: /tools/sdk/go//models/access-request-tracking
-tags: ['SDK', 'Software Development Kit', 'AccessRequestTracking', 'AccessRequestTracking']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestTracking', 'V2025AccessRequestTracking'] 
+slug: /tools/sdk/go/v2025/models/access-request-tracking
+tags: ['SDK', 'Software Development Kit', 'AccessRequestTracking', 'V2025AccessRequestTracking']
 ---
 
 # AccessRequestTracking

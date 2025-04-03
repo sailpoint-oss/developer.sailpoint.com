@@ -1,12 +1,12 @@
 ---
-id: create-form-definition-request
+id: v2025-create-form-definition-request
 title: CreateFormDefinitionRequest
 pagination_label: CreateFormDefinitionRequest
 sidebar_label: CreateFormDefinitionRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CreateFormDefinitionRequest', 'CreateFormDefinitionRequest'] 
-slug: /tools/sdk/go//models/create-form-definition-request
-tags: ['SDK', 'Software Development Kit', 'CreateFormDefinitionRequest', 'CreateFormDefinitionRequest']
+keywords: ['go', 'Golang', 'sdk', 'CreateFormDefinitionRequest', 'V2025CreateFormDefinitionRequest'] 
+slug: /tools/sdk/go/v2025/models/create-form-definition-request
+tags: ['SDK', 'Software Development Kit', 'CreateFormDefinitionRequest', 'V2025CreateFormDefinitionRequest']
 ---
 
 # CreateFormDefinitionRequest

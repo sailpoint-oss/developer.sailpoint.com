@@ -1,12 +1,12 @@
 ---
-id: expression-children-inner
+id: v2025-expression-children-inner
 title: ExpressionChildrenInner
 pagination_label: ExpressionChildrenInner
 sidebar_label: ExpressionChildrenInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ExpressionChildrenInner', 'ExpressionChildrenInner'] 
-slug: /tools/sdk/go//models/expression-children-inner
-tags: ['SDK', 'Software Development Kit', 'ExpressionChildrenInner', 'ExpressionChildrenInner']
+keywords: ['go', 'Golang', 'sdk', 'ExpressionChildrenInner', 'V2025ExpressionChildrenInner'] 
+slug: /tools/sdk/go/v2025/models/expression-children-inner
+tags: ['SDK', 'Software Development Kit', 'ExpressionChildrenInner', 'V2025ExpressionChildrenInner']
 ---
 
 # ExpressionChildrenInner

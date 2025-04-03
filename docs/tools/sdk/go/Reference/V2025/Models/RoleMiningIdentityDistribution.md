@@ -1,12 +1,12 @@
 ---
-id: role-mining-identity-distribution
+id: v2025-role-mining-identity-distribution
 title: RoleMiningIdentityDistribution
 pagination_label: RoleMiningIdentityDistribution
 sidebar_label: RoleMiningIdentityDistribution
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleMiningIdentityDistribution', 'RoleMiningIdentityDistribution'] 
-slug: /tools/sdk/go//models/role-mining-identity-distribution
-tags: ['SDK', 'Software Development Kit', 'RoleMiningIdentityDistribution', 'RoleMiningIdentityDistribution']
+keywords: ['go', 'Golang', 'sdk', 'RoleMiningIdentityDistribution', 'V2025RoleMiningIdentityDistribution'] 
+slug: /tools/sdk/go/v2025/models/role-mining-identity-distribution
+tags: ['SDK', 'Software Development Kit', 'RoleMiningIdentityDistribution', 'V2025RoleMiningIdentityDistribution']
 ---
 
 # RoleMiningIdentityDistribution

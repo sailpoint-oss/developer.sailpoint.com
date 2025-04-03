@@ -1,12 +1,12 @@
 ---
-id: identity-deleted
+id: v2025-identity-deleted
 title: IdentityDeleted
 pagination_label: IdentityDeleted
 sidebar_label: IdentityDeleted
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityDeleted', 'IdentityDeleted'] 
-slug: /tools/sdk/go//models/identity-deleted
-tags: ['SDK', 'Software Development Kit', 'IdentityDeleted', 'IdentityDeleted']
+keywords: ['go', 'Golang', 'sdk', 'IdentityDeleted', 'V2025IdentityDeleted'] 
+slug: /tools/sdk/go/v2025/models/identity-deleted
+tags: ['SDK', 'Software Development Kit', 'IdentityDeleted', 'V2025IdentityDeleted']
 ---
 
 # IdentityDeleted

@@ -1,12 +1,12 @@
 ---
-id: work-item-type-manual-work-items
+id: v2025-work-item-type-manual-work-items
 title: WorkItemTypeManualWorkItems
 pagination_label: WorkItemTypeManualWorkItems
 sidebar_label: WorkItemTypeManualWorkItems
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkItemTypeManualWorkItems', 'WorkItemTypeManualWorkItems'] 
-slug: /tools/sdk/go//models/work-item-type-manual-work-items
-tags: ['SDK', 'Software Development Kit', 'WorkItemTypeManualWorkItems', 'WorkItemTypeManualWorkItems']
+keywords: ['go', 'Golang', 'sdk', 'WorkItemTypeManualWorkItems', 'V2025WorkItemTypeManualWorkItems'] 
+slug: /tools/sdk/go/v2025/models/work-item-type-manual-work-items
+tags: ['SDK', 'Software Development Kit', 'WorkItemTypeManualWorkItems', 'V2025WorkItemTypeManualWorkItems']
 ---
 
 # WorkItemTypeManualWorkItems

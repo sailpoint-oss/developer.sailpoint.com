@@ -1,12 +1,12 @@
 ---
-id: notification-template-context
+id: v2025-notification-template-context
 title: NotificationTemplateContext
 pagination_label: NotificationTemplateContext
 sidebar_label: NotificationTemplateContext
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NotificationTemplateContext', 'NotificationTemplateContext'] 
-slug: /tools/sdk/go//models/notification-template-context
-tags: ['SDK', 'Software Development Kit', 'NotificationTemplateContext', 'NotificationTemplateContext']
+keywords: ['go', 'Golang', 'sdk', 'NotificationTemplateContext', 'V2025NotificationTemplateContext'] 
+slug: /tools/sdk/go/v2025/models/notification-template-context
+tags: ['SDK', 'Software Development Kit', 'NotificationTemplateContext', 'V2025NotificationTemplateContext']
 ---
 
 # NotificationTemplateContext

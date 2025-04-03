@@ -1,12 +1,12 @@
 ---
-id: source-sync-payload
+id: v2025-source-sync-payload
 title: SourceSyncPayload
 pagination_label: SourceSyncPayload
 sidebar_label: SourceSyncPayload
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceSyncPayload', 'SourceSyncPayload'] 
-slug: /tools/sdk/go//models/source-sync-payload
-tags: ['SDK', 'Software Development Kit', 'SourceSyncPayload', 'SourceSyncPayload']
+keywords: ['go', 'Golang', 'sdk', 'SourceSyncPayload', 'V2025SourceSyncPayload'] 
+slug: /tools/sdk/go/v2025/models/source-sync-payload
+tags: ['SDK', 'Software Development Kit', 'SourceSyncPayload', 'V2025SourceSyncPayload']
 ---
 
 # SourceSyncPayload

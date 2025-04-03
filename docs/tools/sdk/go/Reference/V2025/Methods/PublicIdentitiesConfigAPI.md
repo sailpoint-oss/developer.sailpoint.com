@@ -1,12 +1,12 @@
 ---
-id: public-identities-config
+id: v2025-public-identities-config
 title: PublicIdentitiesConfig
 pagination_label: PublicIdentitiesConfig
 sidebar_label: PublicIdentitiesConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PublicIdentitiesConfig', 'PublicIdentitiesConfig'] 
-slug: /tools/sdk/go//methods/public-identities-config
-tags: ['SDK', 'Software Development Kit', 'PublicIdentitiesConfig', 'PublicIdentitiesConfig']
+keywords: ['go', 'Golang', 'sdk', 'PublicIdentitiesConfig', 'V2025PublicIdentitiesConfig'] 
+slug: /tools/sdk/go/v2025/methods/public-identities-config
+tags: ['SDK', 'Software Development Kit', 'PublicIdentitiesConfig', 'V2025PublicIdentitiesConfig']
 ---
 
 # PublicIdentitiesConfigAPI
@@ -33,7 +33,7 @@ Method | HTTP request | Description
 Get the Public Identities Configuration
 Returns the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-public-identity-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-public-identity-config)
 
 ### Path Parameters
 
@@ -62,7 +62,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -70,7 +70,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..PublicIdentitiesConfigAPI.GetPublicIdentityConfig(context.Background()).Execute()
+	resp, r, err := apiClient.V2025.PublicIdentitiesConfigAPI.GetPublicIdentityConfig(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicIdentitiesConfigAPI.GetPublicIdentityConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -86,7 +86,7 @@ func main() {
 Update the Public Identities Configuration
 Updates the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-public-identity-config)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-public-identity-config)
 
 ### Path Parameters
 
@@ -119,7 +119,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -142,7 +142,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..PublicIdentitiesConfigAPI.UpdatePublicIdentityConfig(context.Background()).PublicIdentityConfig(publicIdentityConfig).Execute()
+	resp, r, err := apiClient.V2025.PublicIdentitiesConfigAPI.UpdatePublicIdentityConfig(context.Background()).PublicIdentityConfig(publicIdentityConfig).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PublicIdentitiesConfigAPI.UpdatePublicIdentityConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

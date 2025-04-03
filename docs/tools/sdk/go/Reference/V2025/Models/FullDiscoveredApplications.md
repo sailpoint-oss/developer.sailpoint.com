@@ -1,12 +1,12 @@
 ---
-id: full-discovered-applications
+id: v2025-full-discovered-applications
 title: FullDiscoveredApplications
 pagination_label: FullDiscoveredApplications
 sidebar_label: FullDiscoveredApplications
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FullDiscoveredApplications', 'FullDiscoveredApplications'] 
-slug: /tools/sdk/go//models/full-discovered-applications
-tags: ['SDK', 'Software Development Kit', 'FullDiscoveredApplications', 'FullDiscoveredApplications']
+keywords: ['go', 'Golang', 'sdk', 'FullDiscoveredApplications', 'V2025FullDiscoveredApplications'] 
+slug: /tools/sdk/go/v2025/models/full-discovered-applications
+tags: ['SDK', 'Software Development Kit', 'FullDiscoveredApplications', 'V2025FullDiscoveredApplications']
 ---
 
 # FullDiscoveredApplications

@@ -1,12 +1,12 @@
 ---
-id: public-identity
+id: v2025-public-identity
 title: PublicIdentity
 pagination_label: PublicIdentity
 sidebar_label: PublicIdentity
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PublicIdentity', 'PublicIdentity'] 
-slug: /tools/sdk/go//models/public-identity
-tags: ['SDK', 'Software Development Kit', 'PublicIdentity', 'PublicIdentity']
+keywords: ['go', 'Golang', 'sdk', 'PublicIdentity', 'V2025PublicIdentity'] 
+slug: /tools/sdk/go/v2025/models/public-identity
+tags: ['SDK', 'Software Development Kit', 'PublicIdentity', 'V2025PublicIdentity']
 ---
 
 # PublicIdentity

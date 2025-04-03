@@ -1,12 +1,12 @@
 ---
-id: form-definition-dynamic-schema-response
+id: v2025-form-definition-dynamic-schema-response
 title: FormDefinitionDynamicSchemaResponse
 pagination_label: FormDefinitionDynamicSchemaResponse
 sidebar_label: FormDefinitionDynamicSchemaResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FormDefinitionDynamicSchemaResponse', 'FormDefinitionDynamicSchemaResponse'] 
-slug: /tools/sdk/go//models/form-definition-dynamic-schema-response
-tags: ['SDK', 'Software Development Kit', 'FormDefinitionDynamicSchemaResponse', 'FormDefinitionDynamicSchemaResponse']
+keywords: ['go', 'Golang', 'sdk', 'FormDefinitionDynamicSchemaResponse', 'V2025FormDefinitionDynamicSchemaResponse'] 
+slug: /tools/sdk/go/v2025/models/form-definition-dynamic-schema-response
+tags: ['SDK', 'Software Development Kit', 'FormDefinitionDynamicSchemaResponse', 'V2025FormDefinitionDynamicSchemaResponse']
 ---
 
 # FormDefinitionDynamicSchemaResponse

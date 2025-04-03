@@ -1,12 +1,12 @@
 ---
-id: work-items
+id: v2025-work-items
 title: WorkItems
 pagination_label: WorkItems
 sidebar_label: WorkItems
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkItems', 'WorkItems'] 
-slug: /tools/sdk/go//models/work-items
-tags: ['SDK', 'Software Development Kit', 'WorkItems', 'WorkItems']
+keywords: ['go', 'Golang', 'sdk', 'WorkItems', 'V2025WorkItems'] 
+slug: /tools/sdk/go/v2025/models/work-items
+tags: ['SDK', 'Software Development Kit', 'WorkItems', 'V2025WorkItems']
 ---
 
 # WorkItems

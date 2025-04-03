@@ -1,12 +1,12 @@
 ---
-id: comment-dto-author
+id: v2025-comment-dto-author
 title: CommentDtoAuthor
 pagination_label: CommentDtoAuthor
 sidebar_label: CommentDtoAuthor
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CommentDtoAuthor', 'CommentDtoAuthor'] 
-slug: /tools/sdk/go//models/comment-dto-author
-tags: ['SDK', 'Software Development Kit', 'CommentDtoAuthor', 'CommentDtoAuthor']
+keywords: ['go', 'Golang', 'sdk', 'CommentDtoAuthor', 'V2025CommentDtoAuthor'] 
+slug: /tools/sdk/go/v2025/models/comment-dto-author
+tags: ['SDK', 'Software Development Kit', 'CommentDtoAuthor', 'V2025CommentDtoAuthor']
 ---
 
 # CommentDtoAuthor

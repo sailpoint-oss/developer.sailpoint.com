@@ -1,12 +1,12 @@
 ---
-id: requested-item-details
+id: v2025-requested-item-details
 title: RequestedItemDetails
 pagination_label: RequestedItemDetails
 sidebar_label: RequestedItemDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RequestedItemDetails', 'RequestedItemDetails'] 
-slug: /tools/sdk/go//models/requested-item-details
-tags: ['SDK', 'Software Development Kit', 'RequestedItemDetails', 'RequestedItemDetails']
+keywords: ['go', 'Golang', 'sdk', 'RequestedItemDetails', 'V2025RequestedItemDetails'] 
+slug: /tools/sdk/go/v2025/models/requested-item-details
+tags: ['SDK', 'Software Development Kit', 'RequestedItemDetails', 'V2025RequestedItemDetails']
 ---
 
 # RequestedItemDetails

@@ -1,12 +1,12 @@
 ---
-id: attributes-changed
+id: v2025-attributes-changed
 title: AttributesChanged
 pagination_label: AttributesChanged
 sidebar_label: AttributesChanged
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AttributesChanged', 'AttributesChanged'] 
-slug: /tools/sdk/go//models/attributes-changed
-tags: ['SDK', 'Software Development Kit', 'AttributesChanged', 'AttributesChanged']
+keywords: ['go', 'Golang', 'sdk', 'AttributesChanged', 'V2025AttributesChanged'] 
+slug: /tools/sdk/go/v2025/models/attributes-changed
+tags: ['SDK', 'Software Development Kit', 'AttributesChanged', 'V2025AttributesChanged']
 ---
 
 # AttributesChanged

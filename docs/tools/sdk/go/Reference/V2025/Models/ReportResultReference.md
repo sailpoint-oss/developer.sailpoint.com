@@ -1,12 +1,12 @@
 ---
-id: report-result-reference
+id: v2025-report-result-reference
 title: ReportResultReference
 pagination_label: ReportResultReference
 sidebar_label: ReportResultReference
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ReportResultReference', 'ReportResultReference'] 
-slug: /tools/sdk/go//models/report-result-reference
-tags: ['SDK', 'Software Development Kit', 'ReportResultReference', 'ReportResultReference']
+keywords: ['go', 'Golang', 'sdk', 'ReportResultReference', 'V2025ReportResultReference'] 
+slug: /tools/sdk/go/v2025/models/report-result-reference
+tags: ['SDK', 'Software Development Kit', 'ReportResultReference', 'V2025ReportResultReference']
 ---
 
 # ReportResultReference

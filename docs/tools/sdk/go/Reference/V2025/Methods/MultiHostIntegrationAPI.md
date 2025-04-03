@@ -1,12 +1,12 @@
 ---
-id: multi-host-integration
+id: v2025-multi-host-integration
 title: MultiHostIntegration
 pagination_label: MultiHostIntegration
 sidebar_label: MultiHostIntegration
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MultiHostIntegration', 'MultiHostIntegration'] 
-slug: /tools/sdk/go//methods/multi-host-integration
-tags: ['SDK', 'Software Development Kit', 'MultiHostIntegration', 'MultiHostIntegration']
+keywords: ['go', 'Golang', 'sdk', 'MultiHostIntegration', 'V2025MultiHostIntegration'] 
+slug: /tools/sdk/go/v2025/methods/multi-host-integration
+tags: ['SDK', 'Software Development Kit', 'MultiHostIntegration', 'V2025MultiHostIntegration']
 ---
 
 # MultiHostIntegrationAPI
@@ -39,7 +39,7 @@ This API is used to create Multi-Host Integration. Multi-host Integration holds 
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-multi-host-integration)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-multi-host-integration)
 
 ### Path Parameters
 
@@ -72,7 +72,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -106,7 +106,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..MultiHostIntegrationAPI.CreateMultiHostIntegration(context.Background()).MultiHostIntegrationsCreate(multiHostIntegrationsCreate).Execute()
+	resp, r, err := apiClient.V2025.MultiHostIntegrationAPI.CreateMultiHostIntegration(context.Background()).MultiHostIntegrationsCreate(multiHostIntegrationsCreate).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MultiHostIntegrationAPI.CreateMultiHostIntegration``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -124,7 +124,7 @@ This API is used to create sources within Multi-Host Integration. Multi-Host Int
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-sources-within-multi-host)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-sources-within-multi-host)
 
 ### Path Parameters
 
@@ -162,7 +162,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -172,7 +172,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..MultiHostIntegrationAPI.CreateSourcesWithinMultiHost(context.Background(), multihostId).MultiHostIntegrationsCreateSources(multiHostIntegrationsCreateSources).Execute()
+	r, err := apiClient.V2025.MultiHostIntegrationAPI.CreateSourcesWithinMultiHost(context.Background(), multihostId).MultiHostIntegrationsCreateSources(multiHostIntegrationsCreateSources).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MultiHostIntegrationAPI.CreateSourcesWithinMultiHost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -188,7 +188,7 @@ Delete an existing Multi-Host Integration by ID.
 
 A token with Org Admin or Multi Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-multi-host)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-multi-host)
 
 ### Path Parameters
 
@@ -225,7 +225,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -234,7 +234,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..MultiHostIntegrationAPI.DeleteMultiHost(context.Background(), multihostId).Execute()
+	r, err := apiClient.V2025.MultiHostIntegrationAPI.DeleteMultiHost(context.Background(), multihostId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MultiHostIntegrationAPI.DeleteMultiHost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -249,7 +249,7 @@ List Account-Aggregation-Groups by Multi-Host ID
 This API will return array of account aggregation groups within provided Multi-Host Integration ID.
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-acct-aggregation-groups)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-acct-aggregation-groups)
 
 ### Path Parameters
 
@@ -288,7 +288,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -299,7 +299,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..MultiHostIntegrationAPI.GetAcctAggregationGroups(context.Background(), multihostId).Offset(offset).Limit(limit).Execute()
+	resp, r, err := apiClient.V2025.MultiHostIntegrationAPI.GetAcctAggregationGroups(context.Background(), multihostId).Offset(offset).Limit(limit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MultiHostIntegrationAPI.GetAcctAggregationGroups``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -317,7 +317,7 @@ This API will return array of aggregation groups within provided Multi-Host Inte
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-entitlement-aggregation-groups)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-entitlement-aggregation-groups)
 
 ### Path Parameters
 
@@ -356,7 +356,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -367,7 +367,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..MultiHostIntegrationAPI.GetEntitlementAggregationGroups(context.Background(), multiHostId).Offset(offset).Limit(limit).Execute()
+	resp, r, err := apiClient.V2025.MultiHostIntegrationAPI.GetEntitlementAggregationGroups(context.Background(), multiHostId).Offset(offset).Limit(limit).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MultiHostIntegrationAPI.GetEntitlementAggregationGroups``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -385,7 +385,7 @@ Get an existing Multi-Host Integration.
 
 A token with Org Admin or Multi-Host Integration Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-multi-host-integrations)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-multi-host-integrations)
 
 ### Path Parameters
 
@@ -422,7 +422,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -431,7 +431,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..MultiHostIntegrationAPI.GetMultiHostIntegrations(context.Background(), multihostId).Execute()
+	resp, r, err := apiClient.V2025.MultiHostIntegrationAPI.GetMultiHostIntegrations(context.Background(), multihostId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MultiHostIntegrationAPI.GetMultiHostIntegrations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -449,7 +449,7 @@ Get a list of Multi-Host Integrations.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-multi-host-integrations-list)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-multi-host-integrations-list)
 
 ### Path Parameters
 
@@ -487,7 +487,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -501,7 +501,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..MultiHostIntegrationAPI.GetMultiHostIntegrationsList(context.Background()).Offset(offset).Limit(limit).Sorters(sorters).Filters(filters).Count(count).ForSubadmin(forSubadmin).Execute()
+	resp, r, err := apiClient.V2025.MultiHostIntegrationAPI.GetMultiHostIntegrationsList(context.Background()).Offset(offset).Limit(limit).Sorters(sorters).Filters(filters).Count(count).ForSubadmin(forSubadmin).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MultiHostIntegrationAPI.GetMultiHostIntegrationsList``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -519,7 +519,7 @@ Get a list of sources creation errors within Multi-Host Integration ID.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-multi-host-source-creation-errors)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-multi-host-source-creation-errors)
 
 ### Path Parameters
 
@@ -556,7 +556,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -565,7 +565,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..MultiHostIntegrationAPI.GetMultiHostSourceCreationErrors(context.Background(), multiHostId).Execute()
+	resp, r, err := apiClient.V2025.MultiHostIntegrationAPI.GetMultiHostSourceCreationErrors(context.Background(), multiHostId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MultiHostIntegrationAPI.GetMultiHostSourceCreationErrors``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -583,7 +583,7 @@ This API endpoint returns the current list of supported Multi-Host Integration t
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-multihost-integration-types)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-multihost-integration-types)
 
 ### Path Parameters
 
@@ -612,7 +612,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -620,7 +620,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..MultiHostIntegrationAPI.GetMultihostIntegrationTypes(context.Background()).Execute()
+	resp, r, err := apiClient.V2025.MultiHostIntegrationAPI.GetMultihostIntegrationTypes(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MultiHostIntegrationAPI.GetMultihostIntegrationTypes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -638,7 +638,7 @@ Get a list of sources within Multi-Host Integration ID.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-sources-within-multi-host)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-sources-within-multi-host)
 
 ### Path Parameters
 
@@ -680,7 +680,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -694,7 +694,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..MultiHostIntegrationAPI.GetSourcesWithinMultiHost(context.Background(), multihostId).Offset(offset).Limit(limit).Sorters(sorters).Filters(filters).Count(count).Execute()
+	resp, r, err := apiClient.V2025.MultiHostIntegrationAPI.GetSourcesWithinMultiHost(context.Background(), multihostId).Offset(offset).Limit(limit).Sorters(sorters).Filters(filters).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MultiHostIntegrationAPI.GetSourcesWithinMultiHost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -712,7 +712,7 @@ This endpoint performs a more detailed validation of the Multi-Host Integration'
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api//test-connection-multi-host-sources)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/test-connection-multi-host-sources)
 
 ### Path Parameters
 
@@ -749,7 +749,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -758,7 +758,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..MultiHostIntegrationAPI.TestConnectionMultiHostSources(context.Background(), multihostId).Execute()
+	r, err := apiClient.V2025.MultiHostIntegrationAPI.TestConnectionMultiHostSources(context.Background(), multihostId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MultiHostIntegrationAPI.TestConnectionMultiHostSources``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -774,7 +774,7 @@ This endpoint performs a more detailed validation of the source's configuration.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api//test-source-connection-multihost)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/test-source-connection-multihost)
 
 ### Path Parameters
 
@@ -813,7 +813,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -823,7 +823,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..MultiHostIntegrationAPI.TestSourceConnectionMultihost(context.Background(), multihostId, sourceId).Execute()
+	resp, r, err := apiClient.V2025.MultiHostIntegrationAPI.TestSourceConnectionMultihost(context.Background(), multihostId, sourceId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MultiHostIntegrationAPI.TestSourceConnectionMultihost``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -841,7 +841,7 @@ Update existing sources within Multi-Host Integration.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
 
-[API Spec](https://developer.sailpoint.com/docs/api//update-multi-host-sources)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-multi-host-sources)
 
 ### Path Parameters
 
@@ -879,7 +879,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -889,7 +889,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..MultiHostIntegrationAPI.UpdateMultiHostSources(context.Background(), multihostId).UpdateMultiHostSourcesRequestInner(updateMultiHostSourcesRequestInner).Execute()
+	r, err := apiClient.V2025.MultiHostIntegrationAPI.UpdateMultiHostSources(context.Background(), multihostId).UpdateMultiHostSourcesRequestInner(updateMultiHostSourcesRequestInner).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `MultiHostIntegrationAPI.UpdateMultiHostSources``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

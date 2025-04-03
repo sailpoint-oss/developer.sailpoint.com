@@ -1,12 +1,12 @@
 ---
-id: provisioning-criteria-level3
+id: v2025-provisioning-criteria-level3
 title: ProvisioningCriteriaLevel3
 pagination_label: ProvisioningCriteriaLevel3
 sidebar_label: ProvisioningCriteriaLevel3
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ProvisioningCriteriaLevel3', 'ProvisioningCriteriaLevel3'] 
-slug: /tools/sdk/go//models/provisioning-criteria-level3
-tags: ['SDK', 'Software Development Kit', 'ProvisioningCriteriaLevel3', 'ProvisioningCriteriaLevel3']
+keywords: ['go', 'Golang', 'sdk', 'ProvisioningCriteriaLevel3', 'V2025ProvisioningCriteriaLevel3'] 
+slug: /tools/sdk/go/v2025/models/provisioning-criteria-level3
+tags: ['SDK', 'Software Development Kit', 'ProvisioningCriteriaLevel3', 'V2025ProvisioningCriteriaLevel3']
 ---
 
 # ProvisioningCriteriaLevel3

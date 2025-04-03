@@ -1,12 +1,12 @@
 ---
-id: access-item-access-profile-response
+id: v2025-access-item-access-profile-response
 title: AccessItemAccessProfileResponse
 pagination_label: AccessItemAccessProfileResponse
 sidebar_label: AccessItemAccessProfileResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessItemAccessProfileResponse', 'AccessItemAccessProfileResponse'] 
-slug: /tools/sdk/go//models/access-item-access-profile-response
-tags: ['SDK', 'Software Development Kit', 'AccessItemAccessProfileResponse', 'AccessItemAccessProfileResponse']
+keywords: ['go', 'Golang', 'sdk', 'AccessItemAccessProfileResponse', 'V2025AccessItemAccessProfileResponse'] 
+slug: /tools/sdk/go/v2025/models/access-item-access-profile-response
+tags: ['SDK', 'Software Development Kit', 'AccessItemAccessProfileResponse', 'V2025AccessItemAccessProfileResponse']
 ---
 
 # AccessItemAccessProfileResponse

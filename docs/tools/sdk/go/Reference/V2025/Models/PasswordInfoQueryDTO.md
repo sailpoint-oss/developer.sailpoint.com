@@ -1,12 +1,12 @@
 ---
-id: password-info-query-dto
+id: v2025-password-info-query-dto
 title: PasswordInfoQueryDTO
 pagination_label: PasswordInfoQueryDTO
 sidebar_label: PasswordInfoQueryDTO
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PasswordInfoQueryDTO', 'PasswordInfoQueryDTO'] 
-slug: /tools/sdk/go//models/password-info-query-dto
-tags: ['SDK', 'Software Development Kit', 'PasswordInfoQueryDTO', 'PasswordInfoQueryDTO']
+keywords: ['go', 'Golang', 'sdk', 'PasswordInfoQueryDTO', 'V2025PasswordInfoQueryDTO'] 
+slug: /tools/sdk/go/v2025/models/password-info-query-dto
+tags: ['SDK', 'Software Development Kit', 'PasswordInfoQueryDTO', 'V2025PasswordInfoQueryDTO']
 ---
 
 # PasswordInfoQueryDTO

@@ -1,12 +1,12 @@
 ---
-id: template-dto
+id: v2025-template-dto
 title: TemplateDto
 pagination_label: TemplateDto
 sidebar_label: TemplateDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TemplateDto', 'TemplateDto'] 
-slug: /tools/sdk/go//models/template-dto
-tags: ['SDK', 'Software Development Kit', 'TemplateDto', 'TemplateDto']
+keywords: ['go', 'Golang', 'sdk', 'TemplateDto', 'V2025TemplateDto'] 
+slug: /tools/sdk/go/v2025/models/template-dto
+tags: ['SDK', 'Software Development Kit', 'TemplateDto', 'V2025TemplateDto']
 ---
 
 # TemplateDto

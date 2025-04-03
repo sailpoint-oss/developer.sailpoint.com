@@ -1,12 +1,12 @@
 ---
-id: workflow-definition
+id: v2025-workflow-definition
 title: WorkflowDefinition
 pagination_label: WorkflowDefinition
 sidebar_label: WorkflowDefinition
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkflowDefinition', 'WorkflowDefinition'] 
-slug: /tools/sdk/go//models/workflow-definition
-tags: ['SDK', 'Software Development Kit', 'WorkflowDefinition', 'WorkflowDefinition']
+keywords: ['go', 'Golang', 'sdk', 'WorkflowDefinition', 'V2025WorkflowDefinition'] 
+slug: /tools/sdk/go/v2025/models/workflow-definition
+tags: ['SDK', 'Software Development Kit', 'WorkflowDefinition', 'V2025WorkflowDefinition']
 ---
 
 # WorkflowDefinition

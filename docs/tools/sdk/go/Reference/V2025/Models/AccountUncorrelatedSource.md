@@ -1,12 +1,12 @@
 ---
-id: account-uncorrelated-source
+id: v2025-account-uncorrelated-source
 title: AccountUncorrelatedSource
 pagination_label: AccountUncorrelatedSource
 sidebar_label: AccountUncorrelatedSource
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountUncorrelatedSource', 'AccountUncorrelatedSource'] 
-slug: /tools/sdk/go//models/account-uncorrelated-source
-tags: ['SDK', 'Software Development Kit', 'AccountUncorrelatedSource', 'AccountUncorrelatedSource']
+keywords: ['go', 'Golang', 'sdk', 'AccountUncorrelatedSource', 'V2025AccountUncorrelatedSource'] 
+slug: /tools/sdk/go/v2025/models/account-uncorrelated-source
+tags: ['SDK', 'Software Development Kit', 'AccountUncorrelatedSource', 'V2025AccountUncorrelatedSource']
 ---
 
 # AccountUncorrelatedSource

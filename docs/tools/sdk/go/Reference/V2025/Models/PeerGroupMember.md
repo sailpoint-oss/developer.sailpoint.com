@@ -1,12 +1,12 @@
 ---
-id: peer-group-member
+id: v2025-peer-group-member
 title: PeerGroupMember
 pagination_label: PeerGroupMember
 sidebar_label: PeerGroupMember
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PeerGroupMember', 'PeerGroupMember'] 
-slug: /tools/sdk/go//models/peer-group-member
-tags: ['SDK', 'Software Development Kit', 'PeerGroupMember', 'PeerGroupMember']
+keywords: ['go', 'Golang', 'sdk', 'PeerGroupMember', 'V2025PeerGroupMember'] 
+slug: /tools/sdk/go/v2025/models/peer-group-member
+tags: ['SDK', 'Software Development Kit', 'PeerGroupMember', 'V2025PeerGroupMember']
 ---
 
 # PeerGroupMember

@@ -1,12 +1,12 @@
 ---
-id: source-cluster
+id: v2025-source-cluster
 title: SourceCluster
 pagination_label: SourceCluster
 sidebar_label: SourceCluster
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceCluster', 'SourceCluster'] 
-slug: /tools/sdk/go//models/source-cluster
-tags: ['SDK', 'Software Development Kit', 'SourceCluster', 'SourceCluster']
+keywords: ['go', 'Golang', 'sdk', 'SourceCluster', 'V2025SourceCluster'] 
+slug: /tools/sdk/go/v2025/models/source-cluster
+tags: ['SDK', 'Software Development Kit', 'SourceCluster', 'V2025SourceCluster']
 ---
 
 # SourceCluster

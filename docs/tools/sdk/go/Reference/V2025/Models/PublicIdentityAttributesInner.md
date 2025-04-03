@@ -1,12 +1,12 @@
 ---
-id: public-identity-attributes-inner
+id: v2025-public-identity-attributes-inner
 title: PublicIdentityAttributesInner
 pagination_label: PublicIdentityAttributesInner
 sidebar_label: PublicIdentityAttributesInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PublicIdentityAttributesInner', 'PublicIdentityAttributesInner'] 
-slug: /tools/sdk/go//models/public-identity-attributes-inner
-tags: ['SDK', 'Software Development Kit', 'PublicIdentityAttributesInner', 'PublicIdentityAttributesInner']
+keywords: ['go', 'Golang', 'sdk', 'PublicIdentityAttributesInner', 'V2025PublicIdentityAttributesInner'] 
+slug: /tools/sdk/go/v2025/models/public-identity-attributes-inner
+tags: ['SDK', 'Software Development Kit', 'PublicIdentityAttributesInner', 'V2025PublicIdentityAttributesInner']
 ---
 
 # PublicIdentityAttributesInner

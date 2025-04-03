@@ -1,12 +1,12 @@
 ---
-id: workgroup-dto-owner
+id: v2025-workgroup-dto-owner
 title: WorkgroupDtoOwner
 pagination_label: WorkgroupDtoOwner
 sidebar_label: WorkgroupDtoOwner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkgroupDtoOwner', 'WorkgroupDtoOwner'] 
-slug: /tools/sdk/go//models/workgroup-dto-owner
-tags: ['SDK', 'Software Development Kit', 'WorkgroupDtoOwner', 'WorkgroupDtoOwner']
+keywords: ['go', 'Golang', 'sdk', 'WorkgroupDtoOwner', 'V2025WorkgroupDtoOwner'] 
+slug: /tools/sdk/go/v2025/models/workgroup-dto-owner
+tags: ['SDK', 'Software Development Kit', 'WorkgroupDtoOwner', 'V2025WorkgroupDtoOwner']
 ---
 
 # WorkgroupDtoOwner

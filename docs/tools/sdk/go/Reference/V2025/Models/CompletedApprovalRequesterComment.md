@@ -1,12 +1,12 @@
 ---
-id: completed-approval-requester-comment
+id: v2025-completed-approval-requester-comment
 title: CompletedApprovalRequesterComment
 pagination_label: CompletedApprovalRequesterComment
 sidebar_label: CompletedApprovalRequesterComment
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CompletedApprovalRequesterComment', 'CompletedApprovalRequesterComment'] 
-slug: /tools/sdk/go//models/completed-approval-requester-comment
-tags: ['SDK', 'Software Development Kit', 'CompletedApprovalRequesterComment', 'CompletedApprovalRequesterComment']
+keywords: ['go', 'Golang', 'sdk', 'CompletedApprovalRequesterComment', 'V2025CompletedApprovalRequesterComment'] 
+slug: /tools/sdk/go/v2025/models/completed-approval-requester-comment
+tags: ['SDK', 'Software Development Kit', 'CompletedApprovalRequesterComment', 'V2025CompletedApprovalRequesterComment']
 ---
 
 # CompletedApprovalRequesterComment

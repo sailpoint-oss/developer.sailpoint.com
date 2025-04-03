@@ -1,12 +1,12 @@
 ---
-id: reassignment-reference
+id: v2025-reassignment-reference
 title: ReassignmentReference
 pagination_label: ReassignmentReference
 sidebar_label: ReassignmentReference
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ReassignmentReference', 'ReassignmentReference'] 
-slug: /tools/sdk/go//models/reassignment-reference
-tags: ['SDK', 'Software Development Kit', 'ReassignmentReference', 'ReassignmentReference']
+keywords: ['go', 'Golang', 'sdk', 'ReassignmentReference', 'V2025ReassignmentReference'] 
+slug: /tools/sdk/go/v2025/models/reassignment-reference
+tags: ['SDK', 'Software Development Kit', 'ReassignmentReference', 'V2025ReassignmentReference']
 ---
 
 # ReassignmentReference

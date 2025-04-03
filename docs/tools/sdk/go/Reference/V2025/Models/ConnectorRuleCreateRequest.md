@@ -1,12 +1,12 @@
 ---
-id: connector-rule-create-request
+id: v2025-connector-rule-create-request
 title: ConnectorRuleCreateRequest
 pagination_label: ConnectorRuleCreateRequest
 sidebar_label: ConnectorRuleCreateRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConnectorRuleCreateRequest', 'ConnectorRuleCreateRequest'] 
-slug: /tools/sdk/go//models/connector-rule-create-request
-tags: ['SDK', 'Software Development Kit', 'ConnectorRuleCreateRequest', 'ConnectorRuleCreateRequest']
+keywords: ['go', 'Golang', 'sdk', 'ConnectorRuleCreateRequest', 'V2025ConnectorRuleCreateRequest'] 
+slug: /tools/sdk/go/v2025/models/connector-rule-create-request
+tags: ['SDK', 'Software Development Kit', 'ConnectorRuleCreateRequest', 'V2025ConnectorRuleCreateRequest']
 ---
 
 # ConnectorRuleCreateRequest

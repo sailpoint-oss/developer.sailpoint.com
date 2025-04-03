@@ -1,12 +1,12 @@
 ---
-id: revocability
+id: v2025-revocability
 title: Revocability
 pagination_label: Revocability
 sidebar_label: Revocability
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Revocability', 'Revocability'] 
-slug: /tools/sdk/go//models/revocability
-tags: ['SDK', 'Software Development Kit', 'Revocability', 'Revocability']
+keywords: ['go', 'Golang', 'sdk', 'Revocability', 'V2025Revocability'] 
+slug: /tools/sdk/go/v2025/models/revocability
+tags: ['SDK', 'Software Development Kit', 'Revocability', 'V2025Revocability']
 ---
 
 # Revocability

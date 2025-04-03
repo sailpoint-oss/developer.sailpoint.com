@@ -1,12 +1,12 @@
 ---
-id: feature-value-dto
+id: v2025-feature-value-dto
 title: FeatureValueDto
 pagination_label: FeatureValueDto
 sidebar_label: FeatureValueDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FeatureValueDto', 'FeatureValueDto'] 
-slug: /tools/sdk/go//models/feature-value-dto
-tags: ['SDK', 'Software Development Kit', 'FeatureValueDto', 'FeatureValueDto']
+keywords: ['go', 'Golang', 'sdk', 'FeatureValueDto', 'V2025FeatureValueDto'] 
+slug: /tools/sdk/go/v2025/models/feature-value-dto
+tags: ['SDK', 'Software Development Kit', 'FeatureValueDto', 'V2025FeatureValueDto']
 ---
 
 # FeatureValueDto

@@ -1,12 +1,12 @@
 ---
-id: scheduled-action-payload
+id: v2025-scheduled-action-payload
 title: ScheduledActionPayload
 pagination_label: ScheduledActionPayload
 sidebar_label: ScheduledActionPayload
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ScheduledActionPayload', 'ScheduledActionPayload'] 
-slug: /tools/sdk/go//models/scheduled-action-payload
-tags: ['SDK', 'Software Development Kit', 'ScheduledActionPayload', 'ScheduledActionPayload']
+keywords: ['go', 'Golang', 'sdk', 'ScheduledActionPayload', 'V2025ScheduledActionPayload'] 
+slug: /tools/sdk/go/v2025/models/scheduled-action-payload
+tags: ['SDK', 'Software Development Kit', 'ScheduledActionPayload', 'V2025ScheduledActionPayload']
 ---
 
 # ScheduledActionPayload

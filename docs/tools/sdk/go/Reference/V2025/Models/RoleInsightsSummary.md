@@ -1,12 +1,12 @@
 ---
-id: role-insights-summary
+id: v2025-role-insights-summary
 title: RoleInsightsSummary
 pagination_label: RoleInsightsSummary
 sidebar_label: RoleInsightsSummary
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleInsightsSummary', 'RoleInsightsSummary'] 
-slug: /tools/sdk/go//models/role-insights-summary
-tags: ['SDK', 'Software Development Kit', 'RoleInsightsSummary', 'RoleInsightsSummary']
+keywords: ['go', 'Golang', 'sdk', 'RoleInsightsSummary', 'V2025RoleInsightsSummary'] 
+slug: /tools/sdk/go/v2025/models/role-insights-summary
+tags: ['SDK', 'Software Development Kit', 'RoleInsightsSummary', 'V2025RoleInsightsSummary']
 ---
 
 # RoleInsightsSummary

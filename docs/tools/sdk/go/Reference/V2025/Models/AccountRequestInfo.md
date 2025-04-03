@@ -1,12 +1,12 @@
 ---
-id: account-request-info
+id: v2025-account-request-info
 title: AccountRequestInfo
 pagination_label: AccountRequestInfo
 sidebar_label: AccountRequestInfo
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountRequestInfo', 'AccountRequestInfo'] 
-slug: /tools/sdk/go//models/account-request-info
-tags: ['SDK', 'Software Development Kit', 'AccountRequestInfo', 'AccountRequestInfo']
+keywords: ['go', 'Golang', 'sdk', 'AccountRequestInfo', 'V2025AccountRequestInfo'] 
+slug: /tools/sdk/go/v2025/models/account-request-info
+tags: ['SDK', 'Software Development Kit', 'AccountRequestInfo', 'V2025AccountRequestInfo']
 ---
 
 # AccountRequestInfo

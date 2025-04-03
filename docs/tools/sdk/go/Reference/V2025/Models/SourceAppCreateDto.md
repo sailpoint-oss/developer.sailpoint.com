@@ -1,12 +1,12 @@
 ---
-id: source-app-create-dto
+id: v2025-source-app-create-dto
 title: SourceAppCreateDto
 pagination_label: SourceAppCreateDto
 sidebar_label: SourceAppCreateDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SourceAppCreateDto', 'SourceAppCreateDto'] 
-slug: /tools/sdk/go//models/source-app-create-dto
-tags: ['SDK', 'Software Development Kit', 'SourceAppCreateDto', 'SourceAppCreateDto']
+keywords: ['go', 'Golang', 'sdk', 'SourceAppCreateDto', 'V2025SourceAppCreateDto'] 
+slug: /tools/sdk/go/v2025/models/source-app-create-dto
+tags: ['SDK', 'Software Development Kit', 'SourceAppCreateDto', 'V2025SourceAppCreateDto']
 ---
 
 # SourceAppCreateDto

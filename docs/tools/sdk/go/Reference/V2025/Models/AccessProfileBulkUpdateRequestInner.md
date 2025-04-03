@@ -1,12 +1,12 @@
 ---
-id: access-profile-bulk-update-request-inner
+id: v2025-access-profile-bulk-update-request-inner
 title: AccessProfileBulkUpdateRequestInner
 pagination_label: AccessProfileBulkUpdateRequestInner
 sidebar_label: AccessProfileBulkUpdateRequestInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessProfileBulkUpdateRequestInner', 'AccessProfileBulkUpdateRequestInner'] 
-slug: /tools/sdk/go//models/access-profile-bulk-update-request-inner
-tags: ['SDK', 'Software Development Kit', 'AccessProfileBulkUpdateRequestInner', 'AccessProfileBulkUpdateRequestInner']
+keywords: ['go', 'Golang', 'sdk', 'AccessProfileBulkUpdateRequestInner', 'V2025AccessProfileBulkUpdateRequestInner'] 
+slug: /tools/sdk/go/v2025/models/access-profile-bulk-update-request-inner
+tags: ['SDK', 'Software Development Kit', 'AccessProfileBulkUpdateRequestInner', 'V2025AccessProfileBulkUpdateRequestInner']
 ---
 
 # AccessProfileBulkUpdateRequestInner

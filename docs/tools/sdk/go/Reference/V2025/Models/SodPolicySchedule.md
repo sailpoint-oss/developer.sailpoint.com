@@ -1,12 +1,12 @@
 ---
-id: sod-policy-schedule
+id: v2025-sod-policy-schedule
 title: SodPolicySchedule
 pagination_label: SodPolicySchedule
 sidebar_label: SodPolicySchedule
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SodPolicySchedule', 'SodPolicySchedule'] 
-slug: /tools/sdk/go//models/sod-policy-schedule
-tags: ['SDK', 'Software Development Kit', 'SodPolicySchedule', 'SodPolicySchedule']
+keywords: ['go', 'Golang', 'sdk', 'SodPolicySchedule', 'V2025SodPolicySchedule'] 
+slug: /tools/sdk/go/v2025/models/sod-policy-schedule
+tags: ['SDK', 'Software Development Kit', 'SodPolicySchedule', 'V2025SodPolicySchedule']
 ---
 
 # SodPolicySchedule

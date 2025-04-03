@@ -1,12 +1,12 @@
 ---
-id: correlation-config
+id: v2025-correlation-config
 title: CorrelationConfig
 pagination_label: CorrelationConfig
 sidebar_label: CorrelationConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CorrelationConfig', 'CorrelationConfig'] 
-slug: /tools/sdk/go//models/correlation-config
-tags: ['SDK', 'Software Development Kit', 'CorrelationConfig', 'CorrelationConfig']
+keywords: ['go', 'Golang', 'sdk', 'CorrelationConfig', 'V2025CorrelationConfig'] 
+slug: /tools/sdk/go/v2025/models/correlation-config
+tags: ['SDK', 'Software Development Kit', 'CorrelationConfig', 'V2025CorrelationConfig']
 ---
 
 # CorrelationConfig

@@ -1,12 +1,12 @@
 ---
-id: account-attributes-create-attributes
+id: v2025-account-attributes-create-attributes
 title: AccountAttributesCreateAttributes
 pagination_label: AccountAttributesCreateAttributes
 sidebar_label: AccountAttributesCreateAttributes
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountAttributesCreateAttributes', 'AccountAttributesCreateAttributes'] 
-slug: /tools/sdk/go//models/account-attributes-create-attributes
-tags: ['SDK', 'Software Development Kit', 'AccountAttributesCreateAttributes', 'AccountAttributesCreateAttributes']
+keywords: ['go', 'Golang', 'sdk', 'AccountAttributesCreateAttributes', 'V2025AccountAttributesCreateAttributes'] 
+slug: /tools/sdk/go/v2025/models/account-attributes-create-attributes
+tags: ['SDK', 'Software Development Kit', 'AccountAttributesCreateAttributes', 'V2025AccountAttributesCreateAttributes']
 ---
 
 # AccountAttributesCreateAttributes

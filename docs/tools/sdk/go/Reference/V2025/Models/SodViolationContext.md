@@ -1,12 +1,12 @@
 ---
-id: sod-violation-context
+id: v2025-sod-violation-context
 title: SodViolationContext
 pagination_label: SodViolationContext
 sidebar_label: SodViolationContext
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SodViolationContext', 'SodViolationContext'] 
-slug: /tools/sdk/go//models/sod-violation-context
-tags: ['SDK', 'Software Development Kit', 'SodViolationContext', 'SodViolationContext']
+keywords: ['go', 'Golang', 'sdk', 'SodViolationContext', 'V2025SodViolationContext'] 
+slug: /tools/sdk/go/v2025/models/sod-violation-context
+tags: ['SDK', 'Software Development Kit', 'SodViolationContext', 'V2025SodViolationContext']
 ---
 
 # SodViolationContext

@@ -1,12 +1,12 @@
 ---
-id: manual-work-item-details-current-owner
+id: v2025-manual-work-item-details-current-owner
 title: ManualWorkItemDetailsCurrentOwner
 pagination_label: ManualWorkItemDetailsCurrentOwner
 sidebar_label: ManualWorkItemDetailsCurrentOwner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ManualWorkItemDetailsCurrentOwner', 'ManualWorkItemDetailsCurrentOwner'] 
-slug: /tools/sdk/go//models/manual-work-item-details-current-owner
-tags: ['SDK', 'Software Development Kit', 'ManualWorkItemDetailsCurrentOwner', 'ManualWorkItemDetailsCurrentOwner']
+keywords: ['go', 'Golang', 'sdk', 'ManualWorkItemDetailsCurrentOwner', 'V2025ManualWorkItemDetailsCurrentOwner'] 
+slug: /tools/sdk/go/v2025/models/manual-work-item-details-current-owner
+tags: ['SDK', 'Software Development Kit', 'ManualWorkItemDetailsCurrentOwner', 'V2025ManualWorkItemDetailsCurrentOwner']
 ---
 
 # ManualWorkItemDetailsCurrentOwner

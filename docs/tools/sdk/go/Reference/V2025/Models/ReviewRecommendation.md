@@ -1,12 +1,12 @@
 ---
-id: review-recommendation
+id: v2025-review-recommendation
 title: ReviewRecommendation
 pagination_label: ReviewRecommendation
 sidebar_label: ReviewRecommendation
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ReviewRecommendation', 'ReviewRecommendation'] 
-slug: /tools/sdk/go//models/review-recommendation
-tags: ['SDK', 'Software Development Kit', 'ReviewRecommendation', 'ReviewRecommendation']
+keywords: ['go', 'Golang', 'sdk', 'ReviewRecommendation', 'V2025ReviewRecommendation'] 
+slug: /tools/sdk/go/v2025/models/review-recommendation
+tags: ['SDK', 'Software Development Kit', 'ReviewRecommendation', 'V2025ReviewRecommendation']
 ---
 
 # ReviewRecommendation

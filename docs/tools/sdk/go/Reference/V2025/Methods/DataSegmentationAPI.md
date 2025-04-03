@@ -1,12 +1,12 @@
 ---
-id: data-segmentation
+id: v2025-data-segmentation
 title: DataSegmentation
 pagination_label: DataSegmentation
 sidebar_label: DataSegmentation
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DataSegmentation', 'DataSegmentation'] 
-slug: /tools/sdk/go//methods/data-segmentation
-tags: ['SDK', 'Software Development Kit', 'DataSegmentation', 'DataSegmentation']
+keywords: ['go', 'Golang', 'sdk', 'DataSegmentation', 'V2025DataSegmentation'] 
+slug: /tools/sdk/go/v2025/methods/data-segmentation
+tags: ['SDK', 'Software Development Kit', 'DataSegmentation', 'V2025DataSegmentation']
 ---
 
 # DataSegmentationAPI
@@ -32,7 +32,7 @@ Create Segment
 This API creates a segment. 
 >**Note:** Segment definitions may take time to propagate to all identities.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-data-segment)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-data-segment)
 
 ### Path Parameters
 
@@ -65,7 +65,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -74,7 +74,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..DataSegmentationAPI.CreateDataSegment(context.Background()).DataSegment(dataSegment).Execute()
+	resp, r, err := apiClient.V2025.DataSegmentationAPI.CreateDataSegment(context.Background()).DataSegment(dataSegment).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.CreateDataSegment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -101,7 +101,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Delete Segment by ID
 This API deletes the segment specified by the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-data-segment)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-data-segment)
 
 ### Path Parameters
 
@@ -140,7 +140,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -151,7 +151,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..DataSegmentationAPI.DeleteDataSegment(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Published(published).Execute()
+	r, err := apiClient.V2025.DataSegmentationAPI.DeleteDataSegment(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Published(published).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.DeleteDataSegment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -176,7 +176,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get Segment by ID
 This API returns the segment specified by the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-data-segment)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-data-segment)
 
 ### Path Parameters
 
@@ -214,7 +214,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -224,7 +224,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..DataSegmentationAPI.GetDataSegment(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.DataSegmentationAPI.GetDataSegment(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.GetDataSegment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -251,7 +251,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get SegmentMembership by Identity ID
 This API returns the segment membership specified by the given identity ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-data-segment-identity-membership)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-data-segment-identity-membership)
 
 ### Path Parameters
 
@@ -289,7 +289,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -299,7 +299,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..DataSegmentationAPI.GetDataSegmentIdentityMembership(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.DataSegmentationAPI.GetDataSegmentIdentityMembership(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.GetDataSegmentIdentityMembership``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -326,7 +326,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Is Segmentation enabled by Identity
 This API returns whether or not segmentation is enabled for the identity.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-data-segmentation-enabled-for-user)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-data-segmentation-enabled-for-user)
 
 ### Path Parameters
 
@@ -364,7 +364,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -374,7 +374,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..DataSegmentationAPI.GetDataSegmentationEnabledForUser(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.DataSegmentationAPI.GetDataSegmentationEnabledForUser(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.GetDataSegmentationEnabledForUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -401,7 +401,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get Segments
 This API returns the segment specified by the given ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-data-segments)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-data-segments)
 
 ### Path Parameters
 
@@ -441,7 +441,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -457,7 +457,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..DataSegmentationAPI.ListDataSegments(context.Background()).XSailPointExperimental(xSailPointExperimental).Enabled(enabled).Unique(unique).Published(published).Limit(limit).Offset(offset).Count(count).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.DataSegmentationAPI.ListDataSegments(context.Background()).XSailPointExperimental(xSailPointExperimental).Enabled(enabled).Unique(unique).Published(published).Limit(limit).Offset(offset).Count(count).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.ListDataSegments``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -484,7 +484,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Update Segment
 Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
-[API Spec](https://developer.sailpoint.com/docs/api//patch-data-segment)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-data-segment)
 
 ### Path Parameters
 
@@ -523,7 +523,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -534,7 +534,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..DataSegmentationAPI.PatchDataSegment(context.Background(), id).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
+	resp, r, err := apiClient.V2025.DataSegmentationAPI.PatchDataSegment(context.Background(), id).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.PatchDataSegment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -561,7 +561,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Publish segment by ID
 This will publish the segment so that it starts applying the segmentation to the desired users if enabled
 
-[API Spec](https://developer.sailpoint.com/docs/api//publish-data-segment)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/publish-data-segment)
 
 ### Path Parameters
 
@@ -596,7 +596,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -607,7 +607,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..DataSegmentationAPI.PublishDataSegment(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).PublishAll(publishAll).Execute()
+	r, err := apiClient.V2025.DataSegmentationAPI.PublishDataSegment(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).PublishAll(publishAll).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.PublishDataSegment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

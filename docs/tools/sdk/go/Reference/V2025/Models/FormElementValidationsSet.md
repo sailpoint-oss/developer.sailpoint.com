@@ -1,12 +1,12 @@
 ---
-id: form-element-validations-set
+id: v2025-form-element-validations-set
 title: FormElementValidationsSet
 pagination_label: FormElementValidationsSet
 sidebar_label: FormElementValidationsSet
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FormElementValidationsSet', 'FormElementValidationsSet'] 
-slug: /tools/sdk/go//models/form-element-validations-set
-tags: ['SDK', 'Software Development Kit', 'FormElementValidationsSet', 'FormElementValidationsSet']
+keywords: ['go', 'Golang', 'sdk', 'FormElementValidationsSet', 'V2025FormElementValidationsSet'] 
+slug: /tools/sdk/go/v2025/models/form-element-validations-set
+tags: ['SDK', 'Software Development Kit', 'FormElementValidationsSet', 'V2025FormElementValidationsSet']
 ---
 
 # FormElementValidationsSet

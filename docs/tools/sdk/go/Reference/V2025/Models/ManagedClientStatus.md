@@ -1,12 +1,12 @@
 ---
-id: managed-client-status
+id: v2025-managed-client-status
 title: ManagedClientStatus
 pagination_label: ManagedClientStatus
 sidebar_label: ManagedClientStatus
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ManagedClientStatus', 'ManagedClientStatus'] 
-slug: /tools/sdk/go//models/managed-client-status
-tags: ['SDK', 'Software Development Kit', 'ManagedClientStatus', 'ManagedClientStatus']
+keywords: ['go', 'Golang', 'sdk', 'ManagedClientStatus', 'V2025ManagedClientStatus'] 
+slug: /tools/sdk/go/v2025/models/managed-client-status
+tags: ['SDK', 'Software Development Kit', 'ManagedClientStatus', 'V2025ManagedClientStatus']
 ---
 
 # ManagedClientStatus

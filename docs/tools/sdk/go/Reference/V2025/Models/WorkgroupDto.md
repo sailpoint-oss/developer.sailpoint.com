@@ -1,12 +1,12 @@
 ---
-id: workgroup-dto
+id: v2025-workgroup-dto
 title: WorkgroupDto
 pagination_label: WorkgroupDto
 sidebar_label: WorkgroupDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkgroupDto', 'WorkgroupDto'] 
-slug: /tools/sdk/go//models/workgroup-dto
-tags: ['SDK', 'Software Development Kit', 'WorkgroupDto', 'WorkgroupDto']
+keywords: ['go', 'Golang', 'sdk', 'WorkgroupDto', 'V2025WorkgroupDto'] 
+slug: /tools/sdk/go/v2025/models/workgroup-dto
+tags: ['SDK', 'Software Development Kit', 'WorkgroupDto', 'V2025WorkgroupDto']
 ---
 
 # WorkgroupDto

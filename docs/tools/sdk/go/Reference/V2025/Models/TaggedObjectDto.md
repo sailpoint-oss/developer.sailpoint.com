@@ -1,12 +1,12 @@
 ---
-id: tagged-object-dto
+id: v2025-tagged-object-dto
 title: TaggedObjectDto
 pagination_label: TaggedObjectDto
 sidebar_label: TaggedObjectDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TaggedObjectDto', 'TaggedObjectDto'] 
-slug: /tools/sdk/go//models/tagged-object-dto
-tags: ['SDK', 'Software Development Kit', 'TaggedObjectDto', 'TaggedObjectDto']
+keywords: ['go', 'Golang', 'sdk', 'TaggedObjectDto', 'V2025TaggedObjectDto'] 
+slug: /tools/sdk/go/v2025/models/tagged-object-dto
+tags: ['SDK', 'Software Development Kit', 'TaggedObjectDto', 'V2025TaggedObjectDto']
 ---
 
 # TaggedObjectDto

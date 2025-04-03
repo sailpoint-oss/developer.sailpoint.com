@@ -1,12 +1,12 @@
 ---
-id: slim-campaign
+id: v2025-slim-campaign
 title: SlimCampaign
 pagination_label: SlimCampaign
 sidebar_label: SlimCampaign
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SlimCampaign', 'SlimCampaign'] 
-slug: /tools/sdk/go//models/slim-campaign
-tags: ['SDK', 'Software Development Kit', 'SlimCampaign', 'SlimCampaign']
+keywords: ['go', 'Golang', 'sdk', 'SlimCampaign', 'V2025SlimCampaign'] 
+slug: /tools/sdk/go/v2025/models/slim-campaign
+tags: ['SDK', 'Software Development Kit', 'SlimCampaign', 'V2025SlimCampaign']
 ---
 
 # SlimCampaign

@@ -1,12 +1,12 @@
 ---
-id: put-client-log-configuration-request
+id: v2025-put-client-log-configuration-request
 title: PutClientLogConfigurationRequest
 pagination_label: PutClientLogConfigurationRequest
 sidebar_label: PutClientLogConfigurationRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'PutClientLogConfigurationRequest', 'PutClientLogConfigurationRequest'] 
-slug: /tools/sdk/go//models/put-client-log-configuration-request
-tags: ['SDK', 'Software Development Kit', 'PutClientLogConfigurationRequest', 'PutClientLogConfigurationRequest']
+keywords: ['go', 'Golang', 'sdk', 'PutClientLogConfigurationRequest', 'V2025PutClientLogConfigurationRequest'] 
+slug: /tools/sdk/go/v2025/models/put-client-log-configuration-request
+tags: ['SDK', 'Software Development Kit', 'PutClientLogConfigurationRequest', 'V2025PutClientLogConfigurationRequest']
 ---
 
 # PutClientLogConfigurationRequest

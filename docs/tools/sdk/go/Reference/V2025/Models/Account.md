@@ -1,12 +1,12 @@
 ---
-id: account
+id: v2025-account
 title: Account
 pagination_label: Account
 sidebar_label: Account
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Account', 'Account'] 
-slug: /tools/sdk/go//models/account
-tags: ['SDK', 'Software Development Kit', 'Account', 'Account']
+keywords: ['go', 'Golang', 'sdk', 'Account', 'V2025Account'] 
+slug: /tools/sdk/go/v2025/models/account
+tags: ['SDK', 'Software Development Kit', 'Account', 'V2025Account']
 ---
 
 # Account

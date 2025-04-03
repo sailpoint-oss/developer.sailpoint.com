@@ -1,12 +1,12 @@
 ---
-id: non-employee-bulk-upload-job
+id: v2025-non-employee-bulk-upload-job
 title: NonEmployeeBulkUploadJob
 pagination_label: NonEmployeeBulkUploadJob
 sidebar_label: NonEmployeeBulkUploadJob
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'NonEmployeeBulkUploadJob', 'NonEmployeeBulkUploadJob'] 
-slug: /tools/sdk/go//models/non-employee-bulk-upload-job
-tags: ['SDK', 'Software Development Kit', 'NonEmployeeBulkUploadJob', 'NonEmployeeBulkUploadJob']
+keywords: ['go', 'Golang', 'sdk', 'NonEmployeeBulkUploadJob', 'V2025NonEmployeeBulkUploadJob'] 
+slug: /tools/sdk/go/v2025/models/non-employee-bulk-upload-job
+tags: ['SDK', 'Software Development Kit', 'NonEmployeeBulkUploadJob', 'V2025NonEmployeeBulkUploadJob']
 ---
 
 # NonEmployeeBulkUploadJob

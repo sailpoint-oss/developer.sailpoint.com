@@ -1,12 +1,12 @@
 ---
-id: managed-client
+id: v2025-managed-client
 title: ManagedClient
 pagination_label: ManagedClient
 sidebar_label: ManagedClient
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ManagedClient', 'ManagedClient'] 
-slug: /tools/sdk/go//models/managed-client
-tags: ['SDK', 'Software Development Kit', 'ManagedClient', 'ManagedClient']
+keywords: ['go', 'Golang', 'sdk', 'ManagedClient', 'V2025ManagedClient'] 
+slug: /tools/sdk/go/v2025/models/managed-client
+tags: ['SDK', 'Software Development Kit', 'ManagedClient', 'V2025ManagedClient']
 ---
 
 # ManagedClient

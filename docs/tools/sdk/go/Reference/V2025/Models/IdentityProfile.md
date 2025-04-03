@@ -1,12 +1,12 @@
 ---
-id: identity-profile
+id: v2025-identity-profile
 title: IdentityProfile
 pagination_label: IdentityProfile
 sidebar_label: IdentityProfile
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityProfile', 'IdentityProfile'] 
-slug: /tools/sdk/go//models/identity-profile
-tags: ['SDK', 'Software Development Kit', 'IdentityProfile', 'IdentityProfile']
+keywords: ['go', 'Golang', 'sdk', 'IdentityProfile', 'V2025IdentityProfile'] 
+slug: /tools/sdk/go/v2025/models/identity-profile
+tags: ['SDK', 'Software Development Kit', 'IdentityProfile', 'V2025IdentityProfile']
 ---
 
 # IdentityProfile

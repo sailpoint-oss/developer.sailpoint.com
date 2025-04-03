@@ -1,12 +1,12 @@
 ---
-id: import-object
+id: v2025-import-object
 title: ImportObject
 pagination_label: ImportObject
 sidebar_label: ImportObject
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ImportObject', 'ImportObject'] 
-slug: /tools/sdk/go//models/import-object
-tags: ['SDK', 'Software Development Kit', 'ImportObject', 'ImportObject']
+keywords: ['go', 'Golang', 'sdk', 'ImportObject', 'V2025ImportObject'] 
+slug: /tools/sdk/go/v2025/models/import-object
+tags: ['SDK', 'Software Development Kit', 'ImportObject', 'V2025ImportObject']
 ---
 
 # ImportObject

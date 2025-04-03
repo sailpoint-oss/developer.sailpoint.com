@@ -1,12 +1,12 @@
 ---
-id: object-mapping-bulk-create-request
+id: v2025-object-mapping-bulk-create-request
 title: ObjectMappingBulkCreateRequest
 pagination_label: ObjectMappingBulkCreateRequest
 sidebar_label: ObjectMappingBulkCreateRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ObjectMappingBulkCreateRequest', 'ObjectMappingBulkCreateRequest'] 
-slug: /tools/sdk/go//models/object-mapping-bulk-create-request
-tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkCreateRequest', 'ObjectMappingBulkCreateRequest']
+keywords: ['go', 'Golang', 'sdk', 'ObjectMappingBulkCreateRequest', 'V2025ObjectMappingBulkCreateRequest'] 
+slug: /tools/sdk/go/v2025/models/object-mapping-bulk-create-request
+tags: ['SDK', 'Software Development Kit', 'ObjectMappingBulkCreateRequest', 'V2025ObjectMappingBulkCreateRequest']
 ---
 
 # ObjectMappingBulkCreateRequest

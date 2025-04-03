@@ -1,12 +1,12 @@
 ---
-id: draft-response
+id: v2025-draft-response
 title: DraftResponse
 pagination_label: DraftResponse
 sidebar_label: DraftResponse
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DraftResponse', 'DraftResponse'] 
-slug: /tools/sdk/go//models/draft-response
-tags: ['SDK', 'Software Development Kit', 'DraftResponse', 'DraftResponse']
+keywords: ['go', 'Golang', 'sdk', 'DraftResponse', 'V2025DraftResponse'] 
+slug: /tools/sdk/go/v2025/models/draft-response
+tags: ['SDK', 'Software Development Kit', 'DraftResponse', 'V2025DraftResponse']
 ---
 
 # DraftResponse

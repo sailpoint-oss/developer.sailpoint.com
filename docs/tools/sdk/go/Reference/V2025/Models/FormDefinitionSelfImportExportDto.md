@@ -1,12 +1,12 @@
 ---
-id: form-definition-self-import-export-dto
+id: v2025-form-definition-self-import-export-dto
 title: FormDefinitionSelfImportExportDto
 pagination_label: FormDefinitionSelfImportExportDto
 sidebar_label: FormDefinitionSelfImportExportDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'FormDefinitionSelfImportExportDto', 'FormDefinitionSelfImportExportDto'] 
-slug: /tools/sdk/go//models/form-definition-self-import-export-dto
-tags: ['SDK', 'Software Development Kit', 'FormDefinitionSelfImportExportDto', 'FormDefinitionSelfImportExportDto']
+keywords: ['go', 'Golang', 'sdk', 'FormDefinitionSelfImportExportDto', 'V2025FormDefinitionSelfImportExportDto'] 
+slug: /tools/sdk/go/v2025/models/form-definition-self-import-export-dto
+tags: ['SDK', 'Software Development Kit', 'FormDefinitionSelfImportExportDto', 'V2025FormDefinitionSelfImportExportDto']
 ---
 
 # FormDefinitionSelfImportExportDto

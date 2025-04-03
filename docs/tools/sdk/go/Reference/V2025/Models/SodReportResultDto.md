@@ -1,12 +1,12 @@
 ---
-id: sod-report-result-dto
+id: v2025-sod-report-result-dto
 title: SodReportResultDto
 pagination_label: SodReportResultDto
 sidebar_label: SodReportResultDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SodReportResultDto', 'SodReportResultDto'] 
-slug: /tools/sdk/go//models/sod-report-result-dto
-tags: ['SDK', 'Software Development Kit', 'SodReportResultDto', 'SodReportResultDto']
+keywords: ['go', 'Golang', 'sdk', 'SodReportResultDto', 'V2025SodReportResultDto'] 
+slug: /tools/sdk/go/v2025/models/sod-report-result-dto
+tags: ['SDK', 'Software Development Kit', 'SodReportResultDto', 'V2025SodReportResultDto']
 ---
 
 # SodReportResultDto

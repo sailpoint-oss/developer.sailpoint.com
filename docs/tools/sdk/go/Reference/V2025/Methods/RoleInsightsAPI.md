@@ -1,12 +1,12 @@
 ---
-id: role-insights
+id: v2025-role-insights
 title: RoleInsights
 pagination_label: RoleInsights
 sidebar_label: RoleInsights
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleInsights', 'RoleInsights'] 
-slug: /tools/sdk/go//methods/role-insights
-tags: ['SDK', 'Software Development Kit', 'RoleInsights', 'RoleInsights']
+keywords: ['go', 'Golang', 'sdk', 'RoleInsights', 'V2025RoleInsights'] 
+slug: /tools/sdk/go/v2025/methods/role-insights
+tags: ['SDK', 'Software Development Kit', 'RoleInsights', 'V2025RoleInsights']
 ---
 
 # RoleInsightsAPI
@@ -44,7 +44,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Generate insights for roles
 Submits a create role insights request to the role insights application. At this time there are no parameters. All business roles will be processed for the customer.
 
-[API Spec](https://developer.sailpoint.com/docs/api//create-role-insight-requests)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-role-insight-requests)
 
 ### Path Parameters
 
@@ -77,7 +77,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -86,7 +86,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..RoleInsightsAPI.CreateRoleInsightRequests(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.RoleInsightsAPI.CreateRoleInsightRequests(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RoleInsightsAPI.CreateRoleInsightRequests``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -113,7 +113,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Download entitlement insights for a role
 This endpoint returns the entitlement insights for a role.
 
-[API Spec](https://developer.sailpoint.com/docs/api//download-role-insights-entitlements-changes)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/download-role-insights-entitlements-changes)
 
 ### Path Parameters
 
@@ -153,7 +153,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -165,7 +165,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..RoleInsightsAPI.DownloadRoleInsightsEntitlementsChanges(context.Background(), insightId).XSailPointExperimental(xSailPointExperimental).Sorters(sorters).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.RoleInsightsAPI.DownloadRoleInsightsEntitlementsChanges(context.Background(), insightId).XSailPointExperimental(xSailPointExperimental).Sorters(sorters).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RoleInsightsAPI.DownloadRoleInsightsEntitlementsChanges``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -192,7 +192,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get identities for a suggested entitlement (for a role)
 Role insights suggests entitlements to be added for a role. This endpoint returns a list of identities in the role, with or without the entitlements, for a suggested entitlement so that the user can see which identities would be affected if the suggested entitlement were to be added to the role.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-entitlement-changes-identities)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-entitlement-changes-identities)
 
 ### Path Parameters
 
@@ -238,7 +238,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -255,7 +255,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..RoleInsightsAPI.GetEntitlementChangesIdentities(context.Background(), insightId, entitlementId).XSailPointExperimental(xSailPointExperimental).HasEntitlement(hasEntitlement).Offset(offset).Limit(limit).Count(count).Sorters(sorters).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.RoleInsightsAPI.GetEntitlementChangesIdentities(context.Background(), insightId, entitlementId).XSailPointExperimental(xSailPointExperimental).HasEntitlement(hasEntitlement).Offset(offset).Limit(limit).Count(count).Sorters(sorters).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RoleInsightsAPI.GetEntitlementChangesIdentities``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -282,7 +282,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get a single role insight
 This endpoint gets role insights information for a role.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-role-insight)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-role-insight)
 
 ### Path Parameters
 
@@ -320,7 +320,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -330,7 +330,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..RoleInsightsAPI.GetRoleInsight(context.Background(), insightId).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.RoleInsightsAPI.GetRoleInsight(context.Background(), insightId).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RoleInsightsAPI.GetRoleInsight``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -357,7 +357,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get role insights
 This method returns detailed role insights for each role.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-role-insights)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-role-insights)
 
 ### Path Parameters
 
@@ -395,7 +395,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -409,7 +409,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..RoleInsightsAPI.GetRoleInsights(context.Background()).XSailPointExperimental(xSailPointExperimental).Offset(offset).Limit(limit).Count(count).Sorters(sorters).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.RoleInsightsAPI.GetRoleInsights(context.Background()).XSailPointExperimental(xSailPointExperimental).Offset(offset).Limit(limit).Count(count).Sorters(sorters).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RoleInsightsAPI.GetRoleInsights``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -436,7 +436,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get current entitlement for a role
 This endpoint gets the entitlements for a role. The term "current" is to distinguish from the entitlement(s) an insight might recommend adding.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-role-insights-current-entitlements)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-role-insights-current-entitlements)
 
 ### Path Parameters
 
@@ -475,7 +475,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -486,7 +486,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..RoleInsightsAPI.GetRoleInsightsCurrentEntitlements(context.Background(), insightId).XSailPointExperimental(xSailPointExperimental).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.RoleInsightsAPI.GetRoleInsightsCurrentEntitlements(context.Background(), insightId).XSailPointExperimental(xSailPointExperimental).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RoleInsightsAPI.GetRoleInsightsCurrentEntitlements``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -513,7 +513,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get entitlement insights for a role
 This endpoint returns entitlement insights for a role.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-role-insights-entitlements-changes)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-role-insights-entitlements-changes)
 
 ### Path Parameters
 
@@ -553,7 +553,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -565,7 +565,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..RoleInsightsAPI.GetRoleInsightsEntitlementsChanges(context.Background(), insightId).XSailPointExperimental(xSailPointExperimental).Sorters(sorters).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.RoleInsightsAPI.GetRoleInsightsEntitlementsChanges(context.Background(), insightId).XSailPointExperimental(xSailPointExperimental).Sorters(sorters).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RoleInsightsAPI.GetRoleInsightsEntitlementsChanges``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -595,7 +595,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Returns metadata from prior request.
 This endpoint returns details of a prior role insights request. 
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-role-insights-requests)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-role-insights-requests)
 
 ### Path Parameters
 
@@ -633,7 +633,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -643,7 +643,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..RoleInsightsAPI.GetRoleInsightsRequests(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.RoleInsightsAPI.GetRoleInsightsRequests(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RoleInsightsAPI.GetRoleInsightsRequests``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -670,7 +670,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get role insights summary information
 This method returns high level summary information for role insights for a customer.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-role-insights-summary)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-role-insights-summary)
 
 ### Path Parameters
 
@@ -703,7 +703,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -712,7 +712,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..RoleInsightsAPI.GetRoleInsightsSummary(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.RoleInsightsAPI.GetRoleInsightsSummary(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `RoleInsightsAPI.GetRoleInsightsSummary``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

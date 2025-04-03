@@ -1,12 +1,12 @@
 ---
-id: identity-preview-response-identity
+id: v2025-identity-preview-response-identity
 title: IdentityPreviewResponseIdentity
 pagination_label: IdentityPreviewResponseIdentity
 sidebar_label: IdentityPreviewResponseIdentity
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityPreviewResponseIdentity', 'IdentityPreviewResponseIdentity'] 
-slug: /tools/sdk/go//models/identity-preview-response-identity
-tags: ['SDK', 'Software Development Kit', 'IdentityPreviewResponseIdentity', 'IdentityPreviewResponseIdentity']
+keywords: ['go', 'Golang', 'sdk', 'IdentityPreviewResponseIdentity', 'V2025IdentityPreviewResponseIdentity'] 
+slug: /tools/sdk/go/v2025/models/identity-preview-response-identity
+tags: ['SDK', 'Software Development Kit', 'IdentityPreviewResponseIdentity', 'V2025IdentityPreviewResponseIdentity']
 ---
 
 # IdentityPreviewResponseIdentity

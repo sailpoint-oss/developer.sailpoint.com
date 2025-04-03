@@ -1,12 +1,12 @@
 ---
-id: deploy-request
+id: v2025-deploy-request
 title: DeployRequest
 pagination_label: DeployRequest
 sidebar_label: DeployRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DeployRequest', 'DeployRequest'] 
-slug: /tools/sdk/go//models/deploy-request
-tags: ['SDK', 'Software Development Kit', 'DeployRequest', 'DeployRequest']
+keywords: ['go', 'Golang', 'sdk', 'DeployRequest', 'V2025DeployRequest'] 
+slug: /tools/sdk/go/v2025/models/deploy-request
+tags: ['SDK', 'Software Development Kit', 'DeployRequest', 'V2025DeployRequest']
 ---
 
 # DeployRequest

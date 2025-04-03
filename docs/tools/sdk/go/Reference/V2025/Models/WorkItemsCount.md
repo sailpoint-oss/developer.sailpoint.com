@@ -1,12 +1,12 @@
 ---
-id: work-items-count
+id: v2025-work-items-count
 title: WorkItemsCount
 pagination_label: WorkItemsCount
 sidebar_label: WorkItemsCount
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'WorkItemsCount', 'WorkItemsCount'] 
-slug: /tools/sdk/go//models/work-items-count
-tags: ['SDK', 'Software Development Kit', 'WorkItemsCount', 'WorkItemsCount']
+keywords: ['go', 'Golang', 'sdk', 'WorkItemsCount', 'V2025WorkItemsCount'] 
+slug: /tools/sdk/go/v2025/models/work-items-count
+tags: ['SDK', 'Software Development Kit', 'WorkItemsCount', 'V2025WorkItemsCount']
 ---
 
 # WorkItemsCount

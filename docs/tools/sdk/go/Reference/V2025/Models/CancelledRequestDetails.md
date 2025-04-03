@@ -1,12 +1,12 @@
 ---
-id: cancelled-request-details
+id: v2025-cancelled-request-details
 title: CancelledRequestDetails
 pagination_label: CancelledRequestDetails
 sidebar_label: CancelledRequestDetails
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'CancelledRequestDetails', 'CancelledRequestDetails'] 
-slug: /tools/sdk/go//models/cancelled-request-details
-tags: ['SDK', 'Software Development Kit', 'CancelledRequestDetails', 'CancelledRequestDetails']
+keywords: ['go', 'Golang', 'sdk', 'CancelledRequestDetails', 'V2025CancelledRequestDetails'] 
+slug: /tools/sdk/go/v2025/models/cancelled-request-details
+tags: ['SDK', 'Software Development Kit', 'CancelledRequestDetails', 'V2025CancelledRequestDetails']
 ---
 
 # CancelledRequestDetails

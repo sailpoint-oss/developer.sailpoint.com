@@ -1,12 +1,12 @@
 ---
-id: error-message
+id: v2025-error-message
 title: ErrorMessage
 pagination_label: ErrorMessage
 sidebar_label: ErrorMessage
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ErrorMessage', 'ErrorMessage'] 
-slug: /tools/sdk/go//models/error-message
-tags: ['SDK', 'Software Development Kit', 'ErrorMessage', 'ErrorMessage']
+keywords: ['go', 'Golang', 'sdk', 'ErrorMessage', 'V2025ErrorMessage'] 
+slug: /tools/sdk/go/v2025/models/error-message
+tags: ['SDK', 'Software Development Kit', 'ErrorMessage', 'V2025ErrorMessage']
 ---
 
 # ErrorMessage

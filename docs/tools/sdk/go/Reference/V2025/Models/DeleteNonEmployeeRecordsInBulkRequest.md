@@ -1,12 +1,12 @@
 ---
-id: delete-non-employee-records-in-bulk-request
+id: v2025-delete-non-employee-records-in-bulk-request
 title: DeleteNonEmployeeRecordsInBulkRequest
 pagination_label: DeleteNonEmployeeRecordsInBulkRequest
 sidebar_label: DeleteNonEmployeeRecordsInBulkRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'DeleteNonEmployeeRecordsInBulkRequest', 'DeleteNonEmployeeRecordsInBulkRequest'] 
-slug: /tools/sdk/go//models/delete-non-employee-records-in-bulk-request
-tags: ['SDK', 'Software Development Kit', 'DeleteNonEmployeeRecordsInBulkRequest', 'DeleteNonEmployeeRecordsInBulkRequest']
+keywords: ['go', 'Golang', 'sdk', 'DeleteNonEmployeeRecordsInBulkRequest', 'V2025DeleteNonEmployeeRecordsInBulkRequest'] 
+slug: /tools/sdk/go/v2025/models/delete-non-employee-records-in-bulk-request
+tags: ['SDK', 'Software Development Kit', 'DeleteNonEmployeeRecordsInBulkRequest', 'V2025DeleteNonEmployeeRecordsInBulkRequest']
 ---
 
 # DeleteNonEmployeeRecordsInBulkRequest

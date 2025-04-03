@@ -1,12 +1,12 @@
 ---
-id: access-profile-role
+id: v2025-access-profile-role
 title: AccessProfileRole
 pagination_label: AccessProfileRole
 sidebar_label: AccessProfileRole
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessProfileRole', 'AccessProfileRole'] 
-slug: /tools/sdk/go//models/access-profile-role
-tags: ['SDK', 'Software Development Kit', 'AccessProfileRole', 'AccessProfileRole']
+keywords: ['go', 'Golang', 'sdk', 'AccessProfileRole', 'V2025AccessProfileRole'] 
+slug: /tools/sdk/go/v2025/models/access-profile-role
+tags: ['SDK', 'Software Development Kit', 'AccessProfileRole', 'V2025AccessProfileRole']
 ---
 
 # AccessProfileRole

@@ -1,12 +1,12 @@
 ---
-id: provisioning-criteria-operation
+id: v2025-provisioning-criteria-operation
 title: ProvisioningCriteriaOperation
 pagination_label: ProvisioningCriteriaOperation
 sidebar_label: ProvisioningCriteriaOperation
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ProvisioningCriteriaOperation', 'ProvisioningCriteriaOperation'] 
-slug: /tools/sdk/go//models/provisioning-criteria-operation
-tags: ['SDK', 'Software Development Kit', 'ProvisioningCriteriaOperation', 'ProvisioningCriteriaOperation']
+keywords: ['go', 'Golang', 'sdk', 'ProvisioningCriteriaOperation', 'V2025ProvisioningCriteriaOperation'] 
+slug: /tools/sdk/go/v2025/models/provisioning-criteria-operation
+tags: ['SDK', 'Software Development Kit', 'ProvisioningCriteriaOperation', 'V2025ProvisioningCriteriaOperation']
 ---
 
 # ProvisioningCriteriaOperation

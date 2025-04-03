@@ -1,12 +1,12 @@
 ---
-id: identity-reference-with-name-and-email
+id: v2025-identity-reference-with-name-and-email
 title: IdentityReferenceWithNameAndEmail
 pagination_label: IdentityReferenceWithNameAndEmail
 sidebar_label: IdentityReferenceWithNameAndEmail
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityReferenceWithNameAndEmail', 'IdentityReferenceWithNameAndEmail'] 
-slug: /tools/sdk/go//models/identity-reference-with-name-and-email
-tags: ['SDK', 'Software Development Kit', 'IdentityReferenceWithNameAndEmail', 'IdentityReferenceWithNameAndEmail']
+keywords: ['go', 'Golang', 'sdk', 'IdentityReferenceWithNameAndEmail', 'V2025IdentityReferenceWithNameAndEmail'] 
+slug: /tools/sdk/go/v2025/models/identity-reference-with-name-and-email
+tags: ['SDK', 'Software Development Kit', 'IdentityReferenceWithNameAndEmail', 'V2025IdentityReferenceWithNameAndEmail']
 ---
 
 # IdentityReferenceWithNameAndEmail

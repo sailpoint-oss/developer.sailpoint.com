@@ -1,12 +1,12 @@
 ---
-id: access-model-metadata
+id: v2025-access-model-metadata
 title: AccessModelMetadata
 pagination_label: AccessModelMetadata
 sidebar_label: AccessModelMetadata
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessModelMetadata', 'AccessModelMetadata'] 
-slug: /tools/sdk/go//methods/access-model-metadata
-tags: ['SDK', 'Software Development Kit', 'AccessModelMetadata', 'AccessModelMetadata']
+keywords: ['go', 'Golang', 'sdk', 'AccessModelMetadata', 'V2025AccessModelMetadata'] 
+slug: /tools/sdk/go/v2025/methods/access-model-metadata
+tags: ['SDK', 'Software Development Kit', 'AccessModelMetadata', 'V2025AccessModelMetadata']
 ---
 
 # AccessModelMetadataAPI
@@ -46,7 +46,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get Access Model Metadata Attribute
 Get single Access Model Metadata Attribute
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-access-model-metadata-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-model-metadata-attribute)
 
 ### Path Parameters
 
@@ -84,7 +84,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -94,7 +94,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccessModelMetadataAPI.GetAccessModelMetadataAttribute(context.Background(), key).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.AccessModelMetadataAPI.GetAccessModelMetadataAttribute(context.Background(), key).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessModelMetadataAPI.GetAccessModelMetadataAttribute``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -121,7 +121,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Get Access Model Metadata Value
 Get single Access Model Metadata Attribute Value
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-access-model-metadata-attribute-value)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-model-metadata-attribute-value)
 
 ### Path Parameters
 
@@ -161,7 +161,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -172,7 +172,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccessModelMetadataAPI.GetAccessModelMetadataAttributeValue(context.Background(), key, value).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.AccessModelMetadataAPI.GetAccessModelMetadataAttributeValue(context.Background(), key, value).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessModelMetadataAPI.GetAccessModelMetadataAttributeValue``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -199,7 +199,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List Access Model Metadata Attributes
 Get a list of Access Model Metadata Attributes
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-access-model-metadata-attribute)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-access-model-metadata-attribute)
 
 ### Path Parameters
 
@@ -233,7 +233,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -243,7 +243,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccessModelMetadataAPI.ListAccessModelMetadataAttribute(context.Background()).XSailPointExperimental(xSailPointExperimental).Filters(filters).Execute()
+	resp, r, err := apiClient.V2025.AccessModelMetadataAPI.ListAccessModelMetadataAttribute(context.Background()).XSailPointExperimental(xSailPointExperimental).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessModelMetadataAPI.ListAccessModelMetadataAttribute``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -270,7 +270,7 @@ This API is currently in an experimental state. The API is subject to change bas
 List Access Model Metadata Values
 Get a list of Access Model Metadata Attribute Values
 
-[API Spec](https://developer.sailpoint.com/docs/api//list-access-model-metadata-attribute-value)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-access-model-metadata-attribute-value)
 
 ### Path Parameters
 
@@ -308,7 +308,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -318,7 +318,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccessModelMetadataAPI.ListAccessModelMetadataAttributeValue(context.Background(), key).XSailPointExperimental(xSailPointExperimental).Execute()
+	resp, r, err := apiClient.V2025.AccessModelMetadataAPI.ListAccessModelMetadataAttributeValue(context.Background(), key).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessModelMetadataAPI.ListAccessModelMetadataAttributeValue``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

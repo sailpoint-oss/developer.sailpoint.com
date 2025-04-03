@@ -1,12 +1,12 @@
 ---
-id: usage-type
+id: v2025-usage-type
 title: UsageType
 pagination_label: UsageType
 sidebar_label: UsageType
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'UsageType', 'UsageType'] 
-slug: /tools/sdk/go//models/usage-type
-tags: ['SDK', 'Software Development Kit', 'UsageType', 'UsageType']
+keywords: ['go', 'Golang', 'sdk', 'UsageType', 'V2025UsageType'] 
+slug: /tools/sdk/go/v2025/models/usage-type
+tags: ['SDK', 'Software Development Kit', 'UsageType', 'V2025UsageType']
 ---
 
 # UsageType

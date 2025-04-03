@@ -1,12 +1,12 @@
 ---
-id: search-aggregation-specification
+id: v2025-search-aggregation-specification
 title: SearchAggregationSpecification
 pagination_label: SearchAggregationSpecification
 sidebar_label: SearchAggregationSpecification
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SearchAggregationSpecification', 'SearchAggregationSpecification'] 
-slug: /tools/sdk/go//models/search-aggregation-specification
-tags: ['SDK', 'Software Development Kit', 'SearchAggregationSpecification', 'SearchAggregationSpecification']
+keywords: ['go', 'Golang', 'sdk', 'SearchAggregationSpecification', 'V2025SearchAggregationSpecification'] 
+slug: /tools/sdk/go/v2025/models/search-aggregation-specification
+tags: ['SDK', 'Software Development Kit', 'SearchAggregationSpecification', 'V2025SearchAggregationSpecification']
 ---
 
 # SearchAggregationSpecification

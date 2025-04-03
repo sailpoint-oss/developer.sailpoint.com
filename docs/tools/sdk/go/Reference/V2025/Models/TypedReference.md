@@ -1,12 +1,12 @@
 ---
-id: typed-reference
+id: v2025-typed-reference
 title: TypedReference
 pagination_label: TypedReference
 sidebar_label: TypedReference
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'TypedReference', 'TypedReference'] 
-slug: /tools/sdk/go//models/typed-reference
-tags: ['SDK', 'Software Development Kit', 'TypedReference', 'TypedReference']
+keywords: ['go', 'Golang', 'sdk', 'TypedReference', 'V2025TypedReference'] 
+slug: /tools/sdk/go/v2025/models/typed-reference
+tags: ['SDK', 'Software Development Kit', 'TypedReference', 'V2025TypedReference']
 ---
 
 # TypedReference

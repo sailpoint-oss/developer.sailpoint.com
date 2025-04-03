@@ -1,12 +1,12 @@
 ---
-id: access-request-identity-metrics
+id: v2025-access-request-identity-metrics
 title: AccessRequestIdentityMetrics
 pagination_label: AccessRequestIdentityMetrics
 sidebar_label: AccessRequestIdentityMetrics
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccessRequestIdentityMetrics', 'AccessRequestIdentityMetrics'] 
-slug: /tools/sdk/go//methods/access-request-identity-metrics
-tags: ['SDK', 'Software Development Kit', 'AccessRequestIdentityMetrics', 'AccessRequestIdentityMetrics']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestIdentityMetrics', 'V2025AccessRequestIdentityMetrics'] 
+slug: /tools/sdk/go/v2025/methods/access-request-identity-metrics
+tags: ['SDK', 'Software Development Kit', 'AccessRequestIdentityMetrics', 'V2025AccessRequestIdentityMetrics']
 ---
 
 # AccessRequestIdentityMetricsAPI
@@ -26,7 +26,7 @@ Method | HTTP request | Description
 Return access request identity metrics
 Use this API to return information access metrics.
 
-[API Spec](https://developer.sailpoint.com/docs/api//get-access-request-identity-metrics)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-request-identity-metrics)
 
 ### Path Parameters
 
@@ -67,7 +67,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -78,7 +78,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..AccessRequestIdentityMetricsAPI.GetAccessRequestIdentityMetrics(context.Background(), identityId, requestedObjectId, type_).Execute()
+	resp, r, err := apiClient.V2025.AccessRequestIdentityMetricsAPI.GetAccessRequestIdentityMetrics(context.Background(), identityId, requestedObjectId, type_).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestIdentityMetricsAPI.GetAccessRequestIdentityMetrics``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

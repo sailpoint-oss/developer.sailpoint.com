@@ -1,12 +1,12 @@
 ---
-id: managed-client-request
+id: v2025-managed-client-request
 title: ManagedClientRequest
 pagination_label: ManagedClientRequest
 sidebar_label: ManagedClientRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ManagedClientRequest', 'ManagedClientRequest'] 
-slug: /tools/sdk/go//models/managed-client-request
-tags: ['SDK', 'Software Development Kit', 'ManagedClientRequest', 'ManagedClientRequest']
+keywords: ['go', 'Golang', 'sdk', 'ManagedClientRequest', 'V2025ManagedClientRequest'] 
+slug: /tools/sdk/go/v2025/models/managed-client-request
+tags: ['SDK', 'Software Development Kit', 'ManagedClientRequest', 'V2025ManagedClientRequest']
 ---
 
 # ManagedClientRequest

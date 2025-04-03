@@ -1,12 +1,12 @@
 ---
-id: sp-config-object
+id: v2025-sp-config-object
 title: SpConfigObject
 pagination_label: SpConfigObject
 sidebar_label: SpConfigObject
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SpConfigObject', 'SpConfigObject'] 
-slug: /tools/sdk/go//models/sp-config-object
-tags: ['SDK', 'Software Development Kit', 'SpConfigObject', 'SpConfigObject']
+keywords: ['go', 'Golang', 'sdk', 'SpConfigObject', 'V2025SpConfigObject'] 
+slug: /tools/sdk/go/v2025/models/sp-config-object
+tags: ['SDK', 'Software Development Kit', 'SpConfigObject', 'V2025SpConfigObject']
 ---
 
 # SpConfigObject

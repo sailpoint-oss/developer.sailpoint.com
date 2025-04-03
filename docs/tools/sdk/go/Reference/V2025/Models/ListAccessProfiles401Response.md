@@ -1,12 +1,12 @@
 ---
-id: list-access-profiles401-response
+id: v2025-list-access-profiles401-response
 title: ListAccessProfiles401Response
 pagination_label: ListAccessProfiles401Response
 sidebar_label: ListAccessProfiles401Response
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ListAccessProfiles401Response', 'ListAccessProfiles401Response'] 
-slug: /tools/sdk/go//models/list-access-profiles401-response
-tags: ['SDK', 'Software Development Kit', 'ListAccessProfiles401Response', 'ListAccessProfiles401Response']
+keywords: ['go', 'Golang', 'sdk', 'ListAccessProfiles401Response', 'V2025ListAccessProfiles401Response'] 
+slug: /tools/sdk/go/v2025/models/list-access-profiles401-response
+tags: ['SDK', 'Software Development Kit', 'ListAccessProfiles401Response', 'V2025ListAccessProfiles401Response']
 ---
 
 # ListAccessProfiles401Response

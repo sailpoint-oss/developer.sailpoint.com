@@ -1,12 +1,12 @@
 ---
-id: subscription-patch-request-inner-value-any-of-inner
+id: v2025-subscription-patch-request-inner-value-any-of-inner
 title: SubscriptionPatchRequestInnerValueAnyOfInner
 pagination_label: SubscriptionPatchRequestInnerValueAnyOfInner
 sidebar_label: SubscriptionPatchRequestInnerValueAnyOfInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'SubscriptionPatchRequestInnerValueAnyOfInner', 'SubscriptionPatchRequestInnerValueAnyOfInner'] 
-slug: /tools/sdk/go//models/subscription-patch-request-inner-value-any-of-inner
-tags: ['SDK', 'Software Development Kit', 'SubscriptionPatchRequestInnerValueAnyOfInner', 'SubscriptionPatchRequestInnerValueAnyOfInner']
+keywords: ['go', 'Golang', 'sdk', 'SubscriptionPatchRequestInnerValueAnyOfInner', 'V2025SubscriptionPatchRequestInnerValueAnyOfInner'] 
+slug: /tools/sdk/go/v2025/models/subscription-patch-request-inner-value-any-of-inner
+tags: ['SDK', 'Software Development Kit', 'SubscriptionPatchRequestInnerValueAnyOfInner', 'V2025SubscriptionPatchRequestInnerValueAnyOfInner']
 ---
 
 # SubscriptionPatchRequestInnerValueAnyOfInner

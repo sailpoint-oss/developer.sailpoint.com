@@ -1,12 +1,12 @@
 ---
-id: condition-effect-config
+id: v2025-condition-effect-config
 title: ConditionEffectConfig
 pagination_label: ConditionEffectConfig
 sidebar_label: ConditionEffectConfig
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ConditionEffectConfig', 'ConditionEffectConfig'] 
-slug: /tools/sdk/go//models/condition-effect-config
-tags: ['SDK', 'Software Development Kit', 'ConditionEffectConfig', 'ConditionEffectConfig']
+keywords: ['go', 'Golang', 'sdk', 'ConditionEffectConfig', 'V2025ConditionEffectConfig'] 
+slug: /tools/sdk/go/v2025/models/condition-effect-config
+tags: ['SDK', 'Software Development Kit', 'ConditionEffectConfig', 'V2025ConditionEffectConfig']
 ---
 
 # ConditionEffectConfig

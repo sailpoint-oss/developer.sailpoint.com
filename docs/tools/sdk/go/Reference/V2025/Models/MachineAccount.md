@@ -1,12 +1,12 @@
 ---
-id: machine-account
+id: v2025-machine-account
 title: MachineAccount
 pagination_label: MachineAccount
 sidebar_label: MachineAccount
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MachineAccount', 'MachineAccount'] 
-slug: /tools/sdk/go//models/machine-account
-tags: ['SDK', 'Software Development Kit', 'MachineAccount', 'MachineAccount']
+keywords: ['go', 'Golang', 'sdk', 'MachineAccount', 'V2025MachineAccount'] 
+slug: /tools/sdk/go/v2025/models/machine-account
+tags: ['SDK', 'Software Development Kit', 'MachineAccount', 'V2025MachineAccount']
 ---
 
 # MachineAccount

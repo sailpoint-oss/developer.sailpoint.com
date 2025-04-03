@@ -1,12 +1,12 @@
 ---
-id: scheduled-attributes
+id: v2025-scheduled-attributes
 title: ScheduledAttributes
 pagination_label: ScheduledAttributes
 sidebar_label: ScheduledAttributes
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ScheduledAttributes', 'ScheduledAttributes'] 
-slug: /tools/sdk/go//models/scheduled-attributes
-tags: ['SDK', 'Software Development Kit', 'ScheduledAttributes', 'ScheduledAttributes']
+keywords: ['go', 'Golang', 'sdk', 'ScheduledAttributes', 'V2025ScheduledAttributes'] 
+slug: /tools/sdk/go/v2025/models/scheduled-attributes
+tags: ['SDK', 'Software Development Kit', 'ScheduledAttributes', 'V2025ScheduledAttributes']
 ---
 
 # ScheduledAttributes

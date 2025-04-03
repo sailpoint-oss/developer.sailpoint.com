@@ -1,12 +1,12 @@
 ---
-id: approval-scheme
+id: v2025-approval-scheme
 title: ApprovalScheme
 pagination_label: ApprovalScheme
 sidebar_label: ApprovalScheme
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ApprovalScheme', 'ApprovalScheme'] 
-slug: /tools/sdk/go//models/approval-scheme
-tags: ['SDK', 'Software Development Kit', 'ApprovalScheme', 'ApprovalScheme']
+keywords: ['go', 'Golang', 'sdk', 'ApprovalScheme', 'V2025ApprovalScheme'] 
+slug: /tools/sdk/go/v2025/models/approval-scheme
+tags: ['SDK', 'Software Development Kit', 'ApprovalScheme', 'V2025ApprovalScheme']
 ---
 
 # ApprovalScheme

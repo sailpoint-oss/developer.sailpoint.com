@@ -1,12 +1,12 @@
 ---
-id: account-activity-item-operation
+id: v2025-account-activity-item-operation
 title: AccountActivityItemOperation
 pagination_label: AccountActivityItemOperation
 sidebar_label: AccountActivityItemOperation
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountActivityItemOperation', 'AccountActivityItemOperation'] 
-slug: /tools/sdk/go//models/account-activity-item-operation
-tags: ['SDK', 'Software Development Kit', 'AccountActivityItemOperation', 'AccountActivityItemOperation']
+keywords: ['go', 'Golang', 'sdk', 'AccountActivityItemOperation', 'V2025AccountActivityItemOperation'] 
+slug: /tools/sdk/go/v2025/models/account-activity-item-operation
+tags: ['SDK', 'Software Development Kit', 'AccountActivityItemOperation', 'V2025AccountActivityItemOperation']
 ---
 
 # AccountActivityItemOperation

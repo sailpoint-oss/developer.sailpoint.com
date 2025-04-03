@@ -1,12 +1,12 @@
 ---
-id: lifecyclestate-deleted
+id: v2025-lifecyclestate-deleted
 title: LifecyclestateDeleted
 pagination_label: LifecyclestateDeleted
 sidebar_label: LifecyclestateDeleted
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'LifecyclestateDeleted', 'LifecyclestateDeleted'] 
-slug: /tools/sdk/go//models/lifecyclestate-deleted
-tags: ['SDK', 'Software Development Kit', 'LifecyclestateDeleted', 'LifecyclestateDeleted']
+keywords: ['go', 'Golang', 'sdk', 'LifecyclestateDeleted', 'V2025LifecyclestateDeleted'] 
+slug: /tools/sdk/go/v2025/models/lifecyclestate-deleted
+tags: ['SDK', 'Software Development Kit', 'LifecyclestateDeleted', 'V2025LifecyclestateDeleted']
 ---
 
 # LifecyclestateDeleted

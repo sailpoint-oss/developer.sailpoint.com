@@ -1,12 +1,12 @@
 ---
-id: icons
+id: v2025-icons
 title: Icons
 pagination_label: Icons
 sidebar_label: Icons
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'Icons', 'Icons'] 
-slug: /tools/sdk/go//methods/icons
-tags: ['SDK', 'Software Development Kit', 'Icons', 'Icons']
+keywords: ['go', 'Golang', 'sdk', 'Icons', 'V2025Icons'] 
+slug: /tools/sdk/go/v2025/methods/icons
+tags: ['SDK', 'Software Development Kit', 'Icons', 'V2025Icons']
 ---
 
 # IconsAPI
@@ -36,7 +36,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Delete an icon
 This API endpoint delete an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api//delete-icon)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-icon)
 
 ### Path Parameters
 
@@ -76,7 +76,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -87,7 +87,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	r, err := apiClient..IconsAPI.DeleteIcon(context.Background(), objectType, objectId).XSailPointExperimental(xSailPointExperimental).Execute()
+	r, err := apiClient.V2025.IconsAPI.DeleteIcon(context.Background(), objectType, objectId).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IconsAPI.DeleteIcon``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -112,7 +112,7 @@ This API is currently in an experimental state. The API is subject to change bas
 Update an icon
 This API endpoint updates an icon by object type and object id. A token with ORG_ADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api//set-icon)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/set-icon)
 
 ### Path Parameters
 
@@ -153,7 +153,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   ""
+  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -165,7 +165,7 @@ func main() {
 
 	configuration := NewDefaultConfiguration()
 	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient..IconsAPI.SetIcon(context.Background(), objectType, objectId).XSailPointExperimental(xSailPointExperimental).Image(image).Execute()
+	resp, r, err := apiClient.V2025.IconsAPI.SetIcon(context.Background(), objectType, objectId).XSailPointExperimental(xSailPointExperimental).Image(image).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IconsAPI.SetIcon``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -1,12 +1,12 @@
 ---
-id: provisioning-config-plan-initializer-script
+id: v2025-provisioning-config-plan-initializer-script
 title: ProvisioningConfigPlanInitializerScript
 pagination_label: ProvisioningConfigPlanInitializerScript
 sidebar_label: ProvisioningConfigPlanInitializerScript
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ProvisioningConfigPlanInitializerScript', 'ProvisioningConfigPlanInitializerScript'] 
-slug: /tools/sdk/go//models/provisioning-config-plan-initializer-script
-tags: ['SDK', 'Software Development Kit', 'ProvisioningConfigPlanInitializerScript', 'ProvisioningConfigPlanInitializerScript']
+keywords: ['go', 'Golang', 'sdk', 'ProvisioningConfigPlanInitializerScript', 'V2025ProvisioningConfigPlanInitializerScript'] 
+slug: /tools/sdk/go/v2025/models/provisioning-config-plan-initializer-script
+tags: ['SDK', 'Software Development Kit', 'ProvisioningConfigPlanInitializerScript', 'V2025ProvisioningConfigPlanInitializerScript']
 ---
 
 # ProvisioningConfigPlanInitializerScript

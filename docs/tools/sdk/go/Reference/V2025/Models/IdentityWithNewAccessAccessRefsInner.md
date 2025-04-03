@@ -1,12 +1,12 @@
 ---
-id: identity-with-new-access-access-refs-inner
+id: v2025-identity-with-new-access-access-refs-inner
 title: IdentityWithNewAccessAccessRefsInner
 pagination_label: IdentityWithNewAccessAccessRefsInner
 sidebar_label: IdentityWithNewAccessAccessRefsInner
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'IdentityWithNewAccessAccessRefsInner', 'IdentityWithNewAccessAccessRefsInner'] 
-slug: /tools/sdk/go//models/identity-with-new-access-access-refs-inner
-tags: ['SDK', 'Software Development Kit', 'IdentityWithNewAccessAccessRefsInner', 'IdentityWithNewAccessAccessRefsInner']
+keywords: ['go', 'Golang', 'sdk', 'IdentityWithNewAccessAccessRefsInner', 'V2025IdentityWithNewAccessAccessRefsInner'] 
+slug: /tools/sdk/go/v2025/models/identity-with-new-access-access-refs-inner
+tags: ['SDK', 'Software Development Kit', 'IdentityWithNewAccessAccessRefsInner', 'V2025IdentityWithNewAccessAccessRefsInner']
 ---
 
 # IdentityWithNewAccessAccessRefsInner

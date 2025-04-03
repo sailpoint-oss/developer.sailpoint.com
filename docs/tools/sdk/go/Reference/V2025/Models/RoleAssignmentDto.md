@@ -1,12 +1,12 @@
 ---
-id: role-assignment-dto
+id: v2025-role-assignment-dto
 title: RoleAssignmentDto
 pagination_label: RoleAssignmentDto
 sidebar_label: RoleAssignmentDto
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'RoleAssignmentDto', 'RoleAssignmentDto'] 
-slug: /tools/sdk/go//models/role-assignment-dto
-tags: ['SDK', 'Software Development Kit', 'RoleAssignmentDto', 'RoleAssignmentDto']
+keywords: ['go', 'Golang', 'sdk', 'RoleAssignmentDto', 'V2025RoleAssignmentDto'] 
+slug: /tools/sdk/go/v2025/models/role-assignment-dto
+tags: ['SDK', 'Software Development Kit', 'RoleAssignmentDto', 'V2025RoleAssignmentDto']
 ---
 
 # RoleAssignmentDto

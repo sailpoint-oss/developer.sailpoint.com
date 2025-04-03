@@ -1,12 +1,12 @@
 ---
-id: managed-cluster-request
+id: v2025-managed-cluster-request
 title: ManagedClusterRequest
 pagination_label: ManagedClusterRequest
 sidebar_label: ManagedClusterRequest
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'ManagedClusterRequest', 'ManagedClusterRequest'] 
-slug: /tools/sdk/go//models/managed-cluster-request
-tags: ['SDK', 'Software Development Kit', 'ManagedClusterRequest', 'ManagedClusterRequest']
+keywords: ['go', 'Golang', 'sdk', 'ManagedClusterRequest', 'V2025ManagedClusterRequest'] 
+slug: /tools/sdk/go/v2025/models/managed-cluster-request
+tags: ['SDK', 'Software Development Kit', 'ManagedClusterRequest', 'V2025ManagedClusterRequest']
 ---
 
 # ManagedClusterRequest

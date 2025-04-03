@@ -789,12 +789,12 @@ Path   | id | **str** | True  | ID of the campaign to be retrieved.
   Query | detail | **str** |   (optional) | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
 
 ### Return type
-[**GetActiveCampaigns200ResponseInner**](../models/get-active-campaigns200-response-inner)
+[**GetCampaign200Response**](../models/get-campaign200-response)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | Requested campaign object. | GetActiveCampaigns200ResponseInner |  -  |
+200 | Requested campaign object. | GetCampaign200Response |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -811,7 +811,7 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2025.api.certification_campaigns_api import CertificationCampaignsApi
 from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.get_active_campaigns200_response_inner import GetActiveCampaigns200ResponseInner
+from sailpoint.v2025.models.get_campaign200_response import GetCampaign200Response
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 

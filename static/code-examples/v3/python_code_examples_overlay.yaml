@@ -1927,7 +1927,7 @@
       source: |
         from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
         from sailpoint.v3.api_client import ApiClient
-        from sailpoint.v3.models.get_active_campaigns200_response_inner import GetActiveCampaigns200ResponseInner
+        from sailpoint.v3.models.get_campaign200_response import GetCampaign200Response
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 

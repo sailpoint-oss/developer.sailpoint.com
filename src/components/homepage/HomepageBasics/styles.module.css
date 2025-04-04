@@ -58,7 +58,7 @@
   border: 1px solid transparent;
   background-color: var(--ifm-color-secondary);
   color: #ffffff;
-  border-radius: 5px;
+  border-radius: .25rem;
   transition: all 0.3s;
 }
 

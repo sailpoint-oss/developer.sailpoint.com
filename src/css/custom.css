@@ -345,6 +345,7 @@
 
 .footer__link-item:hover {
   color: var(--ifm-link-color) !important;
+  text-decoration: underline !important;
 }
 
 .navbar__logo {

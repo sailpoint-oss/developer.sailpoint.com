@@ -403,7 +403,9 @@ with ApiClient(configuration) as api_client:
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
               "requestedAppName" : "test-app",
@@ -412,7 +414,9 @@ with ApiClient(configuration) as api_client:
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
               "requestedAppName" : "test-app",
@@ -421,7 +425,9 @@ with ApiClient(configuration) as api_client:
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
               "requestedAppName" : "test-app",
@@ -430,7 +436,9 @@ with ApiClient(configuration) as api_client:
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
               "requestedAppName" : "test-app",
@@ -439,7 +447,9 @@ with ApiClient(configuration) as api_client:
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           } ]
         }''' # AccessRequest | 
 

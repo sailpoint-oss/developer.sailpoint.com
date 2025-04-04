@@ -1,0 +1,99 @@
+get:
+  tags:
+    - Connectors
+  operationId: getConnectorSourceTemplate
+  summary: Get Connector Source Template
+  description: >-
+    Fetches a connector's source template using its script name.    
+  parameters:
+    - name: scriptName
+      in: path
+      description: The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+      required: true
+      x-sailpoint-resource-operation-id: getConnectorList
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: aScriptName
+  responses:
+    '200':
+      description: The connector's source template
+      content:
+        application/xml:
+          schema:
+            type: string
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - userAuth: [ idn:connector-config:read, idn:connector-config:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+put:
+  tags:
+    - Connectors
+  operationId: putConnectorSourceTemplate
+  summary: Update Connector Source Template
+  description: >-
+    Update a connector's source template using its script name.    
+  parameters:
+    - name: scriptName
+      in: path
+      description: The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
+      required: true
+      x-sailpoint-resource-operation-id: getConnectorList
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: aScriptName
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          required:
+            - file
+          properties:
+            file:
+              type: string
+              description: connector source template xml file
+              format: binary
+  responses:
+    '200':
+      description: The connector's update detail
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/UpdateDetail.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - userAuth: [ idn:connector-config:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

@@ -1,0 +1,33 @@
+delete:
+  operationId: deleteIdentityAttributesInBulk
+  tags:
+    - Identity Attributes
+  summary: Bulk delete Identity Attributes
+  description: >-
+    Use this API to bulk delete identity attributes for a given set of names.
+    Attributes that are currently mapped in an identity profile cannot be deleted. 
+    The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.  
+    A token with ORG_ADMIN authority is required to call this API.
+  security:
+    - userAuth: [ idn:identity-profile-attribute:manage ]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../v3/schemas/identity-attributes/IdentityAttributeNames.yaml"
+  responses:
+    "204":
+      $ref: "../../v3/responses/204.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

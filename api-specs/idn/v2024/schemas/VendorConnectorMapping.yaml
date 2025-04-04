@@ -1,0 +1,81 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The unique identifier for the vendor-connector mapping.
+    example: "78733556-9ea3-4f59-bf69-e5cd92b011b4"
+  vendor:
+    type: string
+    description: The name of the vendor.
+    example: "Example vendor"
+  connector:
+    type: string
+    description: The name of the connector.
+    example: "Example connector"
+  createdAt:
+    type: string
+    format: date-time
+    description: The creation timestamp of the mapping.
+    example: "2024-03-13T12:56:19.391294Z"
+  createdBy:
+    type: string
+    description: The identifier of the user who created the mapping.
+    example: "admin"
+  updatedAt:
+    type: object
+    nullable: true
+    properties:
+      Time:
+        type: string
+        format: date-time
+        description: The timestamp when the mapping was last updated, represented in ISO 8601 format.
+        example: "2024-03-14T12:56:19.391294Z"
+      Valid:
+        type: boolean
+        description: A flag indicating if the 'Time' field is set and valid.
+        default: false
+        example: true
+    description: An object representing the nullable timestamp of the last update.
+  updatedBy:
+    type: object
+    nullable: true
+    properties:
+      String:
+        type: string
+        description: The identifier of the user who last updated the mapping, if available.
+        example: "user-67891"
+      Valid:
+        type: boolean
+        description: A flag indicating if the 'String' field is set and valid.
+        default: false
+        example: true
+    description: An object representing the nullable identifier of the user who last updated the mapping.
+  deletedAt:
+    type: object
+    nullable: true
+    properties:
+      Time:
+        type: string
+        format: date-time
+        description: The timestamp when the mapping was deleted, represented in ISO 8601 format, if applicable.
+        example: "0001-01-01T00:00:00Z"
+      Valid:
+        type: boolean
+        description: A flag indicating if the 'Time' field is set and valid, i.e., if the mapping has been deleted.
+        default: false
+        example: false
+    description: An object representing the nullable timestamp of when the mapping was deleted.
+  deletedBy:
+    type: object
+    nullable: true
+    properties:
+      String:
+        type: string
+        description: The identifier of the user who deleted the mapping, if applicable.
+        example: ""
+      Valid:
+        type: boolean
+        description: A flag indicating if the 'String' field is set and valid, i.e., if the mapping has been deleted.
+        default: false
+        example: false
+    description: An object representing the nullable identifier of the user who deleted the mapping.

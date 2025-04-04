@@ -1,0 +1,40 @@
+post:
+  operationId: authMfaRegistrationReset
+  tags:
+    - Auth MFA
+  summary: Disable a user's registration for MFA
+  description: >-
+    Disables a user's registration for MFA. The specified user is tied to the `requestedFor` body param and can either be an external id, 
+    when resetting the registration on someone else's behalf, or "me", when resetting the registration for one's self. 
+    
+    Either of The following rights is necessary to access this endpoint: 
+    
+      - sp:mfa-login-registration-reset-all:execute
+      - sp:mfa-login-registration-reset-self:execute
+    
+    
+    The first right allows someone else or a system to reset a user's registration for MFA. The second right allows the user to reset his or her own registration for MFA.
+  requestBody:
+    description: MFA registration reset request body.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas/MfaResetRequest.yaml"
+  responses:
+    "200":
+      description: Response indicating that the user is registered for MFA.
+      content:
+        application/json:
+          schema:
+            $ref: "../../schemas/MfaRegistrationResponse.yaml"
+    "400":
+      $ref: "../../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../../v3/responses/500.yaml"

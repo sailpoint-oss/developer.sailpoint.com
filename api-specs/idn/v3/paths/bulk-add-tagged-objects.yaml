@@ -1,0 +1,44 @@
+post:
+  operationId: setTagsToManyObjects
+  security:
+    - userAuth: [ idn:tag:manage ]
+    - applicationAuth: [ idn:tag:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+    - REPORT_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  tags:
+    - Tagged Objects
+  summary: Tag Multiple Objects
+  description: >-
+    This API adds tags to multiple objects.
+  requestBody:
+    required: true
+    description: Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/BulkAddTaggedObject.yaml'
+  responses:
+    '200':
+      description: Request succeeded.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/BulkTaggedObjectResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

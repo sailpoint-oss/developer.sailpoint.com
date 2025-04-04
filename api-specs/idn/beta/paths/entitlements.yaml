@@ -1,0 +1,146 @@
+get:
+  operationId: listEntitlements
+  tags:
+    - Entitlements
+  summary: Gets a list of entitlements.
+  security:
+    - userAuth: [idn:entitlement:read, idn:entitlement:manage]
+  description: >-
+    This API returns a list of entitlements.
+
+
+    This API can be used in one of the two following ways:
+    either getting entitlements for a specific **account-id**,
+    or getting via use of **filters** (those two options are exclusive).
+
+
+    Any authenticated token can call this API.
+  parameters:
+    - in: query
+      name: account-id
+      schema:
+        type: string
+      description: >-
+        The account ID.
+        If specified, returns only entitlements associated with the given Account.
+        Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or
+        **include-unsegmented** param(s).
+        This parameter is deprecated. Please use [Account Entitlements API](https://developer.sailpoint.com/apis/beta/#operation/getAccountEntitlements) to get account entitlements.
+      deprecated: true
+      example: ef38f94347e94562b5bb8424a56397d8
+      required: false
+    - in: query
+      name: segmented-for-identity
+      schema:
+        type: string
+      description: >-
+        If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which
+        are visible to the Identity with the specified ID. By convention, the value **me** can stand in for the current
+        user's Identity ID.
+
+        Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a
+        value that refers to a different user's Identity.
+      example: me
+      required: false
+    - in: query
+      name: for-segment-ids
+      schema:
+        type: string
+        format: comma-separated
+      description: >-
+        If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s)
+        with the specified IDs.
+
+        Cannot be specified with the **account-id** or **segmented-for-identity** param(s).
+      example: 041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649
+      required: false
+    - in: query
+      name: include-unsegmented
+      schema:
+        type: boolean
+        default: true
+      description: >-
+        Whether or not the response list should contain unsegmented Entitlements.
+        If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying
+        **include-unsegmented=false** results in an error.
+      example: true
+      required: false
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+    - in: query
+      name: sorters
+      schema:
+        type: string
+        format: comma-separated
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+        Sorting is supported for the following fields: **id, name, created, modified, type, attribute, value, source.id, requestable**
+      example: name,-modified
+      required: false
+      style: form
+      explode: true
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **id**: *eq, in*
+
+
+        **name**: *eq, in, sw*
+
+
+        **type**: *eq, in*
+
+
+        **attribute**: *eq, in*
+
+
+        **value**: *eq, in, sw*
+
+
+        **source.id**: *eq, in*
+
+
+        **requestable**: *eq*
+
+
+        **created**: *gt, lt, ge, le*
+
+
+        **modified**: *gt, lt, ge, le*
+
+        
+        **owner.id**: *eq, in*
+      example: attribute eq "memberOf"
+      required: false
+      style: form
+      explode: true
+  responses:
+    '200':
+      description: List of entitlements
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/Entitlement.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

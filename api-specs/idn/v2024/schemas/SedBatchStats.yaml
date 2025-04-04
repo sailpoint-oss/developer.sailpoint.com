@@ -1,0 +1,28 @@
+description: Sed Batch Stats
+type: object
+properties:
+  batchComplete:
+    description: batch complete
+    type: boolean
+    example: true
+    default: false
+  batchId:
+    description: batch Id
+    format: uuid
+    type: string
+    example: 016629d1-1d25-463f-97f3-c6686846650
+  discoveredCount:
+    description: discovered count
+    format: int64
+    type: integer
+    example: 100
+  discoveryComplete:
+    description: discovery complete
+    type: boolean
+    example: true
+    default: false
+  processedCount:
+    description: processed count
+    format: int64
+    example: 100
+    type: integer

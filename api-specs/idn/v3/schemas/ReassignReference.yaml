@@ -1,0 +1,17 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The ID of item or identity being reassigned.
+    example: ef38f94347e94562b5bb8424a56397d8
+  type:
+    type: string
+    description: The type of item or identity being reassigned.
+    enum:
+      - TARGET_SUMMARY
+      - ITEM
+      - IDENTITY_SUMMARY
+    example: ITEM
+required:
+  - id
+  - type

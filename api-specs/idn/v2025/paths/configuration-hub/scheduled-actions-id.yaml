@@ -1,0 +1,115 @@
+patch:
+  operationId: updateScheduledAction
+  security:
+    - userAuth: [sp:config-scheduled-action:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Configuration Hub
+  summary: Update Scheduled Action
+  description: >-
+    This API updates an existing scheduled action using JSON Patch format.
+  parameters:
+    - in: path
+      name: scheduledActionId
+      schema:
+        type: string
+      required: true
+      description: The ID of the scheduled action.
+      example: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
+      x-sailpoint-resource-operation-id: listScheduledActions
+  requestBody:
+    description: >-
+      The JSON Patch document containing the changes to apply to the scheduled action.
+    required: true
+    content:
+      application/json-patch+json:
+        schema:
+          $ref: '../../schemas/JsonPatch.yaml'
+        example:
+          [
+            {
+              "op": "replace",
+              "path": "/content/name",
+              "value": "Updated Backup Name"
+            },
+            {
+              "op": "replace",
+              "path": "/cronString",
+              "value": "0 0 9 * * ?"
+            }
+          ]
+  responses:
+    '200':
+      description: >-
+        The updated scheduled action.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/configuration-hub/ScheduledActionResponse.yaml'
+          example:
+            {
+              "id": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+              "created": "2024-08-16T14:16:58.389Z",
+              "jobType": "BACKUP",
+              "content": {
+                "name": "Updated Backup Name",
+                "backupOptions": {
+                  "includeTypes": ["SOURCE", "IDENTITY"],
+                  "objectOptions": {
+                    "SOURCE": {
+                      "includedNames": ["Source1", "Source2"]
+                    }
+                  }
+                }
+              },
+              "startTime": "2024-08-16T14:16:58.389Z",
+              "cronString": "0 0 9 * * ?"
+            }
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'
+delete:
+  operationId: deleteScheduledAction
+  security:
+    - userAuth: [sp:config-scheduled-action:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Configuration Hub
+  summary: Delete Scheduled Action
+  description: >-
+    This API deletes an existing scheduled action.
+  parameters:
+    - in: path
+      name: scheduledActionId
+      schema:
+        type: string
+      required: true
+      description: The ID of the scheduled action.
+      example: 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde
+      x-sailpoint-resource-operation-id: listScheduledActions
+  responses:
+    '204':
+      $ref: '../../responses/204.yaml'
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

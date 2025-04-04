@@ -1,0 +1,57 @@
+type: object
+description: >-
+  Query parameters used to construct an Elasticsearch type ahead query object. 
+  The typeAheadQuery performs a search for top values beginning with the typed values.
+  For example, typing "Jo" results in top hits matching "Jo." Typing "Job" results in top hits matching "Job." 
+required:
+- query
+- field
+properties:
+  query:
+    description: >-
+      The type ahead query string used to construct a phrase prefix match query.
+    type: string
+    example: 'Work'
+  field:
+    description: >-
+      The field on which to perform the type ahead search.
+    type: string
+    example: 'source.name'
+  nestedType:
+    description: >-
+      The nested type.
+    type: string
+    example: 'access'
+  maxExpansions:
+    description: >-
+      The number of suffixes the last term will be expanded into.
+
+      Influences the performance of the query and the number results returned.
+
+      Valid values: 1 to 1000.
+    type: integer
+    format: int32
+    minimum: 1
+    maximum: 1000
+    default: 10
+    example: 10
+  size:
+    description: >- 
+      The max amount of records the search will return.
+    type: integer
+    format: int32
+    minimum: 1
+    default: 100
+    example: 100
+  sort:
+    description: >-
+      The sort order of the returned records.
+    type: string
+    default: 'desc'
+    example: 'asc'
+  sortByValue:
+    description: >-
+      The flag that defines the sort type, by count or value.
+    type: boolean
+    default: false
+    example: true

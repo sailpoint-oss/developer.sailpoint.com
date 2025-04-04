@@ -1,0 +1,44 @@
+post:
+  operationId: sendOktaVerifyRequest
+  tags:
+    - MFA Controller
+  summary: Verifying authentication via Okta method
+  description: >-
+    This API Authenticates the user via Okta-Verify MFA method.
+    Request requires a header called 'slpt-forwarding', and it must contain a remote IP Address of caller.
+  security:
+    - userAuth: [idn:mfa:verify]
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/OktaVerificationRequest.yaml"
+        example:
+          {
+            "userId": "example@mail.com"
+          }
+
+  responses:
+    "200":
+      description: The status of verification request.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/VerificationResponse.yaml"
+          example:
+            {
+              "requestId": "089899f13a8f4da7824996191587bab9",
+              "status": "SUCCESS",
+              "error": ""
+            }
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

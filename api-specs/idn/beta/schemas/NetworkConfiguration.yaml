@@ -1,0 +1,18 @@
+type: object
+properties:
+  range:
+    type: array
+    description: The collection of ip ranges.
+    items:
+      type: string
+    example: ["1.3.7.2", "255.255.255.252/30"]
+  geolocation:
+    type: array
+    description: The collection of country codes.
+    items:
+      type: string
+    example: ["CA", "FR", "HT"]
+  whitelisted:
+    type: boolean
+    description: Denotes whether the provided lists are whitelisted or blacklisted.
+    example: true

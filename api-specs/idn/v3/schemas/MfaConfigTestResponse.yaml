@@ -1,0 +1,16 @@
+description: Response model for configuration test of a given MFA method
+type: object
+properties:
+  state:
+    type: string
+    enum:
+      - SUCCESS
+      - FAILED
+    description: The configuration test result.
+    example: SUCCESS
+    readOnly: true
+  error:
+    type: string
+    example: MFA Method is disabled.
+    description: The error message to indicate the failure of configuration test.
+    readOnly: true

@@ -1,0 +1,34 @@
+post:
+  operationId: updateEntitlementSegmentAssignments
+  tags:
+    - Entitlements
+  summary: update entitlements of a segment
+  description: >-
+    This internal endpoint assigns or removes entitlements to a segment
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/UpdateSegmentEntitlementAssignmentInput.yaml'
+  responses:
+    '200':
+      description: Successfully updated.
+    '400':
+      description: |
+        * Assignments or removals are missing
+        * An entitlement id is found both in assignments and removals
+        * Assignments and removals are not of the Entitlement type
+        * Assignments + removals total number > 50 or equal to 0
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ErrorResponseDto.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

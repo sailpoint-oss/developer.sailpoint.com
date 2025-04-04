@@ -1,0 +1,61 @@
+get:
+  operationId: getPendingCertificationTasks
+  tags:
+    - Certifications
+  summary: List of Pending Certification Tasks
+  description: >-
+    This API returns a list of pending (`QUEUED` or `IN_PROGRESS`) certification tasks. Any authenticated token can call
+    this API, but only certification tasks you are authorized to review will be returned.
+  security:
+    - userAuth: [ idn:certification:read ]
+  parameters:
+    - in: query
+      name: reviewer-identity
+      schema:
+        type: string
+        example: Ada.1de82e55078344
+      description: The ID of reviewer identity. *me* indicates the current user.
+      required: false
+    - $ref: '../parameters/limit.yaml'
+    - $ref: '../parameters/offset.yaml'
+    - $ref: '../parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+        example: type eq "ADMIN_REASSIGN"
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **id**: *eq, in*
+
+
+        **targetId**: *eq, in*
+
+
+        **type**: *eq, in*
+  responses:
+    '200':
+      description: A list of pending certification tasks
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/CertificationTask.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

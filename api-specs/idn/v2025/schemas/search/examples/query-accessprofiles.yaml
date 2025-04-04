@@ -1,0 +1,6 @@
+summary: Query for Access Profiles 
+value:
+  indices:
+    - accessprofiles
+  query:
+    query: 'requestable:true'

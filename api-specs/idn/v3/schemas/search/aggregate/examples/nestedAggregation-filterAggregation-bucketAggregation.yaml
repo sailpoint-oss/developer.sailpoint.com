@@ -1,0 +1,17 @@
+summary: NestedAggregation with FilterAggregation and BucketAggregation
+value:
+  indices:  [ 'identities' ]
+  aggregationType: 'SAILPOINT'
+  aggregations:
+    nested:
+      name: 'Access'
+      field: 'access'
+      type: 'TERMS'
+    filter:
+      name: 'Entitlements'
+      field: 'access.type'
+      value: 'ENTITLEMENT'
+    bucket:
+      name: 'Access Name'
+      type: 'TERMS'
+      field: 'access.name'

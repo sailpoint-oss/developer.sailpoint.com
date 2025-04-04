@@ -1,0 +1,26 @@
+type: object
+properties:
+  id:
+    type: string
+    format: UUID
+    description: ID of access item being recommended.
+    example: 2d9180835d2e5168015d32f890ca1581
+  name:
+    type: string
+    description: Display name of the access item.
+    example: Applied Research Access
+  description:
+    type: string
+    description: Description of the access item.
+    example: Access to research information, lab results, and schematics
+  type:
+    $ref: '../../v3/schemas/RequestableObjectType.yaml'
+  owner:
+    $ref: './AccessItemOwnerDto.yaml'
+  requestCommentsRequired:
+    type: boolean
+    description: If comments are required while requesting the access item.
+  apps:
+    type: array
+    items:
+      $ref: './ApplicationReference.yaml'

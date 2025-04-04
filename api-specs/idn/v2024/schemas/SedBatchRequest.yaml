@@ -1,0 +1,18 @@
+description: Sed Batch Request
+type: object
+minProperties: 1
+properties:
+  entitlements:
+    description: list of entitlement ids
+    type: array
+    minItems: 1
+    items:
+      type: string
+      example: 016629d1-1d25-463f-97f3-c6686846650
+  seds:
+    description: list of sed ids
+    type: array
+    minItems: 1
+    items:
+      type: string
+      example: 016629d1-1d25-463f-97f3-c6686846650

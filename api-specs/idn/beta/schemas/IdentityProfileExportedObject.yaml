@@ -1,0 +1,11 @@
+type: object
+description: Identity Profile exported object
+properties:
+  version:
+    type: integer
+    example: 1
+    description: Version or object from the target service.
+  self:
+    $ref: '../../v3/schemas/SelfImportExportDto.yaml'
+  object:
+    $ref: '../../v3/schemas/IdentityProfile.yaml'

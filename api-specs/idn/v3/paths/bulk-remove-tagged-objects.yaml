@@ -1,0 +1,38 @@
+post:
+  operationId: deleteTagsToManyObject
+  security:
+    - userAuth: [ idn:tag:manage ]
+    - applicationAuth: [ idn:tag:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - CERT_ADMIN
+    - REPORT_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  tags:
+    - Tagged Objects
+  summary: Remove Tags from Multiple Objects
+  description: >-
+    This API removes tags from multiple objects.
+  requestBody:
+    description: Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/BulkRemoveTaggedObject.yaml'
+  responses:
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

@@ -1,0 +1,30 @@
+post:
+  summary: Native Change Account Deleted
+  operationId: nativeChangeAccountDeletedEvent
+  description: >-
+    This event trigger fires when Identity Security Cloud (ISC) aggregates data from an external source and detects that an account has been deleted from the source.
+    The external source must meet these criteria for you to receive this type of event:
+      * Native Change Detection (NCD) is enabled.
+      * Account Delete operations are monitored.
+      * At least one attribute selected for monitoring has changed.
+      
+    In addition to having NCD enabled, 
+    There are two ways to configure a source for NCD: 
+      * Invoke the 'Update Native Change Detection' configuration for each source you want to receive NCD events from.
+      * Configure the NCD options on the source in the source configuration user interface (UI).
+
+    A typical use for this event trigger would be to notify the correlated identity's manager and the source owner when the account is deleted.
+
+    This is a `FIRE_AND_FORGET` event trigger. 
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [Native Change Account Deleted](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/native-change-account-deleted).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content: 
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/SourceAccountDeleted.yaml'

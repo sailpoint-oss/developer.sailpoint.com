@@ -1,0 +1,7 @@
+type: object
+properties:
+  access:
+    $ref: 'CommonAccessItemAccess.yaml'
+  status:
+    $ref: 'CommonAccessItemState.yaml'
+

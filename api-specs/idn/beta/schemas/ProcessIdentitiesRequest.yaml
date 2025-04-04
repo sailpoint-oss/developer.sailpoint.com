@@ -1,0 +1,10 @@
+type: object
+properties:
+  identityIds:
+    type: array
+    minItems: 1
+    maxItems: 250
+    description: List of up to 250 identity IDs to process.
+    items:
+      type: string
+      example: ef38f94347e94562b5bb8424a56397d8

@@ -1,0 +1,122 @@
+get:
+  operationId: listScheduledActions
+  security:
+    - userAuth: [sp:config-scheduled-action:read, sp:config-scheduled-action:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Configuration Hub
+  summary: List Scheduled Actions
+  description: >-
+    This API gets a list of existing scheduled actions for the current tenant.
+  responses:
+    '200':
+      description: >-
+        List of existing scheduled actions.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/configuration-hub/ScheduledActionResponse.yaml'
+          example:
+            [
+              {
+                "id": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+                "created": "2024-08-16T14:16:58.389Z",
+                "jobType": "BACKUP",
+                "content": {
+                  "name": "Backup Name",
+                  "backupOptions": {
+                    "includeTypes": ["SOURCE", "IDENTITY"], 
+                    "objectOptions": []
+                  }                
+                },
+                "startTime": "2024-08-16T14:16:58.389Z",
+                "cronString": "0 0 * * *"
+              }
+            ]
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'
+post:
+  operationId: createScheduledAction
+  security:
+    - userAuth: [sp:config-scheduled-action:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  tags:
+    - Configuration Hub
+  summary: Create Scheduled Action
+  description: >-
+    This API creates a new scheduled action for the current tenant.
+  requestBody:
+    description: >-
+      The scheduled action creation request body.
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../schemas/configuration-hub/ScheduledActionPayload.yaml'
+        example:
+          {
+            "jobType": "BACKUP",
+            "startTime": "2024-08-16T14:16:58.389Z",
+            "cronString": "0 0 12 * * ?",
+            "timeZoneId": "America/Chicago",
+            "content": {
+              "name": "Daily Backup",
+              "backupOptions": {
+                "includeTypes": ["SOURCE", "IDENTITY"],
+                "objectOptions": {
+                  "SOURCE": {
+                    "includedNames": ["Source1", "Source2"]
+                  }
+                }
+              }
+            }
+          }
+  responses:
+    '200':
+      description: >-
+        The created scheduled action.
+      content:
+        application/json:
+          schema:
+            $ref: '../../schemas/configuration-hub/ScheduledActionResponse.yaml'
+          example:
+            {
+              "id": "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+              "created": "2024-08-16T14:16:58.389Z",
+              "jobType": "BACKUP",
+              "content": {
+                "name": "Daily Backup",
+                "backupOptions": {
+                  "includeTypes": ["SOURCE", "IDENTITY"],
+                  "objectOptions": {
+                    "SOURCE": {
+                      "includedNames": ["Source1", "Source2"]
+                    }
+                  }
+                }
+              },
+              "startTime": "2024-08-16T14:16:58.389Z",
+              "cronString": "0 0 12 * * ?"
+            }
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

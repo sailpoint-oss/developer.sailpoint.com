@@ -229,6 +229,7 @@
 
 :root {
   color: #415364;
+  --ifm-primary-text-color: #415364;
   --ifm-color-primary: #0033a1;
   --ifm-color-primary-dark: #002e91;
   --ifm-color-primary-darker: #002b89;
@@ -238,7 +239,8 @@
   --ifm-color-primary-lightest: #0042d1;
 
   --ifm-color-secondary: #cc27b0;
-  --ifm-link-color: #0188f7;
+  --ifm-color-secondary-dark: rgb(181, 13, 152);
+  --ifm-link-color: #0071cE;
 
   --terminal-key: rgb(47, 162, 160);
   --terminal-value: rgb(226, 52, 120);
@@ -287,7 +289,8 @@
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
   color: #ffffff;
-  --ifm-color-primary: #7ecfee;
+  --ifm-primary-text-color: #ffffff;
+  --ifm-color-primary: #54C0e8;
   --ifm-color-primary-dark: #5ec3ea;
   --ifm-color-primary-darker: #4ebde8;
   --ifm-color-primary-darkest: #1eabe1;
@@ -297,6 +300,7 @@
   --ifm-link-color: #7ecfee;
 
   --ifm-color-secondary: #cc27b0;
+  --ifm-color-secondary-dark: rgb(181, 13, 152);
 
   --terminal-key: rgb(247, 247, 240);
   --terminal-value: rgb(255, 110, 191);
@@ -333,6 +337,14 @@
 
   /*main hero card*/
   --main-hero-card-background: #202122;
+}
+
+.navbar__link:hover {
+  color: var(--ifm-link-color) !important;
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-link-color) !important;
 }
 
 .navbar__logo {
@@ -559,7 +571,7 @@ iframe[id^='discourse-embed-frame'] {
 }
 
 div[id^='discourseContainer'] {
-  border-radius: 0.5em;
+  border-radius: 0.25em;
 }
 
 div[id^='discourse-comments'] {

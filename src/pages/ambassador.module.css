@@ -74,7 +74,7 @@
 .ambassadorPurposeImage {
   width: 40%;
   box-shadow: var(--dev-card-selected);
-  border-radius: 40px;
+  border-radius: 0.25em;
   margin: 50px 50px 50px 0px;
 }
 

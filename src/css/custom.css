@@ -260,7 +260,6 @@
   --dev-tag-highlight: #eaeef1;
 
   --text-on-primary: #ffffff;
-  --ifm-primary-text-color: black;
 
   --dropdown-background: #ffffff;
 
@@ -317,8 +316,6 @@
     hue-rotate(165deg) brightness(96%) contrast(89%);
 
   --text-on-primary: #ffffff;
-
-  --ifm-primary-text-color: #ffffff;
 
   --dropdown-background: #2a2b2d;
 

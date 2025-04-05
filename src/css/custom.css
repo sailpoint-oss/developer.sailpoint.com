@@ -260,7 +260,7 @@
   --dev-tag-highlight: #eaeef1;
 
   --text-on-primary: #ffffff;
-  --text-color: black;
+  --ifm-primary-text-color: black;
 
   --dropdown-background: #ffffff;
 
@@ -318,7 +318,7 @@
 
   --text-on-primary: #ffffff;
 
-  --text-color: #ffffff;
+  --ifm-primary-text-color: #ffffff;
 
   --dropdown-background: #2a2b2d;
 

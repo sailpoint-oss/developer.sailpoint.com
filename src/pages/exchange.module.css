@@ -14,7 +14,7 @@
 }
 
 .discourseContainer {
-  border-radius: 0.5em;
+  border-radius: 0.25em;
   height: 100%;
 }
 
@@ -45,20 +45,20 @@
   color: var(--ifm-color-primary);
   font-size: 30px;
   max-width: 396px;
-  font-weight: bold;
+  font-weight: 600;
   line-height: 100%;
 }
 
 .gettingStartedTwo {
   margin-top: 20px;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 .gettingStartedThree {
   margin-top: 20px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .bold {
@@ -148,7 +148,7 @@
     background: var(--main-hero-card-background);
     box-shadow: var(--dev-main-card-shadow);
     border: 1px solid var(--dev-card-background);
-    border-radius: 40px;
+    border-radius: 0.25em;
     opacity: 1;
     margin: 50px auto;
     width: calc(100% - 100px);

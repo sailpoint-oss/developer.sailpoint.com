@@ -86,7 +86,7 @@
 
 .featuredCardTitle {
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 400;
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
@@ -98,7 +98,7 @@
 
 .cardTitle {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
@@ -140,18 +140,19 @@
 
 .cardName {
   min-width: 170px;
-  font-weight: 800;
+  font-weight: 600;
   margin-top: 7px;
   margin-left: 10px;
   display: flex;
-  color: var(--text-color);
+  color: var(--ifm-primary-text-color);
 }
 
 .cardCreatorTitle {
+  font-weight: 400;
   min-width: 170px;
   margin-left: 10px;
   display: flex;
-  color: var(--text-color);
+  color: var(--ifm-primary-text-color);
 }
 
 .cardBadge {

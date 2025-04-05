@@ -32,10 +32,11 @@
   position: absolute;
   margin: 20px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   width: 135px;
   bottom: 0;
   left: 0;
+  color: var(--ifm-primary-text-color);
 }
 
 .cardIcon {
@@ -64,12 +65,9 @@
   left: 0;
 }
 
-.idn {
-  color: #177dd2;
-}
-
-.iiq {
-  color: #60b359;
+.idn, .iiq {
+  color: var(--ifm-primary-text-color);
+  font-weight: 400;
 }
 
 @media only screen and (max-width: 570px) {

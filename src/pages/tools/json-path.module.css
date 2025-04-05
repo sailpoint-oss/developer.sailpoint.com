@@ -26,14 +26,14 @@ a[id^='jsonpathDocumentationLink'] {
 }
 
 li[class^='MuiButtonBase-root'] {
-  color: var(--text-color);
+  color: var(--ifm-primary-text-color);
 }
 div[class^='MuiFormControl-root'] {
-  color: var(--text-color);
+  color: var(--ifm-primary-text-color);
 }
 div[id^='terminal-font-size-select'],
 div[id^='implementation-dropdown-select'] {
-  color: var(--text-color);
+  color: var(--ifm-primary-text-color);
 }
 
 input[id^='outlined-basic-jsonpath-input'],
@@ -42,7 +42,7 @@ select[id^='terminal-font-size-select'],
 label[id^='terminal-font-size-label'],
 select[id^='implementation-dropdown-select'],
 label[id^='implementation-dropdown-label'] {
-  color: var(--text-color);
+  color: var(--ifm-primary-text-color);
 }
 input[id^='outlined-basic-jsonpath-input'],
 div[id^='terminal-font-size-select'],

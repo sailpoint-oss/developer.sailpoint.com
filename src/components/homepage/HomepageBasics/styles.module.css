@@ -9,14 +9,14 @@
 .gettingStartedOne {
   color: var(--ifm-color-primary);
   font-size: 30px;
-  font-weight: bold;
+  font-weight: 600;
   line-height: 100%;
 }
 
 .gettingStartedThree {
   margin-top: 20px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .bold {
@@ -33,8 +33,8 @@
   cursor: pointer;
   top: -2px;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-  background-color: var(--dev-button-hover);
-  color: #cc27b0;
+  background-color: var(--ifm-color-secondary-dark);
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -55,16 +55,18 @@
   opacity: 1;
 
   box-shadow: 0px 20px 60px #00000015;
-  border: 2px solid #df61ca;
-  border-radius: 5px;
+  border: 1px solid transparent;
+  background-color: var(--ifm-color-secondary);
+  color: #ffffff;
+  border-radius: .25rem;
   transition: all 0.3s;
 }
 
 .link {
-  color: #df61ca;
+  color: #ffffff;
 }
 .link:hover {
-  color: #df61ca;
+  color: #ffffff;
   text-decoration: none;
 }
 

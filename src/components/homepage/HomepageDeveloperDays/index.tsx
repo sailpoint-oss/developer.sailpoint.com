@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from './styles.module.css';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import ThemedImage, { type Props as ThemedImageProps } from '@theme/ThemedImage';
 
 const HomepageGettingStarted: React.FC = () => {
   return (
@@ -23,17 +25,17 @@ const HomepageGettingStarted: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className={styles.carousel}>
-          <iframe
-            className={styles.video}
-            src="https://www.youtube.com/embed/MYhWuqAAUvY?si=GPhe53efO7QLJ_RJ"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
-        </div>
+        <div>
+           {ThemedImage && (
+             <ThemedImage
+               className={styles.cardIcon}
+               sources={{
+                 light: useBaseUrl('/homepage/DeveloperDays2025-SailPointLockup-LightMode.png'),
+                 dark: useBaseUrl('/homepage/DeveloperDays2025-SailPointLockup-DarkMode.png'),
+               }}
+             />
+           )}
+         </div>
       </div>
     </div>
   );

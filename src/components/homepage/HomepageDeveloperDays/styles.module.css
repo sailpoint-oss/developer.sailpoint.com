@@ -54,14 +54,14 @@
 
 .cardIcon {
   width: 90%;
-  margin-top: 100px;
+  margin-top: 25px;
 }
 .registerButton {
   align-items: center;
   background: var(--ifm-color-primary);
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   border: none;
-  color: #eee;
+  color: #ffffff;
   display: inline-flex;
   padding: 10px 15px;
   margin-right: 45px;
@@ -79,24 +79,24 @@
   width: 259px;
   height: 61px;
   line-height: 61px;
-  background: transparent 0% 0% no-repeat padding-box;
+  background: var(--ifm-color-secondary);
   opacity: 1;
   box-shadow: 0px 20px 60px #00000015;
-  border: 2px solid #df61ca;
-  border-radius: 0.5rem;
-  color: #df61ca;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  color: #ffffff;
   padding: 10px 15px;
   margin-right: 45px;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .registerButtonPink:hover {
   cursor: pointer;
   top: -2px;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-  background-color: var(--dev-button-hover);
-  color: #cc27b0;
+  background-color: var(--ifm-color-secondary-dark);
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -128,7 +128,7 @@
     background: var(--main-hero-card-background);
     box-shadow: var(--dev-main-card-shadow);
     border: 1px solid var(--dev-card-background);
-    border-radius: 40px;
+    border-radius: 0.25rem;
     opacity: 1;
     margin: 50px auto;
     width: calc(100% - 100px);

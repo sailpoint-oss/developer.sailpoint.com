@@ -6,6 +6,7 @@ properties:
     description: Deleted lifecycle state's DTO type. 
     enum: 
       - LIFECYCLE_STATE
+      - TASK_RESULT
     example: LIFECYCLE_STATE
   id:
     type: string

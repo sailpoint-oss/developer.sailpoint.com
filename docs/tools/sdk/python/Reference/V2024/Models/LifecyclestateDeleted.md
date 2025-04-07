@@ -17,7 +17,7 @@ Deleted lifecycle state.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** |  **Enum** [  'LIFECYCLE_STATE' ] | Deleted lifecycle state's DTO type. | [optional] 
+**type** |  **Enum** [  'LIFECYCLE_STATE',    'TASK_RESULT' ] | Deleted lifecycle state's DTO type. | [optional] 
 **id** | **str** | Deleted lifecycle state ID. | [optional] 
 **name** | **str** | Deleted lifecycle state's display name. | [optional] 
 }

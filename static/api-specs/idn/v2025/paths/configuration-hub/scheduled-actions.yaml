@@ -33,7 +33,7 @@ get:
                   }                
                 },
                 "startTime": "2024-08-16T14:16:58.389Z",
-                "cronString": "0 0 * * *"
+                "cronString": "0 0 * * * *"
               }
             ]
     '400':
@@ -69,7 +69,7 @@ post:
           {
             "jobType": "BACKUP",
             "startTime": "2024-08-16T14:16:58.389Z",
-            "cronString": "0 0 12 * * ?",
+            "cronString": "0 0 * * * *",
             "timeZoneId": "America/Chicago",
             "content": {
               "name": "Daily Backup",
@@ -108,7 +108,7 @@ post:
                 }
               },
               "startTime": "2024-08-16T14:16:58.389Z",
-              "cronString": "0 0 12 * * ?"
+              "cronString": "0 0 * * * *"
             }
     '400':
       $ref: '../../responses/400.yaml'

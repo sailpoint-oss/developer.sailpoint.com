@@ -96,7 +96,7 @@ When a new annual release is introduced, non-deprecated endpoints will generally
 
 Annual release versions will typically be supported for 3 years and then remain operational for an additional 2-year transition period, unless otherwise noted or an exception applies.  Customers will be expected to move to the latest public release during those two years. Customers seeking support for an annual release that is over 3 years old will be asked to transition to a newer version.
 
-The following image demonstrates the support model for public and experimental releases. The green bars represent how long an annual release version will be supported by our support team. When a annual release is older than three years, it may still remain operational, but it is no longer supported. The blue bars represents an experimental release that introduces breaking changes, if any exist.
+The following image demonstrates the support model for public and experimental releases. The green bars represent how long an annual release version will be supported by our support team. When a annual release is older than three years, it may still remain operational, but it is no longer supported. During each calendar year’s main release (e.g., v2025), an optional experimental release may be introduced in preparation for the following year’s version (e.g., v2026). Blue bars on the timeline represent these experimental releases. For example, in 2025, if breaking changes are required for a public api, an experimental version (v2026) of the api may be published during the v2025 cycle.
 
 ![Versioning Timeline](../img/api-versioning-timeline.png)
 

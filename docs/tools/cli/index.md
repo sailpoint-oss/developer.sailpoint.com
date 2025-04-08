@@ -40,7 +40,7 @@ Learn how to use the SailPoint command line interface (CLI) in this guide.
   - [PAT Authentication](#pat-authentication)
 - [Environment variable configuration](#environment-variable-configuration)
 - [Usage](#usage)
-- [GitHub](#github)
+- [Support](#Support)
 - [Contribution](#contribution)
 - [Questions](#questions)
 

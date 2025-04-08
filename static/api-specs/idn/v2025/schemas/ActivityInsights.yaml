@@ -1,0 +1,19 @@
+type: object
+description: Insights into account activity
+properties:
+  accountID:
+    type: string
+    description: UUID of the account
+    example: "c4ddd5421d8549f0abd309162cafd3b1"
+  usageDays:
+    type: integer
+    format: int32
+    minimum: 0
+    maximum: 90
+    description: The number of days of activity
+    example: 45
+  usageDaysState:
+    type: string
+    enum: [ "COMPLETE", "UNKNOWN" ]
+    description: Status indicating if the activity is complete or unknown
+    example: "COMPLETE"

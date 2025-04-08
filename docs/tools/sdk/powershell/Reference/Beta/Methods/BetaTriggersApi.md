@@ -113,10 +113,10 @@ $CompleteInvocation = @"{
 
 try {
     $Result = ConvertFrom-JsonToCompleteInvocation -Json $CompleteInvocation
-    Complete-BetaTriggerInvocation -Id $Id -BetaCompleteInvocation $Result 
+    Complete-BetaTriggerInvocation -Id $Id -CompleteInvocation $Result 
     
     # Below is a request that includes all optional parameters
-    # Complete-BetaTriggerInvocation -Id $Id -BetaCompleteInvocation $Result  
+    # Complete-BetaTriggerInvocation -Id $Id -CompleteInvocation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-BetaTriggerInvocation"
     Write-Host $_.ErrorDetails
@@ -185,10 +185,10 @@ $SubscriptionPostRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
-    New-BetaSubscription -BetaSubscriptionPostRequest $Result 
+    New-BetaSubscription -SubscriptionPostRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSubscription -BetaSubscriptionPostRequest $Result  
+    # New-BetaSubscription -SubscriptionPostRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSubscription"
     Write-Host $_.ErrorDetails
@@ -444,10 +444,10 @@ $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | ID of the Subscription t
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
-    Update-BetaSubscription -Id $Id -BetaSubscriptionPatchRequestInner $Result 
+    Update-BetaSubscription -Id $Id -SubscriptionPatchRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSubscription -Id $Id -BetaSubscriptionPatchRequestInner $Result  
+    # Update-BetaSubscription -Id $Id -SubscriptionPatchRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSubscription"
     Write-Host $_.ErrorDetails
@@ -500,10 +500,10 @@ $TestInvocation = @"{
 
 try {
     $Result = ConvertFrom-JsonToTestInvocation -Json $TestInvocation
-    Start-BetaTestTriggerInvocation -BetaTestInvocation $Result 
+    Start-BetaTestTriggerInvocation -TestInvocation $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-BetaTestTriggerInvocation -BetaTestInvocation $Result  
+    # Start-BetaTestTriggerInvocation -TestInvocation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaTestTriggerInvocation"
     Write-Host $_.ErrorDetails
@@ -552,10 +552,10 @@ $ValidateFilterInputDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToValidateFilterInputDto -Json $ValidateFilterInputDto
-    Test-BetaSubscriptionFilter -BetaValidateFilterInputDto $Result 
+    Test-BetaSubscriptionFilter -ValidateFilterInputDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Test-BetaSubscriptionFilter -BetaValidateFilterInputDto $Result  
+    # Test-BetaSubscriptionFilter -ValidateFilterInputDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaSubscriptionFilter"
     Write-Host $_.ErrorDetails
@@ -633,10 +633,10 @@ $SubscriptionPutRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest
-    Update-BetaSubscription -Id $Id -BetaSubscriptionPutRequest $Result 
+    Update-BetaSubscription -Id $Id -SubscriptionPutRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSubscription -Id $Id -BetaSubscriptionPutRequest $Result  
+    # Update-BetaSubscription -Id $Id -SubscriptionPutRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSubscription"
     Write-Host $_.ErrorDetails

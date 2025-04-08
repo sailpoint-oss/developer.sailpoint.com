@@ -1,0 +1,45 @@
+type: object
+properties:
+  jobId:
+    type: string
+    description: Unique id assigned to this job.
+    example: "3469b87d-48ca-439a-868f-2160001da8c1"
+  status:
+    type: string
+    description: Status of the job.
+    enum:
+      - NOT_STARTED
+      - IN_PROGRESS
+      - COMPLETE
+      - CANCELLED
+      - FAILED
+    example: "COMPLETE"
+  type:
+    type: string
+    description: Type of the job, either export or import.
+    enum:
+      - EXPORT
+      - IMPORT
+    example: "IMPORT"
+  expiration:
+    type: string
+    format: 'date-time'
+    description: The time until which the artifacts will be available for download.
+    example: "2021-05-11T22:23:16Z"
+  created:
+    type: string
+    format: 'date-time'
+    description: The time the job was started.
+    example: "2021-05-11T22:23:16Z"
+  modified:
+    type: string
+    format: 'date-time'
+    description: The time of the last update to the job.
+    example: "2021-05-11T22:23:16Z"
+required:
+  - jobId
+  - status
+  - type
+  - expiration
+  - created
+  - modified

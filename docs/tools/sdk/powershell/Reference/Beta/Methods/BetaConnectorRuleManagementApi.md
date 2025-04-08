@@ -92,10 +92,10 @@ $ConnectorRuleCreateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
-    New-BetaConnectorRule -BetaConnectorRuleCreateRequest $Result 
+    New-BetaConnectorRule -ConnectorRuleCreateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaConnectorRule -BetaConnectorRuleCreateRequest $Result  
+    # New-BetaConnectorRule -ConnectorRuleCreateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaConnectorRule"
     Write-Host $_.ErrorDetails
@@ -308,7 +308,7 @@ try {
     Update-BetaConnectorRule -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaConnectorRule -Id $Id -BetaConnectorRuleUpdateRequest $Result  
+    # Update-BetaConnectorRule -Id $Id -ConnectorRuleUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaConnectorRule"
     Write-Host $_.ErrorDetails
@@ -355,10 +355,10 @@ $SourceCode = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceCode -Json $SourceCode
-    Confirm-BetaConnectorRule -BetaSourceCode $Result 
+    Confirm-BetaConnectorRule -SourceCode $Result 
     
     # Below is a request that includes all optional parameters
-    # Confirm-BetaConnectorRule -BetaSourceCode $Result  
+    # Confirm-BetaConnectorRule -SourceCode $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Confirm-BetaConnectorRule"
     Write-Host $_.ErrorDetails

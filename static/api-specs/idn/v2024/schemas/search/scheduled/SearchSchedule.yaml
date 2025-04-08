@@ -1,0 +1,59 @@
+type: object
+properties:
+  savedSearchId:
+    description: The ID of the saved search that will be executed.
+    type: string
+    example: '554f1511-f0a1-4744-ab14-599514d3e57c'
+  created:
+    allOf:
+    - $ref: ../model/base/DateTime.yaml
+    description: The date the scheduled search was initially created.
+    readOnly: true
+  modified:
+    allOf:
+    - $ref: ../model/base/DateTime.yaml
+    description: The last date the scheduled search was modified.
+    readOnly: true
+  schedule:
+    $ref: '../../schedule/Schedule.yaml'
+  recipients:
+    description: A list of identities that should receive the scheduled search report via email.
+    type: array
+    items:
+      type: object
+      properties:
+        type:
+          type: string
+          description: The type of object being referenced
+          enum:
+          - IDENTITY
+          example: IDENTITY
+        id:
+          type: string
+          description: The ID of the referenced object
+          example: 2c9180867624cbd7017642d8c8c81f67
+      required:
+      - type
+      - id
+  enabled:
+    description: |
+      Indicates if the scheduled search is enabled.
+    type: boolean
+    default: false
+    example: false
+  emailEmptyResults:
+    description: |
+      Indicates if email generation should occur when search returns no results.
+    type: boolean
+    default: false
+    example: false
+  displayQueryDetails:
+    description: |
+      Indicates if the generated email should include the query and search results preview (which could include PII).
+    type: boolean
+    default: false
+    example: false
+required:
+- savedSearchId
+- schedule
+- recipients

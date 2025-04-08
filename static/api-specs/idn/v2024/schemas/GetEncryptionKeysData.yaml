@@ -1,0 +1,19 @@
+type: object
+description: Get a Clusters key pair
+required:
+  - publicKeyCertificate
+properties:
+  privateKey:
+    description: private certificate of the cluster
+    type: string
+    example: -----BEGIN PRIVATE KEY-----******-----END PRIVATE KEY-----
+  publicKeyCertificate:
+    description: public certificate of the cluster
+    type: string
+    example: -----BEGIN CERTIFICATE-----******-----END CERTIFICATE-----
+  SignedCertificate:
+    description: signed certificate of the cluster
+    type: string
+    example: -----BEGIN CERTIFICATE-----******-----END CERTIFICATE-----
+
+

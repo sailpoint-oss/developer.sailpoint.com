@@ -1,0 +1,25 @@
+# Replaced by ReviewData.yaml
+# Cannot represent information for a Role Composition Certification Item
+type : object
+description: An object holding the access that is being reviewed
+properties:
+  access:
+    type: object
+    properties:
+      type:
+        description: The type of item being certified
+        $ref: './DtoType.yaml'
+      id:
+        type: string
+        description: The ID of the item being certified
+        example: 2c9180867160846801719932c5153fb7
+      name:
+        type: string
+        description: The name of the item being certified
+        example: Entitlement for Company Database
+  entitlement:
+    $ref: './reviews/ReviewableEntitlement.yaml'
+  accessProfile:
+    $ref: './reviews/ReviewableAccessProfile.yaml'
+  role:
+    $ref: './reviews/ReviewableRole.yaml'

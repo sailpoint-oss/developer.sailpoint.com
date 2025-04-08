@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $IdentitySyncPayload = Initialize-PSSailpoint.V2024IdentitySyncPayload  -Type SYNCHRONIZE_IDENTITY_ATTRIBUTES `
- -DataJson {&quot;identityId&quot;:&quot;2c918083746f642c01746f990884012a&quot;}
+ -DataJson {"identityId":"2c918083746f642c01746f990884012a"}
 ```
 
 - Convert the resource to JSON

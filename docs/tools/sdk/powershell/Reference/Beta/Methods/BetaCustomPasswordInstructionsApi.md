@@ -70,10 +70,10 @@ $CustomPasswordInstruction = @"{
 
 try {
     $Result = ConvertFrom-JsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
-    New-BetaCustomPasswordInstructions -BetaCustomPasswordInstruction $Result 
+    New-BetaCustomPasswordInstructions -CustomPasswordInstruction $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaCustomPasswordInstructions -BetaCustomPasswordInstruction $Result  
+    # New-BetaCustomPasswordInstructions -CustomPasswordInstruction $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaCustomPasswordInstructions"
     Write-Host $_.ErrorDetails

@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 ```powershell
 $PasswordPolicyHoldersDtoInner = Initialize-PSSailpoint.V2024PasswordPolicyHoldersDtoInner  -PolicyId 2c91808e7d976f3b017d9f5ceae440c8 `
  -PolicyName PasswordPolicy Example `
- -Selectors {identityAttr&#x3D;[{name&#x3D;displayName, value&#x3D;Robert}, {name&#x3D;lastname, value&#x3D;Juice}]}
+ -Selectors {identityAttr=[{name=displayName, value=Robert}, {name=lastname, value=Juice}]}
 ```
 
 - Convert the resource to JSON

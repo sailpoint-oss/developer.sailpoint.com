@@ -72,10 +72,10 @@ $CommonAccessItemRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCommonAccessItemRequest -Json $CommonAccessItemRequest
-    New-V2024CommonAccess -XSailPointExperimental $XSailPointExperimental -V2024CommonAccessItemRequest $Result 
+    New-V2024CommonAccess -XSailPointExperimental $XSailPointExperimental -CommonAccessItemRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024CommonAccess -XSailPointExperimental $XSailPointExperimental -V2024CommonAccessItemRequest $Result  
+    # New-V2024CommonAccess -XSailPointExperimental $XSailPointExperimental -CommonAccessItemRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024CommonAccess"
     Write-Host $_.ErrorDetails
@@ -184,10 +184,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToCommonAccessIDStatus -Json $CommonAccessIDStatus
-    Update-V2024CommonAccessStatusInBulk -XSailPointExperimental $XSailPointExperimental -V2024CommonAccessIDStatus $Result 
+    Update-V2024CommonAccessStatusInBulk -XSailPointExperimental $XSailPointExperimental -CommonAccessIDStatus $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024CommonAccessStatusInBulk -XSailPointExperimental $XSailPointExperimental -V2024CommonAccessIDStatus $Result  
+    # Update-V2024CommonAccessStatusInBulk -XSailPointExperimental $XSailPointExperimental -CommonAccessIDStatus $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024CommonAccessStatusInBulk"
     Write-Host $_.ErrorDetails

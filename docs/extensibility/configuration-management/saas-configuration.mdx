@@ -43,6 +43,7 @@ To learn more about Configuration Hub, refer to [Configuration Hub](https://docu
 | Attribute Sync Source Configuration | `ATTR_SYNC_SOURCE_CONFIG` | ✅ | ❌ | ✅ | ✅ |
 | Authentication Configuration | `AUTH_ORG` | ✅ | ❌ | ✅ | ✅ |
 | Campaign Filters | `CAMPAIGN_FILTER` | ✅ | ❌ | ✅ | ✅ |
+| Connector Rules | `CONNECTOR_RULE` | ✅ | ✅ | ✅ | ✅ |
 | Form Definitions | `FORM_DEFINITION` | ✅ | ❌ | ✅ | ✅ |
 | Governance Groups | `GOVERNANCE_GROUP` | ✅ | ❌ | ✅ | ✅ |
 | Identity Object Configuration | `IDENTITY_OBJECT_CONFIG` | ✅ | ✅ | ✅ | ✅ |
@@ -135,8 +136,7 @@ You cannot import Non-Employee sources.
 
 **Description**
 
-[This endpoint](https://developer.sailpoint.com/docs/api/beta/list-sp-config-objects) gets the list of object configurations known to the tenant export/import service. 
-Object configurations containing "importUrl" and "exportUrl" are available for export/import.
+[This endpoint](https://developer.sailpoint.com/docs/api/beta/list-sp-config-objects) gets the list of object configurations the tenant export/import service knows. 
 
 <Tabs>
   <TabItem value="request" label="Request" default>

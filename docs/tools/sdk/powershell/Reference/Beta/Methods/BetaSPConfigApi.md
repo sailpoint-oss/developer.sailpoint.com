@@ -23,7 +23,7 @@ Method | HTTP request | Description
 [**Get-BetaSpConfigImport**](#get-sp-config-import) | **GET** `/sp-config/import/{id}/download` | Download import job result
 [**Get-BetaSpConfigImportStatus**](#get-sp-config-import-status) | **GET** `/sp-config/import/{id}` | Get import job status
 [**Import-BetaSpConfig**](#import-sp-config) | **POST** `/sp-config/import` | Initiates configuration objects import job
-[**Get-BetaSpConfigObjects**](#list-sp-config-objects) | **GET** `/sp-config/config-objects` | Get config object details
+[**Get-BetaSpConfigObjects**](#list-sp-config-objects) | **GET** `/sp-config/config-objects` | List Config Objects
 
 
 ## export-sp-config
@@ -65,10 +65,10 @@ $ExportPayload = @"{
 
 try {
     $Result = ConvertFrom-JsonToExportPayload -Json $ExportPayload
-    Export-BetaSpConfig -BetaExportPayload $Result 
+    Export-BetaSpConfig -ExportPayload $Result 
     
     # Below is a request that includes all optional parameters
-    # Export-BetaSpConfig -BetaExportPayload $Result  
+    # Export-BetaSpConfig -ExportPayload $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-BetaSpConfig"
     Write-Host $_.ErrorDetails
@@ -319,7 +319,7 @@ try {
     Import-BetaSpConfig -Data $Data 
     
     # Below is a request that includes all optional parameters
-    # Import-BetaSpConfig -Data $Data -Preview $Preview -BetaOptions $Options  
+    # Import-BetaSpConfig -Data $Data -Preview $Preview -Options $Options  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaSpConfig"
     Write-Host $_.ErrorDetails
@@ -328,7 +328,7 @@ try {
 [[Back to top]](#) 
 
 ## list-sp-config-objects
-This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain "importUrl" and "exportUrl" are available for export/import.
+Get a list of object configurations that the tenant export/import service knows.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-sp-config-objects)
 
@@ -357,7 +357,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get config object details
+# List Config Objects
 
 try {
     Get-BetaSpConfigObjects 

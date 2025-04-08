@@ -85,10 +85,10 @@ $VendorConnectorMapping = @"{
 
 try {
     $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
-    New-V2024VendorConnectorMapping -V2024VendorConnectorMapping $Result 
+    New-V2024VendorConnectorMapping -VendorConnectorMapping $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024VendorConnectorMapping -V2024VendorConnectorMapping $Result  
+    # New-V2024VendorConnectorMapping -VendorConnectorMapping $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024VendorConnectorMapping"
     Write-Host $_.ErrorDetails
@@ -155,10 +155,10 @@ $VendorConnectorMapping = @"{
 
 try {
     $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
-    Remove-V2024VendorConnectorMapping -V2024VendorConnectorMapping $Result 
+    Remove-V2024VendorConnectorMapping -VendorConnectorMapping $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024VendorConnectorMapping -V2024VendorConnectorMapping $Result  
+    # Remove-V2024VendorConnectorMapping -VendorConnectorMapping $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024VendorConnectorMapping"
     Write-Host $_.ErrorDetails

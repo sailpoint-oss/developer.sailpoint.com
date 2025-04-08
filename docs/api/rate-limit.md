@@ -19,3 +19,9 @@ There is a rate limit of 100 requests per `access_token` per 10 seconds for V3 A
 **Headers**:
 
 - **Retry-After**: [seconds to wait before rate limit resets]
+
+:::info
+
+Specific APIs may have different rate limiting. Refer to their specifications for this information.
+
+:::

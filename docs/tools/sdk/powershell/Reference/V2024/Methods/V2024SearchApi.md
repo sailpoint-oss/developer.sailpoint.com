@@ -203,10 +203,10 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 
 try {
     $Result = ConvertFrom-JsonToSearch -Json $Search
-    Search-V2024Aggregate -V2024Search $Result 
+    Search-V2024Aggregate -Search $Result 
     
     # Below is a request that includes all optional parameters
-    # Search-V2024Aggregate -V2024Search $Result -Offset $Offset -Limit $Limit -Count $Count  
+    # Search-V2024Aggregate -Search $Result -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-V2024Aggregate"
     Write-Host $_.ErrorDetails
@@ -365,10 +365,10 @@ $Search = @"{
 
 try {
     $Result = ConvertFrom-JsonToSearch -Json $Search
-    Search-V2024Count -V2024Search $Result 
+    Search-V2024Count -Search $Result 
     
     # Below is a request that includes all optional parameters
-    # Search-V2024Count -V2024Search $Result  
+    # Search-V2024Count -Search $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-V2024Count"
     Write-Host $_.ErrorDetails
@@ -581,10 +581,10 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 
 try {
     $Result = ConvertFrom-JsonToSearch -Json $Search
-    Search-V2024Post -V2024Search $Result 
+    Search-V2024Post -Search $Result 
     
     # Below is a request that includes all optional parameters
-    # Search-V2024Post -V2024Search $Result -Offset $Offset -Limit $Limit -Count $Count  
+    # Search-V2024Post -Search $Result -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-V2024Post"
     Write-Host $_.ErrorDetails

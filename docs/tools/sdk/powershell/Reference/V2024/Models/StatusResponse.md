@@ -30,7 +30,7 @@ $StatusResponse = Initialize-PSSailpoint.V2024StatusResponse  -Id 2c91808568c529
  -Name ODS-AD-Test [source-999999] `
  -Status SUCCESS `
  -ElapsedMillis 1000 `
- -Details {useTLSForIQService&#x3D;false, IQService&#x3D;{TLS Port&#x3D;0, .NET CLR Version&#x3D;4.0.30319.42000, SecondaryServiceStatus&#x3D;Running, Port&#x3D;5050, Host&#x3D;AUTOMATION-AD, Name&#x3D;IQService, IQServiceStatus&#x3D;Running, SecondaryService&#x3D;IQService-Instance1-Secondary, Version&#x3D;IQService Sep-2020, secondaryPort&#x3D;5051, OS Architecture&#x3D;AMD64, Operating System&#x3D;Microsoft Windows Server 2012 R2 Standard, highestDotNetVersion&#x3D;4.8 or later, Build Time&#x3D;09/22/2020 06:34 AM -0500}, IQServiceClientAuthEnabled&#x3D;false, requestProcessedOn&#x3D;1/19/2021 1:47:14 PM}
+ -Details {useTLSForIQService=false, IQService={TLS Port=0, .NET CLR Version=4.0.30319.42000, SecondaryServiceStatus=Running, Port=5050, Host=AUTOMATION-AD, Name=IQService, IQServiceStatus=Running, SecondaryService=IQService-Instance1-Secondary, Version=IQService Sep-2020, secondaryPort=5051, OS Architecture=AMD64, Operating System=Microsoft Windows Server 2012 R2 Standard, highestDotNetVersion=4.8 or later, Build Time=09/22/2020 06:34 AM -0500}, IQServiceClientAuthEnabled=false, requestProcessedOn=1/19/2021 1:47:14 PM}
 ```
 
 - Convert the resource to JSON

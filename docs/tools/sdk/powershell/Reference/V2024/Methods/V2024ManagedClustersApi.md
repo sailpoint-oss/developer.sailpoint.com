@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**Get-V2024ManagedCluster**](#get-managed-cluster) | **GET** `/managed-clusters/{id}` | Get Managed Cluster
 [**Get-V2024ManagedClusters**](#get-managed-clusters) | **GET** `/managed-clusters` | Get Managed Clusters
 [**Send-V2024ClientLogConfiguration**](#put-client-log-configuration) | **PUT** `/managed-clusters/{id}/log-config` | Update Managed Cluster Log Configuration
+[**Update-V2024**](#update) | **POST** `/managed-clusters/{id}/manualUpgrade` | Trigger Manual Upgrade for Managed Cluster
 [**Update-V2024ManagedCluster**](#update-managed-cluster) | **PATCH** `/managed-clusters/{id}` | Update Managed Cluster
 
 
@@ -72,10 +73,10 @@ $ManagedClusterRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToManagedClusterRequest -Json $ManagedClusterRequest
-    New-V2024ManagedCluster -V2024ManagedClusterRequest $Result 
+    New-V2024ManagedCluster -ManagedClusterRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ManagedCluster -V2024ManagedClusterRequest $Result  
+    # New-V2024ManagedCluster -ManagedClusterRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ManagedCluster"
     Write-Host $_.ErrorDetails
@@ -234,7 +235,7 @@ Param Type | Name | Data Type | Required  | Description
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*
 
 ### Return type
 [**ManagedCluster[]**](../models/managed-cluster)
@@ -258,7 +259,7 @@ Code | Description  | Data Type
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Filters = 'operational eq "operation"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional)
+$Filters = 'operational eq "operation"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq* (optional)
 
 # Get Managed Clusters
 
@@ -312,12 +313,59 @@ $PutClientLogConfigurationRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToPutClientLogConfigurationRequest -Json $PutClientLogConfigurationRequest
-    Send-V2024ClientLogConfiguration -Id $Id -V2024PutClientLogConfigurationRequest $Result 
+    Send-V2024ClientLogConfiguration -Id $Id -PutClientLogConfigurationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024ClientLogConfiguration -Id $Id -V2024PutClientLogConfigurationRequest $Result  
+    # Send-V2024ClientLogConfiguration -Id $Id -PutClientLogConfigurationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024ClientLogConfiguration"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## update
+Trigger Manual Upgrade for Managed Cluster.
+AMS Security: API, Internal A token with SYSTEM_ADMINISTRATOR authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | ID of managed cluster to trigger manual upgrade.
+
+### Return type
+[**ClusterManualUpgrade**](../models/cluster-manual-upgrade)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Manual upgrade of managed cluster for given cluster ID. | ClusterManualUpgrade
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | ID of managed cluster to trigger manual upgrade.
+
+# Trigger Manual Upgrade for Managed Cluster
+
+try {
+    Update-V2024 -Id $Id 
+    
+    # Below is a request that includes all optional parameters
+    # Update-V2024 -Id $Id  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -366,10 +414,10 @@ $Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024ManagedCluster -Id $Id -V2024JsonPatchOperation $Result 
+    Update-V2024ManagedCluster -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ManagedCluster -Id $Id -V2024JsonPatchOperation $Result  
+    # Update-V2024ManagedCluster -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ManagedCluster"
     Write-Host $_.ErrorDetails

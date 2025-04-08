@@ -1,0 +1,188 @@
+description: Manual Upgrade Job Response
+nullable: false
+type: object
+properties:
+  jobs:
+    description: List of job objects for the upgrade request.
+    type: array
+    items:
+      type: object
+      required:
+        - uuid
+        - cookbook
+        - state
+        - type
+        - targetId
+        - managedProcessConfiguration
+      properties:
+        uuid:
+          description: Unique identifier for the upgrade job.
+          type: string
+          example: "4732440c-dacb-45b2-b2f8-ee2fa1327a07"
+        cookbook:
+          description: Identifier for the cookbook used in the upgrade job.
+          type: string
+          example: "4732440c-dacb-45b2-b2f8-ee2fa1327a07"
+        state:
+          description: Current state of the upgrade job.
+          type: string
+          example: "PENDING"
+        type:
+          description: The type of upgrade job (e.g., VA_UPGRADE).
+          type: string
+          example: "VA_UPGRADE"
+        targetId:
+          description: Unique identifier of the target for the upgrade job.
+          type: string
+          example: "9fe8f1cc-2fd2-4675-a8cf-af4b43488ca2"
+        managedProcessConfiguration:
+          description: Configuration of the managed processes involved in the upgrade.
+          type: object
+          properties:
+            charon:
+              description: Configuration details for the 'charon' process.
+              type: object
+              required:
+                - version
+                - path
+                - description
+                - restartNeeded
+              properties:
+                version:
+                  description: Version of the 'charon' process.
+                  type: string
+                  example: "3047"
+                path:
+                  description: Path to the 'charon' process.
+                  type: string
+                  example: "sailpoint/charon"
+                description:
+                  description: A brief description of the 'charon' process.
+                  type: string
+                  example: "version of charon used by the va"
+                restartNeeded:
+                  description: Indicates whether the process needs to be restarted.
+                  type: boolean
+                  example: true
+            ccg:
+              description: Configuration details for the 'ccg' process.
+              type: object
+              required:
+                - version
+                - path
+                - description
+                - restartNeeded
+                - dependencies
+              properties:
+                version:
+                  description: Version of the 'ccg' process.
+                  type: string
+                  example: "1798_1054_241.0.0"
+                path:
+                  description: Path to the 'ccg' process.
+                  type: string
+                  example: "sailpoint/ccg"
+                description:
+                  description: A brief description of the 'ccg' process.
+                  type: string
+                  example: "CCG Deployment through ops-cli"
+                restartNeeded:
+                  description: Indicates whether the process needs to be restarted.
+                  type: boolean
+                  example: true
+                dependencies:
+                  description: A map of dependencies for the 'ccg' process.
+                  type: object
+                  additionalProperties:
+                    type: string
+                  example:
+                    IQService: "743/IQService-743.zip"
+                    connector-bundle-jdbc: "432/connector-bundle-jdbc-432.zip"
+                    connector-bundle-misc: "437/connector-bundle-misc-437.zip"
+                    connector-bundle-unix: "242/connector-bundle-unix-242.zip"
+                    connector-common-config: "208/connector-common-config-208.zip"
+                    connector-bundle-filebased: "222/connector-bundle-filebased-222.zip"
+                    connector-bundle-imprivata: "3/connector-bundle-imprivata-3.zip"
+                    connector-bundle-mainframe: "211/connector-bundle-mainframe-211.zip"
+                    connector-bundle-directories: "681/connector-bundle-directories-681.zip"
+                    connector-bundle-sap-on-prem: "196/connector-bundle-sap-on-prem-196.zip"
+                    connector-bundle-webservices: "1535/connector-bundle-webservices-1535.zip"
+                    connector-bundle-sap-cloud-app: "175/connector-bundle-sap-cloud-app-175.zip"
+                    connector-bundle-healthcare-epic: "302/connector-bundle-healthcare-epic-302.zip"
+                    connector-bundle-hrms-oraclefusionhcm: "166/connector-bundle-hrms-oraclefusionhcm-166.zip"
+                    connector-bundle-collaboration-connectors: "246/connector-bundle-collaboration-connectors-246.zip"
+            otel_agent:
+              description: Configuration details for the 'otel_agent' process.
+              type: object
+              required:
+                - version
+                - path
+                - description
+                - restartNeeded
+              properties:
+                version:
+                  description: Version of the 'otel_agent' process.
+                  type: string
+                  example: "3003"
+                path:
+                  description: Path to the 'otel_agent' process.
+                  type: string
+                  example: "sailpoint/otel_agent"
+                description:
+                  description: A brief description of the 'otel_agent' process.
+                  type: string
+                  example: "version of otel_agent used by the va"
+                restartNeeded:
+                  description: Indicates whether the process needs to be restarted.
+                  type: boolean
+                  example: true
+            relay:
+              description: Configuration details for the 'relay' process.
+              type: object
+              required:
+                - version
+                - path
+                - description
+                - restartNeeded
+              properties:
+                version:
+                  description: Version of the 'relay' process.
+                  type: string
+                  example: "3000"
+                path:
+                  description: Path to the 'relay' process.
+                  type: string
+                  example: "sailpoint/relay"
+                description:
+                  description: A brief description of the 'relay' process.
+                  type: string
+                  example: "version of relay used by the va"
+                restartNeeded:
+                  description: Indicates whether the process needs to be restarted.
+                  type: boolean
+                  example: true
+            toolbox:
+              description: Configuration details for the 'toolbox' process.
+              type: object
+              required:
+                - version
+                - path
+                - description
+                - restartNeeded
+              properties:
+                version:
+                  description: Version of the 'toolbox' process.
+                  type: string
+                  example: "3004"
+                path:
+                  description: Path to the 'toolbox' process.
+                  type: string
+                  example: "sailpoint/toolbox"
+                description:
+                  description: A brief description of the 'toolbox' process.
+                  type: string
+                  example: "version of toolbox used by the va"
+                restartNeeded:
+                  description: Indicates whether the process needs to be restarted.
+                  type: boolean
+                  example: true

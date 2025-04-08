@@ -160,10 +160,10 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to pa
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaProfileConfig -Id $Id -BetaJsonPatchOperation $Result 
+    Update-BetaProfileConfig -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaProfileConfig -Id $Id -BetaJsonPatchOperation $Result  
+    # Update-BetaProfileConfig -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaProfileConfig"
     Write-Host $_.ErrorDetails

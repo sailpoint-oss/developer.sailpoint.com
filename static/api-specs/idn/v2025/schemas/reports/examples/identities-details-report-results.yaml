@@ -1,0 +1,11 @@
+summary: Identities Details Report result.
+value:
+  reportType: IDENTITIES_DETAILS
+  taskDefName: Identities Details Report
+  id: 1e01d272b8084c4fa12fcf8fa898102d
+  created: '2023-09-07T42:14:05.122Z'
+  status: SUCCESS
+  duration: 3681
+  rows: 193
+  availableFormats:
+    - CSV

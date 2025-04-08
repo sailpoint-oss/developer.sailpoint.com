@@ -1,0 +1,22 @@
+properties:
+  id:
+    description: ID is a unique identifier
+    example: 00000000-0000-0000-0000-000000000000
+    type: string
+    x-go-name: ID
+  type:
+    description: |-
+      Type is a form instance created by type enum value
+      WORKFLOW_EXECUTION FormInstanceCreatedByTypeWorkflowExecution
+      SOURCE FormInstanceCreatedByTypeSource
+    enum:
+      - WORKFLOW_EXECUTION
+      - SOURCE
+    example: WORKFLOW_EXECUTION
+    type: string
+    x-go-enum-desc: |-
+      WORKFLOW_EXECUTION FormInstanceCreatedByTypeWorkflowExecution
+      SOURCE FormInstanceCreatedByTypeSource
+    x-go-name: Type
+type: object
+x-go-package: github.com/sailpoint/sp-forms/domain

@@ -158,6 +158,20 @@ When you open the Courier tab, the Community Toolbox displays its Courier tool. 
 - **API Request Body**: Use this section to specify your API request's body. You can copy a raw JSON into this area, or you can manually create an object or an array. 
 - **API Response Body**: This section displays the API response to your request. You can copy this raw JSON and use it for additional troubleshooting. 
 
+## Getting Support
+
+To get support for the ISC Community Toolbox, please see our GitHub page, https://github.com/sailpoint-oss/isc-community-toolbox.
+
+To submit a bug report, please [click here](https://github.com/sailpoint-oss/isc-community-toolbox/issues/new?assignees=&labels=bug&template=bug-report.md).
+
+To submit a feature request, please [click here](https://github.com/sailpoint-oss/isc-community-toolbox/issues/new?assignees=&labels=enhancement&template=feature-request.md)
+
+## Contribute
+
+Do you have an idea to help improve the ISC Community Toolbox? You can contribute directly!
+
+Before you contribute, you must sign our [CLA](https://cla-assistant.io/sailpoint-oss/isc-community-toolbox) and read the [Contribution Guidelines](https://github.com/sailpoint-oss/developer.sailpoint.com/blob/main/CONTRIBUTING.md).
+
 ## Discuss 
 
 The most valuable resource for ISC developers is the SailPoint Developer Community itself, where ISC users and experts all over the world come together to ask questions and provide solutions. 

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $Source1 = Initialize-PSSailpoint.V2024Source1  -Type rule `
- -Properties {ruleType&#x3D;IdentityAttribute, ruleName&#x3D;Cloud Promote Identity Attribute}
+ -Properties {ruleType=IdentityAttribute, ruleName=Cloud Promote Identity Attribute}
 ```
 
 - Convert the resource to JSON

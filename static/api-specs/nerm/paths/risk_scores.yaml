@@ -1,5 +1,5 @@
 get:
-  summary: Get risk score data in bulk
+  summary: Get risk score data
   operationId: getRiskScores
   description: This endpoint can retrieve risk score data in bulk from Lifecycle
   tags:

@@ -4,3 +4,4 @@ description: The user title to search by
 required: false
 schema:
   type: string
+  example: Marketing Director

@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Description** | **String** | Information about the Access Profile | [optional] 
 **Created** | **System.DateTime** | Date the Access Profile was created | [optional] [readonly] 
 **Modified** | **System.DateTime** | Date the Access Profile was last modified. | [optional] [readonly] 
-**Enabled** | **Boolean** | Whether the Access Profile is enabled. If the Access Profile is enabled then you must include at least one Entitlement. | [optional] [default to $true]
+**Enabled** | **Boolean** | Whether the Access Profile is enabled. If the Access Profile is enabled then you must include at least one Entitlement. | [optional] [default to $false]
 **Owner** | [**OwnerReference**](owner-reference) |  | [required]
 **Source** | [**AccessProfileSourceRef**](access-profile-source-ref) |  | [required]
 **Entitlements** | [**[]EntitlementRef**](entitlement-ref) | A list of entitlements associated with the Access Profile. If enabled is false this is allowed to be empty otherwise it needs to contain at least one Entitlement. | [optional] 

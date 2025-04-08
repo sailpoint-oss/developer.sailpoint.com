@@ -1,6 +1,6 @@
 get:
   summary: Find attribute data by id
-  operationId: getAttribute
+  operationId: getAttributeById
   description: Info for a specific attribute
   tags:
     - attributes
@@ -15,7 +15,7 @@ get:
       $ref: "../responses/500.yaml"
 patch:
   summary: Update attribute data by id
-  operationId: updateAttribute
+  operationId: updateAttributeById
   description: Update info for a specific attribute
   tags:
     - attributes
@@ -32,7 +32,7 @@ patch:
       $ref: "../responses/500.yaml"
 delete:
   summary: Delete attribute by id
-  operationId: deleteAttribute
+  operationId: deleteAttributeById
   description: Delete attribute by id
   tags:
     - attributes

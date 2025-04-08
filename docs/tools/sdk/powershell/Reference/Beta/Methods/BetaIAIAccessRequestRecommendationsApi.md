@@ -17,14 +17,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Add-BetaAccessRequestRecommendationsIgnoredItem**](#add-access-request-recommendations-ignored-item) | **POST** `/ai-access-request-recommendations/ignored-items` | Notification of Ignored Access Request Recommendations
-[**Add-BetaAccessRequestRecommendationsRequestedItem**](#add-access-request-recommendations-requested-item) | **POST** `/ai-access-request-recommendations/requested-items` | Notification of Requested Access Request Recommendations
-[**Add-BetaAccessRequestRecommendationsViewedItem**](#add-access-request-recommendations-viewed-item) | **POST** `/ai-access-request-recommendations/viewed-items` | Notification of Viewed Access Request Recommendations
-[**Add-BetaAccessRequestRecommendationsViewedItems**](#add-access-request-recommendations-viewed-items) | **POST** `/ai-access-request-recommendations/viewed-items/bulk-create` | Notification of Viewed Access Request Recommendations in Bulk
+[**Add-BetaAccessRequestRecommendationsIgnoredItem**](#add-access-request-recommendations-ignored-item) | **POST** `/ai-access-request-recommendations/ignored-items` | Ignore Access Request Recommendation
+[**Add-BetaAccessRequestRecommendationsRequestedItem**](#add-access-request-recommendations-requested-item) | **POST** `/ai-access-request-recommendations/requested-items` | Accept Access Request Recommendation
+[**Add-BetaAccessRequestRecommendationsViewedItem**](#add-access-request-recommendations-viewed-item) | **POST** `/ai-access-request-recommendations/viewed-items` | Mark Viewed Access Request Recommendations
+[**Add-BetaAccessRequestRecommendationsViewedItems**](#add-access-request-recommendations-viewed-items) | **POST** `/ai-access-request-recommendations/viewed-items/bulk-create` | Bulk Mark Viewed Access Request Recommendations
 [**Get-BetaAccessRequestRecommendations**](#get-access-request-recommendations) | **GET** `/ai-access-request-recommendations` | Identity Access Request Recommendations
-[**Get-BetaAccessRequestRecommendationsIgnoredItems**](#get-access-request-recommendations-ignored-items) | **GET** `/ai-access-request-recommendations/ignored-items` | List of Ignored Access Request Recommendations
-[**Get-BetaAccessRequestRecommendationsRequestedItems**](#get-access-request-recommendations-requested-items) | **GET** `/ai-access-request-recommendations/requested-items` | List of Requested Access Request Recommendations
-[**Get-BetaAccessRequestRecommendationsViewedItems**](#get-access-request-recommendations-viewed-items) | **GET** `/ai-access-request-recommendations/viewed-items` | List of Viewed Access Request Recommendations
+[**Get-BetaAccessRequestRecommendationsIgnoredItems**](#get-access-request-recommendations-ignored-items) | **GET** `/ai-access-request-recommendations/ignored-items` | List Ignored Access Request Recommendations
+[**Get-BetaAccessRequestRecommendationsRequestedItems**](#get-access-request-recommendations-requested-items) | **GET** `/ai-access-request-recommendations/requested-items` | List Accepted Access Request Recommendations
+[**Get-BetaAccessRequestRecommendationsViewedItems**](#get-access-request-recommendations-viewed-items) | **GET** `/ai-access-request-recommendations/viewed-items` | List Viewed Access Request Recommendations
 
 
 ## add-access-request-recommendations-ignored-item
@@ -64,14 +64,14 @@ $AccessRequestRecommendationActionItemDto = @"{
   "identityId" : "2c91808570313110017040b06f344ec9"
 }"@
 
-# Notification of Ignored Access Request Recommendations
+# Ignore Access Request Recommendation
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsIgnoredItem -BetaAccessRequestRecommendationActionItemDto $Result 
+    Add-BetaAccessRequestRecommendationsIgnoredItem -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-BetaAccessRequestRecommendationsIgnoredItem -BetaAccessRequestRecommendationActionItemDto $Result  
+    # Add-BetaAccessRequestRecommendationsIgnoredItem -AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-BetaAccessRequestRecommendationsIgnoredItem"
     Write-Host $_.ErrorDetails
@@ -116,14 +116,14 @@ $AccessRequestRecommendationActionItemDto = @"{
   "identityId" : "2c91808570313110017040b06f344ec9"
 }"@
 
-# Notification of Requested Access Request Recommendations
+# Accept Access Request Recommendation
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsRequestedItem -BetaAccessRequestRecommendationActionItemDto $Result 
+    Add-BetaAccessRequestRecommendationsRequestedItem -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-BetaAccessRequestRecommendationsRequestedItem -BetaAccessRequestRecommendationActionItemDto $Result  
+    # Add-BetaAccessRequestRecommendationsRequestedItem -AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-BetaAccessRequestRecommendationsRequestedItem"
     Write-Host $_.ErrorDetails
@@ -168,14 +168,14 @@ $AccessRequestRecommendationActionItemDto = @"{
   "identityId" : "2c91808570313110017040b06f344ec9"
 }"@
 
-# Notification of Viewed Access Request Recommendations
+# Mark Viewed Access Request Recommendations
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsViewedItem -BetaAccessRequestRecommendationActionItemDto $Result 
+    Add-BetaAccessRequestRecommendationsViewedItem -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-BetaAccessRequestRecommendationsViewedItem -BetaAccessRequestRecommendationActionItemDto $Result  
+    # Add-BetaAccessRequestRecommendationsViewedItem -AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-BetaAccessRequestRecommendationsViewedItem"
     Write-Host $_.ErrorDetails
@@ -221,14 +221,14 @@ Code | Description  | Data Type
 }"@ # AccessRequestRecommendationActionItemDto[] | The recommended access items that were viewed for an identity.
  
 
-# Notification of Viewed Access Request Recommendations in Bulk
+# Bulk Mark Viewed Access Request Recommendations
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
-    Add-BetaAccessRequestRecommendationsViewedItems -BetaAccessRequestRecommendationActionItemDto $Result 
+    Add-BetaAccessRequestRecommendationsViewedItems -AccessRequestRecommendationActionItemDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Add-BetaAccessRequestRecommendationsViewedItems -BetaAccessRequestRecommendationActionItemDto $Result  
+    # Add-BetaAccessRequestRecommendationsViewedItems -AccessRequestRecommendationActionItemDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Add-BetaAccessRequestRecommendationsViewedItems"
     Write-Host $_.ErrorDetails
@@ -272,12 +272,12 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $IdentityId = "2c91808570313110017040b06f344ec9" # String | Get access request recommendations for an identityId. *me* indicates the current user. (optional) (default to "me")
-$Limit = 56 # Int32 | Max number of results to return. (optional) (default to 15)
+$Limit = 15 # Int32 | Max number of results to return. (optional) (default to 15)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $IncludeTranslationMessages = $false # Boolean | If *true* it will populate a list of translation messages in the response. (optional) (default to $false)
 $Filters = 'access.name co "admin"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.name**: *co*  **access.type**: *eq, in*  **access.description**: *co, eq, in* (optional)
-$Sorters = "MySorters" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, access.type**  By default the recommendations are sorted by highest confidence first. (optional)
+$Sorters = "access.name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, access.type**  By default the recommendations are sorted by highest confidence first. (optional)
 
 # Identity Access Request Recommendations
 
@@ -332,7 +332,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'identityId eq "2c9180846b0a0583016b299f210c1314"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in* (optional)
 $Sorters = "access.id" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional)
 
-# List of Ignored Access Request Recommendations
+# List Ignored Access Request Recommendations
 
 try {
     Get-BetaAccessRequestRecommendationsIgnoredItems 
@@ -383,9 +383,9 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'access.id eq "2c9180846b0a0583016b299f210c1314"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in* (optional)
-$Sorters = "MySorters" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional)
+$Sorters = "access.id" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional)
 
-# List of Requested Access Request Recommendations
+# List Accepted Access Request Recommendations
 
 try {
     Get-BetaAccessRequestRecommendationsRequestedItems 
@@ -436,9 +436,9 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'access.id eq "2c9180846b0a0583016b299f210c1314"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in* (optional)
-$Sorters = "MySorters" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional)
+$Sorters = "access.id" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional)
 
-# List of Viewed Access Request Recommendations
+# List Viewed Access Request Recommendations
 
 try {
     Get-BetaAccessRequestRecommendationsViewedItems 

@@ -1,0 +1,39 @@
+type: object
+required:
+  - triggerId
+  - type
+  - inlineConfig
+  - scriptConfig
+properties:
+  id:
+    type: string
+    description: Subscription ID.
+    example: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
+  triggerId:
+    type: string
+    description: ID of trigger subscribed to.
+    example: "idn:access-requested"
+  responseDeadline:
+    type: string
+    description: Deadline for completing REQUEST_RESPONSE trigger invocation, represented in ISO-8601 duration format.
+    example: "PT1H"
+    default: "PT1H"
+  enabled:
+    type: boolean
+    description: Whether subscription should receive real-time trigger invocations or not.
+    example: false
+  type:
+    type: string
+    description: The type of subscription this is.
+    enum:
+    - INLINE
+    - SCRIPT
+    example: INLINE
+  inlineConfig:
+    $ref: './InlineConfig.yaml'
+  scriptConfig:
+    $ref: './ScriptConfig.yaml'
+  filter:
+    type: string
+    description: JSONPath filter expression to only dispatch trigger input when evaluates to true.
+    example: '[?($.identityId == "201327fda1c44704ac01181e963d463c")]'

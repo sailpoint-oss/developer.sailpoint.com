@@ -13,5 +13,5 @@ properties:
     example: 2c7180a46faadee4016fb4e018c20648
   name:
     type: string
-    description: Access item owner's human-readable display name. 
+    description: Access item requester's name. 
     example: William Wilson

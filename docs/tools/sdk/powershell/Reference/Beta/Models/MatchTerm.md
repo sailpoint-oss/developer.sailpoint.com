@@ -32,7 +32,7 @@ $MatchTerm = Initialize-PSSailpoint.BetaMatchTerm  -Name mail `
  -Op eq `
  -Container true `
  -And false `
- -Children [{name&#x3D;businessCategory, value&#x3D;Service, op&#x3D;eq, container&#x3D;false, and&#x3D;false, children&#x3D;null}]
+ -Children [{name=businessCategory, value=Service, op=eq, container=false, and=false, children=null}]
 ```
 
 - Convert the resource to JSON

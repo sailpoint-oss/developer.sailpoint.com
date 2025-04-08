@@ -1,0 +1,75 @@
+get:
+  operationId: getWorkItem
+  tags:
+    - Work Items
+  summary: Get a Work Item
+  description: >-
+    This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listWorkItems
+      description: ID of the work item.
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '200':
+      description: The work item with the given ID.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/WorkItems.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+post:
+  operationId: completeWorkItem
+  tags:
+    - Work Items
+  summary: Complete a Work Item
+  description: >-
+    This API completes a work item. Either an admin, or the owning/current user must make this request.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listWorkItems
+      description: The ID of the work item
+      example: ef38f94347e94562b5bb8424a56397d8
+  requestBody:
+    description: Body is the request payload to create form definition request
+    content:
+      application/json:
+        schema:
+          type: "string"
+          nullable: true
+  responses:
+    '200':
+      description: A WorkItems object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/WorkItems.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

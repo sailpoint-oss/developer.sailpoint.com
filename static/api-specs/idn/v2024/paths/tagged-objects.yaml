@@ -1,0 +1,86 @@
+get:
+  operationId: listTaggedObjects
+  security:
+    - userAuth: [ idn:tag:read, idn:tag:manage ]
+  tags:
+    - Tagged Objects
+  summary: List Tagged Objects
+  description: >-
+    This API returns a list of all tagged objects.
+
+
+    Any authenticated token may be used to call this API.
+  parameters:
+    - $ref: '../parameters/limit.yaml'
+    - $ref: '../parameters/offset.yaml'
+    - $ref: '../parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+          Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+          Filtering is supported for the following fields and operators:
+
+
+          **objectRef.id**: *eq, in*
+
+
+          **objectRef.type**: *eq, in*
+
+
+          **tagName**: *eq, in*
+      example: tagName eq "BU_FINANCE"
+      required: false
+  responses:
+    '200':
+      description: List of all tagged objects.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/TaggedObject.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+post:
+  operationId: setTagToObject
+  security:
+    - userAuth: [ idn:tag:manage ]
+  tags:
+    - Tagged Objects
+  summary: Add Tag to Object
+  description: >-
+    This adds a tag to an object.
+    
+
+    Any authenticated token may be used to call this API.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/TaggedObject.yaml'
+  responses:
+    '201':
+      description: Created.
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

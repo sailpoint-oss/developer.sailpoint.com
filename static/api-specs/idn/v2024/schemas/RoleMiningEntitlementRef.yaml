@@ -1,0 +1,19 @@
+type : object
+properties:
+  id:
+    type: string
+    description: Id of the entitlement
+    example: "2c91808a7e95e6e0017e96e2086206c8"
+  name:
+    type: string
+    description: Name of the entitlement
+    example: "App.entitlement.1"
+  description:
+    type: string
+    description: Description forthe entitlement
+    nullable: true
+    example: "Entitlement 1"
+  attribute:
+    type: string
+    description: The entitlement attribute
+    example: "groups"

@@ -1,0 +1,44 @@
+type: object
+required:
+- id
+- triggerId
+- subscriptionId
+- startInvocationInput
+- type
+- subscriptionName
+- created
+properties:
+  id:
+    type: string
+    description: Invocation ID
+    example: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
+  triggerId:
+    type: string
+    description: Trigger ID
+    example: "idn:access-request-post-approval"
+  subscriptionName:
+    type: string
+    description: Subscription name
+    example: "Access request subscription"
+  subscriptionId:
+    type: string
+    description: Subscription ID
+    example: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
+  type:
+    $ref: './InvocationStatusType.yaml'
+  created:
+    type: string
+    format: date-time
+    description: Invocation created timestamp. ISO-8601 in UTC.
+    example: "2020-03-27T20:40:10.738Z"
+  completed:
+    type: string
+    format: date-time
+    description: Invocation completed timestamp; empty fields imply invocation is in-flight or not completed. ISO-8601 in UTC.
+    example: "2020-03-27T20:42:14.738Z"
+  startInvocationInput:
+    $ref: './StartInvocationInput.yaml'
+    description: Data related to start of trigger invocation.
+  completeInvocationInput:
+    $ref: './CompleteInvocationInput.yaml'
+    description: Data related to end of trigger invocation.

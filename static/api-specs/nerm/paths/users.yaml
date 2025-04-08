@@ -21,7 +21,7 @@ get:
       $ref: "../responses/500.yaml"
 post:
   summary: Create multiple new users
-  operationId: postUsers
+  operationId: submitUsers
   description: Create multiple new users
   tags:
     - users

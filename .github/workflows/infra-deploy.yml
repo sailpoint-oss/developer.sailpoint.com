@@ -38,6 +38,7 @@ jobs:
           role-to-assume: arn:aws:iam::176038645705:role/github-action-role
           role-session-name: deploy-developer-site-infra-to-aws
           aws-region: us-east-1
+          role-duration-seconds: 7200
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out repo
@@ -83,7 +84,6 @@ jobs:
           export NODE_OPTIONS="--max_old_space_size=16384"
           export DOCUSAURUS_IGNORE_SSG_WARNINGS=true
           npm ci 
-          npm run gen-all-api-specs-code-examples
           npm run gen-api-docs-all
           npm run build
       # push these files to AWS

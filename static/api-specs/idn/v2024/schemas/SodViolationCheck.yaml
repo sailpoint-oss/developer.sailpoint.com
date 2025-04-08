@@ -1,0 +1,15 @@
+description: An object referencing an SOD violation check
+required:
+  - requestId
+type: object
+properties:
+  requestId:
+    description: The id of the original request
+    example: 089899f13a8f4da7824996191587bab9
+    type: string
+  created:
+    type: string
+    format: date-time
+    readOnly: true
+    description: The date-time when this request was created.
+    example: "2020-01-01T00:00:00.000000Z"

@@ -67,10 +67,10 @@ $CommonAccessItemRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCommonAccessItemRequest -Json $CommonAccessItemRequest
-    New-BetaCommonAccess -BetaCommonAccessItemRequest $Result 
+    New-BetaCommonAccess -CommonAccessItemRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaCommonAccess -BetaCommonAccessItemRequest $Result  
+    # New-BetaCommonAccess -CommonAccessItemRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaCommonAccess"
     Write-Host $_.ErrorDetails
@@ -169,10 +169,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToCommonAccessIDStatus -Json $CommonAccessIDStatus
-    Update-BetaCommonAccessStatusInBulk -BetaCommonAccessIDStatus $Result 
+    Update-BetaCommonAccessStatusInBulk -CommonAccessIDStatus $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaCommonAccessStatusInBulk -BetaCommonAccessIDStatus $Result  
+    # Update-BetaCommonAccessStatusInBulk -CommonAccessIDStatus $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaCommonAccessStatusInBulk"
     Write-Host $_.ErrorDetails

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $CompleteInvocationInput = Initialize-PSSailpoint.V2024CompleteInvocationInput  -LocalizedError null `
- -Output {approved&#x3D;false}
+ -Output {approved=false}
 ```
 
 - Convert the resource to JSON

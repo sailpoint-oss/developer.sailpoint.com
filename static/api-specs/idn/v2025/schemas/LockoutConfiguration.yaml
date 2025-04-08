@@ -1,0 +1,17 @@
+type: object
+properties:
+  maximumAttempts:
+    type: integer
+    format: int32
+    description: The maximum attempts allowed before lockout occurs.
+    example: 5
+  lockoutDuration:
+    type: integer
+    format: int32
+    description: The total time in minutes a user will be locked out.
+    example: 15
+  lockoutWindow:
+    type: integer
+    format: int32
+    description: A rolling window where authentication attempts in a series count towards the maximum before lockout occurs.
+    example: 5

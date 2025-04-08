@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 $AccountAttributesChangedAccount = Initialize-PSSailpoint.BetaAccountAttributesChangedAccount  -Id 52170a74-ca89-11ea-87d0-0242ac130003 `
  -Uuid 1cb1f07d-3e5a-4431-becd-234fa4306108 `
  -Name john.doe `
- -NativeIdentity cn&#x3D;john.doe,ou&#x3D;users,dc&#x3D;acme,dc&#x3D;com `
+ -NativeIdentity cn=john.doe,ou=users,dc=acme,dc=com `
  -Type ACCOUNT
 ```
 

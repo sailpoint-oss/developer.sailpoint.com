@@ -32,8 +32,8 @@ Name | Type | Description | Notes
 $IdentityCertified = Initialize-PSSailpoint.V2024IdentityCertified  -CertificationId 2c91808a77ff216301782327a50f09bf `
  -CertificationName Cert name `
  -SignedDate 2019-03-08T22:37:33.901Z `
- -Certifiers [{id&#x3D;8a80828f643d484f01643e14202e206f, displayName&#x3D;John Snow}] `
- -Reviewers [{id&#x3D;8a80828f643d484f01643e14202e206f, displayName&#x3D;John Snow}] `
+ -Certifiers [{id=8a80828f643d484f01643e14202e206f, displayName=John Snow}] `
+ -Reviewers [{id=8a80828f643d484f01643e14202e206f, displayName=John Snow}] `
  -Signer null `
  -EventType IdentityCertified `
  -Dt 2019-03-08T22:37:33.901Z

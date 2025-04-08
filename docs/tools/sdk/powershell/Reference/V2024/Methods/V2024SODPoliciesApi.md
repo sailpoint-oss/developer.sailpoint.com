@@ -153,10 +153,10 @@ $SodPolicy = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-    New-V2024SodPolicy -V2024SodPolicy $Result 
+    New-V2024SodPolicy -SodPolicy $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024SodPolicy -V2024SodPolicy $Result  
+    # New-V2024SodPolicy -SodPolicy $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SodPolicy"
     Write-Host $_.ErrorDetails
@@ -679,10 +679,10 @@ $Id = "2c918083-5d19-1a86-015d-28455b4a2329" # String | The ID of the SOD policy
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024SodPolicy -Id $Id -V2024JsonPatchOperation $Result 
+    Update-V2024SodPolicy -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SodPolicy -Id $Id -V2024JsonPatchOperation $Result  
+    # Update-V2024SodPolicy -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SodPolicy"
     Write-Host $_.ErrorDetails
@@ -812,10 +812,10 @@ $SodPolicySchedule = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicySchedule -Json $SodPolicySchedule
-    Send-V2024PolicySchedule -Id $Id -V2024SodPolicySchedule $Result 
+    Send-V2024PolicySchedule -Id $Id -SodPolicySchedule $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024PolicySchedule -Id $Id -V2024SodPolicySchedule $Result  
+    # Send-V2024PolicySchedule -Id $Id -SodPolicySchedule $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024PolicySchedule"
     Write-Host $_.ErrorDetails
@@ -917,10 +917,10 @@ $SodPolicy = @"{
 
 try {
     $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-    Send-V2024SodPolicy -Id $Id -V2024SodPolicy $Result 
+    Send-V2024SodPolicy -Id $Id -SodPolicy $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024SodPolicy -Id $Id -V2024SodPolicy $Result  
+    # Send-V2024SodPolicy -Id $Id -SodPolicy $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024SodPolicy"
     Write-Host $_.ErrorDetails
@@ -1012,7 +1012,7 @@ try {
     Start-V2024SodAllPoliciesForOrg 
     
     # Below is a request that includes all optional parameters
-    # Start-V2024SodAllPoliciesForOrg -V2024MultiPolicyRequest $Result  
+    # Start-V2024SodAllPoliciesForOrg -MultiPolicyRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024SodAllPoliciesForOrg"
     Write-Host $_.ErrorDetails

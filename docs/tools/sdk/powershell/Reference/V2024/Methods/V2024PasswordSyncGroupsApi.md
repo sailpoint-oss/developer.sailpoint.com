@@ -98,10 +98,10 @@ $PasswordSyncGroup = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
-    New-V2024PasswordSyncGroup -V2024PasswordSyncGroup $Result 
+    New-V2024PasswordSyncGroup -PasswordSyncGroup $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024PasswordSyncGroup -V2024PasswordSyncGroup $Result  
+    # New-V2024PasswordSyncGroup -PasswordSyncGroup $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024PasswordSyncGroup"
     Write-Host $_.ErrorDetails
@@ -294,10 +294,10 @@ $PasswordSyncGroup = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
-    Update-V2024PasswordSyncGroup -Id $Id -V2024PasswordSyncGroup $Result 
+    Update-V2024PasswordSyncGroup -Id $Id -PasswordSyncGroup $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024PasswordSyncGroup -Id $Id -V2024PasswordSyncGroup $Result  
+    # Update-V2024PasswordSyncGroup -Id $Id -PasswordSyncGroup $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024PasswordSyncGroup"
     Write-Host $_.ErrorDetails

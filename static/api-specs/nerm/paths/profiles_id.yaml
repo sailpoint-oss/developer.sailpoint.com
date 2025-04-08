@@ -1,6 +1,6 @@
 get:
   summary: Find profile by id
-  operationId: getProfile
+  operationId: getProfileById
   description: Find profile by id
   tags:
     - profiles
@@ -15,7 +15,7 @@ get:
       $ref: "../responses/500.yaml"
 patch:
   summary: Update a profile by id
-  operationId: patchProfile
+  operationId: patchProfileById
   description: Update a profile by id
   tags:
     - profiles
@@ -32,7 +32,7 @@ patch:
       $ref: "../responses/500.yaml"
 delete:
   summary: Delete a single profile
-  operationId: deleteProfile
+  operationId: deleteProfileById
   description: Delete a single profile
   tags:
     - profiles

@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestPostApprovalRequestedIte
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | The unique ID of the access item being requested. | [required]
-**Name** | **String** | The human friendly name of the access item. | [required]
-**Description** | **String** | Detailed description of the access item. | [optional] 
-**Type** |  **Enum** [  "ACCESS_PROFILE",    "ROLE",    "ENTITLEMENT" ] | The type of access item. | [required]
-**Operation** |  **Enum** [  "Add",    "Remove" ] | The action to perform on the access item. | [required]
-**Comment** | **String** | A comment from the identity requesting the access. | [optional] 
+**Id** | **String** | Access item's unique ID. | [required]
+**Name** | **String** | Access item's name. | [required]
+**Description** | **String** | Access item's description. | [optional] 
+**Type** |  **Enum** [  "ACCESS_PROFILE",    "ROLE",    "ENTITLEMENT" ] | Access item's type. | [required]
+**Operation** |  **Enum** [  "Add",    "Remove" ] | Action to perform on the requested access item. | [required]
+**Comment** | **String** | Comment from the identity requesting access. | [optional] 
 **ClientMetadata** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Additional customer defined metadata about the access item. | [optional] 
-**ApprovalInfo** | [**[]AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner**](access-request-post-approval-requested-items-status-inner-approval-info-inner) | A list of one or more approvers for the access request. | [required]
+**ApprovalInfo** | [**[]AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner**](access-request-post-approval-requested-items-status-inner-approval-info-inner) | List of approvers for the access request. | [required]
 
 ## Examples
 
@@ -35,7 +35,7 @@ $AccessRequestPostApprovalRequestedItemsStatusInner = Initialize-PSSailpoint.Bet
  -Type ACCESS_PROFILE `
  -Operation Add `
  -Comment William needs this access to do his job. `
- -ClientMetadata {applicationName&#x3D;My application} `
+ -ClientMetadata {applicationName=My application} `
  -ApprovalInfo null
 ```
 

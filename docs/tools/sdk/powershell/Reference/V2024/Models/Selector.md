@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Selector = Initialize-PSSailpoint.V2024Selector  -ApplicationId 2c91808874ff91550175097daaec161c&quot; `
+$Selector = Initialize-PSSailpoint.V2024Selector  -ApplicationId 2c91808874ff91550175097daaec161c" `
  -AccountMatchConfig null
 ```
 

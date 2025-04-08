@@ -1,0 +1,38 @@
+post:
+  tags:
+    - Multi-Host Integration
+  summary: Test Configuration For Multi-Host Integration
+  description: >-
+    This endpoint performs a more detailed validation of the Multi-Host Integration's configuration.
+    
+    
+    A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
+  operationId: testConnectionMultiHostSources
+  parameters:
+    - name: multihostId
+      in: path
+      description: ID of the Multi-Host Integration
+      required: true
+      x-sailpoint-resource-operation-id: getMultiHostIntegrations
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: 2c91808568c529c60168cca6f90c1324
+  responses:
+    "200":
+      description: OK. Returned if the request was successfully accepted into the system.
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - userAuth: [idn:multihosts:read, idn:sources:read]

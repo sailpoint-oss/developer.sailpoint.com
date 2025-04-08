@@ -1,0 +1,30 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The ID of the airflow DAG
+    example: 'airflow-dag-2'
+  runUrl:
+    type: string
+    description: The URL of the airflow DAG run
+    example: '/admin/airflow/graph?dag_id=airflow-dag-2&execution_date=2020-06-02+17%3A05%3A03%2B00%3A00'
+  executionDate:
+    type: string
+    description: Trigger time of the airflow DAG run
+    example: '2020-06-02T17:05:03Z'
+  startDate:
+    type: string
+    description: Start time of the airflow DAG run
+    example: '2020-06-02T17:05:02Z'
+  lastUpdatedDate:
+    type: string
+    description: Last time the airflow DAG was updated
+    example: '2020-07-02T17:05:02Z'
+  qualifiers:
+    type: array
+    description: Qualifiers related to pipeline
+    items:
+      type: string
+    example:
+      - 20110909124646
+      - 20119093434324

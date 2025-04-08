@@ -198,10 +198,10 @@ $ProvisioningPolicyDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    New-BetaProvisioningPolicy -SourceId $SourceId -BetaProvisioningPolicyDto $Result 
+    New-BetaProvisioningPolicy -SourceId $SourceId -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaProvisioningPolicy -SourceId $SourceId -BetaProvisioningPolicyDto $Result  
+    # New-BetaProvisioningPolicy -SourceId $SourceId -ProvisioningPolicyDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaProvisioningPolicy"
     Write-Host $_.ErrorDetails
@@ -329,10 +329,10 @@ $ProvisionAsCsv = $false # Boolean | If this parameter is `true`, it configures 
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    New-BetaSource -BetaSource $Result 
+    New-BetaSource -Source $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSource -BetaSource $Result -ProvisionAsCsv $ProvisionAsCsv  
+    # New-BetaSource -Source $Result -ProvisionAsCsv $ProvisionAsCsv  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSource"
     Write-Host $_.ErrorDetails
@@ -410,10 +410,10 @@ $Schema = @"{
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    New-BetaSourceSchema -SourceId $SourceId -BetaSchema $Result 
+    New-BetaSourceSchema -SourceId $SourceId -Schema $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSourceSchema -SourceId $SourceId -BetaSchema $Result  
+    # New-BetaSourceSchema -SourceId $SourceId -Schema $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSourceSchema"
     Write-Host $_.ErrorDetails
@@ -1631,10 +1631,10 @@ $ResourceObjectsRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
-    Receive-BetaResourceObjects -SourceId $SourceId -BetaResourceObjectsRequest $Result 
+    Receive-BetaResourceObjects -SourceId $SourceId -ResourceObjectsRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Receive-BetaResourceObjects -SourceId $SourceId -BetaResourceObjectsRequest $Result  
+    # Receive-BetaResourceObjects -SourceId $SourceId -ResourceObjectsRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Receive-BetaResourceObjects"
     Write-Host $_.ErrorDetails
@@ -1747,10 +1747,10 @@ $CorrelationConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToCorrelationConfig -Json $CorrelationConfig
-    Send-BetaCorrelationConfig -SourceId $SourceId -BetaCorrelationConfig $Result 
+    Send-BetaCorrelationConfig -SourceId $SourceId -CorrelationConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaCorrelationConfig -SourceId $SourceId -BetaCorrelationConfig $Result  
+    # Send-BetaCorrelationConfig -SourceId $SourceId -CorrelationConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaCorrelationConfig"
     Write-Host $_.ErrorDetails
@@ -1805,10 +1805,10 @@ $NativeChangeDetectionConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
-    Send-BetaNativeChangeDetectionConfig -SourceId $SourceId -BetaNativeChangeDetectionConfig $Result 
+    Send-BetaNativeChangeDetectionConfig -SourceId $SourceId -NativeChangeDetectionConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaNativeChangeDetectionConfig -SourceId $SourceId -BetaNativeChangeDetectionConfig $Result  
+    # Send-BetaNativeChangeDetectionConfig -SourceId $SourceId -NativeChangeDetectionConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaNativeChangeDetectionConfig"
     Write-Host $_.ErrorDetails
@@ -1897,10 +1897,10 @@ $ProvisioningPolicyDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Send-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -BetaProvisioningPolicyDto $Result 
+    Send-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -BetaProvisioningPolicyDto $Result  
+    # Send-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaProvisioningPolicy"
     Write-Host $_.ErrorDetails
@@ -2042,10 +2042,10 @@ $Source = @"{
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    Send-BetaSource -Id $Id -BetaSource $Result 
+    Send-BetaSource -Id $Id -Source $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaSource -Id $Id -BetaSource $Result  
+    # Send-BetaSource -Id $Id -Source $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaSource"
     Write-Host $_.ErrorDetails
@@ -2110,10 +2110,10 @@ $AttrSyncSourceConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
-    Send-BetaSourceAttrSyncConfig -Id $Id -BetaAttrSyncSourceConfig $Result 
+    Send-BetaSourceAttrSyncConfig -Id $Id -AttrSyncSourceConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaSourceAttrSyncConfig -Id $Id -BetaAttrSyncSourceConfig $Result  
+    # Send-BetaSourceAttrSyncConfig -Id $Id -AttrSyncSourceConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaSourceAttrSyncConfig"
     Write-Host $_.ErrorDetails
@@ -2199,10 +2199,10 @@ $Schema = @"{
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    Send-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -BetaSchema $Result 
+    Send-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -BetaSchema $Result  
+    # Send-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaSourceSchema"
     Write-Host $_.ErrorDetails
@@ -2429,10 +2429,10 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Update-BetaProvisioningPoliciesInBulk -SourceId $SourceId -BetaProvisioningPolicyDto $Result 
+    Update-BetaProvisioningPoliciesInBulk -SourceId $SourceId -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaProvisioningPoliciesInBulk -SourceId $SourceId -BetaProvisioningPolicyDto $Result  
+    # Update-BetaProvisioningPoliciesInBulk -SourceId $SourceId -ProvisioningPolicyDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaProvisioningPoliciesInBulk"
     Write-Host $_.ErrorDetails
@@ -2487,10 +2487,10 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -BetaJsonPatchOperation $Result 
+    Update-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -BetaJsonPatchOperation $Result  
+    # Update-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaProvisioningPolicy"
     Write-Host $_.ErrorDetails
@@ -2557,10 +2557,10 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaSource -Id $Id -BetaJsonPatchOperation $Result 
+    Update-BetaSource -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSource -Id $Id -BetaJsonPatchOperation $Result  
+    # Update-BetaSource -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSource"
     Write-Host $_.ErrorDetails
@@ -2623,10 +2623,10 @@ $SourceEntitlementRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
-    Update-BetaSourceEntitlementRequestConfig -SourceId $SourceId -BetaSourceEntitlementRequestConfig $Result 
+    Update-BetaSourceEntitlementRequestConfig -SourceId $SourceId -SourceEntitlementRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSourceEntitlementRequestConfig -SourceId $SourceId -BetaSourceEntitlementRequestConfig $Result  
+    # Update-BetaSourceEntitlementRequestConfig -SourceId $SourceId -SourceEntitlementRequestConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSourceEntitlementRequestConfig"
     Write-Host $_.ErrorDetails
@@ -2708,10 +2708,10 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -BetaJsonPatchOperation $Result 
+    Update-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -BetaJsonPatchOperation $Result  
+    # Update-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSourceSchema"
     Write-Host $_.ErrorDetails

@@ -1,0 +1,24 @@
+description: Managed Client Request
+type: object
+required:
+  - clusterId
+properties:
+  clusterId:
+    description: Cluster ID that the ManagedClient is linked to
+    type: string
+    example: aClusterId
+  description:
+    description: description for the ManagedClient to create
+    type: string
+    nullable: true
+    example: A short description of the ManagedClient
+  name:
+    description: name for the ManagedClient to create
+    type: string
+    nullable: true
+    example: aName
+  type:
+    description: Type of the ManagedClient (VA, CCG) to create
+    type: string
+    nullable: true
+    example: VA

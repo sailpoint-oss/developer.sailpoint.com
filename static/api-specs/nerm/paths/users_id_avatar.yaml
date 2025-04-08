@@ -1,5 +1,5 @@
 get:
-  summary: Retrieves the URL of the user avatar
+  summary: Retrieves  URL user avatar
   operationId: getUserAvatar
   description: Retrieves the URL of the user avatar
   tags:
@@ -14,8 +14,8 @@ get:
     '500':
       $ref: "../responses/500.yaml"
 post:
-  summary: Uploads a new user avatar
-  operationId: postUserAvatar
+  summary: Uploads new user avatar
+  operationId: submitUserAvatar
   description: Uploads a new user avatar
   tags:
     - users

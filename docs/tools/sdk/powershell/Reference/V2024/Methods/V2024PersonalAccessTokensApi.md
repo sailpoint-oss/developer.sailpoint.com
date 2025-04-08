@@ -73,10 +73,10 @@ $CreatePersonalAccessTokenRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCreatePersonalAccessTokenRequest -Json $CreatePersonalAccessTokenRequest
-    New-V2024PersonalAccessToken -V2024CreatePersonalAccessTokenRequest $Result 
+    New-V2024PersonalAccessToken -CreatePersonalAccessTokenRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024PersonalAccessToken -V2024CreatePersonalAccessTokenRequest $Result  
+    # New-V2024PersonalAccessToken -CreatePersonalAccessTokenRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024PersonalAccessToken"
     Write-Host $_.ErrorDetails
@@ -221,10 +221,10 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The Personal Access Token id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024PersonalAccessToken -Id $Id -V2024JsonPatchOperation $Result 
+    Update-V2024PersonalAccessToken -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024PersonalAccessToken -Id $Id -V2024JsonPatchOperation $Result  
+    # Update-V2024PersonalAccessToken -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024PersonalAccessToken"
     Write-Host $_.ErrorDetails

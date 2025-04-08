@@ -21,7 +21,7 @@ get:
       $ref: "../responses/500.yaml"
 post:
   summary: Create a workflow session
-  operationId: postWorkflowSession
+  operationId: submitWorkflowSession
   description: Create a workflow session
   tags:
     - workflow sessions

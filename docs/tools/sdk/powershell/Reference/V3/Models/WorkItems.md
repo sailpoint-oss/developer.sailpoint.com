@@ -45,7 +45,7 @@ $WorkItems = Initialize-PSSailpoint.V3WorkItems  -Id 2c9180835d2e5168015d32f890c
  -OwnerName Jason Smith `
  -Created 2017-07-11T18:45:37.098Z `
  -Modified 2018-06-25T20:22:28.104Z `
- -Description Create account on source &#39;AD&#39; `
+ -Description Create account on source 'AD' `
  -State null `
  -Type null `
  -RemediationItems null `

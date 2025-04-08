@@ -143,6 +143,7 @@ This API completes a work item. Either an admin, or the owning/current user must
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of the work item
+ Body  | Body | **String** |   (optional) | Body is the request payload to create form definition request
 
 ### Return type
 [**WorkItems**](../models/work-items)
@@ -152,16 +153,20 @@ Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | A WorkItems object | WorkItems
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+$Body = "MyBody" # String | Body is the request payload to create form definition request (optional)
 
 # Complete a Work Item
 
@@ -169,7 +174,7 @@ try {
     Complete-BetaWorkItem -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Complete-BetaWorkItem -Id $Id  
+    # Complete-BetaWorkItem -Id $Id -Body $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-BetaWorkItem"
     Write-Host $_.ErrorDetails
@@ -218,10 +223,10 @@ $WorkItemForward = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
-    Invoke-BetaForwardWorkItem -Id $Id -BetaWorkItemForward $Result 
+    Invoke-BetaForwardWorkItem -Id $Id -WorkItemForward $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-BetaForwardWorkItem -Id $Id -BetaWorkItemForward $Result  
+    # Invoke-BetaForwardWorkItem -Id $Id -WorkItemForward $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-BetaForwardWorkItem"
     Write-Host $_.ErrorDetails
@@ -376,15 +381,18 @@ Path   | Id | **String** | True  | ID of the work item.
   Query | OwnerId | **String** |   (optional) | ID of the work item owner.
 
 ### Return type
-[**WorkItems[]**](../models/work-items)
+[**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | The work item with the given ID. | WorkItems[]
+200 | The work item with the given ID. | SystemCollectionsHashtable
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -392,8 +400,8 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "MyId" # String | ID of the work item.
-$OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
+$Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the work item.
+$OwnerId = "2c9180835d191a86015d28455b4a2329" # String | ID of the work item owner. (optional)
 
 # Get a Work Item
 

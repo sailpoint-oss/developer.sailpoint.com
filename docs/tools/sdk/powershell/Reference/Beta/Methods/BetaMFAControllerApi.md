@@ -63,10 +63,10 @@ $SendTokenRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSendTokenRequest -Json $SendTokenRequest
-    New-BetaSendToken -BetaSendTokenRequest $Result 
+    New-BetaSendToken -SendTokenRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSendToken -BetaSendTokenRequest $Result  
+    # New-BetaSendToken -SendTokenRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSendToken"
     Write-Host $_.ErrorDetails
@@ -113,10 +113,10 @@ $VerificationPollRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToVerificationPollRequest -Json $VerificationPollRequest
-    Ping-BetaVerificationStatus -Method $Method -BetaVerificationPollRequest $Result 
+    Ping-BetaVerificationStatus -Method $Method -VerificationPollRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Ping-BetaVerificationStatus -Method $Method -BetaVerificationPollRequest $Result  
+    # Ping-BetaVerificationStatus -Method $Method -VerificationPollRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Ping-BetaVerificationStatus"
     Write-Host $_.ErrorDetails
@@ -162,10 +162,10 @@ $DuoVerificationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToDuoVerificationRequest -Json $DuoVerificationRequest
-    Send-BetaDuoVerifyRequest -BetaDuoVerificationRequest $Result 
+    Send-BetaDuoVerifyRequest -DuoVerificationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaDuoVerifyRequest -BetaDuoVerificationRequest $Result  
+    # Send-BetaDuoVerifyRequest -DuoVerificationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaDuoVerifyRequest"
     Write-Host $_.ErrorDetails
@@ -212,10 +212,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
-    Send-BetaKbaAnswers -BetaKbaAnswerRequestItem $Result 
+    Send-BetaKbaAnswers -KbaAnswerRequestItem $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaKbaAnswers -BetaKbaAnswerRequestItem $Result  
+    # Send-BetaKbaAnswers -KbaAnswerRequestItem $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaKbaAnswers"
     Write-Host $_.ErrorDetails
@@ -260,10 +260,10 @@ $OktaVerificationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToOktaVerificationRequest -Json $OktaVerificationRequest
-    Send-BetaOktaVerifyRequest -BetaOktaVerificationRequest $Result 
+    Send-BetaOktaVerifyRequest -OktaVerificationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaOktaVerifyRequest -BetaOktaVerificationRequest $Result  
+    # Send-BetaOktaVerifyRequest -OktaVerificationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaOktaVerifyRequest"
     Write-Host $_.ErrorDetails
@@ -310,10 +310,10 @@ $TokenAuthRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToTokenAuthRequest -Json $TokenAuthRequest
-    Send-BetaTokenAuthRequest -BetaTokenAuthRequest $Result 
+    Send-BetaTokenAuthRequest -TokenAuthRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaTokenAuthRequest -BetaTokenAuthRequest $Result  
+    # Send-BetaTokenAuthRequest -TokenAuthRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaTokenAuthRequest"
     Write-Host $_.ErrorDetails

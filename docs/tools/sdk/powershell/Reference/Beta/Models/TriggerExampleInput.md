@@ -16,52 +16,52 @@ tags: ['SDK', 'Software Development Kit', 'TriggerExampleInput', 'BetaTriggerExa
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessRequestId** | **String** | The unique ID of the access request. | [required]
-**RequestedFor** | [**[]AccessItemRequestedForDto**](access-item-requested-for-dto) | Identities access was requested for. | [required]
-**RequestedItems** | [**[]AccessRequestPreApprovalRequestedItemsInner**](access-request-pre-approval-requested-items-inner) | Details of the access items being requested. | [required]
-**RequestedBy** | [**AccessItemRequesterDto**](access-item-requester-dto) |  | [required]
-**RequestedItemsStatus** | [**[]AccessRequestPostApprovalRequestedItemsStatusInner**](access-request-post-approval-requested-items-status-inner) | Details on the outcome of each access item. | [required]
+**AccessRequestId** | **String** | Access request's unique ID. | [required]
+**RequestedFor** | [**[]AccessItemRequestedForDto1**](access-item-requested-for-dto1) | Identities whom access was requested for. | [required]
+**RequestedItems** | [**[]AccessRequestPreApprovalRequestedItemsInner**](access-request-pre-approval-requested-items-inner) | Details about each requested access item. | [required]
+**RequestedBy** | [**AccessItemRequesterDto1**](access-item-requester-dto1) |  | [required]
+**RequestedItemsStatus** | [**[]AccessRequestPostApprovalRequestedItemsStatusInner**](access-request-post-approval-requested-items-status-inner) | Details about the outcome of each requested access item. | [required]
 **Source** | [**AccountUncorrelatedSource**](account-uncorrelated-source) |  | [required]
 **Status** |  **Enum** [  "Success",    "Failed",    "Terminated" ] | The overall status of the collection. | [required]
 **Started** | **System.DateTime** | The date and time when the account collection started. | [required]
 **Completed** | **System.DateTime** | The date and time when the account collection finished. | [required]
-**Errors** | **[]String** | A list of any accumulated error messages that occurred during provisioning. | [required]
-**Warnings** | **[]String** | A list of any accumulated warning messages that occurred during provisioning. | [required]
+**Errors** | **[]String** | List of any accumulated error messages that occurred during provisioning. | [required]
+**Warnings** | **[]String** | List of any accumulated warning messages that occurred during provisioning. | [required]
 **Stats** | [**AccountsCollectedForAggregationStats**](accounts-collected-for-aggregation-stats) |  | [required]
 **Identity** | [**IdentityDeletedIdentity**](identity-deleted-identity) |  | [required]
 **Account** | [**AccountUncorrelatedAccount**](account-uncorrelated-account) |  | [required]
-**Changes** | [**[]IdentityAttributesChangedChangesInner**](identity-attributes-changed-changes-inner) | A list of one or more identity attributes that changed on the identity. | [required]
-**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The attributes of the account. The contents of attributes depends on the account schema for the source. | [required]
+**Changes** | [**[]IdentityAttributesChangedChangesInner**](identity-attributes-changed-changes-inner) | List of identity's attributes that changed. | [required]
+**Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | Account attributes. The attributes' contents depend on the source's account schema. | [required]
 **EntitlementCount** | **Int32** | The number of entitlements associated with this account. | [optional] 
 **Campaign** | [**CampaignGeneratedCampaign**](campaign-generated-campaign) |  | [required]
 **Certification** | [**CertificationSignedOffCertification**](certification-signed-off-certification) |  | [required]
-**TrackingNumber** | **String** | The reference number of the provisioning request. Useful for tracking status in the Account Activity search interface. | [required]
-**Sources** | **String** | One or more sources that the provisioning transaction(s) were done against.  Sources are comma separated. | [required]
-**Action** | **String** | Origin of where the provisioning request came from. | [optional] 
+**TrackingNumber** | **String** | Provisioning request's reference number. Useful for tracking status in the 'Account Activity' search interface. | [required]
+**Sources** | **String** | Sources the provisioning transactions were performed on. Sources are comma separated. | [required]
+**Action** | **String** | Origin of the provisioning request. | [optional] 
 **Recipient** | [**ProvisioningCompletedRecipient**](provisioning-completed-recipient) |  | [required]
 **Requester** | [**ProvisioningCompletedRequester**](provisioning-completed-requester) |  | [optional] 
-**AccountRequests** | [**[]ProvisioningCompletedAccountRequestsInner**](provisioning-completed-account-requests-inner) | A list of provisioning instructions to perform on an account-by-account basis. | [required]
-**FileName** | **String** | A name for the report file. | [required]
-**OwnerEmail** | **String** | The email address of the identity that owns the saved search. | [required]
-**OwnerName** | **String** | The name of the identity that owns the saved search. | [required]
-**Query** | **String** | The search query that was used to generate the report. | [required]
-**SearchName** | **String** | The name of the saved search. | [required]
+**AccountRequests** | [**[]ProvisioningCompletedAccountRequestsInner**](provisioning-completed-account-requests-inner) | List of provisioning instructions to perform on an account-by-account basis. | [required]
+**FileName** | **String** | Report file name. | [required]
+**OwnerEmail** | **String** | Email address of the identity who owns the saved search. | [required]
+**OwnerName** | **String** | Name of the identity who owns the saved search. | [required]
+**Query** | **String** | Search query used to generate the report. | [required]
+**SearchName** | **String** | Saved search name. | [required]
 **SearchResults** | [**SavedSearchCompleteSearchResults**](saved-search-complete-search-results) |  | [required]
 **SignedS3Url** | **String** | The Amazon S3 URL to download the report from. | [required]
-**Uuid** | **String** | Source unique identifier for the identity. UUID is generated by the source system. | [optional] 
-**Id** | **String** | The unique ID of the source. | [required]
-**NativeIdentifier** | **String** | Unique ID of the account on the source. | [required]
-**SourceId** | **String** | The ID of the source. | [required]
-**SourceName** | **String** | The name of the source. | [required]
-**IdentityId** | **String** | The ID of the identity that is correlated with this account. | [required]
-**IdentityName** | **String** | The name of the identity that is correlated with this account. | [required]
-**Name** | **String** | The user friendly name of the source. | [required]
-**Type** | **String** | The connection type of the source. | [required]
-**Created** | **System.DateTime** | The date and time the status change occurred. | [required]
-**Connector** | **String** | The connector type used to connect to the source. | [required]
+**Uuid** | **String** | Identity's universal unique identifier (UUID) on the source. The source system generates the UUID. | [required]
+**Id** | **String** | Source's unique ID. | [required]
+**NativeIdentifier** | **String** | Account's unique ID on the source. | [required]
+**SourceId** | **String** | Source ID. | [required]
+**SourceName** | **String** | Source name. | [required]
+**IdentityId** | **String** | ID of the identity correlated with the account. | [required]
+**IdentityName** | **String** | Name of the identity correlated with the account. | [required]
+**Name** | **String** | Source name. | [required]
+**Type** | **String** | Connection type. | [required]
+**Created** | **System.DateTime** | Date and time when the status change occurred. | [required]
+**Connector** | **String** | Connector type used to connect to the source. | [required]
 **Actor** | [**SourceUpdatedActor**](source-updated-actor) |  | [required]
-**Deleted** | **System.DateTime** | The date and time the source was deleted. | [required]
-**Modified** | **System.DateTime** | The date and time the source was modified. | [required]
+**Deleted** | **System.DateTime** | Date and time when the source was deleted. | [required]
+**Modified** | **System.DateTime** | Date and time when the source was modified. | [required]
 **Application** | [**VAClusterStatusChangeEventApplication**](va-cluster-status-change-event-application) |  | [required]
 **HealthCheckResult** | [**VAClusterStatusChangeEventHealthCheckResult**](va-cluster-status-change-event-health-check-result) |  | [required]
 **PreviousHealthCheckResult** | [**VAClusterStatusChangeEventPreviousHealthCheckResult**](va-cluster-status-change-event-previous-health-check-result) |  | [required]
@@ -85,7 +85,7 @@ $TriggerExampleInput = Initialize-PSSailpoint.BetaTriggerExampleInput  -AccessRe
  -Identity null `
  -Account null `
  -Changes null `
- -Attributes {firstname&#x3D;John, lastname&#x3D;Doe, email&#x3D;john.doe@gmail.com, department&#x3D;Sales, displayName&#x3D;John Doe, created&#x3D;2020-04-27T16:48:33.597Z, employeeNumber&#x3D;E009, uid&#x3D;E009, inactive&#x3D;true, phone&#x3D;null, identificationNumber&#x3D;E009} `
+ -Attributes {firstname=John, lastname=Doe, email=john.doe@gmail.com, department=Sales, displayName=John Doe, created=2020-04-27T16:48:33.597Z, employeeNumber=E009, uid=E009, inactive=true, phone=null, identificationNumber=E009} `
  -EntitlementCount 0 `
  -Campaign null `
  -Certification null `
@@ -101,7 +101,7 @@ $TriggerExampleInput = Initialize-PSSailpoint.BetaTriggerExampleInput  -AccessRe
  -Query modified:[now-7y/d TO now] `
  -SearchName Modified Activity `
  -SearchResults null `
- -SignedS3Url https://sptcbu-org-data-useast1.s3.amazonaws.com/arsenal-john/reports/Events%20Export.2020-05-06%2018%2759%20GMT.3e580592-86e4-4953-8aea-49e6ef20a086.zip?X-Amz-Algorithm&#x3D;AWS4-HMAC-SHA256&amp;X-Amz-Date&#x3D;20200506T185919Z&amp;X-Amz-SignedHeaders&#x3D;host&amp;X-Amz-Expires&#x3D;899&amp;X-Amz-Credential&#x3D;AKIAV5E54XOGTS4Q4L7A%2F20200506%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Signature&#x3D;2e732bb97a12a1fd8a215613e3c31fcdae8ba1fb6a25916843ab5b51d2ddefbc `
+ -SignedS3Url https://sptcbu-org-data-useast1.s3.amazonaws.com/arsenal-john/reports/Events%20Export.2020-05-06%2018%2759%20GMT.3e580592-86e4-4953-8aea-49e6ef20a086.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200506T185919Z&X-Amz-SignedHeaders=host&X-Amz-Expires=899&X-Amz-Credential=AKIAV5E54XOGTS4Q4L7A%2F20200506%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=2e732bb97a12a1fd8a215613e3c31fcdae8ba1fb6a25916843ab5b51d2ddefbc `
  -Uuid b7264868-7201-415f-9118-b581d431c688 `
  -Id 2c9180866166b5b0016167c32ef31a66 `
  -NativeIdentifier E009 `
@@ -109,7 +109,7 @@ $TriggerExampleInput = Initialize-PSSailpoint.BetaTriggerExampleInput  -AccessRe
  -SourceName Active Directory `
  -IdentityId ee769173319b41d19ccec6c235423237b `
  -IdentityName john.doe `
- -Name Corporate Active Directory `
+ -Name Test source `
  -Type DIRECT_CONNECT `
  -Created 2020-06-29T22:01:50.474Z `
  -Connector active-directory `

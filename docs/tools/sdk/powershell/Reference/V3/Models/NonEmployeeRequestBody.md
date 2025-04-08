@@ -38,7 +38,7 @@ $NonEmployeeRequestBody = Initialize-PSSailpoint.V3NonEmployeeRequestBody  -Acco
  -Phone 5125555555 `
  -Manager jane.doe `
  -SourceId 2c91808568c529c60168cca6f90c1313 `
- -VarData {description&#x3D;Auditing} `
+ -VarData {description=Auditing} `
  -StartDate 2020-03-24T00:00-05:00 `
  -EndDate 2021-03-25T00:00-05:00
 ```

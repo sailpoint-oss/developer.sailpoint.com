@@ -202,10 +202,10 @@ $MfaDuoConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToMfaDuoConfig -Json $MfaDuoConfig
-    Set-V2024MFADuoConfig -V2024MfaDuoConfig $Result 
+    Set-V2024MFADuoConfig -MfaDuoConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024MFADuoConfig -V2024MfaDuoConfig $Result  
+    # Set-V2024MFADuoConfig -MfaDuoConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024MFADuoConfig"
     Write-Host $_.ErrorDetails
@@ -252,10 +252,10 @@ Code | Description  | Data Type
 
 try {
     $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
-    Set-V2024MFAKBAConfig -V2024KbaAnswerRequestItem $Result 
+    Set-V2024MFAKBAConfig -KbaAnswerRequestItem $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024MFAKBAConfig -V2024KbaAnswerRequestItem $Result  
+    # Set-V2024MFAKBAConfig -KbaAnswerRequestItem $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024MFAKBAConfig"
     Write-Host $_.ErrorDetails
@@ -304,10 +304,10 @@ $MfaOktaConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToMfaOktaConfig -Json $MfaOktaConfig
-    Set-V2024MFAOktaConfig -V2024MfaOktaConfig $Result 
+    Set-V2024MFAOktaConfig -MfaOktaConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024MFAOktaConfig -V2024MfaOktaConfig $Result  
+    # Set-V2024MFAOktaConfig -MfaOktaConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024MFAOktaConfig"
     Write-Host $_.ErrorDetails

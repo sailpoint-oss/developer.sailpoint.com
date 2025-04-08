@@ -17,11 +17,11 @@ tags: ['SDK', 'Software Development Kit', 'AccountAggregationCompleted', 'BetaAc
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Source** | [**AccountAggregationCompletedSource**](account-aggregation-completed-source) |  | [required]
-**Status** |  **Enum** [  "Success",    "Failed",    "Terminated" ] | The overall status of the aggregation. | [required]
-**Started** | **System.DateTime** | The date and time when the account aggregation started. | [required]
-**Completed** | **System.DateTime** | The date and time when the account aggregation finished. | [required]
-**Errors** | **[]String** | A list of errors that occurred during the aggregation. | [required]
-**Warnings** | **[]String** | A list of warnings that occurred during the aggregation. | [required]
+**Status** |  **Enum** [  "Success",    "Failed",    "Terminated" ] | Aggregation's overall status. | [required]
+**Started** | **System.DateTime** | Date and time when the account aggregation started. | [required]
+**Completed** | **System.DateTime** | Date and time when the account aggregation finished. | [required]
+**Errors** | **[]String** | List of errors that occurred during the aggregation. | [required]
+**Warnings** | **[]String** | List of warnings that occurred during the aggregation. | [required]
 **Stats** | [**AccountAggregationCompletedStats**](account-aggregation-completed-stats) |  | [required]
 
 ## Examples

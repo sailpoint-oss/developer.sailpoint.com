@@ -1,6 +1,6 @@
 post:
   summary: Create a profile
-  operationId: postProfile
+  operationId: submitProfile
   description: Create a profile
   tags:
     - profiles

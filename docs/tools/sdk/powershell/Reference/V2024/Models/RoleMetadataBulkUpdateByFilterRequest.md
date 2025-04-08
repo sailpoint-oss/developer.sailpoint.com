@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 $RoleMetadataBulkUpdateByFilterRequest = Initialize-PSSailpoint.V2024RoleMetadataBulkUpdateByFilterRequest  -Filters  requestable eq false `
  -Operation REPLACE `
  -ReplaceScope ALL `
- -Values [{attribute&#x3D;iscFederalClassifications, values&#x3D;[topSecret]}]
+ -Values [{attribute=iscFederalClassifications, values=[topSecret]}]
 ```
 
 - Convert the resource to JSON

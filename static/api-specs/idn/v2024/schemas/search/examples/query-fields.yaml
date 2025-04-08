@@ -1,0 +1,8 @@
+summary: Query with Fields
+value:
+  indices:
+  - 'identities'
+  query:
+    query: '"John Doe"'
+    fields:
+    - 'name'

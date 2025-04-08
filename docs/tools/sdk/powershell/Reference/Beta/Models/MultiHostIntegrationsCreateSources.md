@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 ```powershell
 $MultiHostIntegrationsCreateSources = Initialize-PSSailpoint.BetaMultiHostIntegrationsCreateSources  -Name My Source `
  -Description This is the corporate directory. `
- -ConnectorAttributes {authType&#x3D;SQLAuthentication, url&#x3D;jdbc:sqlserver://178.18.41.118:1433, user&#x3D;username, driverClass&#x3D;com.microsoft.sqlserver.jdbc.SQLServerDriver, maxSourcesPerAggGroup&#x3D;10, maxAllowedSources&#x3D;300}
+ -ConnectorAttributes {authType=SQLAuthentication, url=jdbc:sqlserver://178.18.41.118:1433, user=username, driverClass=com.microsoft.sqlserver.jdbc.SQLServerDriver, maxSourcesPerAggGroup=10, maxAllowedSources=300}
 ```
 
 - Convert the resource to JSON

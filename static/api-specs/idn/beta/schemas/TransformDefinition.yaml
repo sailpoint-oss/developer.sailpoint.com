@@ -2,14 +2,12 @@ type: object
 properties:
   type:
     type: string
-    description: The type of the transform definition.
+    description: Transform definition type.
     example: accountAttribute
   attributes:
     type: object
     nullable: true
     additionalProperties: true
-#      type: object
-#      nullable: true
     description: >-
       Arbitrary key-value pairs to store any metadata for the object
     example: {

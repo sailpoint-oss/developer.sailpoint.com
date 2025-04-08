@@ -74,10 +74,10 @@ $Tag = @"{
 
 try {
     $Result = ConvertFrom-JsonToTag -Json $Tag
-    New-BetaTag -BetaTag $Result 
+    New-BetaTag -Tag $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaTag -BetaTag $Result  
+    # New-BetaTag -Tag $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaTag"
     Write-Host $_.ErrorDetails

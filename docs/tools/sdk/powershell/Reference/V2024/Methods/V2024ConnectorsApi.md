@@ -88,10 +88,10 @@ $V3CreateConnectorDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToV3CreateConnectorDto -Json $V3CreateConnectorDto
-    New-V2024CustomConnector -V2024V3CreateConnectorDto $Result 
+    New-V2024CustomConnector -V3CreateConnectorDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024CustomConnector -V2024V3CreateConnectorDto $Result  
+    # New-V2024CustomConnector -V3CreateConnectorDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024CustomConnector"
     Write-Host $_.ErrorDetails
@@ -680,10 +680,10 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Connector -ScriptName $ScriptName -V2024JsonPatchOperation $Result 
+    Update-V2024Connector -ScriptName $ScriptName -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Connector -ScriptName $ScriptName -V2024JsonPatchOperation $Result  
+    # Update-V2024Connector -ScriptName $ScriptName -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Connector"
     Write-Host $_.ErrorDetails

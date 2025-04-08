@@ -1,0 +1,29 @@
+title: conditional
+type: object
+required:
+- expression
+- positiveCondition
+- negativeCondition
+properties:
+  expression:
+    type: string
+    description: >-
+        A comparison statement that follows the structure of `ValueA eq ValueB` where `ValueA` and `ValueB` are static strings or outputs of other transforms. 
+        
+        
+        The `eq` operator is the only valid comparison
+    example: "ValueA eq ValueB"
+  positiveCondition:
+    type: string
+    description: >-
+      The output of the transform if the expression evalutes to true
+    example: "true"
+  negativeCondition:
+    type: string
+    description: >-
+      The output of the transform if the expression evalutes to false
+    example: "false"
+  requiresPeriodicRefresh:
+    $ref: './RequiresPeriodicRefresh.yaml'
+  input:
+    $ref: './input.yaml'

@@ -1,0 +1,9 @@
+type: object
+properties:
+  id:
+    type: string
+    format: UUID
+    description: ID of access item being recommended.
+    example: 2c9180835d2e5168015d32f890ca1581
+  type:
+    $ref: './AccessRequestRecommendationItemType.yaml'

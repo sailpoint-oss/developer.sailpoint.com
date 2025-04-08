@@ -426,10 +426,10 @@ $SendAccountVerificationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSendAccountVerificationRequest -Json $SendAccountVerificationRequest
-    Send-BetaIdentityVerificationAccountToken -Id $Id -BetaSendAccountVerificationRequest $Result 
+    Send-BetaIdentityVerificationAccountToken -Id $Id -SendAccountVerificationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-BetaIdentityVerificationAccountToken -Id $Id -BetaSendAccountVerificationRequest $Result  
+    # Send-BetaIdentityVerificationAccountToken -Id $Id -SendAccountVerificationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaIdentityVerificationAccountToken"
     Write-Host $_.ErrorDetails
@@ -481,10 +481,10 @@ $InviteIdentitiesRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
-    Start-BetaIdentitiesInvite -BetaInviteIdentitiesRequest $Result 
+    Start-BetaIdentitiesInvite -InviteIdentitiesRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-BetaIdentitiesInvite -BetaInviteIdentitiesRequest $Result  
+    # Start-BetaIdentitiesInvite -InviteIdentitiesRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaIdentitiesInvite"
     Write-Host $_.ErrorDetails
@@ -540,10 +540,10 @@ $ProcessIdentitiesRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToProcessIdentitiesRequest -Json $ProcessIdentitiesRequest
-    Start-BetaIdentityProcessing -BetaProcessIdentitiesRequest $Result 
+    Start-BetaIdentityProcessing -ProcessIdentitiesRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-BetaIdentityProcessing -BetaProcessIdentitiesRequest $Result  
+    # Start-BetaIdentityProcessing -ProcessIdentitiesRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaIdentityProcessing"
     Write-Host $_.ErrorDetails

@@ -1,0 +1,39 @@
+type: object
+properties:
+  kid:
+    type: string
+    description: The key ID of this public key
+    example: 17a3558a-5ce2-4b5b-eb79-d5e0c97f78d3
+  alg:
+    type: string
+    description: The cryptographic algorithm used to secure the JWS on the JWT access token
+    example: ES256
+  crv:
+    type: string
+    description: >-
+      The cryptographic curve used with the key. Curve values from [DSS] used
+      by this specification are:"P-256", "P-384", "P-521". Refer RFC 7518
+    example: P-256
+  kty:
+    type: string
+    description: The cryptographic algorithm family used with the key, such as "RSA" or "EC"
+    example: EC
+  x:
+    type: string
+    description: >-
+      The x coordinate for the Elliptic Curve point.
+      It is represented as the base64url encoding of the octet string representation of the coordinate.
+    example: BB59MqkWRxyWAd7by8EKKIHuumFvOWj3YFo1HtNchDM
+  y:
+    type: string
+    description: >-
+      The y coordinate for the Elliptic Curve point.
+      It is represented as the base64url encoding of the octet string representation of the coordinate.
+    example: iBLT8AtrjpLBTuj94DXG-MER94_X-zSOlTjUS5dopJc
+required:
+  - kid
+  - alg
+  - crv
+  - kty
+  - x
+  - y

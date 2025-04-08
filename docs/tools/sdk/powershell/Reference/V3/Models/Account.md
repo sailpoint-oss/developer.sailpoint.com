@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **IdentityState** | **String** | The identity state of the identity this account is correlated to | [optional] 
 **ConnectionType** | **String** | The connection type of the source this account is from | [optional] 
 **IsMachine** | **Boolean** | Indicates if the account is of machine type | [optional] [default to $false]
-**Recommendation** | [**Recommendation**](recommendation) |  | [optional] 
+**Recommendation** | [**AccountAllOfRecommendation**](account-all-of-recommendation) |  | [optional] 
 **Attributes** | [**map[string]AnyType**]https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-04?view=powershell-7.4 | The account attributes that are aggregated | [required]
 **Authoritative** | **Boolean** | Indicates if this account is from an authoritative source | [required]
 **Description** | **String** | A description of the account | [optional] 
@@ -39,11 +39,11 @@ Name | Type | Description | Notes
 **Uuid** | **String** | The unique ID of the account as determined by the account schema | [optional] 
 **ManuallyCorrelated** | **Boolean** | Indicates if the account has been manually correlated to an identity | [required]
 **HasEntitlements** | **Boolean** | Indicates if the account has entitlements | [required]
-**Identity** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
-**SourceOwner** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
+**Identity** | [**AccountAllOfIdentity**](account-all-of-identity) |  | [optional] 
+**SourceOwner** | [**AccountAllOfSourceOwner**](account-all-of-source-owner) |  | [optional] 
 **Features** | **String** | A string list containing the owning source's features | [optional] 
 **Origin** |  **Enum** [  "AGGREGATED",    "PROVISIONED" ] | The origin of the account either aggregated or provisioned | [optional] 
-**OwnerIdentity** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
+**OwnerIdentity** | [**AccountAllOfOwnerIdentity**](account-all-of-owner-identity) |  | [optional] 
 
 ## Examples
 
@@ -61,7 +61,7 @@ $Account = Initialize-PSSailpoint.V3Account  -Id id12345 `
  -ConnectionType direct `
  -IsMachine true `
  -Recommendation null `
- -Attributes {firstName&#x3D;SailPoint, lastName&#x3D;Support, displayName&#x3D;SailPoint Support} `
+ -Attributes {firstName=SailPoint, lastName=Support, displayName=SailPoint Support} `
  -Authoritative false `
  -Description null `
  -Disabled false `

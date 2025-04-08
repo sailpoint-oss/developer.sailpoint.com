@@ -67,9 +67,9 @@ You must use a `firstValid`. If the identity does not have a manager, `getManage
 }
 ```
 
-### Get manager status of the identity
+### Get managerial status of the identity
 
-This example would get the status of whether or not the identity is currently actually a manager.
+This example would get a boolean response indicating whether the identity is listed as the manager of another identity.
 
 ```json
 {

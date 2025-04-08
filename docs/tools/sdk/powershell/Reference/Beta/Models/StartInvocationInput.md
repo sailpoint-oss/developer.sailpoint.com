@@ -25,8 +25,8 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $StartInvocationInput = Initialize-PSSailpoint.BetaStartInvocationInput  -TriggerId idn:access-requested `
- -VarInput {identityId&#x3D;201327fda1c44704ac01181e963d463c} `
- -ContentJson {workflowId&#x3D;1234}
+ -VarInput {identityId=201327fda1c44704ac01181e963d463c} `
+ -ContentJson {workflowId=1234}
 ```
 
 - Convert the resource to JSON

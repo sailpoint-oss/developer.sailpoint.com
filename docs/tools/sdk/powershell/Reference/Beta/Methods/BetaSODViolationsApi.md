@@ -90,10 +90,10 @@ $IdentityWithNewAccess = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
-    Start-BetaPredictSodViolations -BetaIdentityWithNewAccess $Result 
+    Start-BetaPredictSodViolations -IdentityWithNewAccess $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-BetaPredictSodViolations -BetaIdentityWithNewAccess $Result  
+    # Start-BetaPredictSodViolations -IdentityWithNewAccess $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaPredictSodViolations"
     Write-Host $_.ErrorDetails

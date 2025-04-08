@@ -18,8 +18,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | ManagedClient ID | [optional] [readonly] 
 **AlertKey** | **String** | ManagedClient alert key | [optional] [readonly] 
-**ApiGatewayBaseUrl** | **String** |  | [optional] 
-**Cookbook** | **String** |  | [optional] 
+**ApiGatewayBaseUrl** | **String** | apiGatewayBaseUrl for the Managed client | [optional] 
+**Cookbook** | **String** | cookbook id for the Managed client | [optional] 
 **CcId** | **Int64** | Previous CC ID to be used in data migration. (This field will be deleted after CC migration!) | [optional] 
 **ClientId** | **String** | The client ID used in API management | [required]
 **ClusterId** | **String** | Cluster ID that the ManagedClient is linked to | [required]
@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **CreatedAt** | **System.DateTime** | The date/time this ManagedClient was created | [optional] 
 **UpdatedAt** | **System.DateTime** | The date/time this ManagedClient was last updated | [optional] 
 **ProvisionStatus** |  **Enum** [  "PROVISIONED",    "DRAFT" ] | The provisioning status of the ManagedClient | [optional] [readonly] 
+**HealthIndicators** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The health indicators of the ManagedClient | [optional] 
 
 ## Examples
 
@@ -62,7 +63,8 @@ $ManagedClient = Initialize-PSSailpoint.V2024ManagedClient  -Id 2c9180878eaf4204
  -Secret ef878e15eaa8c8d3e2fa52f41125e2a0eeadadc6a14f931a33ad3e1b62d56381 `
  -CreatedAt 2023-08-04T20:48:01.865Z `
  -UpdatedAt 2023-08-04T20:48:01.865Z `
- -ProvisionStatus PROVISIONED
+ -ProvisionStatus PROVISIONED `
+ -HealthIndicators { "network": { "errors": [], "warnings": [] }, "memory": { "errors": [], "warnings": [] }, "cpu": { "errors": [], "warnings": [] } }
 ```
 
 - Convert the resource to JSON

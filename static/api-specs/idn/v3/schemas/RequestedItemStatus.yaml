@@ -1,5 +1,9 @@
 type: object
 properties:
+  id:
+    type: string
+    description: The ID of the access request.
+    example: 2c9180926cbfbddd016cbfc7c3b10010
   name:
     type: string
     description: Human-readable display name of the item being requested.
@@ -138,3 +142,9 @@ properties:
         "key1": "value1",
         "key2": "value2"
       }
+  requestedAccounts:
+    nullable: true
+    type: array
+    items:
+      $ref: './RequestedAccountRef.yaml'
+    description: The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.

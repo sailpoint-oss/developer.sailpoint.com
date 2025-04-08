@@ -95,7 +95,7 @@ try {
     New-BetaPotentialRoleProvisionRequest -SessionId $SessionId -PotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
-    # New-BetaPotentialRoleProvisionRequest -SessionId $SessionId -PotentialRoleId $PotentialRoleId -MinEntitlementPopularity $MinEntitlementPopularity -IncludeCommonAccess $IncludeCommonAccess -BetaRoleMiningPotentialRoleProvisionRequest $Result  
+    # New-BetaPotentialRoleProvisionRequest -SessionId $SessionId -PotentialRoleId $PotentialRoleId -MinEntitlementPopularity $MinEntitlementPopularity -IncludeCommonAccess $IncludeCommonAccess -RoleMiningPotentialRoleProvisionRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaPotentialRoleProvisionRequest"
     Write-Host $_.ErrorDetails
@@ -169,10 +169,10 @@ $RoleMiningSessionDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMiningSessionDto -Json $RoleMiningSessionDto
-    New-BetaRoleMiningSessions -BetaRoleMiningSessionDto $Result 
+    New-BetaRoleMiningSessions -RoleMiningSessionDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaRoleMiningSessions -BetaRoleMiningSessionDto $Result  
+    # New-BetaRoleMiningSessions -RoleMiningSessionDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaRoleMiningSessions"
     Write-Host $_.ErrorDetails
@@ -317,7 +317,7 @@ try {
     Export-BetaRoleMiningPotentialRoleAsync -SessionId $SessionId -PotentialRoleId $PotentialRoleId 
     
     # Below is a request that includes all optional parameters
-    # Export-BetaRoleMiningPotentialRoleAsync -SessionId $SessionId -PotentialRoleId $PotentialRoleId -BetaRoleMiningPotentialRoleExportRequest $Result  
+    # Export-BetaRoleMiningPotentialRoleAsync -SessionId $SessionId -PotentialRoleId $PotentialRoleId -RoleMiningPotentialRoleExportRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-BetaRoleMiningPotentialRoleAsync"
     Write-Host $_.ErrorDetails
@@ -1204,10 +1204,10 @@ $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potenti
 
 try {
     $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-    Update-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -BetaPatchPotentialRoleRequestInner $Result 
+    Update-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -BetaPatchPotentialRoleRequestInner $Result  
+    # Update-BetaPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaPotentialRole"
     Write-Host $_.ErrorDetails
@@ -1266,10 +1266,10 @@ $PotentialRoleId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The potenti
 
 try {
     $Result = ConvertFrom-JsonToPatchPotentialRoleRequestInner -Json $PatchPotentialRoleRequestInner
-    Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -BetaPatchPotentialRoleRequestInner $Result 
+    Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -BetaPatchPotentialRoleRequestInner $Result  
+    # Update-BetaRoleMiningPotentialRole -PotentialRoleId $PotentialRoleId -PatchPotentialRoleRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaRoleMiningPotentialRole"
     Write-Host $_.ErrorDetails
@@ -1320,10 +1320,10 @@ $SessionId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | The role mining s
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaRoleMiningSession -SessionId $SessionId -BetaJsonPatchOperation $Result 
+    Update-BetaRoleMiningSession -SessionId $SessionId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaRoleMiningSession -SessionId $SessionId -BetaJsonPatchOperation $Result  
+    # Update-BetaRoleMiningSession -SessionId $SessionId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaRoleMiningSession"
     Write-Host $_.ErrorDetails
@@ -1372,10 +1372,10 @@ $RoleMiningPotentialRoleEditEntitlements = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMiningPotentialRoleEditEntitlements -Json $RoleMiningPotentialRoleEditEntitlements
-    Update-BetaEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -BetaRoleMiningPotentialRoleEditEntitlements $Result 
+    Update-BetaEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -RoleMiningPotentialRoleEditEntitlements $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -BetaRoleMiningPotentialRoleEditEntitlements $Result  
+    # Update-BetaEntitlementsPotentialRole -SessionId $SessionId -PotentialRoleId $PotentialRoleId -RoleMiningPotentialRoleEditEntitlements $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaEntitlementsPotentialRole"
     Write-Host $_.ErrorDetails

@@ -79,10 +79,10 @@ $SourceAppCreateDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceAppCreateDto -Json $SourceAppCreateDto
-    New-BetaSourceApp -BetaSourceAppCreateDto $Result 
+    New-BetaSourceApp -SourceAppCreateDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaSourceApp -BetaSourceAppCreateDto $Result  
+    # New-BetaSourceApp -SourceAppCreateDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSourceApp"
     Write-Host $_.ErrorDetails
@@ -646,7 +646,7 @@ try {
     Update-BetaSourceApp -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSourceApp -Id $Id -BetaJsonPatchOperation $Result  
+    # Update-BetaSourceApp -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSourceApp"
     Write-Host $_.ErrorDetails
@@ -700,7 +700,7 @@ try {
     Update-BetaUserApp -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaUserApp -Id $Id -BetaJsonPatchOperation $Result  
+    # Update-BetaUserApp -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaUserApp"
     Write-Host $_.ErrorDetails
@@ -759,7 +759,7 @@ try {
     Update-BetaSourceAppsInBulk 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaSourceAppsInBulk -BetaSourceAppBulkUpdateRequest $Result  
+    # Update-BetaSourceAppsInBulk -SourceAppBulkUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSourceAppsInBulk"
     Write-Host $_.ErrorDetails

@@ -163,7 +163,7 @@ try {
     Complete-BetaCampaign -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Complete-BetaCampaign -Id $Id -BetaCompleteCampaignOptions $Result  
+    # Complete-BetaCampaign -Id $Id -CompleteCampaignOptions $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-BetaCampaign"
     Write-Host $_.ErrorDetails
@@ -320,10 +320,10 @@ $Campaign = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaign -Json $Campaign
-    New-BetaCampaign -BetaCampaign $Result 
+    New-BetaCampaign -Campaign $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaCampaign -BetaCampaign $Result  
+    # New-BetaCampaign -Campaign $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaCampaign"
     Write-Host $_.ErrorDetails
@@ -495,10 +495,10 @@ $CampaignTemplate = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignTemplate -Json $CampaignTemplate
-    New-BetaCampaignTemplate -BetaCampaignTemplate $Result 
+    New-BetaCampaignTemplate -CampaignTemplate $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaCampaignTemplate -BetaCampaignTemplate $Result  
+    # New-BetaCampaignTemplate -CampaignTemplate $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaCampaignTemplate"
     Write-Host $_.ErrorDetails
@@ -654,10 +654,10 @@ $DeleteCampaignsRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToDeleteCampaignsRequest -Json $DeleteCampaignsRequest
-    Remove-BetaCampaigns -BetaDeleteCampaignsRequest $Result 
+    Remove-BetaCampaigns -DeleteCampaignsRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaCampaigns -BetaDeleteCampaignsRequest $Result  
+    # Remove-BetaCampaigns -DeleteCampaignsRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaCampaigns"
     Write-Host $_.ErrorDetails
@@ -1095,10 +1095,10 @@ $AdminReviewReassign = @"{
 
 try {
     $Result = ConvertFrom-JsonToAdminReviewReassign -Json $AdminReviewReassign
-    Move-Beta -Id $Id -BetaAdminReviewReassign $Result 
+    Move-Beta -Id $Id -AdminReviewReassign $Result 
     
     # Below is a request that includes all optional parameters
-    # Move-Beta -Id $Id -BetaAdminReviewReassign $Result  
+    # Move-Beta -Id $Id -AdminReviewReassign $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Move-Beta"
     Write-Host $_.ErrorDetails
@@ -1155,10 +1155,10 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-BetaCampaignTemplate -Id $Id -BetaJsonPatchOperation $Result 
+    Update-BetaCampaignTemplate -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaCampaignTemplate -Id $Id -BetaJsonPatchOperation $Result  
+    # Update-BetaCampaignTemplate -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaCampaignTemplate"
     Write-Host $_.ErrorDetails
@@ -1209,10 +1209,10 @@ $CampaignReportsConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignReportsConfig -Json $CampaignReportsConfig
-    Set-BetaCampaignReportsConfig -BetaCampaignReportsConfig $Result 
+    Set-BetaCampaignReportsConfig -CampaignReportsConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaCampaignReportsConfig -BetaCampaignReportsConfig $Result  
+    # Set-BetaCampaignReportsConfig -CampaignReportsConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaCampaignReportsConfig"
     Write-Host $_.ErrorDetails
@@ -1286,7 +1286,7 @@ try {
     Set-BetaCampaignTemplateSchedule -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaCampaignTemplateSchedule -Id $Id -BetaSchedule $Result  
+    # Set-BetaCampaignTemplateSchedule -Id $Id -Schedule $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaCampaignTemplateSchedule"
     Write-Host $_.ErrorDetails
@@ -1342,7 +1342,7 @@ try {
     Start-BetaCampaign -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Start-BetaCampaign -Id $Id -BetaActivateCampaignOptions $Result  
+    # Start-BetaCampaign -Id $Id -ActivateCampaignOptions $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaCampaign"
     Write-Host $_.ErrorDetails

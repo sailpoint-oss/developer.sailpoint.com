@@ -116,10 +116,10 @@ $TenantUiMetadataItemUpdateRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest
-    Set-V2024TenantUiMetadata -XSailPointExperimental $XSailPointExperimental -V2024TenantUiMetadataItemUpdateRequest $Result 
+    Set-V2024TenantUiMetadata -XSailPointExperimental $XSailPointExperimental -TenantUiMetadataItemUpdateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024TenantUiMetadata -XSailPointExperimental $XSailPointExperimental -V2024TenantUiMetadataItemUpdateRequest $Result  
+    # Set-V2024TenantUiMetadata -XSailPointExperimental $XSailPointExperimental -TenantUiMetadataItemUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024TenantUiMetadata"
     Write-Host $_.ErrorDetails

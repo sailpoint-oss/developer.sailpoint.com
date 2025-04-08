@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    type: string
+    description: ID of the access item to retrieve the recommendation for. 
+    example: '2c938083633d259901633d2623ec0375'
+  type:
+    type: string
+    example: ENTITLEMENT
+    description: Access item's type.
+    enum:
+      - ENTITLEMENT
+      - ACCESS_PROFILE
+      - ROLE

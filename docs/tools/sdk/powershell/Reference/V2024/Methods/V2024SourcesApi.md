@@ -91,7 +91,8 @@ Method | HTTP request | Description
 [**Get-V2024ProvisioningPolicy**](#get-provisioning-policy) | **GET** `/sources/{sourceId}/provisioning-policies/{usageType}` | Get Provisioning Policy by UsageType
 [**Get-V2024Source**](#get-source) | **GET** `/sources/{id}` | Get Source by ID
 [**Get-V2024SourceAttrSyncConfig**](#get-source-attr-sync-config) | **GET** `/sources/{id}/attribute-sync-config` | Attribute Sync Config
-[**Get-V2024SourceConfig**](#get-source-config) | **GET** `/sources/{id}/connectors/source-config` | Gets source config with language translations
+[**Get-V2024SourceConfig**](#get-source-config) | **GET** `/sources/{id}/connectors/source-config` | Gets source config with language-translations
+[**Get-V2024SourceConnections**](#get-source-connections) | **GET** `/sources/{sourceId}/connections` | Get Source Connections by ID
 [**Get-V2024SourceEntitlementRequestConfig**](#get-source-entitlement-request-config) | **GET** `/sources/{id}/entitlement-request-config` | Get Source Entitlement Request Configuration
 [**Get-V2024SourceHealth**](#get-source-health) | **GET** `/sources/{sourceId}/source-health` | Fetches source health by id
 [**Get-V2024SourceSchedule**](#get-source-schedule) | **GET** `/sources/{sourceId}/schedules/{scheduleType}` | Get Source Schedule by Type
@@ -105,7 +106,6 @@ Method | HTTP request | Description
 [**Import-V2024UncorrelatedAccounts**](#import-uncorrelated-accounts) | **POST** `/sources/{id}/load-uncorrelated-accounts` | Process Uncorrelated Accounts
 [**Get-V2024ProvisioningPolicies**](#list-provisioning-policies) | **GET** `/sources/{sourceId}/provisioning-policies` | Lists ProvisioningPolicies
 [**Get-V2024Sources**](#list-sources) | **GET** `/sources` | Lists all sources in IdentityNow.
-[**Receive-V2024ResourceObjects**](#peek-resource-objects) | **POST** `/sources/{sourceId}/connector/peek-resource-objects` | Peek source connector&#39;s resource objects
 [**Ping-V2024Cluster**](#ping-cluster) | **POST** `/sources/{sourceId}/connector/ping-cluster` | Ping cluster for source connector
 [**Send-V2024CorrelationConfig**](#put-correlation-config) | **PUT** `/sources/{id}/correlation-config` | Update Source Correlation Configuration
 [**Send-V2024NativeChangeDetectionConfig**](#put-native-change-detection-config) | **PUT** `/sources/{sourceId}/native-change-detection-config` | Update Native Change Detection Configuration
@@ -113,6 +113,7 @@ Method | HTTP request | Description
 [**Send-V2024Source**](#put-source) | **PUT** `/sources/{id}` | Update Source (Full)
 [**Send-V2024SourceAttrSyncConfig**](#put-source-attr-sync-config) | **PUT** `/sources/{id}/attribute-sync-config` | Update Attribute Sync Config
 [**Send-V2024SourceSchema**](#put-source-schema) | **PUT** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Full)
+[**Search-V2024ResourceObjects**](#search-resource-objects) | **POST** `/sources/{sourceId}/connector/peek-resource-objects` | Peek source connector&#39;s resource objects
 [**Sync-V2024AttributesForSource**](#sync-attributes-for-source) | **POST** `/sources/{id}/synchronize-attributes` | Synchronize single source attributes.
 [**Test-V2024SourceConfiguration**](#test-source-configuration) | **POST** `/sources/{sourceId}/connector/test-configuration` | Test configuration for source connector
 [**Test-V2024SourceConnection**](#test-source-connection) | **POST** `/sources/{sourceId}/connector/check-connection` | Check connection for source connector.
@@ -204,10 +205,10 @@ $ProvisioningPolicyDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    New-V2024ProvisioningPolicy -SourceId $SourceId -V2024ProvisioningPolicyDto $Result 
+    New-V2024ProvisioningPolicy -SourceId $SourceId -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ProvisioningPolicy -SourceId $SourceId -V2024ProvisioningPolicyDto $Result  
+    # New-V2024ProvisioningPolicy -SourceId $SourceId -ProvisioningPolicyDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ProvisioningPolicy"
     Write-Host $_.ErrorDetails
@@ -334,10 +335,10 @@ $ProvisionAsCsv = $false # Boolean | If this parameter is `true`, it configures 
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    New-V2024Source -V2024Source $Result 
+    New-V2024Source -Source $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Source -V2024Source $Result -ProvisionAsCsv $ProvisionAsCsv  
+    # New-V2024Source -Source $Result -ProvisionAsCsv $ProvisionAsCsv  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Source"
     Write-Host $_.ErrorDetails
@@ -383,10 +384,10 @@ $Schedule1 = @""@
 
 try {
     $Result = ConvertFrom-JsonToSchedule1 -Json $Schedule1
-    New-V2024SourceSchedule -SourceId $SourceId -V2024Schedule1 $Result 
+    New-V2024SourceSchedule -SourceId $SourceId -Schedule1 $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024SourceSchedule -SourceId $SourceId -V2024Schedule1 $Result  
+    # New-V2024SourceSchedule -SourceId $SourceId -Schedule1 $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SourceSchedule"
     Write-Host $_.ErrorDetails
@@ -465,10 +466,10 @@ $Schema = @"{
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    New-V2024SourceSchema -SourceId $SourceId -V2024Schema $Result 
+    New-V2024SourceSchema -SourceId $SourceId -Schema $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024SourceSchema -SourceId $SourceId -V2024Schema $Result  
+    # New-V2024SourceSchema -SourceId $SourceId -Schema $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SourceSchema"
     Write-Host $_.ErrorDetails
@@ -1114,9 +1115,6 @@ try {
 [[Back to top]](#) 
 
 ## get-source-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Looks up and returns the source config for the requested source id after populating the source config values and applying language translations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-config)
@@ -1125,16 +1123,16 @@ Looks up and returns the source config for the requested source id after populat
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The Source id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Locale | **String** |   (optional) | The locale to apply to the config. If no viable locale is given, it will default to ""en""
 
 ### Return type
-[**ConnectorDetail1**](../models/connector-detail1)
+[**ConnectorDetail**](../models/connector-detail)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | A Connector Detail object | ConnectorDetail1
+200 | A Connector Detail object | ConnectorDetail
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
@@ -1147,19 +1145,64 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "MyId" # String | The Source id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Id = "cef3ee201db947c5912551015ba0c679" # String | The Source id
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
 
-# Gets source config with language translations
+# Gets source config with language-translations
 
 try {
-    Get-V2024SourceConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024SourceConfig -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024SourceConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -Locale $Locale  
+    # Get-V2024SourceConfig -Id $Id -Locale $Locale  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceConfig"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-source-connections
+Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-connections)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source ID.
+
+### Return type
+[**SourceConnectionsDto**](../models/source-connections-dto)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Source Connections object. | SourceConnectionsDto
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
+
+# Get Source Connections by ID
+
+try {
+    Get-V2024SourceConnections -SourceId $SourceId 
+    
+    # Below is a request that includes all optional parameters
+    # Get-V2024SourceConnections -SourceId $SourceId  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SourceConnections"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -1314,6 +1357,14 @@ try {
 
 ## get-source-schedules
 Use this API to list the schedules that exist on the specified source in Identity Security Cloud (ISC).
+:::info
+This endpoint uses a **cron expression** to schedule a task, following standard **cron job syntax**.
+
+For example, `0 0 12 1/1 * ? *` runs the task **daily at 12:00 PM**.
+
+**Days of the week are represented as 1-7 (Sunday-Saturday).**
+:::
+
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-source-schedules)
 
@@ -1824,67 +1875,7 @@ try {
 ```
 [[Back to top]](#) 
 
-## peek-resource-objects
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-Retrieves a sample of data returned from account and group aggregation requests.
-
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/peek-resource-objects)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | SourceId | **String** | True  | The ID of the Source
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
- Body  | ResourceObjectsRequest | [**ResourceObjectsRequest**](../models/resource-objects-request) | True  | 
-
-### Return type
-[**ResourceObjectsResponse**](../models/resource-objects-response)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-200 | List of resource objects that was fetched from the source connector. | ResourceObjectsResponse
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### Example
-```powershell
-$SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$ResourceObjectsRequest = @"{
-  "maxCount" : 100,
-  "objectType" : "group"
-}"@
-
-# Peek source connector's resource objects
-
-try {
-    $Result = ConvertFrom-JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
-    Receive-V2024ResourceObjects -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -V2024ResourceObjectsRequest $Result 
-    
-    # Below is a request that includes all optional parameters
-    # Receive-V2024ResourceObjects -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -V2024ResourceObjectsRequest $Result  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Receive-V2024ResourceObjects"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
 ## ping-cluster
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This endpoint validates that the cluster being used by the source is reachable from IdentityNow.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/ping-cluster)
@@ -1893,7 +1884,6 @@ This endpoint validates that the cluster being used by the source is reachable f
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | The ID of the Source
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**StatusResponse**](../models/status-response)
@@ -1916,15 +1906,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Ping cluster for source connector
 
 try {
-    Ping-V2024Cluster -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    Ping-V2024Cluster -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Ping-V2024Cluster -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental  
+    # Ping-V2024Cluster -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Ping-V2024Cluster"
     Write-Host $_.ErrorDetails
@@ -1990,10 +1979,10 @@ $CorrelationConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToCorrelationConfig -Json $CorrelationConfig
-    Send-V2024CorrelationConfig -Id $Id -V2024CorrelationConfig $Result 
+    Send-V2024CorrelationConfig -Id $Id -CorrelationConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024CorrelationConfig -Id $Id -V2024CorrelationConfig $Result  
+    # Send-V2024CorrelationConfig -Id $Id -CorrelationConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024CorrelationConfig"
     Write-Host $_.ErrorDetails
@@ -2051,10 +2040,10 @@ $NativeChangeDetectionConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
-    Send-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024NativeChangeDetectionConfig $Result 
+    Send-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -NativeChangeDetectionConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024NativeChangeDetectionConfig $Result  
+    # Send-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -NativeChangeDetectionConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024NativeChangeDetectionConfig"
     Write-Host $_.ErrorDetails
@@ -2143,10 +2132,10 @@ $ProvisioningPolicyDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Send-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -V2024ProvisioningPolicyDto $Result 
+    Send-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -V2024ProvisioningPolicyDto $Result  
+    # Send-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -ProvisioningPolicyDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024ProvisioningPolicy"
     Write-Host $_.ErrorDetails
@@ -2286,10 +2275,10 @@ $Source = @"{
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
-    Send-V2024Source -Id $Id -V2024Source $Result 
+    Send-V2024Source -Id $Id -Source $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024Source -Id $Id -V2024Source $Result  
+    # Send-V2024Source -Id $Id -Source $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024Source"
     Write-Host $_.ErrorDetails
@@ -2358,10 +2347,10 @@ $AttrSyncSourceConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
-    Send-V2024SourceAttrSyncConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024AttrSyncSourceConfig $Result 
+    Send-V2024SourceAttrSyncConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -AttrSyncSourceConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024SourceAttrSyncConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -V2024AttrSyncSourceConfig $Result  
+    # Send-V2024SourceAttrSyncConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -AttrSyncSourceConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024SourceAttrSyncConfig"
     Write-Host $_.ErrorDetails
@@ -2452,12 +2441,64 @@ $Schema = @"{
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
-    Send-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -V2024Schema $Result 
+    Send-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -V2024Schema $Result  
+    # Send-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -Schema $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024SourceSchema"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## search-resource-objects
+Retrieves a sample of data returned from account and group aggregation requests.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/search-resource-objects)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | The ID of the Source
+ Body  | ResourceObjectsRequest | [**ResourceObjectsRequest**](../models/resource-objects-request) | True  | 
+
+### Return type
+[**ResourceObjectsResponse**](../models/resource-objects-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | List of resource objects that was fetched from the source connector. | ResourceObjectsResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
+$ResourceObjectsRequest = @"{
+  "maxCount" : 100,
+  "objectType" : "group"
+}"@
+
+# Peek source connector's resource objects
+
+try {
+    $Result = ConvertFrom-JsonToResourceObjectsRequest -Json $ResourceObjectsRequest
+    Search-V2024ResourceObjects -SourceId $SourceId -ResourceObjectsRequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Search-V2024ResourceObjects -SourceId $SourceId -ResourceObjectsRequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-V2024ResourceObjects"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -2515,9 +2556,6 @@ try {
 [[Back to top]](#) 
 
 ## test-source-configuration
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This endpoint performs a more detailed validation of the source''s configuration that can take longer than the lighter weight credential validation performed by the checkConnection API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/test-source-configuration)
@@ -2526,7 +2564,6 @@ This endpoint performs a more detailed validation of the source''s configuration
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | The ID of the Source
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**StatusResponse**](../models/status-response)
@@ -2549,15 +2586,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Test configuration for source connector
 
 try {
-    Test-V2024SourceConfiguration -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    Test-V2024SourceConfiguration -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Test-V2024SourceConfiguration -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental  
+    # Test-V2024SourceConfiguration -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024SourceConfiguration"
     Write-Host $_.ErrorDetails
@@ -2566,9 +2602,6 @@ try {
 [[Back to top]](#) 
 
 ## test-source-connection
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This endpoint validates that the configured credentials are valid and will properly authenticate with the source identified by the sourceId path parameter.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/test-source-connection)
@@ -2577,7 +2610,6 @@ This endpoint validates that the configured credentials are valid and will prope
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | The ID of the Source.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**StatusResponse**](../models/status-response)
@@ -2600,15 +2632,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "cef3ee201db947c5912551015ba0c679" # String | The ID of the Source.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Check connection for source connector.
 
 try {
-    Test-V2024SourceConnection -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    Test-V2024SourceConnection -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Test-V2024SourceConnection -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental  
+    # Test-V2024SourceConnection -SourceId $SourceId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024SourceConnection"
     Write-Host $_.ErrorDetails
@@ -2657,10 +2688,10 @@ $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyHoldersDtoInner -Json $PasswordPolicyHoldersDtoInner
-    Update-V2024PasswordPolicyHolders -SourceId $SourceId -V2024PasswordPolicyHoldersDtoInner $Result 
+    Update-V2024PasswordPolicyHolders -SourceId $SourceId -PasswordPolicyHoldersDtoInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024PasswordPolicyHolders -SourceId $SourceId -V2024PasswordPolicyHoldersDtoInner $Result  
+    # Update-V2024PasswordPolicyHolders -SourceId $SourceId -PasswordPolicyHoldersDtoInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024PasswordPolicyHolders"
     Write-Host $_.ErrorDetails
@@ -2746,10 +2777,10 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
-    Update-V2024ProvisioningPoliciesInBulk -SourceId $SourceId -V2024ProvisioningPolicyDto $Result 
+    Update-V2024ProvisioningPoliciesInBulk -SourceId $SourceId -ProvisioningPolicyDto $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ProvisioningPoliciesInBulk -SourceId $SourceId -V2024ProvisioningPolicyDto $Result  
+    # Update-V2024ProvisioningPoliciesInBulk -SourceId $SourceId -ProvisioningPolicyDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ProvisioningPoliciesInBulk"
     Write-Host $_.ErrorDetails
@@ -2804,10 +2835,10 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -V2024JsonPatchOperation $Result 
+    Update-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -V2024JsonPatchOperation $Result  
+    # Update-V2024ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ProvisioningPolicy"
     Write-Host $_.ErrorDetails
@@ -2873,10 +2904,10 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Source -Id $Id -V2024JsonPatchOperation $Result 
+    Update-V2024Source -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Source -Id $Id -V2024JsonPatchOperation $Result  
+    # Update-V2024Source -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Source"
     Write-Host $_.ErrorDetails
@@ -2940,10 +2971,10 @@ $SourceEntitlementRequestConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
-    Update-V2024SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental -V2024SourceEntitlementRequestConfig $Result 
+    Update-V2024SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental -V2024SourceEntitlementRequestConfig $Result  
+    # Update-V2024SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental -SourceEntitlementRequestConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SourceEntitlementRequestConfig"
     Write-Host $_.ErrorDetails
@@ -3001,10 +3032,10 @@ $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType -V2024JsonPatchOperation $Result 
+    Update-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType -V2024JsonPatchOperation $Result  
+    # Update-V2024SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SourceSchedule"
     Write-Host $_.ErrorDetails
@@ -3086,10 +3117,10 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -V2024JsonPatchOperation $Result 
+    Update-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -V2024JsonPatchOperation $Result  
+    # Update-V2024SourceSchema -SourceId $SourceId -SchemaId $SchemaId -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SourceSchema"
     Write-Host $_.ErrorDetails

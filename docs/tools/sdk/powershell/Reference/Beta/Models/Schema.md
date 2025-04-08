@@ -41,8 +41,8 @@ $Schema = Initialize-PSSailpoint.BetaSchema  -Id 2c9180835d191a86015d28455b4a232
  -HierarchyAttribute memberOf `
  -IncludePermissions false `
  -Features [PROVISIONING, NO_PERMISSIONS_PROVISIONING, GROUPS_HAVE_MEMBERS] `
- -Configuration {groupMemberAttribute&#x3D;member} `
- -Attributes [{name&#x3D;sAMAccountName, type&#x3D;STRING, isMultiValued&#x3D;false, isEntitlement&#x3D;false, isGroup&#x3D;false}, {name&#x3D;memberOf, type&#x3D;STRING, schema&#x3D;{type&#x3D;CONNECTOR_SCHEMA, id&#x3D;2c9180887671ff8c01767b4671fc7d60, name&#x3D;group}, description&#x3D;Group membership, isMultiValued&#x3D;true, isEntitlement&#x3D;true, isGroup&#x3D;true}] `
+ -Configuration {groupMemberAttribute=member} `
+ -Attributes [{name=sAMAccountName, type=STRING, isMultiValued=false, isEntitlement=false, isGroup=false}, {name=memberOf, type=STRING, schema={type=CONNECTOR_SCHEMA, id=2c9180887671ff8c01767b4671fc7d60, name=group}, description=Group membership, isMultiValued=true, isEntitlement=true, isGroup=true}] `
  -Created 2019-12-24T22:32:58.104Z `
  -Modified 2019-12-31T20:22:28.104Z
 ```

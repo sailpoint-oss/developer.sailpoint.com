@@ -1,0 +1,121 @@
+get:
+  tags:
+    - Managed Clients
+  summary: Get Managed Client
+  description: >-
+    Get managed client by ID. 
+  operationId: getManagedClient
+  parameters:
+    - name: id
+      in: path
+      description: Managed client ID.
+      required: true
+      x-sailpoint-resource-operation-id: getManagedClients
+      example: 4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Managed client response. 
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedClient.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - userAuth: [idn:remote-client:read, idn:remote-client:manage, idn:managed-client-status:read, idn:managed-client-status:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+patch:
+  tags:
+    - Managed Clients
+  summary: Update Managed Client
+  description: >-
+    Update an existing managed client.
+  operationId: updateManagedClient
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: getManagedClients
+      description: Managed client ID.
+      example: 4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7
+  requestBody:
+    required: true
+    description: JSONPatch payload used to update the object.
+    content:
+      application/json-patch+json:
+        schema:
+          type: array
+          items:
+            $ref: "../schemas/JsonPatchOperation.yaml"
+  responses:
+    "200":
+      description: Updated managed client.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ManagedClient.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - userAuth: [idn:remote-client:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+delete:
+  operationId: deleteManagedClient
+  tags:
+    - Managed Clients
+  summary: Delete Managed Client
+  description: >-
+    Delete an existing managed client.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: getManagedClients
+      description: Managed client ID.
+      example: 4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7
+  responses:
+    '204':
+      $ref: '../responses/204.yaml'
+      description: Managed client was successfully deleted.
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - userAuth: [idn:remote-client:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

@@ -1,0 +1,16 @@
+type: object
+properties:
+  key:
+    type: string
+    description: The template notification key.
+    example: "cloud_manual_work_item_summary"
+  medium:
+    type: string
+    description: The notification medium. Has to be one of the following enum values.
+    enum:
+      - EMAIL
+      - SLACK
+      - TEAMS
+  context:
+    type: object
+    description: A Json object that denotes the context specific to the template.

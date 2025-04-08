@@ -27,9 +27,9 @@ Name | Type | Description | Notes
 $WorkgroupMemberAddItem = Initialize-PSSailpoint.V2024WorkgroupMemberAddItem  -Id 464ae7bf791e49fdb74606a2e4a89635 `
  -Status 201 `
  -Description 
-&gt; Identity is added into Governance Group members list.
+> Identity is added into Governance Group members list.
 
-&gt; Unable to set Membership of Identity &quot;3244d5f2d04447498520f54c6789ae33&quot; to Governance Group &quot;f80bba83-98c4-4ec2-81c8-373c00e9663b&quot;; the relationship already exists.
+> Unable to set Membership of Identity "3244d5f2d04447498520f54c6789ae33" to Governance Group "f80bba83-98c4-4ec2-81c8-373c00e9663b"; the relationship already exists.
 
 ```
 

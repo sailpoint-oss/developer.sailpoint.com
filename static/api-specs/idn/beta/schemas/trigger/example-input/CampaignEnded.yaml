@@ -18,34 +18,34 @@ properties:
     properties:
       id:
         type: string
-        description: Unique ID for the campaign.
+        description: Campaign's unique ID for the campaign.
         example: 2c91808576f886190176f88cac5a0010
       name:
         type: string
-        description: The human friendly name of the campaign.
+        description: Campaign's unique ID.
         example: Manager Access Campaign
       description:
         type: string
-        description: Extended description of the campaign.
+        description: Campaign's extended description.
         example: Audit access for all employees.
       created:
         type: string
         format: date-time
-        description: The date and time the campaign was created.
-        example: "2021-02-16T03:04:45.815Z"
+        description: Date and time when the campaign was created.
+        example: 2021-02-16T03:04:45.815Z
       modified:
         nullable: true
         type: string
         format: date-time
-        description: The date and time the campaign was last modified.
-        example: "2021-03-16T03:06:45.815Z"
+        description: Date and time when the campaign was last modified.
+        example: 2021-03-16T03:06:45.815Z
       deadline:
         type: string
         format: date-time
-        description: The date and time the campaign is due.
-        example: "2021-03-16T03:04:45.815Z"
+        description: Date and time when the campaign is due.
+        example: 2021-03-16T03:04:45.815Z
       type:
-        description: The type of campaign.
+        description: Campaign's type.
         enum:
         - MANAGER
         - SOURCE_OWNER
@@ -54,7 +54,7 @@ properties:
         example: MANAGER
       campaignOwner:
         type: object
-        description: Details of the identity that owns the campaign.
+        description: Details of the identity who owns the campaign.
         required:
         - id
         - displayName
@@ -62,18 +62,18 @@ properties:
         properties:
           id:
             type: string
-            description: The unique ID of the identity.
+            description: Identity's unique ID.
             example: 37f080867702c1910177031320c40n27
           displayName:
             type: string
-            description: The human friendly name of the identity.
-            example: John Snow
+            description: Identity's name.
+            example: Albert Albertson
           email:
             type: string
-            description: The primary email address of the identity.
-            example: john.snow@example.com
+            description: Identity's primary email address.
+            example: albert.albertson@example.com
       status:
         enum:
         - COMPLETED
-        description: The current status of the campaign.
+        description: Campaign's current status.
         example: COMPLETED

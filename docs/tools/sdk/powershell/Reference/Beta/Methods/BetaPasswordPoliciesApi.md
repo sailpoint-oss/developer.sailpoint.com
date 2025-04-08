@@ -101,10 +101,10 @@ $PasswordPolicyV3Dto = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-    New-BetaPasswordPolicy -BetaPasswordPolicyV3Dto $Result 
+    New-BetaPasswordPolicy -PasswordPolicyV3Dto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaPasswordPolicy -BetaPasswordPolicyV3Dto $Result  
+    # New-BetaPasswordPolicy -PasswordPolicyV3Dto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaPasswordPolicy"
     Write-Host $_.ErrorDetails
@@ -324,10 +324,10 @@ $PasswordPolicyV3Dto = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-    Set-BetaPasswordPolicy -Id $Id -BetaPasswordPolicyV3Dto $Result 
+    Set-BetaPasswordPolicy -Id $Id -PasswordPolicyV3Dto $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaPasswordPolicy -Id $Id -BetaPasswordPolicyV3Dto $Result  
+    # Set-BetaPasswordPolicy -Id $Id -PasswordPolicyV3Dto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaPasswordPolicy"
     Write-Host $_.ErrorDetails

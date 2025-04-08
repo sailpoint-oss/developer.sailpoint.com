@@ -1,0 +1,43 @@
+type: object
+properties:
+  name:
+    type: string
+    description: The name of the governance event, such as the certification name or access request ID.
+    example: Manager Certification for Jon Snow
+  dt:
+    type: string
+    description: The date that the certification or access request was completed.
+    example: '2019-03-08T22:37:33.901Z'
+  type:
+    type: string
+    enum:
+      - certification
+      - accessRequest
+    description: The type of governance event.
+    example: certification
+  governanceId:
+    type: string
+    description: The ID of the instance that caused the event - either the certification ID or access request ID.
+    example: 2c91808a77ff216301782327a50f09bf
+  owners:
+    type: array
+    description: The owners of the governance event (the certifiers or approvers)
+    items:
+      $ref: './CertifierResponse.yaml'
+    example:
+      - id: 8a80828f643d484f01643e14202e206f
+        displayName: John Snow
+  reviewers:
+    type: array
+    description: The owners of the governance event (the certifiers or approvers), this field should be preferred over owners
+    items:
+      $ref: './CertifierResponse.yaml'
+    example:
+      - id: 8a80828f643d484f01643e14202e206f
+        displayName: John Snow
+  decisionMaker:
+    description: The decision maker
+    $ref: './CertifierResponse.yaml'
+    example:
+      id: 8a80828f643d484f01643e14202e206f
+      displayName: John Snow

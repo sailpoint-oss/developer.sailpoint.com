@@ -15,7 +15,7 @@ With saved search functionality in place, users can save search queries and then
 
 Search queries in Identity Security Cloud can grow very long and specific, which can make reconstructing them difficult or tedious, so it can be especially helpful to save search queries. 
 It also opens the possibility to configure Identity Security Cloud to run the saved queries on a schedule, which is essential to detecting user information and access changes throughout an organization&#39;s tenant and across all its sources. 
-Refer to [Scheduled Search](https://developer.sailpoint.com/docs/api/v3/scheduled-search/) for more information about running saved searches on a schedule. 
+Refer to [Scheduled Search](https://developer.sailpoint.com/docs/api/v2024/scheduled-search/) for more information about running saved searches on a schedule. 
 
 In Identity Security Cloud, users can save searches under a name, and then they can access that saved search and run it again when they want. 
 
@@ -71,10 +71,10 @@ $CreateSavedSearchRequest = @""@
 
 try {
     $Result = ConvertFrom-JsonToCreateSavedSearchRequest -Json $CreateSavedSearchRequest
-    New-V2024SavedSearch -V2024CreateSavedSearchRequest $Result 
+    New-V2024SavedSearch -CreateSavedSearchRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024SavedSearch -V2024CreateSavedSearchRequest $Result  
+    # New-V2024SavedSearch -CreateSavedSearchRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SavedSearch"
     Write-Host $_.ErrorDetails
@@ -178,10 +178,10 @@ $SearchArguments = @"{
 
 try {
     $Result = ConvertFrom-JsonToSearchArguments -Json $SearchArguments
-    Invoke-V2024ExecuteSavedSearch -Id $Id -V2024SearchArguments $Result 
+    Invoke-V2024ExecuteSavedSearch -Id $Id -SearchArguments $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-V2024ExecuteSavedSearch -Id $Id -V2024SearchArguments $Result  
+    # Invoke-V2024ExecuteSavedSearch -Id $Id -SearchArguments $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2024ExecuteSavedSearch"
     Write-Host $_.ErrorDetails
@@ -372,10 +372,10 @@ $SavedSearch = @"{
 
 try {
     $Result = ConvertFrom-JsonToSavedSearch -Json $SavedSearch
-    Send-V2024SavedSearch -Id $Id -V2024SavedSearch $Result 
+    Send-V2024SavedSearch -Id $Id -SavedSearch $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024SavedSearch -Id $Id -V2024SavedSearch $Result  
+    # Send-V2024SavedSearch -Id $Id -SavedSearch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024SavedSearch"
     Write-Host $_.ErrorDetails

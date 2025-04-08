@@ -17,19 +17,19 @@ tags: ['SDK', 'Software Development Kit', 'ProvisioningCompletedAccountRequestsI
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Source** | [**ProvisioningCompletedAccountRequestsInnerSource**](provisioning-completed-account-requests-inner-source) |  | [required]
-**AccountId** | **String** | The unique idenfier of the account being provisioned. | [optional] 
-**AccountOperation** | **String** | The provisioning operation; typically Create, Modify, Enable, Disable, Unlock, or Delete. | [required]
-**ProvisioningResult** |  **Enum** [  "SUCCESS",    "PENDING",    "FAILED" ] | The overall result of the provisioning transaction; this could be success, pending, failed, etc. | [required]
-**ProvisioningTarget** | **String** | The name of the provisioning channel selected; this could be the same as the source, or could be a Service Desk Integration Module (SDIM). | [required]
-**TicketId** | **String** | A reference to a tracking number, if this is sent to a Service Desk Integration Module (SDIM). | [optional] 
-**AttributeRequests** | [**[]ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner**](provisioning-completed-account-requests-inner-attribute-requests-inner) | A list of attributes as part of the provisioning transaction. | [optional] 
+**AccountId** | **String** | Unique idenfier of the account being provisioned. | [optional] 
+**AccountOperation** |  **Enum** [  "Create",    "Modify",    "Enable",    "Disable",    "Unlock",    "Delete" ] | Provisioning operation. | [required]
+**ProvisioningResult** |  **Enum** [  "SUCCESS",    "PENDING",    "FAILED" ] | Overall result of the provisioning transaction. | [required]
+**ProvisioningTarget** | **String** | Nme of the selected provisioning channel selected. This could be the same as the source, or it could be a Service Desk Integration Module (SDIM). | [required]
+**TicketId** | **String** | Reference to a tracking number for if this is sent to a SDIM. | [optional] 
+**AttributeRequests** | [**[]ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner**](provisioning-completed-account-requests-inner-attribute-requests-inner) | List of attributes to include in the provisioning transaction. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $ProvisioningCompletedAccountRequestsInner = Initialize-PSSailpoint.BetaProvisioningCompletedAccountRequestsInner  -Source null `
- -AccountId CN&#x3D;Chewy.Bacca,ou&#x3D;hardcorefigter,ou&#x3D;wookies,dc&#x3D;starwars,dc&#x3D;com `
+ -AccountId CN=Rob.Robertson,ou=csm,ou=sales,dc=helpco,dc=com `
  -AccountOperation Modify `
  -ProvisioningResult SUCCESS `
  -ProvisioningTarget Corp AD `

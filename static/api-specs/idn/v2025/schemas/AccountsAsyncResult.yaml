@@ -1,0 +1,9 @@
+description: Accounts async response containing details on started async process
+required:
+  - id
+type: object
+properties:
+  id:
+    description: id of the task
+    type: string
+    example: 2c91808474683da6017468693c260195

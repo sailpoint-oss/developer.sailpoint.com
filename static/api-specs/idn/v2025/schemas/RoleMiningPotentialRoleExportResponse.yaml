@@ -1,0 +1,18 @@
+allOf:
+  - $ref: './RoleMiningPotentialRoleExportRequest.yaml'
+  - type : object
+    properties:
+      exportId:
+        type: string
+        format: uuid
+        description: ID used to reference this export
+        example: 0c6cdb76-1227-4aaf-af21-192dbdfbfa04
+      status:
+        $ref: './RoleMiningPotentialRoleExportState.yaml'
+        description: The status of this export
+        example: "QUEUED"
+example:
+  exportId: 0c6cdb76-1227-4aaf-af21-192dbdfbfa04
+  status: "QUEUED"
+  minEntitlementPopularity: 0
+  includeCommonAccess: true

@@ -1,5 +1,5 @@
 get:
-  summary: Find risk level data by id
+  summary: Find risk level data
   operationId: getRiskLevel
   description: Find risk level data by id
   tags:

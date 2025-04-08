@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 **PinnedConfig** | **Boolean** | boolean flag indiacting whether or not the cluster configuration is pinned | [optional] [default to $false]
 **LogConfiguration** | [**ClientLogConfiguration**](client-log-configuration) |  | [optional] 
 **Operational** | **Boolean** | Whether or not the cluster is operational or not | [optional] [default to $false]
-**Status** | **String** | Cluster status | [optional] 
+**Status** |  **Enum** [  "CONFIGURING",    "FAILED",    "NO_CLIENTS",    "NORMAL",    "WARNING" ] | Cluster status | [optional] 
 **PublicKeyCertificate** | **String** | Public key certificate | [optional] 
 **PublicKeyThumbprint** | **String** | Public key thumbprint | [optional] 
 **PublicKey** | **String** | Public key | [optional] 
@@ -51,7 +51,7 @@ $ManagedCluster = Initialize-PSSailpoint.V3ManagedCluster  -Id e1ff7bb24c934240b
  -Pod megapod-useast1 `
  -Org denali `
  -Type null `
- -Configuration {clusterExternalId&#x3D;e1ff7bb24c934240bbf55e1aa39e41c5, clusterType&#x3D;sqsCluster, gmtOffset&#x3D;-5} `
+ -Configuration {clusterExternalId=e1ff7bb24c934240bbf55e1aa39e41c5, clusterType=sqsCluster, gmtOffset=-5} `
  -KeyPair null `
  -Attributes null `
  -Description A short description of the managed cluster. `

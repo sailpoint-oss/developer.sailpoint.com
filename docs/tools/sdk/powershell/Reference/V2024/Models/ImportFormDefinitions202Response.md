@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'ImportFormDefinitions202Response', 'V
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Errors** | [**[]ImportFormDefinitions202ResponseErrorsInner**](import-form-definitions202-response-errors-inner) |  | [optional] 
-**ImportedObjects** | [**[]ExportFormDefinitionsByTenant200ResponseInner**](export-form-definitions-by-tenant200-response-inner) |  | [optional] 
+**ImportedObjects** | [**[]ImportFormDefinitionsRequestInner**](import-form-definitions-request-inner) |  | [optional] 
 **Infos** | [**[]ImportFormDefinitions202ResponseErrorsInner**](import-form-definitions202-response-errors-inner) |  | [optional] 
 **Warnings** | [**[]ImportFormDefinitions202ResponseErrorsInner**](import-form-definitions202-response-errors-inner) |  | [optional] 
 

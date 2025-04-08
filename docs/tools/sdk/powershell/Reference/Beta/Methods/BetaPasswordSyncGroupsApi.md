@@ -98,10 +98,10 @@ $PasswordSyncGroup = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
-    New-BetaPasswordSyncGroup -BetaPasswordSyncGroup $Result 
+    New-BetaPasswordSyncGroup -PasswordSyncGroup $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaPasswordSyncGroup -BetaPasswordSyncGroup $Result  
+    # New-BetaPasswordSyncGroup -PasswordSyncGroup $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaPasswordSyncGroup"
     Write-Host $_.ErrorDetails
@@ -294,10 +294,10 @@ $PasswordSyncGroup = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
-    Update-BetaPasswordSyncGroup -Id $Id -BetaPasswordSyncGroup $Result 
+    Update-BetaPasswordSyncGroup -Id $Id -PasswordSyncGroup $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaPasswordSyncGroup -Id $Id -BetaPasswordSyncGroup $Result  
+    # Update-BetaPasswordSyncGroup -Id $Id -PasswordSyncGroup $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaPasswordSyncGroup"
     Write-Host $_.ErrorDetails

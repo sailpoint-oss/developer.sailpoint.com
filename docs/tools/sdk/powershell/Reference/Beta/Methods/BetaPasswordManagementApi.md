@@ -86,10 +86,10 @@ $PasswordDigitTokenReset = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordDigitTokenReset -Json $PasswordDigitTokenReset
-    New-BetaDigitToken -BetaPasswordDigitTokenReset $Result 
+    New-BetaDigitToken -PasswordDigitTokenReset $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaDigitToken -BetaPasswordDigitTokenReset $Result  
+    # New-BetaDigitToken -PasswordDigitTokenReset $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaDigitToken"
     Write-Host $_.ErrorDetails
@@ -188,10 +188,10 @@ $PasswordInfoQueryDTO = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
-    Search-BetaPasswordInfo -BetaPasswordInfoQueryDTO $Result 
+    Search-BetaPasswordInfo -PasswordInfoQueryDTO $Result 
     
     # Below is a request that includes all optional parameters
-    # Search-BetaPasswordInfo -BetaPasswordInfoQueryDTO $Result  
+    # Search-BetaPasswordInfo -PasswordInfoQueryDTO $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-BetaPasswordInfo"
     Write-Host $_.ErrorDetails
@@ -283,10 +283,10 @@ $PasswordChangeRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordChangeRequest -Json $PasswordChangeRequest
-    Set-BetaIdentityPassword -BetaPasswordChangeRequest $Result 
+    Set-BetaIdentityPassword -PasswordChangeRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-BetaIdentityPassword -BetaPasswordChangeRequest $Result  
+    # Set-BetaIdentityPassword -PasswordChangeRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-BetaIdentityPassword"
     Write-Host $_.ErrorDetails

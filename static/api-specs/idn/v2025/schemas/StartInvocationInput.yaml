@@ -1,0 +1,14 @@
+type: object
+properties:
+  triggerId:
+    type: string
+    description: Trigger ID
+    example: "idn:access-requested"
+  input:
+    type: object
+    example: {"identityId": "201327fda1c44704ac01181e963d463c"}
+    description: Trigger input payload. Its schema is defined in the trigger definition.
+  contentJson:
+    type: object
+    example: {"workflowId": 1234}
+    description: JSON map of invocation metadata

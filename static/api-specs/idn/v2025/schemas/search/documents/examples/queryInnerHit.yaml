@@ -1,0 +1,47 @@
+summary: 'Query with InnerHit'
+value:
+  - requestCommentsRequired: false
+    schema: group
+    cloudEligible: false
+    displayName: Benefits
+    standalone: false
+    source:
+      name: Active Directory
+      id: 5c71ff71195b4794a0b87e7cf36fb017
+    type: ENTITLEMENT
+    enabled: false
+    privileged: false
+    name: Benefits
+    disabled: false
+    id: 4919721c3c1a4ca484469b85f0fd9ba1
+    requestable: false
+    attribute: memberOf
+    value: 'CN=Benefits,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+    cloudGoverned: false
+    _type: access
+    _originalType: identity
+    _version: v2
+  - requestCommentsRequired: false
+    owner:
+      displayName: Jerry.Bennett
+      name: Jerry.Bennett
+      id: 278f8a1859df48d2a0adb204257b26a2
+    cloudEligible: false
+    displayName: Benefits Employees
+    standalone: false
+    description: Access for Benefits Employees. Distribution group and File share access.
+    source:
+      name: Active Directory
+      id: 5c71ff71195b4794a0b87e7cf36fb017
+    revocable: false
+    type: ACCESS_PROFILE
+    enabled: false
+    privileged: false
+    name: Benefits Employees
+    disabled: false
+    id: 7e277d102c874560becc464cdfe33a86
+    requestable: false
+    cloudGoverned: false
+    _type: access
+    _originalType: identity
+    _version: v2

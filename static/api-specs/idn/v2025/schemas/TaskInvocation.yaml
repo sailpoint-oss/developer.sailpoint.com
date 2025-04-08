@@ -1,0 +1,75 @@
+description: Specifics of invoking a given task from a TaskDefinition
+required:
+  - taskDefinitionId
+  - taskDefinitionName
+  - arguments
+  - priority
+  - org
+  - executionService
+  - executionType
+  - executionPath
+  - restMethod
+  - queryParameters
+  - messageScope
+  - payloadType
+type: object
+properties:
+  taskDefinitionId:
+    description: Unique ID of the TaskDefinition to use to invoke the task
+    type: string
+    example: aUniqueId
+  taskDefinitionName:
+    description: Name of the TaskDefinition to use to invoke the task
+    type: string
+    example: aName
+  arguments:
+    description: Actual arguments for the task invocation
+    type: object
+    additionalProperties: true
+  priority:
+    description: Task priority
+    type: string
+    default: LOW
+    enum:
+      - HIGH
+      - MEDIUM
+      - LOW
+  org:
+    description: org for which to perform task execution
+    type: string
+    example: acme-solar
+  executionService:
+    description: service to perform task execution
+    type: string
+    example: SWEEP
+  executionType:
+    description: type of task execution
+    type: string
+    default: REST
+    enum:
+      - REST
+      - EVENT
+      - MESSAGE
+  executionPath:
+    description: path to use for task execution
+    type: string
+    example: /taskFulfillment/tasks/run
+  restMethod:
+    description: REST method to use for task execution
+    type: string
+    enum:
+      - GET
+      - POST
+      - DELETE
+  queryParameters:
+    description: query parameters to use for REST task execution
+    type: object
+    additionalProperties: true
+  messageScope:
+    description: messageScope to use for MESSAGE task execution
+    type: string
+    example: MAINTENANCE_TASK
+  payloadType:
+    description: payloadType to use for MESSAGE task execution
+    type: string
+    example: BULK_SYNCHRONIZE_ACCESS_PROFILES

@@ -35,10 +35,10 @@ $AccountAttribute = Initialize-PSSailpoint.V3AccountAttribute  -SourceName Workd
  -AccountSortAttribute created `
  -AccountSortDescending false `
  -AccountReturnFirstLink false `
- -AccountFilter !(nativeIdentity.startsWith(&quot;*DELETED*&quot;)) `
- -AccountPropertyFilter (groups.containsAll({&#39;Admin&#39;}) || location &#x3D;&#x3D; &#39;Austin&#39;) `
+ -AccountFilter !(nativeIdentity.startsWith("*DELETED*")) `
+ -AccountPropertyFilter (groups.containsAll({'Admin'}) || location == 'Austin') `
  -RequiresPeriodicRefresh false `
- -VarInput {type&#x3D;accountAttribute, attributes&#x3D;{attributeName&#x3D;first_name, sourceName&#x3D;Source}}
+ -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```
 
 - Convert the resource to JSON

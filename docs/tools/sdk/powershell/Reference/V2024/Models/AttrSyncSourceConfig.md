@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $AttrSyncSourceConfig = Initialize-PSSailpoint.V2024AttrSyncSourceConfig  -Source null `
- -Attributes [{name&#x3D;email, displayName&#x3D;Email, enabled&#x3D;true, target&#x3D;mail}, {name&#x3D;firstname, displayName&#x3D;First Name, enabled&#x3D;false, target&#x3D;givenName}]
+ -Attributes [{name=email, displayName=Email, enabled=true, target=mail}, {name=firstname, displayName=First Name, enabled=false, target=givenName}]
 ```
 
 - Convert the resource to JSON

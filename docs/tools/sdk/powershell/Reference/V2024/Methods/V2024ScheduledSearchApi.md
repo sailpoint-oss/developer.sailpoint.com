@@ -88,10 +88,10 @@ $CreateScheduledSearchRequest = @"{savedSearchId=9c620e13-cd33-4804-a13d-403bd7b
 
 try {
     $Result = ConvertFrom-JsonToCreateScheduledSearchRequest -Json $CreateScheduledSearchRequest
-    New-V2024ScheduledSearch -V2024CreateScheduledSearchRequest $Result 
+    New-V2024ScheduledSearch -CreateScheduledSearchRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ScheduledSearch -V2024CreateScheduledSearchRequest $Result  
+    # New-V2024ScheduledSearch -CreateScheduledSearchRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ScheduledSearch"
     Write-Host $_.ErrorDetails
@@ -284,10 +284,10 @@ $TypedReference = @"{
 
 try {
     $Result = ConvertFrom-JsonToTypedReference -Json $TypedReference
-    Invoke-V2024UnsubscribeScheduledSearch -Id $Id -V2024TypedReference $Result 
+    Invoke-V2024UnsubscribeScheduledSearch -Id $Id -TypedReference $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-V2024UnsubscribeScheduledSearch -Id $Id -V2024TypedReference $Result  
+    # Invoke-V2024UnsubscribeScheduledSearch -Id $Id -TypedReference $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2024UnsubscribeScheduledSearch"
     Write-Host $_.ErrorDetails
@@ -424,10 +424,10 @@ $ScheduledSearch = @"{
 
 try {
     $Result = ConvertFrom-JsonToScheduledSearch -Json $ScheduledSearch
-    Update-V2024ScheduledSearch -Id $Id -V2024ScheduledSearch $Result 
+    Update-V2024ScheduledSearch -Id $Id -ScheduledSearch $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ScheduledSearch -Id $Id -V2024ScheduledSearch $Result  
+    # Update-V2024ScheduledSearch -Id $Id -ScheduledSearch $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ScheduledSearch"
     Write-Host $_.ErrorDetails

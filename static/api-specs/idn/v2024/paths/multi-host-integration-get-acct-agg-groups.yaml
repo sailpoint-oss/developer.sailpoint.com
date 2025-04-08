@@ -1,0 +1,47 @@
+get:
+  tags:
+    - Multi-Host Integration
+  summary: List Account-Aggregation-Groups by Multi-Host ID
+  description: >-
+    This API will return array of account aggregation groups within provided Multi-Host Integration ID.
+    
+    A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
+  operationId: getAcctAggregationGroups
+  parameters:
+    - name: multihostId
+      in: path
+      description: ID of the Multi-Host Integration to update
+      required: true
+      x-sailpoint-resource-operation-id: getMultiHostIntegrations
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: aMultiHostId
+    - $ref: '../parameters/offset.yaml'
+    - $ref: '../parameters/limit.yaml'
+  responses:
+    "200":
+      description: OK. Returned if the request was successfully accepted into the system.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/MultiHostIntegrationsAggScheduleUpdate.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - userAuth: [idn:multihosts:update]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

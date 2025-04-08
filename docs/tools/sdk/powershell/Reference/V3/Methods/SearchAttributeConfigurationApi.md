@@ -43,7 +43,8 @@ Method | HTTP request | Description
 
 
 ## create-search-attribute-config
-Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create and attribute promotion configuration in the Link ObjectConfig.
+Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create the attribute promotion configuration in the Link ObjectConfig.
+>**Note: Give searchable attributes unique names.  Do not give them the same names used for account attributes or source attributes.  Also, do not give them the same names present in account schema for a current or future source, regardless of whether that source is included in the searchable attributes' `applicationAttributes`.**
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-search-attribute-config)
 
@@ -143,13 +144,15 @@ try {
 [[Back to top]](#) 
 
 ## get-search-attribute-config
-Get a list of attribute/application associates currently configured in Identity Security Cloud (ISC).
+Get a list of attribute/application attributes currently configured in Identity Security Cloud (ISC).
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-search-attribute-config)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**SearchAttributeConfig[]**](../models/search-attribute-config)
@@ -170,6 +173,8 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
 # List Extended Search Attributes
 
@@ -177,7 +182,7 @@ try {
     Get-SearchAttributeConfig 
     
     # Below is a request that includes all optional parameters
-    # Get-SearchAttributeConfig  
+    # Get-SearchAttributeConfig -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-SearchAttributeConfig"
     Write-Host $_.ErrorDetails

@@ -1,0 +1,58 @@
+allOf:
+  - $ref: './FederationProtocolDetails.yaml'
+  - type: object
+    description: Specification of Identity Provider Details section of Service Provider Config
+    properties:
+      binding:
+        type: string
+        description: Defines the binding used for the SAML flow. Used with IDP configurations.
+        example: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST
+      authContext:
+        type: string
+        description: Specifies the SAML authentication method to use. Used with IDP configurations.
+        example: urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
+      logoutUrl:
+        type: string
+        description: The IDP logout URL. Used with IDP configurations.
+        example: https://dev-206445.oktapreview.com/login/signout
+      includeAuthContext:
+        type: boolean
+        description: Determines if the configured AuthnContext should be used or the default. Used with IDP configurations.
+        default: false
+        example: false
+      nameId:
+        type: string
+        description: The name id format to use. Used with IDP configurations.
+        example: urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
+      jitConfiguration:
+        $ref: './JITConfiguration.yaml'
+      cert:
+        type: string
+        description: The Base64-encoded certificate used by the IDP. Used with IDP configurations.
+        example: -----BEGIN CERTIFICATE-----****-----END CERTIFICATE-----
+      loginUrlPost:
+        type: string
+        description: The IDP POST URL, used with IDP HTTP-POST bindings for IDP-initiated logins. Used with IDP configurations.
+        example: https://dev-157216.okta.com/app/sailpointdev157216_cdovsaml_1/exkdaruy8Ln5Ry7C54x6/sso/saml
+      loginUrlRedirect:
+        type: string
+        description: The IDP Redirect URL. Used with IDP configurations.
+        example: https://dev-157216.okta.com/app/sailpointdev157216_cdovsaml_1/exkdaruy8Ln5Ry7C54x6/sso/saml
+      mappingAttribute:
+        type: string
+        description: Return the saml Id for the given user, based on the IDN as SP settings of the org. Used with IDP configurations.
+        example: email
+      role:
+        type: string
+        description: Federation protocol role
+        example: SAML_IDP
+        enum:
+          - SAML_IDP
+      certificateExpirationDate:
+        type: string
+        description: The expiration date extracted from the certificate.
+        example: Fri Mar 08 08:54:24 UTC 2013
+      certificateName:
+        type: string
+        description: The name extracted from the certificate.
+        example: OU=Conext, O=Surfnet, L=Utrecht, ST=Utrecht, C=NL

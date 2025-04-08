@@ -12,8 +12,7 @@ tags: ['SDK', 'Software Development Kit', 'Transforms', 'V2024Transforms']
 # Transforms
   The purpose of this API is to expose functionality for the manipulation of Transform objects.
 Transforms are a form of configurable objects which define an easy way to manipulate attribute data without having
-to write code. These endpoints don&#39;t require API calls to other resources, audit service is used for keeping track
-of which users have made changes to the Transforms.
+to write code. 
 
 Refer to [Transforms](https://developer.sailpoint.com/docs/extensibility/transforms/) for more information about transforms.
  
@@ -86,10 +85,10 @@ $Transform = @"{
 
 try {
     $Result = ConvertFrom-JsonToTransform -Json $Transform
-    New-V2024Transform -V2024Transform $Result 
+    New-V2024Transform -Transform $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Transform -V2024Transform $Result  
+    # New-V2024Transform -Transform $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Transform"
     Write-Host $_.ErrorDetails
@@ -303,7 +302,7 @@ try {
     Update-V2024Transform -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Transform -Id $Id -V2024Transform $Result  
+    # Update-V2024Transform -Id $Id -Transform $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Transform"
     Write-Host $_.ErrorDetails

@@ -1,6 +1,6 @@
 post:
   summary: Create a role-profile contributor relationship
-  operationId: postRoleProfile
+  operationId: submitRoleProfile
   description: Create a role-profile contributor relationship
   tags:
     - role profiles

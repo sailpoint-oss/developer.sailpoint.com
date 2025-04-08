@@ -2,15 +2,13 @@ post:
   operationId: createNonEmployeeSource
   security:
     - userAuth: [idn:nelm:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   tags:
     - Non-Employee Lifecycle Management
   summary: Create Non-Employee Source
   description: >-
-    This request will create a non-employee source.
-
-    Request will require the following security scope:
-
-    'idn:nesr:create'
+    Create a non-employee source.
   requestBody:
     description: Non-Employee source creation request body.
     required: true
@@ -39,33 +37,36 @@ get:
   operationId: listNonEmployeeSources
   security:
     - userAuth: [idn:nelm:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   tags:
     - Non-Employee Lifecycle Management
   summary: List Non-Employee Sources
   description: >-
-    This gets a list of non-employee sources.
+    Get a list of non-employee sources. There are two contextual uses for the `requested-for` path parameter: 
+      1. If the user has the role context of `idn:nesr:read`, he or she may request a list sources assigned to a particular account manager by passing in that manager's `id`.
+      2. If the current user is an account manager, the user should provide 'me' as the `requested-for` value. Doing so provide the user with a list of the sources he or she owns.
   parameters:
     - $ref: "../../v3/parameters/limit.yaml"
     - $ref: "../../v3/parameters/offset.yaml"
     - $ref: "../../v3/parameters/count.yaml"
     - in: query
-      required: true
       name: requested-for
+      required: false
       example: me
       schema:
         type: string
       description: >-
-        The identity for whom the request was made. *me* indicates the current
-        user.
+        Identity the request was made for. Use 'me' to indicate the current user.
     - in: query
-      required: true
       name: non-employee-count
+      required: false
       example: false
       schema:
         type: boolean
+        default: false
       description: >-
-        The flag to determine whether return a non-employee count associate with
-        source.
+        Flag that determines whether the API will return a non-employee count associated with the source.
     - in: query
       name: sorters
       required: false
@@ -80,7 +81,7 @@ get:
         Sorting is supported for the following fields: **name, created, sourceId**
   responses:
     "200":
-      description: List of non-employee sources objects.
+      description: List of non-employee source objects.
       content:
         application/json:
           schema:

@@ -1,0 +1,5 @@
+type: object
+properties:
+  state:
+    $ref: './RoleMiningSessionState.yaml'
+    description: Role mining session state

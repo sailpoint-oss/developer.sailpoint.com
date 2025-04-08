@@ -32,7 +32,7 @@ $LauncherRequest = Initialize-PSSailpoint.BetaLauncherRequest  -Name Group Creat
  -Type INTERACTIVE_PROCESS `
  -Disabled false `
  -Reference null `
- -Config {&quot;workflowId&quot; : &quot;6b42d9be-61b6-46af-827e-ea29ba8aa3d9&quot;}
+ -Config {"workflowId" : "6b42d9be-61b6-46af-827e-ea29ba8aa3d9"}
 ```
 
 - Convert the resource to JSON

@@ -146,3 +146,9 @@ properties:
     example:
       requestedAppName: test-app
       requestedAppId: 2c91808f7892918f0178b78da4a305a1
+  requestedAccounts:
+    nullable: true
+    type: array
+    items:
+      $ref: '../../v3/schemas/RequestedAccountRef.yaml'
+    description: The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources.

@@ -1,0 +1,324 @@
+summary: A collection of Identities
+value:
+  - id: 2c9180865c45e7e3015c46c434a80622
+    name: Laura Peeters
+    firstName: Laura
+    lastName: Peeters
+    displayName: Laura Peeters
+    email: Laura.Peeters@sailpointdemo.com
+    created: 2024-04-04T21:36:00.385Z
+    inactive: false
+    protected: false
+    status: ACTIVE
+    employeeNumber: "10673"
+    manager:
+      id: 88e405b1a3b8439daf2efc8f4ff0a98b
+      name: Mia Garcia
+      displayName: Mia Garcia
+    isManager: true
+    identityProfile:
+      id: 00a2bc6244b34f4a88d985f035f2b68b
+      name: HR Global
+    source:
+      id: 524f8d986f9b4192865269516d169eb0
+      name: HR Global
+    attributes:
+      city: Brussels
+      cloudAuthoritativeSource: 524f8d986f9b4192865269516d169eb0
+      cloudLifecycleState: active
+      cloudStatus: ACTIVE
+      country: BE
+      department: EMEA Sales
+      displayName: Laura Peeters
+      email: Laura.Peeters@sailpointdemo.com
+      firstname: Laura
+      identificationNumber: "10673"
+      identityState: ACTIVE
+      internalCloudStatus: ACTIVE
+      jobTitle: Manager,  Sales - Belgium
+      lastname: Peeters
+      location: EMEA
+      uid: "10673"
+      visibleSegments:
+        - d75ae486-044b-4eba-8113-0cdacb5341df
+    disabled: false
+    locked: false
+    accounts:
+      - id: 830396e8863442f1bce7b485612c8b51
+        name: Laura Peeters
+        accountId: "10673"
+        source:
+          id: 524f8d986f9b4192865269516d169eb0
+          name: HR Global
+          type: DelimitedFile
+        disabled: false
+        locked: false
+        privileged: false
+        manuallyCorrelated: false
+        entitlementAttributes: {}
+        created: 2024-04-04T21:36:00.385Z
+        supportsPasswordChange: false
+      - id: cd6797419f37492ba22ea991f9d6ba90
+        name: $SEK300-N3K0K4HOPEB6
+        accountId: CN=Laura Peeters,OU=Demo,DC=seri,DC=sailpointdemo,DC=com
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+          type: Active Directory - Direct
+        disabled: false
+        locked: false
+        privileged: false
+        manuallyCorrelated: true
+        passwordLastSet: 2024-04-04T21:38:57.434Z
+        entitlementAttributes:
+          memberOf:
+            - CN=Salesforce
+              Access,OU=Sales,OU=AI,OU=Demo,DC=seri,DC=sailpointdemo,DC=com
+            - CN=Sales-Folder,OU=Sales,OU=AI,OU=Demo,DC=seri,DC=sailpointdemo,DC=com
+            - CN=Benefits,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com
+            - CN=Salesforce opportunity
+              management,OU=Sales,OU=AI,OU=Demo,DC=seri,DC=sailpointdemo,DC=com
+        created: 2024-04-04T21:42:26.787Z
+        supportsPasswordChange: true
+      - id: db145fd0ec6a4e0cbc3a24bbe0758c8f
+        name: Laura Peeters
+        accountId: "10681"
+        source:
+          id: 524f8d986f9b4192865269516d169eb0
+          name: HR Global
+          type: DelimitedFile
+        disabled: false
+        locked: false
+        privileged: false
+        manuallyCorrelated: false
+        entitlementAttributes: {}
+        created: 2024-04-04T21:36:15.769Z
+        supportsPasswordChange: false
+      - id: 6b75898eec394b4c98a5c3d2d9ba311b
+        name: Laura Peeters
+        accountId: Laura Peeters
+        source:
+          id: af4686d6482841ac96d793901372ad9b
+          name: IdentityNow
+          type: IdentityNowConnector
+        disabled: false
+        locked: false
+        privileged: false
+        manuallyCorrelated: false
+        entitlementAttributes: {}
+        created: 2024-04-04T21:36:15.809Z
+        supportsPasswordChange: true
+        accountAttributes: {}
+    accountCount: 3
+    apps:
+      - id: "20003"
+        name: Active Directory
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        account:
+          id: cd6797419f37492ba22ea991f9d6ba90
+          accountId: CN=Laura Peeters,OU=Demo,DC=seri,DC=sailpointdemo,DC=com
+      - id: "20013"
+        name: AD test
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        account:
+          id: cd6797419f37492ba22ea991f9d6ba90
+          accountId: CN=Laura Peeters,OU=Demo,DC=seri,DC=sailpointdemo,DC=com
+      - id: "20014"
+        name: Test AD
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        account:
+          id: cd6797419f37492ba22ea991f9d6ba90
+          accountId: CN=Laura Peeters,OU=Demo,DC=seri,DC=sailpointdemo,DC=com
+      - id: "5092"
+        name: Accounting
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        account:
+          id: cd6797419f37492ba22ea991f9d6ba90
+          accountId: CN=Laura Peeters,OU=Demo,DC=seri,DC=sailpointdemo,DC=com
+      - id: "5822114389092541705"
+        name: IdentityNow app
+        source:
+          id: af4686d6482841ac96d793901372ad9b
+          name: IdentityNow
+        account:
+          id: 6b75898eec394b4c98a5c3d2d9ba311b
+          accountId: Laura Peeters
+    appCount: 5
+    access:
+      - id: 4919721c3c1a4ca484469b85f0fd9ba1
+        name: Benefits
+        displayName: Benefits
+        type: ENTITLEMENT
+        enabled: false
+        requestable: false
+        requestCommentsRequired: false
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        disabled: false
+        privileged: false
+        attribute: memberOf
+        value: CN=Benefits,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com
+        standalone: false
+        cloudEligible: false
+        cloudGoverned: false
+        schema: group
+      - id: 4bf8f57887874e9c83ae3a662bf8988c
+        name: Sales-Folder
+        displayName: Sales-Folder
+        type: ENTITLEMENT
+        enabled: false
+        requestable: false
+        requestCommentsRequired: false
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        disabled: false
+        privileged: false
+        attribute: memberOf
+        value: CN=Sales-Folder,OU=Sales,OU=AI,OU=Demo,DC=seri,DC=sailpointdemo,DC=com
+        standalone: false
+        cloudEligible: false
+        cloudGoverned: false
+        schema: group
+      - id: f1bea520cace4489805d26de3463262d
+        name: Salesforce Access
+        displayName: Salesforce Access
+        type: ENTITLEMENT
+        enabled: false
+        requestable: false
+        requestCommentsRequired: false
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        disabled: false
+        privileged: false
+        attribute: memberOf
+        value: CN=Salesforce Access,OU=Sales,OU=AI,OU=Demo,DC=seri,DC=sailpointdemo,DC=com
+        standalone: false
+        cloudEligible: false
+        cloudGoverned: false
+        schema: group
+      - id: 98a76b26b7884f3e8d115991cebc09b2
+        name: Salesforce opportunity management
+        displayName: Salesforce opportunity management
+        type: ENTITLEMENT
+        enabled: false
+        requestable: false
+        requestCommentsRequired: false
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        disabled: false
+        privileged: false
+        attribute: memberOf
+        value: CN=Salesforce opportunity
+          management,OU=Sales,OU=AI,OU=Demo,DC=seri,DC=sailpointdemo,DC=com
+        standalone: false
+        cloudEligible: false
+        cloudGoverned: false
+        schema: group
+      - id: 7e277d102c874560becc464cdfe33a86
+        name: Benefits Employees
+        displayName: Benefits Employees
+        type: ACCESS_PROFILE
+        description: Access for Benefits Employees. Distribution group and File share access.
+        enabled: false
+        requestable: false
+        requestCommentsRequired: false
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        owner:
+          id: 278f8a1859df48d2a0adb204257b26a2
+          name: Jerry.Bennett
+          displayName: Jerry.Bennett
+        disabled: false
+        privileged: false
+        standalone: false
+        revocable: false
+        cloudEligible: false
+        cloudGoverned: false
+      - id: 468171f0af874adebb58d3718519bd56
+        name: SalesCommonAccess
+        displayName: SalesCommonAccess
+        type: ACCESS_PROFILE
+        description: Grants basic access for everyone in the sale department
+        enabled: false
+        requestable: false
+        requestCommentsRequired: false
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        owner:
+          id: 278f8a1859df48d2a0adb204257b26a2
+          name: Jerry.Bennett
+          displayName: Jerry.Bennett
+        disabled: false
+        privileged: false
+        standalone: false
+        revocable: false
+        cloudEligible: false
+        cloudGoverned: false
+      - id: ad7025c956734455b28fa35e315e77fe
+        name: Benefits Common Access
+        displayName: Benefits Common Access
+        type: ROLE
+        description: Testing AD provisioning with birthright access
+        enabled: false
+        requestable: false
+        requestCommentsRequired: false
+        owner:
+          id: 322c6bce405a495a8e841a014b7d8410
+          name: tina.smith
+          displayName: tina.smith
+        disabled: false
+        privileged: false
+        standalone: false
+        revocable: false
+        cloudEligible: false
+        cloudGoverned: false
+      - id: a8819cb0445541438fe08dd38f311b3c
+        name: SalesGlobal
+        displayName: SalesGlobal
+        type: ROLE
+        description: All Sales people in the company
+        enabled: false
+        requestable: false
+        requestCommentsRequired: false
+        owner:
+          id: 29b6ee3f91484d159b1ceac3109af151
+          name: se.admin
+          displayName: se.admin
+        disabled: false
+        privileged: false
+        standalone: false
+        revocable: false
+        cloudEligible: false
+        cloudGoverned: false
+    accessCount: 8
+    accessProfileCount: 2
+    entitlementCount: 4
+    roleCount: 2
+    modified: 2025-01-17T03:17:17.895Z
+    visibleSegments:
+      - All Employees
+    visibleSegmentCount: 1
+    tagCount: 2
+    tags:
+      - 'TAG_1'
+      - 'TAG_2'
+    pod: pod01-useast1
+    org: org-name
+    synced: 2025-01-17T06:10:19.853Z
+    _type: identity
+    type: identity
+    _version: v2

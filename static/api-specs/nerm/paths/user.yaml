@@ -1,6 +1,6 @@
 post:
   summary: Create a new user
-  operationId: postUser
+  operationId: submitUser
   description: Create a new user
   tags:
     - users

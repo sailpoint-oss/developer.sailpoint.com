@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'ExportFormDefinitionsByTenant200Respo
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Object** | [**FormDefinitionResponse**](form-definition-response) |  | [optional] 
-**Self** | **String** |  | [optional] 
+**Self** | [**ExportFormDefinitionsByTenant200ResponseInnerSelf**](export-form-definitions-by-tenant200-response-inner-self) |  | [optional] 
 **Version** | **Int32** |  | [optional] 
 
 ## Examples

@@ -1,0 +1,97 @@
+type: object
+properties:
+  scope:
+    $ref: './RoleMiningSessionScope.yaml'
+    description: The scope of identities for this role mining session
+  minNumIdentitiesInPotentialRole:
+    type: integer
+    nullable: true
+    description: Minimum number of identities in a potential role
+    example: 20
+  scopingMethod:
+    type: string
+    description: The scoping method of the role mining session
+    nullable: true
+    example: "AUTO_RM"
+  prescribedPruneThreshold:
+    type: integer
+    nullable: true
+    description: The computed (or prescribed) prune threshold for this session
+    example: 83
+  pruneThreshold:
+    type: integer
+    nullable: true
+    description: The prune threshold to be used for this role mining session
+    example: 70
+  potentialRoleCount:
+    type: integer
+    description: The number of potential roles
+    example: 8
+  potentialRolesReadyCount:
+    type: integer
+    description: The number of potential roles which have completed processing
+    example: 4
+  status:
+    $ref: './RoleMiningSessionStatus.yaml'
+    description: The role mining session status
+  emailRecipientId:
+    type: string
+    description: The id of the user who will receive an email about the role mining session
+    nullable: true
+  createdBy:
+    oneOf:
+      - $ref: './iai/EntityCreatedByDTO.yaml'
+      - $ref: './iai/NullableEntityCreatedByDTO.yaml'
+    description: The session created by details
+  identityCount:
+    type: integer
+    description: The number of identities
+    example: 39
+  saved:
+    type: boolean
+    description: The session's saved status
+    default: false
+    example: true
+  name:
+    type: string
+    description: The session's saved name
+    nullable: true
+    example: "Saved RM Session - 07/10"
+  dataFilePath:
+    type: string
+    description: The data file path of the role mining session
+    nullable: true
+  id:
+    type: string
+    description: Session Id for this role mining session
+    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+  createdDate:
+    type: string
+    format: 'date-time'
+    description: The date-time when this role mining session was created.
+  modifiedDate:
+    type: string
+    format: 'date-time'
+    description: The date-time when this role mining session was completed.
+  type:
+    $ref: './iai/RoleMiningRoleType.yaml'
+    description: Role mining session type
+example:
+  scope: {identityIds: [], criteria: "source.name:DataScienceDataset", "attributeFilterCriteria": null}
+  "scopingMethod": "AUTO_RM"
+  minNumIdentitiesInPotentialRole: 20
+  pruneThreshold: 70
+  prescribedPruneThreshold: 83
+  potentialRoleCount: 8
+  potentialRolesReadyCount: 4
+  status: {state: "POTENTIAL_ROLES_PROCESSING"}
+  type: SPECIALIZED
+  "emailRecipientId": null
+  "createdBy": null
+  "identityCount": 0
+  "saved": false
+  "name": null
+  "dataFilePath": null
+  "id": "602ba738-cf48-499b-a780-7b67b3fc1ecf"
+  "createdDate": "2021-09-08T16:11:05.348Z"
+  "modifiedDate": "2021-09-08T16:11:05.348Z"

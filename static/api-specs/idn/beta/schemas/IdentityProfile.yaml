@@ -4,61 +4,61 @@ allOf:
   required:
     - authoritativeSource
   properties:
-    description:
+    description: 
       type: string
       nullable: true
-      description: The description of the Identity Profile.
+      description: Identity profile's description.
       example: My custom flat file profile
     owner:
       type: object
-      description: The owner of the Identity Profile.
+      description: Identity profile's owner.
       nullable: true
       properties:
         type:
           type: string
           enum:
             - IDENTITY
-          description: Type of the object to which this reference applies
+          description: Owner's object type.
           example: IDENTITY
         id:
           type: string
-          description: ID of the object to which this reference applies
+          description: Owner's ID.
           example: 2c9180835d191a86015d28455b4b232a
         name:
           type: string
-          description: Human-readable display name of the object to which this reference applies
+          description: Owner's name.
           example: William Wilson
     priority:
       type: integer
       format: int64
-      description: The priority for an Identity Profile.
+      description: Identity profile's priority.
       example: 10
     authoritativeSource:
       type: object
+      description: Identity profile's authoritative source. 
       properties:
         type:
           type: string
           enum:
             - SOURCE
-          description: Type of the object to which this reference applies
+          description: Authoritative source's object type.
           example: SOURCE
         id:
           type: string
-          description: ID of the object to which this reference applies
+          description: Authoritative source's ID.
           example: 2c9180835d191a86015d28455b4b232a
         name:
           type: string
-          description: Human-readable display name of the object to which this reference applies
+          description: Authoritative source's name.
           example: HR Active Directory
-      description: The authoritative source for this Identity Profile.
     identityRefreshRequired:
       type: boolean
       default: false
-      description: True if a identity refresh is needed. Typically triggered when a change on the source has been made
+      description: Set this value to 'True' if an identity refresh is necessary. You would typically want to trigger an identity refresh when a change has been made on the source.
       example: true
     identityCount:
       type: integer
-      description: The number of identities that belong to the Identity Profile.
+      description: Number of identities belonging to the identity profile.
       format: int32
       example: 8
     identityAttributeConfig:
@@ -66,7 +66,7 @@ allOf:
     identityExceptionReportReference:
       $ref: './IdentityExceptionReportReference.yaml'
     hasTimeBasedAttr:
-      description: Indicates the value of requiresPeriodicRefresh attribute for the Identity Profile.
+      description: Indicates the value of `requiresPeriodicRefresh` attribute for the identity profile.
       type: boolean
       default: true
       example: true

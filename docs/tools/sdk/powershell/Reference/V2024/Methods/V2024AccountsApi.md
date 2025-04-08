@@ -117,10 +117,10 @@ $AccountAttributesCreate = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountAttributesCreate -Json $AccountAttributesCreate
-    New-V2024Account -V2024AccountAttributesCreate $Result 
+    New-V2024Account -AccountAttributesCreate $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Account -V2024AccountAttributesCreate $Result  
+    # New-V2024Account -AccountAttributesCreate $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Account"
     Write-Host $_.ErrorDetails
@@ -274,10 +274,10 @@ $AccountToggleRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
-    Disable-V2024Account -Id $Id -V2024AccountToggleRequest $Result 
+    Disable-V2024Account -Id $Id -AccountToggleRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Disable-V2024Account -Id $Id -V2024AccountToggleRequest $Result  
+    # Disable-V2024Account -Id $Id -AccountToggleRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-V2024Account"
     Write-Host $_.ErrorDetails
@@ -378,10 +378,10 @@ $IdentitiesAccountsBulkRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
-    Disable-V2024AccountsForIdentities -XSailPointExperimental $XSailPointExperimental -V2024IdentitiesAccountsBulkRequest $Result 
+    Disable-V2024AccountsForIdentities -XSailPointExperimental $XSailPointExperimental -IdentitiesAccountsBulkRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Disable-V2024AccountsForIdentities -XSailPointExperimental $XSailPointExperimental -V2024IdentitiesAccountsBulkRequest $Result  
+    # Disable-V2024AccountsForIdentities -XSailPointExperimental $XSailPointExperimental -IdentitiesAccountsBulkRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-V2024AccountsForIdentities"
     Write-Host $_.ErrorDetails
@@ -430,10 +430,10 @@ $AccountToggleRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
-    Enable-V2024Account -Id $Id -V2024AccountToggleRequest $Result 
+    Enable-V2024Account -Id $Id -AccountToggleRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Enable-V2024Account -Id $Id -V2024AccountToggleRequest $Result  
+    # Enable-V2024Account -Id $Id -AccountToggleRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-V2024Account"
     Write-Host $_.ErrorDetails
@@ -534,10 +534,10 @@ $IdentitiesAccountsBulkRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
-    Enable-V2024AccountsForIdentities -XSailPointExperimental $XSailPointExperimental -V2024IdentitiesAccountsBulkRequest $Result 
+    Enable-V2024AccountsForIdentities -XSailPointExperimental $XSailPointExperimental -IdentitiesAccountsBulkRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Enable-V2024AccountsForIdentities -XSailPointExperimental $XSailPointExperimental -V2024IdentitiesAccountsBulkRequest $Result  
+    # Enable-V2024AccountsForIdentities -XSailPointExperimental $XSailPointExperimental -IdentitiesAccountsBulkRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-V2024AccountsForIdentities"
     Write-Host $_.ErrorDetails
@@ -605,12 +605,12 @@ Path   | Id | **String** | True  | The account id
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
-[**EntitlementDto[]**](../models/entitlement-dto)
+[**Entitlement[]**](../models/entitlement)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | An array of account entitlements | EntitlementDto[]
+200 | An array of account entitlements | Entitlement[]
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -655,8 +655,8 @@ Param Type | Name | Data Type | Required  | Description
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | DetailLevel | **String** |   (optional) | This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list. `FULL` is the default behavior.
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*
-  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **hasEntitlements**: *eq*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt*
+  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType**
 
 ### Return type
 [**Account[]**](../models/account)
@@ -681,8 +681,8 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $DetailLevel = "SLIM" # String | This value determines whether the API provides `SLIM` or increased level of detail (`FULL`) for each account in the returned list. `FULL` is the default behavior. (optional)
-$Filters = 'identityId eq "2c9180858082150f0180893dbaf44201"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull* (optional)
-$Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, identity.id, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional)
+$Filters = 'identityId eq "2c9180858082150f0180893dbaf44201"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **hasEntitlements**: *eq*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt* (optional)
+$Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional)
 
 # Accounts List
 
@@ -749,10 +749,10 @@ $AccountAttributes = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountAttributes -Json $AccountAttributes
-    Send-V2024Account -Id $Id -V2024AccountAttributes $Result 
+    Send-V2024Account -Id $Id -AccountAttributes $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024Account -Id $Id -V2024AccountAttributes $Result  
+    # Send-V2024Account -Id $Id -AccountAttributes $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024Account"
     Write-Host $_.ErrorDetails
@@ -849,10 +849,10 @@ $AccountUnlockRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountUnlockRequest -Json $AccountUnlockRequest
-    Unlock-V2024Account -Id $Id -V2024AccountUnlockRequest $Result 
+    Unlock-V2024Account -Id $Id -AccountUnlockRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Unlock-V2024Account -Id $Id -V2024AccountUnlockRequest $Result  
+    # Unlock-V2024Account -Id $Id -AccountUnlockRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Unlock-V2024Account"
     Write-Host $_.ErrorDetails

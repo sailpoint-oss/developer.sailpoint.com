@@ -20,15 +20,17 @@ Name | Type | Description | Notes
 **VarFilter** | **String** | JSON path expression that will limit which events the trigger will fire on | [optional] 
 **Description** | **String** | Description of the event trigger | [optional] 
 **AttributeToFilter** | **String** | The attribute to filter on | [optional] 
+**FormDefinitionId** | **String** | Form definition's unique identifier. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $EventAttributes = Initialize-PSSailpoint.V3EventAttributes  -Id idn:identity-attributes-changed `
- -VarFilter $.changes[?(@.attribute &#x3D;&#x3D; &#39;manager&#39;)] `
- -Description Triggered when an identity&#39;s manager attribute changes `
- -AttributeToFilter LifecycleState
+ -VarFilter $.changes[?(@.attribute == 'manager')] `
+ -Description Triggered when an identity's manager attribute changes `
+ -AttributeToFilter LifecycleState `
+ -FormDefinitionId Admin_Access_Request_Form
 ```
 
 - Convert the resource to JSON

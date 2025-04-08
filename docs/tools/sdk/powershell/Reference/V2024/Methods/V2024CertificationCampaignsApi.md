@@ -158,7 +158,7 @@ try {
     Complete-V2024Campaign -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Complete-V2024Campaign -Id $Id -V2024CampaignCompleteOptions $Result  
+    # Complete-V2024Campaign -Id $Id -CampaignCompleteOptions $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-V2024Campaign"
     Write-Host $_.ErrorDetails
@@ -290,6 +290,7 @@ $Campaign = @"{
       "id" : "2c90ad2a70ace7d50170acf22ca90010",
       "type" : "IDENTITY"
     },
+    "reviewerId" : "2c91808568c529c60168cca6f90c1313",
     "roleIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
     "query" : "Search Query",
     "description" : "Role Composition Description",
@@ -310,10 +311,10 @@ $Campaign = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaign -Json $Campaign
-    New-V2024Campaign -V2024Campaign $Result 
+    New-V2024Campaign -Campaign $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Campaign -V2024Campaign $Result  
+    # New-V2024Campaign -Campaign $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Campaign"
     Write-Host $_.ErrorDetails
@@ -458,6 +459,7 @@ $CampaignTemplate = @"{
         "id" : "2c90ad2a70ace7d50170acf22ca90010",
         "type" : "IDENTITY"
       },
+      "reviewerId" : "2c91808568c529c60168cca6f90c1313",
       "roleIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
       "query" : "Search Query",
       "description" : "Role Composition Description",
@@ -480,10 +482,10 @@ $CampaignTemplate = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignTemplate -Json $CampaignTemplate
-    New-V2024CampaignTemplate -V2024CampaignTemplate $Result 
+    New-V2024CampaignTemplate -CampaignTemplate $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024CampaignTemplate -V2024CampaignTemplate $Result  
+    # New-V2024CampaignTemplate -CampaignTemplate $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024CampaignTemplate"
     Write-Host $_.ErrorDetails
@@ -624,10 +626,10 @@ $CampaignsDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignsDeleteRequest -Json $CampaignsDeleteRequest
-    Remove-V2024Campaigns -V2024CampaignsDeleteRequest $Result 
+    Remove-V2024Campaigns -CampaignsDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024Campaigns -V2024CampaignsDeleteRequest $Result  
+    # Remove-V2024Campaigns -CampaignsDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024Campaigns"
     Write-Host $_.ErrorDetails
@@ -704,12 +706,12 @@ Path   | Id | **String** | True  | ID of the campaign to be retrieved.
   Query | Detail | **String** |   (optional) | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior.
 
 ### Return type
-[**GetActiveCampaigns200ResponseInner**](../models/get-active-campaigns200-response-inner)
+[**GetCampaign200Response**](../models/get-campaign200-response)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Requested campaign object. | GetActiveCampaigns200ResponseInner
+200 | Requested campaign object. | GetCampaign200Response
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -1027,10 +1029,10 @@ $AdminReviewReassign = @"{
 
 try {
     $Result = ConvertFrom-JsonToAdminReviewReassign -Json $AdminReviewReassign
-    Move-V2024 -Id $Id -V2024AdminReviewReassign $Result 
+    Move-V2024 -Id $Id -AdminReviewReassign $Result 
     
     # Below is a request that includes all optional parameters
-    # Move-V2024 -Id $Id -V2024AdminReviewReassign $Result  
+    # Move-V2024 -Id $Id -AdminReviewReassign $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Move-V2024"
     Write-Host $_.ErrorDetails
@@ -1082,10 +1084,10 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024CampaignTemplate -Id $Id -V2024JsonPatchOperation $Result 
+    Update-V2024CampaignTemplate -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024CampaignTemplate -Id $Id -V2024JsonPatchOperation $Result  
+    # Update-V2024CampaignTemplate -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024CampaignTemplate"
     Write-Host $_.ErrorDetails
@@ -1131,10 +1133,10 @@ $CampaignReportsConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToCampaignReportsConfig -Json $CampaignReportsConfig
-    Set-V2024CampaignReportsConfig -V2024CampaignReportsConfig $Result 
+    Set-V2024CampaignReportsConfig -CampaignReportsConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024CampaignReportsConfig -V2024CampaignReportsConfig $Result  
+    # Set-V2024CampaignReportsConfig -CampaignReportsConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024CampaignReportsConfig"
     Write-Host $_.ErrorDetails
@@ -1202,7 +1204,7 @@ try {
     Set-V2024CampaignTemplateSchedule -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024CampaignTemplateSchedule -Id $Id -V2024Schedule $Result  
+    # Set-V2024CampaignTemplateSchedule -Id $Id -Schedule $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024CampaignTemplateSchedule"
     Write-Host $_.ErrorDetails
@@ -1253,7 +1255,7 @@ try {
     Start-V2024Campaign -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Start-V2024Campaign -Id $Id -V2024ActivateCampaignOptions $Result  
+    # Start-V2024Campaign -Id $Id -ActivateCampaignOptions $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024Campaign"
     Write-Host $_.ErrorDetails
@@ -1457,10 +1459,10 @@ $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign template 
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Campaign -Id $Id -V2024JsonPatchOperation $Result 
+    Update-V2024Campaign -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Campaign -Id $Id -V2024JsonPatchOperation $Result  
+    # Update-V2024Campaign -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Campaign"
     Write-Host $_.ErrorDetails

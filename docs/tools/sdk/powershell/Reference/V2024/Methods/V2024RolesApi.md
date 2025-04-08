@@ -62,7 +62,7 @@ Method | HTTP request | Description
 [**Get-V2024BulkUpdateStatusById**](#get-bulk-update-status-by-id) | **GET** `/roles/access-model-metadata/bulk-update/id` | Get Bulk-Update Status by ID
 [**Get-V2024Role**](#get-role) | **GET** `/roles/{id}` | Get a Role
 [**Get-V2024RoleAssignedIdentities**](#get-role-assigned-identities) | **GET** `/roles/{id}/assigned-identities` | List Identities assigned a Role
-[**Get-V2024RoleEntitlements**](#get-role-entitlements) | **GET** `/roles/{id}/entitlements` | List role&#39;s Entitlements
+[**Get-V2024RoleEntitlements**](#get-role-entitlements) | **GET** `/roles/{id}/entitlements` | List Role&#39;s Entitlements
 [**Get-V2024Roles**](#list-roles) | **GET** `/roles` | List Roles
 [**Update-V2024Role**](#patch-role) | **PATCH** `/roles/{id}` | Patch a specified Role
 [**Search-V2024RolesByFilter**](#search-roles-by-filter) | **POST** `/roles/filter` | Filter Roles by Metadata
@@ -74,6 +74,9 @@ Method | HTTP request | Description
 
 ## create-role
 This API creates a role.
+
+You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to call this API. 
+
 In addition, a ROLE_SUBADMIN may not create a role including an access profile if that access profile is associated with a source the ROLE_SUBADMIN is not associated with themselves. 
 
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles. However, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
@@ -223,6 +226,7 @@ $Role = @"{
   },
   "accessRequestConfig" : {
     "commentsRequired" : true,
+    "reauthorizationRequired" : true,
     "approvalSchemes" : [ {
       "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
       "approverType" : "GOVERNANCE_GROUP"
@@ -267,10 +271,10 @@ $Role = @"{
 
 try {
     $Result = ConvertFrom-JsonToRole -Json $Role
-    New-V2024Role -V2024Role $Result 
+    New-V2024Role -Role $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024Role -V2024Role $Result  
+    # New-V2024Role -Role $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Role"
     Write-Host $_.ErrorDetails
@@ -318,10 +322,10 @@ $RoleBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
-    Remove-V2024BulkRoles -V2024RoleBulkDeleteRequest $Result 
+    Remove-V2024BulkRoles -RoleBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024BulkRoles -V2024RoleBulkDeleteRequest $Result  
+    # Remove-V2024BulkRoles -RoleBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024BulkRoles"
     Write-Host $_.ErrorDetails
@@ -381,7 +385,7 @@ try {
 ## delete-role
 This API deletes a Role by its ID.
 
-A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-role)
 
@@ -517,7 +521,7 @@ try {
 
 ## get-role
 This API returns a Role by its ID.
-A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role)
 
@@ -620,28 +624,28 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-This API lists the Entitlements associated with a given role.
+Get a list of entitlements associated with a specified role.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-entitlements)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | ID of the containing role
+Path   | Id | **String** | True  | Containing role's ID.
    | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
-  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Limit | **Int32** |   (optional) (default to 50) | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in*
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified**
 
 ### Return type
-[**Entitlement1[]**](../models/entitlement1)
+[**Entitlement[]**](../models/entitlement)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | List of Entitlements | Entitlement1[]
+200 | List of Entitlements | Entitlement[]
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -654,15 +658,15 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "2c91808a7813090a017814121919ecca" # String | ID of the containing role
+$Id = "2c91808a7813090a017814121919ecca" # String | Containing role's ID.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'attribute eq "memberOf"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in* (optional)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified** (optional)
 
-# List role's Entitlements
+# List Role's Entitlements
 
 try {
     Get-V2024RoleEntitlements -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -679,6 +683,8 @@ try {
 ## list-roles
 This API returns a list of Roles.
 
+A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
+
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-roles)
 
 ### Parameters 
@@ -688,7 +694,7 @@ Param Type | Name | Data Type | Required  | Description
   Query | Limit | **Int32** |   (optional) (default to 50) | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **dimensional**: *eq*
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
   Query | ForSegmentIds | **String** |   (optional) | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
   Query | IncludeUnsegmented | **Boolean** |   (optional) (default to $true) | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
@@ -716,7 +722,7 @@ $ForSubadmin = "5168015d32f890ca15812c9180835d2e" # String | If provided, filter
 $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$Filters = 'requestable eq false' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq* (optional)
+$Filters = 'requestable eq false' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **dimensional**: *eq* (optional)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
 $ForSegmentIds = "0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
 $IncludeUnsegmented = $false # Boolean | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to $true)
@@ -737,7 +743,9 @@ try {
 
 ## patch-role
 This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+
 The following fields are patchable:
+
 * name
 * description
 * enabled
@@ -749,13 +757,12 @@ The following fields are patchable:
 * accessRequestConfig
 * revokeRequestConfig
 * segments
-* accessModelMetadata
-
-A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+* accessModelMetadata   
+A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
 
-When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time. 
+When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-role)
 
@@ -796,10 +803,10 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024Role -Id $Id -V2024JsonPatchOperation $Result 
+    Update-V2024Role -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024Role -Id $Id -V2024JsonPatchOperation $Result  
+    # Update-V2024Role -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Role"
     Write-Host $_.ErrorDetails
@@ -865,7 +872,7 @@ try {
     Search-V2024RolesByFilter 
     
     # Below is a request that includes all optional parameters
-    # Search-V2024RolesByFilter -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -V2024RoleListFilterDTO $Result  
+    # Search-V2024RolesByFilter -ForSubadmin $ForSubadmin -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -RoleListFilterDTO $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Search-V2024RolesByFilter"
     Write-Host $_.ErrorDetails
@@ -968,10 +975,10 @@ $RoleMetadataBulkUpdateByFilterRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByFilterRequest -Json $RoleMetadataBulkUpdateByFilterRequest
-    Update-V2024RolesMetadataByFilter -V2024RoleMetadataBulkUpdateByFilterRequest $Result 
+    Update-V2024RolesMetadataByFilter -RoleMetadataBulkUpdateByFilterRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024RolesMetadataByFilter -V2024RoleMetadataBulkUpdateByFilterRequest $Result  
+    # Update-V2024RolesMetadataByFilter -RoleMetadataBulkUpdateByFilterRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024RolesMetadataByFilter"
     Write-Host $_.ErrorDetails
@@ -1025,10 +1032,10 @@ $RoleMetadataBulkUpdateByIdRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByIdRequest -Json $RoleMetadataBulkUpdateByIdRequest
-    Update-V2024RolesMetadataByIds -V2024RoleMetadataBulkUpdateByIdRequest $Result 
+    Update-V2024RolesMetadataByIds -RoleMetadataBulkUpdateByIdRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024RolesMetadataByIds -V2024RoleMetadataBulkUpdateByIdRequest $Result  
+    # Update-V2024RolesMetadataByIds -RoleMetadataBulkUpdateByIdRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024RolesMetadataByIds"
     Write-Host $_.ErrorDetails
@@ -1097,10 +1104,10 @@ $RoleMetadataBulkUpdateByQueryRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByQueryRequest -Json $RoleMetadataBulkUpdateByQueryRequest
-    Update-V2024RolesMetadataByQuery -V2024RoleMetadataBulkUpdateByQueryRequest $Result 
+    Update-V2024RolesMetadataByQuery -RoleMetadataBulkUpdateByQueryRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024RolesMetadataByQuery -V2024RoleMetadataBulkUpdateByQueryRequest $Result  
+    # Update-V2024RolesMetadataByQuery -RoleMetadataBulkUpdateByQueryRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024RolesMetadataByQuery"
     Write-Host $_.ErrorDetails

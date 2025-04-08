@@ -1,0 +1,88 @@
+type: object
+properties:
+  productName:
+    type: string
+    description: Name of the Product
+    example: idn
+  url:
+    type: string
+    description: URL of the Product
+    example: 'https://tenant-name.identitynow.com'
+  productTenantId:
+    type: string
+    description: An identifier for a specific product-tenant combination
+    example: tenant#product
+  productRegion:
+    type: string
+    description: Product region
+    example: us-east-1
+  productRight:
+    type: string
+    description: Right needed for the Product
+    example: 'idn:ui:view'
+  apiUrl:
+    nullable: true
+    type: string
+    description: API URL of the Product
+    example: 'https://tenant-name.api.identitynow.com'
+  licenses:
+    type: array
+    items:
+      $ref: './License.yaml'
+  attributes:
+    type: object
+    additionalProperties: true
+    description: Additional attributes for a product
+    example: {
+      domain: 'https://tenant-name.identitynow.com',
+      maxRegisteredUsers: 250
+    }
+  zone:
+    type: string
+    description: Zone
+    example: Deployment zone for the Product
+  status:
+    type: string
+    description: Status of the product
+    example: active
+  statusDateTime:
+    type: string
+    format: date-time
+    description: Status datetime
+    example: '2020-05-19T13:49:37.385Z'
+  reason:
+    type: string
+    description: If there's a tenant provisioning failure then reason will have the description of error
+    example: Reason
+  notes:
+    type: string
+    description: Product could have additional notes added during tenant provisioning.
+    example: Example notes
+  dateCreated:
+    nullable: true
+    type: string
+    format: date-time
+    description: Date when the product was created
+    example: '2020-05-19T13:49:37.385Z'
+  lastUpdated:
+    nullable: true
+    type: string
+    format: date-time
+    description: Date when the product was last updated
+    example: '2020-05-19T13:49:37.385Z'
+  orgType:
+    nullable: true
+    type: string
+    enum:
+      - development
+      - staging
+      - production
+      - test
+      - partner
+      - training
+      - demonstration
+      - sandbox
+      - null
+    description: Type of org
+    example: test
+

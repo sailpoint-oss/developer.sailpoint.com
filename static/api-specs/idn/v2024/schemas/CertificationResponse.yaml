@@ -1,0 +1,23 @@
+type: object
+properties:
+  id:
+    type: string
+    description: the id of the certification
+  name:
+    type: string
+    description: the certification name
+  signedDate:
+    type: string
+    description: the date ceritification was signed
+  certifiers:
+    type: array
+    items:
+      $ref: './IdentitySummaryResponse.yaml'
+example:
+  id: 2c91808a77ff216301782327a50f09bf
+  name: Cert name
+  signedDate: '2019-03-08T22:37:33.901Z'
+  certifiers:
+    - id: 8a80828f643d484f01643e14202e206f
+      name: Certifier Name
+      displayName: John Snow

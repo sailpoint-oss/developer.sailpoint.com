@@ -1,0 +1,5 @@
+summary: Identities report
+value:
+  reportType: IDENTITIES
+  arguments:
+    correlatedOnly: true

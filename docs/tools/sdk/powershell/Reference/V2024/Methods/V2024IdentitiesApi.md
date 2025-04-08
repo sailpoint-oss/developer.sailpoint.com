@@ -466,10 +466,10 @@ $SendAccountVerificationRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToSendAccountVerificationRequest -Json $SendAccountVerificationRequest
-    Send-V2024IdentityVerificationAccountToken -XSailPointExperimental $XSailPointExperimental -Id $Id -V2024SendAccountVerificationRequest $Result 
+    Send-V2024IdentityVerificationAccountToken -XSailPointExperimental $XSailPointExperimental -Id $Id -SendAccountVerificationRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024IdentityVerificationAccountToken -XSailPointExperimental $XSailPointExperimental -Id $Id -V2024SendAccountVerificationRequest $Result  
+    # Send-V2024IdentityVerificationAccountToken -XSailPointExperimental $XSailPointExperimental -Id $Id -SendAccountVerificationRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024IdentityVerificationAccountToken"
     Write-Host $_.ErrorDetails
@@ -526,10 +526,10 @@ $InviteIdentitiesRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
-    Start-V2024IdentitiesInvite -XSailPointExperimental $XSailPointExperimental -V2024InviteIdentitiesRequest $Result 
+    Start-V2024IdentitiesInvite -XSailPointExperimental $XSailPointExperimental -InviteIdentitiesRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-V2024IdentitiesInvite -XSailPointExperimental $XSailPointExperimental -V2024InviteIdentitiesRequest $Result  
+    # Start-V2024IdentitiesInvite -XSailPointExperimental $XSailPointExperimental -InviteIdentitiesRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024IdentitiesInvite"
     Write-Host $_.ErrorDetails
@@ -587,10 +587,10 @@ $ProcessIdentitiesRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToProcessIdentitiesRequest -Json $ProcessIdentitiesRequest
-    Start-V2024IdentityProcessing -XSailPointExperimental $XSailPointExperimental -V2024ProcessIdentitiesRequest $Result 
+    Start-V2024IdentityProcessing -XSailPointExperimental $XSailPointExperimental -ProcessIdentitiesRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-V2024IdentityProcessing -XSailPointExperimental $XSailPointExperimental -V2024ProcessIdentitiesRequest $Result  
+    # Start-V2024IdentityProcessing -XSailPointExperimental $XSailPointExperimental -ProcessIdentitiesRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024IdentityProcessing"
     Write-Host $_.ErrorDetails

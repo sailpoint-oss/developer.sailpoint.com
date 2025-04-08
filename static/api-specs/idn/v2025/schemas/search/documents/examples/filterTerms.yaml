@@ -1,0 +1,208 @@
+summary: Filter with Terms
+value:
+  - name: Oliver Davies
+    firstName: Oliver
+    lastName: Davies
+    displayName: Oliver Davies
+    id: b173815fef574b74a283f39e6634c215
+    email: Oliver.Davies@sailpointdemo.com
+    created: '2024-04-04T21:32:27.473Z'
+    inactive: false
+    protected: false
+    status: UNREGISTERED
+    employeeNumber: '10029'
+    manager:
+      id: b8c8e021a4104eda91b80bfac6a99b47
+      name: Jackson Brooks
+      displayName: Jackson Brooks
+    isManager: true
+    identityProfile:
+      id: 00a2bc6244b34f4a88d985f035f2b68b
+      name: HR Global
+    source:
+      id: 524f8d986f9b4192865269516d169eb0
+      name: HR Global
+    attributes:
+      city: London
+      cloudAuthoritativeSource: 524f8d986f9b4192865269516d169eb0
+      cloudLifecycleState: active
+      cloudStatus: UNREGISTERED
+      country: GB
+      department: Customer Support
+      displayName: Oliver Davies
+      email: Oliver.Davies@sailpointdemo.com
+      firstname: Oliver
+      identificationNumber: '10029'
+      identityState: ACTIVE
+      internalCloudStatus: UNREGISTERED
+      jobTitle: Call Center
+      lastname: Davies
+      location: EMEA
+      uid: '10029'
+      visibleSegments:
+        - d75ae486-044b-4eba-8113-0cdacb5341df
+    disabled: false
+    locked: false
+    accounts:
+      - id: c8cacc7080254b2781f56e0ded6c8dea
+        name: $GRJ300-AQD2M7N9L7NT
+        accountId: 'CN=Oliver Davies,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+          type: Active Directory - Direct
+        disabled: false
+        locked: false
+        privileged: false
+        manuallyCorrelated: true
+        passwordLastSet: '2024-04-04T21:30:25.205Z'
+        entitlementAttributes:
+          memberOf:
+            - 'CN=Benefits,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+        created: '2024-04-04T21:33:54.332Z'
+        supportsPasswordChange: true
+      - id: cd7f58b2290c43909320ff89427b57a1
+        name: Oliver Davies
+        accountId: '10029'
+        source:
+          id: 524f8d986f9b4192865269516d169eb0
+          name: HR Global
+          type: DelimitedFile
+        disabled: false
+        locked: false
+        privileged: false
+        manuallyCorrelated: false
+        entitlementAttributes: {}
+        created: '2024-04-04T21:32:27.473Z'
+        supportsPasswordChange: false
+      - id: a1ee6cd948754371a98105a5a6dd067d
+        name: Oliver Davies
+        accountId: Oliver Davies
+        source:
+          id: af4686d6482841ac96d793901372ad9b
+          name: IdentityNow
+          type: IdentityNowConnector
+        disabled: false
+        locked: false
+        privileged: false
+        manuallyCorrelated: false
+        entitlementAttributes: {}
+        created: '2024-04-04T21:33:54.377Z'
+        supportsPasswordChange: true
+        accountAttributes: {}
+    accountCount: 2
+    apps:
+      - id: '20003'
+        name: Active Directory
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        account:
+          id: c8cacc7080254b2781f56e0ded6c8dea
+          accountId: 'CN=Oliver Davies,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+      - id: '20013'
+        name: AD test
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        account:
+          id: c8cacc7080254b2781f56e0ded6c8dea
+          accountId: 'CN=Oliver Davies,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+      - id: '20014'
+        name: Test AD
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        account:
+          id: c8cacc7080254b2781f56e0ded6c8dea
+          accountId: 'CN=Oliver Davies,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+      - id: '5092'
+        name: Accounting
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        account:
+          id: c8cacc7080254b2781f56e0ded6c8dea
+          accountId: 'CN=Oliver Davies,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+      - id: '5822114389092541705'
+        name: IdentityNow app
+        source:
+          id: af4686d6482841ac96d793901372ad9b
+          name: IdentityNow
+        account:
+          id: a1ee6cd948754371a98105a5a6dd067d
+          accountId: Oliver Davies
+    appCount: 5
+    access:
+      - id: ad7025c956734455b28fa35e315e77fe
+        name: Benefits Common Access
+        displayName: Benefits Common Access
+        type: ROLE
+        description: Testing AD provisioning with birthright access
+        enabled: false
+        requestable: false
+        requestCommentsRequired: false
+        owner:
+          id: 322c6bce405a495a8e841a014b7d8410
+          name: tina.smith
+          displayName: tina.smith
+        disabled: false
+        privileged: false
+        standalone: false
+        revocable: false
+        cloudEligible: false
+        cloudGoverned: false
+      - id: 7e277d102c874560becc464cdfe33a86
+        name: Benefits Employees
+        displayName: Benefits Employees
+        type: ACCESS_PROFILE
+        description: Access for Benefits Employees. Distribution group and File share access.
+        enabled: false
+        requestable: false
+        requestCommentsRequired: false
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        owner:
+          id: 278f8a1859df48d2a0adb204257b26a2
+          name: Jerry.Bennett
+          displayName: Jerry.Bennett
+        disabled: false
+        privileged: false
+        standalone: false
+        revocable: false
+        cloudEligible: false
+        cloudGoverned: false
+      - id: 4919721c3c1a4ca484469b85f0fd9ba1
+        name: Benefits
+        displayName: Benefits
+        type: ENTITLEMENT
+        enabled: false
+        requestable: false
+        requestCommentsRequired: false
+        source:
+          id: 5c71ff71195b4794a0b87e7cf36fb017
+          name: Active Directory
+        disabled: false
+        privileged: false
+        attribute: memberOf
+        value: 'CN=Benefits,OU=Groups,OU=Demo,DC=seri,DC=sailpointdemo,DC=com'
+        standalone: false
+        cloudEligible: false
+        cloudGoverned: false
+        schema: group
+    accessCount: 3
+    accessProfileCount: 1
+    entitlementCount: 1
+    roleCount: 1
+    modified: '2024-12-13T02:49:35.917Z'
+    visibleSegments:
+      - All Employees
+    visibleSegmentCount: 1
+    tagCount: 0
+    pod: pod01-useast1
+    org: org-name
+    synced: '2024-12-13T06:28:14.763Z'
+    _type: identity
+    type: identity
+    _version: v2

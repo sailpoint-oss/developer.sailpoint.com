@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TakeFromTargetRules** | [**[]SpConfigRule**](sp-config-rule) |  | [optional] 
 **DefaultRules** | [**[]SpConfigRule**](sp-config-rule) |  | [optional] 
-**Editable** | **Boolean** | Whether this object can be edited | [optional] [default to $false]
+**Editable** | **Boolean** | Indicates whether the object can be edited. | [optional] [default to $false]
 
 ## Examples
 

@@ -84,10 +84,10 @@ $WorkgroupDto = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkgroupDto -Json $WorkgroupDto
-    New-BetaWorkgroup -BetaWorkgroupDto $Result 
+    New-BetaWorkgroup -WorkgroupDto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-BetaWorkgroup -BetaWorkgroupDto $Result  
+    # New-BetaWorkgroup -WorkgroupDto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaWorkgroup"
     Write-Host $_.ErrorDetails
@@ -182,10 +182,10 @@ $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governanc
 
 try {
     $Result = ConvertFrom-JsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
-    Remove-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BetaBulkWorkgroupMembersRequestInner $Result 
+    Remove-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BetaBulkWorkgroupMembersRequestInner $Result  
+    # Remove-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaWorkgroupMembers"
     Write-Host $_.ErrorDetails
@@ -241,10 +241,10 @@ $WorkgroupBulkDeleteRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
-    Remove-BetaWorkgroupsInBulk -BetaWorkgroupBulkDeleteRequest $Result 
+    Remove-BetaWorkgroupsInBulk -WorkgroupBulkDeleteRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Remove-BetaWorkgroupsInBulk -BetaWorkgroupBulkDeleteRequest $Result  
+    # Remove-BetaWorkgroupsInBulk -WorkgroupBulkDeleteRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaWorkgroupsInBulk"
     Write-Host $_.ErrorDetails
@@ -506,7 +506,7 @@ try {
     Update-BetaWorkgroup -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaWorkgroup -Id $Id -BetaJsonPatchOperation $Result  
+    # Update-BetaWorkgroup -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaWorkgroup"
     Write-Host $_.ErrorDetails
@@ -556,10 +556,10 @@ $WorkgroupId = "2c91808a7813090a017814121919ecca" # String | ID of the Governanc
 
 try {
     $Result = ConvertFrom-JsonToBulkWorkgroupMembersRequestInner -Json $BulkWorkgroupMembersRequestInner
-    Update-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BetaBulkWorkgroupMembersRequestInner $Result 
+    Update-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BetaBulkWorkgroupMembersRequestInner $Result  
+    # Update-BetaWorkgroupMembers -WorkgroupId $WorkgroupId -BulkWorkgroupMembersRequestInner $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaWorkgroupMembers"
     Write-Host $_.ErrorDetails

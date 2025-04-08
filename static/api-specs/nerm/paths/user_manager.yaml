@@ -1,6 +1,6 @@
 post:
   summary: Create a new user-manager relationship
-  operationId: postUserManager
+  operationId: submitUserManager
   description: Create a new user-manager relationship
   tags:
     - user managers

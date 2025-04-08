@@ -52,7 +52,7 @@ $NonEmployeeRequest = Initialize-PSSailpoint.V3NonEmployeeRequest  -Id a0303682-
  -Phone 5125555555 `
  -Manager jane.doe `
  -NonEmployeeSource null `
- -VarData {description&#x3D;Auditing} `
+ -VarData {description=Auditing} `
  -ApprovalItems null `
  -ApprovalStatus null `
  -Comment approved `

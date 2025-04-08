@@ -1,0 +1,17 @@
+type: object
+properties:
+    dependencyType:
+        type: string
+        enum:
+            - identityProfiles
+            - credentialProfiles
+            - mappingProfiles
+            - sourceAttributes
+            - dependantCustomTransforms
+            - dependantApps
+        description: The type of dependency type that is missing in the SourceConnections
+        example: dependantApps
+    reason:
+        type: string
+        description: The reason why this dependency is missing
+        example: If there was an error retrieving any dependencies, it would lbe listed here

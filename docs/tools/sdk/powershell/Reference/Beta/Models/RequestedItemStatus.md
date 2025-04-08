@@ -16,6 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'RequestedItemStatus', 'BetaRequestedI
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **String** | The ID of the access request. | [optional] 
 **Name** | **String** | Human-readable display name of the item being requested. | [optional] 
 **Type** |  **Enum** [  "ACCESS_PROFILE",    "ROLE",    "ENTITLEMENT" ] | Type of requested object. | [optional] 
 **CancelledRequestDetails** | [**RequestedItemStatusCancelledRequestDetails**](requested-item-status-cancelled-request-details) |  | [optional] 
@@ -40,12 +41,14 @@ Name | Type | Description | Notes
 **Cancelable** | **Boolean** | True if the request can be canceled. | [optional] [default to $false]
 **AccessRequestId** | **String** | This is the account activity id. | [optional] 
 **ClientMetadata** | **map[string]String** | Arbitrary key-value pairs, if any were included in the corresponding access request | [optional] 
+**RequestedAccounts** | [**[]RequestedAccountRef**](requested-account-ref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$RequestedItemStatus = Initialize-PSSailpoint.BetaRequestedItemStatus  -Name AccessProfile1 `
+$RequestedItemStatus = Initialize-PSSailpoint.BetaRequestedItemStatus  -Id 2c9180926cbfbddd016cbfc7c3b10010 `
+ -Name AccessProfile1 `
  -Type ACCESS_PROFILE `
  -CancelledRequestDetails null `
  -ErrorMessages null `
@@ -68,7 +71,8 @@ $RequestedItemStatus = Initialize-PSSailpoint.BetaRequestedItemStatus  -Name Acc
  -RemoveDate 2019-10-23T00:00Z `
  -Cancelable true `
  -AccessRequestId 2b838de9-db9b-abcf-e646-d4f274ad4238 `
- -ClientMetadata {key1&#x3D;value1, key2&#x3D;value2}
+ -ClientMetadata {key1=value1, key2=value2} `
+ -RequestedAccounts null
 ```
 
 - Convert the resource to JSON

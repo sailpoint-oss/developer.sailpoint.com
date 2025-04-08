@@ -14,7 +14,7 @@
   flex-direction: column;
 }
 .detailImage {
-  border-radius: 40px;
+  border-radius: 0.25em;
   max-width: 400px;
   min-width: 180px;
 }

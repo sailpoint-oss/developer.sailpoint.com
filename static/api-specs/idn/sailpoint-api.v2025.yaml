@@ -1355,6 +1355,8 @@ paths:
     $ref: ./v2025/paths/access-request-cancel.yaml
   /access-requests/bulk-cancel:
     $ref: ./v2025/paths/bulk-cancel-access-request.yaml
+  /access-requests/accounts-selection:
+    $ref: ./v2024/paths/access-requests-accounts-selection.yaml
   /access-request-config:
     $ref: ./v2025/paths/access-request-config.yaml
   /access-request-status:

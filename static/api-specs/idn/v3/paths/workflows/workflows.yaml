@@ -7,6 +7,52 @@ get:
     List all workflows in the tenant.
   security:
     - userAuth: [sp:workflow:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+    - name: triggerId
+      in: query
+      description: Trigger ID
+      required: false
+      schema:
+        type: string
+        example: "idn:identity-created"
+    - name: connectorInstanceId
+      in: query
+      description: Connector Instance ID
+      required: false
+      schema:
+        type: string
+        example: "28541fec-bb81-4ad4-88ef-0f7d213adcad"
+    - name: limit
+      in: query
+      description: >-
+        Max number of results to return.
+        
+        See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)
+        for more information.
+      required: false
+      example: 250
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        maximum: 250
+        default: 250
+    - name: offset
+      in: query
+      description: >-
+        Offset into the full result set. Usually specified with *limit* to paginate through the results.
+        
+        See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters)
+        for more information.
+      required: false
+      example: 0
+      schema:
+        type: integer
+        format: int32
+        minimum: 0
+        default: 0
   responses:
     '200':
       description: >-
@@ -36,6 +82,8 @@ post:
     Create a new workflow with the desired trigger and steps specified in the request body.
   security:
     - userAuth: [sp:workflow:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   requestBody:
     required: true
     content:

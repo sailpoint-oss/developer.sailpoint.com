@@ -7,16 +7,27 @@ get:
     Get a single workflow by id.
   security:
     - userAuth: [sp:workflow:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - name: id
       in: path
       description: Id of the workflow
       required: true
+      x-sailpoint-resource-operation-id: listWorkflows
       style: simple
       explode: false
       schema:
         type: string
         example: c17bea3a-574d-453c-9e04-4365fbf5af0b
+    - name: workflowMetrics
+      in: query
+      description: disable workflow metrics
+      required: false
+      schema:
+        type: boolean
+        default: true
+      example: false
   responses:
     '200':
       description: >-
@@ -44,11 +55,14 @@ put:
     Perform a full update of a workflow.  The updated workflow object is returned in the response.
   security:
     - userAuth: [sp:workflow:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - name: id
       in: path
       description: Id of the Workflow
       required: true
+      x-sailpoint-resource-operation-id: listWorkflows
       style: simple
       explode: false
       schema:
@@ -86,11 +100,14 @@ patch:
     Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
   security:
     - userAuth: [sp:workflow:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - name: id
       in: path
       description: Id of the Workflow
       required: true
+      x-sailpoint-resource-operation-id: listWorkflows
       style: simple
       explode: false
       schema:
@@ -195,11 +212,14 @@ delete:
     Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
   security:
     - userAuth: [sp:workflow:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - name: id
       in: path
       description: Id of the Workflow
       required: true
+      x-sailpoint-resource-operation-id: listWorkflows
       style: simple
       explode: false
       schema:

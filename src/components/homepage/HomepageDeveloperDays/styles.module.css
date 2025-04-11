@@ -101,6 +101,10 @@
 }
 
 @media only screen and (max-width: 1178px) {
+  .cardIcon {
+    display: none !important;
+  }
+
   .carousel {
     margin-top: 0px;
     margin-left: 50px;
@@ -136,6 +140,9 @@
   }
 }
 @media only screen and (max-width: 570px) {
+  .cardIcon {
+    display: none !important;
+  }
 
   .contentContainer {
     width: auto;

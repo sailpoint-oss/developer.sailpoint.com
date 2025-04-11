@@ -1,0 +1,17 @@
+type: object
+description: Certification for review. 
+properties:
+  type:
+    type: string 
+    description: DTO type of certification for review. 
+    enum: 
+      - CERTIFICATION
+    example: IDENTITY
+  id:
+    type: string
+    description: ID of certification for review. 
+    example: 7589a83cec4b4f138ce56c1a5ef0756d
+  name:
+    type: string
+    description: Display name of certification for review. 
+    example: Manager Access for Michael Michaels

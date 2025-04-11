@@ -1,0 +1,87 @@
+get:
+  operationId: getMFAOktaConfig
+  tags:
+    - MFA Configuration
+  summary: Configuration of Okta MFA method
+  description: >-
+    This API returns the configuration of an Okta MFA method.
+  security:
+    - userAuth: [idn:mfa-configuration:read, idn:mfa-configuration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  responses:
+    "200":
+      description: The configuration of an Okta MFA method.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/MfaOktaConfig.yaml"
+          example:
+            {
+              "mfaMethod": "okta-verify",
+              "enabled": true,
+              "host": "www.example.com",
+              "accessKey": "d******Y",
+              "identityAttribute": "email",
+            }
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+
+put:
+  operationId: setMFAOktaConfig
+  tags:
+    - MFA Configuration
+  summary: Set Okta MFA configuration
+  description: >-
+    This API sets the configuration of an Okta MFA method.
+  security:
+    - userAuth: [idn:mfa-configuration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/MfaOktaConfig.yaml"
+        example:
+          {
+            "mfaMethod": "okta-verify",
+            "enabled": true,
+            "host": "www.example.com",
+            "accessKey": "dk778Y3QlA5UqocYpdU3rEkzrK2D497y",
+            "identityAttribute": "email",
+          }
+  responses:
+    "200":
+      description: MFA configuration of an Okta MFA method.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/MfaOktaConfig.yaml"
+          example:
+            {
+              "mfaMethod": "okta-verify",
+              "enabled": true,
+              "host": "www.example.com",
+              "accessKey": "d******Y",
+              "identityAttribute": "email",
+            }
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

@@ -1,0 +1,67 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readonly: true
+    example: db6f8e8b-65c2-47d5-a0db-90bcc4e9df9e
+    description: ID of the object to retrieve or update
+  uid:
+    type: string
+    minLength: 32
+    maxLength: 32
+    readonly: true
+    example: user1
+    description: UID of the user
+  name:
+    type: string
+    description: The name
+    example: myusername
+  email:
+    type: string
+    format: email
+    description: The email
+    example: test@sailpoint.com
+  type:
+    type: string
+    enum: [NeprofileUser, NeaccessUser]
+    default: NeprofileUser
+    description: Type of user
+    example: NeprofileUser
+  title:
+    type: string
+    description: The title
+    example: Director
+  status:
+    type: string
+    enum: [Active, Disabled]
+    description: Status of the user
+    example: Active
+  login:
+    type: string 
+    description: The login
+    example: myLogin 
+  last_login:
+    type: string
+    format: date-time
+    readOnly: true
+    description: When the user last logged in
+    example: Wed, 07 Feb 2024 12:55:20.456682000 EST -05:00
+  cookies_accepted_at:
+    type: string
+    format: date-time
+    readOnly: true
+    description: When cookies were accepted
+    example: Wed, 07 Feb 2024 12:55:20.456682000 EST -05:00
+  preferred_language:
+    type: string
+    description: The locale the user prefers to use
+    example: fr-CA
+  locale:
+    type: string
+    description: The locale the user prefers to use
+    example: fr-CA
+  group_strings:
+    type: string
+    description: Group strings configured on the customer's Active Directory configuration, provided by the IDP at the moment on authentication.
+    example: Admin_group, Developer_group

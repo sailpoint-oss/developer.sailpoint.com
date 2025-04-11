@@ -1,0 +1,30 @@
+allOf:
+  - $ref: './NonEmployeeSourceLite.yaml'
+  - type: object
+    properties:
+      approvers:
+        description: List of approvers
+        type: array
+        items:
+          $ref: './IdentityReferenceWithId.yaml'
+      accountManagers:
+        description: List of account managers
+        type: array
+        items:
+          $ref: './IdentityReferenceWithId.yaml'
+      modified:
+        type: string
+        format: date-time
+        description: When the request was last modified.
+        example: "2019-08-23T18:52:59.162Z"
+      created:
+        type: string
+        format: date-time
+        description: When the request was created.
+        example: "2019-08-23T18:40:35.772Z"
+      nonEmployeeCount:
+        nullable: true
+        type: integer
+        description: The number of non-employee records on all sources that *requested-for* user manages.
+        example: 2
+        format: int32

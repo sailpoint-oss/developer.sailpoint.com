@@ -1,0 +1,45 @@
+get:
+  tags:
+  - Suggested Entitlement Description
+  operationId: getSedBatchStats
+  summary: Submit Sed Batch Stats Request
+  description: |
+   'Submit Sed Batch Stats Request.
+
+    Submits batchId in the path param `(e.g. {batchId}/stats)`. API responses with stats
+    of the batchId.'
+  parameters:
+  - name: batchId
+    in: path
+    description: Batch Id
+    schema:
+      type: string
+      format: uuid
+    example: 8c190e67-87aa-4ed9-a90b-d9d5344523fb
+    required: true
+    x-sailpoint-resource-operation-id: getSedBatches
+  responses:
+    '200':
+      description: Stats of Sed batch.
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/SedBatchStats.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  security:
+  - userAuth:
+    - idn:sed:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN

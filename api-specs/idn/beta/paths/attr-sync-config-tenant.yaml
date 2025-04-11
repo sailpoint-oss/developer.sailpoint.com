@@ -1,0 +1,107 @@
+
+get:
+  operationId: getTenantAttrSyncConfig
+  tags:
+    - Attribute Synchronization
+  summary: Tenant Attribute Sync Config
+  description: >-
+    This API returns the attribute synchronization configuration for a tenant. The response contains
+    configuration data for individual identity attributes and the corresponding target sources that
+    should be sychronized when a value changes.
+
+    A token with ORG_ADMIN authority is required to call this API.
+  responses:
+    '200':
+      description: Attribute synchronization configuration for a tenant
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AttrSyncTenantConfig.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  
+post:
+  operationId: createTenantAttrSyncConfig
+  tags:
+    - Attribute Synchronization
+  summary: New Tenant Attribute Sync Config
+  description: >-
+    This API creates a new attribute synchronization configuration for a tenant. The payload contains
+    configuration data for individual identity attributes and the corresponding target sources that
+    should be sychronized when a value changes.
+
+    A token with ORG_ADMIN authority is required to call this API.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/AttrSyncTenantConfig.yaml'
+  responses:
+    '200':
+      description: Newly created attribute synchronization configuration for a tenant
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AttrSyncTenantConfig.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  
+put:
+  operationId: replaceTenantAttrSyncConfig
+  tags:
+    - Attribute Synchronization
+  summary: Update Tenant Attribute Sync Config
+  description: >-
+    This API replaces an existing attribute synchronization configuration for a tenant. Only the
+    "attributes" property is mutable. The "attributes" property contains the synchronization configuration
+    for the individual identity attributes and the corresponding target sources that should be
+    synchronized when a value changes.
+
+    A token with ORG_ADMIN authority is required to call this API.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/AttrSyncTenantConfig.yaml'
+  responses:
+    '200':
+      description: Updated attribute synchronization configuration for a tenant
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AttrSyncTenantConfig.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  

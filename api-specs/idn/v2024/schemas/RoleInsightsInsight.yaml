@@ -1,0 +1,21 @@
+type : object
+properties:
+  type:
+    type: string
+    description: The number of identities in this role with the entitlement.
+    example: "ADD"
+  identitiesWithAccess:
+    type: integer
+    description: The number of identities in this role with the entitlement.
+    example: 850
+  identitiesImpacted:
+    type: integer
+    description: The number of identities in this role that do not have the specified entitlement.
+    example: 150
+  totalNumberOfIdentities:
+    type: integer
+    description: The total number of identities.
+    example: 1000
+  impactedIdentityNames:
+    type: string
+    nullable: true

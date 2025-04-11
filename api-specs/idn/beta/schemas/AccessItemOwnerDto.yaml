@@ -1,0 +1,17 @@
+type: object
+description: Access item owner's identity. 
+properties:
+  type:
+    type: string 
+    description: Access item owner's DTO type. 
+    enum: 
+      - IDENTITY
+    example: IDENTITY
+  id:
+    type: string
+    description: Access item owner's identity ID.
+    example: 2c9180a46faadee4016fb4e018c20639
+  name:
+    type: string
+    description: Access item owner's human-readable display name. 
+    example: Support

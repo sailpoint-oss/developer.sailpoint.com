@@ -1,0 +1,49 @@
+get:
+  operationId: getIdentities
+  summary: Identities in an Identity Group
+  tags:
+    - IAI Identity Groups
+  description: >-
+    The Identities in an Identity Group API returns a list of identities associated with an identity group based on the group ID.
+  parameters:
+    - in: path
+      name: identityGroupId
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listIdentityGroups
+      description: The identity group id
+      example: 'ff8081814d2a8036014d701f3fbf53fa'
+    - $ref: '../parameters/limit.yaml'
+    - $ref: '../parameters/offset.yaml'
+    - $ref: '../parameters/count.yaml'
+    - in: query
+      name: filters
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **attributes**: *eq, sw*
+      example: attributes sw "r"
+  responses:
+    '200':
+      description: The identities for an identity group
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/IdentityRefWithAttributes.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - bearerAuth : []

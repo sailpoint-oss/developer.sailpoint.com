@@ -1,0 +1,79 @@
+get:
+  operationId: listOauthClients
+  security:
+    - userAuth: [sp:oauth-client:manage]
+  tags:
+    - OAuth Clients
+  summary: List OAuth Clients
+  description: >-
+    This gets a list of OAuth clients.
+  parameters:
+    - in: query
+      name: filters
+      required: false
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard
+        Collection
+        Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+        Filtering is supported for the following fields and operators:
+
+
+        **lastUsed**: *le, isnull*
+      example: lastUsed le 2023-02-05T10:59:27.214Z
+
+  responses:
+    '200':
+      description: List of OAuth clients.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/GetOAuthClientResponse.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+post:
+  operationId: createOauthClient
+  security:
+    - userAuth: [sp:oauth-client:manage]
+  tags:
+    - OAuth Clients
+  summary: Create OAuth Client
+  description: >-
+    This creates an OAuth client.
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/CreateOAuthClientRequest.yaml'
+  responses:
+    '200':
+      description: Request succeeded.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/CreateOAuthClientResponse.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

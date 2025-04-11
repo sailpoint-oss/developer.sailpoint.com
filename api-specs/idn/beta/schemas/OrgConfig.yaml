@@ -1,0 +1,48 @@
+type: object
+description: DTO class for OrgConfig data accessible by customer external org admin ("ORG_ADMIN") users
+properties:
+    orgName:
+        type: string
+        description: The name of the org.
+        example: acme-solar
+    timeZone:
+        type: string
+        description: The selected time zone which is to be used for the org.  This directly affects when scheduled tasks are executed.  Valid options can be found at /beta/org-config/valid-time-zones
+        example: America/Toronto
+    lcsChangeHonorsSourceEnableFeature:
+        type: boolean
+        description: Flag to determine whether the LCS_CHANGE_HONORS_SOURCE_ENABLE_FEATURE flag is enabled for the current org.
+        example: false
+    armCustomerId:
+        type: string
+        description: ARM Customer ID
+        nullable: true
+        example: DE38E75A-5FF6-4A65-5DC7-08D64426B09E
+    armSapSystemIdMappings:
+        type: string
+        description: A list of IDN::sourceId to ARM::systemId mappings.
+        nullable: true
+        example: [{"sourceId":"2c91808c791a94e501792388b0d62659","systemId":"1556"},{"sourceId":"2_2c91808c791a94e501792388b0d62659","systemId":"2_1556"},{"sourceId":"3_2c91808c791a94e501792388b0d62659","systemId":"3_1556"}]
+    armAuth:
+        type: string
+        description: ARM authentication string
+        nullable: true
+        example: epiYNTRYA2S7swisDWk1Zv4VMNgvqEjiBh5_ufuCWsma2m-5XADijqBg0ijXLby5nS6lxZNXabhGnAPGeDGc4V3jQKrhwV-UHypRLs8ZLgOjiQNus9NimS0uPdKomRW6TFWqXyfnYd-znNgbbVuwUy9GyD9ebDVJSntPastxSx7UcyGuWBqfNZYpuxKRWe_7TVY60qL55jUqyz8N4XUbbdcxdbZ0uik6ut-Bv90MKTbZexBW_PR4qcgIkaEs4kIenLyBxnGziYo7AO0tJ8bGHO8FJRkibCpAQIt7PISLo7Gg_Xf9j10dKq2YDgy4pPTvz3fE2ZHYnXCXvXFSA-vVag==
+    armDb:
+        type: string
+        description: ARM database name
+        nullable: true
+        example: EU
+    armSsoUrl:
+        type: string
+        description: ARM SSO URL
+        nullable: true
+        example: https://your-arm-sso-url
+    iaiEnableCertificationRecommendations:
+        type: boolean
+        description: Flag to determine whether IAI Certification Recommendations are enabled for the current org
+        example: true
+    sodReportConfigs:
+        type: array
+        items:
+            $ref: './ReportConfigDTO.yaml'

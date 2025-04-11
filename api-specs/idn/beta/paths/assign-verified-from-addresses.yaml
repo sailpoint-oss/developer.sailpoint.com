@@ -1,0 +1,34 @@
+post:
+  operationId: assignVerifiedFromAddresses
+  tags:
+    - Notifications
+  summary: Assign Verified From Address
+  description: >-
+    Assign pre-existing verified, From email address to current tenant.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/EmailStatusDto.yaml'
+        example:
+          email: "sender@example.com"
+  responses:
+    '201':
+      description: Verified Email Status
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/EmailStatusDto.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

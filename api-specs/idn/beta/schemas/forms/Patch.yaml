@@ -1,0 +1,7 @@
+title: Patch is an ordered collection of Operations.
+description: Patch is an ordered collection of Operations.
+type: array
+example: [ { "op": "replace","path": "/description","value": "a new description" } ]
+items:
+  $ref: './Operation.yaml'
+x-go-package: github.com/evanphx/json-patch

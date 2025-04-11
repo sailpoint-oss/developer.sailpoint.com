@@ -1,0 +1,94 @@
+post:
+  operationId: createSearchAttributeConfig
+  tags:
+  - Search Attribute Configuration
+  summary: Create Extended Search Attributes
+  security:
+    - userAuth: [ idn:account-config:create ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  description: >-
+    Create and configure extended search attributes. 
+    This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. 
+    It will then validate the inputs and configure/create the attribute promotion configuration in the Link ObjectConfig.
+
+    >**Note: Give searchable attributes unique names. 
+    Do not give them the same names used for account attributes or source attributes. 
+    Also, do not give them the same names present in account schema for a current or future source, regardless of whether that source is included in the searchable attributes' `applicationAttributes`.**
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../schemas/SearchAttributeConfig.yaml
+        example:
+          name: newMailAttribute
+          displayName: New Mail Attribute
+          applicationAttributes:
+            2c9180866166b5b0016167c32ef31a66: mail
+            2c9180866166b5b0016167c32ef31a67: mail
+  responses:
+    '202':
+      $ref: ../responses/202.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml
+  parameters:
+  - name: X-SailPoint-Experimental
+    in: header
+    description: Use this header to enable this experimental API.
+    example: true
+    schema:
+      type: string
+      default: true
+    required: true
+get:
+  operationId: getSearchAttributeConfig
+  tags:
+  - Search Attribute Configuration
+  summary: List Extended Search Attributes
+  security:
+    - userAuth: [ idn:account-config:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  description: >-
+    Get a list of attribute/application attributes currently configured in Identity Security Cloud (ISC).
+  parameters:
+    - $ref: '../parameters/limit.yaml'
+    - $ref: '../parameters/offset.yaml'
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+  responses:
+    '200':
+      description: List of attribute configurations in ISC.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../schemas/SearchAttributeConfig.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

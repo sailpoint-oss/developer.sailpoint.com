@@ -1,0 +1,44 @@
+type: object
+properties:
+  certificationId:
+    type: string
+    description: the id of the certification item
+    example: 2c91808a77ff216301782327a50f09bf
+  certificationName:
+    type: string
+    description: the certification item name
+    example: Cert name
+  signedDate:
+    type: string
+    description: the date ceritification was signed
+    example: '2019-03-08T22:37:33.901Z'
+  certifiers:
+    type: array
+    description: this field is deprecated and may go away
+    items:
+      $ref: './CertifierResponse.yaml'
+    example:
+      - id: 8a80828f643d484f01643e14202e206f
+        displayName: John Snow
+  reviewers:
+    type: array
+    description: The list of identities who review this certification
+    items:
+      $ref: './CertifierResponse.yaml'
+    example:
+      - id: 8a80828f643d484f01643e14202e206f
+        displayName: John Snow
+  signer:
+    $ref: './CertifierResponse.yaml'
+    description: Identity who signed off on the certification
+    example:
+      id: 8a80828f643d484f01643e14202e206f
+      displayName: John Snow
+  eventType:
+    type: string
+    description: the event type
+    example: IdentityCertified
+  dt:
+    type: string
+    description: the date of event
+    example: '2019-03-08T22:37:33.901Z'

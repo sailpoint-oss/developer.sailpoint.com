@@ -1,0 +1,34 @@
+post:
+  summary: Upload CSV to Discover Applications
+  tags:
+    - Application Discovery
+  description: >-
+    Uploading a CSV file with application data for manual correlation to specific ISC connectors. 
+    
+    If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
+  security:
+    - userAuth:
+        - 'idn:application-discovery:write'
+  operationId: sendManualDiscoverApplicationsCsvTemplate
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          $ref: '../schemas/ManualDiscoverApplications.yaml'
+  responses:
+    '200':
+      description: The CSV has been successfully processed.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+      description: >
+        Bad request - There was an error with the CSV format or validation
+        failed (e.g., `application_name` missing). Error message should be
+        provided in response.
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

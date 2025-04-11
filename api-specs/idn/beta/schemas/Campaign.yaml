@@ -1,0 +1,241 @@
+type : object
+title: Campaign
+allOf:
+  - $ref: 'SlimCampaign.yaml'
+  - type: object
+    properties:
+      modified:
+        type: string
+        readOnly: true
+        format: date-time
+        description: Modified time of the campaign
+        example: '2020-03-03T22:20:12.674Z'
+      correlatedStatus:
+        type: string
+        description: >-
+          The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated.
+          An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).
+        enum:
+          - "CORRELATED"
+          - "UNCORRELATED"
+        example: CORRELATED
+      filter:
+        type: object
+        description: >-
+          Determines which items will be included in this campaign. The default campaign filter is used if this
+          field is left blank.
+        properties:
+          id:
+            type: string
+            description: The ID of whatever type of filter is being used.
+            example: 0fbe863c063c4c88a35fd7f17e8a3df5
+          type:
+            type: string
+            description: Type of the filter
+            enum:
+              - CAMPAIGN_FILTER
+              - RULE
+            example: CAMPAIGN_FILTER
+          name:
+            type: string
+            description: Name of the filter
+            example: Test Filter
+      sunsetCommentsRequired:
+        type: boolean
+        description: >-
+          Determines if comments on sunset date changes are required.
+        default: true
+        example: true
+      sourceOwnerCampaignInfo:
+        type: object
+        description: Must be set only if the campaign type is SOURCE_OWNER.
+        properties:
+          sourceIds:
+            type: array
+            description: The list of sources to be included in the campaign.
+            items:
+              type: string
+            example: [0fbe863c063c4c88a35fd7f17e8a3df5]
+      searchCampaignInfo:
+        type: object
+        description: Must be set only if the campaign type is SEARCH.
+        properties:
+          type:
+            type: string
+            description: The type of search campaign represented.
+            enum:
+              - IDENTITY
+              - ACCESS
+            example: ACCESS
+          description:
+            type: string
+            description: >-
+              Describes this search campaign. Intended for storing the query used, and possibly the number of identities
+              selected/available.
+            example: Search Campaign description
+          reviewer:
+            type: object
+            description: >-
+              If specified, this identity or governance group will be the reviewer for all certifications in
+              this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP.
+            properties: 
+              type: 
+                type: string
+                description: The reviewer's DTO type.
+                enum: 
+                  - GOVERNANCE_GROUP 
+                  - IDENTITY
+                example: IDENTITY
+              id: 
+                type: string 
+                description: The reviewer's ID.
+                example: 2c91808568c529c60168cca6f90c1313     
+              name: 
+                type: string
+                description: The reviewer's name.
+                example: William Wilson
+          query:
+            type: string
+            description: >-
+              The scope for the campaign. The campaign will cover identities returned by the query and identities that
+              have access items returned by the query. One of `query` or `identityIds` must be set.
+            example: Search Campaign query description
+          identityIds:
+            type: array
+            description: A direct list of identities to include in this campaign. One of `identityIds` or `query` must be set.
+            items:
+              type: string
+            maxItems: 1000
+            example: [0fbe863c063c4c88a35fd7f17e8a3df5]
+          accessConstraints:
+            type: array
+            description: >-
+              Further reduces the scope of the campaign by excluding identities (from `query` or `identityIds`) that do
+              not have this access.
+            items:
+              $ref: './AccessConstraint.yaml'
+            maxItems: 1000
+        required:
+          - type
+      roleCompositionCampaignInfo:
+        type: object
+        description: Optional configuration options for role composition campaigns.
+        properties:
+          reviewer:
+            type: object
+            description: >-
+              If specified, this identity or governance group will be the reviewer for all certifications in
+              this campaign. The allowed DTO types are IDENTITY and GOVERNANCE_GROUP.
+            properties: 
+              type: 
+                type: string
+                description: The reviewer's DTO type.
+                enum: 
+                  - GOVERNANCE_GROUP 
+                  - IDENTITY
+                example: IDENTITY
+              id: 
+                type: string 
+                description: The reviewer's ID.
+                example: 2c91808568c529c60168cca6f90c1313     
+              name: 
+                type: string
+                description: The reviewer's name.
+                example: William Wilson
+          roleIds:
+            type: array
+            description: >-
+              Optional list of roles to include in this campaign. Only one of `roleIds` and `query` may be set; if
+              neither are set, all roles are included.
+            items:
+              type: string
+            example: [2c90ad2a70ace7d50170acf22ca90010]
+          remediatorRef:
+            type: object
+            description: >-
+              This determines who remediation tasks will be assigned to. Remediation tasks are created for each
+              revoke decision on items in the campaign. The only legal remediator type is 'IDENTITY', and the
+              chosen identity must be a Role Admin or Org Admin.
+            properties:
+              type:
+                type: string
+                enum:
+                  - IDENTITY
+                description: Legal Remediator Type
+                example: IDENTITY
+              id:
+                type: string
+                description: The ID of the remediator.
+                example: 2c90ad2a70ace7d50170acf22ca90010
+              name:
+                type: string
+                description: The name of the remediator.
+                readOnly: true
+                example: Role Admin
+            required:
+              - type
+              - id
+          query:
+            type: string
+            description: >-
+              Optional search query to scope this campaign to a set of roles. Only one of `roleIds` and `query` may
+              be set; if neither are set, all roles are included.
+            example: Search Query
+          description:
+            type: string
+            description: >-
+              Describes this role composition campaign. Intended for storing the query used, and possibly the number
+              of roles selected/available.
+            example: Role Composition Description
+        required:
+          - remediatorRef
+      machineAccountCampaignInfo:
+        type: object
+        description: Must be set only if the campaign type is MACHINE_ACCOUNT.
+        properties:
+          sourceIds:
+            type: array
+            description: The list of sources to be included in the campaign.
+            items:
+              type: string
+            example: [ 0fbe863c063c4c88a35fd7f17e8a3df5 ]
+          reviewerType:
+            type: string
+            description: The reviewer's type.
+            enum:
+              - ACCOUNT_OWNER
+            example: ACCOUNT_OWNER
+      sourcesWithOrphanEntitlements:
+        type: array
+        description: >-
+          A list of sources in the campaign that contain \"orphan entitlements\" (entitlements without a corresponding
+          Managed Attribute). An empty list indicates the campaign has no orphan entitlements. Null indicates there may
+          be unknown orphan entitlements in the campaign (the campaign was created before this feature was implemented).
+        readOnly: true
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+              description: Id of the source
+              example: 2c90ad2a70ace7d50170acf22ca90010
+            type:
+              type: string
+              enum:
+                - SOURCE
+              description: Type
+              example: SOURCE
+            name:
+              type: string
+              description: Name of the source
+              example: Source with orphan entitlements
+      mandatoryCommentRequirement:
+        type: string
+        description: >-
+          Determines whether comments are required for decisions during certification reviews. You can require comments
+          for all decisions, revoke-only decisions, or no decisions. By default, comments are not required for decisions.
+        enum:
+          - "ALL_DECISIONS"
+          - "REVOKE_ONLY_DECISIONS"
+          - "NO_DECISIONS"
+        example: NO_DECISIONS

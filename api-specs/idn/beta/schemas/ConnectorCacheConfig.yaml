@@ -1,0 +1,11 @@
+description: Validation hashes for Application and Rule objects cached on the CCG.
+type: object
+properties:
+  Application:
+    type: integer
+    description: The high watermark timestamp for application objects cached by the CCG's persistence manager.
+    example: 1585001456484
+  Rule:
+    type: integer
+    description: The high watermark timestamp for rule objects cached by the CCG's persistence manager.
+    example: 1559924590534

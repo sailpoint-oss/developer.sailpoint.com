@@ -5,7 +5,7 @@ properties:
     description: The id of account
     example: "c5ef070e-92c6-4276-a006-98490f132dec"
   accountName:
-    type: EntitlementDto
+    type: string
     description: The name of account
     example: "Adalberto.XYZ"
   accountUUID:

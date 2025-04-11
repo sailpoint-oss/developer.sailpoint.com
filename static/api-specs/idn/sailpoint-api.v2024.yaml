@@ -1399,6 +1399,12 @@ paths:
     $ref: ./v2024/paths/account-activity-get-one.yaml
   /auth-org/network-config:
     $ref: ./v2024/paths/auth-org-network-config.yaml
+  /auth-org/lockout-config:
+    $ref: "./v2024/paths/auth-org-lockout-config.yaml"
+  /auth-org/service-provider-config:
+    $ref: "./v2024/paths/auth-org-service-provider-config.yaml"
+  /auth-org/session-config:
+    $ref: "./v2024/paths/auth-org-session-config.yaml"
   /auth-users/{id}:
     $ref: ./v2024/paths/auth-user.yaml
   /brandings:

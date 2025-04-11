@@ -29,7 +29,7 @@ properties:
       provider and a customer's SailPoint instance (i.e., the service provider).
     type: array
     items:
-      oneOf:
+      anyOf:
         - $ref: 'IdpDetails.yaml'
         - $ref: 'SpDetails.yaml'
     example: [

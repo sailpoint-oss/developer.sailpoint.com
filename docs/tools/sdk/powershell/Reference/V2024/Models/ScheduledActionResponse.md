@@ -33,7 +33,7 @@ $ScheduledActionResponse = Initialize-PSSailpoint.V2024ScheduledActionResponse  
  -JobType BACKUP `
  -Content null `
  -StartTime 2021-05-12T10:00Z `
- -CronString 0 0 12 * * ? `
+ -CronString 0 0 12 * * * * `
  -TimeZoneId America/Chicago
 ```
 

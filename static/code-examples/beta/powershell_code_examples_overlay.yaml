@@ -578,7 +578,7 @@
       source: |
         $AccessRequest = @"
         {
-          "requestedFor" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210584" ],
+          "requestedFor" : "2c918084660f45d6016617daa9210584",
           "clientMetadata" : {
             "requestedAppId" : "2c91808f7892918f0178b78da4a305a1",
             "requestedAppName" : "test-app"
@@ -639,6 +639,133 @@
             "type" : "ACCESS_PROFILE",
             "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
             "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+          } ],
+          "requestedForWithRequestedItems" : [ {
+            "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+            "requestedItems" : [ {
+              "clientMetadata" : {
+                "requestedAppName" : "test-app",
+                "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+              },
+              "removeDate" : "2020-07-11T21:23:15Z",
+              "accountSelection" : [ {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              }, {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              } ],
+              "comment" : "Requesting access profile for John Doe",
+              "id" : "2c9180835d2e5168015d32f890ca1581",
+              "type" : "ACCESS_PROFILE",
+              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+            }, {
+              "clientMetadata" : {
+                "requestedAppName" : "test-app",
+                "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+              },
+              "removeDate" : "2020-07-11T21:23:15Z",
+              "accountSelection" : [ {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              }, {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              } ],
+              "comment" : "Requesting access profile for John Doe",
+              "id" : "2c9180835d2e5168015d32f890ca1581",
+              "type" : "ACCESS_PROFILE",
+              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+            } ]
+          }, {
+            "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+            "requestedItems" : [ {
+              "clientMetadata" : {
+                "requestedAppName" : "test-app",
+                "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+              },
+              "removeDate" : "2020-07-11T21:23:15Z",
+              "accountSelection" : [ {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              }, {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              } ],
+              "comment" : "Requesting access profile for John Doe",
+              "id" : "2c9180835d2e5168015d32f890ca1581",
+              "type" : "ACCESS_PROFILE",
+              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+            }, {
+              "clientMetadata" : {
+                "requestedAppName" : "test-app",
+                "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+              },
+              "removeDate" : "2020-07-11T21:23:15Z",
+              "accountSelection" : [ {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              }, {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              } ],
+              "comment" : "Requesting access profile for John Doe",
+              "id" : "2c9180835d2e5168015d32f890ca1581",
+              "type" : "ACCESS_PROFILE",
+              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+            } ]
           } ]
         }
         "@
@@ -14271,6 +14398,7 @@
       label: SDK_tools/sdk/powershell/beta/methods/workflows#get-workflow
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
+        $WorkflowMetrics = $false # Boolean | disable workflow metrics (optional) (default to $true)
         
         # Get Workflow By Id
         
@@ -14278,7 +14406,7 @@
             Get-BetaWorkflow -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-BetaWorkflow -Id $Id   
+            # Get-BetaWorkflow -Id $Id -WorkflowMetrics $WorkflowMetrics   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkflow"
             Write-Host $_.ErrorDetails
@@ -14430,6 +14558,10 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/workflows#list-workflows
       source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $TriggerId = "idn:identity-created" # String | Trigger ID (optional)
+        $ConnectorInstanceId = "28541fec-bb81-4ad4-88ef-0f7d213adcad" # String | Connector Instance ID (optional)
         
         # List Workflows
         
@@ -14437,7 +14569,7 @@
             Get-BetaWorkflows 
     
             # Below is a request that includes all optional parameters
-            # Get-BetaWorkflows   
+            # Get-BetaWorkflows -Limit $Limit -Offset $Offset -TriggerId $TriggerId -ConnectorInstanceId $ConnectorInstanceId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkflows"
             Write-Host $_.ErrorDetails
@@ -14509,56 +14641,11 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaWorkflowExternalTrigger"
             Write-Host $_.ErrorDetails
         }
-- path: /workflows/execute/external/{id}/test
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/workflows#test-external-execute-workflow
-      source: |
-        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
-        $TestExternalExecuteWorkflowRequest = @"
-        
-        "@
-        
-        # Test Workflow via External Trigger
-        
-        try {
-            Test-BetaExternalExecuteWorkflow -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Test-BetaExternalExecuteWorkflow -Id $Id -TestExternalExecuteWorkflowRequest $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaExternalExecuteWorkflow"
-            Write-Host $_.ErrorDetails
-        }
-- path: /workflows/{id}/test
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/workflows#test-workflow
-      source: |
-        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
-        $TestWorkflowRequest = @"
-        {input={identity={id=ee769173319b41d19ccec6cea52f237b, name=john.doe, type=IDENTITY}, changes=[{attribute=department, oldValue=sales, newValue=marketing}, {attribute=manager, oldValue={id=ee769173319b41d19ccec6c235423237b, name=nice.guy, type=IDENTITY}, newValue={id=ee769173319b41d19ccec6c235423236c, name=mean.guy, type=IDENTITY}}, {attribute=email, oldValue=john.doe@hotmail.com, newValue=john.doe@gmail.com}]}}
-        "@
-        
-        # Test Workflow By Id
-        
-        try {
-            $Result = ConvertFrom-JsonToTestWorkflowRequest -Json $TestWorkflowRequest
-            Test-BetaWorkflow -Id $Id -TestWorkflowRequest $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Test-BetaWorkflow -Id $Id -TestWorkflowRequest $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaWorkflow"
-            Write-Host $_.ErrorDetails
-        }
 - path: /workflows/{id}
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/workflows#update-workflow
+      label: SDK_tools/sdk/powershell/beta/methods/workflows#put-workflow
       source: |
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
         $WorkflowBody = @"
@@ -14608,11 +14695,56 @@
         
         try {
             $Result = ConvertFrom-JsonToWorkflowBody -Json $WorkflowBody
-            Update-BetaWorkflow -Id $Id -WorkflowBody $Result 
+            Send-BetaWorkflow -Id $Id -WorkflowBody $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-BetaWorkflow -Id $Id -WorkflowBody $Result   
+            # Send-BetaWorkflow -Id $Id -WorkflowBody $Result   
         } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaWorkflow"
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaWorkflow"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/execute/external/{id}/test
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/workflows#test-external-execute-workflow
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
+        $TestExternalExecuteWorkflowRequest = @"
+        
+        "@
+        
+        # Test Workflow via External Trigger
+        
+        try {
+            Test-BetaExternalExecuteWorkflow -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Test-BetaExternalExecuteWorkflow -Id $Id -TestExternalExecuteWorkflowRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaExternalExecuteWorkflow"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/{id}/test
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/workflows#test-workflow
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
+        $TestWorkflowRequest = @"
+        {input={identity={id=ee769173319b41d19ccec6cea52f237b, name=john.doe, type=IDENTITY}, changes=[{attribute=department, oldValue=sales, newValue=marketing}, {attribute=manager, oldValue={id=ee769173319b41d19ccec6c235423237b, name=nice.guy, type=IDENTITY}, newValue={id=ee769173319b41d19ccec6c235423236c, name=mean.guy, type=IDENTITY}}, {attribute=email, oldValue=john.doe@hotmail.com, newValue=john.doe@gmail.com}]}}
+        "@
+        
+        # Test Workflow By Id
+        
+        try {
+            $Result = ConvertFrom-JsonToTestWorkflowRequest -Json $TestWorkflowRequest
+            Test-BetaWorkflow -Id $Id -TestWorkflowRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Test-BetaWorkflow -Id $Id -TestWorkflowRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaWorkflow"
             Write-Host $_.ErrorDetails
         }

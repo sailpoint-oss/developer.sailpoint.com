@@ -276,6 +276,7 @@ Get a single workflow by id.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Id of the workflow
+  Query | WorkflowMetrics | **Boolean** |   (optional) (default to $true) | disable workflow metrics
 
 ### Return type
 [**Workflow**](../models/workflow)
@@ -297,6 +298,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
+$WorkflowMetrics = $false # Boolean | disable workflow metrics (optional) (default to $true)
 
 # Get Workflow By Id
 
@@ -304,7 +306,7 @@ try {
     Get-Workflow -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-Workflow -Id $Id  
+    # Get-Workflow -Id $Id -WorkflowMetrics $WorkflowMetrics  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-Workflow"
     Write-Host $_.ErrorDetails
@@ -664,6 +666,10 @@ List all workflows in the tenant.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | TriggerId | **String** |   (optional) | Trigger ID
+  Query | ConnectorInstanceId | **String** |   (optional) | Connector Instance ID
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**Workflow[]**](../models/workflow)
@@ -684,6 +690,10 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$TriggerId = "idn:identity-created" # String | Trigger ID (optional)
+$ConnectorInstanceId = "28541fec-bb81-4ad4-88ef-0f7d213adcad" # String | Connector Instance ID (optional)
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
 # List Workflows
 
@@ -691,7 +701,7 @@ try {
     Get-Workflows 
     
     # Below is a request that includes all optional parameters
-    # Get-Workflows  
+    # Get-Workflows -TriggerId $TriggerId -ConnectorInstanceId $ConnectorInstanceId -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-Workflows"
     Write-Host $_.ErrorDetails

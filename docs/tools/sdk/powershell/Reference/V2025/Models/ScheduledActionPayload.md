@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 ```powershell
 $ScheduledActionPayload = Initialize-PSSailpoint.V2025ScheduledActionPayload  -JobType BACKUP `
  -StartTime 2024-08-16T14:16:58.389Z `
- -CronString 0 0 12 * * ? `
+ -CronString 0 0 * * * * `
  -TimeZoneId America/Chicago `
  -Content null
 ```

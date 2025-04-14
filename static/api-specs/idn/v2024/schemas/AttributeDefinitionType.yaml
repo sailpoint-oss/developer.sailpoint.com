@@ -4,6 +4,7 @@ enum:
   - LONG
   - INT
   - BOOLEAN
+  - DATE
 description:
   The underlying type of the value which an AttributeDefinition represents.
 example: STRING

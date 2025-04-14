@@ -301,7 +301,7 @@ configuration = Configuration()
 
 with ApiClient(configuration) as api_client:
     scheduled_action_payload = '''{
-          "cronString" : "0 0 12 * * ?",
+          "cronString" : "0 0 * * * *",
           "timeZoneId" : "America/Chicago",
           "startTime" : "2024-08-16T14:16:58.389Z",
           "jobType" : "BACKUP",

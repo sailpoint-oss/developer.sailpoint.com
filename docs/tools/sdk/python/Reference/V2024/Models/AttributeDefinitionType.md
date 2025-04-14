@@ -23,5 +23,7 @@ The underlying type of the value which an AttributeDefinition represents.
 
 * `BOOLEAN` (value: `'BOOLEAN'`)
 
+* `DATE` (value: `'DATE'`)
+
 [[Back to top]](#) 
 

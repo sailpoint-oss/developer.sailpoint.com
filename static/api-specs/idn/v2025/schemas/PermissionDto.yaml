@@ -5,6 +5,7 @@ properties:
   rights:
     type: array
     description: All the rights (e.g. actions) that this permission allows on the target
+    example: HereIsRight1
     readOnly: true
     items:
       type: string

@@ -1,0 +1,66 @@
+post:
+  operationId: createSegment
+  tags:
+    - Segments
+  summary: Create Segment
+  description: >-
+    This API creates a segment. 
+
+    >**Note:** Segment definitions may take time to propagate to all identities.
+
+    A token with ORG_ADMIN or API authority is required to call this API.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/Segment.yaml'
+  responses:
+    '201':
+      description: Segment created
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/Segment.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+get:
+  operationId: listSegments
+  tags:
+    - Segments
+  summary: List Segments
+  description: >-
+    This API returns a list of all segments.
+
+    A token with ORG_ADMIN or API authority is required to call this API.
+  parameters:
+    - $ref: '../../v3/parameters/limit.yaml'
+    - $ref: '../../v3/parameters/offset.yaml'
+    - $ref: '../../v3/parameters/count.yaml'
+  responses:
+    '200':
+      description: List of all segments
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/Segment.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

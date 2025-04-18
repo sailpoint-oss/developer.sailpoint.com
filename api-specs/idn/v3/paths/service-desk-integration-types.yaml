@@ -1,0 +1,31 @@
+get:
+  tags:
+    - Service Desk Integration
+  summary: List Service Desk integration types
+  description: This API endpoint returns the current list of supported Service Desk integration types.
+  operationId: getServiceDeskIntegrationTypes
+  responses:
+    "200":
+      description: Responds with an array of the currently supported Service Desk integration types.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/ServiceDeskIntegrationTemplateType.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  security:
+    - userAuth: [idn:service-desk-integration:read, idn:service-desk-integration:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

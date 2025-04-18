@@ -1,0 +1,22 @@
+type: object
+properties:
+  id:
+    type: string
+    example: 2c938083633d259901633d25c68c00fa
+    description: Id of the object.
+  name:
+    type: string
+    example: Object Name
+    description: Name of the object.
+  description:
+    type: string
+    example: Object Description
+    description: Description of the object.
+  type:
+    type: string
+    enum:
+      - ACCESS_PROFILE
+      - ROLE
+      - ENTITLEMENT
+    description: Type of the object.
+    example: ROLE

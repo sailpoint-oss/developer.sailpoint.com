@@ -1,0 +1,14 @@
+type: object
+properties:
+  status:
+    type: string
+    enum:
+      - COMPLETE
+      - ERROR
+      - IN_PROGRESS
+    description: The status of the SaaSManagement activity data retrieval task
+  reviewItemsActivityData:
+    type: array
+    items:
+      type: object
+      $ref: './ReviewItemActivity.yaml'

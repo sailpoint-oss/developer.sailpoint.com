@@ -1,0 +1,38 @@
+description: A ticket close-loop fulfillment configuration.
+type: object
+properties:
+  resource:
+    description: The resource URL to read a ticket status from the Ticketing System, not including the base URL prefix. This may include query parameters.
+    type: string
+    example: /api/now/table/sc_request?number=$ticketId&sysparm_fields=request_state
+  responseElement:
+    description: JSON path expression specifying where to obtain ticket status from a REST response.
+    type: string
+    example: result.state
+  checkStatusQueryParam:
+    description: A map of query parameters to include on the REST request. This is optional since query parameters can also be included in the resource URL value.
+    type: object
+    additionalProperties: true
+  statusMap:
+    description: A map that relates Ticket System status to IdentityNow status, in the form of key-value (i.e. ServiceNow-IdentityNow) pairs.
+    type: object
+    additionalProperties: true
+    example:
+      closed_cancelled: Failed
+      closed_complete: Committed
+      closed_incomplete: Failed
+      closed_rejected: Failed
+      in_process: Queued
+      requested: Queued
+  statusMapClosureCode:
+    description: A map that relates Ticket System’s close code status to IdentityNow status.
+    type: object
+    additionalProperties: true
+  closureCodeResponseElement:
+    description: JSON path expression specifying where to obtain close code information of a ticket from the REST response.
+    type: string
+    example: result.close_code
+  appendTicketNumber:
+    description: Boolean flag indicating whether or not to append the ticket number to the URL to get status.
+    type: boolean
+

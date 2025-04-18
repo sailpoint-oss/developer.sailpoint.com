@@ -1,0 +1,23 @@
+type : object
+allOf:
+  - $ref: ./RoleMiningPotentialRoleSummary.yaml
+  - type: object
+properties:
+  identityDistribution:
+    description: Identity attribute distribution
+    type: array
+    items:
+      $ref: './RoleMiningIdentityDistribution.yaml'
+example:
+  potentialRoleRef: {
+    "id": "dd4c13c6-8237-4753-bfb7-f627e489f9ec",
+    "name": "Potential Role - dd4c13"
+  }
+  identityCount: "25"
+  entitlementCount: "15"
+  identityGroupStatus: "OBTAINED"
+  "roleId": null
+  "density": 100
+  "freshness": 90
+  "quality": 95
+  identityDistribution: []

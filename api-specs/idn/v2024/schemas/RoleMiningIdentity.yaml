@@ -1,0 +1,21 @@
+type : object
+properties:
+  id:
+    type: string
+    description: Id of the identity
+    example: 2c9180877212632a017228d5934525e6
+  name:
+    type: string
+    description: Name of the identity
+    example: Allene Abernathy-Welch
+  attributes:
+    type: object
+    additionalProperties:
+      type: string
+      nullable: true
+    example: {
+      "jobTitle": "SQL Developer",
+      "department": "IT",
+      "location": "NYC",
+      "firstName": "Allene"
+    }

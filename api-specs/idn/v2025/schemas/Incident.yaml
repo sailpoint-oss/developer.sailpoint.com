@@ -1,0 +1,14 @@
+description: Details of an incident Service Desk integration
+required:
+  - provision
+  - checkStatus
+type: object
+properties:
+  provision:
+    description: provisioning details for the incident Service Desk integration
+    type: object
+    $ref: './BasicProvision.yaml'
+  checkStatus:
+    description: check status mappings for the Service Desk integration
+    type: object
+    $ref: './CheckStatus.yaml'

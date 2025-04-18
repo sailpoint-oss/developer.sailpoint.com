@@ -1,0 +1,21 @@
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        profile:
+          name: profile
+          in: body
+          required: true
+          description: The profile object to be updated with its schema-mapped attributes.
+          type: object
+          properties:
+            attributes:
+              required: false
+              type: object
+              description: schema-mapped attributes to be updated
+          example:
+            attributes:
+              'First Name': John
+              'Last Name': Doe
+              'Email': john.doe@sailpoint.com

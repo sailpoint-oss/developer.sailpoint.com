@@ -1,0 +1,26 @@
+type : object
+properties:
+  numberOfUpdates:
+    type: integer
+    description: Total number of roles with updates
+  lastGenerated:
+    type: string
+    format: 'date-time'
+    description: The date-time role insights were last found.
+    example: '2020-05-19T13:49:37.385Z'
+  entitlementsIncludedInRoles:
+    type: integer
+    description: The number of entitlements included in roles (vs free radicals).
+    example: 45
+  totalNumberOfEntitlements:
+    type: integer
+    description: The total number of entitlements.
+    example: 250
+  identitiesWithAccessViaRoles:
+    type: integer
+    description: The number of identities in roles vs. identities with just entitlements and not in roles.
+    example: 550
+  totalNumberOfIdentities:
+    type: integer
+    description: The total number of identities.
+    example: 980

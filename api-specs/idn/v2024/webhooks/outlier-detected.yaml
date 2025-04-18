@@ -1,0 +1,25 @@
+post:
+  summary: Outlier Detected
+  operationId: outlierDetectedEvent
+  description: >-
+    This event trigger fires when Identity Security Cloud (ISC) detects that identities have unusual access relative their peers.
+    ISC calculates outliers daily, flags the outliers, and notifies the trigger's subscribers when it detects them.
+
+    These are the requirements to use the trigger:
+      * Your organization must have Access Insights, which it needs to access Identity Outliers.
+      * Your organization must have at a configured source that it has loaded account data from.
+      * Your organization's accound data must be onboarded into AI-Driven Identity Security.
+
+    This is a `FIRE_AND_FORGET` event trigger. 
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [Outlier Detected](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/outlier-detected).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content: 
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/OutlierDetected.yaml'

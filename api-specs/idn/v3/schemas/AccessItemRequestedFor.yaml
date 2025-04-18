@@ -1,0 +1,17 @@
+type: object
+description: Identity the access item is requested for.
+properties:
+  type:
+    type: string 
+    description: DTO type of identity the access item is requested for.
+    enum: 
+      - IDENTITY
+    example: IDENTITY
+  id:
+    type: string
+    description: ID of identity the access item is requested for. 
+    example: 2c4180a46faadee4016fb4e018c20626
+  name:
+    type: string
+    description: Human-readable display name of identity the access item is requested for. 
+    example: Robert Robinson

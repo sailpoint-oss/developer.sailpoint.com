@@ -1,0 +1,5 @@
+type: object
+properties:
+  mfaRegistered:
+    type: boolean
+    description: true if the user is registered for MFA; false otherwise

@@ -1,0 +1,6 @@
+summary: Query for Identities
+value:
+  indices:
+    - identities
+  query:
+    query: 'attributes.cloudLifecycleState:active'

@@ -1,0 +1,18 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Common Access Item ID
+  access:
+    $ref: 'CommonAccessItemAccess.yaml'
+  status:
+    $ref: 'CommonAccessItemState.yaml'
+  lastUpdated:
+    type: string
+  reviewedByUser:
+    type: boolean
+  lastReviewed:
+    type: string
+  createdByUser:
+    type: string
+

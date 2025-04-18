@@ -1,0 +1,65 @@
+get:
+  summary: Get user-profile contributor relationships
+  operationId: getUserProfiles
+  description: Get user-profile contributor relationships
+  tags:
+    - user profiles
+  parameters:
+    - $ref: "../parameters/query/query.yaml"
+    - $ref: "../parameters/query/user_id.yaml"
+    - $ref: "../parameters/query/ne_attribute_id.yaml"
+    - $ref: "../parameters/query/profile_id.yaml"
+    - $ref: "../parameters/query/relationship_type.yaml"
+    - $ref: "../parameters/query/metadata.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UserProfiles_Meta.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+post:
+  summary: Create multiple user-profile contributor relationships
+  operationId: createUserProfiles
+  description: Create multiple user-profile contributor relationships
+  tags:
+    - user profiles
+  requestBody:
+    $ref: "../requestBodies/POST/UserProfiles.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UserProfilesJob.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update multiple user-profile contributor relationships
+  operationId: patchUserProfiles
+  description: Update multiple user-profile contributor relationships
+  tags:
+    - user profiles
+  requestBody:
+    $ref: "../requestBodies/PATCH/UserProfiles.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UserProfilesJob.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+delete:
+  summary: Delete multiple user-profile contributor relationships
+  operationId: deleteUserProfiles
+  description: Delete multiple user-profile contributor relationships
+  tags:
+    - user profiles
+  requestBody:
+    $ref: "../requestBodies/DELETE/UserProfiles.yaml"
+  responses:
+    '200':
+      $ref: "../responses/UserProfilesJob.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

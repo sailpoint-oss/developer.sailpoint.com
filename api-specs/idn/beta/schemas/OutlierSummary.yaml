@@ -1,0 +1,26 @@
+type : object
+properties:
+  type:
+    type: string
+    enum:
+      - LOW_SIMILARITY
+      - STRUCTURAL
+    description: The type of outlier summary
+    example: LOW_SIMILARITY
+  snapshotDate:
+    type: string
+    format: date-time
+    description: The date the bulk outlier detection ran/snapshot was created
+    example: "2021-05-01T18:40:35.772Z"
+  totalOutliers:
+    type: integer
+    description: Total number of outliers for the customer making the request
+    example: 50
+  totalIdentities:
+    type: integer
+    description: Total number of identities for the customer making the request
+    example: 5000
+  totalIgnored:
+    type: integer
+    default: 0
+    example: 0

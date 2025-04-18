@@ -1,0 +1,55 @@
+type: object
+properties:
+  workflow_id:
+    type: string
+    format: uuid
+    required: true
+    description: The workflow the workflow action belongs to.
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  description:
+    type: string
+    required: true
+    description: The description of the workflow action.
+    example: Send a notification to a group of users.
+  email_attribute_id:
+    type: string
+    format: uuid
+    required: false
+    description: The attribute storing the email address for the workflow action.
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  email_addresses:
+    type: array
+    required: false
+    items:
+      type: string
+      format: text
+    description: The email addresses for the workflow action.
+    example: ["johndoe@gmail.com", "janedoe@gmail.com"]
+  archived:
+    type: boolean
+    default: false
+    description: If the workflow action is archived or not.  
+    example: false  
+  workflow_action_email_attributes:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+        description: the id.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+      workflow_action_id:
+        type: string
+        format: uuid
+        description: the id of the workflow action.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+      email_id:
+        type: string
+        format: uuid
+        description: the id of the email.
+        example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+      type:
+        type: string
+        enum: [StandardEmail]
+        description: the type of email.
+        example: StandardEmail

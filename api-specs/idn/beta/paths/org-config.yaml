@@ -1,0 +1,69 @@
+get:
+    operationId: getOrgConfig
+    tags:
+        - Org Config
+    summary: Get Org configuration settings
+    security:
+        - userAuth: [ idn:org-configs:read, idn:org-configs:manage]
+    description: >-
+        Get org configuration with only external (org admin) accessible properties for the current org.
+    responses:
+        '200':
+            description: Request succeeded.
+            content:
+                application/json:
+                    schema:
+                        $ref: '../schemas/OrgConfig.yaml'
+        '400':
+            $ref: '../../v3/responses/400.yaml'
+        '401':
+            $ref: '../../v3/responses/401.yaml'
+        '403':
+            $ref: '../../v3/responses/403.yaml'
+        '404':
+            $ref: '../../v3/responses/404.yaml'
+        '429':
+            $ref: '../../v3/responses/429.yaml'
+        '500':
+            $ref: '../../v3/responses/500.yaml'
+patch:
+    operationId: patchOrgConfig
+    tags:
+        - Org Config
+    summary: Patch an Org configuration property
+    security:
+        - userAuth: [ idn:org-configs:manage]
+    description: >-
+        Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org.
+    requestBody:
+        description: A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+        content:
+            application/json-patch+json:
+                schema:
+                    type: array
+                    items:
+                        $ref: '../schemas/JsonPatchOperation.yaml'
+                example:
+                    - op: "replace"
+                      path: "/timeZone"
+                      value: "America/Toronto"
+        required: true
+    responses:
+        '200':
+            description: The Org was successfully patched.
+            content:
+                application/json:
+                    schema:
+                        $ref: '../schemas/OrgConfig.yaml'
+        '400':
+            $ref: '../../v3/responses/400.yaml'
+        '401':
+            $ref: '../../v3/responses/401.yaml'
+        '403':
+            $ref: '../../v3/responses/403.yaml'
+        '404':
+            $ref: '../../v3/responses/404.yaml'
+        '429':
+            $ref: '../../v3/responses/429.yaml'
+        '500':
+            $ref: '../../v3/responses/500.yaml'

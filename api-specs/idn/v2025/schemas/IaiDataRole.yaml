@@ -1,0 +1,20 @@
+type : object
+properties:
+  name:
+    type: string
+    description: Role name
+  id:
+    type: string
+    description: Role ID
+  description:
+    type: string
+    description: Role description
+  ownerName:
+    type: string
+    description: Role owner name
+  ownerId:
+    type: string
+    description: Role owner ID
+  assignable:
+    type: boolean
+    description: Flag indicating whether or not the role is assignable

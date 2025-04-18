@@ -1,0 +1,49 @@
+post:
+  operationId: bulkUpdateAuthUser
+  tags:
+    - Auth User
+  summary: Auth User Bulk Update
+  description: Update up to 100 existing auth users in a batch.
+  #  security:
+  #    - oauth2: [sp:auth-user:update]
+  requestBody:
+    required: true
+    description: |
+      A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+
+      PATCH can only be applied to the following fields:
+        *   "capabilities"
+
+      A list of valid capabilities can be found using the GET ams/v3/authorization/authorization-capabilities/ endpoint.
+      Capabilities can only be patched if they are administrator assignable, as indicated by the 'adminAssignable' field from the output of list authorization-capabilities.
+      Capabilities that have a legacy group ('legacyGroup' field) need to be patched using the legacyGroup name (e.g. 'ORG_ADMIN').
+      Capabilities that are adminAssignable but do not have a legacyGroup can be patched using the ams id (e.g. 'cam:new-role').
+
+      A 400.1.1 Illegal update attempt detail code indicates that you attempted to PATCH a field that is not allowed.
+
+      Requires security scope of 'sp:auth-user:update'
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/BulkUpdateAuthUser.yaml'
+  responses:
+    '200':
+      description: All Auth users successfully updated.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/AuthUser.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

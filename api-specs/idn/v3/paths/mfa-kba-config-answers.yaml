@@ -1,0 +1,69 @@
+post:
+  operationId: setMFAKBAConfig
+  tags:
+    - MFA Configuration
+  summary: Set MFA KBA configuration
+  description: >-
+    This API sets answers to challenge questions. 
+    Any configured questions omitted from the request are removed from user KBA configuration.    
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: "../schemas/KbaAnswerRequestItem.yaml"
+        example:
+          [
+            {
+              "id": "173423",
+              "answer": "822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34"
+            },
+            {
+              "id": "c54fee53-2d63-4fc5-9259-3e93b9994135",
+              "answer": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"
+            }
+          ]
+  security:
+    - userAuth: [idn:mfa-kba:authenticate]
+  x-sailpoint-userLevels:
+    - USER
+  responses:
+    "200":
+      description: The new KBA configuration for the user.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/KbaAnswerResponseItem.yaml"
+          example:
+            [
+              {
+                "id": "143cfd3b-c23f-426b-ae5f-d3db06fa5919",
+                "question": "[{\"text\":\"Nouvelle question MFA -1 ?\",\"locale\":\"fr\"},{\"text\":\"MFA new question -1 ?\",\"locale\":\"\"}]",
+                "hasAnswer": false
+              },
+              {
+                "id": "173421",
+                "question": "[{\"text\":\"What is your alphanumeric PIN?\",\"locale\":\"\"}]",
+                "hasAnswer": true
+              },
+              {
+                "id": "c54fee53-2d63-4fc5-9259-3e93b9994135",
+                "question": "[{\"text\":\"Nouvelle question MFA - 2 ?\",\"locale\":\"fr\"},{\"text\":\"MFA new question - 2 ?\",\"locale\":\"\"}]",
+                "hasAnswer": true
+              }
+            ]
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+

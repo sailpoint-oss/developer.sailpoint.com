@@ -1,0 +1,26 @@
+type: object
+properties:
+  id:
+    type: string
+    example: 123b45b0-aaaa-bbbb-a7db-123456a56abc
+    description: UUID associated with domain to be verified
+  address:
+    type: string
+    example: BobSmith@sailpoint.com
+    description: The identity or domain address
+  dkimEnabled:
+    type: boolean
+    default: false
+    example: true
+    description: Whether or not DKIM has been enabled for this domain / identity
+  dkimTokens:
+    type: array
+    items:
+      type: string
+    example: [ "uq1m3jjk25ckd3whl4n7y46c56r5l6aq","u7pm38jky9ckdawhlsn7y4dcj6f5lpgq","uhpm3jjkjjckdkwhlqn7yw6cjer5tpay" ]
+    description: The tokens to be added to a DNS for verification
+  dkimVerificationStatus:
+    type: string
+    example: Success
+    description: The current status if the domain /identity has been verified. Ie Success, Failed, Pending
+description: DKIM attributes for a domain or identity

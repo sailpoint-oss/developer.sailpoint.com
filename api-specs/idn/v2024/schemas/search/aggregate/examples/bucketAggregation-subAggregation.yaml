@@ -1,0 +1,14 @@
+summary: BucketAggregation with SubAggregation
+value:
+  indices:  [ 'identities' ]
+  aggregationType: 'SAILPOINT'
+  aggregations:
+    bucket:
+      name: 'Identity Department'
+      type: 'TERMS'
+      field: 'attributes.department'
+    subAggregation:
+      bucket:
+        name: 'Identity Locations'
+        type: 'TERMS'
+        field: 'attributes.city'

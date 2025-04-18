@@ -1,0 +1,63 @@
+type: object
+nullable: true
+properties:
+  key:
+    type: string
+    nullable: true
+  text:
+    type: string
+  blocks:
+    type: string
+    nullable: true
+  attachments:
+    type: string
+  notificationType:
+    type: string
+    nullable: true
+  approvalId:
+    type: string
+    nullable: true
+  requestId:
+    type: string
+    nullable: true
+  requestedById:
+    type: string
+    nullable: true
+  isSubscription:
+    type: boolean
+    nullable: true
+  autoApprovalData:
+    type: object
+    nullable: true
+    properties:
+      isAutoApproved:
+        type: string
+        nullable: true
+      itemId:
+        type: string
+        nullable: true
+      itemType:
+        type: string
+        nullable: true
+      autoApprovalMessageJSON:
+        type: string
+        nullable: true
+      autoApprovalTitle:
+        type: string
+        nullable: true
+  customFields:
+    type: object
+    nullable: true
+    properties:
+      requestType:
+        type: string
+        nullable: true
+      containsDeny:
+        type: string
+        nullable: true
+      campaignId:
+        type: string
+        nullable: true
+      campaignStatus:
+        type: string
+        nullable: true

@@ -1,0 +1,7 @@
+summary: Uncorrelated Accounts report
+value:
+  reportType: UNCORRELATED_ACCOUNTS
+  arguments:
+    selectedFormats:
+      - 'CSV'
+      - 'PDF'

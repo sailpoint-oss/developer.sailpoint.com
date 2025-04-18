@@ -1,0 +1,15 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The ID of the configuration
+    example: '01555555-1d31-4fc11-923a-ad448b8989f'
+  type:
+    type: string
+    description: The type of the configuration
+    example: 'idn'
+  attributes:
+    type: object
+    description: A map containing the configurations for a customer
+    additionalProperties:
+      type: string

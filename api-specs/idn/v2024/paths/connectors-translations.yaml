@@ -1,0 +1,110 @@
+get:
+  tags:
+    - Connectors
+  operationId: getConnectorTranslations
+  summary: Get Connector Translations
+  description: >-
+    Fetches a connector's translations using its script name.    
+  parameters:
+    - name: scriptName
+      in: path
+      description: The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+      required: true
+      x-sailpoint-resource-operation-id: getConnectorList
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: aScriptName
+    - name: locale
+      in: path
+      required: true
+      schema:
+        type: string
+        enum: [de, no, fi, sv, ru, pt, ko, zh-TW, en, it, fr, zh-CN, hu, es, cs, ja, pl, da, nl]
+        example: de
+      description: >-
+        The locale to apply to the config. If no viable locale is given, it will default to "en"
+  responses:
+    '200':
+      description: The connector's translations
+      content:
+        text/plain:
+          schema:
+            type: string
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - userAuth: [ idn:connector-config:read, idn:connector-config:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+put:
+  tags:
+    - Connectors
+  operationId: putConnectorTranslations
+  summary: Update Connector Translations
+  description: >-
+    Update a connector's translations using its script name.    
+  parameters:
+    - name: scriptName
+      in: path
+      description: The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
+      required: true
+      x-sailpoint-resource-operation-id: getConnectorList
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: aScriptName
+    - name: locale
+      in: path
+      required: true
+      schema:
+        type: string
+        enum: [de, no, fi, sv, ru, pt, ko, zh-TW, en, it, fr, zh-CN, hu, es, cs, ja, pl, da, nl]
+        example: de
+      description: >-
+        The locale to apply to the config. If no viable locale is given, it will default to "en"
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+  responses:
+    '200':
+      description: The connector's update detail
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/UpdateDetail.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - userAuth: [ idn:connector-config:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN

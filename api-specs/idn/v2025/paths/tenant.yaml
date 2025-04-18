@@ -1,0 +1,30 @@
+get:
+  operationId: getTenant
+  tags:
+  - Tenant
+  summary: Get Tenant Information.
+  description: This rest endpoint can be used to retrieve tenant details.
+  security:
+  - userAuth:
+    - sp:tenant:read
+  x-sailpoint-userLevels:
+    - Any
+  responses:
+    '200':
+      description: Tenant Info
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/Tenant.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

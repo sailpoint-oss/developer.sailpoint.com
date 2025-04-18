@@ -1,0 +1,14 @@
+type: object
+required:
+  - attributes
+properties:
+  attributes:
+    description: The schema attribute values for the account
+    type: object
+    additionalProperties: true
+    example:
+      city: Austin
+      displayName: John Doe
+      userName: jdoe
+      sAMAccountName: jDoe
+      mail: john.doe@sailpoint.com

@@ -34,7 +34,7 @@ $AccessModelMetadata = Initialize-PSSailpoint.V2025AccessModelMetadata  -Key isc
  -Multiselect true `
  -Status active `
  -Type governance `
- -ObjectTypes null `
+ -ObjectTypes [general] `
  -Description Indicates the type of deployment environment of an access item. `
  -Values null
 ```

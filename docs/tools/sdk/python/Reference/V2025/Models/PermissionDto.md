@@ -27,9 +27,7 @@ Name | Type | Description | Notes
 from sailpoint.v2025.models.permission_dto import PermissionDto
 
 permission_dto = PermissionDto(
-rights=[
-                    'SELECT'
-                    ],
+rights=HereIsRight1,
 target='SYS.GV_$TRANSACTION'
 )
 

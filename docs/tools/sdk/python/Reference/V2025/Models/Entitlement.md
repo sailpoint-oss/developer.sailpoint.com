@@ -22,8 +22,8 @@ Name | Type | Description | Notes
 **value** | **str** | The value of the entitlement | [optional] 
 **source_schema_object_type** | **str** | The object type of the entitlement from the source schema | [optional] 
 **description** | **str** | The description of the entitlement | [optional] 
-**privileged** | **bool** | True if the entitlement is privileged | [optional] 
-**cloud_governed** | **bool** | True if the entitlement is cloud governed | [optional] 
+**privileged** | **bool** | True if the entitlement is privileged | [optional] [default to False]
+**cloud_governed** | **bool** | True if the entitlement is cloud governed | [optional] [default to False]
 **requestable** | **bool** | True if the entitlement is able to be directly requested | [optional] [default to False]
 **owner** | [**EntitlementOwner**](entitlement-owner) |  | [optional] 
 **manually_updated_fields** | **map[string]object** | A map of entitlement fields that have been manually updated. The key is the field name in UPPER_SNAKE_CASE format, and the value is true or false to indicate if the field has been updated. | [optional] 
@@ -64,9 +64,7 @@ access_model_metadata=sailpoint.v2025.models.entitlement_access_model_metadata.E
                             multiselect = True, 
                             status = 'active', 
                             type = 'governance', 
-                            object_types = [
-                                'general'
-                                ], 
+                            object_types = [general], 
                             description = 'Indicates the type of deployment environment of an access item.', 
                             values = [
                                 sailpoint.v2025.models.access_model_metadata_values_inner.AccessModelMetadata_values_inner(
@@ -85,9 +83,7 @@ attributes={fieldName=fieldValue},
 segments=[f7b1b8a3-5fed-4fd4-ad29-82014e137e19, 29cb6c06-1da8-43ea-8be4-b3125f248f2a],
 direct_permissions=[
                     sailpoint.v2025.models.permission_dto.PermissionDto(
-                        rights = [
-                            'SELECT'
-                            ], 
+                        rights = HereIsRight1, 
                         target = 'SYS.GV_$TRANSACTION', )
                     ]
 )

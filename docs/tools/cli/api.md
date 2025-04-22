@@ -11,7 +11,7 @@ slug: /tools/cli/api
 tags: ['CLI']
 ---
 
-Learn how to use the SailPoint CLI to make generic api calls in this guide.
+Learn how to use the SailPoint CLI to make generic API calls in this guide.
 
 The `api` command makes it easy to call SailPoint APIs and parse the results using JSONPath queries if needed.
 
@@ -53,7 +53,7 @@ sail api get /v2025/entitlements/ -H "X-SailPoint-Experimental:true"
 
 Use the `--query` or `-q` flag to provide query parameters.
 
-For example, to retrieve a list of entitlements owned by a specific identity:
+For example, run this command to retrieve a list of entitlements owned by a specific identity:
 
 :::tip
 Query parameters may need to be escaped depending on their use.
@@ -93,7 +93,7 @@ sail api post /v2025/transforms --file-body ./transform.json
 
 Use the `patch` sub command to update resources.
 
-Run the following command to update the owner of an access profile.
+Run the following command to update the owner of an access profile:
 
 ```shell
  sail api patch /v2025/access-profiles/<access-profile-id> --body '[{"op":"replace","path":"/owner/id","value":"<identity-id>"}]'
@@ -101,7 +101,7 @@ Run the following command to update the owner of an access profile.
 
 ## Put Requests
 
-Run this command to replace a transform object using the v2025 api:
+Run this command to replace a transform object using the v2025 API:
 
 ```shell
 sail api put /v2025/transforms/<transform-id> --body '{"name":"ToLowerCase","type":"lower","attributes":{}}'
@@ -117,7 +117,7 @@ sail api put /v2025/transforms --file-body ./updated-transform.json
 
 Use this command to remove resources from Identity Security Cloud.
 
-Run the following command to remove a transform from your tenant.
+Run the following command to remove a transform from your tenant:
 
 ```shell
 sail api delete /v2025/transforms/<transform-id>
@@ -127,7 +127,7 @@ sail api delete /v2025/transforms/<transform-id>
 
 You can combine the `--jsonpath` flag with tools like [jq](https://jqlang.org/) to chain commands and perform complex operations.
 
-For example, the following script reassigns roles from one owner to another. It uses `--jsonpath` to extract role IDs owned by the source identity, then updates each role with the new owner using sail api patch.
+For example, the following script reassigns roles from one owner to another. It uses `--jsonpath` to extract role IDs owned by the source identity, then updates each role with the new owner using `sail api patch`.
 
 ```shell
 #!/bin/bash

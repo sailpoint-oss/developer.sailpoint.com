@@ -25,7 +25,7 @@ The `reassign` command makes it easy to reassign ownership for the following sup
 
 ## Reassign all object types
 
-Use the following command to reassign all supported object types from one identity to another.
+Use the following command to reassign all supported object types from one identity to another:
 
 :::caution
 It is recommended to use the `--dry-run` flag first to make sure the objects gathered are in fact the ones you wish to modify.
@@ -35,7 +35,7 @@ It is recommended to use the `--dry-run` flag first to make sure the objects gat
 sail reassign --from <old-owner-id> --to <new-owner-id> --dry-run
 ```
 
-The command will gather the supported object types, then display a simple report to show you a summary of which objects will be reassigned.
+The command will gather the supported object types and then display a simple report to show you a summary of which objects will be reassigned.
 
 You also have the ability to save the full report to a file in which you can view the objects in detail.
 
@@ -75,7 +75,7 @@ sail reassign --from <old-owner-id> --to <new-owner-id> --force
 
 ## Reassign specific object types
 
-Use the following command to reassign only workflows and roles from one identity to another.
+Use the following command to reassign only workflows and roles from one identity to another:
 
 ```shell
 sail reassign --from <old-owner-id> --to <new-owner-id> --object-types workflow,role --dry-run
@@ -101,7 +101,7 @@ Total:             3 objects
 No changes have been made. Run the command without --dry-run to proceed.
 ```
 
-Run the command without `--dry-run` to proceed with the reassignment.
+Run the command without `--dry-run` to proceed with the reassignment:
 
 ```shell
 sail reassign --from <old-owner-id> --to <new-owner-id> --object-types workflow,role
@@ -111,7 +111,7 @@ You will still be asked if you wish to save the full report and confirm that you
 
 ### Reassign specific object types without confirmation
 
-Run the following command to reassign all workflows and roles from one identity to another without being asked for confirmation.
+Run the following command to reassign all workflows and roles from one identity to another without being asked for confirmation:
 
 ```shell
 sail reassign --from <old-owner-id> --to <new-owner-id> --object-types workflow,role --force
@@ -119,7 +119,7 @@ sail reassign --from <old-owner-id> --to <new-owner-id> --object-types workflow,
 
 ## Reassign a single object
 
-Use the reassign command with the `--object-id` flag, passing in the id of the object you wish to reassign. The command will determine its object type and generate the preview.
+Use the reassign command with the `--object-id` flag, passing in the id of the object you wish to reassign. The command will determine its object type and generate the preview:
 
 ```shell
 sail reassign --from <old-owner-id> --to <new-owner-id> --object-id <object-id>
@@ -129,7 +129,7 @@ To continue with the reassignment, call the command again without `--dry-run` an
 
 ### Reassign a single object without confirmation
 
-Run the following command to reassign a single object from one identity to another without being asked for confirmation.
+Run the following command to reassign a single object from one identity to another without being asked for confirmation:
 
 ```shell
 sail reassign --from <old-owner-id> --to <new-owner-id> --object-id <object-id> --force

@@ -18,7 +18,15 @@ tags: ['Connectivity', 'Connector Command']
 
 ```javascript
 {
-    "type": "group"
+    "type": "group",
+    "stateful": "true",
+    "state": {
+        "date": "4/23/2024"
+    },
+    "schema": {
+        "type": "string",
+        "includePermissions": true
+    }
 }
 ```
 
@@ -33,10 +41,15 @@ tags: ['Connectivity', 'Connector Command']
         }
     },
     "type": "group",
+    "deleted": false,
     "attributes": {
         "id": "administrator",
         "name": "Administrator"
-    }
+    },
+    "permissions": [
+        "target": "SYSADMIN",
+        "rights": "useAccounts,retrieveAccounts"
+    ]
 }
 ```
 

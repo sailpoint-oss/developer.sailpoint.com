@@ -22,6 +22,7 @@ import (
  "os"
 
  sailpoint "github.com/sailpoint-oss/golang-sdk"
+ beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 )
 
 func main() {
@@ -30,14 +31,14 @@ func main() {
  configuration := sailpoint.NewDefaultConfiguration()
  apiClient := sailpoint.NewAPIClient(configuration)
 
- workgroup, r, err := apiClient.Beta.GovernanceGroupsApi.ListWorkgroups(ctx).Filters(`name eq "DB Access Governance Group"`).Execute()
+ workgroup, r, err := apiClient.Beta.GovernanceGroupsAPI.ListWorkgroups(ctx).Filters(`name eq "DB Access Governance Group"`).Execute()
 
  if err != nil {
   fmt.Fprintf(os.Stderr, "Error when retrieving workgroup`: %v\n", err)
   fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
  }
 
- response, errorMessage := apiClient.Beta.GovernanceGroupsApi.DeleteWorkgroup(ctx, *workgroup[0].Id).Execute()
+ response, errorMessage := apiClient.Beta.GovernanceGroupsAPI.DeleteWorkgroup(ctx, *workgroup[0].Id).Execute()
 
  if errorMessage != nil {
   fmt.Fprintf(os.Stderr, "Error when updating workgroup`: %v\n", errorMessage)

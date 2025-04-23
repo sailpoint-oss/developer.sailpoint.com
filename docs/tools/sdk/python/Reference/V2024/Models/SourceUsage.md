@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 from sailpoint.v2024.models.source_usage import SourceUsage
 
 source_usage = SourceUsage(
-var_date='Fri Apr 21 00:00:00 UTC 2023',
+var_date='Thu Apr 20 20:00:00 EDT 2023',
 count=10.45
 )
 

@@ -770,7 +770,7 @@ from sailpoint.v2025.models.entitlement import Entitlement
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121919ecca' # str | Containing role's ID. # str | Containing role's ID.

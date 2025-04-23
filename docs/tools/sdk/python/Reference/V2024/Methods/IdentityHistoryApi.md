@@ -84,7 +84,7 @@ from sailpoint.v2024.models.identity_compare_response import IdentityCompareResp
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id
@@ -170,7 +170,7 @@ from sailpoint.v2024.models.access_item_diff import AccessItemDiff
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id
@@ -250,7 +250,7 @@ from sailpoint.v2024.models.identity_history_response import IdentityHistoryResp
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id
@@ -329,7 +329,7 @@ from sailpoint.v2024.models.get_historical_identity_events200_response_inner imp
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id
@@ -409,7 +409,7 @@ from sailpoint.v2024.models.identity_history_response import IdentityHistoryResp
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id
@@ -488,7 +488,7 @@ from sailpoint.v2024.models.metric_response import MetricResponse
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id
@@ -566,7 +566,7 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id
@@ -642,7 +642,7 @@ from sailpoint.v2024.models.identity_list_item import IdentityListItem
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -725,7 +725,7 @@ from sailpoint.v2024.models.list_identity_access_items200_response_inner import 
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id
@@ -804,7 +804,7 @@ from sailpoint.v2024.models.list_identity_access_items200_response_inner import 
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id
@@ -884,7 +884,7 @@ from sailpoint.v2024.models.identity_snapshot_summary_response import IdentitySn
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id

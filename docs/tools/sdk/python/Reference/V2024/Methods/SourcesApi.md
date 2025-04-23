@@ -546,7 +546,7 @@ from sailpoint.v2024.models.task_result_dto import TaskResultDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'ebbf35756e1140699ce52b233121384a' # str | The source id # str | The source id
@@ -618,7 +618,7 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
@@ -1100,7 +1100,7 @@ from sailpoint.v2024.models.native_change_detection_config import NativeChangeDe
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
@@ -1294,7 +1294,7 @@ from sailpoint.v2024.models.attr_sync_source_config import AttrSyncSourceConfig
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
@@ -1489,7 +1489,7 @@ from sailpoint.v2024.models.source_entitlement_request_config import SourceEntit
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -1879,7 +1879,7 @@ from sailpoint.v2024.models.load_accounts_task import LoadAccountsTask
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source Id # str | Source Id
@@ -2148,7 +2148,7 @@ from sailpoint.v2024.models.load_uncorrelated_accounts_task import LoadUncorrela
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '75dbec1ebe154d5785da27b95e1dd5d7' # str | Source Id # str | Source Id
@@ -2495,7 +2495,7 @@ from sailpoint.v2024.models.native_change_detection_config import NativeChangeDe
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
@@ -2838,7 +2838,7 @@ from sailpoint.v2024.models.attr_sync_source_config import AttrSyncSourceConfig
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
@@ -3067,7 +3067,7 @@ from sailpoint.v2024.models.source_sync_job import SourceSyncJob
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'id_example' # str | The Source id # str | The Source id
@@ -3531,7 +3531,7 @@ from sailpoint.v2024.models.source_entitlement_request_config import SourceEntit
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')

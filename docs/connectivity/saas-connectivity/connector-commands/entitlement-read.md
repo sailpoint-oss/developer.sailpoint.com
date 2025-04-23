@@ -32,7 +32,11 @@ To use this command, you must specify this value in the `commands` array: `std:e
             "id": "john.doe"
         }
     },
-    "type": "group"
+    "type": "group",
+    "schema": {
+        "type": "string",
+        "includePermissions": true
+    }
 }
 ```
 
@@ -47,10 +51,15 @@ To use this command, you must specify this value in the `commands` array: `std:e
         }
     },
     "type": "group",
+    "deleted": false,
     "attributes": {
         "id": "administrator",
         "name": "Administrator"
-    }
+    },
+    "permissions": [
+        "target": "SYSADMIN",
+        "rights": "useAccounts,retrieveAccounts"
+    ]
 }
 ```
 

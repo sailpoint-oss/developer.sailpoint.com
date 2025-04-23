@@ -41,7 +41,7 @@ get:
         **name**: *eq, sw*
 
 
-        **created**: *gt, lt, ge, le*
+        **created**: *gt, ge, le*
 
 
         **modified**: *gt, lt, ge, le*
@@ -131,7 +131,7 @@ post:
   description: >-
     Create an access profile.
 
-    A user with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the
+    A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the
     access profile's source.
 
     The maximum supported length for the description field is 2000 characters.
@@ -162,7 +162,7 @@ post:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:access-profile:manage]
-    - applicationAuth: [idn:access-profile:manage]
+    - applicationAuth: [idn:access-profile:manage, idn:entitlement:read, idn:identity:read, idn:sources:read]
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - ROLE_ADMIN

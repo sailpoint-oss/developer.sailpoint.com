@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **request_id** | **str** | Backend ID that tracks a workflow request in the system. Provide this ID in a customer support ticket for debugging purposes. | [optional] 
 **start_time** | **datetime** | Date/time when the workflow started. | [optional] 
 **close_time** | **datetime** | Date/time when the workflow ended. | [optional] 
-**status** |  **Enum** [  'Completed',    'Failed',    'Canceled',    'Running' ] | Workflow execution status. | [optional] 
+**status** |  **Enum** [  'Completed',    'Failed',    'Canceled',    'Running',    'Queued' ] | Workflow execution status. | [optional] 
 }
 
 ## Example

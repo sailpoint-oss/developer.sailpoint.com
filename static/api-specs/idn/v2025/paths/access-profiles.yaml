@@ -136,6 +136,8 @@ post:
 
     The maximum supported length for the description field is 2000 characters.
     Longer descriptions will be preserved for existing access profiles. However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
+
+    >**Note:** To use this endpoint, you need all the listed scopes.
   requestBody:
     required: true
     content:

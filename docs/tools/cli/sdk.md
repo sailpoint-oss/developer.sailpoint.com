@@ -22,8 +22,6 @@ Learn how to use the SailPoint CLI to setup an SDK project. This command helps y
 
 ## Golang
 
-<summary>Setting Up Golang SDK project</summary>
-
 The SailPoint CLI offers a few commands that will allow you to quickly get started with the Go SDK. To learn how to install and use the SailPoint CLI, refer to [SailPoint CLI](https://developer.sailpoint.com/idn/tools/cli#get-the-cli).
 
 Once the CLI is installed and configured, run this command to create a new Go project with the Go SDK:
@@ -54,8 +52,6 @@ The SDK is now installed. To learn how to configure the SDK, refer to the [Confi
 
 ## Python
 
-<summary>Setting Up Python SDK project</summary>
-
 The SailPoint CLI offers a few commands that will allow you to quickly get started with the Python SDK. To learn how to install and use the SailPoint CLI, refer to [SailPoint CLI](https://developer.sailpoint.com/idn/tools/cli#get-the-cli).
 
 Once the CLI is installed and configured, run this command to create a new Python project with the Python SDK:
@@ -83,8 +79,6 @@ The SDK is now installed. To learn how to configure the SDK, refer to the [Confi
 
 
 ## PowerShell
-
-<summary>Setting Up PowerShell SDK project</summary>
 
 The SailPoint CLI offers a few commands that will allow you to quickly get started with the PowerShell SDK. To learn how to install and use the SailPoint CLI, refer to [SailPoint CLI](https://developer.sailpoint.com/idn/tools/cli#get-the-cli).
 
@@ -132,8 +126,6 @@ The SDK is now installed. To learn how to configure the SDK, refer to the [Confi
 
 
 ## TypeScript
-
-<summary>Setting Up TypeScript SDK project</summary>
 
 The SailPoint CLI offers a few commands that will allow you to quickly get started with the Typescript SDK. To learn how to install and use the SailPoint CLI, refer to [SailPoint CLI](https://developer.sailpoint.com/idn/tools/cli#get-the-cli).
 

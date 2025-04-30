@@ -419,7 +419,7 @@ Update an existing Service Desk integration by ID with a PATCH request.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the Service Desk integration to update
- Body  | PatchServiceDeskIntegrationRequest | [**PatchServiceDeskIntegrationRequest**](../models/patch-service-desk-integration-request) | True  | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
 
 ### Return type
 [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
@@ -442,16 +442,21 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "anId" # String | ID of the Service Desk integration to update
-$PatchServiceDeskIntegrationRequest = @""@
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+ 
 
 # Patch a Service Desk Integration
 
 try {
-    $Result = ConvertFrom-JsonToPatchServiceDeskIntegrationRequest -Json $PatchServiceDeskIntegrationRequest
-    Update-BetaServiceDeskIntegration -Id $Id -PatchServiceDeskIntegrationRequest $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-BetaServiceDeskIntegration -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaServiceDeskIntegration -Id $Id -PatchServiceDeskIntegrationRequest $Result  
+    # Update-BetaServiceDeskIntegration -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaServiceDeskIntegration"
     Write-Host $_.ErrorDetails

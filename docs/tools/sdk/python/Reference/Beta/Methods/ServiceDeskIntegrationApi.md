@@ -504,7 +504,7 @@ Update an existing Service Desk integration by ID with a PATCH request.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | ID of the Service Desk integration to update
- Body  | patch_service_desk_integration_request | [**PatchServiceDeskIntegrationRequest**](../models/patch-service-desk-integration-request) | True  | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+ Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
 
 ### Return type
 [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
@@ -529,7 +529,7 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.beta.api.service_desk_integration_api import ServiceDeskIntegrationApi
 from sailpoint.beta.api_client import ApiClient
-from sailpoint.beta.models.patch_service_desk_integration_request import PatchServiceDeskIntegrationRequest
+from sailpoint.beta.models.json_patch_operation import JsonPatchOperation
 from sailpoint.beta.models.service_desk_integration_dto import ServiceDeskIntegrationDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
@@ -537,14 +537,14 @@ configuration = Configuration()
 
 with ApiClient(configuration) as api_client:
     id = 'anId' # str | ID of the Service Desk integration to update # str | ID of the Service Desk integration to update
-    patch_service_desk_integration_request = '''sailpoint.beta.PatchServiceDeskIntegrationRequest()''' # PatchServiceDeskIntegrationRequest | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+    json_patch_operation = '''[sailpoint.beta.JsonPatchOperation()]''' # List[JsonPatchOperation] | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
 
     try:
         # Patch a Service Desk Integration
-        new_patch_service_desk_integration_request = PatchServiceDeskIntegrationRequest.from_json(patch_service_desk_integration_request)
-        results = ServiceDeskIntegrationApi(api_client).patch_service_desk_integration(id=id, patch_service_desk_integration_request=new_patch_service_desk_integration_request)
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = ServiceDeskIntegrationApi(api_client).patch_service_desk_integration(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # results = ServiceDeskIntegrationApi(api_client).patch_service_desk_integration(id, new_patch_service_desk_integration_request)
+        # results = ServiceDeskIntegrationApi(api_client).patch_service_desk_integration(id, new_json_patch_operation)
         print("The response of ServiceDeskIntegrationApi->patch_service_desk_integration:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:

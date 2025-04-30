@@ -17797,7 +17797,7 @@
       source: |
         from sailpoint.v2025.api.service_desk_integration_api import ServiceDeskIntegrationApi
         from sailpoint.v2025.api_client import ApiClient
-        from sailpoint.v2025.models.patch_service_desk_integration_request import PatchServiceDeskIntegrationRequest
+        from sailpoint.v2025.models.json_patch_operation import JsonPatchOperation
         from sailpoint.v2025.models.service_desk_integration_dto import ServiceDeskIntegrationDto
         from sailpoint.configuration import Configuration
         configuration = Configuration()
@@ -17805,13 +17805,13 @@
 
         with ApiClient(configuration) as api_client:
           id = 'anId' # str | ID of the Service Desk integration to update # str | ID of the Service Desk integration to update
-          patch_service_desk_integration_request = '''sailpoint.v2025.PatchServiceDeskIntegrationRequest()''' # PatchServiceDeskIntegrationRequest | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+          json_patch_operation = '''[sailpoint.v2025.JsonPatchOperation()]''' # List[JsonPatchOperation] | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
           try:
               # Patch a Service Desk Integration
-              new_patch_service_desk_integration_request = PatchServiceDeskIntegrationRequest.from_json(patch_service_desk_integration_request)
-              results = ServiceDeskIntegrationApi(api_client).patch_service_desk_integration(id=id, patch_service_desk_integration_request=new_patch_service_desk_integration_request)
+              new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+              results = ServiceDeskIntegrationApi(api_client).patch_service_desk_integration(id=id, json_patch_operation=new_json_patch_operation)
               # Below is a request that includes all optional parameters
-              # results = ServiceDeskIntegrationApi(api_client).patch_service_desk_integration(id, new_patch_service_desk_integration_request)
+              # results = ServiceDeskIntegrationApi(api_client).patch_service_desk_integration(id, new_json_patch_operation)
               print("The response of ServiceDeskIntegrationApi->patch_service_desk_integration:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -18725,19 +18725,17 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source Id # str | Source Id
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           file = None # bytearray | The CSV file containing the source accounts to aggregate. (optional) # bytearray | The CSV file containing the source accounts to aggregate. (optional)
           disable_optimization = 'disable_optimization_example' # str | Use this flag to reprocess every account whether or not the data has changed. (optional) # str | Use this flag to reprocess every account whether or not the data has changed. (optional)
           try:
               # Account Aggregation
               
-              results = SourcesApi(api_client).import_accounts(id=id, x_sail_point_experimental=x_sail_point_experimental)
+              results = SourcesApi(api_client).import_accounts(id=id)
               # Below is a request that includes all optional parameters
-              # results = SourcesApi(api_client).import_accounts(id, x_sail_point_experimental, file, disable_optimization)
+              # results = SourcesApi(api_client).import_accounts(id, file, disable_optimization)
               print("The response of SourcesApi->import_accounts:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:

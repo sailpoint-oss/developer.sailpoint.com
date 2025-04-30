@@ -1826,17 +1826,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## import-accounts
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Account Aggregation
 Starts an account aggregation on the specified source. 
 If the target source is a delimited file source, then the CSV file needs to be included in the request body.
@@ -1849,7 +1838,6 @@ You will also need to set the Content-Type header to `multipart/form-data`.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | Source Id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
    | file | **bytearray** |   (optional) | The CSV file containing the source accounts to aggregate.
    | disable_optimization | **str** |   (optional) | Use this flag to reprocess every account whether or not the data has changed.
 
@@ -1879,20 +1867,18 @@ from sailpoint.v2025.models.load_accounts_task import LoadAccountsTask
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source Id # str | Source Id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     file = None # bytearray | The CSV file containing the source accounts to aggregate. (optional) # bytearray | The CSV file containing the source accounts to aggregate. (optional)
     disable_optimization = 'disable_optimization_example' # str | Use this flag to reprocess every account whether or not the data has changed. (optional) # str | Use this flag to reprocess every account whether or not the data has changed. (optional)
 
     try:
         # Account Aggregation
         
-        results = SourcesApi(api_client).import_accounts(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        results = SourcesApi(api_client).import_accounts(id=id)
         # Below is a request that includes all optional parameters
-        # results = SourcesApi(api_client).import_accounts(id, x_sail_point_experimental, file, disable_optimization)
+        # results = SourcesApi(api_client).import_accounts(id, file, disable_optimization)
         print("The response of SourcesApi->import_accounts:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:

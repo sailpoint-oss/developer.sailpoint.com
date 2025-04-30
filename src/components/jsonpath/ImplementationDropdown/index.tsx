@@ -103,7 +103,7 @@ const ImplementationDropdown: React.FC<ImplementationDropdownProps> = ({
           }}
         >
           <MenuItem value="Workflows">Workflow</MenuItem>
-          <MenuItem value="EventTrigger">Event Trigger</MenuItem>
+          <MenuItem value="EventTrigger">Event Trigger & Web Service Connector</MenuItem>
         </Select>
       </FormControl>
     </ThemeProvider>

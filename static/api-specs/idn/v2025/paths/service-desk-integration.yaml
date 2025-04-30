@@ -152,14 +152,9 @@ patch:
     content:
       application/json-patch+json:
         schema:
-          type: object
-          description: A JSONPatch document as defined by [RFC 6902 - JSON Patch](https://tools.ietf.org/html/rfc6902).  Only `replace` operations are accepted by this endpoint.
-          properties:
-            operations:
-              description: Operations to be applied
-              type: array
-              items:
-                $ref: '../schemas/JsonPatchOperation.yaml'
+          type: array
+          items:
+            $ref: '../schemas/JsonPatchOperation.yaml'
           example:
             [
               {

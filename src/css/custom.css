@@ -241,6 +241,7 @@
   --ifm-color-secondary: #cc27b0;
   --ifm-color-secondary-dark: rgb(181, 13, 152);
   --ifm-link-color: #0071cE;
+  --link-color: #0071cE;
 
   --terminal-key: rgb(47, 162, 160);
   --terminal-value: rgb(226, 52, 120);
@@ -297,6 +298,7 @@
   --ifm-color-primary-lighter: #aee1f4;
   --ifm-color-primary-lightest: #bee7f6;
   --ifm-link-color: #7ecfee;
+  --link-color: #7ecfee;
 
   --ifm-color-secondary: #cc27b0;
   --ifm-color-secondary-dark: rgb(181, 13, 152);
@@ -626,5 +628,11 @@ li.tabs__item.openapi-tabs__code-item.openapi-tabs__code-item--typescript::after
   background-repeat: no-repeat;
   z-index: 1; /* Ensure it is above other content */
   
+}
+
+details ol li a:link, details p a:link {
+  text-decoration: underline !important;
+  text-decoration-color: var(--link-color) !important;
+  color: var(--link-color) !important;
 }
 

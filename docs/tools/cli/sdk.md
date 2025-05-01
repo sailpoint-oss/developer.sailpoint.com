@@ -152,3 +152,35 @@ npm install
 ```
 
 The SDK is now installed. To learn how to configure the SDK, refer to the [Configure section](#configure).
+
+## Configure
+
+You must provide configuration to the SDK so it can authenticate to your SailPoint tenant and make API calls. To do so, you can either use a configuration file, "config.json", or environment variables.
+
+### Configuration File
+
+The SDK requires a configuration file to be named "config.json". Within the file, provide these key/value pairs: `ClientId`, `ClientSecret`, `BaseURL`.
+
+The SailPoint CLI offers a command to generate the "config.json" file with your currently configured CLI credentials.
+
+```bash
+sail sdk init config
+```
+
+If you have multiple environments configured with the CLI, you can pass an additional parameter to state the environment you wish to create a "config.json" for. 
+
+To pass an additional parameter that states the environment you want to configure, run this command: 
+
+```bash
+sail sdk init config --env devrel
+```
+
+#### Example "config.json"
+
+```json
+{
+  "ClientId": "g0567b766b413b22c05c66e75d532f1b",
+  "ClientSecret": "cabd0e950a7230b63c1ff45be33fb22065b382b6251a73c61177a8bb5482fcc7",
+  "BaseURL": "https://[tenant].api.identitynow.com"
+}
+```

@@ -2,12 +2,12 @@ get:
   operationId: getRole
   tags:
     - Roles
-  summary: Get a Role
+  summary: Get Role
   description: >-
-    This API returns a Role by its ID.
+    Get a role by ID.
 
-    A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated
-    to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+    A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated
+    to sources with management workgroups of the ROLE_SUBADMIN is a member of.
   parameters:
     - in: path
       name: id
@@ -16,11 +16,11 @@ get:
       schema:
         type: string
       description: >-
-        ID of the Role
+        Role ID.
       example: 2c91808a7813090a017814121e121518
   responses:
     '200':
-      description: List of all Roles
+      description: List of all roles
       content:
         application/json:
           schema:
@@ -45,9 +45,9 @@ patch:
   operationId: patchRole
   tags:
     - Roles
-  summary: Patch a specified Role
+  summary: Patch Role
   description: >-
-    This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
+    Update an existing role, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
     The following fields are patchable:
 
@@ -77,18 +77,18 @@ patch:
 
 
     A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated
-    to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+    to sources with management workgroups of the ROLE_SUBADMIN is a member of.
 
 
     The maximum supported length for the description field is 2000 characters.
-    Longer descriptions will be preserved for existing roles, however, any new roles as well as any updates to existing descriptions will be limited to 2000 characters.
+    ISC preserves longer descriptions for existing roles. However, any new roles as well as any updates to existing descriptions are limited to 2000 characters.
 
 
     When you use this API to modify a role's membership identities, you can only modify up to a limit of 500 membership identities at a time. 
   parameters:
     - name: id
       in: path
-      description: ID of the Role to patch
+      description: Role ID to patch
       required: true
       x-sailpoint-resource-operation-id: listRoles
       schema:
@@ -120,8 +120,8 @@ patch:
 
           Assign a Role to a Segment:
             description: >-
-              This example illustrates the use of patch to assign a Role to a Segment by adding the Segment's ID to the
-              Role's segments array.
+              This example illustrates the use of patch to assign a role to a segment by adding the segment's ID to the
+              role's segments array.
             value:
               [
                 {
@@ -133,7 +133,7 @@ patch:
 
           Set the Membership Selection Criteria to a List of Identities:
             description: >-
-              This example shows how to define a Role's membershp by providing a list of Identities, referenced by their
+              This example shows how to define a role's membershp by providing a list of identities, referenced by their
               IDs.
             value:
               [
@@ -156,8 +156,8 @@ patch:
 
           Set the Membership Selection Criteria to a Standard Expression:
             description: >-
-              This example shows how to define a Role's membership using STANDARD criteria. In this case, the Role
-              will be granted to all Identities which have the *Engineering* attribute from the indicated Source.
+              This example shows how to define a role's membership, using `STANDARD` criteria. In this case, ISC will grant the role
+              to all identities that have the *Engineering* attribute from the indicated source.
             value:
               [
                 {
@@ -185,7 +185,7 @@ patch:
 
           Add a New Clause as the Child of an Existing Standard Expression:
             description: >-
-                This example shows how to add a child clause to an existing STANDARD criteria expression.
+                This example shows how to add a child clause to an existing `STANDARD` criteria expression.
             value:
                [
                 {
@@ -203,7 +203,7 @@ patch:
               ]
 
           Assign a Access Model Metadata to a Role:
-            description: This example shows how to assign a existing metadata to a role.
+            description: This example shows how to assign existing metadata to a role.
             value:
               [
                 {
@@ -250,7 +250,7 @@ patch:
     required: true
   responses:
     '200':
-      description: Responds with the Role as updated.
+      description: Response with the updated role.
       content:
         application/json:
           schema:
@@ -275,13 +275,13 @@ delete:
   operationId: deleteRole
   tags:
     - Roles
-  summary: Delete a Role
+  summary: Delete Role
   description: >-
-    This API deletes a Role by its ID.
+    Delete a role by ID.
 
 
-    A user with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated
-    to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
+    A user with ROLE_SUBADMIN authority may only call this API if all access profiles included in the role are associated
+    to sources with management workgroups the ROLE_SUBADMIN is a member of.
   parameters:
     - in: path
       name: id
@@ -290,7 +290,7 @@ delete:
       schema:
         type: string
       description: >-
-        ID of the Role
+        Role ID.
       example: 2c91808a7813090a017814121e121518
   responses:
     '204':

@@ -47,6 +47,7 @@
           "segments" : [ "f7b1b8a3-5fed-4fd4-ad29-82014e137e19", "29cb6c06-1da8-43ea-8be4-b3125f248f2a" ],
           "accessRequestConfig" : {
             "commentsRequired" : true,
+            "reauthorizationRequired" : true,
             "approvalSchemes" : [ {
               "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
               "approverType" : "GOVERNANCE_GROUP"
@@ -210,7 +211,8 @@
               # Below is a request that includes all optional parameters
               # results = AccessProfilesApi(api_client).get_access_profile_entitlements(id, limit, offset, count, filters, sorters)
               print("The response of AccessProfilesApi->get_access_profile_entitlements:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccessProfilesApi->get_access_profile_entitlements: %s\n" % e)
 - path: /access-profiles
@@ -231,7 +233,7 @@
           limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
           offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-          filters = 'name eq \"SailPoint Support\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*  Filtering is not supported for access profiles and entitlements that have the '+' symbol in their names.  (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*  Filtering is not supported for access profiles and entitlements that have the '+' symbol in their names.  (optional)
+          filters = 'name eq \"SailPoint Support\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*  Filtering is not supported for access profiles and entitlements that have the '+' symbol in their names.  (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*  Filtering is not supported for access profiles and entitlements that have the '+' symbol in their names.  (optional)
           sorters = 'name,-modified' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
           for_segment_ids = '0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d' # str | Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional) # str | Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
           include_unsegmented = True # bool | Indicates whether the response list should contain unsegmented access profiles. If `for-segment-ids` is absent or empty, specifying *include-unsegmented* as `false` results in an error. (optional) (default to True) # bool | Indicates whether the response list should contain unsegmented access profiles. If `for-segment-ids` is absent or empty, specifying *include-unsegmented* as `false` results in an error. (optional) (default to True)
@@ -242,7 +244,8 @@
               # Below is a request that includes all optional parameters
               # results = AccessProfilesApi(api_client).list_access_profiles(for_subadmin, limit, offset, count, filters, sorters, for_segment_ids, include_unsegmented)
               print("The response of AccessProfilesApi->list_access_profiles:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccessProfilesApi->list_access_profiles: %s\n" % e)
 - path: /access-profiles/{id}
@@ -388,7 +391,8 @@
               # Below is a request that includes all optional parameters
               # results = AccessRequestApprovalsApi(api_client).list_completed_approvals(owner_id, limit, offset, count, filters, sorters)
               print("The response of AccessRequestApprovalsApi->list_completed_approvals:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccessRequestApprovalsApi->list_completed_approvals: %s\n" % e)
 - path: /access-request-approvals/pending
@@ -409,7 +413,7 @@
           limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
           offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-          filters = 'id eq \"2c91808568c529c60168cca6f90c1313\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **requestedFor.id**: *eq, in*  **modified**: *gt, lt, ge, le, eq, in*  **accessRequestId**: *eq, in* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **requestedFor.id**: *eq, in*  **modified**: *gt, lt, ge, le, eq, in*  **accessRequestId**: *eq, in* (optional)
+          filters = 'id eq \"2c91808568c529c60168cca6f90c1313\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **requestedFor.id**: *eq, in*  **modified**: *gt, lt, ge, le, eq, in*  **accessRequestId**: *eq, in*  **created**: *gt, lt, ge, le, eq, in* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **requestedFor.id**: *eq, in*  **modified**: *gt, lt, ge, le, eq, in*  **accessRequestId**: *eq, in*  **created**: *gt, lt, ge, le, eq, in* (optional)
           sorters = 'modified' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
           try:
               # Pending Access Request Approvals List
@@ -418,7 +422,8 @@
               # Below is a request that includes all optional parameters
               # results = AccessRequestApprovalsApi(api_client).list_pending_approvals(owner_id, limit, offset, count, filters, sorters)
               print("The response of AccessRequestApprovalsApi->list_pending_approvals:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccessRequestApprovalsApi->list_pending_approvals: %s\n" % e)
 - path: /access-request-approvals/{approvalId}/reject
@@ -499,7 +504,7 @@
 
         with ApiClient(configuration) as api_client:
           access_request = '''{
-          "requestedFor" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210584" ],
+          "requestedFor" : "2c918084660f45d6016617daa9210584",
           "clientMetadata" : {
             "requestedAppId" : "2c91808f7892918f0178b78da4a305a1",
             "requestedAppName" : "test-app"
@@ -513,7 +518,9 @@
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
               "requestedAppName" : "test-app",
@@ -522,7 +529,9 @@
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
               "requestedAppName" : "test-app",
@@ -531,7 +540,9 @@
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
               "requestedAppName" : "test-app",
@@ -540,7 +551,9 @@
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
               "requestedAppName" : "test-app",
@@ -549,7 +562,136 @@
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+          } ],
+          "requestedForWithRequestedItems" : [ {
+            "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+            "requestedItems" : [ {
+              "clientMetadata" : {
+                "requestedAppName" : "test-app",
+                "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+              },
+              "removeDate" : "2020-07-11T21:23:15Z",
+              "accountSelection" : [ {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              }, {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              } ],
+              "comment" : "Requesting access profile for John Doe",
+              "id" : "2c9180835d2e5168015d32f890ca1581",
+              "type" : "ACCESS_PROFILE",
+              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+            }, {
+              "clientMetadata" : {
+                "requestedAppName" : "test-app",
+                "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+              },
+              "removeDate" : "2020-07-11T21:23:15Z",
+              "accountSelection" : [ {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              }, {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              } ],
+              "comment" : "Requesting access profile for John Doe",
+              "id" : "2c9180835d2e5168015d32f890ca1581",
+              "type" : "ACCESS_PROFILE",
+              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+            } ]
+          }, {
+            "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+            "requestedItems" : [ {
+              "clientMetadata" : {
+                "requestedAppName" : "test-app",
+                "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+              },
+              "removeDate" : "2020-07-11T21:23:15Z",
+              "accountSelection" : [ {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              }, {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              } ],
+              "comment" : "Requesting access profile for John Doe",
+              "id" : "2c9180835d2e5168015d32f890ca1581",
+              "type" : "ACCESS_PROFILE",
+              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+            }, {
+              "clientMetadata" : {
+                "requestedAppName" : "test-app",
+                "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+              },
+              "removeDate" : "2020-07-11T21:23:15Z",
+              "accountSelection" : [ {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              }, {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              } ],
+              "comment" : "Requesting access profile for John Doe",
+              "id" : "2c9180835d2e5168015d32f890ca1581",
+              "type" : "ACCESS_PROFILE",
+              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+            } ]
           } ]
         }''' # AccessRequest | 
           try:
@@ -617,7 +759,8 @@
               # Below is a request that includes all optional parameters
               # results = AccessRequestsApi(api_client).list_access_request_status(requested_for, requested_by, regarding_identity, assigned_to, count, limit, offset, filters, sorters, request_state)
               print("The response of AccessRequestsApi->list_access_request_status:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccessRequestsApi->list_access_request_status: %s\n" % e)
 - path: /access-request-config
@@ -724,7 +867,8 @@
               # Below is a request that includes all optional parameters
               # results = AccountActivitiesApi(api_client).list_account_activities(requested_for, requested_by, regarding_identity, limit, offset, count, filters, sorters)
               print("The response of AccountActivitiesApi->list_account_activities:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccountActivitiesApi->list_account_activities: %s\n" % e)
 - path: /account-usages/{accountId}/summaries
@@ -753,7 +897,8 @@
               # Below is a request that includes all optional parameters
               # results = AccountUsagesApi(api_client).get_usages_by_account_id(account_id, limit, offset, count, sorters)
               print("The response of AccountUsagesApi->get_usages_by_account_id:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccountUsagesApi->get_usages_by_account_id: %s\n" % e)
 - path: /accounts
@@ -926,7 +1071,8 @@
               # Below is a request that includes all optional parameters
               # results = AccountsApi(api_client).get_account_entitlements(id, limit, offset, count)
               print("The response of AccountsApi->get_account_entitlements:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccountsApi->get_account_entitlements: %s\n" % e)
 - path: /accounts
@@ -956,7 +1102,8 @@
               # Below is a request that includes all optional parameters
               # results = AccountsApi(api_client).list_accounts(limit, offset, count, detail_level, filters, sorters)
               print("The response of AccountsApi->list_accounts:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccountsApi->list_accounts: %s\n" % e)
 - path: /accounts/{id}
@@ -1101,7 +1248,8 @@
               # Below is a request that includes all optional parameters
               # results = ApplicationDiscoveryApi(api_client).get_discovered_applications(limit, offset, detail, filter, sorters)
               print("The response of ApplicationDiscoveryApi->get_discovered_applications:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ApplicationDiscoveryApi->get_discovered_applications: %s\n" % e)
 - path: /manual-discover-applications-template
@@ -1302,7 +1450,8 @@
               # Below is a request that includes all optional parameters
               # results = BrandingApi(api_client).get_branding_list()
               print("The response of BrandingApi->get_branding_list:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling BrandingApi->get_branding_list: %s\n" % e)
 - path: /brandings/{name}
@@ -1904,7 +2053,8 @@
               # Below is a request that includes all optional parameters
               # results = CertificationCampaignsApi(api_client).get_active_campaigns(detail, limit, offset, count, filters, sorters)
               print("The response of CertificationCampaignsApi->get_active_campaigns:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CertificationCampaignsApi->get_active_campaigns: %s\n" % e)
 - path: /campaigns/{id}
@@ -1915,7 +2065,7 @@
       source: |
         from sailpoint.v3.api.certification_campaigns_api import CertificationCampaignsApi
         from sailpoint.v3.api_client import ApiClient
-        from sailpoint.v3.models.get_active_campaigns200_response_inner import GetActiveCampaigns200ResponseInner
+        from sailpoint.v3.models.get_campaign200_response import GetCampaign200Response
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
@@ -1955,7 +2105,8 @@
               # Below is a request that includes all optional parameters
               # results = CertificationCampaignsApi(api_client).get_campaign_reports(id)
               print("The response of CertificationCampaignsApi->get_campaign_reports:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CertificationCampaignsApi->get_campaign_reports: %s\n" % e)
 - path: /campaigns/reports-configuration
@@ -2058,7 +2209,8 @@
               # Below is a request that includes all optional parameters
               # results = CertificationCampaignsApi(api_client).get_campaign_templates(limit, offset, count, sorters, filters)
               print("The response of CertificationCampaignsApi->get_campaign_templates:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CertificationCampaignsApi->get_campaign_templates: %s\n" % e)
 - path: /campaigns/{id}/reassign
@@ -2350,7 +2502,8 @@
               # Below is a request that includes all optional parameters
               # results = CertificationSummariesApi(api_client).get_identity_access_summaries(id, type, limit, offset, count, filters, sorters)
               print("The response of CertificationSummariesApi->get_identity_access_summaries:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CertificationSummariesApi->get_identity_access_summaries: %s\n" % e)
 - path: /certifications/{id}/decision-summary
@@ -2406,7 +2559,8 @@
               # Below is a request that includes all optional parameters
               # results = CertificationSummariesApi(api_client).get_identity_summaries(id, limit, offset, count, filters, sorters)
               print("The response of CertificationSummariesApi->get_identity_summaries:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CertificationSummariesApi->get_identity_summaries: %s\n" % e)
 - path: /certifications/{id}/identity-summaries/{identitySummaryId}
@@ -2512,7 +2666,8 @@
               # Below is a request that includes all optional parameters
               # results = CertificationsApi(api_client).get_identity_certification_item_permissions(certification_id, item_id, filters, limit, offset, count)
               print("The response of CertificationsApi->get_identity_certification_item_permissions:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CertificationsApi->get_identity_certification_item_permissions: %s\n" % e)
 - path: /certification-tasks
@@ -2541,7 +2696,8 @@
               # Below is a request that includes all optional parameters
               # results = CertificationsApi(api_client).get_pending_certification_tasks(reviewer_identity, limit, offset, count, filters)
               print("The response of CertificationsApi->get_pending_certification_tasks:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CertificationsApi->get_pending_certification_tasks: %s\n" % e)
 - path: /certifications/{id}/reviewers
@@ -2571,7 +2727,8 @@
               # Below is a request that includes all optional parameters
               # results = CertificationsApi(api_client).list_certification_reviewers(id, limit, offset, count, filters, sorters)
               print("The response of CertificationsApi->list_certification_reviewers:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CertificationsApi->list_certification_reviewers: %s\n" % e)
 - path: /certifications/{id}/access-review-items
@@ -2604,7 +2761,8 @@
               # Below is a request that includes all optional parameters
               # results = CertificationsApi(api_client).list_identity_access_review_items(id, limit, offset, count, filters, sorters, entitlements, access_profiles, roles)
               print("The response of CertificationsApi->list_identity_access_review_items:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CertificationsApi->list_identity_access_review_items: %s\n" % e)
 - path: /certifications
@@ -2634,7 +2792,8 @@
               # Below is a request that includes all optional parameters
               # results = CertificationsApi(api_client).list_identity_certifications(reviewer_identity, limit, offset, count, filters, sorters)
               print("The response of CertificationsApi->list_identity_certifications:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling CertificationsApi->list_identity_certifications: %s\n" % e)
 - path: /certifications/{id}/decide
@@ -2930,7 +3089,8 @@
               # Below is a request that includes all optional parameters
               # results = ConfigurationHubApi(api_client).get_object_mappings(source_org)
               print("The response of ConfigurationHubApi->get_object_mappings:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ConfigurationHubApi->get_object_mappings: %s\n" % e)
 - path: /configuration-hub/backups/uploads/{id}
@@ -2980,7 +3140,8 @@
               # Below is a request that includes all optional parameters
               # results = ConfigurationHubApi(api_client).list_uploaded_configurations(filters)
               print("The response of ConfigurationHubApi->list_uploaded_configurations:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ConfigurationHubApi->list_uploaded_configurations: %s\n" % e)
 - path: /configuration-hub/object-mappings/{sourceOrg}/bulk-patch
@@ -3129,7 +3290,8 @@
               # Below is a request that includes all optional parameters
               # results = ConnectorsApi(api_client).get_connector_list(filters, limit, offset, count, locale)
               print("The response of ConnectorsApi->get_connector_list:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ConnectorsApi->get_connector_list: %s\n" % e)
 - path: /connectors/{scriptName}/source-config
@@ -3688,7 +3850,8 @@
               # Below is a request that includes all optional parameters
               # results = IdentityProfilesApi(api_client).export_identity_profiles(limit, offset, count, filters, sorters)
               print("The response of IdentityProfilesApi->export_identity_profiles:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IdentityProfilesApi->export_identity_profiles: %s\n" % e)
 - path: /identity-profiles/{identity-profile-id}/default-identity-attribute-config
@@ -3793,7 +3956,8 @@
               # Below is a request that includes all optional parameters
               # results = IdentityProfilesApi(api_client).list_identity_profiles(limit, offset, count, filters, sorters)
               print("The response of IdentityProfilesApi->list_identity_profiles:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IdentityProfilesApi->list_identity_profiles: %s\n" % e)
 - path: /identity-profiles/identity-preview
@@ -4027,7 +4191,8 @@
               # Below is a request that includes all optional parameters
               # results = LifecycleStatesApi(api_client).get_lifecycle_states(identity_profile_id, limit, offset, count, sorters)
               print("The response of LifecycleStatesApi->get_lifecycle_states:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling LifecycleStatesApi->get_lifecycle_states: %s\n" % e)
 - path: /identities/{identity-id}/set-lifecycle-state
@@ -4156,7 +4321,8 @@
               # Below is a request that includes all optional parameters
               # results = MFAConfigurationApi(api_client).get_mfa_kba_config(all_languages)
               print("The response of MFAConfigurationApi->get_mfa_kba_config:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling MFAConfigurationApi->get_mfa_kba_config: %s\n" % e)
 - path: /mfa/okta-verify/config
@@ -4272,7 +4438,8 @@
               # Below is a request that includes all optional parameters
               # results = MFAConfigurationApi(api_client).set_mfakba_config(new_kba_answer_request_item)
               print("The response of MFAConfigurationApi->set_mfakba_config:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling MFAConfigurationApi->set_mfakba_config: %s\n" % e)
 - path: /mfa/{method}/test
@@ -4601,7 +4768,8 @@
               # Below is a request that includes all optional parameters
               # results = ManagedClientsApi(api_client).get_managed_clients(offset, limit, count, filters)
               print("The response of ManagedClientsApi->get_managed_clients:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ManagedClientsApi->get_managed_clients: %s\n" % e)
 - path: /managed-clients/{id}
@@ -4763,7 +4931,8 @@
               # Below is a request that includes all optional parameters
               # results = ManagedClustersApi(api_client).get_managed_clusters(offset, limit, count, filters)
               print("The response of ManagedClustersApi->get_managed_clusters:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ManagedClustersApi->get_managed_clusters: %s\n" % e)
 - path: /managed-clusters/{id}/log-config
@@ -5414,7 +5583,8 @@
               # Below is a request that includes all optional parameters
               # results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_source_schema_attributes(source_id)
               print("The response of NonEmployeeLifecycleManagementApi->get_non_employee_source_schema_attributes:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling NonEmployeeLifecycleManagementApi->get_non_employee_source_schema_attributes: %s\n" % e)
 - path: /non-employee-sources/{id}/non-employee-bulk-upload
@@ -5470,7 +5640,8 @@
               # Below is a request that includes all optional parameters
               # results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_approvals(requested_for, limit, offset, count, filters, sorters)
               print("The response of NonEmployeeLifecycleManagementApi->list_non_employee_approvals:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling NonEmployeeLifecycleManagementApi->list_non_employee_approvals: %s\n" % e)
 - path: /non-employee-records
@@ -5499,7 +5670,8 @@
               # Below is a request that includes all optional parameters
               # results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_records(limit, offset, count, sorters, filters)
               print("The response of NonEmployeeLifecycleManagementApi->list_non_employee_records:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling NonEmployeeLifecycleManagementApi->list_non_employee_records: %s\n" % e)
 - path: /non-employee-requests
@@ -5529,7 +5701,8 @@
               # Below is a request that includes all optional parameters
               # results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_requests(requested_for, limit, offset, count, sorters, filters)
               print("The response of NonEmployeeLifecycleManagementApi->list_non_employee_requests:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling NonEmployeeLifecycleManagementApi->list_non_employee_requests: %s\n" % e)
 - path: /non-employee-sources
@@ -5559,7 +5732,8 @@
               # Below is a request that includes all optional parameters
               # results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_sources(limit, offset, count, requested_for, non_employee_count, sorters)
               print("The response of NonEmployeeLifecycleManagementApi->list_non_employee_sources:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling NonEmployeeLifecycleManagementApi->list_non_employee_sources: %s\n" % e)
 - path: /non-employee-records/{id}
@@ -5824,7 +5998,8 @@
               # Below is a request that includes all optional parameters
               # results = OAuthClientsApi(api_client).list_oauth_clients(filters)
               print("The response of OAuthClientsApi->list_oauth_clients:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling OAuthClientsApi->list_oauth_clients: %s\n" % e)
 - path: /oauth-clients/{id}
@@ -6197,7 +6372,8 @@
               # Below is a request that includes all optional parameters
               # results = PasswordPoliciesApi(api_client).list_password_policies(limit, offset, count)
               print("The response of PasswordPoliciesApi->list_password_policies:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling PasswordPoliciesApi->list_password_policies: %s\n" % e)
 - path: /password-policies/{id}
@@ -6361,7 +6537,8 @@
               # Below is a request that includes all optional parameters
               # results = PasswordSyncGroupsApi(api_client).get_password_sync_groups(limit, offset, count)
               print("The response of PasswordSyncGroupsApi->get_password_sync_groups:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling PasswordSyncGroupsApi->get_password_sync_groups: %s\n" % e)
 - path: /password-sync-groups/{id}
@@ -6472,7 +6649,8 @@
               # Below is a request that includes all optional parameters
               # results = PersonalAccessTokensApi(api_client).list_personal_access_tokens(owner_id, filters)
               print("The response of PersonalAccessTokensApi->list_personal_access_tokens:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling PersonalAccessTokensApi->list_personal_access_tokens: %s\n" % e)
 - path: /personal-access-tokens/{id}
@@ -6529,7 +6707,8 @@
               # Below is a request that includes all optional parameters
               # results = PublicIdentitiesApi(api_client).get_public_identities(limit, offset, count, filters, add_core_filters, sorters)
               print("The response of PublicIdentitiesApi->get_public_identities:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling PublicIdentitiesApi->get_public_identities: %s\n" % e)
 - path: /public-identities-config
@@ -6734,7 +6913,8 @@
               # Below is a request that includes all optional parameters
               # results = RequestableObjectsApi(api_client).list_requestable_objects(identity_id, types, term, statuses, limit, offset, count, filters, sorters)
               print("The response of RequestableObjectsApi->list_requestable_objects:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling RequestableObjectsApi->list_requestable_objects: %s\n" % e)
 - path: /roles
@@ -6870,6 +7050,7 @@
           },
           "accessRequestConfig" : {
             "commentsRequired" : true,
+            "reauthorizationRequired" : true,
             "approvalSchemes" : [ {
               "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
               "approverType" : "GOVERNANCE_GROUP"
@@ -6960,9 +7141,9 @@
 
 
         with ApiClient(configuration) as api_client:
-          id = '2c91808a7813090a017814121e121518' # str | ID of the Role # str | ID of the Role
+          id = '2c91808a7813090a017814121e121518' # str | Role ID. # str | Role ID.
           try:
-              # Delete a Role
+              # Delete Role
               
               RolesApi(api_client).delete_role(id=id)
               # Below is a request that includes all optional parameters
@@ -6983,9 +7164,9 @@
 
 
         with ApiClient(configuration) as api_client:
-          id = '2c91808a7813090a017814121e121518' # str | ID of the Role # str | ID of the Role
+          id = '2c91808a7813090a017814121e121518' # str | Role ID. # str | Role ID.
           try:
-              # Get a Role
+              # Get Role
               
               results = RolesApi(api_client).get_role(id=id)
               # Below is a request that includes all optional parameters
@@ -7021,7 +7202,8 @@
               # Below is a request that includes all optional parameters
               # results = RolesApi(api_client).get_role_assigned_identities(id, limit, offset, count, filters, sorters)
               print("The response of RolesApi->get_role_assigned_identities:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling RolesApi->get_role_assigned_identities: %s\n" % e)
 - path: /roles
@@ -7042,7 +7224,7 @@
           limit = 50 # int | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50) # int | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
           offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-          filters = 'requestable eq false' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq* (optional)
+          filters = 'requestable eq false' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **dimensional**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **dimensional**: *eq* (optional)
           sorters = 'name,-modified' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
           for_segment_ids = '0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d' # str | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. (optional) # str | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
           include_unsegmented = True # bool | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to True) # bool | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to True)
@@ -7053,7 +7235,8 @@
               # Below is a request that includes all optional parameters
               # results = RolesApi(api_client).list_roles(for_subadmin, limit, offset, count, filters, sorters, for_segment_ids, include_unsegmented)
               print("The response of RolesApi->list_roles:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling RolesApi->list_roles: %s\n" % e)
 - path: /roles/{id}
@@ -7071,10 +7254,10 @@
 
 
         with ApiClient(configuration) as api_client:
-          id = '2c91808a7813090a017814121e121518' # str | ID of the Role to patch # str | ID of the Role to patch
+          id = '2c91808a7813090a017814121e121518' # str | Role ID to patch # str | Role ID to patch
           json_patch_operation = '''[{op=replace, path=/requestable, value=true}, {op=replace, path=/enabled, value=true}]''' # List[JsonPatchOperation] | 
           try:
-              # Patch a specified Role
+              # Patch Role
               new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
               results = RolesApi(api_client).patch_role(id=id, json_patch_operation=new_json_patch_operation)
               # Below is a request that includes all optional parameters
@@ -7407,7 +7590,8 @@
               # Below is a request that includes all optional parameters
               # results = SODPoliciesApi(api_client).list_sod_policies(limit, offset, count, filters, sorters)
               print("The response of SODPoliciesApi->list_sod_policies:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SODPoliciesApi->list_sod_policies: %s\n" % e)
 - path: /sod-policies/{id}
@@ -7854,7 +8038,8 @@
               # Below is a request that includes all optional parameters
               # results = SavedSearchApi(api_client).list_saved_searches(offset, limit, count, filters)
               print("The response of SavedSearchApi->list_saved_searches:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SavedSearchApi->list_saved_searches: %s\n" % e)
 - path: /saved-searches/{id}
@@ -8025,7 +8210,8 @@
               # Below is a request that includes all optional parameters
               # results = ScheduledSearchApi(api_client).list_scheduled_search(offset, limit, count, filters)
               print("The response of ScheduledSearchApi->list_scheduled_search:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ScheduledSearchApi->list_scheduled_search: %s\n" % e)
 - path: /scheduled-searches/{id}/unsubscribe
@@ -8573,7 +8759,8 @@
               # Below is a request that includes all optional parameters
               # results = SearchApi(api_client).search_post(new_search, offset, limit, count)
               print("The response of SearchApi->search_post:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SearchApi->search_post: %s\n" % e)
 - path: /accounts/search-attribute-config
@@ -8653,7 +8840,8 @@
               # Below is a request that includes all optional parameters
               # results = SearchAttributeConfigurationApi(api_client).get_search_attribute_config(limit, offset)
               print("The response of SearchAttributeConfigurationApi->get_search_attribute_config:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SearchAttributeConfigurationApi->get_search_attribute_config: %s\n" % e)
 - path: /accounts/search-attribute-config/{name}
@@ -8678,7 +8866,8 @@
               # Below is a request that includes all optional parameters
               # results = SearchAttributeConfigurationApi(api_client).get_single_search_attribute_config(name)
               print("The response of SearchAttributeConfigurationApi->get_single_search_attribute_config:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SearchAttributeConfigurationApi->get_single_search_attribute_config: %s\n" % e)
 - path: /accounts/search-attribute-config/{name}
@@ -8827,7 +9016,8 @@
               # Below is a request that includes all optional parameters
               # results = SegmentsApi(api_client).list_segments(limit, offset, count)
               print("The response of SegmentsApi->list_segments:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SegmentsApi->list_segments: %s\n" % e)
 - path: /segments/{id}
@@ -9007,7 +9197,8 @@
               # Below is a request that includes all optional parameters
               # results = ServiceDeskIntegrationApi(api_client).get_service_desk_integration_types()
               print("The response of ServiceDeskIntegrationApi->get_service_desk_integration_types:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ServiceDeskIntegrationApi->get_service_desk_integration_types: %s\n" % e)
 - path: /service-desk-integrations
@@ -9036,7 +9227,8 @@
               # Below is a request that includes all optional parameters
               # results = ServiceDeskIntegrationApi(api_client).get_service_desk_integrations(offset, limit, sorters, filters, count)
               print("The response of ServiceDeskIntegrationApi->get_service_desk_integrations:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ServiceDeskIntegrationApi->get_service_desk_integrations: %s\n" % e)
 - path: /service-desk-integrations/status-check-configuration
@@ -9071,7 +9263,7 @@
       source: |
         from sailpoint.v3.api.service_desk_integration_api import ServiceDeskIntegrationApi
         from sailpoint.v3.api_client import ApiClient
-        from sailpoint.v3.models.patch_service_desk_integration_request import PatchServiceDeskIntegrationRequest
+        from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
         from sailpoint.v3.models.service_desk_integration_dto import ServiceDeskIntegrationDto
         from sailpoint.configuration import Configuration
         configuration = Configuration()
@@ -9079,13 +9271,13 @@
 
         with ApiClient(configuration) as api_client:
           id = 'anId' # str | ID of the Service Desk integration to update # str | ID of the Service Desk integration to update
-          patch_service_desk_integration_request = '''sailpoint.v3.PatchServiceDeskIntegrationRequest()''' # PatchServiceDeskIntegrationRequest | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+          json_patch_operation = '''[sailpoint.v3.JsonPatchOperation()]''' # List[JsonPatchOperation] | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
           try:
               # Patch a Service Desk Integration
-              new_patch_service_desk_integration_request = PatchServiceDeskIntegrationRequest.from_json(patch_service_desk_integration_request)
-              results = ServiceDeskIntegrationApi(api_client).patch_service_desk_integration(id=id, patch_service_desk_integration_request=new_patch_service_desk_integration_request)
+              new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+              results = ServiceDeskIntegrationApi(api_client).patch_service_desk_integration(id=id, json_patch_operation=new_json_patch_operation)
               # Below is a request that includes all optional parameters
-              # results = ServiceDeskIntegrationApi(api_client).patch_service_desk_integration(id, new_patch_service_desk_integration_request)
+              # results = ServiceDeskIntegrationApi(api_client).patch_service_desk_integration(id, new_json_patch_operation)
               print("The response of ServiceDeskIntegrationApi->patch_service_desk_integration:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -9228,7 +9420,8 @@
               # Below is a request that includes all optional parameters
               # results = SourceUsagesApi(api_client).get_usages_by_source_id(source_id, limit, offset, count, sorters)
               print("The response of SourceUsagesApi->get_usages_by_source_id:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SourceUsagesApi->get_usages_by_source_id: %s\n" % e)
 - path: /sources/{sourceId}/provisioning-policies
@@ -9699,7 +9892,8 @@
               # Below is a request that includes all optional parameters
               # results = SourcesApi(api_client).get_source_schemas(source_id, include_types, include_names)
               print("The response of SourcesApi->get_source_schemas:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SourcesApi->get_source_schemas: %s\n" % e)
 - path: /sources/{id}/schemas/accounts
@@ -9803,7 +9997,8 @@
               # Below is a request that includes all optional parameters
               # results = SourcesApi(api_client).list_provisioning_policies(source_id)
               print("The response of SourcesApi->list_provisioning_policies:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SourcesApi->list_provisioning_policies: %s\n" % e)
 - path: /sources
@@ -9834,7 +10029,8 @@
               # Below is a request that includes all optional parameters
               # results = SourcesApi(api_client).list_sources(limit, offset, count, filters, sorters, for_subadmin, include_idn_source)
               print("The response of SourcesApi->list_sources:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SourcesApi->list_sources: %s\n" % e)
 - path: /sources/{sourceId}/provisioning-policies/{usageType}
@@ -10062,7 +10258,8 @@
               # Below is a request that includes all optional parameters
               # results = SourcesApi(api_client).update_provisioning_policies_in_bulk(source_id, new_provisioning_policy_dto)
               print("The response of SourcesApi->update_provisioning_policies_in_bulk:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SourcesApi->update_provisioning_policies_in_bulk: %s\n" % e)
 - path: /sources/{sourceId}/provisioning-policies/{usageType}
@@ -10257,7 +10454,8 @@
               # Below is a request that includes all optional parameters
               # results = TaggedObjectsApi(api_client).list_tagged_objects(limit, offset, count, filters)
               print("The response of TaggedObjectsApi->list_tagged_objects:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling TaggedObjectsApi->list_tagged_objects: %s\n" % e)
 - path: /tagged-objects/{type}
@@ -10286,7 +10484,8 @@
               # Below is a request that includes all optional parameters
               # results = TaggedObjectsApi(api_client).list_tagged_objects_by_type(type, limit, offset, count, filters)
               print("The response of TaggedObjectsApi->list_tagged_objects_by_type:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling TaggedObjectsApi->list_tagged_objects_by_type: %s\n" % e)
 - path: /tagged-objects/{type}/{id}
@@ -10388,7 +10587,8 @@
               # Below is a request that includes all optional parameters
               # results = TaggedObjectsApi(api_client).set_tags_to_many_objects(new_bulk_add_tagged_object)
               print("The response of TaggedObjectsApi->set_tags_to_many_objects:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling TaggedObjectsApi->set_tags_to_many_objects: %s\n" % e)
 - path: /transforms
@@ -10494,7 +10694,8 @@
               # Below is a request that includes all optional parameters
               # results = TransformsApi(api_client).list_transforms(offset, limit, count, name, filters)
               print("The response of TransformsApi->list_transforms:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling TransformsApi->list_transforms: %s\n" % e)
 - path: /transforms/{id}
@@ -10644,7 +10845,8 @@
               # Below is a request that includes all optional parameters
               # results = VendorConnectorMappingsApi(api_client).get_vendor_connector_mappings()
               print("The response of VendorConnectorMappingsApi->get_vendor_connector_mappings:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling VendorConnectorMappingsApi->get_vendor_connector_mappings: %s\n" % e)
 - path: /work-items/{id}/approve/{approvalItemId}
@@ -10749,7 +10951,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkItemsApi(api_client).get_completed_work_items(owner_id, limit, offset, count)
               print("The response of WorkItemsApi->get_completed_work_items:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkItemsApi->get_completed_work_items: %s\n" % e)
 - path: /work-items/completed/count
@@ -10877,7 +11080,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkItemsApi(api_client).list_work_items(limit, offset, count, owner_id)
               print("The response of WorkItemsApi->list_work_items:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkItemsApi->list_work_items: %s\n" % e)
 - path: /work-items/{id}/reject/{approvalItemId}
@@ -11122,12 +11326,13 @@
 
         with ApiClient(configuration) as api_client:
           id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the workflow # str | Id of the workflow
+          workflow_metrics = True # bool | disable workflow metrics (optional) (default to True) # bool | disable workflow metrics (optional) (default to True)
           try:
               # Get Workflow By Id
               
               results = WorkflowsApi(api_client).get_workflow(id=id)
               # Below is a request that includes all optional parameters
-              # results = WorkflowsApi(api_client).get_workflow(id)
+              # results = WorkflowsApi(api_client).get_workflow(id, workflow_metrics)
               print("The response of WorkflowsApi->get_workflow:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -11178,7 +11383,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkflowsApi(api_client).get_workflow_execution_history(id)
               print("The response of WorkflowsApi->get_workflow_execution_history:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkflowsApi->get_workflow_execution_history: %s\n" % e)
 - path: /workflows/{id}/executions
@@ -11207,7 +11413,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkflowsApi(api_client).get_workflow_executions(id, limit, offset, count, filters)
               print("The response of WorkflowsApi->get_workflow_executions:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkflowsApi->get_workflow_executions: %s\n" % e)
 - path: /workflow-library
@@ -11233,7 +11440,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkflowsApi(api_client).list_complete_workflow_library(limit, offset)
               print("The response of WorkflowsApi->list_complete_workflow_library:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkflowsApi->list_complete_workflow_library: %s\n" % e)
 - path: /workflow-library/actions
@@ -11260,7 +11468,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkflowsApi(api_client).list_workflow_library_actions(limit, offset, filters)
               print("The response of WorkflowsApi->list_workflow_library_actions:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkflowsApi->list_workflow_library_actions: %s\n" % e)
 - path: /workflow-library/operators
@@ -11284,7 +11493,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkflowsApi(api_client).list_workflow_library_operators()
               print("The response of WorkflowsApi->list_workflow_library_operators:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkflowsApi->list_workflow_library_operators: %s\n" % e)
 - path: /workflow-library/triggers
@@ -11311,7 +11521,8 @@
               # Below is a request that includes all optional parameters
               # results = WorkflowsApi(api_client).list_workflow_library_triggers(limit, offset, filters)
               print("The response of WorkflowsApi->list_workflow_library_triggers:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkflowsApi->list_workflow_library_triggers: %s\n" % e)
 - path: /workflows
@@ -11328,14 +11539,19 @@
 
 
         with ApiClient(configuration) as api_client:
+          trigger_id = 'idn:identity-created' # str | Trigger ID (optional) # str | Trigger ID (optional)
+          connector_instance_id = '28541fec-bb81-4ad4-88ef-0f7d213adcad' # str | Connector Instance ID (optional) # str | Connector Instance ID (optional)
+          limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           try:
               # List Workflows
               
               results = WorkflowsApi(api_client).list_workflows()
               # Below is a request that includes all optional parameters
-              # results = WorkflowsApi(api_client).list_workflows()
+              # results = WorkflowsApi(api_client).list_workflows(trigger_id, connector_instance_id, limit, offset)
               print("The response of WorkflowsApi->list_workflows:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkflowsApi->list_workflows: %s\n" % e)
 - path: /workflows/{id}
@@ -11485,3 +11701,4 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkflowsApi->test_workflow: %s\n" % e)
+

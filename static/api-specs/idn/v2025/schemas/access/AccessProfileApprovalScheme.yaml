@@ -9,7 +9,7 @@ properties:
       - MANAGER
       - GOVERNANCE_GROUP
     description: >-
-      Describes the individual or group that is responsible for an approval step. Values are as follows.
+      Describes the individual or group that is responsible for an approval step. These are the possible values:
 
       **APP_OWNER**: The owner of the Application
 
@@ -29,7 +29,7 @@ properties:
   approverId:
     type: string
     nullable: true
-    description: Id of the specific approver, used only when approverType is GOVERNANCE_GROUP
+    description: Specific approver ID. Only use this when the `approverType` is `GOVERNANCE_GROUP`.
     example: 46c79819-a69f-49a2-becb-12c971ae66c6
   
     

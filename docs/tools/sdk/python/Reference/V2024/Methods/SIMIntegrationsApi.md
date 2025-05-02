@@ -83,7 +83,7 @@ from sailpoint.v2024.models.sim_integration_details import SimIntegrationDetails
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -172,7 +172,7 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '12345' # str | The id of the integration to delete. # str | The id of the integration to delete.
@@ -243,7 +243,7 @@ from sailpoint.v2024.models.service_desk_integration_dto import ServiceDeskInteg
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '12345' # str | The id of the integration. # str | The id of the integration.
@@ -315,7 +315,7 @@ from sailpoint.v2024.models.service_desk_integration_dto import ServiceDeskInteg
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -327,7 +327,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SIMIntegrationsApi(api_client).get_sim_integrations(x_sail_point_experimental)
         print("The response of SIMIntegrationsApi->get_sim_integrations:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SIMIntegrationsApi->get_sim_integrations: %s\n" % e)
 ```
@@ -389,7 +390,7 @@ from sailpoint.v2024.models.service_desk_integration_dto import ServiceDeskInteg
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '12345' # str | SIM integration id # str | SIM integration id
@@ -475,7 +476,7 @@ from sailpoint.v2024.models.service_desk_integration_dto import ServiceDeskInteg
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '12345' # str | SIM integration id # str | SIM integration id
@@ -561,7 +562,7 @@ from sailpoint.v2024.models.sim_integration_details import SimIntegrationDetails
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '12345' # str | The id of the integration. # str | The id of the integration.

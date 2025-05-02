@@ -21,6 +21,7 @@ properties:
     description: The name of the attribute used to calculate the display value for an object in the schema.
     example: distinguishedName
   hierarchyAttribute:
+    nullable: true
     type: string
     description: The name of the attribute whose values represent other objects in a hierarchy. Only relevant to group schemas.
     example: memberOf
@@ -28,6 +29,7 @@ properties:
     type: boolean
     description: Flag indicating whether or not the include permissions with the object data when aggregating the schema.
     example: false
+    default: false
   features:
     $ref: '../../beta/schemas/SourceFeature.yaml'
   configuration:
@@ -69,6 +71,7 @@ properties:
     format: 'date-time'
     example: '2019-12-24T22:32:58.104Z'
   modified:
+    nullable: true
     type: string
     description: The date the Schema was last modified.
     format: 'date-time'

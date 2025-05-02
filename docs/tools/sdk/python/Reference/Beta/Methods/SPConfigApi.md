@@ -450,7 +450,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SPConfigApi(api_client).list_sp_config_objects()
         print("The response of SPConfigApi->list_sp_config_objects:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SPConfigApi->list_sp_config_objects: %s\n" % e)
 ```

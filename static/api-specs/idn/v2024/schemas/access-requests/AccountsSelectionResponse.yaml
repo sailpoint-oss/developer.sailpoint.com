@@ -1,0 +1,7 @@
+type: object
+properties:
+  identities:
+    description: A list of available account selections per identity in the request, for all the requested items
+    type: array
+    items:
+      $ref: 'IdentityAccountSelections.yaml'

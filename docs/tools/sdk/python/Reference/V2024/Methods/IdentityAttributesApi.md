@@ -74,7 +74,7 @@ from sailpoint.v2024.models.identity_attribute import IdentityAttribute
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -167,7 +167,7 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     name = 'displayName' # str | The attribute's technical name. # str | The attribute's technical name.
@@ -238,7 +238,7 @@ from sailpoint.v2024.models.identity_attribute_names import IdentityAttributeNam
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -311,7 +311,7 @@ from sailpoint.v2024.models.identity_attribute import IdentityAttribute
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     name = 'displayName' # str | The attribute's technical name. # str | The attribute's technical name.
@@ -386,7 +386,7 @@ from sailpoint.v2024.models.identity_attribute import IdentityAttribute
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -402,7 +402,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityAttributesApi(api_client).list_identity_attributes(x_sail_point_experimental, include_system, include_silent, searchable_only, count)
         print("The response of IdentityAttributesApi->list_identity_attributes:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityAttributesApi->list_identity_attributes: %s\n" % e)
 ```
@@ -463,7 +464,7 @@ from sailpoint.v2024.models.identity_attribute import IdentityAttribute
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     name = 'displayName' # str | The attribute's technical name. # str | The attribute's technical name.

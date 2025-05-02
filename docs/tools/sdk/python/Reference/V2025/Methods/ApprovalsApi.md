@@ -72,7 +72,7 @@ from sailpoint.v2025.models.approval import Approval
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '38453251-6be2-5f8f-df93-5ce19e295837' # str | ID of the approval that is to be returned # str | ID of the approval that is to be returned
@@ -147,7 +147,7 @@ from sailpoint.v2025.models.approval import Approval
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -162,7 +162,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ApprovalsApi(api_client).get_approvals(x_sail_point_experimental, mine, requester_id, filters)
         print("The response of ApprovalsApi->get_approvals:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ApprovalsApi->get_approvals: %s\n" % e)
 ```

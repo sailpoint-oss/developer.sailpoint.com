@@ -424,7 +424,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = DimensionsApi(api_client).get_dimension_entitlements(role_id, dimension_id, limit, offset, count, filters, sorters)
         print("The response of DimensionsApi->get_dimension_entitlements:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling DimensionsApi->get_dimension_entitlements: %s\n" % e)
 ```
@@ -497,7 +498,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = DimensionsApi(api_client).list_dimension_access_profiles(role_id, dimension_id, limit, offset, count, filters, sorters)
         print("The response of DimensionsApi->list_dimension_access_profiles:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling DimensionsApi->list_dimension_access_profiles: %s\n" % e)
 ```
@@ -569,7 +571,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = DimensionsApi(api_client).list_dimensions(role_id, for_subadmin, limit, offset, count, filters, sorters)
         print("The response of DimensionsApi->list_dimensions:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling DimensionsApi->list_dimensions: %s\n" % e)
 ```

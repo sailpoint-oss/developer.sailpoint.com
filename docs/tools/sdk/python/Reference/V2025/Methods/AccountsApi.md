@@ -257,7 +257,7 @@ from sailpoint.v2025.models.task_result_dto import TaskResultDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'c350d6aa4f104c61b062cb632421ad10' # str | The account id # str | The account id
@@ -394,7 +394,7 @@ from sailpoint.v2025.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c91808384203c2d018437e631158309' # str | The identity id. # str | The identity id.
@@ -467,7 +467,7 @@ from sailpoint.v2025.models.identities_accounts_bulk_request import IdentitiesAc
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -482,7 +482,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).disable_accounts_for_identities(x_sail_point_experimental, new_identities_accounts_bulk_request)
         print("The response of AccountsApi->disable_accounts_for_identities:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountsApi->disable_accounts_for_identities: %s\n" % e)
 ```
@@ -606,7 +607,7 @@ from sailpoint.v2025.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c91808384203c2d018437e631158309' # str | The identity id. # str | The identity id.
@@ -679,7 +680,7 @@ from sailpoint.v2025.models.identities_accounts_bulk_request import IdentitiesAc
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -694,7 +695,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).enable_accounts_for_identities(x_sail_point_experimental, new_identities_accounts_bulk_request)
         print("The response of AccountsApi->enable_accounts_for_identities:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountsApi->enable_accounts_for_identities: %s\n" % e)
 ```
@@ -818,7 +820,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).get_account_entitlements(id, limit, offset, count)
         print("The response of AccountsApi->get_account_entitlements:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountsApi->get_account_entitlements: %s\n" % e)
 ```
@@ -886,7 +889,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).list_accounts(limit, offset, count, detail_level, filters, sorters)
         print("The response of AccountsApi->list_accounts:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountsApi->list_accounts: %s\n" % e)
 ```

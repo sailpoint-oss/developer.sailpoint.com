@@ -277,7 +277,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ConnectorRuleManagementApi(api_client).get_connector_rule_list()
         print("The response of ConnectorRuleManagementApi->get_connector_rule_list:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConnectorRuleManagementApi->get_connector_rule_list: %s\n" % e)
 ```

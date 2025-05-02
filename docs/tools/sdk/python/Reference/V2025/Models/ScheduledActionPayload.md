@@ -31,7 +31,7 @@ from sailpoint.v2025.models.scheduled_action_payload import ScheduledActionPaylo
 scheduled_action_payload = ScheduledActionPayload(
 job_type='BACKUP',
 start_time='2024-08-16T14:16:58.389Z',
-cron_string='0 0 12 * * ?',
+cron_string='0 0 * * * *',
 time_zone_id='America/Chicago',
 content=sailpoint.v2025.models.scheduled_action_payload_content.ScheduledActionPayload_content(
                     name = 'Daily Backup', 

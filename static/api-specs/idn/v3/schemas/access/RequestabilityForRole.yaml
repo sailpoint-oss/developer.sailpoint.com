@@ -12,6 +12,12 @@ properties:
     example: true
     nullable: true
     default: false
+  reauthorizationRequired:
+    type: boolean
+    description: Indicates whether reauthorization is required for the request.
+    example: true
+    nullable: true
+    default: false
   approvalSchemes:
     type: array
     description: List describing the steps in approving the request

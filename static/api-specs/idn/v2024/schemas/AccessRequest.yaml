@@ -5,7 +5,7 @@ properties:
     type: array
     items:
       type: string
-      example: 2c918084660f45d6016617daa9210584
+    example: 2c918084660f45d6016617daa9210584
   requestType:
     $ref: 'AccessRequestType.yaml'
   requestedItems:
@@ -27,5 +27,16 @@ properties:
     description: >-
       Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on
       associated APIs such as /account-activities.
+  requestedForWithRequestedItems:
+    description: |
+      Additional submit data structure with requestedFor containing requestedItems allowing distinction for each request item and Identity.
+      * Can only be used when 'requestedFor' and 'requestedItems' are not separately provided
+      * Adds ability to specify which account the user wants the access on, in case they have multiple accounts on a source
+      * Allows the ability to request items with different remove dates
+      * Also allows different combinations of request items and identities in the same request
+    type: array
+    items:
+      $ref: './access-requests/RequestedForDtoRef.yaml'
+    nullable: true
 
 required : ["requestedFor", "requestedItems"]

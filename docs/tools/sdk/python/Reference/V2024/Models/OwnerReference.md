@@ -11,15 +11,15 @@ tags: ['SDK', 'Software Development Kit', 'OwnerReference', 'V2024OwnerReference
 
 # OwnerReference
 
-The owner of this object.
+Owner of the object.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** |  **Enum** [  'IDENTITY' ] | Owner type. This field must be either left null or set to 'IDENTITY' on input, otherwise a 400 Bad Request error will result. | [optional] 
-**id** | **str** | Identity id | [optional] 
-**name** | **str** | Human-readable display name of the owner. It may be left null or omitted in a POST or PATCH. If set, it must match the current value of the owner's display name, otherwise a 400 Bad Request error will result. | [optional] 
+**id** | **str** | Owner's identity ID. | [optional] 
+**name** | **str** | Owner's name. It may be left null or omitted in a POST or PATCH. If set, it must match the current value of the owner's display name, otherwise a 400 Bad Request error will result. | [optional] 
 }
 
 ## Example

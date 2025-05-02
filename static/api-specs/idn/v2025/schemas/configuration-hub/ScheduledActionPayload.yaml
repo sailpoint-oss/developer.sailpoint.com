@@ -19,7 +19,7 @@ properties:
   cronString:
     type: string
     description: Cron expression defining the schedule for this action. Optional for repeated events.
-    example: "0 0 12 * * ?"
+    example: "0 0 * * * *"
   timeZoneId:
     type: string
     description: Time zone ID for interpreting the cron expression. Optional, will default to current time zone.

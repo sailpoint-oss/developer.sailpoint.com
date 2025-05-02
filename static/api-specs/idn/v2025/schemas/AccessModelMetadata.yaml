@@ -25,6 +25,7 @@ properties:
   objectTypes:
     type: array
     description: The types of objects
+    example: ["general"]
     items:
       type: string
       example: general

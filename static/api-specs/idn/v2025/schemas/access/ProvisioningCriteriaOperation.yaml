@@ -6,6 +6,6 @@ enum:
     - HAS
     - AND
     - OR
-description: Supported operations on ProvisioningCriteria
+description: Supported operations on `ProvisioningCriteria`.
 example: EQUALS
 

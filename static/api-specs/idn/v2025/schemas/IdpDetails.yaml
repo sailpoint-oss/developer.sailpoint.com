@@ -2,12 +2,14 @@ allOf:
   - $ref: './FederationProtocolDetails.yaml'
   - type: object
     description: Specification of Identity Provider Details section of Service Provider Config
+    required:
+      - mappingAttribute
     properties:
       binding:
         type: string
         description: Defines the binding used for the SAML flow. Used with IDP configurations.
         example: urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST
-      authContext:
+      authnContext:
         type: string
         description: Specifies the SAML authentication method to use. Used with IDP configurations.
         example: urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
@@ -15,7 +17,7 @@ allOf:
         type: string
         description: The IDP logout URL. Used with IDP configurations.
         example: https://dev-206445.oktapreview.com/login/signout
-      includeAuthContext:
+      includeAuthnContext:
         type: boolean
         description: Determines if the configured AuthnContext should be used or the default. Used with IDP configurations.
         default: false
@@ -42,12 +44,6 @@ allOf:
         type: string
         description: Return the saml Id for the given user, based on the IDN as SP settings of the org. Used with IDP configurations.
         example: email
-      role:
-        type: string
-        description: Federation protocol role
-        example: SAML_IDP
-        enum:
-          - SAML_IDP
       certificateExpirationDate:
         type: string
         description: The expiration date extracted from the certificate.

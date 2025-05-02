@@ -133,3 +133,57 @@ properties:
     nullable: true
     type: string
     format: date-time
+  lastReleaseNotifiedAt:
+    description: The date/time this cluster was notified for the last release
+    type: string
+    format: date-time
+    nullable: true
+    example: "2025-03-11T07:00:13.729721Z"
+  updatePreferences:
+    description: The preference for applying updates for the cluster
+    type: object
+    properties:
+      processGroups:
+        description: The processGroups for updatePreferences
+        type: string
+        nullable: true
+      updateState:
+        description: The current updateState for the cluster
+        type: string
+        nullable: true
+        enum:
+          - null
+          - AUTO
+          - DISABLED
+        example: "DISABLED"
+      notificationEmail:
+        description: The mail id to which new releases will be notified
+        type: string
+        format: email
+        nullable: true
+        example: "test@mail.com"
+  currentInstalledReleaseVersion:
+    description: The current installed release on the Managed cluster
+    type: string
+    nullable: true
+    example: "123.1"
+  updatePackage:
+    description: New available updates for the Managed cluster
+    type: string
+    nullable: true
+  isOutOfDateNotifiedAt:
+    description: The time at which out of date notification was sent for the Managed cluster
+    type: string
+    format: date-time
+    nullable: true
+    example: "2025-03-11T07:00:13.734393Z"
+  consolidatedHealthIndicatorsStatus:
+    description: The consolidated Health Status for the Managed cluster
+    type: string
+    nullable: true
+    enum:
+      - null
+      - NORMAL
+      - WARNING
+      - ERROR
+    example: "ERROR"

@@ -186,7 +186,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MFAConfigurationApi(api_client).get_mfa_kba_config(all_languages)
         print("The response of MFAConfigurationApi->get_mfa_kba_config:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MFAConfigurationApi->get_mfa_kba_config: %s\n" % e)
 ```
@@ -431,7 +432,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MFAConfigurationApi(api_client).set_mfakba_config(new_kba_answer_request_item)
         print("The response of MFAConfigurationApi->set_mfakba_config:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MFAConfigurationApi->set_mfakba_config: %s\n" % e)
 ```

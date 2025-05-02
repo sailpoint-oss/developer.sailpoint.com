@@ -85,7 +85,7 @@ from sailpoint.v2025.models.account_aggregation_status import AccountAggregation
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c91808477a6b0c60177a81146b8110b' # str | The account aggregation id # str | The account aggregation id

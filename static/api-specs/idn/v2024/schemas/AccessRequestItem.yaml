@@ -38,5 +38,19 @@ properties:
       * This date can be modified to either extend or decrease the duration of access item assignments for the specified identity. You can change the expiration date for requests for yourself or direct reports, but you cannot remove an expiration date on an already approved item. If the access request has not been approved, you can cancel it and submit a new one without the expiration. If it has already been approved, then you have to revoke the access and then re-request without the expiration.
     format: 'date-time'
     example: '2020-07-11T21:23:15.000Z'
+  assignmentId:
+    type: string
+    nullable: true
+    description: |
+      The assignmentId for a specific role assignment on the identity. This id is used to revoke that specific roleAssignment on that identity.
+      * For use with REVOKE_ACCESS requests for roles for identities with multiple accounts on a single source.
+    example: 'ee48a191c00d49bf9264eb0a4fc3a9fc'
+  nativeIdentity:
+    type: string
+    nullable: true
+    description: |
+      The 'distinguishedName' field for an account on the identity, also called nativeIdentity. This nativeIdentity is used to revoke a specific attributeAssignment on the identity.
+      * For use with REVOKE_ACCESS requests for entitlements for identities with multiple accounts on a single source.
+    example: 'CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN'
 required : ["id", "type"] 
 

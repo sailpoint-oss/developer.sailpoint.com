@@ -71,7 +71,7 @@ from sailpoint.v2025.models.machine_account import MachineAccount
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Machine Account ID. # str | Machine Account ID.
@@ -148,7 +148,7 @@ from sailpoint.v2025.models.machine_account import MachineAccount
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -165,7 +165,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MachineAccountsApi(api_client).list_machine_accounts(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of MachineAccountsApi->list_machine_accounts:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MachineAccountsApi->list_machine_accounts: %s\n" % e)
 ```
@@ -227,12 +228,12 @@ from sailpoint.v2025.models.machine_account import MachineAccount
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Machine Account ID. # str | Machine Account ID.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    request_body = '''{Add machine identity attribute={value=[{op=add, path=/environment, value=test}]}, Replace machine identity attribute={value=[{op=replace, path=/environment, value=test}]}, Remove machine identity attribute={value=[{op=remove, path=/environment}]}}''' # List[object] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable:           * description           * ownerIdentity           * subType           * accessType           * environment           * attributes           * classificationMethod           * manuallyEdited           * nativeIdentity           * uuid           * source           * manuallyCorrelated           * enabled           * locked           * hasEntitlements           * connectorAttributes
+    request_body = '''[{op=add, path=/environment, value=test}]''' # List[object] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following fields are patchable:           * description           * ownerIdentity           * subType           * accessType           * environment           * attributes           * classificationMethod           * manuallyEdited           * nativeIdentity           * uuid           * source           * manuallyCorrelated           * enabled           * locked           * hasEntitlements           * connectorAttributes
 
     try:
         # Update a Machine Account

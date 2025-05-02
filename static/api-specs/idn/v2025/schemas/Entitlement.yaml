@@ -28,10 +28,12 @@ properties:
   privileged:
     type: boolean
     description: True if the entitlement is privileged
+    default: false
     example: true
   cloudGoverned:
     type: boolean
     description: True if the entitlement is cloud governed
+    default: false
     example: true
   requestable:
     type: boolean

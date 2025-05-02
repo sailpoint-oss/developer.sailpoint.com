@@ -24,7 +24,7 @@ import (
  "os"
 
  sailpoint "github.com/sailpoint-oss/golang-sdk"
- v3 "github.com/sailpoint-oss/golang-sdk/v3"
+ v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
 )
 
 func main() {
@@ -33,7 +33,7 @@ func main() {
  configuration := sailpoint.NewDefaultConfiguration()
  apiClient := sailpoint.NewAPIClient(configuration)
 
- resp, r, err := sailpoint.PaginateWithDefaults[v3.Account](apiClient.V3.AccountsApi.ListAccounts(ctx))
+ resp, r, err := sailpoint.PaginateWithDefaults[v3.Account](apiClient.V3.AccountsAPI.ListAccounts(ctx))
  if err != nil {
   fmt.Fprintf(os.Stderr, "Error when calling `PaginateWithDefaults[v3.Account]``: %v\n", err)
   fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -56,7 +56,7 @@ import (
  "os"
 
  sailpoint "github.com/sailpoint-oss/golang-sdk"
- v3 "github.com/sailpoint-oss/golang-sdk/v3"
+ v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
 )
 
 func main() {
@@ -65,7 +65,7 @@ func main() {
  configuration := sailpoint.NewDefaultConfiguration()
  apiClient := sailpoint.NewAPIClient(configuration)
 
- resp, r, err := sailpoint.Paginate[v3.Account](apiClient.V3.AccountsApi.ListAccounts(ctx), 0, 250, 150000)
+ resp, r, err := sailpoint.Paginate[v3.Account](apiClient.V3.AccountsAPI.ListAccounts(ctx), 0, 250, 150000)
  if err != nil {
   fmt.Fprintf(os.Stderr, "Error when calling `Paginate[v3.Account]``: %v\n", err)
   fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

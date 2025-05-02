@@ -324,7 +324,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = LifecycleStatesApi(api_client).get_lifecycle_states(identity_profile_id, limit, offset, count, sorters)
         print("The response of LifecycleStatesApi->get_lifecycle_states:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling LifecycleStatesApi->get_lifecycle_states: %s\n" % e)
 ```

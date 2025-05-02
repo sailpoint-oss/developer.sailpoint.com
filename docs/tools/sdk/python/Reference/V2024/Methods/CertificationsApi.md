@@ -229,7 +229,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).get_identity_certification_item_permissions(certification_id, item_id, filters, limit, offset, count)
         print("The response of CertificationsApi->get_identity_certification_item_permissions:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->get_identity_certification_item_permissions: %s\n" % e)
 ```
@@ -296,7 +297,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).get_pending_certification_tasks(reviewer_identity, limit, offset, count, filters)
         print("The response of CertificationsApi->get_pending_certification_tasks:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->get_pending_certification_tasks: %s\n" % e)
 ```
@@ -365,7 +367,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).list_certification_reviewers(id, limit, offset, count, filters, sorters)
         print("The response of CertificationsApi->list_certification_reviewers:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->list_certification_reviewers: %s\n" % e)
 ```
@@ -440,7 +443,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).list_identity_access_review_items(id, limit, offset, count, filters, sorters, entitlements, access_profiles, roles)
         print("The response of CertificationsApi->list_identity_access_review_items:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->list_identity_access_review_items: %s\n" % e)
 ```
@@ -508,7 +512,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationsApi(api_client).list_identity_certifications(reviewer_identity, limit, offset, count, filters, sorters)
         print("The response of CertificationsApi->list_identity_certifications:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationsApi->list_identity_certifications: %s\n" % e)
 ```

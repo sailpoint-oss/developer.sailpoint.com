@@ -391,7 +391,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).get_dkim_attributes()
         print("The response of NotificationsApi->get_dkim_attributes:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->get_dkim_attributes: %s\n" % e)
 ```
@@ -507,7 +508,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).get_notification_template(id)
         print("The response of NotificationsApi->get_notification_template:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->get_notification_template: %s\n" % e)
 ```
@@ -627,7 +629,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_from_addresses(limit, offset, count, filters, sorters)
         print("The response of NotificationsApi->list_from_addresses:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->list_from_addresses: %s\n" % e)
 ```
@@ -686,7 +689,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_notification_preferences(key)
         print("The response of NotificationsApi->list_notification_preferences:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->list_notification_preferences: %s\n" % e)
 ```
@@ -748,7 +752,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_notification_template_defaults(limit, offset, filters)
         print("The response of NotificationsApi->list_notification_template_defaults:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->list_notification_template_defaults: %s\n" % e)
 ```
@@ -810,7 +815,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_notification_templates(limit, offset, filters)
         print("The response of NotificationsApi->list_notification_templates:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->list_notification_templates: %s\n" % e)
 ```

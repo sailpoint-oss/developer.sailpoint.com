@@ -1509,9 +1509,6 @@ try {
 [[Back to top]](#) 
 
 ## import-accounts
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Starts an account aggregation on the specified source. 
 If the target source is a delimited file source, then the CSV file needs to be included in the request body.
 You will also need to set the Content-Type header to `multipart/form-data`.
@@ -1522,7 +1519,6 @@ You will also need to set the Content-Type header to `multipart/form-data`.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Source Id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
    | File | **System.IO.FileInfo** |   (optional) | The CSV file containing the source accounts to aggregate.
    | DisableOptimization | **String** |   (optional) | Use this flag to reprocess every account whether or not the data has changed.
 
@@ -1546,17 +1542,16 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $File =  # System.IO.FileInfo | The CSV file containing the source accounts to aggregate. (optional)
 $DisableOptimization = "MyDisableOptimization" # String | Use this flag to reprocess every account whether or not the data has changed. (optional)
 
 # Account Aggregation
 
 try {
-    Import-V2025Accounts -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Import-V2025Accounts -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Import-V2025Accounts -Id $Id -XSailPointExperimental $XSailPointExperimental -File $File -DisableOptimization $DisableOptimization  
+    # Import-V2025Accounts -Id $Id -File $File -DisableOptimization $DisableOptimization  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2025Accounts"
     Write-Host $_.ErrorDetails

@@ -264,7 +264,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TransformsApi(api_client).list_transforms(offset, limit, count, name, filters)
         print("The response of TransformsApi->list_transforms:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TransformsApi->list_transforms: %s\n" % e)
 ```

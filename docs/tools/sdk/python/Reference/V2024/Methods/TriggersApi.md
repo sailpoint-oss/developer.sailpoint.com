@@ -119,7 +119,7 @@ from sailpoint.v2024.models.complete_invocation import CompleteInvocation
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | The ID of the invocation to complete. # str | The ID of the invocation to complete.
@@ -199,7 +199,7 @@ from sailpoint.v2024.models.subscription_post_request import SubscriptionPostReq
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -295,7 +295,7 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | Subscription ID # str | Subscription ID
@@ -369,7 +369,7 @@ from sailpoint.v2024.models.subscription import Subscription
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -386,7 +386,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).list_subscriptions(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of TriggersApi->list_subscriptions:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TriggersApi->list_subscriptions: %s\n" % e)
 ```
@@ -451,7 +452,7 @@ from sailpoint.v2024.models.invocation_status import InvocationStatus
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -468,7 +469,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).list_trigger_invocation_status(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of TriggersApi->list_trigger_invocation_status:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TriggersApi->list_trigger_invocation_status: %s\n" % e)
 ```
@@ -531,7 +533,7 @@ from sailpoint.v2024.models.trigger import Trigger
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -548,7 +550,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).list_triggers(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of TriggersApi->list_triggers:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TriggersApi->list_triggers: %s\n" % e)
 ```
@@ -612,7 +615,7 @@ from sailpoint.v2024.models.subscription_patch_request_inner import Subscription
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | ID of the Subscription to patch # str | ID of the Subscription to patch
@@ -687,7 +690,7 @@ from sailpoint.v2024.models.test_invocation import TestInvocation
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -709,7 +712,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).start_test_trigger_invocation(x_sail_point_experimental, new_test_invocation)
         print("The response of TriggersApi->start_test_trigger_invocation:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TriggersApi->start_test_trigger_invocation: %s\n" % e)
 ```
@@ -770,7 +774,7 @@ from sailpoint.v2024.models.validate_filter_output_dto import ValidateFilterOutp
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -859,7 +863,7 @@ from sailpoint.v2024.models.subscription_put_request import SubscriptionPutReque
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | Subscription ID # str | Subscription ID

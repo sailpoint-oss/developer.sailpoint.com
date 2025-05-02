@@ -336,6 +336,7 @@ Get a single workflow by id.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | Id of the workflow
+  Query | workflow_metrics | **bool** |   (optional) (default to True) | disable workflow metrics
 
 ### Return type
 [**Workflow**](../models/workflow)
@@ -366,13 +367,14 @@ configuration = Configuration()
 
 with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the workflow # str | Id of the workflow
+    workflow_metrics = True # bool | disable workflow metrics (optional) (default to True) # bool | disable workflow metrics (optional) (default to True)
 
     try:
         # Get Workflow By Id
         
         results = WorkflowsApi(api_client).get_workflow(id=id)
         # Below is a request that includes all optional parameters
-        # results = WorkflowsApi(api_client).get_workflow(id)
+        # results = WorkflowsApi(api_client).get_workflow(id, workflow_metrics)
         print("The response of WorkflowsApi->get_workflow:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -385,7 +387,7 @@ with ApiClient(configuration) as api_client:
 
 ## get-workflow-execution
 Get Workflow Execution
-Use this API to get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a "404 Not Found" response.
+Get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a "404 Not Found" response.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-workflow-execution)
 
@@ -491,7 +493,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).get_workflow_execution_history(id)
         print("The response of WorkflowsApi->get_workflow_execution_history:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->get_workflow_execution_history: %s\n" % e)
 ```
@@ -568,7 +571,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).get_workflow_executions(id, limit, offset, count, filters)
         print("The response of WorkflowsApi->get_workflow_executions:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->get_workflow_executions: %s\n" % e)
 ```
@@ -628,7 +632,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).list_complete_workflow_library(limit, offset)
         print("The response of WorkflowsApi->list_complete_workflow_library:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->list_complete_workflow_library: %s\n" % e)
 ```
@@ -690,7 +695,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).list_workflow_library_actions(limit, offset, filters)
         print("The response of WorkflowsApi->list_workflow_library_actions:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->list_workflow_library_actions: %s\n" % e)
 ```
@@ -744,7 +750,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).list_workflow_library_operators()
         print("The response of WorkflowsApi->list_workflow_library_operators:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->list_workflow_library_operators: %s\n" % e)
 ```
@@ -806,7 +813,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = WorkflowsApi(api_client).list_workflow_library_triggers(limit, offset, filters)
         print("The response of WorkflowsApi->list_workflow_library_triggers:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->list_workflow_library_triggers: %s\n" % e)
 ```
@@ -822,7 +830,13 @@ List all workflows in the tenant.
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-workflows)
 
 ### Parameters 
-This endpoint does not need any parameter. 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | trigger_id | **str** |   (optional) | Trigger ID
+  Query | connector_instance_id | **str** |   (optional) | Connector Instance ID
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**List[Workflow]**](../models/workflow)
@@ -852,15 +866,20 @@ configuration = Configuration()
 
 
 with ApiClient(configuration) as api_client:
+    trigger_id = 'idn:identity-created' # str | Trigger ID (optional) # str | Trigger ID (optional)
+    connector_instance_id = '28541fec-bb81-4ad4-88ef-0f7d213adcad' # str | Connector Instance ID (optional) # str | Connector Instance ID (optional)
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
     try:
         # List Workflows
         
         results = WorkflowsApi(api_client).list_workflows()
         # Below is a request that includes all optional parameters
-        # results = WorkflowsApi(api_client).list_workflows()
+        # results = WorkflowsApi(api_client).list_workflows(trigger_id, connector_instance_id, limit, offset)
         print("The response of WorkflowsApi->list_workflows:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkflowsApi->list_workflows: %s\n" % e)
 ```

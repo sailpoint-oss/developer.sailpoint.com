@@ -81,7 +81,7 @@ from sailpoint.v2024.models.attribute_dto import AttributeDTO
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
@@ -154,7 +154,7 @@ from sailpoint.v2024.models.attribute_value_dto import AttributeValueDTO
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
@@ -227,7 +227,7 @@ from sailpoint.v2024.models.attribute_dto import AttributeDTO
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -240,7 +240,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute(x_sail_point_experimental, filters)
         print("The response of AccessModelMetadataApi->list_access_model_metadata_attribute:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessModelMetadataApi->list_access_model_metadata_attribute: %s\n" % e)
 ```
@@ -299,7 +300,7 @@ from sailpoint.v2024.models.attribute_value_dto import AttributeValueDTO
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
@@ -312,7 +313,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute_value(key, x_sail_point_experimental)
         print("The response of AccessModelMetadataApi->list_access_model_metadata_attribute_value:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessModelMetadataApi->list_access_model_metadata_attribute_value: %s\n" % e)
 ```

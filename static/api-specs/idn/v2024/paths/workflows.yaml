@@ -9,7 +9,6 @@ post:
     - userAuth: [sp:workflow:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
-    - SOURCE_ADMIN
   requestBody:
     required: true
     content:
@@ -137,11 +136,24 @@ get:
   parameters:
     - $ref: '../parameters/limit.yaml'
     - $ref: '../parameters/offset.yaml'
+    - name: triggerId
+      in: query
+      description: Trigger ID
+      required: false
+      schema:
+        type: string
+        example: "idn:identity-created"
+    - name: connectorInstanceId
+      in: query
+      description: Connector Instance ID
+      required: false
+      schema:
+        type: string
+        example: "28541fec-bb81-4ad4-88ef-0f7d213adcad"
   security:
     - userAuth: [sp:workflow:read]
   x-sailpoint-userLevels:
     - ORG_ADMIN
-    - SOURCE_ADMIN
   responses:
     '200':
       description: >-

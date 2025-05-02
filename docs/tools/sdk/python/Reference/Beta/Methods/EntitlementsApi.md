@@ -444,7 +444,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = EntitlementsApi(api_client).list_entitlement_children(id, limit, offset, count, sorters, filters)
         print("The response of EntitlementsApi->list_entitlement_children:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling EntitlementsApi->list_entitlement_children: %s\n" % e)
 ```
@@ -513,7 +514,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = EntitlementsApi(api_client).list_entitlement_parents(id, limit, offset, count, sorters, filters)
         print("The response of EntitlementsApi->list_entitlement_parents:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling EntitlementsApi->list_entitlement_parents: %s\n" % e)
 ```
@@ -591,7 +593,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = EntitlementsApi(api_client).list_entitlements(account_id, segmented_for_identity, for_segment_ids, include_unsegmented, offset, limit, count, sorters, filters)
         print("The response of EntitlementsApi->list_entitlements:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling EntitlementsApi->list_entitlements: %s\n" % e)
 ```

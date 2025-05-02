@@ -536,7 +536,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).export_form_definitions_by_tenant(offset, limit, filters, sorters)
         print("The response of CustomFormsApi->export_form_definitions_by_tenant:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->export_form_definitions_by_tenant: %s\n" % e)
 ```
@@ -1144,7 +1145,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CustomFormsApi(api_client).search_form_instances_by_tenant()
         print("The response of CustomFormsApi->search_form_instances_by_tenant:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CustomFormsApi->search_form_instances_by_tenant: %s\n" % e)
 ```

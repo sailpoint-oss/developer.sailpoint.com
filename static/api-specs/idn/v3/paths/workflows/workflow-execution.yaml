@@ -4,13 +4,16 @@ get:
     - Workflows
   summary: Get Workflow Execution
   description: >-
-    Use this API to get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a "404 Not Found" response.
+    Get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a "404 Not Found" response.
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   security:
     - userAuth: [sp:workflow:read]
   parameters:
     - name: id
       in: path
       description: Workflow execution ID.
+      x-sailpoint-resource-operation-id: listWorkflows
       required: true
       style: simple
       explode: false

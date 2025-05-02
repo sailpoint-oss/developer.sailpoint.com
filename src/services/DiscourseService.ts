@@ -168,7 +168,9 @@ export async function getVideoPosts(tags?: string[]): Promise<VideoPostResponse 
       const data: VideoPostResponse = await response.json();
 
       allData.topic_list.topics = [...allData.topic_list.topics, ...data.topic_list.topics];
-      allData.users = [...allData.users, ...data.users];
+      if (Array.isArray(data.users)) {
+        allData.users = [...allData.users, ...data.users];
+      }
 
       if (data.topic_list.topics.length < 30) {
         // Less than 30 topics means it's the last page

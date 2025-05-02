@@ -321,7 +321,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ManagedClientsApi(api_client).get_managed_clients(offset, limit, count, filters)
         print("The response of ManagedClientsApi->get_managed_clients:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ManagedClientsApi->get_managed_clients: %s\n" % e)
 ```

@@ -1433,7 +1433,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_source_schema_attributes(source_id)
         print("The response of NonEmployeeLifecycleManagementApi->get_non_employee_source_schema_attributes:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->get_non_employee_source_schema_attributes: %s\n" % e)
 ```
@@ -1566,7 +1567,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_approvals(requested_for, limit, offset, count, filters, sorters)
         print("The response of NonEmployeeLifecycleManagementApi->list_non_employee_approvals:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->list_non_employee_approvals: %s\n" % e)
 ```
@@ -1634,7 +1636,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_records(limit, offset, count, sorters, filters)
         print("The response of NonEmployeeLifecycleManagementApi->list_non_employee_records:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->list_non_employee_records: %s\n" % e)
 ```
@@ -1706,7 +1709,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_requests(requested_for, limit, offset, count, sorters, filters)
         print("The response of NonEmployeeLifecycleManagementApi->list_non_employee_requests:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->list_non_employee_requests: %s\n" % e)
 ```
@@ -1776,7 +1780,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_sources(limit, offset, count, requested_for, non_employee_count, sorters)
         print("The response of NonEmployeeLifecycleManagementApi->list_non_employee_sources:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NonEmployeeLifecycleManagementApi->list_non_employee_sources: %s\n" % e)
 ```

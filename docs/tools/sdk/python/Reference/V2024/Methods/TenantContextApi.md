@@ -71,7 +71,7 @@ from sailpoint.v2024.models.get_tenant_context200_response_inner import GetTenan
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -83,7 +83,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TenantContextApi(api_client).get_tenant_context(x_sail_point_experimental)
         print("The response of TenantContextApi->get_tenant_context:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TenantContextApi->get_tenant_context: %s\n" % e)
 ```
@@ -148,7 +149,7 @@ from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')

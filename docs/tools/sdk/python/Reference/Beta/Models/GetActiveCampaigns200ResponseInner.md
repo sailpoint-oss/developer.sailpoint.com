@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **auto_revoke_allowed** | **bool** | Allows auto revoke for this campaign | [optional] [default to False]
 **recommendations_enabled** | **bool** | Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off then campaigns generated from this template will indicate false. The real value will then be returned if IAI is ever enabled for the org in the future.  | [optional] [default to False]
 **status** |  **Enum** [  'PENDING',    'STAGED',    'CANCELING',    'ACTIVATING',    'ACTIVE',    'COMPLETING',    'COMPLETED',    'ERROR',    'ARCHIVED' ] | The campaign's current status. | [optional] [readonly] 
-**correlated_status** |  **Enum** [  'CORRELATED',    'UNCORRELATED' ] | The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source). | [optional] 
+**correlated_status** |  **Enum** [  'CORRELATED',    'UNCORRELATED' ] | The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).  | [optional] 
 **created** | **datetime** | Created time of the campaign | [optional] [readonly] 
 **total_certifications** | **int** | The total number of certifications in this campaign. | [optional] [readonly] 
 **completed_certifications** | **int** | The number of completed certifications in this campaign. | [optional] [readonly] 

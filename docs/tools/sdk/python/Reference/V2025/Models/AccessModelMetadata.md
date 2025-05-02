@@ -38,9 +38,7 @@ name='CSP',
 multiselect=True,
 status='active',
 type='governance',
-object_types=[
-                    'general'
-                    ],
+object_types=[general],
 description='Indicates the type of deployment environment of an access item.',
 values=[
                     sailpoint.v2025.models.access_model_metadata_values_inner.AccessModelMetadata_values_inner(

@@ -36,3 +36,17 @@ No-code/low-code providers, like Zapier and Microsoft Power Automate, make it ea
 ## Custom Application
 
 A custom application is one you write in a language of your choosing and host in your own infrastructure, cloud, or on-premise. This is the most advanced option for implementing an event trigger client service. Although it requires a great deal of skill and knowledge to build, deploy, and operate your own service that can consume requests over HTTP, a custom application offers the most power and flexibility to implement your use cases. You can learn more about custom applications by checking out our [Event Trigger Example Application](https://github.com/sailpoint-oss/event-trigger-examples).
+
+### Visual Studio Code Port Forwarding 
+
+When you're developing a custom application that can consume event triggers, ISC needs a public URL (Integration URL) it can send event data to. However, you may want to test your custom application locally. If you're using Visual Studio Code (VSCode), you can use its [built-in port forwarding feature](https://code.visualstudio.com/docs/debugtest/port-forwarding) to generate a public URL and then forward its web traffic into your local web service. 
+
+Follow these steps to set up port forwarding in your custom application: 
+
+1. Open the terminal in VSCode and select the 'Ports' tab. 
+2. Select 'Forward a Port'. 
+3. Specify the port that your application is using to listen for event data. In the event trigger examples project, the port is 8081 by default. Click 'Enter' to create a port.
+4. VSCode will prompt you to log in to GitHub. Log in, and VS Code will create a URL in the 'Forwarded Address' column. This is the URL you will make public for ISC to send event data to. 
+5. Right click the URL, select 'Visibility', and set the visibility to 'Public'. ISC needs the URL to be public to send it event data. 
+
+You now have a public URL you can provide to ISC as an 'Integration URL' when you subscribe to an event trigger. Copy the URL and paste it into the 'Integration URL' when you subscribe to an event trigger. Then add the event trigger endpoint to the end of the URL so that your application reads the correct event data. For example, you would use a URL like https://w6wl7kkz-8081.usw3.devtunnels.ms/form-submitted to consume the [Form Submitted](https://developer.sailpoint.com/docs/api/v2025/form-submitted-event) event trigger. 

@@ -88,17 +88,17 @@ If you attempt to invoke an experimental API without specifying the `X-SailPoint
 
 ## Release schedule
 
-SailPoint will introduce an annual release which includes both public and experimental APIs. Each yearly version will be named according to its release year. For instance, if the release occurs in 2025, the version will be designated as v2025.
+SailPoint will introduce an annual release that includes both public and experimental APIs. Each yearly version will be named according to its release year. For instance, if the release occurs in 2025, the version will be designated as v2025.
 
-Each annual release will be accompanied by an experimental release if there is at least one breaking change introduced in the current annual release. This experimental release will be named after the next year. For example, if the current year is 2025, the experimental version will be named v2026. Any breaking changes to public endpoints in a public version throughout the year will be introduced in the experimental version.
+Each annual release may be accompanied by an experimental release if it introduces at least one breaking change. For example, if the annual release is v2025 and includes breaking changes, those changes will be introduced as experimental APIs in v2026.
 
 When a new annual release is introduced, non-deprecated endpoints will generally be transferred to the new release without modifications. As a result, the same endpoint will usually be able to be accessed via both the old and new versions. Only the latest public release will receive new functionality. If at anytime throughout the year a experimental API is deemed ready for production, it will be released into the current year’s public version, but not previous years.
 
 Annual release versions will typically be supported for 3 years and then remain operational for an additional 2-year transition period, unless otherwise noted or an exception applies.  Customers will be expected to move to the latest public release during those two years. Customers seeking support for an annual release that is over 3 years old will be asked to transition to a newer version.
 
-The following image demonstrates the support model for public and experimental releases. The green bars represent how long an annual release version will be supported by our support team. When a annual release is older than three years, it may still remain operational, but it is no longer supported. The blue bars represent experimental releases which are available for one year in the preview state before being changed to a production release.
+The following image demonstrates the support model for public and experimental releases. The green bars represent how long an annual release version will be supported by our support team. When a annual release is older than three years, it may still remain operational, but it is no longer supported. During each calendar year’s main release (e.g., v2025), an optional experimental release may be introduced in preparation for the following year’s version (e.g., v2026). Blue bars on the timeline represent these experimental releases. For example, in 2025, if breaking changes are required for a public api, an experimental version (v2026) of the api may be published during the v2025 cycle.
 
-![Versioning Timeline](../img/api-versioning-timeline.jpg)
+![Versioning Timeline](../img/api-versioning-timeline.png)
 
 ## Deprecations
 

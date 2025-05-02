@@ -92,7 +92,7 @@ from sailpoint.v2025.models.search_attribute_config import SearchAttributeConfig
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -170,7 +170,7 @@ from sailpoint.v2025.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     name = 'newMailAttribute' # str | Name of the extended search attribute configuration to delete. # str | Name of the extended search attribute configuration to delete.
@@ -241,7 +241,7 @@ from sailpoint.v2025.models.search_attribute_config import SearchAttributeConfig
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -255,7 +255,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SearchAttributeConfigurationApi(api_client).get_search_attribute_config(x_sail_point_experimental, limit, offset)
         print("The response of SearchAttributeConfigurationApi->get_search_attribute_config:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SearchAttributeConfigurationApi->get_search_attribute_config: %s\n" % e)
 ```
@@ -315,7 +316,7 @@ from sailpoint.v2025.models.search_attribute_config import SearchAttributeConfig
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     name = 'newMailAttribute' # str | Name of the extended search attribute configuration to get. # str | Name of the extended search attribute configuration to get.
@@ -392,7 +393,7 @@ from sailpoint.v2025.models.search_attribute_config import SearchAttributeConfig
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     name = 'promotedMailAttribute' # str | Name of the search attribute configuration to patch. # str | Name of the search attribute configuration to patch.

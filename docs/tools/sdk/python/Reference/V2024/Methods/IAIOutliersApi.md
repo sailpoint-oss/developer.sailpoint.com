@@ -78,7 +78,7 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -155,7 +155,7 @@ from sailpoint.v2024.models.outlier_summary import OutlierSummary
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -172,7 +172,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIOutliersApi(api_client).get_identity_outlier_snapshots(x_sail_point_experimental, limit, offset, type, filters, sorters)
         print("The response of IAIOutliersApi->get_identity_outlier_snapshots:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIOutliersApi->get_identity_outlier_snapshots: %s\n" % e)
 ```
@@ -236,7 +237,7 @@ from sailpoint.v2024.models.outlier import Outlier
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -254,7 +255,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIOutliersApi(api_client).get_identity_outliers(x_sail_point_experimental, limit, offset, count, type, filters, sorters)
         print("The response of IAIOutliersApi->get_identity_outliers:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIOutliersApi->get_identity_outliers: %s\n" % e)
 ```
@@ -314,7 +316,7 @@ from sailpoint.v2024.models.latest_outlier_summary import LatestOutlierSummary
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -327,7 +329,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIOutliersApi(api_client).get_latest_identity_outlier_snapshots(x_sail_point_experimental, type)
         print("The response of IAIOutliersApi->get_latest_identity_outlier_snapshots:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIOutliersApi->get_latest_identity_outlier_snapshots: %s\n" % e)
 ```
@@ -390,7 +393,7 @@ from sailpoint.v2024.models.outlier_feature_summary import OutlierFeatureSummary
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     outlier_feature_id = '04654b66-7561-4090-94f9-abee0722a1af' # str | Contributing feature id # str | Contributing feature id
@@ -471,7 +474,7 @@ from sailpoint.v2024.models.outlier_contributing_feature import OutlierContribut
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     outlier_id = '2c918085842e69ae018432d22ccb212f' # str | The outlier id # str | The outlier id
@@ -489,7 +492,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIOutliersApi(api_client).get_peer_group_outliers_contributing_features(outlier_id, x_sail_point_experimental, limit, offset, count, include_translation_messages, sorters)
         print("The response of IAIOutliersApi->get_peer_group_outliers_contributing_features:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIOutliersApi->get_peer_group_outliers_contributing_features: %s\n" % e)
 ```
@@ -547,7 +551,7 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -627,7 +631,7 @@ from sailpoint.v2024.models.outliers_contributing_feature_access_items import Ou
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     outlier_id = '2c918085842e69ae018432d22ccb212f' # str | The outlier id # str | The outlier id
@@ -646,7 +650,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIOutliersApi(api_client).list_outliers_contributing_feature_access_items(outlier_id, contributing_feature_name, x_sail_point_experimental, limit, offset, count, access_type, sorters)
         print("The response of IAIOutliersApi->list_outliers_contributing_feature_access_items:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIOutliersApi->list_outliers_contributing_feature_access_items: %s\n" % e)
 ```
@@ -704,7 +709,7 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')

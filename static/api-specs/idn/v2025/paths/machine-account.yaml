@@ -108,7 +108,7 @@ patch:
           type: array
           items:
             type: object
-        example:
+        examples:
           Add machine identity attribute:
             value:
               - op: add

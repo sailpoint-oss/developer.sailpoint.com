@@ -60,11 +60,11 @@
 
 .name {
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 600;
   width: 100%;
   top: 124px;
   left: 0;
-  color: var(--dev-text-color-normal);
+  color: var(--ifm-primary-text-color);
 }
 
 .titleText {
@@ -74,17 +74,17 @@
   letter-spacing: 2px;
   top: 150px;
   left: 0;
-  color: var(--dev-text-color-normal);
+  color: var(--ifm-primary-text-color);
 }
 
 .location {
   font-size: 10px;
-  font-weight: 500;
+  font-weight: 600;
   width: 100%;
   letter-spacing: 2px;
   top: 141px;
   left: 0;
-  color: var(--ifm-color-primary);
+  color: var(--ifm-primary-text-color);
 }
 
 .cardArrow {
@@ -98,9 +98,9 @@
 .bio {
   margin: 30px auto;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   width: 100%;
-  color: var(--ifm-color-primary);
+  color: var(--ifm-primary-text-color);
   padding: 0px 30px;
   margin-bottom: 50px;
 }
@@ -113,18 +113,9 @@
   align-items: center;
 }
 
-.cardEye {
-  fill: #96a9bb;
-  /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
-  filter: invert(79%) sepia(12%) saturate(484%) hue-rotate(168deg)
-    brightness(84%) contrast(84%);
-  margin-left: 5px;
-  height: 18px;
-  width: 18px;
-}
-
 .cardCommentText {
-  color: #96a9ba;
+  font-weight: 400;
+  color: var(--ifm-primary-text-color);
   /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
   margin-left: 5px;
   margin-bottom: 5px;
@@ -133,7 +124,8 @@
 }
 
 .cardCommentTextUpper {
-  color: #96a9ba;
+  font-weight: 400;
+  color: var(--ifm-primary-text-color);
   /* computed from codepen https://codepen.io/sosuke/pen/Pjoqqp */
   margin-left: 10px;
   margin-bottom: 5px;

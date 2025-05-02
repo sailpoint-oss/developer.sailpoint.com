@@ -38,16 +38,19 @@ get:
         **name**: *eq, sw*
         
         
-        **created**: *gt, lt, ge, le*
+        **created**: *gt, ge, le*
 
 
-        **modified**: *gt, lt, ge, le*
+        **modified**: *lt, ge, le*
         
         
         **owner.id**: *eq, in*
         
         
         **requestable**: *eq*
+
+
+        **dimensional**: *eq*
       example: requestable eq false
       required: false
     - in: query

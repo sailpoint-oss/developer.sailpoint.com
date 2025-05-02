@@ -8,6 +8,7 @@ import HomepageBasics from '@site/src/components/homepage/HomepageBasics';
 import HomepageTrainingGuides from '@site/src/components/homepage/HomepageTrainingGuides';
 import HomepageDiscuss from '@site/src/components/homepage/HomepageDiscuss';
 import HomepageTeam from '@site/src/components/homepage/HomepageTeam';
+import HomepageDeveloperDays from '@site/src/components/homepage/HomepageDeveloperDays';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
@@ -17,8 +18,8 @@ export default function Home(): ReactNode {
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
+        <HomepageDeveloperDays />
         <HomepageGettingStarted />
-        {/* <HomepageDeveloperDays /> */}
         <HomepageBasics
           description={
             "If you still aren't sure where to get started, try one of the <b>Getting Started Guides</b> below, or see what our platform has to offer."

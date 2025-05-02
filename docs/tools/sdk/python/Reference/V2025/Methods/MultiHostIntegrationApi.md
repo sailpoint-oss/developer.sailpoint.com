@@ -294,7 +294,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_acct_aggregation_groups(multihost_id, offset, limit)
         print("The response of MultiHostIntegrationApi->get_acct_aggregation_groups:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_acct_aggregation_groups: %s\n" % e)
 ```
@@ -359,7 +360,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_entitlement_aggregation_groups(multi_host_id, offset, limit)
         print("The response of MultiHostIntegrationApi->get_entitlement_aggregation_groups:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_entitlement_aggregation_groups: %s\n" % e)
 ```
@@ -491,7 +493,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_multi_host_integrations_list(offset, limit, sorters, filters, count, for_subadmin)
         print("The response of MultiHostIntegrationApi->get_multi_host_integrations_list:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_multi_host_integrations_list: %s\n" % e)
 ```
@@ -552,7 +555,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_multi_host_source_creation_errors(multi_host_id)
         print("The response of MultiHostIntegrationApi->get_multi_host_source_creation_errors:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_multi_host_source_creation_errors: %s\n" % e)
 ```
@@ -609,7 +613,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_multihost_integration_types()
         print("The response of MultiHostIntegrationApi->get_multihost_integration_types:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_multihost_integration_types: %s\n" % e)
 ```
@@ -680,7 +685,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = MultiHostIntegrationApi(api_client).get_sources_within_multi_host(multihost_id, offset, limit, sorters, filters, count)
         print("The response of MultiHostIntegrationApi->get_sources_within_multi_host:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->get_sources_within_multi_host: %s\n" % e)
 ```

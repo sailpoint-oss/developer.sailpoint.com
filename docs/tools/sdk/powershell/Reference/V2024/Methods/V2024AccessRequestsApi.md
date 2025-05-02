@@ -40,6 +40,7 @@ Method | HTTP request | Description
 [**Get-V2024AccessRequestConfig**](#get-access-request-config) | **GET** `/access-request-config` | Get Access Request Configuration
 [**Get-V2024AccessRequestStatus**](#list-access-request-status) | **GET** `/access-request-status` | Access Request Status
 [**Get-V2024AdministratorsAccessRequestStatus**](#list-administrators-access-request-status) | **GET** `/access-request-administration` | Access Request Status for Administrators
+[**Invoke-V2024LoadAccountSelections**](#load-account-selections) | **POST** `/access-requests/accounts-selection` | Get accounts selections for identity
 [**Set-V2024AccessRequestConfig**](#set-access-request-config) | **PUT** `/access-request-config` | Update Access Request Configuration
 
 
@@ -283,6 +284,7 @@ __GRANT_ACCESS__
 * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others.
 * Roles, access profiles and entitlements can be requested.
 * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.
+* Now supports an alternate field 'requestedForWithRequestedItems' for users to specify account selections while requesting items where they have more than one account on the source.
  
 __REVOKE_ACCESS__
 * Can only be requested for a single identity at a time.
@@ -293,6 +295,7 @@ __REVOKE_ACCESS__
 * Revoke requests for entitlements are limited to 1 entitlement per access request currently.
 * You can specify a `removeDate` if the access doesn't already have a sunset date. The `removeDate` must be a future date, in the UTC timezone. 
 * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone.
+* Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of 'assignmentId' and 'nativeIdentity' fields.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-access-request)
@@ -322,7 +325,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $AccessRequest = @"{
-  "requestedFor" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210584" ],
+  "requestedFor" : "2c918084660f45d6016617daa9210584",
   "clientMetadata" : {
     "requestedAppId" : "2c91808f7892918f0178b78da4a305a1",
     "requestedAppName" : "test-app"
@@ -336,7 +339,9 @@ $AccessRequest = @"{
     "removeDate" : "2020-07-11T21:23:15Z",
     "comment" : "Requesting access profile for John Doe",
     "id" : "2c9180835d2e5168015d32f890ca1581",
-    "type" : "ACCESS_PROFILE"
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
   }, {
     "clientMetadata" : {
       "requestedAppName" : "test-app",
@@ -345,7 +350,9 @@ $AccessRequest = @"{
     "removeDate" : "2020-07-11T21:23:15Z",
     "comment" : "Requesting access profile for John Doe",
     "id" : "2c9180835d2e5168015d32f890ca1581",
-    "type" : "ACCESS_PROFILE"
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
   }, {
     "clientMetadata" : {
       "requestedAppName" : "test-app",
@@ -354,7 +361,9 @@ $AccessRequest = @"{
     "removeDate" : "2020-07-11T21:23:15Z",
     "comment" : "Requesting access profile for John Doe",
     "id" : "2c9180835d2e5168015d32f890ca1581",
-    "type" : "ACCESS_PROFILE"
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
   }, {
     "clientMetadata" : {
       "requestedAppName" : "test-app",
@@ -363,7 +372,9 @@ $AccessRequest = @"{
     "removeDate" : "2020-07-11T21:23:15Z",
     "comment" : "Requesting access profile for John Doe",
     "id" : "2c9180835d2e5168015d32f890ca1581",
-    "type" : "ACCESS_PROFILE"
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
   }, {
     "clientMetadata" : {
       "requestedAppName" : "test-app",
@@ -372,7 +383,136 @@ $AccessRequest = @"{
     "removeDate" : "2020-07-11T21:23:15Z",
     "comment" : "Requesting access profile for John Doe",
     "id" : "2c9180835d2e5168015d32f890ca1581",
-    "type" : "ACCESS_PROFILE"
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  } ],
+  "requestedForWithRequestedItems" : [ {
+    "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+    "requestedItems" : [ {
+      "clientMetadata" : {
+        "requestedAppName" : "test-app",
+        "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+      },
+      "removeDate" : "2020-07-11T21:23:15Z",
+      "accountSelection" : [ {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      }, {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      } ],
+      "comment" : "Requesting access profile for John Doe",
+      "id" : "2c9180835d2e5168015d32f890ca1581",
+      "type" : "ACCESS_PROFILE",
+      "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+    }, {
+      "clientMetadata" : {
+        "requestedAppName" : "test-app",
+        "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+      },
+      "removeDate" : "2020-07-11T21:23:15Z",
+      "accountSelection" : [ {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      }, {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      } ],
+      "comment" : "Requesting access profile for John Doe",
+      "id" : "2c9180835d2e5168015d32f890ca1581",
+      "type" : "ACCESS_PROFILE",
+      "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+    } ]
+  }, {
+    "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+    "requestedItems" : [ {
+      "clientMetadata" : {
+        "requestedAppName" : "test-app",
+        "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+      },
+      "removeDate" : "2020-07-11T21:23:15Z",
+      "accountSelection" : [ {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      }, {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      } ],
+      "comment" : "Requesting access profile for John Doe",
+      "id" : "2c9180835d2e5168015d32f890ca1581",
+      "type" : "ACCESS_PROFILE",
+      "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+    }, {
+      "clientMetadata" : {
+        "requestedAppName" : "test-app",
+        "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+      },
+      "removeDate" : "2020-07-11T21:23:15Z",
+      "accountSelection" : [ {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      }, {
+        "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+        "accounts" : [ {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        }, {
+          "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+          "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+        } ]
+      } ],
+      "comment" : "Requesting access profile for John Doe",
+      "id" : "2c9180835d2e5168015d32f890ca1581",
+      "type" : "ACCESS_PROFILE",
+      "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+    } ]
   } ]
 }"@
 
@@ -558,6 +698,118 @@ try {
     # Get-V2024AdministratorsAccessRequestStatus -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -AssignedTo $AssignedTo -Count $Count -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters -RequestState $RequestState  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AdministratorsAccessRequestStatus"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## load-account-selections
+Use this API to fetch account information for an identity against the items in an access request.
+
+Used to fetch accountSelection for the AccessRequest prior to submitting for async processing.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/load-account-selections)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | AccountsSelectionRequest | [**AccountsSelectionRequest**](../models/accounts-selection-request) | True  | 
+
+### Return type
+[**AccountsSelectionResponse**](../models/accounts-selection-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Accounts Selection Response | AccountsSelectionResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$AccountsSelectionRequest = @"{
+  "requestedFor" : "2c918084660f45d6016617daa9210584",
+  "clientMetadata" : {
+    "requestedAppId" : "2c91808f7892918f0178b78da4a305a1",
+    "requestedAppName" : "test-app"
+  },
+  "requestType" : "GRANT_ACCESS",
+  "requestedItems" : [ {
+    "clientMetadata" : {
+      "requestedAppName" : "test-app",
+      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+    },
+    "removeDate" : "2020-07-11T21:23:15Z",
+    "comment" : "Requesting access profile for John Doe",
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  }, {
+    "clientMetadata" : {
+      "requestedAppName" : "test-app",
+      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+    },
+    "removeDate" : "2020-07-11T21:23:15Z",
+    "comment" : "Requesting access profile for John Doe",
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  }, {
+    "clientMetadata" : {
+      "requestedAppName" : "test-app",
+      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+    },
+    "removeDate" : "2020-07-11T21:23:15Z",
+    "comment" : "Requesting access profile for John Doe",
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  }, {
+    "clientMetadata" : {
+      "requestedAppName" : "test-app",
+      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+    },
+    "removeDate" : "2020-07-11T21:23:15Z",
+    "comment" : "Requesting access profile for John Doe",
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  }, {
+    "clientMetadata" : {
+      "requestedAppName" : "test-app",
+      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+    },
+    "removeDate" : "2020-07-11T21:23:15Z",
+    "comment" : "Requesting access profile for John Doe",
+    "id" : "2c9180835d2e5168015d32f890ca1581",
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+  } ]
+}"@
+
+# Get accounts selections for identity
+
+try {
+    $Result = ConvertFrom-JsonToAccountsSelectionRequest -Json $AccountsSelectionRequest
+    Invoke-V2024LoadAccountSelections -AccountsSelectionRequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Invoke-V2024LoadAccountSelections -AccountsSelectionRequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2024LoadAccountSelections"
     Write-Host $_.ErrorDetails
 }
 ```

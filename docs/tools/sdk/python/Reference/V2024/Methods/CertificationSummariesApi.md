@@ -97,7 +97,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationSummariesApi(api_client).get_identity_access_summaries(id, type, limit, offset, count, filters, sorters)
         print("The response of CertificationSummariesApi->get_identity_access_summaries:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationSummariesApi->get_identity_access_summaries: %s\n" % e)
 ```
@@ -227,7 +228,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = CertificationSummariesApi(api_client).get_identity_summaries(id, limit, offset, count, filters, sorters)
         print("The response of CertificationSummariesApi->get_identity_summaries:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling CertificationSummariesApi->get_identity_summaries: %s\n" % e)
 ```

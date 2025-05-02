@@ -442,7 +442,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).disable_accounts_for_identities(new_identities_accounts_bulk_request)
         print("The response of AccountsApi->disable_accounts_for_identities:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountsApi->disable_accounts_for_identities: %s\n" % e)
 ```
@@ -627,7 +628,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).enable_accounts_for_identities(new_identities_accounts_bulk_request)
         print("The response of AccountsApi->enable_accounts_for_identities:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountsApi->enable_accounts_for_identities: %s\n" % e)
 ```
@@ -753,7 +755,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).get_account_entitlements(id, offset, limit, count)
         print("The response of AccountsApi->get_account_entitlements:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountsApi->get_account_entitlements: %s\n" % e)
 ```
@@ -821,7 +824,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountsApi(api_client).list_accounts(detail_level, limit, offset, count, filters, sorters)
         print("The response of AccountsApi->list_accounts:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountsApi->list_accounts: %s\n" % e)
 ```

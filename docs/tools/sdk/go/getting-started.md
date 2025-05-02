@@ -26,6 +26,7 @@ import (
  "os"
 
  sailpoint "github.com/sailpoint-oss/golang-sdk"
+ v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
 )
 
 func main() {
@@ -34,7 +35,7 @@ func main() {
  configuration := sailpoint.NewDefaultConfiguration()
  apiClient := sailpoint.NewAPIClient(configuration)
 
- resp, r, err := apiClient.V3.TransformsApi.ListTransforms(ctx).Execute()
+ resp, r, err := apiClient.V3.TransformsAPI.ListTransforms(ctx).Execute()
  if err != nil {
   fmt.Fprintf(os.Stderr, "Error when calling `TransformsApi.ListTransforms``: %v\n", err)
   fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

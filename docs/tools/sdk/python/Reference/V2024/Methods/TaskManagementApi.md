@@ -74,7 +74,7 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -149,7 +149,7 @@ from sailpoint.v2024.models.task_status import TaskStatus
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -164,7 +164,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TaskManagementApi(api_client).get_pending_tasks(x_sail_point_experimental, offset, limit, count)
         print("The response of TaskManagementApi->get_pending_tasks:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TaskManagementApi->get_pending_tasks: %s\n" % e)
 ```
@@ -224,7 +225,7 @@ from sailpoint.v2024.models.task_status import TaskStatus
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '00eebcf881994e419d72e757fd30dc0e' # str | Task ID. # str | Task ID.
@@ -302,7 +303,7 @@ from sailpoint.v2024.models.task_status import TaskStatus
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -319,7 +320,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = TaskManagementApi(api_client).get_task_status_list(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of TaskManagementApi->get_task_status_list:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TaskManagementApi->get_task_status_list: %s\n" % e)
 ```
@@ -381,7 +383,7 @@ from sailpoint.v2024.models.task_status import TaskStatus
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '00eebcf881994e419d72e757fd30dc0e' # str | Task ID. # str | Task ID.

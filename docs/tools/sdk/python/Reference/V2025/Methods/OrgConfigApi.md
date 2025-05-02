@@ -72,7 +72,7 @@ from sailpoint.v2025.models.org_config import OrgConfig
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -144,7 +144,7 @@ from sailpoint.v2025.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -159,7 +159,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = OrgConfigApi(api_client).get_valid_time_zones(x_sail_point_experimental, limit, offset, count)
         print("The response of OrgConfigApi->get_valid_time_zones:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling OrgConfigApi->get_valid_time_zones: %s\n" % e)
 ```
@@ -220,7 +221,7 @@ from sailpoint.v2025.models.org_config import OrgConfig
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')

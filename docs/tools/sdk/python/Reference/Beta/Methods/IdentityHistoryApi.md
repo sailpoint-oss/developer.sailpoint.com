@@ -89,7 +89,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityHistoryApi(api_client).compare_identity_snapshots(id, snapshot1, snapshot2, access_item_types, limit, offset, count)
         print("The response of IdentityHistoryApi->compare_identity_snapshots:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityHistoryApi->compare_identity_snapshots: %s\n" % e)
 ```
@@ -161,7 +162,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityHistoryApi(api_client).compare_identity_snapshots_access_type(id, access_type, access_associated, snapshot1, snapshot2, limit, offset, count)
         print("The response of IdentityHistoryApi->compare_identity_snapshots_access_type:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityHistoryApi->compare_identity_snapshots_access_type: %s\n" % e)
 ```
@@ -290,7 +292,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityHistoryApi(api_client).get_historical_identity_events(id, var_from, event_types, access_item_types, limit, offset, count)
         print("The response of IdentityHistoryApi->get_historical_identity_events:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityHistoryApi->get_historical_identity_events: %s\n" % e)
 ```
@@ -420,7 +423,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityHistoryApi(api_client).get_identity_snapshot_summary(id, before, interval, time_zone, limit, offset, count)
         print("The response of IdentityHistoryApi->get_identity_snapshot_summary:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityHistoryApi->get_identity_snapshot_summary: %s\n" % e)
 ```
@@ -543,7 +547,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityHistoryApi(api_client).list_historical_identities(starts_with_query, is_deleted, is_active, limit, offset)
         print("The response of IdentityHistoryApi->list_historical_identities:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityHistoryApi->list_historical_identities: %s\n" % e)
 ```
@@ -616,7 +621,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityHistoryApi(api_client).list_identity_access_items(id, type, filters, sorters, query, limit, count, offset)
         print("The response of IdentityHistoryApi->list_identity_access_items:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityHistoryApi->list_identity_access_items: %s\n" % e)
 ```
@@ -679,7 +685,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityHistoryApi(api_client).list_identity_snapshot_access_items(id, var_date, type)
         print("The response of IdentityHistoryApi->list_identity_snapshot_access_items:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityHistoryApi->list_identity_snapshot_access_items: %s\n" % e)
 ```
@@ -747,7 +754,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityHistoryApi(api_client).list_identity_snapshots(id, start, interval, limit, offset, count)
         print("The response of IdentityHistoryApi->list_identity_snapshots:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityHistoryApi->list_identity_snapshots: %s\n" % e)
 ```

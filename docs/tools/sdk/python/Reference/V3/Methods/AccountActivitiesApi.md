@@ -174,7 +174,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AccountActivitiesApi(api_client).list_account_activities(requested_for, requested_by, regarding_identity, limit, offset, count, filters, sorters)
         print("The response of AccountActivitiesApi->list_account_activities:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccountActivitiesApi->list_account_activities: %s\n" % e)
 ```

@@ -546,7 +546,7 @@ from sailpoint.v2025.models.task_result_dto import TaskResultDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'ebbf35756e1140699ce52b233121384a' # str | The source id # str | The source id
@@ -618,7 +618,7 @@ from sailpoint.v2025.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
@@ -1100,7 +1100,7 @@ from sailpoint.v2025.models.native_change_detection_config import NativeChangeDe
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
@@ -1294,7 +1294,7 @@ from sailpoint.v2025.models.attr_sync_source_config import AttrSyncSourceConfig
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
@@ -1489,7 +1489,7 @@ from sailpoint.v2025.models.source_entitlement_request_config import SourceEntit
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -1689,7 +1689,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).get_source_schedules(source_id)
         print("The response of SourcesApi->get_source_schedules:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->get_source_schedules: %s\n" % e)
 ```
@@ -1814,7 +1815,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).get_source_schemas(source_id, include_types, include_names)
         print("The response of SourcesApi->get_source_schemas:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->get_source_schemas: %s\n" % e)
 ```
@@ -1824,17 +1826,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## import-accounts
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Account Aggregation
 Starts an account aggregation on the specified source. 
 If the target source is a delimited file source, then the CSV file needs to be included in the request body.
@@ -1847,7 +1838,6 @@ You will also need to set the Content-Type header to `multipart/form-data`.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | Source Id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
    | file | **bytearray** |   (optional) | The CSV file containing the source accounts to aggregate.
    | disable_optimization | **str** |   (optional) | Use this flag to reprocess every account whether or not the data has changed.
 
@@ -1877,20 +1867,18 @@ from sailpoint.v2025.models.load_accounts_task import LoadAccountsTask
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source Id # str | Source Id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     file = None # bytearray | The CSV file containing the source accounts to aggregate. (optional) # bytearray | The CSV file containing the source accounts to aggregate. (optional)
     disable_optimization = 'disable_optimization_example' # str | Use this flag to reprocess every account whether or not the data has changed. (optional) # str | Use this flag to reprocess every account whether or not the data has changed. (optional)
 
     try:
         # Account Aggregation
         
-        results = SourcesApi(api_client).import_accounts(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        results = SourcesApi(api_client).import_accounts(id=id)
         # Below is a request that includes all optional parameters
-        # results = SourcesApi(api_client).import_accounts(id, x_sail_point_experimental, file, disable_optimization)
+        # results = SourcesApi(api_client).import_accounts(id, file, disable_optimization)
         print("The response of SourcesApi->import_accounts:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -2146,7 +2134,7 @@ from sailpoint.v2025.models.load_uncorrelated_accounts_task import LoadUncorrela
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '75dbec1ebe154d5785da27b95e1dd5d7' # str | Source Id # str | Source Id
@@ -2219,7 +2207,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).list_provisioning_policies(source_id)
         print("The response of SourcesApi->list_provisioning_policies:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->list_provisioning_policies: %s\n" % e)
 ```
@@ -2290,7 +2279,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).list_sources(limit, offset, count, filters, sorters, for_subadmin, include_idn_source)
         print("The response of SourcesApi->list_sources:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->list_sources: %s\n" % e)
 ```
@@ -2491,7 +2481,7 @@ from sailpoint.v2025.models.native_change_detection_config import NativeChangeDe
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
@@ -2834,7 +2824,7 @@ from sailpoint.v2025.models.attr_sync_source_config import AttrSyncSourceConfig
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
@@ -3063,7 +3053,7 @@ from sailpoint.v2025.models.source_sync_job import SourceSyncJob
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'id_example' # str | The Source id # str | The Source id
@@ -3257,7 +3247,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).update_password_policy_holders(source_id, new_password_policy_holders_dto_inner)
         print("The response of SourcesApi->update_password_policy_holders:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->update_password_policy_holders: %s\n" % e)
 ```
@@ -3318,7 +3309,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = SourcesApi(api_client).update_provisioning_policies_in_bulk(source_id, new_provisioning_policy_dto)
         print("The response of SourcesApi->update_provisioning_policies_in_bulk:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling SourcesApi->update_provisioning_policies_in_bulk: %s\n" % e)
 ```
@@ -3525,7 +3517,7 @@ from sailpoint.v2025.models.source_entitlement_request_config import SourceEntit
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')

@@ -17,9 +17,9 @@ tags: ['SDK', 'Software Development Kit', 'ProvisioningCriteriaLevel1', 'V2025Pr
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Operation** | [**ProvisioningCriteriaOperation**](provisioning-criteria-operation) |  | [optional] 
-**Attribute** | **String** | Name of the Account attribute to be tested. If **operation** is one of EQUALS, NOT_EQUALS, CONTAINS, or HAS, this field is required. Otherwise, specifying it is an error. | [optional] 
-**Value** | **String** | String value to test the Account attribute w/r/t the specified operation. If the operation is one of EQUALS, NOT_EQUALS, or CONTAINS, this field is required. Otherwise, specifying it is an error. If the Attribute is not String-typed, it will be converted to the appropriate type. | [optional] 
-**Children** | [**[]ProvisioningCriteriaLevel2**](provisioning-criteria-level2) | Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum of three levels of criteria are supported, including leaf nodes. | [optional] 
+**Attribute** | **String** | Name of the account attribute to be tested. If **operation** is one of `EQUALS`, `NOT_EQUALS`, `CONTAINS`, or `HAS`, this field is required. Otherwise, specifying it results in an error. | [optional] 
+**Value** | **String** | String value to test the account attribute w/r/t the specified operation. If the operation is one of `EQUALS`, `NOT_EQUALS`, or `CONTAINS`, this field is required. Otherwise, specifying it results in an error. If the attribute is not string-typed, the API will convert it to the appropriate type. | [optional] 
+**Children** | [**[]ProvisioningCriteriaLevel2**](provisioning-criteria-level2) | Array of child criteria. This field is required if the operation is `AND` or `OR`. Otherwise, it must be left null. A maximum of three levels of criteria are supported, including leaf nodes. | [optional] 
 
 ## Examples
 

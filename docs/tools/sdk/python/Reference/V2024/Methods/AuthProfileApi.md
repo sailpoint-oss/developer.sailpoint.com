@@ -77,7 +77,7 @@ from sailpoint.v2024.models.auth_profile import AuthProfile
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -148,7 +148,7 @@ from sailpoint.v2024.models.auth_profile_summary import AuthProfileSummary
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -160,7 +160,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = AuthProfileApi(api_client).get_profile_config_list(x_sail_point_experimental)
         print("The response of AuthProfileApi->get_profile_config_list:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AuthProfileApi->get_profile_config_list: %s\n" % e)
 ```
@@ -222,7 +223,7 @@ from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121919ecca' # str | ID of the Auth Profile to patch. # str | ID of the Auth Profile to patch.

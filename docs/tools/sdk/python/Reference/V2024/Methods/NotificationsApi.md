@@ -84,7 +84,7 @@ from sailpoint.v2024.models.domain_status_dto import DomainStatusDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -160,7 +160,7 @@ from sailpoint.v2024.models.template_dto import TemplateDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -249,7 +249,7 @@ from sailpoint.v2024.models.email_status_dto import EmailStatusDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -326,7 +326,7 @@ from sailpoint.v2024.models.template_bulk_delete_dto import TemplateBulkDeleteDt
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -396,7 +396,7 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'id_example' # str |  # str | 
@@ -465,7 +465,7 @@ from sailpoint.v2024.models.dkim_attributes import DkimAttributes
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -477,7 +477,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).get_dkim_attributes(x_sail_point_experimental)
         print("The response of NotificationsApi->get_dkim_attributes:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->get_dkim_attributes: %s\n" % e)
 ```
@@ -536,7 +537,7 @@ from sailpoint.v2024.models.mail_from_attributes import MailFromAttributes
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'bobsmith@sailpoint.com' # str | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status # str | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
@@ -608,7 +609,7 @@ from sailpoint.v2024.models.template_dto import TemplateDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the Notification Template # str | Id of the Notification Template
@@ -680,7 +681,7 @@ from sailpoint.v2024.models.notification_template_context import NotificationTem
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -754,7 +755,7 @@ from sailpoint.v2024.models.email_status_dto import EmailStatusDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -771,7 +772,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_from_addresses(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of NotificationsApi->list_from_addresses:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->list_from_addresses: %s\n" % e)
 ```
@@ -830,7 +832,7 @@ from sailpoint.v2024.models.preferences_dto import PreferencesDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -903,7 +905,7 @@ from sailpoint.v2024.models.template_dto_default import TemplateDtoDefault
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -918,7 +920,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_notification_template_defaults(x_sail_point_experimental, limit, offset, filters)
         print("The response of NotificationsApi->list_notification_template_defaults:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->list_notification_template_defaults: %s\n" % e)
 ```
@@ -979,7 +982,7 @@ from sailpoint.v2024.models.template_dto import TemplateDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -994,7 +997,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_notification_templates(x_sail_point_experimental, limit, offset, filters)
         print("The response of NotificationsApi->list_notification_templates:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->list_notification_templates: %s\n" % e)
 ```
@@ -1054,7 +1058,7 @@ from sailpoint.v2024.models.mail_from_attributes_dto import MailFromAttributesDt
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -1130,7 +1134,7 @@ from sailpoint.v2024.models.send_test_notification_request_dto import SendTestNo
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')

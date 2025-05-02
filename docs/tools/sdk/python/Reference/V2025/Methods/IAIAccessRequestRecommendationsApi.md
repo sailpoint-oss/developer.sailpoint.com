@@ -78,7 +78,7 @@ from sailpoint.v2025.models.access_request_recommendation_action_item_response_d
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -157,7 +157,7 @@ from sailpoint.v2025.models.access_request_recommendation_action_item_response_d
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -236,7 +236,7 @@ from sailpoint.v2025.models.access_request_recommendation_action_item_response_d
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -315,7 +315,7 @@ from sailpoint.v2025.models.access_request_recommendation_action_item_response_d
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -328,7 +328,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIAccessRequestRecommendationsApi(api_client).add_access_request_recommendations_viewed_items(x_sail_point_experimental, new_access_request_recommendation_action_item_dto)
         print("The response of IAIAccessRequestRecommendationsApi->add_access_request_recommendations_viewed_items:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIAccessRequestRecommendationsApi->add_access_request_recommendations_viewed_items: %s\n" % e)
 ```
@@ -393,7 +394,7 @@ from sailpoint.v2025.models.access_request_recommendation_item_detail import Acc
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -412,7 +413,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations(x_sail_point_experimental, identity_id, limit, offset, count, include_translation_messages, filters, sorters)
         print("The response of IAIAccessRequestRecommendationsApi->get_access_request_recommendations:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIAccessRequestRecommendationsApi->get_access_request_recommendations: %s\n" % e)
 ```
@@ -470,7 +472,7 @@ from sailpoint.v2025.models.access_request_recommendation_config_dto import Acce
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -545,7 +547,7 @@ from sailpoint.v2025.models.access_request_recommendation_action_item_response_d
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -562,7 +564,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations_ignored_items(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of IAIAccessRequestRecommendationsApi->get_access_request_recommendations_ignored_items:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIAccessRequestRecommendationsApi->get_access_request_recommendations_ignored_items: %s\n" % e)
 ```
@@ -625,7 +628,7 @@ from sailpoint.v2025.models.access_request_recommendation_action_item_response_d
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -642,7 +645,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations_requested_items(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of IAIAccessRequestRecommendationsApi->get_access_request_recommendations_requested_items:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIAccessRequestRecommendationsApi->get_access_request_recommendations_requested_items: %s\n" % e)
 ```
@@ -705,7 +709,7 @@ from sailpoint.v2025.models.access_request_recommendation_action_item_response_d
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -722,7 +726,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations_viewed_items(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of IAIAccessRequestRecommendationsApi->get_access_request_recommendations_viewed_items:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIAccessRequestRecommendationsApi->get_access_request_recommendations_viewed_items: %s\n" % e)
 ```
@@ -781,7 +786,7 @@ from sailpoint.v2025.models.access_request_recommendation_config_dto import Acce
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')

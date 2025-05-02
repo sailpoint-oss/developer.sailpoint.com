@@ -286,7 +286,7 @@ Code | Description  | Data Type
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
- $RequestBody = @"{Add machine identity attribute={value=[{op=add, path=/attributes/securityRisk, value=medium}]}, Replace machine identity attribute={value=[{op=replace, path=/attributes/securityRisk, value=medium}]}, Remove machine identity attribute={value=[{op=remove, path=/attributes/securityRisk}]}}"@ # SystemCollectionsHashtable[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+ $RequestBody = @"[{op=add, path=/attributes/securityRisk, value=medium}]"@ # SystemCollectionsHashtable[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 
 # Update a Machine Identity

@@ -93,7 +93,7 @@ from sailpoint.v2025.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
@@ -164,7 +164,7 @@ from sailpoint.v2025.models.identity import Identity
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
@@ -239,7 +239,7 @@ from sailpoint.v2025.models.identity_ownership_association_details import Identi
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     identity_id = 'ff8081814d2a8036014d701f3fbf53fa' # str | Identity ID. # str | Identity ID.
@@ -313,7 +313,7 @@ from sailpoint.v2025.models.role_assignment_dto import RoleAssignmentDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     identity_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
@@ -389,7 +389,7 @@ from sailpoint.v2025.models.get_role_assignments200_response_inner import GetRol
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     identity_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id to get the role assignments for # str | Identity Id to get the role assignments for
@@ -404,7 +404,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentitiesApi(api_client).get_role_assignments(identity_id, x_sail_point_experimental, role_id, role_name)
         print("The response of IdentitiesApi->get_role_assignments:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentitiesApi->get_role_assignments: %s\n" % e)
 ```
@@ -468,7 +469,7 @@ from sailpoint.v2025.models.identity import Identity
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -486,7 +487,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentitiesApi(api_client).list_identities(x_sail_point_experimental, filters, sorters, default_filter, count, limit, offset)
         print("The response of IdentitiesApi->list_identities:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentitiesApi->list_identities: %s\n" % e)
 ```
@@ -545,7 +547,7 @@ from sailpoint.v2025.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     identity_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
@@ -618,7 +620,7 @@ from sailpoint.v2025.models.send_account_verification_request import SendAccount
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -699,7 +701,7 @@ from sailpoint.v2025.models.task_status import TaskStatus
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -783,7 +785,7 @@ from sailpoint.v2025.models.task_result_response import TaskResultResponse
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -858,7 +860,7 @@ from sailpoint.v2025.models.identity_sync_job import IdentitySyncJob
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     identity_id = 'identity_id_example' # str | The Identity id # str | The Identity id

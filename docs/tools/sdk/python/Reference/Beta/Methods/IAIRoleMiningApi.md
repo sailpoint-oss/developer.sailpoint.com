@@ -506,7 +506,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_all_potential_role_summaries(sorters, filters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_all_potential_role_summaries:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_all_potential_role_summaries: %s\n" % e)
 ```
@@ -638,7 +639,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_entitlements_potential_role(session_id, potential_role_id, include_common_access, sorters, filters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_entitlements_potential_role:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_entitlements_potential_role: %s\n" % e)
 ```
@@ -707,7 +709,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_excluded_entitlements_potential_role(session_id, potential_role_id, sorters, filters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_excluded_entitlements_potential_role:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_excluded_entitlements_potential_role: %s\n" % e)
 ```
@@ -776,7 +779,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_identities_potential_role(session_id, potential_role_id, sorters, filters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_identities_potential_role:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_identities_potential_role: %s\n" % e)
 ```
@@ -904,7 +908,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_potential_role_applications(session_id, potential_role_id, filters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_potential_role_applications:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_potential_role_applications: %s\n" % e)
 ```
@@ -972,7 +977,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_potential_role_entitlements(session_id, potential_role_id, filters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_potential_role_entitlements:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_potential_role_entitlements: %s\n" % e)
 ```
@@ -1040,7 +1046,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_potential_role_source_identity_usage(potential_role_id, source_id, sorters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_potential_role_source_identity_usage:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_potential_role_source_identity_usage: %s\n" % e)
 ```
@@ -1108,7 +1115,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_potential_role_summaries(session_id, sorters, filters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_potential_role_summaries:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_potential_role_summaries: %s\n" % e)
 ```
@@ -1348,7 +1356,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_role_mining_sessions(filters, sorters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_role_mining_sessions:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_role_mining_sessions: %s\n" % e)
 ```
@@ -1412,7 +1421,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAIRoleMiningApi(api_client).get_saved_potential_roles(sorters, offset, limit, count)
         print("The response of IAIRoleMiningApi->get_saved_potential_roles:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAIRoleMiningApi->get_saved_potential_roles: %s\n" % e)
 ```

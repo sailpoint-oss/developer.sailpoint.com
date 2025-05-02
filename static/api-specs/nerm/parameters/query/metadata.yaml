@@ -1,6 +1,6 @@
 name: metadata
 in: query
-description: Returns batching metadata in the response
+description: Returns batching metadata in the response. This includes `total` as the total quantity, `next` as the path of the following query url, `limit` and `after_id` (if requested) with the next following id (null if it is the last "page").
 required: false
 schema:
   type: boolean

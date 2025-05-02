@@ -1204,14 +1204,6 @@ const pluginConfig = [
     '@gracefullight/docusaurus-plugin-microsoft-clarity',
     {projectId: 'naher5vlxx'},
   ],
-  [
-    'rsdoctor',
-    {
-      rsdoctorOptions: {
-        mode: 'lite',
-      },
-    },
-  ],
 ];
 
 

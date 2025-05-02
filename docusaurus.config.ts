@@ -14,6 +14,7 @@ const baseUrl = '/';
 
 const config: Config = {
   future: {
+    v4: true,
     experimental_faster: {
       swcJsLoader: true,
       swcJsMinimizer: true,
@@ -21,6 +22,8 @@ const config: Config = {
       lightningCssMinimizer: true,
       rspackBundler: true,
       mdxCrossCompilerCache: true,
+      rspackPersistentCache: true,
+      ssgWorkerThreads: true,
     },
   },
   title: 'SailPoint Developer Community',
@@ -51,8 +54,8 @@ const config: Config = {
         docs: {
           editUrl:
             'https://github.com/sailpoint-oss/developer-community-site/edit/main/',
-          showLastUpdateAuthor: true,
-          showLastUpdateTime: true,
+          showLastUpdateAuthor: false,
+          showLastUpdateTime: false,
           sidebarCollapsible: true,
           sidebarPath: require.resolve('./sidebars.js'),
           docItemComponent: '@theme/ApiItem', // Derived from docusaurus-theme-openapi

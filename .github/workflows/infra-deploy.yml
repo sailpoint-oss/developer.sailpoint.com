@@ -83,6 +83,7 @@ jobs:
           echo ${{ secrets.NPM_FONTAWESOME_CONFIG }} | base64 -d >> .npmrc
           export NODE_OPTIONS="--max_old_space_size=16384"
           export DOCUSAURUS_IGNORE_SSG_WARNINGS=true
+          export RSDOCTOR=true 
           npm ci 
           npm run gen-api-docs-all
           npm run build

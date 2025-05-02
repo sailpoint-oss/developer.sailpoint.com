@@ -36,6 +36,8 @@ yarn.lock
 /static/code-examples/v3/merged_code_examples.yaml
 /static/code-examples/v2024/v2024.yaml
 /static/code-examples/v2024/merged_code_examples.yaml
+/static/code-examples/v2025/v2025.yaml
+/static/code-examples/v2025/merged_code_examples.yaml
 
 /docs/api/v3/*
 /docs/api/beta/*

@@ -81,9 +81,8 @@ jobs:
         run: |
           echo "CMS_APP_API_ENDPOINT=$API_GATEWAY_URL" >> .env
           echo ${{ secrets.NPM_FONTAWESOME_CONFIG }} | base64 -d >> .npmrc
-          export NODE_OPTIONS="--max_old_space_size=16384"
+          export NODE_OPTIONS="--max_old_space_size=24576"
           export DOCUSAURUS_IGNORE_SSG_WARNINGS=true
-          export DOCUSAURUS_PERF_LOGGER=true
           npm ci --legacy-peer-deps
           npm run gen-api-docs-all
           npm run build

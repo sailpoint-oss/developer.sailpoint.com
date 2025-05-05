@@ -16,19 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'EntitlementRequestConfig', 'V2024Enti
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AllowEntitlementRequest** | **Boolean** | If this is true, entitlement requests are allowed. | [optional] [default to $false]
-**RequestCommentsRequired** | **Boolean** | If this is true, comments are required to submit entitlement requests. | [optional] [default to $false]
-**DeniedCommentsRequired** | **Boolean** | If this is true, comments are required to reject entitlement requests. | [optional] [default to $false]
-**GrantRequestApprovalSchemes** | **String** | Approval schemes for granting entitlement request. This can be empty if no approval is needed. Multiple schemes must be comma-separated. The valid schemes are ""entitlementOwner"", ""sourceOwner"", ""manager"" and ""`workgroup:{id}`"". You can use multiple governance groups (workgroups).  | [optional] [default to "sourceOwner"]
+**AccessRequestConfig** | [**EntitlementAccessRequestConfig**](entitlement-access-request-config) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$EntitlementRequestConfig = Initialize-PSSailpoint.V2024EntitlementRequestConfig  -AllowEntitlementRequest true `
- -RequestCommentsRequired false `
- -DeniedCommentsRequired false `
- -GrantRequestApprovalSchemes entitlementOwner, sourceOwner, manager, workgroup:2c918084660f45d6016617daa9210584
+$EntitlementRequestConfig = Initialize-PSSailpoint.V2024EntitlementRequestConfig  -AccessRequestConfig null
 ```
 
 - Convert the resource to JSON

@@ -107,7 +107,7 @@ To retrieve an attribute from an identity's account in a specific source, by Sou
             {
                 "type": "static",
                 "attributes": {
-                    "value": "$identity.getLinksByAppIdOrName("2c918088814e6a610181686b56977fa8",null\")[0].id"
+                    "value": "$identity.getLinksByAppIdOrName(\"2c918088814e6a610181686b56977fa8\",null)[0].id"
                 }
             },
             null

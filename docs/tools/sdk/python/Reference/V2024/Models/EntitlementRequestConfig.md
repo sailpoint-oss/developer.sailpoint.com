@@ -16,10 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'EntitlementRequestConfig', 'V2024Enti
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**allow_entitlement_request** | **bool** | If this is true, entitlement requests are allowed. | [optional] [default to False]
-**request_comments_required** | **bool** | If this is true, comments are required to submit entitlement requests. | [optional] [default to False]
-**denied_comments_required** | **bool** | If this is true, comments are required to reject entitlement requests. | [optional] [default to False]
-**grant_request_approval_schemes** | **str** | Approval schemes for granting entitlement request. This can be empty if no approval is needed. Multiple schemes must be comma-separated. The valid schemes are \"entitlementOwner\", \"sourceOwner\", \"manager\" and \"`workgroup:{id}`\". You can use multiple governance groups (workgroups).  | [optional] [default to 'sourceOwner']
+**access_request_config** | [**EntitlementAccessRequestConfig**](entitlement-access-request-config) |  | [optional] 
 }
 
 ## Example
@@ -28,10 +25,14 @@ Name | Type | Description | Notes
 from sailpoint.v2024.models.entitlement_request_config import EntitlementRequestConfig
 
 entitlement_request_config = EntitlementRequestConfig(
-allow_entitlement_request=True,
-request_comments_required=False,
-denied_comments_required=False,
-grant_request_approval_schemes='sourceOwner'
+access_request_config=sailpoint.v2024.models.entitlement_access_request_config.EntitlementAccessRequestConfig(
+                    approval_schemes = [
+                        sailpoint.v2024.models.entitlement_approval_scheme.EntitlementApprovalScheme(
+                            approver_type = 'GOVERNANCE_GROUP', 
+                            approver_id = 'e3eab852-8315-467f-9de7-70eda97f63c8', )
+                        ], 
+                    request_comment_required = True, 
+                    denial_comment_required = False, )
 )
 
 ```

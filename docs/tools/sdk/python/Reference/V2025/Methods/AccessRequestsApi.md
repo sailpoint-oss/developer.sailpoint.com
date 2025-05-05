@@ -1059,10 +1059,17 @@ with ApiClient(configuration) as api_client:
           },
           "autoApprovalEnabled" : true,
           "entitlementRequestConfig" : {
-            "requestCommentsRequired" : false,
-            "deniedCommentsRequired" : false,
-            "allowEntitlementRequest" : true,
-            "grantRequestApprovalSchemes" : "entitlementOwner, sourceOwner, manager, workgroup:2c918084660f45d6016617daa9210584"
+            "accessRequestConfig" : {
+              "denialCommentRequired" : false,
+              "approvalSchemes" : [ {
+                "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+                "approverType" : "GOVERNANCE_GROUP"
+              }, {
+                "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+                "approverType" : "GOVERNANCE_GROUP"
+              } ],
+              "requestCommentRequired" : true
+            }
           },
           "reauthorizationEnabled" : true,
           "approvalsMustBeExternal" : true

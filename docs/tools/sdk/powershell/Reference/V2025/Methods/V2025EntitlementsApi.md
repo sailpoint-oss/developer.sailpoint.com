@@ -641,10 +641,17 @@ Code | Description  | Data Type
 $Id = "2c91808a7813090a017814121e121518" # String | Entitlement ID
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $EntitlementRequestConfig = @"{
-  "requestCommentsRequired" : false,
-  "deniedCommentsRequired" : false,
-  "allowEntitlementRequest" : true,
-  "grantRequestApprovalSchemes" : "entitlementOwner, sourceOwner, manager, workgroup:2c918084660f45d6016617daa9210584"
+  "accessRequestConfig" : {
+    "denialCommentRequired" : false,
+    "approvalSchemes" : [ {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ],
+    "requestCommentRequired" : true
+  }
 }"@
 
 # Replace Entitlement Request Config

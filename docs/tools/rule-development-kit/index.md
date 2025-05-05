@@ -27,7 +27,7 @@ Learn how to use the SailPoint RDK in this guide.
 
 ## Requirements
 
-- [Java 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)
+- [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 - [Apache Maven 3.9.3+](https://maven.apache.org/install.html)
   - [Mac OS installation guide](https://www.appsdeveloperblog.com/how-to-install-maven-on-mac-os/)
   - [Windows installation guide](https://phoenixnap.com/kb/install-maven-windows)

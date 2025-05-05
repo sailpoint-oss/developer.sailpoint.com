@@ -3,7 +3,7 @@ post:
   tags:
     - Workflows
   summary: Test Workflow By Id
-  description: >-
+  description: |
     ::: info
 
     Workflow must be disabled in order to use this endpoint.

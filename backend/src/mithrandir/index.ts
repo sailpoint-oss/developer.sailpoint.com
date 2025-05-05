@@ -11,57 +11,61 @@ import {Hono} from 'hono';
 import {handle} from 'hono/aws-lambda';
 import {HTTPException} from 'hono/http-exception';
 
-const clientId = 'sailpoint-cli';
-const redirectUrl = 'https://developer.sailpoint.com/sailapps';
-const devRedirectUrl = 'http://localhost:4200/sailapps';
+// Environment variables
+const clientId = process.env.OAUTH_CLIENT_ID;
+const redirectUrl = process.env.OAUTH_REDIRECT_URL;
+const devRedirectUrl = process.env.OAUTH_DEV_REDIRECT_URL;
+const tableName = process.env.AUTH_TOKENS_TABLE;
 
-const app = new Hono();
+// Validate required environment variables
+const requiredEnvVars = {
+  OAUTH_CLIENT_ID: clientId,
+  OAUTH_REDIRECT_URL: redirectUrl,
+  OAUTH_DEV_REDIRECT_URL: devRedirectUrl,
+  AUTH_TOKENS_TABLE: tableName,
+};
 
-//DynamoDB Endpoint
-const ENDPOINT_OVERRIDE = process.env.ENDPOINT_OVERRIDE;
-let ddbClient = undefined;
+const missingEnvVars = Object.entries(requiredEnvVars)
+  .filter(([_, value]) => !value)
+  .map(([key]) => key);
 
-if (ENDPOINT_OVERRIDE) {
-  ddbClient = new DynamoDBClient({endpoint: ENDPOINT_OVERRIDE});
-} else {
-  ddbClient = new DynamoDBClient({}); // Use default values for DynamoDB endpoint
-  console.warn(
-    'No value for ENDPOINT_OVERRIDE provided for DynamoDB, using default',
+if (missingEnvVars.length > 0) {
+  throw new Error(
+    `Missing required environment variables: ${missingEnvVars.join(', ')}`,
   );
 }
 
+// After validation, we can safely assert these values exist
+const validatedClientId = clientId as string;
+const validatedRedirectUrl = redirectUrl as string;
+const validatedDevRedirectUrl = devRedirectUrl as string;
+const validatedTableName = tableName as string;
+
+const app = new Hono();
+
+// Initialize DynamoDB client
+const ddbClient = process.env.ENDPOINT_OVERRIDE
+  ? new DynamoDBClient({endpoint: process.env.ENDPOINT_OVERRIDE})
+  : new DynamoDBClient({});
+
 const ddbDocClient = DynamoDBDocumentClient.from(ddbClient);
 
-// Get the DynamoDB table name from environment variables
-const tableName = process.env.SAMPLE_TABLE;
-
-// Retrieve a UUID, generate a random encryption key, and return the auth URL with these values pre-populated
-// The state parameter is encoded as a base64 string and contains the UUID and encryption key in JSON format as {id: uuid, encryptionKey: encryptionKey}
-// This state value can be overridden by the client if they wish to provide their own encryption key alongside the pre-populated UUID
-app.post('/Prod/sailapps/uuid', async (c) => {
-  if (c.req.header('Content-Type') !== 'application/json') {
+// Helper functions
+async function validateApiUrl(apiBaseURL?: string, tenant?: string): Promise<string> {
+  if (!apiBaseURL && !tenant) {
     throw new HTTPException(400, {
-      message: 'Content-Type must be application/json',
-    });
-  }
-
-  const body = await c.req.json();
-
-  if (!body.apiBaseURL && !body.tenant) {
-    throw new HTTPException(400, {
-      message: 'apiBaseURL or tenant must be provided in the request body',
+      message: 'apiBaseURL or tenant must be provided',
     });
   }
 
   let apiURL;
-
-  if (body.apiBaseURL) {
-    apiURL = new URL(body.apiBaseURL);
+  if (apiBaseURL) {
+    apiURL = new URL(apiBaseURL);
     if (!apiURL.hostname) {
       throw new HTTPException(400, {message: 'apiBaseURL is not a valid URL'});
     }
   } else {
-    apiURL = new URL(`https://${body.tenant}.api.identitynow.com`);
+    apiURL = new URL(`https://${tenant}.api.identitynow.com`);
     if (!apiURL.hostname) {
       throw new HTTPException(400, {message: 'tenant is not valid'});
     }
@@ -73,8 +77,10 @@ app.post('/Prod/sailapps/uuid', async (c) => {
     });
   }
 
-  const baseURL = apiURL?.origin;
+  return apiURL.origin;
+}
 
+async function getAuthInfo(baseURL: string) {
   try {
     const authInfoResp = await fetch(baseURL + `/oauth/info`);
     if (!authInfoResp.ok) {
@@ -82,53 +88,143 @@ app.post('/Prod/sailapps/uuid', async (c) => {
     }
     const authInfo = await authInfoResp.json();
 
-    if (!authInfo || !authInfo.authorizeEndpoint) {
+    if (!authInfo?.authorizeEndpoint) {
       throw new Error('Error retrieving tenant info');
     }
 
-    const uuid = randomUUID();
-    const encryptionKey = randomBytes(32).toString('hex');
-
-    const objectToPut = {id: uuid, baseURL};
-
-    const state = {id: uuid, encryptionKey};
-
-    const authURL = new URL(authInfo.authorizeEndpoint);
-
-    authURL.searchParams.set('client_id', clientId);
-    authURL.searchParams.set('response_type', 'code');
-    authURL.searchParams.set(
-      'redirect_uri',
-      body.dev === true ? devRedirectUrl : redirectUrl,
-    );
-    authURL.searchParams.set('state', btoa(JSON.stringify(state)));
-
-    const objectToRespond = {
-      encryptionKey,
-      authURL: authURL.toString(),
-      ...objectToPut,
-    };
-
-    try {
-      const data = await ddbDocClient.send(
-        new PutCommand({TableName: tableName, Item: objectToPut}),
-      );
-      if (!data) {
-        throw new HTTPException(400, {message: 'Error creating UUID'});
-      }
-      return c.json(objectToRespond);
-    } catch (err) {
-      console.error('Error creating item:', err);
-      throw new HTTPException(400, {message: 'Error creating UUID'});
-    }
+    return authInfo;
   } catch (err) {
     throw new HTTPException(400, {
       message: 'Error retrieving tenant information',
     });
   }
+}
+
+async function storeAuthData(uuid: string, baseURL: string) {
+  try {
+    const objectToPut = {id: uuid, baseURL};
+    await ddbDocClient.send(
+      new PutCommand({TableName: validatedTableName, Item: objectToPut}),
+    );
+    return objectToPut;
+  } catch (err) {
+    console.error('Error creating item:', err);
+    throw new HTTPException(400, {message: 'Error creating UUID'});
+  }
+}
+
+async function getStoredData(uuid: string) {
+  try {
+    const data = await ddbDocClient.send(
+      new GetCommand({TableName: validatedTableName, Key: {id: uuid}}),
+    );
+    if (!data.Item) {
+      throw new HTTPException(400, {message: 'Invalid UUID'});
+    }
+    return data.Item;
+  } catch (err) {
+    console.error('Error retrieving item:', err);
+    throw new HTTPException(400, {message: 'Error retrieving data'});
+  }
+}
+
+async function exchangeCodeForToken(
+  baseURL: string,
+  code: string,
+  redirectUri: string,
+) {
+  const tokenExchangeURL = new URL(baseURL + `/oauth/token`);
+  tokenExchangeURL.searchParams.set('grant_type', 'authorization_code');
+  tokenExchangeURL.searchParams.set('client_id', validatedClientId);
+  tokenExchangeURL.searchParams.set('code', code);
+  tokenExchangeURL.searchParams.set('redirect_uri', redirectUri);
+
+  const tokenExchangeResp = await fetch(tokenExchangeURL, {
+    method: 'POST',
+  });
+
+  if (!tokenExchangeResp.ok) {
+    console.error('Token exchange failed:', await tokenExchangeResp.text());
+    throw new HTTPException(400, {message: 'Error exchanging code for token'});
+  }
+
+  const tokenExchangeData = await tokenExchangeResp.json();
+
+  if (!tokenExchangeData.access_token) {
+    throw new HTTPException(400, {message: 'Invalid token response'});
+  }
+
+  return tokenExchangeData;
+}
+
+function encryptToken(tokenData: any, encryptionKey: string) {
+  const iv = randomBytes(16);
+  const encryptionKeyBuffer = Buffer.from(encryptionKey, 'hex');
+  const cipher = createCipheriv('aes-256-cbc', encryptionKeyBuffer, iv);
+
+  let encryptedToken = cipher.update(
+    JSON.stringify(tokenData),
+    'utf8',
+    'hex',
+  );
+  encryptedToken += cipher.final('hex');
+
+  return iv.toString('hex') + ':' + encryptedToken;
+}
+
+async function storeEncryptedToken(uuid: string, encryptedToken: string) {
+  try {
+    await ddbDocClient.send(
+      new UpdateCommand({
+        TableName: validatedTableName,
+        Key: {id: uuid},
+        UpdateExpression: 'set tokenInfo = :tokenInfo',
+        ExpressionAttributeValues: {
+          ':tokenInfo': encryptedToken,
+        },
+      }),
+    );
+  } catch (err) {
+    console.error('Error updating item:', err);
+    throw new HTTPException(400, {message: 'Error storing token'});
+  }
+}
+
+// Retrieve a UUID, generate a random encryption key, and return the auth URL
+app.post('/Prod/sailapps/uuid', async (c) => {
+  if (c.req.header('Content-Type') !== 'application/json') {
+    throw new HTTPException(400, {
+      message: 'Content-Type must be application/json',
+    });
+  }
+
+  const body = await c.req.json();
+  const baseURL = await validateApiUrl(body.apiBaseURL, body.tenant);
+  const authInfo = await getAuthInfo(baseURL);
+
+  const uuid = randomUUID();
+  const encryptionKey = randomBytes(32).toString('hex');
+  const objectToPut = await storeAuthData(uuid, baseURL);
+
+  const state = {id: uuid, encryptionKey};
+  const authURL = new URL(authInfo.authorizeEndpoint);
+
+  authURL.searchParams.set('client_id', validatedClientId);
+  authURL.searchParams.set('response_type', 'code');
+  authURL.searchParams.set(
+    'redirect_uri',
+    body.dev === true ? validatedDevRedirectUrl : validatedRedirectUrl,
+  );
+  authURL.searchParams.set('state', btoa(JSON.stringify(state)));
+
+  return c.json({
+    encryptionKey,
+    authURL: authURL.toString(),
+    ...objectToPut,
+  });
 });
 
-// Exchange the code for a token, which is encrypted with the encryption key, and store the token in the database
+// Exchange the code for a token
 app.post('/Prod/sailapps/code/:code', async (c) => {
   const {code} = c.req.param();
   if (!code) {
@@ -136,110 +232,43 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
   }
 
   const {state} = c.req.query();
-
-  const body = await c.req.json();
-
   if (!state) {
     throw new HTTPException(400, {message: 'State not provided'});
   }
 
+  const body = await c.req.json();
   const {id: uuid, encryptionKey} = JSON.parse(atob(state));
-
-  let tableData;
-
-  try {
-    const data = await ddbDocClient.send(
-      new GetCommand({TableName: tableName, Key: {id: uuid}}),
-    );
-    if (!data.Item) {
-      throw new HTTPException(400, {message: 'Error retrieving table data'});
-    }
-    tableData = data.Item;
-  } catch (err) {
-    console.error('Error retrieving item:', err);
-
-    throw new HTTPException(400, {message: 'Error retrieving table data'});
-  }
+  const tableData = await getStoredData(uuid);
 
   if (!tableData.baseURL) {
-    throw new HTTPException(400, {message: 'baseURL not populated'});
+    throw new HTTPException(400, {message: 'Invalid stored data'});
   }
 
-  const tokenExchangeURL = new URL(tableData.baseURL + `/oauth/token`);
-  tokenExchangeURL.searchParams.set('grant_type', 'authorization_code');
-  tokenExchangeURL.searchParams.set('client_id', clientId);
-  tokenExchangeURL.searchParams.set('code', code);
-  tokenExchangeURL.searchParams.set('redirect_uri', body.dev === true ? devRedirectUrl : redirectUrl);
-
-  const tokenExchangeResp = await fetch(tokenExchangeURL, {
-    method: 'POST',
-  });
-
-  if (!tokenExchangeResp.ok) {
-    console.error(tokenExchangeResp);
-    throw new HTTPException(400, {message: 'Error exchanging code for token'});
-  }
-
-  const tokenExchangeData = await tokenExchangeResp.json();
-
-  if (!tokenExchangeData.access_token) {
-    throw new HTTPException(400, {message: 'Error exchanging code for token'});
-  }
-
-  const iv = randomBytes(16);
-
-  const encryptionKeyBuffer = Buffer.from(encryptionKey, 'hex');
-
-  const cipher = createCipheriv('aes-256-cbc', encryptionKeyBuffer, iv);
-
-  let encryptedToken = cipher.update(
-    JSON.stringify(tokenExchangeData),
-    'utf8',
-    'hex',
+  const tokenData = await exchangeCodeForToken(
+    tableData.baseURL,
+    code,
+    body.dev === true ? validatedDevRedirectUrl : validatedRedirectUrl,
   );
-  encryptedToken += cipher.final('hex');
 
-  const encryptedTokenWithIv = iv.toString('hex') + ':' + encryptedToken;
+  const encryptedToken = encryptToken(tokenData, encryptionKey);
+  await storeEncryptedToken(uuid, encryptedToken);
 
-  try {
-    const data = await ddbDocClient.send(
-      new UpdateCommand({
-        TableName: tableName,
-        Key: {id: uuid},
-        UpdateExpression: 'set tokenInfo = :tokenInfo',
-        ExpressionAttributeValues: {
-          ':tokenInfo': encryptedTokenWithIv,
-        },
-      }),
-    );
-    if (!data) {
-      throw new HTTPException(400, {message: 'Error adding token'});
-    }
-    return c.json({message: 'Token added successfully'}, 200);
-  } catch (err) {
-    console.error('Error updating item:', err);
-    throw new HTTPException(400, {message: 'Error adding token'});
-  }
+  return c.json({message: 'Token added successfully'}, 200);
 });
 
+// Retrieve stored token
 app.get('/Prod/sailapps/uuid/:uuid', async (c) => {
   const uuid = c.req.param('uuid');
   if (!uuid) {
     throw new HTTPException(400, {message: 'UUID not provided'});
   }
-  try {
-    const data = await ddbDocClient.send(
-      new GetCommand({TableName: tableName, Key: {id: uuid}}),
-    );
-    if (!data?.Item?.tokenInfo) {
-      throw new HTTPException(400, {message: 'Token not populated'});
-    }
 
-    return c.json(data.Item, 200);
-  } catch (err) {
-    console.error('Error retrieving item:', err);
-    throw new HTTPException(400, {message: 'Error retrieving token'});
+  const data = await getStoredData(uuid);
+  if (!data.tokenInfo) {
+    throw new HTTPException(400, {message: 'Token not found'});
   }
+
+  return c.json(data, 200);
 });
 
 export const handler = handle(app);

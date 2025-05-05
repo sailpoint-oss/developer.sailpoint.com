@@ -1131,6 +1131,29 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccountAggregationStatus"
             Write-Host $_.ErrorDetails
         }
+- path: /account-usages/{accountId}/summaries
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/account-usages#get-usages-by-account-id
+      source: |
+        $AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of IDN account
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Sorters = "-date" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date** (optional)
+        
+        # Returns account usage insights
+        
+        try {
+            Get-V2024UsagesByAccountId -AccountId $AccountId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024UsagesByAccountId -AccountId $AccountId -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024UsagesByAccountId"
+            Write-Host $_.ErrorDetails
+        }
 - path: /accounts
   method: POST
   xCodeSample:
@@ -1506,29 +1529,6 @@
             # Update-V2024Account -Id $Id -RequestBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Account"
-            Write-Host $_.ErrorDetails
-        }
-- path: /account-usages/{accountId}/summaries
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/account-usages#get-usages-by-account-id
-      source: |
-        $AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of IDN account
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Sorters = "-date" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date** (optional)
-        
-        # Returns account usage insights
-        
-        try {
-            Get-V2024UsagesByAccountId -AccountId $AccountId 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024UsagesByAccountId -AccountId $AccountId -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024UsagesByAccountId"
             Write-Host $_.ErrorDetails
         }
 - path: /discovered-applications
@@ -3073,6 +3073,95 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Campaign"
             Write-Host $_.ErrorDetails
         }
+- path: /certifications/{id}/access-summaries/{type}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/certification-summaries#get-identity-access-summaries
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
+        $Type = "ROLE" # String | The type of access review item to retrieve summaries for
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "access.id eq "ef38f94347e94562b5bb8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **completed**: *eq, ne*  **access.id**: *eq, in*  **access.name**: *eq, sw*  **entitlement.sourceName**: *eq, sw*  **accessProfile.sourceName**: *eq, sw* (optional)
+        $Sorters = "access.name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name** (optional)
+        
+        # Access Summaries
+        
+        try {
+            Get-V2024IdentityAccessSummaries -Id $Id -Type $Type 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024IdentityAccessSummaries -Id $Id -Type $Type -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityAccessSummaries"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certifications/{id}/decision-summary
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/certification-summaries#get-identity-decision-summary
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification ID
+        $Filters = "identitySummary.id eq "ef38f94347e94562b5bb8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **identitySummary.id**: *eq, in* (optional)
+        
+        # Summary of Certification Decisions
+        
+        try {
+            Get-V2024IdentityDecisionSummary -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024IdentityDecisionSummary -Id $Id -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityDecisionSummary"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certifications/{id}/identity-summaries
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/certification-summaries#get-identity-summaries
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "id eq "ef38f94347e94562b5bb8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **completed**: *eq, ne*  **name**: *eq, sw* (optional)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
+        
+        # Identity Summaries for Campaign Certification
+        
+        try {
+            Get-V2024IdentitySummaries -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024IdentitySummaries -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentitySummaries"
+            Write-Host $_.ErrorDetails
+        }
+- path: /certifications/{id}/identity-summaries/{identitySummaryId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/certification-summaries#get-identity-summary
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
+        $IdentitySummaryId = "2c91808772a504f50172a9540e501ba8" # String | The identity summary ID
+        
+        # Summary for Identity
+        
+        try {
+            Get-V2024IdentitySummary -Id $Id -IdentitySummaryId $IdentitySummaryId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024IdentitySummary -Id $Id -IdentitySummaryId $IdentitySummaryId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentitySummary"
+            Write-Host $_.ErrorDetails
+        }
 - path: /certification-tasks/{id}
   method: GET
   xCodeSample:
@@ -3349,95 +3438,6 @@
             # Submit-V2024ReassignCertsAsync -Id $Id -ReviewReassign $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-V2024ReassignCertsAsync"
-            Write-Host $_.ErrorDetails
-        }
-- path: /certifications/{id}/access-summaries/{type}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/certification-summaries#get-identity-access-summaries
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
-        $Type = "ROLE" # String | The type of access review item to retrieve summaries for
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Filters = "access.id eq "ef38f94347e94562b5bb8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **completed**: *eq, ne*  **access.id**: *eq, in*  **access.name**: *eq, sw*  **entitlement.sourceName**: *eq, sw*  **accessProfile.sourceName**: *eq, sw* (optional)
-        $Sorters = "access.name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name** (optional)
-        
-        # Access Summaries
-        
-        try {
-            Get-V2024IdentityAccessSummaries -Id $Id -Type $Type 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024IdentityAccessSummaries -Id $Id -Type $Type -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityAccessSummaries"
-            Write-Host $_.ErrorDetails
-        }
-- path: /certifications/{id}/decision-summary
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/certification-summaries#get-identity-decision-summary
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification ID
-        $Filters = "identitySummary.id eq "ef38f94347e94562b5bb8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **identitySummary.id**: *eq, in* (optional)
-        
-        # Summary of Certification Decisions
-        
-        try {
-            Get-V2024IdentityDecisionSummary -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024IdentityDecisionSummary -Id $Id -Filters $Filters   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityDecisionSummary"
-            Write-Host $_.ErrorDetails
-        }
-- path: /certifications/{id}/identity-summaries
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/certification-summaries#get-identity-summaries
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Filters = "id eq "ef38f94347e94562b5bb8424a56397d8"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **completed**: *eq, ne*  **name**: *eq, sw* (optional)
-        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
-        
-        # Identity Summaries for Campaign Certification
-        
-        try {
-            Get-V2024IdentitySummaries -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024IdentitySummaries -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentitySummaries"
-            Write-Host $_.ErrorDetails
-        }
-- path: /certifications/{id}/identity-summaries/{identitySummaryId}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/certification-summaries#get-identity-summary
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
-        $IdentitySummaryId = "2c91808772a504f50172a9540e501ba8" # String | The identity summary ID
-        
-        # Summary for Identity
-        
-        try {
-            Get-V2024IdentitySummary -Id $Id -IdentitySummaryId $IdentitySummaryId 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024IdentitySummary -Id $Id -IdentitySummaryId $IdentitySummaryId   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentitySummary"
             Write-Host $_.ErrorDetails
         }
 - path: /configuration-hub/deploys
@@ -8830,6 +8830,164 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024LifecycleStates"
             Write-Host $_.ErrorDetails
         }
+- path: /mfa/duo-web/config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/mfa-configuration#get-mfa-duo-config
+      source: |
+        
+        # Configuration of Duo MFA method
+        
+        try {
+            Get-V2024MFADuoConfig 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024MFADuoConfig   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024MFADuoConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /mfa/kba/config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/mfa-configuration#get-mfa-kba-config
+      source: |
+        $AllLanguages = $false # Boolean | Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false (optional)
+        
+        # Configuration of KBA MFA method
+        
+        try {
+            Get-V2024MFAKbaConfig 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024MFAKbaConfig -AllLanguages $AllLanguages   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024MFAKbaConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /mfa/okta-verify/config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/mfa-configuration#get-mfa-okta-config
+      source: |
+        
+        # Configuration of Okta MFA method
+        
+        try {
+            Get-V2024MFAOktaConfig 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024MFAOktaConfig   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024MFAOktaConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /mfa/duo-web/config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/mfa-configuration#set-mfa-duo-config
+      source: |
+        $MfaDuoConfig = @"
+        {
+          "accessKey" : "qw123Y3QlA5UqocYpdU3rEkzrK2D497y",
+          "host" : "example.com",
+          "configProperties" : {
+            "skey" : "qwERttyZx1CdlQye2Vwtbsjr3HKddy4BAiCXjc5x",
+            "ikey" : "Q123WE45R6TY7890ZXCV"
+          },
+          "mfaMethod" : "duo-web",
+          "enabled" : true,
+          "identityAttribute" : "email"
+        }
+        "@
+        
+        # Set Duo MFA configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToMfaDuoConfig -Json $MfaDuoConfig
+            Set-V2024MFADuoConfig -MfaDuoConfig $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-V2024MFADuoConfig -MfaDuoConfig $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024MFADuoConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /mfa/kba/config/answers
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/mfa-configuration#set-mfakba-config
+      source: |
+        $KbaAnswerRequestItem = @"{
+          "answer" : "Your answer",
+          "id" : "c54fee53-2d63-4fc5-9259-3e93b9994135"
+        }"@ 
+        
+        
+        # Set MFA KBA configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
+            Set-V2024MFAKBAConfig -KbaAnswerRequestItem $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-V2024MFAKBAConfig -KbaAnswerRequestItem $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024MFAKBAConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /mfa/okta-verify/config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/mfa-configuration#set-mfa-okta-config
+      source: |
+        $MfaOktaConfig = @"
+        {
+          "accessKey" : "qw123Y3QlA5UqocYpdU3rEkzrK2D497y",
+          "host" : "example.com",
+          "mfaMethod" : "okta-verify",
+          "enabled" : true,
+          "identityAttribute" : "email"
+        }
+        "@
+        
+        # Set Okta MFA configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToMfaOktaConfig -Json $MfaOktaConfig
+            Set-V2024MFAOktaConfig -MfaOktaConfig $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-V2024MFAOktaConfig -MfaOktaConfig $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024MFAOktaConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /mfa/{method}/test
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/mfa-configuration#test-mfa-config
+      source: |
+        $Method = "okta-verify" # String | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
+        
+        # MFA method's test configuration
+        
+        try {
+            Test-V2024MFAConfig -Method $Method 
+    
+            # Below is a request that includes all optional parameters
+            # Test-V2024MFAConfig -Method $Method   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024MFAConfig"
+            Write-Host $_.ErrorDetails
+        }
 - path: /machine-accounts/{id}
   method: GET
   xCodeSample:
@@ -9151,6 +9309,128 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ManagedClient"
             Write-Host $_.ErrorDetails
         }
+- path: /managed-cluster-types
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/managed-cluster-types#create-managed-cluster-type
+      source: |
+        $ManagedClusterType = @"
+        {
+          "managedProcessIds" : [ "someId", "someId2" ],
+          "pod" : "megapod-useast1",
+          "org" : "denali-cjh",
+          "id" : "aClusterTypeId",
+          "type" : "idn"
+        }
+        "@
+        
+        # Create new Managed Cluster Type
+        
+        try {
+            $Result = ConvertFrom-JsonToManagedClusterType -Json $ManagedClusterType
+            New-V2024ManagedClusterType -ManagedClusterType $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2024ManagedClusterType -ManagedClusterType $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ManagedClusterType"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-cluster-types/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/managed-cluster-types#delete-managed-cluster-type
+      source: |
+        $Id = "aClusterTypeId" # String | The Managed Cluster Type ID
+        
+        # Delete a Managed Cluster Type
+        
+        try {
+            Remove-V2024ManagedClusterType -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2024ManagedClusterType -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024ManagedClusterType"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-cluster-types/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/managed-cluster-types#get-managed-cluster-type
+      source: |
+        $Id = "aClusterTypeId" # String | The Managed Cluster Type ID
+        
+        # Get a Managed Cluster Type
+        
+        try {
+            Get-V2024ManagedClusterType -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024ManagedClusterType -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ManagedClusterType"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-cluster-types
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/managed-cluster-types#get-managed-cluster-types
+      source: |
+        $Type = "IDN" # String | Type descriptor (optional)
+        $Pod = "megapod-useast1" # String | Pinned pod (or default) (optional)
+        $Org = "denali-xyz" # String | Pinned org (or default) (optional)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        
+        # Get Managed Cluster Types
+        
+        try {
+            Get-V2024ManagedClusterTypes 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024ManagedClusterTypes -Type $Type -Pod $Pod -Org $Org -Offset $Offset -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ManagedClusterTypes"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-cluster-types/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/managed-cluster-types#update-managed-cluster-type
+      source: |
+        $Id = "aClusterTypeId" # String | The Managed Cluster Type ID
+        $JsonPatch = @"
+        {
+          "operations" : [ {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          }, {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          } ]
+        }
+        "@
+        
+        # Update a Managed Cluster Type
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+            Update-V2024ManagedClusterType -Id $Id -JsonPatch $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2024ManagedClusterType -Id $Id -JsonPatch $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ManagedClusterType"
+            Write-Host $_.ErrorDetails
+        }
 - path: /managed-clusters
   method: POST
   xCodeSample:
@@ -9327,286 +9607,6 @@
             # Update-V2024ManagedCluster -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ManagedCluster"
-            Write-Host $_.ErrorDetails
-        }
-- path: /managed-cluster-types
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/managed-cluster-types#create-managed-cluster-type
-      source: |
-        $ManagedClusterType = @"
-        {
-          "managedProcessIds" : [ "someId", "someId2" ],
-          "pod" : "megapod-useast1",
-          "org" : "denali-cjh",
-          "id" : "aClusterTypeId",
-          "type" : "idn"
-        }
-        "@
-        
-        # Create new Managed Cluster Type
-        
-        try {
-            $Result = ConvertFrom-JsonToManagedClusterType -Json $ManagedClusterType
-            New-V2024ManagedClusterType -ManagedClusterType $Result 
-    
-            # Below is a request that includes all optional parameters
-            # New-V2024ManagedClusterType -ManagedClusterType $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ManagedClusterType"
-            Write-Host $_.ErrorDetails
-        }
-- path: /managed-cluster-types/{id}
-  method: DELETE
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/managed-cluster-types#delete-managed-cluster-type
-      source: |
-        $Id = "aClusterTypeId" # String | The Managed Cluster Type ID
-        
-        # Delete a Managed Cluster Type
-        
-        try {
-            Remove-V2024ManagedClusterType -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Remove-V2024ManagedClusterType -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024ManagedClusterType"
-            Write-Host $_.ErrorDetails
-        }
-- path: /managed-cluster-types/{id}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/managed-cluster-types#get-managed-cluster-type
-      source: |
-        $Id = "aClusterTypeId" # String | The Managed Cluster Type ID
-        
-        # Get a Managed Cluster Type
-        
-        try {
-            Get-V2024ManagedClusterType -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024ManagedClusterType -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ManagedClusterType"
-            Write-Host $_.ErrorDetails
-        }
-- path: /managed-cluster-types
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/managed-cluster-types#get-managed-cluster-types
-      source: |
-        $Type = "IDN" # String | Type descriptor (optional)
-        $Pod = "megapod-useast1" # String | Pinned pod (or default) (optional)
-        $Org = "denali-xyz" # String | Pinned org (or default) (optional)
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        
-        # Get Managed Cluster Types
-        
-        try {
-            Get-V2024ManagedClusterTypes 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024ManagedClusterTypes -Type $Type -Pod $Pod -Org $Org -Offset $Offset -Limit $Limit   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ManagedClusterTypes"
-            Write-Host $_.ErrorDetails
-        }
-- path: /managed-cluster-types/{id}
-  method: PATCH
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/managed-cluster-types#update-managed-cluster-type
-      source: |
-        $Id = "aClusterTypeId" # String | The Managed Cluster Type ID
-        $JsonPatch = @"
-        {
-          "operations" : [ {
-            "op" : "replace",
-            "path" : "/description",
-            "value" : "New description"
-          }, {
-            "op" : "replace",
-            "path" : "/description",
-            "value" : "New description"
-          } ]
-        }
-        "@
-        
-        # Update a Managed Cluster Type
-        
-        try {
-            $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
-            Update-V2024ManagedClusterType -Id $Id -JsonPatch $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Update-V2024ManagedClusterType -Id $Id -JsonPatch $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ManagedClusterType"
-            Write-Host $_.ErrorDetails
-        }
-- path: /mfa/duo-web/config
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/mfa-configuration#get-mfa-duo-config
-      source: |
-        
-        # Configuration of Duo MFA method
-        
-        try {
-            Get-V2024MFADuoConfig 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024MFADuoConfig   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024MFADuoConfig"
-            Write-Host $_.ErrorDetails
-        }
-- path: /mfa/kba/config
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/mfa-configuration#get-mfa-kba-config
-      source: |
-        $AllLanguages = $false # Boolean | Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false (optional)
-        
-        # Configuration of KBA MFA method
-        
-        try {
-            Get-V2024MFAKbaConfig 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024MFAKbaConfig -AllLanguages $AllLanguages   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024MFAKbaConfig"
-            Write-Host $_.ErrorDetails
-        }
-- path: /mfa/okta-verify/config
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/mfa-configuration#get-mfa-okta-config
-      source: |
-        
-        # Configuration of Okta MFA method
-        
-        try {
-            Get-V2024MFAOktaConfig 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024MFAOktaConfig   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024MFAOktaConfig"
-            Write-Host $_.ErrorDetails
-        }
-- path: /mfa/duo-web/config
-  method: PUT
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/mfa-configuration#set-mfa-duo-config
-      source: |
-        $MfaDuoConfig = @"
-        {
-          "accessKey" : "qw123Y3QlA5UqocYpdU3rEkzrK2D497y",
-          "host" : "example.com",
-          "configProperties" : {
-            "skey" : "qwERttyZx1CdlQye2Vwtbsjr3HKddy4BAiCXjc5x",
-            "ikey" : "Q123WE45R6TY7890ZXCV"
-          },
-          "mfaMethod" : "duo-web",
-          "enabled" : true,
-          "identityAttribute" : "email"
-        }
-        "@
-        
-        # Set Duo MFA configuration
-        
-        try {
-            $Result = ConvertFrom-JsonToMfaDuoConfig -Json $MfaDuoConfig
-            Set-V2024MFADuoConfig -MfaDuoConfig $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Set-V2024MFADuoConfig -MfaDuoConfig $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024MFADuoConfig"
-            Write-Host $_.ErrorDetails
-        }
-- path: /mfa/kba/config/answers
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/mfa-configuration#set-mfakba-config
-      source: |
-        $KbaAnswerRequestItem = @"{
-          "answer" : "Your answer",
-          "id" : "c54fee53-2d63-4fc5-9259-3e93b9994135"
-        }"@ 
-        
-        
-        # Set MFA KBA configuration
-        
-        try {
-            $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
-            Set-V2024MFAKBAConfig -KbaAnswerRequestItem $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Set-V2024MFAKBAConfig -KbaAnswerRequestItem $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024MFAKBAConfig"
-            Write-Host $_.ErrorDetails
-        }
-- path: /mfa/okta-verify/config
-  method: PUT
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/mfa-configuration#set-mfa-okta-config
-      source: |
-        $MfaOktaConfig = @"
-        {
-          "accessKey" : "qw123Y3QlA5UqocYpdU3rEkzrK2D497y",
-          "host" : "example.com",
-          "mfaMethod" : "okta-verify",
-          "enabled" : true,
-          "identityAttribute" : "email"
-        }
-        "@
-        
-        # Set Okta MFA configuration
-        
-        try {
-            $Result = ConvertFrom-JsonToMfaOktaConfig -Json $MfaOktaConfig
-            Set-V2024MFAOktaConfig -MfaOktaConfig $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Set-V2024MFAOktaConfig -MfaOktaConfig $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024MFAOktaConfig"
-            Write-Host $_.ErrorDetails
-        }
-- path: /mfa/{method}/test
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/mfa-configuration#test-mfa-config
-      source: |
-        $Method = "okta-verify" # String | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
-        
-        # MFA method's test configuration
-        
-        try {
-            Test-V2024MFAConfig -Method $Method 
-    
-            # Below is a request that includes all optional parameters
-            # Test-V2024MFAConfig -Method $Method   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024MFAConfig"
             Write-Host $_.ErrorDetails
         }
 - path: /multihosts
@@ -12754,6 +12754,954 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024RolesMetadataByQuery"
             Write-Host $_.ErrorDetails
         }
+- path: /sim-integrations
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sim-integrations#create-sim-integration
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $SimIntegrationDetails = @"
+        {
+          "cluster" : "xyzzy999",
+          "statusMap" : "{closed_cancelled=Failed, closed_complete=Committed, closed_incomplete=Failed, closed_rejected=Failed, in_process=Queued, requested=Queued}",
+          "request" : "{description=SailPoint Access Request,, req_description=The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,, req_short_description=SailPoint New Access Request Created from IdentityNow,, short_description=SailPoint Access Request $!plan.arguments.identityRequestId}",
+          "sources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
+          "created" : "2015-05-28T14:07:17Z",
+          "name" : "aName",
+          "modified" : "2015-05-28T14:07:17Z",
+          "description" : "Integration description",
+          "attributes" : "{\"uid\":\"Walter White\",\"firstname\":\"walter\",\"cloudStatus\":\"UNREGISTERED\",\"displayName\":\"Walter White\",\"identificationNumber\":\"942\",\"lastSyncDate\":1470348809380,\"email\":\"walter@gmail.com\",\"lastname\":\"white\"}",
+          "id" : "id12345",
+          "type" : "ServiceNow Service Desk",
+          "beforeProvisioningRule" : {
+            "name" : "Example Rule",
+            "id" : "2c918085708c274401708c2a8a760001",
+            "type" : "IDENTITY"
+          }
+        }
+        "@
+        
+        # Create new SIM integration
+        
+        try {
+            $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
+            New-V2024SIMIntegration -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2024SIMIntegration -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SIMIntegration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sim-integrations/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sim-integrations#delete-sim-integration
+      source: |
+        $Id = "12345" # String | The id of the integration to delete.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Delete a SIM integration
+        
+        try {
+            Remove-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024SIMIntegration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sim-integrations/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sim-integrations#get-sim-integration
+      source: |
+        $Id = "12345" # String | The id of the integration.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Get a SIM integration details.
+        
+        try {
+            Get-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SIMIntegration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sim-integrations
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sim-integrations#get-sim-integrations
+      source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # List the existing SIM integrations.
+        
+        try {
+            Get-V2024SIMIntegrations -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024SIMIntegrations -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SIMIntegrations"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sim-integrations/{id}/beforeProvisioningRule
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sim-integrations#patch-before-provisioning-rule
+      source: |
+        $Id = "12345" # String | SIM integration id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $JsonPatch = @"
+        {
+          "operations" : [ {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          }, {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          } ]
+        }
+        "@
+        
+        # Patch a SIM beforeProvisioningRule attribute.
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+            Update-V2024BeforeProvisioningRule -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2024BeforeProvisioningRule -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024BeforeProvisioningRule"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sim-integrations/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sim-integrations#patch-sim-attributes
+      source: |
+        $Id = "12345" # String | SIM integration id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $JsonPatch = @"
+        {
+          "operations" : [ {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          }, {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          } ]
+        }
+        "@
+        
+        # Patch a SIM attribute.
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+            Update-V2024SIMAttributes -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2024SIMAttributes -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SIMAttributes"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sim-integrations/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sim-integrations#put-sim-integration
+      source: |
+        $Id = "12345" # String | The id of the integration.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $SimIntegrationDetails = @"
+        {
+          "cluster" : "xyzzy999",
+          "statusMap" : "{closed_cancelled=Failed, closed_complete=Committed, closed_incomplete=Failed, closed_rejected=Failed, in_process=Queued, requested=Queued}",
+          "request" : "{description=SailPoint Access Request,, req_description=The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,, req_short_description=SailPoint New Access Request Created from IdentityNow,, short_description=SailPoint Access Request $!plan.arguments.identityRequestId}",
+          "sources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
+          "created" : "2015-05-28T14:07:17Z",
+          "name" : "aName",
+          "modified" : "2015-05-28T14:07:17Z",
+          "description" : "Integration description",
+          "attributes" : "{\"uid\":\"Walter White\",\"firstname\":\"walter\",\"cloudStatus\":\"UNREGISTERED\",\"displayName\":\"Walter White\",\"identificationNumber\":\"942\",\"lastSyncDate\":1470348809380,\"email\":\"walter@gmail.com\",\"lastname\":\"white\"}",
+          "id" : "id12345",
+          "type" : "ServiceNow Service Desk",
+          "beforeProvisioningRule" : {
+            "name" : "Example Rule",
+            "id" : "2c918085708c274401708c2a8a760001",
+            "type" : "IDENTITY"
+          }
+        }
+        "@
+        
+        # Update an existing SIM integration
+        
+        try {
+            $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
+            Send-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024SIMIntegration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#create-sod-policy
+      source: |
+        $SodPolicy = @"
+        {
+          "conflictingAccessCriteria" : {
+            "leftCriteria" : {
+              "name" : "money-in",
+              "criteriaList" : [ {
+                "type" : "ENTITLEMENT",
+                "id" : "2c9180866166b5b0016167c32ef31a66",
+                "name" : "Administrator"
+              }, {
+                "type" : "ENTITLEMENT",
+                "id" : "2c9180866166b5b0016167c32ef31a67",
+                "name" : "Administrator"
+              } ]
+            },
+            "rightCriteria" : {
+              "name" : "money-in",
+              "criteriaList" : [ {
+                "type" : "ENTITLEMENT",
+                "id" : "2c9180866166b5b0016167c32ef31a66",
+                "name" : "Administrator"
+              }, {
+                "type" : "ENTITLEMENT",
+                "id" : "2c9180866166b5b0016167c32ef31a67",
+                "name" : "Administrator"
+              } ]
+            }
+          },
+          "ownerRef" : {
+            "name" : "Support",
+            "id" : "2c9180a46faadee4016fb4e018c20639",
+            "type" : "IDENTITY"
+          },
+          "created" : "2020-01-01T00:00:00Z",
+          "scheduled" : true,
+          "creatorId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+          "modifierId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+          "description" : "This policy ensures compliance of xyz",
+          "violationOwnerAssignmentConfig" : {
+            "assignmentRule" : "MANAGER",
+            "ownerRef" : {
+              "name" : "Support",
+              "id" : "2c9180a46faadee4016fb4e018c20639",
+              "type" : "IDENTITY"
+            }
+          },
+          "correctionAdvice" : "Based on the role of the employee, managers should remove access that is not required for their job function.",
+          "type" : "GENERAL",
+          "tags" : [ "TAG1", "TAG2" ],
+          "name" : "policy-xyz",
+          "modified" : "2020-01-01T00:00:00Z",
+          "policyQuery" : "@access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdg) AND @access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdf)",
+          "compensatingControls" : "Have a manager review the transaction decisions for their \"out of compliance\" employee",
+          "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+          "state" : "ENFORCED",
+          "externalPolicyReference" : "XYZ policy"
+        }
+        "@
+        
+        # Create SOD policy
+        
+        try {
+            $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
+            New-V2024SodPolicy -SodPolicy $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2024SodPolicy -SodPolicy $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SodPolicy"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#delete-sod-policy
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD Policy to delete.
+        $Logical = $true # Boolean | Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call. (optional) (default to $true)
+        
+        # Delete SOD policy by ID
+        
+        try {
+            Remove-V2024SodPolicy -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2024SodPolicy -Id $Id -Logical $Logical   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024SodPolicy"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/{id}/schedule
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#delete-sod-policy-schedule
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy the schedule must be deleted for.
+        
+        # Delete SOD policy schedule
+        
+        try {
+            Remove-V2024SodPolicySchedule -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2024SodPolicySchedule -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024SodPolicySchedule"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-violation-report/{reportResultId}/download/{fileName}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#get-custom-violation-report
+      source: |
+        $ReportResultId = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the report reference to download.
+        $FileName = "custom-name" # String | Custom Name for the  file.
+        
+        # Download custom violation report
+        
+        try {
+            Get-V2024CustomViolationReport -ReportResultId $ReportResultId -FileName $FileName 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024CustomViolationReport -ReportResultId $ReportResultId -FileName $FileName   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024CustomViolationReport"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-violation-report/{reportResultId}/download
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#get-default-violation-report
+      source: |
+        $ReportResultId = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the report reference to download.
+        
+        # Download violation report
+        
+        try {
+            Get-V2024DefaultViolationReport -ReportResultId $ReportResultId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024DefaultViolationReport -ReportResultId $ReportResultId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024DefaultViolationReport"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-violation-report
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#get-sod-all-report-run-status
+      source: |
+        
+        # Get multi-report run task status
+        
+        try {
+            Get-V2024SodAllReportRunStatus 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024SodAllReportRunStatus   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SodAllReportRunStatus"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#get-sod-policy
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD Policy to retrieve.
+        
+        # Get SOD policy by ID
+        
+        try {
+            Get-V2024SodPolicy -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024SodPolicy -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SodPolicy"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/{id}/schedule
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#get-sod-policy-schedule
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy schedule to retrieve.
+        
+        # Get SOD policy schedule
+        
+        try {
+            Get-V2024SodPolicySchedule -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024SodPolicySchedule -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SodPolicySchedule"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/sod-violation-report-status/{reportResultId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#get-sod-violation-report-run-status
+      source: |
+        $ReportResultId = "2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | The ID of the report reference to retrieve.
+        
+        # Get violation report run status
+        
+        try {
+            Get-V2024SodViolationReportRunStatus -ReportResultId $ReportResultId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024SodViolationReportRunStatus -ReportResultId $ReportResultId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SodViolationReportRunStatus"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/{id}/violation-report
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#get-sod-violation-report-status
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the violation report to retrieve status for.
+        
+        # Get SOD violation report status
+        
+        try {
+            Get-V2024SodViolationReportStatus -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024SodViolationReportStatus -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SodViolationReportStatus"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#list-sod-policies
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "id eq "bc693f07e7b645539626c25954c58554"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in* (optional)
+        $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description** (optional)
+        
+        # List SOD policies
+        
+        try {
+            Get-V2024SodPolicies 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024SodPolicies -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SodPolicies"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#patch-sod-policy
+      source: |
+        $Id = "2c918083-5d19-1a86-015d-28455b4a2329" # String | The ID of the SOD policy being modified.
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Patch SOD policy by ID
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-V2024SodPolicy -Id $Id -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2024SodPolicy -Id $Id -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SodPolicy"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/{id}/schedule
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#put-policy-schedule
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy to update its schedule.
+        $SodPolicySchedule = @"
+        {
+          "schedule" : {
+            "hours" : {
+              "accountMatchConfig" : {
+                "matchExpression" : {
+                  "and" : true,
+                  "matchTerms" : [ {
+                    "name" : "",
+                    "value" : "",
+                    "container" : true,
+                    "and" : false,
+                    "children" : [ {
+                      "name" : "businessCategory",
+                      "value" : "Service",
+                      "op" : "eq",
+                      "container" : false,
+                      "and" : false
+                    } ]
+                  } ]
+                }
+              },
+              "applicationId" : "2c91808874ff91550175097daaec161c\""
+            },
+            "months" : {
+              "accountMatchConfig" : {
+                "matchExpression" : {
+                  "and" : true,
+                  "matchTerms" : [ {
+                    "name" : "",
+                    "value" : "",
+                    "container" : true,
+                    "and" : false,
+                    "children" : [ {
+                      "name" : "businessCategory",
+                      "value" : "Service",
+                      "op" : "eq",
+                      "container" : false,
+                      "and" : false
+                    } ]
+                  } ]
+                }
+              },
+              "applicationId" : "2c91808874ff91550175097daaec161c\""
+            },
+            "timeZoneId" : "America/Chicago",
+            "days" : {
+              "accountMatchConfig" : {
+                "matchExpression" : {
+                  "and" : true,
+                  "matchTerms" : [ {
+                    "name" : "",
+                    "value" : "",
+                    "container" : true,
+                    "and" : false,
+                    "children" : [ {
+                      "name" : "businessCategory",
+                      "value" : "Service",
+                      "op" : "eq",
+                      "container" : false,
+                      "and" : false
+                    } ]
+                  } ]
+                }
+              },
+              "applicationId" : "2c91808874ff91550175097daaec161c\""
+            },
+            "expiration" : "2018-06-25T20:22:28.104Z",
+            "type" : "WEEKLY"
+          },
+          "created" : "2020-01-01T00:00:00Z",
+          "recipients" : [ {
+            "name" : "Michael Michaels",
+            "id" : "2c7180a46faadee4016fb4e018c20642",
+            "type" : "IDENTITY"
+          }, {
+            "name" : "Michael Michaels",
+            "id" : "2c7180a46faadee4016fb4e018c20642",
+            "type" : "IDENTITY"
+          } ],
+          "name" : "SCH-1584312283015",
+          "creatorId" : "0f11f2a47c944bf3a2bd742580fe3bde",
+          "modifierId" : "0f11f2a47c944bf3a2bd742580fe3bde",
+          "modified" : "2020-01-01T00:00:00Z",
+          "description" : "Schedule for policy xyz",
+          "emailEmptyResults" : false
+        }
+        "@
+        
+        # Update SOD Policy schedule
+        
+        try {
+            $Result = ConvertFrom-JsonToSodPolicySchedule -Json $SodPolicySchedule
+            Send-V2024PolicySchedule -Id $Id -SodPolicySchedule $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-V2024PolicySchedule -Id $Id -SodPolicySchedule $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024PolicySchedule"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#put-sod-policy
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy to update.
+        $SodPolicy = @"
+        {
+          "conflictingAccessCriteria" : {
+            "leftCriteria" : {
+              "name" : "money-in",
+              "criteriaList" : [ {
+                "type" : "ENTITLEMENT",
+                "id" : "2c9180866166b5b0016167c32ef31a66",
+                "name" : "Administrator"
+              }, {
+                "type" : "ENTITLEMENT",
+                "id" : "2c9180866166b5b0016167c32ef31a67",
+                "name" : "Administrator"
+              } ]
+            },
+            "rightCriteria" : {
+              "name" : "money-in",
+              "criteriaList" : [ {
+                "type" : "ENTITLEMENT",
+                "id" : "2c9180866166b5b0016167c32ef31a66",
+                "name" : "Administrator"
+              }, {
+                "type" : "ENTITLEMENT",
+                "id" : "2c9180866166b5b0016167c32ef31a67",
+                "name" : "Administrator"
+              } ]
+            }
+          },
+          "ownerRef" : {
+            "name" : "Support",
+            "id" : "2c9180a46faadee4016fb4e018c20639",
+            "type" : "IDENTITY"
+          },
+          "created" : "2020-01-01T00:00:00Z",
+          "scheduled" : true,
+          "creatorId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+          "modifierId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+          "description" : "This policy ensures compliance of xyz",
+          "violationOwnerAssignmentConfig" : {
+            "assignmentRule" : "MANAGER",
+            "ownerRef" : {
+              "name" : "Support",
+              "id" : "2c9180a46faadee4016fb4e018c20639",
+              "type" : "IDENTITY"
+            }
+          },
+          "correctionAdvice" : "Based on the role of the employee, managers should remove access that is not required for their job function.",
+          "type" : "GENERAL",
+          "tags" : [ "TAG1", "TAG2" ],
+          "name" : "policy-xyz",
+          "modified" : "2020-01-01T00:00:00Z",
+          "policyQuery" : "@access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdg) AND @access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdf)",
+          "compensatingControls" : "Have a manager review the transaction decisions for their \"out of compliance\" employee",
+          "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
+          "state" : "ENFORCED",
+          "externalPolicyReference" : "XYZ policy"
+        }
+        "@
+        
+        # Update SOD policy by ID
+        
+        try {
+            $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
+            Send-V2024SodPolicy -Id $Id -SodPolicy $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-V2024SodPolicy -Id $Id -SodPolicy $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024SodPolicy"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/{id}/evaluate
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#start-evaluate-sod-policy
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run.
+        
+        # Evaluate one policy by ID
+        
+        try {
+            Start-V2024EvaluateSodPolicy -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Start-V2024EvaluateSodPolicy -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024EvaluateSodPolicy"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-violation-report/run
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#start-sod-all-policies-for-org
+      source: |
+        $MultiPolicyRequest = @"
+        {
+          "filteredPolicyList" : [ "[b868cd40-ffa4-4337-9c07-1a51846cfa94, 63a07a7b-39a4-48aa-956d-50c827deba2a]", "[b868cd40-ffa4-4337-9c07-1a51846cfa94, 63a07a7b-39a4-48aa-956d-50c827deba2a]" ]
+        }
+        "@
+        
+        # Runs all policies for org
+        
+        try {
+            Start-V2024SodAllPoliciesForOrg 
+    
+            # Below is a request that includes all optional parameters
+            # Start-V2024SodAllPoliciesForOrg -MultiPolicyRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024SodAllPoliciesForOrg"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-policies/{id}/violation-report/run
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#start-sod-policy
+      source: |
+        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run.
+        
+        # Runs SOD policy violation report
+        
+        try {
+            Start-V2024SodPolicy -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Start-V2024SodPolicy -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024SodPolicy"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-violations/predict
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sod-violations#start-predict-sod-violations
+      source: |
+        $IdentityWithNewAccess = @"
+        {
+          "identityId" : "2c91808568c529c60168cca6f90c1313",
+          "accessRefs" : [ {
+            "type" : "ENTITLEMENT",
+            "id" : "2c918087682f9a86016839c050861ab1",
+            "name" : "CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local"
+          }, {
+            "type" : "ENTITLEMENT",
+            "id" : "2c918087682f9a86016839c0509c1ab2",
+            "name" : "CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local"
+          } ]
+        }
+        "@
+        
+        # Predict SOD violations for identity.
+        
+        try {
+            $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
+            Start-V2024PredictSodViolations -IdentityWithNewAccess $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Start-V2024PredictSodViolations -IdentityWithNewAccess $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024PredictSodViolations"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sod-violations/check
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sod-violations#start-violation-check
+      source: |
+        $IdentityWithNewAccess1 = @"
+        {identityId=2c91808568c529c60168cca6f90c1313, accessRefs=[{type=ENTITLEMENT, id=2c918087682f9a86016839c050861ab1, name=CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local}, {type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2, name=CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local}], clientMetadata={additionalProp1=string, additionalProp2=string, additionalProp3=string}}
+        "@
+        
+        # Check SOD violations
+        
+        try {
+            $Result = ConvertFrom-JsonToIdentityWithNewAccess1 -Json $IdentityWithNewAccess1
+            Start-V2024ViolationCheck -IdentityWithNewAccess1 $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Start-V2024ViolationCheck -IdentityWithNewAccess1 $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024ViolationCheck"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sp-config/export
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sp-config#export-sp-config
+      source: |
+        $ExportPayload = @"
+        {
+          "description" : "Export Job 1 Test"
+        }
+        "@
+        
+        # Initiates configuration objects export job
+        
+        try {
+            $Result = ConvertFrom-JsonToExportPayload -Json $ExportPayload
+            Export-V2024SpConfig -ExportPayload $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Export-V2024SpConfig -ExportPayload $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-V2024SpConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sp-config/export/{id}/download
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sp-config#get-sp-config-export
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job whose results will be downloaded.
+        
+        # Download export job result.
+        
+        try {
+            Get-V2024SpConfigExport -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024SpConfigExport -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SpConfigExport"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sp-config/export/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sp-config#get-sp-config-export-status
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job whose status will be returned.
+        
+        # Get export job status
+        
+        try {
+            Get-V2024SpConfigExportStatus -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024SpConfigExportStatus -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SpConfigExportStatus"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sp-config/import/{id}/download
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sp-config#get-sp-config-import
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job whose results will be downloaded.
+        
+        # Download import job result
+        
+        try {
+            Get-V2024SpConfigImport -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024SpConfigImport -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SpConfigImport"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sp-config/import/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sp-config#get-sp-config-import-status
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job whose status will be returned.
+        
+        # Get import job status
+        
+        try {
+            Get-V2024SpConfigImportStatus -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024SpConfigImportStatus -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SpConfigImportStatus"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sp-config/import
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sp-config#import-sp-config
+      source: |
+        $Data =  # System.IO.FileInfo | JSON file containing the objects to be imported.
+        $Preview = $true # Boolean | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is ""true"", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to $false)
+        $Options = @"
+        "@
+        
+        # Initiates configuration objects import job
+        
+        try {
+            Import-V2024SpConfig -Data $Data 
+    
+            # Below is a request that includes all optional parameters
+            # Import-V2024SpConfig -Data $Data -Preview $Preview -Options $Options   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2024SpConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sp-config/config-objects
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sp-config#list-sp-config-objects
+      source: |
+        
+        # List Config Objects
+        
+        try {
+            Get-V2024SpConfigObjects 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024SpConfigObjects   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SpConfigObjects"
+            Write-Host $_.ErrorDetails
+        }
 - path: /saved-searches
   method: POST
   xCodeSample:
@@ -14120,812 +15068,46 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024StatusCheckDetails"
             Write-Host $_.ErrorDetails
         }
-- path: /sim-integrations
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sim-integrations#create-sim-integration
-      source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $SimIntegrationDetails = @"
-        {
-          "cluster" : "xyzzy999",
-          "statusMap" : "{closed_cancelled=Failed, closed_complete=Committed, closed_incomplete=Failed, closed_rejected=Failed, in_process=Queued, requested=Queued}",
-          "request" : "{description=SailPoint Access Request,, req_description=The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,, req_short_description=SailPoint New Access Request Created from IdentityNow,, short_description=SailPoint Access Request $!plan.arguments.identityRequestId}",
-          "sources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
-          "created" : "2015-05-28T14:07:17Z",
-          "name" : "aName",
-          "modified" : "2015-05-28T14:07:17Z",
-          "description" : "Integration description",
-          "attributes" : "{\"uid\":\"Walter White\",\"firstname\":\"walter\",\"cloudStatus\":\"UNREGISTERED\",\"displayName\":\"Walter White\",\"identificationNumber\":\"942\",\"lastSyncDate\":1470348809380,\"email\":\"walter@gmail.com\",\"lastname\":\"white\"}",
-          "id" : "id12345",
-          "type" : "ServiceNow Service Desk",
-          "beforeProvisioningRule" : {
-            "name" : "Example Rule",
-            "id" : "2c918085708c274401708c2a8a760001",
-            "type" : "IDENTITY"
-          }
-        }
-        "@
-        
-        # Create new SIM integration
-        
-        try {
-            $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
-            New-V2024SIMIntegration -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result 
-    
-            # Below is a request that includes all optional parameters
-            # New-V2024SIMIntegration -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SIMIntegration"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sim-integrations/{id}
-  method: DELETE
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sim-integrations#delete-sim-integration
-      source: |
-        $Id = "12345" # String | The id of the integration to delete.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        
-        # Delete a SIM integration
-        
-        try {
-            Remove-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental 
-    
-            # Below is a request that includes all optional parameters
-            # Remove-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024SIMIntegration"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sim-integrations/{id}
+- path: /source-usages/{sourceId}/status
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sim-integrations#get-sim-integration
+      label: SDK_tools/sdk/powershell/v2024/methods/source-usages#get-status-by-source-id
       source: |
-        $Id = "12345" # String | The id of the integration.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
         
-        # Get a SIM integration details.
+        # Finds status of source usage
         
         try {
-            Get-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024StatusBySourceId -SourceId $SourceId 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2024StatusBySourceId -SourceId $SourceId   
         } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SIMIntegration"
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024StatusBySourceId"
             Write-Host $_.ErrorDetails
         }
-- path: /sim-integrations
+- path: /source-usages/{sourceId}/summaries
   method: GET
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sim-integrations#get-sim-integrations
+      label: SDK_tools/sdk/powershell/v2024/methods/source-usages#get-usages-by-source-id
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        
-        # List the existing SIM integrations.
-        
-        try {
-            Get-V2024SIMIntegrations -XSailPointExperimental $XSailPointExperimental 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024SIMIntegrations -XSailPointExperimental $XSailPointExperimental   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SIMIntegrations"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sim-integrations/{id}/beforeProvisioningRule
-  method: PATCH
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sim-integrations#patch-before-provisioning-rule
-      source: |
-        $Id = "12345" # String | SIM integration id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $JsonPatch = @"
-        {
-          "operations" : [ {
-            "op" : "replace",
-            "path" : "/description",
-            "value" : "New description"
-          }, {
-            "op" : "replace",
-            "path" : "/description",
-            "value" : "New description"
-          } ]
-        }
-        "@
-        
-        # Patch a SIM beforeProvisioningRule attribute.
-        
-        try {
-            $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
-            Update-V2024BeforeProvisioningRule -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Update-V2024BeforeProvisioningRule -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024BeforeProvisioningRule"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sim-integrations/{id}
-  method: PATCH
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sim-integrations#patch-sim-attributes
-      source: |
-        $Id = "12345" # String | SIM integration id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $JsonPatch = @"
-        {
-          "operations" : [ {
-            "op" : "replace",
-            "path" : "/description",
-            "value" : "New description"
-          }, {
-            "op" : "replace",
-            "path" : "/description",
-            "value" : "New description"
-          } ]
-        }
-        "@
-        
-        # Patch a SIM attribute.
-        
-        try {
-            $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
-            Update-V2024SIMAttributes -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Update-V2024SIMAttributes -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatch $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SIMAttributes"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sim-integrations/{id}
-  method: PUT
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sim-integrations#put-sim-integration
-      source: |
-        $Id = "12345" # String | The id of the integration.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $SimIntegrationDetails = @"
-        {
-          "cluster" : "xyzzy999",
-          "statusMap" : "{closed_cancelled=Failed, closed_complete=Committed, closed_incomplete=Failed, closed_rejected=Failed, in_process=Queued, requested=Queued}",
-          "request" : "{description=SailPoint Access Request,, req_description=The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,, req_short_description=SailPoint New Access Request Created from IdentityNow,, short_description=SailPoint Access Request $!plan.arguments.identityRequestId}",
-          "sources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
-          "created" : "2015-05-28T14:07:17Z",
-          "name" : "aName",
-          "modified" : "2015-05-28T14:07:17Z",
-          "description" : "Integration description",
-          "attributes" : "{\"uid\":\"Walter White\",\"firstname\":\"walter\",\"cloudStatus\":\"UNREGISTERED\",\"displayName\":\"Walter White\",\"identificationNumber\":\"942\",\"lastSyncDate\":1470348809380,\"email\":\"walter@gmail.com\",\"lastname\":\"white\"}",
-          "id" : "id12345",
-          "type" : "ServiceNow Service Desk",
-          "beforeProvisioningRule" : {
-            "name" : "Example Rule",
-            "id" : "2c918085708c274401708c2a8a760001",
-            "type" : "IDENTITY"
-          }
-        }
-        "@
-        
-        # Update an existing SIM integration
-        
-        try {
-            $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
-            Send-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Send-V2024SIMIntegration -Id $Id -XSailPointExperimental $XSailPointExperimental -SimIntegrationDetails $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024SIMIntegration"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sod-policies
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#create-sod-policy
-      source: |
-        $SodPolicy = @"
-        {
-          "conflictingAccessCriteria" : {
-            "leftCriteria" : {
-              "name" : "money-in",
-              "criteriaList" : [ {
-                "type" : "ENTITLEMENT",
-                "id" : "2c9180866166b5b0016167c32ef31a66",
-                "name" : "Administrator"
-              }, {
-                "type" : "ENTITLEMENT",
-                "id" : "2c9180866166b5b0016167c32ef31a67",
-                "name" : "Administrator"
-              } ]
-            },
-            "rightCriteria" : {
-              "name" : "money-in",
-              "criteriaList" : [ {
-                "type" : "ENTITLEMENT",
-                "id" : "2c9180866166b5b0016167c32ef31a66",
-                "name" : "Administrator"
-              }, {
-                "type" : "ENTITLEMENT",
-                "id" : "2c9180866166b5b0016167c32ef31a67",
-                "name" : "Administrator"
-              } ]
-            }
-          },
-          "ownerRef" : {
-            "name" : "Support",
-            "id" : "2c9180a46faadee4016fb4e018c20639",
-            "type" : "IDENTITY"
-          },
-          "created" : "2020-01-01T00:00:00Z",
-          "scheduled" : true,
-          "creatorId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
-          "modifierId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
-          "description" : "This policy ensures compliance of xyz",
-          "violationOwnerAssignmentConfig" : {
-            "assignmentRule" : "MANAGER",
-            "ownerRef" : {
-              "name" : "Support",
-              "id" : "2c9180a46faadee4016fb4e018c20639",
-              "type" : "IDENTITY"
-            }
-          },
-          "correctionAdvice" : "Based on the role of the employee, managers should remove access that is not required for their job function.",
-          "type" : "GENERAL",
-          "tags" : [ "TAG1", "TAG2" ],
-          "name" : "policy-xyz",
-          "modified" : "2020-01-01T00:00:00Z",
-          "policyQuery" : "@access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdg) AND @access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdf)",
-          "compensatingControls" : "Have a manager review the transaction decisions for their \"out of compliance\" employee",
-          "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
-          "state" : "ENFORCED",
-          "externalPolicyReference" : "XYZ policy"
-        }
-        "@
-        
-        # Create SOD policy
-        
-        try {
-            $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-            New-V2024SodPolicy -SodPolicy $Result 
-    
-            # Below is a request that includes all optional parameters
-            # New-V2024SodPolicy -SodPolicy $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024SodPolicy"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sod-policies/{id}
-  method: DELETE
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#delete-sod-policy
-      source: |
-        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD Policy to delete.
-        $Logical = $true # Boolean | Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call. (optional) (default to $true)
-        
-        # Delete SOD policy by ID
-        
-        try {
-            Remove-V2024SodPolicy -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Remove-V2024SodPolicy -Id $Id -Logical $Logical   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024SodPolicy"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sod-policies/{id}/schedule
-  method: DELETE
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#delete-sod-policy-schedule
-      source: |
-        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy the schedule must be deleted for.
-        
-        # Delete SOD policy schedule
-        
-        try {
-            Remove-V2024SodPolicySchedule -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Remove-V2024SodPolicySchedule -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024SodPolicySchedule"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sod-violation-report/{reportResultId}/download/{fileName}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#get-custom-violation-report
-      source: |
-        $ReportResultId = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the report reference to download.
-        $FileName = "custom-name" # String | Custom Name for the  file.
-        
-        # Download custom violation report
-        
-        try {
-            Get-V2024CustomViolationReport -ReportResultId $ReportResultId -FileName $FileName 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024CustomViolationReport -ReportResultId $ReportResultId -FileName $FileName   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024CustomViolationReport"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sod-violation-report/{reportResultId}/download
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#get-default-violation-report
-      source: |
-        $ReportResultId = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the report reference to download.
-        
-        # Download violation report
-        
-        try {
-            Get-V2024DefaultViolationReport -ReportResultId $ReportResultId 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024DefaultViolationReport -ReportResultId $ReportResultId   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024DefaultViolationReport"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sod-violation-report
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#get-sod-all-report-run-status
-      source: |
-        
-        # Get multi-report run task status
-        
-        try {
-            Get-V2024SodAllReportRunStatus 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024SodAllReportRunStatus   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SodAllReportRunStatus"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sod-policies/{id}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#get-sod-policy
-      source: |
-        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD Policy to retrieve.
-        
-        # Get SOD policy by ID
-        
-        try {
-            Get-V2024SodPolicy -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024SodPolicy -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SodPolicy"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sod-policies/{id}/schedule
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#get-sod-policy-schedule
-      source: |
-        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy schedule to retrieve.
-        
-        # Get SOD policy schedule
-        
-        try {
-            Get-V2024SodPolicySchedule -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024SodPolicySchedule -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SodPolicySchedule"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sod-policies/sod-violation-report-status/{reportResultId}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#get-sod-violation-report-run-status
-      source: |
-        $ReportResultId = "2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | The ID of the report reference to retrieve.
-        
-        # Get violation report run status
-        
-        try {
-            Get-V2024SodViolationReportRunStatus -ReportResultId $ReportResultId 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024SodViolationReportRunStatus -ReportResultId $ReportResultId   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SodViolationReportRunStatus"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sod-policies/{id}/violation-report
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#get-sod-violation-report-status
-      source: |
-        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the violation report to retrieve status for.
-        
-        # Get SOD violation report status
-        
-        try {
-            Get-V2024SodViolationReportStatus -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024SodViolationReportStatus -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SodViolationReportStatus"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sod-policies
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#list-sod-policies
-      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Filters = "id eq "bc693f07e7b645539626c25954c58554"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in* (optional)
-        $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description** (optional)
+        $Sorters = "-date" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date** (optional)
         
-        # List SOD policies
-        
-        try {
-            Get-V2024SodPolicies 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024SodPolicies -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SodPolicies"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sod-policies/{id}
-  method: PATCH
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#patch-sod-policy
-      source: |
-        $Id = "2c918083-5d19-1a86-015d-28455b4a2329" # String | The ID of the SOD policy being modified.
-        $JsonPatchOperation = @"{
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        }"@ 
-        
-        
-        # Patch SOD policy by ID
+        # Returns source usage insights
         
         try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-V2024SodPolicy -Id $Id -JsonPatchOperation $Result 
+            Get-V2024UsagesBySourceId -SourceId $SourceId 
     
             # Below is a request that includes all optional parameters
-            # Update-V2024SodPolicy -Id $Id -JsonPatchOperation $Result   
+            # Get-V2024UsagesBySourceId -SourceId $SourceId -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters   
         } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SodPolicy"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sod-policies/{id}/schedule
-  method: PUT
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#put-policy-schedule
-      source: |
-        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy to update its schedule.
-        $SodPolicySchedule = @"
-        {
-          "schedule" : {
-            "hours" : {
-              "accountMatchConfig" : {
-                "matchExpression" : {
-                  "and" : true,
-                  "matchTerms" : [ {
-                    "name" : "",
-                    "value" : "",
-                    "container" : true,
-                    "and" : false,
-                    "children" : [ {
-                      "name" : "businessCategory",
-                      "value" : "Service",
-                      "op" : "eq",
-                      "container" : false,
-                      "and" : false
-                    } ]
-                  } ]
-                }
-              },
-              "applicationId" : "2c91808874ff91550175097daaec161c\""
-            },
-            "months" : {
-              "accountMatchConfig" : {
-                "matchExpression" : {
-                  "and" : true,
-                  "matchTerms" : [ {
-                    "name" : "",
-                    "value" : "",
-                    "container" : true,
-                    "and" : false,
-                    "children" : [ {
-                      "name" : "businessCategory",
-                      "value" : "Service",
-                      "op" : "eq",
-                      "container" : false,
-                      "and" : false
-                    } ]
-                  } ]
-                }
-              },
-              "applicationId" : "2c91808874ff91550175097daaec161c\""
-            },
-            "timeZoneId" : "America/Chicago",
-            "days" : {
-              "accountMatchConfig" : {
-                "matchExpression" : {
-                  "and" : true,
-                  "matchTerms" : [ {
-                    "name" : "",
-                    "value" : "",
-                    "container" : true,
-                    "and" : false,
-                    "children" : [ {
-                      "name" : "businessCategory",
-                      "value" : "Service",
-                      "op" : "eq",
-                      "container" : false,
-                      "and" : false
-                    } ]
-                  } ]
-                }
-              },
-              "applicationId" : "2c91808874ff91550175097daaec161c\""
-            },
-            "expiration" : "2018-06-25T20:22:28.104Z",
-            "type" : "WEEKLY"
-          },
-          "created" : "2020-01-01T00:00:00Z",
-          "recipients" : [ {
-            "name" : "Michael Michaels",
-            "id" : "2c7180a46faadee4016fb4e018c20642",
-            "type" : "IDENTITY"
-          }, {
-            "name" : "Michael Michaels",
-            "id" : "2c7180a46faadee4016fb4e018c20642",
-            "type" : "IDENTITY"
-          } ],
-          "name" : "SCH-1584312283015",
-          "creatorId" : "0f11f2a47c944bf3a2bd742580fe3bde",
-          "modifierId" : "0f11f2a47c944bf3a2bd742580fe3bde",
-          "modified" : "2020-01-01T00:00:00Z",
-          "description" : "Schedule for policy xyz",
-          "emailEmptyResults" : false
-        }
-        "@
-        
-        # Update SOD Policy schedule
-        
-        try {
-            $Result = ConvertFrom-JsonToSodPolicySchedule -Json $SodPolicySchedule
-            Send-V2024PolicySchedule -Id $Id -SodPolicySchedule $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Send-V2024PolicySchedule -Id $Id -SodPolicySchedule $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024PolicySchedule"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sod-policies/{id}
-  method: PUT
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#put-sod-policy
-      source: |
-        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy to update.
-        $SodPolicy = @"
-        {
-          "conflictingAccessCriteria" : {
-            "leftCriteria" : {
-              "name" : "money-in",
-              "criteriaList" : [ {
-                "type" : "ENTITLEMENT",
-                "id" : "2c9180866166b5b0016167c32ef31a66",
-                "name" : "Administrator"
-              }, {
-                "type" : "ENTITLEMENT",
-                "id" : "2c9180866166b5b0016167c32ef31a67",
-                "name" : "Administrator"
-              } ]
-            },
-            "rightCriteria" : {
-              "name" : "money-in",
-              "criteriaList" : [ {
-                "type" : "ENTITLEMENT",
-                "id" : "2c9180866166b5b0016167c32ef31a66",
-                "name" : "Administrator"
-              }, {
-                "type" : "ENTITLEMENT",
-                "id" : "2c9180866166b5b0016167c32ef31a67",
-                "name" : "Administrator"
-              } ]
-            }
-          },
-          "ownerRef" : {
-            "name" : "Support",
-            "id" : "2c9180a46faadee4016fb4e018c20639",
-            "type" : "IDENTITY"
-          },
-          "created" : "2020-01-01T00:00:00Z",
-          "scheduled" : true,
-          "creatorId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
-          "modifierId" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
-          "description" : "This policy ensures compliance of xyz",
-          "violationOwnerAssignmentConfig" : {
-            "assignmentRule" : "MANAGER",
-            "ownerRef" : {
-              "name" : "Support",
-              "id" : "2c9180a46faadee4016fb4e018c20639",
-              "type" : "IDENTITY"
-            }
-          },
-          "correctionAdvice" : "Based on the role of the employee, managers should remove access that is not required for their job function.",
-          "type" : "GENERAL",
-          "tags" : [ "TAG1", "TAG2" ],
-          "name" : "policy-xyz",
-          "modified" : "2020-01-01T00:00:00Z",
-          "policyQuery" : "@access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdg) AND @access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdf)",
-          "compensatingControls" : "Have a manager review the transaction decisions for their \"out of compliance\" employee",
-          "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
-          "state" : "ENFORCED",
-          "externalPolicyReference" : "XYZ policy"
-        }
-        "@
-        
-        # Update SOD policy by ID
-        
-        try {
-            $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
-            Send-V2024SodPolicy -Id $Id -SodPolicy $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Send-V2024SodPolicy -Id $Id -SodPolicy $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024SodPolicy"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sod-policies/{id}/evaluate
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#start-evaluate-sod-policy
-      source: |
-        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run.
-        
-        # Evaluate one policy by ID
-        
-        try {
-            Start-V2024EvaluateSodPolicy -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Start-V2024EvaluateSodPolicy -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024EvaluateSodPolicy"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sod-violation-report/run
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#start-sod-all-policies-for-org
-      source: |
-        $MultiPolicyRequest = @"
-        {
-          "filteredPolicyList" : [ "[b868cd40-ffa4-4337-9c07-1a51846cfa94, 63a07a7b-39a4-48aa-956d-50c827deba2a]", "[b868cd40-ffa4-4337-9c07-1a51846cfa94, 63a07a7b-39a4-48aa-956d-50c827deba2a]" ]
-        }
-        "@
-        
-        # Runs all policies for org
-        
-        try {
-            Start-V2024SodAllPoliciesForOrg 
-    
-            # Below is a request that includes all optional parameters
-            # Start-V2024SodAllPoliciesForOrg -MultiPolicyRequest $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024SodAllPoliciesForOrg"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sod-policies/{id}/violation-report/run
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sod-policies#start-sod-policy
-      source: |
-        $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run.
-        
-        # Runs SOD policy violation report
-        
-        try {
-            Start-V2024SodPolicy -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Start-V2024SodPolicy -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024SodPolicy"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sod-violations/predict
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sod-violations#start-predict-sod-violations
-      source: |
-        $IdentityWithNewAccess = @"
-        {
-          "identityId" : "2c91808568c529c60168cca6f90c1313",
-          "accessRefs" : [ {
-            "type" : "ENTITLEMENT",
-            "id" : "2c918087682f9a86016839c050861ab1",
-            "name" : "CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local"
-          }, {
-            "type" : "ENTITLEMENT",
-            "id" : "2c918087682f9a86016839c0509c1ab2",
-            "name" : "CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local"
-          } ]
-        }
-        "@
-        
-        # Predict SOD violations for identity.
-        
-        try {
-            $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
-            Start-V2024PredictSodViolations -IdentityWithNewAccess $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Start-V2024PredictSodViolations -IdentityWithNewAccess $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024PredictSodViolations"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sod-violations/check
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sod-violations#start-violation-check
-      source: |
-        $IdentityWithNewAccess1 = @"
-        {identityId=2c91808568c529c60168cca6f90c1313, accessRefs=[{type=ENTITLEMENT, id=2c918087682f9a86016839c050861ab1, name=CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local}, {type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2, name=CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local}], clientMetadata={additionalProp1=string, additionalProp2=string, additionalProp3=string}}
-        "@
-        
-        # Check SOD violations
-        
-        try {
-            $Result = ConvertFrom-JsonToIdentityWithNewAccess1 -Json $IdentityWithNewAccess1
-            Start-V2024ViolationCheck -IdentityWithNewAccess1 $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Start-V2024ViolationCheck -IdentityWithNewAccess1 $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024ViolationCheck"
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024UsagesBySourceId"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/{sourceId}/provisioning-policies
@@ -16403,188 +16585,6 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024SourceSchema"
             Write-Host $_.ErrorDetails
         }
-- path: /source-usages/{sourceId}/status
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/source-usages#get-status-by-source-id
-      source: |
-        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
-        
-        # Finds status of source usage
-        
-        try {
-            Get-V2024StatusBySourceId -SourceId $SourceId 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024StatusBySourceId -SourceId $SourceId   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024StatusBySourceId"
-            Write-Host $_.ErrorDetails
-        }
-- path: /source-usages/{sourceId}/summaries
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/source-usages#get-usages-by-source-id
-      source: |
-        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Sorters = "-date" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date** (optional)
-        
-        # Returns source usage insights
-        
-        try {
-            Get-V2024UsagesBySourceId -SourceId $SourceId 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024UsagesBySourceId -SourceId $SourceId -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024UsagesBySourceId"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sp-config/export
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sp-config#export-sp-config
-      source: |
-        $ExportPayload = @"
-        {
-          "description" : "Export Job 1 Test"
-        }
-        "@
-        
-        # Initiates configuration objects export job
-        
-        try {
-            $Result = ConvertFrom-JsonToExportPayload -Json $ExportPayload
-            Export-V2024SpConfig -ExportPayload $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Export-V2024SpConfig -ExportPayload $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-V2024SpConfig"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sp-config/export/{id}/download
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sp-config#get-sp-config-export
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job whose results will be downloaded.
-        
-        # Download export job result.
-        
-        try {
-            Get-V2024SpConfigExport -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024SpConfigExport -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SpConfigExport"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sp-config/export/{id}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sp-config#get-sp-config-export-status
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job whose status will be returned.
-        
-        # Get export job status
-        
-        try {
-            Get-V2024SpConfigExportStatus -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024SpConfigExportStatus -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SpConfigExportStatus"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sp-config/import/{id}/download
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sp-config#get-sp-config-import
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job whose results will be downloaded.
-        
-        # Download import job result
-        
-        try {
-            Get-V2024SpConfigImport -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024SpConfigImport -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SpConfigImport"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sp-config/import/{id}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sp-config#get-sp-config-import-status
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job whose status will be returned.
-        
-        # Get import job status
-        
-        try {
-            Get-V2024SpConfigImportStatus -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024SpConfigImportStatus -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SpConfigImportStatus"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sp-config/import
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sp-config#import-sp-config
-      source: |
-        $Data =  # System.IO.FileInfo | JSON file containing the objects to be imported.
-        $Preview = $true # Boolean | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is ""true"", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to $false)
-        $Options = @"
-        "@
-        
-        # Initiates configuration objects import job
-        
-        try {
-            Import-V2024SpConfig -Data $Data 
-    
-            # Below is a request that includes all optional parameters
-            # Import-V2024SpConfig -Data $Data -Preview $Preview -Options $Options   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2024SpConfig"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sp-config/config-objects
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/sp-config#list-sp-config-objects
-      source: |
-        
-        # List Config Objects
-        
-        try {
-            Get-V2024SpConfigObjects 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024SpConfigObjects   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024SpConfigObjects"
-            Write-Host $_.ErrorDetails
-        }
 - path: /suggested-entitlement-description-batches/{batchId}/stats
   method: GET
   xCodeSample:
@@ -17736,418 +17736,6 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024VendorConnectorMappings"
             Write-Host $_.ErrorDetails
         }
-- path: /workflow-executions/{id}/cancel
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/workflows#cancel-workflow-execution
-      source: |
-        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | The workflow execution ID
-        
-        # Cancel Workflow Execution by ID
-        
-        try {
-            Suspend-V2024WorkflowExecution -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Suspend-V2024WorkflowExecution -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-V2024WorkflowExecution"
-            Write-Host $_.ErrorDetails
-        }
-- path: /workflows/execute/external/{id}
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/workflows#create-external-execute-workflow
-      source: |
-        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
-        $CreateExternalExecuteWorkflowRequest = @"
-        
-        "@
-        
-        # Execute Workflow via External Trigger
-        
-        try {
-            New-V2024ExternalExecuteWorkflow -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # New-V2024ExternalExecuteWorkflow -Id $Id -CreateExternalExecuteWorkflowRequest $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ExternalExecuteWorkflow"
-            Write-Host $_.ErrorDetails
-        }
-- path: /workflows
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/workflows#create-workflow
-      source: |
-        $CreateWorkflowRequest = @"
-        {name=Send Email, owner={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}, description=Send an email to the identity who's attributes changed., definition={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}, enabled=false, trigger={type=EVENT, attributes={id=idn:identity-attributes-changed, filter=$.changes[?(@.attribute == 'manager')]}}}
-        "@
-        
-        # Create Workflow
-        
-        try {
-            $Result = ConvertFrom-JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
-            New-V2024Workflow -CreateWorkflowRequest $Result 
-    
-            # Below is a request that includes all optional parameters
-            # New-V2024Workflow -CreateWorkflowRequest $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Workflow"
-            Write-Host $_.ErrorDetails
-        }
-- path: /workflows/{id}/external/oauth-clients
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/workflows#create-workflow-external-trigger
-      source: |
-        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
-        
-        # Generate External Trigger OAuth Client
-        
-        try {
-            New-V2024WorkflowExternalTrigger -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # New-V2024WorkflowExternalTrigger -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024WorkflowExternalTrigger"
-            Write-Host $_.ErrorDetails
-        }
-- path: /workflows/{id}
-  method: DELETE
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/workflows#delete-workflow
-      source: |
-        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
-        
-        # Delete Workflow By Id
-        
-        try {
-            Remove-V2024Workflow -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Remove-V2024Workflow -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024Workflow"
-            Write-Host $_.ErrorDetails
-        }
-- path: /workflows/{id}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/workflows#get-workflow
-      source: |
-        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
-        
-        # Get Workflow By Id
-        
-        try {
-            Get-V2024Workflow -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024Workflow -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Workflow"
-            Write-Host $_.ErrorDetails
-        }
-- path: /workflow-executions/{id}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/workflows#get-workflow-execution
-      source: |
-        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow execution ID.
-        
-        # Get Workflow Execution
-        
-        try {
-            Get-V2024WorkflowExecution -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024WorkflowExecution -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkflowExecution"
-            Write-Host $_.ErrorDetails
-        }
-- path: /workflow-executions/{id}/history
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/workflows#get-workflow-execution-history
-      source: |
-        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execution
-        
-        # Get Workflow Execution History
-        
-        try {
-            Get-V2024WorkflowExecutionHistory -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024WorkflowExecutionHistory -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkflowExecutionHistory"
-            Write-Host $_.ErrorDetails
-        }
-- path: /workflows/{id}/executions
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/workflows#get-workflow-executions
-      source: |
-        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow ID.
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Filters = "status eq "Failed"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq* (optional)
-        
-        # List Workflow Executions
-        
-        try {
-            Get-V2024WorkflowExecutions -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024WorkflowExecutions -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkflowExecutions"
-            Write-Host $_.ErrorDetails
-        }
-- path: /workflow-library
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/workflows#list-complete-workflow-library
-      source: |
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        
-        # List Complete Workflow Library
-        
-        try {
-            Get-V2024CompleteWorkflowLibrary 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024CompleteWorkflowLibrary -Limit $Limit -Offset $Offset   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024CompleteWorkflowLibrary"
-            Write-Host $_.ErrorDetails
-        }
-- path: /workflow-library/actions
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/workflows#list-workflow-library-actions
-      source: |
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Filters = "id eq "sp:create-campaign"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional)
-        
-        # List Workflow Library Actions
-        
-        try {
-            Get-V2024WorkflowLibraryActions 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024WorkflowLibraryActions -Limit $Limit -Offset $Offset -Filters $Filters   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkflowLibraryActions"
-            Write-Host $_.ErrorDetails
-        }
-- path: /workflow-library/operators
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/workflows#list-workflow-library-operators
-      source: |
-        
-        # List Workflow Library Operators
-        
-        try {
-            Get-V2024WorkflowLibraryOperators 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024WorkflowLibraryOperators   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkflowLibraryOperators"
-            Write-Host $_.ErrorDetails
-        }
-- path: /workflow-library/triggers
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/workflows#list-workflow-library-triggers
-      source: |
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Filters = "id eq "idn:identity-attributes-changed"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional)
-        
-        # List Workflow Library Triggers
-        
-        try {
-            Get-V2024WorkflowLibraryTriggers 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024WorkflowLibraryTriggers -Limit $Limit -Offset $Offset -Filters $Filters   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkflowLibraryTriggers"
-            Write-Host $_.ErrorDetails
-        }
-- path: /workflows
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/workflows#list-workflows
-      source: |
-        
-        # List Workflows
-        
-        try {
-            Get-V2024Workflows 
-    
-            # Below is a request that includes all optional parameters
-            # Get-V2024Workflows   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Workflows"
-            Write-Host $_.ErrorDetails
-        }
-- path: /workflows/{id}
-  method: PATCH
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/workflows#patch-workflow
-      source: |
-        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
-        $JsonPatchOperation = @"{
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        }"@ 
-        
-        
-        # Patch Workflow
-        
-        try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-V2024Workflow -Id $Id -JsonPatchOperation $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Update-V2024Workflow -Id $Id -JsonPatchOperation $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Workflow"
-            Write-Host $_.ErrorDetails
-        }
-- path: /workflows/{id}
-  method: PUT
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/workflows#put-workflow
-      source: |
-        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
-        $WorkflowBody = @"
-        {
-          "owner" : {
-            "name" : "William Wilson",
-            "id" : "2c91808568c529c60168cca6f90c1313",
-            "type" : "IDENTITY"
-          },
-          "name" : "Send Email",
-          "description" : "Send an email to the identity who's attributes changed.",
-          "definition" : {
-            "start" : "Send Email Test",
-            "steps" : {
-              "Send Email" : {
-                "actionId" : "sp:send-email",
-                "attributes" : {
-                  "body" : "This is a test",
-                  "from" : "sailpoint@sailpoint.com",
-                  "recipientId.$" : "$.identity.id",
-                  "subject" : "test"
-                },
-                "nextStep" : "success",
-                "type" : "ACTION"
-              },
-              "success" : {
-                "type" : "success"
-              }
-            }
-          },
-          "trigger" : {
-            "displayName" : "displayName",
-            "attributes" : {
-              "description" : "Triggered when an identity's manager attribute changes",
-              "formDefinitionId" : "Admin_Access_Request_Form",
-              "attributeToFilter" : "LifecycleState",
-              "id" : "idn:identity-attributes-changed",
-              "filter.$" : "$.changes[?(@.attribute == 'manager')]"
-            },
-            "type" : "EVENT"
-          },
-          "enabled" : false
-        }
-        "@
-        
-        # Update Workflow
-        
-        try {
-            $Result = ConvertFrom-JsonToWorkflowBody -Json $WorkflowBody
-            Send-V2024Workflow -Id $Id -WorkflowBody $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Send-V2024Workflow -Id $Id -WorkflowBody $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024Workflow"
-            Write-Host $_.ErrorDetails
-        }
-- path: /workflows/execute/external/{id}/test
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/workflows#test-external-execute-workflow
-      source: |
-        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
-        $TestExternalExecuteWorkflowRequest = @"
-        
-        "@
-        
-        # Test Workflow via External Trigger
-        
-        try {
-            Test-V2024ExternalExecuteWorkflow -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Test-V2024ExternalExecuteWorkflow -Id $Id -TestExternalExecuteWorkflowRequest $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024ExternalExecuteWorkflow"
-            Write-Host $_.ErrorDetails
-        }
-- path: /workflows/{id}/test
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/v2024/methods/workflows#test-workflow
-      source: |
-        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
-        $TestWorkflowRequest = @"
-        {input={identity={id=ee769173319b41d19ccec6cea52f237b, name=john.doe, type=IDENTITY}, changes=[{attribute=department, oldValue=sales, newValue=marketing}, {attribute=manager, oldValue={id=ee769173319b41d19ccec6c235423237b, name=nice.guy, type=IDENTITY}, newValue={id=ee769173319b41d19ccec6c235423236c, name=mean.guy, type=IDENTITY}}, {attribute=email, oldValue=john.doe@hotmail.com, newValue=john.doe@gmail.com}]}}
-        "@
-        
-        # Test Workflow By Id
-        
-        try {
-            $Result = ConvertFrom-JsonToTestWorkflowRequest -Json $TestWorkflowRequest
-            Test-V2024Workflow -Id $Id -TestWorkflowRequest $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Test-V2024Workflow -Id $Id -TestWorkflowRequest $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024Workflow"
-            Write-Host $_.ErrorDetails
-        }
 - path: /work-items/{id}/approve/{approvalItemId}
   method: POST
   xCodeSample:
@@ -18622,5 +18210,417 @@
             # Send-V2024TenantConfiguration -XSailPointExperimental $XSailPointExperimental -TenantConfigurationRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024TenantConfiguration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflow-executions/{id}/cancel
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/workflows#cancel-workflow-execution
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | The workflow execution ID
+        
+        # Cancel Workflow Execution by ID
+        
+        try {
+            Suspend-V2024WorkflowExecution -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Suspend-V2024WorkflowExecution -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Suspend-V2024WorkflowExecution"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/execute/external/{id}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/workflows#create-external-execute-workflow
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
+        $CreateExternalExecuteWorkflowRequest = @"
+        
+        "@
+        
+        # Execute Workflow via External Trigger
+        
+        try {
+            New-V2024ExternalExecuteWorkflow -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2024ExternalExecuteWorkflow -Id $Id -CreateExternalExecuteWorkflowRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ExternalExecuteWorkflow"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/workflows#create-workflow
+      source: |
+        $CreateWorkflowRequest = @"
+        {name=Send Email, owner={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}, description=Send an email to the identity who's attributes changed., definition={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}, enabled=false, trigger={type=EVENT, attributes={id=idn:identity-attributes-changed, filter=$.changes[?(@.attribute == 'manager')]}}}
+        "@
+        
+        # Create Workflow
+        
+        try {
+            $Result = ConvertFrom-JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
+            New-V2024Workflow -CreateWorkflowRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2024Workflow -CreateWorkflowRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024Workflow"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/{id}/external/oauth-clients
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/workflows#create-workflow-external-trigger
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
+        
+        # Generate External Trigger OAuth Client
+        
+        try {
+            New-V2024WorkflowExternalTrigger -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2024WorkflowExternalTrigger -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024WorkflowExternalTrigger"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/workflows#delete-workflow
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
+        
+        # Delete Workflow By Id
+        
+        try {
+            Remove-V2024Workflow -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2024Workflow -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024Workflow"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/workflows#get-workflow
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
+        
+        # Get Workflow By Id
+        
+        try {
+            Get-V2024Workflow -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024Workflow -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Workflow"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflow-executions/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/workflows#get-workflow-execution
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow execution ID.
+        
+        # Get Workflow Execution
+        
+        try {
+            Get-V2024WorkflowExecution -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024WorkflowExecution -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkflowExecution"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflow-executions/{id}/history
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/workflows#get-workflow-execution-history
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execution
+        
+        # Get Workflow Execution History
+        
+        try {
+            Get-V2024WorkflowExecutionHistory -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024WorkflowExecutionHistory -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkflowExecutionHistory"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/{id}/executions
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/workflows#get-workflow-executions
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow ID.
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "status eq "Failed"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq* (optional)
+        
+        # List Workflow Executions
+        
+        try {
+            Get-V2024WorkflowExecutions -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024WorkflowExecutions -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkflowExecutions"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflow-library
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/workflows#list-complete-workflow-library
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List Complete Workflow Library
+        
+        try {
+            Get-V2024CompleteWorkflowLibrary 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024CompleteWorkflowLibrary -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024CompleteWorkflowLibrary"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflow-library/actions
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/workflows#list-workflow-library-actions
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Filters = "id eq "sp:create-campaign"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional)
+        
+        # List Workflow Library Actions
+        
+        try {
+            Get-V2024WorkflowLibraryActions 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024WorkflowLibraryActions -Limit $Limit -Offset $Offset -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkflowLibraryActions"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflow-library/operators
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/workflows#list-workflow-library-operators
+      source: |
+        
+        # List Workflow Library Operators
+        
+        try {
+            Get-V2024WorkflowLibraryOperators 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024WorkflowLibraryOperators   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkflowLibraryOperators"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflow-library/triggers
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/workflows#list-workflow-library-triggers
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Filters = "id eq "idn:identity-attributes-changed"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional)
+        
+        # List Workflow Library Triggers
+        
+        try {
+            Get-V2024WorkflowLibraryTriggers 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024WorkflowLibraryTriggers -Limit $Limit -Offset $Offset -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024WorkflowLibraryTriggers"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/workflows#list-workflows
+      source: |
+        
+        # List Workflows
+        
+        try {
+            Get-V2024Workflows 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024Workflows   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Workflows"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/workflows#patch-workflow
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Patch Workflow
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-V2024Workflow -Id $Id -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2024Workflow -Id $Id -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024Workflow"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/workflows#put-workflow
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
+        $WorkflowBody = @"
+        {
+          "owner" : {
+            "name" : "William Wilson",
+            "id" : "2c91808568c529c60168cca6f90c1313",
+            "type" : "IDENTITY"
+          },
+          "name" : "Send Email",
+          "description" : "Send an email to the identity who's attributes changed.",
+          "definition" : {
+            "start" : "Send Email Test",
+            "steps" : {
+              "Send Email" : {
+                "actionId" : "sp:send-email",
+                "attributes" : {
+                  "body" : "This is a test",
+                  "from" : "sailpoint@sailpoint.com",
+                  "recipientId.$" : "$.identity.id",
+                  "subject" : "test"
+                },
+                "nextStep" : "success",
+                "type" : "ACTION"
+              },
+              "success" : {
+                "type" : "success"
+              }
+            }
+          },
+          "trigger" : {
+            "displayName" : "displayName",
+            "attributes" : {
+              "description" : "Triggered when an identity's manager attribute changes",
+              "formDefinitionId" : "Admin_Access_Request_Form",
+              "attributeToFilter" : "LifecycleState",
+              "id" : "idn:identity-attributes-changed",
+              "filter.$" : "$.changes[?(@.attribute == 'manager')]"
+            },
+            "type" : "EVENT"
+          },
+          "enabled" : false
+        }
+        "@
+        
+        # Update Workflow
+        
+        try {
+            $Result = ConvertFrom-JsonToWorkflowBody -Json $WorkflowBody
+            Send-V2024Workflow -Id $Id -WorkflowBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-V2024Workflow -Id $Id -WorkflowBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024Workflow"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/execute/external/{id}/test
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/workflows#test-external-execute-workflow
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
+        $TestExternalExecuteWorkflowRequest = @"
+        
+        "@
+        
+        # Test Workflow via External Trigger
+        
+        try {
+            Test-V2024ExternalExecuteWorkflow -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Test-V2024ExternalExecuteWorkflow -Id $Id -TestExternalExecuteWorkflowRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024ExternalExecuteWorkflow"
+            Write-Host $_.ErrorDetails
+        }
+- path: /workflows/{id}/test
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/workflows#test-workflow
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
+        $TestWorkflowRequest = @"
+        {input={identity={id=ee769173319b41d19ccec6cea52f237b, name=john.doe, type=IDENTITY}, changes=[{attribute=department, oldValue=sales, newValue=marketing}, {attribute=manager, oldValue={id=ee769173319b41d19ccec6c235423237b, name=nice.guy, type=IDENTITY}, newValue={id=ee769173319b41d19ccec6c235423236c, name=mean.guy, type=IDENTITY}}, {attribute=email, oldValue=john.doe@hotmail.com, newValue=john.doe@gmail.com}]}}
+        "@
+        
+        # Test Workflow By Id
+        
+        try {
+            $Result = ConvertFrom-JsonToTestWorkflowRequest -Json $TestWorkflowRequest
+            Test-V2024Workflow -Id $Id -TestWorkflowRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Test-V2024Workflow -Id $Id -TestWorkflowRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024Workflow"
             Write-Host $_.ErrorDetails
         }

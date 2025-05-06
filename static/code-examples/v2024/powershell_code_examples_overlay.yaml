@@ -9002,6 +9002,152 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024MFAConfig"
             Write-Host $_.ErrorDetails
         }
+- path: /accounts/{id}/classify
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/machine-account-classify#send-classify-machine-account
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
+        $ClassificationMode = "default" # String | Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human. (optional) (default to "default")
+        
+        # Classify a Single Machine Account
+        
+        try {
+            Send-V2024ClassifyMachineAccount -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Send-V2024ClassifyMachineAccount -Id $Id -ClassificationMode $ClassificationMode   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024ClassifyMachineAccount"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/machine-account-mappings
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/machine-account-mappings#create-machine-account-mappings
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        $AttributeMappings = @"
+        {
+          "transformDefinition" : {
+            "attributes" : {
+              "input" : {
+                "attributes" : {
+                  "name" : "8d3e0094e99445de98eef6c75e25jc04",
+                  "attributeName" : "givenName",
+                  "sourceName" : "delimited-src"
+                },
+                "type" : "accountAttribute"
+              }
+            },
+            "id" : "ToUpper",
+            "type" : "reference"
+          },
+          "target" : {
+            "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+            "attributeName" : "businessApplication",
+            "type" : "IDENTITY"
+          }
+        }
+        "@
+        
+        # Create Machine Account Mappings
+        
+        try {
+            $Result = ConvertFrom-JsonToAttributeMappings -Json $AttributeMappings
+            New-V2024MachineAccountMappings -Id $Id -AttributeMappings $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2024MachineAccountMappings -Id $Id -AttributeMappings $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024MachineAccountMappings"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/machine-account-mappings
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/machine-account-mappings#delete-machine-account-mappings
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | source ID.
+        
+        # Delete Source's Machine Account Mappings
+        
+        try {
+            Remove-V2024MachineAccountMappings -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2024MachineAccountMappings -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024MachineAccountMappings"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/machine-account-mappings
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/machine-account-mappings#list-machine-account-mappings
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # Machine Account Mapping for Source
+        
+        try {
+            Get-V2024MachineAccountMappings -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024MachineAccountMappings -Id $Id -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024MachineAccountMappings"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/machine-mappings
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/machine-account-mappings#set-machine-account-mappings
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        $AttributeMappings = @"
+        {
+          "transformDefinition" : {
+            "attributes" : {
+              "input" : {
+                "attributes" : {
+                  "name" : "8d3e0094e99445de98eef6c75e25jc04",
+                  "attributeName" : "givenName",
+                  "sourceName" : "delimited-src"
+                },
+                "type" : "accountAttribute"
+              }
+            },
+            "id" : "ToUpper",
+            "type" : "reference"
+          },
+          "target" : {
+            "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+            "attributeName" : "businessApplication",
+            "type" : "IDENTITY"
+          }
+        }
+        "@
+        
+        # Update Source's Machine Account Mappings
+        
+        try {
+            $Result = ConvertFrom-JsonToAttributeMappings -Json $AttributeMappings
+            Set-V2024MachineAccountMappings -Id $Id -AttributeMappings $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-V2024MachineAccountMappings -Id $Id -AttributeMappings $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024MachineAccountMappings"
+            Write-Host $_.ErrorDetails
+        }
 - path: /machine-accounts/{id}
   method: GET
   xCodeSample:
@@ -9068,6 +9214,73 @@
             # Update-V2024MachineAccount -Id $Id -XSailPointExperimental $XSailPointExperimental -RequestBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024MachineAccount"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/machine-classification-config
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/machine-classification-config#delete-machine-classification-config
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        
+        # Delete Source's Classification Config
+        
+        try {
+            Remove-V2024MachineClassificationConfig -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2024MachineClassificationConfig -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024MachineClassificationConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/machine-classification-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/machine-classification-config#get-machine-classification-config
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID
+        
+        # Machine Classification Config for Source
+        
+        try {
+            Get-V2024MachineClassificationConfig -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2024MachineClassificationConfig -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024MachineClassificationConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/machine-classification-config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/machine-classification-config#set-machine-classification-config
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        $MachineClassificationConfig = @"
+        {
+          "criteria" : "criteria",
+          "created" : "2017-07-11T18:45:37.098Z",
+          "modified" : "2018-06-25T20:22:28.104Z",
+          "classificationMethod" : "SOURCE",
+          "enabled" : true
+        }
+        "@
+        
+        # Update Source's Classification Config
+        
+        try {
+            $Result = ConvertFrom-JsonToMachineClassificationConfig -Json $MachineClassificationConfig
+            Set-V2024MachineClassificationConfig -Id $Id -MachineClassificationConfig $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-V2024MachineClassificationConfig -Id $Id -MachineClassificationConfig $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024MachineClassificationConfig"
             Write-Host $_.ErrorDetails
         }
 - path: /machine-identities

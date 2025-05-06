@@ -44,11 +44,6 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@v3
 
-      - name: Set up Go
-        uses: actions/setup-go@v3
-        with:
-          go-version: 1.21
-
       - name: setup SAM
         uses: aws-actions/setup-sam@v2
       - name: set env vars
@@ -86,10 +81,10 @@ jobs:
         run: |
           echo "CMS_APP_API_ENDPOINT=$API_GATEWAY_URL" >> .env
           echo ${{ secrets.NPM_FONTAWESOME_CONFIG }} | base64 -d >> .npmrc
-          export NODE_OPTIONS="--max_old_space_size=63488"
+          export NODE_OPTIONS="--max_old_space_size=60000"
           export DOCUSAURUS_IGNORE_SSG_WARNINGS=true
           export DOCUSAURUS_PERF_LOGGER=true
-          export DOCUSAURUS_SSG_WORKER_THREAD_COUNT=6
+          export DOCUSAURUS_SSG_WORKER_THREAD_COUNT=5
           npm ci --legacy-peer-deps
           npm run gen-api-docs-all
           npm run build

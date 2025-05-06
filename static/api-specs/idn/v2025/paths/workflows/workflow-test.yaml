@@ -4,7 +4,7 @@ post:
     - Workflows
   summary: Test Workflow By Id
   description: |
-    ::: info
+    :::info
 
     Workflow must be disabled in order to use this endpoint.
 
@@ -17,6 +17,8 @@ post:
     **This will cause a live run of the workflow, which could result in unintended modifications to your IDN tenant.**
   security:
     - userAuth: [sp:workflow-execute:external]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - name: id
       in: path

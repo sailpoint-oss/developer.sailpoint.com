@@ -70,6 +70,28 @@ Resources:
                 - Authorization
             AuthorizerPayloadFormatVersion: "2.0"
             EnableSimpleResponses: false
+      Routes:
+        - Path: /sailapps/uuid
+          Method: POST
+          CorsConfiguration:
+            AllowOrigins: ["*"]
+            AllowMethods: ["*"]
+            AllowHeaders: ["*"]
+            MaxAge: 0
+        - Path: /sailapps/code/{code}
+          Method: POST
+          CorsConfiguration:
+            AllowOrigins: ["*"]
+            AllowMethods: ["*"]
+            AllowHeaders: ["*"]
+            MaxAge: 0
+        - Path: /sailapps/uuid/{uuid}
+          Method: GET
+          CorsConfiguration:
+            AllowOrigins: ["*"]
+            AllowMethods: ["*"]
+            AllowHeaders: ["*"]
+            MaxAge: 0
   DeveloperSailpointAuthFunction:
     Type: AWS::Serverless::Function
     Properties:

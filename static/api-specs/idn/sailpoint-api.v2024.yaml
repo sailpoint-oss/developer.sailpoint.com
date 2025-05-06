@@ -2018,7 +2018,7 @@ paths:
   /sources/{sourceId}/machine-mappings:
     $ref: "./v2024/paths/machine-mappings.yaml"
   /accounts/{id}/classify:
-    $ref: "./internal/paths/machine-account-classify.yaml"
+    $ref: "./v2024/paths/machine-account-classify.yaml"
   /machine-identities:
     $ref: ./v2024/paths/machine-identities.yaml
   /machine-identities/{id}:

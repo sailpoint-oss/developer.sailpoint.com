@@ -54,6 +54,7 @@ Resources:
           - "Content-Type"
         AllowOrigins:
           - "https://developer.sailpoint.com"
+          - "*"  # Allow all origins for SailApps endpoints
       DefaultRouteSettings:
         DetailedMetricsEnabled: true
         ThrottlingBurstLimit: 10
@@ -97,11 +98,6 @@ Resources:
               Ref: DeveloperSailpointApiGatewayApiv2
             Auth:
               Authorizer: NONE
-            CorsConfiguration:
-              AllowOrigins: ["*"]
-              AllowMethods: ["*"]
-              AllowHeaders: ["*"]
-              MaxAge: 0
         PerformSailAppsCodeExchange:
           Type: HttpApi
           Properties:
@@ -111,11 +107,6 @@ Resources:
               Ref: DeveloperSailpointApiGatewayApiv2
             Auth:
               Authorizer: NONE
-            CorsConfiguration:
-              AllowOrigins: ["*"]
-              AllowMethods: ["*"]
-              AllowHeaders: ["*"]
-              MaxAge: 0
         GetSailAppsToken:
           Type: HttpApi
           Properties:
@@ -125,11 +116,6 @@ Resources:
               Ref: DeveloperSailpointApiGatewayApiv2
             Auth:
               Authorizer: NONE
-            CorsConfiguration:
-              AllowOrigins: ["*"]
-              AllowMethods: ["*"]
-              AllowHeaders: ["*"]
-              MaxAge: 0
       CodeUri: backend/src/mithrandir/
       Handler: index.handler
       Runtime: nodejs22.x

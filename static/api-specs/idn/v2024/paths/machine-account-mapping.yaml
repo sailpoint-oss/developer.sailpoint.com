@@ -13,8 +13,8 @@ get:
     - SOURCE_ADMIN
     - SOURCE_SUBADMIN
   parameters:
-    - $ref: ../../v3/parameters/limit.yaml
-    - $ref: ../../v3/parameters/offset.yaml
+    - $ref: ../parameters/limit.yaml
+    - $ref: ../parameters/offset.yaml
     - in: path
       name: id
       schema:
@@ -22,7 +22,7 @@ get:
       required: true
       description: Source ID
       example: ef38f94347e94562b5bb8424a56397d8
-      x-sailpoint-resource-operation-id: machineAccountMappings
+      x-sailpoint-resource-operation-id: listSources
   responses:
     "200":
       description: An array of Attribute Mapping Objects
@@ -33,17 +33,17 @@ get:
             items:
               $ref: "../schemas/AttributeMappings.yaml"
     "400":
-      $ref: "../../v3/responses/400.yaml"
+      $ref: "../responses/400.yaml"
     "401":
-      $ref: "../../v3/responses/401.yaml"
+      $ref: "../responses/401.yaml"
     "403":
-      $ref: "../../v3/responses/403.yaml"
+      $ref: "../responses/403.yaml"
     "404":
-      $ref: "../../v3/responses/404.yaml"
+      $ref: "../responses/404.yaml"
     "429":
-      $ref: "../../v3/responses/429.yaml"
+      $ref: "../responses/429.yaml"
     "500":
-      $ref: "../../v3/responses/500.yaml"
+      $ref: "../responses/500.yaml"
 post:
   operationId: createMachineAccountMappings
   tags:
@@ -71,7 +71,7 @@ post:
       required: true
       description: Source ID.
       example: ef38f94347e94562b5bb8424a56397d8
-      x-sailpoint-resource-operation-id: machineAccountMappings
+      x-sailpoint-resource-operation-id: listSources
   requestBody:
     required: true
     content:
@@ -88,15 +88,15 @@ post:
             items:
               $ref: "../schemas/AttributeMappings.yaml"
     '400':
-      $ref: '../../v3/responses/400.yaml'
+      $ref: '../responses/400.yaml'
     '401':
-      $ref: '../../v3/responses/401.yaml'
+      $ref: '../responses/401.yaml'
     '403':
-      $ref: '../../v3/responses/403.yaml'
+      $ref: '../responses/403.yaml'
     '429':
-      $ref: '../../v3/responses/429.yaml'
+      $ref: '../responses/429.yaml'
     '500':
-      $ref: '../../v3/responses/500.yaml'
+      $ref: '../responses/500.yaml'
 delete:
   operationId: deleteMachineAccountMappings
   tags:
@@ -121,19 +121,19 @@ delete:
       required: true
       description: source ID.
       example: ef38f94347e94562b5bb8424a56397d8
-      x-sailpoint-resource-operation-id: machineAccountMappings
+      x-sailpoint-resource-operation-id: listSources
   responses:
     "200":
-      $ref: "../../v3/responses/204.yaml"
+      $ref: "../responses/204.yaml"
     "400":
-      $ref: "../../v3/responses/400.yaml"
+      $ref: "../responses/400.yaml"
     "401":
-      $ref: "../../v3/responses/401.yaml"
+      $ref: "../responses/401.yaml"
     "403":
-      $ref: "../../v3/responses/403.yaml"
+      $ref: "../responses/403.yaml"
     "404":
-      $ref: "../../v3/responses/404.yaml"
+      $ref: "../responses/404.yaml"
     "429":
-      $ref: "../../v3/responses/429.yaml"
+      $ref: "../responses/429.yaml"
     "500":
-      $ref: "../../v3/responses/500.yaml"
+      $ref: "../responses/500.yaml"

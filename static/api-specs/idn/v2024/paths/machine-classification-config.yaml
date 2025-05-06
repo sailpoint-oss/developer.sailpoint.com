@@ -20,7 +20,7 @@ get:
       required: true
       description: Source ID
       example: ef38f94347e94562b5bb8424a56397d8
-      x-sailpoint-resource-operation-id: machineClassificationConfig
+      x-sailpoint-resource-operation-id: listSources
   responses:
     "200":
       description: A Config Object
@@ -29,17 +29,17 @@ get:
           schema:
             $ref: "../schemas/MachineClassificationConfig.yaml"
     "400":
-      $ref: "../../v3/responses/400.yaml"
+      $ref: "../responses/400.yaml"
     "401":
-      $ref: "../../v3/responses/401.yaml"
+      $ref: "../responses/401.yaml"
     "403":
-      $ref: "../../v3/responses/403.yaml"
+      $ref: "../responses/403.yaml"
     "404":
-      $ref: "../../v3/responses/404.yaml"
+      $ref: "../responses/404.yaml"
     "429":
-      $ref: "../../v3/responses/429.yaml"
+      $ref: "../responses/429.yaml"
     "500":
-      $ref: "../../v3/responses/500.yaml"
+      $ref: "../responses/500.yaml"
 put:
   operationId: setMachineClassificationConfig
   tags:
@@ -63,7 +63,7 @@ put:
       required: true
       description: Source ID.
       example: ef38f94347e94562b5bb8424a56397d8
-      x-sailpoint-resource-operation-id: machineClassificationConfig
+      x-sailpoint-resource-operation-id: listSources
   requestBody:
     required: true
     content:
@@ -78,17 +78,17 @@ put:
           schema:
             $ref: "../schemas/MachineClassificationConfig.yaml"
     "400":
-      $ref: "../../v3/responses/400.yaml"
+      $ref: "../responses/400.yaml"
     "401":
-      $ref: "../../v3/responses/401.yaml"
+      $ref: "../responses/401.yaml"
     "403":
-      $ref: "../../v3/responses/403.yaml"
+      $ref: "../responses/403.yaml"
     "404":
-      $ref: "../../v3/responses/404.yaml"
+      $ref: "../responses/404.yaml"
     "429":
-      $ref: "../../v3/responses/429.yaml"
+      $ref: "../responses/429.yaml"
     "500":
-      $ref: "../../v3/responses/500.yaml"
+      $ref: "../responses/500.yaml"
 delete:
   operationId: deleteMachineClassificationConfig
   tags:
@@ -113,19 +113,19 @@ delete:
       required: true
       description: Source ID.
       example: ef38f94347e94562b5bb8424a56397d8
-      x-sailpoint-resource-operation-id: machineClassificationConfig
+      x-sailpoint-resource-operation-id: listSources
   responses:
     "200":
-      $ref: "../../v3/responses/204.yaml"
+      $ref: "../responses/204.yaml"
     "400":
-      $ref: "../../v3/responses/400.yaml"
+      $ref: "../responses/400.yaml"
     "401":
-      $ref: "../../v3/responses/401.yaml"
+      $ref: "../responses/401.yaml"
     "403":
-      $ref: "../../v3/responses/403.yaml"
+      $ref: "../responses/403.yaml"
     "404":
-      $ref: "../../v3/responses/404.yaml"
+      $ref: "../responses/404.yaml"
     "429":
-      $ref: "../../v3/responses/429.yaml"
+      $ref: "../responses/429.yaml"
     "500":
-      $ref: "../../v3/responses/500.yaml"
+      $ref: "../responses/500.yaml"

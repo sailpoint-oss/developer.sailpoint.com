@@ -43,6 +43,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out repo
         uses: actions/checkout@v3
+      
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.21
 
       - name: setup SAM
         uses: aws-actions/setup-sam@v2
@@ -86,7 +91,7 @@ jobs:
           export DOCUSAURUS_PERF_LOGGER=true
           export DOCUSAURUS_SSG_WORKER_THREAD_COUNT=5
           export DOCUSAURUS_BUNDLER_CPU_PROFILE=true 
-          export DOCUSAURUS_RSPACK_TRACE=true
+
           npm ci --legacy-peer-deps
           npm run gen-api-docs-all
           npm run build

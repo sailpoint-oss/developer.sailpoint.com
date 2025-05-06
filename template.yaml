@@ -84,6 +84,54 @@ Resources:
         - x86_64
       MemorySize: 128
       Timeout: 100
+  SailAppsAuthFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Events:
+        GenerateSailAppsUuid:
+          Type: HttpApi
+          Properties:
+            Path: /sailapps/uuid
+            Method: POST
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
+        PerformSailAppsCodeExchange:
+          Type: HttpApi
+          Properties:
+            Path: /sailapps/code/{code}
+            Method: POST
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
+        GetSailAppsToken:
+          Type: HttpApi
+          Properties:
+            Path: /sailapps/uuid/{uuid}
+            Method: GET
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
+      CodeUri: backend/src/mithrandir/
+      Handler: index.handler
+      Runtime: nodejs22.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
+      Policies:
+        # Give Create/Read/Update/Delete Permissions to the CMSTable
+        - DynamoDBCrudPolicy:
+            TableName: !Ref SailAppsAuth
+      Environment:
+        Variables:
+          # Make table name accessible as environment variable from function code during execution
+          AUTH_TOKENS_TABLE: !Ref SailAppsAuth
+          # Make DynamoDB endpoint accessible as environment variable from function code during execution
+          ENDPOINT_OVERRIDE: ""
   JSONPathGoFunction:
     Type: AWS::Serverless::Function
     Metadata:
@@ -158,6 +206,15 @@ Resources:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
   # DynamoDB table to store item: {id: &lt;ID&gt;, name: &lt;NAME&gt;}
   CMSTable:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      PrimaryKey:
+        Name: id
+        Type: String
+      ProvisionedThroughput:
+        ReadCapacityUnits: 20
+        WriteCapacityUnits: 2
+  SailAppsAuth:
     Type: AWS::Serverless::SimpleTable
     Properties:
       PrimaryKey:

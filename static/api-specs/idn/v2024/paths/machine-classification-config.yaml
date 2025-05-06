@@ -1,0 +1,131 @@
+get:
+  operationId: getMachineClassificationConfig
+  tags:
+    - Machine Classification Config
+  summary: Machine Classification Config for Source
+  description: >-
+    This API returns a Machine Classification Config for a Source using Source ID.
+  security:
+    - userAuth:
+        - "idn:sources:read"
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Source ID
+      example: ef38f94347e94562b5bb8424a56397d8
+      x-sailpoint-resource-operation-id: machineClassificationConfig
+  responses:
+    "200":
+      description: A Config Object
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/MachineClassificationConfig.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+put:
+  operationId: setMachineClassificationConfig
+  tags:
+    - Machine Classification Config
+  summary: Update Source's Classification Config
+  description:
+    Use this API to update Classification Config for a Source.
+    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+  security:
+    - userAuth:
+        - "idn:sources:update"
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Source ID.
+      example: ef38f94347e94562b5bb8424a56397d8
+      x-sailpoint-resource-operation-id: machineClassificationConfig
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/MachineClassificationConfig.yaml"
+  responses:
+    "200":
+      description: Updated Machine Classification Config Object.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/MachineClassificationConfig.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+delete:
+  operationId: deleteMachineClassificationConfig
+  tags:
+    - Machine Classification Config
+  summary: Delete Source's Classification Config
+  description: >-
+    Use this API to remove Classification Config for a Source. 
+
+    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+  security:
+    - userAuth:
+        - "idn:sources:update"
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Source ID.
+      example: ef38f94347e94562b5bb8424a56397d8
+      x-sailpoint-resource-operation-id: machineClassificationConfig
+  responses:
+    "200":
+      $ref: "../../v3/responses/204.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

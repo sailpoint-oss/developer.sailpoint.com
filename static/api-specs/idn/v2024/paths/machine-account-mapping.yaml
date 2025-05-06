@@ -1,0 +1,139 @@
+get:
+  operationId: listMachineAccountMappings
+  tags:
+    - Machine Account Mappings
+  summary: Machine Account Mapping for Source
+  description: >-
+    Retrieves Machine account mappings for a specified source using Source ID.
+  security:
+    - userAuth:
+        - "idn:sources:read"
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - $ref: ../../v3/parameters/limit.yaml
+    - $ref: ../../v3/parameters/offset.yaml
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Source ID
+      example: ef38f94347e94562b5bb8424a56397d8
+      x-sailpoint-resource-operation-id: machineAccountMappings
+  responses:
+    "200":
+      description: An array of Attribute Mapping Objects
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/AttributeMappings.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"
+post:
+  operationId: createMachineAccountMappings
+  tags:
+    - Machine Account Mappings
+  summary: Create Machine Account Mappings
+  security:
+    - userAuth:
+      - "idn:sources:create"
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_SUBADMIN
+  description: >-
+    Creates Machine Account Mappings for both identities and accounts for a source.
+
+    A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to
+    call this API.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Source ID.
+      example: ef38f94347e94562b5bb8424a56397d8
+      x-sailpoint-resource-operation-id: machineAccountMappings
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/AttributeMappings.yaml'
+  responses:
+    '200':
+      description: Newly created Attribute Mapping Object
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/AttributeMappings.yaml"
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteMachineAccountMappings
+  tags:
+    - Machine Account Mappings
+  summary: Delete Source's Machine Account Mappings
+  description: >-
+    Use this API to remove machine account attribute mappings for a Source. 
+
+    A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+  security:
+    - userAuth:
+        - "idn:sources:update"
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: source ID.
+      example: ef38f94347e94562b5bb8424a56397d8
+      x-sailpoint-resource-operation-id: machineAccountMappings
+  responses:
+    "200":
+      $ref: "../../v3/responses/204.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

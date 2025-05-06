@@ -598,8 +598,12 @@ tags:
       Refer to [Moving Identities into Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#moving-identities-into-lifecycle-states) for more information about these different lifecycle state statuses. 
 
       Refer to [Setting Up Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html) for more information about lifecycle states.
+  - name: Machine Account Classify
+  - name: Machine Account Mappings
   - name: Machine Accounts
+  - name: Machine Classification Config
   - name: Machine Identities
+  - name: Machine Mapping Metadata
   - name: Managed Clients
     description: |
       Use this API to implement managed client functionality. 
@@ -2007,6 +2011,14 @@ paths:
     $ref: ./v2024/paths/machine-accounts.yaml
   /machine-accounts/{id}:
     $ref: ./v2024/paths/machine-account.yaml
+  /sources/{sourceId}/machine-classification-config:
+    $ref: "./v2024/paths/machine-classification-config.yaml"
+  /sources/{sourceId}/machine-account-mappings:
+    $ref: "./v2024/paths/machine-account-mapping.yaml"
+  /sources/{sourceId}/machine-mappings:
+    $ref: "./v2024/paths/machine-mappings.yaml"
+  /accounts/{id}/classify:
+    $ref: "./internal/paths/machine-account-classify.yaml"
   /machine-identities:
     $ref: ./v2024/paths/machine-identities.yaml
   /machine-identities/{id}:

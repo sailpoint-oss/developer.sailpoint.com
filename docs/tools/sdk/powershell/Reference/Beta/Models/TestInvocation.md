@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TestInvocation = Initialize-PSSailpoint.BetaTestInvocation  -TriggerId idn:access-request-post-approval `
+$TestInvocation = Initialize-BetaTestInvocation  -TriggerId idn:access-request-post-approval `
  -VarInput {identityId=201327fda1c44704ac01181e963d463c} `
  -ContentJson {workflowId=1234} `
  -SubscriptionIds [0f11f2a4-7c94-4bf3-a2bd-742580fe3bde]

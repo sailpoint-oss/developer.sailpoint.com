@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$KbaAuthResponseItem = Initialize-PSSailpoint.V3KbaAuthResponseItem  -QuestionId 089899f13a8f4da7824996191587bab9 `
+$KbaAuthResponseItem = Initialize-KbaAuthResponseItem  -QuestionId 089899f13a8f4da7824996191587bab9 `
  -IsVerified true
 ```
 

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConnectorCustomizerUpdateRequest = Initialize-PSSailpoint.V2024ConnectorCustomizerUpdateRequest  -Name My Custom Connector
+$ConnectorCustomizerUpdateRequest = Initialize-V2024ConnectorCustomizerUpdateRequest  -Name My Custom Connector
 ```
 
 - Convert the resource to JSON

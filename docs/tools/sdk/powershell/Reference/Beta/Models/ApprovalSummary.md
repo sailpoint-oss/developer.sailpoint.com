@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalSummary = Initialize-PSSailpoint.BetaApprovalSummary  -Pending null `
+$ApprovalSummary = Initialize-BetaApprovalSummary  -Pending null `
  -Approved null `
  -Rejected null
 ```

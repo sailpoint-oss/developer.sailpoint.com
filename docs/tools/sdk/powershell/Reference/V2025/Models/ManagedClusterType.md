@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManagedClusterType = Initialize-PSSailpoint.V2025ManagedClusterType  -Id aClusterTypeId `
+$ManagedClusterType = Initialize-V2025ManagedClusterType  -Id aClusterTypeId `
  -Type idn `
  -Pod megapod-useast1 `
  -Org denali-cjh `

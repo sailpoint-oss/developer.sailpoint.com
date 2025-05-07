@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReviewableEntitlement = Initialize-PSSailpoint.V2024ReviewableEntitlement  -Id 2c918085718230600171993742c63558 `
+$ReviewableEntitlement = Initialize-V2024ReviewableEntitlement  -Id 2c918085718230600171993742c63558 `
  -Name CN=entitlement.bbb7c650 `
  -Description Gives read/write access to the company database `
  -Privileged false `

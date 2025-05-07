@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceItemRef = Initialize-PSSailpoint.V2024SourceItemRef  -SourceId cb89bc2f1ee6445fbea12224c526ba3a `
+$SourceItemRef = Initialize-V2024SourceItemRef  -SourceId cb89bc2f1ee6445fbea12224c526ba3a `
  -Accounts null
 ```
 

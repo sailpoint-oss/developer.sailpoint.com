@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ActivateCampaignOptions = Initialize-PSSailpoint.V3ActivateCampaignOptions  -TimeZone -05:00
+$ActivateCampaignOptions = Initialize-ActivateCampaignOptions  -TimeZone -05:00
 ```
 
 - Convert the resource to JSON

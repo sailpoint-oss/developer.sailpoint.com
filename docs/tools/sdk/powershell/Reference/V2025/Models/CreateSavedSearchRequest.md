@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CreateSavedSearchRequest = Initialize-PSSailpoint.V2025CreateSavedSearchRequest  -Name Disabled accounts `
+$CreateSavedSearchRequest = Initialize-V2025CreateSavedSearchRequest  -Name Disabled accounts `
  -Description Disabled accounts `
  -Created 2018-06-25T20:22:28.104Z `
  -Modified 2018-06-25T20:22:28.104Z `

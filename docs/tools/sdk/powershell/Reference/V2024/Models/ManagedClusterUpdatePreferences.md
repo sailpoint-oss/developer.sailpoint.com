@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManagedClusterUpdatePreferences = Initialize-PSSailpoint.V2024ManagedClusterUpdatePreferences  -ProcessGroups null `
+$ManagedClusterUpdatePreferences = Initialize-V2024ManagedClusterUpdatePreferences  -ProcessGroups null `
  -UpdateState DISABLED `
  -NotificationEmail test@mail.com
 ```

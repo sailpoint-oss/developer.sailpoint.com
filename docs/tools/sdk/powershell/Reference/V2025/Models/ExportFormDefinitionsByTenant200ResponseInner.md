@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ExportFormDefinitionsByTenant200ResponseInner = Initialize-PSSailpoint.V2025ExportFormDefinitionsByTenant200ResponseInner  -Object null `
+$ExportFormDefinitionsByTenant200ResponseInner = Initialize-V2025ExportFormDefinitionsByTenant200ResponseInner  -Object null `
  -Self null `
  -Version null
 ```

@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeRequestSummary = Initialize-PSSailpoint.BetaNonEmployeeRequestSummary  -Approved null `
+$NonEmployeeRequestSummary = Initialize-BetaNonEmployeeRequestSummary  -Approved null `
  -Rejected null `
  -Pending null `
  -NonEmployeeCount null

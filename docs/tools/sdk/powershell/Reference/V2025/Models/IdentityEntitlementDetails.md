@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityEntitlementDetails = Initialize-PSSailpoint.V2025IdentityEntitlementDetails  -IdentityId 5928c61f-3f2e-417a-8d65-f76451e2050a `
+$IdentityEntitlementDetails = Initialize-V2025IdentityEntitlementDetails  -IdentityId 5928c61f-3f2e-417a-8d65-f76451e2050a `
  -Entitlement null `
  -SourceId b56728da-a24d-4177-a207-2bc4d42cba27 `
  -AccountTargets [{accountId=e7ef11cee24542b78618ce017117699f, accountName=Adalberto.XYZ, accountUUID=null, sourceId=0108906b66634d9ab7819a03eb263a88, sourceName=ODS-AD-FF-Source [source-XYZ], removeDate=null, assignmentId=null, revocable=true}]

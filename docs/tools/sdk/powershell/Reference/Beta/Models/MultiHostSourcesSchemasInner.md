@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MultiHostSourcesSchemasInner = Initialize-PSSailpoint.BetaMultiHostSourcesSchemasInner  -Type CONNECTOR_SCHEMA `
+$MultiHostSourcesSchemasInner = Initialize-BetaMultiHostSourcesSchemasInner  -Type CONNECTOR_SCHEMA `
  -Id 2c91808568c529c60168cca6f90c1777 `
  -Name MySchema
 ```

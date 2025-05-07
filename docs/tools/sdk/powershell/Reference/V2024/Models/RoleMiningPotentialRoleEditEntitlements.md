@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningPotentialRoleEditEntitlements = Initialize-PSSailpoint.V2024RoleMiningPotentialRoleEditEntitlements  -Ids null `
+$RoleMiningPotentialRoleEditEntitlements = Initialize-V2024RoleMiningPotentialRoleEditEntitlements  -Ids null `
  -Exclude null
 ```
 

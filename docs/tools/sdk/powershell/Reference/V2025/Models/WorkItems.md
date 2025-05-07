@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkItems = Initialize-PSSailpoint.V2025WorkItems  -Id 2c9180835d2e5168015d32f890ca1581 `
+$WorkItems = Initialize-V2025WorkItems  -Id 2c9180835d2e5168015d32f890ca1581 `
  -RequesterId 2c9180835d2e5168015d32f890ca1581 `
  -RequesterDisplayName John Smith `
  -OwnerId 2c9180835d2e5168015d32f890ca1581 `

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SendAccountVerificationRequest = Initialize-PSSailpoint.V2024SendAccountVerificationRequest  -SourceName Active Directory Source `
+$SendAccountVerificationRequest = Initialize-V2024SendAccountVerificationRequest  -SourceName Active Directory Source `
  -Via EMAIL_WORK
 ```
 

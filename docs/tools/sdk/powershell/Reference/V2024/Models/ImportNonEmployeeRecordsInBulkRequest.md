@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ImportNonEmployeeRecordsInBulkRequest = Initialize-PSSailpoint.V2024ImportNonEmployeeRecordsInBulkRequest  -VarData null
+$ImportNonEmployeeRecordsInBulkRequest = Initialize-V2024ImportNonEmployeeRecordsInBulkRequest  -VarData null
 ```
 
 - Convert the resource to JSON

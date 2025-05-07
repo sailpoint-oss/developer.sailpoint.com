@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SavedSearchCompleteSearchResultsAccount = Initialize-PSSailpoint.V2024SavedSearchCompleteSearchResultsAccount  -Count 3 `
+$SavedSearchCompleteSearchResultsAccount = Initialize-V2024SavedSearchCompleteSearchResultsAccount  -Count 3 `
  -Noun accounts `
  -Preview null
 ```

@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Trigger = Initialize-PSSailpoint.V2025Trigger  -Id idn:access-request-dynamic-approver `
+$Trigger = Initialize-V2025Trigger  -Id idn:access-request-dynamic-approver `
  -Name Access Request Dynamic Approver `
  -Type null `
  -Description Trigger for getting a dynamic approver. `

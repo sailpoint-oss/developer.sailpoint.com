@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAllOfRecommendation = Initialize-PSSailpoint.V3AccountAllOfRecommendation  -Type MACHINE `
+$AccountAllOfRecommendation = Initialize-AccountAllOfRecommendation  -Type MACHINE `
  -Method DISCOVERY
 ```
 

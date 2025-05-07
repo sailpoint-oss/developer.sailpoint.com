@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OutlierFeatureSummary = Initialize-PSSailpoint.V2025OutlierFeatureSummary  -ContributingFeatureName Rare Access `
+$OutlierFeatureSummary = Initialize-V2025OutlierFeatureSummary  -ContributingFeatureName Rare Access `
  -IdentityOutlierDisplayName John Smith `
  -OutlierFeatureDisplayValues null `
  -FeatureDefinition Identity total number of entitlements `

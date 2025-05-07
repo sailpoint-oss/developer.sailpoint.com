@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TextQuery = Initialize-PSSailpoint.V2025TextQuery  -Terms [The quick brown fox, 3141592, 7] `
+$TextQuery = Initialize-V2025TextQuery  -Terms [The quick brown fox, 3141592, 7] `
  -Fields [displayName, employeeNumber, roleCount] `
  -MatchAny false `
  -Contains true

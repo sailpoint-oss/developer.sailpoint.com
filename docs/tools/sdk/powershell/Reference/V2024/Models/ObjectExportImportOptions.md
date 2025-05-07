@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ObjectExportImportOptions = Initialize-PSSailpoint.V2024ObjectExportImportOptions  -IncludedIds null `
+$ObjectExportImportOptions = Initialize-V2024ObjectExportImportOptions  -IncludedIds null `
  -IncludedNames null
 ```
 

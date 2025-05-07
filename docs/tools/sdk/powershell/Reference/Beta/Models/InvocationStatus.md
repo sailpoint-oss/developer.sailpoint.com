@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$InvocationStatus = Initialize-PSSailpoint.BetaInvocationStatus  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
+$InvocationStatus = Initialize-BetaInvocationStatus  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -TriggerId idn:access-request-post-approval `
  -SubscriptionName Access request subscription `
  -SubscriptionId 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `

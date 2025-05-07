@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SedBatchStatus = Initialize-PSSailpoint.V2024SedBatchStatus  -Status OK
+$SedBatchStatus = Initialize-V2024SedBatchStatus  -Status OK
 ```
 
 - Convert the resource to JSON

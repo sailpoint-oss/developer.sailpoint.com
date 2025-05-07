@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeRequestBody = Initialize-PSSailpoint.V2025NonEmployeeRequestBody  -AccountName william.smith `
+$NonEmployeeRequestBody = Initialize-V2025NonEmployeeRequestBody  -AccountName william.smith `
  -FirstName William `
  -LastName Smith `
  -Email william.smith@example.com `

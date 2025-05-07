@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestPreApprovalRequestedItemsInner = Initialize-PSSailpoint.BetaAccessRequestPreApprovalRequestedItemsInner  -Id 2c91808b6ef1d43e016efba0ce470904 `
+$AccessRequestPreApprovalRequestedItemsInner = Initialize-BetaAccessRequestPreApprovalRequestedItemsInner  -Id 2c91808b6ef1d43e016efba0ce470904 `
  -Name Engineering Access `
  -Description Access to engineering database `
  -Type ACCESS_PROFILE `

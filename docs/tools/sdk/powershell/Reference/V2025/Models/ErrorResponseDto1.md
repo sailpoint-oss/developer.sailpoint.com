@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ErrorResponseDto1 = Initialize-PSSailpoint.V2025ErrorResponseDto1  -DetailCode 400.1 Bad Request Content `
+$ErrorResponseDto1 = Initialize-V2025ErrorResponseDto1  -DetailCode 400.1 Bad Request Content `
  -TrackingId e7eab60924f64aa284175b9fa3309599 `
  -Messages null `
  -Causes null

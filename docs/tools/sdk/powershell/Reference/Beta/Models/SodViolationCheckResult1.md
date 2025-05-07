@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SodViolationCheckResult1 = Initialize-PSSailpoint.BetaSodViolationCheckResult1  -Message null `
+$SodViolationCheckResult1 = Initialize-BetaSodViolationCheckResult1  -Message null `
  -ClientMetadata {requestedAppName=test-app, requestedAppId=2c91808f7892918f0178b78da4a305a1} `
  -ViolationContexts null `
  -ViolatedPolicies null

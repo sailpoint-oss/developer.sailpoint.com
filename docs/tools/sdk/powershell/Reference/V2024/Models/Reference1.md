@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Reference1 = Initialize-PSSailpoint.V2024Reference1  -Id 2c91808568c529c60168cca6f90c1313 `
+$Reference1 = Initialize-V2024Reference1  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe
 ```
 

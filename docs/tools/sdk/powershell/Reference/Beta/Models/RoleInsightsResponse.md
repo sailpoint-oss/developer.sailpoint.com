@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleInsightsResponse = Initialize-PSSailpoint.BetaRoleInsightsResponse  -Id 8c190e67-87aa-4ed9-a90b-d9d5344523fb `
+$RoleInsightsResponse = Initialize-BetaRoleInsightsResponse  -Id 8c190e67-87aa-4ed9-a90b-d9d5344523fb `
  -CreatedDate 2020-09-16T18:49:32.150Z `
  -LastGenerated 2020-09-16T18:50:12.150Z `
  -NumberOfUpdates 0 `

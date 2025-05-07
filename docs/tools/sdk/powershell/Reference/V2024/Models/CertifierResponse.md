@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CertifierResponse = Initialize-PSSailpoint.V2024CertifierResponse  -Id 8a80828f643d484f01643e14202e206f `
+$CertifierResponse = Initialize-V2024CertifierResponse  -Id 8a80828f643d484f01643e14202e206f `
  -DisplayName John Snow
 ```
 

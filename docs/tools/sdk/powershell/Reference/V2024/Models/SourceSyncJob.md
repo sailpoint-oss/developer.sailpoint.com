@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceSyncJob = Initialize-PSSailpoint.V2024SourceSyncJob  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
+$SourceSyncJob = Initialize-V2024SourceSyncJob  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -Status IN_PROGRESS `
  -Payload null
 ```

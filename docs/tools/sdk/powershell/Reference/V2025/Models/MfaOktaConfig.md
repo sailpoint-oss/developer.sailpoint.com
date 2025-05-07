@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MfaOktaConfig = Initialize-PSSailpoint.V2025MfaOktaConfig  -MfaMethod okta-verify `
+$MfaOktaConfig = Initialize-V2025MfaOktaConfig  -MfaMethod okta-verify `
  -Enabled true `
  -VarHost example.com `
  -AccessKey qw123Y3QlA5UqocYpdU3rEkzrK2D497y `

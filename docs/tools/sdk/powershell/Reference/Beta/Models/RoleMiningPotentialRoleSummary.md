@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningPotentialRoleSummary = Initialize-PSSailpoint.BetaRoleMiningPotentialRoleSummary  -Id e0cc5d7d-bf7f-4f81-b2af-8885b09d9923 `
+$RoleMiningPotentialRoleSummary = Initialize-BetaRoleMiningPotentialRoleSummary  -Id e0cc5d7d-bf7f-4f81-b2af-8885b09d9923 `
  -Name Potential Role - e0cc5d `
  -PotentialRoleRef null `
  -IdentityCount 25 `

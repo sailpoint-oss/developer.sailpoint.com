@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignTemplateOwnerRef = Initialize-PSSailpoint.V2024CampaignTemplateOwnerRef  -Id 2c918086676d3e0601677611dbde220f `
+$CampaignTemplateOwnerRef = Initialize-V2024CampaignTemplateOwnerRef  -Id 2c918086676d3e0601677611dbde220f `
  -Type IDENTITY `
  -Name Mister Manager `
  -Email mr.manager@example.com

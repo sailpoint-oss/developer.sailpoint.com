@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ClusterManualUpgradeJobsInnerManagedProcessConfiguration = Initialize-PSSailpoint.V2025ClusterManualUpgradeJobsInnerManagedProcessConfiguration  -Charon null `
+$ClusterManualUpgradeJobsInnerManagedProcessConfiguration = Initialize-V2025ClusterManualUpgradeJobsInnerManagedProcessConfiguration  -Charon null `
  -Ccg null `
  -OtelAgent null `
  -Relay null `

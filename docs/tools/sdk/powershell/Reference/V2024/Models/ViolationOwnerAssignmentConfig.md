@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ViolationOwnerAssignmentConfig = Initialize-PSSailpoint.V2024ViolationOwnerAssignmentConfig  -AssignmentRule MANAGER `
+$ViolationOwnerAssignmentConfig = Initialize-V2024ViolationOwnerAssignmentConfig  -AssignmentRule MANAGER `
  -OwnerRef null
 ```
 

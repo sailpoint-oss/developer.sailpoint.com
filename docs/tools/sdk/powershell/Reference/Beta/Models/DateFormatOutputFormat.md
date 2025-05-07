@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DateFormatOutputFormat = Initialize-PSSailpoint.BetaDateFormatOutputFormat 
+$DateFormatOutputFormat = Initialize-BetaDateFormatOutputFormat 
 ```
 
 - Convert the resource to JSON

@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleGetAllBulkUpdateResponse = Initialize-PSSailpoint.V2025RoleGetAllBulkUpdateResponse  -Id 2c9180867817ac4d017817c491119a20 `
+$RoleGetAllBulkUpdateResponse = Initialize-V2025RoleGetAllBulkUpdateResponse  -Id 2c9180867817ac4d017817c491119a20 `
  -Type Role `
  -Status CREATED `
  -Created 2020-10-08T18:33:52.029Z

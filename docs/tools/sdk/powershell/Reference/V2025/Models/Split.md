@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Split = Initialize-PSSailpoint.V2025Split  -Delimiter , `
+$Split = Initialize-V2025Split  -Delimiter , `
  -Index 5 `
  -Throws true `
  -RequiresPeriodicRefresh false `

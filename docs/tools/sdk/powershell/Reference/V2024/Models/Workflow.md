@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Workflow = Initialize-PSSailpoint.V2024Workflow  -Name Send Email `
+$Workflow = Initialize-V2024Workflow  -Name Send Email `
  -Owner null `
  -Description Send an email to the identity who's attributes changed. `
  -Definition null `

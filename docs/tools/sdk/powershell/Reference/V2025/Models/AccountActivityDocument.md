@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountActivityDocument = Initialize-PSSailpoint.V2025AccountActivityDocument  -Id 2c91808375d8e80a0175e1f88a575222 `
+$AccountActivityDocument = Initialize-V2025AccountActivityDocument  -Id 2c91808375d8e80a0175e1f88a575222 `
  -Action Identity Refresh. `
  -Created 2018-06-25T20:22:28.104Z `
  -Modified 2018-06-25T20:22:28.104Z `

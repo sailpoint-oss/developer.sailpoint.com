@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeMappingsAllOfTarget = Initialize-PSSailpoint.V2024AttributeMappingsAllOfTarget  -Type IDENTITY `
+$AttributeMappingsAllOfTarget = Initialize-V2024AttributeMappingsAllOfTarget  -Type IDENTITY `
  -AttributeName businessApplication `
  -SourceId 2c9180835d2e5168015d32f890ca1581
 ```

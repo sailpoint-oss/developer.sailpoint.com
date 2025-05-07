@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Segment = Initialize-PSSailpoint.V2025Segment  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
+$Segment = Initialize-V2025Segment  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -Name segment-xyz `
  -Created 2020-01-01T00:00Z `
  -Modified 2020-01-01T00:00Z `

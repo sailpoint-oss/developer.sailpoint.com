@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReassignmentTrailDTO = Initialize-PSSailpoint.V2025ReassignmentTrailDTO  -PreviousOwner ef38f94347e94562b5bb8424a56397d8 `
+$ReassignmentTrailDTO = Initialize-V2025ReassignmentTrailDTO  -PreviousOwner ef38f94347e94562b5bb8424a56397d8 `
  -NewOwner ef38f94347e94562b5bb8424a56397a3 `
  -ReassignmentType AUTOMATIC_REASSIGNMENT
 ```

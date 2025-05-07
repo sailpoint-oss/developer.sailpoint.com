@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequest = Initialize-PSSailpoint.V3AccessRequest  -RequestedFor 2c918084660f45d6016617daa9210584 `
+$AccessRequest = Initialize-AccessRequest  -RequestedFor 2c918084660f45d6016617daa9210584 `
  -RequestType null `
  -RequestedItems null `
  -ClientMetadata {requestedAppId=2c91808f7892918f0178b78da4a305a1, requestedAppName=test-app} `

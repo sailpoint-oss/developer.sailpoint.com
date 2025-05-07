@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Upper = Initialize-PSSailpoint.BetaUpper  -RequiresPeriodicRefresh false `
+$Upper = Initialize-BetaUpper  -RequiresPeriodicRefresh false `
  -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```
 

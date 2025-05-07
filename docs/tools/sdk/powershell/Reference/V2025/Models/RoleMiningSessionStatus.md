@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningSessionStatus = Initialize-PSSailpoint.V2025RoleMiningSessionStatus  -State null
+$RoleMiningSessionStatus = Initialize-V2025RoleMiningSessionStatus  -State null
 ```
 
 - Convert the resource to JSON

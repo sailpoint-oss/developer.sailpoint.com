@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleListFilterDTO = Initialize-PSSailpoint.V2024RoleListFilterDTO  -Filters dimensional eq false `
+$RoleListFilterDTO = Initialize-V2024RoleListFilterDTO  -Filters dimensional eq false `
  -AmmKeyValues [{attribute=iscFederalClassifications, values=[secret]}]
 ```
 

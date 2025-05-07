@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessModelMetadataValuesInner = Initialize-PSSailpoint.V2025AccessModelMetadataValuesInner  -Value development `
+$AccessModelMetadataValuesInner = Initialize-V2025AccessModelMetadataValuesInner  -Value development `
  -Name Development `
  -Status active
 ```

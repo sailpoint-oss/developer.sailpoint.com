@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ProvisioningCompleted = Initialize-PSSailpoint.V2024ProvisioningCompleted  -TrackingNumber 4b4d982dddff4267ab12f0f1e72b5a6d `
+$ProvisioningCompleted = Initialize-V2024ProvisioningCompleted  -TrackingNumber 4b4d982dddff4267ab12f0f1e72b5a6d `
  -Sources Corp AD, Corp LDAP, Corp Salesforce `
  -Action IdentityRefresh `
  -Errors null `

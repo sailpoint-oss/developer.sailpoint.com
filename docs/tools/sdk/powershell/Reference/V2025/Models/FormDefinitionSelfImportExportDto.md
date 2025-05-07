@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormDefinitionSelfImportExportDto = Initialize-PSSailpoint.V2025FormDefinitionSelfImportExportDto  -Type FORM_DEFINITION `
+$FormDefinitionSelfImportExportDto = Initialize-V2025FormDefinitionSelfImportExportDto  -Type FORM_DEFINITION `
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name Temporary User Level Permissions - Requester
 ```

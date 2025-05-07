@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessItemEntitlementResponse = Initialize-PSSailpoint.V2024AccessItemEntitlementResponse  -AccessType entitlement `
+$AccessItemEntitlementResponse = Initialize-V2024AccessItemEntitlementResponse  -AccessType entitlement `
  -Id 2c918087763e69d901763e72e97f006f `
  -Attribute groups `
  -Value Upward mobility access `

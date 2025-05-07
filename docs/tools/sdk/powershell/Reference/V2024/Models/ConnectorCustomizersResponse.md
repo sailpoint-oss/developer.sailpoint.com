@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConnectorCustomizersResponse = Initialize-PSSailpoint.V2024ConnectorCustomizersResponse  -Id b07dc46a-1498-4de8-bfbb-259a68e70c8a `
+$ConnectorCustomizersResponse = Initialize-V2024ConnectorCustomizersResponse  -Id b07dc46a-1498-4de8-bfbb-259a68e70c8a `
  -Name connector-customizer-name `
  -ImageVersion 1 `
  -ImageID 2c91808568c529c60168cca6f90c1324 `

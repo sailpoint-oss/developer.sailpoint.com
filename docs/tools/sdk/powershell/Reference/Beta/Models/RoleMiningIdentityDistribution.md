@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningIdentityDistribution = Initialize-PSSailpoint.BetaRoleMiningIdentityDistribution  -AttributeName department `
+$RoleMiningIdentityDistribution = Initialize-BetaRoleMiningIdentityDistribution  -AttributeName department `
  -Distribution [{attributeValue=NM Tier 3, count=6}]
 ```
 

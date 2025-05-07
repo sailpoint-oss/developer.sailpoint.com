@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaskResultSimplified = Initialize-PSSailpoint.BetaTaskResultSimplified  -Id ff8081814d977c21014da056804a0af3 `
+$TaskResultSimplified = Initialize-BetaTaskResultSimplified  -Id ff8081814d977c21014da056804a0af3 `
  -Name Background Object Terminator c8f030f2-b1a6-4e33-99e8-6935bc18735d `
  -Description Generic task for terminating data in the overlay, used by the TerminationService. `
  -Launcher support `

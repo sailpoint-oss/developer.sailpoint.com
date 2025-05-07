@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SpConfigRules = Initialize-PSSailpoint.BetaSpConfigRules  -TakeFromTargetRules null `
+$SpConfigRules = Initialize-BetaSpConfigRules  -TakeFromTargetRules null `
  -DefaultRules null `
  -Editable true
 ```

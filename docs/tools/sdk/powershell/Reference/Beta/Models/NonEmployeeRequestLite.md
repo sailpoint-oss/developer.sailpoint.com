@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeRequestLite = Initialize-PSSailpoint.BetaNonEmployeeRequestLite  -Id ac10e21c-931c-1ef2-8193-1c51e7ff0003 `
+$NonEmployeeRequestLite = Initialize-BetaNonEmployeeRequestLite  -Id ac10e21c-931c-1ef2-8193-1c51e7ff0003 `
  -Requester null
 ```
 

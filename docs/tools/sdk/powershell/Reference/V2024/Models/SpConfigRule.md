@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SpConfigRule = Initialize-PSSailpoint.V2024SpConfigRule  -Path $.enabled `
+$SpConfigRule = Initialize-V2024SpConfigRule  -Path $.enabled `
  -Value null `
  -Modes [RESTORE, PROMOTE]
 ```

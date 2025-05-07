@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormElement = Initialize-PSSailpoint.V2025FormElement  -Id 00000000-0000-0000-0000-000000000000 `
+$FormElement = Initialize-V2025FormElement  -Id 00000000-0000-0000-0000-000000000000 `
  -ElementType TEXT `
  -Config {label=Department} `
  -Key department `

@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MultiHostIntegrationsAccountsFile = Initialize-PSSailpoint.V2025MultiHostIntegrationsAccountsFile  -Name My Accounts File `
+$MultiHostIntegrationsAccountsFile = Initialize-V2025MultiHostIntegrationsAccountsFile  -Name My Accounts File `
  -Key 2c91808568c529c60168cca6f90c2222 `
  -UploadTime 2022-02-08T14:50:03.827Z `
  -Expiry 2022-02-08T14:50:03.827Z `

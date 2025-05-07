@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessItemDiff = Initialize-PSSailpoint.V2024AccessItemDiff  -Id null `
+$AccessItemDiff = Initialize-V2024AccessItemDiff  -Id null `
  -EventType null `
  -DisplayName null `
  -SourceName null

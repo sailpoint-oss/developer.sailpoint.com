@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaskResultDto = Initialize-PSSailpoint.V2024TaskResultDto  -Type TASK_RESULT `
+$TaskResultDto = Initialize-V2024TaskResultDto  -Type TASK_RESULT `
  -Id 464ae7bf791e49fdb74606a2e4a89635 `
  -Name null
 ```

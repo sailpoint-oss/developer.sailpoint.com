@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$UpdateMultiHostSourcesRequestInnerValue = Initialize-PSSailpoint.V2025UpdateMultiHostSourcesRequestInnerValue 
+$UpdateMultiHostSourcesRequestInnerValue = Initialize-V2025UpdateMultiHostSourcesRequestInnerValue 
 ```
 
 - Convert the resource to JSON

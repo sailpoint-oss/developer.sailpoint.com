@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PreApprovalTriggerDetails = Initialize-PSSailpoint.BetaPreApprovalTriggerDetails  -Comment Access is Approved `
+$PreApprovalTriggerDetails = Initialize-BetaPreApprovalTriggerDetails  -Comment Access is Approved `
  -Reviewer John Doe `
  -Decision APPROVED
 ```

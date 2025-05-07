@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestItem = Initialize-PSSailpoint.V2025AccessRequestItem  -Type ACCESS_PROFILE `
+$AccessRequestItem = Initialize-V2025AccessRequestItem  -Type ACCESS_PROFILE `
  -Id 2c9180835d2e5168015d32f890ca1581 `
  -Comment Requesting access profile for John Doe `
  -ClientMetadata {requestedAppName=test-app, requestedAppId=2c91808f7892918f0178b78da4a305a1} `

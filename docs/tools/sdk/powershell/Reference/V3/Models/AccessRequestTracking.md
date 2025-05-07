@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestTracking = Initialize-PSSailpoint.V3AccessRequestTracking  -RequestedFor 2c918084660f45d6016617daa9210584 `
+$AccessRequestTracking = Initialize-AccessRequestTracking  -RequestedFor 2c918084660f45d6016617daa9210584 `
  -RequestedItemsDetails {
 "type": "ENTITLEMENT", 
 "id": "779c6fd7171540bba1184e5946112c28" 

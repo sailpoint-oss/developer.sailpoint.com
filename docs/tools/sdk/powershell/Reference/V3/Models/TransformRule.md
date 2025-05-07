@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TransformRule = Initialize-PSSailpoint.V3TransformRule  -Name Transform Calculation Rule `
+$TransformRule = Initialize-TransformRule  -Name Transform Calculation Rule `
  -RequiresPeriodicRefresh false
 ```
 

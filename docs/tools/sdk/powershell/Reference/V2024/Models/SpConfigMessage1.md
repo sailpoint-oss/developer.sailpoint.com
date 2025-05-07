@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SpConfigMessage1 = Initialize-PSSailpoint.V2024SpConfigMessage1  -Key UNKNOWN_REFERENCE_RESOLVER `
+$SpConfigMessage1 = Initialize-V2024SpConfigMessage1  -Key UNKNOWN_REFERENCE_RESOLVER `
  -Text Unable to resolve reference for object [type: IDENTITY, id: 2c91808c746e9c9601747d6507332ecz, name: random identity] `
  -Details {details=message details}
 ```

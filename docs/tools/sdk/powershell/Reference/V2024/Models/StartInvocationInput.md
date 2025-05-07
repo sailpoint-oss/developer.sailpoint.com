@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$StartInvocationInput = Initialize-PSSailpoint.V2024StartInvocationInput  -TriggerId idn:access-requested `
+$StartInvocationInput = Initialize-V2024StartInvocationInput  -TriggerId idn:access-requested `
  -VarInput {identityId=201327fda1c44704ac01181e963d463c} `
  -ContentJson {workflowId=1234}
 ```

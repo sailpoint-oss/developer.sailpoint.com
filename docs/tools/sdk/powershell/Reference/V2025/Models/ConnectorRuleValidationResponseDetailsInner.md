@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConnectorRuleValidationResponseDetailsInner = Initialize-PSSailpoint.V2025ConnectorRuleValidationResponseDetailsInner  -Line 2 `
+$ConnectorRuleValidationResponseDetailsInner = Initialize-V2025ConnectorRuleValidationResponseDetailsInner  -Line 2 `
  -Column 5 `
  -Messsage Remove reference to .decrypt(
 ```

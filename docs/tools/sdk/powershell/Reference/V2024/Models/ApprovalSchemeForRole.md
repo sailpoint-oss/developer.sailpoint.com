@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalSchemeForRole = Initialize-PSSailpoint.V2024ApprovalSchemeForRole  -ApproverType GOVERNANCE_GROUP `
+$ApprovalSchemeForRole = Initialize-V2024ApprovalSchemeForRole  -ApproverType GOVERNANCE_GROUP `
  -ApproverId 46c79819-a69f-49a2-becb-12c971ae66c6
 ```
 

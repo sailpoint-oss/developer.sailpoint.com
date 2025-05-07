@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleInsightsEntitlementChanges = Initialize-PSSailpoint.V2024RoleInsightsEntitlementChanges  -Name Administrator `
+$RoleInsightsEntitlementChanges = Initialize-V2024RoleInsightsEntitlementChanges  -Name Administrator `
  -Id 8c190e67-87aa-4ed9-a90b-d9d5344523fb `
  -Description Full administrative access to IdentityNow `
  -Attribute assignedGroups `

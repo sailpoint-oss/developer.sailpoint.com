@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeRecord = Initialize-PSSailpoint.BetaNonEmployeeRecord  -Id ac10e21c-931c-1ef2-8193-1c51e7ff0003 `
+$NonEmployeeRecord = Initialize-BetaNonEmployeeRecord  -Id ac10e21c-931c-1ef2-8193-1c51e7ff0003 `
  -AccountName william.smith `
  -FirstName William `
  -LastName Smith `

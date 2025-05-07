@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceAccountSelections = Initialize-PSSailpoint.V2025SourceAccountSelections  -Type null `
+$SourceAccountSelections = Initialize-V2025SourceAccountSelections  -Type null `
  -Id 3ac3c43785a845fa9820b0c1ac767cd5 `
  -Name Test Source_Name `
  -Accounts null

@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Approval1 = Initialize-PSSailpoint.V2025Approval1  -Comments null `
+$Approval1 = Initialize-V2025Approval1  -Comments null `
  -Modified 2018-06-25T20:22:28.104Z `
  -Owner null `
  -Result Finished `

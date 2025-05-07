@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileEntitlement = Initialize-PSSailpoint.V2025AccessProfileEntitlement  -Id 2c91808568c529c60168cca6f90c1313 `
+$AccessProfileEntitlement = Initialize-V2025AccessProfileEntitlement  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -DisplayName John Q. Doe `
  -Description null `

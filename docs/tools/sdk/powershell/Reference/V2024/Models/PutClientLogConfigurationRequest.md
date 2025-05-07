@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PutClientLogConfigurationRequest = Initialize-PSSailpoint.V2024PutClientLogConfigurationRequest  -ClientId 3a38a51992e8445ab51a549c0a70ee66 `
+$PutClientLogConfigurationRequest = Initialize-V2024PutClientLogConfigurationRequest  -ClientId 3a38a51992e8445ab51a549c0a70ee66 `
  -DurationMinutes 120 `
  -RootLevel null `
  -LogLevels INFO `

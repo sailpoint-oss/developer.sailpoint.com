@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LifecycleStateDto = Initialize-PSSailpoint.V2025LifecycleStateDto  -StateName active `
+$LifecycleStateDto = Initialize-V2025LifecycleStateDto  -StateName active `
  -ManuallyUpdated true
 ```
 

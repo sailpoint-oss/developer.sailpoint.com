@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$VerificationPollRequest = Initialize-PSSailpoint.BetaVerificationPollRequest  -RequestId 089899f13a8f4da7824996191587bab9
+$VerificationPollRequest = Initialize-BetaVerificationPollRequest  -RequestId 089899f13a8f4da7824996191587bab9
 ```
 
 - Convert the resource to JSON

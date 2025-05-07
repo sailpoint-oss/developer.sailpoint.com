@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TemplateDto = Initialize-PSSailpoint.V2024TemplateDto  -Key cloud_manual_work_item_summary `
+$TemplateDto = Initialize-V2024TemplateDto  -Key cloud_manual_work_item_summary `
  -Name Task Manager Subscription `
  -Medium EMAIL `
  -Locale en `

@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAggregationCompleted = Initialize-PSSailpoint.V2025AccountAggregationCompleted  -Source null `
+$AccountAggregationCompleted = Initialize-V2025AccountAggregationCompleted  -Source null `
  -Status Success `
  -Started 2020-06-29T22:01:50.474Z `
  -Completed 2020-06-29T22:02:04.090Z `

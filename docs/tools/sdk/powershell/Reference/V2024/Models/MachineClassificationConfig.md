@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MachineClassificationConfig = Initialize-PSSailpoint.V2024MachineClassificationConfig  -Enabled true `
+$MachineClassificationConfig = Initialize-V2024MachineClassificationConfig  -Enabled true `
  -ClassificationMethod SOURCE `
  -Criteria null `
  -Created 2017-07-11T18:45:37.098Z `

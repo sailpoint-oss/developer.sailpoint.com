@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeMappingsAllOfTransformDefinitionAttributes = Initialize-PSSailpoint.V2024AttributeMappingsAllOfTransformDefinitionAttributes  -VarInput null
+$AttributeMappingsAllOfTransformDefinitionAttributes = Initialize-V2024AttributeMappingsAllOfTransformDefinitionAttributes  -VarInput null
 ```
 
 - Convert the resource to JSON

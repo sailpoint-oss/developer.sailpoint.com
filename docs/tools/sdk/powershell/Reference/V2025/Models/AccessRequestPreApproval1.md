@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestPreApproval1 = Initialize-PSSailpoint.V2025AccessRequestPreApproval1  -Approved false `
+$AccessRequestPreApproval1 = Initialize-V2025AccessRequestPreApproval1  -Approved false `
  -Comment This access should be denied, because this will cause an SOD violation. `
  -Approver AcmeCorpExternalIntegration
 ```

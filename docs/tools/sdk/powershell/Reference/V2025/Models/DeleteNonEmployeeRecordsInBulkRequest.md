@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DeleteNonEmployeeRecordsInBulkRequest = Initialize-PSSailpoint.V2025DeleteNonEmployeeRecordsInBulkRequest  -Ids [2b838de9-db9b-abcf-e646-d4f274ad4238, 2d838de9-db9b-abcf-e646-d4f274ad4238]
+$DeleteNonEmployeeRecordsInBulkRequest = Initialize-V2025DeleteNonEmployeeRecordsInBulkRequest  -Ids [2b838de9-db9b-abcf-e646-d4f274ad4238, 2d838de9-db9b-abcf-e646-d4f274ad4238]
 ```
 
 - Convert the resource to JSON

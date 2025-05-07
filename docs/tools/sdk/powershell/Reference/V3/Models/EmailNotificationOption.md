@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EmailNotificationOption = Initialize-PSSailpoint.V3EmailNotificationOption  -NotifyManagers true `
+$EmailNotificationOption = Initialize-EmailNotificationOption  -NotifyManagers true `
  -NotifyAllAdmins true `
  -NotifySpecificUsers true `
  -EmailAddressList [test@test.com, test2@test.com]

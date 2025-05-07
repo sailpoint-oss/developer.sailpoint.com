@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CreateUploadedConfigurationRequest = Initialize-PSSailpoint.V2025CreateUploadedConfigurationRequest  -VarData null `
+$CreateUploadedConfigurationRequest = Initialize-V2025CreateUploadedConfigurationRequest  -VarData null `
  -Name null
 ```
 

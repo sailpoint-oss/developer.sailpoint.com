@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalReminderAndEscalationConfig = Initialize-PSSailpoint.BetaApprovalReminderAndEscalationConfig  -DaysUntilEscalation 0 `
+$ApprovalReminderAndEscalationConfig = Initialize-BetaApprovalReminderAndEscalationConfig  -DaysUntilEscalation 0 `
  -DaysBetweenReminders 0 `
  -MaxReminders 1 `
  -FallbackApproverRef null

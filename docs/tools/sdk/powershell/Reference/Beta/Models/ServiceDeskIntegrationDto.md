@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ServiceDeskIntegrationDto = Initialize-PSSailpoint.BetaServiceDeskIntegrationDto  -Name Service Desk Integration Name `
+$ServiceDeskIntegrationDto = Initialize-BetaServiceDeskIntegrationDto  -Name Service Desk Integration Name `
  -Description A very nice Service Desk integration `
  -Type ServiceNowSDIM `
  -OwnerRef null `

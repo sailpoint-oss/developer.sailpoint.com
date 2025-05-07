@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManualWorkItemDetailsOriginalOwner = Initialize-PSSailpoint.V3ManualWorkItemDetailsOriginalOwner  -Type IDENTITY `
+$ManualWorkItemDetailsOriginalOwner = Initialize-ManualWorkItemDetailsOriginalOwner  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20642 `
  -Name Michael Michaels
 ```

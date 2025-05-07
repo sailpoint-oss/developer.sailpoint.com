@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BaseAccessProfile = Initialize-PSSailpoint.V2024BaseAccessProfile  -Id 2c91809c6faade77016fb4f0b63407ae `
+$BaseAccessProfile = Initialize-V2024BaseAccessProfile  -Id 2c91809c6faade77016fb4f0b63407ae `
  -Name Admin Access
 ```
 

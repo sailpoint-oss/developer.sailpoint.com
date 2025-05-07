@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SedAssignment = Initialize-PSSailpoint.V2024SedAssignment  -Assignee null `
+$SedAssignment = Initialize-V2024SedAssignment  -Assignee null `
  -Items null
 ```
 

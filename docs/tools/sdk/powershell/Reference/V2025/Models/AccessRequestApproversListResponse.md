@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestApproversListResponse = Initialize-PSSailpoint.V2025AccessRequestApproversListResponse  -Id id12345 `
+$AccessRequestApproversListResponse = Initialize-V2025AccessRequestApproversListResponse  -Id id12345 `
  -Email jdoe@sailpoint.com `
  -Name John Doe `
  -ApprovalId ap12345 `

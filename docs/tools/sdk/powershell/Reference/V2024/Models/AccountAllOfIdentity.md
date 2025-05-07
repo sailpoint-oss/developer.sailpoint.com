@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAllOfIdentity = Initialize-PSSailpoint.V2024AccountAllOfIdentity  -Id 2c918084660f45d6016617daa9210584 `
+$AccountAllOfIdentity = Initialize-V2024AccountAllOfIdentity  -Id 2c918084660f45d6016617daa9210584 `
  -Type IDENTITY `
  -Name John Doe
 ```

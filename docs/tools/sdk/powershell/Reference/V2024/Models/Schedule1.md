@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Schedule1 = Initialize-PSSailpoint.V2024Schedule1  -Type ACCOUNT_AGGREGATION `
+$Schedule1 = Initialize-V2024Schedule1  -Type ACCOUNT_AGGREGATION `
  -CronExpression 0 0 5,13,21 * * ?
 ```
 

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleTargetDto = Initialize-PSSailpoint.BetaRoleTargetDto  -Source null `
+$RoleTargetDto = Initialize-BetaRoleTargetDto  -Source null `
  -AccountInfo null `
  -RoleName Marketing
 ```

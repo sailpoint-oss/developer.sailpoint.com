@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RecommendationResponse = Initialize-PSSailpoint.V2025RecommendationResponse  -Request null `
+$RecommendationResponse = Initialize-V2025RecommendationResponse  -Request null `
  -Recommendation true `
  -Interpretations [75% of identities with the same department have this access. This information had a high impact on the overall score., 67% of identities with the same peer group have this access. This information had a low impact on the overall score., 42% of identities with the same location have this access. This information had a low impact on the overall score.] `
  -TranslationMessages [{key=recommender-api.V2_WEIGHT_FEATURE_PRODUCT_INTERPRETATION_HIGH, values=[75, department]}] `

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FullcampaignAllOfFilter = Initialize-PSSailpoint.BetaFullcampaignAllOfFilter  -Id 0fbe863c063c4c88a35fd7f17e8a3df5 `
+$FullcampaignAllOfFilter = Initialize-BetaFullcampaignAllOfFilter  -Id 0fbe863c063c4c88a35fd7f17e8a3df5 `
  -Type CAMPAIGN_FILTER `
  -Name Test Filter
 ```

@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormDetails = Initialize-PSSailpoint.V2024FormDetails  -Id 2c9180835d2e5168015d32f890ca1581 `
+$FormDetails = Initialize-V2024FormDetails  -Id 2c9180835d2e5168015d32f890ca1581 `
  -Name AccountSelection Form `
  -Title Account Selection for John.Doe `
  -Subtitle Please select from the following `

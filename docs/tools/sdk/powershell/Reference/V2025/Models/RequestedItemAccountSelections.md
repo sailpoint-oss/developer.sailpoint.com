@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestedItemAccountSelections = Initialize-PSSailpoint.V2025RequestedItemAccountSelections  -Description An access profile for the admins `
+$RequestedItemAccountSelections = Initialize-V2025RequestedItemAccountSelections  -Description An access profile for the admins `
  -AccountsSelectionBlocked false `
  -AccountsSelectionBlockedReason ACCESS_PROFILE_ALREADY_ASSIGNED_TO_AN_ACCOUNT `
  -Type ACCESS_PROFILE `

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ObjectMappingBulkCreateRequest = Initialize-PSSailpoint.V3ObjectMappingBulkCreateRequest  -NewObjectsMappings null
+$ObjectMappingBulkCreateRequest = Initialize-ObjectMappingBulkCreateRequest  -NewObjectsMappings null
 ```
 
 - Convert the resource to JSON

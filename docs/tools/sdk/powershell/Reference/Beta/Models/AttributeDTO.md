@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeDTO = Initialize-PSSailpoint.BetaAttributeDTO  -Key iscPrivacy `
+$AttributeDTO = Initialize-BetaAttributeDTO  -Key iscPrivacy `
  -Name Privacy `
  -Multiselect false `
  -Status active `

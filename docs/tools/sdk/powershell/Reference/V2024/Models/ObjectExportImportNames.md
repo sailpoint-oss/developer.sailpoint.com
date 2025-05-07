@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ObjectExportImportNames = Initialize-PSSailpoint.V2024ObjectExportImportNames  -IncludedNames null
+$ObjectExportImportNames = Initialize-V2024ObjectExportImportNames  -IncludedNames null
 ```
 
 - Convert the resource to JSON

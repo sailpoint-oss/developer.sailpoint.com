@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ArrayInner = Initialize-PSSailpoint.BetaArrayInner 
+$ArrayInner = Initialize-BetaArrayInner 
 ```
 
 - Convert the resource to JSON

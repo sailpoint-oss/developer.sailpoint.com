@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessReviewItem = Initialize-PSSailpoint.V3AccessReviewItem  -AccessSummary null `
+$AccessReviewItem = Initialize-AccessReviewItem  -AccessSummary null `
  -IdentitySummary null `
  -Id ef38f94347e94562b5bb8424a56397d8 `
  -Completed false `

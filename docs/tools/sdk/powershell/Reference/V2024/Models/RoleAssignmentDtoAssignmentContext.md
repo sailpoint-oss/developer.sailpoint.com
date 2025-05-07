@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleAssignmentDtoAssignmentContext = Initialize-PSSailpoint.V2024RoleAssignmentDtoAssignmentContext  -Requested null `
+$RoleAssignmentDtoAssignmentContext = Initialize-V2024RoleAssignmentDtoAssignmentContext  -Requested null `
  -Matched null `
  -ComputedDate Wed Feb 14 10:58:42
 ```

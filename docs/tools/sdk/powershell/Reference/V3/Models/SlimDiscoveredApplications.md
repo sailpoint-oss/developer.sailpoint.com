@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SlimDiscoveredApplications = Initialize-PSSailpoint.V3SlimDiscoveredApplications  -Id null `
+$SlimDiscoveredApplications = Initialize-SlimDiscoveredApplications  -Id null `
  -Name ExampleApp `
  -DiscoverySource csv `
  -DiscoveredVendor ExampleVendor `

@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Sed = Initialize-PSSailpoint.V2024Sed  -Name BatchInvoiceProcessing `
+$Sed = Initialize-V2024Sed  -Name BatchInvoiceProcessing `
  -ApprovedBy 2c918086-76de-afbf-0176-f6d28f65565a `
  -ApprovedType admin `
  -ApprovedWhen null `

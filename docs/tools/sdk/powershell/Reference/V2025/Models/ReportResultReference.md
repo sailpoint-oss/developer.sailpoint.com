@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReportResultReference = Initialize-PSSailpoint.V2025ReportResultReference  -Type REPORT_RESULT `
+$ReportResultReference = Initialize-V2025ReportResultReference  -Type REPORT_RESULT `
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name SOD Policy 1 Violation `
  -Status PENDING

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAllOfOwnerIdentity = Initialize-PSSailpoint.V3AccountAllOfOwnerIdentity  -Type null `
+$AccountAllOfOwnerIdentity = Initialize-AccountAllOfOwnerIdentity  -Type null `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name William Wilson
 ```

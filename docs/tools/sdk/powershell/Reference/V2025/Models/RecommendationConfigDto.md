@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RecommendationConfigDto = Initialize-PSSailpoint.V2025RecommendationConfigDto  -RecommenderFeatures [jobTitle, location, peer_group, department, active] `
+$RecommendationConfigDto = Initialize-V2025RecommendationConfigDto  -RecommenderFeatures [jobTitle, location, peer_group, department, active] `
  -PeerGroupPercentageThreshold 0.5 `
  -RunAutoSelectOnce false `
  -OnlyTuneThreshold false

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$UpdateMultiHostSourcesRequestInner = Initialize-PSSailpoint.V2025UpdateMultiHostSourcesRequestInner  -Op replace `
+$UpdateMultiHostSourcesRequestInner = Initialize-V2025UpdateMultiHostSourcesRequestInner  -Op replace `
  -Path /description `
  -Value null
 ```

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CommonAccessIDStatus = Initialize-PSSailpoint.V2024CommonAccessIDStatus  -ConfirmedIds null `
+$CommonAccessIDStatus = Initialize-V2024CommonAccessIDStatus  -ConfirmedIds null `
  -DeniedIds null
 ```
 

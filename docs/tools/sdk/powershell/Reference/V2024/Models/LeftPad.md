@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LeftPad = Initialize-PSSailpoint.V2024LeftPad  -Length 4 `
+$LeftPad = Initialize-V2024LeftPad  -Length 4 `
  -Padding 0 `
  -RequiresPeriodicRefresh false `
  -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}

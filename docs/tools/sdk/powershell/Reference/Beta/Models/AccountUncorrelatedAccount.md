@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountUncorrelatedAccount = Initialize-PSSailpoint.BetaAccountUncorrelatedAccount  -Type ACCOUNT `
+$AccountUncorrelatedAccount = Initialize-BetaAccountUncorrelatedAccount  -Type ACCOUNT `
  -Id 4dd497e3723e439991cb6d0e478375dd `
  -Name Sadie Jensen `
  -NativeIdentity cn=john.doe,ou=users,dc=acme,dc=com `

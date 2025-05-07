@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountActivityItem = Initialize-PSSailpoint.V2024AccountActivityItem  -Id 48c545831b264409a81befcabb0e3c5a `
+$AccountActivityItem = Initialize-V2024AccountActivityItem  -Id 48c545831b264409a81befcabb0e3c5a `
  -Name 48c545831b264409a81befcabb0e3c5a `
  -Requested 2017-07-11T18:45:37.098Z `
  -ApprovalStatus null `

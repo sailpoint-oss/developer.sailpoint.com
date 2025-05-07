@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestedItemStatusRequestedFor = Initialize-PSSailpoint.V2025RequestedItemStatusRequestedFor  -Type IDENTITY `
+$RequestedItemStatusRequestedFor = Initialize-V2025RequestedItemStatusRequestedFor  -Type IDENTITY `
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name William Wilson
 ```

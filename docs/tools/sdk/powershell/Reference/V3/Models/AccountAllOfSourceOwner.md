@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAllOfSourceOwner = Initialize-PSSailpoint.V3AccountAllOfSourceOwner  -Id 2c918084660f45d6016617daa9210584 `
+$AccountAllOfSourceOwner = Initialize-AccountAllOfSourceOwner  -Id 2c918084660f45d6016617daa9210584 `
  -Type IDENTITY `
  -Name Adam Kennedy
 ```

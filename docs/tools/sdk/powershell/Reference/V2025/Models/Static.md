@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Static = Initialize-PSSailpoint.V2025Static  -Values string$variable `
+$Static = Initialize-V2025Static  -Values string$variable `
  -RequiresPeriodicRefresh false
 ```
 

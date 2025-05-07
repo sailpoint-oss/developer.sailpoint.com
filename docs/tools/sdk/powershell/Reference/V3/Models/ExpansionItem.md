@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ExpansionItem = Initialize-PSSailpoint.V3ExpansionItem  -AccountId 2c91808981f58ea601821c3e93482e6f `
+$ExpansionItem = Initialize-ExpansionItem  -AccountId 2c91808981f58ea601821c3e93482e6f `
  -Cause Role `
  -Name smartsheet-role `
  -AttributeRequest null `

@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ProvisioningCompletedAccountRequestsInner = Initialize-PSSailpoint.V2024ProvisioningCompletedAccountRequestsInner  -Source null `
+$ProvisioningCompletedAccountRequestsInner = Initialize-V2024ProvisioningCompletedAccountRequestsInner  -Source null `
  -AccountId CN=Chewy.Bacca,ou=hardcorefigter,ou=wookies,dc=starwars,dc=com `
  -AccountOperation Modify `
  -ProvisioningResult SUCCESS `

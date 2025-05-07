@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PasswordOrgConfig = Initialize-PSSailpoint.V2025PasswordOrgConfig  -CustomInstructionsEnabled true `
+$PasswordOrgConfig = Initialize-V2025PasswordOrgConfig  -CustomInstructionsEnabled true `
  -DigitTokenEnabled true `
  -DigitTokenDurationMinutes 10 `
  -DigitTokenLength 9

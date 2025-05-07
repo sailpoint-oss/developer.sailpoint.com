@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestItemResponse = Initialize-PSSailpoint.V2025AccessRequestItemResponse  -Operation Add `
+$AccessRequestItemResponse = Initialize-V2025AccessRequestItemResponse  -Operation Add `
  -AccessItemType role `
  -Name Role-1 `
  -Decision APPROVED `

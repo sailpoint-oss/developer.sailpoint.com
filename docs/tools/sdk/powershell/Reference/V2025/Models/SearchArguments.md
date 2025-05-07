@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SearchArguments = Initialize-PSSailpoint.V2025SearchArguments  -ScheduleId 7a724640-0c17-4ce9-a8c3-4a89738459c8 `
+$SearchArguments = Initialize-V2025SearchArguments  -ScheduleId 7a724640-0c17-4ce9-a8c3-4a89738459c8 `
  -Owner null `
  -Recipients null
 ```

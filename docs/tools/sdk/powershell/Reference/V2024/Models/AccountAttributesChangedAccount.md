@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAttributesChangedAccount = Initialize-PSSailpoint.V2024AccountAttributesChangedAccount  -Id 52170a74-ca89-11ea-87d0-0242ac130003 `
+$AccountAttributesChangedAccount = Initialize-V2024AccountAttributesChangedAccount  -Id 52170a74-ca89-11ea-87d0-0242ac130003 `
  -Uuid 1cb1f07d-3e5a-4431-becd-234fa4306108 `
  -Name john.doe `
  -NativeIdentity cn=john.doe,ou=users,dc=acme,dc=com `

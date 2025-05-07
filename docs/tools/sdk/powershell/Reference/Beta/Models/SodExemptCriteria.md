@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SodExemptCriteria = Initialize-PSSailpoint.BetaSodExemptCriteria  -Existing true `
+$SodExemptCriteria = Initialize-BetaSodExemptCriteria  -Existing true `
  -Type null `
  -Id 2c918085771e9d3301773b3cb66f6398 `
  -Name My HR Entitlement

@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConfigurationItemRequest = Initialize-PSSailpoint.V2024ConfigurationItemRequest  -ReassignedFromId 2c91808781a71ddb0181b9090b5c504e `
+$ConfigurationItemRequest = Initialize-V2024ConfigurationItemRequest  -ReassignedFromId 2c91808781a71ddb0181b9090b5c504e `
  -ReassignedToId 2c91808781a71ddb0181b9090b53504a `
  -ConfigType null `
  -StartDate 2022-07-21T11:13:12.345Z `

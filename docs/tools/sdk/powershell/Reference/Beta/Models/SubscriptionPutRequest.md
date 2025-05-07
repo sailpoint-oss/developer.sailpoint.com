@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SubscriptionPutRequest = Initialize-PSSailpoint.BetaSubscriptionPutRequest  -Name Access request subscription `
+$SubscriptionPutRequest = Initialize-BetaSubscriptionPutRequest  -Name Access request subscription `
  -Description Access requested to site xyz `
  -Type null `
  -ResponseDeadline PT1H `

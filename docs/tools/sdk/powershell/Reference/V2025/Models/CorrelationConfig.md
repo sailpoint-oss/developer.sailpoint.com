@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CorrelationConfig = Initialize-PSSailpoint.V2025CorrelationConfig  -Id 2c9180835d191a86015d28455b4a2329 `
+$CorrelationConfig = Initialize-V2025CorrelationConfig  -Id 2c9180835d191a86015d28455b4a2329 `
  -Name Source [source] Account Correlation `
  -AttributeAssignments null
 ```

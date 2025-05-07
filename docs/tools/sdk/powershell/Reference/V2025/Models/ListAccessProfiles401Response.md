@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListAccessProfiles401Response = Initialize-PSSailpoint.V2025ListAccessProfiles401Response  -VarError JWT validation failed: JWT is expired
+$ListAccessProfiles401Response = Initialize-V2025ListAccessProfiles401Response  -VarError JWT validation failed: JWT is expired
 ```
 
 - Convert the resource to JSON

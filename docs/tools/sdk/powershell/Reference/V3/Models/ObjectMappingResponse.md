@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ObjectMappingResponse = Initialize-PSSailpoint.V3ObjectMappingResponse  -ObjectMappingId 3d6e0144-963f-4bd6-8d8d-d77b4e507ce4 `
+$ObjectMappingResponse = Initialize-ObjectMappingResponse  -ObjectMappingId 3d6e0144-963f-4bd6-8d8d-d77b4e507ce4 `
  -ObjectType IDENTITY `
  -JsonPath $.name `
  -SourceValue My Governance Group Name `

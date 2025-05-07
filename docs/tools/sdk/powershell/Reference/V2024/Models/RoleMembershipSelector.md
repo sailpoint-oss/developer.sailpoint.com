@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMembershipSelector = Initialize-PSSailpoint.V2024RoleMembershipSelector  -Type null `
+$RoleMembershipSelector = Initialize-V2024RoleMembershipSelector  -Type null `
  -Criteria null `
  -Identities null
 ```

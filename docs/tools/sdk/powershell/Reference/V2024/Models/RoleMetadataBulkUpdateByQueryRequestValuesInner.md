@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMetadataBulkUpdateByQueryRequestValuesInner = Initialize-PSSailpoint.V2024RoleMetadataBulkUpdateByQueryRequestValuesInner  -AttributeKey iscFederalClassifications `
+$RoleMetadataBulkUpdateByQueryRequestValuesInner = Initialize-V2024RoleMetadataBulkUpdateByQueryRequestValuesInner  -AttributeKey iscFederalClassifications `
  -AttributeValue [topSecret]
 ```
 

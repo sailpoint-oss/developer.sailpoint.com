@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CancelAccessRequest = Initialize-PSSailpoint.V2025CancelAccessRequest  -AccountActivityId 2c9180835d2e5168015d32f890ca1581 `
+$CancelAccessRequest = Initialize-V2025CancelAccessRequest  -AccountActivityId 2c9180835d2e5168015d32f890ca1581 `
  -Comment I requested this role by mistake.
 ```
 

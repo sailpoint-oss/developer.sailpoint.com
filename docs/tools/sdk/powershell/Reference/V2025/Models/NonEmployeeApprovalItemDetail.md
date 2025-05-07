@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeApprovalItemDetail = Initialize-PSSailpoint.V2025NonEmployeeApprovalItemDetail  -Id 2c1e388b-1e55-4b0a-ab5c-897f1204159c `
+$NonEmployeeApprovalItemDetail = Initialize-V2025NonEmployeeApprovalItemDetail  -Id 2c1e388b-1e55-4b0a-ab5c-897f1204159c `
  -Approver null `
  -AccountName test.account `
  -ApprovalStatus null `

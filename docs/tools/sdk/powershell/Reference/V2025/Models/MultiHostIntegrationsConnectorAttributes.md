@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MultiHostIntegrationsConnectorAttributes = Initialize-PSSailpoint.V2025MultiHostIntegrationsConnectorAttributes  -MaxAllowedSources 250 `
+$MultiHostIntegrationsConnectorAttributes = Initialize-V2025MultiHostIntegrationsConnectorAttributes  -MaxAllowedSources 250 `
  -LastSourceUploadCount 40 `
  -ConnectorFileUploadHistory null `
  -MultihostStatus ready `

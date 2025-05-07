@@ -44,7 +44,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Campaign = Initialize-PSSailpoint.V3Campaign  -Id 2c9079b270a266a60170a2779fcb0007 `
+$Campaign = Initialize-Campaign  -Id 2c9079b270a266a60170a2779fcb0007 `
  -Name Manager Campaign `
  -Description Everyone needs to be reviewed by their manager `
  -Deadline 2020-03-15T10:00:01.456Z `

@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningSessionResponse = Initialize-PSSailpoint.V2025RoleMiningSessionResponse  -Scope null `
+$RoleMiningSessionResponse = Initialize-V2025RoleMiningSessionResponse  -Scope null `
  -MinNumIdentitiesInPotentialRole 20 `
  -ScopingMethod AUTO_RM `
  -PrescribedPruneThreshold 83 `

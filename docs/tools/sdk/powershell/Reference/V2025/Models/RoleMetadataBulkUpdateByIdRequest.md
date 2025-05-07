@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMetadataBulkUpdateByIdRequest = Initialize-PSSailpoint.V2025RoleMetadataBulkUpdateByIdRequest  -Roles [b1db89554cfa431cb8b9921ea38d9367] `
+$RoleMetadataBulkUpdateByIdRequest = Initialize-V2025RoleMetadataBulkUpdateByIdRequest  -Roles [b1db89554cfa431cb8b9921ea38d9367] `
  -Operation REPLACE `
  -ReplaceScope ALL `
  -Values [{attribute=iscFederalClassifications, values=[topSecret]}]

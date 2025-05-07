@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountCorrelated = Initialize-PSSailpoint.BetaAccountCorrelated  -Identity null `
+$AccountCorrelated = Initialize-BetaAccountCorrelated  -Identity null `
  -Source null `
  -Account null `
  -Attributes {sn=doe, givenName=john, memberOf=[cn=g1,ou=groups,dc=acme,dc=com, cn=g2,ou=groups,dc=acme,dc=com, cn=g3,ou=groups,dc=acme,dc=com]} `

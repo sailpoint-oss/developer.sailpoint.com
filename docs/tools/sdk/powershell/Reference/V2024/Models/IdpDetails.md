@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdpDetails = Initialize-PSSailpoint.V2024IdpDetails  -Role SAML_IDP `
+$IdpDetails = Initialize-V2024IdpDetails  -Role SAML_IDP `
  -EntityId http://www.okta.com/exkdaruy8Ln5Ry7C54x6 `
  -Binding urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST `
  -AuthnContext urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport `

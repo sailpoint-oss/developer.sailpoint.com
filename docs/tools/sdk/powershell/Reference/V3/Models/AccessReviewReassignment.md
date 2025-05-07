@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessReviewReassignment = Initialize-PSSailpoint.V3AccessReviewReassignment  -Reassign null `
+$AccessReviewReassignment = Initialize-AccessReviewReassignment  -Reassign null `
  -ReassignTo ef38f94347e94562b5bb8424a56397d8 `
  -Reason reassigned for some reason
 ```

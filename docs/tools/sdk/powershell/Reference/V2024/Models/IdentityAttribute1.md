@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttribute1 = Initialize-PSSailpoint.V2024IdentityAttribute1  -Name email `
+$IdentityAttribute1 = Initialize-V2024IdentityAttribute1  -Name email `
  -RequiresPeriodicRefresh false `
  -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```

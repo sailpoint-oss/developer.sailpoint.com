@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TemplateBulkDeleteDto = Initialize-PSSailpoint.V2024TemplateBulkDeleteDto  -Key cloud_manual_work_item_summary `
+$TemplateBulkDeleteDto = Initialize-V2024TemplateBulkDeleteDto  -Key cloud_manual_work_item_summary `
  -Medium EMAIL `
  -Locale en
 ```

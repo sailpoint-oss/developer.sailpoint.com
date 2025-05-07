@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ClusterManualUpgrade = Initialize-PSSailpoint.V2025ClusterManualUpgrade  -Jobs null
+$ClusterManualUpgrade = Initialize-V2025ClusterManualUpgrade  -Jobs null
 ```
 
 - Convert the resource to JSON

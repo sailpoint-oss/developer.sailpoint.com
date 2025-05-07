@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TriggerExampleOutput = Initialize-PSSailpoint.V2025TriggerExampleOutput  -Id 2c91808b6ef1d43e016efba0ce470906 `
+$TriggerExampleOutput = Initialize-V2025TriggerExampleOutput  -Id 2c91808b6ef1d43e016efba0ce470906 `
  -Name Adam Adams `
  -Type IDENTITY `
  -Approved false `

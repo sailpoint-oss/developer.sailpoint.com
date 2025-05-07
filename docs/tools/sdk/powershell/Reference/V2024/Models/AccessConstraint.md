@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessConstraint = Initialize-PSSailpoint.V2024AccessConstraint  -Type ENTITLEMENT `
+$AccessConstraint = Initialize-V2024AccessConstraint  -Type ENTITLEMENT `
  -Ids [2c90ad2a70ace7d50170acf22ca90010] `
  -Operator SELECTED
 ```

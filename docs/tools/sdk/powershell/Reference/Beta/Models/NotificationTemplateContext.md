@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NotificationTemplateContext = Initialize-PSSailpoint.BetaNotificationTemplateContext  -Attributes {productUrl=https://test-org.identitysoon.com, brandingConfigs={default={narrowLogoURL=null, productName=SailPoint, standardLogoURL=null, navigationColor=011E64, actionButtonColor=20B2DE, emailFromAddress=null, activeLinkColor=20B2DE, loginInformationalMessage=null}}} `
+$NotificationTemplateContext = Initialize-BetaNotificationTemplateContext  -Attributes {productUrl=https://test-org.identitysoon.com, brandingConfigs={default={narrowLogoURL=null, productName=SailPoint, standardLogoURL=null, navigationColor=011E64, actionButtonColor=20B2DE, emailFromAddress=null, activeLinkColor=20B2DE, loginInformationalMessage=null}}} `
  -Created 2020-04-15T16:16:47.525Z `
  -Modified 2020-04-15T16:16:47.525Z
 ```

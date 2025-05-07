@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkgroupDeleteItem = Initialize-PSSailpoint.V2024WorkgroupDeleteItem  -Id 464ae7bf791e49fdb74606a2e4a89635 `
+$WorkgroupDeleteItem = Initialize-V2024WorkgroupDeleteItem  -Id 464ae7bf791e49fdb74606a2e4a89635 `
  -Status 204 `
  -Description 
 > Governance Group deleted successfully.

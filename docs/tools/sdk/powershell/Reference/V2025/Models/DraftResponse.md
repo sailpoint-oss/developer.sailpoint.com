@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DraftResponse = Initialize-PSSailpoint.V2025DraftResponse  -JobId 07659d7d-2cce-47c0-9e49-185787ee565a `
+$DraftResponse = Initialize-V2025DraftResponse  -JobId 07659d7d-2cce-47c0-9e49-185787ee565a `
  -Status COMPLETE `
  -Type CREATE_DRAFT `
  -Message Draft creation message `

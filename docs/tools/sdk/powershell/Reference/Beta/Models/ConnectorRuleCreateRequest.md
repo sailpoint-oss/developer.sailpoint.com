@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConnectorRuleCreateRequest = Initialize-PSSailpoint.BetaConnectorRuleCreateRequest  -Name WebServiceBeforeOperationRule `
+$ConnectorRuleCreateRequest = Initialize-BetaConnectorRuleCreateRequest  -Name WebServiceBeforeOperationRule `
  -Description This rule does that `
  -Type BuildMap `
  -Signature null `

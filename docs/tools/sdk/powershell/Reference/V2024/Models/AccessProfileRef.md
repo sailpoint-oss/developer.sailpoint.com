@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileRef = Initialize-PSSailpoint.V2024AccessProfileRef  -Id ff808081751e6e129f1518161919ecca `
+$AccessProfileRef = Initialize-V2024AccessProfileRef  -Id ff808081751e6e129f1518161919ecca `
  -Type ACCESS_PROFILE `
  -Name Access Profile 2567
 ```

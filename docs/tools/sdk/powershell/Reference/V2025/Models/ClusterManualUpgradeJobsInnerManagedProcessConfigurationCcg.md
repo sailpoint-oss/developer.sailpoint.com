@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg = Initialize-PSSailpoint.V2025ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg  -Version 1798_1054_241.0.0 `
+$ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg = Initialize-V2025ClusterManualUpgradeJobsInnerManagedProcessConfigurationCcg  -Version 1798_1054_241.0.0 `
  -Path sailpoint/ccg `
  -Description CCG Deployment through ops-cli `
  -RestartNeeded true `

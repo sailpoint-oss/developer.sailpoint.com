@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceClusterDto = Initialize-PSSailpoint.BetaSourceClusterDto  -Type CLUSTER `
+$SourceClusterDto = Initialize-BetaSourceClusterDto  -Type CLUSTER `
  -Id 2c9180847a7fccdd017aa5896f9f4f6f `
  -Name Training VA
 ```

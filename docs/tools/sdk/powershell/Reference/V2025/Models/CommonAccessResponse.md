@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CommonAccessResponse = Initialize-PSSailpoint.V2025CommonAccessResponse  -Id 555ab47a-0d32-4813-906f-adf3567de6a4 `
+$CommonAccessResponse = Initialize-V2025CommonAccessResponse  -Id 555ab47a-0d32-4813-906f-adf3567de6a4 `
  -Access null `
  -Status null `
  -CommonAccessType UNSET `

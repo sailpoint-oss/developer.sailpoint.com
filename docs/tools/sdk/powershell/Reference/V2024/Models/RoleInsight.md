@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleInsight = Initialize-PSSailpoint.V2024RoleInsight  -Id 1467e61e-f284-439c-ba2d-c6cc11cf0941 `
+$RoleInsight = Initialize-V2024RoleInsight  -Id 1467e61e-f284-439c-ba2d-c6cc11cf0941 `
  -NumberOfUpdates 5 `
  -CreatedDate null `
  -ModifiedDate 2020-05-19T13:49:37.385Z `

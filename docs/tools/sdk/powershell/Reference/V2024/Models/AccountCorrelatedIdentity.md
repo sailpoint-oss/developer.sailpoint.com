@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountCorrelatedIdentity = Initialize-PSSailpoint.V2024AccountCorrelatedIdentity  -Type IDENTITY `
+$AccountCorrelatedIdentity = Initialize-V2024AccountCorrelatedIdentity  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20642 `
  -Name Michael Michaels
 ```

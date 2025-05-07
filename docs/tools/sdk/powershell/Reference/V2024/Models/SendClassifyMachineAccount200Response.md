@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SendClassifyMachineAccount200Response = Initialize-PSSailpoint.V2024SendClassifyMachineAccount200Response  -IsMachine true
+$SendClassifyMachineAccount200Response = Initialize-V2024SendClassifyMachineAccount200Response  -IsMachine true
 ```
 
 - Convert the resource to JSON

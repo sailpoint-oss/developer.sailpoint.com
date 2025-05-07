@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessItemRequester = Initialize-PSSailpoint.V2024AccessItemRequester  -Type IDENTITY `
+$AccessItemRequester = Initialize-V2024AccessItemRequester  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20648 `
  -Name William Wilson
 ```

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CompleteInvocation = Initialize-PSSailpoint.BetaCompleteInvocation  -Secret 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
+$CompleteInvocation = Initialize-BetaCompleteInvocation  -Secret 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -VarError Access request is denied. `
  -Output {approved=false}
 ```

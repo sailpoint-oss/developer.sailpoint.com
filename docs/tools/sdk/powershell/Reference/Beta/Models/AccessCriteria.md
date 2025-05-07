@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessCriteria = Initialize-PSSailpoint.BetaAccessCriteria  -Name money-in `
+$AccessCriteria = Initialize-BetaAccessCriteria  -Name money-in `
  -CriteriaList [{type=ENTITLEMENT, id=2c9180866166b5b0016167c32ef31a66, name=Administrator}, {type=ENTITLEMENT, id=2c9180866166b5b0016167c32ef31a67, name=Administrator}]
 ```
 

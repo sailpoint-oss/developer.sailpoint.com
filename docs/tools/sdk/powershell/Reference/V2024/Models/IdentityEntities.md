@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityEntities = Initialize-PSSailpoint.V2024IdentityEntities  -IdentityEntity null
+$IdentityEntities = Initialize-V2024IdentityEntities  -IdentityEntity null
 ```
 
 - Convert the resource to JSON

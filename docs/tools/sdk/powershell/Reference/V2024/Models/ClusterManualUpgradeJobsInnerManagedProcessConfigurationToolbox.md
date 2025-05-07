@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ClusterManualUpgradeJobsInnerManagedProcessConfigurationToolbox = Initialize-PSSailpoint.V2024ClusterManualUpgradeJobsInnerManagedProcessConfigurationToolbox  -Version 3004 `
+$ClusterManualUpgradeJobsInnerManagedProcessConfigurationToolbox = Initialize-V2024ClusterManualUpgradeJobsInnerManagedProcessConfigurationToolbox  -Version 3004 `
  -Path sailpoint/toolbox `
  -Description version of toolbox used by the va `
  -RestartNeeded true

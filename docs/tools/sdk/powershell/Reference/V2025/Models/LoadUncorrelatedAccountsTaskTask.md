@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LoadUncorrelatedAccountsTaskTask = Initialize-PSSailpoint.V2025LoadUncorrelatedAccountsTaskTask  -Id 90b83a6bb737489494794f84cd3a51e6 `
+$LoadUncorrelatedAccountsTaskTask = Initialize-V2025LoadUncorrelatedAccountsTaskTask  -Id 90b83a6bb737489494794f84cd3a51e6 `
  -Type QUARTZ `
  -Name Cloud Process Uncorrelated Accounts `
  -Description Processes uncorrelated accounts for the specified application. `

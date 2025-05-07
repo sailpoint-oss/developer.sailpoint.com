@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DateMath = Initialize-PSSailpoint.BetaDateMath  -Expression now+1w `
+$DateMath = Initialize-BetaDateMath  -Expression now+1w `
  -RoundUp false `
  -RequiresPeriodicRefresh false `
  -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DecomposeDiacriticalMarks = Initialize-PSSailpoint.V3DecomposeDiacriticalMarks  -RequiresPeriodicRefresh false `
+$DecomposeDiacriticalMarks = Initialize-DecomposeDiacriticalMarks  -RequiresPeriodicRefresh false `
  -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```
 

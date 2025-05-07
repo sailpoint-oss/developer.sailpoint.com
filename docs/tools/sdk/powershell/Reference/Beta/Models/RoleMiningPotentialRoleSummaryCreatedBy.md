@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningPotentialRoleSummaryCreatedBy = Initialize-PSSailpoint.BetaRoleMiningPotentialRoleSummaryCreatedBy  -Id 2c918090761a5aac0176215c46a62d58 `
+$RoleMiningPotentialRoleSummaryCreatedBy = Initialize-BetaRoleMiningPotentialRoleSummaryCreatedBy  -Id 2c918090761a5aac0176215c46a62d58 `
  -DisplayName Ashley.Pierce
 ```
 

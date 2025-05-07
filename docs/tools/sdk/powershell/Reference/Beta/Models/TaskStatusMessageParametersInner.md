@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaskStatusMessageParametersInner = Initialize-PSSailpoint.BetaTaskStatusMessageParametersInner 
+$TaskStatusMessageParametersInner = Initialize-BetaTaskStatusMessageParametersInner 
 ```
 
 - Convert the resource to JSON

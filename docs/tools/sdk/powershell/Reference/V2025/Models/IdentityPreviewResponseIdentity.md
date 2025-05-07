@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityPreviewResponseIdentity = Initialize-PSSailpoint.V2025IdentityPreviewResponseIdentity  -Type IDENTITY `
+$IdentityPreviewResponseIdentity = Initialize-V2025IdentityPreviewResponseIdentity  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20642 `
  -Name Michael Michaels
 ```

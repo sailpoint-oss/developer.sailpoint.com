@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReassignReference = Initialize-PSSailpoint.V3ReassignReference  -Id ef38f94347e94562b5bb8424a56397d8 `
+$ReassignReference = Initialize-ReassignReference  -Id ef38f94347e94562b5bb8424a56397d8 `
  -Type ITEM
 ```
 

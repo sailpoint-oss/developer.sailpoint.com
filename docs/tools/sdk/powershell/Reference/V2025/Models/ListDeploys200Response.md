@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListDeploys200Response = Initialize-PSSailpoint.V2025ListDeploys200Response  -Items null
+$ListDeploys200Response = Initialize-V2025ListDeploys200Response  -Items null
 ```
 
 - Convert the resource to JSON

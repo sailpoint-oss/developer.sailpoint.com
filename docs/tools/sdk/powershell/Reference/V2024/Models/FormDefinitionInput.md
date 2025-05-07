@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormDefinitionInput = Initialize-PSSailpoint.V2024FormDefinitionInput  -Id 00000000-0000-0000-0000-000000000000 `
+$FormDefinitionInput = Initialize-V2024FormDefinitionInput  -Id 00000000-0000-0000-0000-000000000000 `
  -Type STRING `
  -Label input1 `
  -Description A single dynamic scalar value (i.e. number, string, date, etc.) that can be passed into the form for use in conditional logic

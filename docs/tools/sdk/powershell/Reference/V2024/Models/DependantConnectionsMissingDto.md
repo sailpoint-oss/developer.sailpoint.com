@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DependantConnectionsMissingDto = Initialize-PSSailpoint.V2024DependantConnectionsMissingDto  -DependencyType dependantApps `
+$DependantConnectionsMissingDto = Initialize-V2024DependantConnectionsMissingDto  -DependencyType dependantApps `
  -Reason If there was an error retrieving any dependencies, it would lbe listed here
 ```
 

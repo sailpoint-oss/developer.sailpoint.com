@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LoadEntitlementTaskReturnsInner = Initialize-PSSailpoint.V2024LoadEntitlementTaskReturnsInner  -DisplayLabel TASK_OUT_ACCOUNT_GROUP_AGGREGATION_APPLICATIONS `
+$LoadEntitlementTaskReturnsInner = Initialize-V2024LoadEntitlementTaskReturnsInner  -DisplayLabel TASK_OUT_ACCOUNT_GROUP_AGGREGATION_APPLICATIONS `
  -AttributeName applications
 ```
 

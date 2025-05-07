@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SearchAttributeConfig = Initialize-PSSailpoint.BetaSearchAttributeConfig  -Name newMailAttribute `
+$SearchAttributeConfig = Initialize-BetaSearchAttributeConfig  -Name newMailAttribute `
  -DisplayName New Mail Attribute `
  -ApplicationAttributes {2c91808b79fd2422017a0b35d30f3968=employeeNumber, 2c91808b79fd2422017a0b36008f396b=employeeNumber}
 ```

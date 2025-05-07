@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Outlier = Initialize-PSSailpoint.V2025Outlier  -Id 5be33d3e-c54d-4ed7-af73-2380543e8283 `
+$Outlier = Initialize-V2025Outlier  -Id 5be33d3e-c54d-4ed7-af73-2380543e8283 `
  -IdentityId 5be33d3e-c54d-4ed7-af73-2380543e8283 `
  -Type LOW_SIMILARITY `
  -FirstDetectionDate 2021-05-01T18:40:35.772Z `

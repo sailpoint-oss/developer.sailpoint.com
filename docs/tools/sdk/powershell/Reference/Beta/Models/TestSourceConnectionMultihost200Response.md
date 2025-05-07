@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TestSourceConnectionMultihost200Response = Initialize-PSSailpoint.BetaTestSourceConnectionMultihost200Response  -Success true `
+$TestSourceConnectionMultihost200Response = Initialize-BetaTestSourceConnectionMultihost200Response  -Success true `
  -Message Tes. `
  -Timing null `
  -ResultType SOURCE_STATE_HEALTHY `

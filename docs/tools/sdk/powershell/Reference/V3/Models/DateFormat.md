@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DateFormat = Initialize-PSSailpoint.V3DateFormat  -InputFormat null `
+$DateFormat = Initialize-DateFormat  -InputFormat null `
  -OutputFormat null `
  -RequiresPeriodicRefresh false `
  -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}

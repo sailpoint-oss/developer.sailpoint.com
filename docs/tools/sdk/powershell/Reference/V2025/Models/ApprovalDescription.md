@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalDescription = Initialize-PSSailpoint.V2025ApprovalDescription  -Value This access allows viewing and editing of workflow resource `
+$ApprovalDescription = Initialize-V2025ApprovalDescription  -Value This access allows viewing and editing of workflow resource `
  -Locale en_US
 ```
 

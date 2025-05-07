@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileUsage = Initialize-PSSailpoint.V2025AccessProfileUsage  -AccessProfileId 2c91808876438bbb017668c21919ecca `
+$AccessProfileUsage = Initialize-V2025AccessProfileUsage  -AccessProfileId 2c91808876438bbb017668c21919ecca `
  -UsedBy null
 ```
 

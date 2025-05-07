@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IndexOf = Initialize-PSSailpoint.V3IndexOf  -Substring admin_ `
+$IndexOf = Initialize-IndexOf  -Substring admin_ `
  -RequiresPeriodicRefresh false `
  -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```

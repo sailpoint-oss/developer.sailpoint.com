@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon = Initialize-PSSailpoint.V2025ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon  -Version 3047 `
+$ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon = Initialize-V2025ClusterManualUpgradeJobsInnerManagedProcessConfigurationCharon  -Version 3047 `
  -Path sailpoint/charon `
  -Description version of charon used by the va `
  -RestartNeeded true

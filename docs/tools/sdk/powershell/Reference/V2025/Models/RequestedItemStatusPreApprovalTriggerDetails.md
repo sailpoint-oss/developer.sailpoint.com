@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestedItemStatusPreApprovalTriggerDetails = Initialize-PSSailpoint.V2025RequestedItemStatusPreApprovalTriggerDetails  -Comment Access is Approved `
+$RequestedItemStatusPreApprovalTriggerDetails = Initialize-V2025RequestedItemStatusPreApprovalTriggerDetails  -Comment Access is Approved `
  -Reviewer John Doe `
  -Decision APPROVED
 ```

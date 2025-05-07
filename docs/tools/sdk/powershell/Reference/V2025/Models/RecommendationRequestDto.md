@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RecommendationRequestDto = Initialize-PSSailpoint.V2025RecommendationRequestDto  -Requests null `
+$RecommendationRequestDto = Initialize-V2025RecommendationRequestDto  -Requests null `
  -ExcludeInterpretations false `
  -IncludeTranslationMessages false `
  -IncludeDebugInformation true `

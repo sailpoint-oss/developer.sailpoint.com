@@ -109,6 +109,10 @@ const config: Config = {
     },
     mermaid: {
       options: {
+        securityLevel: 'loose',
+        flowchart: {
+          htmlLabels: true,     
+        },
         er: {
           layoutDirection: 'RL',
         },

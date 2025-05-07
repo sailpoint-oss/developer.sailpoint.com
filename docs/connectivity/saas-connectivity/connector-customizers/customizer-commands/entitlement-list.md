@@ -42,4 +42,13 @@ The `input` object can be mutated and returned, but the same data type must stil
 
 ### After entitlement-list command
 
-After entitlement-list is not available for customization at this time. If you need to modify the values of the response, it is recommended that you use [Transforms](https://developer.sailpoint.com/docs/extensibility/transforms/).
+Use this logic to implement the command:
+
+```javascript
+    .afterStdEntitlementList(async (context: Context, output: StdEntitlementListOutput) => {
+        logger.info(`Running after entitlement list for account  ${output.identity}`)
+        return output
+    })
+```
+
+The `output` object can be mutated and returned, but the same data type must still be returned.

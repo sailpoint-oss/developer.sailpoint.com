@@ -236,7 +236,7 @@ app.post('/Prod/sailapps/code', async (c) => {
   }
 
   let body;
-  if (c.req.body) {
+  if (c.req.raw.body) {
     body = await c.req.json();
   }
 

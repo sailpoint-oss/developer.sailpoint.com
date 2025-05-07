@@ -43,12 +43,6 @@ Transforms typically have an input(s) and output(s). The way the transformation 
 For example, a [Lower transform](./operations/lower.md) transforms any input text strings into lowercase versions as output. So if the input were `Foo`, the lowercase output of the transform would be `foo`:
 
 <div align="center">
-```mermaid
-flowchart LR
-  A[Start] --> B{Is it working?}
-  B --> C[Yes]
-  B --> D[No]
-```
 
 ```mermaid
 flowchart LR

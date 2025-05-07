@@ -1,5 +1,5 @@
 export async function sendCode(gatewayUrl: string, code: string, state: string) {
-  const url = new URL(`${gatewayUrl}/Prod/sailapps/code/${code}`);
+  const url = new URL(`${gatewayUrl}sailapps/code/${code}`);
   url.searchParams.set('state', state);
   try {
     const response = await fetch(url, {

@@ -89,7 +89,7 @@ jobs:
           export NODE_OPTIONS="--max_old_space_size=60000"
           export DOCUSAURUS_IGNORE_SSG_WARNINGS=true
           export DOCUSAURUS_PERF_LOGGER=true
-          export DOCUSAURUS_SSG_WORKER_THREAD_COUNT=5
+          export DOCUSAURUS_SSG_WORKER_THREAD_COUNT=3
           export DOCUSAURUS_BUNDLER_CPU_PROFILE=true 
 
           npm ci --legacy-peer-deps

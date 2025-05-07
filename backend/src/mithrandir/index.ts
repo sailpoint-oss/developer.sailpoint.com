@@ -225,18 +225,21 @@ app.post('/Prod/sailapps/uuid', async (c) => {
 });
 
 // Exchange the code for a token
-app.post('/Prod/sailapps/code/:code', async (c) => {
-  const {code} = c.req.param();
+app.post('/Prod/sailapps/code', async (c) => {  
+  const {state, code} = c.req.query();
+
   if (!code) {
     throw new HTTPException(400, {message: 'Code not provided'});
   }
-
-  const {state} = c.req.query();
   if (!state) {
     throw new HTTPException(400, {message: 'State not provided'});
   }
 
-  const body = await c.req.json();
+  let body;
+  if (c.req.body) {
+    body = await c.req.json();
+  }
+
   const {id: uuid, encryptionKey} = JSON.parse(atob(state));
   const tableData = await getStoredData(uuid);
 
@@ -247,7 +250,7 @@ app.post('/Prod/sailapps/code/:code', async (c) => {
   const tokenData = await exchangeCodeForToken(
     tableData.baseURL,
     code,
-    body.dev === true ? validatedDevRedirectUrl : validatedRedirectUrl,
+    body?.dev === true ? validatedDevRedirectUrl : validatedRedirectUrl,
   );
 
   const encryptedToken = encryptToken(tokenData, encryptionKey);

@@ -100,7 +100,7 @@ Resources:
         PerformSailAppsCodeExchange:
           Type: HttpApi
           Properties:
-            Path: /sailapps/code/{code}
+            Path: /sailapps/code
             Method: POST
             ApiId:
               Ref: DeveloperSailpointApiGatewayApiv2

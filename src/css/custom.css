@@ -356,18 +356,32 @@ h1 {
   --main-hero-card-background: #202122;
 }
 
+.openapi-schema__container:hover .openapi-schema__property {
+  color: var(--link-color) !important;
+}
+
 .navbar__link:hover {
-  color: var(--ifm-link-color) !important;
+  color: var(--link-color) !important;
 }
 
 .footer__link-item:hover {
-  color: var(--ifm-link-color) !important;
+  color: var(--link-color) !important;
   text-decoration: underline !important;
 }
 
 .navbar__logo {
   margin-right: 0.5rem;
 }
+
+.cardContainer_S8oU {
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border-color: #ebedf0 !important;
+}
+
+.cardContainer_S8oU {
+  box-shadow: var(--dev-card-selected);
+}
+
 
 @media only screen and (max-width: 1450px) {
   .navbar__logo {
@@ -671,3 +685,10 @@ details ol li a:link, details p a:link {
   color: var(--link-color) !important;
 }
 
+p a:link, td a:link {
+  text-decoration: underline !important;
+}
+
+p a:link:hover, td a:link:hover {
+  text-decoration: none !important;
+}

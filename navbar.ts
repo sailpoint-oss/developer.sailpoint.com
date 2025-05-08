@@ -44,14 +44,14 @@ const navbarConfig = {
         position: 'left',
         items: [
           { label: 'Developer Forum', to: 'https://developer.sailpoint.com/discuss/' },
-          { label: 'CoLab Marketplace', to: '/colab' },
-          { label: 'Developer Blog', to: '/blog' },
-          { label: 'Ambassador Program', to: '/ambassadors' },
+          { label: 'CoLab marketplace', to: '/colab' },
+          { label: 'Developer blog', to: '/blog' },
+          { label: 'Ambassador program', to: '/ambassadors' },
         ],
       },
       {
         position: 'left',
-        label: 'Video Library',
+        label: 'Video library',
         to: '/videos',
       },
       {

@@ -11,7 +11,7 @@ slug: /connectivity/saas-connectivity/customizers/getting-started
 tags: ['Connectivity']
 ---
 
-# Get Started
+# Get started
 
 import Video from '@site/src/components/Video';
 

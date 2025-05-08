@@ -25,7 +25,7 @@ The decomposeDiacriticalMarks transform uses the [Normalizer library](https://do
 
 After decomposition, the transform uses a [Regex Replace](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) to replace all diacritical marks by using the `InCombiningDiacriticalMarks` property of Unicode (ex. `replaceAll("[\\p{InCombiningDiacriticalMarks}]", "")`).
 
-## Transform Structure
+## Transform structure
 
 The transform for decompose diacritical marks requires only the transform's `type` and `name` attributes:
 
@@ -55,7 +55,7 @@ Input: "Āric"
 Output: "Aric"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -75,7 +75,7 @@ Input: "Dubçek"
 Output: "Dubcek"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

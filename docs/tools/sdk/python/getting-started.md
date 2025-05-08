@@ -13,7 +13,7 @@ tags: ['SDK']
 
 Once your SDK is installed and configured, you can start accessing the SDK's different functionalities. To learn how to install and configure the Python SDK, refer to [Installation and Configuration](./index.mdx).
 
-## List Transforms
+## List transforms
 
 One of the most useful functionalities of the Python SDK is the ability to easily access all the [V3 APIs](/docs/api/v3) and [Beta APIs](/docs/api/beta) and implement them in your project. 
 

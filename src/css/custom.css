@@ -217,14 +217,30 @@
 @font-face {
   font-family: 'Poppins';
   src: url('../../static/fonts/poppins/Poppins-Regular.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
+}
+
+* {
+  font-family: 'Poppins' !important;
+}
+html {
+  font-family: 'Poppins' !important;
+}
+html * {
+  font-family: 'Poppins' !important;
 }
 
 :root {
   font-family: Poppins !important;
   --doc-sidebar-width: 445px !important;
+}
+
+h1 {
+  font-family: 'Poppins' !important;
+  font-weight: 600 !important;
+  color: var(--ifm-color-primary) !important;
 }
 
 :root {
@@ -237,6 +253,8 @@
   --ifm-color-primary-light: #0038b1;
   --ifm-color-primary-lighter: #003bb9;
   --ifm-color-primary-lightest: #0042d1;
+  --ifm-button-colors: rgba(0,113,206,1);
+
 
   --ifm-color-secondary: #cc27b0;
   --ifm-color-secondary-dark: rgb(181, 13, 152);
@@ -371,6 +389,23 @@
 
 .menu__link {
   padding-left: 13%;
+}
+
+.menu__link:hover {
+  color: var(--link-color) !important;
+}
+
+.menu__link--active  {
+  color: var(--link-color) !important;
+  text-decoration: underline !important;
+}
+
+.navbar__link:hover {
+  color: var(--link-color) !important;
+}
+
+.dropdown__link:hover {
+  color: var(--link-color) !important;
 }
 
 /* Sidebar Method labels */

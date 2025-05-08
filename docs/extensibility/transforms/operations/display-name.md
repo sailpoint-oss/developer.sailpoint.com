@@ -14,7 +14,7 @@ tags: ['Transforms', 'Transform Operations']
 
 The transform forms an identity’s `Display Name` value using the `Preferred Name` value when it exists over the `Given Name` (first name) value. The `Family Name` (last name) value is then appended to form the complete `Display Name`, e.g., ("Preferred Name" or "Given Name") + "Family Name"
 
-## Transform Structure
+## Transform structure
 
 The displayName generator transform is intended for using Preferred Name over Given Name to create an identity’s Display Name.
 
@@ -43,7 +43,7 @@ If the user's Preferred Name is  `John`, Given Name is `Jonathan`, and Family Na
 
 If the user's Preferred Name is not set, Given Name is `Jonathan`, and Family Name is `Doe`, the Display Name would be `Jonathan Doe`.
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

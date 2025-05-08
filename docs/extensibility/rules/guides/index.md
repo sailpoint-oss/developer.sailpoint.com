@@ -1,6 +1,6 @@
 ---
 id: guides
-title: Rule Guides
+title: Rule guides
 pagination_label: Guides
 sidebar_label: Guides
 sidebar_position: 1

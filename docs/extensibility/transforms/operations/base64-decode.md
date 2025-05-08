@@ -1,6 +1,6 @@
 ---
 id: base64-decode
-title: Base64 Decode
+title: Base64 decode
 pagination_label: Base64 Decode
 sidebar_label: Base64 Decode
 sidebar_class_name: base64Decode
@@ -22,7 +22,7 @@ The base64 decode transform allows you to take incoming data that has been encod
 
 :::
 
-## Transform Structure
+## Transform structure
 
 The base64 decode transform only requires the `type` and `name` attributes:
 
@@ -57,7 +57,7 @@ Output:
 1234
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -80,7 +80,7 @@ iVBORw0KGgoAAAANSUhEUgAACUsAAAMPCAMAAADR/Oa6AAAAM1BMVEX///8BIWkBIWkBIWkBIWkBIWkB
 
 Output: ![SailPoint Logo](./img/sailpoint_logo.png)
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

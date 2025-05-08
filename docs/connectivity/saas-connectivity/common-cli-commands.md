@@ -1,6 +1,6 @@
 ---
 id: common-cli-commands
-title: Common CLI Commands
+title: Common CLI commands
 pagination_label: Common CLI Commands
 sidebar_label: Common CLI Commands
 sidebar_position: 3

@@ -1,6 +1,6 @@
 ---
 id: typescript-sdk-getting-started
-title: Getting Started with The TypeScript SDK
+title: Getting started with The TypeScript SDK
 pagination_label: Getting Started
 sidebar_label: Getting Started
 sidebar_position: 1
@@ -17,7 +17,7 @@ This guide will walk through some examples of this functionality.
 
 To make sure that your SDK is connecting to the APIs you need, you can specify the API within the curly brackets in `import {}` at the top of the "index.ts" file. In this example, you could add `Configuration` and `TransformsApi` to add the functionality to list transforms.
 
-### List Transforms in your tenant
+### List transforms in your tenant
 
 ```typescript
 import {Configuration, TransformsApi} from 'sailpoint-api-client';

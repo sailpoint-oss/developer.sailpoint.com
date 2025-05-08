@@ -17,7 +17,7 @@ const trainingGuides: TrainingGuide[] = [
   {
     product: 'isc',
     link: '/docs/api/getting-started',
-    title: 'Make Your First API Call',
+    title: 'Make your first API call',
     image: '/homepage/cloud-data.svg',
   },
   {

@@ -312,9 +312,9 @@ h1 {
   --ifm-color-primary-dark: #5ec3ea;
   --ifm-color-primary-darker: #4ebde8;
   --ifm-color-primary-darkest: #1eabe1;
-  --ifm-color-primary-light: #8ed5f0;
-  --ifm-color-primary-lighter: #aee1f4;
-  --ifm-color-primary-lightest: #bee7f6;
+  --ifm-color-primary-light: #d0ebf6;
+  --ifm-color-primary-lighter: #d0ebf6;
+  --ifm-color-primary-lightest: #d0ebf6;
   --ifm-link-color: #7ecfee;
   --link-color: #7ecfee;
 
@@ -375,11 +375,10 @@ h1 {
 
 .cardContainer_S8oU {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  border-color: #ebedf0 !important;
 }
 
-.cardContainer_S8oU {
-  box-shadow: var(--dev-card-selected);
+.cardContainer_S8oU:hover {
+  border-color: var(--link-color) !important;
 }
 
 

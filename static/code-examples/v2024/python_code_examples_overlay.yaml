@@ -10763,6 +10763,176 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling MFAConfigurationApi->test_mfa_config: %s\n" % e)
+- path: /accounts/{id}/classify
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/machine-account-classify#send-classify-machine-account
+      source: |
+        from sailpoint.v2024.api.machine_account_classify_api import MachineAccountClassifyApi
+        from sailpoint.v2024.api_client import ApiClient
+        from sailpoint.v2024.models.send_classify_machine_account200_response import SendClassifyMachineAccount200Response
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | Account ID. # str | Account ID.
+          classification_mode = default # str | Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human. (optional) (default to default) # str | Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human. (optional) (default to default)
+          try:
+              # Classify a Single Machine Account
+              
+              results = MachineAccountClassifyApi(api_client).send_classify_machine_account(id=id)
+              # Below is a request that includes all optional parameters
+              # results = MachineAccountClassifyApi(api_client).send_classify_machine_account(id, classification_mode)
+              print("The response of MachineAccountClassifyApi->send_classify_machine_account:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling MachineAccountClassifyApi->send_classify_machine_account: %s\n" % e)
+- path: /sources/{sourceId}/machine-account-mappings
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/machine-account-mappings#create-machine-account-mappings
+      source: |
+        from sailpoint.v2024.api.machine_account_mappings_api import MachineAccountMappingsApi
+        from sailpoint.v2024.api_client import ApiClient
+        from sailpoint.v2024.models.attribute_mappings import AttributeMappings
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source ID. # str | Source ID.
+          attribute_mappings = '''{
+          "transformDefinition" : {
+            "attributes" : {
+              "input" : {
+                "attributes" : {
+                  "name" : "8d3e0094e99445de98eef6c75e25jc04",
+                  "attributeName" : "givenName",
+                  "sourceName" : "delimited-src"
+                },
+                "type" : "accountAttribute"
+              }
+            },
+            "id" : "ToUpper",
+            "type" : "reference"
+          },
+          "target" : {
+            "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+            "attributeName" : "businessApplication",
+            "type" : "IDENTITY"
+          }
+        }''' # AttributeMappings | 
+          try:
+              # Create Machine Account Mappings
+              new_attribute_mappings = AttributeMappings.from_json(attribute_mappings)
+              results = MachineAccountMappingsApi(api_client).create_machine_account_mappings(id=id, attribute_mappings=new_attribute_mappings)
+              # Below is a request that includes all optional parameters
+              # results = MachineAccountMappingsApi(api_client).create_machine_account_mappings(id, new_attribute_mappings)
+              print("The response of MachineAccountMappingsApi->create_machine_account_mappings:\n")
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling MachineAccountMappingsApi->create_machine_account_mappings: %s\n" % e)
+- path: /sources/{sourceId}/machine-account-mappings
+  method: DELETE
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/machine-account-mappings#delete-machine-account-mappings
+      source: |
+        from sailpoint.v2024.api.machine_account_mappings_api import MachineAccountMappingsApi
+        from sailpoint.v2024.api_client import ApiClient
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | source ID. # str | source ID.
+          try:
+              # Delete Source's Machine Account Mappings
+              
+              MachineAccountMappingsApi(api_client).delete_machine_account_mappings(id=id)
+              # Below is a request that includes all optional parameters
+              # MachineAccountMappingsApi(api_client).delete_machine_account_mappings(id)
+          except Exception as e:
+              print("Exception when calling MachineAccountMappingsApi->delete_machine_account_mappings: %s\n" % e)
+- path: /sources/{sourceId}/machine-account-mappings
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/machine-account-mappings#list-machine-account-mappings
+      source: |
+        from sailpoint.v2024.api.machine_account_mappings_api import MachineAccountMappingsApi
+        from sailpoint.v2024.api_client import ApiClient
+        from sailpoint.v2024.models.attribute_mappings import AttributeMappings
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source ID # str | Source ID
+          limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+          try:
+              # Machine Account Mapping for Source
+              
+              results = MachineAccountMappingsApi(api_client).list_machine_account_mappings(id=id)
+              # Below is a request that includes all optional parameters
+              # results = MachineAccountMappingsApi(api_client).list_machine_account_mappings(id, limit, offset)
+              print("The response of MachineAccountMappingsApi->list_machine_account_mappings:\n")
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling MachineAccountMappingsApi->list_machine_account_mappings: %s\n" % e)
+- path: /sources/{sourceId}/machine-mappings
+  method: PUT
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/machine-account-mappings#set-machine-account-mappings
+      source: |
+        from sailpoint.v2024.api.machine_account_mappings_api import MachineAccountMappingsApi
+        from sailpoint.v2024.api_client import ApiClient
+        from sailpoint.v2024.models.attribute_mappings import AttributeMappings
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source ID. # str | Source ID.
+          attribute_mappings = '''{
+          "transformDefinition" : {
+            "attributes" : {
+              "input" : {
+                "attributes" : {
+                  "name" : "8d3e0094e99445de98eef6c75e25jc04",
+                  "attributeName" : "givenName",
+                  "sourceName" : "delimited-src"
+                },
+                "type" : "accountAttribute"
+              }
+            },
+            "id" : "ToUpper",
+            "type" : "reference"
+          },
+          "target" : {
+            "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+            "attributeName" : "businessApplication",
+            "type" : "IDENTITY"
+          }
+        }''' # AttributeMappings | 
+          try:
+              # Update Source's Machine Account Mappings
+              new_attribute_mappings = AttributeMappings.from_json(attribute_mappings)
+              results = MachineAccountMappingsApi(api_client).set_machine_account_mappings(id=id, attribute_mappings=new_attribute_mappings)
+              # Below is a request that includes all optional parameters
+              # results = MachineAccountMappingsApi(api_client).set_machine_account_mappings(id, new_attribute_mappings)
+              print("The response of MachineAccountMappingsApi->set_machine_account_mappings:\n")
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling MachineAccountMappingsApi->set_machine_account_mappings: %s\n" % e)
 - path: /machine-accounts/{id}
   method: GET
   xCodeSample:
@@ -10850,6 +11020,85 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling MachineAccountsApi->update_machine_account: %s\n" % e)
+- path: /sources/{sourceId}/machine-classification-config
+  method: DELETE
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/machine-classification-config#delete-machine-classification-config
+      source: |
+        from sailpoint.v2024.api.machine_classification_config_api import MachineClassificationConfigApi
+        from sailpoint.v2024.api_client import ApiClient
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source ID. # str | Source ID.
+          try:
+              # Delete Source's Classification Config
+              
+              MachineClassificationConfigApi(api_client).delete_machine_classification_config(id=id)
+              # Below is a request that includes all optional parameters
+              # MachineClassificationConfigApi(api_client).delete_machine_classification_config(id)
+          except Exception as e:
+              print("Exception when calling MachineClassificationConfigApi->delete_machine_classification_config: %s\n" % e)
+- path: /sources/{sourceId}/machine-classification-config
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/machine-classification-config#get-machine-classification-config
+      source: |
+        from sailpoint.v2024.api.machine_classification_config_api import MachineClassificationConfigApi
+        from sailpoint.v2024.api_client import ApiClient
+        from sailpoint.v2024.models.machine_classification_config import MachineClassificationConfig
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source ID # str | Source ID
+          try:
+              # Machine Classification Config for Source
+              
+              results = MachineClassificationConfigApi(api_client).get_machine_classification_config(id=id)
+              # Below is a request that includes all optional parameters
+              # results = MachineClassificationConfigApi(api_client).get_machine_classification_config(id)
+              print("The response of MachineClassificationConfigApi->get_machine_classification_config:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling MachineClassificationConfigApi->get_machine_classification_config: %s\n" % e)
+- path: /sources/{sourceId}/machine-classification-config
+  method: PUT
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/machine-classification-config#set-machine-classification-config
+      source: |
+        from sailpoint.v2024.api.machine_classification_config_api import MachineClassificationConfigApi
+        from sailpoint.v2024.api_client import ApiClient
+        from sailpoint.v2024.models.machine_classification_config import MachineClassificationConfig
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source ID. # str | Source ID.
+          machine_classification_config = '''{
+          "criteria" : "criteria",
+          "created" : "2017-07-11T18:45:37.098Z",
+          "modified" : "2018-06-25T20:22:28.104Z",
+          "classificationMethod" : "SOURCE",
+          "enabled" : true
+        }''' # MachineClassificationConfig | 
+          try:
+              # Update Source's Classification Config
+              new_machine_classification_config = MachineClassificationConfig.from_json(machine_classification_config)
+              results = MachineClassificationConfigApi(api_client).set_machine_classification_config(id=id, machine_classification_config=new_machine_classification_config)
+              # Below is a request that includes all optional parameters
+              # results = MachineClassificationConfigApi(api_client).set_machine_classification_config(id, new_machine_classification_config)
+              print("The response of MachineClassificationConfigApi->set_machine_classification_config:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling MachineClassificationConfigApi->set_machine_classification_config: %s\n" % e)
 - path: /machine-identities
   method: POST
   xCodeSample:

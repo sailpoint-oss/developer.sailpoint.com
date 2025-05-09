@@ -4,7 +4,10 @@ get:
     - Accounts
   summary: Accounts List
   description: >-
-    List accounts.  
+    List accounts.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Accounts List](https://developer.sailpoint.com/docs/api/v2025/list-accounts/) for latest API.
   security:
     - userAuth: [idn:accounts:read, idn:accounts:manage]
   x-sailpoint-userLevels:
@@ -185,6 +188,9 @@ post:
     The endpoint doesn't actually provision the account on the target source, which means that if the account doesn't also exist on the target source, an aggregation between the source and your tenant will remove it from your tenant. 
 
     By providing the account ID of an existing account in the request body, this API will function as a PATCH operation and update the account.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Create Account](https://developer.sailpoint.com/docs/api/v2025/create-account) for latest API.
   security:
     - userAuth: [idn:accounts:manage]
   x-sailpoint-userLevels:

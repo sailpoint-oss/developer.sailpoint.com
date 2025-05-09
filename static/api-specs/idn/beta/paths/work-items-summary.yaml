@@ -5,11 +5,19 @@ get:
   summary: Work Items Summary
   description: >-
     This gets a summary of work items belonging to either the specified user(admin required), or the current user.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Work Items Summary](https://developer.sailpoint.com/docs/api/v2025/get-work-items-summary) for latest API.
+  security:
+    - userAuth: [ idn:work-item:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - in: query
       name: ownerId
       schema:
         type: string
+      example: ef38f94347e94562b5bb8424a56397d8
       description: ID of the work item owner.
       required: false
   responses:
@@ -21,11 +29,17 @@ get:
             # type: array
             # items:
             $ref: '../schemas/WorkItemsSummary.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
     '400':
       $ref: '../../v3/responses/400.yaml'
     '403':
       $ref: '../../v3/responses/403.yaml'
     '404':
       $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
 
 

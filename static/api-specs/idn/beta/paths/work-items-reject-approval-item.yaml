@@ -5,6 +5,13 @@ post:
   summary: Reject an Approval Item
   description: >-
     This API rejects an Approval Item. Either an admin, or the owning/current user must make this request.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Reject an Approval Item](https://developer.sailpoint.com/docs/api/v2025/reject-approval-item/) for latest API.
+  security:
+    - userAuth: [ idn:work-item:update ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - in: path
       name: id
@@ -19,6 +26,7 @@ post:
       schema:
         type: string
       required: true
+      x-sailpoint-resource-operation-id: listWorkItems
       description: The ID of the approval item.
       example: 1211bcaa32112bcef6122adb21cef1ac
   responses:
@@ -28,9 +36,15 @@ post:
         application/json:
           schema:
             $ref: '../schemas/WorkItems.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
     '400':
       $ref: '../../v3/responses/400.yaml'
     '403':
       $ref: '../../v3/responses/403.yaml'
     '404':
       $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

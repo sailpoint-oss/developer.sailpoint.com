@@ -5,6 +5,13 @@ post:
   summary: Submit Account Selections
   description: >-
     This API submits account selections. Either an admin, or the owning/current user must make this request.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Submit Account Selections](https://developer.sailpoint.com/docs/api/v2025/submit-account-selection/) for latest API.
+  security:
+    - userAuth: [idn:work-item:update]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - in: path
       name: id
@@ -31,9 +38,15 @@ post:
         application/json:
           schema:
             $ref: '../schemas/WorkItems.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
     '400':
       $ref: '../../v3/responses/400.yaml'
     '403':
       $ref: '../../v3/responses/403.yaml'
     '404':
       $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

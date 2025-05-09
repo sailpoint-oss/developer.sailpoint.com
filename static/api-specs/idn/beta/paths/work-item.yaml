@@ -5,6 +5,13 @@ get:
   summary: Get a Work Item
   description: >-
     This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Get a Work Item](https://developer.sailpoint.com/docs/api/v2025/get-work-item/) for latest API.
+  security:
+    - userAuth: [idn:work-item:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - in: query
       name: ownerId
@@ -48,6 +55,13 @@ post:
   summary: Complete a Work Item
   description: >-
     This API completes a work item. Either an admin, or the owning/current user must make this request.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Complete a Work Item](https://developer.sailpoint.com/docs/api/v2025/complete-work-item/) for latest API.
+  security:
+    - userAuth: [idn:work-item:update]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - in: path
       name: id

@@ -93,7 +93,7 @@ jobs:
           export DOCUSAURUS_PERF_LOGGER=true
           export DOCUSAURUS_SSG_WORKER_THREAD_COUNT=14
           export DOCUSAURUS_BUNDLER_CPU_PROFILE=true
-          export DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY=3000000000
+          export DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY=1000000000
           export 
 
           npm ci --legacy-peer-deps

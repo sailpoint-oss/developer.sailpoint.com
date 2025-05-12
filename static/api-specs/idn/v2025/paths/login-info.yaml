@@ -2,7 +2,7 @@ get:
   operationId: getLoginInfo
   tags:
     - Login Info
-  summary: Get Login Info
+  summary: Get login info
   description: >-
     Fetches the PTA or Non-PTA information from a user's Auth Profile. This endpoint will be called by UI before
     authentication to determine if a password should be hashed (Non-PTA) or encrypted with a public key (PTA).

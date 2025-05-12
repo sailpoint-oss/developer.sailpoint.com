@@ -4,7 +4,7 @@ post:
     - userAuth: []
   tags:
     - Non-Employee Lifecycle Management
-  summary: Create Non-Employee Request
+  summary: Create non-employee request
   description: >-
     This request will create a non-employee request and notify the approver.
     Requires role context of `idn:nesr:create` or the user must own the source.
@@ -63,7 +63,7 @@ get:
     - userAuth: []
   tags:
     - Non-Employee Lifecycle Management
-  summary: List Non-Employee Requests
+  summary: List non-employee requests
   description: >-
     This gets a list of non-employee requests. There are two contextual
     uses for the `requested-for` path parameter:

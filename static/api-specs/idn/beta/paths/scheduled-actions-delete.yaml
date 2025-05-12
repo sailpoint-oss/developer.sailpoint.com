@@ -2,7 +2,7 @@ delete:
   operationId: deleteScheduledActions
   tags:
     - SP-Scheduler
-  summary: Delete Scheduled Actions
+  summary: Delete scheduled actions
   description: >-
     This deletes a scheduled action by id
   parameters:

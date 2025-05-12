@@ -2,7 +2,7 @@ get:
   operationId: getAccountEntitlements
   tags:
     - Accounts
-  summary: Account Entitlements
+  summary: Account entitlements
   description: >-
     This API returns entitlements of the account.      
   security:

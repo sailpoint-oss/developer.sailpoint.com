@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clusters
-  summary: Get a specified ManagedCluster.
+  summary: Get a specified managedcluster.
   description: Retrieve a ManagedCluster by ID.
   deprecated: true
   operationId: getManagedCluster

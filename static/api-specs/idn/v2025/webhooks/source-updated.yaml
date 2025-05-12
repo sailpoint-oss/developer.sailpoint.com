@@ -1,5 +1,5 @@
 post:
-  summary: Source Updated
+  summary: Source updated
   operationId: sourceUpdatedEvent
   description: >-
     This event trigger fires when a new source's configuration is changed in Identity Security Cloud (ISC).

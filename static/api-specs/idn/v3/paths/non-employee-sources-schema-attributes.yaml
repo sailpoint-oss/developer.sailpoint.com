@@ -4,7 +4,7 @@ get:
     - userAuth: []
   tags:
     - Non-Employee Lifecycle Management
-  summary: List Schema Attributes Non-Employee Source
+  summary: List schema attributes non-employee source
   description: This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8
                mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can
                add up to 10 custom attributes. This interface returns all the mandatory attributes followed by
@@ -48,7 +48,7 @@ post:
   #   - oauth2: [idn:nesr:create]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Create a new Schema Attribute for Non-Employee Source
+  summary: Create a new schema attribute for non-employee source
   description: >-
     This API creates a new schema attribute for Non-Employee Source. The schema technical name must be
     unique in the source. Attempts to create a schema attribute with an existing name will result in a
@@ -95,7 +95,7 @@ delete:
   #   - oauth2: [idn:nesr:delete]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Delete all custom schema attributes for Non-Employee Source
+  summary: Delete all custom schema attributes for non-employee source
   description: >-
     This end-point deletes all custom schema attributes for a non-employee source.
     Requires role context of `idn:nesr:delete`

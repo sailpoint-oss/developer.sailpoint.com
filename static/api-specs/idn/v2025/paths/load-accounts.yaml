@@ -1,7 +1,7 @@
 post:
   tags:
   - Sources
-  summary: Account Aggregation
+  summary: Account aggregation
   operationId: importAccounts
   description: "Starts an account aggregation on the specified source. \nIf the target\
     \ source is a delimited file source, then the CSV file needs to be included in\

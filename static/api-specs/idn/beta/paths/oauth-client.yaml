@@ -4,7 +4,7 @@ get:
     - userAuth: [sp:oauth-client:manage, sp:oauth-client:read]
   tags:
     - OAuth Clients
-  summary: Get OAuth Client
+  summary: Get oauth client
   description: >-
     This gets details of an OAuth client.
 
@@ -42,7 +42,7 @@ delete:
     - userAuth: [sp:oauth-client:manage]
   tags:
     - OAuth Clients
-  summary: Delete OAuth Client
+  summary: Delete oauth client
   description: >-
     This deletes an OAuth client.
 
@@ -76,7 +76,7 @@ patch:
     - userAuth: [sp:oauth-client:manage]
   tags:
     - OAuth Clients
-  summary: Patch OAuth Client
+  summary: Patch oauth client
   description: >-
     This performs a targeted update to the field(s) of an OAuth client.
 

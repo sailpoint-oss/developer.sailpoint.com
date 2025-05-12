@@ -2,7 +2,7 @@ post:
   operationId: testWorkflow
   tags:
     - Workflows
-  summary: Test Workflow By Id
+  summary: Test workflow by id
   description: |
     :::info
 

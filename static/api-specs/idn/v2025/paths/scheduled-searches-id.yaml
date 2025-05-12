@@ -3,7 +3,7 @@ put:
     - Scheduled Search
   description: |
     Updates an existing scheduled search.
-  summary: Update an existing Scheduled Search
+  summary: Update an existing scheduled search
   operationId: updateScheduledSearch
   parameters:
     - in: path
@@ -44,7 +44,7 @@ get:
   tags:
     - Scheduled Search
   description: Returns the specified scheduled search.
-  summary: Get a Scheduled Search
+  summary: Get a scheduled search
   operationId: getScheduledSearch
   parameters:
     - in: path
@@ -80,7 +80,7 @@ delete:
   description: |
     Deletes the specified scheduled search.
   operationId: deleteScheduledSearch
-  summary: Delete a Scheduled Search
+  summary: Delete a scheduled search
   parameters:
     - in: path
       name: id

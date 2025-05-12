@@ -2,7 +2,7 @@ get:
   operationId: getNotificationTemplate
   tags:
     - Notifications
-  summary: Get Notification Template By Id
+  summary: Get notification template by id
   description: >-
     This gets a template that you have modified for your site by Id.
   parameters:

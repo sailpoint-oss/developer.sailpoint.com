@@ -2,7 +2,7 @@ get:
   operationId: authMfaRegistrationStatus
   tags:
     - Auth MFA
-  summary: Determine whether the user is registered for MFA
+  summary: Determine whether the user is registered for mfa
   description: >-
     Gives the caller an indication of whether or not the user associated with the `externalId` path param is registered for MFA. 
     

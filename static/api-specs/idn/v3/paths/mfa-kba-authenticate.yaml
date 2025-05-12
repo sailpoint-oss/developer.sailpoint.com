@@ -2,7 +2,7 @@ post:
   operationId: sendKbaAnswers
   tags:
     - MFA Controller
-  summary: Authenticate KBA provided MFA method
+  summary: Authenticate kba provided mfa method
   description: >-
     This API Authenticate user in KBA MFA method.
   security:

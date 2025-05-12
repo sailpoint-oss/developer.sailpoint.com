@@ -2,7 +2,7 @@ get:
   operationId: getAccessSummaries
   tags:
     - Certification Summaries
-  summary: Access Summaries
+  summary: Access summaries
   description: >-
     This API returns a list of access summaries for the specified certification and type. A token with ORG_ADMIN or
     CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.

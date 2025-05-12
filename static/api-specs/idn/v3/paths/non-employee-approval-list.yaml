@@ -4,7 +4,7 @@ get:
     - userAuth: []
   tags:
     - Non-Employee Lifecycle Management
-  summary: Get List of Non-Employee Approval Requests
+  summary: Get list of non-employee approval requests
   description: >-
     This gets a list of non-employee approval requests.
 

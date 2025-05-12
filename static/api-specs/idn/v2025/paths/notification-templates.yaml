@@ -2,7 +2,7 @@ get:
   operationId: listNotificationTemplates
   tags:
   - Notifications
-  summary: List Notification Templates
+  summary: List notification templates
   description: This lists the templates that you have modified for your site.
   security:
   - userAuth:
@@ -60,7 +60,7 @@ post:
   operationId: createNotificationTemplate
   tags:
   - Notifications
-  summary: Create Notification Template
+  summary: Create notification template
   description: "This creates a template for your site. \n\nYou can also use this endpoint\
     \ to update a template.  First, copy the response body from the [get notification\
     \ template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template)\

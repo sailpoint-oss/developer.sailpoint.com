@@ -2,7 +2,7 @@ post:
   operationId: closeAccessRequest
   tags:
   - Access Requests
-  summary: Close Access Request
+  summary: Close access request
   security:
     - userAuth: []
   x-sailpoint-userLevels:

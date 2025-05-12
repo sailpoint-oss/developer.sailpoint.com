@@ -2,7 +2,7 @@ get:
   operationId: getTenantConfigConfiguration
   tags:
     - Work Reassignment
-  summary: Get Tenant-wide Reassignment Configuration settings
+  summary: Get tenant-wide reassignment configuration settings
   description: >-
     Gets the global Reassignment Configuration settings for the requestor's tenant.
   security:
@@ -30,7 +30,7 @@ put:
   operationId: putTenantConfiguration
   tags:
     - Work Reassignment
-  summary: Update Tenant-wide Reassignment Configuration settings
+  summary: Update tenant-wide reassignment configuration settings
   description: >-
     Replaces existing Tenant-wide Reassignment Configuration settings with the newly provided settings.
   security:

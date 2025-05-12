@@ -2,7 +2,7 @@ get:
   operationId: listConfigurations
   tags:
     - IAI Configuration
-  summary: Lists all IAI Configurations for a customer
+  summary: Lists all iai configurations for a customer
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'
@@ -42,7 +42,7 @@ get:
   #   - oauth2: [iai:configuration:read]
 post:
   operationId: createConfiguration
-  summary: Creates an IAI configuration for a customer
+  summary: Creates an iai configuration for a customer
   tags:
     - IAI Configuration
   description: >-

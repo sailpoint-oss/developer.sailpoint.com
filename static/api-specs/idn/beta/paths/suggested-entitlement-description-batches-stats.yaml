@@ -2,7 +2,7 @@ get:
   tags:
     - Suggested Entitlement Description
   operationId: getSedBatchStats
-  summary: Submit Sed Batch Stats Request
+  summary: Submit sed batch stats request
   description: |
     Submit Sed Batch Stats Request.
 

@@ -2,7 +2,7 @@ post:
   operationId: updateConnectorState
   tags:
     - Sources
-  summary: Update Connector State
+  summary: Update connector state
   description: >-
     This API updates connector states of a specific source.
 

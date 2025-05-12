@@ -7,7 +7,7 @@ get:
     - ORG_ADMIN
   tags:
     - Data Segmentation
-  summary: Is Segmentation enabled by Identity
+  summary: Is segmentation enabled by identity
   description: >-
     This API returns whether or not segmentation is enabled for the identity.
   parameters:

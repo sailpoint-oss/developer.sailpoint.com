@@ -2,7 +2,7 @@ get:
   operationId: getDiscoveredApplicationByID
   tags:
     - Application Discovery
-  summary: Get Discovered Application by ID
+  summary: Get discovered application by id
   description: >
     Get the discovered application, along with with its associated sources, based on the provided ID.
   security:
@@ -50,7 +50,7 @@ patch:
   operationId: patchDiscoveredApplicationByID
   tags:
     - Application Discovery
-  summary: Patch Discovered Application by ID
+  summary: Patch discovered application by id
   description: >-
     Update an existing discovered application by using a limited version of the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 

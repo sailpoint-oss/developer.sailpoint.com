@@ -1,6 +1,6 @@
 get:
   operationId: listPendingApprovals
-  summary: Pending Access Request Approvals List
+  summary: Pending access request approvals list
   tags:
     - Access Request Approvals
   description: >-

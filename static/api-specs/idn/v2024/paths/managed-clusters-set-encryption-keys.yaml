@@ -1,7 +1,7 @@
 post:
   tags:
     - Managed Clusters
-  summary: New encryption keys for ManagedCluster
+  summary: New encryption keys for managedcluster
   description: >-
     Set new encryption keys for a Managed Cluster
 

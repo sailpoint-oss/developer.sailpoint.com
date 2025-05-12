@@ -1,4 +1,4 @@
-summary: Query for Identities
+summary: Query for identities
 value:
   indices:
     - identities

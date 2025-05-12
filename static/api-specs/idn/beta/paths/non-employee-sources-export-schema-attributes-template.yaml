@@ -4,7 +4,7 @@ get:
     - userAuth: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Exports Source Schema Template
+  summary: Exports source schema template
   description: >-
     This requests a download for the Source Schema Template for a provided source.
 

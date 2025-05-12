@@ -1,6 +1,6 @@
 get:
   operationId: getBulkUpdateStatus
-  summary: Get Bulk-Update Statuses
+  summary: Get bulk-update statuses
   description: >-
     This API returns a list of all unfinished bulk update process status of the tenant.
 

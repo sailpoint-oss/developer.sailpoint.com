@@ -2,7 +2,7 @@ post:
   operationId: startCampaignRemediationScan
   tags:
     - Certification Campaigns
-  summary: Run Campaign Remediation Scan
+  summary: Run campaign remediation scan
   description: |
     Use this API to run a remediation scan task for a certification campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-campaign-remediation-scan).
 

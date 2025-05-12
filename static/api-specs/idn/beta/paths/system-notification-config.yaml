@@ -2,7 +2,7 @@ get:
   operationId: getSystemNotificationConfiguration
   tags:
     - Notifications
-  summary: Get System Notification Configuration
+  summary: Get system notification configuration
   description: >-
     Returns the system notification configuration for a tenant.
   security:
@@ -31,7 +31,7 @@ put:
   operationId: putSystemNotificationConfiguration
   tags:
     - Notifications
-  summary: Update the System Notification configuration
+  summary: Update the system notification configuration
   description: >-
     Updates the System Notification configuration.
   security:

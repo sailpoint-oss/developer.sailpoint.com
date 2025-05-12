@@ -1,7 +1,7 @@
 get:
   tags:
     - Service Desk Integration
-  summary: List existing Service Desk integrations
+  summary: List existing service desk integrations
   description: Get a list of Service Desk integration objects.
   operationId: getServiceDeskIntegrationList
   parameters:
@@ -76,7 +76,7 @@ get:
 post:
   tags:
     - Service Desk Integration
-  summary: Create new Service Desk integration
+  summary: Create new service desk integration
   description: Create a new Service Desk integration.
   operationId: createServiceDeskIntegration
   requestBody:

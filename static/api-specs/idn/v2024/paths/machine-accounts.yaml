@@ -2,7 +2,7 @@ get:
   operationId: listMachineAccounts
   tags:
     - Machine Accounts
-  summary: Machine Accounts List
+  summary: Machine accounts list
   description: >-
     This returns a list of machine accounts.  
   security:

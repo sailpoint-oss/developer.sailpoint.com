@@ -1,7 +1,7 @@
 get:
   tags:
     - Multi-Host Integration
-  summary: Test Configuration For Multi-Host Integration's Single Source
+  summary: Test configuration for multi-host integration's single source
   description: >-
     This endpoint performs a more detailed validation of the source's configuration.  
   

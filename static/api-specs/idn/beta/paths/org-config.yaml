@@ -2,7 +2,7 @@ get:
     operationId: getOrgConfig
     tags:
         - Org Config
-    summary: Get Org configuration settings
+    summary: Get org configuration settings
     security:
         - userAuth: [ idn:org-configs:read, idn:org-configs:manage]
     description: >-
@@ -30,7 +30,7 @@ patch:
     operationId: patchOrgConfig
     tags:
         - Org Config
-    summary: Patch an Org configuration property
+    summary: Patch an org configuration property
     security:
         - userAuth: [ idn:org-configs:manage]
     description: >-

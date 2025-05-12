@@ -1,5 +1,5 @@
 post:
-  summary: Identity Attributes Changed
+  summary: Identity attributes changed
   operationId: identityAttributesChangedEvent
   description: >-
     This event trigger fires when Identity Security Cloud (ISC) detects an identity attribute change. 

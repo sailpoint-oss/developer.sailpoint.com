@@ -142,7 +142,7 @@ patch:
             $ref: "../../v2024/schemas/ErrorResponseDto.yaml"
           examples:
             incorrectPath:
-              summary: Invalid Path Example
+              summary: Invalid path example
               value:
                 detailCode: "Bad Request"
                 trackingId: "e9eaaeac516643ffa087cc476e7577c5"
@@ -151,7 +151,7 @@ patch:
                     localeOrigin: "DEFAULT"
                     text: "invalid patch request: field not patchable or does not contain key (/InvalidPath/IAS)"
             invalidOperation:
-              summary: Invalid Operation Example
+              summary: Invalid operation example
               value:
                 detailCode: "Bad Request"
                 trackingId: "39cfb6a29d5a4522954d72124545d3c5"
@@ -160,7 +160,7 @@ patch:
                     localeOrigin: "DEFAULT"
                     text: "invalid patch request: operation not allowed (move)"
             noKeyInPath:
-              summary: No Key in Path Example
+              summary: No key in path example
               value:
                 detailCode: "Bad Request"
                 trackingId: "6d3bdd67ac8a4382884875ed4abf1f13"
@@ -169,7 +169,7 @@ patch:
                     localeOrigin: "DEFAULT"
                     text: "invalid patch request: field not patchable or does not contain key (/Key/)"
             capacityExceeded:
-              summary: Capacity Exceeded Example
+              summary: Capacity exceeded example
               value:
                 detailCode: "Bad Request"
                 trackingId: "bd51a5e2f4ee4d5aa65ac2f7cd3c2445"

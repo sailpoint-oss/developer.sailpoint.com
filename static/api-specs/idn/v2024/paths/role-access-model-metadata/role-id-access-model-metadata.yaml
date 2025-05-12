@@ -1,6 +1,6 @@
 post:
   operationId: updateAttributeKeyAndValueToRole
-  summary: Add a Metadata to Role.
+  summary: Add a metadata to role.
   description:
     This API initialize a request to add a single Access Model Metadata to a role by attribute key and attribute value.
     A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
@@ -55,7 +55,7 @@ post:
       $ref: '../../responses/500.yaml'
 delete:
   operationId: deleteMetadataFromRoleByKeyAndValue
-  summary: Remove a Metadata From Role.
+  summary: Remove a metadata from role.
   description:
     This API initialize a request to remove a single Access Model Metadata from a role by attribute key and value.
     A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.

@@ -2,7 +2,7 @@ get:
   operationId: getWorkflowExecutions
   tags:
     - Workflows
-  summary: List Workflow Executions
+  summary: List workflow executions
   description: >-
     Use this API to list a specified workflow's executions. Workflow executions are available for up to 90 days before being archived.
     By default, you can get a maximum of 250 executions. 

@@ -1,4 +1,4 @@
-summary: Evaluate response when a long Reassignment trail is found
+summary: Evaluate response when a long reassignment trail is found
 value:
   reassignToId: '2c9180825a6c1adc015a71c9023f0818'
   lookupTrail:

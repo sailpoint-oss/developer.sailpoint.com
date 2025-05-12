@@ -2,7 +2,7 @@ get:
   operationId: listDimensions
   tags:
     - Dimensions
-  summary: List Dimensions
+  summary: List dimensions
   description: >-
     This API returns a list of dimensions under a specified role.
 
@@ -100,7 +100,7 @@ post:
   operationId: createDimension
   tags:
     - Dimensions
-  summary: Create a Dimension
+  summary: Create a dimension
   description: >-
     This API creates a dimension.
 

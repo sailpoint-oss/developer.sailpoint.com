@@ -21,7 +21,7 @@ post:
     - ROLE_ADMIN
     - ROLE_SUBADMIN
     - HELPDESK
-  summary: "Perform Search"
+  summary: "Perform search"
   parameters:
   - $ref: '../parameters/offset.yaml'
   - $ref: '../parameters/searchlimit.yaml'

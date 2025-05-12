@@ -1,6 +1,6 @@
 post:
   operationId: deleteAccountsAsync
-  summary: Remove All Accounts in a Source
+  summary: Remove all accounts in a source
   tags:
   - Sources
   description: 'Use this endpoint to remove all accounts from the system without provisioning

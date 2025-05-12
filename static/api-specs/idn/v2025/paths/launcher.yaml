@@ -1,7 +1,7 @@
 get:
   tags:
     - Launchers
-  summary: Get Launcher by ID
+  summary: Get launcher by id
   description: Get details for the given Launcher ID
   operationId: getLauncher
   parameters:
@@ -40,7 +40,7 @@ get:
 put:
   tags:
     - Launchers
-  summary: Replace Launcher
+  summary: Replace launcher
   description: Replace the given Launcher ID with given payload
   operationId: putLauncher
   parameters:
@@ -86,7 +86,7 @@ put:
 delete:
   tags:
     - Launchers
-  summary: Delete Launcher
+  summary: Delete launcher
   description: Delete the given Launcher ID
   operationId: deleteLauncher
   parameters:

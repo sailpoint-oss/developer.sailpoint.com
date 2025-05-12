@@ -2,7 +2,7 @@ post:
   operationId: approveApprovalItemsInBulk
   tags:
     - Work Items
-  summary: Bulk approve Approval Items
+  summary: Bulk approve approval items
   description: >-
     This API bulk approves Approval Items. Either an admin, or the owning/current user must make this request.
   parameters:

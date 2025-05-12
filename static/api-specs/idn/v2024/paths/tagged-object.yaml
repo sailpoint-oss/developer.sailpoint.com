@@ -4,7 +4,7 @@ get:
     - userAuth: [ idn:tag:read, idn:tag:manage ]
   tags:
     - Tagged Objects
-  summary: Get Tagged Object
+  summary: Get tagged object
   description: >-
     This gets a tagged object for the specified type.
   parameters:
@@ -55,7 +55,7 @@ put:
     - userAuth: [ idn:tag:manage ]
   tags:
     - Tagged Objects
-  summary: Update Tagged Object
+  summary: Update tagged object
   description: >-
     This updates a tagged object for the specified type.
   parameters:
@@ -112,7 +112,7 @@ delete:
     - userAuth: [ idn:tag:manage ]
   tags:
     - Tagged Objects
-  summary: Delete Object Tags
+  summary: Delete object tags
   description: >-
     Delete all tags from a tagged object.
   parameters:

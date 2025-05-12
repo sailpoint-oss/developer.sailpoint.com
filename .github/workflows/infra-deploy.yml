@@ -43,6 +43,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       
       - name: Set up Go
         uses: actions/setup-go@v3
@@ -89,8 +91,10 @@ jobs:
           export NODE_OPTIONS="--max_old_space_size=60000"
           export DOCUSAURUS_IGNORE_SSG_WARNINGS=true
           export DOCUSAURUS_PERF_LOGGER=true
-          export DOCUSAURUS_SSG_WORKER_THREAD_COUNT=3
-          export DOCUSAURUS_BUNDLER_CPU_PROFILE=true 
+          export DOCUSAURUS_SSG_WORKER_THREAD_COUNT=7
+          export DOCUSAURUS_BUNDLER_CPU_PROFILE=true
+          export DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY=1000000000
+          export 
 
           npm ci --legacy-peer-deps
           npm run gen-api-docs-all

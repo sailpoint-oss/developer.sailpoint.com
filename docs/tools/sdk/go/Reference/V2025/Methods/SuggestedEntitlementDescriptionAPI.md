@@ -72,16 +72,20 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    batchId := 8c190e67-87aa-4ed9-a90b-d9d5344523fb # string | Batch Id # string | Batch Id
+    batchId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | Batch Id # string | Batch Id
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.GetSedBatchStats(context.Background(), batchId).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.GetSedBatchStats(context.Background(), batchId).Execute()
+	//resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.GetSedBatchStats(context.Background(), batchId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.GetSedBatchStats``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -127,15 +131,19 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.GetSedBatches(context.Background()).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.GetSedBatches(context.Background()).Execute()
+	//resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.GetSedBatches(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.GetSedBatches``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -205,23 +213,27 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-    filters := displayName co "Read and Write" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co* (optional)
-    sorters := sorters=displayName # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status** (optional)
-    countOnly := count-only=true # bool | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to false) # bool | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to false)
-    requestedByAnyone := requested-by-anyone=true # bool | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional) (default to false) # bool | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional) (default to false)
-    showPendingStatusOnly := show-pending-status-only=true # bool | Will limit records to items that are in \"suggested\" or \"approved\" status (optional) (default to false) # bool | Will limit records to items that are in \"suggested\" or \"approved\" status (optional) (default to false)
+    limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+    filters := `displayName co "Read and Write"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **batchId**: *eq, ne*  **displayName**: *eq, ne, co*  **sourceName**: *eq, ne, co*  **sourceId**: *eq, ne*  **status**: *eq, ne*  **fullText**: *co* (optional)
+    sorters := `sorters=displayName` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, sourceName, status** (optional)
+    countOnly := count-only=true // bool | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to false) # bool | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to false)
+    requestedByAnyone := requested-by-anyone=true // bool | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional) (default to false) # bool | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional) (default to false)
+    showPendingStatusOnly := show-pending-status-only=true // bool | Will limit records to items that are in \"suggested\" or \"approved\" status (optional) (default to false) # bool | Will limit records to items that are in \"suggested\" or \"approved\" status (optional) (default to false)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.ListSeds(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).CountOnly(countOnly).RequestedByAnyone(requestedByAnyone).ShowPendingStatusOnly(showPendingStatusOnly).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.ListSeds(context.Background()).Execute()
+	//resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.ListSeds(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).CountOnly(countOnly).RequestedByAnyone(requestedByAnyone).ShowPendingStatusOnly(showPendingStatusOnly).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.ListSeds``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -275,17 +287,27 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    id := ebab396f-0af1-4050-89b7-dafc63ec70e7 # string | id is sed id # string | id is sed id
-    sedPatch := fmt.Sprintf(``) # []SedPatch | Sed Patch Request
+    id := `ebab396f-0af1-4050-89b7-dafc63ec70e7` // string | id is sed id # string | id is sed id
+    sedPatch := fmt.Sprintf(``) // []SedPatch | Sed Patch Request
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.PatchSed(context.Background(), id).SedPatch(sedPatch).Execute()
+  
+   var sedPatch v2025.SedPatch
+   if err := json.Unmarshal(data, &sedPatch); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.PatchSed(context.Background(), id).SedPatch(sedPatch).Execute()
+	//resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.PatchSed(context.Background(), id).SedPatch(sedPatch).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.PatchSed``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -335,16 +357,26 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    sedApproval := fmt.Sprintf(``) # []SedApproval | Sed Approval
+    sedApproval := fmt.Sprintf(``) // []SedApproval | Sed Approval
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.SubmitSedApproval(context.Background()).SedApproval(sedApproval).Execute()
+  
+   var sedApproval v2025.SedApproval
+   if err := json.Unmarshal(data, &sedApproval); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.SubmitSedApproval(context.Background()).SedApproval(sedApproval).Execute()
+	//resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.SubmitSedApproval(context.Background()).SedApproval(sedApproval).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.SubmitSedApproval``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -394,22 +426,32 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    sedAssignment := fmt.Sprintf(`{
+    data := []byte(`{
           "assignee" : {
             "type" : "SOURCE_OWNER",
             "value" : "016629d1-1d25-463f-97f3-c6686846650"
           },
           "items" : [ "016629d1-1d25-463f-97f3-0c6686846650", "016629d1-1d25-463f-97f3-0c6686846650" ]
-        }`) # SedAssignment | Sed Assignment Request
+        }`) // SedAssignment | Sed Assignment Request
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.SubmitSedAssignment(context.Background()).SedAssignment(sedAssignment).Execute()
+  
+   var sedAssignment v2025.SedAssignment
+   if err := json.Unmarshal(data, &sedAssignment); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.SubmitSedAssignment(context.Background()).SedAssignment(sedAssignment).Execute()
+	//resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.SubmitSedAssignment(context.Background()).SedAssignment(sedAssignment).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.SubmitSedAssignment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -459,19 +501,23 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    sedBatchRequest := fmt.Sprintf(`{
+    data := []byte(`{
           "entitlements" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
           "seds" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ]
-        }`) # SedBatchRequest | Sed Batch Request (optional)
+        }`) // SedBatchRequest | Sed Batch Request (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.SubmitSedBatchRequest(context.Background()).SedBatchRequest(sedBatchRequest).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.SubmitSedBatchRequest(context.Background()).Execute()
+	//resp, r, err := apiClient.V2025.SuggestedEntitlementDescriptionAPI.SubmitSedBatchRequest(context.Background()).SedBatchRequest(sedBatchRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SuggestedEntitlementDescriptionAPI.SubmitSedBatchRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

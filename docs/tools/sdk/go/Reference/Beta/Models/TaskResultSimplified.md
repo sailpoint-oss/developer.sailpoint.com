@@ -19,8 +19,8 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** | Task name | [optional] 
 **Description** | Pointer to **string** | Task description | [optional] 
 **Launcher** | Pointer to **string** | User or process who launched the task | [optional] 
-**Completed** | Pointer to **time.Time** | Date time of completion | [optional] 
-**Launched** | Pointer to **time.Time** | Date time when the task was launched | [optional] 
+**Completed** | Pointer to **SailPointTime** | Date time of completion | [optional] 
+**Launched** | Pointer to **SailPointTime** | Date time when the task was launched | [optional] 
 **CompletionStatus** | Pointer to **string** | Task result status | [optional] 
 
 ## Methods
@@ -144,20 +144,20 @@ HasLauncher returns a boolean if a field has been set.
 
 ### GetCompleted
 
-`func (o *TaskResultSimplified) GetCompleted() time.Time`
+`func (o *TaskResultSimplified) GetCompleted() SailPointTime`
 
 GetCompleted returns the Completed field if non-nil, zero value otherwise.
 
 ### GetCompletedOk
 
-`func (o *TaskResultSimplified) GetCompletedOk() (*time.Time, bool)`
+`func (o *TaskResultSimplified) GetCompletedOk() (*SailPointTime, bool)`
 
 GetCompletedOk returns a tuple with the Completed field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCompleted
 
-`func (o *TaskResultSimplified) SetCompleted(v time.Time)`
+`func (o *TaskResultSimplified) SetCompleted(v SailPointTime)`
 
 SetCompleted sets Completed field to given value.
 
@@ -169,20 +169,20 @@ HasCompleted returns a boolean if a field has been set.
 
 ### GetLaunched
 
-`func (o *TaskResultSimplified) GetLaunched() time.Time`
+`func (o *TaskResultSimplified) GetLaunched() SailPointTime`
 
 GetLaunched returns the Launched field if non-nil, zero value otherwise.
 
 ### GetLaunchedOk
 
-`func (o *TaskResultSimplified) GetLaunchedOk() (*time.Time, bool)`
+`func (o *TaskResultSimplified) GetLaunchedOk() (*SailPointTime, bool)`
 
 GetLaunchedOk returns a tuple with the Launched field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLaunched
 
-`func (o *TaskResultSimplified) SetLaunched(v time.Time)`
+`func (o *TaskResultSimplified) SetLaunched(v SailPointTime)`
 
 SetLaunched sets Launched field to given value.
 

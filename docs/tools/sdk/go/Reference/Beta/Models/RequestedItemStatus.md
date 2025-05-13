@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 **AccountActivityItemId** | Pointer to **string** | Id of associated account activity item. | [optional] 
 **RequestType** | Pointer to [**NullableAccessRequestType**](access-request-type) |  | [optional] 
 **Modified** | Pointer to **NullableTime** | When the request was last modified. | [optional] 
-**Created** | Pointer to **time.Time** | When the request was created. | [optional] 
+**Created** | Pointer to **SailPointTime** | When the request was created. | [optional] 
 **Requester** | Pointer to [**AccessItemRequester**](access-item-requester) |  | [optional] 
 **RequestedFor** | Pointer to [**RequestedItemStatusRequestedFor**](requested-item-status-requested-for) |  | [optional] 
 **RequesterComment** | Pointer to [**RequestedItemStatusRequesterComment**](requested-item-status-requester-comment) |  | [optional] 
@@ -398,20 +398,20 @@ HasRequestType returns a boolean if a field has been set.
 UnsetRequestType ensures that no value is present for RequestType, not even an explicit nil
 ### GetModified
 
-`func (o *RequestedItemStatus) GetModified() time.Time`
+`func (o *RequestedItemStatus) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *RequestedItemStatus) GetModifiedOk() (*time.Time, bool)`
+`func (o *RequestedItemStatus) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *RequestedItemStatus) SetModified(v time.Time)`
+`func (o *RequestedItemStatus) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 
@@ -433,20 +433,20 @@ HasModified returns a boolean if a field has been set.
 UnsetModified ensures that no value is present for Modified, not even an explicit nil
 ### GetCreated
 
-`func (o *RequestedItemStatus) GetCreated() time.Time`
+`func (o *RequestedItemStatus) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *RequestedItemStatus) GetCreatedOk() (*time.Time, bool)`
+`func (o *RequestedItemStatus) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *RequestedItemStatus) SetCreated(v time.Time)`
+`func (o *RequestedItemStatus) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
@@ -678,20 +678,20 @@ HasDescription returns a boolean if a field has been set.
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetRemoveDate
 
-`func (o *RequestedItemStatus) GetRemoveDate() time.Time`
+`func (o *RequestedItemStatus) GetRemoveDate() SailPointTime`
 
 GetRemoveDate returns the RemoveDate field if non-nil, zero value otherwise.
 
 ### GetRemoveDateOk
 
-`func (o *RequestedItemStatus) GetRemoveDateOk() (*time.Time, bool)`
+`func (o *RequestedItemStatus) GetRemoveDateOk() (*SailPointTime, bool)`
 
 GetRemoveDateOk returns a tuple with the RemoveDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRemoveDate
 
-`func (o *RequestedItemStatus) SetRemoveDate(v time.Time)`
+`func (o *RequestedItemStatus) SetRemoveDate(v SailPointTime)`
 
 SetRemoveDate sets RemoveDate field to given value.
 

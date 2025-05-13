@@ -65,16 +65,26 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    dataSegment := fmt.Sprintf(``) # DataSegment | 
+    data := []byte(``) // DataSegment | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.DataSegmentationAPI.CreateDataSegment(context.Background()).DataSegment(dataSegment).Execute()
+  
+   var dataSegment v2025.DataSegment
+   if err := json.Unmarshal(data, &dataSegment); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.DataSegmentationAPI.CreateDataSegment(context.Background()).DataSegment(dataSegment).Execute()
+	//resp, r, err := apiClient.V2025.DataSegmentationAPI.CreateDataSegment(context.Background()).DataSegment(dataSegment).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.CreateDataSegment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -140,18 +150,22 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    id := ef38f943-47e9-4562-b5bb-8424a56397d8 # string | The segment ID to delete. # string | The segment ID to delete.
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    published := false # bool | This determines which version of the segment to delete (optional) (default to false) # bool | This determines which version of the segment to delete (optional) (default to false)
+    id := `ef38f943-47e9-4562-b5bb-8424a56397d8` // string | The segment ID to delete. # string | The segment ID to delete.
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    published := false // bool | This determines which version of the segment to delete (optional) (default to false) # bool | This determines which version of the segment to delete (optional) (default to false)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V2025.DataSegmentationAPI.DeleteDataSegment(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Published(published).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    r, err := apiClient.V2025.DataSegmentationAPI.DeleteDataSegment(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	//r, err := apiClient.V2025.DataSegmentationAPI.DeleteDataSegment(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Published(published).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.DeleteDataSegment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -214,17 +228,21 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    id := ef38f943-47e9-4562-b5bb-8424a56397d8 # string | The segment ID to retrieve. # string | The segment ID to retrieve.
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    id := `ef38f943-47e9-4562-b5bb-8424a56397d8` // string | The segment ID to retrieve. # string | The segment ID to retrieve.
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.DataSegmentationAPI.GetDataSegment(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.DataSegmentationAPI.GetDataSegment(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	//resp, r, err := apiClient.V2025.DataSegmentationAPI.GetDataSegment(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.GetDataSegment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -289,17 +307,21 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    identityId := ef38f943-47e9-4562-b5bb-8424a56397d8 # string | The identity ID to retrieve the segments they are in. # string | The identity ID to retrieve the segments they are in.
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    identityId := `ef38f943-47e9-4562-b5bb-8424a56397d8` // string | The identity ID to retrieve the segments they are in. # string | The identity ID to retrieve the segments they are in.
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.DataSegmentationAPI.GetDataSegmentIdentityMembership(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.DataSegmentationAPI.GetDataSegmentIdentityMembership(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
+	//resp, r, err := apiClient.V2025.DataSegmentationAPI.GetDataSegmentIdentityMembership(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.GetDataSegmentIdentityMembership``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -364,17 +386,21 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    identityId := ef38f943-47e9-4562-b5bb-8424a56397d8 # string | The identity ID to retrieve if segmentation is enabled for the identity. # string | The identity ID to retrieve if segmentation is enabled for the identity.
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    identityId := `ef38f943-47e9-4562-b5bb-8424a56397d8` // string | The identity ID to retrieve if segmentation is enabled for the identity. # string | The identity ID to retrieve if segmentation is enabled for the identity.
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.DataSegmentationAPI.GetDataSegmentationEnabledForUser(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.DataSegmentationAPI.GetDataSegmentationEnabledForUser(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
+	//resp, r, err := apiClient.V2025.DataSegmentationAPI.GetDataSegmentationEnabledForUser(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.GetDataSegmentationEnabledForUser``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -441,23 +467,27 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    enabled := true # bool | This boolean indicates whether the segment is currently active. Inactive segments have no effect. (optional) (default to true) # bool | This boolean indicates whether the segment is currently active. Inactive segments have no effect. (optional) (default to true)
-    unique := false # bool | This returns only one record if set to true and that would be the published record if exists. (optional) (default to false) # bool | This returns only one record if set to true and that would be the published record if exists. (optional) (default to false)
-    published := true # bool | This boolean indicates whether the segment is being applied to the accounts. If unpublished its being actively modified until published (optional) (default to true) # bool | This boolean indicates whether the segment is being applied to the accounts. If unpublished its being actively modified until published (optional) (default to true)
-    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-    filters := name eq "" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw* (optional)
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    enabled := true // bool | This boolean indicates whether the segment is currently active. Inactive segments have no effect. (optional) (default to true) # bool | This boolean indicates whether the segment is currently active. Inactive segments have no effect. (optional) (default to true)
+    unique := false // bool | This returns only one record if set to true and that would be the published record if exists. (optional) (default to false) # bool | This returns only one record if set to true and that would be the published record if exists. (optional) (default to false)
+    published := true // bool | This boolean indicates whether the segment is being applied to the accounts. If unpublished its being actively modified until published (optional) (default to true) # bool | This boolean indicates whether the segment is being applied to the accounts. If unpublished its being actively modified until published (optional) (default to true)
+    limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+    filters := `name eq ""` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw* (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.DataSegmentationAPI.ListDataSegments(context.Background()).XSailPointExperimental(xSailPointExperimental).Enabled(enabled).Unique(unique).Published(published).Limit(limit).Offset(offset).Count(count).Filters(filters).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.DataSegmentationAPI.ListDataSegments(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	//resp, r, err := apiClient.V2025.DataSegmentationAPI.ListDataSegments(context.Background()).XSailPointExperimental(xSailPointExperimental).Enabled(enabled).Unique(unique).Published(published).Limit(limit).Offset(offset).Count(count).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.ListDataSegments``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -523,18 +553,28 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    id := ef38f943-47e9-4562-b5bb-8424a56397d8 # string | The segment ID to modify. # string | The segment ID to modify.
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    requestBody := fmt.Sprintf(`[{op=replace, path=/memberFilter, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}]`) # []map[string]interface{} | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * membership * memberFilter * memberSelection * scopes * enabled 
+    id := `ef38f943-47e9-4562-b5bb-8424a56397d8` // string | The segment ID to modify. # string | The segment ID to modify.
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    requestBody := fmt.Sprintf(`[{op=replace, path=/memberFilter, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}]`) // []map[string]interface{} | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * membership * memberFilter * memberSelection * scopes * enabled 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.DataSegmentationAPI.PatchDataSegment(context.Background(), id).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
+  
+   var requestBody v2025.RequestBody
+   if err := json.Unmarshal(data, &requestBody); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.DataSegmentationAPI.PatchDataSegment(context.Background(), id).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
+	//resp, r, err := apiClient.V2025.DataSegmentationAPI.PatchDataSegment(context.Background(), id).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.PatchDataSegment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -596,18 +636,28 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    requestBody := fmt.Sprintf(``) # []string | A list of segment ids that you wish to publish
-    publishAll := true # bool | This flag decides whether you want to publish all unpublished or a list of specific segment ids (optional) (default to true) # bool | This flag decides whether you want to publish all unpublished or a list of specific segment ids (optional) (default to true)
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    requestBody := fmt.Sprintf(``) // []string | A list of segment ids that you wish to publish
+    publishAll := true // bool | This flag decides whether you want to publish all unpublished or a list of specific segment ids (optional) (default to true) # bool | This flag decides whether you want to publish all unpublished or a list of specific segment ids (optional) (default to true)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V2025.DataSegmentationAPI.PublishDataSegment(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).PublishAll(publishAll).Execute()
+  
+   var requestBody v2025.RequestBody
+   if err := json.Unmarshal(data, &requestBody); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    r, err := apiClient.V2025.DataSegmentationAPI.PublishDataSegment(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
+	//r, err := apiClient.V2025.DataSegmentationAPI.PublishDataSegment(context.Background()).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).PublishAll(publishAll).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `DataSegmentationAPI.PublishDataSegment``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

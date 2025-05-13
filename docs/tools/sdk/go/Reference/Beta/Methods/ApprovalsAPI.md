@@ -63,16 +63,20 @@ import (
 	"context"
 	"fmt"
 	"os"
-  beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    id := 38453251-6be2-5f8f-df93-5ce19e295837 # string | ID of the approval that to be returned. # string | ID of the approval that to be returned.
+    id := `38453251-6be2-5f8f-df93-5ce19e295837` // string | ID of the approval that to be returned. # string | ID of the approval that to be returned.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.Beta.ApprovalsAPI.GetApproval(context.Background(), id).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.Beta.ApprovalsAPI.GetApproval(context.Background(), id).Execute()
+	//resp, r, err := apiClient.Beta.ApprovalsAPI.GetApproval(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.GetApproval``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -124,18 +128,22 @@ import (
 	"context"
 	"fmt"
 	"os"
-  beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    mine := true # bool | Returns the list of approvals for the current caller. (optional) # bool | Returns the list of approvals for the current caller. (optional)
-    requesterId := 17e633e7d57e481569df76323169deb6a # string | Returns the list of approvals for a given requester ID. (optional) # string | Returns the list of approvals for a given requester ID. (optional)
-    filters := filters=status eq PENDING # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq* (optional)
+    mine := true // bool | Returns the list of approvals for the current caller. (optional) # bool | Returns the list of approvals for the current caller. (optional)
+    requesterId := `17e633e7d57e481569df76323169deb6a` // string | Returns the list of approvals for a given requester ID. (optional) # string | Returns the list of approvals for a given requester ID. (optional)
+    filters := `filters=status eq PENDING` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq* (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.Beta.ApprovalsAPI.GetApprovals(context.Background()).Mine(mine).RequesterId(requesterId).Filters(filters).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.Beta.ApprovalsAPI.GetApprovals(context.Background()).Execute()
+	//resp, r, err := apiClient.Beta.ApprovalsAPI.GetApprovals(context.Background()).Mine(mine).RequesterId(requesterId).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ApprovalsAPI.GetApprovals``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Schema Attribute Id | [optional] 
 **System** | Pointer to **bool** | True if this schema attribute is mandatory on all non-employees sources. | [optional] [default to false]
-**Modified** | Pointer to **time.Time** | When the schema attribute was last modified. | [optional] 
-**Created** | Pointer to **time.Time** | When the schema attribute was created. | [optional] 
+**Modified** | Pointer to **SailPointTime** | When the schema attribute was last modified. | [optional] 
+**Created** | Pointer to **SailPointTime** | When the schema attribute was created. | [optional] 
 **Type** | [**NonEmployeeSchemaAttributeType**](non-employee-schema-attribute-type) |  | 
 **Label** | **string** | Label displayed on the UI for this schema attribute. | 
 **TechnicalName** | **string** | The technical name of the attribute. Must be unique per source. | 
@@ -97,20 +97,20 @@ HasSystem returns a boolean if a field has been set.
 
 ### GetModified
 
-`func (o *NonEmployeeSchemaAttribute) GetModified() time.Time`
+`func (o *NonEmployeeSchemaAttribute) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *NonEmployeeSchemaAttribute) GetModifiedOk() (*time.Time, bool)`
+`func (o *NonEmployeeSchemaAttribute) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *NonEmployeeSchemaAttribute) SetModified(v time.Time)`
+`func (o *NonEmployeeSchemaAttribute) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 
@@ -122,20 +122,20 @@ HasModified returns a boolean if a field has been set.
 
 ### GetCreated
 
-`func (o *NonEmployeeSchemaAttribute) GetCreated() time.Time`
+`func (o *NonEmployeeSchemaAttribute) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *NonEmployeeSchemaAttribute) GetCreatedOk() (*time.Time, bool)`
+`func (o *NonEmployeeSchemaAttribute) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *NonEmployeeSchemaAttribute) SetCreated(v time.Time)`
+`func (o *NonEmployeeSchemaAttribute) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 

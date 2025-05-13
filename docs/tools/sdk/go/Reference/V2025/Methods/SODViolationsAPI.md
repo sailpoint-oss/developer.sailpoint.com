@@ -74,12 +74,13 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    identityWithNewAccess := fmt.Sprintf(`{
+    data := []byte(`{
           "identityId" : "2c91808568c529c60168cca6f90c1313",
           "accessRefs" : [ {
             "type" : "ENTITLEMENT",
@@ -90,11 +91,20 @@ func main() {
             "id" : "2c918087682f9a86016839c0509c1ab2",
             "name" : "CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local"
           } ]
-        }`) # IdentityWithNewAccess | 
+        }`) // IdentityWithNewAccess | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.SODViolationsAPI.StartPredictSodViolations(context.Background()).IdentityWithNewAccess(identityWithNewAccess).Execute()
+  
+   var identityWithNewAccess v2025.IdentityWithNewAccess
+   if err := json.Unmarshal(data, &identityWithNewAccess); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.SODViolationsAPI.StartPredictSodViolations(context.Background()).IdentityWithNewAccess(identityWithNewAccess).Execute()
+	//resp, r, err := apiClient.V2025.SODViolationsAPI.StartPredictSodViolations(context.Background()).IdentityWithNewAccess(identityWithNewAccess).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SODViolationsAPI.StartPredictSodViolations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -143,16 +153,26 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    identityWithNewAccess1 := fmt.Sprintf(`{identityId=2c91808568c529c60168cca6f90c1313, accessRefs=[{type=ENTITLEMENT, id=2c918087682f9a86016839c050861ab1, name=CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local}, {type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2, name=CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local}], clientMetadata={additionalProp1=string, additionalProp2=string, additionalProp3=string}}`) # IdentityWithNewAccess1 | 
+    data := []byte(`{identityId=2c91808568c529c60168cca6f90c1313, accessRefs=[{type=ENTITLEMENT, id=2c918087682f9a86016839c050861ab1, name=CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local}, {type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2, name=CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local}], clientMetadata={additionalProp1=string, additionalProp2=string, additionalProp3=string}}`) // IdentityWithNewAccess1 | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.SODViolationsAPI.StartViolationCheck(context.Background()).IdentityWithNewAccess1(identityWithNewAccess1).Execute()
+  
+   var identityWithNewAccess1 v2025.IdentityWithNewAccess1
+   if err := json.Unmarshal(data, &identityWithNewAccess1); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.SODViolationsAPI.StartViolationCheck(context.Background()).IdentityWithNewAccess1(identityWithNewAccess1).Execute()
+	//resp, r, err := apiClient.V2025.SODViolationsAPI.StartViolationCheck(context.Background()).IdentityWithNewAccess1(identityWithNewAccess1).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SODViolationsAPI.StartViolationCheck``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

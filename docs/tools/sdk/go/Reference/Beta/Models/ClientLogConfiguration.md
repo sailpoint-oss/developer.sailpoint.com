@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ClientId** | Pointer to **string** | Log configuration's client ID | [optional] 
 **DurationMinutes** | **int32** | Duration in minutes for log configuration to remain in effect before resetting to defaults | 
-**Expiration** | Pointer to **time.Time** | Expiration date-time of the log configuration request | [optional] 
+**Expiration** | Pointer to **SailPointTime** | Expiration date-time of the log configuration request | [optional] 
 **RootLevel** | [**StandardLevel**](standard-level) |  | 
 **LogLevels** | Pointer to [**map[string]StandardLevel**](standard-level) | Mapping of identifiers to Standard Log Level values | [optional] 
 
@@ -87,20 +87,20 @@ SetDurationMinutes sets DurationMinutes field to given value.
 
 ### GetExpiration
 
-`func (o *ClientLogConfiguration) GetExpiration() time.Time`
+`func (o *ClientLogConfiguration) GetExpiration() SailPointTime`
 
 GetExpiration returns the Expiration field if non-nil, zero value otherwise.
 
 ### GetExpirationOk
 
-`func (o *ClientLogConfiguration) GetExpirationOk() (*time.Time, bool)`
+`func (o *ClientLogConfiguration) GetExpirationOk() (*SailPointTime, bool)`
 
 GetExpirationOk returns a tuple with the Expiration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExpiration
 
-`func (o *ClientLogConfiguration) SetExpiration(v time.Time)`
+`func (o *ClientLogConfiguration) SetExpiration(v SailPointTime)`
 
 SetExpiration sets Expiration field to given value.
 

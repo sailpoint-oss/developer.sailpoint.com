@@ -62,12 +62,13 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    vendorConnectorMapping := fmt.Sprintf(`{
+    data := []byte(`{
           "createdAt" : "2024-03-13T12:56:19.391294Z",
           "deletedAt" : {
             "Valid" : false,
@@ -89,11 +90,20 @@ func main() {
             "Valid" : true,
             "Time" : "2024-03-14T12:56:19.391294Z"
           }
-        }`) # VendorConnectorMapping | 
+        }`) // VendorConnectorMapping | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.VendorConnectorMappingsAPI.CreateVendorConnectorMapping(context.Background()).VendorConnectorMapping(vendorConnectorMapping).Execute()
+  
+   var vendorConnectorMapping v2025.VendorConnectorMapping
+   if err := json.Unmarshal(data, &vendorConnectorMapping); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.VendorConnectorMappingsAPI.CreateVendorConnectorMapping(context.Background()).VendorConnectorMapping(vendorConnectorMapping).Execute()
+	//resp, r, err := apiClient.V2025.VendorConnectorMappingsAPI.CreateVendorConnectorMapping(context.Background()).VendorConnectorMapping(vendorConnectorMapping).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VendorConnectorMappingsAPI.CreateVendorConnectorMapping``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -143,12 +153,13 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    vendorConnectorMapping := fmt.Sprintf(`{
+    data := []byte(`{
           "createdAt" : "2024-03-13T12:56:19.391294Z",
           "deletedAt" : {
             "Valid" : false,
@@ -170,11 +181,20 @@ func main() {
             "Valid" : true,
             "Time" : "2024-03-14T12:56:19.391294Z"
           }
-        }`) # VendorConnectorMapping | 
+        }`) // VendorConnectorMapping | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.VendorConnectorMappingsAPI.DeleteVendorConnectorMapping(context.Background()).VendorConnectorMapping(vendorConnectorMapping).Execute()
+  
+   var vendorConnectorMapping v2025.VendorConnectorMapping
+   if err := json.Unmarshal(data, &vendorConnectorMapping); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.VendorConnectorMappingsAPI.DeleteVendorConnectorMapping(context.Background()).VendorConnectorMapping(vendorConnectorMapping).Execute()
+	//resp, r, err := apiClient.V2025.VendorConnectorMappingsAPI.DeleteVendorConnectorMapping(context.Background()).VendorConnectorMapping(vendorConnectorMapping).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VendorConnectorMappingsAPI.DeleteVendorConnectorMapping``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -220,15 +240,19 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.VendorConnectorMappingsAPI.GetVendorConnectorMappings(context.Background()).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.VendorConnectorMappingsAPI.GetVendorConnectorMappings(context.Background()).Execute()
+	//resp, r, err := apiClient.V2025.VendorConnectorMappingsAPI.GetVendorConnectorMappings(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `VendorConnectorMappingsAPI.GetVendorConnectorMappings``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

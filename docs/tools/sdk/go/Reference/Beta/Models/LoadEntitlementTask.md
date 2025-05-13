@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **UniqueName** | Pointer to **string** | The name of the task | [optional] 
 **Description** | Pointer to **string** | The description of the task | [optional] 
 **Launcher** | Pointer to **string** | The user who initiated the task | [optional] 
-**Created** | Pointer to **time.Time** | The creation date of the task | [optional] 
+**Created** | Pointer to **SailPointTime** | The creation date of the task | [optional] 
 **Returns** | Pointer to [**[]LoadEntitlementTaskReturnsInner**](load-entitlement-task-returns-inner) | Return values from the task | [optional] 
 
 ## Methods
@@ -169,20 +169,20 @@ HasLauncher returns a boolean if a field has been set.
 
 ### GetCreated
 
-`func (o *LoadEntitlementTask) GetCreated() time.Time`
+`func (o *LoadEntitlementTask) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *LoadEntitlementTask) GetCreatedOk() (*time.Time, bool)`
+`func (o *LoadEntitlementTask) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *LoadEntitlementTask) SetCreated(v time.Time)`
+`func (o *LoadEntitlementTask) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 

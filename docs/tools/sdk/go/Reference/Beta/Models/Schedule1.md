@@ -133,20 +133,20 @@ SetHours sets Hours field to given value.
 
 ### GetExpiration
 
-`func (o *Schedule1) GetExpiration() time.Time`
+`func (o *Schedule1) GetExpiration() SailPointTime`
 
 GetExpiration returns the Expiration field if non-nil, zero value otherwise.
 
 ### GetExpirationOk
 
-`func (o *Schedule1) GetExpirationOk() (*time.Time, bool)`
+`func (o *Schedule1) GetExpirationOk() (*SailPointTime, bool)`
 
 GetExpirationOk returns a tuple with the Expiration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExpiration
 
-`func (o *Schedule1) SetExpiration(v time.Time)`
+`func (o *Schedule1) SetExpiration(v SailPointTime)`
 
 SetExpiration sets Expiration field to given value.
 

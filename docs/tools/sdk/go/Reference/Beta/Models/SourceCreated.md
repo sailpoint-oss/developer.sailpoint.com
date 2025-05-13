@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Id** | **string** | Source's unique ID. | 
 **Name** | **string** | Source name. | 
 **Type** | **string** | Connection type. | 
-**Created** | **time.Time** | Date and time when the source was created. | 
+**Created** | **SailPointTime** | Date and time when the source was created. | 
 **Connector** | **string** | Connector type used to connect to the source. | 
 **Actor** | [**SourceCreatedActor**](source-created-actor) |  | 
 
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewSourceCreated
 
-`func NewSourceCreated(id string, name string, type_ string, created time.Time, connector string, actor SourceCreatedActor, ) *SourceCreated`
+`func NewSourceCreated(id string, name string, type_ string, created SailPointTime, connector string, actor SourceCreatedActor, ) *SourceCreated`
 
 NewSourceCreated instantiates a new SourceCreated object
 This constructor will assign default values to properties that have it defined,
@@ -103,20 +103,20 @@ SetType sets Type field to given value.
 
 ### GetCreated
 
-`func (o *SourceCreated) GetCreated() time.Time`
+`func (o *SourceCreated) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *SourceCreated) GetCreatedOk() (*time.Time, bool)`
+`func (o *SourceCreated) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *SourceCreated) SetCreated(v time.Time)`
+`func (o *SourceCreated) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 

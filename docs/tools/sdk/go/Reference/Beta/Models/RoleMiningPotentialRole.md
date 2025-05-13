@@ -32,8 +32,8 @@ Name | Type | Description | Notes
 **Session** | Pointer to [**RoleMiningSessionParametersDto**](role-mining-session-parameters-dto) |  | [optional] 
 **Type** | Pointer to [**RoleMiningRoleType**](role-mining-role-type) |  | [optional] 
 **Id** | Pointer to **string** | Id of the potential role | [optional] 
-**CreatedDate** | Pointer to **time.Time** | The date-time when this potential role was created. | [optional] 
-**ModifiedDate** | Pointer to **time.Time** | The date-time when this potential role was modified. | [optional] 
+**CreatedDate** | Pointer to **SailPointTime** | The date-time when this potential role was created. | [optional] 
+**ModifiedDate** | Pointer to **SailPointTime** | The date-time when this potential role was modified. | [optional] 
 
 ## Methods
 
@@ -521,20 +521,20 @@ HasId returns a boolean if a field has been set.
 
 ### GetCreatedDate
 
-`func (o *RoleMiningPotentialRole) GetCreatedDate() time.Time`
+`func (o *RoleMiningPotentialRole) GetCreatedDate() SailPointTime`
 
 GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
 
 ### GetCreatedDateOk
 
-`func (o *RoleMiningPotentialRole) GetCreatedDateOk() (*time.Time, bool)`
+`func (o *RoleMiningPotentialRole) GetCreatedDateOk() (*SailPointTime, bool)`
 
 GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedDate
 
-`func (o *RoleMiningPotentialRole) SetCreatedDate(v time.Time)`
+`func (o *RoleMiningPotentialRole) SetCreatedDate(v SailPointTime)`
 
 SetCreatedDate sets CreatedDate field to given value.
 
@@ -546,20 +546,20 @@ HasCreatedDate returns a boolean if a field has been set.
 
 ### GetModifiedDate
 
-`func (o *RoleMiningPotentialRole) GetModifiedDate() time.Time`
+`func (o *RoleMiningPotentialRole) GetModifiedDate() SailPointTime`
 
 GetModifiedDate returns the ModifiedDate field if non-nil, zero value otherwise.
 
 ### GetModifiedDateOk
 
-`func (o *RoleMiningPotentialRole) GetModifiedDateOk() (*time.Time, bool)`
+`func (o *RoleMiningPotentialRole) GetModifiedDateOk() (*SailPointTime, bool)`
 
 GetModifiedDateOk returns a tuple with the ModifiedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModifiedDate
 
-`func (o *RoleMiningPotentialRole) SetModifiedDate(v time.Time)`
+`func (o *RoleMiningPotentialRole) SetModifiedDate(v SailPointTime)`
 
 SetModifiedDate sets ModifiedDate field to given value.
 

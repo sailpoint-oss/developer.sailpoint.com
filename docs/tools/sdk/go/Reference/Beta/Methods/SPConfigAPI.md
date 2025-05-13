@@ -21,7 +21,7 @@ Method | HTTP request | Description
 [**get-sp-config-import**](#get-sp-config-import) | **Get** `/sp-config/import/{id}/download` | Download import job result
 [**get-sp-config-import-status**](#get-sp-config-import-status) | **Get** `/sp-config/import/{id}` | Get import job status
 [**import-sp-config**](#import-sp-config) | **Post** `/sp-config/import` | Initiates configuration objects import job
-[**list-sp-config-objects**](#list-sp-config-objects) | **Get** `/sp-config/config-objects` | Get config object details
+[**list-sp-config-objects**](#list-sp-config-objects) | **Get** `/sp-config/config-objects` | List Config Objects
 
 
 ## export-sp-config
@@ -62,18 +62,28 @@ import (
 	"context"
 	"fmt"
 	"os"
-  beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    exportPayload := fmt.Sprintf(`{
+    data := []byte(`{
           "description" : "Export Job 1 Test"
-        }`) # ExportPayload | Export options control what will be included in the export.
+        }`) // ExportPayload | Export options control what will be included in the export.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.Beta.SPConfigAPI.ExportSpConfig(context.Background()).ExportPayload(exportPayload).Execute()
+  
+   var exportPayload beta.ExportPayload
+   if err := json.Unmarshal(data, &exportPayload); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.Beta.SPConfigAPI.ExportSpConfig(context.Background()).ExportPayload(exportPayload).Execute()
+	//resp, r, err := apiClient.Beta.SPConfigAPI.ExportSpConfig(context.Background()).ExportPayload(exportPayload).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.ExportSpConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -128,16 +138,20 @@ import (
 	"context"
 	"fmt"
 	"os"
-  beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    id := ef38f94347e94562b5bb8424a56397d8 # string | The ID of the export job whose results will be downloaded. # string | The ID of the export job whose results will be downloaded.
+    id := `ef38f94347e94562b5bb8424a56397d8` // string | The ID of the export job whose results will be downloaded. # string | The ID of the export job whose results will be downloaded.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.Beta.SPConfigAPI.GetSpConfigExport(context.Background(), id).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.Beta.SPConfigAPI.GetSpConfigExport(context.Background(), id).Execute()
+	//resp, r, err := apiClient.Beta.SPConfigAPI.GetSpConfigExport(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.GetSpConfigExport``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -192,16 +206,20 @@ import (
 	"context"
 	"fmt"
 	"os"
-  beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    id := ef38f94347e94562b5bb8424a56397d8 # string | The ID of the export job whose status will be returned. # string | The ID of the export job whose status will be returned.
+    id := `ef38f94347e94562b5bb8424a56397d8` // string | The ID of the export job whose status will be returned. # string | The ID of the export job whose status will be returned.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.Beta.SPConfigAPI.GetSpConfigExportStatus(context.Background(), id).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.Beta.SPConfigAPI.GetSpConfigExportStatus(context.Background(), id).Execute()
+	//resp, r, err := apiClient.Beta.SPConfigAPI.GetSpConfigExportStatus(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.GetSpConfigExportStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -256,16 +274,20 @@ import (
 	"context"
 	"fmt"
 	"os"
-  beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    id := ef38f94347e94562b5bb8424a56397d8 # string | The ID of the import job whose results will be downloaded. # string | The ID of the import job whose results will be downloaded.
+    id := `ef38f94347e94562b5bb8424a56397d8` // string | The ID of the import job whose results will be downloaded. # string | The ID of the import job whose results will be downloaded.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.Beta.SPConfigAPI.GetSpConfigImport(context.Background(), id).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.Beta.SPConfigAPI.GetSpConfigImport(context.Background(), id).Execute()
+	//resp, r, err := apiClient.Beta.SPConfigAPI.GetSpConfigImport(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.GetSpConfigImport``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -319,16 +341,20 @@ import (
 	"context"
 	"fmt"
 	"os"
-  beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    id := ef38f94347e94562b5bb8424a56397d8 # string | The ID of the import job whose status will be returned. # string | The ID of the import job whose status will be returned.
+    id := `ef38f94347e94562b5bb8424a56397d8` // string | The ID of the import job whose status will be returned. # string | The ID of the import job whose status will be returned.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.Beta.SPConfigAPI.GetSpConfigImportStatus(context.Background(), id).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.Beta.SPConfigAPI.GetSpConfigImportStatus(context.Background(), id).Execute()
+	//resp, r, err := apiClient.Beta.SPConfigAPI.GetSpConfigImportStatus(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.GetSpConfigImportStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -389,18 +415,22 @@ import (
 	"context"
 	"fmt"
 	"os"
-  beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    data := BINARY_DATA_HERE # *os.File | JSON file containing the objects to be imported. # *os.File | JSON file containing the objects to be imported.
-    preview := true # bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to false) # bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to false)
-    options := fmt.Sprintf(``) # ImportOptions |  (optional)
+    data := BINARY_DATA_HERE // *os.File | JSON file containing the objects to be imported. # *os.File | JSON file containing the objects to be imported.
+    preview := true // bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to false) # bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to false)
+    data := []byte(``) // ImportOptions |  (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.Beta.SPConfigAPI.ImportSpConfig(context.Background()).Data(data).Preview(preview).Options(options).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.Beta.SPConfigAPI.ImportSpConfig(context.Background()).Data(data).Execute()
+	//resp, r, err := apiClient.Beta.SPConfigAPI.ImportSpConfig(context.Background()).Data(data).Preview(preview).Options(options).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.ImportSpConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -413,8 +443,8 @@ func main() {
 [[Back to top]](#)
 
 ## list-sp-config-objects
-Get config object details
-This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain "importUrl" and "exportUrl" are available for export/import.
+List Config Objects
+Get a list of object configurations that the tenant export/import service knows.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-sp-config-objects)
 
@@ -445,15 +475,19 @@ import (
 	"context"
 	"fmt"
 	"os"
-  beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.Beta.SPConfigAPI.ListSpConfigObjects(context.Background()).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.Beta.SPConfigAPI.ListSpConfigObjects(context.Background()).Execute()
+	//resp, r, err := apiClient.Beta.SPConfigAPI.ListSpConfigObjects(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.ListSpConfigObjects``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

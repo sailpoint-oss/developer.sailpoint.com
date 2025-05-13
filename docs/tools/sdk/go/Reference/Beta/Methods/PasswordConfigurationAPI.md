@@ -65,21 +65,31 @@ import (
 	"context"
 	"fmt"
 	"os"
-  beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    passwordOrgConfig := fmt.Sprintf(`{
+    data := []byte(`{
           "digitTokenLength" : 9,
           "digitTokenEnabled" : true,
           "digitTokenDurationMinutes" : 10,
           "customInstructionsEnabled" : true
-        }`) # PasswordOrgConfig | 
+        }`) // PasswordOrgConfig | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.Beta.PasswordConfigurationAPI.CreatePasswordOrgConfig(context.Background()).PasswordOrgConfig(passwordOrgConfig).Execute()
+  
+   var passwordOrgConfig beta.PasswordOrgConfig
+   if err := json.Unmarshal(data, &passwordOrgConfig); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.Beta.PasswordConfigurationAPI.CreatePasswordOrgConfig(context.Background()).PasswordOrgConfig(passwordOrgConfig).Execute()
+	//resp, r, err := apiClient.Beta.PasswordConfigurationAPI.CreatePasswordOrgConfig(context.Background()).PasswordOrgConfig(passwordOrgConfig).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PasswordConfigurationAPI.CreatePasswordOrgConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -124,15 +134,19 @@ import (
 	"context"
 	"fmt"
 	"os"
-  beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.Beta.PasswordConfigurationAPI.GetPasswordOrgConfig(context.Background()).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.Beta.PasswordConfigurationAPI.GetPasswordOrgConfig(context.Background()).Execute()
+	//resp, r, err := apiClient.Beta.PasswordConfigurationAPI.GetPasswordOrgConfig(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PasswordConfigurationAPI.GetPasswordOrgConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -183,21 +197,31 @@ import (
 	"context"
 	"fmt"
 	"os"
-  beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    passwordOrgConfig := fmt.Sprintf(`{
+    data := []byte(`{
           "digitTokenLength" : 9,
           "digitTokenEnabled" : true,
           "digitTokenDurationMinutes" : 10,
           "customInstructionsEnabled" : true
-        }`) # PasswordOrgConfig | 
+        }`) // PasswordOrgConfig | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.Beta.PasswordConfigurationAPI.PutPasswordOrgConfig(context.Background()).PasswordOrgConfig(passwordOrgConfig).Execute()
+  
+   var passwordOrgConfig beta.PasswordOrgConfig
+   if err := json.Unmarshal(data, &passwordOrgConfig); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.Beta.PasswordConfigurationAPI.PutPasswordOrgConfig(context.Background()).PasswordOrgConfig(passwordOrgConfig).Execute()
+	//resp, r, err := apiClient.Beta.PasswordConfigurationAPI.PutPasswordOrgConfig(context.Background()).PasswordOrgConfig(passwordOrgConfig).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `PasswordConfigurationAPI.PutPasswordOrgConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

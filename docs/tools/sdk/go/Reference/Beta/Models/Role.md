@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | The id of the Role. This field must be left null when creating an Role, otherwise a 400 Bad Request error will result. | [optional] 
 **Name** | **string** | The human-readable display name of the Role | 
-**Created** | Pointer to **time.Time** | Date the Role was created | [optional] [readonly] 
-**Modified** | Pointer to **time.Time** | Date the Role was last modified. | [optional] [readonly] 
+**Created** | Pointer to **SailPointTime** | Date the Role was created | [optional] [readonly] 
+**Modified** | Pointer to **SailPointTime** | Date the Role was last modified. | [optional] [readonly] 
 **Description** | Pointer to **NullableString** | A human-readable description of the Role | [optional] 
 **Owner** | [**OwnerReference**](owner-reference) |  | 
 **AccessProfiles** | Pointer to [**[]AccessProfileRef**](access-profile-ref) |  | [optional] 
@@ -100,20 +100,20 @@ SetName sets Name field to given value.
 
 ### GetCreated
 
-`func (o *Role) GetCreated() time.Time`
+`func (o *Role) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *Role) GetCreatedOk() (*time.Time, bool)`
+`func (o *Role) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *Role) SetCreated(v time.Time)`
+`func (o *Role) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
@@ -125,20 +125,20 @@ HasCreated returns a boolean if a field has been set.
 
 ### GetModified
 
-`func (o *Role) GetModified() time.Time`
+`func (o *Role) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *Role) GetModifiedOk() (*time.Time, bool)`
+`func (o *Role) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *Role) SetModified(v time.Time)`
+`func (o *Role) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

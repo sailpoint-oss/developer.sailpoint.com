@@ -18,9 +18,9 @@ Name | Type | Description | Notes
 **Id** | **string** | Campaign's unique ID for the campaign. | 
 **Name** | **string** | Campaign's unique ID. | 
 **Description** | **string** | Campaign's extended description. | 
-**Created** | **time.Time** | Date and time when the campaign was created. | 
+**Created** | **SailPointTime** | Date and time when the campaign was created. | 
 **Modified** | Pointer to **NullableTime** | Date and time when the campaign was last modified. | [optional] 
-**Deadline** | **time.Time** | Date and time when the campaign is due. | 
+**Deadline** | **SailPointTime** | Date and time when the campaign is due. | 
 **Type** | **map[string]interface{}** | Campaign's type. | 
 **CampaignOwner** | [**CampaignActivatedCampaignCampaignOwner**](campaign-activated-campaign-campaign-owner) |  | 
 **Status** | **map[string]interface{}** | Campaign's current status. | 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewCampaignEndedCampaign
 
-`func NewCampaignEndedCampaign(id string, name string, description string, created time.Time, deadline time.Time, type_ map[string]interface{}, campaignOwner CampaignActivatedCampaignCampaignOwner, status map[string]interface{}, ) *CampaignEndedCampaign`
+`func NewCampaignEndedCampaign(id string, name string, description string, created SailPointTime, deadline SailPointTime, type_ map[string]interface{}, campaignOwner CampaignActivatedCampaignCampaignOwner, status map[string]interface{}, ) *CampaignEndedCampaign`
 
 NewCampaignEndedCampaign instantiates a new CampaignEndedCampaign object
 This constructor will assign default values to properties that have it defined,
@@ -106,40 +106,40 @@ SetDescription sets Description field to given value.
 
 ### GetCreated
 
-`func (o *CampaignEndedCampaign) GetCreated() time.Time`
+`func (o *CampaignEndedCampaign) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *CampaignEndedCampaign) GetCreatedOk() (*time.Time, bool)`
+`func (o *CampaignEndedCampaign) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *CampaignEndedCampaign) SetCreated(v time.Time)`
+`func (o *CampaignEndedCampaign) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
 
 ### GetModified
 
-`func (o *CampaignEndedCampaign) GetModified() time.Time`
+`func (o *CampaignEndedCampaign) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *CampaignEndedCampaign) GetModifiedOk() (*time.Time, bool)`
+`func (o *CampaignEndedCampaign) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *CampaignEndedCampaign) SetModified(v time.Time)`
+`func (o *CampaignEndedCampaign) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 
@@ -161,20 +161,20 @@ HasModified returns a boolean if a field has been set.
 UnsetModified ensures that no value is present for Modified, not even an explicit nil
 ### GetDeadline
 
-`func (o *CampaignEndedCampaign) GetDeadline() time.Time`
+`func (o *CampaignEndedCampaign) GetDeadline() SailPointTime`
 
 GetDeadline returns the Deadline field if non-nil, zero value otherwise.
 
 ### GetDeadlineOk
 
-`func (o *CampaignEndedCampaign) GetDeadlineOk() (*time.Time, bool)`
+`func (o *CampaignEndedCampaign) GetDeadlineOk() (*SailPointTime, bool)`
 
 GetDeadlineOk returns a tuple with the Deadline field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeadline
 
-`func (o *CampaignEndedCampaign) SetDeadline(v time.Time)`
+`func (o *CampaignEndedCampaign) SetDeadline(v SailPointTime)`
 
 SetDeadline sets Deadline field to given value.
 

@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'VendorConnectorMappingDeletedAt', 'Be
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Time** | Pointer to **time.Time** | The timestamp when the mapping was deleted, represented in ISO 8601 format, if applicable. | [optional] 
+**Time** | Pointer to **SailPointTime** | The timestamp when the mapping was deleted, represented in ISO 8601 format, if applicable. | [optional] 
 **Valid** | Pointer to **bool** | A flag indicating if the 'Time' field is set and valid, i.e., if the mapping has been deleted. | [optional] [default to false]
 
 ## Methods
@@ -39,20 +39,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetTime
 
-`func (o *VendorConnectorMappingDeletedAt) GetTime() time.Time`
+`func (o *VendorConnectorMappingDeletedAt) GetTime() SailPointTime`
 
 GetTime returns the Time field if non-nil, zero value otherwise.
 
 ### GetTimeOk
 
-`func (o *VendorConnectorMappingDeletedAt) GetTimeOk() (*time.Time, bool)`
+`func (o *VendorConnectorMappingDeletedAt) GetTimeOk() (*SailPointTime, bool)`
 
 GetTimeOk returns a tuple with the Time field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTime
 
-`func (o *VendorConnectorMappingDeletedAt) SetTime(v time.Time)`
+`func (o *VendorConnectorMappingDeletedAt) SetTime(v SailPointTime)`
 
 SetTime sets Time field to given value.
 

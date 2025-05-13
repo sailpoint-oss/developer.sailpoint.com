@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'Revocability', 'Revocability']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApprovalSchemes** | Pointer to [**[]AccessProfileApprovalScheme**](access-profile-approval-scheme) | List describing the steps in approving the revocation request | [optional] 
+**ApprovalSchemes** | Pointer to [**[]AccessProfileApprovalScheme**](access-profile-approval-scheme) | List describing the steps involved in approving the revocation request. | [optional] 
 
 ## Methods
 

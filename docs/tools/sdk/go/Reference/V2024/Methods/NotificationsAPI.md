@@ -81,19 +81,29 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    domainAddress := fmt.Sprintf(`{
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    data := []byte(`{
           "domain" : "sailpoint.com"
-        }`) # DomainAddress | 
+        }`) // DomainAddress | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.NotificationsAPI.CreateDomainDkim(context.Background()).XSailPointExperimental(xSailPointExperimental).DomainAddress(domainAddress).Execute()
+  
+   var domainAddress v2024.DomainAddress
+   if err := json.Unmarshal(data, &domainAddress); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.NotificationsAPI.CreateDomainDkim(context.Background()).XSailPointExperimental(xSailPointExperimental).DomainAddress(domainAddress).Execute()
+	//resp, r, err := apiClient.V2024.NotificationsAPI.CreateDomainDkim(context.Background()).XSailPointExperimental(xSailPointExperimental).DomainAddress(domainAddress).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.CreateDomainDkim``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -156,13 +166,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    templateDto := fmt.Sprintf(`{
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    data := []byte(`{
           "slackTemplate" : "slackTemplate",
           "footer" : "footer",
           "teamsTemplate" : "teamsTemplate",
@@ -179,11 +190,20 @@ func main() {
           "from" : "$__global.emailFromAddress",
           "id" : "c17bea3a-574d-453c-9e04-4365fbf5af0b",
           "key" : "cloud_manual_work_item_summary"
-        }`) # TemplateDto | 
+        }`) // TemplateDto | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.NotificationsAPI.CreateNotificationTemplate(context.Background()).XSailPointExperimental(xSailPointExperimental).TemplateDto(templateDto).Execute()
+  
+   var templateDto v2024.TemplateDto
+   if err := json.Unmarshal(data, &templateDto); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.NotificationsAPI.CreateNotificationTemplate(context.Background()).XSailPointExperimental(xSailPointExperimental).TemplateDto(templateDto).Execute()
+	//resp, r, err := apiClient.V2024.NotificationsAPI.CreateNotificationTemplate(context.Background()).XSailPointExperimental(xSailPointExperimental).TemplateDto(templateDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.CreateNotificationTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -244,22 +264,32 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    emailStatusDto := fmt.Sprintf(`{
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    data := []byte(`{
           "isVerifiedByDomain" : false,
           "verificationStatus" : "PENDING",
           "id" : "id",
           "email" : "sender@example.com"
-        }`) # EmailStatusDto | 
+        }`) // EmailStatusDto | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.NotificationsAPI.CreateVerifiedFromAddress(context.Background()).XSailPointExperimental(xSailPointExperimental).EmailStatusDto(emailStatusDto).Execute()
+  
+   var emailStatusDto v2024.EmailStatusDto
+   if err := json.Unmarshal(data, &emailStatusDto); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.NotificationsAPI.CreateVerifiedFromAddress(context.Background()).XSailPointExperimental(xSailPointExperimental).EmailStatusDto(emailStatusDto).Execute()
+	//resp, r, err := apiClient.V2024.NotificationsAPI.CreateVerifiedFromAddress(context.Background()).XSailPointExperimental(xSailPointExperimental).EmailStatusDto(emailStatusDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.CreateVerifiedFromAddress``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -320,17 +350,27 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    templateBulkDeleteDto := fmt.Sprintf(``) # []TemplateBulkDeleteDto | 
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    templateBulkDeleteDto := fmt.Sprintf(``) // []TemplateBulkDeleteDto | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V2024.NotificationsAPI.DeleteNotificationTemplatesInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).TemplateBulkDeleteDto(templateBulkDeleteDto).Execute()
+  
+   var templateBulkDeleteDto v2024.TemplateBulkDeleteDto
+   if err := json.Unmarshal(data, &templateBulkDeleteDto); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    r, err := apiClient.V2024.NotificationsAPI.DeleteNotificationTemplatesInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).TemplateBulkDeleteDto(templateBulkDeleteDto).Execute()
+	//r, err := apiClient.V2024.NotificationsAPI.DeleteNotificationTemplatesInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).TemplateBulkDeleteDto(templateBulkDeleteDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.DeleteNotificationTemplatesInBulk``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -393,17 +433,21 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    id := id_example # string |  # string | 
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    id := `id_example` // string |  # string | 
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V2024.NotificationsAPI.DeleteVerifiedFromAddress(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    r, err := apiClient.V2024.NotificationsAPI.DeleteVerifiedFromAddress(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	//r, err := apiClient.V2024.NotificationsAPI.DeleteVerifiedFromAddress(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.DeleteVerifiedFromAddress``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -461,16 +505,20 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.NotificationsAPI.GetDkimAttributes(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.NotificationsAPI.GetDkimAttributes(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	//resp, r, err := apiClient.V2024.NotificationsAPI.GetDkimAttributes(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.GetDkimAttributes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -531,17 +579,21 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    id := bobsmith@sailpoint.com # string | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status # string | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    id := `bobsmith@sailpoint.com` // string | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status # string | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.NotificationsAPI.GetMailFromAttributes(context.Background()).Id(id).XSailPointExperimental(xSailPointExperimental).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.NotificationsAPI.GetMailFromAttributes(context.Background()).Id(id).XSailPointExperimental(xSailPointExperimental).Execute()
+	//resp, r, err := apiClient.V2024.NotificationsAPI.GetMailFromAttributes(context.Background()).Id(id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.GetMailFromAttributes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -606,17 +658,21 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    id := c17bea3a-574d-453c-9e04-4365fbf5af0b # string | Id of the Notification Template # string | Id of the Notification Template
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    id := `c17bea3a-574d-453c-9e04-4365fbf5af0b` // string | Id of the Notification Template # string | Id of the Notification Template
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.NotificationsAPI.GetNotificationTemplate(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.NotificationsAPI.GetNotificationTemplate(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	//resp, r, err := apiClient.V2024.NotificationsAPI.GetNotificationTemplate(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.GetNotificationTemplate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -677,16 +733,20 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.NotificationsAPI.GetNotificationsTemplateContext(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.NotificationsAPI.GetNotificationsTemplateContext(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	//resp, r, err := apiClient.V2024.NotificationsAPI.GetNotificationsTemplateContext(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.GetNotificationsTemplateContext``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -751,21 +811,25 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-    filters := email eq "john.doe@company.com" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, sw* (optional)
-    sorters := email # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** (optional)
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+    filters := `email eq "john.doe@company.com"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, sw* (optional)
+    sorters := `email` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.NotificationsAPI.ListFromAddresses(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.NotificationsAPI.ListFromAddresses(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	//resp, r, err := apiClient.V2024.NotificationsAPI.ListFromAddresses(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.ListFromAddresses``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -825,16 +889,20 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.NotificationsAPI.ListNotificationPreferences(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.NotificationsAPI.ListNotificationPreferences(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	//resp, r, err := apiClient.V2024.NotificationsAPI.ListNotificationPreferences(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.ListNotificationPreferences``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -897,19 +965,23 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    filters := key eq "cloud_manual_work_item_summary" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    filters := `key eq "cloud_manual_work_item_summary"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.NotificationsAPI.ListNotificationTemplateDefaults(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Filters(filters).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.NotificationsAPI.ListNotificationTemplateDefaults(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	//resp, r, err := apiClient.V2024.NotificationsAPI.ListNotificationTemplateDefaults(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.ListNotificationTemplateDefaults``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -972,19 +1044,23 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    limit := 250 # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset := 0 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    filters := medium eq "EMAIL" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    filters := `medium eq "EMAIL"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.NotificationsAPI.ListNotificationTemplates(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Filters(filters).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.NotificationsAPI.ListNotificationTemplates(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	//resp, r, err := apiClient.V2024.NotificationsAPI.ListNotificationTemplates(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.ListNotificationTemplates``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1045,20 +1121,30 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    mailFromAttributesDto := fmt.Sprintf(`{
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    data := []byte(`{
           "identity" : "BobSmith@sailpoint.com",
           "mailFromDomain" : "example.sailpoint.com"
-        }`) # MailFromAttributesDto | 
+        }`) // MailFromAttributesDto | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.NotificationsAPI.PutMailFromAttributes(context.Background()).XSailPointExperimental(xSailPointExperimental).MailFromAttributesDto(mailFromAttributesDto).Execute()
+  
+   var mailFromAttributesDto v2024.MailFromAttributesDto
+   if err := json.Unmarshal(data, &mailFromAttributesDto); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.NotificationsAPI.PutMailFromAttributes(context.Background()).XSailPointExperimental(xSailPointExperimental).MailFromAttributesDto(mailFromAttributesDto).Execute()
+	//resp, r, err := apiClient.V2024.NotificationsAPI.PutMailFromAttributes(context.Background()).XSailPointExperimental(xSailPointExperimental).MailFromAttributesDto(mailFromAttributesDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.PutMailFromAttributes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1119,21 +1205,31 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    sendTestNotificationRequestDto := fmt.Sprintf(`{
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    data := []byte(`{
           "context" : "{}",
           "medium" : "EMAIL",
           "key" : "cloud_manual_work_item_summary"
-        }`) # SendTestNotificationRequestDto | 
+        }`) // SendTestNotificationRequestDto | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V2024.NotificationsAPI.SendTestNotification(context.Background()).XSailPointExperimental(xSailPointExperimental).SendTestNotificationRequestDto(sendTestNotificationRequestDto).Execute()
+  
+   var sendTestNotificationRequestDto v2024.SendTestNotificationRequestDto
+   if err := json.Unmarshal(data, &sendTestNotificationRequestDto); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    r, err := apiClient.V2024.NotificationsAPI.SendTestNotification(context.Background()).XSailPointExperimental(xSailPointExperimental).SendTestNotificationRequestDto(sendTestNotificationRequestDto).Execute()
+	//r, err := apiClient.V2024.NotificationsAPI.SendTestNotification(context.Background()).XSailPointExperimental(xSailPointExperimental).SendTestNotificationRequestDto(sendTestNotificationRequestDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `NotificationsAPI.SendTestNotification``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

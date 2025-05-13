@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Comment** | Pointer to **NullableString** | Comment content. | [optional] 
 **Author** | Pointer to [**CommentDtoAuthor**](comment-dto-author) |  | [optional] 
-**Created** | Pointer to **time.Time** | Date and time comment was created. | [optional] 
+**Created** | Pointer to **SailPointTime** | Date and time comment was created. | [optional] 
 
 ## Methods
 
@@ -100,20 +100,20 @@ HasAuthor returns a boolean if a field has been set.
 
 ### GetCreated
 
-`func (o *CommentDto) GetCreated() time.Time`
+`func (o *CommentDto) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *CommentDto) GetCreatedOk() (*time.Time, bool)`
+`func (o *CommentDto) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *CommentDto) SetCreated(v time.Time)`
+`func (o *CommentDto) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 

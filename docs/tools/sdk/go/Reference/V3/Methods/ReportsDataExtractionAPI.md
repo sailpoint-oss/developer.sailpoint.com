@@ -65,16 +65,20 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    id := a1ed223247144cc29d23c632624b4767 # string | ID of the running Report to cancel # string | ID of the running Report to cancel
+    id := `a1ed223247144cc29d23c632624b4767` // string | ID of the running Report to cancel # string | ID of the running Report to cancel
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V3.ReportsDataExtractionAPI.CancelReport(context.Background(), id).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    r, err := apiClient.V3.ReportsDataExtractionAPI.CancelReport(context.Background(), id).Execute()
+	//r, err := apiClient.V3.ReportsDataExtractionAPI.CancelReport(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ReportsDataExtractionAPI.CancelReport``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -128,19 +132,23 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    taskResultId := ef38f94347e94562b5bb8424a56397d8 # string | Unique identifier of the task result which handled report # string | Unique identifier of the task result which handled report
-    fileFormat := csv # string | Output format of the requested report file # string | Output format of the requested report file
-    name := Identities Details Report # string | preferred Report file name, by default will be used report name from task result. (optional) # string | preferred Report file name, by default will be used report name from task result. (optional)
-    auditable := true # bool | Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId. (optional) (default to false) # bool | Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId. (optional) (default to false)
+    taskResultId := `ef38f94347e94562b5bb8424a56397d8` // string | Unique identifier of the task result which handled report # string | Unique identifier of the task result which handled report
+    fileFormat := `csv` // string | Output format of the requested report file # string | Output format of the requested report file
+    name := `Identities Details Report` // string | preferred Report file name, by default will be used report name from task result. (optional) # string | preferred Report file name, by default will be used report name from task result. (optional)
+    auditable := true // bool | Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId. (optional) (default to false) # bool | Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId. (optional) (default to false)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ReportsDataExtractionAPI.GetReport(context.Background(), taskResultId).FileFormat(fileFormat).Name(name).Auditable(auditable).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V3.ReportsDataExtractionAPI.GetReport(context.Background(), taskResultId).FileFormat(fileFormat).Execute()
+	//resp, r, err := apiClient.V3.ReportsDataExtractionAPI.GetReport(context.Background(), taskResultId).FileFormat(fileFormat).Name(name).Auditable(auditable).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ReportsDataExtractionAPI.GetReport``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -194,17 +202,21 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    taskResultId := ef38f94347e94562b5bb8424a56397d8 # string | Unique identifier of the task result which handled report # string | Unique identifier of the task result which handled report
-    completed := true # bool | state of task result to apply ordering when results are fetching from the DB (optional) (default to false) # bool | state of task result to apply ordering when results are fetching from the DB (optional) (default to false)
+    taskResultId := `ef38f94347e94562b5bb8424a56397d8` // string | Unique identifier of the task result which handled report # string | Unique identifier of the task result which handled report
+    completed := true // bool | state of task result to apply ordering when results are fetching from the DB (optional) (default to false) # bool | state of task result to apply ordering when results are fetching from the DB (optional) (default to false)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ReportsDataExtractionAPI.GetReportResult(context.Background(), taskResultId).Completed(completed).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V3.ReportsDataExtractionAPI.GetReportResult(context.Background(), taskResultId).Execute()
+	//resp, r, err := apiClient.V3.ReportsDataExtractionAPI.GetReportResult(context.Background(), taskResultId).Completed(completed).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ReportsDataExtractionAPI.GetReportResult``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -253,22 +265,32 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    reportDetails := fmt.Sprintf(`{
+    data := []byte(`{
           "reportType" : "ACCOUNTS",
           "arguments" : {
             "application" : "2c9180897e7742b2017e781782f705b9",
             "sourceName" : "Active Directory"
           }
-        }`) # ReportDetails | 
+        }`) // ReportDetails | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ReportsDataExtractionAPI.StartReport(context.Background()).ReportDetails(reportDetails).Execute()
+  
+   var reportDetails v3.ReportDetails
+   if err := json.Unmarshal(data, &reportDetails); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V3.ReportsDataExtractionAPI.StartReport(context.Background()).ReportDetails(reportDetails).Execute()
+	//resp, r, err := apiClient.V3.ReportsDataExtractionAPI.StartReport(context.Background()).ReportDetails(reportDetails).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ReportsDataExtractionAPI.StartReport``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

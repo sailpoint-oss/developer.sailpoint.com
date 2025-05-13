@@ -19,8 +19,8 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** | Lifecycle state name. | [optional] [readonly] 
 **TechnicalName** | Pointer to **string** | Lifecycle state technical name. This is for internal use. | [optional] [readonly] 
 **Description** | Pointer to **string** | Lifecycle state description. | [optional] 
-**Created** | Pointer to **time.Time** | Lifecycle state created date. | [optional] [readonly] 
-**Modified** | Pointer to **time.Time** | Lifecycle state modified date. | [optional] [readonly] 
+**Created** | Pointer to **SailPointTime** | Lifecycle state created date. | [optional] [readonly] 
+**Modified** | Pointer to **SailPointTime** | Lifecycle state modified date. | [optional] [readonly] 
 **Enabled** | Pointer to **bool** | Indicates whether the lifecycle state is enabled or disabled. | [optional] [default to false]
 **IdentityCount** | Pointer to **int32** | Number of identities that have the lifecycle state. | [optional] [readonly] 
 **EmailNotificationOption** | Pointer to [**EmailNotificationOption**](email-notification-option) |  | [optional] 
@@ -148,20 +148,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetCreated
 
-`func (o *LifecycleState) GetCreated() time.Time`
+`func (o *LifecycleState) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *LifecycleState) GetCreatedOk() (*time.Time, bool)`
+`func (o *LifecycleState) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *LifecycleState) SetCreated(v time.Time)`
+`func (o *LifecycleState) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
@@ -173,20 +173,20 @@ HasCreated returns a boolean if a field has been set.
 
 ### GetModified
 
-`func (o *LifecycleState) GetModified() time.Time`
+`func (o *LifecycleState) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *LifecycleState) GetModifiedOk() (*time.Time, bool)`
+`func (o *LifecycleState) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *LifecycleState) SetModified(v time.Time)`
+`func (o *LifecycleState) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

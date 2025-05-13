@@ -15,9 +15,9 @@ tags: ['SDK', 'Software Development Kit', 'AccessProfileSourceRef', 'BetaAccessP
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** | The ID of the Source with with which the Access Profile is associated | [optional] 
-**Type** | Pointer to **string** | The type of the Source, will always be SOURCE | [optional] 
-**Name** | Pointer to **string** | The display name of the associated Source | [optional] 
+**Id** | Pointer to **string** | ID of the source the access profile is associated with. | [optional] 
+**Type** | Pointer to **string** | Source's DTO type. | [optional] 
+**Name** | Pointer to **string** | Source name. | [optional] 
 
 ## Methods
 

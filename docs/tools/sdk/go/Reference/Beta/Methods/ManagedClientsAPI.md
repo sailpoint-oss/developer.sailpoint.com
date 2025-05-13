@@ -66,17 +66,21 @@ import (
 	"context"
 	"fmt"
 	"os"
-  beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    id := aClientId # string | ID of the Managed Client Status to get # string | ID of the Managed Client Status to get
-    type_ :=  # ManagedClientType | Type of the Managed Client Status to get # ManagedClientType | Type of the Managed Client Status to get
+    id := `aClientId` // string | ID of the Managed Client Status to get # string | ID of the Managed Client Status to get
+    type_ :=  // ManagedClientType | Type of the Managed Client Status to get # ManagedClientType | Type of the Managed Client Status to get
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.Beta.ManagedClientsAPI.GetManagedClientStatus(context.Background(), id).Type_(type_).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.Beta.ManagedClientsAPI.GetManagedClientStatus(context.Background(), id).Type_(type_).Execute()
+	//resp, r, err := apiClient.Beta.ManagedClientsAPI.GetManagedClientStatus(context.Background(), id).Type_(type_).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClientsAPI.GetManagedClientStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -133,14 +137,15 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "time"
-  beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    
+    beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    id := aClientId # string | ID of the Managed Client Status to update # string | ID of the Managed Client Status to update
-    managedClientStatus := fmt.Sprintf(`{
+    id := `aClientId` // string | ID of the Managed Client Status to update # string | ID of the Managed Client Status to update
+    data := []byte(`{
           "body" : {
             "alertKey" : "",
             "id" : "5678",
@@ -165,11 +170,20 @@ func main() {
           "type" : "CCG",
           "status" : "NORMAL",
           "timestamp" : "2020-01-01T00:00:00Z"
-        }`) # ManagedClientStatus | 
+        }`) // ManagedClientStatus | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.Beta.ManagedClientsAPI.UpdateManagedClientStatus(context.Background(), id).ManagedClientStatus(managedClientStatus).Execute()
+  
+   var managedClientStatus beta.ManagedClientStatus
+   if err := json.Unmarshal(data, &managedClientStatus); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.Beta.ManagedClientsAPI.UpdateManagedClientStatus(context.Background(), id).ManagedClientStatus(managedClientStatus).Execute()
+	//resp, r, err := apiClient.Beta.ManagedClientsAPI.UpdateManagedClientStatus(context.Background(), id).ManagedClientStatus(managedClientStatus).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClientsAPI.UpdateManagedClientStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

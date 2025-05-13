@@ -17,15 +17,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | System-generated unique ID of the identity | [optional] [readonly] 
 **Name** | **string** | The identity's name is equivalent to its Display Name attribute. | 
-**Created** | Pointer to **time.Time** | Creation date of the identity | [optional] [readonly] 
-**Modified** | Pointer to **time.Time** | Last modification date of the identity | [optional] [readonly] 
+**Created** | Pointer to **SailPointTime** | Creation date of the identity | [optional] [readonly] 
+**Modified** | Pointer to **SailPointTime** | Last modification date of the identity | [optional] [readonly] 
 **Alias** | Pointer to **string** | The identity's alternate unique identifier is equivalent to its Account Name on the authoritative source account schema. | [optional] 
 **EmailAddress** | Pointer to **NullableString** | The email address of the identity | [optional] 
 **ProcessingState** | Pointer to **NullableString** | The processing state of the identity | [optional] 
 **IdentityStatus** | Pointer to **string** | The identity's status in the system | [optional] 
 **ManagerRef** | Pointer to [**NullableIdentityManagerRef**](identity-manager-ref) |  | [optional] 
 **IsManager** | Pointer to **bool** | Whether this identity is a manager of another identity | [optional] [default to false]
-**LastRefresh** | Pointer to **time.Time** | The last time the identity was refreshed by the system | [optional] 
+**LastRefresh** | Pointer to **SailPointTime** | The last time the identity was refreshed by the system | [optional] 
 **Attributes** | Pointer to **map[string]interface{}** | A map with the identity attributes for the identity | [optional] 
 **LifecycleState** | Pointer to [**IdentityLifecycleState**](identity-lifecycle-state) |  | [optional] 
 
@@ -95,20 +95,20 @@ SetName sets Name field to given value.
 
 ### GetCreated
 
-`func (o *Identity) GetCreated() time.Time`
+`func (o *Identity) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *Identity) GetCreatedOk() (*time.Time, bool)`
+`func (o *Identity) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *Identity) SetCreated(v time.Time)`
+`func (o *Identity) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
@@ -120,20 +120,20 @@ HasCreated returns a boolean if a field has been set.
 
 ### GetModified
 
-`func (o *Identity) GetModified() time.Time`
+`func (o *Identity) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *Identity) GetModifiedOk() (*time.Time, bool)`
+`func (o *Identity) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *Identity) SetModified(v time.Time)`
+`func (o *Identity) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 
@@ -325,20 +325,20 @@ HasIsManager returns a boolean if a field has been set.
 
 ### GetLastRefresh
 
-`func (o *Identity) GetLastRefresh() time.Time`
+`func (o *Identity) GetLastRefresh() SailPointTime`
 
 GetLastRefresh returns the LastRefresh field if non-nil, zero value otherwise.
 
 ### GetLastRefreshOk
 
-`func (o *Identity) GetLastRefreshOk() (*time.Time, bool)`
+`func (o *Identity) GetLastRefreshOk() (*SailPointTime, bool)`
 
 GetLastRefreshOk returns a tuple with the LastRefresh field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastRefresh
 
-`func (o *Identity) SetLastRefresh(v time.Time)`
+`func (o *Identity) SetLastRefresh(v SailPointTime)`
 
 SetLastRefresh sets LastRefresh field to given value.
 

@@ -38,6 +38,7 @@ Method | HTTP request | Description
 [**get-access-request-config**](#get-access-request-config) | **Get** `/access-request-config` | Get Access Request Configuration
 [**list-access-request-status**](#list-access-request-status) | **Get** `/access-request-status` | Access Request Status
 [**list-administrators-access-request-status**](#list-administrators-access-request-status) | **Get** `/access-request-administration` | Access Request Status for Administrators
+[**load-account-selections**](#load-account-selections) | **Post** `/access-requests/accounts-selection` | Get accounts selections for identity
 [**set-access-request-config**](#set-access-request-config) | **Put** `/access-request-config` | Update Access Request Configuration
 
 
@@ -78,19 +79,29 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    bulkApproveAccessRequest := fmt.Sprintf(`{
+    data := []byte(`{
           "comment" : "I approve these request items",
           "approvalIds" : [ "2c9180835d2e5168015d32f890ca1581", "2c9180835d2e5168015d32f890ca1582" ]
-        }`) # BulkApproveAccessRequest | 
+        }`) // BulkApproveAccessRequest | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.AccessRequestsAPI.ApproveBulkAccessRequest(context.Background()).BulkApproveAccessRequest(bulkApproveAccessRequest).Execute()
+  
+   var bulkApproveAccessRequest v2024.BulkApproveAccessRequest
+   if err := json.Unmarshal(data, &bulkApproveAccessRequest); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.AccessRequestsAPI.ApproveBulkAccessRequest(context.Background()).BulkApproveAccessRequest(bulkApproveAccessRequest).Execute()
+	//resp, r, err := apiClient.V2024.AccessRequestsAPI.ApproveBulkAccessRequest(context.Background()).BulkApproveAccessRequest(bulkApproveAccessRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestsAPI.ApproveBulkAccessRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -140,19 +151,29 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    cancelAccessRequest := fmt.Sprintf(`{
+    data := []byte(`{
           "accountActivityId" : "2c9180835d2e5168015d32f890ca1581",
           "comment" : "I requested this role by mistake."
-        }`) # CancelAccessRequest | 
+        }`) // CancelAccessRequest | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.AccessRequestsAPI.CancelAccessRequest(context.Background()).CancelAccessRequest(cancelAccessRequest).Execute()
+  
+   var cancelAccessRequest v2024.CancelAccessRequest
+   if err := json.Unmarshal(data, &cancelAccessRequest); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.AccessRequestsAPI.CancelAccessRequest(context.Background()).CancelAccessRequest(cancelAccessRequest).Execute()
+	//resp, r, err := apiClient.V2024.AccessRequestsAPI.CancelAccessRequest(context.Background()).CancelAccessRequest(cancelAccessRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestsAPI.CancelAccessRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -202,19 +223,29 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    bulkCancelAccessRequest := fmt.Sprintf(`{
+    data := []byte(`{
           "accessRequestIds" : [ "2c9180835d2e5168015d32f890ca1581", "2c9180835d2e5168015d32f890ca1582" ],
           "comment" : "I requested this role by mistake."
-        }`) # BulkCancelAccessRequest | 
+        }`) // BulkCancelAccessRequest | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.AccessRequestsAPI.CancelAccessRequestInBulk(context.Background()).BulkCancelAccessRequest(bulkCancelAccessRequest).Execute()
+  
+   var bulkCancelAccessRequest v2024.BulkCancelAccessRequest
+   if err := json.Unmarshal(data, &bulkCancelAccessRequest); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.AccessRequestsAPI.CancelAccessRequestInBulk(context.Background()).BulkCancelAccessRequest(bulkCancelAccessRequest).Execute()
+	//resp, r, err := apiClient.V2024.AccessRequestsAPI.CancelAccessRequestInBulk(context.Background()).BulkCancelAccessRequest(bulkCancelAccessRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestsAPI.CancelAccessRequestInBulk``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -286,22 +317,32 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    closeAccessRequest := fmt.Sprintf(`{
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    data := []byte(`{
           "executionStatus" : "Terminated",
           "accessRequestIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
           "completionStatus" : "Failure",
           "message" : "The IdentityNow Administrator manually closed this request."
-        }`) # CloseAccessRequest | 
+        }`) // CloseAccessRequest | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.AccessRequestsAPI.CloseAccessRequest(context.Background()).XSailPointExperimental(xSailPointExperimental).CloseAccessRequest(closeAccessRequest).Execute()
+  
+   var closeAccessRequest v2024.CloseAccessRequest
+   if err := json.Unmarshal(data, &closeAccessRequest); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.AccessRequestsAPI.CloseAccessRequest(context.Background()).XSailPointExperimental(xSailPointExperimental).CloseAccessRequest(closeAccessRequest).Execute()
+	//resp, r, err := apiClient.V2024.AccessRequestsAPI.CloseAccessRequest(context.Background()).XSailPointExperimental(xSailPointExperimental).CloseAccessRequest(closeAccessRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestsAPI.CloseAccessRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -335,6 +376,7 @@ __GRANT_ACCESS__
 * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others.
 * Roles, access profiles and entitlements can be requested.
 * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.
+* Now supports an alternate field 'requestedForWithRequestedItems' for users to specify account selections while requesting items where they have more than one account on the source.
  
 __REVOKE_ACCESS__
 * Can only be requested for a single identity at a time.
@@ -345,6 +387,7 @@ __REVOKE_ACCESS__
 * Revoke requests for entitlements are limited to 1 entitlement per access request currently.
 * You can specify a `removeDate` if the access doesn't already have a sunset date. The `removeDate` must be a future date, in the UTC timezone. 
 * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone.
+* Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of 'assignmentId' and 'nativeIdentity' fields.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-access-request)
@@ -380,13 +423,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    accessRequest := fmt.Sprintf(`{
-          "requestedFor" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210584" ],
+    data := []byte(`{
+          "requestedFor" : "2c918084660f45d6016617daa9210584",
           "clientMetadata" : {
             "requestedAppId" : "2c91808f7892918f0178b78da4a305a1",
             "requestedAppName" : "test-app"
@@ -400,7 +444,9 @@ func main() {
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
               "requestedAppName" : "test-app",
@@ -409,7 +455,9 @@ func main() {
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
               "requestedAppName" : "test-app",
@@ -418,7 +466,9 @@ func main() {
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
               "requestedAppName" : "test-app",
@@ -427,7 +477,9 @@ func main() {
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
               "requestedAppName" : "test-app",
@@ -436,13 +488,151 @@ func main() {
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+          } ],
+          "requestedForWithRequestedItems" : [ {
+            "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+            "requestedItems" : [ {
+              "clientMetadata" : {
+                "requestedAppName" : "test-app",
+                "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+              },
+              "removeDate" : "2020-07-11T21:23:15Z",
+              "accountSelection" : [ {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              }, {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              } ],
+              "comment" : "Requesting access profile for John Doe",
+              "id" : "2c9180835d2e5168015d32f890ca1581",
+              "type" : "ACCESS_PROFILE",
+              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+            }, {
+              "clientMetadata" : {
+                "requestedAppName" : "test-app",
+                "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+              },
+              "removeDate" : "2020-07-11T21:23:15Z",
+              "accountSelection" : [ {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              }, {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              } ],
+              "comment" : "Requesting access profile for John Doe",
+              "id" : "2c9180835d2e5168015d32f890ca1581",
+              "type" : "ACCESS_PROFILE",
+              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+            } ]
+          }, {
+            "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+            "requestedItems" : [ {
+              "clientMetadata" : {
+                "requestedAppName" : "test-app",
+                "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+              },
+              "removeDate" : "2020-07-11T21:23:15Z",
+              "accountSelection" : [ {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              }, {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              } ],
+              "comment" : "Requesting access profile for John Doe",
+              "id" : "2c9180835d2e5168015d32f890ca1581",
+              "type" : "ACCESS_PROFILE",
+              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+            }, {
+              "clientMetadata" : {
+                "requestedAppName" : "test-app",
+                "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+              },
+              "removeDate" : "2020-07-11T21:23:15Z",
+              "accountSelection" : [ {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              }, {
+                "sourceId" : "cb89bc2f1ee6445fbea12224c526ba3a",
+                "accounts" : [ {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                }, {
+                  "accountUuid" : "{fab7119e-004f-4822-9c33-b8d570d6c6a6}",
+                  "nativeIdentity" : "CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local"
+                } ]
+              } ],
+              "comment" : "Requesting access profile for John Doe",
+              "id" : "2c9180835d2e5168015d32f890ca1581",
+              "type" : "ACCESS_PROFILE",
+              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+            } ]
           } ]
-        }`) # AccessRequest | 
+        }`) // AccessRequest | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.AccessRequestsAPI.CreateAccessRequest(context.Background()).AccessRequest(accessRequest).Execute()
+  
+   var accessRequest v2024.AccessRequest
+   if err := json.Unmarshal(data, &accessRequest); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.AccessRequestsAPI.CreateAccessRequest(context.Background()).AccessRequest(accessRequest).Execute()
+	//resp, r, err := apiClient.V2024.AccessRequestsAPI.CreateAccessRequest(context.Background()).AccessRequest(accessRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestsAPI.CreateAccessRequest``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -487,15 +677,19 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.AccessRequestsAPI.GetAccessRequestConfig(context.Background()).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.AccessRequestsAPI.GetAccessRequestConfig(context.Background()).Execute()
+	//resp, r, err := apiClient.V2024.AccessRequestsAPI.GetAccessRequestConfig(context.Background()).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestsAPI.GetAccessRequestConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -555,25 +749,29 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    requestedFor := 2c9180877b2b6ea4017b2c545f971429 # string | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional) # string | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
-    requestedBy := 2c9180877b2b6ea4017b2c545f971429 # string | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional) # string | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
-    regardingIdentity := 2c9180877b2b6ea4017b2c545f971429 # string | Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. (optional) # string | Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. (optional)
-    assignedTo := 2c9180877b2b6ea4017b2c545f971429 # string | Filter the results by the specified identity who is the owner of the Identity Request Work Item. *me* indicates the current user. (optional) # string | Filter the results by the specified identity who is the owner of the Identity Request Work Item. *me* indicates the current user. (optional)
-    count := false # bool | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to false) # bool | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to false)
-    limit := 100 # int32 | Max number of results to return. (optional) (default to 250) # int32 | Max number of results to return. (optional) (default to 250)
-    offset := 10 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
-    filters := accountActivityItemId eq "2c918086771c86df0177401efcdf54c0" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *in*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *in*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional)
-    sorters := created # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name** (optional)
-    requestState := request-state=EXECUTING # string | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional) # string | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
+    requestedFor := `2c9180877b2b6ea4017b2c545f971429` // string | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional) # string | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
+    requestedBy := `2c9180877b2b6ea4017b2c545f971429` // string | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional) # string | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
+    regardingIdentity := `2c9180877b2b6ea4017b2c545f971429` // string | Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. (optional) # string | Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. (optional)
+    assignedTo := `2c9180877b2b6ea4017b2c545f971429` // string | Filter the results by the specified identity who is the owner of the Identity Request Work Item. *me* indicates the current user. (optional) # string | Filter the results by the specified identity who is the owner of the Identity Request Work Item. *me* indicates the current user. (optional)
+    count := false // bool | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to false) # bool | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to false)
+    limit := 100 // int32 | Max number of results to return. (optional) (default to 250) # int32 | Max number of results to return. (optional) (default to 250)
+    offset := 10 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
+    filters := `accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *in*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *in*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional)
+    sorters := `created` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name** (optional)
+    requestState := `request-state=EXECUTING` // string | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional) # string | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.AccessRequestsAPI.ListAccessRequestStatus(context.Background()).RequestedFor(requestedFor).RequestedBy(requestedBy).RegardingIdentity(regardingIdentity).AssignedTo(assignedTo).Count(count).Limit(limit).Offset(offset).Filters(filters).Sorters(sorters).RequestState(requestState).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.AccessRequestsAPI.ListAccessRequestStatus(context.Background()).Execute()
+	//resp, r, err := apiClient.V2024.AccessRequestsAPI.ListAccessRequestStatus(context.Background()).RequestedFor(requestedFor).RequestedBy(requestedBy).RegardingIdentity(regardingIdentity).AssignedTo(assignedTo).Count(count).Limit(limit).Offset(offset).Filters(filters).Sorters(sorters).RequestState(requestState).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestsAPI.ListAccessRequestStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -632,31 +830,169 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    requestedFor := 2c9180877b2b6ea4017b2c545f971429 # string | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional) # string | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
-    requestedBy := 2c9180877b2b6ea4017b2c545f971429 # string | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional) # string | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
-    regardingIdentity := 2c9180877b2b6ea4017b2c545f971429 # string | Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. (optional) # string | Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. (optional)
-    assignedTo := 2c9180877b2b6ea4017b2c545f971429 # string | Filter the results by the specified identity who is the owner of the Identity Request Work Item. *me* indicates the current user. (optional) # string | Filter the results by the specified identity who is the owner of the Identity Request Work Item. *me* indicates the current user. (optional)
-    count := false # bool | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to false) # bool | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to false)
-    limit := 100 # int32 | Max number of results to return. (optional) (default to 250) # int32 | Max number of results to return. (optional) (default to 250)
-    offset := 10 # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
-    filters := accountActivityItemId eq "2c918086771c86df0177401efcdf54c0" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **accessRequestId**: *in*  **status**: *in, eq, ne*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **accessRequestId**: *in*  **status**: *in, eq, ne*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional)
-    sorters := created # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name, accessRequestId** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name, accessRequestId** (optional)
-    requestState := request-state=EXECUTING # string | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional) # string | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
+    requestedFor := `2c9180877b2b6ea4017b2c545f971429` // string | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional) # string | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
+    requestedBy := `2c9180877b2b6ea4017b2c545f971429` // string | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional) # string | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
+    regardingIdentity := `2c9180877b2b6ea4017b2c545f971429` // string | Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. (optional) # string | Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. (optional)
+    assignedTo := `2c9180877b2b6ea4017b2c545f971429` // string | Filter the results by the specified identity who is the owner of the Identity Request Work Item. *me* indicates the current user. (optional) # string | Filter the results by the specified identity who is the owner of the Identity Request Work Item. *me* indicates the current user. (optional)
+    count := false // bool | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to false) # bool | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to false)
+    limit := 100 // int32 | Max number of results to return. (optional) (default to 250) # int32 | Max number of results to return. (optional) (default to 250)
+    offset := 10 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
+    filters := `accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **accessRequestId**: *in*  **status**: *in, eq, ne*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **accessRequestId**: *in*  **status**: *in, eq, ne*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional)
+    sorters := `created` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name, accessRequestId** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name, accessRequestId** (optional)
+    requestState := `request-state=EXECUTING` // string | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional) # string | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.AccessRequestsAPI.ListAdministratorsAccessRequestStatus(context.Background()).RequestedFor(requestedFor).RequestedBy(requestedBy).RegardingIdentity(regardingIdentity).AssignedTo(assignedTo).Count(count).Limit(limit).Offset(offset).Filters(filters).Sorters(sorters).RequestState(requestState).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.AccessRequestsAPI.ListAdministratorsAccessRequestStatus(context.Background()).Execute()
+	//resp, r, err := apiClient.V2024.AccessRequestsAPI.ListAdministratorsAccessRequestStatus(context.Background()).RequestedFor(requestedFor).RequestedBy(requestedBy).RegardingIdentity(regardingIdentity).AssignedTo(assignedTo).Count(count).Limit(limit).Offset(offset).Filters(filters).Sorters(sorters).RequestState(requestState).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestsAPI.ListAdministratorsAccessRequestStatus``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
 	// response from `ListAdministratorsAccessRequestStatus`: []AccessRequestAdminItemStatus
 	fmt.Fprintf(os.Stdout, "Response from `AccessRequestsAPI.ListAdministratorsAccessRequestStatus`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
+## load-account-selections
+Get accounts selections for identity
+Use this API to fetch account information for an identity against the items in an access request.
+
+Used to fetch accountSelection for the AccessRequest prior to submitting for async processing.
+
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/load-account-selections)
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiLoadAccountSelectionsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **accountsSelectionRequest** | [**AccountsSelectionRequest**](../models/accounts-selection-request) |  | 
+
+### Return type
+
+[**AccountsSelectionResponse**](../models/accounts-selection-response)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+    "encoding/json"
+    v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    data := []byte(`{
+          "requestedFor" : "2c918084660f45d6016617daa9210584",
+          "clientMetadata" : {
+            "requestedAppId" : "2c91808f7892918f0178b78da4a305a1",
+            "requestedAppName" : "test-app"
+          },
+          "requestType" : "GRANT_ACCESS",
+          "requestedItems" : [ {
+            "clientMetadata" : {
+              "requestedAppName" : "test-app",
+              "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+            },
+            "removeDate" : "2020-07-11T21:23:15Z",
+            "comment" : "Requesting access profile for John Doe",
+            "id" : "2c9180835d2e5168015d32f890ca1581",
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+          }, {
+            "clientMetadata" : {
+              "requestedAppName" : "test-app",
+              "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+            },
+            "removeDate" : "2020-07-11T21:23:15Z",
+            "comment" : "Requesting access profile for John Doe",
+            "id" : "2c9180835d2e5168015d32f890ca1581",
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+          }, {
+            "clientMetadata" : {
+              "requestedAppName" : "test-app",
+              "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+            },
+            "removeDate" : "2020-07-11T21:23:15Z",
+            "comment" : "Requesting access profile for John Doe",
+            "id" : "2c9180835d2e5168015d32f890ca1581",
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+          }, {
+            "clientMetadata" : {
+              "requestedAppName" : "test-app",
+              "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+            },
+            "removeDate" : "2020-07-11T21:23:15Z",
+            "comment" : "Requesting access profile for John Doe",
+            "id" : "2c9180835d2e5168015d32f890ca1581",
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+          }, {
+            "clientMetadata" : {
+              "requestedAppName" : "test-app",
+              "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
+            },
+            "removeDate" : "2020-07-11T21:23:15Z",
+            "comment" : "Requesting access profile for John Doe",
+            "id" : "2c9180835d2e5168015d32f890ca1581",
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+          } ]
+        }`) // AccountsSelectionRequest | 
+
+  
+   var accountsSelectionRequest v2024.AccountsSelectionRequest
+   if err := json.Unmarshal(data, &accountsSelectionRequest); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.AccessRequestsAPI.LoadAccountSelections(context.Background()).AccountsSelectionRequest(accountsSelectionRequest).Execute()
+	//resp, r, err := apiClient.V2024.AccessRequestsAPI.LoadAccountSelections(context.Background()).AccountsSelectionRequest(accountsSelectionRequest).Execute()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestsAPI.LoadAccountSelections``: %v\n", err)
+		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+	}
+	// response from `LoadAccountSelections`: AccountsSelectionResponse
+	fmt.Fprintf(os.Stdout, "Response from `AccessRequestsAPI.LoadAccountSelections`: %v\n", resp)
 }
 ```
 
@@ -699,12 +1035,13 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    accessRequestConfig := fmt.Sprintf(`{
+    data := []byte(`{
           "requestOnBehalfOfConfig" : {
             "allowRequestOnBehalfOfEmployeeByManager" : true,
             "allowRequestOnBehalfOfAnyoneByAnyone" : true
@@ -722,18 +1059,34 @@ func main() {
           },
           "autoApprovalEnabled" : true,
           "entitlementRequestConfig" : {
-            "requestCommentsRequired" : false,
-            "deniedCommentsRequired" : false,
-            "allowEntitlementRequest" : true,
-            "grantRequestApprovalSchemes" : "entitlementOwner, sourceOwner, manager, workgroup:2c918084660f45d6016617daa9210584"
+            "accessRequestConfig" : {
+              "denialCommentRequired" : false,
+              "approvalSchemes" : [ {
+                "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+                "approverType" : "GOVERNANCE_GROUP"
+              }, {
+                "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+                "approverType" : "GOVERNANCE_GROUP"
+              } ],
+              "requestCommentRequired" : true
+            }
           },
           "reauthorizationEnabled" : true,
           "approvalsMustBeExternal" : true
-        }`) # AccessRequestConfig | 
+        }`) // AccessRequestConfig | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.AccessRequestsAPI.SetAccessRequestConfig(context.Background()).AccessRequestConfig(accessRequestConfig).Execute()
+  
+   var accessRequestConfig v2024.AccessRequestConfig
+   if err := json.Unmarshal(data, &accessRequestConfig); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.AccessRequestsAPI.SetAccessRequestConfig(context.Background()).AccessRequestConfig(accessRequestConfig).Execute()
+	//resp, r, err := apiClient.V2024.AccessRequestsAPI.SetAccessRequestConfig(context.Background()).AccessRequestConfig(accessRequestConfig).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestsAPI.SetAccessRequestConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequestPhases', 'BetaAccessRequ
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Started** | Pointer to **time.Time** | The time that this phase started. | [optional] 
+**Started** | Pointer to **SailPointTime** | The time that this phase started. | [optional] 
 **Finished** | Pointer to **NullableTime** | The time that this phase finished. | [optional] 
 **Name** | Pointer to **string** | The name of this phase. | [optional] 
 **State** | Pointer to **string** | The state of this phase. | [optional] 
@@ -43,20 +43,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStarted
 
-`func (o *AccessRequestPhases) GetStarted() time.Time`
+`func (o *AccessRequestPhases) GetStarted() SailPointTime`
 
 GetStarted returns the Started field if non-nil, zero value otherwise.
 
 ### GetStartedOk
 
-`func (o *AccessRequestPhases) GetStartedOk() (*time.Time, bool)`
+`func (o *AccessRequestPhases) GetStartedOk() (*SailPointTime, bool)`
 
 GetStartedOk returns a tuple with the Started field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStarted
 
-`func (o *AccessRequestPhases) SetStarted(v time.Time)`
+`func (o *AccessRequestPhases) SetStarted(v SailPointTime)`
 
 SetStarted sets Started field to given value.
 
@@ -68,20 +68,20 @@ HasStarted returns a boolean if a field has been set.
 
 ### GetFinished
 
-`func (o *AccessRequestPhases) GetFinished() time.Time`
+`func (o *AccessRequestPhases) GetFinished() SailPointTime`
 
 GetFinished returns the Finished field if non-nil, zero value otherwise.
 
 ### GetFinishedOk
 
-`func (o *AccessRequestPhases) GetFinishedOk() (*time.Time, bool)`
+`func (o *AccessRequestPhases) GetFinishedOk() (*SailPointTime, bool)`
 
 GetFinishedOk returns a tuple with the Finished field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFinished
 
-`func (o *AccessRequestPhases) SetFinished(v time.Time)`
+`func (o *AccessRequestPhases) SetFinished(v SailPointTime)`
 
 SetFinished sets Finished field to given value.
 

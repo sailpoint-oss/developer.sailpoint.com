@@ -18,17 +18,17 @@ Name | Type | Description | Notes
 **JobId** | **string** | Unique id assigned to this job. | 
 **Status** | **string** | Status of the job. | 
 **Type** | **string** | Type of the job, either export or import. | 
-**Expiration** | **time.Time** | The time until which the artifacts will be available for download. | 
-**Created** | **time.Time** | The time the job was started. | 
-**Modified** | **time.Time** | The time of the last update to the job. | 
+**Expiration** | **SailPointTime** | The time until which the artifacts will be available for download. | 
+**Created** | **SailPointTime** | The time the job was started. | 
+**Modified** | **SailPointTime** | The time of the last update to the job. | 
 **Message** | Pointer to **string** | This message contains additional information about the overall status of the job. | [optional] 
-**Completed** | Pointer to **time.Time** | The time the job was completed. | [optional] 
+**Completed** | Pointer to **SailPointTime** | The time the job was completed. | [optional] 
 
 ## Methods
 
 ### NewSpConfigImportJobStatus
 
-`func NewSpConfigImportJobStatus(jobId string, status string, type_ string, expiration time.Time, created time.Time, modified time.Time, ) *SpConfigImportJobStatus`
+`func NewSpConfigImportJobStatus(jobId string, status string, type_ string, expiration SailPointTime, created SailPointTime, modified SailPointTime, ) *SpConfigImportJobStatus`
 
 NewSpConfigImportJobStatus instantiates a new SpConfigImportJobStatus object
 This constructor will assign default values to properties that have it defined,
@@ -105,60 +105,60 @@ SetType sets Type field to given value.
 
 ### GetExpiration
 
-`func (o *SpConfigImportJobStatus) GetExpiration() time.Time`
+`func (o *SpConfigImportJobStatus) GetExpiration() SailPointTime`
 
 GetExpiration returns the Expiration field if non-nil, zero value otherwise.
 
 ### GetExpirationOk
 
-`func (o *SpConfigImportJobStatus) GetExpirationOk() (*time.Time, bool)`
+`func (o *SpConfigImportJobStatus) GetExpirationOk() (*SailPointTime, bool)`
 
 GetExpirationOk returns a tuple with the Expiration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExpiration
 
-`func (o *SpConfigImportJobStatus) SetExpiration(v time.Time)`
+`func (o *SpConfigImportJobStatus) SetExpiration(v SailPointTime)`
 
 SetExpiration sets Expiration field to given value.
 
 
 ### GetCreated
 
-`func (o *SpConfigImportJobStatus) GetCreated() time.Time`
+`func (o *SpConfigImportJobStatus) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *SpConfigImportJobStatus) GetCreatedOk() (*time.Time, bool)`
+`func (o *SpConfigImportJobStatus) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *SpConfigImportJobStatus) SetCreated(v time.Time)`
+`func (o *SpConfigImportJobStatus) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
 
 ### GetModified
 
-`func (o *SpConfigImportJobStatus) GetModified() time.Time`
+`func (o *SpConfigImportJobStatus) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *SpConfigImportJobStatus) GetModifiedOk() (*time.Time, bool)`
+`func (o *SpConfigImportJobStatus) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *SpConfigImportJobStatus) SetModified(v time.Time)`
+`func (o *SpConfigImportJobStatus) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 
@@ -190,20 +190,20 @@ HasMessage returns a boolean if a field has been set.
 
 ### GetCompleted
 
-`func (o *SpConfigImportJobStatus) GetCompleted() time.Time`
+`func (o *SpConfigImportJobStatus) GetCompleted() SailPointTime`
 
 GetCompleted returns the Completed field if non-nil, zero value otherwise.
 
 ### GetCompletedOk
 
-`func (o *SpConfigImportJobStatus) GetCompletedOk() (*time.Time, bool)`
+`func (o *SpConfigImportJobStatus) GetCompletedOk() (*SailPointTime, bool)`
 
 GetCompletedOk returns a tuple with the Completed field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCompleted
 
-`func (o *SpConfigImportJobStatus) SetCompleted(v time.Time)`
+`func (o *SpConfigImportJobStatus) SetCompleted(v SailPointTime)`
 
 SetCompleted sets Completed field to given value.
 

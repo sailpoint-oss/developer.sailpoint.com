@@ -42,8 +42,8 @@ Name | Type | Description | Notes
 **ConnectorName** | Pointer to **string** | Name of the connector that was chosen during source creation. | [optional] 
 **ConnectionType** | Pointer to **string** | Type of connection (direct or file). | [optional] 
 **ConnectorImplementationId** | Pointer to **string** | Connector implementation ID. | [optional] 
-**Created** | Pointer to **time.Time** | Date-time when the source was created | [optional] 
-**Modified** | Pointer to **time.Time** | Date-time when the source was last modified. | [optional] 
+**Created** | Pointer to **SailPointTime** | Date-time when the source was created | [optional] 
+**Modified** | Pointer to **SailPointTime** | Date-time when the source was last modified. | [optional] 
 **CredentialProviderEnabled** | Pointer to **bool** | If this is true, it enables a credential provider for the source. If credentialProvider is turned on,  then the source can use credential provider(s) to fetch credentials. | [optional] [default to false]
 **Category** | Pointer to **NullableString** | Source category (e.g. null, CredentialProvider). | [optional] 
 
@@ -808,20 +808,20 @@ HasConnectorImplementationId returns a boolean if a field has been set.
 
 ### GetCreated
 
-`func (o *Source) GetCreated() time.Time`
+`func (o *Source) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *Source) GetCreatedOk() (*time.Time, bool)`
+`func (o *Source) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *Source) SetCreated(v time.Time)`
+`func (o *Source) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
@@ -833,20 +833,20 @@ HasCreated returns a boolean if a field has been set.
 
 ### GetModified
 
-`func (o *Source) GetModified() time.Time`
+`func (o *Source) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *Source) GetModifiedOk() (*time.Time, bool)`
+`func (o *Source) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *Source) SetModified(v time.Time)`
+`func (o *Source) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'VendorConnectorMappingUpdatedAt', 'Be
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Time** | Pointer to **time.Time** | The timestamp when the mapping was last updated, represented in ISO 8601 format. | [optional] 
+**Time** | Pointer to **SailPointTime** | The timestamp when the mapping was last updated, represented in ISO 8601 format. | [optional] 
 **Valid** | Pointer to **bool** | A flag indicating if the 'Time' field is set and valid. | [optional] [default to false]
 
 ## Methods
@@ -39,20 +39,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetTime
 
-`func (o *VendorConnectorMappingUpdatedAt) GetTime() time.Time`
+`func (o *VendorConnectorMappingUpdatedAt) GetTime() SailPointTime`
 
 GetTime returns the Time field if non-nil, zero value otherwise.
 
 ### GetTimeOk
 
-`func (o *VendorConnectorMappingUpdatedAt) GetTimeOk() (*time.Time, bool)`
+`func (o *VendorConnectorMappingUpdatedAt) GetTimeOk() (*SailPointTime, bool)`
 
 GetTimeOk returns a tuple with the Time field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTime
 
-`func (o *VendorConnectorMappingUpdatedAt) SetTime(v time.Time)`
+`func (o *VendorConnectorMappingUpdatedAt) SetTime(v SailPointTime)`
 
 SetTime sets Time field to given value.
 

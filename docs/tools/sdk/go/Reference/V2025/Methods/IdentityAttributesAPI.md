@@ -72,13 +72,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    identityAttribute := fmt.Sprintf(`{
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    data := []byte(`{
           "standard" : false,
           "system" : false,
           "sources" : [ {
@@ -99,11 +100,20 @@ func main() {
           "type" : "string",
           "searchable" : false,
           "multi" : false
-        }`) # IdentityAttribute | 
+        }`) // IdentityAttribute | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.IdentityAttributesAPI.CreateIdentityAttribute(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityAttribute(identityAttribute).Execute()
+  
+   var identityAttribute v2025.IdentityAttribute
+   if err := json.Unmarshal(data, &identityAttribute); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.IdentityAttributesAPI.CreateIdentityAttribute(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityAttribute(identityAttribute).Execute()
+	//resp, r, err := apiClient.V2025.IdentityAttributesAPI.CreateIdentityAttribute(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityAttribute(identityAttribute).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.CreateIdentityAttribute``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -168,17 +178,21 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    name := displayName # string | The attribute's technical name. # string | The attribute's technical name.
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    name := `displayName` // string | The attribute's technical name. # string | The attribute's technical name.
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V2025.IdentityAttributesAPI.DeleteIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    r, err := apiClient.V2025.IdentityAttributesAPI.DeleteIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).Execute()
+	//r, err := apiClient.V2025.IdentityAttributesAPI.DeleteIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.DeleteIdentityAttribute``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -237,19 +251,29 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    identityAttributeNames := fmt.Sprintf(`{
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    data := []byte(`{
           "ids" : [ "name", "displayName" ]
-        }`) # IdentityAttributeNames | 
+        }`) // IdentityAttributeNames | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V2025.IdentityAttributesAPI.DeleteIdentityAttributesInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityAttributeNames(identityAttributeNames).Execute()
+  
+   var identityAttributeNames v2025.IdentityAttributeNames
+   if err := json.Unmarshal(data, &identityAttributeNames); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    r, err := apiClient.V2025.IdentityAttributesAPI.DeleteIdentityAttributesInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityAttributeNames(identityAttributeNames).Execute()
+	//r, err := apiClient.V2025.IdentityAttributesAPI.DeleteIdentityAttributesInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityAttributeNames(identityAttributeNames).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.DeleteIdentityAttributesInBulk``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -312,17 +336,21 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    name := displayName # string | The attribute's technical name. # string | The attribute's technical name.
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    name := `displayName` // string | The attribute's technical name. # string | The attribute's technical name.
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.IdentityAttributesAPI.GetIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.IdentityAttributesAPI.GetIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).Execute()
+	//resp, r, err := apiClient.V2025.IdentityAttributesAPI.GetIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.GetIdentityAttribute``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -386,20 +414,24 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    includeSystem := false # bool | Include 'system' attributes in the response. (optional) (default to false) # bool | Include 'system' attributes in the response. (optional) (default to false)
-    includeSilent := false # bool | Include 'silent' attributes in the response. (optional) (default to false) # bool | Include 'silent' attributes in the response. (optional) (default to false)
-    searchableOnly := false # bool | Include only 'searchable' attributes in the response. (optional) (default to false) # bool | Include only 'searchable' attributes in the response. (optional) (default to false)
-    count := true # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    includeSystem := false // bool | Include 'system' attributes in the response. (optional) (default to false) # bool | Include 'system' attributes in the response. (optional) (default to false)
+    includeSilent := false // bool | Include 'silent' attributes in the response. (optional) (default to false) # bool | Include 'silent' attributes in the response. (optional) (default to false)
+    searchableOnly := false // bool | Include only 'searchable' attributes in the response. (optional) (default to false) # bool | Include only 'searchable' attributes in the response. (optional) (default to false)
+    count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.IdentityAttributesAPI.ListIdentityAttributes(context.Background()).XSailPointExperimental(xSailPointExperimental).IncludeSystem(includeSystem).IncludeSilent(includeSilent).SearchableOnly(searchableOnly).Count(count).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.IdentityAttributesAPI.ListIdentityAttributes(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	//resp, r, err := apiClient.V2025.IdentityAttributesAPI.ListIdentityAttributes(context.Background()).XSailPointExperimental(xSailPointExperimental).IncludeSystem(includeSystem).IncludeSilent(includeSilent).SearchableOnly(searchableOnly).Count(count).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.ListIdentityAttributes``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -465,14 +497,15 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    name := displayName # string | The attribute's technical name. # string | The attribute's technical name.
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    identityAttribute := fmt.Sprintf(`{
+    name := `displayName` // string | The attribute's technical name. # string | The attribute's technical name.
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    data := []byte(`{
           "standard" : false,
           "system" : false,
           "sources" : [ {
@@ -493,11 +526,20 @@ func main() {
           "type" : "string",
           "searchable" : false,
           "multi" : false
-        }`) # IdentityAttribute | 
+        }`) // IdentityAttribute | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2025.IdentityAttributesAPI.PutIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).IdentityAttribute(identityAttribute).Execute()
+  
+   var identityAttribute v2025.IdentityAttribute
+   if err := json.Unmarshal(data, &identityAttribute); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.IdentityAttributesAPI.PutIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).IdentityAttribute(identityAttribute).Execute()
+	//resp, r, err := apiClient.V2025.IdentityAttributesAPI.PutIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).IdentityAttribute(identityAttribute).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.PutIdentityAttribute``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

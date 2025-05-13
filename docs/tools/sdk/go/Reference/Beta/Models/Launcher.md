@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'Launcher', 'BetaLauncher']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | ID of the Launcher | 
-**Created** | **time.Time** | Date the Launcher was created | 
-**Modified** | **time.Time** | Date the Launcher was last modified | 
+**Created** | **SailPointTime** | Date the Launcher was created | 
+**Modified** | **SailPointTime** | Date the Launcher was last modified | 
 **Owner** | [**LauncherOwner**](launcher-owner) |  | 
 **Name** | **string** | Name of the Launcher, limited to 255 characters | 
 **Description** | **string** | Description of the Launcher, limited to 2000 characters | 
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewLauncher
 
-`func NewLauncher(id string, created time.Time, modified time.Time, owner LauncherOwner, name string, description string, type_ string, disabled bool, config string, ) *Launcher`
+`func NewLauncher(id string, created SailPointTime, modified SailPointTime, owner LauncherOwner, name string, description string, type_ string, disabled bool, config string, ) *Launcher`
 
 NewLauncher instantiates a new Launcher object
 This constructor will assign default values to properties that have it defined,
@@ -67,40 +67,40 @@ SetId sets Id field to given value.
 
 ### GetCreated
 
-`func (o *Launcher) GetCreated() time.Time`
+`func (o *Launcher) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *Launcher) GetCreatedOk() (*time.Time, bool)`
+`func (o *Launcher) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *Launcher) SetCreated(v time.Time)`
+`func (o *Launcher) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
 
 ### GetModified
 
-`func (o *Launcher) GetModified() time.Time`
+`func (o *Launcher) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *Launcher) GetModifiedOk() (*time.Time, bool)`
+`func (o *Launcher) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *Launcher) SetModified(v time.Time)`
+`func (o *Launcher) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Policy ID. | [optional] [readonly] 
 **Name** | Pointer to **string** | Policy business name. | [optional] 
-**Created** | Pointer to **time.Time** | The time when this SOD policy is created. | [optional] [readonly] 
-**Modified** | Pointer to **time.Time** | The time when this SOD policy is modified. | [optional] [readonly] 
+**Created** | Pointer to **SailPointTime** | The time when this SOD policy is created. | [optional] [readonly] 
+**Modified** | Pointer to **SailPointTime** | The time when this SOD policy is modified. | [optional] [readonly] 
 **Description** | Pointer to **NullableString** | Optional description of the SOD policy. | [optional] 
 **OwnerRef** | Pointer to [**SodPolicyOwnerRef**](sod-policy-owner-ref) |  | [optional] 
 **ExternalPolicyReference** | Pointer to **NullableString** | Optional external policy reference. | [optional] 
@@ -105,20 +105,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetCreated
 
-`func (o *SodPolicy) GetCreated() time.Time`
+`func (o *SodPolicy) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *SodPolicy) GetCreatedOk() (*time.Time, bool)`
+`func (o *SodPolicy) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *SodPolicy) SetCreated(v time.Time)`
+`func (o *SodPolicy) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
@@ -130,20 +130,20 @@ HasCreated returns a boolean if a field has been set.
 
 ### GetModified
 
-`func (o *SodPolicy) GetModified() time.Time`
+`func (o *SodPolicy) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *SodPolicy) GetModifiedOk() (*time.Time, bool)`
+`func (o *SodPolicy) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *SodPolicy) SetModified(v time.Time)`
+`func (o *SodPolicy) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

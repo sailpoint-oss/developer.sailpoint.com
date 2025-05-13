@@ -18,8 +18,8 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** | The identity's unique identifier for the outlier record | [optional] 
 **IdentityId** | Pointer to **string** | The ID of the identity that is detected as an outlier | [optional] 
 **Type** | Pointer to **string** | The type of outlier summary | [optional] 
-**FirstDetectionDate** | Pointer to **time.Time** | The first date the outlier was detected | [optional] 
-**LatestDetectionDate** | Pointer to **time.Time** | The most recent date the outlier was detected | [optional] 
+**FirstDetectionDate** | Pointer to **SailPointTime** | The first date the outlier was detected | [optional] 
+**LatestDetectionDate** | Pointer to **SailPointTime** | The most recent date the outlier was detected | [optional] 
 **Ignored** | Pointer to **bool** | Flag whether or not the outlier has been ignored | [optional] 
 **Attributes** | Pointer to **map[string]interface{}** | Object containing mapped identity attributes | [optional] 
 **Score** | Pointer to **float32** | The outlier score determined by the detection engine ranging from 0..1 | [optional] 
@@ -123,20 +123,20 @@ HasType returns a boolean if a field has been set.
 
 ### GetFirstDetectionDate
 
-`func (o *Outlier) GetFirstDetectionDate() time.Time`
+`func (o *Outlier) GetFirstDetectionDate() SailPointTime`
 
 GetFirstDetectionDate returns the FirstDetectionDate field if non-nil, zero value otherwise.
 
 ### GetFirstDetectionDateOk
 
-`func (o *Outlier) GetFirstDetectionDateOk() (*time.Time, bool)`
+`func (o *Outlier) GetFirstDetectionDateOk() (*SailPointTime, bool)`
 
 GetFirstDetectionDateOk returns a tuple with the FirstDetectionDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFirstDetectionDate
 
-`func (o *Outlier) SetFirstDetectionDate(v time.Time)`
+`func (o *Outlier) SetFirstDetectionDate(v SailPointTime)`
 
 SetFirstDetectionDate sets FirstDetectionDate field to given value.
 
@@ -148,20 +148,20 @@ HasFirstDetectionDate returns a boolean if a field has been set.
 
 ### GetLatestDetectionDate
 
-`func (o *Outlier) GetLatestDetectionDate() time.Time`
+`func (o *Outlier) GetLatestDetectionDate() SailPointTime`
 
 GetLatestDetectionDate returns the LatestDetectionDate field if non-nil, zero value otherwise.
 
 ### GetLatestDetectionDateOk
 
-`func (o *Outlier) GetLatestDetectionDateOk() (*time.Time, bool)`
+`func (o *Outlier) GetLatestDetectionDateOk() (*SailPointTime, bool)`
 
 GetLatestDetectionDateOk returns a tuple with the LatestDetectionDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLatestDetectionDate
 
-`func (o *Outlier) SetLatestDetectionDate(v time.Time)`
+`func (o *Outlier) SetLatestDetectionDate(v SailPointTime)`
 
 SetLatestDetectionDate sets LatestDetectionDate field to given value.
 
@@ -283,20 +283,20 @@ HasUnignoreType returns a boolean if a field has been set.
 UnsetUnignoreType ensures that no value is present for UnignoreType, not even an explicit nil
 ### GetUnignoreDate
 
-`func (o *Outlier) GetUnignoreDate() time.Time`
+`func (o *Outlier) GetUnignoreDate() SailPointTime`
 
 GetUnignoreDate returns the UnignoreDate field if non-nil, zero value otherwise.
 
 ### GetUnignoreDateOk
 
-`func (o *Outlier) GetUnignoreDateOk() (*time.Time, bool)`
+`func (o *Outlier) GetUnignoreDateOk() (*SailPointTime, bool)`
 
 GetUnignoreDateOk returns a tuple with the UnignoreDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUnignoreDate
 
-`func (o *Outlier) SetUnignoreDate(v time.Time)`
+`func (o *Outlier) SetUnignoreDate(v SailPointTime)`
 
 SetUnignoreDate sets UnignoreDate field to given value.
 
@@ -318,20 +318,20 @@ HasUnignoreDate returns a boolean if a field has been set.
 UnsetUnignoreDate ensures that no value is present for UnignoreDate, not even an explicit nil
 ### GetIgnoreDate
 
-`func (o *Outlier) GetIgnoreDate() time.Time`
+`func (o *Outlier) GetIgnoreDate() SailPointTime`
 
 GetIgnoreDate returns the IgnoreDate field if non-nil, zero value otherwise.
 
 ### GetIgnoreDateOk
 
-`func (o *Outlier) GetIgnoreDateOk() (*time.Time, bool)`
+`func (o *Outlier) GetIgnoreDateOk() (*SailPointTime, bool)`
 
 GetIgnoreDateOk returns a tuple with the IgnoreDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIgnoreDate
 
-`func (o *Outlier) SetIgnoreDate(v time.Time)`
+`func (o *Outlier) SetIgnoreDate(v SailPointTime)`
 
 SetIgnoreDate sets IgnoreDate field to given value.
 

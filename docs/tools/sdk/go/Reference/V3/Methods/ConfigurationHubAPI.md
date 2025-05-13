@@ -80,23 +80,33 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    sourceOrg := source-org # string | The name of the source org. # string | The name of the source org.
-    objectMappingRequest := fmt.Sprintf(`{
+    sourceOrg := `source-org` // string | The name of the source org. # string | The name of the source org.
+    data := []byte(`{
           "targetValue" : "My New Governance Group Name",
           "jsonPath" : "$.name",
           "sourceValue" : "My Governance Group Name",
           "enabled" : false,
           "objectType" : "IDENTITY"
-        }`) # ObjectMappingRequest | The object mapping request body.
+        }`) // ObjectMappingRequest | The object mapping request body.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ConfigurationHubAPI.CreateObjectMapping(context.Background(), sourceOrg).ObjectMappingRequest(objectMappingRequest).Execute()
+  
+   var objectMappingRequest v3.ObjectMappingRequest
+   if err := json.Unmarshal(data, &objectMappingRequest); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V3.ConfigurationHubAPI.CreateObjectMapping(context.Background(), sourceOrg).ObjectMappingRequest(objectMappingRequest).Execute()
+	//resp, r, err := apiClient.V3.ConfigurationHubAPI.CreateObjectMapping(context.Background(), sourceOrg).ObjectMappingRequest(objectMappingRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.CreateObjectMapping``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -153,13 +163,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    sourceOrg := source-org # string | The name of the source org. # string | The name of the source org.
-    objectMappingBulkCreateRequest := fmt.Sprintf(`{
+    sourceOrg := `source-org` // string | The name of the source org. # string | The name of the source org.
+    data := []byte(`{
           "newObjectsMappings" : [ {
             "targetValue" : "My New Governance Group Name",
             "jsonPath" : "$.name",
@@ -173,11 +184,20 @@ func main() {
             "enabled" : false,
             "objectType" : "IDENTITY"
           } ]
-        }`) # ObjectMappingBulkCreateRequest | The bulk create object mapping request body.
+        }`) // ObjectMappingBulkCreateRequest | The bulk create object mapping request body.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ConfigurationHubAPI.CreateObjectMappings(context.Background(), sourceOrg).ObjectMappingBulkCreateRequest(objectMappingBulkCreateRequest).Execute()
+  
+   var objectMappingBulkCreateRequest v3.ObjectMappingBulkCreateRequest
+   if err := json.Unmarshal(data, &objectMappingBulkCreateRequest); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V3.ConfigurationHubAPI.CreateObjectMappings(context.Background(), sourceOrg).ObjectMappingBulkCreateRequest(objectMappingBulkCreateRequest).Execute()
+	//resp, r, err := apiClient.V3.ConfigurationHubAPI.CreateObjectMappings(context.Background(), sourceOrg).ObjectMappingBulkCreateRequest(objectMappingBulkCreateRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.CreateObjectMappings``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -231,17 +251,21 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    data := BINARY_DATA_HERE # *os.File | JSON file containing the objects to be imported. # *os.File | JSON file containing the objects to be imported.
-    name := name_example # string | Name that will be assigned to the uploaded configuration file. # string | Name that will be assigned to the uploaded configuration file.
+    data := BINARY_DATA_HERE // *os.File | JSON file containing the objects to be imported. # *os.File | JSON file containing the objects to be imported.
+    name := `name_example` // string | Name that will be assigned to the uploaded configuration file. # string | Name that will be assigned to the uploaded configuration file.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ConfigurationHubAPI.CreateUploadedConfiguration(context.Background()).Data(data).Name(name).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V3.ConfigurationHubAPI.CreateUploadedConfiguration(context.Background()).Data(data).Name(name).Execute()
+	//resp, r, err := apiClient.V3.ConfigurationHubAPI.CreateUploadedConfiguration(context.Background()).Data(data).Name(name).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.CreateUploadedConfiguration``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -299,17 +323,21 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    sourceOrg := source-org # string | The name of the source org. # string | The name of the source org.
-    objectMappingId := 3d6e0144-963f-4bd6-8d8d-d77b4e507ce4 # string | The id of the object mapping to be deleted. # string | The id of the object mapping to be deleted.
+    sourceOrg := `source-org` // string | The name of the source org. # string | The name of the source org.
+    objectMappingId := `3d6e0144-963f-4bd6-8d8d-d77b4e507ce4` // string | The id of the object mapping to be deleted. # string | The id of the object mapping to be deleted.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V3.ConfigurationHubAPI.DeleteObjectMapping(context.Background(), sourceOrg, objectMappingId).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    r, err := apiClient.V3.ConfigurationHubAPI.DeleteObjectMapping(context.Background(), sourceOrg, objectMappingId).Execute()
+	//r, err := apiClient.V3.ConfigurationHubAPI.DeleteObjectMapping(context.Background(), sourceOrg, objectMappingId).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.DeleteObjectMapping``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -364,16 +392,20 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    id := 3d0fe04b-57df-4a46-a83b-8f04b0f9d10b # string | The id of the uploaded configuration. # string | The id of the uploaded configuration.
+    id := `3d0fe04b-57df-4a46-a83b-8f04b0f9d10b` // string | The id of the uploaded configuration. # string | The id of the uploaded configuration.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.V3.ConfigurationHubAPI.DeleteUploadedConfiguration(context.Background(), id).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    r, err := apiClient.V3.ConfigurationHubAPI.DeleteUploadedConfiguration(context.Background(), id).Execute()
+	//r, err := apiClient.V3.ConfigurationHubAPI.DeleteUploadedConfiguration(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.DeleteUploadedConfiguration``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -427,16 +459,20 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    sourceOrg := source-org # string | The name of the source org. # string | The name of the source org.
+    sourceOrg := `source-org` // string | The name of the source org. # string | The name of the source org.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ConfigurationHubAPI.GetObjectMappings(context.Background(), sourceOrg).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V3.ConfigurationHubAPI.GetObjectMappings(context.Background(), sourceOrg).Execute()
+	//resp, r, err := apiClient.V3.ConfigurationHubAPI.GetObjectMappings(context.Background(), sourceOrg).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.GetObjectMappings``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -489,16 +525,20 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    id := 3d0fe04b-57df-4a46-a83b-8f04b0f9d10b # string | The id of the uploaded configuration. # string | The id of the uploaded configuration.
+    id := `3d0fe04b-57df-4a46-a83b-8f04b0f9d10b` // string | The id of the uploaded configuration. # string | The id of the uploaded configuration.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ConfigurationHubAPI.GetUploadedConfiguration(context.Background(), id).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V3.ConfigurationHubAPI.GetUploadedConfiguration(context.Background(), id).Execute()
+	//resp, r, err := apiClient.V3.ConfigurationHubAPI.GetUploadedConfiguration(context.Background(), id).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.GetUploadedConfiguration``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -547,16 +587,20 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    filters := status eq "COMPLETE" # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
+    filters := `status eq "COMPLETE"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ConfigurationHubAPI.ListUploadedConfigurations(context.Background()).Filters(filters).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V3.ConfigurationHubAPI.ListUploadedConfigurations(context.Background()).Execute()
+	//resp, r, err := apiClient.V3.ConfigurationHubAPI.ListUploadedConfigurations(context.Background()).Filters(filters).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.ListUploadedConfigurations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -613,13 +657,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    sourceOrg := source-org # string | The name of the source org. # string | The name of the source org.
-    objectMappingBulkPatchRequest := fmt.Sprintf(`{
+    sourceOrg := `source-org` // string | The name of the source org. # string | The name of the source org.
+    data := []byte(`{
           "patches" : {
             "603b1a61-d03d-4ed1-864f-a508fbd1995d" : [ {
               "op" : "replace",
@@ -632,11 +677,20 @@ func main() {
               "value" : "New Target Value"
             } ]
           }
-        }`) # ObjectMappingBulkPatchRequest | The object mapping request body.
+        }`) // ObjectMappingBulkPatchRequest | The object mapping request body.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V3.ConfigurationHubAPI.UpdateObjectMappings(context.Background(), sourceOrg).ObjectMappingBulkPatchRequest(objectMappingBulkPatchRequest).Execute()
+  
+   var objectMappingBulkPatchRequest v3.ObjectMappingBulkPatchRequest
+   if err := json.Unmarshal(data, &objectMappingBulkPatchRequest); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V3.ConfigurationHubAPI.UpdateObjectMappings(context.Background(), sourceOrg).ObjectMappingBulkPatchRequest(objectMappingBulkPatchRequest).Execute()
+	//resp, r, err := apiClient.V3.ConfigurationHubAPI.UpdateObjectMappings(context.Background(), sourceOrg).ObjectMappingBulkPatchRequest(objectMappingBulkPatchRequest).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `ConfigurationHubAPI.UpdateObjectMappings``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -20,14 +20,14 @@ Name | Type | Description | Notes
 **Scope** | **[]string** | Scopes of the personal  access token. | 
 **Name** | **string** | The name of the personal access token. Cannot be the same as other personal access tokens owned by a user. | 
 **Owner** | [**PatOwner**](pat-owner) |  | 
-**Created** | **time.Time** | The date and time, down to the millisecond, when this personal access token was created. | 
+**Created** | **SailPointTime** | The date and time, down to the millisecond, when this personal access token was created. | 
 **AccessTokenValiditySeconds** | **int32** | Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200. | 
 
 ## Methods
 
 ### NewCreatePersonalAccessTokenResponse
 
-`func NewCreatePersonalAccessTokenResponse(id string, secret string, scope []string, name string, owner PatOwner, created time.Time, accessTokenValiditySeconds int32, ) *CreatePersonalAccessTokenResponse`
+`func NewCreatePersonalAccessTokenResponse(id string, secret string, scope []string, name string, owner PatOwner, created SailPointTime, accessTokenValiditySeconds int32, ) *CreatePersonalAccessTokenResponse`
 
 NewCreatePersonalAccessTokenResponse instantiates a new CreatePersonalAccessTokenResponse object
 This constructor will assign default values to properties that have it defined,
@@ -154,20 +154,20 @@ SetOwner sets Owner field to given value.
 
 ### GetCreated
 
-`func (o *CreatePersonalAccessTokenResponse) GetCreated() time.Time`
+`func (o *CreatePersonalAccessTokenResponse) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *CreatePersonalAccessTokenResponse) GetCreatedOk() (*time.Time, bool)`
+`func (o *CreatePersonalAccessTokenResponse) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *CreatePersonalAccessTokenResponse) SetCreated(v time.Time)`
+`func (o *CreatePersonalAccessTokenResponse) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 

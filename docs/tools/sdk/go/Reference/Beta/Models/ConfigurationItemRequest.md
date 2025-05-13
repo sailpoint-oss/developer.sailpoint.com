@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **ReassignedFromId** | Pointer to **string** | The identity id to reassign an item from | [optional] 
 **ReassignedToId** | Pointer to **string** | The identity id to reassign an item to | [optional] 
 **ConfigType** | Pointer to [**ConfigTypeEnum**](config-type-enum) |  | [optional] 
-**StartDate** | Pointer to **time.Time** | The date from which to start reassigning work items | [optional] 
+**StartDate** | Pointer to **SailPointTime** | The date from which to start reassigning work items | [optional] 
 **EndDate** | Pointer to **NullableTime** | The date from which to stop reassigning work items.  If this is an null string it indicates a permanent reassignment. | [optional] 
 
 ## Methods
@@ -117,20 +117,20 @@ HasConfigType returns a boolean if a field has been set.
 
 ### GetStartDate
 
-`func (o *ConfigurationItemRequest) GetStartDate() time.Time`
+`func (o *ConfigurationItemRequest) GetStartDate() SailPointTime`
 
 GetStartDate returns the StartDate field if non-nil, zero value otherwise.
 
 ### GetStartDateOk
 
-`func (o *ConfigurationItemRequest) GetStartDateOk() (*time.Time, bool)`
+`func (o *ConfigurationItemRequest) GetStartDateOk() (*SailPointTime, bool)`
 
 GetStartDateOk returns a tuple with the StartDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStartDate
 
-`func (o *ConfigurationItemRequest) SetStartDate(v time.Time)`
+`func (o *ConfigurationItemRequest) SetStartDate(v SailPointTime)`
 
 SetStartDate sets StartDate field to given value.
 
@@ -142,20 +142,20 @@ HasStartDate returns a boolean if a field has been set.
 
 ### GetEndDate
 
-`func (o *ConfigurationItemRequest) GetEndDate() time.Time`
+`func (o *ConfigurationItemRequest) GetEndDate() SailPointTime`
 
 GetEndDate returns the EndDate field if non-nil, zero value otherwise.
 
 ### GetEndDateOk
 
-`func (o *ConfigurationItemRequest) GetEndDateOk() (*time.Time, bool)`
+`func (o *ConfigurationItemRequest) GetEndDateOk() (*SailPointTime, bool)`
 
 GetEndDateOk returns a tuple with the EndDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEndDate
 
-`func (o *ConfigurationItemRequest) SetEndDate(v time.Time)`
+`func (o *ConfigurationItemRequest) SetEndDate(v SailPointTime)`
 
 SetEndDate sets EndDate field to given value.
 

@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** | Trigger ID. This is a static namespaced ID for the trigger. | [optional] 
 **Type** | Pointer to **string** | Trigger type | [optional] 
 **Deprecated** | Pointer to **bool** |  | [optional] 
-**DeprecatedBy** | Pointer to **time.Time** |  | [optional] 
+**DeprecatedBy** | Pointer to **SailPointTime** |  | [optional] 
 **IsSimulationEnabled** | Pointer to **bool** |  | [optional] 
 **OutputSchema** | Pointer to **map[string]interface{}** | Example output schema | [optional] 
 **Name** | Pointer to **string** | Trigger Name | [optional] 
@@ -123,20 +123,20 @@ HasDeprecated returns a boolean if a field has been set.
 
 ### GetDeprecatedBy
 
-`func (o *WorkflowLibraryTrigger) GetDeprecatedBy() time.Time`
+`func (o *WorkflowLibraryTrigger) GetDeprecatedBy() SailPointTime`
 
 GetDeprecatedBy returns the DeprecatedBy field if non-nil, zero value otherwise.
 
 ### GetDeprecatedByOk
 
-`func (o *WorkflowLibraryTrigger) GetDeprecatedByOk() (*time.Time, bool)`
+`func (o *WorkflowLibraryTrigger) GetDeprecatedByOk() (*SailPointTime, bool)`
 
 GetDeprecatedByOk returns a tuple with the DeprecatedBy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeprecatedBy
 
-`func (o *WorkflowLibraryTrigger) SetDeprecatedBy(v time.Time)`
+`func (o *WorkflowLibraryTrigger) SetDeprecatedBy(v SailPointTime)`
 
 SetDeprecatedBy sets DeprecatedBy field to given value.
 

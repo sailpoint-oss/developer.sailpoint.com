@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | System-generated unique ID of the Object | [optional] [readonly] 
 **Name** | **NullableString** | Name of the Object | 
-**Created** | Pointer to **time.Time** | Creation date of the Object | [optional] [readonly] 
-**Modified** | Pointer to **time.Time** | Last modification date of the Object | [optional] [readonly] 
+**Created** | Pointer to **SailPointTime** | Creation date of the Object | [optional] [readonly] 
+**Modified** | Pointer to **SailPointTime** | Last modification date of the Object | [optional] [readonly] 
 **Description** | Pointer to **NullableString** | Identity profile's description. | [optional] 
 **Owner** | Pointer to [**NullableIdentityProfileAllOfOwner**](identity-profile-all-of-owner) |  | [optional] 
 **Priority** | Pointer to **int64** | Identity profile's priority. | [optional] 
@@ -105,20 +105,20 @@ SetName sets Name field to given value.
 UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetCreated
 
-`func (o *IdentityProfile) GetCreated() time.Time`
+`func (o *IdentityProfile) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *IdentityProfile) GetCreatedOk() (*time.Time, bool)`
+`func (o *IdentityProfile) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *IdentityProfile) SetCreated(v time.Time)`
+`func (o *IdentityProfile) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
@@ -130,20 +130,20 @@ HasCreated returns a boolean if a field has been set.
 
 ### GetModified
 
-`func (o *IdentityProfile) GetModified() time.Time`
+`func (o *IdentityProfile) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *IdentityProfile) GetModifiedOk() (*time.Time, bool)`
+`func (o *IdentityProfile) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *IdentityProfile) SetModified(v time.Time)`
+`func (o *IdentityProfile) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

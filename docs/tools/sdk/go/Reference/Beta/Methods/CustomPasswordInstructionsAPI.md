@@ -68,20 +68,30 @@ import (
 	"context"
 	"fmt"
 	"os"
-  beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    customPasswordInstruction := fmt.Sprintf(`{
+    data := []byte(`{
           "pageContent" : "Please enter a new password. Your password must be at least 8 characters long and contain at least one number and one letter.",
           "pageId" : "change-password:enter-password",
           "locale" : "en"
-        }`) # CustomPasswordInstruction | 
+        }`) // CustomPasswordInstruction | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.Beta.CustomPasswordInstructionsAPI.CreateCustomPasswordInstructions(context.Background()).CustomPasswordInstruction(customPasswordInstruction).Execute()
+  
+   var customPasswordInstruction beta.CustomPasswordInstruction
+   if err := json.Unmarshal(data, &customPasswordInstruction); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.Beta.CustomPasswordInstructionsAPI.CreateCustomPasswordInstructions(context.Background()).CustomPasswordInstruction(customPasswordInstruction).Execute()
+	//resp, r, err := apiClient.Beta.CustomPasswordInstructionsAPI.CreateCustomPasswordInstructions(context.Background()).CustomPasswordInstruction(customPasswordInstruction).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CustomPasswordInstructionsAPI.CreateCustomPasswordInstructions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -135,17 +145,21 @@ import (
 	"context"
 	"fmt"
 	"os"
-  beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    pageId := mfa:select # string | The page ID of custom password instructions to delete. # string | The page ID of custom password instructions to delete.
-    locale := locale_example # string | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional) # string | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional)
+    pageId := `mfa:select` // string | The page ID of custom password instructions to delete. # string | The page ID of custom password instructions to delete.
+    locale := `locale_example` // string | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional) # string | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	r, err := apiClient.Beta.CustomPasswordInstructionsAPI.DeleteCustomPasswordInstructions(context.Background(), pageId).Locale(locale).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    r, err := apiClient.Beta.CustomPasswordInstructionsAPI.DeleteCustomPasswordInstructions(context.Background(), pageId).Execute()
+	//r, err := apiClient.Beta.CustomPasswordInstructionsAPI.DeleteCustomPasswordInstructions(context.Background(), pageId).Locale(locale).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CustomPasswordInstructionsAPI.DeleteCustomPasswordInstructions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -197,17 +211,21 @@ import (
 	"context"
 	"fmt"
 	"os"
-  beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    pageId := mfa:select # string | The page ID of custom password instructions to query. # string | The page ID of custom password instructions to query.
-    locale := locale_example # string | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional) # string | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional)
+    pageId := `mfa:select` // string | The page ID of custom password instructions to query. # string | The page ID of custom password instructions to query.
+    locale := `locale_example` // string | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional) # string | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional)
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.Beta.CustomPasswordInstructionsAPI.GetCustomPasswordInstructions(context.Background(), pageId).Locale(locale).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.Beta.CustomPasswordInstructionsAPI.GetCustomPasswordInstructions(context.Background(), pageId).Execute()
+	//resp, r, err := apiClient.Beta.CustomPasswordInstructionsAPI.GetCustomPasswordInstructions(context.Background(), pageId).Locale(locale).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `CustomPasswordInstructionsAPI.GetCustomPasswordInstructions``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

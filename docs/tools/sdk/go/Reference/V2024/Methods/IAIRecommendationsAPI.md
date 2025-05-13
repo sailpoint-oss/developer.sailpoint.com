@@ -69,13 +69,14 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    recommendationRequestDto := fmt.Sprintf(`{
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    data := []byte(`{
           "prescribeMode" : false,
           "excludeInterpretations" : false,
           "requests" : [ {
@@ -93,11 +94,20 @@ func main() {
           } ],
           "includeTranslationMessages" : false,
           "includeDebugInformation" : true
-        }`) # RecommendationRequestDto | 
+        }`) // RecommendationRequestDto | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.IAIRecommendationsAPI.GetRecommendations(context.Background()).XSailPointExperimental(xSailPointExperimental).RecommendationRequestDto(recommendationRequestDto).Execute()
+  
+   var recommendationRequestDto v2024.RecommendationRequestDto
+   if err := json.Unmarshal(data, &recommendationRequestDto); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.IAIRecommendationsAPI.GetRecommendations(context.Background()).XSailPointExperimental(xSailPointExperimental).RecommendationRequestDto(recommendationRequestDto).Execute()
+	//resp, r, err := apiClient.V2024.IAIRecommendationsAPI.GetRecommendations(context.Background()).XSailPointExperimental(xSailPointExperimental).RecommendationRequestDto(recommendationRequestDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRecommendationsAPI.GetRecommendations``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -157,16 +167,20 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+   
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.IAIRecommendationsAPI.GetRecommendationsConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.IAIRecommendationsAPI.GetRecommendationsConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	//resp, r, err := apiClient.V2024.IAIRecommendationsAPI.GetRecommendationsConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRecommendationsAPI.GetRecommendationsConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -227,22 +241,32 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+    "encoding/json"
+    v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    xSailPointExperimental := true # string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    recommendationConfigDto := fmt.Sprintf(`{
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    data := []byte(`{
           "recommenderFeatures" : [ "jobTitle", "location", "peer_group", "department", "active" ],
           "peerGroupPercentageThreshold" : 0.5,
           "runAutoSelectOnce" : false,
           "onlyTuneThreshold" : false
-        }`) # RecommendationConfigDto | 
+        }`) // RecommendationConfigDto | 
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.IAIRecommendationsAPI.UpdateRecommendationsConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).RecommendationConfigDto(recommendationConfigDto).Execute()
+  
+   var recommendationConfigDto v2024.RecommendationConfigDto
+   if err := json.Unmarshal(data, &recommendationConfigDto); err != nil {
+    fmt.Println("Error:", err)
+    return
+   }
+  
+
+	configuration := sailpoint.NewDefaultConfiguration()
+	apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.IAIRecommendationsAPI.UpdateRecommendationsConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).RecommendationConfigDto(recommendationConfigDto).Execute()
+	//resp, r, err := apiClient.V2024.IAIRecommendationsAPI.UpdateRecommendationsConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).RecommendationConfigDto(recommendationConfigDto).Execute()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error when calling `IAIRecommendationsAPI.UpdateRecommendationsConfig``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

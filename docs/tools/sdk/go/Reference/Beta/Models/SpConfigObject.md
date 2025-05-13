@@ -15,13 +15,13 @@ tags: ['SDK', 'Software Development Kit', 'SpConfigObject', 'BetaSpConfigObject'
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjectType** | Pointer to **string** | The object type this configuration is for. | [optional] 
-**ReferenceExtractors** | Pointer to **[]string** | List of json paths within an exported object of this type that represent references that need to be resolved. | [optional] 
-**SignatureRequired** | Pointer to **bool** | If true, this type of object will be JWS signed and cannot be modified before import. | [optional] [default to false]
-**AlwaysResolveById** | Pointer to **bool** | Whether this object type has to be resolved always by ID | [optional] [default to false]
-**LegacyObject** | Pointer to **bool** | Whether this is a legacy object | [optional] [default to false]
-**OnePerTenant** | Pointer to **bool** | Whether there is only one object of this type | [optional] [default to false]
-**Exportable** | Pointer to **bool** | Whether this object can be exported or it is just a reference object | [optional] [default to false]
+**ObjectType** | Pointer to **string** | Object type the configuration is for. | [optional] 
+**ReferenceExtractors** | Pointer to **[]string** | List of JSON paths within an exported object of this type, representing references that must be resolved. | [optional] 
+**SignatureRequired** | Pointer to **bool** | Indicates whether this type of object will be JWS signed and cannot be modified before import. | [optional] [default to false]
+**AlwaysResolveById** | Pointer to **bool** | Indicates whether this object type must be always be resolved by ID. | [optional] [default to false]
+**LegacyObject** | Pointer to **bool** | Indicates whether this is a legacy object. | [optional] [default to false]
+**OnePerTenant** | Pointer to **bool** | Indicates whether there is only one object of this type. | [optional] [default to false]
+**Exportable** | Pointer to **bool** | Indicates whether the object can be exported or is just a reference object. | [optional] [default to false]
 **Rules** | Pointer to [**SpConfigRules**](sp-config-rules) |  | [optional] 
 
 ## Methods

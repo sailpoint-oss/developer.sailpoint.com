@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **Attributes** | Pointer to **map[string]interface{}** | Additional attributes for a product | [optional] 
 **Zone** | Pointer to **string** | Zone | [optional] 
 **Status** | Pointer to **string** | Status of the product | [optional] 
-**StatusDateTime** | Pointer to **time.Time** | Status datetime | [optional] 
+**StatusDateTime** | Pointer to **SailPointTime** | Status datetime | [optional] 
 **Reason** | Pointer to **string** | If there's a tenant provisioning failure then reason will have the description of error | [optional] 
 **Notes** | Pointer to **string** | Product could have additional notes added during tenant provisioning. | [optional] 
 **DateCreated** | Pointer to **NullableTime** | Date when the product was created | [optional] 
@@ -313,20 +313,20 @@ HasStatus returns a boolean if a field has been set.
 
 ### GetStatusDateTime
 
-`func (o *Product) GetStatusDateTime() time.Time`
+`func (o *Product) GetStatusDateTime() SailPointTime`
 
 GetStatusDateTime returns the StatusDateTime field if non-nil, zero value otherwise.
 
 ### GetStatusDateTimeOk
 
-`func (o *Product) GetStatusDateTimeOk() (*time.Time, bool)`
+`func (o *Product) GetStatusDateTimeOk() (*SailPointTime, bool)`
 
 GetStatusDateTimeOk returns a tuple with the StatusDateTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatusDateTime
 
-`func (o *Product) SetStatusDateTime(v time.Time)`
+`func (o *Product) SetStatusDateTime(v SailPointTime)`
 
 SetStatusDateTime sets StatusDateTime field to given value.
 
@@ -388,20 +388,20 @@ HasNotes returns a boolean if a field has been set.
 
 ### GetDateCreated
 
-`func (o *Product) GetDateCreated() time.Time`
+`func (o *Product) GetDateCreated() SailPointTime`
 
 GetDateCreated returns the DateCreated field if non-nil, zero value otherwise.
 
 ### GetDateCreatedOk
 
-`func (o *Product) GetDateCreatedOk() (*time.Time, bool)`
+`func (o *Product) GetDateCreatedOk() (*SailPointTime, bool)`
 
 GetDateCreatedOk returns a tuple with the DateCreated field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDateCreated
 
-`func (o *Product) SetDateCreated(v time.Time)`
+`func (o *Product) SetDateCreated(v SailPointTime)`
 
 SetDateCreated sets DateCreated field to given value.
 
@@ -423,20 +423,20 @@ HasDateCreated returns a boolean if a field has been set.
 UnsetDateCreated ensures that no value is present for DateCreated, not even an explicit nil
 ### GetLastUpdated
 
-`func (o *Product) GetLastUpdated() time.Time`
+`func (o *Product) GetLastUpdated() SailPointTime`
 
 GetLastUpdated returns the LastUpdated field if non-nil, zero value otherwise.
 
 ### GetLastUpdatedOk
 
-`func (o *Product) GetLastUpdatedOk() (*time.Time, bool)`
+`func (o *Product) GetLastUpdatedOk() (*SailPointTime, bool)`
 
 GetLastUpdatedOk returns a tuple with the LastUpdated field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastUpdated
 
-`func (o *Product) SetLastUpdated(v time.Time)`
+`func (o *Product) SetLastUpdated(v SailPointTime)`
 
 SetLastUpdated sets LastUpdated field to given value.
 

@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'UserApp', 'BetaUserApp']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | The user app id | [optional] 
-**Created** | Pointer to **time.Time** | Time when the user app was created | [optional] 
-**Modified** | Pointer to **time.Time** | Time when the user app was last modified | [optional] 
+**Created** | Pointer to **SailPointTime** | Time when the user app was created | [optional] 
+**Modified** | Pointer to **SailPointTime** | Time when the user app was last modified | [optional] 
 **HasMultipleAccounts** | Pointer to **bool** | True if the owner has multiple accounts for the source | [optional] [default to false]
 **UseForPasswordManagement** | Pointer to **bool** | True if the source has password feature | [optional] [default to false]
 **ProvisionRequestEnabled** | Pointer to **bool** | True if the source app related to the user app is provision request enabled | [optional] [default to false]
@@ -73,20 +73,20 @@ HasId returns a boolean if a field has been set.
 
 ### GetCreated
 
-`func (o *UserApp) GetCreated() time.Time`
+`func (o *UserApp) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *UserApp) GetCreatedOk() (*time.Time, bool)`
+`func (o *UserApp) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *UserApp) SetCreated(v time.Time)`
+`func (o *UserApp) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
@@ -98,20 +98,20 @@ HasCreated returns a boolean if a field has been set.
 
 ### GetModified
 
-`func (o *UserApp) GetModified() time.Time`
+`func (o *UserApp) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *UserApp) GetModifiedOk() (*time.Time, bool)`
+`func (o *UserApp) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *UserApp) SetModified(v time.Time)`
+`func (o *UserApp) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

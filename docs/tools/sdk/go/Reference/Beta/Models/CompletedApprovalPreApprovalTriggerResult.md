@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Comment** | Pointer to **string** | The comment from the trigger | [optional] 
 **Decision** | Pointer to [**CompletedApprovalState**](completed-approval-state) |  | [optional] 
 **Reviewer** | Pointer to **string** | The name of the approver | [optional] 
-**Date** | Pointer to **time.Time** | The date and time the trigger decided on the request | [optional] 
+**Date** | Pointer to **SailPointTime** | The date and time the trigger decided on the request | [optional] 
 
 ## Methods
 
@@ -116,20 +116,20 @@ HasReviewer returns a boolean if a field has been set.
 
 ### GetDate
 
-`func (o *CompletedApprovalPreApprovalTriggerResult) GetDate() time.Time`
+`func (o *CompletedApprovalPreApprovalTriggerResult) GetDate() SailPointTime`
 
 GetDate returns the Date field if non-nil, zero value otherwise.
 
 ### GetDateOk
 
-`func (o *CompletedApprovalPreApprovalTriggerResult) GetDateOk() (*time.Time, bool)`
+`func (o *CompletedApprovalPreApprovalTriggerResult) GetDateOk() (*SailPointTime, bool)`
 
 GetDateOk returns a tuple with the Date field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDate
 
-`func (o *CompletedApprovalPreApprovalTriggerResult) SetDate(v time.Time)`
+`func (o *CompletedApprovalPreApprovalTriggerResult) SetDate(v SailPointTime)`
 
 SetDate sets Date field to given value.
 

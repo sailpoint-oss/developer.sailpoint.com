@@ -22,8 +22,8 @@ Name | Type | Description | Notes
 **RequestedItemsStatus** | [**[]AccessRequestPostApprovalRequestedItemsStatusInner**](access-request-post-approval-requested-items-status-inner) | Details about the outcome of each requested access item. | 
 **Source** | [**AccountUncorrelatedSource**](account-uncorrelated-source) |  | 
 **Status** | **map[string]interface{}** | The overall status of the collection. | 
-**Started** | **time.Time** | The date and time when the account collection started. | 
-**Completed** | **time.Time** | The date and time when the account collection finished. | 
+**Started** | **SailPointTime** | The date and time when the account collection started. | 
+**Completed** | **SailPointTime** | The date and time when the account collection finished. | 
 **Errors** | **[]string** | List of any accumulated error messages that occurred during provisioning. | 
 **Warnings** | **[]string** | List of any accumulated warning messages that occurred during provisioning. | 
 **Stats** | [**AccountsCollectedForAggregationStats**](accounts-collected-for-aggregation-stats) |  | 
@@ -56,11 +56,11 @@ Name | Type | Description | Notes
 **IdentityName** | **string** | Name of the identity correlated with the account. | 
 **Name** | **string** | Source name. | 
 **Type** | **string** | Connection type. | 
-**Created** | **time.Time** | Date and time when the status change occurred. | 
+**Created** | **SailPointTime** | Date and time when the status change occurred. | 
 **Connector** | **string** | Connector type used to connect to the source. | 
 **Actor** | [**SourceUpdatedActor**](source-updated-actor) |  | 
-**Deleted** | **time.Time** | Date and time when the source was deleted. | 
-**Modified** | **time.Time** | Date and time when the source was modified. | 
+**Deleted** | **SailPointTime** | Date and time when the source was deleted. | 
+**Modified** | **SailPointTime** | Date and time when the source was modified. | 
 **Application** | [**VAClusterStatusChangeEventApplication**](va-cluster-status-change-event-application) |  | 
 **HealthCheckResult** | [**VAClusterStatusChangeEventHealthCheckResult**](va-cluster-status-change-event-health-check-result) |  | 
 **PreviousHealthCheckResult** | [**VAClusterStatusChangeEventPreviousHealthCheckResult**](va-cluster-status-change-event-previous-health-check-result) |  | 
@@ -69,7 +69,7 @@ Name | Type | Description | Notes
 
 ### NewTriggerExampleInput
 
-`func NewTriggerExampleInput(accessRequestId string, requestedFor []AccessItemRequestedForDto1, requestedItems []AccessRequestPreApprovalRequestedItemsInner, requestedBy AccessItemRequesterDto1, requestedItemsStatus []AccessRequestPostApprovalRequestedItemsStatusInner, source AccountUncorrelatedSource, status map[string]interface{}, started time.Time, completed time.Time, errors []string, warnings []string, stats AccountsCollectedForAggregationStats, identity IdentityDeletedIdentity, account AccountUncorrelatedAccount, changes []IdentityAttributesChangedChangesInner, attributes map[string]interface{}, campaign CampaignGeneratedCampaign, certification CertificationSignedOffCertification, trackingNumber string, sources string, recipient ProvisioningCompletedRecipient, accountRequests []ProvisioningCompletedAccountRequestsInner, fileName string, ownerEmail string, ownerName string, query string, searchName string, searchResults SavedSearchCompleteSearchResults, signedS3Url string, uuid string, id string, nativeIdentifier string, sourceId string, sourceName string, identityId string, identityName string, name string, type_ string, created time.Time, connector string, actor SourceUpdatedActor, deleted time.Time, modified time.Time, application VAClusterStatusChangeEventApplication, healthCheckResult VAClusterStatusChangeEventHealthCheckResult, previousHealthCheckResult VAClusterStatusChangeEventPreviousHealthCheckResult, ) *TriggerExampleInput`
+`func NewTriggerExampleInput(accessRequestId string, requestedFor []AccessItemRequestedForDto1, requestedItems []AccessRequestPreApprovalRequestedItemsInner, requestedBy AccessItemRequesterDto1, requestedItemsStatus []AccessRequestPostApprovalRequestedItemsStatusInner, source AccountUncorrelatedSource, status map[string]interface{}, started SailPointTime, completed SailPointTime, errors []string, warnings []string, stats AccountsCollectedForAggregationStats, identity IdentityDeletedIdentity, account AccountUncorrelatedAccount, changes []IdentityAttributesChangedChangesInner, attributes map[string]interface{}, campaign CampaignGeneratedCampaign, certification CertificationSignedOffCertification, trackingNumber string, sources string, recipient ProvisioningCompletedRecipient, accountRequests []ProvisioningCompletedAccountRequestsInner, fileName string, ownerEmail string, ownerName string, query string, searchName string, searchResults SavedSearchCompleteSearchResults, signedS3Url string, uuid string, id string, nativeIdentifier string, sourceId string, sourceName string, identityId string, identityName string, name string, type_ string, created SailPointTime, connector string, actor SourceUpdatedActor, deleted SailPointTime, modified SailPointTime, application VAClusterStatusChangeEventApplication, healthCheckResult VAClusterStatusChangeEventHealthCheckResult, previousHealthCheckResult VAClusterStatusChangeEventPreviousHealthCheckResult, ) *TriggerExampleInput`
 
 NewTriggerExampleInput instantiates a new TriggerExampleInput object
 This constructor will assign default values to properties that have it defined,
@@ -226,40 +226,40 @@ SetStatus sets Status field to given value.
 
 ### GetStarted
 
-`func (o *TriggerExampleInput) GetStarted() time.Time`
+`func (o *TriggerExampleInput) GetStarted() SailPointTime`
 
 GetStarted returns the Started field if non-nil, zero value otherwise.
 
 ### GetStartedOk
 
-`func (o *TriggerExampleInput) GetStartedOk() (*time.Time, bool)`
+`func (o *TriggerExampleInput) GetStartedOk() (*SailPointTime, bool)`
 
 GetStartedOk returns a tuple with the Started field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStarted
 
-`func (o *TriggerExampleInput) SetStarted(v time.Time)`
+`func (o *TriggerExampleInput) SetStarted(v SailPointTime)`
 
 SetStarted sets Started field to given value.
 
 
 ### GetCompleted
 
-`func (o *TriggerExampleInput) GetCompleted() time.Time`
+`func (o *TriggerExampleInput) GetCompleted() SailPointTime`
 
 GetCompleted returns the Completed field if non-nil, zero value otherwise.
 
 ### GetCompletedOk
 
-`func (o *TriggerExampleInput) GetCompletedOk() (*time.Time, bool)`
+`func (o *TriggerExampleInput) GetCompletedOk() (*SailPointTime, bool)`
 
 GetCompletedOk returns a tuple with the Completed field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCompleted
 
-`func (o *TriggerExampleInput) SetCompleted(v time.Time)`
+`func (o *TriggerExampleInput) SetCompleted(v SailPointTime)`
 
 SetCompleted sets Completed field to given value.
 
@@ -961,20 +961,20 @@ SetType sets Type field to given value.
 
 ### GetCreated
 
-`func (o *TriggerExampleInput) GetCreated() time.Time`
+`func (o *TriggerExampleInput) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *TriggerExampleInput) GetCreatedOk() (*time.Time, bool)`
+`func (o *TriggerExampleInput) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *TriggerExampleInput) SetCreated(v time.Time)`
+`func (o *TriggerExampleInput) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
@@ -1021,40 +1021,40 @@ SetActor sets Actor field to given value.
 
 ### GetDeleted
 
-`func (o *TriggerExampleInput) GetDeleted() time.Time`
+`func (o *TriggerExampleInput) GetDeleted() SailPointTime`
 
 GetDeleted returns the Deleted field if non-nil, zero value otherwise.
 
 ### GetDeletedOk
 
-`func (o *TriggerExampleInput) GetDeletedOk() (*time.Time, bool)`
+`func (o *TriggerExampleInput) GetDeletedOk() (*SailPointTime, bool)`
 
 GetDeletedOk returns a tuple with the Deleted field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeleted
 
-`func (o *TriggerExampleInput) SetDeleted(v time.Time)`
+`func (o *TriggerExampleInput) SetDeleted(v SailPointTime)`
 
 SetDeleted sets Deleted field to given value.
 
 
 ### GetModified
 
-`func (o *TriggerExampleInput) GetModified() time.Time`
+`func (o *TriggerExampleInput) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *TriggerExampleInput) GetModifiedOk() (*time.Time, bool)`
+`func (o *TriggerExampleInput) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *TriggerExampleInput) SetModified(v time.Time)`
+`func (o *TriggerExampleInput) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

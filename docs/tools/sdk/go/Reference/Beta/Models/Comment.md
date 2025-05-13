@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **CommenterId** | Pointer to **string** | Id of the identity making the comment | [optional] 
 **CommenterName** | Pointer to **string** | Human-readable display name of the identity making the comment | [optional] 
 **Body** | Pointer to **string** | Content of the comment | [optional] 
-**Date** | Pointer to **time.Time** | Date and time comment was made | [optional] 
+**Date** | Pointer to **SailPointTime** | Date and time comment was made | [optional] 
 
 ## Methods
 
@@ -116,20 +116,20 @@ HasBody returns a boolean if a field has been set.
 
 ### GetDate
 
-`func (o *Comment) GetDate() time.Time`
+`func (o *Comment) GetDate() SailPointTime`
 
 GetDate returns the Date field if non-nil, zero value otherwise.
 
 ### GetDateOk
 
-`func (o *Comment) GetDateOk() (*time.Time, bool)`
+`func (o *Comment) GetDateOk() (*SailPointTime, bool)`
 
 GetDateOk returns a tuple with the Date field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDate
 
-`func (o *Comment) SetDate(v time.Time)`
+`func (o *Comment) SetDate(v SailPointTime)`
 
 SetDate sets Date field to given value.
 

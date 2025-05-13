@@ -17,12 +17,12 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Certification's unique ID. | 
 **Name** | **string** | Certification's name. | 
-**Created** | **time.Time** | Date and time when the certification was created. | 
+**Created** | **SailPointTime** | Date and time when the certification was created. | 
 **Modified** | Pointer to **NullableTime** | Date and time when the certification was last modified. | [optional] 
 **CampaignRef** | [**CampaignReference**](campaign-reference) |  | 
 **Phase** | [**CertificationPhase**](certification-phase) |  | 
-**Due** | **time.Time** | Date and time when the certification is due. | 
-**Signed** | **time.Time** | Date and time when the reviewer signed off on the certification. | 
+**Due** | **SailPointTime** | Date and time when the certification is due. | 
+**Signed** | **SailPointTime** | Date and time when the reviewer signed off on the certification. | 
 **Reviewer** | [**Reviewer**](reviewer) |  | 
 **Reassignment** | Pointer to [**Reassignment**](reassignment) |  | [optional] 
 **HasErrors** | **bool** | Indicates whether the certification has any errors. | 
@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 
 ### NewCertificationSignedOffCertification
 
-`func NewCertificationSignedOffCertification(id string, name string, created time.Time, campaignRef CampaignReference, phase CertificationPhase, due time.Time, signed time.Time, reviewer Reviewer, hasErrors bool, completed bool, decisionsMade int32, decisionsTotal int32, entitiesCompleted int32, entitiesTotal int32, ) *CertificationSignedOffCertification`
+`func NewCertificationSignedOffCertification(id string, name string, created SailPointTime, campaignRef CampaignReference, phase CertificationPhase, due SailPointTime, signed SailPointTime, reviewer Reviewer, hasErrors bool, completed bool, decisionsMade int32, decisionsTotal int32, entitiesCompleted int32, entitiesTotal int32, ) *CertificationSignedOffCertification`
 
 NewCertificationSignedOffCertification instantiates a new CertificationSignedOffCertification object
 This constructor will assign default values to properties that have it defined,
@@ -94,40 +94,40 @@ SetName sets Name field to given value.
 
 ### GetCreated
 
-`func (o *CertificationSignedOffCertification) GetCreated() time.Time`
+`func (o *CertificationSignedOffCertification) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *CertificationSignedOffCertification) GetCreatedOk() (*time.Time, bool)`
+`func (o *CertificationSignedOffCertification) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *CertificationSignedOffCertification) SetCreated(v time.Time)`
+`func (o *CertificationSignedOffCertification) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
 
 ### GetModified
 
-`func (o *CertificationSignedOffCertification) GetModified() time.Time`
+`func (o *CertificationSignedOffCertification) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *CertificationSignedOffCertification) GetModifiedOk() (*time.Time, bool)`
+`func (o *CertificationSignedOffCertification) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *CertificationSignedOffCertification) SetModified(v time.Time)`
+`func (o *CertificationSignedOffCertification) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 
@@ -189,40 +189,40 @@ SetPhase sets Phase field to given value.
 
 ### GetDue
 
-`func (o *CertificationSignedOffCertification) GetDue() time.Time`
+`func (o *CertificationSignedOffCertification) GetDue() SailPointTime`
 
 GetDue returns the Due field if non-nil, zero value otherwise.
 
 ### GetDueOk
 
-`func (o *CertificationSignedOffCertification) GetDueOk() (*time.Time, bool)`
+`func (o *CertificationSignedOffCertification) GetDueOk() (*SailPointTime, bool)`
 
 GetDueOk returns a tuple with the Due field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDue
 
-`func (o *CertificationSignedOffCertification) SetDue(v time.Time)`
+`func (o *CertificationSignedOffCertification) SetDue(v SailPointTime)`
 
 SetDue sets Due field to given value.
 
 
 ### GetSigned
 
-`func (o *CertificationSignedOffCertification) GetSigned() time.Time`
+`func (o *CertificationSignedOffCertification) GetSigned() SailPointTime`
 
 GetSigned returns the Signed field if non-nil, zero value otherwise.
 
 ### GetSignedOk
 
-`func (o *CertificationSignedOffCertification) GetSignedOk() (*time.Time, bool)`
+`func (o *CertificationSignedOffCertification) GetSignedOk() (*SailPointTime, bool)`
 
 GetSignedOk returns a tuple with the Signed field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSigned
 
-`func (o *CertificationSignedOffCertification) SetSigned(v time.Time)`
+`func (o *CertificationSignedOffCertification) SetSigned(v SailPointTime)`
 
 SetSigned sets Signed field to given value.
 

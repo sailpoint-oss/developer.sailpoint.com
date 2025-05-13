@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'NotificationTemplateContext', 'BetaNo
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Attributes** | Pointer to **map[string]interface{}** | A JSON object that stores the context. | [optional] 
-**Created** | Pointer to **time.Time** | When the global context was created | [optional] 
-**Modified** | Pointer to **time.Time** | When the global context was last modified | [optional] 
+**Created** | Pointer to **SailPointTime** | When the global context was created | [optional] 
+**Modified** | Pointer to **SailPointTime** | When the global context was last modified | [optional] 
 
 ## Methods
 
@@ -65,20 +65,20 @@ HasAttributes returns a boolean if a field has been set.
 
 ### GetCreated
 
-`func (o *NotificationTemplateContext) GetCreated() time.Time`
+`func (o *NotificationTemplateContext) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *NotificationTemplateContext) GetCreatedOk() (*time.Time, bool)`
+`func (o *NotificationTemplateContext) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *NotificationTemplateContext) SetCreated(v time.Time)`
+`func (o *NotificationTemplateContext) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
@@ -90,20 +90,20 @@ HasCreated returns a boolean if a field has been set.
 
 ### GetModified
 
-`func (o *NotificationTemplateContext) GetModified() time.Time`
+`func (o *NotificationTemplateContext) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *NotificationTemplateContext) GetModifiedOk() (*time.Time, bool)`
+`func (o *NotificationTemplateContext) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *NotificationTemplateContext) SetModified(v time.Time)`
+`func (o *NotificationTemplateContext) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

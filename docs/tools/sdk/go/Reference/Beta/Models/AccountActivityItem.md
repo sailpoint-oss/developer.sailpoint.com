@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Item id | [optional] 
 **Name** | Pointer to **string** | Human-readable display name of item | [optional] 
-**Requested** | Pointer to **time.Time** | Date and time item was requested | [optional] 
+**Requested** | Pointer to **SailPointTime** | Date and time item was requested | [optional] 
 **ApprovalStatus** | Pointer to [**NullableAccountActivityApprovalStatus**](account-activity-approval-status) |  | [optional] 
 **ProvisioningStatus** | Pointer to [**ProvisioningState**](provisioning-state) |  | [optional] 
 **RequesterComment** | Pointer to [**NullableComment**](comment) |  | [optional] 
@@ -103,20 +103,20 @@ HasName returns a boolean if a field has been set.
 
 ### GetRequested
 
-`func (o *AccountActivityItem) GetRequested() time.Time`
+`func (o *AccountActivityItem) GetRequested() SailPointTime`
 
 GetRequested returns the Requested field if non-nil, zero value otherwise.
 
 ### GetRequestedOk
 
-`func (o *AccountActivityItem) GetRequestedOk() (*time.Time, bool)`
+`func (o *AccountActivityItem) GetRequestedOk() (*SailPointTime, bool)`
 
 GetRequestedOk returns a tuple with the Requested field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRequested
 
-`func (o *AccountActivityItem) SetRequested(v time.Time)`
+`func (o *AccountActivityItem) SetRequested(v SailPointTime)`
 
 SetRequested sets Requested field to given value.
 
@@ -528,20 +528,20 @@ HasClientMetadata returns a boolean if a field has been set.
 UnsetClientMetadata ensures that no value is present for ClientMetadata, not even an explicit nil
 ### GetRemoveDate
 
-`func (o *AccountActivityItem) GetRemoveDate() time.Time`
+`func (o *AccountActivityItem) GetRemoveDate() SailPointTime`
 
 GetRemoveDate returns the RemoveDate field if non-nil, zero value otherwise.
 
 ### GetRemoveDateOk
 
-`func (o *AccountActivityItem) GetRemoveDateOk() (*time.Time, bool)`
+`func (o *AccountActivityItem) GetRemoveDateOk() (*SailPointTime, bool)`
 
 GetRemoveDateOk returns a tuple with the RemoveDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRemoveDate
 
-`func (o *AccountActivityItem) SetRemoveDate(v time.Time)`
+`func (o *AccountActivityItem) SetRemoveDate(v SailPointTime)`
 
 SetRemoveDate sets RemoveDate field to given value.
 

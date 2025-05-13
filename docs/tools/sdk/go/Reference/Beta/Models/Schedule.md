@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Months** | Pointer to [**ScheduleMonths**](schedule-months) |  | [optional] 
 **Days** | Pointer to [**ScheduleDays**](schedule-days) |  | [optional] 
 **Hours** | [**ScheduleHours**](schedule-hours) |  | 
-**Expiration** | Pointer to **time.Time** | Specifies the time after which this schedule will no longer occur. | [optional] 
+**Expiration** | Pointer to **SailPointTime** | Specifies the time after which this schedule will no longer occur. | [optional] 
 **TimeZoneId** | Pointer to **string** | The time zone to use when running the schedule. For instance, if the schedule is scheduled to run at 1AM, and this field is set to \"CST\", the schedule will run at 1AM CST. | [optional] 
 
 ## Methods
@@ -133,20 +133,20 @@ SetHours sets Hours field to given value.
 
 ### GetExpiration
 
-`func (o *Schedule) GetExpiration() time.Time`
+`func (o *Schedule) GetExpiration() SailPointTime`
 
 GetExpiration returns the Expiration field if non-nil, zero value otherwise.
 
 ### GetExpirationOk
 
-`func (o *Schedule) GetExpirationOk() (*time.Time, bool)`
+`func (o *Schedule) GetExpirationOk() (*SailPointTime, bool)`
 
 GetExpirationOk returns a tuple with the Expiration field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetExpiration
 
-`func (o *Schedule) SetExpiration(v time.Time)`
+`func (o *Schedule) SetExpiration(v SailPointTime)`
 
 SetExpiration sets Expiration field to given value.
 

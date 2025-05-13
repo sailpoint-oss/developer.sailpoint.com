@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Id** | **string** | Campaign's unique ID. | 
 **Name** | **string** | Campaign's name. | 
 **Description** | **string** | Campaign's extended description. | 
-**Created** | **time.Time** | Date and time when the campaign was created. | 
+**Created** | **SailPointTime** | Date and time when the campaign was created. | 
 **Modified** | Pointer to **NullableString** | Date and time when the campaign was last modified. | [optional] 
 **Deadline** | Pointer to **NullableString** | Date and time when the campaign must be finished. | [optional] 
 **Type** | **map[string]interface{}** | Campaign's type. | 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewCampaignGeneratedCampaign
 
-`func NewCampaignGeneratedCampaign(id string, name string, description string, created time.Time, type_ map[string]interface{}, campaignOwner CampaignGeneratedCampaignCampaignOwner, status map[string]interface{}, ) *CampaignGeneratedCampaign`
+`func NewCampaignGeneratedCampaign(id string, name string, description string, created SailPointTime, type_ map[string]interface{}, campaignOwner CampaignGeneratedCampaignCampaignOwner, status map[string]interface{}, ) *CampaignGeneratedCampaign`
 
 NewCampaignGeneratedCampaign instantiates a new CampaignGeneratedCampaign object
 This constructor will assign default values to properties that have it defined,
@@ -106,20 +106,20 @@ SetDescription sets Description field to given value.
 
 ### GetCreated
 
-`func (o *CampaignGeneratedCampaign) GetCreated() time.Time`
+`func (o *CampaignGeneratedCampaign) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *CampaignGeneratedCampaign) GetCreatedOk() (*time.Time, bool)`
+`func (o *CampaignGeneratedCampaign) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *CampaignGeneratedCampaign) SetCreated(v time.Time)`
+`func (o *CampaignGeneratedCampaign) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 

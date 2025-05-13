@@ -672,20 +672,20 @@ HasCcId returns a boolean if a field has been set.
 
 ### GetCreatedAt
 
-`func (o *ManagedCluster) GetCreatedAt() time.Time`
+`func (o *ManagedCluster) GetCreatedAt() SailPointTime`
 
 GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
 
 ### GetCreatedAtOk
 
-`func (o *ManagedCluster) GetCreatedAtOk() (*time.Time, bool)`
+`func (o *ManagedCluster) GetCreatedAtOk() (*SailPointTime, bool)`
 
 GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedAt
 
-`func (o *ManagedCluster) SetCreatedAt(v time.Time)`
+`func (o *ManagedCluster) SetCreatedAt(v SailPointTime)`
 
 SetCreatedAt sets CreatedAt field to given value.
 
@@ -707,20 +707,20 @@ HasCreatedAt returns a boolean if a field has been set.
 UnsetCreatedAt ensures that no value is present for CreatedAt, not even an explicit nil
 ### GetUpdatedAt
 
-`func (o *ManagedCluster) GetUpdatedAt() time.Time`
+`func (o *ManagedCluster) GetUpdatedAt() SailPointTime`
 
 GetUpdatedAt returns the UpdatedAt field if non-nil, zero value otherwise.
 
 ### GetUpdatedAtOk
 
-`func (o *ManagedCluster) GetUpdatedAtOk() (*time.Time, bool)`
+`func (o *ManagedCluster) GetUpdatedAtOk() (*SailPointTime, bool)`
 
 GetUpdatedAtOk returns a tuple with the UpdatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUpdatedAt
 
-`func (o *ManagedCluster) SetUpdatedAt(v time.Time)`
+`func (o *ManagedCluster) SetUpdatedAt(v SailPointTime)`
 
 SetUpdatedAt sets UpdatedAt field to given value.
 

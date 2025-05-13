@@ -31,15 +31,15 @@ Name | Type | Description | Notes
 **Enabled** | **bool** | An indicator of whether the API Client is enabled for use | 
 **StrongAuthSupported** | **bool** | An indicator of whether the API Client supports strong authentication | 
 **ClaimsSupported** | **bool** | An indicator of whether the API Client supports the serialization of SAML claims when used with the authorization_code flow | 
-**Created** | **time.Time** | The date and time, down to the millisecond, when the API Client was created | 
-**Modified** | **time.Time** | The date and time, down to the millisecond, when the API Client was last updated | 
+**Created** | **SailPointTime** | The date and time, down to the millisecond, when the API Client was created | 
+**Modified** | **SailPointTime** | The date and time, down to the millisecond, when the API Client was last updated | 
 **Scope** | **[]string** | Scopes of the API Client. | 
 
 ## Methods
 
 ### NewCreateOAuthClientResponse
 
-`func NewCreateOAuthClientResponse(id string, secret string, businessName string, homepageUrl string, name string, description string, accessTokenValiditySeconds int32, refreshTokenValiditySeconds int32, redirectUris []string, grantTypes []GrantType, accessType AccessType, type_ ClientType, internal bool, enabled bool, strongAuthSupported bool, claimsSupported bool, created time.Time, modified time.Time, scope []string, ) *CreateOAuthClientResponse`
+`func NewCreateOAuthClientResponse(id string, secret string, businessName string, homepageUrl string, name string, description string, accessTokenValiditySeconds int32, refreshTokenValiditySeconds int32, redirectUris []string, grantTypes []GrantType, accessType AccessType, type_ ClientType, internal bool, enabled bool, strongAuthSupported bool, claimsSupported bool, created SailPointTime, modified SailPointTime, scope []string, ) *CreateOAuthClientResponse`
 
 NewCreateOAuthClientResponse instantiates a new CreateOAuthClientResponse object
 This constructor will assign default values to properties that have it defined,
@@ -376,40 +376,40 @@ SetClaimsSupported sets ClaimsSupported field to given value.
 
 ### GetCreated
 
-`func (o *CreateOAuthClientResponse) GetCreated() time.Time`
+`func (o *CreateOAuthClientResponse) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *CreateOAuthClientResponse) GetCreatedOk() (*time.Time, bool)`
+`func (o *CreateOAuthClientResponse) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *CreateOAuthClientResponse) SetCreated(v time.Time)`
+`func (o *CreateOAuthClientResponse) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
 
 ### GetModified
 
-`func (o *CreateOAuthClientResponse) GetModified() time.Time`
+`func (o *CreateOAuthClientResponse) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *CreateOAuthClientResponse) GetModifiedOk() (*time.Time, bool)`
+`func (o *CreateOAuthClientResponse) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *CreateOAuthClientResponse) SetModified(v time.Time)`
+`func (o *CreateOAuthClientResponse) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

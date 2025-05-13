@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Comment** | Pointer to **string** | Comment made by the owner when cancelling the associated request. | [optional] 
 **Owner** | Pointer to [**OwnerDto**](owner-dto) |  | [optional] 
-**Modified** | Pointer to **time.Time** | Date comment was added by the owner when cancelling the associated request. | [optional] 
+**Modified** | Pointer to **SailPointTime** | Date comment was added by the owner when cancelling the associated request. | [optional] 
 
 ## Methods
 
@@ -90,20 +90,20 @@ HasOwner returns a boolean if a field has been set.
 
 ### GetModified
 
-`func (o *CancelledRequestDetails) GetModified() time.Time`
+`func (o *CancelledRequestDetails) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *CancelledRequestDetails) GetModifiedOk() (*time.Time, bool)`
+`func (o *CancelledRequestDetails) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *CancelledRequestDetails) SetModified(v time.Time)`
+`func (o *CancelledRequestDetails) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

@@ -21,8 +21,8 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** | Source description associated with this non-employee source. | [optional] 
 **Approvers** | Pointer to [**[]IdentityReferenceWithId**](identity-reference-with-id) | List of approvers | [optional] 
 **AccountManagers** | Pointer to [**[]IdentityReferenceWithId**](identity-reference-with-id) | List of account managers | [optional] 
-**Modified** | Pointer to **time.Time** | When the request was last modified. | [optional] 
-**Created** | Pointer to **time.Time** | When the request was created. | [optional] 
+**Modified** | Pointer to **SailPointTime** | When the request was last modified. | [optional] 
+**Created** | Pointer to **SailPointTime** | When the request was created. | [optional] 
 **NonEmployeeCount** | Pointer to **NullableInt32** | The number of non-employee records on all sources that *requested-for* user manages. | [optional] 
 **CloudExternalId** | Pointer to **string** | Legacy ID used for sources from the V1 API. This attribute will be removed from a future version of the API and will not be considered a breaking change. No clients should rely on this ID always being present. | [optional] 
 
@@ -197,20 +197,20 @@ HasAccountManagers returns a boolean if a field has been set.
 
 ### GetModified
 
-`func (o *NonEmployeeSourceWithCloudExternalId) GetModified() time.Time`
+`func (o *NonEmployeeSourceWithCloudExternalId) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *NonEmployeeSourceWithCloudExternalId) GetModifiedOk() (*time.Time, bool)`
+`func (o *NonEmployeeSourceWithCloudExternalId) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *NonEmployeeSourceWithCloudExternalId) SetModified(v time.Time)`
+`func (o *NonEmployeeSourceWithCloudExternalId) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 
@@ -222,20 +222,20 @@ HasModified returns a boolean if a field has been set.
 
 ### GetCreated
 
-`func (o *NonEmployeeSourceWithCloudExternalId) GetCreated() time.Time`
+`func (o *NonEmployeeSourceWithCloudExternalId) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *NonEmployeeSourceWithCloudExternalId) GetCreatedOk() (*time.Time, bool)`
+`func (o *NonEmployeeSourceWithCloudExternalId) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *NonEmployeeSourceWithCloudExternalId) SetCreated(v time.Time)`
+`func (o *NonEmployeeSourceWithCloudExternalId) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 

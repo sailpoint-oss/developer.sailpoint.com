@@ -22,4 +22,6 @@ tags: ['SDK', 'Software Development Kit', 'AttributeDefinitionType', 'AttributeD
 
 * `BOOLEAN` (value: `"BOOLEAN"`)
 
+* `DATE` (value: `"DATE"`)
+
 

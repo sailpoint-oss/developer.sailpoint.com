@@ -16,8 +16,8 @@ tags: ['SDK', 'Software Development Kit', 'RoleInsightsResponse', 'BetaRoleInsig
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Request Id for a role insight generation request | [optional] 
-**CreatedDate** | Pointer to **time.Time** | The date-time role insights request was created. | [optional] 
-**LastGenerated** | Pointer to **time.Time** | The date-time role insights request was completed. | [optional] 
+**CreatedDate** | Pointer to **SailPointTime** | The date-time role insights request was created. | [optional] 
+**LastGenerated** | Pointer to **SailPointTime** | The date-time role insights request was completed. | [optional] 
 **NumberOfUpdates** | Pointer to **int32** | Total number of updates for this request. Starts with 0 and will have correct number when request is COMPLETED. | [optional] 
 **RoleIds** | Pointer to **[]string** | The role IDs that are in this request. | [optional] 
 **Status** | Pointer to **string** | Request status | [optional] 
@@ -68,20 +68,20 @@ HasId returns a boolean if a field has been set.
 
 ### GetCreatedDate
 
-`func (o *RoleInsightsResponse) GetCreatedDate() time.Time`
+`func (o *RoleInsightsResponse) GetCreatedDate() SailPointTime`
 
 GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
 
 ### GetCreatedDateOk
 
-`func (o *RoleInsightsResponse) GetCreatedDateOk() (*time.Time, bool)`
+`func (o *RoleInsightsResponse) GetCreatedDateOk() (*SailPointTime, bool)`
 
 GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedDate
 
-`func (o *RoleInsightsResponse) SetCreatedDate(v time.Time)`
+`func (o *RoleInsightsResponse) SetCreatedDate(v SailPointTime)`
 
 SetCreatedDate sets CreatedDate field to given value.
 
@@ -93,20 +93,20 @@ HasCreatedDate returns a boolean if a field has been set.
 
 ### GetLastGenerated
 
-`func (o *RoleInsightsResponse) GetLastGenerated() time.Time`
+`func (o *RoleInsightsResponse) GetLastGenerated() SailPointTime`
 
 GetLastGenerated returns the LastGenerated field if non-nil, zero value otherwise.
 
 ### GetLastGeneratedOk
 
-`func (o *RoleInsightsResponse) GetLastGeneratedOk() (*time.Time, bool)`
+`func (o *RoleInsightsResponse) GetLastGeneratedOk() (*SailPointTime, bool)`
 
 GetLastGeneratedOk returns a tuple with the LastGenerated field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastGenerated
 
-`func (o *RoleInsightsResponse) SetLastGenerated(v time.Time)`
+`func (o *RoleInsightsResponse) SetLastGenerated(v SailPointTime)`
 
 SetLastGenerated sets LastGenerated field to given value.
 

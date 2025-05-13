@@ -14,6 +14,7 @@ const baseUrl = '/';
 
 const config: Config = {
   future: {
+    v4: true,
     experimental_faster: {
       swcJsLoader: true,
       swcJsMinimizer: true,
@@ -21,6 +22,8 @@ const config: Config = {
       lightningCssMinimizer: true,
       rspackBundler: true,
       mdxCrossCompilerCache: true,
+      rspackPersistentCache: true,
+      ssgWorkerThreads: true,
     },
   },
   title: 'SailPoint Developer Community',
@@ -29,8 +32,8 @@ const config: Config = {
   url: 'https://developer.sailpoint.com',
   baseUrl,
   favicon: 'img/SailPoint-Logo-Icon.ico',
-  // onBrokenLinks: 'throw',
-  // onBrokenMarkdownLinks: 'throw',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'throw',
   onDuplicateRoutes: 'throw',
   i18n: {
     defaultLocale: 'en',

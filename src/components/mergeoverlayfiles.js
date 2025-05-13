@@ -1,86 +1,49 @@
-const fs = require('fs');
+const fs   = require('fs');
 const yaml = require('js-yaml');
 const path = require('path');
 
 // Get file paths from command line arguments
-const pythonFilePath = process.argv[2];
-const powershellFilePath = process.argv[3];
+const [powershellFilePath, pythonFilePath, goFilePath] = process.argv.slice(2);
 
-// Check if the correct number of arguments is passed
-if (!pythonFilePath || !powershellFilePath) {
-  console.error('Please provide the paths for the Python and PowerShell YAML files.');
+// Check that all three arguments are provided
+if (!powershellFilePath || !pythonFilePath || !goFilePath) {
+  console.error('Usage: node merge.js <powershell.yml> <python.yml> <go.yml>');
   process.exit(1);
 }
 
-// Read both YAML files
-const powershellFile = fs.readFileSync(powershellFilePath, 'utf8');
-const pythonFile = fs.readFileSync(pythonFilePath, 'utf8');
+// Read & parse all three YAML files
+const powershellData = yaml.load(fs.readFileSync(powershellFilePath, 'utf8'));
+const pythonData     = yaml.load(fs.readFileSync(pythonFilePath,     'utf8'));
+const goData         = yaml.load(fs.readFileSync(goFilePath,         'utf8'));
 
-// Parse both YAML files
-const powershellData = yaml.load(powershellFile);
-const pythonData = yaml.load(pythonFile);
+// Merge logic (collects all three in one pass)
+const mergeCodeSamples = (...allData) => {
+  const merged = {};
 
-// Function to merge xCodeSamples for the same path and method
-const mergeCodeSamples = (powershellData, pythonData) => {
-  // Create a map to keep track of paths and methods, and merged samples
-  const mergedData = {};
-
-  // Iterate over both files
-  [powershellData, pythonData].forEach(fileData => {
-    fileData.forEach(item => {
-      const path = item.path;
-      const method = item.method;
-      
-      // Initialize the path and method if not already in mergedData
-      if (!mergedData[path]) {
-        mergedData[path] = {};
+  allData.forEach(fileData => {
+    (fileData || []).forEach(item => {
+      const key = `${item.path}|${item.method}`;
+      if (!merged[key]) {
+        merged[key] = { path: item.path, method: item.method, xCodeSample: [] };
       }
-      
-      if (!mergedData[path][method]) {
-        mergedData[path][method] = {
-          path: item.path,
-          method: item.method,
-          xCodeSample: []
-        };
-      }
-
-      // Add the xCodeSample data, if it exists
-      if (item.xCodeSample) {
-        mergedData[path][method].xCodeSample.push(...item.xCodeSample);
+      if (Array.isArray(item.xCodeSample)) {
+        merged[key].xCodeSample.push(...item.xCodeSample);
       }
     });
   });
 
-  // Convert the merged data back to an array format (flatten the structure)
-  const mergedArray = [];
-  Object.keys(mergedData).forEach(path => {
-    Object.keys(mergedData[path]).forEach(method => {
-      mergedArray.push(mergedData[path][method]);
-    });
-  });
-
-  return mergedArray;
+  return Object.values(merged);
 };
 
-// Merge the data
-const mergedCode = mergeCodeSamples(powershellData, pythonData);
+// Perform the merge
+const mergedArray = mergeCodeSamples(powershellData, pythonData, goData);
 
-// Convert the merged data to YAML format with lineWidth: -1 to avoid block-style strings
-const mergedYaml = yaml.dump(mergedCode, {
-  lineWidth: -1  // Avoid wrapping strings into block-style format
-});
+// Dump back to YAML without line-wrapping
+const mergedYaml = yaml.dump(mergedArray, { lineWidth: -1 });
 
-// Derive the output directory and file name
-const pythonFileDir = path.dirname(pythonFilePath);
-const powershellFileDir = path.dirname(powershellFilePath);
+// Write to output next to the Go file (you can choose a different base dir if you like)
+const outDir = path.dirname(goFilePath);
+const outPath = path.join(outDir, 'merged_code_examples.yaml');
+fs.writeFileSync(outPath, mergedYaml, 'utf8');
 
-// Find the common directory (use the Python file's directory as the base)
-const commonDir = pythonFileDir;
-
-// Create the output file path
-const outputFilePath = path.join(commonDir, 'merged_code_examples.yaml');
-
-// Write the merged result to the output file
-fs.writeFileSync(outputFilePath, mergedYaml, 'utf8');
-
-console.log(`Merged YAML file has been saved to ${outputFilePath}`);
+console.log(`Merged YAML written to ${outPath}`);

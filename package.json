@@ -35,6 +35,7 @@
     "merge-all-code-examples": "npm run beta-merge-code-examples && npm run v3-merge-code-examples && npm run v2024-merge-code-examples && npm run v2025-merge-code-examples"
   },
   "dependencies": {
+    "@docusaurus/plugin-rsdoctor": "3.7.0-canary-6308",
     "@docusaurus/faster": "3.7.0-canary-6308",
     "@docusaurus/logger": "3.7.0-canary-6308",
     "@docusaurus/plugin-client-redirects": "3.7.0-canary-6308",

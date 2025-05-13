@@ -2,6 +2,17 @@ const {createApiPageMD} = require('./createApiPageMD');
 import clsx from "clsx";
 
 const pluginConfig = [
+  /*
+  [
+    'rsdoctor',
+    {
+      rsdoctorOptions: {
+        // mode: 'lite',
+      },
+    },
+  ],
+
+   */
   [
     '@docusaurus/plugin-google-tag-manager',
     {

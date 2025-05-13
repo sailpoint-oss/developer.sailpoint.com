@@ -83,7 +83,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    accessrequestrecommendationactionitemdto := []byte(`{
           "access" : {
             "id" : "2c9180835d2e5168015d32f890ca1581",
             "type" : "ACCESS_PROFILE"
@@ -93,7 +93,7 @@ func main() {
 
   
    var accessRequestRecommendationActionItemDto v2025.AccessRequestRecommendationActionItemDto
-   if err := json.Unmarshal(data, &accessRequestRecommendationActionItemDto); err != nil {
+   if err := json.Unmarshal(accessrequestrecommendationactionitemdto, &accessRequestRecommendationActionItemDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -170,7 +170,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    accessrequestrecommendationactionitemdto := []byte(`{
           "access" : {
             "id" : "2c9180835d2e5168015d32f890ca1581",
             "type" : "ACCESS_PROFILE"
@@ -180,7 +180,7 @@ func main() {
 
   
    var accessRequestRecommendationActionItemDto v2025.AccessRequestRecommendationActionItemDto
-   if err := json.Unmarshal(data, &accessRequestRecommendationActionItemDto); err != nil {
+   if err := json.Unmarshal(accessrequestrecommendationactionitemdto, &accessRequestRecommendationActionItemDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -257,7 +257,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    accessrequestrecommendationactionitemdto := []byte(`{
           "access" : {
             "id" : "2c9180835d2e5168015d32f890ca1581",
             "type" : "ACCESS_PROFILE"
@@ -267,7 +267,7 @@ func main() {
 
   
    var accessRequestRecommendationActionItemDto v2025.AccessRequestRecommendationActionItemDto
-   if err := json.Unmarshal(data, &accessRequestRecommendationActionItemDto); err != nil {
+   if err := json.Unmarshal(accessrequestrecommendationactionitemdto, &accessRequestRecommendationActionItemDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -344,11 +344,11 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    accessRequestRecommendationActionItemDto := fmt.Sprintf(``) // []AccessRequestRecommendationActionItemDto | The recommended access items that were viewed for an identity.
+    accessrequestrecommendationactionitemdto := []byte(``) // []AccessRequestRecommendationActionItemDto | The recommended access items that were viewed for an identity.
 
   
-   var accessRequestRecommendationActionItemDto v2025.AccessRequestRecommendationActionItemDto
-   if err := json.Unmarshal(data, &accessRequestRecommendationActionItemDto); err != nil {
+   var accessRequestRecommendationActionItemDto v2025.[]AccessRequestRecommendationActionItemDto
+   if err := json.Unmarshal(accessrequestrecommendationactionitemdto, &accessRequestRecommendationActionItemDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -834,7 +834,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    accessrequestrecommendationconfigdto := []byte(`{
           "scoreThreshold" : 0.5,
           "startDateAttribute" : "startDate",
           "restrictionAttribute" : "location",
@@ -845,7 +845,7 @@ func main() {
 
   
    var accessRequestRecommendationConfigDto v2025.AccessRequestRecommendationConfigDto
-   if err := json.Unmarshal(data, &accessRequestRecommendationConfigDto); err != nil {
+   if err := json.Unmarshal(accessrequestrecommendationconfigdto, &accessRequestRecommendationConfigDto); err != nil {
     fmt.Println("Error:", err)
     return
    }

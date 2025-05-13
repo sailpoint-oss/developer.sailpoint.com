@@ -338,11 +338,11 @@ import (
 
 func main() {
     id := `00eebcf881994e419d72e757fd30dc0e` // string | Task ID. # string | Task ID.
-    jsonPatchOperation := fmt.Sprintf(``) // []JsonPatchOperation | The JSONPatch payload used to update the object.
+    jsonpatchoperation := []byte(``) // []JsonPatchOperation | The JSONPatch payload used to update the object.
 
   
-   var jsonPatchOperation beta.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation beta.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }

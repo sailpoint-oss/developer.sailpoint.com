@@ -270,7 +270,7 @@ import (
 
 func main() {
     id := `123e4567-e89b-12d3-a456-426655440000` // string | Discovered application's ID. # string | Discovered application's ID.
-    jsonPatchOperations := fmt.Sprintf(`[{op=replace, path=/dismissed, value=true}]`) // []JsonPatchOperations |  (optional)
+    jsonpatchoperations := []byte(`[{op=replace, path=/dismissed, value=true}]`) // []JsonPatchOperations |  (optional)
 
   
 

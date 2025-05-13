@@ -143,11 +143,11 @@ import (
 
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | Identity ID # string | Identity ID
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/capabilities, value=[ORG_ADMIN]}]`) // []JsonPatchOperation | A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    jsonpatchoperation := []byte(`[{op=replace, path=/capabilities, value=[ORG_ADMIN]}]`) // []JsonPatchOperation | A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
   
-   var jsonPatchOperation v2024.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation v2024.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }

@@ -143,11 +143,11 @@ import (
 )
 
 func main() {
-    data := []byte(`{name=Send Email, owner={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}, description=Send an email to the identity who's attributes changed., definition={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}, enabled=false, trigger={type=EVENT, attributes={id=idn:identity-attributes-changed, filter=$.changes[?(@.attribute == 'manager')]}}}`) // CreateWorkflowRequest | 
+    createworkflowrequest := []byte(`{name=Send Email, owner={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}, description=Send an email to the identity who's attributes changed., definition={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}, enabled=false, trigger={type=EVENT, attributes={id=idn:identity-attributes-changed, filter=$.changes[?(@.attribute == 'manager')]}}}`) // CreateWorkflowRequest | 
 
   
    var createWorkflowRequest beta.CreateWorkflowRequest
-   if err := json.Unmarshal(data, &createWorkflowRequest); err != nil {
+   if err := json.Unmarshal(createworkflowrequest, &createWorkflowRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -886,11 +886,11 @@ import (
 
 func main() {
     id := `c17bea3a-574d-453c-9e04-4365fbf5af0b` // string | Id of the Workflow # string | Id of the Workflow
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/name, value=Send Email}, {op=replace, path=/owner, value={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}}, {op=replace, path=/description, value=Send an email to the identity who's attributes changed.}, {op=replace, path=/enabled, value=false}, {op=replace, path=/definition, value={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}}, {op=replace, path=/trigger, value={type=EVENT, attributes={id=idn:identity-attributes-changed}}}]`) // []JsonPatchOperation | 
+    jsonpatchoperation := []byte(`[{op=replace, path=/name, value=Send Email}, {op=replace, path=/owner, value={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}}, {op=replace, path=/description, value=Send an email to the identity who's attributes changed.}, {op=replace, path=/enabled, value=false}, {op=replace, path=/definition, value={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}}, {op=replace, path=/trigger, value={type=EVENT, attributes={id=idn:identity-attributes-changed}}}]`) // []JsonPatchOperation | 
 
   
-   var jsonPatchOperation beta.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation beta.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -960,7 +960,7 @@ import (
 
 func main() {
     id := `c17bea3a-574d-453c-9e04-4365fbf5af0b` // string | Id of the workflow # string | Id of the workflow
-    data := []byte(``) // PostExternalExecuteWorkflowRequest |  (optional)
+    postexternalexecuteworkflowrequest := []byte(``) // PostExternalExecuteWorkflowRequest |  (optional)
 
   
 
@@ -1094,7 +1094,7 @@ import (
 
 func main() {
     id := `c17bea3a-574d-453c-9e04-4365fbf5af0b` // string | Id of the Workflow # string | Id of the Workflow
-    data := []byte(`{
+    workflowbody := []byte(`{
           "owner" : {
             "name" : "William Wilson",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -1131,7 +1131,7 @@ func main() {
 
   
    var workflowBody beta.WorkflowBody
-   if err := json.Unmarshal(data, &workflowBody); err != nil {
+   if err := json.Unmarshal(workflowbody, &workflowBody); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1201,7 +1201,7 @@ import (
 
 func main() {
     id := `c17bea3a-574d-453c-9e04-4365fbf5af0b` // string | Id of the workflow # string | Id of the workflow
-    data := []byte(``) // TestExternalExecuteWorkflowRequest |  (optional)
+    testexternalexecuteworkflowrequest := []byte(``) // TestExternalExecuteWorkflowRequest |  (optional)
 
   
 
@@ -1271,11 +1271,11 @@ import (
 
 func main() {
     id := `c17bea3a-574d-453c-9e04-4365fbf5af0b` // string | Id of the workflow # string | Id of the workflow
-    data := []byte(`{input={identity={id=ee769173319b41d19ccec6cea52f237b, name=john.doe, type=IDENTITY}, changes=[{attribute=department, oldValue=sales, newValue=marketing}, {attribute=manager, oldValue={id=ee769173319b41d19ccec6c235423237b, name=nice.guy, type=IDENTITY}, newValue={id=ee769173319b41d19ccec6c235423236c, name=mean.guy, type=IDENTITY}}, {attribute=email, oldValue=john.doe@hotmail.com, newValue=john.doe@gmail.com}]}}`) // TestWorkflowRequest | 
+    testworkflowrequest := []byte(`{input={identity={id=ee769173319b41d19ccec6cea52f237b, name=john.doe, type=IDENTITY}, changes=[{attribute=department, oldValue=sales, newValue=marketing}, {attribute=manager, oldValue={id=ee769173319b41d19ccec6c235423237b, name=nice.guy, type=IDENTITY}, newValue={id=ee769173319b41d19ccec6c235423236c, name=mean.guy, type=IDENTITY}}, {attribute=email, oldValue=john.doe@hotmail.com, newValue=john.doe@gmail.com}]}}`) // TestWorkflowRequest | 
 
   
    var testWorkflowRequest beta.TestWorkflowRequest
-   if err := json.Unmarshal(data, &testWorkflowRequest); err != nil {
+   if err := json.Unmarshal(testworkflowrequest, &testWorkflowRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }

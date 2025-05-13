@@ -70,7 +70,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    transform := []byte(`{
           "name" : "Timestamp To Date",
           "attributes" : "{}",
           "type" : "dateFormat"
@@ -78,7 +78,7 @@ func main() {
 
   
    var transform v2024.Transform
-   if err := json.Unmarshal(data, &transform); err != nil {
+   if err := json.Unmarshal(transform, &transform); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -348,7 +348,7 @@ import (
 
 func main() {
     id := `2cd78adghjkja34jh2b1hkjhasuecd` // string | ID of the transform to update # string | ID of the transform to update
-    data := []byte(`{
+    transform := []byte(`{
           "name" : "Timestamp To Date",
           "attributes" : "{}",
           "type" : "dateFormat"

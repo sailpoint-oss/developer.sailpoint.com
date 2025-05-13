@@ -68,13 +68,13 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    exportpayload := []byte(`{
           "description" : "Export Job 1 Test"
         }`) // ExportPayload | Export options control what will be included in the export.
 
   
    var exportPayload v2025.ExportPayload
-   if err := json.Unmarshal(data, &exportPayload); err != nil {
+   if err := json.Unmarshal(exportpayload, &exportPayload); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -426,7 +426,7 @@ import (
 func main() {
     data := BINARY_DATA_HERE // *os.File | JSON file containing the objects to be imported. # *os.File | JSON file containing the objects to be imported.
     preview := true // bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to false) # bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to false)
-    data := []byte(``) // ImportOptions |  (optional)
+    options := []byte(``) // ImportOptions |  (optional)
 
   
 

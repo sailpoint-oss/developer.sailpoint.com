@@ -86,14 +86,14 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    bulkapproveaccessrequest := []byte(`{
           "comment" : "I approve these request items",
           "approvalIds" : [ "2c9180835d2e5168015d32f890ca1581", "2c9180835d2e5168015d32f890ca1582" ]
         }`) // BulkApproveAccessRequest | 
 
   
    var bulkApproveAccessRequest v2025.BulkApproveAccessRequest
-   if err := json.Unmarshal(data, &bulkApproveAccessRequest); err != nil {
+   if err := json.Unmarshal(bulkapproveaccessrequest, &bulkApproveAccessRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -158,14 +158,14 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    cancelaccessrequest := []byte(`{
           "accountActivityId" : "2c9180835d2e5168015d32f890ca1581",
           "comment" : "I requested this role by mistake."
         }`) // CancelAccessRequest | 
 
   
    var cancelAccessRequest v2025.CancelAccessRequest
-   if err := json.Unmarshal(data, &cancelAccessRequest); err != nil {
+   if err := json.Unmarshal(cancelaccessrequest, &cancelAccessRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -230,14 +230,14 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    bulkcancelaccessrequest := []byte(`{
           "accessRequestIds" : [ "2c9180835d2e5168015d32f890ca1581", "2c9180835d2e5168015d32f890ca1582" ],
           "comment" : "I requested this role by mistake."
         }`) // BulkCancelAccessRequest | 
 
   
    var bulkCancelAccessRequest v2025.BulkCancelAccessRequest
-   if err := json.Unmarshal(data, &bulkCancelAccessRequest); err != nil {
+   if err := json.Unmarshal(bulkcancelaccessrequest, &bulkCancelAccessRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -325,7 +325,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    closeaccessrequest := []byte(`{
           "executionStatus" : "Terminated",
           "accessRequestIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
           "completionStatus" : "Failure",
@@ -334,7 +334,7 @@ func main() {
 
   
    var closeAccessRequest v2025.CloseAccessRequest
-   if err := json.Unmarshal(data, &closeAccessRequest); err != nil {
+   if err := json.Unmarshal(closeaccessrequest, &closeAccessRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -430,7 +430,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    accessrequest := []byte(`{
           "requestedFor" : "2c918084660f45d6016617daa9210584",
           "clientMetadata" : {
             "requestedAppId" : "2c91808f7892918f0178b78da4a305a1",
@@ -614,7 +614,7 @@ func main() {
 
   
    var accessRequest v2025.AccessRequest
-   if err := json.Unmarshal(data, &accessRequest); err != nil {
+   if err := json.Unmarshal(accessrequest, &accessRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -983,7 +983,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    accountsselectionrequest := []byte(`{
           "requestedFor" : "2c918084660f45d6016617daa9210584",
           "clientMetadata" : {
             "requestedAppId" : "2c91808f7892918f0178b78da4a305a1",
@@ -1050,7 +1050,7 @@ func main() {
 
   
    var accountsSelectionRequest v2025.AccountsSelectionRequest
-   if err := json.Unmarshal(data, &accountsSelectionRequest); err != nil {
+   if err := json.Unmarshal(accountsselectionrequest, &accountsSelectionRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1114,7 +1114,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    accessrequestconfig := []byte(`{
           "requestOnBehalfOfConfig" : {
             "allowRequestOnBehalfOfEmployeeByManager" : true,
             "allowRequestOnBehalfOfAnyoneByAnyone" : true
@@ -1150,7 +1150,7 @@ func main() {
 
   
    var accessRequestConfig v2025.AccessRequestConfig
-   if err := json.Unmarshal(data, &accessRequestConfig); err != nil {
+   if err := json.Unmarshal(accessrequestconfig, &accessRequestConfig); err != nil {
     fmt.Println("Error:", err)
     return
    }

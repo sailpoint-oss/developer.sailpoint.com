@@ -87,7 +87,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    custompasswordinstruction := []byte(`{
           "pageContent" : "Please enter a new password. Your password must be at least 8 characters long and contain at least one number and one letter.",
           "pageId" : "change-password:enter-password",
           "locale" : "en"
@@ -95,7 +95,7 @@ func main() {
 
   
    var customPasswordInstruction v2025.CustomPasswordInstruction
-   if err := json.Unmarshal(data, &customPasswordInstruction); err != nil {
+   if err := json.Unmarshal(custompasswordinstruction, &customPasswordInstruction); err != nil {
     fmt.Println("Error:", err)
     return
    }

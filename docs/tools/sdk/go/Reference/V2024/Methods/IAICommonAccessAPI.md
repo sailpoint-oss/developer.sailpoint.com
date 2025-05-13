@@ -76,7 +76,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    commonaccessitemrequest := []byte(`{
           "access" : {
             "ownerName" : "ownerName",
             "name" : "name",
@@ -90,7 +90,7 @@ func main() {
 
   
    var commonAccessItemRequest v2024.CommonAccessItemRequest
-   if err := json.Unmarshal(data, &commonAccessItemRequest); err != nil {
+   if err := json.Unmarshal(commonaccessitemrequest, &commonAccessItemRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -250,11 +250,11 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    commonAccessIDStatus := fmt.Sprintf(``) // []CommonAccessIDStatus | Confirm or deny in bulk the common access ids that are (or aren't) common access
+    commonaccessidstatus := []byte(``) // []CommonAccessIDStatus | Confirm or deny in bulk the common access ids that are (or aren't) common access
 
   
-   var commonAccessIDStatus v2024.CommonAccessIDStatus
-   if err := json.Unmarshal(data, &commonAccessIDStatus); err != nil {
+   var commonAccessIDStatus v2024.[]CommonAccessIDStatus
+   if err := json.Unmarshal(commonaccessidstatus, &commonAccessIDStatus); err != nil {
     fmt.Println("Error:", err)
     return
    }

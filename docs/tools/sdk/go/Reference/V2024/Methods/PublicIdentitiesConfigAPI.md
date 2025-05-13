@@ -129,7 +129,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    publicidentityconfig := []byte(`{
           "modified" : "2018-06-25T20:22:28.104Z",
           "attributes" : [ {
             "name" : "Country",
@@ -147,7 +147,7 @@ func main() {
 
   
    var publicIdentityConfig v2024.PublicIdentityConfig
-   if err := json.Unmarshal(data, &publicIdentityConfig); err != nil {
+   if err := json.Unmarshal(publicidentityconfig, &publicIdentityConfig); err != nil {
     fmt.Println("Error:", err)
     return
    }

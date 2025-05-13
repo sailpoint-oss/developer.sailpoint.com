@@ -69,7 +69,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    managedclustertype := []byte(`{
           "managedProcessIds" : [ "someId", "someId2" ],
           "pod" : "megapod-useast1",
           "org" : "denali-cjh",
@@ -79,7 +79,7 @@ func main() {
 
   
    var managedClusterType v2025.ManagedClusterType
-   if err := json.Unmarshal(data, &managedClusterType); err != nil {
+   if err := json.Unmarshal(managedclustertype, &managedClusterType); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -349,7 +349,7 @@ import (
 
 func main() {
     id := `aClusterTypeId` // string | The Managed Cluster Type ID # string | The Managed Cluster Type ID
-    data := []byte(`{
+    jsonpatch := []byte(`{
           "operations" : [ {
             "op" : "replace",
             "path" : "/description",
@@ -363,7 +363,7 @@ func main() {
 
   
    var jsonPatch v2025.JsonPatch
-   if err := json.Unmarshal(data, &jsonPatch); err != nil {
+   if err := json.Unmarshal(jsonpatch, &jsonPatch); err != nil {
     fmt.Println("Error:", err)
     return
    }

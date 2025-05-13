@@ -182,11 +182,11 @@ import (
 func main() {
     identityProfileId := `2b838de9-db9b-abcf-e646-d4f274ad4238` // string | Identity Profile ID. # string | Identity Profile ID.
     lifecycleStateId := `ef38f94347e94562b5bb8424a56397d8` // string | Lifecycle State ID. # string | Lifecycle State ID.
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/accessProfileIds, value=[2c918087742bab150174407a80f3125e, 2c918087742bab150174407a80f3124f]}, {op=replace, path=/accountActions, value=[{action=ENABLE, sourceIds=[2c9180846a2f82fb016a481c1b1560c5, 2c9180846a2f82fb016a481c1b1560cc]}, {action=DISABLE, sourceIds=[2c91808869a0c9980169a207258513fb]}]}, {op=replace, path=/emailNotificationOption, value={notifyManagers=true, notifyAllAdmins=false, notifySpecificUsers=false, emailAddressList=[]}}]`) // []JsonPatchOperation | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
+    jsonpatchoperation := []byte(`[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/accessProfileIds, value=[2c918087742bab150174407a80f3125e, 2c918087742bab150174407a80f3124f]}, {op=replace, path=/accountActions, value=[{action=ENABLE, sourceIds=[2c9180846a2f82fb016a481c1b1560c5, 2c9180846a2f82fb016a481c1b1560cc]}, {action=DISABLE, sourceIds=[2c91808869a0c9980169a207258513fb]}]}, {op=replace, path=/emailNotificationOption, value={notifyManagers=true, notifyAllAdmins=false, notifySpecificUsers=false, emailAddressList=[]}}]`) // []JsonPatchOperation | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
 
   
-   var jsonPatchOperation beta.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation beta.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }

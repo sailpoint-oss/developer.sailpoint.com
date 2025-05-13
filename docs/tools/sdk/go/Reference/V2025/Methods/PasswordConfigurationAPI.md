@@ -71,7 +71,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    passwordorgconfig := []byte(`{
           "digitTokenLength" : 9,
           "digitTokenEnabled" : true,
           "digitTokenDurationMinutes" : 10,
@@ -80,7 +80,7 @@ func main() {
 
   
    var passwordOrgConfig v2025.PasswordOrgConfig
-   if err := json.Unmarshal(data, &passwordOrgConfig); err != nil {
+   if err := json.Unmarshal(passwordorgconfig, &passwordOrgConfig); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -203,7 +203,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    passwordorgconfig := []byte(`{
           "digitTokenLength" : 9,
           "digitTokenEnabled" : true,
           "digitTokenDurationMinutes" : 10,
@@ -212,7 +212,7 @@ func main() {
 
   
    var passwordOrgConfig v2025.PasswordOrgConfig
-   if err := json.Unmarshal(data, &passwordOrgConfig); err != nil {
+   if err := json.Unmarshal(passwordorgconfig, &passwordOrgConfig); err != nil {
     fmt.Println("Error:", err)
     return
    }

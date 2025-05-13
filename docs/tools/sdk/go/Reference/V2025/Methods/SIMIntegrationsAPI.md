@@ -87,7 +87,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    simintegrationdetails := []byte(`{
           "cluster" : "xyzzy999",
           "statusMap" : "{closed_cancelled=Failed, closed_complete=Committed, closed_incomplete=Failed, closed_rejected=Failed, in_process=Queued, requested=Queued}",
           "request" : "{description=SailPoint Access Request,, req_description=The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,, req_short_description=SailPoint New Access Request Created from IdentityNow,, short_description=SailPoint Access Request $!plan.arguments.identityRequestId}",
@@ -108,7 +108,7 @@ func main() {
 
   
    var simIntegrationDetails v2025.SimIntegrationDetails
-   if err := json.Unmarshal(data, &simIntegrationDetails); err != nil {
+   if err := json.Unmarshal(simintegrationdetails, &simIntegrationDetails); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -420,7 +420,7 @@ import (
 func main() {
     id := `12345` // string | SIM integration id # string | SIM integration id
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    jsonpatch := []byte(`{
           "operations" : [ {
             "op" : "replace",
             "path" : "/description",
@@ -434,7 +434,7 @@ func main() {
 
   
    var jsonPatch v2025.JsonPatch
-   if err := json.Unmarshal(data, &jsonPatch); err != nil {
+   if err := json.Unmarshal(jsonpatch, &jsonPatch); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -517,7 +517,7 @@ import (
 func main() {
     id := `12345` // string | SIM integration id # string | SIM integration id
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    jsonpatch := []byte(`{
           "operations" : [ {
             "op" : "replace",
             "path" : "/description",
@@ -531,7 +531,7 @@ func main() {
 
   
    var jsonPatch v2025.JsonPatch
-   if err := json.Unmarshal(data, &jsonPatch); err != nil {
+   if err := json.Unmarshal(jsonpatch, &jsonPatch); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -614,7 +614,7 @@ import (
 func main() {
     id := `12345` // string | The id of the integration. # string | The id of the integration.
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    simintegrationdetails := []byte(`{
           "cluster" : "xyzzy999",
           "statusMap" : "{closed_cancelled=Failed, closed_complete=Committed, closed_incomplete=Failed, closed_rejected=Failed, in_process=Queued, requested=Queued}",
           "request" : "{description=SailPoint Access Request,, req_description=The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,, req_short_description=SailPoint New Access Request Created from IdentityNow,, short_description=SailPoint Access Request $!plan.arguments.identityRequestId}",
@@ -635,7 +635,7 @@ func main() {
 
   
    var simIntegrationDetails v2025.SimIntegrationDetails
-   if err := json.Unmarshal(data, &simIntegrationDetails); err != nil {
+   if err := json.Unmarshal(simintegrationdetails, &simIntegrationDetails); err != nil {
     fmt.Println("Error:", err)
     return
    }

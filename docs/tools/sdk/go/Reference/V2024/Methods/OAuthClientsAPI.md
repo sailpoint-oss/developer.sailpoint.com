@@ -68,7 +68,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    createoauthclientrequest := []byte(`{
           "internal" : false,
           "businessName" : "Acme-Solar",
           "description" : "An API client used for the authorization_code, refresh_token, and client_credentials flows",
@@ -88,7 +88,7 @@ func main() {
 
   
    var createOAuthClientRequest v2024.CreateOAuthClientRequest
-   if err := json.Unmarshal(data, &createOAuthClientRequest); err != nil {
+   if err := json.Unmarshal(createoauthclientrequest, &createOAuthClientRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -350,11 +350,11 @@ import (
 
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | The OAuth client id # string | The OAuth client id
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/strongAuthSupported, value=true}, {op=replace, path=/businessName, value=acme-solar}]`) // []JsonPatchOperation | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
+    jsonpatchoperation := []byte(`[{op=replace, path=/strongAuthSupported, value=true}, {op=replace, path=/businessName, value=acme-solar}]`) // []JsonPatchOperation | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
 
   
-   var jsonPatchOperation v2024.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation v2024.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }

@@ -69,7 +69,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    launcherrequest := []byte(`{
           "reference" : {
             "id" : "2fd6ff94-2081-4d29-acbc-83a0a2f744a5",
             "type" : "WORKFLOW"
@@ -83,7 +83,7 @@ func main() {
 
   
    var launcherRequest beta.LauncherRequest
-   if err := json.Unmarshal(data, &launcherRequest); err != nil {
+   if err := json.Unmarshal(launcherrequest, &launcherRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -349,7 +349,7 @@ import (
 
 func main() {
     launcherID := `e3012408-8b61-4564-ad41-c5ec131c325b` // string | ID of the Launcher to be replaced # string | ID of the Launcher to be replaced
-    data := []byte(`{
+    launcherrequest := []byte(`{
           "reference" : {
             "id" : "2fd6ff94-2081-4d29-acbc-83a0a2f744a5",
             "type" : "WORKFLOW"
@@ -363,7 +363,7 @@ func main() {
 
   
    var launcherRequest beta.LauncherRequest
-   if err := json.Unmarshal(data, &launcherRequest); err != nil {
+   if err := json.Unmarshal(launcherrequest, &launcherRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }

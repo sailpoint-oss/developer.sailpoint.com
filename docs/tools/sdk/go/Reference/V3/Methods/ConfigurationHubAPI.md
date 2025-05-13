@@ -87,7 +87,7 @@ import (
 
 func main() {
     sourceOrg := `source-org` // string | The name of the source org. # string | The name of the source org.
-    data := []byte(`{
+    objectmappingrequest := []byte(`{
           "targetValue" : "My New Governance Group Name",
           "jsonPath" : "$.name",
           "sourceValue" : "My Governance Group Name",
@@ -97,7 +97,7 @@ func main() {
 
   
    var objectMappingRequest v3.ObjectMappingRequest
-   if err := json.Unmarshal(data, &objectMappingRequest); err != nil {
+   if err := json.Unmarshal(objectmappingrequest, &objectMappingRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -170,7 +170,7 @@ import (
 
 func main() {
     sourceOrg := `source-org` // string | The name of the source org. # string | The name of the source org.
-    data := []byte(`{
+    objectmappingbulkcreaterequest := []byte(`{
           "newObjectsMappings" : [ {
             "targetValue" : "My New Governance Group Name",
             "jsonPath" : "$.name",
@@ -188,7 +188,7 @@ func main() {
 
   
    var objectMappingBulkCreateRequest v3.ObjectMappingBulkCreateRequest
-   if err := json.Unmarshal(data, &objectMappingBulkCreateRequest); err != nil {
+   if err := json.Unmarshal(objectmappingbulkcreaterequest, &objectMappingBulkCreateRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -664,7 +664,7 @@ import (
 
 func main() {
     sourceOrg := `source-org` // string | The name of the source org. # string | The name of the source org.
-    data := []byte(`{
+    objectmappingbulkpatchrequest := []byte(`{
           "patches" : {
             "603b1a61-d03d-4ed1-864f-a508fbd1995d" : [ {
               "op" : "replace",
@@ -681,7 +681,7 @@ func main() {
 
   
    var objectMappingBulkPatchRequest v3.ObjectMappingBulkPatchRequest
-   if err := json.Unmarshal(data, &objectMappingBulkPatchRequest); err != nil {
+   if err := json.Unmarshal(objectmappingbulkpatchrequest, &objectMappingBulkPatchRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }

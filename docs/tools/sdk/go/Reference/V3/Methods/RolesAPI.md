@@ -107,7 +107,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    role := []byte(`{
           "owner" : {
             "name" : "support",
             "id" : "2c9180a46faadee4016fb4e018c20639",
@@ -269,7 +269,7 @@ func main() {
 
   
    var role v3.Role
-   if err := json.Unmarshal(data, &role); err != nil {
+   if err := json.Unmarshal(role, &role); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -336,13 +336,13 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    rolebulkdeleterequest := []byte(`{
           "roleIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ]
         }`) // RoleBulkDeleteRequest | 
 
   
    var roleBulkDeleteRequest v3.RoleBulkDeleteRequest
-   if err := json.Unmarshal(data, &roleBulkDeleteRequest); err != nil {
+   if err := json.Unmarshal(rolebulkdeleterequest, &roleBulkDeleteRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -716,11 +716,11 @@ import (
 
 func main() {
     id := `2c91808a7813090a017814121e121518` // string | Role ID to patch # string | Role ID to patch
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/requestable, value=true}, {op=replace, path=/enabled, value=true}]`) // []JsonPatchOperation | 
+    jsonpatchoperation := []byte(`[{op=replace, path=/requestable, value=true}, {op=replace, path=/enabled, value=true}]`) // []JsonPatchOperation | 
 
   
-   var jsonPatchOperation v3.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation v3.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }

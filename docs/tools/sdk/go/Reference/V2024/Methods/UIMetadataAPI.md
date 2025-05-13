@@ -149,7 +149,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    tenantuimetadataitemupdaterequest := []byte(`{
           "usernameEmptyText" : "Please provide your work email address...",
           "usernameLabel" : "Email",
           "iframeWhiteList" : "http://example.com http://example2.com"
@@ -157,7 +157,7 @@ func main() {
 
   
    var tenantUiMetadataItemUpdateRequest v2024.TenantUiMetadataItemUpdateRequest
-   if err := json.Unmarshal(data, &tenantUiMetadataItemUpdateRequest); err != nil {
+   if err := json.Unmarshal(tenantuimetadataitemupdaterequest, &tenantUiMetadataItemUpdateRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }

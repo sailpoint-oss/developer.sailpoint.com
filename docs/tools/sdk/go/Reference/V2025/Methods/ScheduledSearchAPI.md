@@ -93,11 +93,11 @@ import (
 )
 
 func main() {
-    data := []byte(`{savedSearchId=9c620e13-cd33-4804-a13d-403bd7bcdbad, schedule={type=DAILY, hours={type=LIST, values=[9]}}, recipients=[{type=IDENTITY, id=2c9180867624cbd7017642d8c8c81f67}]}`) // CreateScheduledSearchRequest | The scheduled search to persist.
+    createscheduledsearchrequest := []byte(`{savedSearchId=9c620e13-cd33-4804-a13d-403bd7bcdbad, schedule={type=DAILY, hours={type=LIST, values=[9]}}, recipients=[{type=IDENTITY, id=2c9180867624cbd7017642d8c8c81f67}]}`) // CreateScheduledSearchRequest | The scheduled search to persist.
 
   
    var createScheduledSearchRequest v2025.CreateScheduledSearchRequest
-   if err := json.Unmarshal(data, &createScheduledSearchRequest); err != nil {
+   if err := json.Unmarshal(createscheduledsearchrequest, &createScheduledSearchRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -368,14 +368,14 @@ import (
 
 func main() {
     id := `2c91808568c529c60168cca6f90c1313` // string | ID of the requested document. # string | ID of the requested document.
-    data := []byte(`{
+    typedreference := []byte(`{
           "id" : "2c91808568c529c60168cca6f90c1313",
           "type" : "IDENTITY"
         }`) // TypedReference | The recipient to be removed from the scheduled search. 
 
   
    var typedReference v2025.TypedReference
-   if err := json.Unmarshal(data, &typedReference); err != nil {
+   if err := json.Unmarshal(typedreference, &typedReference); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -444,7 +444,7 @@ import (
 
 func main() {
     id := `2c91808568c529c60168cca6f90c1313` // string | ID of the requested document. # string | ID of the requested document.
-    data := []byte(`{
+    scheduledsearch := []byte(`{
           "owner" : {
             "id" : "2c9180867624cbd7017642d8c8c81f67",
             "type" : "IDENTITY"
@@ -538,7 +538,7 @@ func main() {
 
   
    var scheduledSearch v2025.ScheduledSearch
-   if err := json.Unmarshal(data, &scheduledSearch); err != nil {
+   if err := json.Unmarshal(scheduledsearch, &scheduledSearch); err != nil {
     fmt.Println("Error:", err)
     return
    }

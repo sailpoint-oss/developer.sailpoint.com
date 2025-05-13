@@ -145,7 +145,7 @@ import (
 
 func main() {
     id := `aClientId` // string | ID of the Managed Client Status to update # string | ID of the Managed Client Status to update
-    data := []byte(`{
+    managedclientstatus := []byte(`{
           "body" : {
             "alertKey" : "",
             "id" : "5678",
@@ -174,7 +174,7 @@ func main() {
 
   
    var managedClientStatus beta.ManagedClientStatus
-   if err := json.Unmarshal(data, &managedClientStatus); err != nil {
+   if err := json.Unmarshal(managedclientstatus, &managedClientStatus); err != nil {
     fmt.Println("Error:", err)
     return
    }

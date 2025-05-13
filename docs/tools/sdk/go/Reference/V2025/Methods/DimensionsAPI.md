@@ -78,7 +78,7 @@ import (
 
 func main() {
     roleId := `6603fba3004f43c687610a29195252ce` // string | Parent Role Id of the dimension. # string | Parent Role Id of the dimension.
-    data := []byte(`{
+    dimension := []byte(`{
           "owner" : {
             "name" : "support",
             "id" : "2c9180a46faadee4016fb4e018c20639",
@@ -168,7 +168,7 @@ func main() {
 
   
    var dimension v2025.Dimension
-   if err := json.Unmarshal(data, &dimension); err != nil {
+   if err := json.Unmarshal(dimension, &dimension); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -241,13 +241,13 @@ import (
 
 func main() {
     roleId := `6603fba3004f43c687610a29195252ce` // string | Parent Role Id of the dimensions. # string | Parent Role Id of the dimensions.
-    data := []byte(`{
+    dimensionbulkdeleterequest := []byte(`{
           "dimensionIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ]
         }`) // DimensionBulkDeleteRequest | 
 
   
    var dimensionBulkDeleteRequest v2025.DimensionBulkDeleteRequest
-   if err := json.Unmarshal(data, &dimensionBulkDeleteRequest); err != nil {
+   if err := json.Unmarshal(dimensionbulkdeleterequest, &dimensionBulkDeleteRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -705,11 +705,11 @@ import (
 func main() {
     roleId := `6603fba3004f43c687610a29195252ce` // string | Parent Role Id of the dimension. # string | Parent Role Id of the dimension.
     dimensionId := `2c9180835d191a86015d28455b4a2329` // string | Id of the Dimension # string | Id of the Dimension
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/description, value=Test Description}, {op=replace, path=/name, value=new name}]`) // []JsonPatchOperation | 
+    jsonpatchoperation := []byte(`[{op=replace, path=/description, value=Test Description}, {op=replace, path=/name, value=new name}]`) // []JsonPatchOperation | 
 
   
-   var jsonPatchOperation v2025.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation v2025.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }

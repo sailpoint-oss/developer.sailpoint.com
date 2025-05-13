@@ -82,14 +82,14 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    cancelaccessrequest := []byte(`{
           "accountActivityId" : "2c9180835d2e5168015d32f890ca1581",
           "comment" : "I requested this role by mistake."
         }`) // CancelAccessRequest | 
 
   
    var cancelAccessRequest beta.CancelAccessRequest
-   if err := json.Unmarshal(data, &cancelAccessRequest); err != nil {
+   if err := json.Unmarshal(cancelaccessrequest, &cancelAccessRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -164,7 +164,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    closeaccessrequest := []byte(`{
           "executionStatus" : "Terminated",
           "accessRequestIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
           "completionStatus" : "Failure",
@@ -173,7 +173,7 @@ func main() {
 
   
    var closeAccessRequest beta.CloseAccessRequest
-   if err := json.Unmarshal(data, &closeAccessRequest); err != nil {
+   if err := json.Unmarshal(closeaccessrequest, &closeAccessRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -269,7 +269,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    accessrequest := []byte(`{
           "requestedFor" : "2c918084660f45d6016617daa9210584",
           "clientMetadata" : {
             "requestedAppId" : "2c91808f7892918f0178b78da4a305a1",
@@ -463,7 +463,7 @@ func main() {
 
   
    var accessRequest beta.AccessRequest
-   if err := json.Unmarshal(data, &accessRequest); err != nil {
+   if err := json.Unmarshal(accessrequest, &accessRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -666,7 +666,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    accessrequestconfig := []byte(`{
           "requestOnBehalfOfConfig" : {
             "allowRequestOnBehalfOfEmployeeByManager" : true,
             "allowRequestOnBehalfOfAnyoneByAnyone" : true
@@ -695,7 +695,7 @@ func main() {
 
   
    var accessRequestConfig beta.AccessRequestConfig
-   if err := json.Unmarshal(data, &accessRequestConfig); err != nil {
+   if err := json.Unmarshal(accessrequestconfig, &accessRequestConfig); err != nil {
     fmt.Println("Error:", err)
     return
    }

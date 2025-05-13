@@ -63,7 +63,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    recommendationrequestdto := []byte(`{
           "prescribeMode" : false,
           "excludeInterpretations" : false,
           "requests" : [ {
@@ -85,7 +85,7 @@ func main() {
 
   
    var recommendationRequestDto beta.RecommendationRequestDto
-   if err := json.Unmarshal(data, &recommendationRequestDto); err != nil {
+   if err := json.Unmarshal(recommendationrequestdto, &recommendationRequestDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -206,7 +206,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    recommendationconfigdto := []byte(`{
           "recommenderFeatures" : [ "jobTitle", "location", "peer_group", "department", "active" ],
           "peerGroupPercentageThreshold" : 0.5,
           "runAutoSelectOnce" : false,
@@ -215,7 +215,7 @@ func main() {
 
   
    var recommendationConfigDto beta.RecommendationConfigDto
-   if err := json.Unmarshal(data, &recommendationConfigDto); err != nil {
+   if err := json.Unmarshal(recommendationconfigdto, &recommendationConfigDto); err != nil {
     fmt.Println("Error:", err)
     return
    }

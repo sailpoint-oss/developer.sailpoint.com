@@ -168,7 +168,7 @@ import (
 
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | Campaign ID. # string | Campaign ID.
-    data := []byte(`{
+    completecampaignoptions := []byte(`{
           "autoCompleteAction" : "REVOKE"
         }`) // CompleteCampaignOptions | Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction=REVOKE (optional)
 
@@ -238,7 +238,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    campaign := []byte(`{
           "totalCertifications" : 100,
           "sourcesWithOrphanEntitlements" : [ {
             "name" : "Source with orphan entitlements",
@@ -350,7 +350,7 @@ func main() {
 
   
    var campaign beta.Campaign
-   if err := json.Unmarshal(data, &campaign); err != nil {
+   if err := json.Unmarshal(campaign, &campaign); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -421,7 +421,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    campaigntemplate := []byte(`{
           "ownerRef" : {
             "name" : "Mister Manager",
             "id" : "2c918086676d3e0601677611dbde220f",
@@ -548,7 +548,7 @@ func main() {
 
   
    var campaignTemplate beta.CampaignTemplate
-   if err := json.Unmarshal(data, &campaignTemplate); err != nil {
+   if err := json.Unmarshal(campaigntemplate, &campaignTemplate); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -758,13 +758,13 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    deletecampaignsrequest := []byte(`{
           "ids" : [ "2c9180887335cee10173490db1776c26", "2c9180836a712436016a7125a90c0021" ]
         }`) // DeleteCampaignsRequest | IDs of the campaigns to delete.
 
   
    var deleteCampaignsRequest beta.DeleteCampaignsRequest
-   if err := json.Unmarshal(data, &deleteCampaignsRequest); err != nil {
+   if err := json.Unmarshal(deletecampaignsrequest, &deleteCampaignsRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1347,7 +1347,7 @@ import (
 
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | The certification campaign ID # string | The certification campaign ID
-    data := []byte(`{
+    adminreviewreassign := []byte(`{
           "certificationIds" : [ "af3859464779471211bb8424a563abc1", "af3859464779471211bb8424a563abc2", "af3859464779471211bb8424a563abc3" ],
           "reason" : "reassigned for some reason",
           "reassignTo" : {
@@ -1358,7 +1358,7 @@ func main() {
 
   
    var adminReviewReassign beta.AdminReviewReassign
-   if err := json.Unmarshal(data, &adminReviewReassign); err != nil {
+   if err := json.Unmarshal(adminreviewreassign, &adminReviewReassign); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1434,11 +1434,11 @@ import (
 
 func main() {
     id := `2c9180835d191a86015d28455b4a2329` // string | ID of the campaign template being modified. # string | ID of the campaign template being modified.
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/campaign/filter/id, value=ff80818155fe8c080155fe8d925b0316}]`) // []JsonPatchOperation | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
+    jsonpatchoperation := []byte(`[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/campaign/filter/id, value=ff80818155fe8c080155fe8d925b0316}]`) // []JsonPatchOperation | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
 
   
-   var jsonPatchOperation beta.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation beta.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1508,13 +1508,13 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    campaignreportsconfig := []byte(`{
           "identityAttributeColumns" : [ "firstname", "lastname" ]
         }`) // CampaignReportsConfig | Campaign report configuration.
 
   
    var campaignReportsConfig beta.CampaignReportsConfig
-   if err := json.Unmarshal(data, &campaignReportsConfig); err != nil {
+   if err := json.Unmarshal(campaignreportsconfig, &campaignReportsConfig); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1591,7 +1591,7 @@ import (
 
 func main() {
     id := `04bedce387bd47b2ae1f86eb0bb36dee` // string | ID of the campaign template being scheduled. # string | ID of the campaign template being scheduled.
-    data := []byte(`{
+    schedule := []byte(`{
           "hours" : {
             "values" : [ "1" ],
             "interval" : 2,
@@ -1682,7 +1682,7 @@ import (
 
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | Campaign ID. # string | Campaign ID.
-    data := []byte(`{
+    activatecampaignoptions := []byte(`{
           "timeZone" : "-05:00"
         }`) // ActivateCampaignOptions | Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller's timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format. (optional)
 
@@ -1989,11 +1989,11 @@ import (
 
 func main() {
     id := `2c91808571bcfcf80171c23e4b4221fc` // string | ID of the campaign being modified. # string | ID of the campaign being modified.
-    requestBody := fmt.Sprintf(`[{op=replace, path=/name, value=This field has been updated!}, {op=copy, from=/name, path=/description}]`) // []map[string]interface{} | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
+    requestbody := []byte(`[{op=replace, path=/name, value=This field has been updated!}, {op=copy, from=/name, path=/description}]`) // []map[string]interface{} | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
 
   
-   var requestBody beta.RequestBody
-   if err := json.Unmarshal(data, &requestBody); err != nil {
+   var requestBody beta.[]RequestBody
+   if err := json.Unmarshal(requestbody, &requestBody); err != nil {
     fmt.Println("Error:", err)
     return
    }

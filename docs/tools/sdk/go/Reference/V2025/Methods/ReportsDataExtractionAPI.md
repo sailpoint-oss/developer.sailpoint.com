@@ -271,7 +271,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    reportdetails := []byte(`{
           "reportType" : "ACCOUNTS",
           "arguments" : {
             "application" : "2c9180897e7742b2017e781782f705b9",
@@ -281,7 +281,7 @@ func main() {
 
   
    var reportDetails v2025.ReportDetails
-   if err := json.Unmarshal(data, &reportDetails); err != nil {
+   if err := json.Unmarshal(reportdetails, &reportDetails); err != nil {
     fmt.Println("Error:", err)
     return
    }

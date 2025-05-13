@@ -92,7 +92,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    campaignfilterdetails := []byte(`{
           "owner" : "SailPoint Support",
           "mode" : "INCLUSION",
           "isSystemFilter" : false,
@@ -113,7 +113,7 @@ func main() {
 
   
    var campaignFilterDetails v3.CampaignFilterDetails
-   if err := json.Unmarshal(data, &campaignFilterDetails); err != nil {
+   if err := json.Unmarshal(campaignfilterdetails, &campaignFilterDetails); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -177,11 +177,11 @@ import (
 )
 
 func main() {
-    requestBody := fmt.Sprintf(``) // []string | A json list of IDs of campaign filters to delete.
+    requestbody := []byte(``) // []string | A json list of IDs of campaign filters to delete.
 
   
-   var requestBody v3.RequestBody
-   if err := json.Unmarshal(data, &requestBody); err != nil {
+   var requestBody v3.[]RequestBody
+   if err := json.Unmarshal(requestbody, &requestBody); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -381,7 +381,7 @@ import (
 
 func main() {
     filterId := `e9f9a1397b842fd5a65842087040d3ac` // string | The ID of the campaign filter being modified. # string | The ID of the campaign filter being modified.
-    data := []byte(`{
+    campaignfilterdetails := []byte(`{
           "owner" : "SailPoint Support",
           "mode" : "INCLUSION",
           "isSystemFilter" : false,
@@ -402,7 +402,7 @@ func main() {
 
   
    var campaignFilterDetails v3.CampaignFilterDetails
-   if err := json.Unmarshal(data, &campaignFilterDetails); err != nil {
+   if err := json.Unmarshal(campaignfilterdetails, &campaignFilterDetails); err != nil {
     fmt.Println("Error:", err)
     return
    }

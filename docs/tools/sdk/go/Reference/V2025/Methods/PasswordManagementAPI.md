@@ -101,7 +101,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    passworddigittokenreset := []byte(`{
           "durationMinutes" : 5,
           "length" : 8,
           "userId" : "Abby.Smith"
@@ -109,7 +109,7 @@ func main() {
 
   
    var passwordDigitTokenReset v2025.PasswordDigitTokenReset
-   if err := json.Unmarshal(data, &passwordDigitTokenReset); err != nil {
+   if err := json.Unmarshal(passworddigittokenreset, &passwordDigitTokenReset); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -240,14 +240,14 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    passwordinfoquerydto := []byte(`{
           "sourceName" : "My-AD",
           "userName" : "Abby.Smith"
         }`) // PasswordInfoQueryDTO | 
 
   
    var passwordInfoQueryDTO v2025.PasswordInfoQueryDTO
-   if err := json.Unmarshal(data, &passwordInfoQueryDTO); err != nil {
+   if err := json.Unmarshal(passwordinfoquerydto, &passwordInfoQueryDTO); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -330,7 +330,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    passwordchangerequest := []byte(`{
           "sourceId" : "8a807d4c73c545510173c545d4b60246",
           "accountId" : "CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com",
           "identityId" : "8a807d4c73c545510173c545f0a002ff",
@@ -340,7 +340,7 @@ func main() {
 
   
    var passwordChangeRequest v2025.PasswordChangeRequest
-   if err := json.Unmarshal(data, &passwordChangeRequest); err != nil {
+   if err := json.Unmarshal(passwordchangerequest, &passwordChangeRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }

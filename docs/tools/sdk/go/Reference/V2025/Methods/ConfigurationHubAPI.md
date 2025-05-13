@@ -91,13 +91,13 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    deployrequest := []byte(`{
           "draftId" : "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b"
         }`) // DeployRequest | The deploy request body.
 
   
    var deployRequest v2025.DeployRequest
-   if err := json.Unmarshal(data, &deployRequest); err != nil {
+   if err := json.Unmarshal(deployrequest, &deployRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -170,7 +170,7 @@ import (
 
 func main() {
     sourceOrg := `source-org` // string | The name of the source org. # string | The name of the source org.
-    data := []byte(`{
+    objectmappingrequest := []byte(`{
           "targetValue" : "My New Governance Group Name",
           "jsonPath" : "$.name",
           "sourceValue" : "My Governance Group Name",
@@ -180,7 +180,7 @@ func main() {
 
   
    var objectMappingRequest v2025.ObjectMappingRequest
-   if err := json.Unmarshal(data, &objectMappingRequest); err != nil {
+   if err := json.Unmarshal(objectmappingrequest, &objectMappingRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -253,7 +253,7 @@ import (
 
 func main() {
     sourceOrg := `source-org` // string | The name of the source org. # string | The name of the source org.
-    data := []byte(`{
+    objectmappingbulkcreaterequest := []byte(`{
           "newObjectsMappings" : [ {
             "targetValue" : "My New Governance Group Name",
             "jsonPath" : "$.name",
@@ -271,7 +271,7 @@ func main() {
 
   
    var objectMappingBulkCreateRequest v2025.ObjectMappingBulkCreateRequest
-   if err := json.Unmarshal(data, &objectMappingBulkCreateRequest); err != nil {
+   if err := json.Unmarshal(objectmappingbulkcreaterequest, &objectMappingBulkCreateRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -335,7 +335,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    scheduledactionpayload := []byte(`{
           "cronString" : "0 0 * * * *",
           "timeZoneId" : "America/Chicago",
           "startTime" : "2024-08-16T14:16:58.389Z",
@@ -361,7 +361,7 @@ func main() {
 
   
    var scheduledActionPayload v2025.ScheduledActionPayload
-   if err := json.Unmarshal(data, &scheduledActionPayload); err != nil {
+   if err := json.Unmarshal(scheduledactionpayload, &scheduledActionPayload); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1341,7 +1341,7 @@ import (
 
 func main() {
     sourceOrg := `source-org` // string | The name of the source org. # string | The name of the source org.
-    data := []byte(`{
+    objectmappingbulkpatchrequest := []byte(`{
           "patches" : {
             "603b1a61-d03d-4ed1-864f-a508fbd1995d" : [ {
               "op" : "replace",
@@ -1358,7 +1358,7 @@ func main() {
 
   
    var objectMappingBulkPatchRequest v2025.ObjectMappingBulkPatchRequest
-   if err := json.Unmarshal(data, &objectMappingBulkPatchRequest); err != nil {
+   if err := json.Unmarshal(objectmappingbulkpatchrequest, &objectMappingBulkPatchRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1428,7 +1428,7 @@ import (
 
 func main() {
     scheduledActionId := `0f11f2a4-7c94-4bf3-a2bd-742580fe3bde` // string | The ID of the scheduled action. # string | The ID of the scheduled action.
-    data := []byte(`{
+    jsonpatch := []byte(`{
           "operations" : [ {
             "op" : "replace",
             "path" : "/description",
@@ -1442,7 +1442,7 @@ func main() {
 
   
    var jsonPatch v2025.JsonPatch
-   if err := json.Unmarshal(data, &jsonPatch); err != nil {
+   if err := json.Unmarshal(jsonpatch, &jsonPatch); err != nil {
     fmt.Println("Error:", err)
     return
    }

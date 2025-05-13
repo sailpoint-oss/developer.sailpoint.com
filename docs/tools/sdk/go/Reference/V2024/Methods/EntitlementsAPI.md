@@ -831,7 +831,7 @@ import (
 func main() {
     id := `2c91808a7813090a017814121e121518` // string | ID of the entitlement to patch # string | ID of the entitlement to patch
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/requestable, value=true}, {op=replace, path=/privileged, value=true}]`) // []JsonPatchOperation |  (optional)
+    jsonpatchoperation := []byte(`[{op=replace, path=/requestable, value=true}, {op=replace, path=/privileged, value=true}]`) // []JsonPatchOperation |  (optional)
 
   
 
@@ -912,7 +912,7 @@ import (
 func main() {
     id := `2c91808a7813090a017814121e121518` // string | Entitlement ID # string | Entitlement ID
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    entitlementrequestconfig := []byte(`{
           "accessRequestConfig" : {
             "denialCommentRequired" : false,
             "approvalSchemes" : [ {
@@ -928,7 +928,7 @@ func main() {
 
   
    var entitlementRequestConfig v2024.EntitlementRequestConfig
-   if err := json.Unmarshal(data, &entitlementRequestConfig); err != nil {
+   if err := json.Unmarshal(entitlementrequestconfig, &entitlementRequestConfig); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1091,7 +1091,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    entitlementbulkupdaterequest := []byte(`{
           "entitlementIds" : [ "2c91808a7624751a01762f19d665220d", "2c91808a7624751a01762f19d67c220e", "2c91808a7624751a01762f19d692220f" ],
           "jsonPatch" : [ {
             "op" : "replace",
@@ -1106,7 +1106,7 @@ func main() {
 
   
    var entitlementBulkUpdateRequest v2024.EntitlementBulkUpdateRequest
-   if err := json.Unmarshal(data, &entitlementBulkUpdateRequest); err != nil {
+   if err := json.Unmarshal(entitlementbulkupdaterequest, &entitlementBulkUpdateRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }

@@ -88,7 +88,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    workgroupdto := []byte(`{
           "owner" : {
             "emailAddress" : "support@sailpoint.com",
             "displayName" : "Support",
@@ -107,7 +107,7 @@ func main() {
 
   
    var workgroupDto v2024.WorkgroupDto
-   if err := json.Unmarshal(data, &workgroupDto); err != nil {
+   if err := json.Unmarshal(workgroupdto, &workgroupDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -270,11 +270,11 @@ import (
 func main() {
     workgroupId := `2c91808a7813090a017814121919ecca` // string | ID of the Governance Group. # string | ID of the Governance Group.
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    identityPreviewResponseIdentity := fmt.Sprintf(``) // []IdentityPreviewResponseIdentity | List of identities to be removed from  a Governance Group members list.
+    identitypreviewresponseidentity := []byte(``) // []IdentityPreviewResponseIdentity | List of identities to be removed from  a Governance Group members list.
 
   
-   var identityPreviewResponseIdentity v2024.IdentityPreviewResponseIdentity
-   if err := json.Unmarshal(data, &identityPreviewResponseIdentity); err != nil {
+   var identityPreviewResponseIdentity v2024.[]IdentityPreviewResponseIdentity
+   if err := json.Unmarshal(identitypreviewresponseidentity, &identityPreviewResponseIdentity); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -362,13 +362,13 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    workgroupbulkdeleterequest := []byte(`{
           "ids" : [ "567a697e-885b-495a-afc5-d55e1c23a302", "c7b0f7b2-1e78-4063-b294-a555333dacd2" ]
         }`) // WorkgroupBulkDeleteRequest | 
 
   
    var workgroupBulkDeleteRequest v2024.WorkgroupBulkDeleteRequest
-   if err := json.Unmarshal(data, &workgroupBulkDeleteRequest); err != nil {
+   if err := json.Unmarshal(workgroupbulkdeleterequest, &workgroupBulkDeleteRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -790,7 +790,7 @@ import (
 func main() {
     id := `2c9180837ca6693d017ca8d097500149` // string | ID of the Governance Group # string | ID of the Governance Group
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/description, value=Governance Group new description.}]`) // []JsonPatchOperation |  (optional)
+    jsonpatchoperation := []byte(`[{op=replace, path=/description, value=Governance Group new description.}]`) // []JsonPatchOperation |  (optional)
 
   
 
@@ -875,11 +875,11 @@ import (
 func main() {
     workgroupId := `2c91808a7813090a017814121919ecca` // string | ID of the Governance Group. # string | ID of the Governance Group.
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    identityPreviewResponseIdentity := fmt.Sprintf(``) // []IdentityPreviewResponseIdentity | List of identities to be added to a Governance Group members list.
+    identitypreviewresponseidentity := []byte(``) // []IdentityPreviewResponseIdentity | List of identities to be added to a Governance Group members list.
 
   
-   var identityPreviewResponseIdentity v2024.IdentityPreviewResponseIdentity
-   if err := json.Unmarshal(data, &identityPreviewResponseIdentity); err != nil {
+   var identityPreviewResponseIdentity v2024.[]IdentityPreviewResponseIdentity
+   if err := json.Unmarshal(identitypreviewresponseidentity, &identityPreviewResponseIdentity); err != nil {
     fmt.Println("Error:", err)
     return
    }

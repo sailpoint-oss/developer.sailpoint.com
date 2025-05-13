@@ -90,7 +90,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    search := []byte(`{
           "queryDsl" : {
             "match" : {
               "name" : "john.doe"
@@ -213,7 +213,7 @@ func main() {
 
   
    var search v3.Search
-   if err := json.Unmarshal(data, &search); err != nil {
+   if err := json.Unmarshal(search, &search); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -277,7 +277,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    search := []byte(`{
           "queryDsl" : {
             "match" : {
               "name" : "john.doe"
@@ -397,7 +397,7 @@ func main() {
 
   
    var search v3.Search
-   if err := json.Unmarshal(data, &search); err != nil {
+   if err := json.Unmarshal(search, &search); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -531,7 +531,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    search := []byte(`{
           "queryDsl" : {
             "match" : {
               "name" : "john.doe"
@@ -654,7 +654,7 @@ func main() {
 
   
    var search v3.Search
-   if err := json.Unmarshal(data, &search); err != nil {
+   if err := json.Unmarshal(search, &search); err != nil {
     fmt.Println("Error:", err)
     return
    }

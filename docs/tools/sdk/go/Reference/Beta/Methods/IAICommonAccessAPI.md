@@ -63,7 +63,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    commonaccessitemrequest := []byte(`{
           "access" : {
             "ownerName" : "ownerName",
             "name" : "name",
@@ -77,7 +77,7 @@ func main() {
 
   
    var commonAccessItemRequest beta.CommonAccessItemRequest
-   if err := json.Unmarshal(data, &commonAccessItemRequest); err != nil {
+   if err := json.Unmarshal(commonaccessitemrequest, &commonAccessItemRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -211,11 +211,11 @@ import (
 )
 
 func main() {
-    commonAccessIDStatus := fmt.Sprintf(``) // []CommonAccessIDStatus | Confirm or deny in bulk the common access ids that are (or aren't) common access
+    commonaccessidstatus := []byte(``) // []CommonAccessIDStatus | Confirm or deny in bulk the common access ids that are (or aren't) common access
 
   
-   var commonAccessIDStatus beta.CommonAccessIDStatus
-   if err := json.Unmarshal(data, &commonAccessIDStatus); err != nil {
+   var commonAccessIDStatus beta.[]CommonAccessIDStatus
+   if err := json.Unmarshal(commonaccessidstatus, &commonAccessIDStatus); err != nil {
     fmt.Println("Error:", err)
     return
    }

@@ -64,7 +64,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    vendorconnectormapping := []byte(`{
           "createdAt" : "2024-03-13T12:56:19.391294Z",
           "deletedAt" : {
             "Valid" : false,
@@ -90,7 +90,7 @@ func main() {
 
   
    var vendorConnectorMapping v3.VendorConnectorMapping
-   if err := json.Unmarshal(data, &vendorConnectorMapping); err != nil {
+   if err := json.Unmarshal(vendorconnectormapping, &vendorConnectorMapping); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -155,7 +155,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    vendorconnectormapping := []byte(`{
           "createdAt" : "2024-03-13T12:56:19.391294Z",
           "deletedAt" : {
             "Valid" : false,
@@ -181,7 +181,7 @@ func main() {
 
   
    var vendorConnectorMapping v3.VendorConnectorMapping
-   if err := json.Unmarshal(data, &vendorConnectorMapping); err != nil {
+   if err := json.Unmarshal(vendorconnectormapping, &vendorConnectorMapping); err != nil {
     fmt.Println("Error:", err)
     return
    }

@@ -98,7 +98,7 @@ func main() {
     potentialRoleId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | A potential role id in a role mining session # string | A potential role id in a role mining session
     minEntitlementPopularity := 56 // int32 | Minimum popularity required for an entitlement to be included in the provisioned role. (optional) (default to 0) # int32 | Minimum popularity required for an entitlement to be included in the provisioned role. (optional) (default to 0)
     includeCommonAccess := true // bool | Boolean determining whether common access entitlements will be included in the provisioned role. (optional) (default to true) # bool | Boolean determining whether common access entitlements will be included in the provisioned role. (optional) (default to true)
-    data := []byte(`{
+    roleminingpotentialroleprovisionrequest := []byte(`{
           "includeIdentities" : true,
           "roleName" : "Finance - Accounting",
           "ownerId" : "2b568c65bc3c4c57a43bd97e3a8e41",
@@ -166,7 +166,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    roleminingsessiondto := []byte(`{
           "emailRecipientId" : "2c918090761a5aac0176215c46a62d58",
           "prescribedPruneThreshold" : 10,
           "pruneThreshold" : 50,
@@ -201,7 +201,7 @@ func main() {
 
   
    var roleMiningSessionDto beta.RoleMiningSessionDto
-   if err := json.Unmarshal(data, &roleMiningSessionDto); err != nil {
+   if err := json.Unmarshal(roleminingsessiondto, &roleMiningSessionDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -415,7 +415,7 @@ import (
 func main() {
     sessionId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The role mining session id # string | The role mining session id
     potentialRoleId := `278359a6-04b7-4669-9468-924cf580964a` // string | A potential role id in a role mining session # string | A potential role id in a role mining session
-    data := []byte(`{
+    roleminingpotentialroleexportrequest := []byte(`{
           "minEntitlementPopularity" : 0,
           "includeCommonAccess" : true
         }`) // RoleMiningPotentialRoleExportRequest |  (optional)
@@ -1665,11 +1665,11 @@ import (
 func main() {
     sessionId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The role mining session id # string | The role mining session id
     potentialRoleId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The potential role summary id # string | The potential role summary id
-    patchPotentialRoleRequestInner := fmt.Sprintf(`[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]`) // []PatchPotentialRoleRequestInner | 
+    patchpotentialrolerequestinner := []byte(`[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]`) // []PatchPotentialRoleRequestInner | 
 
   
-   var patchPotentialRoleRequestInner beta.PatchPotentialRoleRequestInner
-   if err := json.Unmarshal(data, &patchPotentialRoleRequestInner); err != nil {
+   var patchPotentialRoleRequestInner beta.[]PatchPotentialRoleRequestInner
+   if err := json.Unmarshal(patchpotentialrolerequestinner, &patchPotentialRoleRequestInner); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1751,11 +1751,11 @@ import (
 
 func main() {
     potentialRoleId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The potential role summary id # string | The potential role summary id
-    patchPotentialRoleRequestInner := fmt.Sprintf(`[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]`) // []PatchPotentialRoleRequestInner | 
+    patchpotentialrolerequestinner := []byte(`[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]`) // []PatchPotentialRoleRequestInner | 
 
   
-   var patchPotentialRoleRequestInner beta.PatchPotentialRoleRequestInner
-   if err := json.Unmarshal(data, &patchPotentialRoleRequestInner); err != nil {
+   var patchPotentialRoleRequestInner beta.[]PatchPotentialRoleRequestInner
+   if err := json.Unmarshal(patchpotentialrolerequestinner, &patchPotentialRoleRequestInner); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1825,11 +1825,11 @@ import (
 
 func main() {
     sessionId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The role mining session id to be patched # string | The role mining session id to be patched
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/pruneThreshold, value=83}, {op=replace, path=/minNumIdentitiesInPotentialRole, value=10}, {op=replace, path=/saved, value=false}, {op=replace, path=/name, value=RM Session - 07/10/22}, {op=add, path=/name, value=RM Session - 07/10/22}]`) // []JsonPatchOperation | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
+    jsonpatchoperation := []byte(`[{op=replace, path=/pruneThreshold, value=83}, {op=replace, path=/minNumIdentitiesInPotentialRole, value=10}, {op=replace, path=/saved, value=false}, {op=replace, path=/name, value=RM Session - 07/10/22}, {op=add, path=/name, value=RM Session - 07/10/22}]`) // []JsonPatchOperation | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
 
   
-   var jsonPatchOperation beta.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation beta.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1902,14 +1902,14 @@ import (
 func main() {
     sessionId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The role mining session id # string | The role mining session id
     potentialRoleId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | A potential role id in a role mining session # string | A potential role id in a role mining session
-    data := []byte(`{
+    roleminingpotentialroleeditentitlements := []byte(`{
           "ids" : [ "entId1", "entId2" ],
           "exclude" : true
         }`) // RoleMiningPotentialRoleEditEntitlements | Role mining session parameters
 
   
    var roleMiningPotentialRoleEditEntitlements beta.RoleMiningPotentialRoleEditEntitlements
-   if err := json.Unmarshal(data, &roleMiningPotentialRoleEditEntitlements); err != nil {
+   if err := json.Unmarshal(roleminingpotentialroleeditentitlements, &roleMiningPotentialRoleEditEntitlements); err != nil {
     fmt.Println("Error:", err)
     return
    }

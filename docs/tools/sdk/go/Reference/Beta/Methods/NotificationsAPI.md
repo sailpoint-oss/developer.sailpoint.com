@@ -75,13 +75,13 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    domainaddress := []byte(`{
           "domain" : "sailpoint.com"
         }`) // DomainAddress | 
 
   
    var domainAddress beta.DomainAddress
-   if err := json.Unmarshal(data, &domainAddress); err != nil {
+   if err := json.Unmarshal(domainaddress, &domainAddress); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -147,7 +147,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    templatedto := []byte(`{
           "slackTemplate" : "slackTemplate",
           "footer" : "footer",
           "teamsTemplate" : "teamsTemplate",
@@ -168,7 +168,7 @@ func main() {
 
   
    var templateDto beta.TemplateDto
-   if err := json.Unmarshal(data, &templateDto); err != nil {
+   if err := json.Unmarshal(templatedto, &templateDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -232,7 +232,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    emailstatusdto := []byte(`{
           "isVerifiedByDomain" : false,
           "verificationStatus" : "PENDING",
           "id" : "id",
@@ -241,7 +241,7 @@ func main() {
 
   
    var emailStatusDto beta.EmailStatusDto
-   if err := json.Unmarshal(data, &emailStatusDto); err != nil {
+   if err := json.Unmarshal(emailstatusdto, &emailStatusDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -305,11 +305,11 @@ import (
 )
 
 func main() {
-    templateBulkDeleteDto := fmt.Sprintf(``) // []TemplateBulkDeleteDto | 
+    templatebulkdeletedto := []byte(``) // []TemplateBulkDeleteDto | 
 
   
-   var templateBulkDeleteDto beta.TemplateBulkDeleteDto
-   if err := json.Unmarshal(data, &templateBulkDeleteDto); err != nil {
+   var templateBulkDeleteDto beta.[]TemplateBulkDeleteDto
+   if err := json.Unmarshal(templatebulkdeletedto, &templateBulkDeleteDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -950,14 +950,14 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    mailfromattributesdto := []byte(`{
           "identity" : "BobSmith@sailpoint.com",
           "mailFromDomain" : "example.sailpoint.com"
         }`) // MailFromAttributesDto | 
 
   
    var mailFromAttributesDto beta.MailFromAttributesDto
-   if err := json.Unmarshal(data, &mailFromAttributesDto); err != nil {
+   if err := json.Unmarshal(mailfromattributesdto, &mailFromAttributesDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1021,7 +1021,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    sendtestnotificationrequestdto := []byte(`{
           "context" : "{}",
           "medium" : "EMAIL",
           "key" : "cloud_manual_work_item_summary"
@@ -1029,7 +1029,7 @@ func main() {
 
   
    var sendTestNotificationRequestDto beta.SendTestNotificationRequestDto
-   if err := json.Unmarshal(data, &sendTestNotificationRequestDto); err != nil {
+   if err := json.Unmarshal(sendtestnotificationrequestdto, &sendTestNotificationRequestDto); err != nil {
     fmt.Println("Error:", err)
     return
    }

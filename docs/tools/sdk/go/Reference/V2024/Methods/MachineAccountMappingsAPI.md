@@ -71,7 +71,7 @@ import (
 
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | Source ID. # string | Source ID.
-    data := []byte(`{
+    attributemappings := []byte(`{
           "transformDefinition" : {
             "attributes" : {
               "input" : {
@@ -95,7 +95,7 @@ func main() {
 
   
    var attributeMappings v2024.AttributeMappings
-   if err := json.Unmarshal(data, &attributeMappings); err != nil {
+   if err := json.Unmarshal(attributemappings, &attributeMappings); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -300,7 +300,7 @@ import (
 
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | Source ID. # string | Source ID.
-    data := []byte(`{
+    attributemappings := []byte(`{
           "transformDefinition" : {
             "attributes" : {
               "input" : {
@@ -324,7 +324,7 @@ func main() {
 
   
    var attributeMappings v2024.AttributeMappings
-   if err := json.Unmarshal(data, &attributeMappings); err != nil {
+   if err := json.Unmarshal(attributemappings, &attributeMappings); err != nil {
     fmt.Println("Error:", err)
     return
    }

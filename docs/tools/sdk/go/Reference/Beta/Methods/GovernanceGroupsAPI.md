@@ -75,7 +75,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    workgroupdto := []byte(`{
           "owner" : {
             "emailAddress" : "support@sailpoint.com",
             "displayName" : "Support",
@@ -94,7 +94,7 @@ func main() {
 
   
    var workgroupDto beta.WorkgroupDto
-   if err := json.Unmarshal(data, &workgroupDto); err != nil {
+   if err := json.Unmarshal(workgroupdto, &workgroupDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -232,11 +232,11 @@ import (
 
 func main() {
     workgroupId := `2c91808a7813090a017814121919ecca` // string | ID of the Governance Group. # string | ID of the Governance Group.
-    bulkWorkgroupMembersRequestInner := fmt.Sprintf(``) // []BulkWorkgroupMembersRequestInner | List of identities to be removed from  a Governance Group members list.
+    bulkworkgroupmembersrequestinner := []byte(``) // []BulkWorkgroupMembersRequestInner | List of identities to be removed from  a Governance Group members list.
 
   
-   var bulkWorkgroupMembersRequestInner beta.BulkWorkgroupMembersRequestInner
-   if err := json.Unmarshal(data, &bulkWorkgroupMembersRequestInner); err != nil {
+   var bulkWorkgroupMembersRequestInner beta.[]BulkWorkgroupMembersRequestInner
+   if err := json.Unmarshal(bulkworkgroupmembersrequestinner, &bulkWorkgroupMembersRequestInner); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -311,13 +311,13 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    workgroupbulkdeleterequest := []byte(`{
           "ids" : [ "567a697e-885b-495a-afc5-d55e1c23a302", "c7b0f7b2-1e78-4063-b294-a555333dacd2" ]
         }`) // WorkgroupBulkDeleteRequest | 
 
   
    var workgroupBulkDeleteRequest beta.WorkgroupBulkDeleteRequest
-   if err := json.Unmarshal(data, &workgroupBulkDeleteRequest); err != nil {
+   if err := json.Unmarshal(workgroupbulkdeleterequest, &workgroupBulkDeleteRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -677,7 +677,7 @@ import (
 
 func main() {
     id := `2c9180837ca6693d017ca8d097500149` // string | ID of the Governance Group # string | ID of the Governance Group
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/description, value=Governance Group new description.}]`) // []JsonPatchOperation |  (optional)
+    jsonpatchoperation := []byte(`[{op=replace, path=/description, value=Governance Group new description.}]`) // []JsonPatchOperation |  (optional)
 
   
 
@@ -749,11 +749,11 @@ import (
 
 func main() {
     workgroupId := `2c91808a7813090a017814121919ecca` // string | ID of the Governance Group. # string | ID of the Governance Group.
-    bulkWorkgroupMembersRequestInner := fmt.Sprintf(``) // []BulkWorkgroupMembersRequestInner | List of identities to be added to a Governance Group members list.
+    bulkworkgroupmembersrequestinner := []byte(``) // []BulkWorkgroupMembersRequestInner | List of identities to be added to a Governance Group members list.
 
   
-   var bulkWorkgroupMembersRequestInner beta.BulkWorkgroupMembersRequestInner
-   if err := json.Unmarshal(data, &bulkWorkgroupMembersRequestInner); err != nil {
+   var bulkWorkgroupMembersRequestInner beta.[]BulkWorkgroupMembersRequestInner
+   if err := json.Unmarshal(bulkworkgroupmembersrequestinner, &bulkWorkgroupMembersRequestInner); err != nil {
     fmt.Println("Error:", err)
     return
    }

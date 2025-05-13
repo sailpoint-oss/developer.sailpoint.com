@@ -74,7 +74,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    simintegrationdetails := []byte(`{
           "cluster" : "xyzzy999",
           "statusMap" : "{closed_cancelled=Failed, closed_complete=Committed, closed_incomplete=Failed, closed_rejected=Failed, in_process=Queued, requested=Queued}",
           "request" : "{description=SailPoint Access Request,, req_description=The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,, req_short_description=SailPoint New Access Request Created from IdentityNow,, short_description=SailPoint Access Request $!plan.arguments.identityRequestId}",
@@ -95,7 +95,7 @@ func main() {
 
   
    var simIntegrationDetails beta.SimIntegrationDetails
-   if err := json.Unmarshal(data, &simIntegrationDetails); err != nil {
+   if err := json.Unmarshal(simintegrationdetails, &simIntegrationDetails); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -352,11 +352,11 @@ import (
 
 func main() {
     id := `12345` // string | SIM integration id # string | SIM integration id
-    data := []byte(`"[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]"`) // JsonPatch | The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
+    jsonpatch := []byte(`"[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]"`) // JsonPatch | The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
 
   
    var jsonPatch beta.JsonPatch
-   if err := json.Unmarshal(data, &jsonPatch); err != nil {
+   if err := json.Unmarshal(jsonpatch, &jsonPatch); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -426,11 +426,11 @@ import (
 
 func main() {
     id := `12345` // string | SIM integration id # string | SIM integration id
-    data := []byte(`"[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]"`) // JsonPatch | The JsonPatch object that describes the changes of SIM
+    jsonpatch := []byte(`"[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]"`) // JsonPatch | The JsonPatch object that describes the changes of SIM
 
   
    var jsonPatch beta.JsonPatch
-   if err := json.Unmarshal(data, &jsonPatch); err != nil {
+   if err := json.Unmarshal(jsonpatch, &jsonPatch); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -500,7 +500,7 @@ import (
 
 func main() {
     id := `12345` // string | The id of the integration. # string | The id of the integration.
-    data := []byte(`{
+    simintegrationdetails := []byte(`{
           "cluster" : "xyzzy999",
           "statusMap" : "{closed_cancelled=Failed, closed_complete=Committed, closed_incomplete=Failed, closed_rejected=Failed, in_process=Queued, requested=Queued}",
           "request" : "{description=SailPoint Access Request,, req_description=The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,, req_short_description=SailPoint New Access Request Created from IdentityNow,, short_description=SailPoint Access Request $!plan.arguments.identityRequestId}",
@@ -521,7 +521,7 @@ func main() {
 
   
    var simIntegrationDetails beta.SimIntegrationDetails
-   if err := json.Unmarshal(data, &simIntegrationDetails); err != nil {
+   if err := json.Unmarshal(simintegrationdetails, &simIntegrationDetails); err != nil {
     fmt.Println("Error:", err)
     return
    }

@@ -129,13 +129,13 @@ import (
 
 func main() {
     id := `id_example` // string | Non-Employee approval item id (UUID) # string | Non-Employee approval item id (UUID)
-    data := []byte(`{
+    nonemployeeapprovaldecision := []byte(`{
           "comment" : "comment"
         }`) // NonEmployeeApprovalDecision | 
 
   
    var nonEmployeeApprovalDecision beta.NonEmployeeApprovalDecision
-   if err := json.Unmarshal(data, &nonEmployeeApprovalDecision); err != nil {
+   if err := json.Unmarshal(nonemployeeapprovaldecision, &nonEmployeeApprovalDecision); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -202,7 +202,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    nonemployeerequestbody := []byte(`{
           "sourceId" : "2c91808568c529c60168cca6f90c1313",
           "firstName" : "William",
           "lastName" : "Smith",
@@ -219,7 +219,7 @@ func main() {
 
   
    var nonEmployeeRequestBody beta.NonEmployeeRequestBody
-   if err := json.Unmarshal(data, &nonEmployeeRequestBody); err != nil {
+   if err := json.Unmarshal(nonemployeerequestbody, &nonEmployeeRequestBody); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -284,7 +284,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    nonemployeerequestbody := []byte(`{
           "sourceId" : "2c91808568c529c60168cca6f90c1313",
           "firstName" : "William",
           "lastName" : "Smith",
@@ -301,7 +301,7 @@ func main() {
 
   
    var nonEmployeeRequestBody beta.NonEmployeeRequestBody
-   if err := json.Unmarshal(data, &nonEmployeeRequestBody); err != nil {
+   if err := json.Unmarshal(nonemployeerequestbody, &nonEmployeeRequestBody); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -365,7 +365,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    nonemployeesourcerequestbody := []byte(`{
           "owner" : {
             "id" : "2c91808570313110017040b06f344ec9"
           },
@@ -394,7 +394,7 @@ func main() {
 
   
    var nonEmployeeSourceRequestBody beta.NonEmployeeSourceRequestBody
-   if err := json.Unmarshal(data, &nonEmployeeSourceRequestBody); err != nil {
+   if err := json.Unmarshal(nonemployeesourcerequestbody, &nonEmployeeSourceRequestBody); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -464,7 +464,7 @@ import (
 
 func main() {
     sourceId := `2c91808b6ef1d43e016efba0ce470904` // string | The Source id # string | The Source id
-    data := []byte(`{
+    nonemployeeschemaattributebody := []byte(`{
           "helpText" : "The unique identifier for the account",
           "label" : "Account Name",
           "placeholder" : "Enter a unique user name for this account.",
@@ -475,7 +475,7 @@ func main() {
 
   
    var nonEmployeeSchemaAttributeBody beta.NonEmployeeSchemaAttributeBody
-   if err := json.Unmarshal(data, &nonEmployeeSchemaAttributeBody); err != nil {
+   if err := json.Unmarshal(nonemployeeschemaattributebody, &nonEmployeeSchemaAttributeBody); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -605,11 +605,11 @@ import (
 )
 
 func main() {
-    data := []byte(``) // DeleteNonEmployeeRecordInBulkRequest | Non-Employee bulk delete request body.
+    deletenonemployeerecordinbulkrequest := []byte(``) // DeleteNonEmployeeRecordInBulkRequest | Non-Employee bulk delete request body.
 
   
    var deleteNonEmployeeRecordInBulkRequest beta.DeleteNonEmployeeRecordInBulkRequest
-   if err := json.Unmarshal(data, &deleteNonEmployeeRecordInBulkRequest); err != nil {
+   if err := json.Unmarshal(deletenonemployeerecordinbulkrequest, &deleteNonEmployeeRecordInBulkRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -2025,11 +2025,11 @@ import (
 
 func main() {
     id := `2c91808b6ef1d43e016efba0ce470904` // string | Non-employee record id (UUID) # string | Non-employee record id (UUID)
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/endDate, value={2019-08-23T18:40:35.772Z=null}}]`) // []JsonPatchOperation | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+    jsonpatchoperation := []byte(`[{op=replace, path=/endDate, value={2019-08-23T18:40:35.772Z=null}}]`) // []JsonPatchOperation | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
 
   
-   var jsonPatchOperation beta.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation beta.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -2103,11 +2103,11 @@ import (
 func main() {
     attributeId := `2c91808b6ef1d43e016efba0ce470904` // string | The Schema Attribute Id (UUID) # string | The Schema Attribute Id (UUID)
     sourceId := `2c91808b6ef1d43e016efba0ce470904` // string | The Source id # string | The Source id
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/label, value={new attribute label=null}}]`) // []JsonPatchOperation | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update ':' 'label', 'helpText', 'placeholder', 'required'.
+    jsonpatchoperation := []byte(`[{op=replace, path=/label, value={new attribute label=null}}]`) // []JsonPatchOperation | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update ':' 'label', 'helpText', 'placeholder', 'required'.
 
   
-   var jsonPatchOperation beta.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation beta.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -2177,11 +2177,11 @@ import (
 
 func main() {
     sourceId := `2c91808b6ef1d43e016efba0ce470904` // string | Source Id # string | Source Id
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/name, value={new name=null}}, {op=replace, path=/approvers, value=[2c91809f703bb37a017040a2fe8748c7, 48b1f463c9e8427db5a5071bd81914b8]}]`) // []JsonPatchOperation | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    jsonpatchoperation := []byte(`[{op=replace, path=/name, value={new name=null}}, {op=replace, path=/approvers, value=[2c91809f703bb37a017040a2fe8748c7, 48b1f463c9e8427db5a5071bd81914b8]}]`) // []JsonPatchOperation | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
   
-   var jsonPatchOperation beta.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation beta.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -2251,13 +2251,13 @@ import (
 
 func main() {
     id := `id_example` // string | Non-Employee approval item id (UUID) # string | Non-Employee approval item id (UUID)
-    data := []byte(`{
+    nonemployeerejectapprovaldecision := []byte(`{
           "comment" : "comment"
         }`) // NonEmployeeRejectApprovalDecision | 
 
   
    var nonEmployeeRejectApprovalDecision beta.NonEmployeeRejectApprovalDecision
-   if err := json.Unmarshal(data, &nonEmployeeRejectApprovalDecision); err != nil {
+   if err := json.Unmarshal(nonemployeerejectapprovaldecision, &nonEmployeeRejectApprovalDecision); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -2328,7 +2328,7 @@ import (
 
 func main() {
     id := `2c91808b6ef1d43e016efba0ce470904` // string | Non-employee record id (UUID) # string | Non-employee record id (UUID)
-    data := []byte(`{
+    nonemployeerequestbody := []byte(`{
           "sourceId" : "2c91808568c529c60168cca6f90c1313",
           "firstName" : "William",
           "lastName" : "Smith",
@@ -2345,7 +2345,7 @@ func main() {
 
   
    var nonEmployeeRequestBody beta.NonEmployeeRequestBody
-   if err := json.Unmarshal(data, &nonEmployeeRequestBody); err != nil {
+   if err := json.Unmarshal(nonemployeerequestbody, &nonEmployeeRequestBody); err != nil {
     fmt.Println("Error:", err)
     return
    }

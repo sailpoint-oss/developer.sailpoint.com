@@ -200,7 +200,7 @@ import (
 
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | Source ID. # string | Source ID.
-    data := []byte(`{
+    machineclassificationconfig := []byte(`{
           "criteria" : "criteria",
           "created" : "2017-07-11T18:45:37.098Z",
           "modified" : "2018-06-25T20:22:28.104Z",
@@ -210,7 +210,7 @@ func main() {
 
   
    var machineClassificationConfig v2024.MachineClassificationConfig
-   if err := json.Unmarshal(data, &machineClassificationConfig); err != nil {
+   if err := json.Unmarshal(machineclassificationconfig, &machineClassificationConfig); err != nil {
     fmt.Println("Error:", err)
     return
    }

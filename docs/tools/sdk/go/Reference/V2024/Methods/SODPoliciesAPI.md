@@ -104,7 +104,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    sodpolicy := []byte(`{
           "conflictingAccessCriteria" : {
             "leftCriteria" : {
               "name" : "money-in",
@@ -163,7 +163,7 @@ func main() {
 
   
    var sodPolicy v2024.SodPolicy
-   if err := json.Unmarshal(data, &sodPolicy); err != nil {
+   if err := json.Unmarshal(sodpolicy, &sodPolicy); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -894,11 +894,11 @@ import (
 
 func main() {
     id := `2c918083-5d19-1a86-015d-28455b4a2329` // string | The ID of the SOD policy being modified. # string | The ID of the SOD policy being modified.
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/description, value=Modified description}, {op=replace, path=/conflictingAccessCriteria/leftCriteria/name, value=money-in-modified}, {op=replace, path=/conflictingAccessCriteria/rightCriteria, value={name=money-out-modified, criteriaList=[{type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2}]}}]`) // []JsonPatchOperation | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
+    jsonpatchoperation := []byte(`[{op=replace, path=/description, value=Modified description}, {op=replace, path=/conflictingAccessCriteria/leftCriteria/name, value=money-in-modified}, {op=replace, path=/conflictingAccessCriteria/rightCriteria, value={name=money-out-modified, criteriaList=[{type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2}]}}]`) // []JsonPatchOperation | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
 
   
-   var jsonPatchOperation v2024.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation v2024.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -968,7 +968,7 @@ import (
 
 func main() {
     id := `ef38f943-47e9-4562-b5bb-8424a56397d8` // string | The ID of the SOD policy to update its schedule. # string | The ID of the SOD policy to update its schedule.
-    data := []byte(`{
+    sodpolicyschedule := []byte(`{
           "schedule" : {
             "hours" : {
               "accountMatchConfig" : {
@@ -1057,7 +1057,7 @@ func main() {
 
   
    var sodPolicySchedule v2024.SodPolicySchedule
-   if err := json.Unmarshal(data, &sodPolicySchedule); err != nil {
+   if err := json.Unmarshal(sodpolicyschedule, &sodPolicySchedule); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1128,7 +1128,7 @@ import (
 
 func main() {
     id := `ef38f943-47e9-4562-b5bb-8424a56397d8` // string | The ID of the SOD policy to update. # string | The ID of the SOD policy to update.
-    data := []byte(`{
+    sodpolicy := []byte(`{
           "conflictingAccessCriteria" : {
             "leftCriteria" : {
               "name" : "money-in",
@@ -1187,7 +1187,7 @@ func main() {
 
   
    var sodPolicy v2024.SodPolicy
-   if err := json.Unmarshal(data, &sodPolicy); err != nil {
+   if err := json.Unmarshal(sodpolicy, &sodPolicy); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1317,7 +1317,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    multipolicyrequest := []byte(`{
           "filteredPolicyList" : [ "[b868cd40-ffa4-4337-9c07-1a51846cfa94, 63a07a7b-39a4-48aa-956d-50c827deba2a]", "[b868cd40-ffa4-4337-9c07-1a51846cfa94, 63a07a7b-39a4-48aa-956d-50c827deba2a]" ]
         }`) // MultiPolicyRequest |  (optional)
 

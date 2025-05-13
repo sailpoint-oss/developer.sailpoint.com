@@ -175,7 +175,7 @@ import (
 
 func main() {
     sourceId := `2c9180835d191a86015d28455b4a2329` // string | The Source id # string | The Source id
-    data := []byte(`{
+    provisioningpolicydto := []byte(`{
           "name" : "example provisioning policy for inactive identities",
           "description" : "this provisioning policy creates access based on an identity going inactive",
           "fields" : [ {
@@ -218,7 +218,7 @@ func main() {
 
   
    var provisioningPolicyDto v2025.ProvisioningPolicyDto
-   if err := json.Unmarshal(data, &provisioningPolicyDto); err != nil {
+   if err := json.Unmarshal(provisioningpolicydto, &provisioningPolicyDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -283,7 +283,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    source := []byte(`{
           "cluster" : {
             "name" : "Corporate Cluster",
             "id" : "2c9180866166b5b0016167c32ef31a66",
@@ -370,7 +370,7 @@ func main() {
 
   
    var source v2025.Source
-   if err := json.Unmarshal(data, &source); err != nil {
+   if err := json.Unmarshal(source, &source); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -441,11 +441,11 @@ import (
 
 func main() {
     sourceId := `2c9180835d191a86015d28455b4a2329` // string | Source ID. # string | Source ID.
-    data := []byte(``) // Schedule1 | 
+    schedule1 := []byte(``) // Schedule1 | 
 
   
    var schedule1 v2025.Schedule1
-   if err := json.Unmarshal(data, &schedule1); err != nil {
+   if err := json.Unmarshal(schedule1, &schedule1); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -516,7 +516,7 @@ import (
 
 func main() {
     sourceId := `2c9180835d191a86015d28455b4a2329` // string | Source ID. # string | Source ID.
-    data := []byte(`{
+    schema := []byte(`{
           "features" : [ "PROVISIONING", "NO_PERMISSIONS_PROVISIONING", "GROUPS_HAVE_MEMBERS" ],
           "nativeObjectType" : "User",
           "configuration" : {
@@ -553,7 +553,7 @@ func main() {
 
   
    var schema v2025.Schema
-   if err := json.Unmarshal(data, &schema); err != nil {
+   if err := json.Unmarshal(schema, &schema); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -2683,7 +2683,7 @@ import (
 
 func main() {
     id := `2c9180835d191a86015d28455b4a2329` // string | The source id # string | The source id
-    data := []byte(`{
+    correlationconfig := []byte(`{
           "attributeAssignments" : [ {
             "filterString" : "first_name == \"John\"",
             "ignoreCase" : false,
@@ -2707,7 +2707,7 @@ func main() {
 
   
    var correlationConfig v2025.CorrelationConfig
-   if err := json.Unmarshal(data, &correlationConfig); err != nil {
+   if err := json.Unmarshal(correlationconfig, &correlationConfig); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -2790,7 +2790,7 @@ import (
 func main() {
     id := `2c9180835d191a86015d28455b4a2329` // string | The source id # string | The source id
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    nativechangedetectionconfig := []byte(`{
           "selectedEntitlements" : [ "memberOf", "memberOfSharedMailbox" ],
           "operations" : [ "ACCOUNT_UPDATED", "ACCOUNT_DELETED" ],
           "selectedNonEntitlementAttributes" : [ "lastName", "phoneNumber", "objectType", "servicePrincipalName" ],
@@ -2801,7 +2801,7 @@ func main() {
 
   
    var nativeChangeDetectionConfig v2025.NativeChangeDetectionConfig
-   if err := json.Unmarshal(data, &nativeChangeDetectionConfig); err != nil {
+   if err := json.Unmarshal(nativechangedetectionconfig, &nativeChangeDetectionConfig); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -2876,7 +2876,7 @@ import (
 func main() {
     sourceId := `2c9180835d191a86015d28455b4a2329` // string | The Source ID. # string | The Source ID.
     usageType := CREATE // UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.  # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
-    data := []byte(`{
+    provisioningpolicydto := []byte(`{
           "name" : "example provisioning policy for inactive identities",
           "description" : "this provisioning policy creates access based on an identity going inactive",
           "fields" : [ {
@@ -2919,7 +2919,7 @@ func main() {
 
   
    var provisioningPolicyDto v2025.ProvisioningPolicyDto
-   if err := json.Unmarshal(data, &provisioningPolicyDto); err != nil {
+   if err := json.Unmarshal(provisioningpolicydto, &provisioningPolicyDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -3001,7 +3001,7 @@ import (
 
 func main() {
     id := `2c9180835d191a86015d28455b4a2329` // string | Source ID. # string | Source ID.
-    data := []byte(`{
+    source := []byte(`{
           "cluster" : {
             "name" : "Corporate Cluster",
             "id" : "2c9180866166b5b0016167c32ef31a66",
@@ -3087,7 +3087,7 @@ func main() {
 
   
    var source v2025.Source
-   if err := json.Unmarshal(data, &source); err != nil {
+   if err := json.Unmarshal(source, &source); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -3171,7 +3171,7 @@ import (
 func main() {
     id := `2c9180835d191a86015d28455b4a2329` // string | The source id # string | The source id
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    attrsyncsourceconfig := []byte(`{
           "attributes" : [ {
             "name" : "email",
             "displayName" : "Email",
@@ -3192,7 +3192,7 @@ func main() {
 
   
    var attrSyncSourceConfig v2025.AttrSyncSourceConfig
-   if err := json.Unmarshal(data, &attrSyncSourceConfig); err != nil {
+   if err := json.Unmarshal(attrsyncsourceconfig, &attrSyncSourceConfig); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -3275,7 +3275,7 @@ import (
 func main() {
     sourceId := `2c9180835d191a86015d28455b4a2329` // string | The Source id. # string | The Source id.
     schemaId := `2c9180835d191a86015d28455b4a2329` // string | The Schema id. # string | The Schema id.
-    data := []byte(`{
+    schema := []byte(`{
           "features" : [ "PROVISIONING", "NO_PERMISSIONS_PROVISIONING", "GROUPS_HAVE_MEMBERS" ],
           "nativeObjectType" : "User",
           "configuration" : {
@@ -3312,7 +3312,7 @@ func main() {
 
   
    var schema v2025.Schema
-   if err := json.Unmarshal(data, &schema); err != nil {
+   if err := json.Unmarshal(schema, &schema); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -3382,14 +3382,14 @@ import (
 
 func main() {
     sourceId := `cef3ee201db947c5912551015ba0c679` // string | The ID of the Source # string | The ID of the Source
-    data := []byte(`{
+    resourceobjectsrequest := []byte(`{
           "maxCount" : 100,
           "objectType" : "group"
         }`) // ResourceObjectsRequest | 
 
   
    var resourceObjectsRequest v2025.ResourceObjectsRequest
-   if err := json.Unmarshal(data, &resourceObjectsRequest); err != nil {
+   if err := json.Unmarshal(resourceobjectsrequest, &resourceObjectsRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -3672,11 +3672,11 @@ import (
 
 func main() {
     sourceId := `8c190e6787aa4ed9a90bd9d5344523fb` // string | The Source id # string | The Source id
-    passwordPolicyHoldersDtoInner := fmt.Sprintf(``) // []PasswordPolicyHoldersDtoInner | 
+    passwordpolicyholdersdtoinner := []byte(``) // []PasswordPolicyHoldersDtoInner | 
 
   
-   var passwordPolicyHoldersDtoInner v2025.PasswordPolicyHoldersDtoInner
-   if err := json.Unmarshal(data, &passwordPolicyHoldersDtoInner); err != nil {
+   var passwordPolicyHoldersDtoInner v2025.[]PasswordPolicyHoldersDtoInner
+   if err := json.Unmarshal(passwordpolicyholdersdtoinner, &passwordPolicyHoldersDtoInner); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -3746,11 +3746,11 @@ import (
 
 func main() {
     sourceId := `2c9180835d191a86015d28455b4a2329` // string | The Source id. # string | The Source id.
-    provisioningPolicyDto := fmt.Sprintf(``) // []ProvisioningPolicyDto | 
+    provisioningpolicydto := []byte(``) // []ProvisioningPolicyDto | 
 
   
-   var provisioningPolicyDto v2025.ProvisioningPolicyDto
-   if err := json.Unmarshal(data, &provisioningPolicyDto); err != nil {
+   var provisioningPolicyDto v2025.[]ProvisioningPolicyDto
+   if err := json.Unmarshal(provisioningpolicydto, &provisioningPolicyDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -3825,11 +3825,11 @@ import (
 func main() {
     sourceId := `2c9180835d191a86015d28455b4a2329` // string | The Source id. # string | The Source id.
     usageType := CREATE // UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.  # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
-    jsonPatchOperation := fmt.Sprintf(`[{op=add, path=/fields/0, value={name=email, transform={type=identityAttribute, attributes={name=email}}, attributes={}, isRequired=false, type=string, isMultiValued=false}}]`) // []JsonPatchOperation | The JSONPatch payload used to update the schema.
+    jsonpatchoperation := []byte(`[{op=add, path=/fields/0, value={name=email, transform={type=identityAttribute, attributes={name=email}}, attributes={}, isRequired=false, type=string, isMultiValued=false}}]`) // []JsonPatchOperation | The JSONPatch payload used to update the schema.
 
   
-   var jsonPatchOperation v2025.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation v2025.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -3914,11 +3914,11 @@ import (
 
 func main() {
     id := `2c9180835d191a86015d28455b4a2329` // string | Source ID. # string | Source ID.
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/description, value=new description}]`) // []JsonPatchOperation | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
+    jsonpatchoperation := []byte(`[{op=replace, path=/description, value=new description}]`) // []JsonPatchOperation | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
 
   
-   var jsonPatchOperation v2025.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation v2025.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -3999,7 +3999,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    sourceentitlementrequestconfig := []byte(`{
           "accessRequestConfig" : {
             "denialCommentRequired" : false,
             "approvalSchemes" : [ {
@@ -4015,7 +4015,7 @@ func main() {
 
   
    var sourceEntitlementRequestConfig v2025.SourceEntitlementRequestConfig
-   if err := json.Unmarshal(data, &sourceEntitlementRequestConfig); err != nil {
+   if err := json.Unmarshal(sourceentitlementrequestconfig, &sourceEntitlementRequestConfig); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -4093,11 +4093,11 @@ import (
 func main() {
     sourceId := `2c9180835d191a86015d28455b4a2329` // string | The Source id. # string | The Source id.
     scheduleType := `ACCOUNT_AGGREGATION` // string | The Schedule type. # string | The Schedule type.
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/cronExpression, value=0 0 6 * * ?}]`) // []JsonPatchOperation | The JSONPatch payload used to update the schedule.
+    jsonpatchoperation := []byte(`[{op=replace, path=/cronExpression, value=0 0 6 * * ?}]`) // []JsonPatchOperation | The JSONPatch payload used to update the schedule.
 
   
-   var jsonPatchOperation v2025.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation v2025.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -4199,11 +4199,11 @@ import (
 func main() {
     sourceId := `2c9180835d191a86015d28455b4a2329` // string | The Source id. # string | The Source id.
     schemaId := `2c9180835d191a86015d28455b4a2329` // string | The Schema id. # string | The Schema id.
-    jsonPatchOperation := fmt.Sprintf(`[{op=add, path=/attributes/-, value={name=location, type=STRING, schema=null, description=Employee location, isMulti=false, isEntitlement=false, isGroup=false}}]`) // []JsonPatchOperation | The JSONPatch payload used to update the schema.
+    jsonpatchoperation := []byte(`[{op=add, path=/attributes/-, value={name=location, type=STRING, schema=null, description=Employee location, isMulti=false, isEntitlement=false, isGroup=false}}]`) // []JsonPatchOperation | The JSONPatch payload used to update the schema.
 
   
-   var jsonPatchOperation v2025.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation v2025.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }

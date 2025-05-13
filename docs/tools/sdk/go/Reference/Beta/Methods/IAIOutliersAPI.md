@@ -486,11 +486,11 @@ import (
 )
 
 func main() {
-    requestBody := fmt.Sprintf(``) // []string | 
+    requestbody := []byte(``) // []string | 
 
   
-   var requestBody beta.RequestBody
-   if err := json.Unmarshal(data, &requestBody); err != nil {
+   var requestBody beta.[]RequestBody
+   if err := json.Unmarshal(requestbody, &requestBody); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -634,11 +634,11 @@ import (
 )
 
 func main() {
-    requestBody := fmt.Sprintf(``) // []string | 
+    requestbody := []byte(``) // []string | 
 
   
-   var requestBody beta.RequestBody
-   if err := json.Unmarshal(data, &requestBody); err != nil {
+   var requestBody beta.[]RequestBody
+   if err := json.Unmarshal(requestbody, &requestBody); err != nil {
     fmt.Println("Error:", err)
     return
    }

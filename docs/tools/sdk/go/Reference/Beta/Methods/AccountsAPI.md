@@ -117,7 +117,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    accountattributescreate := []byte(`{
           "attributes" : {
             "sourceId" : "34bfcbe116c9407464af37acbaf7a4dc",
             "city" : "Austin",
@@ -130,7 +130,7 @@ func main() {
 
   
    var accountAttributesCreate beta.AccountAttributesCreate
-   if err := json.Unmarshal(data, &accountAttributesCreate); err != nil {
+   if err := json.Unmarshal(accountattributescreate, &accountAttributesCreate); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -349,14 +349,14 @@ import (
 
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | The account id # string | The account id
-    data := []byte(`{
+    accounttogglerequest := []byte(`{
           "forceProvisioning" : false,
           "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
         }`) // AccountToggleRequest | 
 
   
    var accountToggleRequest beta.AccountToggleRequest
-   if err := json.Unmarshal(data, &accountToggleRequest); err != nil {
+   if err := json.Unmarshal(accounttogglerequest, &accountToggleRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -492,13 +492,13 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    identitiesaccountsbulkrequest := []byte(`{
           "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
         }`) // IdentitiesAccountsBulkRequest | 
 
   
    var identitiesAccountsBulkRequest beta.IdentitiesAccountsBulkRequest
-   if err := json.Unmarshal(data, &identitiesAccountsBulkRequest); err != nil {
+   if err := json.Unmarshal(identitiesaccountsbulkrequest, &identitiesAccountsBulkRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -572,14 +572,14 @@ import (
 
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | The account id # string | The account id
-    data := []byte(`{
+    accounttogglerequest := []byte(`{
           "forceProvisioning" : false,
           "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
         }`) // AccountToggleRequest | 
 
   
    var accountToggleRequest beta.AccountToggleRequest
-   if err := json.Unmarshal(data, &accountToggleRequest); err != nil {
+   if err := json.Unmarshal(accounttogglerequest, &accountToggleRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -715,13 +715,13 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    identitiesaccountsbulkrequest := []byte(`{
           "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
         }`) // IdentitiesAccountsBulkRequest | 
 
   
    var identitiesAccountsBulkRequest beta.IdentitiesAccountsBulkRequest
-   if err := json.Unmarshal(data, &identitiesAccountsBulkRequest); err != nil {
+   if err := json.Unmarshal(identitiesaccountsbulkrequest, &identitiesAccountsBulkRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1022,7 +1022,7 @@ import (
 
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | Account ID. # string | Account ID.
-    data := []byte(`{
+    accountattributes := []byte(`{
           "attributes" : {
             "city" : "Austin",
             "displayName" : "John Doe",
@@ -1034,7 +1034,7 @@ func main() {
 
   
    var accountAttributes beta.AccountAttributes
-   if err := json.Unmarshal(data, &accountAttributes); err != nil {
+   if err := json.Unmarshal(accountattributes, &accountAttributes); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1179,7 +1179,7 @@ import (
 
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | The account ID. # string | The account ID.
-    data := []byte(`{
+    accountunlockrequest := []byte(`{
           "forceProvisioning" : false,
           "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581",
           "unlockIDNAccount" : false
@@ -1187,7 +1187,7 @@ func main() {
 
   
    var accountUnlockRequest beta.AccountUnlockRequest
-   if err := json.Unmarshal(data, &accountUnlockRequest); err != nil {
+   if err := json.Unmarshal(accountunlockrequest, &accountUnlockRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1271,11 +1271,11 @@ import (
 
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | Account ID. # string | Account ID.
-    requestBody := fmt.Sprintf(`{Uncorrelate account={description=Remove account from Identity, value=[{op=remove, path=/identityId}]}, Reassign account={description=Move account from one Identity to another Identity, value=[{op=replace, path=/identityId, value=2c9180857725c14301772a93bb77242d}]}, Add account attribute={description=Add flat file account's attribute, value=[{op=add, path=/attributes/familyName, value=Smith}]}, Replace account attribute={description=Replace flat file account's attribute, value=[{op=replace, path=/attributes/familyName, value=Smith}]}, Remove account attribute={description=Remove flat file account's attribute, value=[{op=remove, path=/attributes/familyName}]}}`) // []map[string]interface{} | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    requestbody := []byte(`{Uncorrelate account={description=Remove account from Identity, value=[{op=remove, path=/identityId}]}, Reassign account={description=Move account from one Identity to another Identity, value=[{op=replace, path=/identityId, value=2c9180857725c14301772a93bb77242d}]}, Add account attribute={description=Add flat file account's attribute, value=[{op=add, path=/attributes/familyName, value=Smith}]}, Replace account attribute={description=Replace flat file account's attribute, value=[{op=replace, path=/attributes/familyName, value=Smith}]}, Remove account attribute={description=Remove flat file account's attribute, value=[{op=remove, path=/attributes/familyName}]}}`) // []map[string]interface{} | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
   
-   var requestBody beta.RequestBody
-   if err := json.Unmarshal(data, &requestBody); err != nil {
+   var requestBody beta.[]RequestBody
+   if err := json.Unmarshal(requestbody, &requestBody); err != nil {
     fmt.Println("Error:", err)
     return
    }

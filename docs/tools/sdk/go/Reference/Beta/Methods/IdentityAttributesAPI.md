@@ -66,7 +66,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    identityattribute := []byte(`{
           "standard" : false,
           "system" : false,
           "sources" : [ {
@@ -91,7 +91,7 @@ func main() {
 
   
    var identityAttribute beta.IdentityAttribute
-   if err := json.Unmarshal(data, &identityAttribute); err != nil {
+   if err := json.Unmarshal(identityattribute, &identityAttribute); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -219,13 +219,13 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    identityattributenames := []byte(`{
           "ids" : [ "name", "displayName" ]
         }`) // IdentityAttributeNames | 
 
   
    var identityAttributeNames beta.IdentityAttributeNames
-   if err := json.Unmarshal(data, &identityAttributeNames); err != nil {
+   if err := json.Unmarshal(identityattributenames, &identityAttributeNames); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -427,7 +427,7 @@ import (
 
 func main() {
     name := `displayName` // string | The attribute's technical name. # string | The attribute's technical name.
-    data := []byte(`{
+    identityattribute := []byte(`{
           "standard" : false,
           "system" : false,
           "sources" : [ {
@@ -452,7 +452,7 @@ func main() {
 
   
    var identityAttribute beta.IdentityAttribute
-   if err := json.Unmarshal(data, &identityAttribute); err != nil {
+   if err := json.Unmarshal(identityattribute, &identityAttribute); err != nil {
     fmt.Println("Error:", err)
     return
    }

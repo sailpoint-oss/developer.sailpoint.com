@@ -243,7 +243,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    mfaduoconfig := []byte(`{
           "accessKey" : "qw123Y3QlA5UqocYpdU3rEkzrK2D497y",
           "host" : "example.com",
           "configProperties" : {
@@ -257,7 +257,7 @@ func main() {
 
   
    var mfaDuoConfig v2025.MfaDuoConfig
-   if err := json.Unmarshal(data, &mfaDuoConfig); err != nil {
+   if err := json.Unmarshal(mfaduoconfig, &mfaDuoConfig); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -321,11 +321,11 @@ import (
 )
 
 func main() {
-    kbaAnswerRequestItem := fmt.Sprintf(`[{id=173423, answer=822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34}, {id=c54fee53-2d63-4fc5-9259-3e93b9994135, answer=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08}]`) // []KbaAnswerRequestItem | 
+    kbaanswerrequestitem := []byte(`[{id=173423, answer=822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34}, {id=c54fee53-2d63-4fc5-9259-3e93b9994135, answer=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08}]`) // []KbaAnswerRequestItem | 
 
   
-   var kbaAnswerRequestItem v2025.KbaAnswerRequestItem
-   if err := json.Unmarshal(data, &kbaAnswerRequestItem); err != nil {
+   var kbaAnswerRequestItem v2025.[]KbaAnswerRequestItem
+   if err := json.Unmarshal(kbaanswerrequestitem, &kbaAnswerRequestItem); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -389,7 +389,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    mfaoktaconfig := []byte(`{
           "accessKey" : "qw123Y3QlA5UqocYpdU3rEkzrK2D497y",
           "host" : "example.com",
           "mfaMethod" : "okta-verify",
@@ -399,7 +399,7 @@ func main() {
 
   
    var mfaOktaConfig v2025.MfaOktaConfig
-   if err := json.Unmarshal(data, &mfaOktaConfig); err != nil {
+   if err := json.Unmarshal(mfaoktaconfig, &mfaOktaConfig); err != nil {
     fmt.Println("Error:", err)
     return
    }

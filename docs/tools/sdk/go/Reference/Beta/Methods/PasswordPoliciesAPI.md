@@ -74,7 +74,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    passwordpolicyv3dto := []byte(`{
           "validateAgainstAccountName" : true,
           "minLength" : 8,
           "description" : "Information about the Password Policy",
@@ -110,7 +110,7 @@ func main() {
 
   
    var passwordPolicyV3Dto beta.PasswordPolicyV3Dto
-   if err := json.Unmarshal(data, &passwordPolicyV3Dto); err != nil {
+   if err := json.Unmarshal(passwordpolicyv3dto, &passwordPolicyV3Dto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -377,7 +377,7 @@ import (
 
 func main() {
     id := `ff808081838d9e9d01838da6a03e0007` // string | The ID of password policy to update. # string | The ID of password policy to update.
-    data := []byte(`{
+    passwordpolicyv3dto := []byte(`{
           "validateAgainstAccountName" : true,
           "minLength" : 8,
           "description" : "Information about the Password Policy",
@@ -413,7 +413,7 @@ func main() {
 
   
    var passwordPolicyV3Dto beta.PasswordPolicyV3Dto
-   if err := json.Unmarshal(data, &passwordPolicyV3Dto); err != nil {
+   if err := json.Unmarshal(passwordpolicyv3dto, &passwordPolicyV3Dto); err != nil {
     fmt.Println("Error:", err)
     return
    }

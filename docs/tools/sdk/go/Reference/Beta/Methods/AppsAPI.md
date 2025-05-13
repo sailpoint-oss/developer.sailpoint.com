@@ -76,7 +76,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    sourceappcreatedto := []byte(`{
           "name" : "my app",
           "description" : "the source app for engineers",
           "accountSource" : {
@@ -89,7 +89,7 @@ func main() {
 
   
    var sourceAppCreateDto beta.SourceAppCreateDto
-   if err := json.Unmarshal(data, &sourceAppCreateDto); err != nil {
+   if err := json.Unmarshal(sourceappcreatedto, &sourceAppCreateDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -160,12 +160,12 @@ import (
 
 func main() {
     id := `2c91808a7813090a017814121e121518` // string | ID of the source app # string | ID of the source app
-    requestBody := fmt.Sprintf(``) // []string | 
+    requestbody := []byte(``) // []string | 
     limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 
   
-   var requestBody beta.RequestBody
-   if err := json.Unmarshal(data, &requestBody); err != nil {
+   var requestBody beta.[]RequestBody
+   if err := json.Unmarshal(requestbody, &requestBody); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -862,7 +862,7 @@ import (
 
 func main() {
     id := `2c91808a7813090a017814121e121518` // string | ID of the source app to patch # string | ID of the source app to patch
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/enabled, value=true}, {op=replace, path=/matchAllAccounts, value=true}]`) // []JsonPatchOperation |  (optional)
+    jsonpatchoperation := []byte(`[{op=replace, path=/enabled, value=true}, {op=replace, path=/matchAllAccounts, value=true}]`) // []JsonPatchOperation |  (optional)
 
   
 
@@ -931,7 +931,7 @@ import (
 
 func main() {
     id := `2c91808a7813090a017814121e121518` // string | ID of the user app to patch # string | ID of the user app to patch
-    jsonPatchOperation := fmt.Sprintf(``) // []JsonPatchOperation |  (optional)
+    jsonpatchoperation := []byte(``) // []JsonPatchOperation |  (optional)
 
   
 
@@ -995,7 +995,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    sourceappbulkupdaterequest := []byte(`{
           "appIds" : [ "2c91808a7624751a01762f19d665220d", "2c91808a7624751a01762f19d67c220e", "2c91808a7624751a01762f19d692220f" ],
           "jsonPatch" : [ {
             "op" : "replace",

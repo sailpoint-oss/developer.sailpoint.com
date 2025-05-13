@@ -104,7 +104,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    accessprofile := []byte(`{
           "owner" : {
             "name" : "support",
             "id" : "2c9180a46faadee4016fb4e018c20639",
@@ -193,7 +193,7 @@ func main() {
 
   
    var accessProfile v3.AccessProfile
-   if err := json.Unmarshal(data, &accessProfile); err != nil {
+   if err := json.Unmarshal(accessprofile, &accessProfile); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -329,14 +329,14 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    accessprofilebulkdeleterequest := []byte(`{
           "accessProfileIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ],
           "bestEffortOnly" : true
         }`) // AccessProfileBulkDeleteRequest | 
 
   
    var accessProfileBulkDeleteRequest v3.AccessProfileBulkDeleteRequest
-   if err := json.Unmarshal(data, &accessProfileBulkDeleteRequest); err != nil {
+   if err := json.Unmarshal(accessprofilebulkdeleterequest, &accessProfileBulkDeleteRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -656,11 +656,11 @@ import (
 
 func main() {
     id := `2c91808a7813090a017814121919ecca` // string | ID of the Access Profile to patch # string | ID of the Access Profile to patch
-    jsonPatchOperation := fmt.Sprintf(`[{op=add, path=/entitlements, value=[{id=2c9180857725c14301772a93bb77242d, type=ENTITLEMENT, name=AD User Group}]}]`) // []JsonPatchOperation | 
+    jsonpatchoperation := []byte(`[{op=add, path=/entitlements, value=[{id=2c9180857725c14301772a93bb77242d, type=ENTITLEMENT, name=AD User Group}]}]`) // []JsonPatchOperation | 
 
   
-   var jsonPatchOperation v3.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation v3.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }

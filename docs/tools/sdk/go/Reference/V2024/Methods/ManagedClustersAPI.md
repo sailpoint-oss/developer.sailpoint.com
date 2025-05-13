@@ -71,7 +71,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    managedclusterrequest := []byte(`{
           "configuration" : {
             "clusterExternalId" : "externalId",
             "ccgVersion" : "77.0.0"
@@ -83,7 +83,7 @@ func main() {
 
   
    var managedClusterRequest v2024.ManagedClusterRequest
-   if err := json.Unmarshal(data, &managedClusterRequest); err != nil {
+   if err := json.Unmarshal(managedclusterrequest, &managedClusterRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -419,11 +419,11 @@ import (
 
 func main() {
     id := `2b838de9-db9b-abcf-e646-d4f274ad4238` // string | ID of the managed cluster to update the log configuration for. # string | ID of the managed cluster to update the log configuration for.
-    data := []byte(``) // PutClientLogConfigurationRequest | Client log configuration for the given managed cluster.
+    putclientlogconfigurationrequest := []byte(``) // PutClientLogConfigurationRequest | Client log configuration for the given managed cluster.
 
   
    var putClientLogConfigurationRequest v2024.PutClientLogConfigurationRequest
-   if err := json.Unmarshal(data, &putClientLogConfigurationRequest); err != nil {
+   if err := json.Unmarshal(putclientlogconfigurationrequest, &putClientLogConfigurationRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -560,11 +560,11 @@ import (
 
 func main() {
     id := `2c9180897de347a2017de8859e8c5039` // string | Managed cluster ID. # string | Managed cluster ID.
-    jsonPatchOperation := fmt.Sprintf(``) // []JsonPatchOperation | JSONPatch payload used to update the object.
+    jsonpatchoperation := []byte(``) // []JsonPatchOperation | JSONPatch payload used to update the object.
 
   
-   var jsonPatchOperation v2024.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation v2024.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }

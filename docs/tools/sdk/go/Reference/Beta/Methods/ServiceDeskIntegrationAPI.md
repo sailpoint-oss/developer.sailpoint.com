@@ -94,7 +94,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    servicedeskintegrationdto := []byte(`{
           "ownerRef" : "",
           "cluster" : "xyzzy999",
           "managedSources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
@@ -128,7 +128,7 @@ func main() {
 
   
    var serviceDeskIntegrationDto beta.ServiceDeskIntegrationDto
-   if err := json.Unmarshal(data, &serviceDeskIntegrationDto); err != nil {
+   if err := json.Unmarshal(servicedeskintegrationdto, &serviceDeskIntegrationDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -578,11 +578,11 @@ import (
 
 func main() {
     id := `anId` // string | ID of the Service Desk integration to update # string | ID of the Service Desk integration to update
-    jsonPatchOperation := fmt.Sprintf(``) // []JsonPatchOperation | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+    jsonpatchoperation := []byte(``) // []JsonPatchOperation | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
 
   
-   var jsonPatchOperation beta.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation beta.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -652,7 +652,7 @@ import (
 
 func main() {
     id := `anId` // string | ID of the Service Desk integration to update # string | ID of the Service Desk integration to update
-    data := []byte(`{
+    servicedeskintegrationdto := []byte(`{
           "ownerRef" : "",
           "cluster" : "xyzzy999",
           "managedSources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
@@ -686,7 +686,7 @@ func main() {
 
   
    var serviceDeskIntegrationDto beta.ServiceDeskIntegrationDto
-   if err := json.Unmarshal(data, &serviceDeskIntegrationDto); err != nil {
+   if err := json.Unmarshal(servicedeskintegrationdto, &serviceDeskIntegrationDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -750,14 +750,14 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    queuedcheckconfigdetails := []byte(`{
           "provisioningStatusCheckIntervalMinutes" : "30",
           "provisioningMaxStatusCheckDays" : "2"
         }`) // QueuedCheckConfigDetails | The modified time check configuration
 
   
    var queuedCheckConfigDetails beta.QueuedCheckConfigDetails
-   if err := json.Unmarshal(data, &queuedCheckConfigDetails); err != nil {
+   if err := json.Unmarshal(queuedcheckconfigdetails, &queuedCheckConfigDetails); err != nil {
     fmt.Println("Error:", err)
     return
    }

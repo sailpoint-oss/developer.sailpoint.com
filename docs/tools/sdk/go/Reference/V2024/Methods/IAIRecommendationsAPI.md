@@ -76,7 +76,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    recommendationrequestdto := []byte(`{
           "prescribeMode" : false,
           "excludeInterpretations" : false,
           "requests" : [ {
@@ -98,7 +98,7 @@ func main() {
 
   
    var recommendationRequestDto v2024.RecommendationRequestDto
-   if err := json.Unmarshal(data, &recommendationRequestDto); err != nil {
+   if err := json.Unmarshal(recommendationrequestdto, &recommendationRequestDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -248,7 +248,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    recommendationconfigdto := []byte(`{
           "recommenderFeatures" : [ "jobTitle", "location", "peer_group", "department", "active" ],
           "peerGroupPercentageThreshold" : 0.5,
           "runAutoSelectOnce" : false,
@@ -257,7 +257,7 @@ func main() {
 
   
    var recommendationConfigDto v2024.RecommendationConfigDto
-   if err := json.Unmarshal(data, &recommendationConfigDto); err != nil {
+   if err := json.Unmarshal(recommendationconfigdto, &recommendationConfigDto); err != nil {
     fmt.Println("Error:", err)
     return
    }

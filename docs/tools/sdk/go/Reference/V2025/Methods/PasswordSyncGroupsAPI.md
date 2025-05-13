@@ -97,7 +97,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    passwordsyncgroup := []byte(`{
           "created" : "2023-03-16T04:00:00Z",
           "name" : "Password Sync Group 1",
           "modified" : "2023-03-16T04:00:00Z",
@@ -108,7 +108,7 @@ func main() {
 
   
    var passwordSyncGroup v2025.PasswordSyncGroup
-   if err := json.Unmarshal(data, &passwordSyncGroup); err != nil {
+   if err := json.Unmarshal(passwordsyncgroup, &passwordSyncGroup); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -374,7 +374,7 @@ import (
 
 func main() {
     id := `6881f631-3bd5-4213-9c75-8e05cc3e35dd` // string | The ID of password sync group to update. # string | The ID of password sync group to update.
-    data := []byte(`{
+    passwordsyncgroup := []byte(`{
           "created" : "2023-03-16T04:00:00Z",
           "name" : "Password Sync Group 1",
           "modified" : "2023-03-16T04:00:00Z",
@@ -385,7 +385,7 @@ func main() {
 
   
    var passwordSyncGroup v2025.PasswordSyncGroup
-   if err := json.Unmarshal(data, &passwordSyncGroup); err != nil {
+   if err := json.Unmarshal(passwordsyncgroup, &passwordSyncGroup); err != nil {
     fmt.Println("Error:", err)
     return
    }

@@ -73,7 +73,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    connectorrulecreaterequest := []byte(`{
           "sourceCode" : {
             "version" : "1.0",
             "script" : "return \"Mr. \" + firstName;"
@@ -102,7 +102,7 @@ func main() {
 
   
    var connectorRuleCreateRequest beta.ConnectorRuleCreateRequest
-   if err := json.Unmarshal(data, &connectorRuleCreateRequest); err != nil {
+   if err := json.Unmarshal(connectorrulecreaterequest, &connectorRuleCreateRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -363,7 +363,7 @@ import (
 
 func main() {
     id := `8c190e6787aa4ed9a90bd9d5344523fb` // string | ID of the connector rule to update # string | ID of the connector rule to update
-    data := []byte(`{
+    connectorruleupdaterequest := []byte(`{
           "sourceCode" : {
             "version" : "1.0",
             "script" : "return \"Mr. \" + firstName;"
@@ -452,14 +452,14 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    sourcecode := []byte(`{
           "version" : "1.0",
           "script" : "return \"Mr. \" + firstName;"
         }`) // SourceCode | The code to validate
 
   
    var sourceCode beta.SourceCode
-   if err := json.Unmarshal(data, &sourceCode); err != nil {
+   if err := json.Unmarshal(sourcecode, &sourceCode); err != nil {
     fmt.Println("Error:", err)
     return
    }

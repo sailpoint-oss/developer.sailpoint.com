@@ -80,7 +80,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    identitywithnewaccess := []byte(`{
           "identityId" : "2c91808568c529c60168cca6f90c1313",
           "accessRefs" : [ {
             "type" : "ENTITLEMENT",
@@ -95,7 +95,7 @@ func main() {
 
   
    var identityWithNewAccess v3.IdentityWithNewAccess
-   if err := json.Unmarshal(data, &identityWithNewAccess); err != nil {
+   if err := json.Unmarshal(identitywithnewaccess, &identityWithNewAccess); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -159,11 +159,11 @@ import (
 )
 
 func main() {
-    data := []byte(`{identityId=2c91808568c529c60168cca6f90c1313, accessRefs=[{type=ENTITLEMENT, id=2c918087682f9a86016839c050861ab1, name=CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local}, {type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2, name=CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local}], clientMetadata={additionalProp1=string, additionalProp2=string, additionalProp3=string}}`) // IdentityWithNewAccess1 | 
+    identitywithnewaccess1 := []byte(`{identityId=2c91808568c529c60168cca6f90c1313, accessRefs=[{type=ENTITLEMENT, id=2c918087682f9a86016839c050861ab1, name=CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local}, {type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2, name=CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local}], clientMetadata={additionalProp1=string, additionalProp2=string, additionalProp3=string}}`) // IdentityWithNewAccess1 | 
 
   
    var identityWithNewAccess1 v3.IdentityWithNewAccess1
-   if err := json.Unmarshal(data, &identityWithNewAccess1); err != nil {
+   if err := json.Unmarshal(identitywithnewaccess1, &identityWithNewAccess1); err != nil {
     fmt.Println("Error:", err)
     return
    }

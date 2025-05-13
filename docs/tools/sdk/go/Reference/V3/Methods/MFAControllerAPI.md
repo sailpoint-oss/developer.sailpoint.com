@@ -66,14 +66,14 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    sendtokenrequest := []byte(`{
           "userAlias" : "will.albin",
           "deliveryType" : "EMAIL_WORK"
         }`) // SendTokenRequest | 
 
   
    var sendTokenRequest v3.SendTokenRequest
-   if err := json.Unmarshal(data, &sendTokenRequest); err != nil {
+   if err := json.Unmarshal(sendtokenrequest, &sendTokenRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -143,13 +143,13 @@ import (
 
 func main() {
     method := `okta-verify` // string | The name of the MFA method. The currently supported method names are 'okta-verify', 'duo-web', 'kba','token', 'rsa' # string | The name of the MFA method. The currently supported method names are 'okta-verify', 'duo-web', 'kba','token', 'rsa'
-    data := []byte(`{
+    verificationpollrequest := []byte(`{
           "requestId" : "089899f13a8f4da7824996191587bab9"
         }`) // VerificationPollRequest | 
 
   
    var verificationPollRequest v3.VerificationPollRequest
-   if err := json.Unmarshal(data, &verificationPollRequest); err != nil {
+   if err := json.Unmarshal(verificationpollrequest, &verificationPollRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -213,14 +213,14 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    duoverificationrequest := []byte(`{
           "signedResponse" : "AUTH|d2lsbC5hbGJpbnxESTZNMFpHSThKQVRWTVpZN0M5VXwxNzAxMjUzMDg5|f1f5f8ced5b340f3d303b05d0efa0e43b6a8f970:APP|d2lsbC5hbGJpbnxESTZNMFpHSThKQVRWTVpZN0M5VXwxNzAxMjU2NjE5|cb44cf44353f5127edcae31b1da0355f87357db2",
           "userId" : "2c9180947f0ef465017f215cbcfd004b"
         }`) // DuoVerificationRequest | 
 
   
    var duoVerificationRequest v3.DuoVerificationRequest
-   if err := json.Unmarshal(data, &duoVerificationRequest); err != nil {
+   if err := json.Unmarshal(duoverificationrequest, &duoVerificationRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -284,11 +284,11 @@ import (
 )
 
 func main() {
-    kbaAnswerRequestItem := fmt.Sprintf(`[{id=173423, answer=822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34}, {id=c54fee53-2d63-4fc5-9259-3e93b9994135, answer=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08}]`) // []KbaAnswerRequestItem | 
+    kbaanswerrequestitem := []byte(`[{id=173423, answer=822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34}, {id=c54fee53-2d63-4fc5-9259-3e93b9994135, answer=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08}]`) // []KbaAnswerRequestItem | 
 
   
-   var kbaAnswerRequestItem v3.KbaAnswerRequestItem
-   if err := json.Unmarshal(data, &kbaAnswerRequestItem); err != nil {
+   var kbaAnswerRequestItem v3.[]KbaAnswerRequestItem
+   if err := json.Unmarshal(kbaanswerrequestitem, &kbaAnswerRequestItem); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -352,13 +352,13 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    oktaverificationrequest := []byte(`{
           "userId" : "example@mail.com"
         }`) // OktaVerificationRequest | 
 
   
    var oktaVerificationRequest v3.OktaVerificationRequest
-   if err := json.Unmarshal(data, &oktaVerificationRequest); err != nil {
+   if err := json.Unmarshal(oktaverificationrequest, &oktaVerificationRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -422,7 +422,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    tokenauthrequest := []byte(`{
           "userAlias" : "will.albin",
           "deliveryType" : "EMAIL_WORK",
           "token" : "12345"
@@ -430,7 +430,7 @@ func main() {
 
   
    var tokenAuthRequest v3.TokenAuthRequest
-   if err := json.Unmarshal(data, &tokenAuthRequest); err != nil {
+   if err := json.Unmarshal(tokenauthrequest, &tokenAuthRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }

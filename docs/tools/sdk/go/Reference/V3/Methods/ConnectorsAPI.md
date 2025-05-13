@@ -85,7 +85,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    v3createconnectordto := []byte(`{
           "name" : "custom connector",
           "directConnect" : true,
           "className" : "sailpoint.connector.OpenConnectorAdapter",
@@ -95,7 +95,7 @@ func main() {
 
   
    var v3CreateConnectorDto v3.V3CreateConnectorDto
-   if err := json.Unmarshal(data, &v3CreateConnectorDto); err != nil {
+   if err := json.Unmarshal(v3createconnectordto, &v3CreateConnectorDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -785,11 +785,11 @@ import (
 
 func main() {
     scriptName := `aScriptName` // string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # string | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
-    jsonPatchOperation := fmt.Sprintf(``) // []JsonPatchOperation | A list of connector detail update operations 
+    jsonpatchoperation := []byte(``) // []JsonPatchOperation | A list of connector detail update operations 
 
   
-   var jsonPatchOperation v3.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation v3.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }

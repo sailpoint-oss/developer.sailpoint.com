@@ -69,13 +69,13 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    connectorcustomizercreaterequest := []byte(`{
           "name" : "My Custom Connector"
         }`) // ConnectorCustomizerCreateRequest | Connector customizer to create.
 
   
    var connectorCustomizerCreateRequest v2025.ConnectorCustomizerCreateRequest
-   if err := json.Unmarshal(data, &connectorCustomizerCreateRequest); err != nil {
+   if err := json.Unmarshal(connectorcustomizercreaterequest, &connectorCustomizerCreateRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -405,7 +405,7 @@ import (
 
 func main() {
     id := `b07dc46a-1498-4de8-bfbb-259a68e70c8a` // string | ID of the connector customizer to update. # string | ID of the connector customizer to update.
-    data := []byte(`{
+    connectorcustomizerupdaterequest := []byte(`{
           "name" : "My Custom Connector"
         }`) // ConnectorCustomizerUpdateRequest | Connector rule with updated data. (optional)
 

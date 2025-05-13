@@ -77,11 +77,11 @@ import (
 )
 
 func main() {
-    data := []byte(``) // CreateSavedSearchRequest | The saved search to persist.
+    createsavedsearchrequest := []byte(``) // CreateSavedSearchRequest | The saved search to persist.
 
   
    var createSavedSearchRequest v3.CreateSavedSearchRequest
-   if err := json.Unmarshal(data, &createSavedSearchRequest); err != nil {
+   if err := json.Unmarshal(createsavedsearchrequest, &createSavedSearchRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -217,7 +217,7 @@ import (
 
 func main() {
     id := `2c91808568c529c60168cca6f90c1313` // string | ID of the requested document. # string | ID of the requested document.
-    data := []byte(`{
+    searcharguments := []byte(`{
           "owner" : "",
           "recipients" : [ {
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -231,7 +231,7 @@ func main() {
 
   
    var searchArguments v3.SearchArguments
-   if err := json.Unmarshal(data, &searchArguments); err != nil {
+   if err := json.Unmarshal(searcharguments, &searchArguments); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -438,7 +438,7 @@ import (
 
 func main() {
     id := `2c91808568c529c60168cca6f90c1313` // string | ID of the requested document. # string | ID of the requested document.
-    data := []byte(`{
+    savedsearch := []byte(`{
           "owner" : {
             "id" : "2c91808568c529c60168cca6f90c1313",
             "type" : "IDENTITY"
@@ -486,7 +486,7 @@ func main() {
 
   
    var savedSearch v3.SavedSearch
-   if err := json.Unmarshal(data, &savedSearch); err != nil {
+   if err := json.Unmarshal(savedsearch, &savedSearch); err != nil {
     fmt.Println("Error:", err)
     return
    }

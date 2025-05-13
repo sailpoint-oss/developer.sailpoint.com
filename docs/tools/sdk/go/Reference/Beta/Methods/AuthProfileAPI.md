@@ -199,11 +199,11 @@ import (
 
 func main() {
     id := `2c91808a7813090a017814121919ecca` // string | ID of the Auth Profile to patch. # string | ID of the Auth Profile to patch.
-    jsonPatchOperation := fmt.Sprintf(``) // []JsonPatchOperation | 
+    jsonpatchoperation := []byte(``) // []JsonPatchOperation | 
 
   
-   var jsonPatchOperation beta.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation beta.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }

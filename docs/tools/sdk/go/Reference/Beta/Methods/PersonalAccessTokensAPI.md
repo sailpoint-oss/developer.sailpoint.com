@@ -75,7 +75,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    createpersonalaccesstokenrequest := []byte(`{
           "scope" : [ "demo:personal-access-token-scope:first", "demo:personal-access-token-scope:second" ],
           "accessTokenValiditySeconds" : 36900,
           "name" : "NodeJS Integration"
@@ -83,7 +83,7 @@ func main() {
 
   
    var createPersonalAccessTokenRequest beta.CreatePersonalAccessTokenRequest
-   if err := json.Unmarshal(data, &createPersonalAccessTokenRequest); err != nil {
+   if err := json.Unmarshal(createpersonalaccesstokenrequest, &createPersonalAccessTokenRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -281,11 +281,11 @@ import (
 
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | The Personal Access Token id # string | The Personal Access Token id
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/name, value=New name}, {op=replace, path=/scope, value=[sp:scopes:all]}]`) // []JsonPatchOperation | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
+    jsonpatchoperation := []byte(`[{op=replace, path=/name, value=New name}, {op=replace, path=/scope, value=[sp:scopes:all]}]`) // []JsonPatchOperation | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
 
   
-   var jsonPatchOperation beta.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation beta.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }

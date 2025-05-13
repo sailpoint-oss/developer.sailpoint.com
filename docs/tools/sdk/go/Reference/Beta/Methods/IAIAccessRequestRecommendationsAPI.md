@@ -68,7 +68,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    accessrequestrecommendationactionitemdto := []byte(`{
           "access" : {
             "id" : "2c9180835d2e5168015d32f890ca1581",
             "type" : "ACCESS_PROFILE"
@@ -78,7 +78,7 @@ func main() {
 
   
    var accessRequestRecommendationActionItemDto beta.AccessRequestRecommendationActionItemDto
-   if err := json.Unmarshal(data, &accessRequestRecommendationActionItemDto); err != nil {
+   if err := json.Unmarshal(accessrequestrecommendationactionitemdto, &accessRequestRecommendationActionItemDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -142,7 +142,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    accessrequestrecommendationactionitemdto := []byte(`{
           "access" : {
             "id" : "2c9180835d2e5168015d32f890ca1581",
             "type" : "ACCESS_PROFILE"
@@ -152,7 +152,7 @@ func main() {
 
   
    var accessRequestRecommendationActionItemDto beta.AccessRequestRecommendationActionItemDto
-   if err := json.Unmarshal(data, &accessRequestRecommendationActionItemDto); err != nil {
+   if err := json.Unmarshal(accessrequestrecommendationactionitemdto, &accessRequestRecommendationActionItemDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -216,7 +216,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    accessrequestrecommendationactionitemdto := []byte(`{
           "access" : {
             "id" : "2c9180835d2e5168015d32f890ca1581",
             "type" : "ACCESS_PROFILE"
@@ -226,7 +226,7 @@ func main() {
 
   
    var accessRequestRecommendationActionItemDto beta.AccessRequestRecommendationActionItemDto
-   if err := json.Unmarshal(data, &accessRequestRecommendationActionItemDto); err != nil {
+   if err := json.Unmarshal(accessrequestrecommendationactionitemdto, &accessRequestRecommendationActionItemDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -290,11 +290,11 @@ import (
 )
 
 func main() {
-    accessRequestRecommendationActionItemDto := fmt.Sprintf(``) // []AccessRequestRecommendationActionItemDto | The recommended access items that were viewed for an identity.
+    accessrequestrecommendationactionitemdto := []byte(``) // []AccessRequestRecommendationActionItemDto | The recommended access items that were viewed for an identity.
 
   
-   var accessRequestRecommendationActionItemDto beta.AccessRequestRecommendationActionItemDto
-   if err := json.Unmarshal(data, &accessRequestRecommendationActionItemDto); err != nil {
+   var accessRequestRecommendationActionItemDto beta.[]AccessRequestRecommendationActionItemDto
+   if err := json.Unmarshal(accessrequestrecommendationactionitemdto, &accessRequestRecommendationActionItemDto); err != nil {
     fmt.Println("Error:", err)
     return
    }

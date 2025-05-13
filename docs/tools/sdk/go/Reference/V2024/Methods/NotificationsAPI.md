@@ -88,13 +88,13 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    domainaddress := []byte(`{
           "domain" : "sailpoint.com"
         }`) // DomainAddress | 
 
   
    var domainAddress v2024.DomainAddress
-   if err := json.Unmarshal(data, &domainAddress); err != nil {
+   if err := json.Unmarshal(domainaddress, &domainAddress); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -173,7 +173,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    templatedto := []byte(`{
           "slackTemplate" : "slackTemplate",
           "footer" : "footer",
           "teamsTemplate" : "teamsTemplate",
@@ -194,7 +194,7 @@ func main() {
 
   
    var templateDto v2024.TemplateDto
-   if err := json.Unmarshal(data, &templateDto); err != nil {
+   if err := json.Unmarshal(templatedto, &templateDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -271,7 +271,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    emailstatusdto := []byte(`{
           "isVerifiedByDomain" : false,
           "verificationStatus" : "PENDING",
           "id" : "id",
@@ -280,7 +280,7 @@ func main() {
 
   
    var emailStatusDto v2024.EmailStatusDto
-   if err := json.Unmarshal(data, &emailStatusDto); err != nil {
+   if err := json.Unmarshal(emailstatusdto, &emailStatusDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -357,11 +357,11 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    templateBulkDeleteDto := fmt.Sprintf(``) // []TemplateBulkDeleteDto | 
+    templatebulkdeletedto := []byte(``) // []TemplateBulkDeleteDto | 
 
   
-   var templateBulkDeleteDto v2024.TemplateBulkDeleteDto
-   if err := json.Unmarshal(data, &templateBulkDeleteDto); err != nil {
+   var templateBulkDeleteDto v2024.[]TemplateBulkDeleteDto
+   if err := json.Unmarshal(templatebulkdeletedto, &templateBulkDeleteDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1128,14 +1128,14 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    mailfromattributesdto := []byte(`{
           "identity" : "BobSmith@sailpoint.com",
           "mailFromDomain" : "example.sailpoint.com"
         }`) // MailFromAttributesDto | 
 
   
    var mailFromAttributesDto v2024.MailFromAttributesDto
-   if err := json.Unmarshal(data, &mailFromAttributesDto); err != nil {
+   if err := json.Unmarshal(mailfromattributesdto, &mailFromAttributesDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1212,7 +1212,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    sendtestnotificationrequestdto := []byte(`{
           "context" : "{}",
           "medium" : "EMAIL",
           "key" : "cloud_manual_work_item_summary"
@@ -1220,7 +1220,7 @@ func main() {
 
   
    var sendTestNotificationRequestDto v2024.SendTestNotificationRequestDto
-   if err := json.Unmarshal(data, &sendTestNotificationRequestDto); err != nil {
+   if err := json.Unmarshal(sendtestnotificationrequestdto, &sendTestNotificationRequestDto); err != nil {
     fmt.Println("Error:", err)
     return
    }

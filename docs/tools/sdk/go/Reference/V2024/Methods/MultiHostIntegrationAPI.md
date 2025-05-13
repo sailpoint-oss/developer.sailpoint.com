@@ -78,7 +78,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    multihostintegrationscreate := []byte(`{
           "owner" : {
             "name" : "MyName",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -107,7 +107,7 @@ func main() {
 
   
    var multiHostIntegrationsCreate v2024.MultiHostIntegrationsCreate
-   if err := json.Unmarshal(data, &multiHostIntegrationsCreate); err != nil {
+   if err := json.Unmarshal(multihostintegrationscreate, &multiHostIntegrationsCreate); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -179,11 +179,11 @@ import (
 
 func main() {
     multihostId := `2c91808568c529c60168cca6f90c1326` // string | ID of the Multi-Host Integration. # string | ID of the Multi-Host Integration.
-    multiHostIntegrationsCreateSources := fmt.Sprintf(``) // []MultiHostIntegrationsCreateSources | The specifics of the sources to create within Multi-Host Integration.
+    multihostintegrationscreatesources := []byte(``) // []MultiHostIntegrationsCreateSources | The specifics of the sources to create within Multi-Host Integration.
 
   
-   var multiHostIntegrationsCreateSources v2024.MultiHostIntegrationsCreateSources
-   if err := json.Unmarshal(data, &multiHostIntegrationsCreateSources); err != nil {
+   var multiHostIntegrationsCreateSources v2024.[]MultiHostIntegrationsCreateSources
+   if err := json.Unmarshal(multihostintegrationscreatesources, &multiHostIntegrationsCreateSources); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -946,11 +946,11 @@ import (
 
 func main() {
     multihostId := `anId` // string | ID of the Multi-Host Integration to update. # string | ID of the Multi-Host Integration to update.
-    updateMultiHostSourcesRequestInner := fmt.Sprintf(`[{op=add, path=/description, value=MDK Multi-Host Integration 222 description}]`) // []UpdateMultiHostSourcesRequestInner | This endpoint allows you to update a Multi-Host Integration. 
+    updatemultihostsourcesrequestinner := []byte(`[{op=add, path=/description, value=MDK Multi-Host Integration 222 description}]`) // []UpdateMultiHostSourcesRequestInner | This endpoint allows you to update a Multi-Host Integration. 
 
   
-   var updateMultiHostSourcesRequestInner v2024.UpdateMultiHostSourcesRequestInner
-   if err := json.Unmarshal(data, &updateMultiHostSourcesRequestInner); err != nil {
+   var updateMultiHostSourcesRequestInner v2024.[]UpdateMultiHostSourcesRequestInner
+   if err := json.Unmarshal(updatemultihostsourcesrequestinner, &updateMultiHostSourcesRequestInner); err != nil {
     fmt.Println("Error:", err)
     return
    }

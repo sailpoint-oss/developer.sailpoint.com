@@ -79,7 +79,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    identityattribute := []byte(`{
           "standard" : false,
           "system" : false,
           "sources" : [ {
@@ -104,7 +104,7 @@ func main() {
 
   
    var identityAttribute v2024.IdentityAttribute
-   if err := json.Unmarshal(data, &identityAttribute); err != nil {
+   if err := json.Unmarshal(identityattribute, &identityAttribute); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -258,13 +258,13 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    identityattributenames := []byte(`{
           "ids" : [ "name", "displayName" ]
         }`) // IdentityAttributeNames | 
 
   
    var identityAttributeNames v2024.IdentityAttributeNames
-   if err := json.Unmarshal(data, &identityAttributeNames); err != nil {
+   if err := json.Unmarshal(identityattributenames, &identityAttributeNames); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -505,7 +505,7 @@ import (
 func main() {
     name := `displayName` // string | The attribute's technical name. # string | The attribute's technical name.
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    identityattribute := []byte(`{
           "standard" : false,
           "system" : false,
           "sources" : [ {
@@ -530,7 +530,7 @@ func main() {
 
   
    var identityAttribute v2024.IdentityAttribute
-   if err := json.Unmarshal(data, &identityAttribute); err != nil {
+   if err := json.Unmarshal(identityattribute, &identityAttribute); err != nil {
     fmt.Println("Error:", err)
     return
    }

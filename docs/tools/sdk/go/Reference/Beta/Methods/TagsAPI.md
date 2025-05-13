@@ -67,7 +67,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    tag := []byte(`{
           "created" : "2022-05-04T14:48:49Z",
           "tagCategoryRefs" : [ {
             "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
@@ -85,7 +85,7 @@ func main() {
 
   
    var tag beta.Tag
-   if err := json.Unmarshal(data, &tag); err != nil {
+   if err := json.Unmarshal(tag, &tag); err != nil {
     fmt.Println("Error:", err)
     return
    }

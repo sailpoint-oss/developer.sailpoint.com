@@ -130,7 +130,7 @@ import (
 func main() {
     id := `0f11f2a4-7c94-4bf3-a2bd-742580fe3bde` // string | The ID of the invocation to complete. # string | The ID of the invocation to complete.
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    completeinvocation := []byte(`{
           "output" : {
             "approved" : false
           },
@@ -140,7 +140,7 @@ func main() {
 
   
    var completeInvocation v2025.CompleteInvocation
-   if err := json.Unmarshal(data, &completeInvocation); err != nil {
+   if err := json.Unmarshal(completeinvocation, &completeInvocation); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -217,7 +217,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    subscriptionpostrequest := []byte(`{
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
           "httpConfig" : {
             "bearerTokenAuthConfig" : {
@@ -245,7 +245,7 @@ func main() {
 
   
    var subscriptionPostRequest v2025.SubscriptionPostRequest
-   if err := json.Unmarshal(data, &subscriptionPostRequest); err != nil {
+   if err := json.Unmarshal(subscriptionpostrequest, &subscriptionPostRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -658,11 +658,11 @@ import (
 func main() {
     id := `0f11f2a4-7c94-4bf3-a2bd-742580fe3bde` // string | ID of the Subscription to patch # string | ID of the Subscription to patch
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    subscriptionPatchRequestInner := fmt.Sprintf(``) // []SubscriptionPatchRequestInner | 
+    subscriptionpatchrequestinner := []byte(``) // []SubscriptionPatchRequestInner | 
 
   
-   var subscriptionPatchRequestInner v2025.SubscriptionPatchRequestInner
-   if err := json.Unmarshal(data, &subscriptionPatchRequestInner); err != nil {
+   var subscriptionPatchRequestInner v2025.[]SubscriptionPatchRequestInner
+   if err := json.Unmarshal(subscriptionpatchrequestinner, &subscriptionPatchRequestInner); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -739,7 +739,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    testinvocation := []byte(`{
           "input" : {
             "identityId" : "201327fda1c44704ac01181e963d463c"
           },
@@ -752,7 +752,7 @@ func main() {
 
   
    var testInvocation v2025.TestInvocation
-   if err := json.Unmarshal(data, &testInvocation); err != nil {
+   if err := json.Unmarshal(testinvocation, &testInvocation); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -830,7 +830,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    validatefilterinputdto := []byte(`{
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
           "input" : {
             "identityId" : "201327fda1c44704ac01181e963d463c"
@@ -839,7 +839,7 @@ func main() {
 
   
    var validateFilterInputDto v2025.ValidateFilterInputDto
-   if err := json.Unmarshal(data, &validateFilterInputDto); err != nil {
+   if err := json.Unmarshal(validatefilterinputdto, &validateFilterInputDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -931,7 +931,7 @@ import (
 func main() {
     id := `0f11f2a4-7c94-4bf3-a2bd-742580fe3bde` // string | Subscription ID # string | Subscription ID
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    subscriptionputrequest := []byte(`{
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
           "httpConfig" : {
             "bearerTokenAuthConfig" : {
@@ -958,7 +958,7 @@ func main() {
 
   
    var subscriptionPutRequest v2025.SubscriptionPutRequest
-   if err := json.Unmarshal(data, &subscriptionPutRequest); err != nil {
+   if err := json.Unmarshal(subscriptionputrequest, &subscriptionPutRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }

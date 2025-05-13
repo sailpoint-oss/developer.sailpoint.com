@@ -456,7 +456,7 @@ import (
 
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | The identity campaign certification ID # string | The identity campaign certification ID
-    data := []byte(`{
+    reviewreassign := []byte(`{
           "reason" : "reassigned for some reason",
           "reassignTo" : "ef38f94347e94562b5bb8424a56397d8",
           "reassign" : [ {
@@ -470,7 +470,7 @@ func main() {
 
   
    var reviewReassign beta.ReviewReassign
-   if err := json.Unmarshal(data, &reviewReassign); err != nil {
+   if err := json.Unmarshal(reviewreassign, &reviewReassign); err != nil {
     fmt.Println("Error:", err)
     return
    }

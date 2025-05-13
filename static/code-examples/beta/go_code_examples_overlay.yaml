@@ -153,7 +153,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           accessprofile := []byte(`{
           "owner" : {
             "name" : "support",
             "id" : "2c9180a46faadee4016fb4e018c20639",
@@ -242,7 +242,7 @@
 
           
           var accessProfile beta.AccessProfile
-          if err := json.Unmarshal(data, &accessProfile); err != nil {
+          if err := json.Unmarshal(accessprofile, &accessProfile); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -310,14 +310,14 @@
         )
 
         func main() {
-           data := []byte(`{
+           accessprofilebulkdeleterequest := []byte(`{
           "accessProfileIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ],
           "bestEffortOnly" : true
         }`) // AccessProfileBulkDeleteRequest | 
 
           
           var accessProfileBulkDeleteRequest beta.AccessProfileBulkDeleteRequest
-          if err := json.Unmarshal(data, &accessProfileBulkDeleteRequest); err != nil {
+          if err := json.Unmarshal(accessprofilebulkdeleterequest, &accessProfileBulkDeleteRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -468,11 +468,11 @@
 
         func main() {
           id := `2c91808a7813090a017814121919ecca` // string | ID of the Access Profile to patch # string | ID of the Access Profile to patch
-          jsonPatchOperation := fmt.Sprintf(`[{op=add, path=/entitlements, value=[{id=2c9180857725c14301772a93bb77242d, type=ENTITLEMENT, name=AD User Group}]}]`) // []JsonPatchOperation | 
+          jsonpatchoperation := []byte(`[{op=add, path=/entitlements, value=[{id=2c9180857725c14301772a93bb77242d, type=ENTITLEMENT, name=AD User Group}]}]`) // []JsonPatchOperation | 
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -508,11 +508,11 @@
         )
 
         func main() {
-          accessProfileBulkUpdateRequestInner := fmt.Sprintf(`[{id=464ae7bf-791e-49fd-b746-06a2e4a89635, requestable=false}]`) // []AccessProfileBulkUpdateRequestInner | 
+          accessprofilebulkupdaterequestinner := []byte(`[{id=464ae7bf-791e-49fd-b746-06a2e4a89635, requestable=false}]`) // []AccessProfileBulkUpdateRequestInner | 
 
           
-          var accessProfileBulkUpdateRequestInner beta.AccessProfileBulkUpdateRequestInner
-          if err := json.Unmarshal(data, &accessProfileBulkUpdateRequestInner); err != nil {
+          var accessProfileBulkUpdateRequestInner beta.[]AccessProfileBulkUpdateRequestInner
+          if err := json.Unmarshal(accessprofilebulkupdaterequestinner, &accessProfileBulkUpdateRequestInner); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -549,7 +549,7 @@
 
         func main() {
           approvalId := `2c91808b7294bea301729568c68c002e` // string | Approval ID. # string | Approval ID.
-           data := []byte(`{
+           commentdto := []byte(`{
           "author" : {
             "name" : "Adam Kennedy",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -561,7 +561,7 @@
 
           
           var commentDto beta.CommentDto
-          if err := json.Unmarshal(data, &commentDto); err != nil {
+          if err := json.Unmarshal(commentdto, &commentDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -598,14 +598,14 @@
 
         func main() {
           approvalId := `2c91808b7294bea301729568c68c002e` // string | Approval ID. # string | Approval ID.
-           data := []byte(`{
+           forwardapprovaldto := []byte(`{
           "newOwnerId" : "newOwnerId",
           "comment" : "comment"
         }`) // ForwardApprovalDto | Information about the forwarded approval.
 
           
           var forwardApprovalDto beta.ForwardApprovalDto
-          if err := json.Unmarshal(data, &forwardApprovalDto); err != nil {
+          if err := json.Unmarshal(forwardapprovaldto, &forwardApprovalDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -755,7 +755,7 @@
 
         func main() {
           approvalId := `2c91808b7294bea301729568c68c002e` // string | Approval ID. # string | Approval ID.
-           data := []byte(`{
+           commentdto := []byte(`{
           "author" : {
             "name" : "Adam Kennedy",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -767,7 +767,7 @@
 
           
           var commentDto beta.CommentDto
-          if err := json.Unmarshal(data, &commentDto); err != nil {
+          if err := json.Unmarshal(commentdto, &commentDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -839,14 +839,14 @@
         )
 
         func main() {
-           data := []byte(`{
+           cancelaccessrequest := []byte(`{
           "accountActivityId" : "2c9180835d2e5168015d32f890ca1581",
           "comment" : "I requested this role by mistake."
         }`) // CancelAccessRequest | 
 
           
           var cancelAccessRequest beta.CancelAccessRequest
-          if err := json.Unmarshal(data, &cancelAccessRequest); err != nil {
+          if err := json.Unmarshal(cancelaccessrequest, &cancelAccessRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -882,7 +882,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           closeaccessrequest := []byte(`{
           "executionStatus" : "Terminated",
           "accessRequestIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
           "completionStatus" : "Failure",
@@ -891,7 +891,7 @@
 
           
           var closeAccessRequest beta.CloseAccessRequest
-          if err := json.Unmarshal(data, &closeAccessRequest); err != nil {
+          if err := json.Unmarshal(closeaccessrequest, &closeAccessRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -927,7 +927,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           accessrequest := []byte(`{
           "requestedFor" : "2c918084660f45d6016617daa9210584",
           "clientMetadata" : {
             "requestedAppId" : "2c91808f7892918f0178b78da4a305a1",
@@ -1121,7 +1121,7 @@
 
           
           var accessRequest beta.AccessRequest
-          if err := json.Unmarshal(data, &accessRequest); err != nil {
+          if err := json.Unmarshal(accessrequest, &accessRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -1233,7 +1233,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           accessrequestconfig := []byte(`{
           "requestOnBehalfOfConfig" : {
             "allowRequestOnBehalfOfEmployeeByManager" : true,
             "allowRequestOnBehalfOfAnyoneByAnyone" : true
@@ -1262,7 +1262,7 @@
 
           
           var accessRequestConfig beta.AccessRequestConfig
-          if err := json.Unmarshal(data, &accessRequestConfig); err != nil {
+          if err := json.Unmarshal(accessrequestconfig, &accessRequestConfig); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -1408,7 +1408,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           accountattributescreate := []byte(`{
           "attributes" : {
             "sourceId" : "34bfcbe116c9407464af37acbaf7a4dc",
             "city" : "Austin",
@@ -1421,7 +1421,7 @@
 
           
           var accountAttributesCreate beta.AccountAttributesCreate
-          if err := json.Unmarshal(data, &accountAttributesCreate); err != nil {
+          if err := json.Unmarshal(accountattributescreate, &accountAttributesCreate); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -1526,14 +1526,14 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | The account id # string | The account id
-           data := []byte(`{
+           accounttogglerequest := []byte(`{
           "forceProvisioning" : false,
           "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
         }`) // AccountToggleRequest | 
 
           
           var accountToggleRequest beta.AccountToggleRequest
-          if err := json.Unmarshal(data, &accountToggleRequest); err != nil {
+          if err := json.Unmarshal(accounttogglerequest, &accountToggleRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -1603,13 +1603,13 @@
         )
 
         func main() {
-           data := []byte(`{
+           identitiesaccountsbulkrequest := []byte(`{
           "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
         }`) // IdentitiesAccountsBulkRequest | 
 
           
           var identitiesAccountsBulkRequest beta.IdentitiesAccountsBulkRequest
-          if err := json.Unmarshal(data, &identitiesAccountsBulkRequest); err != nil {
+          if err := json.Unmarshal(identitiesaccountsbulkrequest, &identitiesAccountsBulkRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -1646,14 +1646,14 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | The account id # string | The account id
-           data := []byte(`{
+           accounttogglerequest := []byte(`{
           "forceProvisioning" : false,
           "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
         }`) // AccountToggleRequest | 
 
           
           var accountToggleRequest beta.AccountToggleRequest
-          if err := json.Unmarshal(data, &accountToggleRequest); err != nil {
+          if err := json.Unmarshal(accounttogglerequest, &accountToggleRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -1723,13 +1723,13 @@
         )
 
         func main() {
-           data := []byte(`{
+           identitiesaccountsbulkrequest := []byte(`{
           "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
         }`) // IdentitiesAccountsBulkRequest | 
 
           
           var identitiesAccountsBulkRequest beta.IdentitiesAccountsBulkRequest
-          if err := json.Unmarshal(data, &identitiesAccountsBulkRequest); err != nil {
+          if err := json.Unmarshal(identitiesaccountsbulkrequest, &identitiesAccountsBulkRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -1876,7 +1876,7 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | Account ID. # string | Account ID.
-           data := []byte(`{
+           accountattributes := []byte(`{
           "attributes" : {
             "city" : "Austin",
             "displayName" : "John Doe",
@@ -1888,7 +1888,7 @@
 
           
           var accountAttributes beta.AccountAttributes
-          if err := json.Unmarshal(data, &accountAttributes); err != nil {
+          if err := json.Unmarshal(accountattributes, &accountAttributes); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -1959,7 +1959,7 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | The account ID. # string | The account ID.
-           data := []byte(`{
+           accountunlockrequest := []byte(`{
           "forceProvisioning" : false,
           "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581",
           "unlockIDNAccount" : false
@@ -1967,7 +1967,7 @@
 
           
           var accountUnlockRequest beta.AccountUnlockRequest
-          if err := json.Unmarshal(data, &accountUnlockRequest); err != nil {
+          if err := json.Unmarshal(accountunlockrequest, &accountUnlockRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -2004,11 +2004,11 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | Account ID. # string | Account ID.
-          requestBody := fmt.Sprintf(`{Uncorrelate account={description=Remove account from Identity, value=[{op=remove, path=/identityId}]}, Reassign account={description=Move account from one Identity to another Identity, value=[{op=replace, path=/identityId, value=2c9180857725c14301772a93bb77242d}]}, Add account attribute={description=Add flat file account's attribute, value=[{op=add, path=/attributes/familyName, value=Smith}]}, Replace account attribute={description=Replace flat file account's attribute, value=[{op=replace, path=/attributes/familyName, value=Smith}]}, Remove account attribute={description=Remove flat file account's attribute, value=[{op=remove, path=/attributes/familyName}]}}`) // []map[string]interface{} | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+          requestbody := []byte(`{Uncorrelate account={description=Remove account from Identity, value=[{op=remove, path=/identityId}]}, Reassign account={description=Move account from one Identity to another Identity, value=[{op=replace, path=/identityId, value=2c9180857725c14301772a93bb77242d}]}, Add account attribute={description=Add flat file account's attribute, value=[{op=add, path=/attributes/familyName, value=Smith}]}, Replace account attribute={description=Replace flat file account's attribute, value=[{op=replace, path=/attributes/familyName, value=Smith}]}, Remove account attribute={description=Remove flat file account's attribute, value=[{op=remove, path=/attributes/familyName}]}}`) // []map[string]interface{} | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
           
-          var requestBody beta.RequestBody
-          if err := json.Unmarshal(data, &requestBody); err != nil {
+          var requestBody beta.[]RequestBody
+          if err := json.Unmarshal(requestbody, &requestBody); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -2186,7 +2186,7 @@
 
         func main() {
           id := `123e4567-e89b-12d3-a456-426655440000` // string | Discovered application's ID. # string | Discovered application's ID.
-          jsonPatchOperations := fmt.Sprintf(`[{op=replace, path=/dismissed, value=true}]`) // []JsonPatchOperations |  (optional)
+          jsonpatchoperations := []byte(`[{op=replace, path=/dismissed, value=true}]`) // []JsonPatchOperations |  (optional)
 
           
 
@@ -2320,7 +2320,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           sourceappcreatedto := []byte(`{
           "name" : "my app",
           "description" : "the source app for engineers",
           "accountSource" : {
@@ -2333,7 +2333,7 @@
 
           
           var sourceAppCreateDto beta.SourceAppCreateDto
-          if err := json.Unmarshal(data, &sourceAppCreateDto); err != nil {
+          if err := json.Unmarshal(sourceappcreatedto, &sourceAppCreateDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -2370,12 +2370,12 @@
 
         func main() {
           id := `2c91808a7813090a017814121e121518` // string | ID of the source app # string | ID of the source app
-          requestBody := fmt.Sprintf(``) // []string | 
+          requestbody := []byte(``) // []string | 
           limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 
           
-          var requestBody beta.RequestBody
-          if err := json.Unmarshal(data, &requestBody); err != nil {
+          var requestBody beta.[]RequestBody
+          if err := json.Unmarshal(requestbody, &requestBody); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -2742,7 +2742,7 @@
 
         func main() {
           id := `2c91808a7813090a017814121e121518` // string | ID of the source app to patch # string | ID of the source app to patch
-          jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/enabled, value=true}, {op=replace, path=/matchAllAccounts, value=true}]`) // []JsonPatchOperation |  (optional)
+          jsonpatchoperation := []byte(`[{op=replace, path=/enabled, value=true}, {op=replace, path=/matchAllAccounts, value=true}]`) // []JsonPatchOperation |  (optional)
 
           
 
@@ -2777,7 +2777,7 @@
 
         func main() {
           id := `2c91808a7813090a017814121e121518` // string | ID of the user app to patch # string | ID of the user app to patch
-          jsonPatchOperation := fmt.Sprintf(``) // []JsonPatchOperation |  (optional)
+          jsonpatchoperation := []byte(``) // []JsonPatchOperation |  (optional)
 
           
 
@@ -2811,7 +2811,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           sourceappbulkupdaterequest := []byte(`{
           "appIds" : [ "2c91808a7624751a01762f19d665220d", "2c91808a7624751a01762f19d67c220e", "2c91808a7624751a01762f19d692220f" ],
           "jsonPatch" : [ {
             "op" : "replace",
@@ -2922,11 +2922,11 @@
 
         func main() {
           id := `2c91808a7813090a017814121919ecca` // string | ID of the Auth Profile to patch. # string | ID of the Auth Profile to patch.
-          jsonPatchOperation := fmt.Sprintf(``) // []JsonPatchOperation | 
+          jsonpatchoperation := []byte(``) // []JsonPatchOperation | 
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -2963,7 +2963,7 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | Campaign ID. # string | Campaign ID.
-           data := []byte(`{
+           completecampaignoptions := []byte(`{
           "autoCompleteAction" : "REVOKE"
         }`) // CompleteCampaignOptions | Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction=REVOKE (optional)
 
@@ -2999,7 +2999,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           campaign := []byte(`{
           "totalCertifications" : 100,
           "sourcesWithOrphanEntitlements" : [ {
             "name" : "Source with orphan entitlements",
@@ -3111,7 +3111,7 @@
 
           
           var campaign beta.Campaign
-          if err := json.Unmarshal(data, &campaign); err != nil {
+          if err := json.Unmarshal(campaign, &campaign); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -3148,7 +3148,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           campaigntemplate := []byte(`{
           "ownerRef" : {
             "name" : "Mister Manager",
             "id" : "2c918086676d3e0601677611dbde220f",
@@ -3275,7 +3275,7 @@
 
           
           var campaignTemplate beta.CampaignTemplate
-          if err := json.Unmarshal(data, &campaignTemplate); err != nil {
+          if err := json.Unmarshal(campaigntemplate, &campaignTemplate); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -3375,13 +3375,13 @@
         )
 
         func main() {
-           data := []byte(`{
+           deletecampaignsrequest := []byte(`{
           "ids" : [ "2c9180887335cee10173490db1776c26", "2c9180836a712436016a7125a90c0021" ]
         }`) // DeleteCampaignsRequest | IDs of the campaigns to delete.
 
           
           var deleteCampaignsRequest beta.DeleteCampaignsRequest
-          if err := json.Unmarshal(data, &deleteCampaignsRequest); err != nil {
+          if err := json.Unmarshal(deletecampaignsrequest, &deleteCampaignsRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -3664,7 +3664,7 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | The certification campaign ID # string | The certification campaign ID
-           data := []byte(`{
+           adminreviewreassign := []byte(`{
           "certificationIds" : [ "af3859464779471211bb8424a563abc1", "af3859464779471211bb8424a563abc2", "af3859464779471211bb8424a563abc3" ],
           "reason" : "reassigned for some reason",
           "reassignTo" : {
@@ -3675,7 +3675,7 @@
 
           
           var adminReviewReassign beta.AdminReviewReassign
-          if err := json.Unmarshal(data, &adminReviewReassign); err != nil {
+          if err := json.Unmarshal(adminreviewreassign, &adminReviewReassign); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -3712,11 +3712,11 @@
 
         func main() {
           id := `2c9180835d191a86015d28455b4a2329` // string | ID of the campaign template being modified. # string | ID of the campaign template being modified.
-          jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/campaign/filter/id, value=ff80818155fe8c080155fe8d925b0316}]`) // []JsonPatchOperation | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
+          jsonpatchoperation := []byte(`[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/campaign/filter/id, value=ff80818155fe8c080155fe8d925b0316}]`) // []JsonPatchOperation | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -3752,13 +3752,13 @@
         )
 
         func main() {
-           data := []byte(`{
+           campaignreportsconfig := []byte(`{
           "identityAttributeColumns" : [ "firstname", "lastname" ]
         }`) // CampaignReportsConfig | Campaign report configuration.
 
           
           var campaignReportsConfig beta.CampaignReportsConfig
-          if err := json.Unmarshal(data, &campaignReportsConfig); err != nil {
+          if err := json.Unmarshal(campaignreportsconfig, &campaignReportsConfig); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -3795,7 +3795,7 @@
 
         func main() {
           id := `04bedce387bd47b2ae1f86eb0bb36dee` // string | ID of the campaign template being scheduled. # string | ID of the campaign template being scheduled.
-           data := []byte(`{
+           schedule := []byte(`{
           "hours" : {
             "values" : [ "1" ],
             "interval" : 2,
@@ -3847,7 +3847,7 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | Campaign ID. # string | Campaign ID.
-           data := []byte(`{
+           activatecampaignoptions := []byte(`{
           "timeZone" : "-05:00"
         }`) // ActivateCampaignOptions | Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller's timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format. (optional)
 
@@ -3987,11 +3987,11 @@
 
         func main() {
           id := `2c91808571bcfcf80171c23e4b4221fc` // string | ID of the campaign being modified. # string | ID of the campaign being modified.
-          requestBody := fmt.Sprintf(`[{op=replace, path=/name, value=This field has been updated!}, {op=copy, from=/name, path=/description}]`) // []map[string]interface{} | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
+          requestbody := []byte(`[{op=replace, path=/name, value=This field has been updated!}, {op=copy, from=/name, path=/description}]`) // []map[string]interface{} | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
 
           
-          var requestBody beta.RequestBody
-          if err := json.Unmarshal(data, &requestBody); err != nil {
+          var requestBody beta.[]RequestBody
+          if err := json.Unmarshal(requestbody, &requestBody); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -4214,7 +4214,7 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | The identity campaign certification ID # string | The identity campaign certification ID
-           data := []byte(`{
+           reviewreassign := []byte(`{
           "reason" : "reassigned for some reason",
           "reassignTo" : "ef38f94347e94562b5bb8424a56397d8",
           "reassign" : [ {
@@ -4228,7 +4228,7 @@
 
           
           var reviewReassign beta.ReviewReassign
-          if err := json.Unmarshal(data, &reviewReassign); err != nil {
+          if err := json.Unmarshal(reviewreassign, &reviewReassign); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -4264,7 +4264,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           connectorrulecreaterequest := []byte(`{
           "sourceCode" : {
             "version" : "1.0",
             "script" : "return \"Mr. \" + firstName;"
@@ -4293,7 +4293,7 @@
 
           
           var connectorRuleCreateRequest beta.ConnectorRuleCreateRequest
-          if err := json.Unmarshal(data, &connectorRuleCreateRequest); err != nil {
+          if err := json.Unmarshal(connectorrulecreaterequest, &connectorRuleCreateRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -4429,7 +4429,7 @@
 
         func main() {
           id := `8c190e6787aa4ed9a90bd9d5344523fb` // string | ID of the connector rule to update # string | ID of the connector rule to update
-           data := []byte(`{
+           connectorruleupdaterequest := []byte(`{
           "sourceCode" : {
             "version" : "1.0",
             "script" : "return \"Mr. \" + firstName;"
@@ -4489,14 +4489,14 @@
         )
 
         func main() {
-           data := []byte(`{
+           sourcecode := []byte(`{
           "version" : "1.0",
           "script" : "return \"Mr. \" + firstName;"
         }`) // SourceCode | The code to validate
 
           
           var sourceCode beta.SourceCode
-          if err := json.Unmarshal(data, &sourceCode); err != nil {
+          if err := json.Unmarshal(sourcecode, &sourceCode); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -4570,7 +4570,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           createformdefinitionrequest := []byte(`{
           "owner" : {
             "name" : "Grant Smith",
             "id" : "2c9180867624cbd7017642d8c8c81f67",
@@ -4714,7 +4714,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           createformdefinitionrequest := []byte(`{
           "owner" : {
             "name" : "Grant Smith",
             "id" : "2c9180867624cbd7017642d8c8c81f67",
@@ -4858,7 +4858,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           body := []byte(`{
           "description" : "A description",
           "attributes" : {
             "formDefinitionId" : "00000000-0000-0000-0000-000000000000"
@@ -4935,7 +4935,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           body := []byte(`{
           "formInput" : {
             "input1" : "Sales"
           },
@@ -5198,7 +5198,7 @@
         )
 
         func main() {
-          body := fmt.Sprintf(`[{version=1, self={name=All fields not required, id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, type=FORM_DEFINITION}, object={id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, name=All fields not required, description=description, owner={type=IDENTITY, id=3447d8ec2602455ab6f1e8408a0f0150}, usedBy=[{type=WORKFLOW, id=5008594c-dacc-4295-8fee-41df60477304}, {type=WORKFLOW, id=97e75a75-c179-4fbc-a2da-b5fa4aaa8743}], formInput=[{type=STRING, label=input1, description=A single dynamic scalar value (i.e. number, string, date, etc) that can be passed into the form for use in conditional logic}], formElements=[{id=3069272797630701, elementType=SECTION, config={label=First Section, formElements=[{id=3069272797630700, elementType=TEXT, key=firstName, config={label=First Name}}, {id=3498415402897539, elementType=TEXT, key=lastName, config={label=Last Name}}]}}], formConditions=[{ruleOperator=AND, rules=[{sourceType=INPUT, source=Department, operator=EQ, valueType=STRING, value=Sales}], effects=[{effectType=HIDE, config={element=2614088730489570}}]}], created=2022-10-04T19:27:04.456Z, modified=2022-11-16T20:45:02.172Z}}]`) // []ImportFormDefinitionsRequestInner | Body is the request payload to import form definitions (optional)
+          body := []byte(`[{version=1, self={name=All fields not required, id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, type=FORM_DEFINITION}, object={id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, name=All fields not required, description=description, owner={type=IDENTITY, id=3447d8ec2602455ab6f1e8408a0f0150}, usedBy=[{type=WORKFLOW, id=5008594c-dacc-4295-8fee-41df60477304}, {type=WORKFLOW, id=97e75a75-c179-4fbc-a2da-b5fa4aaa8743}], formInput=[{type=STRING, label=input1, description=A single dynamic scalar value (i.e. number, string, date, etc) that can be passed into the form for use in conditional logic}], formElements=[{id=3069272797630701, elementType=SECTION, config={label=First Section, formElements=[{id=3069272797630700, elementType=TEXT, key=firstName, config={label=First Name}}, {id=3498415402897539, elementType=TEXT, key=lastName, config={label=Last Name}}]}}], formConditions=[{ruleOperator=AND, rules=[{sourceType=INPUT, source=Department, operator=EQ, valueType=STRING, value=Sales}], effects=[{effectType=HIDE, config={element=2614088730489570}}]}], created=2022-10-04T19:27:04.456Z, modified=2022-11-16T20:45:02.172Z}}]`) // []ImportFormDefinitionsRequestInner | Body is the request payload to import form definitions (optional)
 
           
 
@@ -5233,7 +5233,7 @@
 
         func main() {
           formDefinitionID := `00000000-0000-0000-0000-000000000000` // string | Form definition ID # string | Form definition ID
-          body := fmt.Sprintf(`[{op=replace, path=/description, value=test-description}]`) // []map[string]map[string]interface{} | Body is the request payload to patch a form definition, check: https://jsonpatch.com (optional)
+          body := []byte(`[{op=replace, path=/description, value=test-description}]`) // []map[string]map[string]interface{} | Body is the request payload to patch a form definition, check: https://jsonpatch.com (optional)
 
           
 
@@ -5268,7 +5268,7 @@
 
         func main() {
           formInstanceID := `00000000-0000-0000-0000-000000000000` // string | Form instance ID # string | Form instance ID
-          body := fmt.Sprintf(`[{op=replace, path=/state, value=SUBMITTED}, {op=replace, path=/formData, value={a-key-1=a-value-1, a-key-2=true, a-key-3=1}}]`) // []map[string]map[string]interface{} | Body is the request payload to patch a form instance, check: https://jsonpatch.com (optional)
+          body := []byte(`[{op=replace, path=/state, value=SUBMITTED}, {op=replace, path=/formData, value={a-key-1=a-value-1, a-key-2=true, a-key-3=1}}]`) // []map[string]map[string]interface{} | Body is the request payload to patch a form instance, check: https://jsonpatch.com (optional)
 
           
 
@@ -5447,7 +5447,7 @@
           limit := 10 // int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 10) # int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 10)
           filters := `value eq "ID01"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in (\"ID01\")` (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in (\"ID01\")` (optional)
           query := `ac` // string | String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \"starts with\" filter against  several fields. (optional) # string | String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \"starts with\" filter against  several fields. (optional)
-           data := []byte(`{
+           formelementpreviewrequest := []byte(`{
           "dataSource" : {
             "config" : {
               "indices" : [ "identities" ],
@@ -5491,7 +5491,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           custompasswordinstruction := []byte(`{
           "pageContent" : "Please enter a new password. Your password must be at least 8 characters long and contain at least one number and one letter.",
           "pageId" : "change-password:enter-password",
           "locale" : "en"
@@ -5499,7 +5499,7 @@
 
           
           var customPasswordInstruction beta.CustomPasswordInstruction
-          if err := json.Unmarshal(data, &customPasswordInstruction); err != nil {
+          if err := json.Unmarshal(custompasswordinstruction, &customPasswordInstruction); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -5897,7 +5897,7 @@
 
         func main() {
           id := `2c91808a7813090a017814121e121518` // string | ID of the entitlement to patch # string | ID of the entitlement to patch
-          jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/requestable, value=true}, {op=replace, path=/privileged, value=true}]`) // []JsonPatchOperation |  (optional)
+          jsonpatchoperation := []byte(`[{op=replace, path=/requestable, value=true}, {op=replace, path=/privileged, value=true}]`) // []JsonPatchOperation |  (optional)
 
           
 
@@ -5932,7 +5932,7 @@
 
         func main() {
           id := `2c91808a7813090a017814121e121518` // string | Entitlement ID # string | Entitlement ID
-           data := []byte(`{
+           entitlementrequestconfig := []byte(`{
           "accessRequestConfig" : {
             "denialCommentRequired" : false,
             "approvalSchemes" : [ {
@@ -5948,7 +5948,7 @@
 
           
           var entitlementRequestConfig beta.EntitlementRequestConfig
-          if err := json.Unmarshal(data, &entitlementRequestConfig); err != nil {
+          if err := json.Unmarshal(entitlementrequestconfig, &entitlementRequestConfig); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -6018,7 +6018,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           entitlementbulkupdaterequest := []byte(`{
           "entitlementIds" : [ "2c91808a7624751a01762f19d665220d", "2c91808a7624751a01762f19d67c220e", "2c91808a7624751a01762f19d692220f" ],
           "jsonPatch" : [ {
             "op" : "replace",
@@ -6033,7 +6033,7 @@
 
           
           var entitlementBulkUpdateRequest beta.EntitlementBulkUpdateRequest
-          if err := json.Unmarshal(data, &entitlementBulkUpdateRequest); err != nil {
+          if err := json.Unmarshal(entitlementbulkupdaterequest, &entitlementBulkUpdateRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -6067,7 +6067,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           workgroupdto := []byte(`{
           "owner" : {
             "emailAddress" : "support@sailpoint.com",
             "displayName" : "Support",
@@ -6086,7 +6086,7 @@
 
           
           var workgroupDto beta.WorkgroupDto
-          if err := json.Unmarshal(data, &workgroupDto); err != nil {
+          if err := json.Unmarshal(workgroupdto, &workgroupDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -6155,11 +6155,11 @@
 
         func main() {
           workgroupId := `2c91808a7813090a017814121919ecca` // string | ID of the Governance Group. # string | ID of the Governance Group.
-          bulkWorkgroupMembersRequestInner := fmt.Sprintf(``) // []BulkWorkgroupMembersRequestInner | List of identities to be removed from  a Governance Group members list.
+          bulkworkgroupmembersrequestinner := []byte(``) // []BulkWorkgroupMembersRequestInner | List of identities to be removed from  a Governance Group members list.
 
           
-          var bulkWorkgroupMembersRequestInner beta.BulkWorkgroupMembersRequestInner
-          if err := json.Unmarshal(data, &bulkWorkgroupMembersRequestInner); err != nil {
+          var bulkWorkgroupMembersRequestInner beta.[]BulkWorkgroupMembersRequestInner
+          if err := json.Unmarshal(bulkworkgroupmembersrequestinner, &bulkWorkgroupMembersRequestInner); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -6195,13 +6195,13 @@
         )
 
         func main() {
-           data := []byte(`{
+           workgroupbulkdeleterequest := []byte(`{
           "ids" : [ "567a697e-885b-495a-afc5-d55e1c23a302", "c7b0f7b2-1e78-4063-b294-a555333dacd2" ]
         }`) // WorkgroupBulkDeleteRequest | 
 
           
           var workgroupBulkDeleteRequest beta.WorkgroupBulkDeleteRequest
-          if err := json.Unmarshal(data, &workgroupBulkDeleteRequest); err != nil {
+          if err := json.Unmarshal(workgroupbulkdeleterequest, &workgroupBulkDeleteRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -6386,7 +6386,7 @@
 
         func main() {
           id := `2c9180837ca6693d017ca8d097500149` // string | ID of the Governance Group # string | ID of the Governance Group
-          jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/description, value=Governance Group new description.}]`) // []JsonPatchOperation |  (optional)
+          jsonpatchoperation := []byte(`[{op=replace, path=/description, value=Governance Group new description.}]`) // []JsonPatchOperation |  (optional)
 
           
 
@@ -6421,11 +6421,11 @@
 
         func main() {
           workgroupId := `2c91808a7813090a017814121919ecca` // string | ID of the Governance Group. # string | ID of the Governance Group.
-          bulkWorkgroupMembersRequestInner := fmt.Sprintf(``) // []BulkWorkgroupMembersRequestInner | List of identities to be added to a Governance Group members list.
+          bulkworkgroupmembersrequestinner := []byte(``) // []BulkWorkgroupMembersRequestInner | List of identities to be added to a Governance Group members list.
 
           
-          var bulkWorkgroupMembersRequestInner beta.BulkWorkgroupMembersRequestInner
-          if err := json.Unmarshal(data, &bulkWorkgroupMembersRequestInner); err != nil {
+          var bulkWorkgroupMembersRequestInner beta.[]BulkWorkgroupMembersRequestInner
+          if err := json.Unmarshal(bulkworkgroupmembersrequestinner, &bulkWorkgroupMembersRequestInner); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -6461,7 +6461,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           accessrequestrecommendationactionitemdto := []byte(`{
           "access" : {
             "id" : "2c9180835d2e5168015d32f890ca1581",
             "type" : "ACCESS_PROFILE"
@@ -6471,7 +6471,7 @@
 
           
           var accessRequestRecommendationActionItemDto beta.AccessRequestRecommendationActionItemDto
-          if err := json.Unmarshal(data, &accessRequestRecommendationActionItemDto); err != nil {
+          if err := json.Unmarshal(accessrequestrecommendationactionitemdto, &accessRequestRecommendationActionItemDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -6507,7 +6507,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           accessrequestrecommendationactionitemdto := []byte(`{
           "access" : {
             "id" : "2c9180835d2e5168015d32f890ca1581",
             "type" : "ACCESS_PROFILE"
@@ -6517,7 +6517,7 @@
 
           
           var accessRequestRecommendationActionItemDto beta.AccessRequestRecommendationActionItemDto
-          if err := json.Unmarshal(data, &accessRequestRecommendationActionItemDto); err != nil {
+          if err := json.Unmarshal(accessrequestrecommendationactionitemdto, &accessRequestRecommendationActionItemDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -6553,7 +6553,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           accessrequestrecommendationactionitemdto := []byte(`{
           "access" : {
             "id" : "2c9180835d2e5168015d32f890ca1581",
             "type" : "ACCESS_PROFILE"
@@ -6563,7 +6563,7 @@
 
           
           var accessRequestRecommendationActionItemDto beta.AccessRequestRecommendationActionItemDto
-          if err := json.Unmarshal(data, &accessRequestRecommendationActionItemDto); err != nil {
+          if err := json.Unmarshal(accessrequestrecommendationactionitemdto, &accessRequestRecommendationActionItemDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -6599,11 +6599,11 @@
         )
 
         func main() {
-          accessRequestRecommendationActionItemDto := fmt.Sprintf(``) // []AccessRequestRecommendationActionItemDto | The recommended access items that were viewed for an identity.
+          accessrequestrecommendationactionitemdto := []byte(``) // []AccessRequestRecommendationActionItemDto | The recommended access items that were viewed for an identity.
 
           
-          var accessRequestRecommendationActionItemDto beta.AccessRequestRecommendationActionItemDto
-          if err := json.Unmarshal(data, &accessRequestRecommendationActionItemDto); err != nil {
+          var accessRequestRecommendationActionItemDto beta.[]AccessRequestRecommendationActionItemDto
+          if err := json.Unmarshal(accessrequestrecommendationactionitemdto, &accessRequestRecommendationActionItemDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -6793,7 +6793,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           commonaccessitemrequest := []byte(`{
           "access" : {
             "ownerName" : "ownerName",
             "name" : "name",
@@ -6807,7 +6807,7 @@
 
           
           var commonAccessItemRequest beta.CommonAccessItemRequest
-          if err := json.Unmarshal(data, &commonAccessItemRequest); err != nil {
+          if err := json.Unmarshal(commonaccessitemrequest, &commonAccessItemRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -6881,11 +6881,11 @@
         )
 
         func main() {
-          commonAccessIDStatus := fmt.Sprintf(``) // []CommonAccessIDStatus | Confirm or deny in bulk the common access ids that are (or aren't) common access
+          commonaccessidstatus := []byte(``) // []CommonAccessIDStatus | Confirm or deny in bulk the common access ids that are (or aren't) common access
 
           
-          var commonAccessIDStatus beta.CommonAccessIDStatus
-          if err := json.Unmarshal(data, &commonAccessIDStatus); err != nil {
+          var commonAccessIDStatus beta.[]CommonAccessIDStatus
+          if err := json.Unmarshal(commonaccessidstatus, &commonAccessIDStatus); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -7173,11 +7173,11 @@
         )
 
         func main() {
-          requestBody := fmt.Sprintf(``) // []string | 
+          requestbody := []byte(``) // []string | 
 
           
-          var requestBody beta.RequestBody
-          if err := json.Unmarshal(data, &requestBody); err != nil {
+          var requestBody beta.[]RequestBody
+          if err := json.Unmarshal(requestbody, &requestBody); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -7251,11 +7251,11 @@
         )
 
         func main() {
-          requestBody := fmt.Sprintf(``) // []string | 
+          requestbody := []byte(``) // []string | 
 
           
-          var requestBody beta.RequestBody
-          if err := json.Unmarshal(data, &requestBody); err != nil {
+          var requestBody beta.[]RequestBody
+          if err := json.Unmarshal(requestbody, &requestBody); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -7326,7 +7326,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           recommendationrequestdto := []byte(`{
           "prescribeMode" : false,
           "excludeInterpretations" : false,
           "requests" : [ {
@@ -7348,7 +7348,7 @@
 
           
           var recommendationRequestDto beta.RecommendationRequestDto
-          if err := json.Unmarshal(data, &recommendationRequestDto); err != nil {
+          if err := json.Unmarshal(recommendationrequestdto, &recommendationRequestDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -7417,7 +7417,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           recommendationconfigdto := []byte(`{
           "recommenderFeatures" : [ "jobTitle", "location", "peer_group", "department", "active" ],
           "peerGroupPercentageThreshold" : 0.5,
           "runAutoSelectOnce" : false,
@@ -7426,7 +7426,7 @@
 
           
           var recommendationConfigDto beta.RecommendationConfigDto
-          if err := json.Unmarshal(data, &recommendationConfigDto); err != nil {
+          if err := json.Unmarshal(recommendationconfigdto, &recommendationConfigDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -7466,7 +7466,7 @@
           potentialRoleId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | A potential role id in a role mining session # string | A potential role id in a role mining session
           minEntitlementPopularity := 56 // int32 | Minimum popularity required for an entitlement to be included in the provisioned role. (optional) (default to 0) # int32 | Minimum popularity required for an entitlement to be included in the provisioned role. (optional) (default to 0)
           includeCommonAccess := true // bool | Boolean determining whether common access entitlements will be included in the provisioned role. (optional) (default to true) # bool | Boolean determining whether common access entitlements will be included in the provisioned role. (optional) (default to true)
-           data := []byte(`{
+           roleminingpotentialroleprovisionrequest := []byte(`{
           "includeIdentities" : true,
           "roleName" : "Finance - Accounting",
           "ownerId" : "2b568c65bc3c4c57a43bd97e3a8e41",
@@ -7506,7 +7506,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           roleminingsessiondto := []byte(`{
           "emailRecipientId" : "2c918090761a5aac0176215c46a62d58",
           "prescribedPruneThreshold" : 10,
           "pruneThreshold" : 50,
@@ -7541,7 +7541,7 @@
 
           
           var roleMiningSessionDto beta.RoleMiningSessionDto
-          if err := json.Unmarshal(data, &roleMiningSessionDto); err != nil {
+          if err := json.Unmarshal(roleminingsessiondto, &roleMiningSessionDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -7650,7 +7650,7 @@
         func main() {
           sessionId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The role mining session id # string | The role mining session id
           potentialRoleId := `278359a6-04b7-4669-9468-924cf580964a` // string | A potential role id in a role mining session # string | A potential role id in a role mining session
-           data := []byte(`{
+           roleminingpotentialroleexportrequest := []byte(`{
           "minEntitlementPopularity" : 0,
           "includeCommonAccess" : true
         }`) // RoleMiningPotentialRoleExportRequest |  (optional)
@@ -8288,11 +8288,11 @@
         func main() {
           sessionId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The role mining session id # string | The role mining session id
           potentialRoleId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The potential role summary id # string | The potential role summary id
-          patchPotentialRoleRequestInner := fmt.Sprintf(`[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]`) // []PatchPotentialRoleRequestInner | 
+          patchpotentialrolerequestinner := []byte(`[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]`) // []PatchPotentialRoleRequestInner | 
 
           
-          var patchPotentialRoleRequestInner beta.PatchPotentialRoleRequestInner
-          if err := json.Unmarshal(data, &patchPotentialRoleRequestInner); err != nil {
+          var patchPotentialRoleRequestInner beta.[]PatchPotentialRoleRequestInner
+          if err := json.Unmarshal(patchpotentialrolerequestinner, &patchPotentialRoleRequestInner); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -8329,11 +8329,11 @@
 
         func main() {
           potentialRoleId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The potential role summary id # string | The potential role summary id
-          patchPotentialRoleRequestInner := fmt.Sprintf(`[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]`) // []PatchPotentialRoleRequestInner | 
+          patchpotentialrolerequestinner := []byte(`[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]`) // []PatchPotentialRoleRequestInner | 
 
           
-          var patchPotentialRoleRequestInner beta.PatchPotentialRoleRequestInner
-          if err := json.Unmarshal(data, &patchPotentialRoleRequestInner); err != nil {
+          var patchPotentialRoleRequestInner beta.[]PatchPotentialRoleRequestInner
+          if err := json.Unmarshal(patchpotentialrolerequestinner, &patchPotentialRoleRequestInner); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -8370,11 +8370,11 @@
 
         func main() {
           sessionId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The role mining session id to be patched # string | The role mining session id to be patched
-          jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/pruneThreshold, value=83}, {op=replace, path=/minNumIdentitiesInPotentialRole, value=10}, {op=replace, path=/saved, value=false}, {op=replace, path=/name, value=RM Session - 07/10/22}, {op=add, path=/name, value=RM Session - 07/10/22}]`) // []JsonPatchOperation | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
+          jsonpatchoperation := []byte(`[{op=replace, path=/pruneThreshold, value=83}, {op=replace, path=/minNumIdentitiesInPotentialRole, value=10}, {op=replace, path=/saved, value=false}, {op=replace, path=/name, value=RM Session - 07/10/22}, {op=add, path=/name, value=RM Session - 07/10/22}]`) // []JsonPatchOperation | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -8412,14 +8412,14 @@
         func main() {
           sessionId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The role mining session id # string | The role mining session id
           potentialRoleId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | A potential role id in a role mining session # string | A potential role id in a role mining session
-           data := []byte(`{
+           roleminingpotentialroleeditentitlements := []byte(`{
           "ids" : [ "entId1", "entId2" ],
           "exclude" : true
         }`) // RoleMiningPotentialRoleEditEntitlements | Role mining session parameters
 
           
           var roleMiningPotentialRoleEditEntitlements beta.RoleMiningPotentialRoleEditEntitlements
-          if err := json.Unmarshal(data, &roleMiningPotentialRoleEditEntitlements); err != nil {
+          if err := json.Unmarshal(roleminingpotentialroleeditentitlements, &roleMiningPotentialRoleEditEntitlements); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -8767,14 +8767,14 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | Identity ID # string | Identity ID
-           data := []byte(`{
+           sendaccountverificationrequest := []byte(`{
           "sourceName" : "Active Directory Source",
           "via" : "EMAIL_WORK"
         }`) // SendAccountVerificationRequest | 
 
           
           var sendAccountVerificationRequest beta.SendAccountVerificationRequest
-          if err := json.Unmarshal(data, &sendAccountVerificationRequest); err != nil {
+          if err := json.Unmarshal(sendaccountverificationrequest, &sendAccountVerificationRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -8808,14 +8808,14 @@
         )
 
         func main() {
-           data := []byte(`{
+           inviteidentitiesrequest := []byte(`{
           "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
           "uninvited" : false
         }`) // InviteIdentitiesRequest | 
 
           
           var inviteIdentitiesRequest beta.InviteIdentitiesRequest
-          if err := json.Unmarshal(data, &inviteIdentitiesRequest); err != nil {
+          if err := json.Unmarshal(inviteidentitiesrequest, &inviteIdentitiesRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -8851,13 +8851,13 @@
         )
 
         func main() {
-           data := []byte(`{
+           processidentitiesrequest := []byte(`{
           "identityIds" : [ "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8" ]
         }`) // ProcessIdentitiesRequest | 
 
           
           var processIdentitiesRequest beta.ProcessIdentitiesRequest
-          if err := json.Unmarshal(data, &processIdentitiesRequest); err != nil {
+          if err := json.Unmarshal(processidentitiesrequest, &processIdentitiesRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -8927,7 +8927,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           identityattribute := []byte(`{
           "standard" : false,
           "system" : false,
           "sources" : [ {
@@ -8952,7 +8952,7 @@
 
           
           var identityAttribute beta.IdentityAttribute
-          if err := json.Unmarshal(data, &identityAttribute); err != nil {
+          if err := json.Unmarshal(identityattribute, &identityAttribute); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -9020,13 +9020,13 @@
         )
 
         func main() {
-           data := []byte(`{
+           identityattributenames := []byte(`{
           "ids" : [ "name", "displayName" ]
         }`) // IdentityAttributeNames | 
 
           
           var identityAttributeNames beta.IdentityAttributeNames
-          if err := json.Unmarshal(data, &identityAttributeNames); err != nil {
+          if err := json.Unmarshal(identityattributenames, &identityAttributeNames); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -9132,7 +9132,7 @@
 
         func main() {
           name := `displayName` // string | The attribute's technical name. # string | The attribute's technical name.
-           data := []byte(`{
+           identityattribute := []byte(`{
           "standard" : false,
           "system" : false,
           "sources" : [ {
@@ -9157,7 +9157,7 @@
 
           
           var identityAttribute beta.IdentityAttribute
-          if err := json.Unmarshal(data, &identityAttribute); err != nil {
+          if err := json.Unmarshal(identityattribute, &identityAttribute); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -9196,7 +9196,7 @@
           id := `8c190e6787aa4ed9a90bd9d5344523fb` // string | The identity id # string | The identity id
           snapshot1 := `2007-03-01T13:00:00Z` // string | The snapshot 1 of identity (optional) # string | The snapshot 1 of identity (optional)
           snapshot2 := `2008-03-01T13:00:00Z` // string | The snapshot 2 of identity (optional) # string | The snapshot 2 of identity (optional)
-          accessItemTypes := fmt.Sprintf(``) // []string | An optional list of access item types (app, account, entitlement, etc...) to return.   If null or empty, all access items types are returned  (optional)
+          accessitemtypes := []byte(``) // []string | An optional list of access item types (app, account, entitlement, etc...) to return.   If null or empty, all access items types are returned  (optional)
           limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
           offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
@@ -9310,8 +9310,8 @@
         func main() {
           id := `8c190e6787aa4ed9a90bd9d5344523fb` // string | The identity id # string | The identity id
           from := `2024-03-01T13:00:00Z` // string | The optional instant until which access events are returned (optional) # string | The optional instant until which access events are returned (optional)
-          eventTypes := fmt.Sprintf(`[AccessAddedEvent, AccessRemovedEvent]`) // []string | An optional list of event types to return.  If null or empty, all events are returned (optional)
-          accessItemTypes := fmt.Sprintf(`[entitlement, account]`) // []string | An optional list of access item types (app, account, entitlement, etc...) to return.   If null or empty, all access items types are returned (optional)
+          eventtypes := []byte(`[AccessAddedEvent, AccessRemovedEvent]`) // []string | An optional list of event types to return.  If null or empty, all events are returned (optional)
+          accessitemtypes := []byte(`[entitlement, account]`) // []string | An optional list of access item types (app, account, entitlement, etc...) to return.   If null or empty, all access items types are returned (optional)
           limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
           offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
@@ -9611,7 +9611,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           identityprofile := []byte(`{
           "owner" : {
             "name" : "William Wilson",
             "id" : "2c9180835d191a86015d28455b4b232a",
@@ -9663,7 +9663,7 @@
 
           
           var identityProfile beta.IdentityProfile
-          if err := json.Unmarshal(data, &identityProfile); err != nil {
+          if err := json.Unmarshal(identityprofile, &identityProfile); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -9733,11 +9733,11 @@
         )
 
         func main() {
-          requestBody := fmt.Sprintf(``) // []string | Identity Profile bulk delete request body.
+          requestbody := []byte(``) // []string | Identity Profile bulk delete request body.
 
           
-          var requestBody beta.RequestBody
-          if err := json.Unmarshal(data, &requestBody); err != nil {
+          var requestBody beta.[]RequestBody
+          if err := json.Unmarshal(requestbody, &requestBody); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -9879,11 +9879,11 @@
         )
 
         func main() {
-          identityProfileExportedObject := fmt.Sprintf(``) // []IdentityProfileExportedObject | Previously exported Identity Profiles.
+          identityprofileexportedobject := []byte(``) // []IdentityProfileExportedObject | Previously exported Identity Profiles.
 
           
-          var identityProfileExportedObject beta.IdentityProfileExportedObject
-          if err := json.Unmarshal(data, &identityProfileExportedObject); err != nil {
+          var identityProfileExportedObject beta.[]IdentityProfileExportedObject
+          if err := json.Unmarshal(identityprofileexportedobject, &identityProfileExportedObject); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -9957,7 +9957,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           identitypreviewrequest := []byte(`{
           "identityId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
           "identityAttributeConfig" : {
             "attributeTransforms" : [ {
@@ -9987,7 +9987,7 @@
 
           
           var identityPreviewRequest beta.IdentityPreviewRequest
-          if err := json.Unmarshal(data, &identityPreviewRequest); err != nil {
+          if err := json.Unmarshal(identitypreviewrequest, &identityPreviewRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -10058,11 +10058,11 @@
 
         func main() {
           identityProfileId := `ef38f94347e94562b5bb8424a56397d8` // string | Identity profile ID. # string | Identity profile ID.
-          jsonPatchOperation := fmt.Sprintf(`[{op=add, path=/identityAttributeConfig/attributeTransforms/0, value={identityAttributeName=location, transformDefinition={type=accountAttribute, attributes={sourceName=Employees, attributeName=location, sourceId=2c91808878b7d63b0178c66ffcdc4ce4}}}}]`) // []JsonPatchOperation | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+          jsonpatchoperation := []byte(`[{op=add, path=/identityAttributeConfig/attributeTransforms/0, value={identityAttributeName=location, transformDefinition={type=accountAttribute, attributes={sourceName=Employees, attributeName=location, sourceId=2c91808878b7d63b0178c66ffcdc4ce4}}}}]`) // []JsonPatchOperation | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -10098,7 +10098,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           launcherrequest := []byte(`{
           "reference" : {
             "id" : "2fd6ff94-2081-4d29-acbc-83a0a2f744a5",
             "type" : "WORKFLOW"
@@ -10112,7 +10112,7 @@
 
           
           var launcherRequest beta.LauncherRequest
-          if err := json.Unmarshal(data, &launcherRequest); err != nil {
+          if err := json.Unmarshal(launcherrequest, &launcherRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -10251,7 +10251,7 @@
 
         func main() {
           launcherID := `e3012408-8b61-4564-ad41-c5ec131c325b` // string | ID of the Launcher to be replaced # string | ID of the Launcher to be replaced
-           data := []byte(`{
+           launcherrequest := []byte(`{
           "reference" : {
             "id" : "2fd6ff94-2081-4d29-acbc-83a0a2f744a5",
             "type" : "WORKFLOW"
@@ -10265,7 +10265,7 @@
 
           
           var launcherRequest beta.LauncherRequest
-          if err := json.Unmarshal(data, &launcherRequest); err != nil {
+          if err := json.Unmarshal(launcherrequest, &launcherRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -10372,11 +10372,11 @@
         func main() {
           identityProfileId := `2b838de9-db9b-abcf-e646-d4f274ad4238` // string | Identity Profile ID. # string | Identity Profile ID.
           lifecycleStateId := `ef38f94347e94562b5bb8424a56397d8` // string | Lifecycle State ID. # string | Lifecycle State ID.
-          jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/accessProfileIds, value=[2c918087742bab150174407a80f3125e, 2c918087742bab150174407a80f3124f]}, {op=replace, path=/accountActions, value=[{action=ENABLE, sourceIds=[2c9180846a2f82fb016a481c1b1560c5, 2c9180846a2f82fb016a481c1b1560cc]}, {action=DISABLE, sourceIds=[2c91808869a0c9980169a207258513fb]}]}, {op=replace, path=/emailNotificationOption, value={notifyManagers=true, notifyAllAdmins=false, notifySpecificUsers=false, emailAddressList=[]}}]`) // []JsonPatchOperation | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
+          jsonpatchoperation := []byte(`[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/accessProfileIds, value=[2c918087742bab150174407a80f3125e, 2c918087742bab150174407a80f3124f]}, {op=replace, path=/accountActions, value=[{action=ENABLE, sourceIds=[2c9180846a2f82fb016a481c1b1560c5, 2c9180846a2f82fb016a481c1b1560cc]}, {action=DISABLE, sourceIds=[2c91808869a0c9980169a207258513fb]}]}, {op=replace, path=/emailNotificationOption, value={notifyManagers=true, notifyAllAdmins=false, notifySpecificUsers=false, emailAddressList=[]}}]`) // []JsonPatchOperation | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -10449,7 +10449,7 @@
 
         func main() {
           id := `aClientId` // string | ID of the Managed Client Status to update # string | ID of the Managed Client Status to update
-           data := []byte(`{
+           managedclientstatus := []byte(`{
           "body" : {
             "alertKey" : "",
             "id" : "5678",
@@ -10478,7 +10478,7 @@
 
           
           var managedClientStatus beta.ManagedClientStatus
-          if err := json.Unmarshal(data, &managedClientStatus); err != nil {
+          if err := json.Unmarshal(managedclientstatus, &managedClientStatus); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -10620,7 +10620,7 @@
 
         func main() {
           id := `aClusterId` // string | ID of ManagedCluster to update log configuration for # string | ID of ManagedCluster to update log configuration for
-           data := []byte(`{
+           clientlogconfiguration := []byte(`{
           "durationMinutes" : 120,
           "rootLevel" : "INFO",
           "clientId" : "aClientId",
@@ -10794,7 +10794,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           mfaduoconfig := []byte(`{
           "accessKey" : "qw123Y3QlA5UqocYpdU3rEkzrK2D497y",
           "host" : "example.com",
           "configProperties" : {
@@ -10808,7 +10808,7 @@
 
           
           var mfaDuoConfig beta.MfaDuoConfig
-          if err := json.Unmarshal(data, &mfaDuoConfig); err != nil {
+          if err := json.Unmarshal(mfaduoconfig, &mfaDuoConfig); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -10844,11 +10844,11 @@
         )
 
         func main() {
-          kbaAnswerRequestItem := fmt.Sprintf(`[{id=173423, answer=822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34}, {id=c54fee53-2d63-4fc5-9259-3e93b9994135, answer=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08}]`) // []KbaAnswerRequestItem | 
+          kbaanswerrequestitem := []byte(`[{id=173423, answer=822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34}, {id=c54fee53-2d63-4fc5-9259-3e93b9994135, answer=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08}]`) // []KbaAnswerRequestItem | 
 
           
-          var kbaAnswerRequestItem beta.KbaAnswerRequestItem
-          if err := json.Unmarshal(data, &kbaAnswerRequestItem); err != nil {
+          var kbaAnswerRequestItem beta.[]KbaAnswerRequestItem
+          if err := json.Unmarshal(kbaanswerrequestitem, &kbaAnswerRequestItem); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -10884,7 +10884,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           mfaoktaconfig := []byte(`{
           "accessKey" : "qw123Y3QlA5UqocYpdU3rEkzrK2D497y",
           "host" : "example.com",
           "mfaMethod" : "okta-verify",
@@ -10894,7 +10894,7 @@
 
           
           var mfaOktaConfig beta.MfaOktaConfig
-          if err := json.Unmarshal(data, &mfaOktaConfig); err != nil {
+          if err := json.Unmarshal(mfaoktaconfig, &mfaOktaConfig); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -10964,14 +10964,14 @@
         )
 
         func main() {
-           data := []byte(`{
+           sendtokenrequest := []byte(`{
           "userAlias" : "will.albin",
           "deliveryType" : "EMAIL_WORK"
         }`) // SendTokenRequest | 
 
           
           var sendTokenRequest beta.SendTokenRequest
-          if err := json.Unmarshal(data, &sendTokenRequest); err != nil {
+          if err := json.Unmarshal(sendtokenrequest, &sendTokenRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -11008,13 +11008,13 @@
 
         func main() {
           method := `okta-verify` // string | The name of the MFA method. The currently supported method names are 'okta-verify', 'duo-web', 'kba','token', 'rsa' # string | The name of the MFA method. The currently supported method names are 'okta-verify', 'duo-web', 'kba','token', 'rsa'
-           data := []byte(`{
+           verificationpollrequest := []byte(`{
           "requestId" : "089899f13a8f4da7824996191587bab9"
         }`) // VerificationPollRequest | 
 
           
           var verificationPollRequest beta.VerificationPollRequest
-          if err := json.Unmarshal(data, &verificationPollRequest); err != nil {
+          if err := json.Unmarshal(verificationpollrequest, &verificationPollRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -11050,14 +11050,14 @@
         )
 
         func main() {
-           data := []byte(`{
+           duoverificationrequest := []byte(`{
           "signedResponse" : "AUTH|d2lsbC5hbGJpbnxESTZNMFpHSThKQVRWTVpZN0M5VXwxNzAxMjUzMDg5|f1f5f8ced5b340f3d303b05d0efa0e43b6a8f970:APP|d2lsbC5hbGJpbnxESTZNMFpHSThKQVRWTVpZN0M5VXwxNzAxMjU2NjE5|cb44cf44353f5127edcae31b1da0355f87357db2",
           "userId" : "2c9180947f0ef465017f215cbcfd004b"
         }`) // DuoVerificationRequest | 
 
           
           var duoVerificationRequest beta.DuoVerificationRequest
-          if err := json.Unmarshal(data, &duoVerificationRequest); err != nil {
+          if err := json.Unmarshal(duoverificationrequest, &duoVerificationRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -11093,11 +11093,11 @@
         )
 
         func main() {
-          kbaAnswerRequestItem := fmt.Sprintf(`[{id=173423, answer=822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34}, {id=c54fee53-2d63-4fc5-9259-3e93b9994135, answer=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08}]`) // []KbaAnswerRequestItem | 
+          kbaanswerrequestitem := []byte(`[{id=173423, answer=822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34}, {id=c54fee53-2d63-4fc5-9259-3e93b9994135, answer=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08}]`) // []KbaAnswerRequestItem | 
 
           
-          var kbaAnswerRequestItem beta.KbaAnswerRequestItem
-          if err := json.Unmarshal(data, &kbaAnswerRequestItem); err != nil {
+          var kbaAnswerRequestItem beta.[]KbaAnswerRequestItem
+          if err := json.Unmarshal(kbaanswerrequestitem, &kbaAnswerRequestItem); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -11133,13 +11133,13 @@
         )
 
         func main() {
-           data := []byte(`{
+           oktaverificationrequest := []byte(`{
           "userId" : "example@mail.com"
         }`) // OktaVerificationRequest | 
 
           
           var oktaVerificationRequest beta.OktaVerificationRequest
-          if err := json.Unmarshal(data, &oktaVerificationRequest); err != nil {
+          if err := json.Unmarshal(oktaverificationrequest, &oktaVerificationRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -11175,7 +11175,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           tokenauthrequest := []byte(`{
           "userAlias" : "will.albin",
           "deliveryType" : "EMAIL_WORK",
           "token" : "12345"
@@ -11183,7 +11183,7 @@
 
           
           var tokenAuthRequest beta.TokenAuthRequest
-          if err := json.Unmarshal(data, &tokenAuthRequest); err != nil {
+          if err := json.Unmarshal(tokenauthrequest, &tokenAuthRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -11219,7 +11219,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           multihostintegrationscreate := []byte(`{
           "owner" : {
             "name" : "MyName",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -11248,7 +11248,7 @@
 
           
           var multiHostIntegrationsCreate beta.MultiHostIntegrationsCreate
-          if err := json.Unmarshal(data, &multiHostIntegrationsCreate); err != nil {
+          if err := json.Unmarshal(multihostintegrationscreate, &multiHostIntegrationsCreate); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -11285,11 +11285,11 @@
 
         func main() {
           multihostId := `2c91808568c529c60168cca6f90c1326` // string | ID of the Multi-Host Integration. # string | ID of the Multi-Host Integration.
-          multiHostIntegrationsCreateSources := fmt.Sprintf(``) // []MultiHostIntegrationsCreateSources | The specifics of the sources to create within Multi-Host Integration.
+          multihostintegrationscreatesources := []byte(``) // []MultiHostIntegrationsCreateSources | The specifics of the sources to create within Multi-Host Integration.
 
           
-          var multiHostIntegrationsCreateSources beta.MultiHostIntegrationsCreateSources
-          if err := json.Unmarshal(data, &multiHostIntegrationsCreateSources); err != nil {
+          var multiHostIntegrationsCreateSources beta.[]MultiHostIntegrationsCreateSources
+          if err := json.Unmarshal(multihostintegrationscreatesources, &multiHostIntegrationsCreateSources); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -11670,11 +11670,11 @@
 
         func main() {
           multihostId := `anId` // string | ID of the Multi-Host Integration to update. # string | ID of the Multi-Host Integration to update.
-          updateMultiHostSourcesRequestInner := fmt.Sprintf(`[{op=add, path=/description, value=MDK Multi-Host Integration 222 description}]`) // []UpdateMultiHostSourcesRequestInner | This endpoint allows you to update a Multi-Host Integration. 
+          updatemultihostsourcesrequestinner := []byte(`[{op=add, path=/description, value=MDK Multi-Host Integration 222 description}]`) // []UpdateMultiHostSourcesRequestInner | This endpoint allows you to update a Multi-Host Integration. 
 
           
-          var updateMultiHostSourcesRequestInner beta.UpdateMultiHostSourcesRequestInner
-          if err := json.Unmarshal(data, &updateMultiHostSourcesRequestInner); err != nil {
+          var updateMultiHostSourcesRequestInner beta.[]UpdateMultiHostSourcesRequestInner
+          if err := json.Unmarshal(updatemultihostsourcesrequestinner, &updateMultiHostSourcesRequestInner); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -11709,13 +11709,13 @@
 
         func main() {
           id := `id_example` // string | Non-Employee approval item id (UUID) # string | Non-Employee approval item id (UUID)
-           data := []byte(`{
+           nonemployeeapprovaldecision := []byte(`{
           "comment" : "comment"
         }`) // NonEmployeeApprovalDecision | 
 
           
           var nonEmployeeApprovalDecision beta.NonEmployeeApprovalDecision
-          if err := json.Unmarshal(data, &nonEmployeeApprovalDecision); err != nil {
+          if err := json.Unmarshal(nonemployeeapprovaldecision, &nonEmployeeApprovalDecision); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -11752,7 +11752,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           nonemployeerequestbody := []byte(`{
           "sourceId" : "2c91808568c529c60168cca6f90c1313",
           "firstName" : "William",
           "lastName" : "Smith",
@@ -11769,7 +11769,7 @@
 
           
           var nonEmployeeRequestBody beta.NonEmployeeRequestBody
-          if err := json.Unmarshal(data, &nonEmployeeRequestBody); err != nil {
+          if err := json.Unmarshal(nonemployeerequestbody, &nonEmployeeRequestBody); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -11806,7 +11806,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           nonemployeerequestbody := []byte(`{
           "sourceId" : "2c91808568c529c60168cca6f90c1313",
           "firstName" : "William",
           "lastName" : "Smith",
@@ -11823,7 +11823,7 @@
 
           
           var nonEmployeeRequestBody beta.NonEmployeeRequestBody
-          if err := json.Unmarshal(data, &nonEmployeeRequestBody); err != nil {
+          if err := json.Unmarshal(nonemployeerequestbody, &nonEmployeeRequestBody); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -11859,7 +11859,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           nonemployeesourcerequestbody := []byte(`{
           "owner" : {
             "id" : "2c91808570313110017040b06f344ec9"
           },
@@ -11888,7 +11888,7 @@
 
           
           var nonEmployeeSourceRequestBody beta.NonEmployeeSourceRequestBody
-          if err := json.Unmarshal(data, &nonEmployeeSourceRequestBody); err != nil {
+          if err := json.Unmarshal(nonemployeesourcerequestbody, &nonEmployeeSourceRequestBody); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -11925,7 +11925,7 @@
 
         func main() {
           sourceId := `2c91808b6ef1d43e016efba0ce470904` // string | The Source id # string | The Source id
-           data := []byte(`{
+           nonemployeeschemaattributebody := []byte(`{
           "helpText" : "The unique identifier for the account",
           "label" : "Account Name",
           "placeholder" : "Enter a unique user name for this account.",
@@ -11936,7 +11936,7 @@
 
           
           var nonEmployeeSchemaAttributeBody beta.NonEmployeeSchemaAttributeBody
-          if err := json.Unmarshal(data, &nonEmployeeSchemaAttributeBody); err != nil {
+          if err := json.Unmarshal(nonemployeeschemaattributebody, &nonEmployeeSchemaAttributeBody); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -12004,11 +12004,11 @@
         )
 
         func main() {
-           data := []byte(``) // DeleteNonEmployeeRecordInBulkRequest | Non-Employee bulk delete request body.
+           deletenonemployeerecordinbulkrequest := []byte(``) // DeleteNonEmployeeRecordInBulkRequest | Non-Employee bulk delete request body.
 
           
           var deleteNonEmployeeRecordInBulkRequest beta.DeleteNonEmployeeRecordInBulkRequest
-          if err := json.Unmarshal(data, &deleteNonEmployeeRecordInBulkRequest); err != nil {
+          if err := json.Unmarshal(deletenonemployeerecordinbulkrequest, &deleteNonEmployeeRecordInBulkRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -12734,11 +12734,11 @@
 
         func main() {
           id := `2c91808b6ef1d43e016efba0ce470904` // string | Non-employee record id (UUID) # string | Non-employee record id (UUID)
-          jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/endDate, value={2019-08-23T18:40:35.772Z=null}}]`) // []JsonPatchOperation | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
+          jsonpatchoperation := []byte(`[{op=replace, path=/endDate, value={2019-08-23T18:40:35.772Z=null}}]`) // []JsonPatchOperation | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -12776,11 +12776,11 @@
         func main() {
           attributeId := `2c91808b6ef1d43e016efba0ce470904` // string | The Schema Attribute Id (UUID) # string | The Schema Attribute Id (UUID)
           sourceId := `2c91808b6ef1d43e016efba0ce470904` // string | The Source id # string | The Source id
-          jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/label, value={new attribute label=null}}]`) // []JsonPatchOperation | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update ':' 'label', 'helpText', 'placeholder', 'required'.
+          jsonpatchoperation := []byte(`[{op=replace, path=/label, value={new attribute label=null}}]`) // []JsonPatchOperation | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update ':' 'label', 'helpText', 'placeholder', 'required'.
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -12817,11 +12817,11 @@
 
         func main() {
           sourceId := `2c91808b6ef1d43e016efba0ce470904` // string | Source Id # string | Source Id
-          jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/name, value={new name=null}}, {op=replace, path=/approvers, value=[2c91809f703bb37a017040a2fe8748c7, 48b1f463c9e8427db5a5071bd81914b8]}]`) // []JsonPatchOperation | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+          jsonpatchoperation := []byte(`[{op=replace, path=/name, value={new name=null}}, {op=replace, path=/approvers, value=[2c91809f703bb37a017040a2fe8748c7, 48b1f463c9e8427db5a5071bd81914b8]}]`) // []JsonPatchOperation | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -12858,13 +12858,13 @@
 
         func main() {
           id := `id_example` // string | Non-Employee approval item id (UUID) # string | Non-Employee approval item id (UUID)
-           data := []byte(`{
+           nonemployeerejectapprovaldecision := []byte(`{
           "comment" : "comment"
         }`) // NonEmployeeRejectApprovalDecision | 
 
           
           var nonEmployeeRejectApprovalDecision beta.NonEmployeeRejectApprovalDecision
-          if err := json.Unmarshal(data, &nonEmployeeRejectApprovalDecision); err != nil {
+          if err := json.Unmarshal(nonemployeerejectapprovaldecision, &nonEmployeeRejectApprovalDecision); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -12902,7 +12902,7 @@
 
         func main() {
           id := `2c91808b6ef1d43e016efba0ce470904` // string | Non-employee record id (UUID) # string | Non-employee record id (UUID)
-           data := []byte(`{
+           nonemployeerequestbody := []byte(`{
           "sourceId" : "2c91808568c529c60168cca6f90c1313",
           "firstName" : "William",
           "lastName" : "Smith",
@@ -12919,7 +12919,7 @@
 
           
           var nonEmployeeRequestBody beta.NonEmployeeRequestBody
-          if err := json.Unmarshal(data, &nonEmployeeRequestBody); err != nil {
+          if err := json.Unmarshal(nonemployeerequestbody, &nonEmployeeRequestBody); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -12955,13 +12955,13 @@
         )
 
         func main() {
-           data := []byte(`{
+           domainaddress := []byte(`{
           "domain" : "sailpoint.com"
         }`) // DomainAddress | 
 
           
           var domainAddress beta.DomainAddress
-          if err := json.Unmarshal(data, &domainAddress); err != nil {
+          if err := json.Unmarshal(domainaddress, &domainAddress); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -12997,7 +12997,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           templatedto := []byte(`{
           "slackTemplate" : "slackTemplate",
           "footer" : "footer",
           "teamsTemplate" : "teamsTemplate",
@@ -13018,7 +13018,7 @@
 
           
           var templateDto beta.TemplateDto
-          if err := json.Unmarshal(data, &templateDto); err != nil {
+          if err := json.Unmarshal(templatedto, &templateDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -13054,7 +13054,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           emailstatusdto := []byte(`{
           "isVerifiedByDomain" : false,
           "verificationStatus" : "PENDING",
           "id" : "id",
@@ -13063,7 +13063,7 @@
 
           
           var emailStatusDto beta.EmailStatusDto
-          if err := json.Unmarshal(data, &emailStatusDto); err != nil {
+          if err := json.Unmarshal(emailstatusdto, &emailStatusDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -13099,11 +13099,11 @@
         )
 
         func main() {
-          templateBulkDeleteDto := fmt.Sprintf(``) // []TemplateBulkDeleteDto | 
+          templatebulkdeletedto := []byte(``) // []TemplateBulkDeleteDto | 
 
           
-          var templateBulkDeleteDto beta.TemplateBulkDeleteDto
-          if err := json.Unmarshal(data, &templateBulkDeleteDto); err != nil {
+          var templateBulkDeleteDto beta.[]TemplateBulkDeleteDto
+          if err := json.Unmarshal(templatebulkdeletedto, &templateBulkDeleteDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -13447,14 +13447,14 @@
         )
 
         func main() {
-           data := []byte(`{
+           mailfromattributesdto := []byte(`{
           "identity" : "BobSmith@sailpoint.com",
           "mailFromDomain" : "example.sailpoint.com"
         }`) // MailFromAttributesDto | 
 
           
           var mailFromAttributesDto beta.MailFromAttributesDto
-          if err := json.Unmarshal(data, &mailFromAttributesDto); err != nil {
+          if err := json.Unmarshal(mailfromattributesdto, &mailFromAttributesDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -13490,7 +13490,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           sendtestnotificationrequestdto := []byte(`{
           "context" : "{}",
           "medium" : "EMAIL",
           "key" : "cloud_manual_work_item_summary"
@@ -13498,7 +13498,7 @@
 
           
           var sendTestNotificationRequestDto beta.SendTestNotificationRequestDto
-          if err := json.Unmarshal(data, &sendTestNotificationRequestDto); err != nil {
+          if err := json.Unmarshal(sendtestnotificationrequestdto, &sendTestNotificationRequestDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -13532,7 +13532,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           createoauthclientrequest := []byte(`{
           "internal" : false,
           "businessName" : "Acme-Solar",
           "description" : "An API client used for the authorization_code, refresh_token, and client_credentials flows",
@@ -13552,7 +13552,7 @@
 
           
           var createOAuthClientRequest beta.CreateOAuthClientRequest
-          if err := json.Unmarshal(data, &createOAuthClientRequest); err != nil {
+          if err := json.Unmarshal(createoauthclientrequest, &createOAuthClientRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -13689,11 +13689,11 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | The OAuth client id # string | The OAuth client id
-          jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/strongAuthSupported, value=true}, {op=replace, path=/businessName, value=acme-solar}]`) // []JsonPatchOperation | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
+          jsonpatchoperation := []byte(`[{op=replace, path=/strongAuthSupported, value=true}, {op=replace, path=/businessName, value=acme-solar}]`) // []JsonPatchOperation | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -13795,11 +13795,11 @@
         )
 
         func main() {
-          jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/timeZone, value=America/Toronto}]`) // []JsonPatchOperation | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+          jsonpatchoperation := []byte(`[{op=replace, path=/timeZone, value=America/Toronto}]`) // []JsonPatchOperation | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -13835,7 +13835,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           passwordorgconfig := []byte(`{
           "digitTokenLength" : 9,
           "digitTokenEnabled" : true,
           "digitTokenDurationMinutes" : 10,
@@ -13844,7 +13844,7 @@
 
           
           var passwordOrgConfig beta.PasswordOrgConfig
-          if err := json.Unmarshal(data, &passwordOrgConfig); err != nil {
+          if err := json.Unmarshal(passwordorgconfig, &passwordOrgConfig); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -13913,7 +13913,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           passwordorgconfig := []byte(`{
           "digitTokenLength" : 9,
           "digitTokenEnabled" : true,
           "digitTokenDurationMinutes" : 10,
@@ -13922,7 +13922,7 @@
 
           
           var passwordOrgConfig beta.PasswordOrgConfig
-          if err := json.Unmarshal(data, &passwordOrgConfig); err != nil {
+          if err := json.Unmarshal(passwordorgconfig, &passwordOrgConfig); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -14023,7 +14023,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           passworddigittokenreset := []byte(`{
           "durationMinutes" : 5,
           "length" : 8,
           "userId" : "Abby.Smith"
@@ -14031,7 +14031,7 @@
 
           
           var passwordDigitTokenReset beta.PasswordDigitTokenReset
-          if err := json.Unmarshal(data, &passwordDigitTokenReset); err != nil {
+          if err := json.Unmarshal(passworddigittokenreset, &passwordDigitTokenReset); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -14101,14 +14101,14 @@
         )
 
         func main() {
-           data := []byte(`{
+           passwordinfoquerydto := []byte(`{
           "sourceName" : "My-AD",
           "userName" : "Abby.Smith"
         }`) // PasswordInfoQueryDTO | 
 
           
           var passwordInfoQueryDTO beta.PasswordInfoQueryDTO
-          if err := json.Unmarshal(data, &passwordInfoQueryDTO); err != nil {
+          if err := json.Unmarshal(passwordinfoquerydto, &passwordInfoQueryDTO); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -14144,7 +14144,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           passwordchangerequest := []byte(`{
           "sourceId" : "8a807d4c73c545510173c545d4b60246",
           "accountId" : "CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com",
           "identityId" : "8a807d4c73c545510173c545f0a002ff",
@@ -14154,7 +14154,7 @@
 
           
           var passwordChangeRequest beta.PasswordChangeRequest
-          if err := json.Unmarshal(data, &passwordChangeRequest); err != nil {
+          if err := json.Unmarshal(passwordchangerequest, &passwordChangeRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -14190,7 +14190,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           passwordpolicyv3dto := []byte(`{
           "validateAgainstAccountName" : true,
           "minLength" : 8,
           "description" : "Information about the Password Policy",
@@ -14226,7 +14226,7 @@
 
           
           var passwordPolicyV3Dto beta.PasswordPolicyV3Dto
-          if err := json.Unmarshal(data, &passwordPolicyV3Dto); err != nil {
+          if err := json.Unmarshal(passwordpolicyv3dto, &passwordPolicyV3Dto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -14365,7 +14365,7 @@
 
         func main() {
           id := `ff808081838d9e9d01838da6a03e0007` // string | The ID of password policy to update. # string | The ID of password policy to update.
-           data := []byte(`{
+           passwordpolicyv3dto := []byte(`{
           "validateAgainstAccountName" : true,
           "minLength" : 8,
           "description" : "Information about the Password Policy",
@@ -14401,7 +14401,7 @@
 
           
           var passwordPolicyV3Dto beta.PasswordPolicyV3Dto
-          if err := json.Unmarshal(data, &passwordPolicyV3Dto); err != nil {
+          if err := json.Unmarshal(passwordpolicyv3dto, &passwordPolicyV3Dto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -14437,7 +14437,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           passwordsyncgroup := []byte(`{
           "created" : "2023-03-16T04:00:00Z",
           "name" : "Password Sync Group 1",
           "modified" : "2023-03-16T04:00:00Z",
@@ -14448,7 +14448,7 @@
 
           
           var passwordSyncGroup beta.PasswordSyncGroup
-          if err := json.Unmarshal(data, &passwordSyncGroup); err != nil {
+          if err := json.Unmarshal(passwordsyncgroup, &passwordSyncGroup); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -14587,7 +14587,7 @@
 
         func main() {
           id := `6881f631-3bd5-4213-9c75-8e05cc3e35dd` // string | The ID of password sync group to update. # string | The ID of password sync group to update.
-           data := []byte(`{
+           passwordsyncgroup := []byte(`{
           "created" : "2023-03-16T04:00:00Z",
           "name" : "Password Sync Group 1",
           "modified" : "2023-03-16T04:00:00Z",
@@ -14598,7 +14598,7 @@
 
           
           var passwordSyncGroup beta.PasswordSyncGroup
-          if err := json.Unmarshal(data, &passwordSyncGroup); err != nil {
+          if err := json.Unmarshal(passwordsyncgroup, &passwordSyncGroup); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -14634,7 +14634,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           createpersonalaccesstokenrequest := []byte(`{
           "scope" : [ "demo:personal-access-token-scope:first", "demo:personal-access-token-scope:second" ],
           "accessTokenValiditySeconds" : 36900,
           "name" : "NodeJS Integration"
@@ -14642,7 +14642,7 @@
 
           
           var createPersonalAccessTokenRequest beta.CreatePersonalAccessTokenRequest
-          if err := json.Unmarshal(data, &createPersonalAccessTokenRequest); err != nil {
+          if err := json.Unmarshal(createpersonalaccesstokenrequest, &createPersonalAccessTokenRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -14746,11 +14746,11 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | The Personal Access Token id # string | The Personal Access Token id
-          jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/name, value=New name}, {op=replace, path=/scope, value=[sp:scopes:all]}]`) // []JsonPatchOperation | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
+          jsonpatchoperation := []byte(`[{op=replace, path=/name, value=New name}, {op=replace, path=/scope, value=[sp:scopes:all]}]`) // []JsonPatchOperation | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -14819,7 +14819,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           publicidentityconfig := []byte(`{
           "modified" : "2018-06-25T20:22:28.104Z",
           "attributes" : [ {
             "name" : "Country",
@@ -14837,7 +14837,7 @@
 
           
           var publicIdentityConfig beta.PublicIdentityConfig
-          if err := json.Unmarshal(data, &publicIdentityConfig); err != nil {
+          if err := json.Unmarshal(publicidentityconfig, &publicIdentityConfig); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -14874,9 +14874,9 @@
 
         func main() {
           identityId := `e7eab60924f64aa284175b9fa3309599` // string | If present, the value returns only requestable objects for the specified identity.  * Admin users can call this with any identity ID value.  * Non-admin users can only specify *me* or pass their own identity ID value.  * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result. (optional) # string | If present, the value returns only requestable objects for the specified identity.  * Admin users can call this with any identity ID value.  * Non-admin users can only specify *me* or pass their own identity ID value.  * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result. (optional)
-          types := fmt.Sprintf(`ROLE,ACCESS_PROFILE`) // []RequestableObjectType | Filters the results to the specified type/types, where each type is one of `ROLE` or `ACCESS_PROFILE`. If absent, all types are returned. SailPoint may add support for additional types in the future without notice. (optional)
+          types := []byte(`ROLE,ACCESS_PROFILE`) // []RequestableObjectType | Filters the results to the specified type/types, where each type is one of `ROLE` or `ACCESS_PROFILE`. If absent, all types are returned. SailPoint may add support for additional types in the future without notice. (optional)
           term := `Finance Role` // string | Allows searching requestable access items with a partial match on the name or description. If `term` is provided, then the API will ignore the `filter` query parameter. (optional) # string | Allows searching requestable access items with a partial match on the name or description. If `term` is provided, then the API will ignore the `filter` query parameter. (optional)
-          statuses := fmt.Sprintf(`[ASSIGNED, PENDING]`) // []RequestableObjectRequestStatus | Filters the result to the specified status/statuses, where each status is one of `AVAILABLE`, `ASSIGNED`, or `PENDING`. Specifying this parameter without also specifying an `identity-id` parameter results in an error.  SailPoint may add additional statuses in the future without notice. (optional)
+          statuses := []byte(`[ASSIGNED, PENDING]`) // []RequestableObjectRequestStatus | Filters the result to the specified status/statuses, where each status is one of `AVAILABLE`, `ASSIGNED`, or `PENDING`. Specifying this parameter without also specifying an `identity-id` parameter results in an error.  SailPoint may add additional statuses in the future without notice. (optional)
           limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
           offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
@@ -15235,7 +15235,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           role := []byte(`{
           "owner" : {
             "name" : "support",
             "id" : "2c9180a46faadee4016fb4e018c20639",
@@ -15397,7 +15397,7 @@
 
           
           var role beta.Role
-          if err := json.Unmarshal(data, &role); err != nil {
+          if err := json.Unmarshal(role, &role); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -15433,13 +15433,13 @@
         )
 
         func main() {
-           data := []byte(`{
+           rolebulkdeleterequest := []byte(`{
           "roleIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ]
         }`) // RoleBulkDeleteRequest | 
 
           
           var roleBulkDeleteRequest beta.RoleBulkDeleteRequest
-          if err := json.Unmarshal(data, &roleBulkDeleteRequest); err != nil {
+          if err := json.Unmarshal(rolebulkdeleterequest, &roleBulkDeleteRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -15661,11 +15661,11 @@
 
         func main() {
           id := `2c91808a7813090a017814121e121518` // string | ID of the Role to patch # string | ID of the Role to patch
-          jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/requestable, value=true}, {op=replace, path=/enabled, value=true}]`) // []JsonPatchOperation | 
+          jsonpatchoperation := []byte(`[{op=replace, path=/requestable, value=true}, {op=replace, path=/enabled, value=true}]`) // []JsonPatchOperation | 
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -15701,7 +15701,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           searchattributeconfig := []byte(`{
           "displayName" : "New Mail Attribute",
           "name" : "newMailAttribute",
           "applicationAttributes" : {
@@ -15712,7 +15712,7 @@
 
           
           var searchAttributeConfig beta.SearchAttributeConfig
-          if err := json.Unmarshal(data, &searchAttributeConfig); err != nil {
+          if err := json.Unmarshal(searchattributeconfig, &searchAttributeConfig); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -15850,11 +15850,11 @@
 
         func main() {
           name := `promotedMailAttribute` // string | Name of the extended search attribute configuration to patch. # string | Name of the extended search attribute configuration to patch.
-          jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/name, value=newAttributeName}, {op=replace, path=/displayName, value=new attribute display name}, {op=add, path=/applicationAttributes, value={2c91808b79fd2422017a0b35d30f3968=employeeNumber}}]`) // []JsonPatchOperation | 
+          jsonpatchoperation := []byte(`[{op=replace, path=/name, value=newAttributeName}, {op=replace, path=/displayName, value=new attribute display name}, {op=add, path=/applicationAttributes, value={2c91808b79fd2422017a0b35d30f3968=employeeNumber}}]`) // []JsonPatchOperation | 
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -15890,7 +15890,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           segment := []byte(`{
           "owner" : {
             "name" : "support",
             "id" : "2c9180a46faadee4016fb4e018c20639",
@@ -15917,7 +15917,7 @@
 
           
           var segment beta.Segment
-          if err := json.Unmarshal(data, &segment); err != nil {
+          if err := json.Unmarshal(segment, &segment); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -16056,11 +16056,11 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | The segment ID to modify. # string | The segment ID to modify.
-          requestBody := fmt.Sprintf(`[{op=replace, path=/visibilityCriteria, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}]`) // []map[string]interface{} | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
+          requestbody := []byte(`[{op=replace, path=/visibilityCriteria, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}]`) // []map[string]interface{} | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
 
           
-          var requestBody beta.RequestBody
-          if err := json.Unmarshal(data, &requestBody); err != nil {
+          var requestBody beta.[]RequestBody
+          if err := json.Unmarshal(requestbody, &requestBody); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -16096,7 +16096,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           servicedeskintegrationdto := []byte(`{
           "ownerRef" : "",
           "cluster" : "xyzzy999",
           "managedSources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
@@ -16130,7 +16130,7 @@
 
           
           var serviceDeskIntegrationDto beta.ServiceDeskIntegrationDto
-          if err := json.Unmarshal(data, &serviceDeskIntegrationDto); err != nil {
+          if err := json.Unmarshal(servicedeskintegrationdto, &serviceDeskIntegrationDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -16371,11 +16371,11 @@
 
         func main() {
           id := `anId` // string | ID of the Service Desk integration to update # string | ID of the Service Desk integration to update
-          jsonPatchOperation := fmt.Sprintf(``) // []JsonPatchOperation | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+          jsonpatchoperation := []byte(``) // []JsonPatchOperation | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -16412,7 +16412,7 @@
 
         func main() {
           id := `anId` // string | ID of the Service Desk integration to update # string | ID of the Service Desk integration to update
-           data := []byte(`{
+           servicedeskintegrationdto := []byte(`{
           "ownerRef" : "",
           "cluster" : "xyzzy999",
           "managedSources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
@@ -16446,7 +16446,7 @@
 
           
           var serviceDeskIntegrationDto beta.ServiceDeskIntegrationDto
-          if err := json.Unmarshal(data, &serviceDeskIntegrationDto); err != nil {
+          if err := json.Unmarshal(servicedeskintegrationdto, &serviceDeskIntegrationDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -16482,14 +16482,14 @@
         )
 
         func main() {
-           data := []byte(`{
+           queuedcheckconfigdetails := []byte(`{
           "provisioningStatusCheckIntervalMinutes" : "30",
           "provisioningMaxStatusCheckDays" : "2"
         }`) // QueuedCheckConfigDetails | The modified time check configuration
 
           
           var queuedCheckConfigDetails beta.QueuedCheckConfigDetails
-          if err := json.Unmarshal(data, &queuedCheckConfigDetails); err != nil {
+          if err := json.Unmarshal(queuedcheckconfigdetails, &queuedCheckConfigDetails); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -16525,7 +16525,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           simintegrationdetails := []byte(`{
           "cluster" : "xyzzy999",
           "statusMap" : "{closed_cancelled=Failed, closed_complete=Committed, closed_incomplete=Failed, closed_rejected=Failed, in_process=Queued, requested=Queued}",
           "request" : "{description=SailPoint Access Request,, req_description=The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,, req_short_description=SailPoint New Access Request Created from IdentityNow,, short_description=SailPoint Access Request $!plan.arguments.identityRequestId}",
@@ -16546,7 +16546,7 @@
 
           
           var simIntegrationDetails beta.SimIntegrationDetails
-          if err := json.Unmarshal(data, &simIntegrationDetails); err != nil {
+          if err := json.Unmarshal(simintegrationdetails, &simIntegrationDetails); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -16682,11 +16682,11 @@
 
         func main() {
           id := `12345` // string | SIM integration id # string | SIM integration id
-           data := []byte(`"[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]"`) // JsonPatch | The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
+           jsonpatch := []byte(`"[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]"`) // JsonPatch | The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
 
           
           var jsonPatch beta.JsonPatch
-          if err := json.Unmarshal(data, &jsonPatch); err != nil {
+          if err := json.Unmarshal(jsonpatch, &jsonPatch); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -16723,11 +16723,11 @@
 
         func main() {
           id := `12345` // string | SIM integration id # string | SIM integration id
-           data := []byte(`"[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]"`) // JsonPatch | The JsonPatch object that describes the changes of SIM
+           jsonpatch := []byte(`"[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]"`) // JsonPatch | The JsonPatch object that describes the changes of SIM
 
           
           var jsonPatch beta.JsonPatch
-          if err := json.Unmarshal(data, &jsonPatch); err != nil {
+          if err := json.Unmarshal(jsonpatch, &jsonPatch); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -16764,7 +16764,7 @@
 
         func main() {
           id := `12345` // string | The id of the integration. # string | The id of the integration.
-           data := []byte(`{
+           simintegrationdetails := []byte(`{
           "cluster" : "xyzzy999",
           "statusMap" : "{closed_cancelled=Failed, closed_complete=Committed, closed_incomplete=Failed, closed_rejected=Failed, in_process=Queued, requested=Queued}",
           "request" : "{description=SailPoint Access Request,, req_description=The Service Request created by SailPoint ServiceNow Service Integration Module (SIM).,, req_short_description=SailPoint New Access Request Created from IdentityNow,, short_description=SailPoint Access Request $!plan.arguments.identityRequestId}",
@@ -16785,7 +16785,7 @@
 
           
           var simIntegrationDetails beta.SimIntegrationDetails
-          if err := json.Unmarshal(data, &simIntegrationDetails); err != nil {
+          if err := json.Unmarshal(simintegrationdetails, &simIntegrationDetails); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -16821,7 +16821,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           sodpolicy := []byte(`{
           "conflictingAccessCriteria" : {
             "leftCriteria" : {
               "name" : "money-in",
@@ -16880,7 +16880,7 @@
 
           
           var sodPolicy beta.SodPolicy
-          if err := json.Unmarshal(data, &sodPolicy); err != nil {
+          if err := json.Unmarshal(sodpolicy, &sodPolicy); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -17258,11 +17258,11 @@
 
         func main() {
           id := `2c9180835d191a86015d28455b4a2329` // string | The ID of the SOD policy being modified. # string | The ID of the SOD policy being modified.
-          requestBody := fmt.Sprintf(`[{op=replace, path=/description, value=Modified description}, {op=replace, path=/conflictingAccessCriteria/leftCriteria/name, value=money-in-modified}, {op=replace, path=/conflictingAccessCriteria/rightCriteria, value={name=money-out-modified, criteriaList=[{type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2}]}}]`) // []map[string]interface{} | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
+          requestbody := []byte(`[{op=replace, path=/description, value=Modified description}, {op=replace, path=/conflictingAccessCriteria/leftCriteria/name, value=money-in-modified}, {op=replace, path=/conflictingAccessCriteria/rightCriteria, value={name=money-out-modified, criteriaList=[{type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2}]}}]`) // []map[string]interface{} | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
 
           
-          var requestBody beta.RequestBody
-          if err := json.Unmarshal(data, &requestBody); err != nil {
+          var requestBody beta.[]RequestBody
+          if err := json.Unmarshal(requestbody, &requestBody); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -17299,7 +17299,7 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | The ID of the SOD policy to update its schedule. # string | The ID of the SOD policy to update its schedule.
-           data := []byte(`{
+           sodpolicyschedule := []byte(`{
           "schedule" : {
             "hours" : {
               "accountMatchConfig" : {
@@ -17388,7 +17388,7 @@
 
           
           var sodPolicySchedule beta.SodPolicySchedule
-          if err := json.Unmarshal(data, &sodPolicySchedule); err != nil {
+          if err := json.Unmarshal(sodpolicyschedule, &sodPolicySchedule); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -17425,7 +17425,7 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | The ID of the SOD policy to update. # string | The ID of the SOD policy to update.
-           data := []byte(`{
+           sodpolicy := []byte(`{
           "conflictingAccessCriteria" : {
             "leftCriteria" : {
               "name" : "money-in",
@@ -17484,7 +17484,7 @@
 
           
           var sodPolicy beta.SodPolicy
-          if err := json.Unmarshal(data, &sodPolicy); err != nil {
+          if err := json.Unmarshal(sodpolicy, &sodPolicy); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -17520,7 +17520,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           multipolicyrequest := []byte(`{
           "filteredPolicyList" : [ "filteredPolicyList", "filteredPolicyList" ]
         }`) // MultiPolicyRequest |  (optional)
 
@@ -17590,7 +17590,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           identitywithnewaccess := []byte(`{
           "identityId" : "2c91808568c529c60168cca6f90c1313",
           "accessRefs" : [ {
             "type" : "ENTITLEMENT",
@@ -17605,7 +17605,7 @@
 
           
           var identityWithNewAccess beta.IdentityWithNewAccess
-          if err := json.Unmarshal(data, &identityWithNewAccess); err != nil {
+          if err := json.Unmarshal(identitywithnewaccess, &identityWithNewAccess); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -17642,7 +17642,7 @@
 
         func main() {
           sourceId := `2c9180835d191a86015d28455b4a2329` // string | The Source id # string | The Source id
-           data := []byte(`{
+           provisioningpolicydto := []byte(`{
           "name" : "example provisioning policy for inactive identities",
           "description" : "this provisioning policy creates access based on an identity going inactive",
           "fields" : [ {
@@ -17685,7 +17685,7 @@
 
           
           var provisioningPolicyDto beta.ProvisioningPolicyDto
-          if err := json.Unmarshal(data, &provisioningPolicyDto); err != nil {
+          if err := json.Unmarshal(provisioningpolicydto, &provisioningPolicyDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -17721,7 +17721,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           source := []byte(`{
           "cluster" : {
             "name" : "Corporate Cluster",
             "id" : "2c9180866166b5b0016167c32ef31a66",
@@ -17808,7 +17808,7 @@
 
           
           var source beta.Source
-          if err := json.Unmarshal(data, &source); err != nil {
+          if err := json.Unmarshal(source, &source); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -17845,7 +17845,7 @@
 
         func main() {
           sourceId := `2c9180835d191a86015d28455b4a2329` // string | Source ID. # string | Source ID.
-           data := []byte(`{
+           schema := []byte(`{
           "features" : [ "PROVISIONING", "NO_PERMISSIONS_PROVISIONING", "GROUPS_HAVE_MEMBERS" ],
           "nativeObjectType" : "User",
           "configuration" : {
@@ -17882,7 +17882,7 @@
 
           
           var schema beta.Schema
-          if err := json.Unmarshal(data, &schema); err != nil {
+          if err := json.Unmarshal(schema, &schema); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -18747,14 +18747,14 @@
 
         func main() {
           sourceId := `cef3ee201db947c5912551015ba0c679` // string | The ID of the Source # string | The ID of the Source
-           data := []byte(`{
+           resourceobjectsrequest := []byte(`{
           "maxCount" : 100,
           "objectType" : "group"
         }`) // ResourceObjectsRequest | 
 
           
           var resourceObjectsRequest beta.ResourceObjectsRequest
-          if err := json.Unmarshal(data, &resourceObjectsRequest); err != nil {
+          if err := json.Unmarshal(resourceobjectsrequest, &resourceObjectsRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -18825,7 +18825,7 @@
 
         func main() {
           sourceId := `2c9180835d191a86015d28455b4a2329` // string | The source id # string | The source id
-           data := []byte(`{
+           correlationconfig := []byte(`{
           "attributeAssignments" : [ {
             "filterString" : "first_name == \"John\"",
             "ignoreCase" : false,
@@ -18849,7 +18849,7 @@
 
           
           var correlationConfig beta.CorrelationConfig
-          if err := json.Unmarshal(data, &correlationConfig); err != nil {
+          if err := json.Unmarshal(correlationconfig, &correlationConfig); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -18886,7 +18886,7 @@
 
         func main() {
           sourceId := `2c9180835d191a86015d28455b4a2329` // string | The source id # string | The source id
-           data := []byte(`{
+           nativechangedetectionconfig := []byte(`{
           "selectedEntitlements" : [ "memberOf", "memberOfSharedMailbox" ],
           "operations" : [ "ACCOUNT_UPDATED", "ACCOUNT_DELETED" ],
           "selectedNonEntitlementAttributes" : [ "lastName", "phoneNumber", "objectType", "servicePrincipalName" ],
@@ -18897,7 +18897,7 @@
 
           
           var nativeChangeDetectionConfig beta.NativeChangeDetectionConfig
-          if err := json.Unmarshal(data, &nativeChangeDetectionConfig); err != nil {
+          if err := json.Unmarshal(nativechangedetectionconfig, &nativeChangeDetectionConfig); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -18935,7 +18935,7 @@
         func main() {
           sourceId := `2c9180835d191a86015d28455b4a2329` // string | The Source ID. # string | The Source ID.
           usageType := CREATE // UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.  # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
-           data := []byte(`{
+           provisioningpolicydto := []byte(`{
           "name" : "example provisioning policy for inactive identities",
           "description" : "this provisioning policy creates access based on an identity going inactive",
           "fields" : [ {
@@ -18978,7 +18978,7 @@
 
           
           var provisioningPolicyDto beta.ProvisioningPolicyDto
-          if err := json.Unmarshal(data, &provisioningPolicyDto); err != nil {
+          if err := json.Unmarshal(provisioningpolicydto, &provisioningPolicyDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -19015,7 +19015,7 @@
 
         func main() {
           id := `2c9180835d191a86015d28455b4a2329` // string | Source ID. # string | Source ID.
-           data := []byte(`{
+           source := []byte(`{
           "cluster" : {
             "name" : "Corporate Cluster",
             "id" : "2c9180866166b5b0016167c32ef31a66",
@@ -19101,7 +19101,7 @@
 
           
           var source beta.Source
-          if err := json.Unmarshal(data, &source); err != nil {
+          if err := json.Unmarshal(source, &source); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -19138,7 +19138,7 @@
 
         func main() {
           id := `2c9180835d191a86015d28455b4a2329` // string | The source id # string | The source id
-           data := []byte(`{
+           attrsyncsourceconfig := []byte(`{
           "attributes" : [ {
             "name" : "email",
             "displayName" : "Email",
@@ -19159,7 +19159,7 @@
 
           
           var attrSyncSourceConfig beta.AttrSyncSourceConfig
-          if err := json.Unmarshal(data, &attrSyncSourceConfig); err != nil {
+          if err := json.Unmarshal(attrsyncsourceconfig, &attrSyncSourceConfig); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -19197,7 +19197,7 @@
         func main() {
           sourceId := `2c9180835d191a86015d28455b4a2329` // string | The Source ID. # string | The Source ID.
           schemaId := `2c9180835d191a86015d28455b4a2329` // string | The Schema ID. # string | The Schema ID.
-           data := []byte(`{
+           schema := []byte(`{
           "features" : [ "PROVISIONING", "NO_PERMISSIONS_PROVISIONING", "GROUPS_HAVE_MEMBERS" ],
           "nativeObjectType" : "User",
           "configuration" : {
@@ -19234,7 +19234,7 @@
 
           
           var schema beta.Schema
-          if err := json.Unmarshal(data, &schema); err != nil {
+          if err := json.Unmarshal(schema, &schema); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -19373,11 +19373,11 @@
 
         func main() {
           sourceId := `2c9180835d191a86015d28455b4a2329` // string | The Source id. # string | The Source id.
-          provisioningPolicyDto := fmt.Sprintf(``) // []ProvisioningPolicyDto | 
+          provisioningpolicydto := []byte(``) // []ProvisioningPolicyDto | 
 
           
-          var provisioningPolicyDto beta.ProvisioningPolicyDto
-          if err := json.Unmarshal(data, &provisioningPolicyDto); err != nil {
+          var provisioningPolicyDto beta.[]ProvisioningPolicyDto
+          if err := json.Unmarshal(provisioningpolicydto, &provisioningPolicyDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -19415,11 +19415,11 @@
         func main() {
           sourceId := `2c9180835d191a86015d28455b4a2329` // string | The Source id. # string | The Source id.
           usageType := CREATE // UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.  # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
-          jsonPatchOperation := fmt.Sprintf(`[{op=add, path=/fields/0, value={name=email, transform={type=identityAttribute, attributes={name=email}}, attributes={}, isRequired=false, type=string, isMultiValued=false}}]`) // []JsonPatchOperation | The JSONPatch payload used to update the schema.
+          jsonpatchoperation := []byte(`[{op=add, path=/fields/0, value={name=email, transform={type=identityAttribute, attributes={name=email}}, attributes={}, isRequired=false, type=string, isMultiValued=false}}]`) // []JsonPatchOperation | The JSONPatch payload used to update the schema.
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -19456,11 +19456,11 @@
 
         func main() {
           id := `2c9180835d191a86015d28455b4a2329` // string | Source ID. # string | Source ID.
-          jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/description, value=new description}]`) // []JsonPatchOperation | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
+          jsonpatchoperation := []byte(`[{op=replace, path=/description, value=new description}]`) // []JsonPatchOperation | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -19497,7 +19497,7 @@
 
         func main() {
           sourceId := `8c190e6787aa4ed9a90bd9d5344523fb` // string | The Source id # string | The Source id
-           data := []byte(`{
+           sourceentitlementrequestconfig := []byte(`{
           "accessRequestConfig" : {
             "denialCommentRequired" : false,
             "approvalSchemes" : [ {
@@ -19513,7 +19513,7 @@
 
           
           var sourceEntitlementRequestConfig beta.SourceEntitlementRequestConfig
-          if err := json.Unmarshal(data, &sourceEntitlementRequestConfig); err != nil {
+          if err := json.Unmarshal(sourceentitlementrequestconfig, &sourceEntitlementRequestConfig); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -19551,11 +19551,11 @@
         func main() {
           sourceId := `2c9180835d191a86015d28455b4a2329` // string | The Source id. # string | The Source id.
           schemaId := `2c9180835d191a86015d28455b4a2329` // string | The Schema id. # string | The Schema id.
-          jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/displayAttribute, value={new-display-attribute=null}}]`) // []JsonPatchOperation | The JSONPatch payload used to update the schema.
+          jsonpatchoperation := []byte(`[{op=replace, path=/displayAttribute, value={new-display-attribute=null}}]`) // []JsonPatchOperation | The JSONPatch payload used to update the schema.
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -19663,13 +19663,13 @@
         )
 
         func main() {
-           data := []byte(`{
+           exportpayload := []byte(`{
           "description" : "Export Job 1 Test"
         }`) // ExportPayload | Export options control what will be included in the export.
 
           
           var exportPayload beta.ExportPayload
-          if err := json.Unmarshal(data, &exportPayload); err != nil {
+          if err := json.Unmarshal(exportpayload, &exportPayload); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -19843,7 +19843,7 @@
         func main() {
           data := BINARY_DATA_HERE // *os.File | JSON file containing the objects to be imported. # *os.File | JSON file containing the objects to be imported.
           preview := true // bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to false) # bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to false)
-           data := []byte(``) // ImportOptions |  (optional)
+           options := []byte(``) // ImportOptions |  (optional)
 
           
 
@@ -20018,11 +20018,11 @@
 
         func main() {
           id := `ebab396f-0af1-4050-89b7-dafc63ec70e7` // string | id is sed id # string | id is sed id
-          sedPatch := fmt.Sprintf(``) // []SedPatch | Sed Patch Request
+          sedpatch := []byte(``) // []SedPatch | Sed Patch Request
 
           
-          var sedPatch beta.SedPatch
-          if err := json.Unmarshal(data, &sedPatch); err != nil {
+          var sedPatch beta.[]SedPatch
+          if err := json.Unmarshal(sedpatch, &sedPatch); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -20058,11 +20058,11 @@
         )
 
         func main() {
-          sedApproval := fmt.Sprintf(``) // []SedApproval | Sed Approval
+          sedapproval := []byte(``) // []SedApproval | Sed Approval
 
           
-          var sedApproval beta.SedApproval
-          if err := json.Unmarshal(data, &sedApproval); err != nil {
+          var sedApproval beta.[]SedApproval
+          if err := json.Unmarshal(sedapproval, &sedApproval); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -20098,7 +20098,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           sedassignment := []byte(`{
           "assignee" : {
             "type" : "SOURCE_OWNER",
             "value" : "016629d1-1d25-463f-97f3-c6686846650"
@@ -20108,7 +20108,7 @@
 
           
           var sedAssignment beta.SedAssignment
-          if err := json.Unmarshal(data, &sedAssignment); err != nil {
+          if err := json.Unmarshal(sedassignment, &sedAssignment); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -20144,7 +20144,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           sedbatchrequest := []byte(`{
           "entitlements" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
           "seds" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ]
         }`) // SedBatchRequest | Sed Batch Request (optional)
@@ -20214,7 +20214,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           bulktaggedobject := []byte(`{
           "objectRefs" : [ {
             "name" : "William Wilson",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -20230,7 +20230,7 @@
 
           
           var bulkTaggedObject beta.BulkTaggedObject
-          if err := json.Unmarshal(data, &bulkTaggedObject); err != nil {
+          if err := json.Unmarshal(bulktaggedobject, &bulkTaggedObject); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -20376,7 +20376,7 @@
         func main() {
           type_ := `ROLE` // string | The type of tagged object to update. # string | The type of tagged object to update.
           id := `ef38f94347e94562b5bb8424a56397d8` // string | The ID of the object reference to update. # string | The ID of the object reference to update.
-           data := []byte(`{
+           taggedobject := []byte(`{
           "objectRef" : {
             "name" : "William Wilson",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -20387,7 +20387,7 @@
 
           
           var taggedObject beta.TaggedObject
-          if err := json.Unmarshal(data, &taggedObject); err != nil {
+          if err := json.Unmarshal(taggedobject, &taggedObject); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -20423,7 +20423,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           taggedobject := []byte(`{
           "objectRef" : {
             "name" : "William Wilson",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -20434,7 +20434,7 @@
 
           
           var taggedObject beta.TaggedObject
-          if err := json.Unmarshal(data, &taggedObject); err != nil {
+          if err := json.Unmarshal(taggedobject, &taggedObject); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -20468,7 +20468,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           bulktaggedobject := []byte(`{
           "objectRefs" : [ {
             "name" : "William Wilson",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -20484,7 +20484,7 @@
 
           
           var bulkTaggedObject beta.BulkTaggedObject
-          if err := json.Unmarshal(data, &bulkTaggedObject); err != nil {
+          if err := json.Unmarshal(bulktaggedobject, &bulkTaggedObject); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -20521,7 +20521,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           tag := []byte(`{
           "created" : "2022-05-04T14:48:49Z",
           "tagCategoryRefs" : [ {
             "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
@@ -20539,7 +20539,7 @@
 
           
           var tag beta.Tag
-          if err := json.Unmarshal(data, &tag); err != nil {
+          if err := json.Unmarshal(tag, &tag); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -20822,11 +20822,11 @@
 
         func main() {
           id := `00eebcf881994e419d72e757fd30dc0e` // string | Task ID. # string | Task ID.
-          jsonPatchOperation := fmt.Sprintf(``) // []JsonPatchOperation | The JSONPatch payload used to update the object.
+          jsonpatchoperation := []byte(``) // []JsonPatchOperation | The JSONPatch payload used to update the object.
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -20895,7 +20895,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           transform := []byte(`{
           "name" : "Timestamp To Date",
           "attributes" : "{}",
           "type" : "dateFormat"
@@ -20903,7 +20903,7 @@
 
           
           var transform beta.Transform
-          if err := json.Unmarshal(data, &transform); err != nil {
+          if err := json.Unmarshal(transform, &transform); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -21044,7 +21044,7 @@
 
         func main() {
           id := `2cd78adghjkja34jh2b1hkjhasuecd` // string | ID of the transform to update # string | ID of the transform to update
-           data := []byte(`{
+           transform := []byte(`{
           "name" : "Timestamp To Date",
           "attributes" : "{}",
           "type" : "dateFormat"
@@ -21083,7 +21083,7 @@
 
         func main() {
           id := `0f11f2a4-7c94-4bf3-a2bd-742580fe3bde` // string | The ID of the invocation to complete. # string | The ID of the invocation to complete.
-           data := []byte(`{
+           completeinvocation := []byte(`{
           "output" : {
             "approved" : false
           },
@@ -21093,7 +21093,7 @@
 
           
           var completeInvocation beta.CompleteInvocation
-          if err := json.Unmarshal(data, &completeInvocation); err != nil {
+          if err := json.Unmarshal(completeinvocation, &completeInvocation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -21127,7 +21127,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           subscriptionpostrequest := []byte(`{
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
           "httpConfig" : {
             "bearerTokenAuthConfig" : {
@@ -21155,7 +21155,7 @@
 
           
           var subscriptionPostRequest beta.SubscriptionPostRequest
-          if err := json.Unmarshal(data, &subscriptionPostRequest); err != nil {
+          if err := json.Unmarshal(subscriptionpostrequest, &subscriptionPostRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -21338,11 +21338,11 @@
 
         func main() {
           id := `0f11f2a4-7c94-4bf3-a2bd-742580fe3bde` // string | ID of the Subscription to patch # string | ID of the Subscription to patch
-          subscriptionPatchRequestInner := fmt.Sprintf(``) // []SubscriptionPatchRequestInner | 
+          subscriptionpatchrequestinner := []byte(``) // []SubscriptionPatchRequestInner | 
 
           
-          var subscriptionPatchRequestInner beta.SubscriptionPatchRequestInner
-          if err := json.Unmarshal(data, &subscriptionPatchRequestInner); err != nil {
+          var subscriptionPatchRequestInner beta.[]SubscriptionPatchRequestInner
+          if err := json.Unmarshal(subscriptionpatchrequestinner, &subscriptionPatchRequestInner); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -21378,7 +21378,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           testinvocation := []byte(`{
           "input" : {
             "identityId" : "201327fda1c44704ac01181e963d463c"
           },
@@ -21391,7 +21391,7 @@
 
           
           var testInvocation beta.TestInvocation
-          if err := json.Unmarshal(data, &testInvocation); err != nil {
+          if err := json.Unmarshal(testinvocation, &testInvocation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -21427,7 +21427,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           validatefilterinputdto := []byte(`{
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
           "input" : {
             "identityId" : "201327fda1c44704ac01181e963d463c"
@@ -21436,7 +21436,7 @@
 
           
           var validateFilterInputDto beta.ValidateFilterInputDto
-          if err := json.Unmarshal(data, &validateFilterInputDto); err != nil {
+          if err := json.Unmarshal(validatefilterinputdto, &validateFilterInputDto); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -21473,7 +21473,7 @@
 
         func main() {
           id := `0f11f2a4-7c94-4bf3-a2bd-742580fe3bde` // string | Subscription ID # string | Subscription ID
-           data := []byte(`{
+           subscriptionputrequest := []byte(`{
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
           "httpConfig" : {
             "bearerTokenAuthConfig" : {
@@ -21500,7 +21500,7 @@
 
           
           var subscriptionPutRequest beta.SubscriptionPutRequest
-          if err := json.Unmarshal(data, &subscriptionPutRequest); err != nil {
+          if err := json.Unmarshal(subscriptionputrequest, &subscriptionPutRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -21569,7 +21569,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           tenantuimetadataitemupdaterequest := []byte(`{
           "usernameEmptyText" : "Please provide your work email address...",
           "usernameLabel" : "Email",
           "iframeWhiteList" : "http://example.com http://example2.com"
@@ -21577,7 +21577,7 @@
 
           
           var tenantUiMetadataItemUpdateRequest beta.TenantUiMetadataItemUpdateRequest
-          if err := json.Unmarshal(data, &tenantUiMetadataItemUpdateRequest); err != nil {
+          if err := json.Unmarshal(tenantuimetadataitemupdaterequest, &tenantUiMetadataItemUpdateRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -21613,7 +21613,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           vendorconnectormapping := []byte(`{
           "createdAt" : "2024-03-13T12:56:19.391294Z",
           "deletedAt" : {
             "Valid" : false,
@@ -21639,7 +21639,7 @@
 
           
           var vendorConnectorMapping beta.VendorConnectorMapping
-          if err := json.Unmarshal(data, &vendorConnectorMapping); err != nil {
+          if err := json.Unmarshal(vendorconnectormapping, &vendorConnectorMapping); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -21675,7 +21675,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           vendorconnectormapping := []byte(`{
           "createdAt" : "2024-03-13T12:56:19.391294Z",
           "deletedAt" : {
             "Valid" : false,
@@ -21701,7 +21701,7 @@
 
           
           var vendorConnectorMapping beta.VendorConnectorMapping
-          if err := json.Unmarshal(data, &vendorConnectorMapping); err != nil {
+          if err := json.Unmarshal(vendorconnectormapping, &vendorConnectorMapping); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -21802,11 +21802,11 @@
         )
 
         func main() {
-           data := []byte(`{name=Send Email, owner={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}, description=Send an email to the identity who's attributes changed., definition={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}, enabled=false, trigger={type=EVENT, attributes={id=idn:identity-attributes-changed, filter=$.changes[?(@.attribute == 'manager')]}}}`) // CreateWorkflowRequest | 
+           createworkflowrequest := []byte(`{name=Send Email, owner={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}, description=Send an email to the identity who's attributes changed., definition={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}, enabled=false, trigger={type=EVENT, attributes={id=idn:identity-attributes-changed, filter=$.changes[?(@.attribute == 'manager')]}}}`) // CreateWorkflowRequest | 
 
           
           var createWorkflowRequest beta.CreateWorkflowRequest
-          if err := json.Unmarshal(data, &createWorkflowRequest); err != nil {
+          if err := json.Unmarshal(createworkflowrequest, &createWorkflowRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -22193,11 +22193,11 @@
 
         func main() {
           id := `c17bea3a-574d-453c-9e04-4365fbf5af0b` // string | Id of the Workflow # string | Id of the Workflow
-          jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/name, value=Send Email}, {op=replace, path=/owner, value={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}}, {op=replace, path=/description, value=Send an email to the identity who's attributes changed.}, {op=replace, path=/enabled, value=false}, {op=replace, path=/definition, value={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}}, {op=replace, path=/trigger, value={type=EVENT, attributes={id=idn:identity-attributes-changed}}}]`) // []JsonPatchOperation | 
+          jsonpatchoperation := []byte(`[{op=replace, path=/name, value=Send Email}, {op=replace, path=/owner, value={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}}, {op=replace, path=/description, value=Send an email to the identity who's attributes changed.}, {op=replace, path=/enabled, value=false}, {op=replace, path=/definition, value={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}}, {op=replace, path=/trigger, value={type=EVENT, attributes={id=idn:identity-attributes-changed}}}]`) // []JsonPatchOperation | 
 
           
-          var jsonPatchOperation beta.JsonPatchOperation
-          if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+          var jsonPatchOperation beta.[]JsonPatchOperation
+          if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -22234,7 +22234,7 @@
 
         func main() {
           id := `c17bea3a-574d-453c-9e04-4365fbf5af0b` // string | Id of the workflow # string | Id of the workflow
-           data := []byte(``) // PostExternalExecuteWorkflowRequest |  (optional)
+           postexternalexecuteworkflowrequest := []byte(``) // PostExternalExecuteWorkflowRequest |  (optional)
 
           
 
@@ -22303,7 +22303,7 @@
 
         func main() {
           id := `c17bea3a-574d-453c-9e04-4365fbf5af0b` // string | Id of the Workflow # string | Id of the Workflow
-           data := []byte(`{
+           workflowbody := []byte(`{
           "owner" : {
             "name" : "William Wilson",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -22340,7 +22340,7 @@
 
           
           var workflowBody beta.WorkflowBody
-          if err := json.Unmarshal(data, &workflowBody); err != nil {
+          if err := json.Unmarshal(workflowbody, &workflowBody); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -22377,7 +22377,7 @@
 
         func main() {
           id := `c17bea3a-574d-453c-9e04-4365fbf5af0b` // string | Id of the workflow # string | Id of the workflow
-           data := []byte(``) // TestExternalExecuteWorkflowRequest |  (optional)
+           testexternalexecuteworkflowrequest := []byte(``) // TestExternalExecuteWorkflowRequest |  (optional)
 
           
 
@@ -22412,11 +22412,11 @@
 
         func main() {
           id := `c17bea3a-574d-453c-9e04-4365fbf5af0b` // string | Id of the workflow # string | Id of the workflow
-           data := []byte(`{input={identity={id=ee769173319b41d19ccec6cea52f237b, name=john.doe, type=IDENTITY}, changes=[{attribute=department, oldValue=sales, newValue=marketing}, {attribute=manager, oldValue={id=ee769173319b41d19ccec6c235423237b, name=nice.guy, type=IDENTITY}, newValue={id=ee769173319b41d19ccec6c235423236c, name=mean.guy, type=IDENTITY}}, {attribute=email, oldValue=john.doe@hotmail.com, newValue=john.doe@gmail.com}]}}`) // TestWorkflowRequest | 
+           testworkflowrequest := []byte(`{input={identity={id=ee769173319b41d19ccec6cea52f237b, name=john.doe, type=IDENTITY}, changes=[{attribute=department, oldValue=sales, newValue=marketing}, {attribute=manager, oldValue={id=ee769173319b41d19ccec6c235423237b, name=nice.guy, type=IDENTITY}, newValue={id=ee769173319b41d19ccec6c235423236c, name=mean.guy, type=IDENTITY}}, {attribute=email, oldValue=john.doe@hotmail.com, newValue=john.doe@gmail.com}]}}`) // TestWorkflowRequest | 
 
           
           var testWorkflowRequest beta.TestWorkflowRequest
-          if err := json.Unmarshal(data, &testWorkflowRequest); err != nil {
+          if err := json.Unmarshal(testworkflowrequest, &testWorkflowRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -22843,7 +22843,7 @@
 
           
           var requestBody beta.RequestBody
-          if err := json.Unmarshal(data, &requestBody); err != nil {
+          if err := json.Unmarshal(requestbody, &requestBody); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -22880,7 +22880,7 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | The ID of the work item # string | The ID of the work item
-           data := []byte(`{
+           workitemforward := []byte(`{
           "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
           "comment" : "I'm going on vacation.",
           "sendNotifications" : true
@@ -22888,7 +22888,7 @@
 
           
           var workItemForward beta.WorkItemForward
-          if err := json.Unmarshal(data, &workItemForward); err != nil {
+          if err := json.Unmarshal(workitemforward, &workItemForward); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -22922,7 +22922,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           configurationitemrequest := []byte(`{
           "endDate" : "2022-07-30T17:00:00Z",
           "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
           "configType" : "ACCESS_REQUESTS",
@@ -22932,7 +22932,7 @@
 
           
           var configurationItemRequest beta.ConfigurationItemRequest
-          if err := json.Unmarshal(data, &configurationItemRequest); err != nil {
+          if err := json.Unmarshal(configurationitemrequest, &configurationItemRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -23003,7 +23003,7 @@
         func main() {
           identityId := `2c91808781a71ddb0181b9090b5c504e` // string | unique identity id # string | unique identity id
           configType := accessRequests // ConfigTypeEnum | Reassignment work type # ConfigTypeEnum | Reassignment work type
-          exclusionFilters := fmt.Sprintf(`SELF_REVIEW_DELEGATION`) // []string | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
+          exclusionfilters := []byte(`SELF_REVIEW_DELEGATION`) // []string | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
 
           
 
@@ -23173,7 +23173,7 @@
 
         func main() {
           identityId := `2c91808781a71ddb0181b9090b5c504e` // string | unique identity id # string | unique identity id
-           data := []byte(`{
+           configurationitemrequest := []byte(`{
           "endDate" : "2022-07-30T17:00:00Z",
           "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
           "configType" : "ACCESS_REQUESTS",
@@ -23183,7 +23183,7 @@
 
           
           var configurationItemRequest beta.ConfigurationItemRequest
-          if err := json.Unmarshal(data, &configurationItemRequest); err != nil {
+          if err := json.Unmarshal(configurationitemrequest, &configurationItemRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }
@@ -23219,7 +23219,7 @@
         )
 
         func main() {
-           data := []byte(`{
+           tenantconfigurationrequest := []byte(`{
           "configDetails" : {
             "disabled" : true
           }
@@ -23227,7 +23227,7 @@
 
           
           var tenantConfigurationRequest beta.TenantConfigurationRequest
-          if err := json.Unmarshal(data, &tenantConfigurationRequest); err != nil {
+          if err := json.Unmarshal(tenantconfigurationrequest, &tenantConfigurationRequest); err != nil {
             fmt.Println("Error:", err)
             return
           }

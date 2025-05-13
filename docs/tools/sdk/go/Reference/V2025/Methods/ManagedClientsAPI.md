@@ -69,7 +69,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    managedclientrequest := []byte(`{
           "name" : "aName",
           "description" : "A short description of the ManagedClient",
           "clusterId" : "aClusterId",
@@ -78,7 +78,7 @@ func main() {
 
   
    var managedClientRequest v2025.ManagedClientRequest
-   if err := json.Unmarshal(data, &managedClientRequest); err != nil {
+   if err := json.Unmarshal(managedclientrequest, &managedClientRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -414,11 +414,11 @@ import (
 
 func main() {
     id := `4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7` // string | Managed client ID. # string | Managed client ID.
-    jsonPatchOperation := fmt.Sprintf(``) // []JsonPatchOperation | JSONPatch payload used to update the object.
+    jsonpatchoperation := []byte(``) // []JsonPatchOperation | JSONPatch payload used to update the object.
 
   
-   var jsonPatchOperation v2025.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation v2025.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }

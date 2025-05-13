@@ -81,7 +81,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    identityprofile := []byte(`{
           "owner" : {
             "name" : "William Wilson",
             "id" : "2c9180835d191a86015d28455b4b232a",
@@ -133,7 +133,7 @@ func main() {
 
   
    var identityProfile v3.IdentityProfile
-   if err := json.Unmarshal(data, &identityProfile); err != nil {
+   if err := json.Unmarshal(identityprofile, &identityProfile); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -268,11 +268,11 @@ import (
 )
 
 func main() {
-    requestBody := fmt.Sprintf(``) // []string | Identity Profile bulk delete request body.
+    requestbody := []byte(``) // []string | Identity Profile bulk delete request body.
 
   
-   var requestBody v3.RequestBody
-   if err := json.Unmarshal(data, &requestBody); err != nil {
+   var requestBody v3.[]RequestBody
+   if err := json.Unmarshal(requestbody, &requestBody); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -538,11 +538,11 @@ import (
 )
 
 func main() {
-    identityProfileExportedObject := fmt.Sprintf(``) // []IdentityProfileExportedObject | Previously exported Identity Profiles.
+    identityprofileexportedobject := []byte(``) // []IdentityProfileExportedObject | Previously exported Identity Profiles.
 
   
-   var identityProfileExportedObject v3.IdentityProfileExportedObject
-   if err := json.Unmarshal(data, &identityProfileExportedObject); err != nil {
+   var identityProfileExportedObject v3.[]IdentityProfileExportedObject
+   if err := json.Unmarshal(identityprofileexportedobject, &identityProfileExportedObject); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -677,7 +677,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    identitypreviewrequest := []byte(`{
           "identityId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
           "identityAttributeConfig" : {
             "attributeTransforms" : [ {
@@ -707,7 +707,7 @@ func main() {
 
   
    var identityPreviewRequest v3.IdentityPreviewRequest
-   if err := json.Unmarshal(data, &identityPreviewRequest); err != nil {
+   if err := json.Unmarshal(identitypreviewrequest, &identityPreviewRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -855,11 +855,11 @@ import (
 
 func main() {
     identityProfileId := `ef38f94347e94562b5bb8424a56397d8` // string | Identity profile ID. # string | Identity profile ID.
-    jsonPatchOperation := fmt.Sprintf(`[{op=add, path=/identityAttributeConfig/attributeTransforms/0, value={identityAttributeName=location, transformDefinition={type=accountAttribute, attributes={sourceName=Employees, attributeName=location, sourceId=2c91808878b7d63b0178c66ffcdc4ce4}}}}]`) // []JsonPatchOperation | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    jsonpatchoperation := []byte(`[{op=add, path=/identityAttributeConfig/attributeTransforms/0, value={identityAttributeName=location, transformDefinition={type=accountAttribute, attributes={sourceName=Employees, attributeName=location, sourceId=2c91808878b7d63b0178c66ffcdc4ce4}}}}]`) // []JsonPatchOperation | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
   
-   var jsonPatchOperation v3.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation v3.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }

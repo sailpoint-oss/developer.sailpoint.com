@@ -90,7 +90,7 @@ import (
 
 func main() {
     approvalId := `2c91808b7294bea301729568c68c002e` // string | Approval ID. # string | Approval ID.
-    data := []byte(`{
+    commentdto := []byte(`{
           "created" : "2017-07-11T18:45:37.098Z",
           "author" : {
             "name" : "john.doe",
@@ -166,14 +166,14 @@ import (
 
 func main() {
     approvalId := `2c91808b7294bea301729568c68c002e` // string | Approval ID. # string | Approval ID.
-    data := []byte(`{
+    forwardapprovaldto := []byte(`{
           "newOwnerId" : "2c91808568c529c60168cca6f90c1314",
           "comment" : "2c91808568c529c60168cca6f90c1313"
         }`) // ForwardApprovalDto | Information about the forwarded approval.
 
   
    var forwardApprovalDto v2025.ForwardApprovalDto
-   if err := json.Unmarshal(data, &forwardApprovalDto); err != nil {
+   if err := json.Unmarshal(forwardapprovaldto, &forwardApprovalDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -524,7 +524,7 @@ import (
 
 func main() {
     approvalId := `2c91808b7294bea301729568c68c002e` // string | Approval ID. # string | Approval ID.
-    data := []byte(`{
+    commentdto := []byte(`{
           "created" : "2017-07-11T18:45:37.098Z",
           "author" : {
             "name" : "john.doe",
@@ -536,7 +536,7 @@ func main() {
 
   
    var commentDto v2025.CommentDto
-   if err := json.Unmarshal(data, &commentDto); err != nil {
+   if err := json.Unmarshal(commentdto, &commentDto); err != nil {
     fmt.Println("Error:", err)
     return
    }

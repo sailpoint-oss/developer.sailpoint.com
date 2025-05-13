@@ -71,11 +71,11 @@ import (
 )
 
 func main() {
-    data := []byte(``) // DataSegment | 
+    datasegment := []byte(``) // DataSegment | 
 
   
    var dataSegment v2025.DataSegment
-   if err := json.Unmarshal(data, &dataSegment); err != nil {
+   if err := json.Unmarshal(datasegment, &dataSegment); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -561,11 +561,11 @@ import (
 func main() {
     id := `ef38f943-47e9-4562-b5bb-8424a56397d8` // string | The segment ID to modify. # string | The segment ID to modify.
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    requestBody := fmt.Sprintf(`[{op=replace, path=/memberFilter, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}]`) // []map[string]interface{} | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * membership * memberFilter * memberSelection * scopes * enabled 
+    requestbody := []byte(`[{op=replace, path=/memberFilter, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}]`) // []map[string]interface{} | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * membership * memberFilter * memberSelection * scopes * enabled 
 
   
-   var requestBody v2025.RequestBody
-   if err := json.Unmarshal(data, &requestBody); err != nil {
+   var requestBody v2025.[]RequestBody
+   if err := json.Unmarshal(requestbody, &requestBody); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -643,12 +643,12 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    requestBody := fmt.Sprintf(``) // []string | A list of segment ids that you wish to publish
+    requestbody := []byte(``) // []string | A list of segment ids that you wish to publish
     publishAll := true // bool | This flag decides whether you want to publish all unpublished or a list of specific segment ids (optional) (default to true) # bool | This flag decides whether you want to publish all unpublished or a list of specific segment ids (optional) (default to true)
 
   
-   var requestBody v2025.RequestBody
-   if err := json.Unmarshal(data, &requestBody); err != nil {
+   var requestBody v2025.[]RequestBody
+   if err := json.Unmarshal(requestbody, &requestBody); err != nil {
     fmt.Println("Error:", err)
     return
    }

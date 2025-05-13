@@ -117,7 +117,7 @@ import (
 
 func main() {
     id := `0f11f2a4-7c94-4bf3-a2bd-742580fe3bde` // string | The ID of the invocation to complete. # string | The ID of the invocation to complete.
-    data := []byte(`{
+    completeinvocation := []byte(`{
           "output" : {
             "approved" : false
           },
@@ -127,7 +127,7 @@ func main() {
 
   
    var completeInvocation beta.CompleteInvocation
-   if err := json.Unmarshal(data, &completeInvocation); err != nil {
+   if err := json.Unmarshal(completeinvocation, &completeInvocation); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -191,7 +191,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    subscriptionpostrequest := []byte(`{
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
           "httpConfig" : {
             "bearerTokenAuthConfig" : {
@@ -219,7 +219,7 @@ func main() {
 
   
    var subscriptionPostRequest beta.SubscriptionPostRequest
-   if err := json.Unmarshal(data, &subscriptionPostRequest); err != nil {
+   if err := json.Unmarshal(subscriptionpostrequest, &subscriptionPostRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -567,11 +567,11 @@ import (
 
 func main() {
     id := `0f11f2a4-7c94-4bf3-a2bd-742580fe3bde` // string | ID of the Subscription to patch # string | ID of the Subscription to patch
-    subscriptionPatchRequestInner := fmt.Sprintf(``) // []SubscriptionPatchRequestInner | 
+    subscriptionpatchrequestinner := []byte(``) // []SubscriptionPatchRequestInner | 
 
   
-   var subscriptionPatchRequestInner beta.SubscriptionPatchRequestInner
-   if err := json.Unmarshal(data, &subscriptionPatchRequestInner); err != nil {
+   var subscriptionPatchRequestInner beta.[]SubscriptionPatchRequestInner
+   if err := json.Unmarshal(subscriptionpatchrequestinner, &subscriptionPatchRequestInner); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -635,7 +635,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    testinvocation := []byte(`{
           "input" : {
             "identityId" : "201327fda1c44704ac01181e963d463c"
           },
@@ -648,7 +648,7 @@ func main() {
 
   
    var testInvocation beta.TestInvocation
-   if err := json.Unmarshal(data, &testInvocation); err != nil {
+   if err := json.Unmarshal(testinvocation, &testInvocation); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -713,7 +713,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    validatefilterinputdto := []byte(`{
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
           "input" : {
             "identityId" : "201327fda1c44704ac01181e963d463c"
@@ -722,7 +722,7 @@ func main() {
 
   
    var validateFilterInputDto beta.ValidateFilterInputDto
-   if err := json.Unmarshal(data, &validateFilterInputDto); err != nil {
+   if err := json.Unmarshal(validatefilterinputdto, &validateFilterInputDto); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -801,7 +801,7 @@ import (
 
 func main() {
     id := `0f11f2a4-7c94-4bf3-a2bd-742580fe3bde` // string | Subscription ID # string | Subscription ID
-    data := []byte(`{
+    subscriptionputrequest := []byte(`{
           "filter" : "$[?($.identityId == \"201327fda1c44704ac01181e963d463c\")]",
           "httpConfig" : {
             "bearerTokenAuthConfig" : {
@@ -828,7 +828,7 @@ func main() {
 
   
    var subscriptionPutRequest beta.SubscriptionPutRequest
-   if err := json.Unmarshal(data, &subscriptionPutRequest); err != nil {
+   if err := json.Unmarshal(subscriptionputrequest, &subscriptionPutRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }

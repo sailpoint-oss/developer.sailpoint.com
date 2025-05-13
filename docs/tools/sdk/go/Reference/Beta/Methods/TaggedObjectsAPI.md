@@ -190,7 +190,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    bulktaggedobject := []byte(`{
           "objectRefs" : [ {
             "name" : "William Wilson",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -206,7 +206,7 @@ func main() {
 
   
    var bulkTaggedObject beta.BulkTaggedObject
-   if err := json.Unmarshal(data, &bulkTaggedObject); err != nil {
+   if err := json.Unmarshal(bulktaggedobject, &bulkTaggedObject); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -492,7 +492,7 @@ import (
 func main() {
     type_ := `ROLE` // string | The type of tagged object to update. # string | The type of tagged object to update.
     id := `ef38f94347e94562b5bb8424a56397d8` // string | The ID of the object reference to update. # string | The ID of the object reference to update.
-    data := []byte(`{
+    taggedobject := []byte(`{
           "objectRef" : {
             "name" : "William Wilson",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -503,7 +503,7 @@ func main() {
 
   
    var taggedObject beta.TaggedObject
-   if err := json.Unmarshal(data, &taggedObject); err != nil {
+   if err := json.Unmarshal(taggedobject, &taggedObject); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -569,7 +569,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    taggedobject := []byte(`{
           "objectRef" : {
             "name" : "William Wilson",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -580,7 +580,7 @@ func main() {
 
   
    var taggedObject beta.TaggedObject
-   if err := json.Unmarshal(data, &taggedObject); err != nil {
+   if err := json.Unmarshal(taggedobject, &taggedObject); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -644,7 +644,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    bulktaggedobject := []byte(`{
           "objectRefs" : [ {
             "name" : "William Wilson",
             "id" : "2c91808568c529c60168cca6f90c1313",
@@ -660,7 +660,7 @@ func main() {
 
   
    var bulkTaggedObject beta.BulkTaggedObject
-   if err := json.Unmarshal(data, &bulkTaggedObject); err != nil {
+   if err := json.Unmarshal(bulktaggedobject, &bulkTaggedObject); err != nil {
     fmt.Println("Error:", err)
     return
    }

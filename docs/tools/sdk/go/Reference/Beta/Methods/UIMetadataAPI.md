@@ -122,7 +122,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    tenantuimetadataitemupdaterequest := []byte(`{
           "usernameEmptyText" : "Please provide your work email address...",
           "usernameLabel" : "Email",
           "iframeWhiteList" : "http://example.com http://example2.com"
@@ -130,7 +130,7 @@ func main() {
 
   
    var tenantUiMetadataItemUpdateRequest beta.TenantUiMetadataItemUpdateRequest
-   if err := json.Unmarshal(data, &tenantUiMetadataItemUpdateRequest); err != nil {
+   if err := json.Unmarshal(tenantuimetadataitemupdaterequest, &tenantUiMetadataItemUpdateRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }

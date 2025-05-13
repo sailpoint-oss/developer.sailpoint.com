@@ -92,7 +92,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    configurationitemrequest := []byte(`{
           "endDate" : "2022-07-30T17:00:00Z",
           "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
           "configType" : "ACCESS_REQUESTS",
@@ -102,7 +102,7 @@ func main() {
 
   
    var configurationItemRequest v2025.ConfigurationItemRequest
-   if err := json.Unmarshal(data, &configurationItemRequest); err != nil {
+   if err := json.Unmarshal(configurationitemrequest, &configurationItemRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -268,7 +268,7 @@ func main() {
     identityId := `2c91808781a71ddb0181b9090b5c504e` // string | unique identity id # string | unique identity id
     configType := accessRequests // ConfigTypeEnum | Reassignment work type # ConfigTypeEnum | Reassignment work type
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    exclusionFilters := fmt.Sprintf(`SELF_REVIEW_DELEGATION`) // []string | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
+    exclusionfilters := []byte(`SELF_REVIEW_DELEGATION`) // []string | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
 
   
 
@@ -647,7 +647,7 @@ import (
 func main() {
     identityId := `2c91808781a71ddb0181b9090b5c504e` // string | unique identity id # string | unique identity id
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    configurationitemrequest := []byte(`{
           "endDate" : "2022-07-30T17:00:00Z",
           "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
           "configType" : "ACCESS_REQUESTS",
@@ -657,7 +657,7 @@ func main() {
 
   
    var configurationItemRequest v2025.ConfigurationItemRequest
-   if err := json.Unmarshal(data, &configurationItemRequest); err != nil {
+   if err := json.Unmarshal(configurationitemrequest, &configurationItemRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -734,7 +734,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    tenantconfigurationrequest := []byte(`{
           "configDetails" : {
             "disabled" : true
           }
@@ -742,7 +742,7 @@ func main() {
 
   
    var tenantConfigurationRequest v2025.TenantConfigurationRequest
-   if err := json.Unmarshal(data, &tenantConfigurationRequest); err != nil {
+   if err := json.Unmarshal(tenantconfigurationrequest, &tenantConfigurationRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }

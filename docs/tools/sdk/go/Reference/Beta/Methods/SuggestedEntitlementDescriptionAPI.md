@@ -292,11 +292,11 @@ import (
 
 func main() {
     id := `ebab396f-0af1-4050-89b7-dafc63ec70e7` // string | id is sed id # string | id is sed id
-    sedPatch := fmt.Sprintf(``) // []SedPatch | Sed Patch Request
+    sedpatch := []byte(``) // []SedPatch | Sed Patch Request
 
   
-   var sedPatch beta.SedPatch
-   if err := json.Unmarshal(data, &sedPatch); err != nil {
+   var sedPatch beta.[]SedPatch
+   if err := json.Unmarshal(sedpatch, &sedPatch); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -361,11 +361,11 @@ import (
 )
 
 func main() {
-    sedApproval := fmt.Sprintf(``) // []SedApproval | Sed Approval
+    sedapproval := []byte(``) // []SedApproval | Sed Approval
 
   
-   var sedApproval beta.SedApproval
-   if err := json.Unmarshal(data, &sedApproval); err != nil {
+   var sedApproval beta.[]SedApproval
+   if err := json.Unmarshal(sedapproval, &sedApproval); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -430,7 +430,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    sedassignment := []byte(`{
           "assignee" : {
             "type" : "SOURCE_OWNER",
             "value" : "016629d1-1d25-463f-97f3-c6686846650"
@@ -440,7 +440,7 @@ func main() {
 
   
    var sedAssignment beta.SedAssignment
-   if err := json.Unmarshal(data, &sedAssignment); err != nil {
+   if err := json.Unmarshal(sedassignment, &sedAssignment); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -508,7 +508,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    sedbatchrequest := []byte(`{
           "entitlements" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
           "seds" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ]
         }`) // SedBatchRequest | Sed Batch Request (optional)

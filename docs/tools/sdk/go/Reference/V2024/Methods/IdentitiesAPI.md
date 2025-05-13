@@ -670,14 +670,14 @@ import (
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     id := `ef38f94347e94562b5bb8424a56397d8` // string | Identity ID # string | Identity ID
-    data := []byte(`{
+    sendaccountverificationrequest := []byte(`{
           "sourceName" : "Active Directory Source",
           "via" : "EMAIL_WORK"
         }`) // SendAccountVerificationRequest | 
 
   
    var sendAccountVerificationRequest v2024.SendAccountVerificationRequest
-   if err := json.Unmarshal(data, &sendAccountVerificationRequest); err != nil {
+   if err := json.Unmarshal(sendaccountverificationrequest, &sendAccountVerificationRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -757,14 +757,14 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    inviteidentitiesrequest := []byte(`{
           "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
           "uninvited" : false
         }`) // InviteIdentitiesRequest | 
 
   
    var inviteIdentitiesRequest v2024.InviteIdentitiesRequest
-   if err := json.Unmarshal(data, &inviteIdentitiesRequest); err != nil {
+   if err := json.Unmarshal(inviteidentitiesrequest, &inviteIdentitiesRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -848,13 +848,13 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    processidentitiesrequest := []byte(`{
           "identityIds" : [ "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8" ]
         }`) // ProcessIdentitiesRequest | 
 
   
    var processIdentitiesRequest v2024.ProcessIdentitiesRequest
-   if err := json.Unmarshal(data, &processIdentitiesRequest); err != nil {
+   if err := json.Unmarshal(processidentitiesrequest, &processIdentitiesRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }

@@ -577,11 +577,11 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    requestBody := fmt.Sprintf(``) // []string | 
+    requestbody := []byte(``) // []string | 
 
   
-   var requestBody v2024.RequestBody
-   if err := json.Unmarshal(data, &requestBody); err != nil {
+   var requestBody v2024.[]RequestBody
+   if err := json.Unmarshal(requestbody, &requestBody); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -751,11 +751,11 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    requestBody := fmt.Sprintf(``) // []string | 
+    requestbody := []byte(``) // []string | 
 
   
-   var requestBody v2024.RequestBody
-   if err := json.Unmarshal(data, &requestBody); err != nil {
+   var requestBody v2024.[]RequestBody
+   if err := json.Unmarshal(requestbody, &requestBody); err != nil {
     fmt.Println("Error:", err)
     return
    }

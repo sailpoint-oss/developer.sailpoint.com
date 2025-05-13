@@ -156,7 +156,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    jsonpatchoperation := []byte(`{
           "op" : "replace",
           "path" : "/description",
           "value" : "New description"
@@ -164,7 +164,7 @@ func main() {
 
   
    var jsonPatchOperation v2025.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }

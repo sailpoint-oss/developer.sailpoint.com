@@ -819,7 +819,7 @@ import (
 
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | The ID of the work item # string | The ID of the work item
-    data := []byte(`{
+    workitemforward := []byte(`{
           "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
           "comment" : "I'm going on vacation.",
           "sendNotifications" : true
@@ -827,7 +827,7 @@ func main() {
 
   
    var workItemForward v3.WorkItemForward
-   if err := json.Unmarshal(data, &workItemForward); err != nil {
+   if err := json.Unmarshal(workitemforward, &workItemForward); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -899,7 +899,7 @@ func main() {
 
   
    var requestBody v3.RequestBody
-   if err := json.Unmarshal(data, &requestBody); err != nil {
+   if err := json.Unmarshal(requestbody, &requestBody); err != nil {
     fmt.Println("Error:", err)
     return
    }

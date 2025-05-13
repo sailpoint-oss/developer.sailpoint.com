@@ -79,7 +79,7 @@ import (
 
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    data := []byte(`{
+    machineidentity := []byte(`{
           "created" : "2015-05-28T14:07:17Z",
           "businessApplication" : "ADService",
           "name" : "aName",
@@ -92,7 +92,7 @@ func main() {
 
   
    var machineIdentity v2025.MachineIdentity
-   if err := json.Unmarshal(data, &machineIdentity); err != nil {
+   if err := json.Unmarshal(machineidentity, &machineIdentity); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -415,11 +415,11 @@ import (
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | Machine Identity ID. # string | Machine Identity ID.
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
-    requestBody := fmt.Sprintf(`[{op=add, path=/attributes/securityRisk, value=medium}]`) // []map[string]interface{} | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    requestbody := []byte(`[{op=add, path=/attributes/securityRisk, value=medium}]`) // []map[string]interface{} | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
   
-   var requestBody v2025.RequestBody
-   if err := json.Unmarshal(data, &requestBody); err != nil {
+   var requestBody v2025.[]RequestBody
+   if err := json.Unmarshal(requestbody, &requestBody); err != nil {
     fmt.Println("Error:", err)
     return
    }

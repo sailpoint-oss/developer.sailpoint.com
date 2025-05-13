@@ -284,7 +284,7 @@ import (
 
 func main() {
     id := `aClusterId` // string | ID of ManagedCluster to update log configuration for # string | ID of ManagedCluster to update log configuration for
-    data := []byte(`{
+    clientlogconfiguration := []byte(`{
           "durationMinutes" : 120,
           "rootLevel" : "INFO",
           "clientId" : "aClientId",

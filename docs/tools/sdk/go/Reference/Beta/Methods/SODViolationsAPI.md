@@ -84,7 +84,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    identitywithnewaccess := []byte(`{
           "identityId" : "2c91808568c529c60168cca6f90c1313",
           "accessRefs" : [ {
             "type" : "ENTITLEMENT",
@@ -99,7 +99,7 @@ func main() {
 
   
    var identityWithNewAccess beta.IdentityWithNewAccess
-   if err := json.Unmarshal(data, &identityWithNewAccess); err != nil {
+   if err := json.Unmarshal(identitywithnewaccess, &identityWithNewAccess); err != nil {
     fmt.Println("Error:", err)
     return
    }

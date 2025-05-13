@@ -119,7 +119,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    role := []byte(`{
           "owner" : {
             "name" : "support",
             "id" : "2c9180a46faadee4016fb4e018c20639",
@@ -281,7 +281,7 @@ func main() {
 
   
    var role v2025.Role
-   if err := json.Unmarshal(data, &role); err != nil {
+   if err := json.Unmarshal(role, &role); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -348,13 +348,13 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    rolebulkdeleterequest := []byte(`{
           "roleIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ]
         }`) // RoleBulkDeleteRequest | 
 
   
    var roleBulkDeleteRequest v2025.RoleBulkDeleteRequest
-   if err := json.Unmarshal(data, &roleBulkDeleteRequest); err != nil {
+   if err := json.Unmarshal(rolebulkdeleterequest, &roleBulkDeleteRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1015,11 +1015,11 @@ import (
 
 func main() {
     id := `2c91808a7813090a017814121e121518` // string | ID of the Role to patch # string | ID of the Role to patch
-    jsonPatchOperation := fmt.Sprintf(`[{op=replace, path=/requestable, value=true}, {op=replace, path=/enabled, value=true}]`) // []JsonPatchOperation | 
+    jsonpatchoperation := []byte(`[{op=replace, path=/requestable, value=true}, {op=replace, path=/enabled, value=true}]`) // []JsonPatchOperation | 
 
   
-   var jsonPatchOperation v2025.JsonPatchOperation
-   if err := json.Unmarshal(data, &jsonPatchOperation); err != nil {
+   var jsonPatchOperation v2025.[]JsonPatchOperation
+   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1098,7 +1098,7 @@ func main() {
     sorters := `name,-modified` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
     forSegmentIds := `0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d` // string | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional) # string | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
     includeUnsegmented := false // bool | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to true) # bool | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to true)
-    data := []byte(`{
+    rolelistfilterdto := []byte(`{
           "ammKeyValues" : [ {
             "attribute" : "iscFederalClassifications",
             "values" : [ "secret" ]
@@ -1241,7 +1241,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    rolemetadatabulkupdatebyfilterrequest := []byte(`{
           "values" : [ {
             "attribute" : "iscFederalClassifications",
             "values" : [ "topSecret" ]
@@ -1253,7 +1253,7 @@ func main() {
 
   
    var roleMetadataBulkUpdateByFilterRequest v2025.RoleMetadataBulkUpdateByFilterRequest
-   if err := json.Unmarshal(data, &roleMetadataBulkUpdateByFilterRequest); err != nil {
+   if err := json.Unmarshal(rolemetadatabulkupdatebyfilterrequest, &roleMetadataBulkUpdateByFilterRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1320,7 +1320,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    rolemetadatabulkupdatebyidrequest := []byte(`{
           "roles" : [ "b1db89554cfa431cb8b9921ea38d9367" ],
           "values" : [ {
             "attribute" : "iscFederalClassifications",
@@ -1332,7 +1332,7 @@ func main() {
 
   
    var roleMetadataBulkUpdateByIdRequest v2025.RoleMetadataBulkUpdateByIdRequest
-   if err := json.Unmarshal(data, &roleMetadataBulkUpdateByIdRequest); err != nil {
+   if err := json.Unmarshal(rolemetadatabulkupdatebyidrequest, &roleMetadataBulkUpdateByIdRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }
@@ -1399,7 +1399,7 @@ import (
 )
 
 func main() {
-    data := []byte(`{
+    rolemetadatabulkupdatebyqueryrequest := []byte(`{
           "query" : {
             "query\"" : {
               "indices" : [ "roles" ],
@@ -1426,7 +1426,7 @@ func main() {
 
   
    var roleMetadataBulkUpdateByQueryRequest v2025.RoleMetadataBulkUpdateByQueryRequest
-   if err := json.Unmarshal(data, &roleMetadataBulkUpdateByQueryRequest); err != nil {
+   if err := json.Unmarshal(rolemetadatabulkupdatebyqueryrequest, &roleMetadataBulkUpdateByQueryRequest); err != nil {
     fmt.Println("Error:", err)
     return
    }

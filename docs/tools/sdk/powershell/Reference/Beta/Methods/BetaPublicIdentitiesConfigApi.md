@@ -32,6 +32,9 @@ Method | HTTP request | Description
 
 
 ## get-public-identity-config
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This gets details of public identity config.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-public-identity-config)
@@ -75,6 +78,9 @@ try {
 [[Back to top]](#) 
 
 ## update-public-identity-config
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This updates the details of public identity config.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-public-identity-config)

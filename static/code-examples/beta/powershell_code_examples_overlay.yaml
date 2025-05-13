@@ -670,9 +670,7 @@
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             }, {
               "clientMetadata" : {
                 "requestedAppName" : "test-app",
@@ -700,9 +698,7 @@
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             } ]
           }, {
             "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
@@ -733,9 +729,7 @@
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             }, {
               "clientMetadata" : {
                 "requestedAppName" : "test-app",
@@ -763,9 +757,7 @@
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             } ]
           } ]
         }
@@ -939,6 +931,29 @@
             # Get-BetaAccountAggregationStatus -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaAccountAggregationStatus"
+            Write-Host $_.ErrorDetails
+        }
+- path: /account-usages/{accountId}/summaries
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/account-usages#get-usages-by-account-id
+      source: |
+        $AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of IDN account
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Sorters = "-date" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date** (optional)
+        
+        # Returns account usage insights
+        
+        try {
+            Get-BetaUsagesByAccountId -AccountId $AccountId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaUsagesByAccountId -AccountId $AccountId -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaUsagesByAccountId"
             Write-Host $_.ErrorDetails
         }
 - path: /accounts
@@ -1311,29 +1326,6 @@
             # Update-BetaAccount -Id $Id -RequestBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaAccount"
-            Write-Host $_.ErrorDetails
-        }
-- path: /account-usages/{accountId}/summaries
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/account-usages#get-usages-by-account-id
-      source: |
-        $AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of IDN account
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Sorters = "-date" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date** (optional)
-        
-        # Returns account usage insights
-        
-        try {
-            Get-BetaUsagesByAccountId -AccountId $AccountId 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaUsagesByAccountId -AccountId $AccountId -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaUsagesByAccountId"
             Write-Host $_.ErrorDetails
         }
 - path: /discovered-applications/{id}
@@ -6674,162 +6666,6 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaLifecycleStates"
             Write-Host $_.ErrorDetails
         }
-- path: /managed-clients/{id}/status
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/managed-clients#get-managed-client-status
-      source: |
-        $Id = "aClientId" # String | ID of the Managed Client Status to get
-        $Type = "CCG" # ManagedClientType | Type of the Managed Client Status to get
-        
-        # Specified Managed Client Status.
-        
-        try {
-            Get-BetaManagedClientStatus -Id $Id -Type $Type 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaManagedClientStatus -Id $Id -Type $Type   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaManagedClientStatus"
-            Write-Host $_.ErrorDetails
-        }
-- path: /managed-clients/{id}/status
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/managed-clients#update-managed-client-status
-      source: |
-        $Id = "aClientId" # String | ID of the Managed Client Status to update
-        $ManagedClientStatus = @"
-        {
-          "body" : {
-            "alertKey" : "",
-            "id" : "5678",
-            "clusterId" : "1234",
-            "ccg_etag" : "ccg_etag123xyz456",
-            "ccg_pin" : "NONE",
-            "cookbook_etag" : "20210420125956-20210511144538",
-            "hostname" : "megapod-useast1-secret-hostname.sailpoint.com",
-            "internal_ip" : "127.0.0.1",
-            "lastSeen" : "1620843964604",
-            "sinceSeen" : "14708",
-            "sinceSeenMillis" : "14708",
-            "localDev" : false,
-            "stacktrace" : "",
-            "status" : "NORMAL",
-            "product" : "idn",
-            "platform_version" : "2",
-            "os_version" : "2345.3.1",
-            "os_type" : "flatcar",
-            "hypervisor" : "unknown"
-          },
-          "type" : "CCG",
-          "status" : "NORMAL",
-          "timestamp" : "2020-01-01T00:00:00Z"
-        }
-        "@
-        
-        # Handle status request from client
-        
-        try {
-            $Result = ConvertFrom-JsonToManagedClientStatus -Json $ManagedClientStatus
-            Update-BetaManagedClientStatus -Id $Id -ManagedClientStatus $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Update-BetaManagedClientStatus -Id $Id -ManagedClientStatus $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaManagedClientStatus"
-            Write-Host $_.ErrorDetails
-        }
-- path: /managed-clusters/{id}/log-config
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/managed-clusters#get-client-log-configuration
-      source: |
-        $Id = "aClusterId" # String | ID of ManagedCluster to get log configuration for
-        
-        # Get managed cluster's log configuration
-        
-        try {
-            Get-BetaClientLogConfiguration -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaClientLogConfiguration -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaClientLogConfiguration"
-            Write-Host $_.ErrorDetails
-        }
-- path: /managed-clusters/{id}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/managed-clusters#get-managed-cluster
-      source: |
-        $Id = "aClusterId" # String | ID of the ManagedCluster to get
-        
-        # Get a specified ManagedCluster.
-        
-        try {
-            Get-BetaManagedCluster -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaManagedCluster -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaManagedCluster"
-            Write-Host $_.ErrorDetails
-        }
-- path: /managed-clusters
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/managed-clusters#get-managed-clusters
-      source: |
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Filters = "operational eq operation" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional)
-        
-        # Retrieve all Managed Clusters.
-        
-        try {
-            Get-BetaManagedClusters 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaManagedClusters -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaManagedClusters"
-            Write-Host $_.ErrorDetails
-        }
-- path: /managed-clusters/{id}/log-config
-  method: PUT
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/managed-clusters#put-client-log-configuration
-      source: |
-        $Id = "aClusterId" # String | ID of ManagedCluster to update log configuration for
-        $ClientLogConfiguration = @"
-        {
-          "durationMinutes" : 120,
-          "rootLevel" : "INFO",
-          "clientId" : "aClientId",
-          "expiration" : "2020-12-15T19:13:36.079Z",
-          "logLevels" : "INFO"
-        }
-        "@
-        
-        # Update managed cluster's log configuration
-        
-        try {
-            Send-BetaClientLogConfiguration -Id $Id -ClientLogConfiguration $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Send-BetaClientLogConfiguration -Id $Id -ClientLogConfiguration $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaClientLogConfiguration"
-            Write-Host $_.ErrorDetails
-        }
 - path: /mfa/{method}/delete
   method: DELETE
   xCodeSample:
@@ -7154,6 +6990,162 @@
             # Send-BetaTokenAuthRequest -TokenAuthRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaTokenAuthRequest"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-clients/{id}/status
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/managed-clients#get-managed-client-status
+      source: |
+        $Id = "aClientId" # String | ID of the Managed Client Status to get
+        $Type = "CCG" # ManagedClientType | Type of the Managed Client Status to get
+        
+        # Specified Managed Client Status.
+        
+        try {
+            Get-BetaManagedClientStatus -Id $Id -Type $Type 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaManagedClientStatus -Id $Id -Type $Type   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaManagedClientStatus"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-clients/{id}/status
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/managed-clients#update-managed-client-status
+      source: |
+        $Id = "aClientId" # String | ID of the Managed Client Status to update
+        $ManagedClientStatus = @"
+        {
+          "body" : {
+            "alertKey" : "",
+            "id" : "5678",
+            "clusterId" : "1234",
+            "ccg_etag" : "ccg_etag123xyz456",
+            "ccg_pin" : "NONE",
+            "cookbook_etag" : "20210420125956-20210511144538",
+            "hostname" : "megapod-useast1-secret-hostname.sailpoint.com",
+            "internal_ip" : "127.0.0.1",
+            "lastSeen" : "1620843964604",
+            "sinceSeen" : "14708",
+            "sinceSeenMillis" : "14708",
+            "localDev" : false,
+            "stacktrace" : "",
+            "status" : "NORMAL",
+            "product" : "idn",
+            "platform_version" : "2",
+            "os_version" : "2345.3.1",
+            "os_type" : "flatcar",
+            "hypervisor" : "unknown"
+          },
+          "type" : "CCG",
+          "status" : "NORMAL",
+          "timestamp" : "2020-01-01T00:00:00Z"
+        }
+        "@
+        
+        # Handle status request from client
+        
+        try {
+            $Result = ConvertFrom-JsonToManagedClientStatus -Json $ManagedClientStatus
+            Update-BetaManagedClientStatus -Id $Id -ManagedClientStatus $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-BetaManagedClientStatus -Id $Id -ManagedClientStatus $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaManagedClientStatus"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-clusters/{id}/log-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/managed-clusters#get-client-log-configuration
+      source: |
+        $Id = "aClusterId" # String | ID of ManagedCluster to get log configuration for
+        
+        # Get managed cluster's log configuration
+        
+        try {
+            Get-BetaClientLogConfiguration -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaClientLogConfiguration -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaClientLogConfiguration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-clusters/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/managed-clusters#get-managed-cluster
+      source: |
+        $Id = "aClusterId" # String | ID of the ManagedCluster to get
+        
+        # Get a specified ManagedCluster.
+        
+        try {
+            Get-BetaManagedCluster -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaManagedCluster -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaManagedCluster"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-clusters
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/managed-clusters#get-managed-clusters
+      source: |
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "operational eq operation" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional)
+        
+        # Retrieve all Managed Clusters.
+        
+        try {
+            Get-BetaManagedClusters 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaManagedClusters -Offset $Offset -Limit $Limit -Count $Count -Filters $Filters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaManagedClusters"
+            Write-Host $_.ErrorDetails
+        }
+- path: /managed-clusters/{id}/log-config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/managed-clusters#put-client-log-configuration
+      source: |
+        $Id = "aClusterId" # String | ID of ManagedCluster to update log configuration for
+        $ClientLogConfiguration = @"
+        {
+          "durationMinutes" : 120,
+          "rootLevel" : "INFO",
+          "clientId" : "aClientId",
+          "expiration" : "2020-12-15T19:13:36.079Z",
+          "logLevels" : "INFO"
+        }
+        "@
+        
+        # Update managed cluster's log configuration
+        
+        try {
+            Send-BetaClientLogConfiguration -Id $Id -ClientLogConfiguration $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-BetaClientLogConfiguration -Id $Id -ClientLogConfiguration $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaClientLogConfiguration"
             Write-Host $_.ErrorDetails
         }
 - path: /multihosts
@@ -9935,518 +9927,6 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaRole"
             Write-Host $_.ErrorDetails
         }
-- path: /accounts/search-attribute-config
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/search-attribute-configuration#create-search-attribute-config
-      source: |
-        $SearchAttributeConfig = @"
-        {
-          "displayName" : "New Mail Attribute",
-          "name" : "newMailAttribute",
-          "applicationAttributes" : {
-            "2c91808b79fd2422017a0b35d30f3968" : "employeeNumber",
-            "2c91808b79fd2422017a0b36008f396b" : "employeeNumber"
-          }
-        }
-        "@
-        
-        # Create Extended Search Attributes
-        
-        try {
-            $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
-            New-BetaSearchAttributeConfig -SearchAttributeConfig $Result 
-    
-            # Below is a request that includes all optional parameters
-            # New-BetaSearchAttributeConfig -SearchAttributeConfig $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSearchAttributeConfig"
-            Write-Host $_.ErrorDetails
-        }
-- path: /accounts/search-attribute-config/{name}
-  method: DELETE
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/search-attribute-configuration#delete-search-attribute-config
-      source: |
-        $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to delete.
-        
-        # Delete Extended Search Attribute
-        
-        try {
-            Remove-BetaSearchAttributeConfig -Name $Name 
-    
-            # Below is a request that includes all optional parameters
-            # Remove-BetaSearchAttributeConfig -Name $Name   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaSearchAttributeConfig"
-            Write-Host $_.ErrorDetails
-        }
-- path: /accounts/search-attribute-config
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/search-attribute-configuration#get-search-attribute-config
-      source: |
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        
-        # List Extended Search Attributes
-        
-        try {
-            Get-BetaSearchAttributeConfig 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaSearchAttributeConfig -Limit $Limit -Offset $Offset   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSearchAttributeConfig"
-            Write-Host $_.ErrorDetails
-        }
-- path: /accounts/search-attribute-config/{name}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/search-attribute-configuration#get-single-search-attribute-config
-      source: |
-        $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to get.
-        
-        # Get Extended Search Attribute
-        
-        try {
-            Get-BetaSingleSearchAttributeConfig -Name $Name 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaSingleSearchAttributeConfig -Name $Name   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSingleSearchAttributeConfig"
-            Write-Host $_.ErrorDetails
-        }
-- path: /accounts/search-attribute-config/{name}
-  method: PATCH
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/search-attribute-configuration#patch-search-attribute-config
-      source: |
-        $Name = "promotedMailAttribute" # String | Name of the extended search attribute configuration to patch.
-        $JsonPatchOperation = @"{
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        }"@ 
-        
-        
-        # Update Extended Search Attribute
-        
-        try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaSearchAttributeConfig -Name $Name -JsonPatchOperation $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Update-BetaSearchAttributeConfig -Name $Name -JsonPatchOperation $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSearchAttributeConfig"
-            Write-Host $_.ErrorDetails
-        }
-- path: /segments
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/segments#create-segment
-      source: |
-        $Segment = @"
-        {
-          "owner" : {
-            "name" : "support",
-            "id" : "2c9180a46faadee4016fb4e018c20639",
-            "type" : "IDENTITY"
-          },
-          "created" : "2020-01-01T00:00:00Z",
-          "visibilityCriteria" : {
-            "expression" : {
-              "children" : [ ],
-              "attribute" : "location",
-              "value" : {
-                "type" : "STRING",
-                "value" : "Austin"
-              },
-              "operator" : "EQUALS"
-            }
-          },
-          "name" : "segment-xyz",
-          "modified" : "2020-01-01T00:00:00Z",
-          "description" : "This segment represents xyz",
-          "active" : true,
-          "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
-        }
-        "@
-        
-        # Create Segment
-        
-        try {
-            $Result = ConvertFrom-JsonToSegment -Json $Segment
-            New-BetaSegment -Segment $Result 
-    
-            # Below is a request that includes all optional parameters
-            # New-BetaSegment -Segment $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSegment"
-            Write-Host $_.ErrorDetails
-        }
-- path: /segments/{id}
-  method: DELETE
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/segments#delete-segment
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to delete.
-        
-        # Delete Segment by ID
-        
-        try {
-            Remove-BetaSegment -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Remove-BetaSegment -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaSegment"
-            Write-Host $_.ErrorDetails
-        }
-- path: /segments/{id}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/segments#get-segment
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to retrieve.
-        
-        # Get Segment by ID
-        
-        try {
-            Get-BetaSegment -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaSegment -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSegment"
-            Write-Host $_.ErrorDetails
-        }
-- path: /segments
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/segments#list-segments
-      source: |
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        
-        # List Segments
-        
-        try {
-            Get-BetaSegments 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaSegments -Limit $Limit -Offset $Offset -Count $Count   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSegments"
-            Write-Host $_.ErrorDetails
-        }
-- path: /segments/{id}
-  method: PATCH
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/segments#patch-segment
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to modify.
-        $RequestBody =  # SystemCollectionsHashtable[] | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
-        $RequestBody = @"[{op=replace, path=/visibilityCriteria, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}]"@ 
-        
-        
-        # Update Segment
-        
-        try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-            Update-BetaSegment -Id $Id -RequestBody $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Update-BetaSegment -Id $Id -RequestBody $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSegment"
-            Write-Host $_.ErrorDetails
-        }
-- path: /service-desk-integrations
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#create-service-desk-integration
-      source: |
-        $ServiceDeskIntegrationDto = @"
-        {
-          "ownerRef" : "",
-          "cluster" : "xyzzy999",
-          "managedSources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
-          "provisioningConfig" : {
-            "managedResourceRefs" : [ {
-              "type" : "SOURCE",
-              "id" : "2c9180855d191c59015d291ceb051111",
-              "name" : "My Source 1"
-            }, {
-              "type" : "SOURCE",
-              "id" : "2c9180855d191c59015d291ceb052222",
-              "name" : "My Source 2"
-            } ],
-            "provisioningRequestExpiration" : 7,
-            "noProvisioningRequests" : true,
-            "universalManager" : true,
-            "planInitializerScript" : {
-              "source" : "<?xml version='1.0' encoding='UTF-8'?>\\r\\n<!DOCTYPE Rule PUBLIC \\\"sailpoint.dtd\\\" \\\"sailpoint.dtd\\\">\\r\\n<Rule name=\\\"Example Rule\\\" type=\\\"BeforeProvisioning\\\">\\r\\n  <Description>Before Provisioning Rule which changes disables and enables to a modify.</Description>\\r\\n  <Source><![CDATA[\\r\\nimport sailpoint.object.*;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest.Operation;\\r\\nimport sailpoint.object.ProvisioningPlan.AttributeRequest;\\r\\nimport sailpoint.object.ProvisioningPlan;\\r\\nimport sailpoint.object.ProvisioningPlan.Operation;\\r\\n\\r\\nfor ( AccountRequest accountRequest : plan.getAccountRequests() ) {\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Disable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Enable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n}\\r\\n\\r\\n  ]]></Source>\n"
-            }
-          },
-          "name" : "Service Desk Integration Name",
-          "description" : "A very nice Service Desk integration",
-          "attributes" : {
-            "property" : "value",
-            "key" : "value"
-          },
-          "clusterRef" : "",
-          "type" : "ServiceNowSDIM",
-          "beforeProvisioningRule" : ""
-        }
-        "@
-        
-        # Create new Service Desk integration
-        
-        try {
-            $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-            New-BetaServiceDeskIntegration -ServiceDeskIntegrationDto $Result 
-    
-            # Below is a request that includes all optional parameters
-            # New-BetaServiceDeskIntegration -ServiceDeskIntegrationDto $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaServiceDeskIntegration"
-            Write-Host $_.ErrorDetails
-        }
-- path: /service-desk-integrations/{id}
-  method: DELETE
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#delete-service-desk-integration
-      source: |
-        $Id = "anId" # String | ID of Service Desk integration to delete
-        
-        # Delete a Service Desk integration
-        
-        try {
-            Remove-BetaServiceDeskIntegration -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Remove-BetaServiceDeskIntegration -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaServiceDeskIntegration"
-            Write-Host $_.ErrorDetails
-        }
-- path: /service-desk-integrations/{id}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#get-service-desk-integration
-      source: |
-        $Id = "anId" # String | ID of the Service Desk integration to get
-        
-        # Get a Service Desk integration
-        
-        try {
-            Get-BetaServiceDeskIntegration -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaServiceDeskIntegration -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaServiceDeskIntegration"
-            Write-Host $_.ErrorDetails
-        }
-- path: /service-desk-integrations
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#get-service-desk-integration-list
-      source: |
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
-        $Filters = "id eq 2c91808b6ef1d43e016efba0ce470904" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq*  **type**: *eq, in*  **cluster**: *eq, in* (optional)
-        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        
-        # List existing Service Desk integrations
-        
-        try {
-            Get-BetaServiceDeskIntegrationList 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaServiceDeskIntegrationList -Offset $Offset -Limit $Limit -Sorters $Sorters -Filters $Filters -Count $Count   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaServiceDeskIntegrationList"
-            Write-Host $_.ErrorDetails
-        }
-- path: /service-desk-integrations/templates/{scriptName}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#get-service-desk-integration-template
-      source: |
-        $ScriptName = "aScriptName" # String | The scriptName value of the Service Desk integration template to get
-        
-        # Service Desk integration template by scriptName
-        
-        try {
-            Get-BetaServiceDeskIntegrationTemplate -ScriptName $ScriptName 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaServiceDeskIntegrationTemplate -ScriptName $ScriptName   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaServiceDeskIntegrationTemplate"
-            Write-Host $_.ErrorDetails
-        }
-- path: /service-desk-integrations/types
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#get-service-desk-integration-types
-      source: |
-        
-        # List Service Desk integration types
-        
-        try {
-            Get-BetaServiceDeskIntegrationTypes 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaServiceDeskIntegrationTypes   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaServiceDeskIntegrationTypes"
-            Write-Host $_.ErrorDetails
-        }
-- path: /service-desk-integrations/status-check-configuration
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#get-status-check-details
-      source: |
-        
-        # Get the time check configuration
-        
-        try {
-            Get-BetaStatusCheckDetails 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaStatusCheckDetails   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaStatusCheckDetails"
-            Write-Host $_.ErrorDetails
-        }
-- path: /service-desk-integrations/{id}
-  method: PATCH
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#patch-service-desk-integration
-      source: |
-        $Id = "anId" # String | ID of the Service Desk integration to update
-        $JsonPatchOperation = @"{
-          "op" : "replace",
-          "path" : "/description",
-          "value" : "New description"
-        }"@ 
-        
-        
-        # Patch a Service Desk Integration
-        
-        try {
-            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-BetaServiceDeskIntegration -Id $Id -JsonPatchOperation $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Update-BetaServiceDeskIntegration -Id $Id -JsonPatchOperation $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaServiceDeskIntegration"
-            Write-Host $_.ErrorDetails
-        }
-- path: /service-desk-integrations/{id}
-  method: PUT
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#put-service-desk-integration
-      source: |
-        $Id = "anId" # String | ID of the Service Desk integration to update
-        $ServiceDeskIntegrationDto = @"
-        {
-          "ownerRef" : "",
-          "cluster" : "xyzzy999",
-          "managedSources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
-          "provisioningConfig" : {
-            "managedResourceRefs" : [ {
-              "type" : "SOURCE",
-              "id" : "2c9180855d191c59015d291ceb051111",
-              "name" : "My Source 1"
-            }, {
-              "type" : "SOURCE",
-              "id" : "2c9180855d191c59015d291ceb052222",
-              "name" : "My Source 2"
-            } ],
-            "provisioningRequestExpiration" : 7,
-            "noProvisioningRequests" : true,
-            "universalManager" : true,
-            "planInitializerScript" : {
-              "source" : "<?xml version='1.0' encoding='UTF-8'?>\\r\\n<!DOCTYPE Rule PUBLIC \\\"sailpoint.dtd\\\" \\\"sailpoint.dtd\\\">\\r\\n<Rule name=\\\"Example Rule\\\" type=\\\"BeforeProvisioning\\\">\\r\\n  <Description>Before Provisioning Rule which changes disables and enables to a modify.</Description>\\r\\n  <Source><![CDATA[\\r\\nimport sailpoint.object.*;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest.Operation;\\r\\nimport sailpoint.object.ProvisioningPlan.AttributeRequest;\\r\\nimport sailpoint.object.ProvisioningPlan;\\r\\nimport sailpoint.object.ProvisioningPlan.Operation;\\r\\n\\r\\nfor ( AccountRequest accountRequest : plan.getAccountRequests() ) {\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Disable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Enable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n}\\r\\n\\r\\n  ]]></Source>\n"
-            }
-          },
-          "name" : "Service Desk Integration Name",
-          "description" : "A very nice Service Desk integration",
-          "attributes" : {
-            "property" : "value",
-            "key" : "value"
-          },
-          "clusterRef" : "",
-          "type" : "ServiceNowSDIM",
-          "beforeProvisioningRule" : ""
-        }
-        "@
-        
-        # Update a Service Desk integration
-        
-        try {
-            $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
-            Send-BetaServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Send-BetaServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaServiceDeskIntegration"
-            Write-Host $_.ErrorDetails
-        }
-- path: /service-desk-integrations/status-check-configuration
-  method: PUT
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#update-status-check-details
-      source: |
-        $QueuedCheckConfigDetails = @"
-        {
-          "provisioningStatusCheckIntervalMinutes" : "30",
-          "provisioningMaxStatusCheckDays" : "2"
-        }
-        "@
-        
-        # Update the time check configuration
-        
-        try {
-            $Result = ConvertFrom-JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
-            Update-BetaStatusCheckDetails -QueuedCheckConfigDetails $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Update-BetaStatusCheckDetails -QueuedCheckConfigDetails $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaStatusCheckDetails"
-            Write-Host $_.ErrorDetails
-        }
 - path: /sim-integrations
   method: POST
   xCodeSample:
@@ -11182,6 +10662,700 @@
             # Start-BetaPredictSodViolations -IdentityWithNewAccess $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-BetaPredictSodViolations"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sp-config/export
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/sp-config#export-sp-config
+      source: |
+        $ExportPayload = @"
+        {
+          "description" : "Export Job 1 Test"
+        }
+        "@
+        
+        # Initiates configuration objects export job
+        
+        try {
+            $Result = ConvertFrom-JsonToExportPayload -Json $ExportPayload
+            Export-BetaSpConfig -ExportPayload $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Export-BetaSpConfig -ExportPayload $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-BetaSpConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sp-config/export/{id}/download
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/sp-config#get-sp-config-export
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job whose results will be downloaded.
+        
+        # Download export job result.
+        
+        try {
+            Get-BetaSpConfigExport -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaSpConfigExport -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSpConfigExport"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sp-config/export/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/sp-config#get-sp-config-export-status
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job whose status will be returned.
+        
+        # Get export job status
+        
+        try {
+            Get-BetaSpConfigExportStatus -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaSpConfigExportStatus -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSpConfigExportStatus"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sp-config/import/{id}/download
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/sp-config#get-sp-config-import
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job whose results will be downloaded.
+        
+        # Download import job result
+        
+        try {
+            Get-BetaSpConfigImport -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaSpConfigImport -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSpConfigImport"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sp-config/import/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/sp-config#get-sp-config-import-status
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job whose status will be returned.
+        
+        # Get import job status
+        
+        try {
+            Get-BetaSpConfigImportStatus -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaSpConfigImportStatus -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSpConfigImportStatus"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sp-config/import
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/sp-config#import-sp-config
+      source: |
+        $Data =  # System.IO.FileInfo | JSON file containing the objects to be imported.
+        $Preview = $true # Boolean | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is ""true"", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to $false)
+        $Options = @"
+        "@
+        
+        # Initiates configuration objects import job
+        
+        try {
+            Import-BetaSpConfig -Data $Data 
+    
+            # Below is a request that includes all optional parameters
+            # Import-BetaSpConfig -Data $Data -Preview $Preview -Options $Options   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaSpConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sp-config/config-objects
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/sp-config#list-sp-config-objects
+      source: |
+        
+        # List Config Objects
+        
+        try {
+            Get-BetaSpConfigObjects 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaSpConfigObjects   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSpConfigObjects"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/search-attribute-config
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/search-attribute-configuration#create-search-attribute-config
+      source: |
+        $SearchAttributeConfig = @"
+        {
+          "displayName" : "New Mail Attribute",
+          "name" : "newMailAttribute",
+          "applicationAttributes" : {
+            "2c91808b79fd2422017a0b35d30f3968" : "employeeNumber",
+            "2c91808b79fd2422017a0b36008f396b" : "employeeNumber"
+          }
+        }
+        "@
+        
+        # Create Extended Search Attributes
+        
+        try {
+            $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
+            New-BetaSearchAttributeConfig -SearchAttributeConfig $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-BetaSearchAttributeConfig -SearchAttributeConfig $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSearchAttributeConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/search-attribute-config/{name}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/search-attribute-configuration#delete-search-attribute-config
+      source: |
+        $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to delete.
+        
+        # Delete Extended Search Attribute
+        
+        try {
+            Remove-BetaSearchAttributeConfig -Name $Name 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-BetaSearchAttributeConfig -Name $Name   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaSearchAttributeConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/search-attribute-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/search-attribute-configuration#get-search-attribute-config
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # List Extended Search Attributes
+        
+        try {
+            Get-BetaSearchAttributeConfig 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaSearchAttributeConfig -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSearchAttributeConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/search-attribute-config/{name}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/search-attribute-configuration#get-single-search-attribute-config
+      source: |
+        $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to get.
+        
+        # Get Extended Search Attribute
+        
+        try {
+            Get-BetaSingleSearchAttributeConfig -Name $Name 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaSingleSearchAttributeConfig -Name $Name   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSingleSearchAttributeConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /accounts/search-attribute-config/{name}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/search-attribute-configuration#patch-search-attribute-config
+      source: |
+        $Name = "promotedMailAttribute" # String | Name of the extended search attribute configuration to patch.
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Update Extended Search Attribute
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-BetaSearchAttributeConfig -Name $Name -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-BetaSearchAttributeConfig -Name $Name -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSearchAttributeConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /segments
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/segments#create-segment
+      source: |
+        $Segment = @"
+        {
+          "owner" : {
+            "name" : "support",
+            "id" : "2c9180a46faadee4016fb4e018c20639",
+            "type" : "IDENTITY"
+          },
+          "created" : "2020-01-01T00:00:00Z",
+          "visibilityCriteria" : {
+            "expression" : {
+              "children" : [ ],
+              "attribute" : "location",
+              "value" : {
+                "type" : "STRING",
+                "value" : "Austin"
+              },
+              "operator" : "EQUALS"
+            }
+          },
+          "name" : "segment-xyz",
+          "modified" : "2020-01-01T00:00:00Z",
+          "description" : "This segment represents xyz",
+          "active" : true,
+          "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
+        }
+        "@
+        
+        # Create Segment
+        
+        try {
+            $Result = ConvertFrom-JsonToSegment -Json $Segment
+            New-BetaSegment -Segment $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-BetaSegment -Segment $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaSegment"
+            Write-Host $_.ErrorDetails
+        }
+- path: /segments/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/segments#delete-segment
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to delete.
+        
+        # Delete Segment by ID
+        
+        try {
+            Remove-BetaSegment -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-BetaSegment -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaSegment"
+            Write-Host $_.ErrorDetails
+        }
+- path: /segments/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/segments#get-segment
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to retrieve.
+        
+        # Get Segment by ID
+        
+        try {
+            Get-BetaSegment -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaSegment -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSegment"
+            Write-Host $_.ErrorDetails
+        }
+- path: /segments
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/segments#list-segments
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List Segments
+        
+        try {
+            Get-BetaSegments 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaSegments -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSegments"
+            Write-Host $_.ErrorDetails
+        }
+- path: /segments/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/segments#patch-segment
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to modify.
+        $RequestBody =  # SystemCollectionsHashtable[] | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
+        $RequestBody = @"[{op=replace, path=/visibilityCriteria, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}]"@ 
+        
+        
+        # Update Segment
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Update-BetaSegment -Id $Id -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-BetaSegment -Id $Id -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSegment"
+            Write-Host $_.ErrorDetails
+        }
+- path: /service-desk-integrations
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#create-service-desk-integration
+      source: |
+        $ServiceDeskIntegrationDto = @"
+        {
+          "ownerRef" : "",
+          "cluster" : "xyzzy999",
+          "managedSources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
+          "provisioningConfig" : {
+            "managedResourceRefs" : [ {
+              "type" : "SOURCE",
+              "id" : "2c9180855d191c59015d291ceb051111",
+              "name" : "My Source 1"
+            }, {
+              "type" : "SOURCE",
+              "id" : "2c9180855d191c59015d291ceb052222",
+              "name" : "My Source 2"
+            } ],
+            "provisioningRequestExpiration" : 7,
+            "noProvisioningRequests" : true,
+            "universalManager" : true,
+            "planInitializerScript" : {
+              "source" : "<?xml version='1.0' encoding='UTF-8'?>\\r\\n<!DOCTYPE Rule PUBLIC \\\"sailpoint.dtd\\\" \\\"sailpoint.dtd\\\">\\r\\n<Rule name=\\\"Example Rule\\\" type=\\\"BeforeProvisioning\\\">\\r\\n  <Description>Before Provisioning Rule which changes disables and enables to a modify.</Description>\\r\\n  <Source><![CDATA[\\r\\nimport sailpoint.object.*;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest.Operation;\\r\\nimport sailpoint.object.ProvisioningPlan.AttributeRequest;\\r\\nimport sailpoint.object.ProvisioningPlan;\\r\\nimport sailpoint.object.ProvisioningPlan.Operation;\\r\\n\\r\\nfor ( AccountRequest accountRequest : plan.getAccountRequests() ) {\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Disable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Enable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n}\\r\\n\\r\\n  ]]></Source>\n"
+            }
+          },
+          "name" : "Service Desk Integration Name",
+          "description" : "A very nice Service Desk integration",
+          "attributes" : {
+            "property" : "value",
+            "key" : "value"
+          },
+          "clusterRef" : "",
+          "type" : "ServiceNowSDIM",
+          "beforeProvisioningRule" : ""
+        }
+        "@
+        
+        # Create new Service Desk integration
+        
+        try {
+            $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
+            New-BetaServiceDeskIntegration -ServiceDeskIntegrationDto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-BetaServiceDeskIntegration -ServiceDeskIntegrationDto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaServiceDeskIntegration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /service-desk-integrations/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#delete-service-desk-integration
+      source: |
+        $Id = "anId" # String | ID of Service Desk integration to delete
+        
+        # Delete a Service Desk integration
+        
+        try {
+            Remove-BetaServiceDeskIntegration -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-BetaServiceDeskIntegration -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaServiceDeskIntegration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /service-desk-integrations/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#get-service-desk-integration
+      source: |
+        $Id = "anId" # String | ID of the Service Desk integration to get
+        
+        # Get a Service Desk integration
+        
+        try {
+            Get-BetaServiceDeskIntegration -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaServiceDeskIntegration -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaServiceDeskIntegration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /service-desk-integrations
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#get-service-desk-integration-list
+      source: |
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
+        $Filters = "id eq 2c91808b6ef1d43e016efba0ce470904" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq*  **type**: *eq, in*  **cluster**: *eq, in* (optional)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List existing Service Desk integrations
+        
+        try {
+            Get-BetaServiceDeskIntegrationList 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaServiceDeskIntegrationList -Offset $Offset -Limit $Limit -Sorters $Sorters -Filters $Filters -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaServiceDeskIntegrationList"
+            Write-Host $_.ErrorDetails
+        }
+- path: /service-desk-integrations/templates/{scriptName}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#get-service-desk-integration-template
+      source: |
+        $ScriptName = "aScriptName" # String | The scriptName value of the Service Desk integration template to get
+        
+        # Service Desk integration template by scriptName
+        
+        try {
+            Get-BetaServiceDeskIntegrationTemplate -ScriptName $ScriptName 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaServiceDeskIntegrationTemplate -ScriptName $ScriptName   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaServiceDeskIntegrationTemplate"
+            Write-Host $_.ErrorDetails
+        }
+- path: /service-desk-integrations/types
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#get-service-desk-integration-types
+      source: |
+        
+        # List Service Desk integration types
+        
+        try {
+            Get-BetaServiceDeskIntegrationTypes 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaServiceDeskIntegrationTypes   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaServiceDeskIntegrationTypes"
+            Write-Host $_.ErrorDetails
+        }
+- path: /service-desk-integrations/status-check-configuration
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#get-status-check-details
+      source: |
+        
+        # Get the time check configuration
+        
+        try {
+            Get-BetaStatusCheckDetails 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaStatusCheckDetails   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaStatusCheckDetails"
+            Write-Host $_.ErrorDetails
+        }
+- path: /service-desk-integrations/{id}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#patch-service-desk-integration
+      source: |
+        $Id = "anId" # String | ID of the Service Desk integration to update
+        $JsonPatchOperation = @"{
+          "op" : "replace",
+          "path" : "/description",
+          "value" : "New description"
+        }"@ 
+        
+        
+        # Patch a Service Desk Integration
+        
+        try {
+            $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+            Update-BetaServiceDeskIntegration -Id $Id -JsonPatchOperation $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-BetaServiceDeskIntegration -Id $Id -JsonPatchOperation $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaServiceDeskIntegration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /service-desk-integrations/{id}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#put-service-desk-integration
+      source: |
+        $Id = "anId" # String | ID of the Service Desk integration to update
+        $ServiceDeskIntegrationDto = @"
+        {
+          "ownerRef" : "",
+          "cluster" : "xyzzy999",
+          "managedSources" : [ "2c9180835d191a86015d28455b4a2329", "2c5680835d191a85765d28455b4a9823" ],
+          "provisioningConfig" : {
+            "managedResourceRefs" : [ {
+              "type" : "SOURCE",
+              "id" : "2c9180855d191c59015d291ceb051111",
+              "name" : "My Source 1"
+            }, {
+              "type" : "SOURCE",
+              "id" : "2c9180855d191c59015d291ceb052222",
+              "name" : "My Source 2"
+            } ],
+            "provisioningRequestExpiration" : 7,
+            "noProvisioningRequests" : true,
+            "universalManager" : true,
+            "planInitializerScript" : {
+              "source" : "<?xml version='1.0' encoding='UTF-8'?>\\r\\n<!DOCTYPE Rule PUBLIC \\\"sailpoint.dtd\\\" \\\"sailpoint.dtd\\\">\\r\\n<Rule name=\\\"Example Rule\\\" type=\\\"BeforeProvisioning\\\">\\r\\n  <Description>Before Provisioning Rule which changes disables and enables to a modify.</Description>\\r\\n  <Source><![CDATA[\\r\\nimport sailpoint.object.*;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest;\\r\\nimport sailpoint.object.ProvisioningPlan.AccountRequest.Operation;\\r\\nimport sailpoint.object.ProvisioningPlan.AttributeRequest;\\r\\nimport sailpoint.object.ProvisioningPlan;\\r\\nimport sailpoint.object.ProvisioningPlan.Operation;\\r\\n\\r\\nfor ( AccountRequest accountRequest : plan.getAccountRequests() ) {\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Disable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n  if ( accountRequest.getOp().equals( ProvisioningPlan.ObjectOperation.Enable ) ) {\\r\\n    accountRequest.setOp( ProvisioningPlan.ObjectOperation.Modify );\\r\\n  }\\r\\n}\\r\\n\\r\\n  ]]></Source>\n"
+            }
+          },
+          "name" : "Service Desk Integration Name",
+          "description" : "A very nice Service Desk integration",
+          "attributes" : {
+            "property" : "value",
+            "key" : "value"
+          },
+          "clusterRef" : "",
+          "type" : "ServiceNowSDIM",
+          "beforeProvisioningRule" : ""
+        }
+        "@
+        
+        # Update a Service Desk integration
+        
+        try {
+            $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
+            Send-BetaServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-BetaServiceDeskIntegration -Id $Id -ServiceDeskIntegrationDto $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaServiceDeskIntegration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /service-desk-integrations/status-check-configuration
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/service-desk-integration#update-status-check-details
+      source: |
+        $QueuedCheckConfigDetails = @"
+        {
+          "provisioningStatusCheckIntervalMinutes" : "30",
+          "provisioningMaxStatusCheckDays" : "2"
+        }
+        "@
+        
+        # Update the time check configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToQueuedCheckConfigDetails -Json $QueuedCheckConfigDetails
+            Update-BetaStatusCheckDetails -QueuedCheckConfigDetails $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-BetaStatusCheckDetails -QueuedCheckConfigDetails $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaStatusCheckDetails"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-usages/{sourceId}/status
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/source-usages#get-status-by-source-id
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
+        
+        # Finds status of source usage
+        
+        try {
+            Get-BetaStatusBySourceId -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaStatusBySourceId -SourceId $SourceId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaStatusBySourceId"
+            Write-Host $_.ErrorDetails
+        }
+- path: /source-usages/{sourceId}/summaries
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/source-usages#get-usages-by-source-id
+      source: |
+        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Sorters = "-date" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date** (optional)
+        
+        # Returns source usage insights
+        
+        try {
+            Get-BetaUsagesBySourceId -SourceId $SourceId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaUsagesBySourceId -SourceId $SourceId -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaUsagesBySourceId"
             Write-Host $_.ErrorDetails
         }
 - path: /sources/{sourceId}/provisioning-policies
@@ -12501,188 +12675,6 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaSourceSchema"
             Write-Host $_.ErrorDetails
         }
-- path: /source-usages/{sourceId}/status
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/source-usages#get-status-by-source-id
-      source: |
-        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
-        
-        # Finds status of source usage
-        
-        try {
-            Get-BetaStatusBySourceId -SourceId $SourceId 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaStatusBySourceId -SourceId $SourceId   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaStatusBySourceId"
-            Write-Host $_.ErrorDetails
-        }
-- path: /source-usages/{sourceId}/summaries
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/source-usages#get-usages-by-source-id
-      source: |
-        $SourceId = "2c9180835d191a86015d28455b4a2329" # String | ID of IDN source
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $Sorters = "-date" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date** (optional)
-        
-        # Returns source usage insights
-        
-        try {
-            Get-BetaUsagesBySourceId -SourceId $SourceId 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaUsagesBySourceId -SourceId $SourceId -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaUsagesBySourceId"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sp-config/export
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/sp-config#export-sp-config
-      source: |
-        $ExportPayload = @"
-        {
-          "description" : "Export Job 1 Test"
-        }
-        "@
-        
-        # Initiates configuration objects export job
-        
-        try {
-            $Result = ConvertFrom-JsonToExportPayload -Json $ExportPayload
-            Export-BetaSpConfig -ExportPayload $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Export-BetaSpConfig -ExportPayload $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-BetaSpConfig"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sp-config/export/{id}/download
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/sp-config#get-sp-config-export
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job whose results will be downloaded.
-        
-        # Download export job result.
-        
-        try {
-            Get-BetaSpConfigExport -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaSpConfigExport -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSpConfigExport"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sp-config/export/{id}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/sp-config#get-sp-config-export-status
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the export job whose status will be returned.
-        
-        # Get export job status
-        
-        try {
-            Get-BetaSpConfigExportStatus -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaSpConfigExportStatus -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSpConfigExportStatus"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sp-config/import/{id}/download
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/sp-config#get-sp-config-import
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job whose results will be downloaded.
-        
-        # Download import job result
-        
-        try {
-            Get-BetaSpConfigImport -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaSpConfigImport -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSpConfigImport"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sp-config/import/{id}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/sp-config#get-sp-config-import-status
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the import job whose status will be returned.
-        
-        # Get import job status
-        
-        try {
-            Get-BetaSpConfigImportStatus -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaSpConfigImportStatus -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSpConfigImportStatus"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sp-config/import
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/sp-config#import-sp-config
-      source: |
-        $Data =  # System.IO.FileInfo | JSON file containing the objects to be imported.
-        $Preview = $true # Boolean | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is ""true"", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to $false)
-        $Options = @"
-        "@
-        
-        # Initiates configuration objects import job
-        
-        try {
-            Import-BetaSpConfig -Data $Data 
-    
-            # Below is a request that includes all optional parameters
-            # Import-BetaSpConfig -Data $Data -Preview $Preview -Options $Options   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-BetaSpConfig"
-            Write-Host $_.ErrorDetails
-        }
-- path: /sp-config/config-objects
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/sp-config#list-sp-config-objects
-      source: |
-        
-        # List Config Objects
-        
-        try {
-            Get-BetaSpConfigObjects 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaSpConfigObjects   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaSpConfigObjects"
-            Write-Host $_.ErrorDetails
-        }
 - path: /suggested-entitlement-description-batches/{batchId}/stats
   method: GET
   xCodeSample:
@@ -13868,6 +13860,476 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaVendorConnectorMappings"
             Write-Host $_.ErrorDetails
         }
+- path: /work-items/{id}/approve/{approvalItemId}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-items#approve-approval-item
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+        $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the approval item.
+        
+        # Approve an Approval Item
+        
+        try {
+            Approve-BetaApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId 
+    
+            # Below is a request that includes all optional parameters
+            # Approve-BetaApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BetaApprovalItem"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/bulk-approve/{id}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-items#approve-approval-items-in-bulk
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+        
+        # Bulk approve Approval Items
+        
+        try {
+            Approve-BetaApprovalItemsInBulk -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Approve-BetaApprovalItemsInBulk -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BetaApprovalItemsInBulk"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/{id}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-items#complete-work-item
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+        $Body = "MyBody" # String | Body is the request payload to create form definition request (optional)
+        
+        # Complete a Work Item
+        
+        try {
+            Complete-BetaWorkItem -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Complete-BetaWorkItem -Id $Id -Body $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-BetaWorkItem"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/completed
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-items#get-completed-work-items
+      source: |
+        $OwnerId = "2c91808571bcfcf80171c23e4b4221fc" # String | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # Completed Work Items
+        
+        try {
+            Get-BetaCompletedWorkItems 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaCompletedWorkItems -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCompletedWorkItems"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/completed/count
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-items#get-count-completed-work-items
+      source: |
+        $OwnerId = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the work item owner. (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # Count Completed Work Items
+        
+        try {
+            Get-BetaCountCompletedWorkItems 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaCountCompletedWorkItems -OwnerId $OwnerId -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCountCompletedWorkItems"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/count
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-items#get-count-work-items
+      source: |
+        $OwnerId = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the work item owner. (optional)
+        
+        # Count Work Items
+        
+        try {
+            Get-BetaCountWorkItems 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaCountWorkItems -OwnerId $OwnerId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCountWorkItems"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-items#get-work-item
+      source: |
+        $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the work item.
+        $OwnerId = "2c9180835d191a86015d28455b4a2329" # String | ID of the work item owner. (optional)
+        
+        # Get a Work Item
+        
+        try {
+            Get-BetaWorkItem -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaWorkItem -Id $Id -OwnerId $OwnerId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkItem"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/summary
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-items#get-work-items-summary
+      source: |
+        $OwnerId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of the work item owner. (optional)
+        
+        # Work Items Summary
+        
+        try {
+            Get-BetaWorkItemsSummary 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaWorkItemsSummary -OwnerId $OwnerId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkItemsSummary"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-items#list-work-items
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $OwnerId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of the work item owner. (optional)
+        
+        # List Work Items
+        
+        try {
+            Get-BetaWorkItems 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaWorkItems -Limit $Limit -Offset $Offset -Count $Count -OwnerId $OwnerId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkItems"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/{id}/reject/{approvalItemId}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-items#reject-approval-item
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+        $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the approval item.
+        
+        # Reject an Approval Item
+        
+        try {
+            Deny-BetaApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId 
+    
+            # Below is a request that includes all optional parameters
+            # Deny-BetaApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-BetaApprovalItem"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/bulk-reject/{id}
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-items#reject-approval-items-in-bulk
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+        
+        # Bulk reject Approval Items
+        
+        try {
+            Deny-BetaApprovalItemsInBulk -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Deny-BetaApprovalItemsInBulk -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-BetaApprovalItemsInBulk"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/{id}/submit-account-selection
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-items#submit-account-selection
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+        $RequestBody = @{ key_example =  } # System.Collections.Hashtable | Account Selection Data map, keyed on fieldName
+        
+        # Submit Account Selections
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Submit-BetaAccountSelection -Id $Id -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Submit-BetaAccountSelection -Id $Id -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaAccountSelection"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/{id}/forward
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-items#submit-forward-work-item
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+        $WorkItemForward = @"
+        {
+          "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
+          "comment" : "I'm going on vacation.",
+          "sendNotifications" : true
+        }
+        "@
+        
+        # Forward a Work Item
+        
+        try {
+            $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
+            Submit-BetaForwardWorkItem -Id $Id -WorkItemForward $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Submit-BetaForwardWorkItem -Id $Id -WorkItemForward $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaForwardWorkItem"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#create-reassignment-configuration
+      source: |
+        $ConfigurationItemRequest = @"
+        {
+          "endDate" : "2022-07-30T17:00:00Z",
+          "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
+          "configType" : "ACCESS_REQUESTS",
+          "reassignedToId" : "2c91808781a71ddb0181b9090b53504a",
+          "startDate" : "2022-07-21T11:13:12.345Z"
+        }
+        "@
+        
+        # Create a Reassignment Configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
+            New-BetaReassignmentConfiguration -ConfigurationItemRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-BetaReassignmentConfiguration -ConfigurationItemRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaReassignmentConfiguration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/{identityId}/{configType}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#delete-reassignment-configuration
+      source: |
+        $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
+        $ConfigType = "ACCESS_REQUESTS" # ConfigTypeEnum | 
+        
+        # Delete Reassignment Configuration
+        
+        try {
+            Remove-BetaReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-BetaReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaReassignmentConfiguration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/{identityId}/evaluate/{configType}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#get-evaluate-reassignment-configuration
+      source: |
+        $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
+        $ConfigType = "ACCESS_REQUESTS" # ConfigTypeEnum | Reassignment work type
+        $ExclusionFilters = "MyExclusionFilters" # String[] | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
+        
+        $ExclusionFilters = @"SELF_REVIEW_DELEGATION"@
+        
+        # Evaluate Reassignment Configuration
+        
+        try {
+            Get-BetaEvaluateReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaEvaluateReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType -ExclusionFilters $ExclusionFilters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaEvaluateReassignmentConfiguration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/types
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#get-reassignment-config-types
+      source: |
+        
+        # List Reassignment Config Types
+        
+        try {
+            Get-BetaReassignmentConfigTypes 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaReassignmentConfigTypes   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaReassignmentConfigTypes"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/{identityId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#get-reassignment-configuration
+      source: |
+        $IdentityId = "2c91808781a71ddb0181b9090b5c504f" # String | unique identity id
+        
+        # Get Reassignment Configuration
+        
+        try {
+            Get-BetaReassignmentConfiguration -IdentityId $IdentityId 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaReassignmentConfiguration -IdentityId $IdentityId   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaReassignmentConfiguration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/tenant-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#get-tenant-config-configuration
+      source: |
+        
+        # Get Tenant-wide Reassignment Configuration settings
+        
+        try {
+            Get-BetaTenantConfigConfiguration 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaTenantConfigConfiguration   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaTenantConfigConfiguration"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#list-reassignment-configurations
+      source: |
+        $Limit = 20 # Int32 | Max number of results to return. (optional) (default to 20)
+        $Offset = 10 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
+        
+        # List Reassignment Configurations
+        
+        try {
+            Get-BetaReassignmentConfigurations 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaReassignmentConfigurations -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaReassignmentConfigurations"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/{identityId}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#put-reassignment-config
+      source: |
+        $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
+        $ConfigurationItemRequest = @"
+        {
+          "endDate" : "2022-07-30T17:00:00Z",
+          "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
+          "configType" : "ACCESS_REQUESTS",
+          "reassignedToId" : "2c91808781a71ddb0181b9090b53504a",
+          "startDate" : "2022-07-21T11:13:12.345Z"
+        }
+        "@
+        
+        # Update Reassignment Configuration
+        
+        try {
+            $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
+            Send-BetaReassignmentConfig -IdentityId $IdentityId -ConfigurationItemRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-BetaReassignmentConfig -IdentityId $IdentityId -ConfigurationItemRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaReassignmentConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /reassignment-configurations/tenant-config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#put-tenant-configuration
+      source: |
+        $TenantConfigurationRequest = @"
+        {
+          "configDetails" : {
+            "disabled" : true
+          }
+        }
+        "@
+        
+        # Update Tenant-wide Reassignment Configuration settings
+        
+        try {
+            $Result = ConvertFrom-JsonToTenantConfigurationRequest -Json $TenantConfigurationRequest
+            Send-BetaTenantConfiguration -TenantConfigurationRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-BetaTenantConfiguration -TenantConfigurationRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaTenantConfiguration"
+            Write-Host $_.ErrorDetails
+        }
 - path: /workflow-executions/{id}/cancel
   method: POST
   xCodeSample:
@@ -14283,473 +14745,5 @@
             # Test-BetaWorkflow -Id $Id -TestWorkflowRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-BetaWorkflow"
-            Write-Host $_.ErrorDetails
-        }
-- path: /work-items/{id}/approve/{approvalItemId}
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-items#approve-approval-item
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
-        $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the approval item.
-        
-        # Approve an Approval Item
-        
-        try {
-            Approve-BetaApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId 
-    
-            # Below is a request that includes all optional parameters
-            # Approve-BetaApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BetaApprovalItem"
-            Write-Host $_.ErrorDetails
-        }
-- path: /work-items/bulk-approve/{id}
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-items#approve-approval-items-in-bulk
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
-        
-        # Bulk approve Approval Items
-        
-        try {
-            Approve-BetaApprovalItemsInBulk -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Approve-BetaApprovalItemsInBulk -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Approve-BetaApprovalItemsInBulk"
-            Write-Host $_.ErrorDetails
-        }
-- path: /work-items/{id}
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-items#complete-work-item
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
-        $Body = "MyBody" # String | Body is the request payload to create form definition request (optional)
-        
-        # Complete a Work Item
-        
-        try {
-            Complete-BetaWorkItem -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Complete-BetaWorkItem -Id $Id -Body $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-BetaWorkItem"
-            Write-Host $_.ErrorDetails
-        }
-- path: /work-items/{id}/forward
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-items#forward-work-item
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
-        $WorkItemForward = @"
-        {
-          "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
-          "comment" : "I'm going on vacation.",
-          "sendNotifications" : true
-        }
-        "@
-        
-        # Forward a Work Item
-        
-        try {
-            $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
-            Invoke-BetaForwardWorkItem -Id $Id -WorkItemForward $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Invoke-BetaForwardWorkItem -Id $Id -WorkItemForward $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-BetaForwardWorkItem"
-            Write-Host $_.ErrorDetails
-        }
-- path: /work-items/completed
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-items#get-completed-work-items
-      source: |
-        $OwnerId = "MyOwnerId" # String | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional)
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        
-        # Completed Work Items
-        
-        try {
-            Get-BetaCompletedWorkItems 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaCompletedWorkItems -OwnerId $OwnerId -Limit $Limit -Offset $Offset -Count $Count   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCompletedWorkItems"
-            Write-Host $_.ErrorDetails
-        }
-- path: /work-items/completed/count
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-items#get-count-completed-work-items
-      source: |
-        $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
-        
-        # Count Completed Work Items
-        
-        try {
-            Get-BetaCountCompletedWorkItems 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaCountCompletedWorkItems -OwnerId $OwnerId   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCountCompletedWorkItems"
-            Write-Host $_.ErrorDetails
-        }
-- path: /work-items/count
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-items#get-count-work-items
-      source: |
-        $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
-        
-        # Count Work Items
-        
-        try {
-            Get-BetaCountWorkItems 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaCountWorkItems -OwnerId $OwnerId   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCountWorkItems"
-            Write-Host $_.ErrorDetails
-        }
-- path: /work-items/{id}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-items#get-work-item
-      source: |
-        $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the work item.
-        $OwnerId = "2c9180835d191a86015d28455b4a2329" # String | ID of the work item owner. (optional)
-        
-        # Get a Work Item
-        
-        try {
-            Get-BetaWorkItem -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaWorkItem -Id $Id -OwnerId $OwnerId   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkItem"
-            Write-Host $_.ErrorDetails
-        }
-- path: /work-items/summary
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-items#get-work-items-summary
-      source: |
-        $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
-        
-        # Work Items Summary
-        
-        try {
-            Get-BetaWorkItemsSummary 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaWorkItemsSummary -OwnerId $OwnerId   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkItemsSummary"
-            Write-Host $_.ErrorDetails
-        }
-- path: /work-items
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-items#list-work-items
-      source: |
-        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
-        
-        # List Work Items
-        
-        try {
-            Get-BetaWorkItems 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaWorkItems -Limit $Limit -Offset $Offset -Count $Count -OwnerId $OwnerId   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkItems"
-            Write-Host $_.ErrorDetails
-        }
-- path: /work-items/{id}/reject/{approvalItemId}
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-items#reject-approval-item
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
-        $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the approval item.
-        
-        # Reject an Approval Item
-        
-        try {
-            Deny-BetaApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId 
-    
-            # Below is a request that includes all optional parameters
-            # Deny-BetaApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-BetaApprovalItem"
-            Write-Host $_.ErrorDetails
-        }
-- path: /work-items/bulk-reject/{id}
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-items#reject-approval-items-in-bulk
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
-        
-        # Bulk reject Approval Items
-        
-        try {
-            Deny-BetaApprovalItemsInBulk -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Deny-BetaApprovalItemsInBulk -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-BetaApprovalItemsInBulk"
-            Write-Host $_.ErrorDetails
-        }
-- path: /work-items/{id}/submit-account-selection
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-items#submit-account-selection
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
-        $RequestBody = @{ key_example =  } # System.Collections.Hashtable | Account Selection Data map, keyed on fieldName
-        
-        # Submit Account Selections
-        
-        try {
-            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
-            Submit-BetaAccountSelection -Id $Id -RequestBody $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Submit-BetaAccountSelection -Id $Id -RequestBody $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaAccountSelection"
-            Write-Host $_.ErrorDetails
-        }
-- path: /reassignment-configurations
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#create-reassignment-configuration
-      source: |
-        $ConfigurationItemRequest = @"
-        {
-          "endDate" : "2022-07-30T17:00:00Z",
-          "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
-          "configType" : "ACCESS_REQUESTS",
-          "reassignedToId" : "2c91808781a71ddb0181b9090b53504a",
-          "startDate" : "2022-07-21T11:13:12.345Z"
-        }
-        "@
-        
-        # Create a Reassignment Configuration
-        
-        try {
-            $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
-            New-BetaReassignmentConfiguration -ConfigurationItemRequest $Result 
-    
-            # Below is a request that includes all optional parameters
-            # New-BetaReassignmentConfiguration -ConfigurationItemRequest $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-BetaReassignmentConfiguration"
-            Write-Host $_.ErrorDetails
-        }
-- path: /reassignment-configurations/{identityId}/{configType}
-  method: DELETE
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#delete-reassignment-configuration
-      source: |
-        $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
-        $ConfigType = "ACCESS_REQUESTS" # ConfigTypeEnum | 
-        
-        # Delete Reassignment Configuration
-        
-        try {
-            Remove-BetaReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType 
-    
-            # Below is a request that includes all optional parameters
-            # Remove-BetaReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaReassignmentConfiguration"
-            Write-Host $_.ErrorDetails
-        }
-- path: /reassignment-configurations/{identityId}/evaluate/{configType}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#get-evaluate-reassignment-configuration
-      source: |
-        $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
-        $ConfigType = "ACCESS_REQUESTS" # ConfigTypeEnum | Reassignment work type
-        $ExclusionFilters = "MyExclusionFilters" # String[] | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
-        
-        $ExclusionFilters = @"SELF_REVIEW_DELEGATION"@
-        
-        # Evaluate Reassignment Configuration
-        
-        try {
-            Get-BetaEvaluateReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaEvaluateReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType -ExclusionFilters $ExclusionFilters   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaEvaluateReassignmentConfiguration"
-            Write-Host $_.ErrorDetails
-        }
-- path: /reassignment-configurations/types
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#get-reassignment-config-types
-      source: |
-        
-        # List Reassignment Config Types
-        
-        try {
-            Get-BetaReassignmentConfigTypes 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaReassignmentConfigTypes   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaReassignmentConfigTypes"
-            Write-Host $_.ErrorDetails
-        }
-- path: /reassignment-configurations/{identityId}
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#get-reassignment-configuration
-      source: |
-        $IdentityId = "2c91808781a71ddb0181b9090b5c504f" # String | unique identity id
-        
-        # Get Reassignment Configuration
-        
-        try {
-            Get-BetaReassignmentConfiguration -IdentityId $IdentityId 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaReassignmentConfiguration -IdentityId $IdentityId   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaReassignmentConfiguration"
-            Write-Host $_.ErrorDetails
-        }
-- path: /reassignment-configurations/tenant-config
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#get-tenant-config-configuration
-      source: |
-        
-        # Get Tenant-wide Reassignment Configuration settings
-        
-        try {
-            Get-BetaTenantConfigConfiguration 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaTenantConfigConfiguration   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaTenantConfigConfiguration"
-            Write-Host $_.ErrorDetails
-        }
-- path: /reassignment-configurations
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#list-reassignment-configurations
-      source: |
-        $Limit = 20 # Int32 | Max number of results to return. (optional) (default to 20)
-        $Offset = 10 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
-        
-        # List Reassignment Configurations
-        
-        try {
-            Get-BetaReassignmentConfigurations 
-    
-            # Below is a request that includes all optional parameters
-            # Get-BetaReassignmentConfigurations -Limit $Limit -Offset $Offset   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaReassignmentConfigurations"
-            Write-Host $_.ErrorDetails
-        }
-- path: /reassignment-configurations/{identityId}
-  method: PUT
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#put-reassignment-config
-      source: |
-        $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
-        $ConfigurationItemRequest = @"
-        {
-          "endDate" : "2022-07-30T17:00:00Z",
-          "reassignedFromId" : "2c91808781a71ddb0181b9090b5c504e",
-          "configType" : "ACCESS_REQUESTS",
-          "reassignedToId" : "2c91808781a71ddb0181b9090b53504a",
-          "startDate" : "2022-07-21T11:13:12.345Z"
-        }
-        "@
-        
-        # Update Reassignment Configuration
-        
-        try {
-            $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
-            Send-BetaReassignmentConfig -IdentityId $IdentityId -ConfigurationItemRequest $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Send-BetaReassignmentConfig -IdentityId $IdentityId -ConfigurationItemRequest $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaReassignmentConfig"
-            Write-Host $_.ErrorDetails
-        }
-- path: /reassignment-configurations/tenant-config
-  method: PUT
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-reassignment#put-tenant-configuration
-      source: |
-        $TenantConfigurationRequest = @"
-        {
-          "configDetails" : {
-            "disabled" : true
-          }
-        }
-        "@
-        
-        # Update Tenant-wide Reassignment Configuration settings
-        
-        try {
-            $Result = ConvertFrom-JsonToTenantConfigurationRequest -Json $TenantConfigurationRequest
-            Send-BetaTenantConfiguration -TenantConfigurationRequest $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Send-BetaTenantConfiguration -TenantConfigurationRequest $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaTenantConfiguration"
             Write-Host $_.ErrorDetails
         }

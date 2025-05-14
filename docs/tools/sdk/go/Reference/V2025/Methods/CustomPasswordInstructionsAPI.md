@@ -80,7 +80,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -93,24 +93,23 @@ func main() {
           "locale" : "en"
         }`) // CustomPasswordInstruction | 
 
-  
-   var customPasswordInstruction v2025.CustomPasswordInstruction
-   if err := json.Unmarshal(custompasswordinstruction, &customPasswordInstruction); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var customPasswordInstruction v2025.CustomPasswordInstruction
+    if err := json.Unmarshal(custompasswordinstruction, &customPasswordInstruction); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.CustomPasswordInstructionsAPI.CreateCustomPasswordInstructions(context.Background()).XSailPointExperimental(xSailPointExperimental).CustomPasswordInstruction(customPasswordInstruction).Execute()
-	//resp, r, err := apiClient.V2025.CustomPasswordInstructionsAPI.CreateCustomPasswordInstructions(context.Background()).XSailPointExperimental(xSailPointExperimental).CustomPasswordInstruction(customPasswordInstruction).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomPasswordInstructionsAPI.CreateCustomPasswordInstructions``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateCustomPasswordInstructions`: CustomPasswordInstruction
-	fmt.Fprintf(os.Stdout, "Response from `CustomPasswordInstructionsAPI.CreateCustomPasswordInstructions`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.CustomPasswordInstructionsAPI.CreateCustomPasswordInstructions(context.Background()).XSailPointExperimental(xSailPointExperimental).CustomPasswordInstruction(customPasswordInstruction).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomPasswordInstructionsAPI.CreateCustomPasswordInstructions``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateCustomPasswordInstructions`: CustomPasswordInstruction
+    fmt.Fprintf(os.Stdout, "Response from `CustomPasswordInstructionsAPI.CreateCustomPasswordInstructions`: %v\n", resp)
 }
 ```
 
@@ -170,7 +169,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -180,16 +179,17 @@ func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     locale := `locale_example` // string | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional) # string | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     r, err := apiClient.V2025.CustomPasswordInstructionsAPI.DeleteCustomPasswordInstructions(context.Background(), pageId).XSailPointExperimental(xSailPointExperimental).Execute()
-	//r, err := apiClient.V2025.CustomPasswordInstructionsAPI.DeleteCustomPasswordInstructions(context.Background(), pageId).XSailPointExperimental(xSailPointExperimental).Locale(locale).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomPasswordInstructionsAPI.DeleteCustomPasswordInstructions``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+	  //r, err := apiClient.V2025.CustomPasswordInstructionsAPI.DeleteCustomPasswordInstructions(context.Background(), pageId).XSailPointExperimental(xSailPointExperimental).Locale(locale).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomPasswordInstructionsAPI.DeleteCustomPasswordInstructions``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
 }
 ```
 
@@ -249,7 +249,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -259,18 +259,18 @@ func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     locale := `locale_example` // string | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional) # string | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.CustomPasswordInstructionsAPI.GetCustomPasswordInstructions(context.Background(), pageId).XSailPointExperimental(xSailPointExperimental).Execute()
-	//resp, r, err := apiClient.V2025.CustomPasswordInstructionsAPI.GetCustomPasswordInstructions(context.Background(), pageId).XSailPointExperimental(xSailPointExperimental).Locale(locale).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomPasswordInstructionsAPI.GetCustomPasswordInstructions``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetCustomPasswordInstructions`: CustomPasswordInstruction
-	fmt.Fprintf(os.Stdout, "Response from `CustomPasswordInstructionsAPI.GetCustomPasswordInstructions`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.CustomPasswordInstructionsAPI.GetCustomPasswordInstructions(context.Background(), pageId).XSailPointExperimental(xSailPointExperimental).Locale(locale).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomPasswordInstructionsAPI.GetCustomPasswordInstructions``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetCustomPasswordInstructions`: CustomPasswordInstruction
+    fmt.Fprintf(os.Stdout, "Response from `CustomPasswordInstructionsAPI.GetCustomPasswordInstructions`: %v\n", resp)
 }
 ```
 

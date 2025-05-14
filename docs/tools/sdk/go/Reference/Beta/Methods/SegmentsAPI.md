@@ -78,7 +78,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -109,24 +109,23 @@ func main() {
           "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
         }`) // Segment | 
 
-  
-   var segment beta.Segment
-   if err := json.Unmarshal(segment, &segment); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var segment beta.Segment
+    if err := json.Unmarshal(segment, &segment); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.SegmentsAPI.CreateSegment(context.Background()).Segment(segment).Execute()
-	//resp, r, err := apiClient.Beta.SegmentsAPI.CreateSegment(context.Background()).Segment(segment).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SegmentsAPI.CreateSegment``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateSegment`: Segment
-	fmt.Fprintf(os.Stdout, "Response from `SegmentsAPI.CreateSegment`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.SegmentsAPI.CreateSegment(context.Background()).Segment(segment).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SegmentsAPI.CreateSegment``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateSegment`: Segment
+    fmt.Fprintf(os.Stdout, "Response from `SegmentsAPI.CreateSegment`: %v\n", resp)
 }
 ```
 
@@ -175,7 +174,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -183,16 +182,17 @@ import (
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | The segment ID to delete. # string | The segment ID to delete.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     r, err := apiClient.Beta.SegmentsAPI.DeleteSegment(context.Background(), id).Execute()
-	//r, err := apiClient.Beta.SegmentsAPI.DeleteSegment(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SegmentsAPI.DeleteSegment``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+	  //r, err := apiClient.Beta.SegmentsAPI.DeleteSegment(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SegmentsAPI.DeleteSegment``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
 }
 ```
 
@@ -240,7 +240,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -248,18 +248,18 @@ import (
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | The segment ID to retrieve. # string | The segment ID to retrieve.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.SegmentsAPI.GetSegment(context.Background(), id).Execute()
-	//resp, r, err := apiClient.Beta.SegmentsAPI.GetSegment(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SegmentsAPI.GetSegment``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetSegment`: Segment
-	fmt.Fprintf(os.Stdout, "Response from `SegmentsAPI.GetSegment`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.SegmentsAPI.GetSegment(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SegmentsAPI.GetSegment``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetSegment`: Segment
+    fmt.Fprintf(os.Stdout, "Response from `SegmentsAPI.GetSegment`: %v\n", resp)
 }
 ```
 
@@ -305,7 +305,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -315,18 +315,18 @@ func main() {
     offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.SegmentsAPI.ListSegments(context.Background()).Execute()
-	//resp, r, err := apiClient.Beta.SegmentsAPI.ListSegments(context.Background()).Limit(limit).Offset(offset).Count(count).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SegmentsAPI.ListSegments``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListSegments`: []Segment
-	fmt.Fprintf(os.Stdout, "Response from `SegmentsAPI.ListSegments`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.SegmentsAPI.ListSegments(context.Background()).Limit(limit).Offset(offset).Count(count).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SegmentsAPI.ListSegments``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListSegments`: []Segment
+    fmt.Fprintf(os.Stdout, "Response from `SegmentsAPI.ListSegments`: %v\n", resp)
 }
 ```
 
@@ -376,7 +376,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -385,24 +385,23 @@ func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | The segment ID to modify. # string | The segment ID to modify.
     requestbody := []byte(`[{op=replace, path=/visibilityCriteria, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}]`) // []map[string]interface{} | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
 
-  
-   var requestBody beta.[]RequestBody
-   if err := json.Unmarshal(requestbody, &requestBody); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var requestBody []beta.RequestBody
+    if err := json.Unmarshal(requestbody, &requestBody); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.SegmentsAPI.PatchSegment(context.Background(), id).RequestBody(requestBody).Execute()
-	//resp, r, err := apiClient.Beta.SegmentsAPI.PatchSegment(context.Background(), id).RequestBody(requestBody).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SegmentsAPI.PatchSegment``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PatchSegment`: Segment
-	fmt.Fprintf(os.Stdout, "Response from `SegmentsAPI.PatchSegment`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.SegmentsAPI.PatchSegment(context.Background(), id).RequestBody(requestBody).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SegmentsAPI.PatchSegment``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PatchSegment`: Segment
+    fmt.Fprintf(os.Stdout, "Response from `SegmentsAPI.PatchSegment`: %v\n", resp)
 }
 ```
 

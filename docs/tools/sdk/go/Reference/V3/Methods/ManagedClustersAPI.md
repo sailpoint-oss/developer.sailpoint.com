@@ -64,7 +64,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -80,24 +80,23 @@ func main() {
           "type" : "idn"
         }`) // ManagedClusterRequest | 
 
-  
-   var managedClusterRequest v3.ManagedClusterRequest
-   if err := json.Unmarshal(managedclusterrequest, &managedClusterRequest); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var managedClusterRequest v3.ManagedClusterRequest
+    if err := json.Unmarshal(managedclusterrequest, &managedClusterRequest); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.ManagedClustersAPI.CreateManagedCluster(context.Background()).ManagedClusterRequest(managedClusterRequest).Execute()
-	//resp, r, err := apiClient.V3.ManagedClustersAPI.CreateManagedCluster(context.Background()).ManagedClusterRequest(managedClusterRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.CreateManagedCluster``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateManagedCluster`: ManagedCluster
-	fmt.Fprintf(os.Stdout, "Response from `ManagedClustersAPI.CreateManagedCluster`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.ManagedClustersAPI.CreateManagedCluster(context.Background()).ManagedClusterRequest(managedClusterRequest).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.CreateManagedCluster``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateManagedCluster`: ManagedCluster
+    fmt.Fprintf(os.Stdout, "Response from `ManagedClustersAPI.CreateManagedCluster`: %v\n", resp)
 }
 ```
 
@@ -145,7 +144,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -154,16 +153,17 @@ func main() {
     id := `2c9180897de347a2017de8859e8c5039` // string | Managed cluster ID. # string | Managed cluster ID.
     removeClients := false // bool | Flag to determine the need to delete a cluster with clients. (optional) (default to false) # bool | Flag to determine the need to delete a cluster with clients. (optional) (default to false)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     r, err := apiClient.V3.ManagedClustersAPI.DeleteManagedCluster(context.Background(), id).Execute()
-	//r, err := apiClient.V3.ManagedClustersAPI.DeleteManagedCluster(context.Background(), id).RemoveClients(removeClients).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.DeleteManagedCluster``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+	  //r, err := apiClient.V3.ManagedClustersAPI.DeleteManagedCluster(context.Background(), id).RemoveClients(removeClients).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.DeleteManagedCluster``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
 }
 ```
 
@@ -210,7 +210,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -218,18 +218,18 @@ import (
 func main() {
     id := `2b838de9-db9b-abcf-e646-d4f274ad4238` // string | ID of managed cluster to get log configuration for. # string | ID of managed cluster to get log configuration for.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.ManagedClustersAPI.GetClientLogConfiguration(context.Background(), id).Execute()
-	//resp, r, err := apiClient.V3.ManagedClustersAPI.GetClientLogConfiguration(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.GetClientLogConfiguration``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetClientLogConfiguration`: ClientLogConfiguration
-	fmt.Fprintf(os.Stdout, "Response from `ManagedClustersAPI.GetClientLogConfiguration`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.ManagedClustersAPI.GetClientLogConfiguration(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.GetClientLogConfiguration``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetClientLogConfiguration`: ClientLogConfiguration
+    fmt.Fprintf(os.Stdout, "Response from `ManagedClustersAPI.GetClientLogConfiguration`: %v\n", resp)
 }
 ```
 
@@ -276,7 +276,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -284,18 +284,18 @@ import (
 func main() {
     id := `2c9180897de347a2017de8859e8c5039` // string | Managed cluster ID. # string | Managed cluster ID.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.ManagedClustersAPI.GetManagedCluster(context.Background(), id).Execute()
-	//resp, r, err := apiClient.V3.ManagedClustersAPI.GetManagedCluster(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.GetManagedCluster``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetManagedCluster`: ManagedCluster
-	fmt.Fprintf(os.Stdout, "Response from `ManagedClustersAPI.GetManagedCluster`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.ManagedClustersAPI.GetManagedCluster(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.GetManagedCluster``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetManagedCluster`: ManagedCluster
+    fmt.Fprintf(os.Stdout, "Response from `ManagedClustersAPI.GetManagedCluster`: %v\n", resp)
 }
 ```
 
@@ -341,7 +341,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -352,18 +352,18 @@ func main() {
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
     filters := `operational eq "operation"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.ManagedClustersAPI.GetManagedClusters(context.Background()).Execute()
-	//resp, r, err := apiClient.V3.ManagedClustersAPI.GetManagedClusters(context.Background()).Offset(offset).Limit(limit).Count(count).Filters(filters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.GetManagedClusters``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetManagedClusters`: []ManagedCluster
-	fmt.Fprintf(os.Stdout, "Response from `ManagedClustersAPI.GetManagedClusters`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.ManagedClustersAPI.GetManagedClusters(context.Background()).Offset(offset).Limit(limit).Count(count).Filters(filters).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.GetManagedClusters``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetManagedClusters`: []ManagedCluster
+    fmt.Fprintf(os.Stdout, "Response from `ManagedClustersAPI.GetManagedClusters`: %v\n", resp)
 }
 ```
 
@@ -411,7 +411,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -420,24 +420,23 @@ func main() {
     id := `2b838de9-db9b-abcf-e646-d4f274ad4238` // string | ID of the managed cluster to update the log configuration for. # string | ID of the managed cluster to update the log configuration for.
     putclientlogconfigurationrequest := []byte(``) // PutClientLogConfigurationRequest | Client log configuration for the given managed cluster.
 
-  
-   var putClientLogConfigurationRequest v3.PutClientLogConfigurationRequest
-   if err := json.Unmarshal(putclientlogconfigurationrequest, &putClientLogConfigurationRequest); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var putClientLogConfigurationRequest v3.PutClientLogConfigurationRequest
+    if err := json.Unmarshal(putclientlogconfigurationrequest, &putClientLogConfigurationRequest); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.ManagedClustersAPI.PutClientLogConfiguration(context.Background(), id).PutClientLogConfigurationRequest(putClientLogConfigurationRequest).Execute()
-	//resp, r, err := apiClient.V3.ManagedClustersAPI.PutClientLogConfiguration(context.Background(), id).PutClientLogConfigurationRequest(putClientLogConfigurationRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.PutClientLogConfiguration``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PutClientLogConfiguration`: ClientLogConfiguration
-	fmt.Fprintf(os.Stdout, "Response from `ManagedClustersAPI.PutClientLogConfiguration`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.ManagedClustersAPI.PutClientLogConfiguration(context.Background(), id).PutClientLogConfigurationRequest(putClientLogConfigurationRequest).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.PutClientLogConfiguration``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PutClientLogConfiguration`: ClientLogConfiguration
+    fmt.Fprintf(os.Stdout, "Response from `ManagedClustersAPI.PutClientLogConfiguration`: %v\n", resp)
 }
 ```
 
@@ -485,7 +484,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -494,24 +493,23 @@ func main() {
     id := `2c9180897de347a2017de8859e8c5039` // string | Managed cluster ID. # string | Managed cluster ID.
     jsonpatchoperation := []byte(``) // []JsonPatchOperation | JSONPatch payload used to update the object.
 
-  
-   var jsonPatchOperation v3.[]JsonPatchOperation
-   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var jsonPatchOperation []v3.JsonPatchOperation
+    if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.ManagedClustersAPI.UpdateManagedCluster(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
-	//resp, r, err := apiClient.V3.ManagedClustersAPI.UpdateManagedCluster(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.UpdateManagedCluster``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `UpdateManagedCluster`: ManagedCluster
-	fmt.Fprintf(os.Stdout, "Response from `ManagedClustersAPI.UpdateManagedCluster`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.ManagedClustersAPI.UpdateManagedCluster(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `ManagedClustersAPI.UpdateManagedCluster``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdateManagedCluster`: ManagedCluster
+    fmt.Fprintf(os.Stdout, "Response from `ManagedClustersAPI.UpdateManagedCluster`: %v\n", resp)
 }
 ```
 

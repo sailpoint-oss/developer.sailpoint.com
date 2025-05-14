@@ -64,7 +64,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -76,24 +76,23 @@ func main() {
           "type" : "dateFormat"
         }`) // Transform | The transform to be created.
 
-  
-   var transform beta.Transform
-   if err := json.Unmarshal(transform, &transform); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var transform beta.Transform
+    if err := json.Unmarshal(transform, &transform); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.TransformsAPI.CreateTransform(context.Background()).Transform(transform).Execute()
-	//resp, r, err := apiClient.Beta.TransformsAPI.CreateTransform(context.Background()).Transform(transform).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TransformsAPI.CreateTransform``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateTransform`: TransformRead
-	fmt.Fprintf(os.Stdout, "Response from `TransformsAPI.CreateTransform`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.TransformsAPI.CreateTransform(context.Background()).Transform(transform).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `TransformsAPI.CreateTransform``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateTransform`: TransformRead
+    fmt.Fprintf(os.Stdout, "Response from `TransformsAPI.CreateTransform`: %v\n", resp)
 }
 ```
 
@@ -141,7 +140,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -149,16 +148,17 @@ import (
 func main() {
     id := `2cd78adghjkja34jh2b1hkjhasuecd` // string | ID of the transform to delete # string | ID of the transform to delete
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     r, err := apiClient.Beta.TransformsAPI.DeleteTransform(context.Background(), id).Execute()
-	//r, err := apiClient.Beta.TransformsAPI.DeleteTransform(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TransformsAPI.DeleteTransform``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+	  //r, err := apiClient.Beta.TransformsAPI.DeleteTransform(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `TransformsAPI.DeleteTransform``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
 }
 ```
 
@@ -206,7 +206,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -214,18 +214,18 @@ import (
 func main() {
     id := `2cd78adghjkja34jh2b1hkjhasuecd` // string | ID of the transform to retrieve # string | ID of the transform to retrieve
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.TransformsAPI.GetTransform(context.Background(), id).Execute()
-	//resp, r, err := apiClient.Beta.TransformsAPI.GetTransform(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TransformsAPI.GetTransform``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetTransform`: TransformRead
-	fmt.Fprintf(os.Stdout, "Response from `TransformsAPI.GetTransform`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.TransformsAPI.GetTransform(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `TransformsAPI.GetTransform``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetTransform`: TransformRead
+    fmt.Fprintf(os.Stdout, "Response from `TransformsAPI.GetTransform`: %v\n", resp)
 }
 ```
 
@@ -273,7 +273,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -285,18 +285,18 @@ func main() {
     name := `ExampleTransformName123` // string | Name of the transform to retrieve from the list. (optional) # string | Name of the transform to retrieve from the list. (optional)
     filters := `name eq "Uppercase"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **internal**: *eq*  **name**: *eq, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **internal**: *eq*  **name**: *eq, sw* (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.TransformsAPI.ListTransforms(context.Background()).Execute()
-	//resp, r, err := apiClient.Beta.TransformsAPI.ListTransforms(context.Background()).Offset(offset).Limit(limit).Count(count).Name(name).Filters(filters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TransformsAPI.ListTransforms``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListTransforms`: []TransformRead
-	fmt.Fprintf(os.Stdout, "Response from `TransformsAPI.ListTransforms`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.TransformsAPI.ListTransforms(context.Background()).Offset(offset).Limit(limit).Count(count).Name(name).Filters(filters).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `TransformsAPI.ListTransforms``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListTransforms`: []TransformRead
+    fmt.Fprintf(os.Stdout, "Response from `TransformsAPI.ListTransforms`: %v\n", resp)
 }
 ```
 
@@ -345,7 +345,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -358,18 +358,18 @@ func main() {
           "type" : "dateFormat"
         }`) // Transform | The updated transform object. Must include \"name\", \"type\", and \"attributes\" fields, but \"name\" and \"type\" must not be modified. (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.TransformsAPI.UpdateTransform(context.Background(), id).Execute()
-	//resp, r, err := apiClient.Beta.TransformsAPI.UpdateTransform(context.Background(), id).Transform(transform).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TransformsAPI.UpdateTransform``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `UpdateTransform`: TransformRead
-	fmt.Fprintf(os.Stdout, "Response from `TransformsAPI.UpdateTransform`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.TransformsAPI.UpdateTransform(context.Background(), id).Transform(transform).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `TransformsAPI.UpdateTransform``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdateTransform`: TransformRead
+    fmt.Fprintf(os.Stdout, "Response from `TransformsAPI.UpdateTransform`: %v\n", resp)
 }
 ```
 

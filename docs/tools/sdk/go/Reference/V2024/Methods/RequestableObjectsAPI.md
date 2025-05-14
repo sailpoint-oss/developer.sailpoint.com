@@ -67,7 +67,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -83,18 +83,18 @@ func main() {
     filters := `name sw "bob"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  (optional)
     sorters := `name` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**  (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**  (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.RequestableObjectsAPI.ListRequestableObjects(context.Background()).Execute()
-	//resp, r, err := apiClient.V2024.RequestableObjectsAPI.ListRequestableObjects(context.Background()).IdentityId(identityId).Types(types).Term(term).Statuses(statuses).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RequestableObjectsAPI.ListRequestableObjects``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListRequestableObjects`: []RequestableObject
-	fmt.Fprintf(os.Stdout, "Response from `RequestableObjectsAPI.ListRequestableObjects`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.RequestableObjectsAPI.ListRequestableObjects(context.Background()).IdentityId(identityId).Types(types).Term(term).Statuses(statuses).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `RequestableObjectsAPI.ListRequestableObjects``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListRequestableObjects`: []RequestableObject
+    fmt.Fprintf(os.Stdout, "Response from `RequestableObjectsAPI.ListRequestableObjects`: %v\n", resp)
 }
 ```
 

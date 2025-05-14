@@ -62,7 +62,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -72,24 +72,23 @@ func main() {
           "description" : "Export Job 1 Test"
         }`) // ExportPayload | Export options control what will be included in the export.
 
-  
-   var exportPayload v2025.ExportPayload
-   if err := json.Unmarshal(exportpayload, &exportPayload); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var exportPayload v2025.ExportPayload
+    if err := json.Unmarshal(exportpayload, &exportPayload); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.SPConfigAPI.ExportSpConfig(context.Background()).ExportPayload(exportPayload).Execute()
-	//resp, r, err := apiClient.V2025.SPConfigAPI.ExportSpConfig(context.Background()).ExportPayload(exportPayload).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.ExportSpConfig``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ExportSpConfig`: SpConfigExportJob
-	fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.ExportSpConfig`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.SPConfigAPI.ExportSpConfig(context.Background()).ExportPayload(exportPayload).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.ExportSpConfig``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ExportSpConfig`: SpConfigExportJob
+    fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.ExportSpConfig`: %v\n", resp)
 }
 ```
 
@@ -138,7 +137,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -146,18 +145,18 @@ import (
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | The ID of the export job whose results will be downloaded. # string | The ID of the export job whose results will be downloaded.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.SPConfigAPI.GetSpConfigExport(context.Background(), id).Execute()
-	//resp, r, err := apiClient.V2025.SPConfigAPI.GetSpConfigExport(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.GetSpConfigExport``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetSpConfigExport`: SpConfigExportResults
-	fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.GetSpConfigExport`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.SPConfigAPI.GetSpConfigExport(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.GetSpConfigExport``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetSpConfigExport`: SpConfigExportResults
+    fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.GetSpConfigExport`: %v\n", resp)
 }
 ```
 
@@ -206,7 +205,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -214,18 +213,18 @@ import (
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | The ID of the export job whose status will be returned. # string | The ID of the export job whose status will be returned.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.SPConfigAPI.GetSpConfigExportStatus(context.Background(), id).Execute()
-	//resp, r, err := apiClient.V2025.SPConfigAPI.GetSpConfigExportStatus(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.GetSpConfigExportStatus``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetSpConfigExportStatus`: SpConfigExportJobStatus
-	fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.GetSpConfigExportStatus`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.SPConfigAPI.GetSpConfigExportStatus(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.GetSpConfigExportStatus``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetSpConfigExportStatus`: SpConfigExportJobStatus
+    fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.GetSpConfigExportStatus`: %v\n", resp)
 }
 ```
 
@@ -274,7 +273,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -282,18 +281,18 @@ import (
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | The ID of the import job whose results will be downloaded. # string | The ID of the import job whose results will be downloaded.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.SPConfigAPI.GetSpConfigImport(context.Background(), id).Execute()
-	//resp, r, err := apiClient.V2025.SPConfigAPI.GetSpConfigImport(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.GetSpConfigImport``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetSpConfigImport`: SpConfigImportResults
-	fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.GetSpConfigImport`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.SPConfigAPI.GetSpConfigImport(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.GetSpConfigImport``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetSpConfigImport`: SpConfigImportResults
+    fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.GetSpConfigImport`: %v\n", resp)
 }
 ```
 
@@ -344,7 +343,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -352,18 +351,18 @@ import (
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | The ID of the import job whose status will be returned. # string | The ID of the import job whose status will be returned.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.SPConfigAPI.GetSpConfigImportStatus(context.Background(), id).Execute()
-	//resp, r, err := apiClient.V2025.SPConfigAPI.GetSpConfigImportStatus(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.GetSpConfigImportStatus``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetSpConfigImportStatus`: SpConfigImportJobStatus
-	fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.GetSpConfigImportStatus`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.SPConfigAPI.GetSpConfigImportStatus(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.GetSpConfigImportStatus``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetSpConfigImportStatus`: SpConfigImportJobStatus
+    fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.GetSpConfigImportStatus`: %v\n", resp)
 }
 ```
 
@@ -418,7 +417,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -428,18 +427,18 @@ func main() {
     preview := true // bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to false) # bool | This option is intended to give the user information about how an import operation would proceed, without having any effect on the target tenant. If this parameter is \"true\", no objects will be imported. Instead, the import process will pre-process the import file and attempt to resolve references within imported objects. The import result file will contain messages pertaining to how specific references were resolved, any errors associated with the preprocessing, and messages indicating which objects would be imported.  (optional) (default to false)
     options := []byte(``) // ImportOptions |  (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.SPConfigAPI.ImportSpConfig(context.Background()).Data(data).Execute()
-	//resp, r, err := apiClient.V2025.SPConfigAPI.ImportSpConfig(context.Background()).Data(data).Preview(preview).Options(options).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.ImportSpConfig``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ImportSpConfig`: SpConfigJob
-	fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.ImportSpConfig`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.SPConfigAPI.ImportSpConfig(context.Background()).Data(data).Preview(preview).Options(options).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.ImportSpConfig``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ImportSpConfig`: SpConfigJob
+    fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.ImportSpConfig`: %v\n", resp)
 }
 ```
 
@@ -478,25 +477,25 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.SPConfigAPI.ListSpConfigObjects(context.Background()).Execute()
-	//resp, r, err := apiClient.V2025.SPConfigAPI.ListSpConfigObjects(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.ListSpConfigObjects``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListSpConfigObjects`: []SpConfigObject
-	fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.ListSpConfigObjects`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.SPConfigAPI.ListSpConfigObjects(context.Background()).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SPConfigAPI.ListSpConfigObjects``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListSpConfigObjects`: []SpConfigObject
+    fmt.Fprintf(os.Stdout, "Response from `SPConfigAPI.ListSpConfigObjects`: %v\n", resp)
 }
 ```
 

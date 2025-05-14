@@ -121,7 +121,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -130,16 +130,17 @@ func main() {
     type_ := `ROLE` // string | The type of object to delete tags from. # string | The type of object to delete tags from.
     id := `ef38f94347e94562b5bb8424a56397d8` // string | The ID of the object to delete tags from. # string | The ID of the object to delete tags from.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     r, err := apiClient.Beta.TaggedObjectsAPI.DeleteTaggedObject(context.Background(), type_, id).Execute()
-	//r, err := apiClient.Beta.TaggedObjectsAPI.DeleteTaggedObject(context.Background(), type_, id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.DeleteTaggedObject``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+	  //r, err := apiClient.Beta.TaggedObjectsAPI.DeleteTaggedObject(context.Background(), type_, id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.DeleteTaggedObject``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
 }
 ```
 
@@ -184,7 +185,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -204,22 +205,22 @@ func main() {
           "tags" : [ "BU_FINANCE", "PCI" ]
         }`) // BulkTaggedObject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
-  
-   var bulkTaggedObject beta.BulkTaggedObject
-   if err := json.Unmarshal(bulktaggedobject, &bulkTaggedObject); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var bulkTaggedObject beta.BulkTaggedObject
+    if err := json.Unmarshal(bulktaggedobject, &bulkTaggedObject); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     r, err := apiClient.Beta.TaggedObjectsAPI.DeleteTagsToManyObject(context.Background()).BulkTaggedObject(bulkTaggedObject).Execute()
-	//r, err := apiClient.Beta.TaggedObjectsAPI.DeleteTagsToManyObject(context.Background()).BulkTaggedObject(bulkTaggedObject).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.DeleteTagsToManyObject``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+	  //r, err := apiClient.Beta.TaggedObjectsAPI.DeleteTagsToManyObject(context.Background()).BulkTaggedObject(bulkTaggedObject).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.DeleteTagsToManyObject``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
 }
 ```
 
@@ -268,7 +269,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -277,18 +278,18 @@ func main() {
     type_ := `ROLE` // string | The type of tagged object to retrieve. # string | The type of tagged object to retrieve.
     id := `ef38f94347e94562b5bb8424a56397d8` // string | The ID of the object reference to retrieve. # string | The ID of the object reference to retrieve.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.TaggedObjectsAPI.GetTaggedObject(context.Background(), type_, id).Execute()
-	//resp, r, err := apiClient.Beta.TaggedObjectsAPI.GetTaggedObject(context.Background(), type_, id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.GetTaggedObject``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetTaggedObject`: TaggedObject
-	fmt.Fprintf(os.Stdout, "Response from `TaggedObjectsAPI.GetTaggedObject`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.TaggedObjectsAPI.GetTaggedObject(context.Background(), type_, id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.GetTaggedObject``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetTaggedObject`: TaggedObject
+    fmt.Fprintf(os.Stdout, "Response from `TaggedObjectsAPI.GetTaggedObject`: %v\n", resp)
 }
 ```
 
@@ -336,7 +337,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -347,18 +348,18 @@ func main() {
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
     filters := `tagName eq "BU_FINANCE"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq, in*  **objectRef.type**: *eq, in*  **tagName**: *eq, in* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq, in*  **objectRef.type**: *eq, in*  **tagName**: *eq, in* (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.TaggedObjectsAPI.ListTaggedObjects(context.Background()).Execute()
-	//resp, r, err := apiClient.Beta.TaggedObjectsAPI.ListTaggedObjects(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.ListTaggedObjects``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListTaggedObjects`: []TaggedObject
-	fmt.Fprintf(os.Stdout, "Response from `TaggedObjectsAPI.ListTaggedObjects`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.TaggedObjectsAPI.ListTaggedObjects(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.ListTaggedObjects``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListTaggedObjects`: []TaggedObject
+    fmt.Fprintf(os.Stdout, "Response from `TaggedObjectsAPI.ListTaggedObjects`: %v\n", resp)
 }
 ```
 
@@ -411,7 +412,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -423,18 +424,18 @@ func main() {
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
     filters := `objectRef.id eq "2c91808568c529c60168cca6f90c1313"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq*  **objectRef.type**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq*  **objectRef.type**: *eq* (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.TaggedObjectsAPI.ListTaggedObjectsByType(context.Background(), type_).Execute()
-	//resp, r, err := apiClient.Beta.TaggedObjectsAPI.ListTaggedObjectsByType(context.Background(), type_).Limit(limit).Offset(offset).Count(count).Filters(filters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.ListTaggedObjectsByType``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListTaggedObjectsByType`: []TaggedObject
-	fmt.Fprintf(os.Stdout, "Response from `TaggedObjectsAPI.ListTaggedObjectsByType`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.TaggedObjectsAPI.ListTaggedObjectsByType(context.Background(), type_).Limit(limit).Offset(offset).Count(count).Filters(filters).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.ListTaggedObjectsByType``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListTaggedObjectsByType`: []TaggedObject
+    fmt.Fprintf(os.Stdout, "Response from `TaggedObjectsAPI.ListTaggedObjectsByType`: %v\n", resp)
 }
 ```
 
@@ -484,7 +485,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -501,24 +502,23 @@ func main() {
           "tags" : [ "BU_FINANCE", "PCI" ]
         }`) // TaggedObject | 
 
-  
-   var taggedObject beta.TaggedObject
-   if err := json.Unmarshal(taggedobject, &taggedObject); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var taggedObject beta.TaggedObject
+    if err := json.Unmarshal(taggedobject, &taggedObject); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.TaggedObjectsAPI.PutTaggedObject(context.Background(), type_, id).TaggedObject(taggedObject).Execute()
-	//resp, r, err := apiClient.Beta.TaggedObjectsAPI.PutTaggedObject(context.Background(), type_, id).TaggedObject(taggedObject).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.PutTaggedObject``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PutTaggedObject`: TaggedObject
-	fmt.Fprintf(os.Stdout, "Response from `TaggedObjectsAPI.PutTaggedObject`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.TaggedObjectsAPI.PutTaggedObject(context.Background(), type_, id).TaggedObject(taggedObject).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.PutTaggedObject``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PutTaggedObject`: TaggedObject
+    fmt.Fprintf(os.Stdout, "Response from `TaggedObjectsAPI.PutTaggedObject`: %v\n", resp)
 }
 ```
 
@@ -563,7 +563,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -578,22 +578,22 @@ func main() {
           "tags" : [ "BU_FINANCE", "PCI" ]
         }`) // TaggedObject | 
 
-  
-   var taggedObject beta.TaggedObject
-   if err := json.Unmarshal(taggedobject, &taggedObject); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var taggedObject beta.TaggedObject
+    if err := json.Unmarshal(taggedobject, &taggedObject); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     r, err := apiClient.Beta.TaggedObjectsAPI.SetTagToObject(context.Background()).TaggedObject(taggedObject).Execute()
-	//r, err := apiClient.Beta.TaggedObjectsAPI.SetTagToObject(context.Background()).TaggedObject(taggedObject).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.SetTagToObject``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+	  //r, err := apiClient.Beta.TaggedObjectsAPI.SetTagToObject(context.Background()).TaggedObject(taggedObject).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.SetTagToObject``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
 }
 ```
 
@@ -638,7 +638,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -658,24 +658,23 @@ func main() {
           "tags" : [ "BU_FINANCE", "PCI" ]
         }`) // BulkTaggedObject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
-  
-   var bulkTaggedObject beta.BulkTaggedObject
-   if err := json.Unmarshal(bulktaggedobject, &bulkTaggedObject); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var bulkTaggedObject beta.BulkTaggedObject
+    if err := json.Unmarshal(bulktaggedobject, &bulkTaggedObject); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.TaggedObjectsAPI.SetTagsToManyObjects(context.Background()).BulkTaggedObject(bulkTaggedObject).Execute()
-	//resp, r, err := apiClient.Beta.TaggedObjectsAPI.SetTagsToManyObjects(context.Background()).BulkTaggedObject(bulkTaggedObject).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.SetTagsToManyObjects``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SetTagsToManyObjects`: BulkTaggedObject
-	fmt.Fprintf(os.Stdout, "Response from `TaggedObjectsAPI.SetTagsToManyObjects`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.TaggedObjectsAPI.SetTagsToManyObjects(context.Background()).BulkTaggedObject(bulkTaggedObject).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `TaggedObjectsAPI.SetTagsToManyObjects``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SetTagsToManyObjects`: BulkTaggedObject
+    fmt.Fprintf(os.Stdout, "Response from `TaggedObjectsAPI.SetTagsToManyObjects`: %v\n", resp)
 }
 ```
 

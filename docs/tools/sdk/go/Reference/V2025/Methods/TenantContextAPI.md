@@ -70,7 +70,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -78,18 +78,18 @@ import (
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.TenantContextAPI.GetTenantContext(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
-	//resp, r, err := apiClient.V2025.TenantContextAPI.GetTenantContext(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TenantContextAPI.GetTenantContext``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetTenantContext`: []GetTenantContext200ResponseInner
-	fmt.Fprintf(os.Stdout, "Response from `TenantContextAPI.GetTenantContext`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.TenantContextAPI.GetTenantContext(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `TenantContextAPI.GetTenantContext``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetTenantContext`: []GetTenantContext200ResponseInner
+    fmt.Fprintf(os.Stdout, "Response from `TenantContextAPI.GetTenantContext`: %v\n", resp)
 }
 ```
 
@@ -149,7 +149,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -162,22 +162,22 @@ func main() {
           "value" : "New description"
         }`) // JsonPatchOperation | 
 
-  
-   var jsonPatchOperation v2025.JsonPatchOperation
-   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var jsonPatchOperation v2025.JsonPatchOperation
+    if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     r, err := apiClient.V2025.TenantContextAPI.PatchTenantContext(context.Background()).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
-	//r, err := apiClient.V2025.TenantContextAPI.PatchTenantContext(context.Background()).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `TenantContextAPI.PatchTenantContext``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+	  //r, err := apiClient.V2025.TenantContextAPI.PatchTenantContext(context.Background()).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `TenantContextAPI.PatchTenantContext``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
 }
 ```
 

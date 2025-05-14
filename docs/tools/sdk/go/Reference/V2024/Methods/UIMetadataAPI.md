@@ -68,7 +68,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -76,18 +76,18 @@ import (
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.UIMetadataAPI.GetTenantUiMetadata(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
-	//resp, r, err := apiClient.V2024.UIMetadataAPI.GetTenantUiMetadata(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UIMetadataAPI.GetTenantUiMetadata``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetTenantUiMetadata`: TenantUiMetadataItemResponse
-	fmt.Fprintf(os.Stdout, "Response from `UIMetadataAPI.GetTenantUiMetadata`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.UIMetadataAPI.GetTenantUiMetadata(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `UIMetadataAPI.GetTenantUiMetadata``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetTenantUiMetadata`: TenantUiMetadataItemResponse
+    fmt.Fprintf(os.Stdout, "Response from `UIMetadataAPI.GetTenantUiMetadata`: %v\n", resp)
 }
 ```
 
@@ -142,7 +142,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -155,24 +155,23 @@ func main() {
           "iframeWhiteList" : "http://example.com http://example2.com"
         }`) // TenantUiMetadataItemUpdateRequest | 
 
-  
-   var tenantUiMetadataItemUpdateRequest v2024.TenantUiMetadataItemUpdateRequest
-   if err := json.Unmarshal(tenantuimetadataitemupdaterequest, &tenantUiMetadataItemUpdateRequest); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var tenantUiMetadataItemUpdateRequest v2024.TenantUiMetadataItemUpdateRequest
+    if err := json.Unmarshal(tenantuimetadataitemupdaterequest, &tenantUiMetadataItemUpdateRequest); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.UIMetadataAPI.SetTenantUiMetadata(context.Background()).XSailPointExperimental(xSailPointExperimental).TenantUiMetadataItemUpdateRequest(tenantUiMetadataItemUpdateRequest).Execute()
-	//resp, r, err := apiClient.V2024.UIMetadataAPI.SetTenantUiMetadata(context.Background()).XSailPointExperimental(xSailPointExperimental).TenantUiMetadataItemUpdateRequest(tenantUiMetadataItemUpdateRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UIMetadataAPI.SetTenantUiMetadata``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SetTenantUiMetadata`: TenantUiMetadataItemResponse
-	fmt.Fprintf(os.Stdout, "Response from `UIMetadataAPI.SetTenantUiMetadata`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.UIMetadataAPI.SetTenantUiMetadata(context.Background()).XSailPointExperimental(xSailPointExperimental).TenantUiMetadataItemUpdateRequest(tenantUiMetadataItemUpdateRequest).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `UIMetadataAPI.SetTenantUiMetadata``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SetTenantUiMetadata`: TenantUiMetadataItemResponse
+    fmt.Fprintf(os.Stdout, "Response from `UIMetadataAPI.SetTenantUiMetadata`: %v\n", resp)
 }
 ```
 

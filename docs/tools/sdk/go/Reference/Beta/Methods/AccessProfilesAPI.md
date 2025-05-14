@@ -99,7 +99,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -192,24 +192,23 @@ func main() {
           "requestable" : true
         }`) // AccessProfile | 
 
-  
-   var accessProfile beta.AccessProfile
-   if err := json.Unmarshal(accessprofile, &accessProfile); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var accessProfile beta.AccessProfile
+    if err := json.Unmarshal(accessprofile, &accessProfile); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.AccessProfilesAPI.CreateAccessProfile(context.Background()).AccessProfile(accessProfile).Execute()
-	//resp, r, err := apiClient.Beta.AccessProfilesAPI.CreateAccessProfile(context.Background()).AccessProfile(accessProfile).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccessProfilesAPI.CreateAccessProfile``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateAccessProfile`: AccessProfile
-	fmt.Fprintf(os.Stdout, "Response from `AccessProfilesAPI.CreateAccessProfile`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.AccessProfilesAPI.CreateAccessProfile(context.Background()).AccessProfile(accessProfile).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `AccessProfilesAPI.CreateAccessProfile``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateAccessProfile`: AccessProfile
+    fmt.Fprintf(os.Stdout, "Response from `AccessProfilesAPI.CreateAccessProfile`: %v\n", resp)
 }
 ```
 
@@ -260,7 +259,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -268,16 +267,17 @@ import (
 func main() {
     id := `2c91808a7813090a017814121919ecca` // string | ID of the Access Profile to delete # string | ID of the Access Profile to delete
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     r, err := apiClient.Beta.AccessProfilesAPI.DeleteAccessProfile(context.Background(), id).Execute()
-	//r, err := apiClient.Beta.AccessProfilesAPI.DeleteAccessProfile(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccessProfilesAPI.DeleteAccessProfile``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+	  //r, err := apiClient.Beta.AccessProfilesAPI.DeleteAccessProfile(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `AccessProfilesAPI.DeleteAccessProfile``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
 }
 ```
 
@@ -323,7 +323,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -334,24 +334,23 @@ func main() {
           "bestEffortOnly" : true
         }`) // AccessProfileBulkDeleteRequest | 
 
-  
-   var accessProfileBulkDeleteRequest beta.AccessProfileBulkDeleteRequest
-   if err := json.Unmarshal(accessprofilebulkdeleterequest, &accessProfileBulkDeleteRequest); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var accessProfileBulkDeleteRequest beta.AccessProfileBulkDeleteRequest
+    if err := json.Unmarshal(accessprofilebulkdeleterequest, &accessProfileBulkDeleteRequest); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.AccessProfilesAPI.DeleteAccessProfilesInBulk(context.Background()).AccessProfileBulkDeleteRequest(accessProfileBulkDeleteRequest).Execute()
-	//resp, r, err := apiClient.Beta.AccessProfilesAPI.DeleteAccessProfilesInBulk(context.Background()).AccessProfileBulkDeleteRequest(accessProfileBulkDeleteRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccessProfilesAPI.DeleteAccessProfilesInBulk``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `DeleteAccessProfilesInBulk`: AccessProfileBulkDeleteResponse
-	fmt.Fprintf(os.Stdout, "Response from `AccessProfilesAPI.DeleteAccessProfilesInBulk`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.AccessProfilesAPI.DeleteAccessProfilesInBulk(context.Background()).AccessProfileBulkDeleteRequest(accessProfileBulkDeleteRequest).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `AccessProfilesAPI.DeleteAccessProfilesInBulk``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteAccessProfilesInBulk`: AccessProfileBulkDeleteResponse
+    fmt.Fprintf(os.Stdout, "Response from `AccessProfilesAPI.DeleteAccessProfilesInBulk`: %v\n", resp)
 }
 ```
 
@@ -398,7 +397,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -406,18 +405,18 @@ import (
 func main() {
     id := `2c9180837ca6693d017ca8d097500149` // string | ID of the Access Profile # string | ID of the Access Profile
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.AccessProfilesAPI.GetAccessProfile(context.Background(), id).Execute()
-	//resp, r, err := apiClient.Beta.AccessProfilesAPI.GetAccessProfile(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccessProfilesAPI.GetAccessProfile``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetAccessProfile`: AccessProfile
-	fmt.Fprintf(os.Stdout, "Response from `AccessProfilesAPI.GetAccessProfile`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.AccessProfilesAPI.GetAccessProfile(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `AccessProfilesAPI.GetAccessProfile``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetAccessProfile`: AccessProfile
+    fmt.Fprintf(os.Stdout, "Response from `AccessProfilesAPI.GetAccessProfile`: %v\n", resp)
 }
 ```
 
@@ -470,7 +469,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -483,18 +482,18 @@ func main() {
     filters := `attribute eq "memberOf"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in*  Filtering is not supported for access profiles and entitlements that have the '+' symbol in their names.   (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in*  Filtering is not supported for access profiles and entitlements that have the '+' symbol in their names.   (optional)
     sorters := `name,-modified` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified** (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.AccessProfilesAPI.GetAccessProfileEntitlements(context.Background(), id).Execute()
-	//resp, r, err := apiClient.Beta.AccessProfilesAPI.GetAccessProfileEntitlements(context.Background(), id).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccessProfilesAPI.GetAccessProfileEntitlements``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetAccessProfileEntitlements`: []Entitlement
-	fmt.Fprintf(os.Stdout, "Response from `AccessProfilesAPI.GetAccessProfileEntitlements`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.AccessProfilesAPI.GetAccessProfileEntitlements(context.Background(), id).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `AccessProfilesAPI.GetAccessProfileEntitlements``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetAccessProfileEntitlements`: []Entitlement
+    fmt.Fprintf(os.Stdout, "Response from `AccessProfilesAPI.GetAccessProfileEntitlements`: %v\n", resp)
 }
 ```
 
@@ -545,7 +544,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -560,18 +559,18 @@ func main() {
     forSegmentIds := `0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d` // string | Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional) # string | Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
     includeUnsegmented := false // bool | Indicates whether the response list should contain unsegmented access profiles. If `for-segment-ids` is absent or empty, specifying *include-unsegmented* as `false` results in an error. (optional) (default to true) # bool | Indicates whether the response list should contain unsegmented access profiles. If `for-segment-ids` is absent or empty, specifying *include-unsegmented* as `false` results in an error. (optional) (default to true)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.AccessProfilesAPI.ListAccessProfiles(context.Background()).Execute()
-	//resp, r, err := apiClient.Beta.AccessProfilesAPI.ListAccessProfiles(context.Background()).ForSubadmin(forSubadmin).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).ForSegmentIds(forSegmentIds).IncludeUnsegmented(includeUnsegmented).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccessProfilesAPI.ListAccessProfiles``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListAccessProfiles`: []AccessProfile
-	fmt.Fprintf(os.Stdout, "Response from `AccessProfilesAPI.ListAccessProfiles`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.AccessProfilesAPI.ListAccessProfiles(context.Background()).ForSubadmin(forSubadmin).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).ForSegmentIds(forSegmentIds).IncludeUnsegmented(includeUnsegmented).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `AccessProfilesAPI.ListAccessProfiles``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListAccessProfiles`: []AccessProfile
+    fmt.Fprintf(os.Stdout, "Response from `AccessProfilesAPI.ListAccessProfiles`: %v\n", resp)
 }
 ```
 
@@ -624,7 +623,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -633,24 +632,23 @@ func main() {
     id := `2c91808a7813090a017814121919ecca` // string | ID of the Access Profile to patch # string | ID of the Access Profile to patch
     jsonpatchoperation := []byte(`[{op=add, path=/entitlements, value=[{id=2c9180857725c14301772a93bb77242d, type=ENTITLEMENT, name=AD User Group}]}]`) // []JsonPatchOperation | 
 
-  
-   var jsonPatchOperation beta.[]JsonPatchOperation
-   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var jsonPatchOperation []beta.JsonPatchOperation
+    if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.AccessProfilesAPI.PatchAccessProfile(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
-	//resp, r, err := apiClient.Beta.AccessProfilesAPI.PatchAccessProfile(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccessProfilesAPI.PatchAccessProfile``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PatchAccessProfile`: AccessProfile
-	fmt.Fprintf(os.Stdout, "Response from `AccessProfilesAPI.PatchAccessProfile`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.AccessProfilesAPI.PatchAccessProfile(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `AccessProfilesAPI.PatchAccessProfile``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PatchAccessProfile`: AccessProfile
+    fmt.Fprintf(os.Stdout, "Response from `AccessProfilesAPI.PatchAccessProfile`: %v\n", resp)
 }
 ```
 
@@ -699,7 +697,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -707,24 +705,23 @@ import (
 func main() {
     accessprofilebulkupdaterequestinner := []byte(`[{id=464ae7bf-791e-49fd-b746-06a2e4a89635, requestable=false}]`) // []AccessProfileBulkUpdateRequestInner | 
 
-  
-   var accessProfileBulkUpdateRequestInner beta.[]AccessProfileBulkUpdateRequestInner
-   if err := json.Unmarshal(accessprofilebulkupdaterequestinner, &accessProfileBulkUpdateRequestInner); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var accessProfileBulkUpdateRequestInner []beta.AccessProfileBulkUpdateRequestInner
+    if err := json.Unmarshal(accessprofilebulkupdaterequestinner, &accessProfileBulkUpdateRequestInner); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.AccessProfilesAPI.UpdateAccessProfilesInBulk(context.Background()).AccessProfileBulkUpdateRequestInner(accessProfileBulkUpdateRequestInner).Execute()
-	//resp, r, err := apiClient.Beta.AccessProfilesAPI.UpdateAccessProfilesInBulk(context.Background()).AccessProfileBulkUpdateRequestInner(accessProfileBulkUpdateRequestInner).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccessProfilesAPI.UpdateAccessProfilesInBulk``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `UpdateAccessProfilesInBulk`: []AccessProfileUpdateItem
-	fmt.Fprintf(os.Stdout, "Response from `AccessProfilesAPI.UpdateAccessProfilesInBulk`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.AccessProfilesAPI.UpdateAccessProfilesInBulk(context.Background()).AccessProfileBulkUpdateRequestInner(accessProfileBulkUpdateRequestInner).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `AccessProfilesAPI.UpdateAccessProfilesInBulk``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdateAccessProfilesInBulk`: []AccessProfileUpdateItem
+    fmt.Fprintf(os.Stdout, "Response from `AccessProfilesAPI.UpdateAccessProfilesInBulk`: %v\n", resp)
 }
 ```
 

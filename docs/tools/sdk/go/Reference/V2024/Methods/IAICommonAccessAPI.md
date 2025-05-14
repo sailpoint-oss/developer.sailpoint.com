@@ -69,7 +69,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -88,24 +88,23 @@ func main() {
           "status" : "CONFIRMED"
         }`) // CommonAccessItemRequest | 
 
-  
-   var commonAccessItemRequest v2024.CommonAccessItemRequest
-   if err := json.Unmarshal(commonaccessitemrequest, &commonAccessItemRequest); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var commonAccessItemRequest v2024.CommonAccessItemRequest
+    if err := json.Unmarshal(commonaccessitemrequest, &commonAccessItemRequest); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.IAICommonAccessAPI.CreateCommonAccess(context.Background()).XSailPointExperimental(xSailPointExperimental).CommonAccessItemRequest(commonAccessItemRequest).Execute()
-	//resp, r, err := apiClient.V2024.IAICommonAccessAPI.CreateCommonAccess(context.Background()).XSailPointExperimental(xSailPointExperimental).CommonAccessItemRequest(commonAccessItemRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAICommonAccessAPI.CreateCommonAccess``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateCommonAccess`: CommonAccessItemResponse
-	fmt.Fprintf(os.Stdout, "Response from `IAICommonAccessAPI.CreateCommonAccess`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.IAICommonAccessAPI.CreateCommonAccess(context.Background()).XSailPointExperimental(xSailPointExperimental).CommonAccessItemRequest(commonAccessItemRequest).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAICommonAccessAPI.CreateCommonAccess``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateCommonAccess`: CommonAccessItemResponse
+    fmt.Fprintf(os.Stdout, "Response from `IAICommonAccessAPI.CreateCommonAccess`: %v\n", resp)
 }
 ```
 
@@ -164,7 +163,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -177,18 +176,18 @@ func main() {
     filters := `access.type eq "ROLE"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, sw*  **reviewedByUser** *eq*  **access.id**: *eq, sw*  **access.type**: *eq*  **access.name**: *sw, eq*  **access.description**: *sw, eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq, sw*  **reviewedByUser** *eq*  **access.id**: *eq, sw*  **access.type**: *eq*  **access.name**: *sw, eq*  **access.description**: *sw, eq* (optional)
     sorters := `access.name` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, status**  By default the common access items are sorted by name, ascending. (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, status**  By default the common access items are sorted by name, ascending. (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.IAICommonAccessAPI.GetCommonAccess(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
-	//resp, r, err := apiClient.V2024.IAICommonAccessAPI.GetCommonAccess(context.Background()).XSailPointExperimental(xSailPointExperimental).Offset(offset).Limit(limit).Count(count).Filters(filters).Sorters(sorters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAICommonAccessAPI.GetCommonAccess``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetCommonAccess`: []CommonAccessResponse
-	fmt.Fprintf(os.Stdout, "Response from `IAICommonAccessAPI.GetCommonAccess`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.IAICommonAccessAPI.GetCommonAccess(context.Background()).XSailPointExperimental(xSailPointExperimental).Offset(offset).Limit(limit).Count(count).Filters(filters).Sorters(sorters).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAICommonAccessAPI.GetCommonAccess``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetCommonAccess`: []CommonAccessResponse
+    fmt.Fprintf(os.Stdout, "Response from `IAICommonAccessAPI.GetCommonAccess`: %v\n", resp)
 }
 ```
 
@@ -243,7 +242,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -252,24 +251,23 @@ func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     commonaccessidstatus := []byte(``) // []CommonAccessIDStatus | Confirm or deny in bulk the common access ids that are (or aren't) common access
 
-  
-   var commonAccessIDStatus v2024.[]CommonAccessIDStatus
-   if err := json.Unmarshal(commonaccessidstatus, &commonAccessIDStatus); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var commonAccessIDStatus []v2024.CommonAccessIDStatus
+    if err := json.Unmarshal(commonaccessidstatus, &commonAccessIDStatus); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.IAICommonAccessAPI.UpdateCommonAccessStatusInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).CommonAccessIDStatus(commonAccessIDStatus).Execute()
-	//resp, r, err := apiClient.V2024.IAICommonAccessAPI.UpdateCommonAccessStatusInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).CommonAccessIDStatus(commonAccessIDStatus).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAICommonAccessAPI.UpdateCommonAccessStatusInBulk``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `UpdateCommonAccessStatusInBulk`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `IAICommonAccessAPI.UpdateCommonAccessStatusInBulk`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.IAICommonAccessAPI.UpdateCommonAccessStatusInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).CommonAccessIDStatus(commonAccessIDStatus).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAICommonAccessAPI.UpdateCommonAccessStatusInBulk``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdateCommonAccessStatusInBulk`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `IAICommonAccessAPI.UpdateCommonAccessStatusInBulk`: %v\n", resp)
 }
 ```
 

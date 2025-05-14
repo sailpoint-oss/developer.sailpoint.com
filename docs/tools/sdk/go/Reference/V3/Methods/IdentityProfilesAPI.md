@@ -75,7 +75,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -131,24 +131,23 @@ func main() {
           "id" : "id12345"
         }`) // IdentityProfile | 
 
-  
-   var identityProfile v3.IdentityProfile
-   if err := json.Unmarshal(identityprofile, &identityProfile); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var identityProfile v3.IdentityProfile
+    if err := json.Unmarshal(identityprofile, &identityProfile); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.IdentityProfilesAPI.CreateIdentityProfile(context.Background()).IdentityProfile(identityProfile).Execute()
-	//resp, r, err := apiClient.V3.IdentityProfilesAPI.CreateIdentityProfile(context.Background()).IdentityProfile(identityProfile).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.CreateIdentityProfile``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateIdentityProfile`: IdentityProfile
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.CreateIdentityProfile`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.IdentityProfilesAPI.CreateIdentityProfile(context.Background()).IdentityProfile(identityProfile).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.CreateIdentityProfile``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateIdentityProfile`: IdentityProfile
+    fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.CreateIdentityProfile`: %v\n", resp)
 }
 ```
 
@@ -196,7 +195,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -204,18 +203,18 @@ import (
 func main() {
     identityProfileId := `ef38f94347e94562b5bb8424a56397d8` // string | Identity profile ID. # string | Identity profile ID.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.IdentityProfilesAPI.DeleteIdentityProfile(context.Background(), identityProfileId).Execute()
-	//resp, r, err := apiClient.V3.IdentityProfilesAPI.DeleteIdentityProfile(context.Background(), identityProfileId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.DeleteIdentityProfile``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `DeleteIdentityProfile`: TaskResultSimplified
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.DeleteIdentityProfile`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.IdentityProfilesAPI.DeleteIdentityProfile(context.Background(), identityProfileId).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.DeleteIdentityProfile``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteIdentityProfile`: TaskResultSimplified
+    fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.DeleteIdentityProfile`: %v\n", resp)
 }
 ```
 
@@ -262,7 +261,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -270,24 +269,23 @@ import (
 func main() {
     requestbody := []byte(``) // []string | Identity Profile bulk delete request body.
 
-  
-   var requestBody v3.[]RequestBody
-   if err := json.Unmarshal(requestbody, &requestBody); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var requestBody []v3.RequestBody
+    if err := json.Unmarshal(requestbody, &requestBody); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.IdentityProfilesAPI.DeleteIdentityProfiles(context.Background()).RequestBody(requestBody).Execute()
-	//resp, r, err := apiClient.V3.IdentityProfilesAPI.DeleteIdentityProfiles(context.Background()).RequestBody(requestBody).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.DeleteIdentityProfiles``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `DeleteIdentityProfiles`: TaskResultSimplified
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.DeleteIdentityProfiles`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.IdentityProfilesAPI.DeleteIdentityProfiles(context.Background()).RequestBody(requestBody).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.DeleteIdentityProfiles``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteIdentityProfiles`: TaskResultSimplified
+    fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.DeleteIdentityProfiles`: %v\n", resp)
 }
 ```
 
@@ -334,7 +332,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -346,18 +344,18 @@ func main() {
     filters := `id eq "ef38f94347e94562b5bb8424a56397d8"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, ne*  **priority**: *eq, ne* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, ne*  **priority**: *eq, ne* (optional)
     sorters := `id,name` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority** (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.IdentityProfilesAPI.ExportIdentityProfiles(context.Background()).Execute()
-	//resp, r, err := apiClient.V3.IdentityProfilesAPI.ExportIdentityProfiles(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.ExportIdentityProfiles``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ExportIdentityProfiles`: []IdentityProfileExportedObject
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.ExportIdentityProfiles`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.IdentityProfilesAPI.ExportIdentityProfiles(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.ExportIdentityProfiles``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ExportIdentityProfiles`: []IdentityProfileExportedObject
+    fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.ExportIdentityProfiles`: %v\n", resp)
 }
 ```
 
@@ -404,7 +402,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -412,18 +410,18 @@ import (
 func main() {
     identityProfileId := `2b838de9-db9b-abcf-e646-d4f274ad4238` // string | The Identity Profile ID. # string | The Identity Profile ID.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.IdentityProfilesAPI.GetDefaultIdentityAttributeConfig(context.Background(), identityProfileId).Execute()
-	//resp, r, err := apiClient.V3.IdentityProfilesAPI.GetDefaultIdentityAttributeConfig(context.Background(), identityProfileId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.GetDefaultIdentityAttributeConfig``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetDefaultIdentityAttributeConfig`: IdentityAttributeConfig
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.GetDefaultIdentityAttributeConfig`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.IdentityProfilesAPI.GetDefaultIdentityAttributeConfig(context.Background(), identityProfileId).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.GetDefaultIdentityAttributeConfig``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetDefaultIdentityAttributeConfig`: IdentityAttributeConfig
+    fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.GetDefaultIdentityAttributeConfig`: %v\n", resp)
 }
 ```
 
@@ -470,7 +468,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -478,18 +476,18 @@ import (
 func main() {
     identityProfileId := `2b838de9-db9b-abcf-e646-d4f274ad4238` // string | Identity profile ID. # string | Identity profile ID.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.IdentityProfilesAPI.GetIdentityProfile(context.Background(), identityProfileId).Execute()
-	//resp, r, err := apiClient.V3.IdentityProfilesAPI.GetIdentityProfile(context.Background(), identityProfileId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.GetIdentityProfile``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetIdentityProfile`: IdentityProfile
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.GetIdentityProfile`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.IdentityProfilesAPI.GetIdentityProfile(context.Background(), identityProfileId).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.GetIdentityProfile``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetIdentityProfile`: IdentityProfile
+    fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.GetIdentityProfile`: %v\n", resp)
 }
 ```
 
@@ -532,7 +530,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -540,24 +538,23 @@ import (
 func main() {
     identityprofileexportedobject := []byte(``) // []IdentityProfileExportedObject | Previously exported Identity Profiles.
 
-  
-   var identityProfileExportedObject v3.[]IdentityProfileExportedObject
-   if err := json.Unmarshal(identityprofileexportedobject, &identityProfileExportedObject); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var identityProfileExportedObject []v3.IdentityProfileExportedObject
+    if err := json.Unmarshal(identityprofileexportedobject, &identityProfileExportedObject); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.IdentityProfilesAPI.ImportIdentityProfiles(context.Background()).IdentityProfileExportedObject(identityProfileExportedObject).Execute()
-	//resp, r, err := apiClient.V3.IdentityProfilesAPI.ImportIdentityProfiles(context.Background()).IdentityProfileExportedObject(identityProfileExportedObject).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.ImportIdentityProfiles``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ImportIdentityProfiles`: ObjectImportResult
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.ImportIdentityProfiles`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.IdentityProfilesAPI.ImportIdentityProfiles(context.Background()).IdentityProfileExportedObject(identityProfileExportedObject).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.ImportIdentityProfiles``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ImportIdentityProfiles`: ObjectImportResult
+    fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.ImportIdentityProfiles`: %v\n", resp)
 }
 ```
 
@@ -604,7 +601,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -616,18 +613,18 @@ func main() {
     filters := `id eq "ef38f94347e94562b5bb8424a56397d8"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* (optional)
     sorters := `id,name` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.IdentityProfilesAPI.ListIdentityProfiles(context.Background()).Execute()
-	//resp, r, err := apiClient.V3.IdentityProfilesAPI.ListIdentityProfiles(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.ListIdentityProfiles``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListIdentityProfiles`: []IdentityProfile
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.ListIdentityProfiles`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.IdentityProfilesAPI.ListIdentityProfiles(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.ListIdentityProfiles``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListIdentityProfiles`: []IdentityProfile
+    fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.ListIdentityProfiles`: %v\n", resp)
 }
 ```
 
@@ -671,7 +668,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -705,24 +702,23 @@ func main() {
           }
         }`) // IdentityPreviewRequest | Identity Preview request body.
 
-  
-   var identityPreviewRequest v3.IdentityPreviewRequest
-   if err := json.Unmarshal(identitypreviewrequest, &identityPreviewRequest); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var identityPreviewRequest v3.IdentityPreviewRequest
+    if err := json.Unmarshal(identitypreviewrequest, &identityPreviewRequest); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.IdentityProfilesAPI.ShowIdentityPreview(context.Background()).IdentityPreviewRequest(identityPreviewRequest).Execute()
-	//resp, r, err := apiClient.V3.IdentityProfilesAPI.ShowIdentityPreview(context.Background()).IdentityPreviewRequest(identityPreviewRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.ShowIdentityPreview``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ShowIdentityPreview`: IdentityPreviewResponse
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.ShowIdentityPreview`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.IdentityProfilesAPI.ShowIdentityPreview(context.Background()).IdentityPreviewRequest(identityPreviewRequest).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.ShowIdentityPreview``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ShowIdentityPreview`: IdentityPreviewResponse
+    fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.ShowIdentityPreview`: %v\n", resp)
 }
 ```
 
@@ -773,7 +769,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -781,18 +777,18 @@ import (
 func main() {
     identityProfileId := `ef38f94347e94562b5bb8424a56397d8` // string | The Identity Profile ID to be processed # string | The Identity Profile ID to be processed
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.IdentityProfilesAPI.SyncIdentityProfile(context.Background(), identityProfileId).Execute()
-	//resp, r, err := apiClient.V3.IdentityProfilesAPI.SyncIdentityProfile(context.Background(), identityProfileId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.SyncIdentityProfile``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SyncIdentityProfile`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.SyncIdentityProfile`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.IdentityProfilesAPI.SyncIdentityProfile(context.Background(), identityProfileId).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.SyncIdentityProfile``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SyncIdentityProfile`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.SyncIdentityProfile`: %v\n", resp)
 }
 ```
 
@@ -848,7 +844,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -857,24 +853,23 @@ func main() {
     identityProfileId := `ef38f94347e94562b5bb8424a56397d8` // string | Identity profile ID. # string | Identity profile ID.
     jsonpatchoperation := []byte(`[{op=add, path=/identityAttributeConfig/attributeTransforms/0, value={identityAttributeName=location, transformDefinition={type=accountAttribute, attributes={sourceName=Employees, attributeName=location, sourceId=2c91808878b7d63b0178c66ffcdc4ce4}}}}]`) // []JsonPatchOperation | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
-  
-   var jsonPatchOperation v3.[]JsonPatchOperation
-   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var jsonPatchOperation []v3.JsonPatchOperation
+    if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.IdentityProfilesAPI.UpdateIdentityProfile(context.Background(), identityProfileId).JsonPatchOperation(jsonPatchOperation).Execute()
-	//resp, r, err := apiClient.V3.IdentityProfilesAPI.UpdateIdentityProfile(context.Background(), identityProfileId).JsonPatchOperation(jsonPatchOperation).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.UpdateIdentityProfile``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `UpdateIdentityProfile`: IdentityProfile
-	fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.UpdateIdentityProfile`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.IdentityProfilesAPI.UpdateIdentityProfile(context.Background(), identityProfileId).JsonPatchOperation(jsonPatchOperation).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.UpdateIdentityProfile``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdateIdentityProfile`: IdentityProfile
+    fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.UpdateIdentityProfile`: %v\n", resp)
 }
 ```
 

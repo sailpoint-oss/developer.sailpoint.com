@@ -64,7 +64,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -93,24 +93,23 @@ func main() {
           }
         }`) // AttributeMappings | 
 
-  
-   var attributeMappings v2024.AttributeMappings
-   if err := json.Unmarshal(attributemappings, &attributeMappings); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var attributeMappings v2024.AttributeMappings
+    if err := json.Unmarshal(attributemappings, &attributeMappings); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.MachineAccountMappingsAPI.CreateMachineAccountMappings(context.Background(), id).AttributeMappings(attributeMappings).Execute()
-	//resp, r, err := apiClient.V2024.MachineAccountMappingsAPI.CreateMachineAccountMappings(context.Background(), id).AttributeMappings(attributeMappings).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountMappingsAPI.CreateMachineAccountMappings``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateMachineAccountMappings`: []AttributeMappings
-	fmt.Fprintf(os.Stdout, "Response from `MachineAccountMappingsAPI.CreateMachineAccountMappings`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.MachineAccountMappingsAPI.CreateMachineAccountMappings(context.Background(), id).AttributeMappings(attributeMappings).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountMappingsAPI.CreateMachineAccountMappings``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateMachineAccountMappings`: []AttributeMappings
+    fmt.Fprintf(os.Stdout, "Response from `MachineAccountMappingsAPI.CreateMachineAccountMappings`: %v\n", resp)
 }
 ```
 
@@ -158,7 +157,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -166,16 +165,17 @@ import (
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | source ID. # string | source ID.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     r, err := apiClient.V2024.MachineAccountMappingsAPI.DeleteMachineAccountMappings(context.Background(), id).Execute()
-	//r, err := apiClient.V2024.MachineAccountMappingsAPI.DeleteMachineAccountMappings(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountMappingsAPI.DeleteMachineAccountMappings``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+	  //r, err := apiClient.V2024.MachineAccountMappingsAPI.DeleteMachineAccountMappings(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountMappingsAPI.DeleteMachineAccountMappings``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
 }
 ```
 
@@ -224,7 +224,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -234,18 +234,18 @@ func main() {
     limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.MachineAccountMappingsAPI.ListMachineAccountMappings(context.Background(), id).Execute()
-	//resp, r, err := apiClient.V2024.MachineAccountMappingsAPI.ListMachineAccountMappings(context.Background(), id).Limit(limit).Offset(offset).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountMappingsAPI.ListMachineAccountMappings``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListMachineAccountMappings`: []AttributeMappings
-	fmt.Fprintf(os.Stdout, "Response from `MachineAccountMappingsAPI.ListMachineAccountMappings`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.MachineAccountMappingsAPI.ListMachineAccountMappings(context.Background(), id).Limit(limit).Offset(offset).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountMappingsAPI.ListMachineAccountMappings``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListMachineAccountMappings`: []AttributeMappings
+    fmt.Fprintf(os.Stdout, "Response from `MachineAccountMappingsAPI.ListMachineAccountMappings`: %v\n", resp)
 }
 ```
 
@@ -293,7 +293,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -322,24 +322,23 @@ func main() {
           }
         }`) // AttributeMappings | 
 
-  
-   var attributeMappings v2024.AttributeMappings
-   if err := json.Unmarshal(attributemappings, &attributeMappings); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var attributeMappings v2024.AttributeMappings
+    if err := json.Unmarshal(attributemappings, &attributeMappings); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.MachineAccountMappingsAPI.SetMachineAccountMappings(context.Background(), id).AttributeMappings(attributeMappings).Execute()
-	//resp, r, err := apiClient.V2024.MachineAccountMappingsAPI.SetMachineAccountMappings(context.Background(), id).AttributeMappings(attributeMappings).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountMappingsAPI.SetMachineAccountMappings``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SetMachineAccountMappings`: []AttributeMappings
-	fmt.Fprintf(os.Stdout, "Response from `MachineAccountMappingsAPI.SetMachineAccountMappings`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.MachineAccountMappingsAPI.SetMachineAccountMappings(context.Background(), id).AttributeMappings(attributeMappings).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountMappingsAPI.SetMachineAccountMappings``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SetMachineAccountMappings`: []AttributeMappings
+    fmt.Fprintf(os.Stdout, "Response from `MachineAccountMappingsAPI.SetMachineAccountMappings`: %v\n", resp)
 }
 ```
 

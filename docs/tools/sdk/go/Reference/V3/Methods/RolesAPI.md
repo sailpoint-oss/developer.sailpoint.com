@@ -101,7 +101,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -267,24 +267,23 @@ func main() {
           "requestable" : true
         }`) // Role | 
 
-  
-   var role v3.Role
-   if err := json.Unmarshal(role, &role); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var role v3.Role
+    if err := json.Unmarshal(role, &role); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.RolesAPI.CreateRole(context.Background()).Role(role).Execute()
-	//resp, r, err := apiClient.V3.RolesAPI.CreateRole(context.Background()).Role(role).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.CreateRole``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateRole`: Role
-	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.CreateRole`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.RolesAPI.CreateRole(context.Background()).Role(role).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.CreateRole``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateRole`: Role
+    fmt.Fprintf(os.Stdout, "Response from `RolesAPI.CreateRole`: %v\n", resp)
 }
 ```
 
@@ -330,7 +329,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -340,24 +339,23 @@ func main() {
           "roleIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ]
         }`) // RoleBulkDeleteRequest | 
 
-  
-   var roleBulkDeleteRequest v3.RoleBulkDeleteRequest
-   if err := json.Unmarshal(rolebulkdeleterequest, &roleBulkDeleteRequest); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var roleBulkDeleteRequest v3.RoleBulkDeleteRequest
+    if err := json.Unmarshal(rolebulkdeleterequest, &roleBulkDeleteRequest); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.RolesAPI.DeleteBulkRoles(context.Background()).RoleBulkDeleteRequest(roleBulkDeleteRequest).Execute()
-	//resp, r, err := apiClient.V3.RolesAPI.DeleteBulkRoles(context.Background()).RoleBulkDeleteRequest(roleBulkDeleteRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.DeleteBulkRoles``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `DeleteBulkRoles`: TaskResultDto
-	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.DeleteBulkRoles`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.RolesAPI.DeleteBulkRoles(context.Background()).RoleBulkDeleteRequest(roleBulkDeleteRequest).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.DeleteBulkRoles``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteBulkRoles`: TaskResultDto
+    fmt.Fprintf(os.Stdout, "Response from `RolesAPI.DeleteBulkRoles`: %v\n", resp)
 }
 ```
 
@@ -406,7 +404,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -414,16 +412,17 @@ import (
 func main() {
     id := `2c91808a7813090a017814121e121518` // string | Role ID. # string | Role ID.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     r, err := apiClient.V3.RolesAPI.DeleteRole(context.Background(), id).Execute()
-	//r, err := apiClient.V3.RolesAPI.DeleteRole(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.DeleteRole``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+	  //r, err := apiClient.V3.RolesAPI.DeleteRole(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.DeleteRole``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
 }
 ```
 
@@ -471,7 +470,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -479,18 +478,18 @@ import (
 func main() {
     id := `2c91808a7813090a017814121e121518` // string | Role ID. # string | Role ID.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.RolesAPI.GetRole(context.Background(), id).Execute()
-	//resp, r, err := apiClient.V3.RolesAPI.GetRole(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.GetRole``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetRole`: Role
-	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.GetRole`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.RolesAPI.GetRole(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.GetRole``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetRole`: Role
+    fmt.Fprintf(os.Stdout, "Response from `RolesAPI.GetRole`: %v\n", resp)
 }
 ```
 
@@ -542,7 +541,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -555,18 +554,18 @@ func main() {
     filters := `name sw Joe` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **aliasName**: *eq, sw*  **email**: *eq, sw*  **name**: *eq, sw, co* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **aliasName**: *eq, sw*  **email**: *eq, sw*  **name**: *eq, sw, co* (optional)
     sorters := `aliasName,name` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, aliasName, email** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, aliasName, email** (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.RolesAPI.GetRoleAssignedIdentities(context.Background(), id).Execute()
-	//resp, r, err := apiClient.V3.RolesAPI.GetRoleAssignedIdentities(context.Background(), id).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.GetRoleAssignedIdentities``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetRoleAssignedIdentities`: []RoleIdentity
-	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.GetRoleAssignedIdentities`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.RolesAPI.GetRoleAssignedIdentities(context.Background(), id).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.GetRoleAssignedIdentities``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetRoleAssignedIdentities`: []RoleIdentity
+    fmt.Fprintf(os.Stdout, "Response from `RolesAPI.GetRoleAssignedIdentities`: %v\n", resp)
 }
 ```
 
@@ -616,7 +615,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -631,18 +630,18 @@ func main() {
     forSegmentIds := `0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d` // string | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. (optional) # string | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
     includeUnsegmented := false // bool | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to true) # bool | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to true)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.RolesAPI.ListRoles(context.Background()).Execute()
-	//resp, r, err := apiClient.V3.RolesAPI.ListRoles(context.Background()).ForSubadmin(forSubadmin).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).ForSegmentIds(forSegmentIds).IncludeUnsegmented(includeUnsegmented).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.ListRoles``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListRoles`: []Role
-	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.ListRoles`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.RolesAPI.ListRoles(context.Background()).ForSubadmin(forSubadmin).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).ForSegmentIds(forSegmentIds).IncludeUnsegmented(includeUnsegmented).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.ListRoles``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListRoles`: []Role
+    fmt.Fprintf(os.Stdout, "Response from `RolesAPI.ListRoles`: %v\n", resp)
 }
 ```
 
@@ -709,7 +708,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -718,24 +717,23 @@ func main() {
     id := `2c91808a7813090a017814121e121518` // string | Role ID to patch # string | Role ID to patch
     jsonpatchoperation := []byte(`[{op=replace, path=/requestable, value=true}, {op=replace, path=/enabled, value=true}]`) // []JsonPatchOperation | 
 
-  
-   var jsonPatchOperation v3.[]JsonPatchOperation
-   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var jsonPatchOperation []v3.JsonPatchOperation
+    if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.RolesAPI.PatchRole(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
-	//resp, r, err := apiClient.V3.RolesAPI.PatchRole(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.PatchRole``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PatchRole`: Role
-	fmt.Fprintf(os.Stdout, "Response from `RolesAPI.PatchRole`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.RolesAPI.PatchRole(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `RolesAPI.PatchRole``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PatchRole`: Role
+    fmt.Fprintf(os.Stdout, "Response from `RolesAPI.PatchRole`: %v\n", resp)
 }
 ```
 

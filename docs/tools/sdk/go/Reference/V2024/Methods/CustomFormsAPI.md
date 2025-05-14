@@ -80,7 +80,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -198,18 +198,18 @@ func main() {
           } ]
         }`) // CreateFormDefinitionRequest | Body is the request payload to create form definition request (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.CustomFormsAPI.CreateFormDefinition(context.Background()).Execute()
-	//resp, r, err := apiClient.V2024.CustomFormsAPI.CreateFormDefinition(context.Background()).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.CreateFormDefinition``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateFormDefinition`: FormDefinitionResponse
-	fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.CreateFormDefinition`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.CustomFormsAPI.CreateFormDefinition(context.Background()).Body(body).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.CreateFormDefinition``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateFormDefinition`: FormDefinitionResponse
+    fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.CreateFormDefinition`: %v\n", resp)
 }
 ```
 
@@ -252,7 +252,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -268,18 +268,18 @@ func main() {
           "versionNumber" : 1
         }`) // FormDefinitionDynamicSchemaRequest | Body is the request payload to create a form definition dynamic schema (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.CustomFormsAPI.CreateFormDefinitionDynamicSchema(context.Background()).Execute()
-	//resp, r, err := apiClient.V2024.CustomFormsAPI.CreateFormDefinitionDynamicSchema(context.Background()).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.CreateFormDefinitionDynamicSchema``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateFormDefinitionDynamicSchema`: FormDefinitionDynamicSchemaResponse
-	fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.CreateFormDefinitionDynamicSchema`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.CustomFormsAPI.CreateFormDefinitionDynamicSchema(context.Background()).Body(body).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.CreateFormDefinitionDynamicSchema``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateFormDefinitionDynamicSchema`: FormDefinitionDynamicSchemaResponse
+    fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.CreateFormDefinitionDynamicSchema`: %v\n", resp)
 }
 ```
 
@@ -327,7 +327,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -336,18 +336,18 @@ func main() {
     formDefinitionID := `00000000-0000-0000-0000-000000000000` // string | FormDefinitionID  String specifying FormDefinitionID # string | FormDefinitionID  String specifying FormDefinitionID
     file := BINARY_DATA_HERE // *os.File | File specifying the multipart # *os.File | File specifying the multipart
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.CustomFormsAPI.CreateFormDefinitionFileRequest(context.Background(), formDefinitionID).File(file).Execute()
-	//resp, r, err := apiClient.V2024.CustomFormsAPI.CreateFormDefinitionFileRequest(context.Background(), formDefinitionID).File(file).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.CreateFormDefinitionFileRequest``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateFormDefinitionFileRequest`: FormDefinitionFileUploadResponse
-	fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.CreateFormDefinitionFileRequest`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.CustomFormsAPI.CreateFormDefinitionFileRequest(context.Background(), formDefinitionID).File(file).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.CreateFormDefinitionFileRequest``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateFormDefinitionFileRequest`: FormDefinitionFileUploadResponse
+    fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.CreateFormDefinitionFileRequest`: %v\n", resp)
 }
 ```
 
@@ -390,7 +390,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -418,18 +418,18 @@ func main() {
           "ttl" : 1571827560
         }`) // CreateFormInstanceRequest | Body is the request payload to create a form instance (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.CustomFormsAPI.CreateFormInstance(context.Background()).Execute()
-	//resp, r, err := apiClient.V2024.CustomFormsAPI.CreateFormInstance(context.Background()).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.CreateFormInstance``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateFormInstance`: FormInstanceResponse
-	fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.CreateFormInstance`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.CustomFormsAPI.CreateFormInstance(context.Background()).Body(body).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.CreateFormInstance``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateFormInstance`: FormInstanceResponse
+    fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.CreateFormInstance`: %v\n", resp)
 }
 ```
 
@@ -476,7 +476,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -484,18 +484,18 @@ import (
 func main() {
     formDefinitionID := `00000000-0000-0000-0000-000000000000` // string | Form definition ID # string | Form definition ID
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.CustomFormsAPI.DeleteFormDefinition(context.Background(), formDefinitionID).Execute()
-	//resp, r, err := apiClient.V2024.CustomFormsAPI.DeleteFormDefinition(context.Background(), formDefinitionID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.DeleteFormDefinition``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `DeleteFormDefinition`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.DeleteFormDefinition`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.CustomFormsAPI.DeleteFormDefinition(context.Background(), formDefinitionID).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.DeleteFormDefinition``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteFormDefinition`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.DeleteFormDefinition`: %v\n", resp)
 }
 ```
 
@@ -541,7 +541,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -552,18 +552,18 @@ func main() {
     filters := `name sw "my form"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in* (optional)
     sorters := `name` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified** (optional) (default to "name") # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified** (optional) (default to "name")
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.CustomFormsAPI.ExportFormDefinitionsByTenant(context.Background()).Execute()
-	//resp, r, err := apiClient.V2024.CustomFormsAPI.ExportFormDefinitionsByTenant(context.Background()).Offset(offset).Limit(limit).Filters(filters).Sorters(sorters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.ExportFormDefinitionsByTenant``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ExportFormDefinitionsByTenant`: []ExportFormDefinitionsByTenant200ResponseInner
-	fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.ExportFormDefinitionsByTenant`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.CustomFormsAPI.ExportFormDefinitionsByTenant(context.Background()).Offset(offset).Limit(limit).Filters(filters).Sorters(sorters).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.ExportFormDefinitionsByTenant``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ExportFormDefinitionsByTenant`: []ExportFormDefinitionsByTenant200ResponseInner
+    fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.ExportFormDefinitionsByTenant`: %v\n", resp)
 }
 ```
 
@@ -612,7 +612,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -621,18 +621,18 @@ func main() {
     formDefinitionID := `00000000-0000-0000-0000-000000000000` // string | FormDefinitionID  Form definition ID # string | FormDefinitionID  Form definition ID
     fileID := `00000031N0J7R2B57M8YG73J7M.png` // string | FileID  String specifying the hashed name of the uploaded file we are retrieving. # string | FileID  String specifying the hashed name of the uploaded file we are retrieving.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.CustomFormsAPI.GetFileFromS3(context.Background(), formDefinitionID, fileID).Execute()
-	//resp, r, err := apiClient.V2024.CustomFormsAPI.GetFileFromS3(context.Background(), formDefinitionID, fileID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.GetFileFromS3``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetFileFromS3`: *os.File
-	fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.GetFileFromS3`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.CustomFormsAPI.GetFileFromS3(context.Background(), formDefinitionID, fileID).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.GetFileFromS3``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetFileFromS3`: *os.File
+    fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.GetFileFromS3`: %v\n", resp)
 }
 ```
 
@@ -679,7 +679,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -687,18 +687,18 @@ import (
 func main() {
     formDefinitionID := `00000000-0000-0000-0000-000000000000` // string | Form definition ID # string | Form definition ID
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.CustomFormsAPI.GetFormDefinitionByKey(context.Background(), formDefinitionID).Execute()
-	//resp, r, err := apiClient.V2024.CustomFormsAPI.GetFormDefinitionByKey(context.Background(), formDefinitionID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.GetFormDefinitionByKey``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetFormDefinitionByKey`: FormDefinitionResponse
-	fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.GetFormDefinitionByKey`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.CustomFormsAPI.GetFormDefinitionByKey(context.Background(), formDefinitionID).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.GetFormDefinitionByKey``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetFormDefinitionByKey`: FormDefinitionResponse
+    fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.GetFormDefinitionByKey`: %v\n", resp)
 }
 ```
 
@@ -745,7 +745,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -753,18 +753,18 @@ import (
 func main() {
     formInstanceID := `00000000-0000-0000-0000-000000000000` // string | Form instance ID # string | Form instance ID
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.CustomFormsAPI.GetFormInstanceByKey(context.Background(), formInstanceID).Execute()
-	//resp, r, err := apiClient.V2024.CustomFormsAPI.GetFormInstanceByKey(context.Background(), formInstanceID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.GetFormInstanceByKey``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetFormInstanceByKey`: FormInstanceResponse
-	fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.GetFormInstanceByKey`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.CustomFormsAPI.GetFormInstanceByKey(context.Background(), formInstanceID).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.GetFormInstanceByKey``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetFormInstanceByKey`: FormInstanceResponse
+    fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.GetFormInstanceByKey`: %v\n", resp)
 }
 ```
 
@@ -813,7 +813,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -822,18 +822,18 @@ func main() {
     formInstanceID := `00000000-0000-0000-0000-000000000000` // string | FormInstanceID  Form instance ID # string | FormInstanceID  Form instance ID
     fileID := `00000031N0J7R2B57M8YG73J7M.png` // string | FileID  String specifying the hashed name of the uploaded file we are retrieving. # string | FileID  String specifying the hashed name of the uploaded file we are retrieving.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.CustomFormsAPI.GetFormInstanceFile(context.Background(), formInstanceID, fileID).Execute()
-	//resp, r, err := apiClient.V2024.CustomFormsAPI.GetFormInstanceFile(context.Background(), formInstanceID, fileID).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.GetFormInstanceFile``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetFormInstanceFile`: *os.File
-	fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.GetFormInstanceFile`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.CustomFormsAPI.GetFormInstanceFile(context.Background(), formInstanceID, fileID).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.GetFormInstanceFile``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetFormInstanceFile`: *os.File
+    fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.GetFormInstanceFile`: %v\n", resp)
 }
 ```
 
@@ -876,7 +876,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -884,18 +884,18 @@ import (
 func main() {
     body := []byte(`[{version=1, self={name=All fields not required, id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, type=FORM_DEFINITION}, object={id=05ed4edb-d0a9-41d9-ad0c-2f6e486ec4aa, name=All fields not required, description=description, owner={type=IDENTITY, id=3447d8ec2602455ab6f1e8408a0f0150}, usedBy=[{type=WORKFLOW, id=5008594c-dacc-4295-8fee-41df60477304}, {type=WORKFLOW, id=97e75a75-c179-4fbc-a2da-b5fa4aaa8743}], formInput=[{type=STRING, label=input1, description=A single dynamic scalar value (i.e. number, string, date, etc) that can be passed into the form for use in conditional logic}], formElements=[{id=3069272797630701, elementType=SECTION, config={label=First Section, formElements=[{id=3069272797630700, elementType=TEXT, key=firstName, config={label=First Name}}, {id=3498415402897539, elementType=TEXT, key=lastName, config={label=Last Name}}]}}], formConditions=[{ruleOperator=AND, rules=[{sourceType=INPUT, source=Department, operator=EQ, valueType=STRING, value=Sales}], effects=[{effectType=HIDE, config={element=2614088730489570}}]}], created=2022-10-04T19:27:04.456Z, modified=2022-11-16T20:45:02.172Z}}]`) // []ImportFormDefinitionsRequestInner | Body is the request payload to import form definitions (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.CustomFormsAPI.ImportFormDefinitions(context.Background()).Execute()
-	//resp, r, err := apiClient.V2024.CustomFormsAPI.ImportFormDefinitions(context.Background()).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.ImportFormDefinitions``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ImportFormDefinitions`: ImportFormDefinitions202Response
-	fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.ImportFormDefinitions`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.CustomFormsAPI.ImportFormDefinitions(context.Background()).Body(body).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.ImportFormDefinitions``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ImportFormDefinitions`: ImportFormDefinitions202Response
+    fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.ImportFormDefinitions`: %v\n", resp)
 }
 ```
 
@@ -943,7 +943,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -952,18 +952,18 @@ func main() {
     formDefinitionID := `00000000-0000-0000-0000-000000000000` // string | Form definition ID # string | Form definition ID
     body := []byte(`[{op=replace, path=/description, value=test-description}]`) // []map[string]map[string]interface{} | Body is the request payload to patch a form definition, check: https://jsonpatch.com (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.CustomFormsAPI.PatchFormDefinition(context.Background(), formDefinitionID).Execute()
-	//resp, r, err := apiClient.V2024.CustomFormsAPI.PatchFormDefinition(context.Background(), formDefinitionID).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.PatchFormDefinition``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PatchFormDefinition`: FormDefinitionResponse
-	fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.PatchFormDefinition`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.CustomFormsAPI.PatchFormDefinition(context.Background(), formDefinitionID).Body(body).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.PatchFormDefinition``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PatchFormDefinition`: FormDefinitionResponse
+    fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.PatchFormDefinition`: %v\n", resp)
 }
 ```
 
@@ -1011,7 +1011,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -1020,18 +1020,18 @@ func main() {
     formInstanceID := `00000000-0000-0000-0000-000000000000` // string | Form instance ID # string | Form instance ID
     body := []byte(`[{op=replace, path=/state, value=SUBMITTED}, {op=replace, path=/formData, value={a-key-1=a-value-1, a-key-2=true, a-key-3=1}}]`) // []map[string]map[string]interface{} | Body is the request payload to patch a form instance, check: https://jsonpatch.com (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.CustomFormsAPI.PatchFormInstance(context.Background(), formInstanceID).Execute()
-	//resp, r, err := apiClient.V2024.CustomFormsAPI.PatchFormInstance(context.Background(), formInstanceID).Body(body).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.PatchFormInstance``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PatchFormInstance`: FormInstanceResponse
-	fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.PatchFormInstance`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.CustomFormsAPI.PatchFormInstance(context.Background(), formInstanceID).Body(body).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.PatchFormInstance``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PatchFormInstance`: FormInstanceResponse
+    fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.PatchFormInstance`: %v\n", resp)
 }
 ```
 
@@ -1077,7 +1077,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -1088,18 +1088,18 @@ func main() {
     filters := `name sw "my form"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, gt, sw, in*  **description**: *eq, gt, sw, in*  **created**: *eq, gt, sw, in*  **modified**: *eq, gt, sw, in* (optional)
     sorters := `name` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified** (optional) (default to "name") # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, created, modified** (optional) (default to "name")
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.CustomFormsAPI.SearchFormDefinitionsByTenant(context.Background()).Execute()
-	//resp, r, err := apiClient.V2024.CustomFormsAPI.SearchFormDefinitionsByTenant(context.Background()).Offset(offset).Limit(limit).Filters(filters).Sorters(sorters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.SearchFormDefinitionsByTenant``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SearchFormDefinitionsByTenant`: ListFormDefinitionsByTenantResponse
-	fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.SearchFormDefinitionsByTenant`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.CustomFormsAPI.SearchFormDefinitionsByTenant(context.Background()).Offset(offset).Limit(limit).Filters(filters).Sorters(sorters).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.SearchFormDefinitionsByTenant``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SearchFormDefinitionsByTenant`: ListFormDefinitionsByTenantResponse
+    fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.SearchFormDefinitionsByTenant`: %v\n", resp)
 }
 ```
 
@@ -1152,7 +1152,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -1164,18 +1164,18 @@ func main() {
     filters := `value eq "ID01"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in (\"ID01\")` (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **value**: *eq, ne, in*  Supported composite operators: *not*  Only a single *not* may be used, and it can only be used with the `in` operator. The `not` composite operator must be used in front of the field. For example, the following is valid: `not value in (\"ID01\")` (optional)
     query := `support` // string | String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \"starts with\" filter against  several fields. (optional) # string | String that is passed to the underlying API to filter other (non-ID) fields.  For example, for access  profile data sources, this string will be passed to the access profile api and used with a \"starts with\" filter against  several fields. (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.CustomFormsAPI.SearchFormElementDataByElementID(context.Background(), formInstanceID, formElementID).Execute()
-	//resp, r, err := apiClient.V2024.CustomFormsAPI.SearchFormElementDataByElementID(context.Background(), formInstanceID, formElementID).Limit(limit).Filters(filters).Query(query).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.SearchFormElementDataByElementID``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SearchFormElementDataByElementID`: ListFormElementDataByElementIDResponse
-	fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.SearchFormElementDataByElementID`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.CustomFormsAPI.SearchFormElementDataByElementID(context.Background(), formInstanceID, formElementID).Limit(limit).Filters(filters).Query(query).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.SearchFormElementDataByElementID``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SearchFormElementDataByElementID`: ListFormElementDataByElementIDResponse
+    fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.SearchFormElementDataByElementID`: %v\n", resp)
 }
 ```
 
@@ -1214,25 +1214,25 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.CustomFormsAPI.SearchFormInstancesByTenant(context.Background()).Execute()
-	//resp, r, err := apiClient.V2024.CustomFormsAPI.SearchFormInstancesByTenant(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.SearchFormInstancesByTenant``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SearchFormInstancesByTenant`: []ListFormInstancesByTenantResponse
-	fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.SearchFormInstancesByTenant`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.CustomFormsAPI.SearchFormInstancesByTenant(context.Background()).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.SearchFormInstancesByTenant``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SearchFormInstancesByTenant`: []ListFormInstancesByTenantResponse
+    fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.SearchFormInstancesByTenant`: %v\n", resp)
 }
 ```
 
@@ -1271,25 +1271,25 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.CustomFormsAPI.SearchPreDefinedSelectOptions(context.Background()).Execute()
-	//resp, r, err := apiClient.V2024.CustomFormsAPI.SearchPreDefinedSelectOptions(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.SearchPreDefinedSelectOptions``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SearchPreDefinedSelectOptions`: ListPredefinedSelectOptionsResponse
-	fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.SearchPreDefinedSelectOptions`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.CustomFormsAPI.SearchPreDefinedSelectOptions(context.Background()).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.SearchPreDefinedSelectOptions``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SearchPreDefinedSelectOptions`: ListPredefinedSelectOptionsResponse
+    fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.SearchPreDefinedSelectOptions`: %v\n", resp)
 }
 ```
 
@@ -1340,7 +1340,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -1362,18 +1362,18 @@ func main() {
           }
         }`) // FormElementPreviewRequest | Body is the request payload to create a form definition dynamic schema (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2024.CustomFormsAPI.ShowPreviewDataSource(context.Background(), formDefinitionID).Execute()
-	//resp, r, err := apiClient.V2024.CustomFormsAPI.ShowPreviewDataSource(context.Background(), formDefinitionID).Limit(limit).Filters(filters).Query(query).FormElementPreviewRequest(formElementPreviewRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.ShowPreviewDataSource``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ShowPreviewDataSource`: PreviewDataSourceResponse
-	fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.ShowPreviewDataSource`: %v\n", resp)
+	  //resp, r, err := apiClient.V2024.CustomFormsAPI.ShowPreviewDataSource(context.Background(), formDefinitionID).Limit(limit).Filters(filters).Query(query).FormElementPreviewRequest(formElementPreviewRequest).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CustomFormsAPI.ShowPreviewDataSource``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ShowPreviewDataSource`: PreviewDataSourceResponse
+    fmt.Fprintf(os.Stdout, "Response from `CustomFormsAPI.ShowPreviewDataSource`: %v\n", resp)
 }
 ```
 

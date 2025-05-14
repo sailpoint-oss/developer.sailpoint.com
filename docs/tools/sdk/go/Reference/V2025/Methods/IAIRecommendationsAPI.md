@@ -69,7 +69,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -96,24 +96,23 @@ func main() {
           "includeDebugInformation" : true
         }`) // RecommendationRequestDto | 
 
-  
-   var recommendationRequestDto v2025.RecommendationRequestDto
-   if err := json.Unmarshal(recommendationrequestdto, &recommendationRequestDto); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var recommendationRequestDto v2025.RecommendationRequestDto
+    if err := json.Unmarshal(recommendationrequestdto, &recommendationRequestDto); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.IAIRecommendationsAPI.GetRecommendations(context.Background()).XSailPointExperimental(xSailPointExperimental).RecommendationRequestDto(recommendationRequestDto).Execute()
-	//resp, r, err := apiClient.V2025.IAIRecommendationsAPI.GetRecommendations(context.Background()).XSailPointExperimental(xSailPointExperimental).RecommendationRequestDto(recommendationRequestDto).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRecommendationsAPI.GetRecommendations``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetRecommendations`: RecommendationResponseDto
-	fmt.Fprintf(os.Stdout, "Response from `IAIRecommendationsAPI.GetRecommendations`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.IAIRecommendationsAPI.GetRecommendations(context.Background()).XSailPointExperimental(xSailPointExperimental).RecommendationRequestDto(recommendationRequestDto).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRecommendationsAPI.GetRecommendations``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetRecommendations`: RecommendationResponseDto
+    fmt.Fprintf(os.Stdout, "Response from `IAIRecommendationsAPI.GetRecommendations`: %v\n", resp)
 }
 ```
 
@@ -167,7 +166,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -175,18 +174,18 @@ import (
 func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.IAIRecommendationsAPI.GetRecommendationsConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
-	//resp, r, err := apiClient.V2025.IAIRecommendationsAPI.GetRecommendationsConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRecommendationsAPI.GetRecommendationsConfig``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetRecommendationsConfig`: RecommendationConfigDto
-	fmt.Fprintf(os.Stdout, "Response from `IAIRecommendationsAPI.GetRecommendationsConfig`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.IAIRecommendationsAPI.GetRecommendationsConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRecommendationsAPI.GetRecommendationsConfig``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetRecommendationsConfig`: RecommendationConfigDto
+    fmt.Fprintf(os.Stdout, "Response from `IAIRecommendationsAPI.GetRecommendationsConfig`: %v\n", resp)
 }
 ```
 
@@ -241,7 +240,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -255,24 +254,23 @@ func main() {
           "onlyTuneThreshold" : false
         }`) // RecommendationConfigDto | 
 
-  
-   var recommendationConfigDto v2025.RecommendationConfigDto
-   if err := json.Unmarshal(recommendationconfigdto, &recommendationConfigDto); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var recommendationConfigDto v2025.RecommendationConfigDto
+    if err := json.Unmarshal(recommendationconfigdto, &recommendationConfigDto); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.IAIRecommendationsAPI.UpdateRecommendationsConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).RecommendationConfigDto(recommendationConfigDto).Execute()
-	//resp, r, err := apiClient.V2025.IAIRecommendationsAPI.UpdateRecommendationsConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).RecommendationConfigDto(recommendationConfigDto).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRecommendationsAPI.UpdateRecommendationsConfig``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `UpdateRecommendationsConfig`: RecommendationConfigDto
-	fmt.Fprintf(os.Stdout, "Response from `IAIRecommendationsAPI.UpdateRecommendationsConfig`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.IAIRecommendationsAPI.UpdateRecommendationsConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).RecommendationConfigDto(recommendationConfigDto).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRecommendationsAPI.UpdateRecommendationsConfig``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdateRecommendationsConfig`: RecommendationConfigDto
+    fmt.Fprintf(os.Stdout, "Response from `IAIRecommendationsAPI.UpdateRecommendationsConfig`: %v\n", resp)
 }
 ```
 

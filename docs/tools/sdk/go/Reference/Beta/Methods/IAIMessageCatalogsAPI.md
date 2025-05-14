@@ -59,7 +59,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -67,18 +67,18 @@ import (
 func main() {
     catalogId := `recommender` // string | The ID of the message catalog. # string | The ID of the message catalog.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIMessageCatalogsAPI.GetMessageCatalogs(context.Background(), catalogId).Execute()
-	//resp, r, err := apiClient.Beta.IAIMessageCatalogsAPI.GetMessageCatalogs(context.Background(), catalogId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIMessageCatalogsAPI.GetMessageCatalogs``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetMessageCatalogs`: []MessageCatalogDto
-	fmt.Fprintf(os.Stdout, "Response from `IAIMessageCatalogsAPI.GetMessageCatalogs`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIMessageCatalogsAPI.GetMessageCatalogs(context.Background(), catalogId).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIMessageCatalogsAPI.GetMessageCatalogs``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetMessageCatalogs`: []MessageCatalogDto
+    fmt.Fprintf(os.Stdout, "Response from `IAIMessageCatalogsAPI.GetMessageCatalogs`: %v\n", resp)
 }
 ```
 

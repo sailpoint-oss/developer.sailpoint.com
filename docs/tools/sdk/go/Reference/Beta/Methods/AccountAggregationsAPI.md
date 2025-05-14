@@ -77,7 +77,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -85,18 +85,18 @@ import (
 func main() {
     id := `2c91808477a6b0c60177a81146b8110b` // string | The account aggregation id # string | The account aggregation id
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.AccountAggregationsAPI.GetAccountAggregationStatus(context.Background(), id).Execute()
-	//resp, r, err := apiClient.Beta.AccountAggregationsAPI.GetAccountAggregationStatus(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountAggregationsAPI.GetAccountAggregationStatus``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetAccountAggregationStatus`: AccountAggregationStatus
-	fmt.Fprintf(os.Stdout, "Response from `AccountAggregationsAPI.GetAccountAggregationStatus`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.AccountAggregationsAPI.GetAccountAggregationStatus(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `AccountAggregationsAPI.GetAccountAggregationStatus``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetAccountAggregationStatus`: AccountAggregationStatus
+    fmt.Fprintf(os.Stdout, "Response from `AccountAggregationsAPI.GetAccountAggregationStatus`: %v\n", resp)
 }
 ```
 

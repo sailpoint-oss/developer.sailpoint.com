@@ -66,7 +66,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -78,18 +78,18 @@ func main() {
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
     sorters := `-date` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **date** (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.AccountUsagesAPI.GetUsagesByAccountId(context.Background(), accountId).Execute()
-	//resp, r, err := apiClient.Beta.AccountUsagesAPI.GetUsagesByAccountId(context.Background(), accountId).Limit(limit).Offset(offset).Count(count).Sorters(sorters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccountUsagesAPI.GetUsagesByAccountId``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetUsagesByAccountId`: []AccountUsage
-	fmt.Fprintf(os.Stdout, "Response from `AccountUsagesAPI.GetUsagesByAccountId`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.AccountUsagesAPI.GetUsagesByAccountId(context.Background(), accountId).Limit(limit).Offset(offset).Count(count).Sorters(sorters).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `AccountUsagesAPI.GetUsagesByAccountId``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetUsagesByAccountId`: []AccountUsage
+    fmt.Fprintf(os.Stdout, "Response from `AccountUsagesAPI.GetUsagesByAccountId`: %v\n", resp)
 }
 ```
 

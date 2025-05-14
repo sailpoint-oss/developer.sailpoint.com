@@ -78,7 +78,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -97,24 +97,23 @@ func main() {
           } ]
         }`) // IdentityWithNewAccess | 
 
-  
-   var identityWithNewAccess beta.IdentityWithNewAccess
-   if err := json.Unmarshal(identitywithnewaccess, &identityWithNewAccess); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var identityWithNewAccess beta.IdentityWithNewAccess
+    if err := json.Unmarshal(identitywithnewaccess, &identityWithNewAccess); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.SODViolationsAPI.StartPredictSodViolations(context.Background()).IdentityWithNewAccess(identityWithNewAccess).Execute()
-	//resp, r, err := apiClient.Beta.SODViolationsAPI.StartPredictSodViolations(context.Background()).IdentityWithNewAccess(identityWithNewAccess).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SODViolationsAPI.StartPredictSodViolations``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `StartPredictSodViolations`: ViolationPrediction
-	fmt.Fprintf(os.Stdout, "Response from `SODViolationsAPI.StartPredictSodViolations`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.SODViolationsAPI.StartPredictSodViolations(context.Background()).IdentityWithNewAccess(identityWithNewAccess).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SODViolationsAPI.StartPredictSodViolations``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `StartPredictSodViolations`: ViolationPrediction
+    fmt.Fprintf(os.Stdout, "Response from `SODViolationsAPI.StartPredictSodViolations`: %v\n", resp)
 }
 ```
 

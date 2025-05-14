@@ -91,7 +91,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -106,24 +106,23 @@ func main() {
           "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
         }`) // PasswordSyncGroup | 
 
-  
-   var passwordSyncGroup v2025.PasswordSyncGroup
-   if err := json.Unmarshal(passwordsyncgroup, &passwordSyncGroup); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var passwordSyncGroup v2025.PasswordSyncGroup
+    if err := json.Unmarshal(passwordsyncgroup, &passwordSyncGroup); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.PasswordSyncGroupsAPI.CreatePasswordSyncGroup(context.Background()).PasswordSyncGroup(passwordSyncGroup).Execute()
-	//resp, r, err := apiClient.V2025.PasswordSyncGroupsAPI.CreatePasswordSyncGroup(context.Background()).PasswordSyncGroup(passwordSyncGroup).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PasswordSyncGroupsAPI.CreatePasswordSyncGroup``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreatePasswordSyncGroup`: PasswordSyncGroup
-	fmt.Fprintf(os.Stdout, "Response from `PasswordSyncGroupsAPI.CreatePasswordSyncGroup`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.PasswordSyncGroupsAPI.CreatePasswordSyncGroup(context.Background()).PasswordSyncGroup(passwordSyncGroup).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `PasswordSyncGroupsAPI.CreatePasswordSyncGroup``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreatePasswordSyncGroup`: PasswordSyncGroup
+    fmt.Fprintf(os.Stdout, "Response from `PasswordSyncGroupsAPI.CreatePasswordSyncGroup`: %v\n", resp)
 }
 ```
 
@@ -170,7 +169,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -178,16 +177,17 @@ import (
 func main() {
     id := `6881f631-3bd5-4213-9c75-8e05cc3e35dd` // string | The ID of password sync group to delete. # string | The ID of password sync group to delete.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     r, err := apiClient.V2025.PasswordSyncGroupsAPI.DeletePasswordSyncGroup(context.Background(), id).Execute()
-	//r, err := apiClient.V2025.PasswordSyncGroupsAPI.DeletePasswordSyncGroup(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PasswordSyncGroupsAPI.DeletePasswordSyncGroup``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+	  //r, err := apiClient.V2025.PasswordSyncGroupsAPI.DeletePasswordSyncGroup(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `PasswordSyncGroupsAPI.DeletePasswordSyncGroup``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
 }
 ```
 
@@ -234,7 +234,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -242,18 +242,18 @@ import (
 func main() {
     id := `6881f631-3bd5-4213-9c75-8e05cc3e35dd` // string | The ID of password sync group to retrieve. # string | The ID of password sync group to retrieve.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.PasswordSyncGroupsAPI.GetPasswordSyncGroup(context.Background(), id).Execute()
-	//resp, r, err := apiClient.V2025.PasswordSyncGroupsAPI.GetPasswordSyncGroup(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PasswordSyncGroupsAPI.GetPasswordSyncGroup``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetPasswordSyncGroup`: PasswordSyncGroup
-	fmt.Fprintf(os.Stdout, "Response from `PasswordSyncGroupsAPI.GetPasswordSyncGroup`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.PasswordSyncGroupsAPI.GetPasswordSyncGroup(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `PasswordSyncGroupsAPI.GetPasswordSyncGroup``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetPasswordSyncGroup`: PasswordSyncGroup
+    fmt.Fprintf(os.Stdout, "Response from `PasswordSyncGroupsAPI.GetPasswordSyncGroup`: %v\n", resp)
 }
 ```
 
@@ -298,7 +298,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -308,18 +308,18 @@ func main() {
     offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.PasswordSyncGroupsAPI.GetPasswordSyncGroups(context.Background()).Execute()
-	//resp, r, err := apiClient.V2025.PasswordSyncGroupsAPI.GetPasswordSyncGroups(context.Background()).Limit(limit).Offset(offset).Count(count).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PasswordSyncGroupsAPI.GetPasswordSyncGroups``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetPasswordSyncGroups`: []PasswordSyncGroup
-	fmt.Fprintf(os.Stdout, "Response from `PasswordSyncGroupsAPI.GetPasswordSyncGroups`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.PasswordSyncGroupsAPI.GetPasswordSyncGroups(context.Background()).Limit(limit).Offset(offset).Count(count).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `PasswordSyncGroupsAPI.GetPasswordSyncGroups``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetPasswordSyncGroups`: []PasswordSyncGroup
+    fmt.Fprintf(os.Stdout, "Response from `PasswordSyncGroupsAPI.GetPasswordSyncGroups`: %v\n", resp)
 }
 ```
 
@@ -367,7 +367,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -383,24 +383,23 @@ func main() {
           "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
         }`) // PasswordSyncGroup | 
 
-  
-   var passwordSyncGroup v2025.PasswordSyncGroup
-   if err := json.Unmarshal(passwordsyncgroup, &passwordSyncGroup); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var passwordSyncGroup v2025.PasswordSyncGroup
+    if err := json.Unmarshal(passwordsyncgroup, &passwordSyncGroup); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.PasswordSyncGroupsAPI.UpdatePasswordSyncGroup(context.Background(), id).PasswordSyncGroup(passwordSyncGroup).Execute()
-	//resp, r, err := apiClient.V2025.PasswordSyncGroupsAPI.UpdatePasswordSyncGroup(context.Background(), id).PasswordSyncGroup(passwordSyncGroup).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `PasswordSyncGroupsAPI.UpdatePasswordSyncGroup``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `UpdatePasswordSyncGroup`: PasswordSyncGroup
-	fmt.Fprintf(os.Stdout, "Response from `PasswordSyncGroupsAPI.UpdatePasswordSyncGroup`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.PasswordSyncGroupsAPI.UpdatePasswordSyncGroup(context.Background(), id).PasswordSyncGroup(passwordSyncGroup).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `PasswordSyncGroupsAPI.UpdatePasswordSyncGroup``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdatePasswordSyncGroup`: PasswordSyncGroup
+    fmt.Fprintf(os.Stdout, "Response from `PasswordSyncGroupsAPI.UpdatePasswordSyncGroup`: %v\n", resp)
 }
 ```
 

@@ -54,25 +54,25 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.UIMetadataAPI.GetTenantUiMetadata(context.Background()).Execute()
-	//resp, r, err := apiClient.Beta.UIMetadataAPI.GetTenantUiMetadata(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UIMetadataAPI.GetTenantUiMetadata``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetTenantUiMetadata`: TenantUiMetadataItemResponse
-	fmt.Fprintf(os.Stdout, "Response from `UIMetadataAPI.GetTenantUiMetadata`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.UIMetadataAPI.GetTenantUiMetadata(context.Background()).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `UIMetadataAPI.GetTenantUiMetadata``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetTenantUiMetadata`: TenantUiMetadataItemResponse
+    fmt.Fprintf(os.Stdout, "Response from `UIMetadataAPI.GetTenantUiMetadata`: %v\n", resp)
 }
 ```
 
@@ -116,7 +116,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -128,24 +128,23 @@ func main() {
           "iframeWhiteList" : "http://example.com http://example2.com"
         }`) // TenantUiMetadataItemUpdateRequest | 
 
-  
-   var tenantUiMetadataItemUpdateRequest beta.TenantUiMetadataItemUpdateRequest
-   if err := json.Unmarshal(tenantuimetadataitemupdaterequest, &tenantUiMetadataItemUpdateRequest); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var tenantUiMetadataItemUpdateRequest beta.TenantUiMetadataItemUpdateRequest
+    if err := json.Unmarshal(tenantuimetadataitemupdaterequest, &tenantUiMetadataItemUpdateRequest); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.UIMetadataAPI.SetTenantUiMetadata(context.Background()).TenantUiMetadataItemUpdateRequest(tenantUiMetadataItemUpdateRequest).Execute()
-	//resp, r, err := apiClient.Beta.UIMetadataAPI.SetTenantUiMetadata(context.Background()).TenantUiMetadataItemUpdateRequest(tenantUiMetadataItemUpdateRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `UIMetadataAPI.SetTenantUiMetadata``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SetTenantUiMetadata`: TenantUiMetadataItemResponse
-	fmt.Fprintf(os.Stdout, "Response from `UIMetadataAPI.SetTenantUiMetadata`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.UIMetadataAPI.SetTenantUiMetadata(context.Background()).TenantUiMetadataItemUpdateRequest(tenantUiMetadataItemUpdateRequest).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `UIMetadataAPI.SetTenantUiMetadata``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SetTenantUiMetadata`: TenantUiMetadataItemResponse
+    fmt.Fprintf(os.Stdout, "Response from `UIMetadataAPI.SetTenantUiMetadata`: %v\n", resp)
 }
 ```
 

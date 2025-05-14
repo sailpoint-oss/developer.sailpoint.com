@@ -88,7 +88,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -101,18 +101,18 @@ func main() {
     offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.CertificationsAPI.GetIdentityCertificationItemPermissions(context.Background(), certificationId, itemId).Execute()
-	//resp, r, err := apiClient.Beta.CertificationsAPI.GetIdentityCertificationItemPermissions(context.Background(), certificationId, itemId).Filters(filters).Limit(limit).Offset(offset).Count(count).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CertificationsAPI.GetIdentityCertificationItemPermissions``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetIdentityCertificationItemPermissions`: []PermissionDto
-	fmt.Fprintf(os.Stdout, "Response from `CertificationsAPI.GetIdentityCertificationItemPermissions`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.CertificationsAPI.GetIdentityCertificationItemPermissions(context.Background(), certificationId, itemId).Filters(filters).Limit(limit).Offset(offset).Count(count).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CertificationsAPI.GetIdentityCertificationItemPermissions``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetIdentityCertificationItemPermissions`: []PermissionDto
+    fmt.Fprintf(os.Stdout, "Response from `CertificationsAPI.GetIdentityCertificationItemPermissions`: %v\n", resp)
 }
 ```
 
@@ -159,7 +159,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -167,18 +167,18 @@ import (
 func main() {
     id := `id_example` // string | The identity campaign certification ID # string | The identity campaign certification ID
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.CertificationsAPI.GetIdentityCertificationPendingTasks(context.Background(), id).Execute()
-	//resp, r, err := apiClient.Beta.CertificationsAPI.GetIdentityCertificationPendingTasks(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CertificationsAPI.GetIdentityCertificationPendingTasks``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetIdentityCertificationPendingTasks`: []IdentityCertificationTask
-	fmt.Fprintf(os.Stdout, "Response from `CertificationsAPI.GetIdentityCertificationPendingTasks`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.CertificationsAPI.GetIdentityCertificationPendingTasks(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CertificationsAPI.GetIdentityCertificationPendingTasks``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetIdentityCertificationPendingTasks`: []IdentityCertificationTask
+    fmt.Fprintf(os.Stdout, "Response from `CertificationsAPI.GetIdentityCertificationPendingTasks`: %v\n", resp)
 }
 ```
 
@@ -227,7 +227,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -236,18 +236,18 @@ func main() {
     id := `id_example` // string | The identity campaign certification ID # string | The identity campaign certification ID
     taskId := `taskId_example` // string | The certification task ID # string | The certification task ID
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.CertificationsAPI.GetIdentityCertificationTaskStatus(context.Background(), id, taskId).Execute()
-	//resp, r, err := apiClient.Beta.CertificationsAPI.GetIdentityCertificationTaskStatus(context.Background(), id, taskId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CertificationsAPI.GetIdentityCertificationTaskStatus``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetIdentityCertificationTaskStatus`: IdentityCertificationTask
-	fmt.Fprintf(os.Stdout, "Response from `CertificationsAPI.GetIdentityCertificationTaskStatus`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.CertificationsAPI.GetIdentityCertificationTaskStatus(context.Background(), id, taskId).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CertificationsAPI.GetIdentityCertificationTaskStatus``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetIdentityCertificationTaskStatus`: IdentityCertificationTask
+    fmt.Fprintf(os.Stdout, "Response from `CertificationsAPI.GetIdentityCertificationTaskStatus`: %v\n", resp)
 }
 ```
 
@@ -302,7 +302,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -315,18 +315,18 @@ func main() {
     filters := `name eq "Bob"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **email**: *eq, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **email**: *eq, sw* (optional)
     sorters := `name` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, email** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, email** (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.CertificationsAPI.ListCertificationReviewers(context.Background(), id).Execute()
-	//resp, r, err := apiClient.Beta.CertificationsAPI.ListCertificationReviewers(context.Background(), id).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CertificationsAPI.ListCertificationReviewers``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListCertificationReviewers`: []IdentityReferenceWithNameAndEmail
-	fmt.Fprintf(os.Stdout, "Response from `CertificationsAPI.ListCertificationReviewers`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.CertificationsAPI.ListCertificationReviewers(context.Background(), id).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CertificationsAPI.ListCertificationReviewers``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListCertificationReviewers`: []IdentityReferenceWithNameAndEmail
+    fmt.Fprintf(os.Stdout, "Response from `CertificationsAPI.ListCertificationReviewers`: %v\n", resp)
 }
 ```
 
@@ -374,7 +374,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -387,18 +387,18 @@ func main() {
     filters := `filters_example` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **phase**: *eq*  **completed**: *eq, ne*  **campaignRef.campaignType**: *eq, in*  **campaignRef.id**: *eq, in* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **phase**: *eq*  **completed**: *eq, ne*  **campaignRef.campaignType**: *eq, in*  **campaignRef.id**: *eq, in* (optional)
     sorters := `sorters_example` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, due, signed** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, due, signed** (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.CertificationsAPI.ListCertifications(context.Background()).Execute()
-	//resp, r, err := apiClient.Beta.CertificationsAPI.ListCertifications(context.Background()).ReviewerIdentitiy(reviewerIdentitiy).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CertificationsAPI.ListCertifications``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListCertifications`: []CertificationDto
-	fmt.Fprintf(os.Stdout, "Response from `CertificationsAPI.ListCertifications`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.CertificationsAPI.ListCertifications(context.Background()).ReviewerIdentitiy(reviewerIdentitiy).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CertificationsAPI.ListCertifications``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListCertifications`: []CertificationDto
+    fmt.Fprintf(os.Stdout, "Response from `CertificationsAPI.ListCertifications`: %v\n", resp)
 }
 ```
 
@@ -449,7 +449,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -468,24 +468,23 @@ func main() {
           } ]
         }`) // ReviewReassign | 
 
-  
-   var reviewReassign beta.ReviewReassign
-   if err := json.Unmarshal(reviewreassign, &reviewReassign); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var reviewReassign beta.ReviewReassign
+    if err := json.Unmarshal(reviewreassign, &reviewReassign); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.CertificationsAPI.SubmitReassignCertsAsync(context.Background(), id).ReviewReassign(reviewReassign).Execute()
-	//resp, r, err := apiClient.Beta.CertificationsAPI.SubmitReassignCertsAsync(context.Background(), id).ReviewReassign(reviewReassign).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `CertificationsAPI.SubmitReassignCertsAsync``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `SubmitReassignCertsAsync`: IdentityCertificationTask
-	fmt.Fprintf(os.Stdout, "Response from `CertificationsAPI.SubmitReassignCertsAsync`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.CertificationsAPI.SubmitReassignCertsAsync(context.Background(), id).ReviewReassign(reviewReassign).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `CertificationsAPI.SubmitReassignCertsAsync``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `SubmitReassignCertsAsync`: IdentityCertificationTask
+    fmt.Fprintf(os.Stdout, "Response from `CertificationsAPI.SubmitReassignCertsAsync`: %v\n", resp)
 }
 ```
 

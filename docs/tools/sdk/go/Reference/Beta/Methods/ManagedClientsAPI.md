@@ -66,7 +66,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -75,18 +75,18 @@ func main() {
     id := `aClientId` // string | ID of the Managed Client Status to get # string | ID of the Managed Client Status to get
     type_ :=  // ManagedClientType | Type of the Managed Client Status to get # ManagedClientType | Type of the Managed Client Status to get
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.ManagedClientsAPI.GetManagedClientStatus(context.Background(), id).Type_(type_).Execute()
-	//resp, r, err := apiClient.Beta.ManagedClientsAPI.GetManagedClientStatus(context.Background(), id).Type_(type_).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClientsAPI.GetManagedClientStatus``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetManagedClientStatus`: ManagedClientStatus
-	fmt.Fprintf(os.Stdout, "Response from `ManagedClientsAPI.GetManagedClientStatus`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.ManagedClientsAPI.GetManagedClientStatus(context.Background(), id).Type_(type_).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `ManagedClientsAPI.GetManagedClientStatus``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetManagedClientStatus`: ManagedClientStatus
+    fmt.Fprintf(os.Stdout, "Response from `ManagedClientsAPI.GetManagedClientStatus`: %v\n", resp)
 }
 ```
 
@@ -137,7 +137,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
@@ -172,24 +172,23 @@ func main() {
           "timestamp" : "2020-01-01T00:00:00Z"
         }`) // ManagedClientStatus | 
 
-  
-   var managedClientStatus beta.ManagedClientStatus
-   if err := json.Unmarshal(managedclientstatus, &managedClientStatus); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var managedClientStatus beta.ManagedClientStatus
+    if err := json.Unmarshal(managedclientstatus, &managedClientStatus); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.ManagedClientsAPI.UpdateManagedClientStatus(context.Background(), id).ManagedClientStatus(managedClientStatus).Execute()
-	//resp, r, err := apiClient.Beta.ManagedClientsAPI.UpdateManagedClientStatus(context.Background(), id).ManagedClientStatus(managedClientStatus).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `ManagedClientsAPI.UpdateManagedClientStatus``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `UpdateManagedClientStatus`: ManagedClientStatusAggResponse
-	fmt.Fprintf(os.Stdout, "Response from `ManagedClientsAPI.UpdateManagedClientStatus`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.ManagedClientsAPI.UpdateManagedClientStatus(context.Background(), id).ManagedClientStatus(managedClientStatus).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `ManagedClientsAPI.UpdateManagedClientStatus``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdateManagedClientStatus`: ManagedClientStatusAggResponse
+    fmt.Fprintf(os.Stdout, "Response from `ManagedClientsAPI.UpdateManagedClientStatus`: %v\n", resp)
 }
 ```
 

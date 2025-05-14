@@ -17,14 +17,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RequestedFor** | **[]string** | A list of Identity IDs for whom the Access is requested. | 
 **RequestType** | Pointer to [**NullableAccessRequestType**](access-request-type) |  | [optional] 
-**RequestedItems** | [**[]AccessRequestItem1**](access-request-item1) |  | 
+**RequestedItems** | [**[]AccessRequestItem**](access-request-item) |  | 
 **ClientMetadata** | Pointer to **map[string]string** | Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on associated APIs such as /account-activities.   | [optional] 
 
 ## Methods
 
 ### NewAccountsSelectionRequest
 
-`func NewAccountsSelectionRequest(requestedFor []string, requestedItems []AccessRequestItem1, ) *AccountsSelectionRequest`
+`func NewAccountsSelectionRequest(requestedFor []string, requestedItems []AccessRequestItem, ) *AccountsSelectionRequest`
 
 NewAccountsSelectionRequest instantiates a new AccountsSelectionRequest object
 This constructor will assign default values to properties that have it defined,
@@ -96,20 +96,20 @@ HasRequestType returns a boolean if a field has been set.
 UnsetRequestType ensures that no value is present for RequestType, not even an explicit nil
 ### GetRequestedItems
 
-`func (o *AccountsSelectionRequest) GetRequestedItems() []AccessRequestItem1`
+`func (o *AccountsSelectionRequest) GetRequestedItems() []AccessRequestItem`
 
 GetRequestedItems returns the RequestedItems field if non-nil, zero value otherwise.
 
 ### GetRequestedItemsOk
 
-`func (o *AccountsSelectionRequest) GetRequestedItemsOk() (*[]AccessRequestItem1, bool)`
+`func (o *AccountsSelectionRequest) GetRequestedItemsOk() (*[]AccessRequestItem, bool)`
 
 GetRequestedItemsOk returns a tuple with the RequestedItems field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRequestedItems
 
-`func (o *AccountsSelectionRequest) SetRequestedItems(v []AccessRequestItem1)`
+`func (o *AccountsSelectionRequest) SetRequestedItems(v []AccessRequestItem)`
 
 SetRequestedItems sets RequestedItems field to given value.
 

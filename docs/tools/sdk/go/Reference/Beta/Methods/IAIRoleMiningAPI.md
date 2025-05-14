@@ -88,7 +88,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -106,18 +106,18 @@ func main() {
           "directlyAssignedEntitlements" : false
         }`) // RoleMiningPotentialRoleProvisionRequest | Required information to create a new role (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.CreatePotentialRoleProvisionRequest(context.Background(), sessionId, potentialRoleId).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.CreatePotentialRoleProvisionRequest(context.Background(), sessionId, potentialRoleId).MinEntitlementPopularity(minEntitlementPopularity).IncludeCommonAccess(includeCommonAccess).RoleMiningPotentialRoleProvisionRequest(roleMiningPotentialRoleProvisionRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.CreatePotentialRoleProvisionRequest``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreatePotentialRoleProvisionRequest`: RoleMiningPotentialRoleSummary
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.CreatePotentialRoleProvisionRequest`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.CreatePotentialRoleProvisionRequest(context.Background(), sessionId, potentialRoleId).MinEntitlementPopularity(minEntitlementPopularity).IncludeCommonAccess(includeCommonAccess).RoleMiningPotentialRoleProvisionRequest(roleMiningPotentialRoleProvisionRequest).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.CreatePotentialRoleProvisionRequest``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreatePotentialRoleProvisionRequest`: RoleMiningPotentialRoleSummary
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.CreatePotentialRoleProvisionRequest`: %v\n", resp)
 }
 ```
 
@@ -160,7 +160,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -199,24 +199,23 @@ func main() {
           "type" : "SPECIALIZED"
         }`) // RoleMiningSessionDto | Role mining session parameters
 
-  
-   var roleMiningSessionDto beta.RoleMiningSessionDto
-   if err := json.Unmarshal(roleminingsessiondto, &roleMiningSessionDto); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var roleMiningSessionDto beta.RoleMiningSessionDto
+    if err := json.Unmarshal(roleminingsessiondto, &roleMiningSessionDto); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.CreateRoleMiningSessions(context.Background()).RoleMiningSessionDto(roleMiningSessionDto).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.CreateRoleMiningSessions(context.Background()).RoleMiningSessionDto(roleMiningSessionDto).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.CreateRoleMiningSessions``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateRoleMiningSessions`: RoleMiningSessionResponse
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.CreateRoleMiningSessions`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.CreateRoleMiningSessions(context.Background()).RoleMiningSessionDto(roleMiningSessionDto).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.CreateRoleMiningSessions``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateRoleMiningSessions`: RoleMiningSessionResponse
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.CreateRoleMiningSessions`: %v\n", resp)
 }
 ```
 
@@ -267,7 +266,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -277,18 +276,18 @@ func main() {
     potentialRoleId := `278359a6-04b7-4669-9468-924cf580964a` // string | A potential role id in a role mining session # string | A potential role id in a role mining session
     exportId := `4940ffd4-836f-48a3-b2b0-6d498c3fdf40` // string | The id of a previously run export job for this potential role # string | The id of a previously run export job for this potential role
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.DownloadRoleMiningPotentialRoleZip(context.Background(), sessionId, potentialRoleId, exportId).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.DownloadRoleMiningPotentialRoleZip(context.Background(), sessionId, potentialRoleId, exportId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.DownloadRoleMiningPotentialRoleZip``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `DownloadRoleMiningPotentialRoleZip`: *os.File
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.DownloadRoleMiningPotentialRoleZip`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.DownloadRoleMiningPotentialRoleZip(context.Background(), sessionId, potentialRoleId, exportId).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.DownloadRoleMiningPotentialRoleZip``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DownloadRoleMiningPotentialRoleZip`: *os.File
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.DownloadRoleMiningPotentialRoleZip`: %v\n", resp)
 }
 ```
 
@@ -337,7 +336,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -346,18 +345,18 @@ func main() {
     sessionId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The role mining session id # string | The role mining session id
     potentialRoleId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | A potential role id in a role mining session # string | A potential role id in a role mining session
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.ExportRoleMiningPotentialRole(context.Background(), sessionId, potentialRoleId).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.ExportRoleMiningPotentialRole(context.Background(), sessionId, potentialRoleId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.ExportRoleMiningPotentialRole``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ExportRoleMiningPotentialRole`: *os.File
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.ExportRoleMiningPotentialRole`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.ExportRoleMiningPotentialRole(context.Background(), sessionId, potentialRoleId).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.ExportRoleMiningPotentialRole``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ExportRoleMiningPotentialRole`: *os.File
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.ExportRoleMiningPotentialRole`: %v\n", resp)
 }
 ```
 
@@ -407,7 +406,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -420,18 +419,18 @@ func main() {
           "includeCommonAccess" : true
         }`) // RoleMiningPotentialRoleExportRequest |  (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.ExportRoleMiningPotentialRoleAsync(context.Background(), sessionId, potentialRoleId).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.ExportRoleMiningPotentialRoleAsync(context.Background(), sessionId, potentialRoleId).RoleMiningPotentialRoleExportRequest(roleMiningPotentialRoleExportRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.ExportRoleMiningPotentialRoleAsync``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ExportRoleMiningPotentialRoleAsync`: RoleMiningPotentialRoleExportResponse
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.ExportRoleMiningPotentialRoleAsync`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.ExportRoleMiningPotentialRoleAsync(context.Background(), sessionId, potentialRoleId).RoleMiningPotentialRoleExportRequest(roleMiningPotentialRoleExportRequest).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.ExportRoleMiningPotentialRoleAsync``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ExportRoleMiningPotentialRoleAsync`: RoleMiningPotentialRoleExportResponse
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.ExportRoleMiningPotentialRoleAsync`: %v\n", resp)
 }
 ```
 
@@ -482,7 +481,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -492,18 +491,18 @@ func main() {
     potentialRoleId := `278359a6-04b7-4669-9468-924cf580964a` // string | A potential role id in a role mining session # string | A potential role id in a role mining session
     exportId := `4940ffd4-836f-48a3-b2b0-6d498c3fdf40` // string | The id of a previously run export job for this potential role # string | The id of a previously run export job for this potential role
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.ExportRoleMiningPotentialRoleStatus(context.Background(), sessionId, potentialRoleId, exportId).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.ExportRoleMiningPotentialRoleStatus(context.Background(), sessionId, potentialRoleId, exportId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.ExportRoleMiningPotentialRoleStatus``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ExportRoleMiningPotentialRoleStatus`: RoleMiningPotentialRoleExportResponse
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.ExportRoleMiningPotentialRoleStatus`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.ExportRoleMiningPotentialRoleStatus(context.Background(), sessionId, potentialRoleId, exportId).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.ExportRoleMiningPotentialRoleStatus``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ExportRoleMiningPotentialRoleStatus`: RoleMiningPotentialRoleExportResponse
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.ExportRoleMiningPotentialRoleStatus`: %v\n", resp)
 }
 ```
 
@@ -550,7 +549,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -562,18 +561,18 @@ func main() {
     limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetAllPotentialRoleSummaries(context.Background()).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetAllPotentialRoleSummaries(context.Background()).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetAllPotentialRoleSummaries``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetAllPotentialRoleSummaries`: []RoleMiningPotentialRoleSummary
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetAllPotentialRoleSummaries`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetAllPotentialRoleSummaries(context.Background()).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetAllPotentialRoleSummaries``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetAllPotentialRoleSummaries`: []RoleMiningPotentialRoleSummary
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetAllPotentialRoleSummaries`: %v\n", resp)
 }
 ```
 
@@ -623,7 +622,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -633,18 +632,18 @@ func main() {
     potentialRoleId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | A potential role id in a role mining session # string | A potential role id in a role mining session
     includeCommonAccess := true // bool | Boolean determining whether common access entitlements will be included or not (optional) # bool | Boolean determining whether common access entitlements will be included or not (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetEntitlementDistributionPotentialRole(context.Background(), sessionId, potentialRoleId).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetEntitlementDistributionPotentialRole(context.Background(), sessionId, potentialRoleId).IncludeCommonAccess(includeCommonAccess).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetEntitlementDistributionPotentialRole``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetEntitlementDistributionPotentialRole`: map[string]int32
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetEntitlementDistributionPotentialRole`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetEntitlementDistributionPotentialRole(context.Background(), sessionId, potentialRoleId).IncludeCommonAccess(includeCommonAccess).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetEntitlementDistributionPotentialRole``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetEntitlementDistributionPotentialRole`: map[string]int32
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetEntitlementDistributionPotentialRole`: %v\n", resp)
 }
 ```
 
@@ -699,7 +698,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -714,18 +713,18 @@ func main() {
     limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetEntitlementsPotentialRole(context.Background(), sessionId, potentialRoleId).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetEntitlementsPotentialRole(context.Background(), sessionId, potentialRoleId).IncludeCommonAccess(includeCommonAccess).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetEntitlementsPotentialRole``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetEntitlementsPotentialRole`: []RoleMiningEntitlement
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetEntitlementsPotentialRole`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetEntitlementsPotentialRole(context.Background(), sessionId, potentialRoleId).IncludeCommonAccess(includeCommonAccess).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetEntitlementsPotentialRole``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetEntitlementsPotentialRole`: []RoleMiningEntitlement
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetEntitlementsPotentialRole`: %v\n", resp)
 }
 ```
 
@@ -779,7 +778,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -793,18 +792,18 @@ func main() {
     limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetExcludedEntitlementsPotentialRole(context.Background(), sessionId, potentialRoleId).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetExcludedEntitlementsPotentialRole(context.Background(), sessionId, potentialRoleId).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetExcludedEntitlementsPotentialRole``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetExcludedEntitlementsPotentialRole`: []RoleMiningEntitlement
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetExcludedEntitlementsPotentialRole`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetExcludedEntitlementsPotentialRole(context.Background(), sessionId, potentialRoleId).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetExcludedEntitlementsPotentialRole``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetExcludedEntitlementsPotentialRole`: []RoleMiningEntitlement
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetExcludedEntitlementsPotentialRole`: %v\n", resp)
 }
 ```
 
@@ -858,7 +857,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -872,18 +871,18 @@ func main() {
     limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetIdentitiesPotentialRole(context.Background(), sessionId, potentialRoleId).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetIdentitiesPotentialRole(context.Background(), sessionId, potentialRoleId).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetIdentitiesPotentialRole``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetIdentitiesPotentialRole`: []RoleMiningIdentity
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetIdentitiesPotentialRole`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetIdentitiesPotentialRole(context.Background(), sessionId, potentialRoleId).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetIdentitiesPotentialRole``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetIdentitiesPotentialRole`: []RoleMiningIdentity
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetIdentitiesPotentialRole`: %v\n", resp)
 }
 ```
 
@@ -932,7 +931,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -941,18 +940,18 @@ func main() {
     sessionId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The role mining session id # string | The role mining session id
     potentialRoleId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | A potential role id in a role mining session # string | A potential role id in a role mining session
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetPotentialRole(context.Background(), sessionId, potentialRoleId).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetPotentialRole(context.Background(), sessionId, potentialRoleId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetPotentialRole``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetPotentialRole`: RoleMiningPotentialRole
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetPotentialRole`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetPotentialRole(context.Background(), sessionId, potentialRoleId).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetPotentialRole``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetPotentialRole`: RoleMiningPotentialRole
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetPotentialRole`: %v\n", resp)
 }
 ```
 
@@ -1005,7 +1004,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -1018,18 +1017,18 @@ func main() {
     limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetPotentialRoleApplications(context.Background(), sessionId, potentialRoleId).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetPotentialRoleApplications(context.Background(), sessionId, potentialRoleId).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetPotentialRoleApplications``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetPotentialRoleApplications`: []RoleMiningPotentialRoleApplication
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetPotentialRoleApplications`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetPotentialRoleApplications(context.Background(), sessionId, potentialRoleId).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetPotentialRoleApplications``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetPotentialRoleApplications`: []RoleMiningPotentialRoleApplication
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetPotentialRoleApplications`: %v\n", resp)
 }
 ```
 
@@ -1082,7 +1081,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -1095,18 +1094,18 @@ func main() {
     limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetPotentialRoleEntitlements(context.Background(), sessionId, potentialRoleId).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetPotentialRoleEntitlements(context.Background(), sessionId, potentialRoleId).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetPotentialRoleEntitlements``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetPotentialRoleEntitlements`: []RoleMiningPotentialRoleEntitlements
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetPotentialRoleEntitlements`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetPotentialRoleEntitlements(context.Background(), sessionId, potentialRoleId).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetPotentialRoleEntitlements``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetPotentialRoleEntitlements`: []RoleMiningPotentialRoleEntitlements
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetPotentialRoleEntitlements`: %v\n", resp)
 }
 ```
 
@@ -1159,7 +1158,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -1172,18 +1171,18 @@ func main() {
     limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetPotentialRoleSourceIdentityUsage(context.Background(), potentialRoleId, sourceId).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetPotentialRoleSourceIdentityUsage(context.Background(), potentialRoleId, sourceId).Sorters(sorters).Offset(offset).Limit(limit).Count(count).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetPotentialRoleSourceIdentityUsage``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetPotentialRoleSourceIdentityUsage`: []RoleMiningPotentialRoleSourceUsage
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetPotentialRoleSourceIdentityUsage`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetPotentialRoleSourceIdentityUsage(context.Background(), potentialRoleId, sourceId).Sorters(sorters).Offset(offset).Limit(limit).Count(count).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetPotentialRoleSourceIdentityUsage``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetPotentialRoleSourceIdentityUsage`: []RoleMiningPotentialRoleSourceUsage
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetPotentialRoleSourceIdentityUsage`: %v\n", resp)
 }
 ```
 
@@ -1235,7 +1234,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -1248,18 +1247,18 @@ func main() {
     limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetPotentialRoleSummaries(context.Background(), sessionId).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetPotentialRoleSummaries(context.Background(), sessionId).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetPotentialRoleSummaries``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetPotentialRoleSummaries`: []RoleMiningPotentialRoleSummary
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetPotentialRoleSummaries`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetPotentialRoleSummaries(context.Background(), sessionId).Sorters(sorters).Filters(filters).Offset(offset).Limit(limit).Count(count).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetPotentialRoleSummaries``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetPotentialRoleSummaries`: []RoleMiningPotentialRoleSummary
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetPotentialRoleSummaries`: %v\n", resp)
 }
 ```
 
@@ -1306,7 +1305,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -1314,18 +1313,18 @@ import (
 func main() {
     potentialRoleId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | A potential role id # string | A potential role id
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetRoleMiningPotentialRole(context.Background(), potentialRoleId).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetRoleMiningPotentialRole(context.Background(), potentialRoleId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetRoleMiningPotentialRole``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetRoleMiningPotentialRole`: RoleMiningPotentialRole
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetRoleMiningPotentialRole`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetRoleMiningPotentialRole(context.Background(), potentialRoleId).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetRoleMiningPotentialRole``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetRoleMiningPotentialRole`: RoleMiningPotentialRole
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetRoleMiningPotentialRole`: %v\n", resp)
 }
 ```
 
@@ -1372,7 +1371,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -1380,18 +1379,18 @@ import (
 func main() {
     sessionId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The role mining session id to be retrieved. # string | The role mining session id to be retrieved.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetRoleMiningSession(context.Background(), sessionId).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetRoleMiningSession(context.Background(), sessionId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetRoleMiningSession``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetRoleMiningSession`: RoleMiningSessionResponse
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetRoleMiningSession`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetRoleMiningSession(context.Background(), sessionId).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetRoleMiningSession``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetRoleMiningSession`: RoleMiningSessionResponse
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetRoleMiningSession`: %v\n", resp)
 }
 ```
 
@@ -1438,7 +1437,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -1446,18 +1445,18 @@ import (
 func main() {
     sessionId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The role mining session id # string | The role mining session id
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetRoleMiningSessionStatus(context.Background(), sessionId).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetRoleMiningSessionStatus(context.Background(), sessionId).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetRoleMiningSessionStatus``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetRoleMiningSessionStatus`: RoleMiningSessionStatus
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetRoleMiningSessionStatus`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetRoleMiningSessionStatus(context.Background(), sessionId).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetRoleMiningSessionStatus``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetRoleMiningSessionStatus`: RoleMiningSessionStatus
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetRoleMiningSessionStatus`: %v\n", resp)
 }
 ```
 
@@ -1504,7 +1503,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -1516,18 +1515,18 @@ func main() {
     limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetRoleMiningSessions(context.Background()).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetRoleMiningSessions(context.Background()).Filters(filters).Sorters(sorters).Offset(offset).Limit(limit).Count(count).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetRoleMiningSessions``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetRoleMiningSessions`: []RoleMiningSessionResponse
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetRoleMiningSessions`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetRoleMiningSessions(context.Background()).Filters(filters).Sorters(sorters).Offset(offset).Limit(limit).Count(count).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetRoleMiningSessions``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetRoleMiningSessions`: []RoleMiningSessionResponse
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetRoleMiningSessions`: %v\n", resp)
 }
 ```
 
@@ -1573,7 +1572,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -1584,18 +1583,18 @@ func main() {
     limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetSavedPotentialRoles(context.Background()).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetSavedPotentialRoles(context.Background()).Sorters(sorters).Offset(offset).Limit(limit).Count(count).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetSavedPotentialRoles``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetSavedPotentialRoles`: []RoleMiningSessionDraftRoleDto
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetSavedPotentialRoles`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.GetSavedPotentialRoles(context.Background()).Sorters(sorters).Offset(offset).Limit(limit).Count(count).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.GetSavedPotentialRoles``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetSavedPotentialRoles`: []RoleMiningSessionDraftRoleDto
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.GetSavedPotentialRoles`: %v\n", resp)
 }
 ```
 
@@ -1657,7 +1656,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -1667,24 +1666,23 @@ func main() {
     potentialRoleId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The potential role summary id # string | The potential role summary id
     patchpotentialrolerequestinner := []byte(`[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]`) // []PatchPotentialRoleRequestInner | 
 
-  
-   var patchPotentialRoleRequestInner beta.[]PatchPotentialRoleRequestInner
-   if err := json.Unmarshal(patchpotentialrolerequestinner, &patchPotentialRoleRequestInner); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var patchPotentialRoleRequestInner []beta.PatchPotentialRoleRequestInner
+    if err := json.Unmarshal(patchpotentialrolerequestinner, &patchPotentialRoleRequestInner); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.PatchPotentialRole(context.Background(), sessionId, potentialRoleId).PatchPotentialRoleRequestInner(patchPotentialRoleRequestInner).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.PatchPotentialRole(context.Background(), sessionId, potentialRoleId).PatchPotentialRoleRequestInner(patchPotentialRoleRequestInner).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.PatchPotentialRole``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PatchPotentialRole`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.PatchPotentialRole`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.PatchPotentialRole(context.Background(), sessionId, potentialRoleId).PatchPotentialRoleRequestInner(patchPotentialRoleRequestInner).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.PatchPotentialRole``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PatchPotentialRole`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.PatchPotentialRole`: %v\n", resp)
 }
 ```
 
@@ -1744,7 +1742,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -1753,24 +1751,23 @@ func main() {
     potentialRoleId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The potential role summary id # string | The potential role summary id
     patchpotentialrolerequestinner := []byte(`[{op=remove, path=/description}, {op=replace, path=/description, value=Acct I - Potential Role}, {op=remove, path=/saved}, {op=replace, path=/saved, value=false}, {op=remove, path=/name}, {op=replace, path=/name, value=Potential Role Accounting}]`) // []PatchPotentialRoleRequestInner | 
 
-  
-   var patchPotentialRoleRequestInner beta.[]PatchPotentialRoleRequestInner
-   if err := json.Unmarshal(patchpotentialrolerequestinner, &patchPotentialRoleRequestInner); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var patchPotentialRoleRequestInner []beta.PatchPotentialRoleRequestInner
+    if err := json.Unmarshal(patchpotentialrolerequestinner, &patchPotentialRoleRequestInner); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.PatchRoleMiningPotentialRole(context.Background(), potentialRoleId).PatchPotentialRoleRequestInner(patchPotentialRoleRequestInner).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.PatchRoleMiningPotentialRole(context.Background(), potentialRoleId).PatchPotentialRoleRequestInner(patchPotentialRoleRequestInner).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.PatchRoleMiningPotentialRole``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PatchRoleMiningPotentialRole`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.PatchRoleMiningPotentialRole`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.PatchRoleMiningPotentialRole(context.Background(), potentialRoleId).PatchPotentialRoleRequestInner(patchPotentialRoleRequestInner).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.PatchRoleMiningPotentialRole``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PatchRoleMiningPotentialRole`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.PatchRoleMiningPotentialRole`: %v\n", resp)
 }
 ```
 
@@ -1818,7 +1815,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -1827,24 +1824,23 @@ func main() {
     sessionId := `8c190e67-87aa-4ed9-a90b-d9d5344523fb` // string | The role mining session id to be patched # string | The role mining session id to be patched
     jsonpatchoperation := []byte(`[{op=replace, path=/pruneThreshold, value=83}, {op=replace, path=/minNumIdentitiesInPotentialRole, value=10}, {op=replace, path=/saved, value=false}, {op=replace, path=/name, value=RM Session - 07/10/22}, {op=add, path=/name, value=RM Session - 07/10/22}]`) // []JsonPatchOperation | Replace pruneThreshold and/or minNumIdentitiesInPotentialRole in role mining session. Update saved status or saved name for a role mining session.
 
-  
-   var jsonPatchOperation beta.[]JsonPatchOperation
-   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var jsonPatchOperation []beta.JsonPatchOperation
+    if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.PatchRoleMiningSession(context.Background(), sessionId).JsonPatchOperation(jsonPatchOperation).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.PatchRoleMiningSession(context.Background(), sessionId).JsonPatchOperation(jsonPatchOperation).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.PatchRoleMiningSession``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PatchRoleMiningSession`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.PatchRoleMiningSession`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.PatchRoleMiningSession(context.Background(), sessionId).JsonPatchOperation(jsonPatchOperation).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.PatchRoleMiningSession``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PatchRoleMiningSession`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.PatchRoleMiningSession`: %v\n", resp)
 }
 ```
 
@@ -1894,7 +1890,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -1907,24 +1903,23 @@ func main() {
           "exclude" : true
         }`) // RoleMiningPotentialRoleEditEntitlements | Role mining session parameters
 
-  
-   var roleMiningPotentialRoleEditEntitlements beta.RoleMiningPotentialRoleEditEntitlements
-   if err := json.Unmarshal(roleminingpotentialroleeditentitlements, &roleMiningPotentialRoleEditEntitlements); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var roleMiningPotentialRoleEditEntitlements beta.RoleMiningPotentialRoleEditEntitlements
+    if err := json.Unmarshal(roleminingpotentialroleeditentitlements, &roleMiningPotentialRoleEditEntitlements); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IAIRoleMiningAPI.UpdateEntitlementsPotentialRole(context.Background(), sessionId, potentialRoleId).RoleMiningPotentialRoleEditEntitlements(roleMiningPotentialRoleEditEntitlements).Execute()
-	//resp, r, err := apiClient.Beta.IAIRoleMiningAPI.UpdateEntitlementsPotentialRole(context.Background(), sessionId, potentialRoleId).RoleMiningPotentialRoleEditEntitlements(roleMiningPotentialRoleEditEntitlements).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.UpdateEntitlementsPotentialRole``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `UpdateEntitlementsPotentialRole`: RoleMiningPotentialRole
-	fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.UpdateEntitlementsPotentialRole`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IAIRoleMiningAPI.UpdateEntitlementsPotentialRole(context.Background(), sessionId, potentialRoleId).RoleMiningPotentialRoleEditEntitlements(roleMiningPotentialRoleEditEntitlements).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IAIRoleMiningAPI.UpdateEntitlementsPotentialRole``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdateEntitlementsPotentialRole`: RoleMiningPotentialRole
+    fmt.Fprintf(os.Stdout, "Response from `IAIRoleMiningAPI.UpdateEntitlementsPotentialRole`: %v\n", resp)
 }
 ```
 

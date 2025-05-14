@@ -71,7 +71,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -79,24 +79,23 @@ import (
 func main() {
     createsavedsearchrequest := []byte(``) // CreateSavedSearchRequest | The saved search to persist.
 
-  
-   var createSavedSearchRequest v3.CreateSavedSearchRequest
-   if err := json.Unmarshal(createsavedsearchrequest, &createSavedSearchRequest); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var createSavedSearchRequest v3.CreateSavedSearchRequest
+    if err := json.Unmarshal(createsavedsearchrequest, &createSavedSearchRequest); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.SavedSearchAPI.CreateSavedSearch(context.Background()).CreateSavedSearchRequest(createSavedSearchRequest).Execute()
-	//resp, r, err := apiClient.V3.SavedSearchAPI.CreateSavedSearch(context.Background()).CreateSavedSearchRequest(createSavedSearchRequest).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SavedSearchAPI.CreateSavedSearch``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateSavedSearch`: SavedSearch
-	fmt.Fprintf(os.Stdout, "Response from `SavedSearchAPI.CreateSavedSearch`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.SavedSearchAPI.CreateSavedSearch(context.Background()).CreateSavedSearchRequest(createSavedSearchRequest).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SavedSearchAPI.CreateSavedSearch``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateSavedSearch`: SavedSearch
+    fmt.Fprintf(os.Stdout, "Response from `SavedSearchAPI.CreateSavedSearch`: %v\n", resp)
 }
 ```
 
@@ -144,7 +143,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -152,16 +151,17 @@ import (
 func main() {
     id := `2c91808568c529c60168cca6f90c1313` // string | ID of the requested document. # string | ID of the requested document.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     r, err := apiClient.V3.SavedSearchAPI.DeleteSavedSearch(context.Background(), id).Execute()
-	//r, err := apiClient.V3.SavedSearchAPI.DeleteSavedSearch(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SavedSearchAPI.DeleteSavedSearch``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+	  //r, err := apiClient.V3.SavedSearchAPI.DeleteSavedSearch(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SavedSearchAPI.DeleteSavedSearch``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
 }
 ```
 
@@ -210,7 +210,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -229,22 +229,22 @@ func main() {
           "scheduleId" : "7a724640-0c17-4ce9-a8c3-4a89738459c8"
         }`) // SearchArguments | When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided. 
 
-  
-   var searchArguments v3.SearchArguments
-   if err := json.Unmarshal(searcharguments, &searchArguments); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var searchArguments v3.SearchArguments
+    if err := json.Unmarshal(searcharguments, &searchArguments); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     r, err := apiClient.V3.SavedSearchAPI.ExecuteSavedSearch(context.Background(), id).SearchArguments(searchArguments).Execute()
-	//r, err := apiClient.V3.SavedSearchAPI.ExecuteSavedSearch(context.Background(), id).SearchArguments(searchArguments).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SavedSearchAPI.ExecuteSavedSearch``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+	  //r, err := apiClient.V3.SavedSearchAPI.ExecuteSavedSearch(context.Background(), id).SearchArguments(searchArguments).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SavedSearchAPI.ExecuteSavedSearch``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
 }
 ```
 
@@ -292,7 +292,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -300,18 +300,18 @@ import (
 func main() {
     id := `2c91808568c529c60168cca6f90c1313` // string | ID of the requested document. # string | ID of the requested document.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.SavedSearchAPI.GetSavedSearch(context.Background(), id).Execute()
-	//resp, r, err := apiClient.V3.SavedSearchAPI.GetSavedSearch(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SavedSearchAPI.GetSavedSearch``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetSavedSearch`: SavedSearch
-	fmt.Fprintf(os.Stdout, "Response from `SavedSearchAPI.GetSavedSearch`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.SavedSearchAPI.GetSavedSearch(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SavedSearchAPI.GetSavedSearch``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetSavedSearch`: SavedSearch
+    fmt.Fprintf(os.Stdout, "Response from `SavedSearchAPI.GetSavedSearch`: %v\n", resp)
 }
 ```
 
@@ -358,7 +358,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -369,18 +369,18 @@ func main() {
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
     filters := `owner.id eq "7a724640-0c17-4ce9-a8c3-4a89738459c8"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq* (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.SavedSearchAPI.ListSavedSearches(context.Background()).Execute()
-	//resp, r, err := apiClient.V3.SavedSearchAPI.ListSavedSearches(context.Background()).Offset(offset).Limit(limit).Count(count).Filters(filters).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SavedSearchAPI.ListSavedSearches``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListSavedSearches`: []SavedSearch
-	fmt.Fprintf(os.Stdout, "Response from `SavedSearchAPI.ListSavedSearches`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.SavedSearchAPI.ListSavedSearches(context.Background()).Offset(offset).Limit(limit).Count(count).Filters(filters).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SavedSearchAPI.ListSavedSearches``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListSavedSearches`: []SavedSearch
+    fmt.Fprintf(os.Stdout, "Response from `SavedSearchAPI.ListSavedSearches`: %v\n", resp)
 }
 ```
 
@@ -431,7 +431,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -484,24 +484,23 @@ func main() {
           "fields" : [ "disabled" ]
         }`) // SavedSearch | The saved search to persist.
 
-  
-   var savedSearch v3.SavedSearch
-   if err := json.Unmarshal(savedsearch, &savedSearch); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var savedSearch v3.SavedSearch
+    if err := json.Unmarshal(savedsearch, &savedSearch); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.SavedSearchAPI.PutSavedSearch(context.Background(), id).SavedSearch(savedSearch).Execute()
-	//resp, r, err := apiClient.V3.SavedSearchAPI.PutSavedSearch(context.Background(), id).SavedSearch(savedSearch).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SavedSearchAPI.PutSavedSearch``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PutSavedSearch`: SavedSearch
-	fmt.Fprintf(os.Stdout, "Response from `SavedSearchAPI.PutSavedSearch`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.SavedSearchAPI.PutSavedSearch(context.Background(), id).SavedSearch(savedSearch).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SavedSearchAPI.PutSavedSearch``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PutSavedSearch`: SavedSearch
+    fmt.Fprintf(os.Stdout, "Response from `SavedSearchAPI.PutSavedSearch`: %v\n", resp)
 }
 ```
 

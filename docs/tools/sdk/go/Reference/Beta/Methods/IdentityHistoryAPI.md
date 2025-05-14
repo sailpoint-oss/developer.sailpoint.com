@@ -75,7 +75,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -89,18 +89,18 @@ func main() {
     offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IdentityHistoryAPI.CompareIdentitySnapshots(context.Background(), id).Execute()
-	//resp, r, err := apiClient.Beta.IdentityHistoryAPI.CompareIdentitySnapshots(context.Background(), id).Snapshot1(snapshot1).Snapshot2(snapshot2).AccessItemTypes(accessItemTypes).Limit(limit).Offset(offset).Count(count).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.CompareIdentitySnapshots``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CompareIdentitySnapshots`: []IdentityCompareResponse
-	fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.CompareIdentitySnapshots`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IdentityHistoryAPI.CompareIdentitySnapshots(context.Background(), id).Snapshot1(snapshot1).Snapshot2(snapshot2).AccessItemTypes(accessItemTypes).Limit(limit).Offset(offset).Count(count).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.CompareIdentitySnapshots``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CompareIdentitySnapshots`: []IdentityCompareResponse
+    fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.CompareIdentitySnapshots`: %v\n", resp)
 }
 ```
 
@@ -155,7 +155,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -170,18 +170,18 @@ func main() {
     offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IdentityHistoryAPI.CompareIdentitySnapshotsAccessType(context.Background(), id, accessType).Execute()
-	//resp, r, err := apiClient.Beta.IdentityHistoryAPI.CompareIdentitySnapshotsAccessType(context.Background(), id, accessType).AccessAssociated(accessAssociated).Snapshot1(snapshot1).Snapshot2(snapshot2).Limit(limit).Offset(offset).Count(count).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.CompareIdentitySnapshotsAccessType``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CompareIdentitySnapshotsAccessType`: []AccessItemDiff
-	fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.CompareIdentitySnapshotsAccessType`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IdentityHistoryAPI.CompareIdentitySnapshotsAccessType(context.Background(), id, accessType).AccessAssociated(accessAssociated).Snapshot1(snapshot1).Snapshot2(snapshot2).Limit(limit).Offset(offset).Count(count).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.CompareIdentitySnapshotsAccessType``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CompareIdentitySnapshotsAccessType`: []AccessItemDiff
+    fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.CompareIdentitySnapshotsAccessType`: %v\n", resp)
 }
 ```
 
@@ -228,7 +228,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -236,18 +236,18 @@ import (
 func main() {
     id := `8c190e6787aa4ed9a90bd9d5344523fb` // string | The identity id # string | The identity id
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IdentityHistoryAPI.GetHistoricalIdentity(context.Background(), id).Execute()
-	//resp, r, err := apiClient.Beta.IdentityHistoryAPI.GetHistoricalIdentity(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.GetHistoricalIdentity``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetHistoricalIdentity`: IdentityHistoryResponse
-	fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.GetHistoricalIdentity`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IdentityHistoryAPI.GetHistoricalIdentity(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.GetHistoricalIdentity``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetHistoricalIdentity`: IdentityHistoryResponse
+    fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.GetHistoricalIdentity`: %v\n", resp)
 }
 ```
 
@@ -300,7 +300,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -314,18 +314,18 @@ func main() {
     offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IdentityHistoryAPI.GetHistoricalIdentityEvents(context.Background(), id).Execute()
-	//resp, r, err := apiClient.Beta.IdentityHistoryAPI.GetHistoricalIdentityEvents(context.Background(), id).From(from).EventTypes(eventTypes).AccessItemTypes(accessItemTypes).Limit(limit).Offset(offset).Count(count).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.GetHistoricalIdentityEvents``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetHistoricalIdentityEvents`: []GetHistoricalIdentityEvents200ResponseInner
-	fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.GetHistoricalIdentityEvents`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IdentityHistoryAPI.GetHistoricalIdentityEvents(context.Background(), id).From(from).EventTypes(eventTypes).AccessItemTypes(accessItemTypes).Limit(limit).Offset(offset).Count(count).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.GetHistoricalIdentityEvents``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetHistoricalIdentityEvents`: []GetHistoricalIdentityEvents200ResponseInner
+    fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.GetHistoricalIdentityEvents`: %v\n", resp)
 }
 ```
 
@@ -374,7 +374,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -383,18 +383,18 @@ func main() {
     id := `8c190e6787aa4ed9a90bd9d5344523fb` // string | The identity id # string | The identity id
     date := `2007-03-01T13:00:00Z` // string | The specified date # string | The specified date
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IdentityHistoryAPI.GetIdentitySnapshot(context.Background(), id, date).Execute()
-	//resp, r, err := apiClient.Beta.IdentityHistoryAPI.GetIdentitySnapshot(context.Background(), id, date).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.GetIdentitySnapshot``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetIdentitySnapshot`: IdentityHistoryResponse
-	fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.GetIdentitySnapshot`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IdentityHistoryAPI.GetIdentitySnapshot(context.Background(), id, date).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.GetIdentitySnapshot``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetIdentitySnapshot`: IdentityHistoryResponse
+    fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.GetIdentitySnapshot`: %v\n", resp)
 }
 ```
 
@@ -447,7 +447,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -461,18 +461,18 @@ func main() {
     offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IdentityHistoryAPI.GetIdentitySnapshotSummary(context.Background(), id).Execute()
-	//resp, r, err := apiClient.Beta.IdentityHistoryAPI.GetIdentitySnapshotSummary(context.Background(), id).Before(before).Interval(interval).TimeZone(timeZone).Limit(limit).Offset(offset).Count(count).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.GetIdentitySnapshotSummary``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetIdentitySnapshotSummary`: []MetricResponse
-	fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.GetIdentitySnapshotSummary`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IdentityHistoryAPI.GetIdentitySnapshotSummary(context.Background(), id).Before(before).Interval(interval).TimeZone(timeZone).Limit(limit).Offset(offset).Count(count).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.GetIdentitySnapshotSummary``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetIdentitySnapshotSummary`: []MetricResponse
+    fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.GetIdentitySnapshotSummary`: %v\n", resp)
 }
 ```
 
@@ -519,7 +519,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -527,18 +527,18 @@ import (
 func main() {
     id := `8c190e6787aa4ed9a90bd9d5344523fb` // string | The identity id # string | The identity id
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IdentityHistoryAPI.GetIdentityStartDate(context.Background(), id).Execute()
-	//resp, r, err := apiClient.Beta.IdentityHistoryAPI.GetIdentityStartDate(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.GetIdentityStartDate``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetIdentityStartDate`: string
-	fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.GetIdentityStartDate`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IdentityHistoryAPI.GetIdentityStartDate(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.GetIdentityStartDate``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetIdentityStartDate`: string
+    fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.GetIdentityStartDate`: %v\n", resp)
 }
 ```
 
@@ -585,7 +585,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -597,18 +597,18 @@ func main() {
     limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IdentityHistoryAPI.ListHistoricalIdentities(context.Background()).Execute()
-	//resp, r, err := apiClient.Beta.IdentityHistoryAPI.ListHistoricalIdentities(context.Background()).StartsWithQuery(startsWithQuery).IsDeleted(isDeleted).IsActive(isActive).Limit(limit).Offset(offset).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.ListHistoricalIdentities``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListHistoricalIdentities`: []IdentityListItem
-	fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.ListHistoricalIdentities`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IdentityHistoryAPI.ListHistoricalIdentities(context.Background()).StartsWithQuery(startsWithQuery).IsDeleted(isDeleted).IsActive(isActive).Limit(limit).Offset(offset).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.ListHistoricalIdentities``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListHistoricalIdentities`: []IdentityListItem
+    fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.ListHistoricalIdentities`: %v\n", resp)
 }
 ```
 
@@ -662,7 +662,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -677,18 +677,18 @@ func main() {
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
     offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IdentityHistoryAPI.ListIdentityAccessItems(context.Background(), id).Execute()
-	//resp, r, err := apiClient.Beta.IdentityHistoryAPI.ListIdentityAccessItems(context.Background(), id).Type_(type_).Filters(filters).Sorters(sorters).Query(query).Limit(limit).Count(count).Offset(offset).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.ListIdentityAccessItems``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListIdentityAccessItems`: []ListIdentityAccessItems200ResponseInner
-	fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.ListIdentityAccessItems`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IdentityHistoryAPI.ListIdentityAccessItems(context.Background(), id).Type_(type_).Filters(filters).Sorters(sorters).Query(query).Limit(limit).Count(count).Offset(offset).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.ListIdentityAccessItems``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListIdentityAccessItems`: []ListIdentityAccessItems200ResponseInner
+    fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.ListIdentityAccessItems`: %v\n", resp)
 }
 ```
 
@@ -738,7 +738,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -748,18 +748,18 @@ func main() {
     date := `2007-03-01T13:00:00Z` // string | Specified date. # string | Specified date.
     type_ := `account` // string | Access item type. (optional) # string | Access item type. (optional)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IdentityHistoryAPI.ListIdentitySnapshotAccessItems(context.Background(), id, date).Execute()
-	//resp, r, err := apiClient.Beta.IdentityHistoryAPI.ListIdentitySnapshotAccessItems(context.Background(), id, date).Type_(type_).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.ListIdentitySnapshotAccessItems``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListIdentitySnapshotAccessItems`: []ListIdentityAccessItems200ResponseInner
-	fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.ListIdentitySnapshotAccessItems`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IdentityHistoryAPI.ListIdentitySnapshotAccessItems(context.Background(), id, date).Type_(type_).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.ListIdentitySnapshotAccessItems``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListIdentitySnapshotAccessItems`: []ListIdentityAccessItems200ResponseInner
+    fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.ListIdentitySnapshotAccessItems`: %v\n", resp)
 }
 ```
 
@@ -811,7 +811,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -824,18 +824,18 @@ func main() {
     offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.IdentityHistoryAPI.ListIdentitySnapshots(context.Background(), id).Execute()
-	//resp, r, err := apiClient.Beta.IdentityHistoryAPI.ListIdentitySnapshots(context.Background(), id).Start(start).Interval(interval).Limit(limit).Offset(offset).Count(count).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.ListIdentitySnapshots``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListIdentitySnapshots`: []IdentitySnapshotSummaryResponse
-	fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.ListIdentitySnapshots`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.IdentityHistoryAPI.ListIdentitySnapshots(context.Background(), id).Start(start).Interval(interval).Limit(limit).Offset(offset).Count(count).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.ListIdentitySnapshots``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListIdentitySnapshots`: []IdentitySnapshotSummaryResponse
+    fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.ListIdentitySnapshots`: %v\n", resp)
 }
 ```
 

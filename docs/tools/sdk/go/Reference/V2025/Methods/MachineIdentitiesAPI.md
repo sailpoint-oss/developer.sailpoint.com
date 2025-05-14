@@ -72,7 +72,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -90,24 +90,23 @@ func main() {
           "manuallyEdited" : true
         }`) // MachineIdentity | 
 
-  
-   var machineIdentity v2025.MachineIdentity
-   if err := json.Unmarshal(machineidentity, &machineIdentity); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var machineIdentity v2025.MachineIdentity
+    if err := json.Unmarshal(machineidentity, &machineIdentity); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.MachineIdentitiesAPI.CreateMachineIdentity(context.Background()).XSailPointExperimental(xSailPointExperimental).MachineIdentity(machineIdentity).Execute()
-	//resp, r, err := apiClient.V2025.MachineIdentitiesAPI.CreateMachineIdentity(context.Background()).XSailPointExperimental(xSailPointExperimental).MachineIdentity(machineIdentity).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MachineIdentitiesAPI.CreateMachineIdentity``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateMachineIdentity`: MachineIdentity
-	fmt.Fprintf(os.Stdout, "Response from `MachineIdentitiesAPI.CreateMachineIdentity`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.MachineIdentitiesAPI.CreateMachineIdentity(context.Background()).XSailPointExperimental(xSailPointExperimental).MachineIdentity(machineIdentity).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `MachineIdentitiesAPI.CreateMachineIdentity``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateMachineIdentity`: MachineIdentity
+    fmt.Fprintf(os.Stdout, "Response from `MachineIdentitiesAPI.CreateMachineIdentity`: %v\n", resp)
 }
 ```
 
@@ -166,7 +165,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -175,16 +174,17 @@ func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | Machine Identity ID # string | Machine Identity ID
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     r, err := apiClient.V2025.MachineIdentitiesAPI.DeleteMachineIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-	//r, err := apiClient.V2025.MachineIdentitiesAPI.DeleteMachineIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MachineIdentitiesAPI.DeleteMachineIdentity``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+	  //r, err := apiClient.V2025.MachineIdentitiesAPI.DeleteMachineIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `MachineIdentitiesAPI.DeleteMachineIdentity``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
 }
 ```
 
@@ -243,7 +243,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -252,18 +252,18 @@ func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | Machine Identity ID # string | Machine Identity ID
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.MachineIdentitiesAPI.GetMachineIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-	//resp, r, err := apiClient.V2025.MachineIdentitiesAPI.GetMachineIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MachineIdentitiesAPI.GetMachineIdentity``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetMachineIdentity`: MachineIdentity
-	fmt.Fprintf(os.Stdout, "Response from `MachineIdentitiesAPI.GetMachineIdentity`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.MachineIdentitiesAPI.GetMachineIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `MachineIdentitiesAPI.GetMachineIdentity``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetMachineIdentity`: MachineIdentity
+    fmt.Fprintf(os.Stdout, "Response from `MachineIdentitiesAPI.GetMachineIdentity`: %v\n", resp)
 }
 ```
 
@@ -322,7 +322,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -335,18 +335,18 @@ func main() {
     limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.MachineIdentitiesAPI.ListMachineIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
-	//resp, r, err := apiClient.V2025.MachineIdentitiesAPI.ListMachineIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).Filters(filters).Sorters(sorters).Count(count).Limit(limit).Offset(offset).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MachineIdentitiesAPI.ListMachineIdentities``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `ListMachineIdentities`: []MachineIdentity
-	fmt.Fprintf(os.Stdout, "Response from `MachineIdentitiesAPI.ListMachineIdentities`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.MachineIdentitiesAPI.ListMachineIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).Filters(filters).Sorters(sorters).Count(count).Limit(limit).Offset(offset).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `MachineIdentitiesAPI.ListMachineIdentities``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListMachineIdentities`: []MachineIdentity
+    fmt.Fprintf(os.Stdout, "Response from `MachineIdentitiesAPI.ListMachineIdentities`: %v\n", resp)
 }
 ```
 
@@ -407,7 +407,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -417,24 +417,23 @@ func main() {
     xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     requestbody := []byte(`[{op=add, path=/attributes/securityRisk, value=medium}]`) // []map[string]interface{} | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
-  
-   var requestBody v2025.[]RequestBody
-   if err := json.Unmarshal(requestbody, &requestBody); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var requestBody []v2025.RequestBody
+    if err := json.Unmarshal(requestbody, &requestBody); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.MachineIdentitiesAPI.UpdateMachineIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
-	//resp, r, err := apiClient.V2025.MachineIdentitiesAPI.UpdateMachineIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `MachineIdentitiesAPI.UpdateMachineIdentity``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `UpdateMachineIdentity`: MachineIdentity
-	fmt.Fprintf(os.Stdout, "Response from `MachineIdentitiesAPI.UpdateMachineIdentity`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.MachineIdentitiesAPI.UpdateMachineIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).RequestBody(requestBody).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `MachineIdentitiesAPI.UpdateMachineIdentity``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `UpdateMachineIdentity`: MachineIdentity
+    fmt.Fprintf(os.Stdout, "Response from `MachineIdentitiesAPI.UpdateMachineIdentity`: %v\n", resp)
 }
 ```
 

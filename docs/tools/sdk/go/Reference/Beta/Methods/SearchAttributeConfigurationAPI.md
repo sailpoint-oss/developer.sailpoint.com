@@ -78,7 +78,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -93,24 +93,23 @@ func main() {
           }
         }`) // SearchAttributeConfig | 
 
-  
-   var searchAttributeConfig beta.SearchAttributeConfig
-   if err := json.Unmarshal(searchattributeconfig, &searchAttributeConfig); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var searchAttributeConfig beta.SearchAttributeConfig
+    if err := json.Unmarshal(searchattributeconfig, &searchAttributeConfig); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.SearchAttributeConfigurationAPI.CreateSearchAttributeConfig(context.Background()).SearchAttributeConfig(searchAttributeConfig).Execute()
-	//resp, r, err := apiClient.Beta.SearchAttributeConfigurationAPI.CreateSearchAttributeConfig(context.Background()).SearchAttributeConfig(searchAttributeConfig).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SearchAttributeConfigurationAPI.CreateSearchAttributeConfig``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateSearchAttributeConfig`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `SearchAttributeConfigurationAPI.CreateSearchAttributeConfig`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.SearchAttributeConfigurationAPI.CreateSearchAttributeConfig(context.Background()).SearchAttributeConfig(searchAttributeConfig).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SearchAttributeConfigurationAPI.CreateSearchAttributeConfig``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateSearchAttributeConfig`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `SearchAttributeConfigurationAPI.CreateSearchAttributeConfig`: %v\n", resp)
 }
 ```
 
@@ -157,7 +156,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -165,16 +164,17 @@ import (
 func main() {
     name := `newMailAttribute` // string | Name of the extended search attribute configuration to delete. # string | Name of the extended search attribute configuration to delete.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     r, err := apiClient.Beta.SearchAttributeConfigurationAPI.DeleteSearchAttributeConfig(context.Background(), name).Execute()
-	//r, err := apiClient.Beta.SearchAttributeConfigurationAPI.DeleteSearchAttributeConfig(context.Background(), name).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SearchAttributeConfigurationAPI.DeleteSearchAttributeConfig``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
+	  //r, err := apiClient.Beta.SearchAttributeConfigurationAPI.DeleteSearchAttributeConfig(context.Background(), name).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SearchAttributeConfigurationAPI.DeleteSearchAttributeConfig``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
 }
 ```
 
@@ -219,7 +219,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -228,18 +228,18 @@ func main() {
     limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.SearchAttributeConfigurationAPI.GetSearchAttributeConfig(context.Background()).Execute()
-	//resp, r, err := apiClient.Beta.SearchAttributeConfigurationAPI.GetSearchAttributeConfig(context.Background()).Limit(limit).Offset(offset).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SearchAttributeConfigurationAPI.GetSearchAttributeConfig``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetSearchAttributeConfig`: []SearchAttributeConfig
-	fmt.Fprintf(os.Stdout, "Response from `SearchAttributeConfigurationAPI.GetSearchAttributeConfig`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.SearchAttributeConfigurationAPI.GetSearchAttributeConfig(context.Background()).Limit(limit).Offset(offset).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SearchAttributeConfigurationAPI.GetSearchAttributeConfig``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetSearchAttributeConfig`: []SearchAttributeConfig
+    fmt.Fprintf(os.Stdout, "Response from `SearchAttributeConfigurationAPI.GetSearchAttributeConfig`: %v\n", resp)
 }
 ```
 
@@ -286,7 +286,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -294,18 +294,18 @@ import (
 func main() {
     name := `newMailAttribute` // string | Name of the extended search attribute configuration to get. # string | Name of the extended search attribute configuration to get.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.SearchAttributeConfigurationAPI.GetSingleSearchAttributeConfig(context.Background(), name).Execute()
-	//resp, r, err := apiClient.Beta.SearchAttributeConfigurationAPI.GetSingleSearchAttributeConfig(context.Background(), name).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SearchAttributeConfigurationAPI.GetSingleSearchAttributeConfig``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetSingleSearchAttributeConfig`: []SearchAttributeConfig
-	fmt.Fprintf(os.Stdout, "Response from `SearchAttributeConfigurationAPI.GetSingleSearchAttributeConfig`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.SearchAttributeConfigurationAPI.GetSingleSearchAttributeConfig(context.Background(), name).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SearchAttributeConfigurationAPI.GetSingleSearchAttributeConfig``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetSingleSearchAttributeConfig`: []SearchAttributeConfig
+    fmt.Fprintf(os.Stdout, "Response from `SearchAttributeConfigurationAPI.GetSingleSearchAttributeConfig`: %v\n", resp)
 }
 ```
 
@@ -355,7 +355,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -364,24 +364,23 @@ func main() {
     name := `promotedMailAttribute` // string | Name of the extended search attribute configuration to patch. # string | Name of the extended search attribute configuration to patch.
     jsonpatchoperation := []byte(`[{op=replace, path=/name, value=newAttributeName}, {op=replace, path=/displayName, value=new attribute display name}, {op=add, path=/applicationAttributes, value={2c91808b79fd2422017a0b35d30f3968=employeeNumber}}]`) // []JsonPatchOperation | 
 
-  
-   var jsonPatchOperation beta.[]JsonPatchOperation
-   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var jsonPatchOperation []beta.JsonPatchOperation
+    if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.SearchAttributeConfigurationAPI.PatchSearchAttributeConfig(context.Background(), name).JsonPatchOperation(jsonPatchOperation).Execute()
-	//resp, r, err := apiClient.Beta.SearchAttributeConfigurationAPI.PatchSearchAttributeConfig(context.Background(), name).JsonPatchOperation(jsonPatchOperation).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `SearchAttributeConfigurationAPI.PatchSearchAttributeConfig``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PatchSearchAttributeConfig`: SearchAttributeConfig
-	fmt.Fprintf(os.Stdout, "Response from `SearchAttributeConfigurationAPI.PatchSearchAttributeConfig`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.SearchAttributeConfigurationAPI.PatchSearchAttributeConfig(context.Background(), name).JsonPatchOperation(jsonPatchOperation).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `SearchAttributeConfigurationAPI.PatchSearchAttributeConfig``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PatchSearchAttributeConfig`: SearchAttributeConfig
+    fmt.Fprintf(os.Stdout, "Response from `SearchAttributeConfigurationAPI.PatchSearchAttributeConfig`: %v\n", resp)
 }
 ```
 

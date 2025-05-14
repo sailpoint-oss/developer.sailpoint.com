@@ -58,7 +58,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -88,24 +88,23 @@ func main() {
           }
         }`) // VendorConnectorMapping | 
 
-  
-   var vendorConnectorMapping v3.VendorConnectorMapping
-   if err := json.Unmarshal(vendorconnectormapping, &vendorConnectorMapping); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var vendorConnectorMapping v3.VendorConnectorMapping
+    if err := json.Unmarshal(vendorconnectormapping, &vendorConnectorMapping); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.VendorConnectorMappingsAPI.CreateVendorConnectorMapping(context.Background()).VendorConnectorMapping(vendorConnectorMapping).Execute()
-	//resp, r, err := apiClient.V3.VendorConnectorMappingsAPI.CreateVendorConnectorMapping(context.Background()).VendorConnectorMapping(vendorConnectorMapping).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `VendorConnectorMappingsAPI.CreateVendorConnectorMapping``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `CreateVendorConnectorMapping`: VendorConnectorMapping
-	fmt.Fprintf(os.Stdout, "Response from `VendorConnectorMappingsAPI.CreateVendorConnectorMapping`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.VendorConnectorMappingsAPI.CreateVendorConnectorMapping(context.Background()).VendorConnectorMapping(vendorConnectorMapping).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `VendorConnectorMappingsAPI.CreateVendorConnectorMapping``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateVendorConnectorMapping`: VendorConnectorMapping
+    fmt.Fprintf(os.Stdout, "Response from `VendorConnectorMappingsAPI.CreateVendorConnectorMapping`: %v\n", resp)
 }
 ```
 
@@ -149,7 +148,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v3 "github.com/sailpoint-oss/golang-sdk/v2/api_v3"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -179,24 +178,23 @@ func main() {
           }
         }`) // VendorConnectorMapping | 
 
-  
-   var vendorConnectorMapping v3.VendorConnectorMapping
-   if err := json.Unmarshal(vendorconnectormapping, &vendorConnectorMapping); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var vendorConnectorMapping v3.VendorConnectorMapping
+    if err := json.Unmarshal(vendorconnectormapping, &vendorConnectorMapping); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.VendorConnectorMappingsAPI.DeleteVendorConnectorMapping(context.Background()).VendorConnectorMapping(vendorConnectorMapping).Execute()
-	//resp, r, err := apiClient.V3.VendorConnectorMappingsAPI.DeleteVendorConnectorMapping(context.Background()).VendorConnectorMapping(vendorConnectorMapping).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `VendorConnectorMappingsAPI.DeleteVendorConnectorMapping``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `DeleteVendorConnectorMapping`: DeleteVendorConnectorMapping200Response
-	fmt.Fprintf(os.Stdout, "Response from `VendorConnectorMappingsAPI.DeleteVendorConnectorMapping`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.VendorConnectorMappingsAPI.DeleteVendorConnectorMapping(context.Background()).VendorConnectorMapping(vendorConnectorMapping).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `VendorConnectorMappingsAPI.DeleteVendorConnectorMapping``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `DeleteVendorConnectorMapping`: DeleteVendorConnectorMapping200Response
+    fmt.Fprintf(os.Stdout, "Response from `VendorConnectorMappingsAPI.DeleteVendorConnectorMapping`: %v\n", resp)
 }
 ```
 
@@ -236,25 +234,25 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V3.VendorConnectorMappingsAPI.GetVendorConnectorMappings(context.Background()).Execute()
-	//resp, r, err := apiClient.V3.VendorConnectorMappingsAPI.GetVendorConnectorMappings(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `VendorConnectorMappingsAPI.GetVendorConnectorMappings``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetVendorConnectorMappings`: []VendorConnectorMapping
-	fmt.Fprintf(os.Stdout, "Response from `VendorConnectorMappingsAPI.GetVendorConnectorMappings`: %v\n", resp)
+	  //resp, r, err := apiClient.V3.VendorConnectorMappingsAPI.GetVendorConnectorMappings(context.Background()).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `VendorConnectorMappingsAPI.GetVendorConnectorMappings``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetVendorConnectorMappings`: []VendorConnectorMapping
+    fmt.Fprintf(os.Stdout, "Response from `VendorConnectorMappingsAPI.GetVendorConnectorMappings`: %v\n", resp)
 }
 ```
 

@@ -65,7 +65,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -73,18 +73,18 @@ import (
 func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | Identity ID # string | Identity ID
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.AuthUsersAPI.GetAuthUser(context.Background(), id).Execute()
-	//resp, r, err := apiClient.V2025.AuthUsersAPI.GetAuthUser(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AuthUsersAPI.GetAuthUser``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetAuthUser`: AuthUser
-	fmt.Fprintf(os.Stdout, "Response from `AuthUsersAPI.GetAuthUser`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.AuthUsersAPI.GetAuthUser(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `AuthUsersAPI.GetAuthUser``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetAuthUser`: AuthUser
+    fmt.Fprintf(os.Stdout, "Response from `AuthUsersAPI.GetAuthUser`: %v\n", resp)
 }
 ```
 
@@ -136,7 +136,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -145,24 +145,23 @@ func main() {
     id := `ef38f94347e94562b5bb8424a56397d8` // string | Identity ID # string | Identity ID
     jsonpatchoperation := []byte(`[{op=replace, path=/capabilities, value=[ORG_ADMIN]}]`) // []JsonPatchOperation | A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
-  
-   var jsonPatchOperation v2025.[]JsonPatchOperation
-   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var jsonPatchOperation []v2025.JsonPatchOperation
+    if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.V2025.AuthUsersAPI.PatchAuthUser(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
-	//resp, r, err := apiClient.V2025.AuthUsersAPI.PatchAuthUser(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AuthUsersAPI.PatchAuthUser``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PatchAuthUser`: AuthUser
-	fmt.Fprintf(os.Stdout, "Response from `AuthUsersAPI.PatchAuthUser`: %v\n", resp)
+	  //resp, r, err := apiClient.V2025.AuthUsersAPI.PatchAuthUser(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `AuthUsersAPI.PatchAuthUser``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PatchAuthUser`: AuthUser
+    fmt.Fprintf(os.Stdout, "Response from `AuthUsersAPI.PatchAuthUser`: %v\n", resp)
 }
 ```
 

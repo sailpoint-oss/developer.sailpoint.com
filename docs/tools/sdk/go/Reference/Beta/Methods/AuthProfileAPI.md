@@ -67,7 +67,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -75,18 +75,18 @@ import (
 func main() {
     id := `2c91808a7813090a017814121919ecca` // string | ID of the Auth Profile to get. # string | ID of the Auth Profile to get.
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.AuthProfileAPI.GetProfileConfig(context.Background(), id).Execute()
-	//resp, r, err := apiClient.Beta.AuthProfileAPI.GetProfileConfig(context.Background(), id).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AuthProfileAPI.GetProfileConfig``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetProfileConfig`: AuthProfile
-	fmt.Fprintf(os.Stdout, "Response from `AuthProfileAPI.GetProfileConfig`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.AuthProfileAPI.GetProfileConfig(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `AuthProfileAPI.GetProfileConfig``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetProfileConfig`: AuthProfile
+    fmt.Fprintf(os.Stdout, "Response from `AuthProfileAPI.GetProfileConfig`: %v\n", resp)
 }
 ```
 
@@ -125,25 +125,25 @@ import (
 	"context"
 	"fmt"
 	"os"
-   
+  
     
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
 
-  
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.AuthProfileAPI.GetProfileConfigList(context.Background()).Execute()
-	//resp, r, err := apiClient.Beta.AuthProfileAPI.GetProfileConfigList(context.Background()).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AuthProfileAPI.GetProfileConfigList``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetProfileConfigList`: []AuthProfileSummary
-	fmt.Fprintf(os.Stdout, "Response from `AuthProfileAPI.GetProfileConfigList`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.AuthProfileAPI.GetProfileConfigList(context.Background()).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `AuthProfileAPI.GetProfileConfigList``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetProfileConfigList`: []AuthProfileSummary
+    fmt.Fprintf(os.Stdout, "Response from `AuthProfileAPI.GetProfileConfigList`: %v\n", resp)
 }
 ```
 
@@ -192,7 +192,7 @@ import (
 	"context"
 	"fmt"
 	"os"
-    "encoding/json"
+  "encoding/json"
     beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
@@ -201,24 +201,23 @@ func main() {
     id := `2c91808a7813090a017814121919ecca` // string | ID of the Auth Profile to patch. # string | ID of the Auth Profile to patch.
     jsonpatchoperation := []byte(``) // []JsonPatchOperation | 
 
-  
-   var jsonPatchOperation beta.[]JsonPatchOperation
-   if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
-    fmt.Println("Error:", err)
-    return
-   }
-  
+    var jsonPatchOperation []beta.JsonPatchOperation
+    if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
 
-	configuration := sailpoint.NewDefaultConfiguration()
-	apiClient := sailpoint.NewAPIClient(configuration)
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.AuthProfileAPI.PatchProfileConfig(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
-	//resp, r, err := apiClient.Beta.AuthProfileAPI.PatchProfileConfig(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AuthProfileAPI.PatchProfileConfig``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `PatchProfileConfig`: AuthProfile
-	fmt.Fprintf(os.Stdout, "Response from `AuthProfileAPI.PatchProfileConfig`: %v\n", resp)
+	  //resp, r, err := apiClient.Beta.AuthProfileAPI.PatchProfileConfig(context.Background(), id).JsonPatchOperation(jsonPatchOperation).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `AuthProfileAPI.PatchProfileConfig``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PatchProfileConfig`: AuthProfile
+    fmt.Fprintf(os.Stdout, "Response from `AuthProfileAPI.PatchProfileConfig`: %v\n", resp)
 }
 ```
 

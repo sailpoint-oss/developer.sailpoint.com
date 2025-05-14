@@ -15,5 +15,10 @@ properties:
     description: If the reviewer must provide a comment when denying the access request.
     default: false
     example: false
+  reauthorizationRequired:
+    type: boolean
+    description: Is Reauthorization Required
+    default: false
+    example: false
 
 

@@ -33,7 +33,7 @@ Use this logic to implement the command:
 
 ```javascript
     .beforeStdEntitlementList(async (context: Context, input: StdEntitlementListInput) => {
-        logger.info(`Running before entitlement list for account. State ${input.state}`)
+        logger.info(`Running before entitlement list for entitlement. State ${input.state}`)
         return input
     })
 ```
@@ -46,9 +46,13 @@ Use this logic to implement the command:
 
 ```javascript
     .afterStdEntitlementList(async (context: Context, output: StdEntitlementListOutput) => {
-        logger.info(`Running after entitlement list for account  ${output.identity}`)
+        logger.info(`Running after entitlement list for entitlement type ${output.type}`)
         return output
     })
 ```
 
 The `output` object can be mutated and returned, but the same data type must still be returned.
+
+:::caution CAUTION
+There will be delay in the aggregation process due to this customization process that involves additional processing.
+:::

@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **request_type** | [**AccessRequestType**](access-request-type) |  | [optional] 
 **requested_items** | [**[]AccessRequestItem**](access-request-item) |  | [required]
 **client_metadata** | **map[string]str** | Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on associated APIs such as /account-activities. | [optional] 
-**requested_for_with_requested_items** | [**[]RequestedForDtoRef**](requested-for-dto-ref) | Additional submit data structure with requestedFor containing requestedItems allowing distinction for each request item and Identity. * Can only be used when 'requestedFor' and 'requestedItems' are not separately provided * Adds ability to specify which account the user wants the access on, in case they have multiple accounts on a source * Allows the ability to request items with different remove dates * Also allows different combinations of request items and identities in the same request  | [optional] 
+**requested_for_with_requested_items** | [**[]RequestedForDtoRef**](requested-for-dto-ref) | Additional submit data structure with requestedFor containing requestedItems allowing distinction for each request item and Identity. * Can only be used when 'requestedFor' and 'requestedItems' are not separately provided * Adds ability to specify which account the user wants the access on, in case they have multiple accounts on a source * Allows the ability to request items with different remove dates * Also allows different combinations of request items and identities in the same request * Only for use in GRANT_ACCESS type requests  | [optional] 
 }
 
 ## Example
@@ -37,7 +37,9 @@ requested_items=[
                         id = '2c9180835d2e5168015d32f890ca1581', 
                         comment = 'Requesting access profile for John Doe', 
                         client_metadata = {requestedAppName=test-app, requestedAppId=2c91808f7892918f0178b78da4a305a1}, 
-                        remove_date = '2020-07-11T21:23:15Z', )
+                        remove_date = '2020-07-11T21:23:15Z', 
+                        assignment_id = 'ee48a191c00d49bf9264eb0a4fc3a9fc', 
+                        native_identity = 'CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN', )
                     ],
 client_metadata={requestedAppId=2c91808f7892918f0178b78da4a305a1, requestedAppName=test-app},
 requested_for_with_requested_items=[
@@ -50,8 +52,6 @@ requested_for_with_requested_items=[
                                 comment = 'Requesting access profile for John Doe', 
                                 client_metadata = {requestedAppName=test-app, requestedAppId=2c91808f7892918f0178b78da4a305a1}, 
                                 remove_date = '2020-07-11T21:23:15Z', 
-                                assignment_id = 'ee48a191c00d49bf9264eb0a4fc3a9fc', 
-                                native_identity = 'CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN', 
                                 account_selection = [
                                     sailpoint.v2025.models.source_item_ref.SourceItemRef(
                                         source_id = 'cb89bc2f1ee6445fbea12224c526ba3a', 

@@ -14,7 +14,7 @@ const pluginConfig: PluginConfig[] = [
             removeAvailableModules: true,
           },
           experiments: {
-            parallelCodeSplitting: true,
+            parallelCodeSplitting: false,
           } as any,
         };
       },

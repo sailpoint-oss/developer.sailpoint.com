@@ -1,7 +1,7 @@
 import 'dotenv/config';
-import { Config } from '@docusaurus/types';
-import { ThemeConfig } from '@docusaurus/preset-classic';
-import { themes } from 'prism-react-renderer';
+import {Config} from '@docusaurus/types';
+import {ThemeConfig} from '@docusaurus/preset-classic';
+import {themes} from 'prism-react-renderer';
 
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
@@ -21,8 +21,8 @@ const config: Config = {
       swcHtmlMinimizer: true,
       lightningCssMinimizer: true,
       rspackBundler: true,
-      mdxCrossCompilerCache: false,
-      rspackPersistentCache: false,
+      mdxCrossCompilerCache: true,
+      rspackPersistentCache: true,
       ssgWorkerThreads: true,
     },
   },

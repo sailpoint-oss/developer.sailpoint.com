@@ -2958,7 +2958,17 @@ $SourceEntitlementRequestConfig = @"{
       "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
       "approverType" : "GOVERNANCE_GROUP"
     } ],
+    "reauthorizationRequired" : false,
     "requestCommentRequired" : true
+  },
+  "revocationRequestConfig" : {
+    "approvalSchemes" : [ {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ]
   }
 }"@
 

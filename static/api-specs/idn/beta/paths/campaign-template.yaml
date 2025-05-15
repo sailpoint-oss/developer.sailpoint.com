@@ -2,7 +2,7 @@ get:
   operationId: getCampaignTemplate
   tags:
     - Certification Campaigns
-  summary: Get a Campaign Template
+  summary: Get a campaign template
   description: |
     Use this API to fetch a certification campaign template by ID. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-template).
 
@@ -51,7 +51,7 @@ patch:
   operationId: patchCampaignTemplate
   tags:
     - Certification Campaigns
-  summary: Update a Campaign Template
+  summary: Update a campaign template
   description: |
     Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/patch-campaign-template).
 
@@ -124,7 +124,7 @@ delete:
   operationId: deleteCampaignTemplate
   tags:
     - Certification Campaigns
-  summary: Delete a Campaign Template
+  summary: Delete a campaign template
   description: |
     Use this API to delete a certification campaign template by ID. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/delete-campaign-template).
 

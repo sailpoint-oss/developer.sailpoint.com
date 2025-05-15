@@ -1,5 +1,5 @@
 post:
-  summary: Source Account Updated
+  summary: Source account updated
   operationId: sourceAccountUpdatedEvent
   description: >-
     This event trigger fires when Identity Security Cloud (ISC), during an account aggregation operation, detects a change to one or more account attributes on a single account. 

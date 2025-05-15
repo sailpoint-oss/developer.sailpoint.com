@@ -2,7 +2,7 @@ get:
   operationId: getObject
   tags:
     - IAI Raw Objects
-  summary: Get Object
+  summary: Get object
   description: This API returns an object.
   parameters:
     - in: path

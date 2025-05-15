@@ -2,7 +2,7 @@ get:
   tags:
     - Connectors
   operationId: getConnectorList
-  summary: Get Connector List
+  summary: Get connector list
   description: >-
     Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
   parameters:
@@ -79,7 +79,7 @@ post:
   tags:
     - Connectors
   operationId: createCustomConnector
-  summary: Create Custom Connector
+  summary: Create custom connector
   description: >-
     Create custom connector.    
   requestBody:

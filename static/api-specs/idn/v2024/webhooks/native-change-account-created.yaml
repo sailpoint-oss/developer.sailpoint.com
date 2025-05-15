@@ -1,5 +1,5 @@
 post:
-  summary: Native Change Account Created
+  summary: Native change account created
   operationId: nativeChangeAccountCreatedEvent
   description: >-
     This event trigger fires when Identity Security Cloud (ISC) aggregates data from an external source and detects that a new account exists on the source.

@@ -2,7 +2,7 @@ get:
   tags:
   - Connector Rule Management
   operationId: getConnectorRuleList
-  summary: List Connector Rules
+  summary: List connector rules
   description: List existing connector rules.
   responses:
     '200':
@@ -37,7 +37,7 @@ post:
   tags:
   - Connector Rule Management
   operationId: createConnectorRule
-  summary: Create Connector Rule
+  summary: Create connector rule
   description: Create a connector rule from the available types.
   requestBody:
     required: true

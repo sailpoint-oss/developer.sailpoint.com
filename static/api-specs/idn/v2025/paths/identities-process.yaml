@@ -2,7 +2,7 @@ post:
   operationId: startIdentityProcessing
   tags:
   - Identities
-  summary: Process a list of identityIds
+  summary: Process a list of identityids
   description: "This operation should not be used to schedule your own identity processing\
     \ or to perform system wide identity refreshes. The system will use a combination\
     \ of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing)\

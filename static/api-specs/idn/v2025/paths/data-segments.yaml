@@ -7,7 +7,7 @@ get:
     - ORG_ADMIN
   tags:
     - Data Segmentation
-  summary: Get Segments
+  summary: Get segments
   description: >-
     This API returns the segment specified by the given ID.
 
@@ -94,7 +94,7 @@ post:
     - ORG_ADMIN
   tags:
     - Data Segmentation
-  summary: Create Segment
+  summary: Create segment
   description: >-
     This API creates a segment. 
 

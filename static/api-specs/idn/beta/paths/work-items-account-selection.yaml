@@ -2,7 +2,7 @@ post:
   operationId: submitAccountSelection
   tags:
     - Work Items
-  summary: Submit Account Selections
+  summary: Submit account selections
   description: >-
     This API submits account selections. Either an admin, or the owning/current user must make this request.
   deprecated: true

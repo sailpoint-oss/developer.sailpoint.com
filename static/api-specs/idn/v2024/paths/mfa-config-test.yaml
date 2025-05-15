@@ -2,7 +2,7 @@ get:
   operationId: testMFAConfig
   tags:
     - MFA Configuration
-  summary: MFA method's test configuration
+  summary: Mfa method's test configuration
   description: >-
     This API validates that the configuration is valid and will properly
     authenticate with the MFA provider identified by the method path parameter.

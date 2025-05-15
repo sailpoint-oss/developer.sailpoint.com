@@ -2,7 +2,7 @@ post:
   operationId: rejectApprovalItemsInBulk
   tags:
     - Work Items
-  summary: Bulk reject Approval Items
+  summary: Bulk reject approval items
   description: >-
     This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
   deprecated: true

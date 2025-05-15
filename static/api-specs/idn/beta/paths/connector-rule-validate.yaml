@@ -2,7 +2,7 @@ post:
   tags:
     - Connector Rule Management
   operationId: validateConnectorRule
-  summary: Validate Connector Rule
+  summary: Validate connector rule
   description: >-
     Returns a list of issues within the code to fix, if any.
 

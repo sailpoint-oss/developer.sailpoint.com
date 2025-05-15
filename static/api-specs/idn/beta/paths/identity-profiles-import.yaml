@@ -1,6 +1,6 @@
 post:
   operationId: importIdentityProfiles
-  summary: Import Identity Profiles
+  summary: Import identity profiles
   description: >-
     This imports previously exported identity profiles.
   tags:

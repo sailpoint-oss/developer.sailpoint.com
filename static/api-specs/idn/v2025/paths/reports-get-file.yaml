@@ -4,7 +4,7 @@ get:
   description: >-
     Gets a report in file format.
   operationId: getReport
-  summary: "Get Report File"
+  summary: "Get report file"
   security:
     - userAuth: [sp:report:read]
   parameters:

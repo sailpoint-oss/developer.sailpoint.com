@@ -1,7 +1,7 @@
 delete:
   tags:
     - Managed Clusters
-  summary: Clear Clusters cache
+  summary: Clear clusters cache
   description: >-
     Clear Clusters cache.
   operationId: clearManagedClustersCache

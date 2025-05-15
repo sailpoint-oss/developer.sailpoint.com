@@ -2,7 +2,7 @@ post:
   tags:
   - Suggested Entitlement Description
   operationId: submitSedAssignment
-  summary: Submit Sed Assignment Request
+  summary: Submit sed assignment request
   description: 'Submit Assignment Request.
 
     Request body has an assignee, and list of SED Ids that are assigned to that assignee

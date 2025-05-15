@@ -2,7 +2,7 @@ get:
   operationId: listIdentityCertifications
   tags:
     - Certifications
-  summary: List Identity Campaign Certifications
+  summary: List identity campaign certifications
   description: >-
     Use this API to get a list of identity campaign certifications for the specified query parameters. Any
     authenticated token can call this API, but only certifications you are authorized to review will be returned. This

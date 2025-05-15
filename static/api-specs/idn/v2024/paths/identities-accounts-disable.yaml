@@ -2,7 +2,7 @@ post:
   operationId: disableAccountsForIdentities
   tags:
   - Accounts
-  summary: Disable IDN Accounts for Identities
+  summary: Disable idn accounts for identities
   description: This API submits tasks to disable IDN account for each identity provided
     in the request body.
   externalDocs:

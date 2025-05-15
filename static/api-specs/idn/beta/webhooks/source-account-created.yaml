@@ -1,5 +1,5 @@
 post:
-  summary: Source Account Created
+  summary: Source account created
   operationId: sourceAccountCreatedEvent
   description: >-
     This event trigger fires after Identity Security Cloud (ISC) detects a new account during an account aggregation and refresh from a source. 

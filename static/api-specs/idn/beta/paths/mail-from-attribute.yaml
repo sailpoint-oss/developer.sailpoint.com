@@ -4,7 +4,7 @@ get:
   operationId: getMailFromAttributes
   tags:
     - Notifications
-  summary: Get MAIL FROM Attributes
+  summary: Get mail from attributes
   description: >-
     Retrieve MAIL FROM attributes for a given AWS SES identity.
   parameters:

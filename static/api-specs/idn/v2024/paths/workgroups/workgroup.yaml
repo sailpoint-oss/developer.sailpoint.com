@@ -2,7 +2,7 @@ get:
   operationId: getWorkgroup
   tags:
   - Governance Groups
-  summary: Get Governance Group by Id
+  summary: Get governance group by id
   description: This API returns a Governance Groups by its ID.
   parameters:
   - in: path
@@ -48,7 +48,7 @@ delete:
   operationId: deleteWorkgroup
   tags:
   - Governance Groups
-  summary: Delete a Governance Group
+  summary: Delete a governance group
   description: This API deletes a Governance Group by its ID.
   parameters:
   - in: path
@@ -90,7 +90,7 @@ patch:
   operationId: patchWorkgroup
   tags:
   - Governance Groups
-  summary: Patch a Governance Group
+  summary: Patch a governance group
   description: >-
     This API updates an existing governance group by ID. The following
     fields and objects are patchable:

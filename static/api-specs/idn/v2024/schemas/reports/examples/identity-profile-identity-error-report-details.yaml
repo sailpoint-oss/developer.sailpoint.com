@@ -1,4 +1,4 @@
-summary: Identity Profile Identity Error report
+summary: Identity profile identity error report
 value:
   reportType: IDENTITY_PROFILE_IDENTITY_ERROR
   arguments:

@@ -15,7 +15,7 @@ customProps:
 
 In SailPoint's cloud services, transforms allow you to manipulate attribute values while aggregating from or provisioning to a source. This guide provides a reference to help you understand the purpose, configuration, and usage of transforms.
 
-## What Are Transforms
+## What are transforms
 
 Transforms are configurable objects that define easy ways to manipulate attribute data without requiring you to write code. Transforms are configurable building blocks with sets of inputs and outputs:
 
@@ -36,7 +36,7 @@ Sometimes transforms are referred to as Seaspray, the codename for transforms. I
 
 :::
 
-## How Transforms Work
+## How transforms work
 
 Transforms typically have an input(s) and output(s). The way the transformation occurs mainly depends on the type of transform. Refer to [Operations in Identity Security Cloud Transforms](./operations/index.md) for more information.
 
@@ -62,7 +62,7 @@ flowchart LR
 
 </div>
 
-### Multiple Transform Inputs
+### Multiple transform inputs
 
 In the previous examples, each transform had a single input. Some transforms can specify more than one input. For example, the [Concat transform](./operations/concatenation.md) concatenates one or more strings together. If `Foo` and `Bar` were inputs, the transformed output would be `FooBar`:
 
@@ -76,7 +76,7 @@ flowchart LR
 
 </div>
 
-### Complex Nested Transforms
+### Complex nested transforms
 
 For more complex use cases, a single transform may not be enough. It is possible to link several transforms together. Identity Security Cloud calls these 'nested' transforms because they are transform objects within other transform objects.
 
@@ -94,7 +94,7 @@ flowchart LR
 
 There is no hard limit for the number of transforms that can be nested. However, the more transforms applied, the more complex the nested transform will be, which can make it difficult to understand and maintain.
 
-## Configuring Transform Behavior
+## Configuring transform behavior
 
 Some transforms can specify an attributes map that configures the transform behavior. Each transform type has different configuration attributes and different uses. To better understand what is configurable per transform, refer to the Transform Types section and the associated Transform guide(s) that cover each transform.
 
@@ -112,7 +112,7 @@ flowchart LR
 
 The output of the Replace transform would be `Baz` which is then passed as an input to the Concat transform along with `Foo` producing an output of `FooBaz`. This is then passed as an input into the Lower transform, producing a final output of `foobaz`.
 
-## Transform Syntax
+## Transform syntax
 
 Transforms are JSON objects. Prior to this, the transforms have been shown as flows of building blocks to help illustrate basic transform ideas. However at the simplest level, a transform looks like this:
 
@@ -141,7 +141,7 @@ When uploading a transform to Identity Security Cloud it cannot exceed 400KB.
 
 :::
 
-## Template Engine
+## Template engine
 
 Seaspray ships with the Apache Velocity template engine that allows a transform to reference, transform, and render values passed into the transform context. Every string value in a Seaspray transform can contain templated text and will run through the template engine.
 
@@ -151,7 +151,7 @@ In the following string, the text `$firstName` is replaced by the value of first
 
 If $firstName=John and $lastName=Doe then the string `$firstName.$lastName`would render as`John.Doe`.
 
-### Identity Attribute Context
+### Identity attribute context
 
 The following variables are available to the Apache Velocity template engine when a transform is used to source an identity attribute.
 
@@ -161,7 +161,7 @@ The following variables are available to the Apache Velocity template engine whe
 | attributeDefinition | sailpoint.object.ObjectAttribute | This is the definition of the attribute being promoted. |
 | oldValue | Object | This is the attribute's previous value. |
 
-### Account Profile Context
+### Account profile context
 
 The following variables are available to the Apache Velocity template engine when a transform is used in an account profile.
 
@@ -172,7 +172,7 @@ The following variables are available to the Apache Velocity template engine whe
 | application | sailpoint.object.Application | This is the application backing the source that owns the account profile. |
 | current | Object | This is the attribute's current value. |
 
-## Implicit vs Explicit Input
+## Implicit vs explicit input
 
 A special configuration attribute available to all transforms is input. If the input attribute is not specified, this is referred to as implicit input, and the system determines the input based on what is configured. If the input attribute is specified, then this is referred to as explicit input, and the system's input is ignored in favor of whatever the transform explicitly specifies. A good way to understand this concept is to walk through an example. Imagine that Identity Security Cloud has the following:
 
@@ -181,7 +181,7 @@ A special configuration attribute available to all transforms is input. If the i
 
 The following two examples explain how a transform with an implicit or explicit input would work with those sources.
 
-### Implicit Input
+### Implicit input
 
 An identity profile is configured the following way:
 
@@ -201,7 +201,7 @@ Notice that the attributes has no input. This is an implicit input example. The 
 
 In this example, the transform would produce `services` when the source is aggregated because Source 1 is providing a department of `Services` which the transform then lowercases.
 
-### Explicit Input
+### Explicit input
 
 As an example, the `Lowercase Department` has been changed the following way:
 
@@ -231,7 +231,7 @@ This is also an example of a nested transform.
 
 :::
 
-### Account Transforms
+### Account transforms
 
 Account attribute transforms are configured on the account create profiles. They determine the templates for new accounts created during provisioning events.
 
@@ -257,25 +257,25 @@ For details about authentication against REST APIs, refer to the [authentication
 
 :::
 
-#### Testing Transforms on Account Create
+#### Testing transforms on account create
 
 To test a transform for an account create profile, you must generate a new account creation provisioning event. This involves granting access to an identity who does not already have an account on this source; an account is created as a byproduct of the access assignment. This can be initiated with access request or even role assignment.
 
-#### Applying Transforms on Account Create
+#### Applying transforms on account create
 
 Once the transforms are saved to the account profile, they are automatically applied for any subsequent provisioning events.
 
-## Testing Transforms
+## Testing transforms
 
-**Testing Transforms in Identity Profile Mappings**
+**Testing transforms in Identity Profile Mappings**
 
 To test a transform for identity data, go to **Identities** > **Identity Profiles** and select **Mappings**. Select the transform to map one of your identity attributes, select **Save**, and preview your identity data.
 
-**Testing Transforms for Account Attributes**
+**Testing transforms for account attributes**
 
 To test a transform for account data, you must provision a new account on that source. For example, you can create an access request that would result in a new account on that source, or you can assign a new role.
 
-## Transform Best Practices
+## Transform best practices
 
 - **Designing Complex Transforms** - Start with small transform _building blocks_ and add to them. It can be helpful to diagram out the inputs and outputs if you are using many transforms.
 

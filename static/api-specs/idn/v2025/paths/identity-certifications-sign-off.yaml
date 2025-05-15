@@ -2,7 +2,7 @@ post:
   operationId: signOffIdentityCertification
   tags:
     - Certifications
-  summary: Finalize Identity Certification Decisions
+  summary: Finalize identity certification decisions
   security:
     - userAuth: []
   x-sailpoint-userLevels:

@@ -8,7 +8,7 @@ get:
     - SOURCE_SUBADMIN
   tags:
     - Sources
-  summary: Get Source Connections by ID
+  summary: Get source connections by id
   description: >-
     Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
   parameters:

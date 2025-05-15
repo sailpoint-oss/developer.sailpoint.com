@@ -11,7 +11,7 @@ slug: /tools/rule-development-kit
 tags: ['RDK']
 ---
 
-## Start Using the Rule Development Kit
+## Start using the Rule Development Kit
 
 The SailPoint Rule Development Kit (RDK) is a project you can use to develop rules more quickly and easily.
 
@@ -613,7 +613,7 @@ When your test runs, you will see the output of your logs. These logs can help w
 [INFO] ------------------------------------------------------------------------
 ```
 
-## Getting Support
+## Getting support
 
 To get support for the Rule Development Kit, please see our GitHub page, https://github.com/sailpoint-oss/rule-development-kit.
 

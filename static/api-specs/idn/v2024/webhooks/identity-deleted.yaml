@@ -1,5 +1,5 @@
 post:
-  summary: Identity Deleted
+  summary: Identity deleted
   operationId: identityDeletedEvent
   description: >-
     This event trigger fires after an identity has been completely deleted from Identity Security Cloud (ISC).

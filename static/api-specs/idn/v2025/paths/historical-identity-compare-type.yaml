@@ -2,7 +2,7 @@ get:
   operationId: compareIdentitySnapshotsAccessType
   tags:
   - Identity History
-  summary: Gets a list of differences of specific accessType for the given identity
+  summary: Gets a list of differences of specific accesstype for the given identity
     between 2 snapshots
   description: 'This method gets a list of differences of specific accessType for
     the given identity between 2 snapshots Requires authorization scope of ''idn:identity-history:read'' '

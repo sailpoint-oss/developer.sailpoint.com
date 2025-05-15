@@ -2,7 +2,7 @@ post:
   operationId: testSubscriptionFilter
   tags:
   - Triggers
-  summary: Validate a Subscription Filter
+  summary: Validate a subscription filter
   description: 'Validates a JSONPath filter expression against a provided mock input.
 
     Request requires a security scope of: '

@@ -4,7 +4,7 @@ post:
   #   - oauth2: [idn:nesr:create]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Aggregate all accounts for a Non-Employee Source
+  summary: Aggregate all accounts for a non-employee source
   description: >-
     This fetches all the non-employee records related to a non-employee source
     and publishes an aggregation event for each one.

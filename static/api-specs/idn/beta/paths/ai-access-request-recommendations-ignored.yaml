@@ -6,7 +6,7 @@ post:
     - userAuth: [ iai:access-request-recommender:manage ]
   x-sailpoint-userLevels:
     - Any
-  summary: Ignore Access Request Recommendation
+  summary: Ignore access request recommendation
   description: >-
     This API ignores a recommended access request item.
     Once an item is ignored, it will be marked as ignored=true if it is still a recommended item.
@@ -43,7 +43,7 @@ get:
     - userAuth: [ iai:access-request-recommender:manage ]
   x-sailpoint-userLevels:
     - Any
-  summary: List Ignored Access Request Recommendations
+  summary: List ignored access request recommendations
   description: >-
     This API returns the list of ignored access request recommendations.
   parameters:

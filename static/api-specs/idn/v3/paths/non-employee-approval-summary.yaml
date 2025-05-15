@@ -4,7 +4,7 @@ get:
     - userAuth: []
   tags:
     - Non-Employee Lifecycle Management
-  summary: Get Summary of Non-Employee Approval Requests
+  summary: Get summary of non-employee approval requests
   description: >-
     This request will retrieve a summary of non-employee approval requests.
     There are two contextual uses for the `requested-for` path parameter:

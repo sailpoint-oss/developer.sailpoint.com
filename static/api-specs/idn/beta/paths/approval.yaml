@@ -4,7 +4,7 @@ get:
   operationId: getApproval
   tags:
   - Approvals
-  summary: Get Approval
+  summary: Get approval
   description: >-
     Get a single approval for a given approval ID. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and doesn't include access-request-approvals.
   parameters:

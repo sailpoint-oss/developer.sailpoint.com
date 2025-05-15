@@ -27,7 +27,7 @@ const ResultTerminal: React.FC<ResultTerminalProps> = ({ result, fontSize }) => 
 
   return (
     <div className="col" style={{ marginBottom: 50 }}>
-      <h2>Evaluation Results</h2>
+      <h2>Evaluation results</h2>
 
       <AceEditor
         className={styles.terminalContainerDefault}

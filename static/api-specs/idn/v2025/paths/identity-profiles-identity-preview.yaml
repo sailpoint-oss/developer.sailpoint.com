@@ -2,7 +2,7 @@ post:
   operationId: generateIdentityPreview
   tags:
   - Identity Profiles
-  summary: Generate Identity Profile Preview
+  summary: Generate identity profile preview
   description: This generates a non-persisted IdentityDetails object that will represent
     as the preview of the identities attribute when the given policy''s attribute
     config is applied.

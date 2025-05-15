@@ -1,6 +1,6 @@
 ---
 id: udk-error-handling
-title: Error Handling
+title: Error handling
 pagination_label: UDK
 sidebar_label: Error Handling
 sidebar_position: 3
@@ -17,7 +17,7 @@ If any of your backend calls result in a server error or bad request, you also w
 
 Read this guide to learn how to use the UI Development Kit to handle errors.
 
-## 400 Bad Request
+## 400 bad request
 
 If you provide an invalid filter or sorter, the [List Accounts Endpoint](https://developer.sailpoint.com/docs/api/v3/list-accounts) returns a 400 error. This example awaits the response and doesn't exit the program when a 4xx level status is received. If a 4xx level status is received, the user is redirected to an error page.
 
@@ -75,7 +75,7 @@ export const load = async ({url, locals}) => {
 };
 ```
 
-## 500 Server Issues
+## 500 server issues
 
 You can update the code block to handle more than just the 400 level statuses. You can see the highlighted code changes to handle any error response from the API call. You can send back an error to the user with the status, a detailed message, the details about the parameters used that caused the error, and the error response from the API.
 

@@ -2,7 +2,7 @@ post:
   operationId: authMfaGenerateMfaToken
   tags:
     - Auth MFA
-  summary: Generate a special token for calling sp-mfa /totp/** APIs
+  summary: Generate a special token for calling sp-mfa /totp/** apis
   description: >-
     Generates an MFA token and establishes an unverified MFA-on-login context state. 
     Callable by either an internal service or an authenticated user. 

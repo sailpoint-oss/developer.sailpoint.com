@@ -1,7 +1,7 @@
 post:
   tags:
     - Launchers
-  summary: Launch a Launcher
+  summary: Launch a launcher
   description: Launch the given Launcher ID
   operationId: startLauncher
   parameters:

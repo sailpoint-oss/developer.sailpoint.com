@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clusters
-  summary: Retrieve all Managed Clusters.
+  summary: Retrieve all managed clusters.
   description: Retrieve all Managed Clusters for the current Org, based on request context.
   operationId: getManagedClusters
   parameters:
@@ -45,7 +45,7 @@ get:
 post:
   tags:
     - Managed Clusters
-  summary: Create new Managed Cluster
+  summary: Create new managed cluster
   description: >-
     Create a new Managed Cluster.
 

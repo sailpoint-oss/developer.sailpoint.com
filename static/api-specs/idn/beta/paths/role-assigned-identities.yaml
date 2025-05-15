@@ -2,7 +2,7 @@ get:
     operationId: getRoleAssignedIdentities
     tags:
       - Roles
-    summary: Identities assigned a Role
+    summary: Identities assigned a role
     parameters:
       - in: path
         name: id

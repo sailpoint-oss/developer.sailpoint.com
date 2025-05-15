@@ -2,7 +2,7 @@ post:
   operationId: reassignIdentityCertifications
   tags:
     - Certifications
-  summary: Reassign Identities or Items
+  summary: Reassign identities or items
   description: >-
     This API reassigns up to 50 identities or items in an identity campaign certification to another reviewer. A token
     with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call

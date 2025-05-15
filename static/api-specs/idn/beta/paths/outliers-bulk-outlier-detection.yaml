@@ -2,7 +2,7 @@ post:
   operationId: bulkOutlierDetection
   tags:
     - IAI Outliers
-  summary: IAI Identity Outliers
+  summary: Iai identity outliers
   description: >-
     This API receives a list of identities (and metadata about the identities) that IAI defines as outliers
 

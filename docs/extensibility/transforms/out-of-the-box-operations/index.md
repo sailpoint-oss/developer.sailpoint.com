@@ -1,6 +1,6 @@
 ---
 id: ootb-transforms
-title: Out of the Box Transforms
+title: Out of the box transforms
 pagination_label: Out of the Box Transforms
 sidebar_label: OOTB Transforms
 sidebar_class_name: operations

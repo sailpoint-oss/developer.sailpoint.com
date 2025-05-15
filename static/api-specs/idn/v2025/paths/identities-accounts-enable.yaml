@@ -2,7 +2,7 @@ post:
   operationId: enableAccountsForIdentities
   tags:
   - Accounts
-  summary: Enable IDN Accounts for Identities
+  summary: Enable idn accounts for identities
   description: This API submits tasks to enable IDN account for each identity provided
     in the request body.
   externalDocs:

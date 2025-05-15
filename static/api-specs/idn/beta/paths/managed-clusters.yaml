@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clusters
-  summary: Retrieve all Managed Clusters.
+  summary: Retrieve all managed clusters.
   description: Retrieve all Managed Clusters for the current Org, based on request context.
   deprecated: true
   operationId: getManagedClusters

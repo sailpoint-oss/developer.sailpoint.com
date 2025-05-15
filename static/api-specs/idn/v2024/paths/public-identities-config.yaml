@@ -2,7 +2,7 @@ get:
   operationId: getPublicIdentityConfig
   tags:
     - Public Identities Config
-  summary: Get the Public Identities Configuration
+  summary: Get the public identities configuration
   description: >-
     Returns the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
   security:
@@ -30,7 +30,7 @@ put:
   operationId: updatePublicIdentityConfig
   tags:
     - Public Identities Config
-  summary: Update the Public Identities Configuration
+  summary: Update the public identities configuration
   description: >-
     Updates the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
   security:

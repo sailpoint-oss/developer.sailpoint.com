@@ -4,7 +4,7 @@ get:
     - userAuth: [ idn:tag:read, idn:tag:manage ]
   tags:
     - Tagged Objects
-  summary: List Tagged Objects
+  summary: List tagged objects
   description: >-
     This API returns a list of all tagged objects.
 
@@ -59,7 +59,7 @@ post:
     - userAuth: [ idn:tag:manage ]
   tags:
     - Tagged Objects
-  summary: Add Tag to Object
+  summary: Add tag to object
   description: >-
     This adds a tag to an object.
     

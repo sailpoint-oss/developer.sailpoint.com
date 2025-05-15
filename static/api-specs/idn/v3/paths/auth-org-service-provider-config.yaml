@@ -2,7 +2,7 @@ get:
   operationId: getAuthOrgServiceProviderConfig
   tags:
     - Global Tenant Security Settings
-  summary: Get Service Provider Configuration.
+  summary: Get service provider configuration.
   description: >-
     This API returns the details of an org's service provider auth
     configuration.
@@ -31,7 +31,7 @@ patch:
   operationId: patchAuthOrgServiceProviderConfig
   tags:
     - Global Tenant Security Settings
-  summary: Update Service Provider Configuration
+  summary: Update service provider configuration
   description: >-
     This API updates an existing service provider configuration for an org using
     PATCH.

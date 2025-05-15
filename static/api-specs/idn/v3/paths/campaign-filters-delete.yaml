@@ -2,7 +2,7 @@ post:
   operationId: deleteCampaignFilters
   tags:
     - Certification Campaign Filters
-  summary: Deletes Campaign Filters
+  summary: Deletes campaign filters
   description: >-
     Deletes campaign filters whose Ids are specified in the provided list of campaign filter Ids.
     Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.

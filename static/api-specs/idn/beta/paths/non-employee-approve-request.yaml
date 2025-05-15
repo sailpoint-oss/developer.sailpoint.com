@@ -4,7 +4,7 @@ post:
     - userAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Approve a Non-Employee Request
+  summary: Approve a non-employee request
   description: >-
     Approves a non-employee approval request and notifies the next approver.
   parameters:

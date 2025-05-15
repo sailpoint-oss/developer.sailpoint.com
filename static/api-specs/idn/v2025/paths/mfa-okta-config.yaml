@@ -2,7 +2,7 @@ get:
   operationId: getMFAOktaConfig
   tags:
     - MFA Configuration
-  summary: Configuration of Okta MFA method
+  summary: Configuration of okta mfa method
   description: >-
     This API returns the configuration of an Okta MFA method.
   security:
@@ -39,7 +39,7 @@ put:
   operationId: setMFAOktaConfig
   tags:
     - MFA Configuration
-  summary: Set Okta MFA configuration
+  summary: Set okta mfa configuration
   description: >-
     This API sets the configuration of an Okta MFA method.
   security:

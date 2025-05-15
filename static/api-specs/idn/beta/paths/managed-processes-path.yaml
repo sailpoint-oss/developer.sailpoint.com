@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Processes
-  summary: Get a Managed Process
+  summary: Get a managed process
   description: >-
     Get a Managed Process.
 
@@ -41,7 +41,7 @@ get:
 patch:
   tags:
     - Managed Processes
-  summary: Update a Managed Processes
+  summary: Update a managed processes
   description: >-
     Update an existing Managed Process.
 
@@ -89,7 +89,7 @@ delete:
   operationId: deleteManagedProcess
   tags:
     - Managed Processes
-  summary: Delete a Managed Process
+  summary: Delete a managed process
   description: >-
     Delete an existing Managed Process.
 

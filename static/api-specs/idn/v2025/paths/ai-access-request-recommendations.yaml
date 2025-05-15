@@ -6,7 +6,7 @@ get:
     - userAuth: [ iai:access-request-recommender:read ]
   x-sailpoint-userLevels:
     - Any
-  summary: Identity Access Request Recommendations
+  summary: Identity access request recommendations
   description: This API returns the access request recommendations for the specified
     identity. The default identity is *me* which indicates the current user.
   parameters:

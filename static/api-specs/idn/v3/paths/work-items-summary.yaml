@@ -2,7 +2,7 @@ get:
   operationId: getWorkItemsSummary
   tags:
     - Work Items
-  summary: Work Items Summary
+  summary: Work items summary
   description: >-
     This gets a summary of work items belonging to either the specified user(admin required), or the current user.
   parameters:

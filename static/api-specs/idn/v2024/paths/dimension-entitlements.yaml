@@ -2,7 +2,7 @@ get:
     operationId: getDimensionEntitlements
     tags:
       - Dimensions
-    summary: List Dimension's Entitlements
+    summary: List dimension's entitlements
     description: >-
         This API lists the Entitlements associated with a given dimension.
       

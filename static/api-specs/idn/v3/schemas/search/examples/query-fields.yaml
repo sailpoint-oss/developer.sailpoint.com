@@ -1,4 +1,4 @@
-summary: Query with Fields
+summary: Query with fields
 value:
   indices:
   - 'identities'

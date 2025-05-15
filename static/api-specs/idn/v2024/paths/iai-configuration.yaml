@@ -2,7 +2,7 @@ get:
   operationId: getConfiguration
   tags:
     - IAI Configuration
-  summary: Return Specified IAI Configuration
+  summary: Return specified iai configuration
   description: >-
     This gets a specific IAI configuration for a customer by type.
 
@@ -37,7 +37,7 @@ put:
   operationId: updateConfiguration
   tags:
     - IAI Configuration
-  summary: Update Specified IAI Configuration
+  summary: Update specified iai configuration
   description: >-
     This updates a given configuration for a customer by type.
 
@@ -72,7 +72,7 @@ delete:
   operationId: deleteConfiguration
   tags:
     - IAI Configuration
-  summary: Delete Specified IAI Configuration
+  summary: Delete specified iai configuration
   description: >-
     This deletes a given configuration for a customer by type.
 

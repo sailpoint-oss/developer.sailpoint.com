@@ -1,5 +1,5 @@
 post:
-  summary: Provisioning Completed 
+  summary: Provisioning completed
   operationId: provisioningCompletedEvent
   description: >-
     This event trigger fires after Identity Security Cloud (ISC) provisions access to an account. 

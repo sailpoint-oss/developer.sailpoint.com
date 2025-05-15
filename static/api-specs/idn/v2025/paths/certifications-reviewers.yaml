@@ -2,7 +2,7 @@ get:
   operationId: listCertificationReviewers
   tags:
     - Certifications
-  summary: List of Reviewers for certification
+  summary: List of reviewers for certification
   description: >-
     This API returns a list of reviewers for the certification. Reviewers for this certification can also call this API.
   security:

@@ -21,7 +21,7 @@ Rules in Identity Security Cloud are written in Java Beanshell, a lightweight sc
 
 For more information about Java Beanshell, you can refer to the [Java Beanshell Documentation](https://github.com/beanshell/beanshell/wiki).
 
-## Rule Execution
+## Rule execution
 
 Identity Security Cloud (ISC) is a multi-tenant cloud solution, and its architecture varies differently from other SailPoint products like IdentityIQ (IIQ). Therefore, the way rules execute within ISC reflects the architectural design considerations the platform was built on. These considerations determine the rule's limitations.
 
@@ -42,31 +42,31 @@ For more details, see [Cloud Rules](./cloud-rules/index.md).
 
 For more details, see the [Connector Rules](./connector-rules/index.md).
 
-## Support Considerations
+## Support considerations
 
 Though ISC shares some common functionality with other SailPoint products like IIQ, the same rules are not necessarily supported, nor do they necessarily execute the same way or with the same context and variables. SailPoint recommends that you become familiar with which rules execute with which products, as well as the nuances in their execution contexts.
 
 From a SailPoint support perspective, rules are considered configurations. SailPoint supports the underlying platform but not the rule configurations themselves. Any problems with the way rules are implemented or run over time are the responsibilities the customer or implementer must manage. SailPoint's ISC Expert Services need hours to cover any rule configuration work (e.g., creating rules, best practices reviews, application to your ISC environment, and promotion between sandbox & prod environments). Contact your Customer Success Manager with any questions. While rules allow some advanced flexibility, you must consider these support implications when you are deciding whether to implement rules. Consider rule usage a last resort, and use Identity Security Cloud features instead whenever you can.
 
-## Best Practices for Rule deployments
+## Best practices for Rule deployments
 
 SailPoint ISC deployments often require the deployment of rules to the client’s ISC tenants. Because ISC is a multi-tenant solution, rules that are poorly written can have negative performance implications on other tenants in the same cloud. As such, SailPoint requires all rules to be reviewed prior to deployment. The time to complete these reviews requires an expert services contract to leverage billable hours.
 
 This article covers common topics around this process including best practices, rule review expectations, and more.
 
-### SLAs for Rule Review
+### SLAs for Rule review
 
 SailPoint has a 24 hour SLA on rule deployments for rules submitted over weekdays and next business day for rules submitted over the weekend.
 
 However, around 65% of rule reviews are completed in less 4 business hours, with the average turnaround time of 3-6 hours after ticket has been assigned. If a specific deployment window is required, you must alert SailPoint at least 48 hours in advance so that the time for the reviewer and deployment expert may be reserved.
 
-### Go Live expectations
+### Go live expectations
 
 SailPoint rule review team members work from 9am-5pm Monday-Friday in their local time zones, excluding holidays. For clients planning to go live on a weekend, we recommend having rules deployed in the sandbox environment prior to go live so that they can be promoted to production without SailPoint involvement. See the section below entitled [Promoting Rules from Sandbox to Production](#promote-rules-from-sandbox-to-production).
 
 Note that even for clients who purchase Weekend Go-Live Support, rule deploys are not covered in the Weekend Go Live service as there are multiple teams involved in the rule deploy process.
 
-### Rule Deployments
+### Rule deployments
 
 SailPoint recommends only submitting one rule at a time or only rules that should be deployed together.
 
@@ -74,7 +74,7 @@ Typical rule reviews are billed at 15-30 minutes per rule. However, this can var
 
 In the case of rejection, we recommend submitting a new ticket to avoid a scenario where a case owner is out of the office.
 
-## Promote Rules from Sandbox to Production
+## Promote Rules from sandbox to production
 
 A rule that has been approved in a sandbox tenant through the SailPoint rule review process, like an IdentityAttribute, Correlation or ManagerCorrelation rule or any other rule type, for example, can be migrated to the production ISC tenant.
 
@@ -82,7 +82,7 @@ This applies to all rule types, as the signature has been approved/verified duri
 
 For more details on the sp-config API see [sp-config](/docs/api/beta/export-sp-config)
 
-## Rule Guidelines
+## Rule guidelines
 
 - **Supported Rules**
 
@@ -134,7 +134,7 @@ For more details on the sp-config API see [sp-config](/docs/api/beta/export-sp-c
   - Be careful with iterative rules execution. Heavily iterative rules will have greater performance scrutiny.
   - Do not iterate over lists of objects like accounts or identities. Doing so causes cache bloat. Use a projection query wherever possible to find the data you need, and then return the values you want. If you are unsure, ask [SailPoint Expert Services](https://www.sailpoint.com/services/professional/#contact-form).
 
-## Rule Code Restrictions
+## Rule code restrictions
 
 The following code fragments are not allowed in any SailPoint [Cloud Rules](./cloud-rules/index.md) or [Connector Rules](./connector-rules/index.md). Any usage of these will be blocked in the system.
 

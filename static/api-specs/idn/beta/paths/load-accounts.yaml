@@ -1,7 +1,7 @@
 post:
   tags:
     - Sources
-  summary: Account Aggregation
+  summary: Account aggregation
   operationId: importAccounts
   description: >-
     Starts an account aggregation on the specified source. 

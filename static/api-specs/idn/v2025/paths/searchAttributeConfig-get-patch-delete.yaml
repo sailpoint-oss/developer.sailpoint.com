@@ -2,7 +2,7 @@ get:
   operationId: getSingleSearchAttributeConfig
   tags:
   - Search Attribute Configuration
-  summary: Get Extended Search Attribute
+  summary: Get extended search attribute
   security:
     - userAuth: []
   x-sailpoint-userLevels:
@@ -48,7 +48,7 @@ delete:
   operationId: deleteSearchAttributeConfig
   tags:
   - Search Attribute Configuration
-  summary: Delete Extended Search Attribute
+  summary: Delete extended search attribute
   security:
     - userAuth: []
   x-sailpoint-userLevels:
@@ -88,7 +88,7 @@ patch:
   operationId: patchSearchAttributeConfig
   tags:
   - Search Attribute Configuration
-  summary: Update Extended Search Attribute 
+  summary: Update extended search attribute
   security:
     - userAuth: []
   x-sailpoint-userLevels:

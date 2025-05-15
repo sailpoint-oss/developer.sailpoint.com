@@ -2,7 +2,7 @@ post:
   operationId: setMFAKBAConfig
   tags:
     - MFA Configuration
-  summary: Set MFA KBA configuration
+  summary: Set mfa kba configuration
   description: >-
     This API sets answers to challenge questions. 
     Any configured questions omitted from the request are removed from user KBA configuration.    

@@ -2,7 +2,7 @@ get:
   operationId: getReassignmentConfiguration
   tags:
   - Work Reassignment
-  summary: Get Reassignment Configuration
+  summary: Get reassignment configuration
   description: Gets the Reassignment Configuration for an identity.
   security:
   - userAuth:
@@ -47,7 +47,7 @@ put:
   operationId: putReassignmentConfig
   tags:
   - Work Reassignment
-  summary: Update Reassignment Configuration
+  summary: Update reassignment configuration
   description: Replaces existing Reassignment configuration for an identity with the
     newly provided configuration.
   security:

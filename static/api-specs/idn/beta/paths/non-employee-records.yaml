@@ -4,7 +4,7 @@ post:
     - userAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Create Non-Employee Record
+  summary: Create non-employee record
   description: >-
     This request will create a non-employee record.
 
@@ -42,7 +42,7 @@ get:
     - userAuth: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
-  summary: List Non-Employee Records
+  summary: List non-employee records
   description: >-
     This gets a list of non-employee records.
   parameters:

@@ -1,5 +1,5 @@
 post:
-  summary: Source Created
+  summary: Source created
   operationId: sourceCreatedEvent
   description: >-
     This event trigger fires when a new source is created in Identity Security Cloud (ISC), by either the [API](https://developer.sailpoint.com/docs/api/v2024/create-source) or the [Admin UI](https://documentation.sailpoint.com/saas/help/accounts/loading_data.html#configuring-a-source). 

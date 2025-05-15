@@ -2,7 +2,7 @@ put:
   operationId: updateSubscription
   tags:
   - Triggers
-  summary: Update a Subscription
+  summary: Update a subscription
   description: "This API updates a trigger subscription in IdentityNow, using a full\
     \ object representation. In other words, the existing\n  Subscription is completely\
     \ replaced. The following fields are immutable:\n\n\n  * id\n\n  * triggerId\n\
@@ -96,7 +96,7 @@ patch:
   operationId: patchSubscription
   tags:
   - Triggers
-  summary: Patch a Subscription
+  summary: Patch a subscription
   description: 'This API updates a trigger subscription in IdentityNow, using a set
     of instructions to modify a subscription partially. The following fields are patchable:
 
@@ -152,7 +152,7 @@ delete:
   operationId: deleteSubscription
   tags:
   - Triggers
-  summary: Delete a Subscription
+  summary: Delete a subscription
   description: Deletes an existing subscription to a trigger.
   parameters:
   - in: path

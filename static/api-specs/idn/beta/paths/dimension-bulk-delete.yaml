@@ -1,6 +1,6 @@
 post:
   operationId: deleteBulkDimensions
-  summary: Delete Dimension(s)
+  summary: Delete dimension(s)
   tags:
     - Dimensions
   description: >-

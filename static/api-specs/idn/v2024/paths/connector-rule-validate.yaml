@@ -2,7 +2,7 @@ post:
   tags:
   - Connector Rule Management
   operationId: testConnectorRule
-  summary: Validate Connector Rule
+  summary: Validate connector rule
   description: Detect issues within the connector rule's code to fix and list them. 
   requestBody:
     required: true

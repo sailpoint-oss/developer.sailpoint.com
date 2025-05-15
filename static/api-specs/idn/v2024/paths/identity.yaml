@@ -2,7 +2,7 @@ get:
   operationId: getIdentity
   tags:
   - Identities
-  summary: Identity Details
+  summary: Identity details
   description: This API returns a single identity using the Identity ID.
   security:
   - userAuth:

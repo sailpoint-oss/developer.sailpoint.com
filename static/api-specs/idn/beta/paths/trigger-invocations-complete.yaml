@@ -2,7 +2,7 @@ post:
   operationId: completeTriggerInvocation
   tags:
     - Triggers
-  summary: Complete Trigger Invocation
+  summary: Complete trigger invocation
   description: Completes an invocation to a REQUEST_RESPONSE type trigger.
   parameters:
     - in: path

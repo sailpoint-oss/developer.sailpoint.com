@@ -6,7 +6,7 @@ post:
     - ORG_ADMIN
   tags:
     - Access Requests
-  summary: Bulk Cancel Access Request
+  summary: Bulk cancel access request
   description: >-
     This API endpoint allows cancelling pending access requests in bulk. Maximum of 50 access request ids can be 
     provided in the request for one single invocation. 

@@ -1,7 +1,7 @@
 get:
   tags:
     - Service Desk Integration
-  summary: Service Desk integration template by scriptName
+  summary: Service desk integration template by scriptname
   description: This API endpoint returns an existing Service Desk integration template by scriptName.
   operationId: getServiceDeskIntegrationTemplate
   parameters:

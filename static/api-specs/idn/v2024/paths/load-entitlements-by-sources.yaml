@@ -1,7 +1,7 @@
 post:
   tags:
   - Entitlements
-  summary: Aggregate Entitlements
+  summary: Aggregate entitlements
   deprecated: true
   operationId: importEntitlementsBySource
   description: 'Starts an entitlement aggregation on the specified source. Though

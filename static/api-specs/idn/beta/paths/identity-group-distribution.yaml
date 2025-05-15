@@ -1,6 +1,6 @@
 get:
   operationId: getSummary
-  summary: Identity Group Summary
+  summary: Identity group summary
   tags:
     - IAI Identity Groups
   description: >-

@@ -1,7 +1,7 @@
 post:
   tags:
     - Managed Clients
-  summary: Request to sign client(VA) certificate
+  summary: Request to sign client(va) certificate
   description: >-
     This API is used by client instances to request to sign client(VA) certificate.
   operationId: signCertificate

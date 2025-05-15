@@ -2,7 +2,7 @@ get:
   operationId: getIdentityOutliers
   tags:
     - IAI Outliers
-  summary: IAI Get Identity Outliers
+  summary: Iai get identity outliers
   description: >-
     This API returns a list of outliers, containing data such as identity ID, outlier type, detection dates, identity attributes, if identity is ignored, and certification information.
   parameters:

@@ -2,7 +2,7 @@ post:
   operationId: updateAggregationState
   tags:
     - Sources
-  summary: Update Aggregation State
+  summary: Update aggregation state
   description: >-
     This API updates the aggregation state for the source.
 

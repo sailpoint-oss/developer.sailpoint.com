@@ -5,7 +5,7 @@ post:
     - idn:workgroup:write
   tags:
   - Governance Groups
-  summary: Add members to Governance Group
+  summary: Add members to governance group
   description: 'This API adds one or more members to a Governance Group.  A token
     with API, ORG_ADMIN authority is required to call this API.
 

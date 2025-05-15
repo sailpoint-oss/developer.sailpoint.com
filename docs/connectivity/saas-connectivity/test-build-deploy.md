@@ -11,7 +11,7 @@ slug: /connectivity/saas-connectivity/test-build-deploy
 tags: ['Connectivity']
 ---
 
-## Testing Your Connector
+## Testing your connector
 
 You can use the following Postman Collection file to locally run tests for each of the commands.
 
@@ -35,17 +35,17 @@ As you implement command handlers, you must test them. The connector SDK provide
 - **input:** Input to provide to the command handler.
 - **config:** The configuration values required to test locally. A `token` value is not required, but the default project specifies `token`, so you must include it in your request to begin.
 
-## Create and Upload Connector Bundle
+## Create and upload connector bundle
 
 Follow these steps to use the CLI to package a connector bundle, create it in your Identity Security Cloud org, and upload it to Identity Security Cloud.
 
-### Package Connector Files
+### Package connector files
 
 You must compress the files in the connector project into a zip file before uploading them to Identity Security Cloud.
 
 Use the CLI to run `npm run pack-zip` to build and package the connector bundle. Put the resulting zip file in the `dist` folder.
 
-### Create Connector In Your Org
+### Create connector in your org
 
 Before uploading the zip file, you must create an entry for the connector in your Identity Security Cloud org. Run `sail conn create "my-project"` to create a connector entry.
 
@@ -76,7 +76,7 @@ $ sail conn list
 +--------------------------------------+----------------------------+
 ```
 
-### Upload Connector Zip File to Identity Security Cloud
+### Upload connector zip file to Identity Security Cloud
 
 Run `sail conn upload -c [connectorID | connectorAlias] -f dist/[connector filename].zip` to upload the zip file built from the previous step to Identity Security Cloud.
 
@@ -106,11 +106,11 @@ Make sure that you implement a form of version control or regular backup process
 
 :::
 
-## Test Your Connector in Identity Security Cloud
+## Test your connector in Identity Security Cloud
 
 Follow these steps to test a connector bundle in both Identity Security Cloud and the Identity Security Cloud user interface (UI).
 
-### Test Your Connector Bundle In Identity Security Cloud
+### Test your connector bundle in Identity Security Cloud
 
 The connector CLI provides ways to test invoking commands with any connector upload version. Before running a command, create a file, **config.json**, in the root project folder. Include any configuration items required to interact with the target web service in this file, such as API token, username, password, organization, version, etc. The following snippet is an example:
 
@@ -140,7 +140,7 @@ $ sail connectors invoke account-list -c example-connector -p config.json
 >
 > Ensure that you add config.json to your .gitignore file so you do not accidentally store secrets in your code repository.
 
-## Test Your Connector from Identity Security Cloud UI
+## Test your connector from Identity Security Cloud UI
 
 Go to your Identity Security Cloud org’s source section. Create a source from the connector you just uploaded. This connector will display in the dropdown list: **example-connector (tag: latest)**
 

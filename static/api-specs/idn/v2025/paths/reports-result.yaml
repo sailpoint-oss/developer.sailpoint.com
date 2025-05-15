@@ -5,7 +5,7 @@ get:
     Get the report results for a report that was run or is running.
     Returns empty report result in case there are no active task definitions with used in payload task definition name.
   operationId: getReportResult
-  summary: "Get Report Result"
+  summary: "Get report result"
   security:
     - userAuth: [sp:report-result:read]
   parameters:

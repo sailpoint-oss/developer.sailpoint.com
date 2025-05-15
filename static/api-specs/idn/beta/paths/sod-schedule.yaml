@@ -2,7 +2,7 @@ get:
   operationId: getSodPolicySchedule
   tags:
     - SOD Policies
-  summary: Get SOD policy schedule
+  summary: Get sod policy schedule
   deprecated: true
   security:
     - userAuth: [ idn:sod-policy:read ]
@@ -40,7 +40,7 @@ put:
   operationId: putPolicySchedule
   tags:
     - SOD Policies
-  summary: Update SOD Policy schedule
+  summary: Update sod policy schedule
   deprecated: true
   security:
     - userAuth: [ idn:sod-policy:write ]
@@ -84,7 +84,7 @@ delete:
   operationId: deleteSodPolicySchedule
   tags:
     - SOD Policies
-  summary: Delete SOD policy schedule
+  summary: Delete sod policy schedule
   deprecated: true
   security:
     - userAuth: [idn:sod-policy:write]

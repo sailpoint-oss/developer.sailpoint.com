@@ -2,7 +2,7 @@ get:
   operationId: getIdentityDecisionSummary
   tags:
     - Certification Summaries
-  summary: Summary of Certification Decisions
+  summary: Summary of certification decisions
   security:
     - userAuth: []
   x-sailpoint-userLevels:

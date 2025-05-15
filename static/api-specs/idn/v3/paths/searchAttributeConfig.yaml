@@ -6,7 +6,7 @@ post:
     - ORG_ADMIN
   tags:
     - Search Attribute Configuration
-  summary: Create Extended Search Attributes
+  summary: Create extended search attributes
   description: >-
     Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs
     to attribute names. It will then validate the inputs and configure/create the attribute promotion configuration in the Link ObjectConfig.
@@ -52,7 +52,7 @@ get:
     - ORG_ADMIN
   tags:
     - Search Attribute Configuration
-  summary: List Extended Search Attributes
+  summary: List extended search attributes
   description: >-
     Get a list of attribute/application attributes currently configured in Identity Security Cloud (ISC).
   parameters:

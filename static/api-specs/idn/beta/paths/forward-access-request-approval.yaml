@@ -1,6 +1,6 @@
 post:
   operationId: forwardAccessRequest
-  summary: Forward Access Request Approval
+  summary: Forward access request approval
   tags:
     - Access Request Approvals
   description: >-

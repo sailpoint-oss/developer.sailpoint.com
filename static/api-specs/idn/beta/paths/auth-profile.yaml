@@ -2,7 +2,7 @@ get:
   operationId: getProfileConfig
   tags:
     - Auth Profile
-  summary: Get Auth Profile.
+  summary: Get auth profile.
   description: >-
     This API returns auth profile information.
   parameters:
@@ -39,7 +39,7 @@ patch:
   operationId: patchProfileConfig
   tags:
     - Auth Profile
-  summary: Patch a specified Auth Profile
+  summary: Patch a specified auth profile
   description: >-
     This API updates an existing Auth Profile. The following fields are patchable:
 

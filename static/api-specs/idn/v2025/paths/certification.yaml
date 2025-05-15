@@ -2,7 +2,7 @@ get:
   operationId: getCertification
   tags:
     - Certifications
-  summary: Certification by ID
+  summary: Certification by id
   description: >-
     This API returns a single certification by its ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to
     call this API. Reviewers for this certification can also call this API.

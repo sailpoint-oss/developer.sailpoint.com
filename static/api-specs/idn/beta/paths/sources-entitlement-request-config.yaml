@@ -2,7 +2,7 @@ get:
   security:
     - userAuth: [ idn:sources:read, idn:sources:manage ]
   operationId: getSourceEntitlementRequestConfig
-  summary: Get Source Entitlement Request Configuration
+  summary: Get source entitlement request configuration
   tags:
     - Sources
   description: >-
@@ -102,7 +102,7 @@ put:
   security:
     - userAuth: [ idn:sources:manage ]
   operationId: updateSourceEntitlementRequestConfig
-  summary: Update Source Entitlement Request Configuration
+  summary: Update source entitlement request configuration
   tags:
     - Sources
   description: >-

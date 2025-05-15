@@ -6,7 +6,7 @@ get:
     - ORG_ADMIN
   tags:
     - SP-Config
-  summary: List Config Objects
+  summary: List config objects
   description: >-
     Get a list of object configurations that the tenant export/import service knows.
   responses:

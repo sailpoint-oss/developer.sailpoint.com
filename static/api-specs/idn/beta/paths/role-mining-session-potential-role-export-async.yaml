@@ -1,6 +1,6 @@
 post:
   operationId: exportRoleMiningPotentialRoleAsync
-  summary: Asynchronously export details for a potential role in a role mining session and upload to S3
+  summary: Asynchronously export details for a potential role in a role mining session and upload to s3
   tags:
     - IAI Role Mining
   description: >-

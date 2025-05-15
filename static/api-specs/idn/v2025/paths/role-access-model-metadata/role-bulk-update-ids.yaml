@@ -1,6 +1,6 @@
 post:
   operationId: updateRolesMetadataByIds
-  summary: Bulk-Update Roles' Metadata by ID
+  summary: Bulk-update roles' metadata by id
   description: >-
     This API initiates a bulk update of metadata for one or more Roles by a list of Role Ids.
     

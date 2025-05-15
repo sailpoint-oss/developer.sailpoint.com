@@ -2,7 +2,7 @@ get:
   operationId: getCountCompletedWorkItems
   tags:
     - Work Items
-  summary: Count Completed Work Items
+  summary: Count completed work items
   description: >-
     This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
   parameters:

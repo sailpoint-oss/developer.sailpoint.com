@@ -42,7 +42,7 @@ get:
 patch:
   tags:
     - Task Management
-  summary: Patch a specified TaskDefinition.
+  summary: Patch a specified taskdefinition.
   description: Update an existing TaskDefinition using PATCH.
   operationId: patchTaskDefinition
   parameters:

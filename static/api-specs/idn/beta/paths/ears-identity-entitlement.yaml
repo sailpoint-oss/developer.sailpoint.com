@@ -2,7 +2,7 @@ get:
   operationId: listEntitlementsByIdentity
   tags:
     - Identities
-  summary: List of entitlements by Identity.
+  summary: List of entitlements by identity.
   description: >-
     The API returns a list of all entitlements assigned to an identity, either directly or through the role or access profile.
     A token with ORG_ADMIN or API authority is required to call this API.

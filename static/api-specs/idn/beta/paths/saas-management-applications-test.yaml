@@ -2,7 +2,7 @@ post:
   operationId: testApplicationMapping
   tags:
     - SaaS Management
-  summary: Test SaaS Management Application mapping
+  summary: Test saas management application mapping
   description: >-
     This API tests if accounts on IdentityNow match those on the mapped SaaS Management Application,
     or 404 if not mapped.

@@ -4,7 +4,7 @@ get:
     - userAuth: [sp:config-deploy:read, sp:config-deploy:manage]
   tags:
     - Configuration Hub
-  summary: List Deploys
+  summary: List deploys
   description: >-
     This API gets a list of deploys for the current tenant.
   responses:
@@ -70,7 +70,7 @@ post:
     - userAuth: [sp:config-deploy:manage]
   tags:
     - Configuration Hub
-  summary: Create a Deploy
+  summary: Create a deploy
   description: >-
     This API performs a deploy based on an existing daft.
   requestBody:

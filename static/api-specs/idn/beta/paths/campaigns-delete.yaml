@@ -2,7 +2,7 @@ post:
   operationId: deleteCampaigns
   tags:
     - Certification Campaigns
-  summary: Delete Campaigns
+  summary: Delete campaigns
   description: |
     Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/delete-campaigns).
     

@@ -2,7 +2,7 @@ get:
   operationId: listScheduledActions
   tags:
     - SP-Scheduler
-  summary: List Scheduled Actions
+  summary: List scheduled actions
   description: >-
     This gets a list of scheduled actions filtered by query parameters and meta data.
   parameters:
@@ -44,7 +44,7 @@ post:
   operationId: createScheduledActions
   tags:
     - SP-Scheduler
-  summary: Create Scheduled Actions
+  summary: Create scheduled actions
   description: >-
     This creates a scheduled action with a deadline that it needs to be fired.
   requestBody:

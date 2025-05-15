@@ -1,6 +1,6 @@
 get:
   operationId: s3Proxy
-  summary: Retrieves an artifact from S3.
+  summary: Retrieves an artifact from s3.
   tags:
     - S3 Access
   description: >-

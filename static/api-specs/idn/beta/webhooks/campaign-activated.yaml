@@ -1,5 +1,5 @@
 post:
-  summary: Campaign Activated
+  summary: Campaign activated
   operationId: campaignActivatedEvent
   description: >-
     This event trigger fires after a certification campaign is activated.

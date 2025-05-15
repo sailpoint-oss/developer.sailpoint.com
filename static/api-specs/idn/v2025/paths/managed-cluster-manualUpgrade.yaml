@@ -1,7 +1,7 @@
 post:
   tags:
     - Managed Clusters
-  summary: Trigger Manual Upgrade for Managed Cluster
+  summary: Trigger manual upgrade for managed cluster
   description: >-
     Trigger Manual Upgrade for Managed Cluster.
 

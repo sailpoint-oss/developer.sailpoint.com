@@ -2,7 +2,7 @@ post:
   operationId: authMfaRegistrationReset
   tags:
     - Auth MFA
-  summary: Disable a user's registration for MFA
+  summary: Disable a user's registration for mfa
   description: >-
     Disables a user's registration for MFA. The specified user is tied to the `requestedFor` body param and can either be an external id, 
     when resetting the registration on someone else's behalf, or "me", when resetting the registration for one's self. 

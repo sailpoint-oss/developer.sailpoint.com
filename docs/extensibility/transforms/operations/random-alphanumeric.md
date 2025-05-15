@@ -14,7 +14,7 @@ tags: ['Transforms', 'Transform Operations']
 
 Use the random alphanumeric transform to generate a random string of any length, comprising both numbers and letters (both lowercase and uppercase).
 
-## Transform Structure
+## Transform structure
 
 The random alphanumeric transform only requires the standard `type` and `name` attributes:
 
@@ -43,7 +43,7 @@ The random alphanumeric transform only requires the standard `type` and `name` a
 
 Since no explicit length is provided, this transform generates a 32-character random string, such as "VtPeE9WL56lMTlvfjr02KXqS3KtgDSuk".
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -58,7 +58,7 @@ Since no explicit length is provided, this transform generates a 32-character ra
 
 This transform generates a 10-character random string, such as "5GH2qsjU27".
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

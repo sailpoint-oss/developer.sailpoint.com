@@ -2,7 +2,7 @@ get:
   operationId: getCampaignTemplateSchedule
   tags:
     - Certification Campaigns
-  summary: Get Campaign Template Schedule
+  summary: Get campaign template schedule
   description: |
     Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-template-schedule).
 
@@ -44,7 +44,7 @@ put:
   operationId: setCampaignTemplateSchedule
   tags:
     - Certification Campaigns
-  summary: Set Campaign Template Schedule
+  summary: Set campaign template schedule
   description: |
     Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one. 
     Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/set-campaign-template-schedule).
@@ -153,7 +153,7 @@ delete:
   operationId: deleteCampaignTemplateSchedule
   tags:
     - Certification Campaigns
-  summary: Delete Campaign Template Schedule
+  summary: Delete campaign template schedule
   description: |
     Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/delete-campaign-template-schedule).
 

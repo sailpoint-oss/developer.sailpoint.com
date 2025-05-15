@@ -2,7 +2,7 @@ get:
   operationId: getEvaluateReassignmentConfiguration
   tags:
   - Work Reassignment
-  summary: Evaluate Reassignment Configuration
+  summary: Evaluate reassignment configuration
   description: Evaluates the Reassignment Configuration for an `Identity` to determine
     if work items for the specified type should be reassigned. If a valid Reassignment
     Configuration is found for the identity & work type, then a lookup is initiated

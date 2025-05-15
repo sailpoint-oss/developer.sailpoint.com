@@ -1,7 +1,7 @@
 post:
   tags:
     - Custom Forms
-  summary: Generate JSON Schema dynamically.
+  summary: Generate json schema dynamically.
   operationId: createFormDefinitionDynamicSchema
   requestBody:
     description: Body is the request payload to create a form definition dynamic

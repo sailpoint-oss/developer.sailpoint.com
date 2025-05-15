@@ -2,7 +2,7 @@ post:
   operationId: createSegment
   tags:
     - Segments
-  summary: Create Segment
+  summary: Create segment
   description: >-
     This API creates a segment. 
 
@@ -36,7 +36,7 @@ get:
   operationId: listSegments
   tags:
     - Segments
-  summary: List Segments
+  summary: List segments
   description: >-
     This API returns a list of all segments.
 

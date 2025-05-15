@@ -2,7 +2,7 @@ get:
   operationId: listMachineIdentities
   tags:
     - Machine Identities
-  summary: List Machine Identities
+  summary: List machine identities
   description: >-
     This API returns a list of machine identities.
   security:
@@ -93,7 +93,7 @@ post:
   operationId: createMachineIdentity
   tags:
     - Machine Identities
-  summary: Create Machine Identities
+  summary: Create machine identities
   security:
     - userAuth:
         - 'idn:mis-identity:manage'

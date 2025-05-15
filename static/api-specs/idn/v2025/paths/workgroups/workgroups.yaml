@@ -2,7 +2,7 @@ get:
   operationId: listWorkgroups
   tags:
   - Governance Groups
-  summary: List Governance Groups
+  summary: List governance groups
   description: This API returns list of Governance Groups
   parameters:
   - $ref: ../../parameters/offset.yaml
@@ -78,7 +78,7 @@ post:
     - idn:workgroup:write
   tags:
   - Governance Groups
-  summary: Create a new Governance Group.
+  summary: Create a new governance group.
   description: This API creates a new Governance Group.
   requestBody:
     required: true

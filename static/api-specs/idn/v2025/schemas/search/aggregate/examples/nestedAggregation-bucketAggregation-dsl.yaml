@@ -1,4 +1,4 @@
-summary: NestedAggregation with BucketAggregation using DSL
+summary: Nestedaggregation with bucketaggregation using dsl
 value:
   indices:  [ 'identities' ]
   aggregationType: 'DSL'

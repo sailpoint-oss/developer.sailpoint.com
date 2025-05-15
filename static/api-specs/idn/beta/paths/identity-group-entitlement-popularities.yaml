@@ -1,6 +1,6 @@
 get:
   operationId: getEntitlementPopularities
-  summary: Popular Entitlements in an Identity Group
+  summary: Popular entitlements in an identity group
   tags:
     - IAI Identity Groups
   description: >-

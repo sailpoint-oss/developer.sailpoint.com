@@ -4,7 +4,7 @@ post:
   operationId: nonEmployeeBulkUploadJobFail
   tags:
     - Non-Employee Lifecycle Management
-  summary: Fail Bulk Upload
+  summary: Fail bulk upload
   description: |
     This API does not stop the job. It flags the job as failed. The job continues to run if it was 
     running when the API was invoked.

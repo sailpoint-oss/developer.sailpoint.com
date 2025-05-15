@@ -2,7 +2,7 @@ get:
   operationId: listAccountActivities
   tags:
     - Account Activities
-  summary: List Account Activities
+  summary: List account activities
   description: >-
     This gets a collection of account activities that satisfy the given query
     parameters.

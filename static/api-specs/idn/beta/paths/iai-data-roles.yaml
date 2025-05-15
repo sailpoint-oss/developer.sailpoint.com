@@ -1,6 +1,6 @@
 get:
   operationId: getRoles
-  summary: Get Roles for a Customer
+  summary: Get roles for a customer
   tags:
     - IAI Data Roles
   description: >-

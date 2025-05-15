@@ -2,7 +2,7 @@ put:
   operationId: setAuthUser
   tags:
     - Auth User
-  summary: Auth User Update - Overwrite
+  summary: Auth user update - overwrite
   description: Update an existing user in the authentication system by over overwriting the information with new information.
   security:
     - userAuth: [sp:auth-user-internal:update]
@@ -48,7 +48,7 @@ delete:
   operationId: deleteAuthUser
   tags:
     - Auth User
-  summary: Delete an Auth User
+  summary: Delete an auth user
   description: Delete an existing user in the authentication system.
   security:
     - userAuth: [sp:auth-user:delete]

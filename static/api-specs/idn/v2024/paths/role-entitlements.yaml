@@ -2,7 +2,7 @@ get:
   operationId: getRoleEntitlements
   tags:
   - Roles
-  summary: List Role's Entitlements
+  summary: List role's entitlements
   description: >-
     Get a list of entitlements associated with a specified role.
   parameters:

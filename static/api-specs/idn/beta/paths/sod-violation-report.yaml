@@ -2,7 +2,7 @@ get:
   operationId: getSodViolationReportStatus
   tags:
     - SOD Policies
-  summary: Get SOD violation report status
+  summary: Get sod violation report status
   deprecated: true
   security:
     - userAuth: [ idn:sod-violation:read ]

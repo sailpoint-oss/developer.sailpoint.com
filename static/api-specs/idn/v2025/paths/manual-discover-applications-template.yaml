@@ -1,5 +1,5 @@
 get:
-  summary: Download CSV Template for Discovery
+  summary: Download csv template for discovery
   tags:
     - Application Discovery
   description: >

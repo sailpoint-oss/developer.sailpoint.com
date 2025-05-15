@@ -7,7 +7,7 @@ post:
     - ORG_ADMIN
   tags:
     - Segments
-  summary: Create Segment
+  summary: Create segment
   description: >-
     This API creates a segment. 
 
@@ -44,7 +44,7 @@ get:
     - ORG_ADMIN
   tags:
     - Segments
-  summary: List Segments
+  summary: List segments
   description: >-
     This API returns a list of all segments. 
   parameters:

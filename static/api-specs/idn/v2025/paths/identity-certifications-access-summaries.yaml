@@ -2,7 +2,7 @@ get:
   operationId: getIdentityAccessSummaries
   tags:
     - Certification Summaries
-  summary: Access Summaries
+  summary: Access summaries
   description: >-
     This API returns a list of access summaries for the specified identity campaign certification and type. Reviewers for this certification can also call this
     API.

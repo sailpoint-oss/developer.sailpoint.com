@@ -2,7 +2,7 @@ get:
   tags:
     - Connectors
   operationId: getConnectorSourceTemplate
-  summary: Get Connector Source Template
+  summary: Get connector source template
   description: >-
     Fetches a connector's source template using its script name.    
   parameters:
@@ -45,7 +45,7 @@ put:
   tags:
     - Connectors
   operationId: putConnectorSourceTemplate
-  summary: Update Connector Source Template
+  summary: Update connector source template
   description: >-
     Update a connector's source template using its script name.    
   parameters:

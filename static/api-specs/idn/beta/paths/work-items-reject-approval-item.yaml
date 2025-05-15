@@ -2,7 +2,7 @@ post:
   operationId: rejectApprovalItem
   tags:
     - Work Items
-  summary: Reject an Approval Item
+  summary: Reject an approval item
   description: >-
     This API rejects an Approval Item. Either an admin, or the owning/current user must make this request.
   deprecated: true

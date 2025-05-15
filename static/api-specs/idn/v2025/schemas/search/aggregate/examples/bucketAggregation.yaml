@@ -1,4 +1,4 @@
-summary: BucketAggregation
+summary: Bucketaggregation
 value:
   indices:  [ 'identities' ]
   aggregationType: 'SAILPOINT'

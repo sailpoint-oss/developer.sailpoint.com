@@ -2,7 +2,7 @@ get:
   operationId: listWorkgroupMembers
   tags:
     - Governance Groups
-  summary: List Governance Group Members
+  summary: List governance group members
   description: This API returns list of members associated with a Governance Group.
   parameters:
     - name: workgroupId

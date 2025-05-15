@@ -4,7 +4,7 @@ patch:
     - userAuth: [sp:my-personal-access-tokens:manage]
   tags:
     - Personal Access Tokens
-  summary: Patch Personal Access Token
+  summary: Patch personal access token
   description: >-
     This performs a targeted update to the field(s) of a Personal Access Token.
 
@@ -65,7 +65,7 @@ delete:
     - userAuth: [sp:my-personal-access-tokens:manage, sp:all-personal-access-tokens:manage]
   tags:
     - Personal Access Tokens
-  summary: Delete Personal Access Token
+  summary: Delete personal access token
   description: >-
     This deletes a personal access token.
     

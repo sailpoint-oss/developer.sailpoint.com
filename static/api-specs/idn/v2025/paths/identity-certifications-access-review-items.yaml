@@ -2,7 +2,7 @@ get:
   operationId: listIdentityAccessReviewItems
   tags:
     - Certifications
-  summary: List of Access Review Items
+  summary: List of access review items
   security:
     - userAuth: []
   x-sailpoint-userLevels:

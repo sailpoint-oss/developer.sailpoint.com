@@ -28,7 +28,7 @@ If you would like to speak to a SailPoint representative about Secure Data Share
 
 Secure Data Share is an add-on for Identity Security Cloud. Please contact your sales representative to discuss your SDS options. You must also have an AWS Snowflake account so that SailPoint can synchronize your tenant data with your Snowflake instance.
 
-## Data Synchronization SLA
+## Data synchronization SLA
 
 Similar to Search, SDS has a synchronization service-level agreement (SLA) of 24 hours. This means it can take up to 24 hours for operational data in your tenant to be synchronized with your Snowflake database. SailPoint Search and SDS are two separate systems, and there is no guarantee on which service will receive updated data first. In some cases, operational data may appear in Search before SDS, and in other cases SDS may receive the data first.
 

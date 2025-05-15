@@ -20,7 +20,7 @@ Use the left pad transform to pad an incoming string with a user-supplied charac
 
 :::
 
-## Transform Structure
+## Transform structure
 
 In addition to the standard `type` and `name` attributes, the left pad transform requires the `length` attribute, which tells the transform how many characters to pad the incoming string to.
 
@@ -58,7 +58,7 @@ Input: "1234"
 Output: "00001234"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -82,7 +82,7 @@ Input: "1234"
 Output: "xxx1234"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

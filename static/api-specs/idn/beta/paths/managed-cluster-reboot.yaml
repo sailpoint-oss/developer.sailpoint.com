@@ -1,7 +1,7 @@
 post:
   tags:
     - Managed Clusters
-  summary: Reboot a cluster's VAs
+  summary: Reboot a cluster's vas
   description: >-
     Reboot a clusters VAs manual call
 

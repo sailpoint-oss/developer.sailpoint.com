@@ -4,7 +4,7 @@ get:
   #   - oauth2: [idn:authorization-model:read]
   tags:
     - Authorization Model
-  summary: List Authorization Model Capabilities
+  summary: List authorization model capabilities
   description: >-
     This API returns the list of capabilities from the Authorization Model Service.
 

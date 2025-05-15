@@ -4,7 +4,7 @@ get:
     - userAuth: [ idn:access-request-approvals:read ]
   x-sailpoint-userLevels:
     - ORG_ADMIN
-  summary: Pending Access Request Approvals List
+  summary: Pending access request approvals list
   tags:
     - Access Request Approvals
   description: >-

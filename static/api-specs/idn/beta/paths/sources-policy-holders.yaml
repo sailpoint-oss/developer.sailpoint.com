@@ -42,7 +42,7 @@ patch:
   operationId: updatePasswordPolicyHolders
   tags:
     - Sources
-  summary: Update Exceptions Password Policy
+  summary: Update exceptions password policy
   description: |
     This API can be used to set up or update an Exceptions Password Policy in IdentityNow for the specified Source.
     Source must support PASSWORD feature.

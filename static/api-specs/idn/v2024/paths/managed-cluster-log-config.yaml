@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clusters
-  summary: Get Managed Cluster Log Configuration
+  summary: Get managed cluster log configuration
   description: Get a managed cluster's log configuration.
   operationId: getClientLogConfiguration
   parameters:
@@ -42,7 +42,7 @@ get:
 put:
   tags:
     - Managed Clusters
-  summary: Update Managed Cluster Log Configuration
+  summary: Update managed cluster log configuration
   description: Update a managed cluster's log configuration. You may only specify one of `durationMinutes` or `expiration`, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` is 240.
   operationId: putClientLogConfiguration
   parameters:

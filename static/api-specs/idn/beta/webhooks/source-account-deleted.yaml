@@ -1,5 +1,5 @@
 post:
-  summary: Source Account Deleted
+  summary: Source account deleted
   operationId: sourceAccountDeletedEvent
   description: >-
     This event trigger fires when Identity Security Cloud (ISC), during an account aggregation operation, detects that an account has been deleted. 

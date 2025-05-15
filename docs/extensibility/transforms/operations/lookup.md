@@ -20,7 +20,7 @@ Use the lookup transform to take in an incoming string value and compare it to a
 
 :::
 
-## Transform Structure
+## Transform structure
 
 In addition to the `type` and `name` attributes, the structure of a lookup transform involves a `table` entry of key-value pairs:
 
@@ -57,7 +57,7 @@ In addition to the `type` and `name` attributes, the structure of a lookup trans
 
 This transform tries to map a telephone area code to a city in Texas. If there is no area code in the four provided values, the transform will return the default value of "Unknown Area."
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -81,7 +81,7 @@ This transform tries to map a telephone area code to a city in Texas. If there i
 
 This transform extends the previous one to show how multiple key values can be mapped to the same output value. However, duplicate key values are not allowed, so this will throw an error.
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

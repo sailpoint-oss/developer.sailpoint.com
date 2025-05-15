@@ -4,7 +4,7 @@ get:
     - userAuth: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Get Summary of Non-Employee Requests
+  summary: Get summary of non-employee requests
   description: >-
     This request will retrieve a summary of non-employee requests. There are two
     contextual uses for the `requested-for` path parameter: 1. The current user

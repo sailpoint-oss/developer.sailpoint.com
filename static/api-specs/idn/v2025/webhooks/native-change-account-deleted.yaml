@@ -1,5 +1,5 @@
 post:
-  summary: Native Change Account Deleted
+  summary: Native change account deleted
   operationId: nativeChangeAccountDeletedEvent
   description: >-
     This event trigger fires when Identity Security Cloud (ISC) aggregates data from an external source and detects that an account has been deleted from the source.

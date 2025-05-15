@@ -6,7 +6,7 @@ patch:
     - ORG_ADMIN
   tags:
     - Configuration Hub
-  summary: Update Scheduled Action
+  summary: Update scheduled action
   description: >-
     This API updates an existing scheduled action using JSON Patch format.
   parameters:
@@ -86,7 +86,7 @@ delete:
     - ORG_ADMIN
   tags:
     - Configuration Hub
-  summary: Delete Scheduled Action
+  summary: Delete scheduled action
   description: >-
     This API deletes an existing scheduled action.
   parameters:

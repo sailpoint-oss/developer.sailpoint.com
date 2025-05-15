@@ -2,7 +2,7 @@ post:
   operationId: createSubscription
   tags:
     - Triggers
-  summary: Create a Subscription
+  summary: Create a subscription
   description: >-
     This API creates a new subscription to a trigger and defines trigger invocation details. The type of subscription determines which config object is required:
 
@@ -83,7 +83,7 @@ get:
   operationId: listSubscriptions
   tags:
     - Triggers
-  summary: List Subscriptions
+  summary: List subscriptions
   description: Gets a list of all trigger subscriptions.
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'

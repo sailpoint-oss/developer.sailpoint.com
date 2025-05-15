@@ -31,7 +31,7 @@ const Blog: React.FC = () => {
           <div className={styles.mainCard}>
             <div className={styles.contentContainer}>
               <div className={styles.gettingStartedText}>
-                <div className={styles.gettingStartedOne}>Community Blog</div>
+                <div className={styles.gettingStartedOne}>Community blog</div>
                 <div className={styles.gettingStartedThree}>
                   <span>
                     Our community blog is a collection of technical writings

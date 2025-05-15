@@ -1,4 +1,4 @@
-summary: Triggered by UI Test
+summary: Triggered by ui test
 value:
   owner:
     type: 'IDENTITY'

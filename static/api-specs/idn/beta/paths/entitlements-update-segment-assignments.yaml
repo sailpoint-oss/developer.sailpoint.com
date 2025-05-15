@@ -2,7 +2,7 @@ post:
   operationId: updateEntitlementSegmentAssignments
   tags:
     - Entitlements
-  summary: update entitlements of a segment
+  summary: Update entitlements of a segment
   description: >-
     This internal endpoint assigns or removes entitlements to a segment
   requestBody:

@@ -6,7 +6,7 @@ post:
     - userAuth: [ iai:access-request-recommender:manage ]
   x-sailpoint-userLevels:
     - Any
-  summary: Mark Viewed Access Request Recommendations
+  summary: Mark viewed access request recommendations
   description: This API consumes a notification that a recommended access request
     item was viewed. Future recommendations with this item will be marked with viewed=true.
     This can be useful for the consumer to determine if there are any new/unviewed
@@ -52,7 +52,7 @@ get:
     - userAuth: [ iai:access-request-recommender:read ]
   x-sailpoint-userLevels:
     - Any
-  summary: List Viewed Access Request Recommendations
+  summary: List viewed access request recommendations
   description: This API returns the list of viewed access request recommendations.
   parameters:
   - $ref: ../parameters/limit.yaml

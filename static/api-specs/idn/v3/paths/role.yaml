@@ -2,7 +2,7 @@ get:
   operationId: getRole
   tags:
     - Roles
-  summary: Get Role
+  summary: Get role
   description: >-
     Get a role by ID.
 
@@ -45,7 +45,7 @@ patch:
   operationId: patchRole
   tags:
     - Roles
-  summary: Patch Role
+  summary: Patch role
   description: >-
     Update an existing role, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
@@ -275,7 +275,7 @@ delete:
   operationId: deleteRole
   tags:
     - Roles
-  summary: Delete Role
+  summary: Delete role
   description: >-
     Delete a role by ID.
 

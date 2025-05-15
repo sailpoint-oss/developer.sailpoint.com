@@ -4,7 +4,7 @@ get:
     - userAuth: [sp:oauth-client:manage]
   tags:
     - OAuth Clients
-  summary: List OAuth Clients
+  summary: List oauth clients
   description: >-
     This gets a list of OAuth clients.
   parameters:
@@ -50,7 +50,7 @@ post:
     - userAuth: [sp:oauth-client:manage]
   tags:
     - OAuth Clients
-  summary: Create OAuth Client
+  summary: Create oauth client
   description: >-
     This creates an OAuth client.
 

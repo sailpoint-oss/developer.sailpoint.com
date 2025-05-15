@@ -1,6 +1,6 @@
 post:
   operationId: getRecommendations
-  summary: Returns Recommendation Based on Object
+  summary: Returns recommendation based on object
   tags:
   - IAI Recommendations
   description: The getRecommendations API returns recommendations based on the requested

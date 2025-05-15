@@ -1,7 +1,7 @@
 post:
   tags:
   - Suggested Entitlement Description
-  summary: Submit Bulk Approval Request
+  summary: Submit bulk approval request
   description: 'Submit Bulk Approval Request for SED.
 
     Request body takes list of SED Ids. API responses with list of SED Approval Status'

@@ -2,7 +2,7 @@ get:
   operationId: getAccountActivity
   tags:
     - Account Activities
-  summary: Get an Account Activity
+  summary: Get an account activity
   description: >-
     This gets a single account activity by its id.
   parameters:

@@ -2,7 +2,7 @@ get:
   operationId: getAccessRequestConfig
   security:
     - userAuth: [ idn:access-request-config:read ]
-  summary: Get Access Request Configuration
+  summary: Get access request configuration
   tags:
     - Access Requests
   description: >-
@@ -31,7 +31,7 @@ put:
     - userAuth: [ idn:access-request-config:update ]
   x-sailpoint-userLevels:
     - ORG_ADMIN
-  summary: Update Access Request Configuration
+  summary: Update access request configuration
   tags:
     - Access Requests
   description: >-

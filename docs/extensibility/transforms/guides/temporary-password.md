@@ -1,6 +1,6 @@
 ---
 id: temporary-password
-title: Generate Temporary Password
+title: Generate temporary password
 pagination_label: Generate Temporary Password
 sidebar_label: Generate Temporary Password
 sidebar_class_name: generateTemporaryPassword
@@ -26,7 +26,7 @@ For an initial (temporary) password, set a static value driven off a formula tha
 - The user's two-digit start month comes next (from the user's hire date).
 - The last part of the password is a static string: "RstP\*!7".
 
-## Create the Example Source from a delimited file
+## Create the example source from a delimited file
 
 This is the CSV file you will upload to create your source for testing this transform:
 
@@ -44,7 +44,7 @@ Fill in the form to create a source:
 
 The source configuration workflow will appear. Keep all the default settings and under **Review and Finish** on the left hand side, select **Exit Configuration**.
 
-## Upload Schema and Accounts
+## Upload schema and accounts
 
 In your newly created source, go to **Import Data** > **Account Schema**. Under **Options**, select **Upload Schema**. Locate the CSV file from earlier in this document.
 
@@ -56,7 +56,7 @@ Now you can upload your accounts. Go to **Import Data** > **Import Accounts** > 
 
 ![Account Summary](./img/account_summary.png)
 
-## Create an Identity Profile for the Source
+## Create an Identity Profile for the source
 
 Create an identity profile for your source. Go to **Admin** > **Identities** > **Identity Profiles** and select **New**.
 
@@ -64,15 +64,15 @@ Create an identity profile for your source. Go to **Admin** > **Identities** > *
 
 Fill out the form and select the source you created earlier.
 
-## Create the Transform
+## Create the transform
 
 To create the transform for generating the user's temporary password, you will use multiple different operations. You are going to break it out into pieces and then put it all together at the end. The [static transform](../operations/static.md) will be your main transform. You will use nested transforms to create each part of the password and then use those variables created in the final value.
 
-### The First Character is the User's First Initial in Lowercase
+### The first character is the User's first initial in lowercase
 
 The first part of the password is the user's first intitial in lowercase. You can create that attribute by using the [substring operation](../operations/substring.md) to get the first initial and then passing that attribute as input into the [lower operation](../operations/lower.md). In this example, the variable is `firstInitialLowercase`, and you will use it later in your static string.
 
-**First Initial Variable**
+**First initial variable**
 
 ```json
 "firstInitialLowercase": {
@@ -96,7 +96,7 @@ The first part of the password is the user's first intitial in lowercase. You ca
     }
 ```
 
-**Transform Body**
+**Transform body**
 
 ```json
 {
@@ -127,11 +127,11 @@ The first part of the password is the user's first intitial in lowercase. You ca
 }
 ```
 
-### The User's Last Name Comes Next with the First Character in Uppercase
+### The user's last name comes next with the first character in uppercase
 
 Adding to the transform, you can create a variable for the first character of the last name. You can do so by using the [substring operation](/docs/extensibility/transforms/operations/substring) and the [upper operation](/docs/extensibility/transforms/operations/upper). Once you have the variable `lastInitialUppercase` created, you can add that variable to the end of the static string in the value key.
 
-**Last Initial Variable**
+**Last initial variable**
 
 ```json
 "lastInitialUppercase": {
@@ -155,7 +155,7 @@ Adding to the transform, you can create a variable for the first character of th
     }
 ```
 
-**Transform Body**
+**Transform body**
 
 ```json
 {
@@ -207,7 +207,7 @@ Adding to the transform, you can create a variable for the first character of th
 
 You also need the end of the last name without the first character you already have capitalized from the last step. You can get that by using the substring method and providing only the begin key, which will return everything after the index you specify.
 
-**Last Name Variable**
+**Last name variable**
 
 ```json
     "endOfLastName": {
@@ -225,7 +225,7 @@ You also need the end of the last name without the first character you already h
     }
 ```
 
-**Transform Body**
+**Transform body**
 
 ```json
 {
@@ -288,11 +288,11 @@ You also need the end of the last name without the first character you already h
 }
 ```
 
-### The User's Two-Digit Start Month Comes Next, Taken from the Hire_Date
+### The user's two-digit start month comes next, taken from the hire_date
 
 To get the two-digit start month, use the [split operation](/docs/extensibility/transforms/operations/split). The `hire_date` is in the format of `YYYY-MM-DD`. To to get the month, split on `-` and set the index to return as 1.
 
-**Hire Date Month Variable**
+**Hire date month variable**
 
 ```json
 "hireDateMonth": {
@@ -311,7 +311,7 @@ To get the two-digit start month, use the [split operation](/docs/extensibility/
     }
 ```
 
-**Transform Body**
+**Transform body**
 
 ```json
 {
@@ -388,11 +388,11 @@ To get the two-digit start month, use the [split operation](/docs/extensibility/
 }
 ```
 
-### The Last Part of the Password is a Static String: "RstP\*!7"
+### The last part of the password is a static string: "RstP\*!7"
 
 To add the final part of the password, which is the static string `RstP\*!7`, use the static operation.
 
-**Static String Variable**
+**Static string variable**
 
 ```json
 "staticString": {
@@ -405,7 +405,7 @@ To add the final part of the password, which is the static string `RstP\*!7`, us
 
 ---
 
-## Completed Transform
+## Completed transform
 
 ```json
 {
@@ -488,7 +488,7 @@ To add the final part of the password, which is the static string `RstP\*!7`, us
 }
 ```
 
-## Verify the Transform
+## Verify the transform
 
 To verify your transform is working, create the transfrom through the REST API.
 
@@ -594,6 +594,6 @@ This is an example table of values with the temporary password for each user:
 | 100011 | frank.williams@sailpoint.com | Frank | Williams | 2020-07-10 | fWilliams07RstP\*!7 |
 | 100012 | paddy.lowe@sailpoint.com | Paddy | Lowe | 2020-09-20 | pLowe09RstP\*!7 |
 
-## Next Steps
+## Next steps
 
 Looking for more examples or having trouble with one of your complex transforms? Reach out in the [Developer Community Forum](https://developer.sailpoint.com/discuss/).

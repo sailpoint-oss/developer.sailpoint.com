@@ -30,7 +30,7 @@ You will learn how to implement SaaS Connectivity [commands](https://developer.s
 
 Once you have learned how to build an Airtable connector, you will know how to build basic SaaS connectors. You can then customize those connectors to best suit your organization's needs. 
 
-## SaaS Connectivity 
+## SaaS connectivity 
 
 [Connectors](https://documentation.sailpoint.com/saas/help/sources/index.html) are the bridges between ISC and the various source systems ISC needs to communicate with and aggregate data from. These connectors require the use of virtual appliances (VAs). 
 
@@ -54,7 +54,7 @@ To build an Airtable connector, you will need these resources:
 - [ISC](https://documentation.sailpoint.com/saas/help/setup/get_started.html): You need an ISC tenant you can connect to Airtable. 
 - [Airtable](https://airtable.com/): You need to create an account on Airtable, the source you are connecting to. Airtable is a cloud-based relational database platform - it is a bit like Excel, but it is useful for this example because you can send API requests to modify the data in the tables. 
 
-## Create Project 
+## Create project 
 
 To create your SaaS connector project, use a command line to navigate to your project directory and run this command: 
 
@@ -72,7 +72,7 @@ code .
 
 This command will launch VSCode in the folder you have open. 
 
-## Install Dependencies 
+## Install dependencies 
 
 The SaaS connnector project has dependencies - packages or libraries required for it to function. To install these dependencies, run this command in your terminal: 
 
@@ -143,7 +143,7 @@ The 'package-lock.json' file looks something like this:
 
 </details>
 
-## Test Deployment 
+## Test deployment 
 
 You can now deploy your SaaS connector project. To deploy it, run this command: 
 
@@ -163,7 +163,7 @@ npm run dev 4200
 
 This command changes the port to `localhost:4200`.
 
-## Create Airtable Table 
+## Create Airtable table 
 
 Open [Airtable](https://airtable.com/). Follow these steps to create the table you will use to set up the test data for your SaaS connector: 
 
@@ -183,7 +183,7 @@ The table will look something like this example:
 
 <details>
 
-<summary>Example Airtable Table</summary>
+<summary>Example Airtable table</summary>
 
 | id            | email                           | entitlements | fullname  |
 | ------------- | ------------------------------- | ------------ | ------------- |
@@ -214,7 +214,7 @@ Once you have installed the Airtable SDK, you will see it added to the list of d
   }
 ```
 
-## Get Airtable Configuration
+## Get Airtable configuration
 
 To connect to Airtable, you must be able to authenticate your API requests. To both learn how to configure your authentication as well as get the information you will need to do so, return to Airtable, go to the 'Help' menu, and access its API documentation. The API documentation is specific to the Airtable base and table you access it from. 
 
@@ -243,7 +243,7 @@ To create the PAT you will need to pass as an `apiKey`, go to [Airtable Builder 
 4. Add the base you created to the list of bases the PAT can access. 
 5. Select the 'Create token' button. 
 
-## Configure Airtable Authentication 
+## Configure Airtable authentication 
 
 Once you have a PAT to pass as an `apiKey` and the base ID to pass as an `Airtable.base`, you can return to your code and configure your Airtable connector's authentication. 
 
@@ -348,7 +348,7 @@ Once you have made these changes, your 'my-client.ts' file looks like this:
 
 <details>
 
-<summary>my-client.ts Updated for Authentication</summary>
+<summary>my-client.ts updated for authentication</summary>
 
 ```typescript showLineNumbers
 import { ConnectorError } from "@sailpoint/connector-sdk"
@@ -414,7 +414,7 @@ export class MyClient {
 
 Your SaaS connector is now configured to authenticate its API requests to Airtable.  
 
-## Configure Postman Environment
+## Configure Postman environment
 
 Once your SaaS connector's authentication is configured, you can configure Postman to test the connection between the SaaS connector and Airtable. 
 
@@ -439,7 +439,7 @@ Once your SaaS connector's authentication is configured, you can configure Postm
 
 5. Select the environment from the environment dropdown menu. All your API requests will automatically include these variables, authenticating them for both Airtable and ISC. 
 
-## Implement Test Connection Command 
+## Implement test connection command 
 
 Once you have configured Postman for testing your API requests, you can almost test your SaaS connector's connection to Airtable. To do so, you must implement your first command: [Test Connection](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/test-connection) 
 
@@ -474,7 +474,7 @@ Your code should currently look like this:
 
 <details>
 
-<summary>Code with Test Connection Implemented</summary>
+<summary>Code with test connection implemented</summary>
 
 ```typescript showLineNumbers
 import { ConnectorError } from "@sailpoint/connector-sdk"
@@ -542,7 +542,7 @@ export class MyClient {
 
 </details>
 
-## Fork SaaS Connectivity Postman Collection 
+## Fork SaaS connectivity Postman collection 
 
 To start testing the SaaS connector's commands in Postman, you will need to get the SaaS Connectivity collection. 
 
@@ -560,7 +560,7 @@ To get the SaaS Connectivity commands, follow these steps:
 
 6. There are two folders within this collection, 'Connector Commands' and 'Customizer Commands'. Expand 'Connector Commands'. You will see all the available connector commands listed. 
 
-## Test Connection 
+## Test connection 
 
 Before you test the connection, make sure that your SaaS connector is running. Use this command in your terminal to run the connector: 
 
@@ -617,7 +617,7 @@ Try sending it again. This is what the response may look like:
 
 <details>
 
-<summary>Connector Error</summary>
+<summary>Connector error</summary>
 
 ```json
 generic error: 
@@ -716,7 +716,7 @@ To implement Account List, follow these steps:
 2. [Write Account List Logic](#write-account-list-logic)
 3. [Update Account List Command Handler](#update-account-list-command-handler)
 
-### Create AirtableAccount Typescript File
+### Create AirtableAccount Typescript file
 
 To implement Account List and successfully aggregate account data into ISC, the first thing you must do is create a new Typescript file, titled 'AirtableAccount.ts'. You will use this file to create a class that will act as a wrapper around the Airtable account record data, which you can then convert to standard output formats and back to Airtable-compatible objects. 
 
@@ -848,7 +848,7 @@ export class AirtableAccount {
 
 </details>
 
-### Write Account List Logic
+### Write account list logic
 
 Once you have finished creating your 'AirtableAccount.ts' file, you can implement the Account List logic. To do so, follow these steps: 
 
@@ -886,7 +886,7 @@ Once you have finished making the changes, your 'my-client.ts' file will look so
 
 <details>
 
-<summary>my-client.ts with Account List</summary>
+<summary>my-client.ts with account list</summary>
 
 ```typescript showLineNumbers
 import { ConnectorError } from "@sailpoint/connector-sdk"
@@ -935,7 +935,7 @@ export class MyClient {
 
 </details>
 
-### Update Account List Command Handler
+### Update account list command handler
 
 The 'List Account' command is currently looking for attributes that don't exist in the 'Users' table (`username`, `firstName`, and `lastName`). To resolve this, you will have to open the 'index.ts' file to redefine what the command returns. To do so, follow these steps: 
 
@@ -964,7 +964,7 @@ Once you have finished making your changes, your 'index.ts' file will look somet
 
 <details>
 
-<summary>index.ts file with Account List</summary>
+<summary>index.ts file with account list</summary>
 
 ```typescript showLineNumbers
 import {
@@ -1009,7 +1009,7 @@ export const connector = async () => {
 
 </details>
 
-## List Airtable Accounts 
+## List Airtable accounts 
 
 Once you have configured the 'AirtableAccount.ts', 'my-client.ts', 'index.ts', and 'connector-spec.json' files, you can test Account List. To do so, open Postman and open the 'Test local stdAccountList' command. Then open its 'Body'. 
 
@@ -1032,7 +1032,7 @@ Your SaaS connector will get a successful response from Airtable, listing all th
 
 <details>
 
-<summary>Account List Command</summary>
+<summary>Account list command</summary>
 
 ```json
 {
@@ -1093,7 +1093,7 @@ Your SaaS connector will get a successful response from Airtable, listing all th
 
 </details>
 
-## Current Code 
+## Current code 
 
 At this point, your SaaS connector can successfully connect to Airtable and list accounts along with their attributes.
 
@@ -1265,7 +1265,7 @@ To create your SaaS connector in ISC and load account data from Airtable, you mu
 6. [Configure ISC Connector](#configure-isc-connector)
 7. [Aggregate Airtable Account Data](#aggregate-airtable-account-data)
 
-### Build Project
+### Build project
 
 Building your SaaS connector project means compressing your SaaS connector project's files into a zip file before uploading the connector to ISC. Before you can build your connector, however, you must update your 'connector-spec.json' file. 
 
@@ -1430,7 +1430,7 @@ The authentication process now looks for the correct keys, `apiKey` and `airtabl
 
     This command bundles the SaaS connector project's files into a zip file, 'your-projectname-0.1.0.zip', located in your project's 'dist' folder. You can now send this zip file to ISC. 
 
-### Create Empty ISC Connector
+### Create empty ISC connector
 
 Before you can upload your SaaS connector to ISC, you must create an entry for the connector in your ISC tenant. 
 
@@ -1454,7 +1454,7 @@ The output includes your new connector entry's name (alias) and its ID. You will
 
 You can use the the `sail conn list` command to list the available connectors at any time. To learn more about the other available SaaS connector commands you can use with the SailPoint CLI, refer to [Connectors](/docs/tools/cli/connectors/#commands). 
 
-### Upload Connector to ISC 
+### Upload connector to ISC 
 
 Once you have created the SaaS connector in ISC and gotten its connector ID, you can upload your SaaS connector project to ISC. To upload your connector, run this command: 
 
@@ -1474,7 +1474,7 @@ A successful response looks like this:
 +--------------------------------------+---------+
 ```
 
-### Test Connector 
+### Test connector 
 
 It can be very helpful to test your SaaS connector before you go through all the steps of configuring it in ISC. 
 
@@ -1525,7 +1525,7 @@ The CLI will go through the different commands and skip tests for any commands t
 +--------------------------+---------+--------+----------+--------------------------------+
 ```
 
-### Configure ISC Connector 
+### Configure ISC connector 
 
 Once you have uploaded the SaaS connector to ISC and tested it, you can configure it in ISC. Follow these steps to configure your connector in ISC: 
 
@@ -1543,7 +1543,7 @@ Once you have uploaded the SaaS connector to ISC and tested it, you can configur
 
 6. Open the 'Review and Test' section. Select the 'Test Connection' button to test the connection to Airtable. You will receive a confirmation that the connection test was successful. 
 
-### Aggregate Airtable Account Data 
+### Aggregate Airtable account data 
 
 Once you have configured your SaaS connector in ISC and successfully connected to your Airtable base, you can aggregate the Airtable account data into ISC. To do so, follow these steps: 
 
@@ -1553,7 +1553,7 @@ Once the accounts have been successfully loaded into ISC, you can view them by o
 
 If you click an account in the list, you can see the account's attributes: `fullname`, `email`, `id`, and `entitlements`.
 
-## Implement Account Read Command 
+## Implement account read command 
 
 Once you have configured the Account List command, it is natural to implement the last command included in the sample, [Account Read](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-read), as well. The logic is similar, but the key difference is that instead of getting all the accounts and listing their attributes, you will get one account by its identity (Airtable row ID) and list its attributes. 
 
@@ -1612,7 +1612,7 @@ To implement Account Read, follow these steps:
 
     This is the logic: First, you must provide the Airtable record `id`. Then, the connector will loop through the records until it finds the one that matches your specified value. Once it finds the value, it will create an array of the one account record and return that array of one. It uses that record to build an ISC object for the account. If it can't find the record, it throws an error.
 
-## Read Airtable Account 
+## Read Airtable account 
 
 Once you have configured Account Read in the 'AirtableAccount.ts', 'my-client.ts', and 'index.ts' files, you can test it in Postman. 
 
@@ -1687,7 +1687,7 @@ Once you have configured Account Read in the 'AirtableAccount.ts', 'my-client.ts
     }
     ```
 
-## Implement Entitlement List 
+## Implement entitlement list 
 
 The next command you will implement is [Entitlement List](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/entitlement-list), which will allow you to get a list of entitlements. 
 
@@ -1734,7 +1734,7 @@ To implement Entitlement List, you must make these changes:
 
     <details>
 
-    <summary>index.ts with Entitlement List</summary>
+    <summary>index.ts with entitlement list</summary>
 
     ```typescript showLineNumbers
     import {
@@ -1908,7 +1908,7 @@ To implement Entitlement List, you must make these changes:
 
 Once you have updated the 'connector-spec.json' file, you can test the Entitlement List. 
 
-## List Airtable Entitlements
+## List Airtable entitlements
 
 Once you have configured both the 'index.ts' and 'connector-spec.json' files, you can test Entitlement List. Open Postman and open the 'Test local stdEntitlementList' command. 
 
@@ -1965,7 +1965,7 @@ A successful response will look something like this:
 }
 ```
 
-## Implement Entitlement Read 
+## Implement entitlement read 
 
 Once you have implemented the Entitlement List command, implementing [Entitlement Read](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/entitlement-read) will be simple because you only have to update the 'index.ts' file and your changes will be similar to those you made for Entitlement List. 
 
@@ -2000,7 +2000,7 @@ To implement the Entitlement Read command, open the 'index.ts' file and make the
 
     The logic is similar to that of Entitlement List's command handler, but the key difference is that with this command, you specify a specific entitlement for the connector to find. The connector then returns that entitlement if it can find it, along with its attributes. If it can't find it, it throws the error, "Entitlement not found". 
 
-## Read Airtable Entitlement
+## Read Airtable entitlement
 
 Once you have configured both the 'index.ts' file, you can test Entitlement Read. Open Postman and open the 'Test local stdEntitlementRead' command. 
 
@@ -2037,7 +2037,7 @@ A successful response will look something like this:
 }
 ```
 
-## Implement Account Create
+## Implement account create
 
 To create accounts in Airtable, you can use [Account Create](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-create). 
 
@@ -2096,7 +2096,7 @@ To implement the Account Create command, follow these steps:
 
 5. Open 'connector-spec.json'. Add the `"std:account:create"` command to the array of supported `commands` at the beginning of the file. 
 
-## Create Airtable Account
+## Create Airtable account
 
 Once you have configured the Account Create command, you can use your connector to create accounts in Airtable, which can then be synced with ISC. 
 
@@ -2145,7 +2145,7 @@ Send the request. You will receive a response like this:
 
 You can then go to Airtable and see that your new account was created, along with all its attributes. 
 
-## Implement Account Delete
+## Implement account delete
 
 Once you can create accounts, you will want to delete them too. The next command you will implement, the [Account Delete](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-delete), will allow you to do so. 
 
@@ -2178,7 +2178,7 @@ To implement Account Delete, follow these steps:
 
 3. Open the 'connector-spec.json' file. Add `std:account:delete` to the array of `commands` at the beginning of the file. 
 
-## Delete Airtable Account
+## Delete Airtable account
 
 Once you have configured the Account Delete command, you can test it. 
 
@@ -2210,7 +2210,7 @@ Send the request. The successful response is empty:
 
 You can check whether the the account has been deleted by running [Account List](#list-airtable-accounts).
 
-## Implement Account Update 
+## Implement account update 
 
 The final command you will implement is [Account Update](https://developer.sailpoint.com/docs/connectivity/saas-connectivity/commands/account-update). You can use this command to update the Airtable account's attributes. 
 
@@ -2303,7 +2303,7 @@ To implement Account Update, follow these steps:
 
 9. Open 'connector-spec.json'. Add `"std:account:update"` to the `"commands"` array at the beginning of the file. 
 
-## Update Airtable Account 
+## Update Airtable account 
 
 Once you have configured the Account Update command, you can test it. 
 
@@ -2355,7 +2355,7 @@ Send the request. You will get this successful response:
 
 To check your changes, you can open Airtable and see the identity's updated entitlements. 
 
-## Complete Code 
+## Complete code 
 
 You now have a SaaS connector that can get account data from Airtable and send it to ISC. You can also use the connector to make changes to the Airtable account data without opening Airtable at all. 
 

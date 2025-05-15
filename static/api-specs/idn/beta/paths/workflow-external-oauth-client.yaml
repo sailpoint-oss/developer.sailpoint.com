@@ -2,7 +2,7 @@ post:
   operationId: postWorkflowExternalTrigger
   tags:
     - Workflows
-  summary: Generate External Trigger OAuth Client
+  summary: Generate external trigger oauth client
   description: >-
     Create OAuth client ID, client secret, and callback URL for use in an external trigger.  External triggers will need this information to generate an access token to authenticate to the callback URL and submit a trigger payload that will initiate the workflow.
   security:

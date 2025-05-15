@@ -2,7 +2,7 @@ get:
   operationId: getIdentitySummaries
   tags:
     - Certification Summaries
-  summary: Identity Summaries for Campaign Certification
+  summary: Identity summaries for campaign certification
   security:
     - userAuth: []
   x-sailpoint-userLevels:

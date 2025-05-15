@@ -2,7 +2,7 @@ get:
   operationId: getWorkItem
   tags:
     - Work Items
-  summary: Get a Work Item
+  summary: Get a work item
   description: >-
     This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
   parameters:
@@ -37,7 +37,7 @@ post:
   operationId: completeWorkItem
   tags:
     - Work Items
-  summary: Complete a Work Item
+  summary: Complete a work item
   description: >-
     This API completes a work item. Either an admin, or the owning/current user must make this request.
   parameters:

@@ -2,7 +2,7 @@ get:
   operationId: listMachineAccountMappings
   tags:
     - Machine Account Mappings
-  summary: Machine Account Mapping for Source
+  summary: Machine account mapping for source
   description: >-
     Retrieves Machine account mappings for a specified source using Source ID.
   security:
@@ -48,7 +48,7 @@ post:
   operationId: createMachineAccountMappings
   tags:
     - Machine Account Mappings
-  summary: Create Machine Account Mappings
+  summary: Create machine account mappings
   security:
     - userAuth:
       - "idn:sources:create"
@@ -101,7 +101,7 @@ delete:
   operationId: deleteMachineAccountMappings
   tags:
     - Machine Account Mappings
-  summary: Delete Source's Machine Account Mappings
+  summary: Delete source's machine account mappings
   description: >-
     Use this API to remove machine account attribute mappings for a Source. 
 

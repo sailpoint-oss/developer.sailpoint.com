@@ -2,7 +2,7 @@ get:
   operationId: listIdentityAccessItems
   tags:
     - Identity History
-  summary: List Access Items by Identity
+  summary: List access items by identity
   description: >-
     This method retrieves a list of access item for the identity filtered by the access item type
   parameters:

@@ -2,7 +2,7 @@ delete:
   operationId: deleteIdentityAttributesInBulk
   tags:
   - Identity Attributes
-  summary: Bulk delete Identity Attributes
+  summary: Bulk delete identity attributes
   description: Use this API to bulk delete identity attributes for a given set of
     names. Attributes that are currently mapped in an identity profile cannot be deleted.  The
     `system` and `standard` properties must be set to 'false' before you can delete

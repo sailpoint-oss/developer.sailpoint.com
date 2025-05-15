@@ -4,7 +4,7 @@ get:
     - userAuth: [sp:config-draft:read, sp:config-draft:manage]
   tags:
     - Configuration Hub
-  summary: List Drafts
+  summary: List drafts
   description: >-
     This API gets a list of existing drafts for the current tenant.
   parameters:

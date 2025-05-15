@@ -2,7 +2,7 @@ get:
   operationId: listNotificationTemplateDefaults
   tags:
     - Notifications
-  summary: List Notification Template Defaults
+  summary: List notification template defaults
   description: >-
     This lists the default templates used for notifications, such as emails from IdentityNow.
   security:

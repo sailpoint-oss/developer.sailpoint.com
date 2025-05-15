@@ -40,7 +40,7 @@ get:
 put:
   tags:
     - Connector Customizers
-  summary: Update Connector Customizer
+  summary: Update connector customizer
   description: >-
     Update an existing connector customizer with the one provided in the request body. These fields are immutable: `id`, `name`, `type`.
   operationId: putConnectorCustomizer
@@ -86,7 +86,7 @@ put:
 delete:
   tags:
     - Connector Customizers
-  summary: Delete Connector Customizer
+  summary: Delete connector customizer
   description: Delete the connector customizer for the given ID.
   operationId: deleteConnectorCustomizer
   parameters:

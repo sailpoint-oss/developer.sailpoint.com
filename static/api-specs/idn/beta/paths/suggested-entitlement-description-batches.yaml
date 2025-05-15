@@ -2,7 +2,7 @@ get:
   tags:
     - Suggested Entitlement Description
   operationId: getSedBatches
-  summary: List Sed Batch Request
+  summary: List sed batch request
   description: >-
     List Sed Batches.
 
@@ -33,7 +33,7 @@ post:
   tags:
     - Suggested Entitlement Description
   operationId: submitSedBatchRequest
-  summary: Submit Sed Batch Request
+  summary: Submit sed batch request
   description: >-
     Submit Sed Batch Request.
 

@@ -9,7 +9,7 @@ get:
     - SOURCE_SUBADMIN
   tags:
     - Sources
-  summary: List Schedules on Source
+  summary: List schedules on source
   description: |
    Use this API to list the schedules that exist on the specified source in Identity Security Cloud (ISC).
    :::info
@@ -59,7 +59,7 @@ post:
     - SOURCE_SUBADMIN
   tags:
     - Sources
-  summary: Create Schedule on Source
+  summary: Create schedule on source
   description: |
     Use this API to create a new schedule for a type on the specified source in Identity Security Cloud (ISC).
   parameters:

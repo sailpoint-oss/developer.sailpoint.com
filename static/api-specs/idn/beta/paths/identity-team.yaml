@@ -2,7 +2,7 @@ get:
   operationId: getTeamSummary
   tags:
     - Identities
-  summary: Get team summary by identityId
+  summary: Get team summary by identityid
   description: >-
     This returns reference to a given identity’s manager, and the count of Identities that are managed by the provided identity.
   parameters:

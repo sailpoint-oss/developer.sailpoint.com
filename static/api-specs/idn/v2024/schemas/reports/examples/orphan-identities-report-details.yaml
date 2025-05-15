@@ -1,4 +1,4 @@
-summary: Orphan Identities report
+summary: Orphan identities report
 value:
   reportType: ORPHAN_IDENTITIES
   arguments:

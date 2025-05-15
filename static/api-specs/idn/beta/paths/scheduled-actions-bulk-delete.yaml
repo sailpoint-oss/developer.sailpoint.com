@@ -2,7 +2,7 @@ post:
   operationId: bulkDeleteScheduledActions
   tags:
     - SP-Scheduler
-  summary: Bulk Delete Scheduled Actions
+  summary: Bulk delete scheduled actions
   description: >-
     This deletes a list of scheduled actions filtered by meta data.
   requestBody:

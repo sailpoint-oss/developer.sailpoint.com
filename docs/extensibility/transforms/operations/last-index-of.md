@@ -20,7 +20,7 @@ If the substring you are searching for occurs multiple times within the incoming
 
 :::
 
-## Transform Structure
+## Transform structure
 
 The lastIndexOf transform requires only the substring you want to search for, along with the transform's `type` and `name` attributes:
 
@@ -55,7 +55,7 @@ Input: "admin_jsmith"
 Output: "0"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -73,7 +73,7 @@ Output: "0"
 
 While the letter "b" occurs multiple times throughout the input string, the last time it occurs is within index location 7, so this transform returns that value.
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```bash
 Input: "abcabcabc"

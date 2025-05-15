@@ -2,7 +2,7 @@ get:
   operationId: exportOutliersZip
   tags:
     - IAI Outliers
-  summary: IAI Identity Outliers Export
+  summary: Iai identity outliers export
   description: |
     This API exports a list of ignored outliers to a CSV as well as list of non-ignored outliers to a CSV. These two CSVs will be zipped and exported.
 

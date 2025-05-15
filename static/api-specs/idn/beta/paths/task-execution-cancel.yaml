@@ -4,7 +4,7 @@
 post:
   tags:
     - Task Management
-  summary: Cancel a task by ID
+  summary: Cancel a task by id
   description: Cancel a task by task ID.
   operationId: cancelTask
   parameters:

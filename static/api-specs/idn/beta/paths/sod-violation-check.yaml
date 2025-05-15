@@ -2,7 +2,7 @@ post:
   operationId: startViolationCheck
   tags:
     - SOD Policies
-  summary: Check SOD violations
+  summary: Check sod violations
   description: >-
     This API initiates a SOD policy verification asynchronously.
 

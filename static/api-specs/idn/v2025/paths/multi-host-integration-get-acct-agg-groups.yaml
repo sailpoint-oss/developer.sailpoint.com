@@ -1,7 +1,7 @@
 get:
   tags:
     - Multi-Host Integration
-  summary: List Account-Aggregation-Groups by Multi-Host ID
+  summary: List account-aggregation-groups by multi-host id
   description: >-
     This API will return array of account aggregation groups within provided Multi-Host Integration ID.
     

@@ -2,7 +2,7 @@ get:
   operationId: getSodPolicy
   tags:
     - SOD Policies
-  summary: Get SOD policy by ID
+  summary: Get sod policy by id
   deprecated: true
   security:
     - userAuth: [ idn:sod-policy:read ]
@@ -131,7 +131,7 @@ put:
   operationId: putSodPolicy
   tags:
     - SOD Policies
-  summary: Update SOD policy by ID
+  summary: Update sod policy by id
   deprecated: true
   security:
     - userAuth: [idn:sod-policy:write]
@@ -354,7 +354,7 @@ delete:
   operationId: deleteSodPolicy
   tags:
     - SOD Policies
-  summary: Delete SOD policy by ID
+  summary: Delete sod policy by id
   deprecated: true
   security:
     - userAuth: [idn:sod-policy:write]
@@ -398,7 +398,7 @@ patch:
   operationId: patchSodPolicy
   tags:
     - SOD Policies
-  summary: Patch a SOD policy
+  summary: Patch a sod policy
   deprecated: true
   security:
     - userAuth: [ idn:sod-policy:write ]

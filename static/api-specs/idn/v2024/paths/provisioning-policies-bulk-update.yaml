@@ -2,7 +2,7 @@ post:
   operationId: updateProvisioningPoliciesInBulk
   tags:
     - Sources
-  summary: Bulk Update Provisioning Policies
+  summary: Bulk update provisioning policies
   description: >-
     This end-point updates a list of provisioning policies on the specified source in IdentityNow.
   security:

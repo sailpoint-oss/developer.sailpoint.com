@@ -2,7 +2,7 @@ get:
   operationId: getCampaignReportsConfig
   tags:
     - Certification Campaigns
-  summary: Get Campaign Reports Configuration
+  summary: Get campaign reports configuration
   deprecated: true
   description: |
     Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-reports-config).
@@ -32,7 +32,7 @@ put:
   operationId: setCampaignReportsConfig
   tags:
     - Certification Campaigns
-  summary: Set Campaign Reports Configuration
+  summary: Set campaign reports configuration
   deprecated: true
   description: | 
     Use this API to overwrite the configuration for campaign reports. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/set-campaign-reports-config).

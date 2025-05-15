@@ -2,7 +2,7 @@ get:
   operationId: getActiveCampaigns
   tags:
     - Certification Campaigns
-  summary: List Campaigns
+  summary: List campaigns
   description: |
     Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query.
   security:

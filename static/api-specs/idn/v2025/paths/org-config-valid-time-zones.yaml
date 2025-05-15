@@ -2,7 +2,7 @@ get:
   operationId: getValidTimeZones
   tags:
   - Org Config
-  summary: Get Valid Time Zones
+  summary: Get valid time zones
   security:
   - userAuth:
     - idn:org-configs:read

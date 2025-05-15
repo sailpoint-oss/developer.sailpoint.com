@@ -4,7 +4,7 @@ get:
     - userAuth: [sp:config-backup:read, sp:config-backup:manage]
   tags:
     - Configuration Hub
-  summary: Get an Uploaded Configuration
+  summary: Get an uploaded configuration
   description: >-
     This API gets an existing uploaded configuration for the current tenant.
   parameters:
@@ -59,7 +59,7 @@ delete:
     - userAuth: [sp:config-backup:manage]
   tags:
     - Configuration Hub
-  summary: Delete an Uploaded Configuration
+  summary: Delete an uploaded configuration
   description: >-
     This API deletes an uploaded configuration based on Id.
 

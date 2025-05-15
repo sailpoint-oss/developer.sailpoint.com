@@ -6,7 +6,7 @@ get:
     - ORG_ADMIN
   tags:
     - Access Request Approvals
-  summary: Access Request Approvers
+  summary: Access request approvers
   description: |
     This API endpoint returns the list of approvers for the given access request id.
   parameters:

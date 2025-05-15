@@ -2,7 +2,7 @@ post:
   operationId: sendTestNotification
   tags:
     - Notifications
-  summary: Send Test Notification
+  summary: Send test notification
   description: >-
     Send a Test Notification
   requestBody:

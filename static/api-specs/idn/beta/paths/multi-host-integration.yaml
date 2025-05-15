@@ -1,7 +1,7 @@
 post:
   tags:
     - Multi-Host Integration
-  summary: Create Multi-Host Integration
+  summary: Create multi-host integration
   description: >- 
     This API is used to create Multi-Host Integration. Multi-host Integration holds similar types of sources.
     
@@ -40,7 +40,7 @@ post:
 get:
   tags:
     - Multi-Host Integration
-  summary: List All Existing Multi-Host Integrations
+  summary: List all existing multi-host integrations
   description: >-
     Get a list of Multi-Host Integrations.  
     

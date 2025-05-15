@@ -9,7 +9,7 @@ get:
     - SOURCE_SUBADMIN
   tags:
     - Sources
-  summary: List Schemas on Source
+  summary: List schemas on source
   description: Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
   parameters:
     - in: path
@@ -73,7 +73,7 @@ post:
     - SOURCE_ADMIN
   tags:
     - Sources
-  summary: Create Schema on Source
+  summary: Create schema on source
   description: Use this API to create a new schema on the specified source in Identity Security Cloud (ISC).
   parameters:
     - in: path

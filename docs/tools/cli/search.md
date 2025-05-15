@@ -100,7 +100,7 @@ Here is an example of a `query` command that sorts the results in ascending orde
 sail search query "name:a*" --indices identities --sort name --sort "-created"
 ```
 
-#### Folder Path
+#### Folder path
 
 Use the `folderPath` flag to specify the folder path to save the search results in. If you don't specify a `folderPath`, the results will save to a folder called "search_results", located within your current working directory.
 
@@ -132,7 +132,7 @@ You can append one flag to the `template` command to refine it:
 
 - The flag, `folderPath`, allows you to specify the folder path where you want to save the search query result files.
 
-#### Folder Path
+#### Folder path
 
 Use the `folderPath` flag to specify the folder path to save the search results in. If you don't specify a `folderPath`, the results will save to a folder called "search_results", located within your current working directory.
 

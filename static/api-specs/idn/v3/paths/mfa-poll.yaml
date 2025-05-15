@@ -2,7 +2,7 @@ post:
   operationId: pingVerificationStatus
   tags:
     - MFA Controller
-  summary: Polling MFA method by VerificationPollRequest
+  summary: Polling mfa method by verificationpollrequest
   description: >-
     This API poll the VerificationPollRequest for the specified MFA method.
   security:

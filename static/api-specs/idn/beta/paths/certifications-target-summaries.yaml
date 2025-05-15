@@ -2,7 +2,7 @@ get:
   operationId: getTargetSummaries
   tags:
     - Certification Summaries
-  summary: Target Summaries for a Certification
+  summary: Target summaries for a certification
   description:  >-
     This API returns a list of the target summaries for a specific certification. A token with ORG_ADMIN or CERT_ADMIN
     authority is required to call this API. Reviewers for this certification can also call this API.

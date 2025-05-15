@@ -6,7 +6,7 @@ post:
     - userAuth: [ iai:access-request-recommender:manage ]
   x-sailpoint-userLevels:
     - Any
-  summary: Bulk Mark Viewed Access Request Recommendations
+  summary: Bulk mark viewed access request recommendations
   description: This API consumes a notification that a set of recommended access request
     item were viewed. Future recommendations with these items will be marked with
     viewed=true. This can be useful for the consumer to determine if there are any

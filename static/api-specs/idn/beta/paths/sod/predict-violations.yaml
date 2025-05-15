@@ -2,7 +2,7 @@ post:
   operationId: startPredictSodViolations
   tags:
     - SOD Violations
-  summary: Predict SOD violations for identity.
+  summary: Predict sod violations for identity.
   deprecated: true
   security:
     - userAuth: [ idn:sod-violation:read ]

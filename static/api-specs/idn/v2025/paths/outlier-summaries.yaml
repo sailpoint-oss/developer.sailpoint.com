@@ -2,7 +2,7 @@ get:
   operationId: getIdentityOutlierSnapshots
   tags:
     - IAI Outliers
-  summary: IAI Identity Outliers Summary
+  summary: Iai identity outliers summary
   description: >-
     This API returns a summary containing the number of identities that customer has, the number of outliers, and the type of outlier.
   parameters:

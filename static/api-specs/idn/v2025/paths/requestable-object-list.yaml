@@ -2,7 +2,7 @@ get:
   operationId: listRequestableObjects
   tags:
     - Requestable Objects
-  summary: Requestable Objects List
+  summary: Requestable objects list
   security:
     - userAuth: [idn:requestable-objects:read]
   x-sailpoint-userLevels:

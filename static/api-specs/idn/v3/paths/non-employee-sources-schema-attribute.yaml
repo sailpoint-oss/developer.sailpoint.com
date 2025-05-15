@@ -4,7 +4,7 @@ get:
     - userAuth: []
   tags:
     - Non-Employee Lifecycle Management
-  summary: Get Schema Attribute Non-Employee Source
+  summary: Get schema attribute non-employee source
   description: >-
     This API gets a schema attribute by Id for the specified Non-Employee
     SourceId. Requires role context of `idn:nesr:read` or the user must be an
@@ -49,7 +49,7 @@ patch:
   #   - oauth2: [idn:nesr:update]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Patch a Schema Attribute for Non-Employee Source
+  summary: Patch a schema attribute for non-employee source
   description: |
     This end-point patches a specific schema attribute for a non-employee SourceId.
     Requires role context of `idn:nesr:update`
@@ -112,7 +112,7 @@ delete:
   #   - oauth2: [idn:nesr:delete]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Delete a Schema Attribute for Non-Employee Source
+  summary: Delete a schema attribute for non-employee source
   description: | 
     This end-point deletes a specific schema attribute for a non-employee source.
     Requires role context of `idn:nesr:delete`

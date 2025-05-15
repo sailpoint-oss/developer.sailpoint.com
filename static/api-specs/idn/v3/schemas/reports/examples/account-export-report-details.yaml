@@ -1,4 +1,4 @@
-summary: Account Export report
+summary: Account export report
 value:
   reportType: ACCOUNTS
   arguments:

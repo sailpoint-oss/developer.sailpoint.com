@@ -1,5 +1,5 @@
 post:
-  summary: Identity Created
+  summary: Identity created
   operationId: identityCreatedEvent
   description: >-
     This event trigger fires when Identity Security Cloud (ISC) detects a new identity during an aggregation and refresh from an authoritative source.

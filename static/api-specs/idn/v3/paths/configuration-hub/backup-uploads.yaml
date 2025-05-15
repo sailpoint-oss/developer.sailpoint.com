@@ -4,7 +4,7 @@ get:
     - userAuth: [sp:config-backup:read, sp:config-backup:manage]
   tags:
     - Configuration Hub
-  summary: List Uploaded Configurations
+  summary: List uploaded configurations
   description: >-
     This API gets a list of existing uploaded configurations for the current tenant.
   parameters:
@@ -70,7 +70,7 @@ post:
     - userAuth: [sp:config-backup:manage]
   tags:
     - Configuration Hub
-  summary: Upload a Configuration
+  summary: Upload a configuration
   description: >-
     This API uploads a JSON configuration file into a tenant.
     

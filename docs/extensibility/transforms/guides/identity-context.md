@@ -1,6 +1,6 @@
 ---
 id: identity-context
-title: Identity Attribute Context in Transforms
+title: Identity attribute context in transforms
 pagination_label: Identity Attribute Context
 sidebar_label: Identity Attribute Context
 sidebar_class_name: identityContextTransform

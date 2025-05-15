@@ -3,7 +3,7 @@ get:
   tags:
     - Certifications
     - Certification Campaigns
-  summary: List of Pending Certification Tasks
+  summary: List of pending certification tasks
   deprecated: true
   description: >-
     This API returns a list of pending (`QUEUED` or `IN_PROGRESS`) certification tasks. Any authenticated token can call

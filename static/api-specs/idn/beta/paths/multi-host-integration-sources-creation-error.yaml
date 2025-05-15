@@ -1,7 +1,7 @@
 get:
   tags:
     - Multi-Host Integration
-  summary: List Multi-Host Source Creation Errors
+  summary: List multi-host source creation errors
   description: >-
     Get a list of sources creation errors within Multi-Host Integration ID.  
     

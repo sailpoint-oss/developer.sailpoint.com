@@ -2,7 +2,7 @@ post:
   operationId: createSubscription
   tags:
     - Triggers
-  summary: Creates Subscription (Internal)
+  summary: Creates subscription (internal)
   description: >-
     This creates a subscription for a trigger which defines the way the trigger is invoked.
   requestBody:

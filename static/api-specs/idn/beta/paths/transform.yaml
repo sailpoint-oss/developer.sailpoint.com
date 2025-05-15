@@ -1,7 +1,7 @@
 get:
   tags:
     - Transforms
-  summary: Transform by ID
+  summary: Transform by id
   description: >-
     This API returns the transform specified by the given ID.
 

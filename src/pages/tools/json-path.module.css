@@ -22,7 +22,12 @@
 }
 
 a[id^='jsonpathDocumentationLink'] {
-  color: var(--mui-link) !important;
+  color: var(--link-color) !important;
+  text-decoration: underline !important;
+}
+
+a[id^='jsonpathDocumentationLink']:hover {
+  text-decoration: none!important;
 }
 
 li[class^='MuiButtonBase-root'] {
@@ -76,4 +81,16 @@ div [id^='jsonpathalert'] {
 
 .actionBar button {
   min-width: 100px;
+}
+
+.runButton {
+  color: var(--ifm-button-colors) !important;
+  border: 1px solid var(--ifm-button-colors) !important;
+  background-color: var(--dropdown-background) !important;
+}
+
+.runButton:hover {
+  background-color: var(--ifm-button-colors) !important;
+  color: var(--text-on-primary) !important;
+  border: 1px solid var(--ifm-button-colors) !important;
 }

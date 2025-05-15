@@ -3,7 +3,7 @@ get:
   operationId: getSourceSchema
   tags:
     - Sources
-  summary: Get Source Schema by ID
+  summary: Get source schema by id
   description: |
     Get the Source Schema by ID in IdentityNow.
   parameters:
@@ -46,7 +46,7 @@ put:
   operationId: putSourceSchema
   tags:
     - Sources
-  summary: Update Source Schema (Full)
+  summary: Update source schema (full)
   description: |
     This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.
 
@@ -104,7 +104,7 @@ patch:
   operationId: updateSourceSchema
   tags:
     - Sources
-  summary: Update Source Schema (Partial)
+  summary: Update source schema (partial)
   description: |
     Use this API to selectively update an existing Schema using a JSONPatch payload. 
     
@@ -202,7 +202,7 @@ delete:
   operationId: deleteSourceSchema
   tags:
     - Sources
-  summary: Delete Source Schema by ID
+  summary: Delete source schema by id
   parameters:
     - in: path
       name: sourceId

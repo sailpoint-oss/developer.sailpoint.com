@@ -2,7 +2,7 @@ get:
   operationId: getNotificationPreference
   tags:
     - Notifications
-  summary: Get Notification Preference details
+  summary: Get notification preference details
   description: >-
     Returns the notification preference details for tenant.  Note that if the key doesn't exist, then a 404 will be returned.
 

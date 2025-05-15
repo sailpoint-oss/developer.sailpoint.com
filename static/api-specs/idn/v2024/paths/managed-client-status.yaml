@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clients
-  summary: Get Managed Client Status
+  summary: Get managed client status
   description: >-
     Get a managed client's status, using its ID.
   operationId: getManagedClientStatus

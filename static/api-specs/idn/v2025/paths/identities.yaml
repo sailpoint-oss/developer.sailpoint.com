@@ -2,7 +2,7 @@ get:
   operationId: listIdentities
   tags:
   - Identities
-  summary: List Identities
+  summary: List identities
   description: This API returns a list of identities.
   security:
   - userAuth:

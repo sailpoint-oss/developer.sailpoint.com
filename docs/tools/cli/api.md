@@ -21,7 +21,7 @@ The `api` command makes it easy to call SailPoint APIs and parse the results usi
 - [put](#put-requests)
 - [delete](#delete-requests)
 
-## Get Requests
+## Get requests
 
 Run this command to get a list of transforms using the v2025 API:
 
@@ -49,7 +49,7 @@ To include headers with your API call—such as calling an experimental endpoint
 sail api get /v2025/entitlements/ -H "X-SailPoint-Experimental:true"
 ```
 
-### Query Parameters
+### Query parameters
 
 Use the `--query` or `-q` flag to provide query parameters.
 
@@ -63,7 +63,7 @@ Query parameters may need to be escaped depending on their use.
 sail api get /v2025/entitlements -q filters="owner.id eq\"<identity_id>\"" -H "X-SailPoint-Experimental:true"
 ```
 
-### Multiple Query Parameters
+### Multiple query parameters
 
 The `--query` flag can be used multiple times to provide additional query parameters.
 
@@ -73,7 +73,7 @@ Use the following command to return a single entitlement owned by a specific ide
 sail api get /v2025/entitlements -q filters="owner.id eq\"<identity-id>\"" -q limit=1 -H "X-SailPoint-Experimental:true"
 ```
 
-## Post Requests
+## Post requests
 
 Use the `post` subcommand to create resources.
 
@@ -89,7 +89,7 @@ Alternatively, use the `--body-file` or `-f` flag to provide the request body fr
 sail api post /v2025/transforms --file-body ./transform.json
 ```
 
-## Patch Requests
+## Patch requests
 
 Use the `patch` sub command to update resources.
 
@@ -99,7 +99,7 @@ Run the following command to update the owner of an access profile:
  sail api patch /v2025/access-profiles/<access-profile-id> --body '[{"op":"replace","path":"/owner/id","value":"<identity-id>"}]'
 ```
 
-## Put Requests
+## Put requests
 
 Run this command to replace a transform object using the v2025 API:
 
@@ -113,7 +113,7 @@ Use the `--body-file` or `-f` flag to provide the body of the request via a file
 sail api put /v2025/transforms --file-body ./updated-transform.json
 ```
 
-## Delete Requests
+## Delete requests
 
 Use this command to remove resources from Identity Security Cloud.
 

@@ -2,7 +2,7 @@ get:
   operationId: listIdentityAttributes
   tags:
   - Identity Attributes
-  summary: List Identity Attributes
+  summary: List identity attributes
   description: Use this API to get a collection of identity attributes.
   security:
   - userAuth:
@@ -64,7 +64,7 @@ post:
   operationId: createIdentityAttribute
   tags:
   - Identity Attributes
-  summary: Create Identity Attribute
+  summary: Create identity attribute
   description: Use this API to create a new identity attribute.
   security:
   - userAuth:

@@ -2,7 +2,7 @@ post:
   operationId: unlockAccount
   tags:
     - Accounts
-  summary: Unlock Account
+  summary: Unlock account
   description: >-
     This API submits a task to unlock an account and returns the task ID.  
 

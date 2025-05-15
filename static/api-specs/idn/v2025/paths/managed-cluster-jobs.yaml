@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clusters
-  summary: Retrieve all Managed Cluster jobs
+  summary: Retrieve all managed cluster jobs
   description: >-
     Retrieve all Managed Cluster cached Redis jobs for the given cluster ID.
 

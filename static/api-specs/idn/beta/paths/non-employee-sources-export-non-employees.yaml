@@ -4,7 +4,7 @@ get:
     - userAuth: [idn:nelm:read, idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Exports Non-Employee Records to CSV
+  summary: Exports non-employee records to csv
   description: >-
     This requests a CSV download for all non-employees from a provided source.
 

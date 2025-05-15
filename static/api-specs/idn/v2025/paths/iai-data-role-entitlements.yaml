@@ -1,6 +1,6 @@
 get:
   operationId: getRoleEntitlements
-  summary: Get Entitlements for a Role
+  summary: Get entitlements for a role
   tags:
     - IAI Data Roles
   description: >-

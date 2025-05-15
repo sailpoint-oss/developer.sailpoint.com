@@ -1,6 +1,6 @@
 post:
   operationId: deleteWorkgroupsInBulk
-  summary: Delete Governance Group(s)
+  summary: Delete governance group(s)
   tags:
     - Governance Groups
   description: >-

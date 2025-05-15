@@ -4,7 +4,7 @@ get:
   operationId: getSodPolicy
   tags:
     - SOD Policies
-  summary: Get SOD policy by ID
+  summary: Get sod policy by id
   description: >-
     This gets specified SOD policy.
 
@@ -132,7 +132,7 @@ put:
   operationId: putSodPolicy
   tags:
     - SOD Policies
-  summary: Update SOD policy by ID
+  summary: Update sod policy by id
   description: >-
     This updates a specified SOD policy.
 
@@ -345,7 +345,7 @@ delete:
   operationId: deleteSodPolicy
   tags:
     - SOD Policies
-  summary: Delete SOD policy by ID
+  summary: Delete sod policy by id
   description: >-
     This deletes a specified SOD policy.
 
@@ -391,7 +391,7 @@ patch:
   operationId: patchSodPolicy
   tags:
     - SOD Policies
-  summary: Patch SOD policy by ID
+  summary: Patch sod policy by id
   description: >-
     Allows updating SOD Policy fields other than ["id","created","creatorId","policyQuery","type"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
   

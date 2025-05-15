@@ -2,7 +2,7 @@ post:
   operationId: enableAccountForIdentity
   tags:
     - Accounts
-  summary: Enable IDN Account for Identity
+  summary: Enable idn account for identity
   description: >-
     This API submits a task to enable IDN account for a single identity.
   deprecated: true

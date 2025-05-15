@@ -1,6 +1,6 @@
 get:
   operationId: getApplications
-  summary: Applications by Identity Group
+  summary: Applications by identity group
   tags:
     - IAI Identity Groups
   description: >-

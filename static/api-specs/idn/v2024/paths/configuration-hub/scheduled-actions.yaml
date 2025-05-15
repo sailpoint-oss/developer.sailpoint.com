@@ -6,7 +6,7 @@ get:
     - ORG_ADMIN
   tags:
     - Configuration Hub
-  summary: List Scheduled Actions
+  summary: List scheduled actions
   description: >-
     This API gets a list of existing scheduled actions for the current tenant.
   responses:
@@ -54,7 +54,7 @@ post:
     - ORG_ADMIN
   tags:
     - Configuration Hub
-  summary: Create Scheduled Action
+  summary: Create scheduled action
   description: >-
     This API creates a new scheduled action for the current tenant.
   requestBody:

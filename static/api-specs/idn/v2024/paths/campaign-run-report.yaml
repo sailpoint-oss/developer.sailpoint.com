@@ -2,7 +2,7 @@ post:
   operationId: startCampaignReport
   tags:
     - Certification Campaigns
-  summary: Run Campaign Report
+  summary: Run campaign report
   description: | 
     Use this API to run a report for a certification campaign.
   security:

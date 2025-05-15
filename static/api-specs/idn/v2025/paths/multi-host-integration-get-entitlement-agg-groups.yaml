@@ -1,7 +1,7 @@
 get:
   tags:
     - Multi-Host Integration
-  summary: List Entitlement-Aggregation-Groups by Integration ID
+  summary: List entitlement-aggregation-groups by integration id
   description: >-
     This API will return array of aggregation groups within provided Multi-Host Integration ID.  
     

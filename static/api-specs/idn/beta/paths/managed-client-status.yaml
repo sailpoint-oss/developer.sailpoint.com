@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clients
-  summary: Specified Managed Client Status.
+  summary: Specified managed client status.
   description: Retrieve Managed Client Status by ID.
   deprecated: true
   operationId: getManagedClientStatus

@@ -28,7 +28,7 @@ With Reader permission, users can view any public sheets available and make sele
 
 For information on how to use AIC in your environment, see the documentation [here](https://documentation.sailpoint.com/saas/help/ai/access_insights/access_intelligence.html)
 
-## Technical Documentation and Videos
+## Technical documentation and videos
 
 For Entity Relationship (ER) Diagrams that represent the data model in AIC as well as other documentation see the following pages
 

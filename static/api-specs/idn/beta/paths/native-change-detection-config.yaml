@@ -2,7 +2,7 @@ get:
   operationId: getNativeChangeDetectionConfig
   tags:
     - Sources
-  summary: Native Change Detection Configuration
+  summary: Native change detection configuration
   security:
     - userAuth: [idn:sources:read]
   description: >-
@@ -43,7 +43,7 @@ put:
   operationId: putNativeChangeDetectionConfig
   tags:
     - Sources
-  summary: Update Native Change Detection Configuration
+  summary: Update native change detection configuration
   security:
     - userAuth: [idn:sources:update]
   description: >-
@@ -90,7 +90,7 @@ delete:
   operationId: deleteNativeChangeDetectionConfig
   tags:
     - Sources
-  summary: Delete Native Change Detection Configuration
+  summary: Delete native change detection configuration
   description: >-
     Deletes the native change detection configuration for the source specified by the given ID.
 

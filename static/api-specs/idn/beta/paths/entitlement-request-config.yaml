@@ -2,7 +2,7 @@ get:
   operationId: getEntitlementRequestConfig
   tags:
     - Entitlements
-  summary: Get Entitlement Request Config
+  summary: Get entitlement request config
   description: >-
     This API returns the entitlement request config for a specified entitlement.
   security:
@@ -89,7 +89,7 @@ put:
   operationId: putEntitlementRequestConfig
   tags:
     - Entitlements
-  summary: Replace Entitlement Request Config
+  summary: Replace entitlement request config
   description: >-
     This API replaces the entitlement request config for a specified entitlement.
   security:

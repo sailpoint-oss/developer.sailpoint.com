@@ -1,5 +1,5 @@
 get:
-  summary: List Access Model Metadata Values
+  summary: List access model metadata values
   description: Get a list of Access Model Metadata Attribute Values
   tags:
   - Access Model Metadata

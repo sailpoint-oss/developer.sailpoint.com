@@ -2,7 +2,7 @@ post:
   operationId: createWorkflow
   tags:
     - Workflows
-  summary: Create Workflow
+  summary: Create workflow
   description: >-
     Create a new workflow with the desired trigger and steps specified in the request body.
   security:
@@ -130,7 +130,7 @@ get:
   operationId: listWorkflows
   tags:
     - Workflows
-  summary: List Workflows
+  summary: List workflows
   description: >-
     List all workflows in the tenant.
   parameters:

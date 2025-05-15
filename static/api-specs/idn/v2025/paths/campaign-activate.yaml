@@ -2,7 +2,7 @@ post:
   operationId: startCampaign
   tags:
     - Certification Campaigns
-  summary: Activate a Campaign
+  summary: Activate a campaign
   description: |
     Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.
   security:

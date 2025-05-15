@@ -1,7 +1,7 @@
 post:
   tags:
   - Sources
-  summary: Process Uncorrelated Accounts
+  summary: Process uncorrelated accounts
   operationId: importUncorrelatedAccounts
   description: File is required for upload. You will also need to set the Content-Type
     header to `multipart/form-data`

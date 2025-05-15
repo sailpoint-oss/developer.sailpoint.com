@@ -2,7 +2,7 @@ get:
     operationId: listRoleAccessProfiles
     tags:
       - Roles
-    summary: List Role's Access Profiles
+    summary: List role's access profiles
     description: >-
         This API lists the Access Profiles associated with a given Role
 

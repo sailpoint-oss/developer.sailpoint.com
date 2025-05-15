@@ -2,7 +2,7 @@ get:
   operationId: getTenantUiMetadata
   tags:
     - UI Metadata
-  summary: Get a tenant UI metadata
+  summary: Get a tenant ui metadata
   description: >-
     This API endpoint retrieves UI metadata configured for your tenant.
     
@@ -32,7 +32,7 @@ put:
   operationId: setTenantUiMetadata
   tags:
     - UI Metadata
-  summary: Update tenant UI metadata
+  summary: Update tenant ui metadata
   description: >-
     This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI.
 

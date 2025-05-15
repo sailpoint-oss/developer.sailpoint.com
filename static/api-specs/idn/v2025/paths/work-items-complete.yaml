@@ -2,7 +2,7 @@ post:
   operationId: completeWorkItem
   tags:
     - Work Items
-  summary: Complete a Work Item
+  summary: Complete a work item
   description: >-
     This API completes a work item. Either an admin, or the owning/current user must make this request.
   parameters:

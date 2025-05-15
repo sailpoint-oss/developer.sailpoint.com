@@ -46,7 +46,7 @@ get:
     - Saved Search
   description: |
     Returns the specified saved search.
-  summary: Return saved search by ID
+  summary: Return saved search by id
   operationId: getSavedSearch
   parameters:
     - in: path
@@ -81,7 +81,7 @@ delete:
     - Saved Search
   description: |
     Deletes the specified saved search.
-  summary: Delete document by ID
+  summary: Delete document by id
   operationId: deleteSavedSearch
   parameters:
     - in: path

@@ -2,7 +2,7 @@ get:
     operationId: listDimensionAccessProfiles
     tags:
       - Dimensions
-    summary: List Dimension's Access Profiles
+    summary: List dimension's access profiles
     description: >-
         This API lists the Access Profiles associated with a given Dimension
 

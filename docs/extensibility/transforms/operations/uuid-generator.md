@@ -20,7 +20,7 @@ There is no uniqueness checking in this transform - the underlying code is writt
 
 :::
 
-## Transform Structure
+## Transform structure
 
 The UUID generator transform only requires the transform's `type` and `name` attributes:
 
@@ -45,7 +45,7 @@ The UUID generator transform only requires the transform's `type` and `name` att
 
 This transform produces a UUID such as "f7493c55-f3fc-491a-b352-4664d71f885b".
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

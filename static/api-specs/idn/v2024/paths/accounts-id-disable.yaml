@@ -2,7 +2,7 @@ post:
   operationId: disableAccount
   tags:
     - Accounts
-  summary: Disable Account
+  summary: Disable account
   description: >-
     This API submits a task to disable the account and returns the task ID.      
   security:

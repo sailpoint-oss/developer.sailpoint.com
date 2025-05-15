@@ -2,7 +2,7 @@ get:
   tags:
     - Connectors
   operationId: getConnectorSourceConfig
-  summary: Get Connector Source Configuration
+  summary: Get connector source configuration
   description: >-
     Fetches a connector's source config using its script name.    
   parameters:
@@ -45,7 +45,7 @@ put:
   tags:
     - Connectors
   operationId: putConnectorSourceConfig
-  summary: Update Connector Source Configuration
+  summary: Update connector source configuration
   description: >-
     Update a connector's source config using its script name.    
   parameters:

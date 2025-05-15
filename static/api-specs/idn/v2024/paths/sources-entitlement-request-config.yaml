@@ -8,7 +8,7 @@ get:
     - SOURCE_ADMIN
     - SOURCE_SUBADMIN
   operationId: getSourceEntitlementRequestConfig
-  summary: Get Source Entitlement Request Configuration
+  summary: Get source entitlement request configuration
   tags:
   - Sources
   description: >-
@@ -94,7 +94,7 @@ put:
     - SOURCE_ADMIN
     - SOURCE_SUBADMIN
   operationId: updateSourceEntitlementRequestConfig
-  summary: Update Source Entitlement Request Configuration
+  summary: Update source entitlement request configuration
   tags:
   - Sources
   description: >-

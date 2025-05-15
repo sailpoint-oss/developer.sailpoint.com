@@ -2,7 +2,7 @@ get:
   operationId: getMFADuoConfig
   tags:
     - MFA Configuration
-  summary: Configuration of Duo MFA method
+  summary: Configuration of duo mfa method
   description: >-
     This API returns the configuration of an Duo MFA method.
   security:
@@ -43,7 +43,7 @@ put:
   operationId: setMFADuoConfig
   tags:
     - MFA Configuration
-  summary: Set Duo MFA configuration
+  summary: Set duo mfa configuration
   description: >-
     This API sets the configuration of an Duo MFA method.
   security:

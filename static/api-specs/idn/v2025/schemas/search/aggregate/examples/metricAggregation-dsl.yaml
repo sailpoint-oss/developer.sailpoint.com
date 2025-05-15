@@ -1,4 +1,4 @@
-summary: MetricAggregation using DSL
+summary: Metricaggregation using dsl
 value:
   indices:  [ 'identities' ]
   aggregationType: 'DSL'

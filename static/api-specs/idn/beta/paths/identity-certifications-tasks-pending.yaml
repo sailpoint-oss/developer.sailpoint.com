@@ -2,7 +2,7 @@ get:
   operationId: getIdentityCertificationPendingTasks
   tags:
     - Certifications
-  summary: Pending Certification Tasks
+  summary: Pending certification tasks
   description: >-
     This API returns the status of all pending (`QUEUED` or `IN_PROGRESS`) tasks for an identity campaign certification.
     A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can

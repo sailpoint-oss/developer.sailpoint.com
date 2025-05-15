@@ -8,7 +8,7 @@ get:
     - SOURCE_SUBADMIN
   tags:
     - Sources
-  summary: Get Source Schedule by Type
+  summary: Get source schedule by type
   description: |
     Get the source schedule by type in Identity Security Cloud (ISC).
   parameters:
@@ -59,7 +59,7 @@ patch:
     - SOURCE_SUBADMIN
   tags:
     - Sources
-  summary: Update Source Schedule (Partial)
+  summary: Update source schedule (partial)
   description: |
     Use this API to selectively update an existing Schedule using a JSONPatch payload. 
     
@@ -134,7 +134,7 @@ delete:
     - SOURCE_SUBADMIN
   tags:
     - Sources
-  summary: Delete Source Schedule by type.
+  summary: Delete source schedule by type.
   parameters:
     - in: path
       name: sourceId

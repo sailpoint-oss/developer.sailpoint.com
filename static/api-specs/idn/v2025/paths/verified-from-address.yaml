@@ -2,7 +2,7 @@ delete:
   operationId: deleteVerifiedFromAddress
   tags:
   - Notifications
-  summary: Delete Verified From Address
+  summary: Delete verified from address
   description: Delete a verified sender email address
   parameters:
   - in: path

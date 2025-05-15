@@ -1,7 +1,7 @@
 post:
   tags:
     - Managed Clusters
-  summary: Upgrade a cluster's VAs
+  summary: Upgrade a cluster's vas
   description: >-
     Upgrade a clusters VAs manual call
 

@@ -1,5 +1,5 @@
 post:
-  summary: Source Deleted
+  summary: Source deleted
   operationId: sourceDeletedEvent
   description: >-
     This event trigger fires when a new source is deleted from Identity Security Cloud (ISC), by either the [API](https://developer.sailpoint.com/docs/api/v2024/delete-source) or the [Admin UI](https://documentation.sailpoint.com/saas/help/sources/index.html#deleting-a-source). 

@@ -1,7 +1,7 @@
 get:
   tags:
     - Launchers
-  summary: List all Launchers for tenant
+  summary: List all launchers for tenant
   description: Return a list of Launchers for the authenticated tenant
   operationId: getLaunchers
   parameters:

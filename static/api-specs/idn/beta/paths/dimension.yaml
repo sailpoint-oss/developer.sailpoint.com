@@ -2,7 +2,7 @@ get:
   operationId: getDimension
   tags:
     - Dimensions
-  summary: Get a Dimension under Role.
+  summary: Get a dimension under role.
   description: >-
     This API returns a Dimension by its ID.
 
@@ -54,7 +54,7 @@ patch:
   operationId: patchDimension
   tags:
     - Dimensions
-  summary: Patch a specified Dimension
+  summary: Patch a specified dimension
   description: >-
     This API updates an existing dimension using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
@@ -213,7 +213,7 @@ delete:
   operationId: deleteDimension
   tags:
     - Dimensions
-  summary: Delete a Dimension
+  summary: Delete a dimension
   description: >-
     This API deletes a Dimension by its ID.
 

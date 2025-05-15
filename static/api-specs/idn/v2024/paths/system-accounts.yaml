@@ -2,7 +2,7 @@ get:
   operationId: getSystemAccount
   tags:
     - Accounts
-  summary: Get System Account For Identity
+  summary: Get system account for identity
   description: >-
     Returns the system account given an identity ID.
 

@@ -14,7 +14,7 @@ tags: ['Transforms', 'Transform Operations']
 
 Use the split transform to use a specific character or regex string as a delimiter and convert a single incoming string into an array of values. This transform then returns the Nth element of that array. This transform is often useful when you want to split combined names into their constituent parts or when you want to simplify an ordered list of values into a single attribute.
 
-## Transform Structure
+## Transform structure
 
 In addition to the standard `type` and `name` attributes, the split transform requires the `delimiter` and `index` attributes. These parameters, respectively, tell the transform what to use as the pattern to split the string with and which entry in the resulting array of values you want it to return.
 
@@ -54,7 +54,7 @@ Input: "abc:123"
 Output: "123"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -78,7 +78,7 @@ Input: "The quick brown fox jumped over 10 lazy dogs"
 Output: "fox"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

@@ -2,7 +2,7 @@ get:
   operationId: listIdentityAttributes
   tags:
     - Identity Attributes
-  summary: List Identity Attributes
+  summary: List identity attributes
   description: >-
     Use this API to get a collection of identity attributes.
   security:
@@ -59,7 +59,7 @@ post:
   operationId: createIdentityAttribute
   tags:
     - Identity Attributes
-  summary: Create Identity Attribute
+  summary: Create identity attribute
   description: >-
     Use this API to create a new identity attribute.  
     A token with ORG_ADMIN authority is required to call this API.

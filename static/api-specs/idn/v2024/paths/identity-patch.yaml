@@ -2,7 +2,7 @@ patch:
   operationId: patchIdentity
   tags:
     - Internal Use Only
-  summary: Update an Identity
+  summary: Update an identity
   description: >-
     Allows updating individual fields on an Identity using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
     This endpoint is internal only and not intended to be moved to V3.

@@ -1,4 +1,4 @@
-summary: Query for Events
+summary: Query for events
 value:
   indices:
     - events

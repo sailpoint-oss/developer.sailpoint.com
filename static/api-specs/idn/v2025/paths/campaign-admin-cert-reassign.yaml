@@ -7,7 +7,7 @@ post:
   operationId: move
   tags:
     - Certification Campaigns
-  summary: Reassign Certifications
+  summary: Reassign certifications
   description: |
     This API reassigns the specified certifications from one identity to another.    
   parameters:

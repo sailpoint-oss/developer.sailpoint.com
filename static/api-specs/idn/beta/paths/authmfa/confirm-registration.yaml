@@ -2,7 +2,7 @@ post:
   operationId: authMfaConfirmRegistration
   tags:
     - Auth MFA
-  summary: Confirm a user's registration for MFA
+  summary: Confirm a user's registration for mfa
   description: >-
     For a user who is not currently registered for MFA and who has just scanned
     the QR code containing the TOTP URL provided by the /generate-secret

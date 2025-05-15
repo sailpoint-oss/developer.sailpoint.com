@@ -2,7 +2,7 @@ get:
   operationId: listReassignmentConfigurations
   tags:
     - Work Reassignment
-  summary: List Reassignment Configurations
+  summary: List reassignment configurations
   description: >-
     Gets all Reassignment configuration for the current org.
   security:
@@ -57,7 +57,7 @@ post:
   operationId: createReassignmentConfiguration
   tags:
     - Work Reassignment
-  summary: Create a Reassignment Configuration
+  summary: Create a reassignment configuration
   description: >-
     Creates a new Reassignment Configuration for the specified identity.
   security:

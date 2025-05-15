@@ -2,7 +2,7 @@ delete:
   operationId: deleteMFAConfig
   tags:
     - MFA Configuration
-  summary: Delete MFA method configuration
+  summary: Delete mfa method configuration
   description: >-
     This API removes the configuration for the specified MFA method.
   security:

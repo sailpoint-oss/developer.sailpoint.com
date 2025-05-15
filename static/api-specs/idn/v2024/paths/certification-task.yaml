@@ -2,7 +2,7 @@ get:
   operationId: getCertificationTask
   tags:
     - Certifications
-  summary: Certification Task by ID
+  summary: Certification task by id
   description: >-
     This API returns the certification task for the specified ID. Reviewers for the specified certification can also call this API.
   security:

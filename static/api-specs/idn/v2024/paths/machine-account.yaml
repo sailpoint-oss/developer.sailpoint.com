@@ -2,7 +2,7 @@ get:
   operationId: getMachineAccount
   tags:
     - Machine Accounts
-  summary: Machine Account Details
+  summary: Machine account details
   description: >-
     Use this API to return the details for a single machine account by its ID.  
   security:
@@ -53,7 +53,7 @@ patch:
   operationId: updateMachineAccount
   tags:
     - Machine Accounts
-  summary: Update a Machine Account
+  summary: Update a machine account
   description: |
     Use this API to update machine accounts details. 
   security:

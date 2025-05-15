@@ -2,7 +2,7 @@ post:
   operationId: startSodPolicy
   tags:
     - SOD Policies
-  summary: Runs SOD policy violation report
+  summary: Runs sod policy violation report
   deprecated: true
   security:
     - userAuth: [idn:sod-violation:write]

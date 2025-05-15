@@ -2,7 +2,7 @@ get:
   operationId: getIdentityAttribute
   tags:
   - Identity Attributes
-  summary: Get Identity Attribute
+  summary: Get identity attribute
   description: This gets an identity attribute for a given technical name.
   security:
   - userAuth:
@@ -47,7 +47,7 @@ put:
   operationId: putIdentityAttribute
   tags:
   - Identity Attributes
-  summary: Update Identity Attribute
+  summary: Update identity attribute
   description: This updates an existing identity attribute.  Making an attribute searchable
     requires that the `system`, `standard`, and `multi` properties be set to false.
   security:
@@ -99,7 +99,7 @@ delete:
   operationId: deleteIdentityAttribute
   tags:
   - Identity Attributes
-  summary: Delete Identity Attribute
+  summary: Delete identity attribute
   description: This deletes an identity attribute with the given name.  The `system`
     and `standard` properties must be set to false before you can delete an identity
     attribute.

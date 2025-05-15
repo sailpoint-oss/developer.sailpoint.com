@@ -2,7 +2,7 @@ get:
   operationId: getAuthOrgConfig
   tags:
     - Auth Org Configuration
-  summary: Get Auth Org Configuration
+  summary: Get auth org configuration
   description: >-
     This gets the details of an org's auth configuration.
 

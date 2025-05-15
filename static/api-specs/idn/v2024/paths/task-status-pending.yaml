@@ -1,7 +1,7 @@
 get:
   tags:
   - Task Management
-  summary: Retrieve Pending Task Status List
+  summary: Retrieve pending task status list
   description: Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
   operationId: getPendingTasks
   parameters:
@@ -52,7 +52,7 @@ get:
 head:
   tags:
   - Task Management
-  summary: Retrieve Pending Task List Headers
+  summary: Retrieve pending task list headers
   description: Responds with headers only for list of task statuses for pending tasks. 
   operationId: getPendingTaskHeaders
   parameters:

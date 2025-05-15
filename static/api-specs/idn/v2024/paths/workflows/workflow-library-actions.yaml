@@ -2,7 +2,7 @@ get:
   operationId: listWorkflowLibraryActions
   tags:
     - Workflows
-  summary: List Workflow Library Actions
+  summary: List workflow library actions
   description: >-
     This lists the workflow actions available to you.
   externalDocs:

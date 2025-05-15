@@ -1,6 +1,6 @@
 get:
   operationId: listIdentityGroups
-  summary: Identity Groups list
+  summary: Identity groups list
   tags:
     - IAI Identity Groups
   description: >-
@@ -41,7 +41,7 @@ get:
     - bearerAuth : []
 post:
   operationId: createIdentityGroup
-  summary: Creates Identity Group
+  summary: Creates identity group
   tags:
     - IAI Identity Groups
   description: >-

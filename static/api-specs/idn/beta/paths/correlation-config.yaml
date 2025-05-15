@@ -2,7 +2,7 @@ get:
   operationId: getCorrelationConfig
   tags:
     - Sources
-  summary: Get Source Correlation Configuration
+  summary: Get source correlation configuration
   security:
     - userAuth: [idn:sources:read, idn:sources:manage]
   x-sailpoint-userLevels:
@@ -45,7 +45,7 @@ put:
   operationId: putCorrelationConfig
   tags:
     - Sources
-  summary: Update Source Correlation Configuration
+  summary: Update source correlation configuration
   security:
     - userAuth: [idn:sources:manage]
   x-sailpoint-userLevels:

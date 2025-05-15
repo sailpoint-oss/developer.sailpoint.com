@@ -1,4 +1,4 @@
-summary: Query for Roles
+summary: Query for roles
 value:
   indices:
     - roles

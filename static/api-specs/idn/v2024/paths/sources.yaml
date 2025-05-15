@@ -10,7 +10,7 @@ get:
     - ROLE_SUBADMIN
   tags:
     - Sources
-  summary: Lists all sources in IdentityNow.
+  summary: Lists all sources in identitynow.
   description: >-
     This end-point lists all the sources in IdentityNow.
   parameters:
@@ -134,7 +134,7 @@ post:
     - SOURCE_SUBADMIN
   tags:
     - Sources
-  summary: Creates a source in IdentityNow.
+  summary: Creates a source in identitynow.
   description: >-
     This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and
     encrypted upon receipt in IdentityNow.

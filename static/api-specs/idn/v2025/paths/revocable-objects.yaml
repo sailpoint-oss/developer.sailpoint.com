@@ -2,7 +2,7 @@ get:
   operationId: getEntitlementDetailsForIdentity
   tags:
     - Access Requests
-  summary: Identity Entitlement Details
+  summary: Identity entitlement details
   description: >-
     Use this API to return the details for a entitlement on an identity including specific data relating to remove date and the ability to revoke the identity.
   security:

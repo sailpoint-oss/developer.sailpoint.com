@@ -1,0 +1,29 @@
+post:
+  operationId: completeWorkItem
+  tags:
+    - Work Items
+  summary: Complete a Work Item
+  description: >-
+    This API completes a work item. Either an admin, or the owning/current user must make this request.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      x-sailpoint-resource-operation-id: listWorkItems
+      description: The ID of the work item
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '200':
+      description: An identity campaign certification object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/WorkItems.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'

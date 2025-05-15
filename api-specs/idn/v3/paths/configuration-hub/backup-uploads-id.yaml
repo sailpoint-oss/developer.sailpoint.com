@@ -1,0 +1,93 @@
+get:
+  operationId: getUploadedConfiguration
+  security:
+    - userAuth: [sp:config-backup:read, sp:config-backup:manage]
+  tags:
+    - Configuration Hub
+  summary: Get an Uploaded Configuration
+  description: >-
+    This API gets an existing uploaded configuration for the current tenant.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The id of the uploaded configuration.
+      example: 3d0fe04b-57df-4a46-a83b-8f04b0f9d10b
+  responses:
+    '200':
+      description: >-
+        Gets an uploaded configuration details.
+      content:
+        application/json:
+          schema:
+            $ref: '../../../v2024/schemas/configuration-hub/BackupResponse.yaml'
+          example:
+            {
+              "jobId": "2ea830f3-2b14-4772-8a20-3d006742e419",
+              "status": "COMPLETE",
+              "type": "BACKUP",
+              "tenant": "someTenant",
+              "requesterName": "support",
+              "fileExists": true,
+              "created": "2024-02-20T22:08:31.064Z",
+              "modified": "2024-02-20T22:13:15.662Z",
+              "completed": "2024-02-20T22:08:31.689Z",
+              "name": "something new",
+              "userCanDelete": false,
+              "isPartial": false,
+              "backupType": "UPLOADED",
+              "hydrationStatus": "HYDRATED",
+              "totalObjectCount": 2
+            }
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'
+delete:
+  operationId: deleteUploadedConfiguration
+  security:
+    - userAuth: [sp:config-backup:manage]
+  tags:
+    - Configuration Hub
+  summary: Delete an Uploaded Configuration
+  description: >-
+    This API deletes an uploaded configuration based on Id.
+
+    
+    On success, this endpoint will return an empty response.
+
+    
+    The uploaded configuration id can be obtained from the response after a successful upload, or the list uploaded configurations endpoint.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: The id of the uploaded configuration.
+      example: 3d0fe04b-57df-4a46-a83b-8f04b0f9d10b
+  responses:
+    '204':
+      $ref: '../../responses/204.yaml'
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

@@ -1,0 +1,24 @@
+type: object
+properties:
+  entitlementRef:
+    type: object
+    $ref: './EntitlementRefDto.yaml'
+  applicationName:
+    type: string
+    description: the attribute name
+    example: "2c918085704000d90170456dae770028"
+  identityCount:
+    type: number
+    description: the attribute name
+    example: 10
+  popularity:
+    type: number
+    description: the attribute name
+    example: 76.92
+  popularityInOrg:
+    type: number
+    description: the attribute name
+    example: 7
+
+      
+    

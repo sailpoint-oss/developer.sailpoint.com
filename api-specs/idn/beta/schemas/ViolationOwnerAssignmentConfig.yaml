@@ -1,0 +1,39 @@
+type: object
+properties:
+  assignmentRule:
+    type: string
+    enum:
+      - MANAGER
+      - STATIC
+      - null
+    description: >-
+      Details about the violations owner.
+
+      MANAGER - identity's manager
+
+      STATIC - Governance Group or Identity
+    example: MANAGER
+    nullable: true
+  ownerRef:
+    type: object
+    description: The owner of the violation assignment config.
+    nullable: true
+    properties:
+      type:
+        type: string 
+        description: Owner type. 
+        enum: 
+          - IDENTITY
+          - GOVERNANCE_GROUP
+          - MANAGER
+          - null
+        example: IDENTITY
+      id:
+        type: string
+        description: Owner's ID.
+        example: 2c9180a46faadee4016fb4e018c20639
+      name:
+        type: string
+        description: Owner's name. 
+        example: Support
+

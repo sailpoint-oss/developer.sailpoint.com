@@ -1,0 +1,5 @@
+summary: Identity Profile Identity Error report
+value:
+  reportType: IDENTITY_PROFILE_IDENTITY_ERROR
+  arguments:
+    authoritativeSource: 2c9180847de347aa017de8ef09167792

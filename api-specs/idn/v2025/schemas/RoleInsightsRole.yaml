@@ -1,0 +1,22 @@
+type : object
+properties:
+  name:
+    type: string
+    description: Role name
+    example: "Software Engineer"
+  id:
+    type: string
+    description: Role id
+    example: "1467e61e-f284-439c-ba2d-c6cc11cf0941"
+  description:
+    type: string
+    description: Role description
+    example: "Person who develops software"
+  ownerName:
+    type: string
+    description: Role owner name
+    example: "Bob"
+  ownerId:
+    type: string
+    description: Role owner id
+    example: "1467e61e-f284-439c-ba2d-c6cc11cf0941"

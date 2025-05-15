@@ -1,0 +1,26 @@
+get:
+  operationId: getAuthOrgConfig
+  tags:
+    - Auth Org Configuration
+  summary: Get Auth Org Configuration
+  description: >-
+    This gets the details of an org's auth configuration.
+
+    Requires security scope of:  'sp:auth-org:read'
+  responses:
+    '200':
+      description: Auth org configuration for the tenant.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/AuthOrgConfiguration.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+  # security:
+  #   - oauth2: [sp:auth-org:read]

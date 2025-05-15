@@ -1,0 +1,13 @@
+type: object
+properties:
+  author:
+    $ref: '../schemas/ApprovalIdentity.yaml'
+  comment:
+    type: string
+    example: Looks good
+    description: Comment to be left on an approval
+  createdDate:
+    type: string
+    example: 2023-04-12T23:20:50.52Z
+    description: Date the comment was created
+description: Comments Object

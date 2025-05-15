@@ -1,0 +1,16 @@
+type: object
+description: >-
+  Configures System Notification preferences
+properties:
+  recipientType:
+    type: string
+    description: Determines which recipients will recieve System Notifications.  ALL_ADMINS will send System Notifications to 
+      all ORG_ADMIN email addresses.  OVERRIDE_EMAILS will send to the emails in `overrideEmails`.
+    example: "ALL_ADMINS"
+    enum:
+      - ALL_ADMINS
+      - OVERRIDE_EMAILS
+  overrideEmails:
+    type: array
+    description: List of valid email addresses that System Notifications will be sent to when `recipientType` is OVERRIDE_EMAILS.
+    example: ["notified1@example.com", "notified2@example.com"]

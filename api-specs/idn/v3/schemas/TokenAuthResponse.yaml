@@ -1,0 +1,12 @@
+type: object
+properties:
+  status:
+    type: string
+    enum:
+      - PENDING
+      - SUCCESS
+      - FAILED
+      - LOCKOUT
+      - NOT_ENOUGH_DATA
+    description: MFA Authentication status
+    example: PENDING

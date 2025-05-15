@@ -1,0 +1,140 @@
+post:
+  operationId: sendClassifyMachineAccountFromSource
+  tags:
+    - Source Classify
+  summary: Classify Source's All Accounts
+  security:
+    - userAuth:
+        - "idn:account:update"
+  x-sailpoint-userLevels:
+    - API
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  description: >-
+    Use this API to classify all the accounts from a source.
+
+    A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to
+    call this API.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Source ID.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '200':
+      description: Source's all accounts submitted for classification.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              "Accounts submitted for processing":
+                description: Returns the number of all the accounts from source submitted for processing.
+                type: integer
+                format: int32
+                minimum: 0
+                example: 100
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+delete:
+  operationId: deleteClassifyMachineAccountFromSource
+  tags:
+    - Source Classify
+  summary: Cancel Classify Source's Accounts Process
+  security:
+    - userAuth:
+        - "idn:account:update"
+  x-sailpoint-userLevels:
+    - API
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  description: >-
+    Use this API to cancel account classification process on a source.
+
+    A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to
+    call this API.
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Source ID.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    '204':
+      $ref: "../../v3/responses/204.yaml"
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
+get:
+  operationId: getClassifyMachineAccountFromSourceStatus
+  tags:
+    - Source Classify
+  summary: Source Accounts Classification Status
+  description: >-
+    Use this API to get the status of Machine Account Classification process for a source.
+
+    A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to
+    call this API.
+  security:
+    - userAuth:
+        - "idn:account:update"
+  x-sailpoint-userLevels:
+    - API
+    - ORG_ADMIN
+    - ROLE_ADMIN
+    - ROLE_SUBADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  parameters:
+    - in: path
+      name: id
+      schema:
+        type: string
+      required: true
+      description: Source ID.
+      example: ef38f94347e94562b5bb8424a56397d8
+  responses:
+    "200":
+      description: Source Accounts Classification Status object.
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/SourceClassificationStatus.yaml"
+    "400":
+      $ref: "../../v3/responses/400.yaml"
+    "401":
+      $ref: "../../v3/responses/401.yaml"
+    "403":
+      $ref: "../../v3/responses/403.yaml"
+    "404":
+      $ref: "../../v3/responses/404.yaml"
+    "429":
+      $ref: "../../v3/responses/429.yaml"
+    "500":
+      $ref: "../../v3/responses/500.yaml"

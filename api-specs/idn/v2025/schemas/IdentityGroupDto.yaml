@@ -1,0 +1,12 @@
+type: object
+properties:
+  id:
+    type: string
+    description: the identity group ID
+    example: "bc693f07-e7b6-4553-9626-c25954c58554"
+  identityIds:
+    type: array
+    description: the identities associated to the group
+    items:
+      type: string
+    example: "[bc693f07-e7b6-0000-0000-c25954c58554,bc693f07-e7b6-1111-1111-c25954c58554]"

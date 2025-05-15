@@ -1,0 +1,7 @@
+description: Sed Batch Status
+type: object
+properties:
+  status:
+    description: status of batch
+    type: string
+    example: OK

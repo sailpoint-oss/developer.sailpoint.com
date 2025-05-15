@@ -1,0 +1,41 @@
+post:
+  operationId: startInvocation
+  tags:
+    - Triggers
+  summary: Start Invocation
+  description: Start a trigger invocation with specified trigger input and contentJson context.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/StartInvocationInput.yaml'
+        example:
+          triggerId: "idn:access-requested"
+          input: {"identityId": "201327fda1c44704ac01181e963d463c"}
+          contentJson: {"workflowId": 1234}
+
+  responses:
+    '200':
+      description: >-
+        Trigger invocations that have been started for subscription(s) to specified trigger.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/Invocation.yaml'
+
+    '204':
+      $ref: '../../v3/responses/204.yaml'
+      description: Trigger invocation is skipped, because tenant has not subscribed to the specified trigger.
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

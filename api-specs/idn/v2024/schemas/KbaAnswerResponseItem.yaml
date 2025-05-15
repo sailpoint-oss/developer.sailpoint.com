@@ -1,0 +1,21 @@
+type: object
+properties:
+  id:
+    type: string
+    nullable: false
+    description: Question Id
+    example: c54fee53-2d63-4fc5-9259-3e93b9994135
+  question:
+    type: string
+    nullable: false
+    description: Question description
+    example: "[{\"text\":\"Nouvelle question MFA -1 ?\",\"locale\":\"fr\"},{\"text\":\"MFA new question -1 ?\",\"locale\":\"\"}]"
+  hasAnswer:
+    type: boolean
+    nullable: false
+    description: Denotes whether the KBA question has an answer configured for the current user
+    example: true
+required:
+  - id
+  - question
+  - hasAnswer

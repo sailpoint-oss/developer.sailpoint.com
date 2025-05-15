@@ -1,0 +1,112 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The entitlement id
+    example: "2c91808874ff91550175097daaec161c"
+  name:
+    type: string
+    description: The entitlement name
+    example: "LauncherTest2"
+  created:
+    type: string
+    description: Time when the entitlement was created
+    format: 'date-time'
+    example: "2020-10-08T18:33:52.029Z"
+  modified:
+    type: string
+    description: Time when the entitlement was last modified
+    format: 'date-time'
+    example: "2020-10-08T18:33:52.029Z"
+  attribute:
+    type: string
+    description: The entitlement attribute name
+    example: "memberOf"
+    nullable: true
+  value:
+    type: string
+    description: The value of the entitlement
+    example: "CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local"
+  sourceSchemaObjectType:
+    type: string
+    description: The object type of the entitlement from the source schema
+    example: "group"
+  privileged:
+    type: boolean
+    default: false
+    description: True if the entitlement is privileged
+    example: true
+  cloudGoverned:
+    type: boolean
+    default: false
+    description: True if the entitlement is cloud governed
+    example: true
+  description:
+    type: string
+    nullable: true
+    description: The description of the entitlement
+    example: "CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local"
+  requestable:
+    type: boolean
+    default: false
+    description: True if the entitlement is requestable
+    example: true
+  attributes:
+    type: object
+    description: A map of free-form key-value pairs from the source system
+    example: { "fieldName": "fieldValue" }
+    additionalProperties: true
+  source:
+    type: object
+    properties:
+      id:
+        type: string
+        description: The source ID
+        example: 2c9180827ca885d7017ca8ce28a000eb
+      type:
+        type: string
+        description: The source type, will always be "SOURCE"
+        example: SOURCE
+      name:
+        type: string
+        description: The source name
+        example: ODS-AD-Source
+        nullable: true
+  owner:
+    allOf:
+    - $ref: '../schemas/gov-entitlement/OwnerReferenceDto.yaml'
+    - nullable: true
+  directPermissions:
+    type: array
+    items:
+      $ref: './PermissionDto.yaml'
+  segments:
+    type: array
+    items:
+      type: string
+    nullable: true
+    description: List of IDs of segments, if any, to which this Entitlement is assigned.
+    example: [
+        "f7b1b8a3-5fed-4fd4-ad29-82014e137e19",
+        "29cb6c06-1da8-43ea-8be4-b3125f248f2a"
+    ]
+  manuallyUpdatedFields:
+    allOf:
+    - $ref: '../schemas/gov-entitlement/ManuallyUpdatedFieldsDTO.yaml'
+    - nullable: true
+      description: >-
+        Object contains entitlement manually updated fields.
+        Field value is true if is was updated manually via entitlement import csv or patch endpoint.
+        Field value is false if that property value has not been changed after first entitlement aggregation.
+        Values for all manually updatable fields must be specified.
+        For now only two entitlement fields support this: DISPLAY_NAME and DESCRIPTION.
+      example: {
+          "DISPLAY_NAME": true,
+          "DESCRIPTION": true
+      }
+  accessModelMetadata:
+    allOf:
+    - $ref: "../schemas/gov-attributes/AttributeDTOList.yaml"
+    - nullable: true
+      description: >-
+        Access Model Metadata (beta).

@@ -1,0 +1,10 @@
+type: object
+properties:
+  type:
+    type: string
+    description: Attribute mapping type. 
+    example: 'rule'
+  properties:
+    type: object
+    description: Attribute mapping properties.
+    example: { "ruleType": "IdentityAttribute","ruleName": "Cloud Promote Identity Attribute" }

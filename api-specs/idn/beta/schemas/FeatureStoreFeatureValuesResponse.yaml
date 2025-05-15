@@ -1,0 +1,23 @@
+type : object
+properties:
+  results:
+    type: array
+    description: A list of key value mappings of entity and feature names and their values from the feature store
+    items:
+      type: object
+      additionalProperties:
+        type: string
+    example: [
+      {
+        identity_id: 2c918089762475180176267f885e54ca,
+        customer_id: f44d2387-9285-422d-ab72-b6f15ed2b39e,
+        ent_count: 19,
+        peerless_score: 0
+      },
+      {
+        identity_id: 2c918089762475180176267f885e54cb,
+        customer_id: f44d2387-9285-422d-ab72-b6f15ed2b39e,
+        ent_count: 25,
+        peerless_score: 0.5
+      }
+    ]

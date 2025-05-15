@@ -1,0 +1,32 @@
+type: object
+properties:
+  approverType:
+    type: string
+    enum:
+      - ENTITLEMENT_OWNER
+      - SOURCE_OWNER
+      - MANAGER
+      - GOVERNANCE_GROUP
+    description: >-
+      Describes the individual or group that is responsible for an approval step. Values are as follows.
+
+
+      **ENTITLEMENT_OWNER**: Owner of the associated Entitlement
+
+
+      **SOURCE_OWNER**: Owner of the associated Source
+
+
+      **MANAGER**: Manager of the Identity for whom the request is being made
+
+
+      **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field
+
+    example: GOVERNANCE_GROUP
+  approverId:
+    type: string
+    nullable: true
+    description: Id of the specific approver, used only when approverType is GOVERNANCE_GROUP
+    example: e3eab852-8315-467f-9de7-70eda97f63c8
+
+

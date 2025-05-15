@@ -1,0 +1,20 @@
+post:
+  summary: Certification Signed Off
+  operationId: certificationSignedOffEvent
+  description: >-
+    This event trigger fires after a certification is signed off on and moves to the 'End' status.
+    Do not confuse this event trigger with the Campaign End trigger.
+    
+    This is a `FIRE_AND_FORGET` event trigger. 
+    You can have a maximum of 50 subscriptions for this trigger.
+    For more information about this event trigger, refer to [Certification Sign Off](https://developer.sailpoint.com/docs/extensibility/event-triggers/triggers/certification-signed-off).
+  tags:
+    - Triggers
+  security:
+    - userAuth: [sp:trigger-service-subscriptions:manage]
+  requestBody:
+    required: true
+    content: 
+      application/json:
+        schema: 
+          $ref: '../schemas/trigger/example-input/CertificationSignedOff.yaml'

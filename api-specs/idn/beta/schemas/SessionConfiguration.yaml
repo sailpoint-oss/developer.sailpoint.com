@@ -1,0 +1,17 @@
+type: object
+properties:
+  maxIdleTime:
+    type: integer
+    description: The maximum time in minutes a session can be idle.
+    format: int32
+    example: 15
+  rememberMe:
+    type: boolean
+    description: Denotes if 'remember me' is enabled.
+    default: false
+    example: true
+  maxSessionTime:
+    type: integer
+    description: The maximum allowable session time in minutes.
+    format: int32
+    example: 45

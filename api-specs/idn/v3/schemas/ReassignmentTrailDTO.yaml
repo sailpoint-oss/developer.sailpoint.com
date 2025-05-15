@@ -1,0 +1,14 @@
+type: object
+properties:
+  previousOwner:
+    type: string
+    description: The ID of previous owner identity.
+    example: ef38f94347e94562b5bb8424a56397d8
+  newOwner:
+    type: string
+    description: The ID of new owner identity.
+    example: ef38f94347e94562b5bb8424a56397a3
+  reassignmentType:
+    type: string
+    description: The type of reassignment.
+    example: AUTOMATIC_REASSIGNMENT

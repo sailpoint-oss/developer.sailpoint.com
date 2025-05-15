@@ -1,0 +1,111 @@
+description: Details and current status of a specific task
+required:
+  - id
+  - type
+  - uniqueName
+  - description
+  - parentName
+  - attributes
+  - created
+  - modified
+  - launched
+  - launcher
+  - completed
+  - completionStatus
+  - messages
+  - progress
+  - percentComplete
+  - returns
+type: object
+properties:
+  id:
+    description: System-generated unique ID of the task this TaskStatus represents
+    type: string
+    example: id12345
+  type:
+    description: Type of task this TaskStatus represents
+    type: string
+    enum:
+      - QUARTZ
+      - QPOC
+      - QUEUED_TASK
+    example: QUARTZ
+  uniqueName:
+    description: Name of the task this TaskStatus represents
+    type: string
+    example: Big Task
+  description:
+    description: Description of the task this TaskStatus represents
+    type: string
+    example: A Really Big Task
+  parentName:
+    description: Name of the parent of the task this TaskStatus represents
+    nullable: true
+    type: string
+    example: Parent Task
+  launcher:
+    description: Service to execute the task this TaskStatus represents
+    type: string
+    example: sweep
+  target:
+    $ref: './Target.yaml'
+  created:
+    description: Creation date of the task this TaskStatus represents
+    type: string
+    format: date-time
+    example: '2020-07-11T21:23:15.000Z'
+  modified:
+    description: Last modification date of the task this TaskStatus represents
+    type: string
+    format: date-time
+    example: '2020-07-11T21:23:15.000Z'
+  launched:
+    description: Launch date of the task this TaskStatus represents
+    nullable: true
+    type: string
+    format: date-time
+    example: '2020-07-11T21:23:15.000Z'
+  completed:
+    description: Completion date of the task this TaskStatus represents
+    nullable: true
+    type: string
+    format: date-time
+    example: '2020-07-11T21:23:15.000Z'
+  completionStatus:
+    description: Completion status of the task this TaskStatus represents
+    type: string
+    nullable: true
+    enum:
+      - SUCCESS
+      - WARNING
+      - ERROR
+      - TERMINATED
+      - TEMPERROR
+      - null
+    example: SUCCESS
+  messages:
+    description: Messages associated with the task this TaskStatus represents
+    type: array
+    items:
+      $ref: './TaskStatusMessage.yaml'
+  returns:
+    description: Return values from the task this TaskStatus represents
+    type: array
+    items:
+      $ref: './TaskReturnDetails.yaml'
+  attributes:
+    description: Attributes of the task this TaskStatus represents
+    type: object
+    additionalProperties: true
+    example: {"identityCount": 0}
+  progress:
+    description: Current progress of the task this TaskStatus represents
+    nullable: true
+    type: string
+    example: 'Started'
+  percentComplete:
+    description: Current percentage completion of the task this TaskStatus represents
+    type: integer
+    example: 100
+  taskDefinitionSummary:
+    $ref: './TaskDefinitionSummary.yaml'

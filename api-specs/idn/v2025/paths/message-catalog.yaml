@@ -1,0 +1,41 @@
+get:
+  operationId: getMessageCatalogs
+  summary: Get Message catalogs
+  tags:
+    - IAI Message Catalogs
+  description: >-
+    The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
+  parameters:
+    - in: path
+      name: catalog-id
+      schema:
+        type: string
+        enum:
+          - recommender
+          - access-request-recommender
+      required: true
+      description: The ID of the message catalog.
+      example: recommender
+  responses:
+    '200':
+      description: The message catalogs based on the request headers
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/MessageCatalogDto.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - userAuth: [ iai:decisions:manage ]
+  x-sailpoint-userLevels:
+    - Any

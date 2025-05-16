@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TemplateSlack = Initialize-PSSailpoint.V2025TemplateSlack  -Key null `
+$TemplateSlack = Initialize-V2025TemplateSlack  -Key null `
  -Text null `
  -Blocks null `
  -Attachments null `

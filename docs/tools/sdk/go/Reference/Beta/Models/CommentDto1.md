@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CommentDto1', 'BetaCommentDto1']
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Comment** | Pointer to **NullableString** | Comment content. | [optional] 
-**Created** | Pointer to **time.Time** | Date and time comment was created. | [optional] 
+**Created** | Pointer to **SailPointTime** | Date and time comment was created. | [optional] 
 **Author** | Pointer to [**CommentDto1Author**](comment-dto1-author) |  | [optional] 
 
 ## Methods
@@ -75,20 +75,20 @@ HasComment returns a boolean if a field has been set.
 UnsetComment ensures that no value is present for Comment, not even an explicit nil
 ### GetCreated
 
-`func (o *CommentDto1) GetCreated() time.Time`
+`func (o *CommentDto1) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *CommentDto1) GetCreatedOk() (*time.Time, bool)`
+`func (o *CommentDto1) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *CommentDto1) SetCreated(v time.Time)`
+`func (o *CommentDto1) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 

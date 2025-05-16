@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Tenant = Initialize-PSSailpoint.V2025Tenant  -Id 2c91808568c529c60168cca6f90c1324 `
+$Tenant = Initialize-V2025Tenant  -Id 2c91808568c529c60168cca6f90c1324 `
  -Name acme `
  -FullName Acme, Inc `
  -Pod example-pod `

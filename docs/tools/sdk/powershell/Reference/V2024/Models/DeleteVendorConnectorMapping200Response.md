@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DeleteVendorConnectorMapping200Response = Initialize-PSSailpoint.V2024DeleteVendorConnectorMapping200Response  -Count 1
+$DeleteVendorConnectorMapping200Response = Initialize-V2024DeleteVendorConnectorMapping200Response  -Count 1
 ```
 
 - Convert the resource to JSON

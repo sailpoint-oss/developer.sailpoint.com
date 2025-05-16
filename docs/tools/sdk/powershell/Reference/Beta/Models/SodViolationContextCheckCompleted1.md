@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SodViolationContextCheckCompleted1 = Initialize-PSSailpoint.BetaSodViolationContextCheckCompleted1  -State SUCCESS `
+$SodViolationContextCheckCompleted1 = Initialize-BetaSodViolationContextCheckCompleted1  -State SUCCESS `
  -Uuid f73d16e9-a038-46c5-b217-1246e15fdbdd `
  -ViolationCheckResult null
 ```

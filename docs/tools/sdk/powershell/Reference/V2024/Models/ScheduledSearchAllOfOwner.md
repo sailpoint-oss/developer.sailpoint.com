@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ScheduledSearchAllOfOwner = Initialize-PSSailpoint.V2024ScheduledSearchAllOfOwner  -Type IDENTITY `
+$ScheduledSearchAllOfOwner = Initialize-V2024ScheduledSearchAllOfOwner  -Type IDENTITY `
  -Id 2c9180867624cbd7017642d8c8c81f67
 ```
 

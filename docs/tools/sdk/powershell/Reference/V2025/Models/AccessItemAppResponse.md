@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessItemAppResponse = Initialize-PSSailpoint.V2025AccessItemAppResponse  -AccessType app `
+$AccessItemAppResponse = Initialize-V2025AccessItemAppResponse  -AccessType app `
  -Id 2c918087763e69d901763e72e97f006f `
  -DisplayName Display Name `
  -SourceName appName `

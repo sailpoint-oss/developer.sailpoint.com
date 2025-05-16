@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityCertified = Initialize-PSSailpoint.V2025IdentityCertified  -CertificationId 2c91808a77ff216301782327a50f09bf `
+$IdentityCertified = Initialize-V2025IdentityCertified  -CertificationId 2c91808a77ff216301782327a50f09bf `
  -CertificationName Cert name `
  -SignedDate 2019-03-08T22:37:33.901Z `
  -Certifiers [{id=8a80828f643d484f01643e14202e206f, displayName=John Snow}] `

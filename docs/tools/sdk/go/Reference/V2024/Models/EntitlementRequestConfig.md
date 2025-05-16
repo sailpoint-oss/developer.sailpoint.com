@@ -15,10 +15,8 @@ tags: ['SDK', 'Software Development Kit', 'EntitlementRequestConfig', 'V2024Enti
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AllowEntitlementRequest** | Pointer to **bool** | If this is true, entitlement requests are allowed. | [optional] [default to false]
-**RequestCommentsRequired** | Pointer to **bool** | If this is true, comments are required to submit entitlement requests. | [optional] [default to false]
-**DeniedCommentsRequired** | Pointer to **bool** | If this is true, comments are required to reject entitlement requests. | [optional] [default to false]
-**GrantRequestApprovalSchemes** | Pointer to **NullableString** | Approval schemes for granting entitlement request. This can be empty if no approval is needed. Multiple schemes must be comma-separated. The valid schemes are \"entitlementOwner\", \"sourceOwner\", \"manager\" and \"`workgroup:{id}`\". You can use multiple governance groups (workgroups).  | [optional] [default to "sourceOwner"]
+**AccessRequestConfig** | Pointer to [**EntitlementAccessRequestConfig**](entitlement-access-request-config) |  | [optional] 
+**RevocationRequestConfig** | Pointer to [**EntitlementRevocationRequestConfig**](entitlement-revocation-request-config) |  | [optional] 
 
 ## Methods
 
@@ -39,114 +37,54 @@ NewEntitlementRequestConfigWithDefaults instantiates a new EntitlementRequestCon
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetAllowEntitlementRequest
+### GetAccessRequestConfig
 
-`func (o *EntitlementRequestConfig) GetAllowEntitlementRequest() bool`
+`func (o *EntitlementRequestConfig) GetAccessRequestConfig() EntitlementAccessRequestConfig`
 
-GetAllowEntitlementRequest returns the AllowEntitlementRequest field if non-nil, zero value otherwise.
+GetAccessRequestConfig returns the AccessRequestConfig field if non-nil, zero value otherwise.
 
-### GetAllowEntitlementRequestOk
+### GetAccessRequestConfigOk
 
-`func (o *EntitlementRequestConfig) GetAllowEntitlementRequestOk() (*bool, bool)`
+`func (o *EntitlementRequestConfig) GetAccessRequestConfigOk() (*EntitlementAccessRequestConfig, bool)`
 
-GetAllowEntitlementRequestOk returns a tuple with the AllowEntitlementRequest field if it's non-nil, zero value otherwise
+GetAccessRequestConfigOk returns a tuple with the AccessRequestConfig field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAllowEntitlementRequest
+### SetAccessRequestConfig
 
-`func (o *EntitlementRequestConfig) SetAllowEntitlementRequest(v bool)`
+`func (o *EntitlementRequestConfig) SetAccessRequestConfig(v EntitlementAccessRequestConfig)`
 
-SetAllowEntitlementRequest sets AllowEntitlementRequest field to given value.
+SetAccessRequestConfig sets AccessRequestConfig field to given value.
 
-### HasAllowEntitlementRequest
+### HasAccessRequestConfig
 
-`func (o *EntitlementRequestConfig) HasAllowEntitlementRequest() bool`
+`func (o *EntitlementRequestConfig) HasAccessRequestConfig() bool`
 
-HasAllowEntitlementRequest returns a boolean if a field has been set.
+HasAccessRequestConfig returns a boolean if a field has been set.
 
-### GetRequestCommentsRequired
+### GetRevocationRequestConfig
 
-`func (o *EntitlementRequestConfig) GetRequestCommentsRequired() bool`
+`func (o *EntitlementRequestConfig) GetRevocationRequestConfig() EntitlementRevocationRequestConfig`
 
-GetRequestCommentsRequired returns the RequestCommentsRequired field if non-nil, zero value otherwise.
+GetRevocationRequestConfig returns the RevocationRequestConfig field if non-nil, zero value otherwise.
 
-### GetRequestCommentsRequiredOk
+### GetRevocationRequestConfigOk
 
-`func (o *EntitlementRequestConfig) GetRequestCommentsRequiredOk() (*bool, bool)`
+`func (o *EntitlementRequestConfig) GetRevocationRequestConfigOk() (*EntitlementRevocationRequestConfig, bool)`
 
-GetRequestCommentsRequiredOk returns a tuple with the RequestCommentsRequired field if it's non-nil, zero value otherwise
+GetRevocationRequestConfigOk returns a tuple with the RevocationRequestConfig field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRequestCommentsRequired
+### SetRevocationRequestConfig
 
-`func (o *EntitlementRequestConfig) SetRequestCommentsRequired(v bool)`
+`func (o *EntitlementRequestConfig) SetRevocationRequestConfig(v EntitlementRevocationRequestConfig)`
 
-SetRequestCommentsRequired sets RequestCommentsRequired field to given value.
+SetRevocationRequestConfig sets RevocationRequestConfig field to given value.
 
-### HasRequestCommentsRequired
+### HasRevocationRequestConfig
 
-`func (o *EntitlementRequestConfig) HasRequestCommentsRequired() bool`
+`func (o *EntitlementRequestConfig) HasRevocationRequestConfig() bool`
 
-HasRequestCommentsRequired returns a boolean if a field has been set.
+HasRevocationRequestConfig returns a boolean if a field has been set.
 
-### GetDeniedCommentsRequired
-
-`func (o *EntitlementRequestConfig) GetDeniedCommentsRequired() bool`
-
-GetDeniedCommentsRequired returns the DeniedCommentsRequired field if non-nil, zero value otherwise.
-
-### GetDeniedCommentsRequiredOk
-
-`func (o *EntitlementRequestConfig) GetDeniedCommentsRequiredOk() (*bool, bool)`
-
-GetDeniedCommentsRequiredOk returns a tuple with the DeniedCommentsRequired field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDeniedCommentsRequired
-
-`func (o *EntitlementRequestConfig) SetDeniedCommentsRequired(v bool)`
-
-SetDeniedCommentsRequired sets DeniedCommentsRequired field to given value.
-
-### HasDeniedCommentsRequired
-
-`func (o *EntitlementRequestConfig) HasDeniedCommentsRequired() bool`
-
-HasDeniedCommentsRequired returns a boolean if a field has been set.
-
-### GetGrantRequestApprovalSchemes
-
-`func (o *EntitlementRequestConfig) GetGrantRequestApprovalSchemes() string`
-
-GetGrantRequestApprovalSchemes returns the GrantRequestApprovalSchemes field if non-nil, zero value otherwise.
-
-### GetGrantRequestApprovalSchemesOk
-
-`func (o *EntitlementRequestConfig) GetGrantRequestApprovalSchemesOk() (*string, bool)`
-
-GetGrantRequestApprovalSchemesOk returns a tuple with the GrantRequestApprovalSchemes field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetGrantRequestApprovalSchemes
-
-`func (o *EntitlementRequestConfig) SetGrantRequestApprovalSchemes(v string)`
-
-SetGrantRequestApprovalSchemes sets GrantRequestApprovalSchemes field to given value.
-
-### HasGrantRequestApprovalSchemes
-
-`func (o *EntitlementRequestConfig) HasGrantRequestApprovalSchemes() bool`
-
-HasGrantRequestApprovalSchemes returns a boolean if a field has been set.
-
-### SetGrantRequestApprovalSchemesNil
-
-`func (o *EntitlementRequestConfig) SetGrantRequestApprovalSchemesNil(b bool)`
-
- SetGrantRequestApprovalSchemesNil sets the value for GrantRequestApprovalSchemes to be an explicit nil
-
-### UnsetGrantRequestApprovalSchemes
-`func (o *EntitlementRequestConfig) UnsetGrantRequestApprovalSchemes()`
-
-UnsetGrantRequestApprovalSchemes ensures that no value is present for GrantRequestApprovalSchemes, not even an explicit nil
 

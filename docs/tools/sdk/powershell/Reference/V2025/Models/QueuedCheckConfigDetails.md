@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$QueuedCheckConfigDetails = Initialize-PSSailpoint.V2025QueuedCheckConfigDetails  -ProvisioningStatusCheckIntervalMinutes 30 `
+$QueuedCheckConfigDetails = Initialize-V2025QueuedCheckConfigDetails  -ProvisioningStatusCheckIntervalMinutes 30 `
  -ProvisioningMaxStatusCheckDays 2
 ```
 

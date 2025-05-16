@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkgroupConnectionDto = Initialize-PSSailpoint.V2025WorkgroupConnectionDto  -Object null `
+$WorkgroupConnectionDto = Initialize-V2025WorkgroupConnectionDto  -Object null `
  -ConnectionType AccessRequestReviewer
 ```
 

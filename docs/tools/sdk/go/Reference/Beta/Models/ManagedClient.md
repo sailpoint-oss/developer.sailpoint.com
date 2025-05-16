@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **Cookbook** | Pointer to **string** | VA cookbook | [optional] [readonly] 
 **Description** | **string** | ManagedClient description | 
 **IpAddress** | Pointer to **string** | The public IP address of the ManagedClient | [optional] [readonly] 
-**LastSeen** | Pointer to **time.Time** | When the ManagedClient was last seen by the server | [optional] [readonly] 
+**LastSeen** | Pointer to **SailPointTime** | When the ManagedClient was last seen by the server | [optional] [readonly] 
 **Name** | Pointer to **string** | ManagedClient name | [optional] 
 **SinceLastSeen** | Pointer to **string** | Milliseconds since the ManagedClient has polled the server | [optional] [readonly] 
 **Status** | Pointer to [**ManagedClientStatusEnum**](managed-client-status-enum) | Status of the ManagedClient | [optional] [readonly] 
@@ -264,20 +264,20 @@ HasIpAddress returns a boolean if a field has been set.
 
 ### GetLastSeen
 
-`func (o *ManagedClient) GetLastSeen() time.Time`
+`func (o *ManagedClient) GetLastSeen() SailPointTime`
 
 GetLastSeen returns the LastSeen field if non-nil, zero value otherwise.
 
 ### GetLastSeenOk
 
-`func (o *ManagedClient) GetLastSeenOk() (*time.Time, bool)`
+`func (o *ManagedClient) GetLastSeenOk() (*SailPointTime, bool)`
 
 GetLastSeenOk returns a tuple with the LastSeen field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLastSeen
 
-`func (o *ManagedClient) SetLastSeen(v time.Time)`
+`func (o *ManagedClient) SetLastSeen(v SailPointTime)`
 
 SetLastSeen sets LastSeen field to given value.
 

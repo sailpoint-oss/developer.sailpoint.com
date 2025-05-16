@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileSummary = Initialize-PSSailpoint.V2025AccessProfileSummary  -Id 2c91808568c529c60168cca6f90c1313 `
+$AccessProfileSummary = Initialize-V2025AccessProfileSummary  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -DisplayName John Q. Doe `
  -Description null `

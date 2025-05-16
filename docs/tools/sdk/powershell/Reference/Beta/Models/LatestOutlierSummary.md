@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LatestOutlierSummary = Initialize-PSSailpoint.BetaLatestOutlierSummary  -Type LOW_SIMILARITY `
+$LatestOutlierSummary = Initialize-BetaLatestOutlierSummary  -Type LOW_SIMILARITY `
  -SnapshotDate 2021-05-01T18:40:35.772Z `
  -TotalOutliers 50 `
  -TotalIdentities 5000 `

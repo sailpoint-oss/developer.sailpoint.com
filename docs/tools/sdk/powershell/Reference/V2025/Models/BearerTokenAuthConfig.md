@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BearerTokenAuthConfig = Initialize-PSSailpoint.V2025BearerTokenAuthConfig  -BearerToken null
+$BearerTokenAuthConfig = Initialize-V2025BearerTokenAuthConfig  -BearerToken null
 ```
 
 - Convert the resource to JSON

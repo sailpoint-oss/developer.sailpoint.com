@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityProfileExportedObject = Initialize-PSSailpoint.BetaIdentityProfileExportedObject  -Version 1 `
+$IdentityProfileExportedObject = Initialize-BetaIdentityProfileExportedObject  -Version 1 `
  -Self null `
  -Object null
 ```

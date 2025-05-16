@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReviewableRole = Initialize-PSSailpoint.V2024ReviewableRole  -Id 2c91808a7190d06e0171993907fd0794 `
+$ReviewableRole = Initialize-V2024ReviewableRole  -Id 2c91808a7190d06e0171993907fd0794 `
  -Name Accounting-Employees `
  -Description Role for members of the accounting department with the necessary Access Profiles `
  -Privileged false `

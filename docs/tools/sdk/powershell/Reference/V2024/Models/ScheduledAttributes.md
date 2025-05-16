@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ScheduledAttributes = Initialize-PSSailpoint.V2024ScheduledAttributes  -Frequency daily `
+$ScheduledAttributes = Initialize-V2024ScheduledAttributes  -Frequency daily `
  -TimeZone America/Chicago `
  -CronString 0 9 * * 1 `
  -WeeklyDays Monday `

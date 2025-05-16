@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningSessionDraftRoleDto = Initialize-PSSailpoint.V2025RoleMiningSessionDraftRoleDto  -Name Saved RM Session - 07/10 `
+$RoleMiningSessionDraftRoleDto = Initialize-V2025RoleMiningSessionDraftRoleDto  -Name Saved RM Session - 07/10 `
  -Description Person who develops software `
  -IdentityIds [2c918090761a5aac0176215c46a62d58, 2c918090761a5aac01722015c46a62d42] `
  -EntitlementIds [2c91808a7624751a01762f19d665220d, 2c91808a7624751a01762f19d67c220e] `

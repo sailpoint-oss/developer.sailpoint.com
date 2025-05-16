@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowLibraryActionExampleOutput = Initialize-PSSailpoint.V3WorkflowLibraryActionExampleOutput 
+$WorkflowLibraryActionExampleOutput = Initialize-WorkflowLibraryActionExampleOutput 
 ```
 
 - Convert the resource to JSON

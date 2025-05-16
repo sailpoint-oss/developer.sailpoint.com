@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Key** | Pointer to **string** | The template notification key. | [optional] 
 **Mediums** | Pointer to [**[]Medium**](medium) | List of preferred notification mediums, i.e., the mediums (or method) for which notifications are enabled. More mediums may be added in the future. | [optional] 
-**Modified** | Pointer to **time.Time** | Modified date of preference | [optional] 
+**Modified** | Pointer to **SailPointTime** | Modified date of preference | [optional] 
 
 ## Methods
 
@@ -90,20 +90,20 @@ HasMediums returns a boolean if a field has been set.
 
 ### GetModified
 
-`func (o *PreferencesDto) GetModified() time.Time`
+`func (o *PreferencesDto) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *PreferencesDto) GetModifiedOk() (*time.Time, bool)`
+`func (o *PreferencesDto) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *PreferencesDto) SetModified(v time.Time)`
+`func (o *PreferencesDto) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

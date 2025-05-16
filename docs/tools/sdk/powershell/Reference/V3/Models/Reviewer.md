@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Reviewer = Initialize-PSSailpoint.V3Reviewer  -Id ef38f94347e94562b5bb8424a56397d8 `
+$Reviewer = Initialize-Reviewer  -Id ef38f94347e94562b5bb8424a56397d8 `
  -Name Reviewer Name `
  -Email reviewer@test.com `
  -Type IDENTITY `

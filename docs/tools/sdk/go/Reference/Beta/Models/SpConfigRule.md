@@ -15,9 +15,9 @@ tags: ['SDK', 'Software Development Kit', 'SpConfigRule', 'BetaSpConfigRule']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Path** | Pointer to **string** | JSONPath expression denoting the path within the object where a value substitution should be applied | [optional] 
+**Path** | Pointer to **string** | JSONPath expression denoting the path within the object where a value substitution should be applied. | [optional] 
 **Value** | Pointer to [**NullableSpConfigRuleValue**](sp-config-rule-value) |  | [optional] 
-**Modes** | Pointer to **[]string** | Draft modes to which this rule will apply | [optional] 
+**Modes** | Pointer to **[]string** | Draft modes the rule will apply to. | [optional] 
 
 ## Methods
 

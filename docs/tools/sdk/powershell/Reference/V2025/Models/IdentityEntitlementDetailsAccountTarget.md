@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityEntitlementDetailsAccountTarget = Initialize-PSSailpoint.V2025IdentityEntitlementDetailsAccountTarget  -AccountId c5ef070e-92c6-4276-a006-98490f132dec `
+$IdentityEntitlementDetailsAccountTarget = Initialize-V2025IdentityEntitlementDetailsAccountTarget  -AccountId c5ef070e-92c6-4276-a006-98490f132dec `
  -AccountName Adalberto.XYZ `
  -AccountUUID 2236c29e-68a6-494d-a469-d072172f46cf `
  -SourceId 9269d764-8358-4ab9-9748-d4b7418548ca `

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestedItemStatusCancelledRequestDetails = Initialize-PSSailpoint.V2024RequestedItemStatusCancelledRequestDetails  -Comment This request must be cancelled. `
+$RequestedItemStatusCancelledRequestDetails = Initialize-V2024RequestedItemStatusCancelledRequestDetails  -Comment This request must be cancelled. `
  -Owner null `
  -Modified 2019-12-20T09:17:12.192Z
 ```

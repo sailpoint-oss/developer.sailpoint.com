@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Requestability = Initialize-PSSailpoint.V3Requestability  -CommentsRequired true `
+$Requestability = Initialize-Requestability  -CommentsRequired true `
  -DenialCommentsRequired true `
  -ReauthorizationRequired true `
  -ApprovalSchemes null

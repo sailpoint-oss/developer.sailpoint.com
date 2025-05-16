@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConnectorCustomizerCreateResponse = Initialize-PSSailpoint.V2025ConnectorCustomizerCreateResponse  -Id b07dc46a-1498-4de8-bfbb-259a68e70c8a `
+$ConnectorCustomizerCreateResponse = Initialize-V2025ConnectorCustomizerCreateResponse  -Id b07dc46a-1498-4de8-bfbb-259a68e70c8a `
  -Name connector-customizer-name `
  -TenantID 2c91808568c529c60168cca6f90c1324 `
  -Created null

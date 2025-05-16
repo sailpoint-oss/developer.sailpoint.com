@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BackupOptions = Initialize-PSSailpoint.V3BackupOptions  -IncludeTypes null `
+$BackupOptions = Initialize-BackupOptions  -IncludeTypes null `
  -ObjectOptions {TRIGGER_SUBSCRIPTION={includedNames=[Trigger Subscription name]}}
 ```
 

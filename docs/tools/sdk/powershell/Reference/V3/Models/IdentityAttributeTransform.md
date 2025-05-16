@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttributeTransform = Initialize-PSSailpoint.V3IdentityAttributeTransform  -IdentityAttributeName email `
+$IdentityAttributeTransform = Initialize-IdentityAttributeTransform  -IdentityAttributeName email `
  -TransformDefinition null
 ```
 

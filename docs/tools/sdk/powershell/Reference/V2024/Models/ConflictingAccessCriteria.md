@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConflictingAccessCriteria = Initialize-PSSailpoint.V2024ConflictingAccessCriteria  -LeftCriteria null `
+$ConflictingAccessCriteria = Initialize-V2024ConflictingAccessCriteria  -LeftCriteria null `
  -RightCriteria null
 ```
 

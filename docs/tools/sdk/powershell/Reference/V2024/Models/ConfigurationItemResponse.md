@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConfigurationItemResponse = Initialize-PSSailpoint.V2024ConfigurationItemResponse  -Identity null `
+$ConfigurationItemResponse = Initialize-V2024ConfigurationItemResponse  -Identity null `
  -ConfigDetails null
 ```
 

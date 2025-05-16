@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeMappingsAllOfTransformDefinitionAttributesInputAttributes = Initialize-PSSailpoint.V2024AttributeMappingsAllOfTransformDefinitionAttributesInputAttributes  -AttributeName givenName `
+$AttributeMappingsAllOfTransformDefinitionAttributesInputAttributes = Initialize-V2024AttributeMappingsAllOfTransformDefinitionAttributesInputAttributes  -AttributeName givenName `
  -SourceName delimited-src `
  -Name 8d3e0094e99445de98eef6c75e25jc04
 ```

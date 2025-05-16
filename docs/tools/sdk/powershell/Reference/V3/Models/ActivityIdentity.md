@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ActivityIdentity = Initialize-PSSailpoint.V3ActivityIdentity  -Id 2c91808568c529c60168cca6f90c1313 `
+$ActivityIdentity = Initialize-ActivityIdentity  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -Type Identity
 ```

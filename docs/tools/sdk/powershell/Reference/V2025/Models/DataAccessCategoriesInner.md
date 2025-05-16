@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DataAccessCategoriesInner = Initialize-PSSailpoint.V2025DataAccessCategoriesInner  -Value email-7 `
+$DataAccessCategoriesInner = Initialize-V2025DataAccessCategoriesInner  -Value email-7 `
  -MatchCount 10
 ```
 

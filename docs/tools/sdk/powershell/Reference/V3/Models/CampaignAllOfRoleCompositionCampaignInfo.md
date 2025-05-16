@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignAllOfRoleCompositionCampaignInfo = Initialize-PSSailpoint.V3CampaignAllOfRoleCompositionCampaignInfo  -Reviewer null `
+$CampaignAllOfRoleCompositionCampaignInfo = Initialize-CampaignAllOfRoleCompositionCampaignInfo  -Reviewer null `
  -RoleIds [2c90ad2a70ace7d50170acf22ca90010] `
  -RemediatorRef null `
  -Query Search Query `

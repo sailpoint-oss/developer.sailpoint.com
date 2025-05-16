@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ForwardApprovalDto = Initialize-PSSailpoint.V2024ForwardApprovalDto  -NewOwnerId 2c91808568c529c60168cca6f90c1314 `
+$ForwardApprovalDto = Initialize-V2024ForwardApprovalDto  -NewOwnerId 2c91808568c529c60168cca6f90c1314 `
  -Comment 2c91808568c529c60168cca6f90c1313
 ```
 

@@ -781,9 +781,7 @@
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             }, {
               "clientMetadata" : {
                 "requestedAppName" : "test-app",
@@ -811,9 +809,7 @@
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             } ]
           }, {
             "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
@@ -844,9 +840,7 @@
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             }, {
               "clientMetadata" : {
                 "requestedAppName" : "test-app",
@@ -874,9 +868,7 @@
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             } ]
           } ]
         }''' # AccessRequest | 
@@ -4575,7 +4567,17 @@
               "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
               "approverType" : "GOVERNANCE_GROUP"
             } ],
+            "reauthorizationRequired" : false,
             "requestCommentRequired" : true
+          },
+          "revocationRequestConfig" : {
+            "approvalSchemes" : [ {
+              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+              "approverType" : "GOVERNANCE_GROUP"
+            }, {
+              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+              "approverType" : "GOVERNANCE_GROUP"
+            } ]
           }
         }''' # EntitlementRequestConfig | 
           try:
@@ -14784,7 +14786,17 @@
               "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
               "approverType" : "GOVERNANCE_GROUP"
             } ],
+            "reauthorizationRequired" : false,
             "requestCommentRequired" : true
+          },
+          "revocationRequestConfig" : {
+            "approvalSchemes" : [ {
+              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+              "approverType" : "GOVERNANCE_GROUP"
+            }, {
+              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+              "approverType" : "GOVERNANCE_GROUP"
+            } ]
           }
         }''' # SourceEntitlementRequestConfig | 
           try:
@@ -16264,34 +16276,6 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkItemsApi->complete_work_item: %s\n" % e)
-- path: /work-items/{id}/forward
-  method: POST
-  xCodeSample:
-    - lang: Python
-      label: SDK_tools/sdk/python/beta/methods/work-items#forward-work-item
-      source: |
-        from sailpoint.beta.api.work_items_api import WorkItemsApi
-        from sailpoint.beta.api_client import ApiClient
-        from sailpoint.beta.models.work_item_forward import WorkItemForward
-        from sailpoint.configuration import Configuration
-        configuration = Configuration()
-
-
-        with ApiClient(configuration) as api_client:
-          id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
-          work_item_forward = '''{
-          "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
-          "comment" : "I'm going on vacation.",
-          "sendNotifications" : true
-        }''' # WorkItemForward | 
-          try:
-              # Forward a Work Item
-              new_work_item_forward = WorkItemForward.from_json(work_item_forward)
-              WorkItemsApi(api_client).forward_work_item(id=id, work_item_forward=new_work_item_forward)
-              # Below is a request that includes all optional parameters
-              # WorkItemsApi(api_client).forward_work_item(id, new_work_item_forward)
-          except Exception as e:
-              print("Exception when calling WorkItemsApi->forward_work_item: %s\n" % e)
 - path: /work-items/completed
   method: GET
   xCodeSample:
@@ -16306,7 +16290,7 @@
 
 
         with ApiClient(configuration) as api_client:
-          owner_id = 'owner_id_example' # str | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional) # str | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional)
+          owner_id = '2c91808571bcfcf80171c23e4b4221fc' # str | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional) # str | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional)
           limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
           offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -16335,13 +16319,15 @@
 
 
         with ApiClient(configuration) as api_client:
-          owner_id = 'owner_id_example' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
+          owner_id = '2c91808571bcfcf80171c23e4b4221fc' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
+          limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           try:
               # Count Completed Work Items
               
               results = WorkItemsApi(api_client).get_count_completed_work_items()
               # Below is a request that includes all optional parameters
-              # results = WorkItemsApi(api_client).get_count_completed_work_items(owner_id)
+              # results = WorkItemsApi(api_client).get_count_completed_work_items(owner_id, limit, offset)
               print("The response of WorkItemsApi->get_count_completed_work_items:\n")
               for item in results:
                   print(item.model_dump_json(by_alias=True, indent=4))
@@ -16361,7 +16347,7 @@
 
 
         with ApiClient(configuration) as api_client:
-          owner_id = 'owner_id_example' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
+          owner_id = '2c91808571bcfcf80171c23e4b4221fc' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
           try:
               # Count Work Items
               
@@ -16411,7 +16397,7 @@
 
 
         with ApiClient(configuration) as api_client:
-          owner_id = 'owner_id_example' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
+          owner_id = 'ef38f94347e94562b5bb8424a56397d8' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
           try:
               # Work Items Summary
               
@@ -16439,7 +16425,7 @@
           limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
           offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-          owner_id = 'owner_id_example' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
+          owner_id = 'ef38f94347e94562b5bb8424a56397d8' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
           try:
               # List Work Items
               
@@ -16528,6 +16514,34 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling WorkItemsApi->submit_account_selection: %s\n" % e)
+- path: /work-items/{id}/forward
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/beta/methods/work-items#submit-forward-work-item
+      source: |
+        from sailpoint.beta.api.work_items_api import WorkItemsApi
+        from sailpoint.beta.api_client import ApiClient
+        from sailpoint.beta.models.work_item_forward import WorkItemForward
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
+          work_item_forward = '''{
+          "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
+          "comment" : "I'm going on vacation.",
+          "sendNotifications" : true
+        }''' # WorkItemForward | 
+          try:
+              # Forward a Work Item
+              new_work_item_forward = WorkItemForward.from_json(work_item_forward)
+              WorkItemsApi(api_client).submit_forward_work_item(id=id, work_item_forward=new_work_item_forward)
+              # Below is a request that includes all optional parameters
+              # WorkItemsApi(api_client).submit_forward_work_item(id, new_work_item_forward)
+          except Exception as e:
+              print("Exception when calling WorkItemsApi->submit_forward_work_item: %s\n" % e)
 - path: /reassignment-configurations
   method: POST
   xCodeSample:

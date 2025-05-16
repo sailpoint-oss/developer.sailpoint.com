@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **IdentityId** | Pointer to **string** | The identity ID taking the action. | [optional] 
 **Access** | Pointer to [**AccessRequestRecommendationItem**](access-request-recommendation-item) |  | [optional] 
-**Timestamp** | Pointer to **time.Time** |  | [optional] 
+**Timestamp** | Pointer to **SailPointTime** |  | [optional] 
 
 ## Methods
 
@@ -90,20 +90,20 @@ HasAccess returns a boolean if a field has been set.
 
 ### GetTimestamp
 
-`func (o *AccessRequestRecommendationActionItemResponseDto) GetTimestamp() time.Time`
+`func (o *AccessRequestRecommendationActionItemResponseDto) GetTimestamp() SailPointTime`
 
 GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
 
 ### GetTimestampOk
 
-`func (o *AccessRequestRecommendationActionItemResponseDto) GetTimestampOk() (*time.Time, bool)`
+`func (o *AccessRequestRecommendationActionItemResponseDto) GetTimestampOk() (*SailPointTime, bool)`
 
 GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTimestamp
 
-`func (o *AccessRequestRecommendationActionItemResponseDto) SetTimestamp(v time.Time)`
+`func (o *AccessRequestRecommendationActionItemResponseDto) SetTimestamp(v SailPointTime)`
 
 SetTimestamp sets Timestamp field to given value.
 

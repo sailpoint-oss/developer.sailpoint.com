@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormInstanceRecipient = Initialize-PSSailpoint.BetaFormInstanceRecipient  -Id 00000000-0000-0000-0000-000000000000 `
+$FormInstanceRecipient = Initialize-BetaFormInstanceRecipient  -Id 00000000-0000-0000-0000-000000000000 `
  -Type IDENTITY
 ```
 

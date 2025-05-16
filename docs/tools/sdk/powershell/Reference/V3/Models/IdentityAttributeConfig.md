@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttributeConfig = Initialize-PSSailpoint.V3IdentityAttributeConfig  -Enabled true `
+$IdentityAttributeConfig = Initialize-IdentityAttributeConfig  -Enabled true `
  -AttributeTransforms null
 ```
 

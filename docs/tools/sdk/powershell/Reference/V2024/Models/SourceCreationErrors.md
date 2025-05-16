@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceCreationErrors = Initialize-PSSailpoint.V2024SourceCreationErrors  -MultihostId 2c91808568c529c60168cca6f90c1324 `
+$SourceCreationErrors = Initialize-V2024SourceCreationErrors  -MultihostId 2c91808568c529c60168cca6f90c1324 `
  -SourceName My Source `
  -SourceError Source with internal name "My Source [source]" already exists. `
  -Created 2022-02-08T14:50:03.827Z `

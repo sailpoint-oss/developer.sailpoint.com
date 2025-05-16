@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Static = Initialize-PSSailpoint.BetaStatic  -Values string$variable `
+$Static = Initialize-BetaStatic  -Values string$variable `
  -RequiresPeriodicRefresh false
 ```
 

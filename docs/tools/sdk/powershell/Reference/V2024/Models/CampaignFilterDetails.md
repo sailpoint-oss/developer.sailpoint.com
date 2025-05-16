@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignFilterDetails = Initialize-PSSailpoint.V2024CampaignFilterDetails  -Id 5ec18cef39020d6fd7a60ad3970aba61 `
+$CampaignFilterDetails = Initialize-V2024CampaignFilterDetails  -Id 5ec18cef39020d6fd7a60ad3970aba61 `
  -Name Identity Attribute Campaign Filter `
  -Description Campaign filter to certify data based on an identity attribute's specified property. `
  -Owner SailPoint Support `

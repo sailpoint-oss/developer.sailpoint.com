@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ScheduledActionResponseContentBackupOptions = Initialize-PSSailpoint.V2024ScheduledActionResponseContentBackupOptions  -IncludeTypes [ROLE, IDENTITY_PROFILE] `
+$ScheduledActionResponseContentBackupOptions = Initialize-V2024ScheduledActionResponseContentBackupOptions  -IncludeTypes [ROLE, IDENTITY_PROFILE] `
  -ObjectOptions {SOURCE={includedNames=[Source1, Source2]}, ROLE={includedNames=[Admin Role, User Role]}}
 ```
 

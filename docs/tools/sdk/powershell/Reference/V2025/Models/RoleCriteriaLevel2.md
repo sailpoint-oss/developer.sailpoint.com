@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleCriteriaLevel2 = Initialize-PSSailpoint.V2025RoleCriteriaLevel2  -Operation null `
+$RoleCriteriaLevel2 = Initialize-V2025RoleCriteriaLevel2  -Operation null `
  -Key null `
  -StringValue carlee.cert1c9f9b6fd@mailinator.com `
  -Children null

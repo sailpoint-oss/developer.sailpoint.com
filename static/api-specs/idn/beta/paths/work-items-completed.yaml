@@ -5,11 +5,19 @@ get:
   summary: Completed Work Items
   description: >-
     This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Completed Work Items](https://developer.sailpoint.com/docs/api/v2025/get-completed-work-items/) for latest API.
+  security:
+    - userAuth: [ idn:work-item:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - in: query
       name: ownerId
       schema:
         type: string
+      example: 2c91808571bcfcf80171c23e4b4221fc
       description: >-
         The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request.
       required: false
@@ -25,11 +33,17 @@ get:
             type: array
             items:
               $ref: '../schemas/WorkItems.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
     '400':
       $ref: '../../v3/responses/400.yaml'
     '403':
       $ref: '../../v3/responses/403.yaml'
     '404':
       $ref: '../../v3/responses/404.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'
 
 

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignActivatedCampaignCampaignOwner = Initialize-PSSailpoint.V2024CampaignActivatedCampaignCampaignOwner  -Id 37f080867702c1910177031320c40n27 `
+$CampaignActivatedCampaignCampaignOwner = Initialize-V2024CampaignActivatedCampaignCampaignOwner  -Id 37f080867702c1910177031320c40n27 `
  -DisplayName John Snow `
  -Email john.snow@example.com
 ```

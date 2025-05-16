@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OutliersContributingFeatureAccessItems = Initialize-PSSailpoint.V2025OutliersContributingFeatureAccessItems  -Id 2c938083633d259901633d2623ec0375 `
+$OutliersContributingFeatureAccessItems = Initialize-V2025OutliersContributingFeatureAccessItems  -Id 2c938083633d259901633d2623ec0375 `
  -DisplayName Applied Research Access `
  -Description Access to research information, lab results, and schematics `
  -AccessType ENTITLEMENT `

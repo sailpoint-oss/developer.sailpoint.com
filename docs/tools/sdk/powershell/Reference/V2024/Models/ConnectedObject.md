@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConnectedObject = Initialize-PSSailpoint.V2024ConnectedObject  -Type null `
+$ConnectedObject = Initialize-V2024ConnectedObject  -Type null `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name Employee-database-read-write `
  -Description Collection of entitlements to read/write the employee database.

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalIdentity = Initialize-PSSailpoint.V2025ApprovalIdentity  -Id 85d173e7d57e496569df763231d6deb6a `
+$ApprovalIdentity = Initialize-V2025ApprovalIdentity  -Id 85d173e7d57e496569df763231d6deb6a `
  -Type IDENTITY `
  -Name John Doe
 ```

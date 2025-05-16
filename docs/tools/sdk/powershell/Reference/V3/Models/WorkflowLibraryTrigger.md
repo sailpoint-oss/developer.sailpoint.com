@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowLibraryTrigger = Initialize-PSSailpoint.V3WorkflowLibraryTrigger  -Id idn:identity-attributes-changed `
+$WorkflowLibraryTrigger = Initialize-WorkflowLibraryTrigger  -Id idn:identity-attributes-changed `
  -Type EVENT `
  -Deprecated null `
  -DeprecatedBy null `

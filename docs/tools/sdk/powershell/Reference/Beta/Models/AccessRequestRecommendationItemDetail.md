@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestRecommendationItemDetail = Initialize-PSSailpoint.BetaAccessRequestRecommendationItemDetail  -IdentityId 2c91808570313110017040b06f344ec9 `
+$AccessRequestRecommendationItemDetail = Initialize-BetaAccessRequestRecommendationItemDetail  -IdentityId 2c91808570313110017040b06f344ec9 `
  -Access null `
  -Ignored true `
  -Requested true `

@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** | Id of the campaign template | [optional] 
 **Name** | **string** | This template's name. Has no bearing on generated campaigns' names. | 
 **Description** | **string** | This template's description. Has no bearing on generated campaigns' descriptions. | 
-**Created** | **time.Time** | Creation date of Campaign Template | [readonly] 
+**Created** | **SailPointTime** | Creation date of Campaign Template | [readonly] 
 **Modified** | **NullableTime** | Modification date of Campaign Template | [readonly] 
 **Scheduled** | Pointer to **bool** | Indicates if this campaign template has been scheduled. | [optional] [readonly] [default to false]
 **OwnerRef** | Pointer to [**CampaignTemplateOwnerRef**](campaign-template-owner-ref) |  | [optional] 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewCampaignTemplate
 
-`func NewCampaignTemplate(name string, description string, created time.Time, modified NullableTime, campaign Campaign, ) *CampaignTemplate`
+`func NewCampaignTemplate(name string, description string, created SailPointTime, modified NullableTime, campaign Campaign, ) *CampaignTemplate`
 
 NewCampaignTemplate instantiates a new CampaignTemplate object
 This constructor will assign default values to properties that have it defined,
@@ -111,40 +111,40 @@ SetDescription sets Description field to given value.
 
 ### GetCreated
 
-`func (o *CampaignTemplate) GetCreated() time.Time`
+`func (o *CampaignTemplate) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *CampaignTemplate) GetCreatedOk() (*time.Time, bool)`
+`func (o *CampaignTemplate) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *CampaignTemplate) SetCreated(v time.Time)`
+`func (o *CampaignTemplate) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
 
 ### GetModified
 
-`func (o *CampaignTemplate) GetModified() time.Time`
+`func (o *CampaignTemplate) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *CampaignTemplate) GetModifiedOk() (*time.Time, bool)`
+`func (o *CampaignTemplate) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *CampaignTemplate) SetModified(v time.Time)`
+`func (o *CampaignTemplate) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

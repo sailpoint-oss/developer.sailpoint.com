@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Launcher = Initialize-PSSailpoint.BetaLauncher  -Id 1b630bed-0941-4792-a712-57a5868ca34d `
+$Launcher = Initialize-BetaLauncher  -Id 1b630bed-0941-4792-a712-57a5868ca34d `
  -Created 2024-04-16T20:07:30.601016489Z `
  -Modified 2024-04-17T18:02:07.320143194Z `
  -Owner null `

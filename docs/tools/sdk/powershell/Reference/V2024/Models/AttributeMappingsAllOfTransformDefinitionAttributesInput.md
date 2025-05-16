@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeMappingsAllOfTransformDefinitionAttributesInput = Initialize-PSSailpoint.V2024AttributeMappingsAllOfTransformDefinitionAttributesInput  -Type accountAttribute `
+$AttributeMappingsAllOfTransformDefinitionAttributesInput = Initialize-V2024AttributeMappingsAllOfTransformDefinitionAttributesInput  -Type accountAttribute `
  -Attributes null
 ```
 

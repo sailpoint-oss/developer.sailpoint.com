@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRecommendationMessage = Initialize-PSSailpoint.V2024AccessRecommendationMessage  -Interpretation 95% of your peers have this access.
+$AccessRecommendationMessage = Initialize-V2024AccessRecommendationMessage  -Interpretation 95% of your peers have this access.
 ```
 
 - Convert the resource to JSON

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CertificationSignedOff = Initialize-PSSailpoint.V2025CertificationSignedOff  -Certification null
+$CertificationSignedOff = Initialize-V2025CertificationSignedOff  -Certification null
 ```
 
 - Convert the resource to JSON

@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManagedClusterRequest = Initialize-PSSailpoint.V2025ManagedClusterRequest  -Name Managed Cluster Name `
+$ManagedClusterRequest = Initialize-V2025ManagedClusterRequest  -Name Managed Cluster Name `
  -Type null `
  -Configuration {clusterExternalId=externalId, ccgVersion=77.0.0} `
  -Description A short description of the managed cluster.

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignGenerated = Initialize-PSSailpoint.V2025CampaignGenerated  -Campaign null
+$CampaignGenerated = Initialize-V2025CampaignGenerated  -Campaign null
 ```
 
 - Convert the resource to JSON

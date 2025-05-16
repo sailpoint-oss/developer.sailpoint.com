@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Ref = Initialize-PSSailpoint.V2024Ref  -Type null `
+$Ref = Initialize-V2024Ref  -Type null `
  -Id 2c91808568c529c60168cca6f90c1313
 ```
 

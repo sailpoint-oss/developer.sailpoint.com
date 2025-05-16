@@ -34,7 +34,6 @@ Method | HTTP request | Description
 [**Approve-BetaApprovalItem**](#approve-approval-item) | **POST** `/work-items/{id}/approve/{approvalItemId}` | Approve an Approval Item
 [**Approve-BetaApprovalItemsInBulk**](#approve-approval-items-in-bulk) | **POST** `/work-items/bulk-approve/{id}` | Bulk approve Approval Items
 [**Complete-BetaWorkItem**](#complete-work-item) | **POST** `/work-items/{id}` | Complete a Work Item
-[**Invoke-BetaForwardWorkItem**](#forward-work-item) | **POST** `/work-items/{id}/forward` | Forward a Work Item
 [**Get-BetaCompletedWorkItems**](#get-completed-work-items) | **GET** `/work-items/completed` | Completed Work Items
 [**Get-BetaCountCompletedWorkItems**](#get-count-completed-work-items) | **GET** `/work-items/completed/count` | Count Completed Work Items
 [**Get-BetaCountWorkItems**](#get-count-work-items) | **GET** `/work-items/count` | Count Work Items
@@ -44,9 +43,13 @@ Method | HTTP request | Description
 [**Deny-BetaApprovalItem**](#reject-approval-item) | **POST** `/work-items/{id}/reject/{approvalItemId}` | Reject an Approval Item
 [**Deny-BetaApprovalItemsInBulk**](#reject-approval-items-in-bulk) | **POST** `/work-items/bulk-reject/{id}` | Bulk reject Approval Items
 [**Submit-BetaAccountSelection**](#submit-account-selection) | **POST** `/work-items/{id}/submit-account-selection` | Submit Account Selections
+[**Submit-BetaForwardWorkItem**](#submit-forward-work-item) | **POST** `/work-items/{id}/forward` | Forward a Work Item
 
 
 ## approve-approval-item
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API approves an Approval Item. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/approve-approval-item)
@@ -64,9 +67,12 @@ Path   | ApprovalItemId | **String** | True  | The ID of the approval item.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | A work items details object. | WorkItems
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -92,6 +98,9 @@ try {
 [[Back to top]](#) 
 
 ## approve-approval-items-in-bulk
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API bulk approves Approval Items. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/approve-approval-items-in-bulk)
@@ -108,9 +117,12 @@ Path   | Id | **String** | True  | The ID of the work item
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | A work items details object. | WorkItems
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -135,6 +147,9 @@ try {
 [[Back to top]](#) 
 
 ## complete-work-item
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API completes a work item. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/complete-work-item)
@@ -182,59 +197,10 @@ try {
 ```
 [[Back to top]](#) 
 
-## forward-work-item
-This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
-
-[API Spec](https://developer.sailpoint.com/docs/api/beta/forward-work-item)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | The ID of the work item
- Body  | WorkItemForward | [**WorkItemForward**](../models/work-item-forward) | True  | 
-
-### Return type
- (empty response body)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-200 | Success, but no data is returned. | 
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### Example
-```powershell
-$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
-$WorkItemForward = @"{
-  "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
-  "comment" : "I'm going on vacation.",
-  "sendNotifications" : true
-}"@
-
-# Forward a Work Item
-
-try {
-    $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
-    Invoke-BetaForwardWorkItem -Id $Id -WorkItemForward $Result 
-    
-    # Below is a request that includes all optional parameters
-    # Invoke-BetaForwardWorkItem -Id $Id -WorkItemForward $Result  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-BetaForwardWorkItem"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
 ## get-completed-work-items
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-completed-work-items)
@@ -254,9 +220,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of completed work items. | WorkItems[]
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -264,7 +233,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$OwnerId = "MyOwnerId" # String | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional)
+$OwnerId = "2c91808571bcfcf80171c23e4b4221fc" # String | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -284,6 +253,9 @@ try {
 [[Back to top]](#) 
 
 ## get-count-completed-work-items
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-count-completed-work-items)
@@ -292,6 +264,8 @@ This gets a count of completed work items belonging to either the specified user
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
   Query | OwnerId | **String** |   (optional) | ID of the work item owner.
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**WorkItemsCount[]**](../models/work-items-count)
@@ -300,9 +274,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of work items | WorkItemsCount[]
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -310,7 +287,9 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
+$OwnerId = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the work item owner. (optional)
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
 # Count Completed Work Items
 
@@ -318,7 +297,7 @@ try {
     Get-BetaCountCompletedWorkItems 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaCountCompletedWorkItems -OwnerId $OwnerId  
+    # Get-BetaCountCompletedWorkItems -OwnerId $OwnerId -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCountCompletedWorkItems"
     Write-Host $_.ErrorDetails
@@ -327,6 +306,9 @@ try {
 [[Back to top]](#) 
 
 ## get-count-work-items
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This gets a count of work items belonging to either the specified user(admin required), or the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-count-work-items)
@@ -343,9 +325,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of work items | WorkItemsCount
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -353,7 +338,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
+$OwnerId = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the work item owner. (optional)
 
 # Count Work Items
 
@@ -370,6 +355,9 @@ try {
 [[Back to top]](#) 
 
 ## get-work-item
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-work-item)
@@ -418,6 +406,9 @@ try {
 [[Back to top]](#) 
 
 ## get-work-items-summary
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This gets a summary of work items belonging to either the specified user(admin required), or the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-work-items-summary)
@@ -434,9 +425,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of work items | WorkItemsSummary
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -444,7 +438,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
+$OwnerId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of the work item owner. (optional)
 
 # Work Items Summary
 
@@ -461,6 +455,9 @@ try {
 [[Back to top]](#) 
 
 ## list-work-items
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This gets a collection of work items belonging to either the specified user(admin required), or the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-work-items)
@@ -480,9 +477,12 @@ Param Type | Name | Data Type | Required  | Description
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | List of work items | WorkItems[]
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -493,7 +493,7 @@ Code | Description  | Data Type
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-$OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
+$OwnerId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of the work item owner. (optional)
 
 # List Work Items
 
@@ -510,6 +510,9 @@ try {
 [[Back to top]](#) 
 
 ## reject-approval-item
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API rejects an Approval Item. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/reject-approval-item)
@@ -527,9 +530,12 @@ Path   | ApprovalItemId | **String** | True  | The ID of the approval item.
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | A work items details object. | WorkItems
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -555,6 +561,9 @@ try {
 [[Back to top]](#) 
 
 ## reject-approval-items-in-bulk
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/reject-approval-items-in-bulk)
@@ -571,9 +580,12 @@ Path   | Id | **String** | True  | The ID of the work item
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | A work items details object. | WorkItems
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: Not defined
@@ -598,6 +610,9 @@ try {
 [[Back to top]](#) 
 
 ## submit-account-selection
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API submits account selections. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/submit-account-selection)
@@ -615,9 +630,12 @@ Path   | Id | **String** | True  | The ID of the work item
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | A work items details object. | WorkItems
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
 ### HTTP request headers
 - **Content-Type**: application/json
@@ -638,6 +656,61 @@ try {
     # Submit-BetaAccountSelection -Id $Id -RequestBody $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaAccountSelection"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## submit-forward-work-item
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/submit-forward-work-item)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | The ID of the work item
+ Body  | WorkItemForward | [**WorkItemForward**](../models/work-item-forward) | True  | 
+
+### Return type
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Success, but no data is returned. | 
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+$WorkItemForward = @"{
+  "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
+  "comment" : "I'm going on vacation.",
+  "sendNotifications" : true
+}"@
+
+# Forward a Work Item
+
+try {
+    $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
+    Submit-BetaForwardWorkItem -Id $Id -WorkItemForward $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Submit-BetaForwardWorkItem -Id $Id -WorkItemForward $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaForwardWorkItem"
     Write-Host $_.ErrorDetails
 }
 ```

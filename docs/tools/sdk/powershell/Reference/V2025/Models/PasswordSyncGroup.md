@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PasswordSyncGroup = Initialize-PSSailpoint.V2025PasswordSyncGroup  -Id 6881f631-3bd5-4213-9c75-8e05cc3e35dd `
+$PasswordSyncGroup = Initialize-V2025PasswordSyncGroup  -Id 6881f631-3bd5-4213-9c75-8e05cc3e35dd `
  -Name Password Sync Group 1 `
  -PasswordPolicyId 2c91808d744ba0ce01746f93b6204501 `
  -SourceIds [2c918084660f45d6016617daa9210584, 2c918084660f45d6016617daa9210500] `

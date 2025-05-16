@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SpConfigRules = Initialize-PSSailpoint.V2025SpConfigRules  -TakeFromTargetRules null `
+$SpConfigRules = Initialize-V2025SpConfigRules  -TakeFromTargetRules null `
  -DefaultRules null `
  -Editable true
 ```

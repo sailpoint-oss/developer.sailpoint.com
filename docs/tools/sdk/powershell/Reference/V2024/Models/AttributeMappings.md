@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeMappings = Initialize-PSSailpoint.V2024AttributeMappings  -Target null `
+$AttributeMappings = Initialize-V2024AttributeMappings  -Target null `
  -TransformDefinition null
 ```
 

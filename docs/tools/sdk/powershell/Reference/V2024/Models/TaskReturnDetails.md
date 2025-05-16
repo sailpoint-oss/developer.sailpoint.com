@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaskReturnDetails = Initialize-PSSailpoint.V2024TaskReturnDetails  -Name label `
+$TaskReturnDetails = Initialize-V2024TaskReturnDetails  -Name label `
  -AttributeName identityCount
 ```
 

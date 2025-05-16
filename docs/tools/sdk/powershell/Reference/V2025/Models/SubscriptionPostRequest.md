@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SubscriptionPostRequest = Initialize-PSSailpoint.V2025SubscriptionPostRequest  -Name Access request subscription `
+$SubscriptionPostRequest = Initialize-V2025SubscriptionPostRequest  -Name Access request subscription `
  -Description Access requested to site xyz `
  -TriggerId idn:access-requested `
  -Type null `

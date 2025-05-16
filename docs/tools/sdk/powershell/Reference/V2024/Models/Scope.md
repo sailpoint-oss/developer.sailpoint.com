@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Scope = Initialize-PSSailpoint.V2024Scope  -Scope null `
+$Scope = Initialize-V2024Scope  -Scope null `
  -Visibility null `
  -ScopeFilter null `
  -ScopeSelection [{type=IDENTITY, id=29cb6c061da843ea8be4b3125f248f2a}, {type=IDENTITY, id=f7b1b8a35fed4fd4ad2982014e137e19}]

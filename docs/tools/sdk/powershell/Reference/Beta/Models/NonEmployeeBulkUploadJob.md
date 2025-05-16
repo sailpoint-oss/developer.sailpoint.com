@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeBulkUploadJob = Initialize-PSSailpoint.BetaNonEmployeeBulkUploadJob  -Id 2c91808568c529c60168cca6f90cffff `
+$NonEmployeeBulkUploadJob = Initialize-BetaNonEmployeeBulkUploadJob  -Id 2c91808568c529c60168cca6f90cffff `
  -SourceId 2c91808568c529c60168cca6f90c1313 `
  -Created 2019-08-23T18:52:59.162Z `
  -Modified 2019-08-23T18:52:59.162Z `

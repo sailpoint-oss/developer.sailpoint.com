@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Schema = Initialize-PSSailpoint.V2024Schema  -Id 2c9180835d191a86015d28455b4a2329 `
+$Schema = Initialize-V2024Schema  -Id 2c9180835d191a86015d28455b4a2329 `
  -Name account `
  -NativeObjectType User `
  -IdentityAttribute sAMAccountName `

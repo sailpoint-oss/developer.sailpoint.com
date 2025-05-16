@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DataAccessPoliciesInner = Initialize-PSSailpoint.V2024DataAccessPoliciesInner  -Value GDPR-20
+$DataAccessPoliciesInner = Initialize-V2024DataAccessPoliciesInner  -Value GDPR-20
 ```
 
 - Convert the resource to JSON

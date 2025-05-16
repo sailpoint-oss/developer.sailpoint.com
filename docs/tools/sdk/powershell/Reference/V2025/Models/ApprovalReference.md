@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalReference = Initialize-PSSailpoint.V2025ApprovalReference  -Id 64012350-8fd9-4f6c-a170-1fe123683899 `
+$ApprovalReference = Initialize-V2025ApprovalReference  -Id 64012350-8fd9-4f6c-a170-1fe123683899 `
  -Type AccessRequestId
 ```
 

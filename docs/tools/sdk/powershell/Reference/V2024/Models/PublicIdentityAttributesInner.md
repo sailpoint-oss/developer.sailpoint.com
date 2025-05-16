@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PublicIdentityAttributesInner = Initialize-PSSailpoint.V2024PublicIdentityAttributesInner  -Key country `
+$PublicIdentityAttributesInner = Initialize-V2024PublicIdentityAttributesInner  -Key country `
  -Name Country `
  -Value US
 ```

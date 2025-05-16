@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FirstValid = Initialize-PSSailpoint.V2025FirstValid  -Values [{attributes={sourceName=Active Directory, attributeName=sAMAccountName}, type=accountAttribute}, {attributes={sourceName=Okta, attributeName=login}, type=accountAttribute}, {attributes={sourceName=HR Source, attributeName=employeeID}, type=accountAttribute}] `
+$FirstValid = Initialize-V2025FirstValid  -Values [{attributes={sourceName=Active Directory, attributeName=sAMAccountName}, type=accountAttribute}, {attributes={sourceName=Okta, attributeName=login}, type=accountAttribute}, {attributes={sourceName=HR Source, attributeName=employeeID}, type=accountAttribute}] `
  -IgnoreErrors false `
  -RequiresPeriodicRefresh false
 ```

@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileDocument = Initialize-PSSailpoint.V2024AccessProfileDocument  -Description Admin access `
+$AccessProfileDocument = Initialize-V2024AccessProfileDocument  -Description Admin access `
  -Created 2018-06-25T20:22:28.104Z `
  -Modified 2018-06-25T20:22:28.104Z `
  -Synced 2018-06-25T20:22:33.104Z `

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ViolationContext = Initialize-PSSailpoint.V2025ViolationContext  -Policy null `
+$ViolationContext = Initialize-V2025ViolationContext  -Policy null `
  -ConflictingAccessCriteria null
 ```
 

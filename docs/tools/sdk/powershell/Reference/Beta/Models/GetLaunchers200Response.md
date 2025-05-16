@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetLaunchers200Response = Initialize-PSSailpoint.BetaGetLaunchers200Response  -Next null `
+$GetLaunchers200Response = Initialize-BetaGetLaunchers200Response  -Next null `
  -Items null
 ```
 

@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttributesChangedChangesInnerOldValue = Initialize-PSSailpoint.V2025IdentityAttributesChangedChangesInnerOldValue 
+$IdentityAttributesChangedChangesInnerOldValue = Initialize-V2025IdentityAttributesChangedChangesInnerOldValue 
 ```
 
 - Convert the resource to JSON

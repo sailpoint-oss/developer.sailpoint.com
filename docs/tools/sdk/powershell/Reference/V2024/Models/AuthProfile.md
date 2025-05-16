@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AuthProfile = Initialize-PSSailpoint.V2024AuthProfile  -Name EndToEnd-Profile `
+$AuthProfile = Initialize-V2024AuthProfile  -Name EndToEnd-Profile `
  -OffNetwork true `
  -UntrustedGeography true `
  -ApplicationId 2c91808458ae7a4f0158b1bbf8af0628 `

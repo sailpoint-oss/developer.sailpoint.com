@@ -18,13 +18,14 @@ Name | Type | Description | Notes
 **Role** | Pointer to **string** | Federation protocol role | [optional] 
 **EntityId** | Pointer to **string** | An entity ID is a globally unique name for a SAML entity, either an Identity Provider (IDP) or a Service Provider (SP). | [optional] 
 **Alias** | Pointer to **string** | Unique alias used to identify the selected local service provider based on used URL. Used with SP configurations. | [optional] 
-**CallbackUrl** | Pointer to **string** | The allowed callback URL where users will be redirected to after authentication. Used with SP configurations. | [optional] 
+**CallbackUrl** | **string** | The allowed callback URL where users will be redirected to after authentication. Used with SP configurations. | 
+**LegacyAcsUrl** | Pointer to **string** | The legacy ACS URL used for SAML authentication. Used with SP configurations. | [optional] 
 
 ## Methods
 
 ### NewSpDetails
 
-`func NewSpDetails() *SpDetails`
+`func NewSpDetails(callbackUrl string, ) *SpDetails`
 
 NewSpDetails instantiates a new SpDetails object
 This constructor will assign default values to properties that have it defined,
@@ -133,10 +134,30 @@ and a boolean to check if the value has been set.
 
 SetCallbackUrl sets CallbackUrl field to given value.
 
-### HasCallbackUrl
 
-`func (o *SpDetails) HasCallbackUrl() bool`
+### GetLegacyAcsUrl
 
-HasCallbackUrl returns a boolean if a field has been set.
+`func (o *SpDetails) GetLegacyAcsUrl() string`
+
+GetLegacyAcsUrl returns the LegacyAcsUrl field if non-nil, zero value otherwise.
+
+### GetLegacyAcsUrlOk
+
+`func (o *SpDetails) GetLegacyAcsUrlOk() (*string, bool)`
+
+GetLegacyAcsUrlOk returns a tuple with the LegacyAcsUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLegacyAcsUrl
+
+`func (o *SpDetails) SetLegacyAcsUrl(v string)`
+
+SetLegacyAcsUrl sets LegacyAcsUrl field to given value.
+
+### HasLegacyAcsUrl
+
+`func (o *SpDetails) HasLegacyAcsUrl() bool`
+
+HasLegacyAcsUrl returns a boolean if a field has been set.
 
 

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignAllOfRoleCompositionCampaignInfoReviewer = Initialize-PSSailpoint.V2024CampaignAllOfRoleCompositionCampaignInfoReviewer  -Type IDENTITY `
+$CampaignAllOfRoleCompositionCampaignInfoReviewer = Initialize-V2024CampaignAllOfRoleCompositionCampaignInfoReviewer  -Type IDENTITY `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name William Wilson
 ```

@@ -670,9 +670,7 @@
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             }, {
               "clientMetadata" : {
                 "requestedAppName" : "test-app",
@@ -700,9 +698,7 @@
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             } ]
           }, {
             "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
@@ -733,9 +729,7 @@
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             }, {
               "clientMetadata" : {
                 "requestedAppName" : "test-app",
@@ -763,9 +757,7 @@
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             } ]
           } ]
         }
@@ -3887,7 +3879,17 @@
               "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
               "approverType" : "GOVERNANCE_GROUP"
             } ],
+            "reauthorizationRequired" : false,
             "requestCommentRequired" : true
+          },
+          "revocationRequestConfig" : {
+            "approvalSchemes" : [ {
+              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+              "approverType" : "GOVERNANCE_GROUP"
+            }, {
+              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+              "approverType" : "GOVERNANCE_GROUP"
+            } ]
           }
         }
         "@
@@ -12639,7 +12641,17 @@
               "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
               "approverType" : "GOVERNANCE_GROUP"
             } ],
+            "reauthorizationRequired" : false,
             "requestCommentRequired" : true
+          },
+          "revocationRequestConfig" : {
+            "approvalSchemes" : [ {
+              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+              "approverType" : "GOVERNANCE_GROUP"
+            }, {
+              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+              "approverType" : "GOVERNANCE_GROUP"
+            } ]
           }
         }
         "@
@@ -13927,40 +13939,13 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Complete-BetaWorkItem"
             Write-Host $_.ErrorDetails
         }
-- path: /work-items/{id}/forward
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/work-items#forward-work-item
-      source: |
-        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
-        $WorkItemForward = @"
-        {
-          "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
-          "comment" : "I'm going on vacation.",
-          "sendNotifications" : true
-        }
-        "@
-        
-        # Forward a Work Item
-        
-        try {
-            $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
-            Invoke-BetaForwardWorkItem -Id $Id -WorkItemForward $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Invoke-BetaForwardWorkItem -Id $Id -WorkItemForward $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-BetaForwardWorkItem"
-            Write-Host $_.ErrorDetails
-        }
 - path: /work-items/completed
   method: GET
   xCodeSample:
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/work-items#get-completed-work-items
       source: |
-        $OwnerId = "MyOwnerId" # String | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional)
+        $OwnerId = "2c91808571bcfcf80171c23e4b4221fc" # String | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -13982,7 +13967,9 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/work-items#get-count-completed-work-items
       source: |
-        $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
+        $OwnerId = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the work item owner. (optional)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         
         # Count Completed Work Items
         
@@ -13990,7 +13977,7 @@
             Get-BetaCountCompletedWorkItems 
     
             # Below is a request that includes all optional parameters
-            # Get-BetaCountCompletedWorkItems -OwnerId $OwnerId   
+            # Get-BetaCountCompletedWorkItems -OwnerId $OwnerId -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaCountCompletedWorkItems"
             Write-Host $_.ErrorDetails
@@ -14001,7 +13988,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/work-items#get-count-work-items
       source: |
-        $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
+        $OwnerId = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the work item owner. (optional)
         
         # Count Work Items
         
@@ -14040,7 +14027,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/work-items#get-work-items-summary
       source: |
-        $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
+        $OwnerId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of the work item owner. (optional)
         
         # Work Items Summary
         
@@ -14062,7 +14049,7 @@
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
-        $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
+        $OwnerId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of the work item owner. (optional)
         
         # List Work Items
         
@@ -14133,6 +14120,33 @@
             # Submit-BetaAccountSelection -Id $Id -RequestBody $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaAccountSelection"
+            Write-Host $_.ErrorDetails
+        }
+- path: /work-items/{id}/forward
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/work-items#submit-forward-work-item
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
+        $WorkItemForward = @"
+        {
+          "targetOwnerId" : "2c9180835d2e5168015d32f890ca1581",
+          "comment" : "I'm going on vacation.",
+          "sendNotifications" : true
+        }
+        "@
+        
+        # Forward a Work Item
+        
+        try {
+            $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
+            Submit-BetaForwardWorkItem -Id $Id -WorkItemForward $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Submit-BetaForwardWorkItem -Id $Id -WorkItemForward $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-BetaForwardWorkItem"
             Write-Host $_.ErrorDetails
         }
 - path: /reassignment-configurations

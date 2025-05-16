@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OwnerReference = Initialize-PSSailpoint.V2025OwnerReference  -Type IDENTITY `
+$OwnerReference = Initialize-V2025OwnerReference  -Type IDENTITY `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name support
 ```

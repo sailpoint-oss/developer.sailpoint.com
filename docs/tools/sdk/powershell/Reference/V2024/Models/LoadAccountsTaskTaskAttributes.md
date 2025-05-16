@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LoadAccountsTaskTaskAttributes = Initialize-PSSailpoint.V2024LoadAccountsTaskTaskAttributes  -AppId c31386cb18bb403cbb6df4c86294ff82 `
+$LoadAccountsTaskTaskAttributes = Initialize-V2024LoadAccountsTaskTaskAttributes  -AppId c31386cb18bb403cbb6df4c86294ff82 `
  -OptimizedAggregation enabled
 ```
 

@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningEntitlement = Initialize-PSSailpoint.V2025RoleMiningEntitlement  -EntitlementRef null `
+$RoleMiningEntitlement = Initialize-V2025RoleMiningEntitlement  -EntitlementRef null `
  -Name Add/modify/delete users `
  -ApplicationName AppName `
  -IdentityCount 45 `

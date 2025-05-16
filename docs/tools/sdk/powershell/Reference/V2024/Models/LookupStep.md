@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LookupStep = Initialize-PSSailpoint.V2024LookupStep  -ReassignedToId 869320b6b6f34a169b6178b1a865e66f `
+$LookupStep = Initialize-V2024LookupStep  -ReassignedToId 869320b6b6f34a169b6178b1a865e66f `
  -ReassignedFromId 51948a8f306a4e7a9a6f8f5d032fa59e `
  -ReassignmentType null
 ```

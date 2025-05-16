@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$JITConfiguration = Initialize-PSSailpoint.V2024JITConfiguration  -Enabled false `
+$JITConfiguration = Initialize-V2024JITConfiguration  -Enabled false `
  -SourceId 2c9180857377ed2901739c12a2da5ac8 `
  -SourceAttributeMappings {firstName=okta.firstName, lastName=okta.lastName, email=okta.email}
 ```

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TransformDefinition = Initialize-PSSailpoint.V2025TransformDefinition  -Type accountAttribute `
+$TransformDefinition = Initialize-V2025TransformDefinition  -Type accountAttribute `
  -Attributes {attributeName=e-mail, sourceName=MySource, sourceId=2c9180877a826e68017a8c0b03da1a53}
 ```
 

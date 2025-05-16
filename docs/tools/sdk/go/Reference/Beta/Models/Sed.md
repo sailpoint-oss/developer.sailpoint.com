@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Name** | Pointer to **string** | name of the entitlement | [optional] 
 **ApprovedBy** | Pointer to **string** | entitlement approved by | [optional] 
 **ApprovedType** | Pointer to **string** | entitlement approved type | [optional] 
-**ApprovedWhen** | Pointer to **time.Time** | entitlement approved then | [optional] 
+**ApprovedWhen** | Pointer to **SailPointTime** | entitlement approved then | [optional] 
 **Attribute** | Pointer to **string** | entitlement attribute | [optional] 
 **Description** | Pointer to **string** | description of entitlement | [optional] 
 **DisplayName** | Pointer to **string** | entitlement display name | [optional] 
@@ -126,20 +126,20 @@ HasApprovedType returns a boolean if a field has been set.
 
 ### GetApprovedWhen
 
-`func (o *Sed) GetApprovedWhen() time.Time`
+`func (o *Sed) GetApprovedWhen() SailPointTime`
 
 GetApprovedWhen returns the ApprovedWhen field if non-nil, zero value otherwise.
 
 ### GetApprovedWhenOk
 
-`func (o *Sed) GetApprovedWhenOk() (*time.Time, bool)`
+`func (o *Sed) GetApprovedWhenOk() (*SailPointTime, bool)`
 
 GetApprovedWhenOk returns a tuple with the ApprovedWhen field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetApprovedWhen
 
-`func (o *Sed) SetApprovedWhen(v time.Time)`
+`func (o *Sed) SetApprovedWhen(v SailPointTime)`
 
 SetApprovedWhen sets ApprovedWhen field to given value.
 

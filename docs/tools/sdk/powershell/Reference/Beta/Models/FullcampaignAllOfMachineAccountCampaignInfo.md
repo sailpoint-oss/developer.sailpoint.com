@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FullcampaignAllOfMachineAccountCampaignInfo = Initialize-PSSailpoint.BetaFullcampaignAllOfMachineAccountCampaignInfo  -SourceIds [0fbe863c063c4c88a35fd7f17e8a3df5] `
+$FullcampaignAllOfMachineAccountCampaignInfo = Initialize-BetaFullcampaignAllOfMachineAccountCampaignInfo  -SourceIds [0fbe863c063c4c88a35fd7f17e8a3df5] `
  -ReviewerType ACCOUNT_OWNER
 ```
 

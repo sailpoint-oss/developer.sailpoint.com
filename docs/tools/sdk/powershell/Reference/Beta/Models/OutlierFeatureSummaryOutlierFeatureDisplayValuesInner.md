@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OutlierFeatureSummaryOutlierFeatureDisplayValuesInner = Initialize-PSSailpoint.BetaOutlierFeatureSummaryOutlierFeatureDisplayValuesInner  -DisplayName Aliza Chris `
+$OutlierFeatureSummaryOutlierFeatureDisplayValuesInner = Initialize-BetaOutlierFeatureSummaryOutlierFeatureDisplayValuesInner  -DisplayName Aliza Chris `
  -Value 55 `
  -ValueType INTEGER
 ```

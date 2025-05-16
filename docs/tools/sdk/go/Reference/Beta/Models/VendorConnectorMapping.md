@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** | The unique identifier for the vendor-connector mapping. | [optional] 
 **Vendor** | Pointer to **string** | The name of the vendor. | [optional] 
 **Connector** | Pointer to **string** | The name of the connector. | [optional] 
-**CreatedAt** | Pointer to **time.Time** | The creation timestamp of the mapping. | [optional] 
+**CreatedAt** | Pointer to **SailPointTime** | The creation timestamp of the mapping. | [optional] 
 **CreatedBy** | Pointer to **string** | The identifier of the user who created the mapping. | [optional] 
 **UpdatedAt** | Pointer to [**NullableVendorConnectorMappingUpdatedAt**](vendor-connector-mapping-updated-at) |  | [optional] 
 **UpdatedBy** | Pointer to [**NullableVendorConnectorMappingUpdatedBy**](vendor-connector-mapping-updated-by) |  | [optional] 
@@ -121,20 +121,20 @@ HasConnector returns a boolean if a field has been set.
 
 ### GetCreatedAt
 
-`func (o *VendorConnectorMapping) GetCreatedAt() time.Time`
+`func (o *VendorConnectorMapping) GetCreatedAt() SailPointTime`
 
 GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
 
 ### GetCreatedAtOk
 
-`func (o *VendorConnectorMapping) GetCreatedAtOk() (*time.Time, bool)`
+`func (o *VendorConnectorMapping) GetCreatedAtOk() (*SailPointTime, bool)`
 
 GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedAt
 
-`func (o *VendorConnectorMapping) SetCreatedAt(v time.Time)`
+`func (o *VendorConnectorMapping) SetCreatedAt(v SailPointTime)`
 
 SetCreatedAt sets CreatedAt field to given value.
 

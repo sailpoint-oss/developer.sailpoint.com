@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListCampaignFilters200Response = Initialize-PSSailpoint.V2025ListCampaignFilters200Response  -Items null `
+$ListCampaignFilters200Response = Initialize-V2025ListCampaignFilters200Response  -Items null `
  -Count 2
 ```
 

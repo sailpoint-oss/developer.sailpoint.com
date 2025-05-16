@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConnectorCustomizerVersionCreateResponse = Initialize-PSSailpoint.V2025ConnectorCustomizerVersionCreateResponse  -CustomizerID b07dc46a-1498-4de8-bfbb-259a68e70c8a `
+$ConnectorCustomizerVersionCreateResponse = Initialize-V2025ConnectorCustomizerVersionCreateResponse  -CustomizerID b07dc46a-1498-4de8-bfbb-259a68e70c8a `
  -ImageID 2c91808568c529c60168cca6f90c1324 `
  -Version 1 `
  -Created 2022-02-08T14:50:03.827Z

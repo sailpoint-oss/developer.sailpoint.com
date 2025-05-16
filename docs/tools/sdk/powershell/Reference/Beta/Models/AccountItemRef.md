@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountItemRef = Initialize-PSSailpoint.BetaAccountItemRef  -AccountUuid {fab7119e-004f-4822-9c33-b8d570d6c6a6} `
+$AccountItemRef = Initialize-BetaAccountItemRef  -AccountUuid {fab7119e-004f-4822-9c33-b8d570d6c6a6} `
  -NativeIdentity CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local
 ```
 

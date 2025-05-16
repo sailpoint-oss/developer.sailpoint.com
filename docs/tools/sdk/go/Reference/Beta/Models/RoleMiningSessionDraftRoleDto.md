@@ -20,11 +20,11 @@ Name | Type | Description | Notes
 **IdentityIds** | Pointer to **[]string** | The list of identities for this role mining session. | [optional] 
 **EntitlementIds** | Pointer to **[]string** | The list of entitlement ids for this role mining session. | [optional] 
 **ExcludedEntitlements** | Pointer to **[]string** | The list of excluded entitlement ids. | [optional] 
-**Modified** | Pointer to **time.Time** | Last modified date | [optional] 
+**Modified** | Pointer to **SailPointTime** | Last modified date | [optional] 
 **Type** | Pointer to [**RoleMiningRoleType**](role-mining-role-type) |  | [optional] 
 **Id** | Pointer to **string** | Id of the potential draft role | [optional] 
-**CreatedDate** | Pointer to **time.Time** | The date-time when this potential draft role was created. | [optional] 
-**ModifiedDate** | Pointer to **time.Time** | The date-time when this potential draft role was modified. | [optional] 
+**CreatedDate** | Pointer to **SailPointTime** | The date-time when this potential draft role was created. | [optional] 
+**ModifiedDate** | Pointer to **SailPointTime** | The date-time when this potential draft role was modified. | [optional] 
 
 ## Methods
 
@@ -172,20 +172,20 @@ HasExcludedEntitlements returns a boolean if a field has been set.
 
 ### GetModified
 
-`func (o *RoleMiningSessionDraftRoleDto) GetModified() time.Time`
+`func (o *RoleMiningSessionDraftRoleDto) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *RoleMiningSessionDraftRoleDto) GetModifiedOk() (*time.Time, bool)`
+`func (o *RoleMiningSessionDraftRoleDto) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *RoleMiningSessionDraftRoleDto) SetModified(v time.Time)`
+`func (o *RoleMiningSessionDraftRoleDto) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 
@@ -247,20 +247,20 @@ HasId returns a boolean if a field has been set.
 
 ### GetCreatedDate
 
-`func (o *RoleMiningSessionDraftRoleDto) GetCreatedDate() time.Time`
+`func (o *RoleMiningSessionDraftRoleDto) GetCreatedDate() SailPointTime`
 
 GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
 
 ### GetCreatedDateOk
 
-`func (o *RoleMiningSessionDraftRoleDto) GetCreatedDateOk() (*time.Time, bool)`
+`func (o *RoleMiningSessionDraftRoleDto) GetCreatedDateOk() (*SailPointTime, bool)`
 
 GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedDate
 
-`func (o *RoleMiningSessionDraftRoleDto) SetCreatedDate(v time.Time)`
+`func (o *RoleMiningSessionDraftRoleDto) SetCreatedDate(v SailPointTime)`
 
 SetCreatedDate sets CreatedDate field to given value.
 
@@ -272,20 +272,20 @@ HasCreatedDate returns a boolean if a field has been set.
 
 ### GetModifiedDate
 
-`func (o *RoleMiningSessionDraftRoleDto) GetModifiedDate() time.Time`
+`func (o *RoleMiningSessionDraftRoleDto) GetModifiedDate() SailPointTime`
 
 GetModifiedDate returns the ModifiedDate field if non-nil, zero value otherwise.
 
 ### GetModifiedDateOk
 
-`func (o *RoleMiningSessionDraftRoleDto) GetModifiedDateOk() (*time.Time, bool)`
+`func (o *RoleMiningSessionDraftRoleDto) GetModifiedDateOk() (*SailPointTime, bool)`
 
 GetModifiedDateOk returns a tuple with the ModifiedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModifiedDate
 
-`func (o *RoleMiningSessionDraftRoleDto) SetModifiedDate(v time.Time)`
+`func (o *RoleMiningSessionDraftRoleDto) SetModifiedDate(v SailPointTime)`
 
 SetModifiedDate sets ModifiedDate field to given value.
 

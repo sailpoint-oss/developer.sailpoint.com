@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestDynamicApprover = Initialize-PSSailpoint.V2025AccessRequestDynamicApprover  -AccessRequestId 4b4d982dddff4267ab12f0f1e72b5a6d `
+$AccessRequestDynamicApprover = Initialize-V2025AccessRequestDynamicApprover  -AccessRequestId 4b4d982dddff4267ab12f0f1e72b5a6d `
  -RequestedFor null `
  -RequestedItems null `
  -RequestedBy null

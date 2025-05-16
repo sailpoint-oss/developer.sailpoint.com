@@ -21,8 +21,8 @@ Name | Type | Description | Notes
 **DiscoveredVendor** | Pointer to **string** | The vendor associated with the discovered application. | [optional] 
 **Description** | Pointer to **string** | A brief description of the discovered application. | [optional] 
 **RecommendedConnectors** | Pointer to **[]string** | List of recommended connectors for the application. | [optional] 
-**DiscoveredAt** | Pointer to **time.Time** | The timestamp when the application was last received via an entitlement aggregation invocation  or a manual csv upload, in ISO 8601 format. | [optional] 
-**CreatedAt** | Pointer to **time.Time** | The timestamp when the application was first discovered, in ISO 8601 format. | [optional] 
+**DiscoveredAt** | Pointer to **SailPointTime** | The timestamp when the application was last received via an entitlement aggregation invocation  or a manual csv upload, in ISO 8601 format. | [optional] 
+**CreatedAt** | Pointer to **SailPointTime** | The timestamp when the application was first discovered, in ISO 8601 format. | [optional] 
 **Status** | Pointer to **string** | The status of an application within the discovery source.  By default this field is set to \"ACTIVE\" when the application is discovered.  If an application has been deleted from within the discovery source, the status will be set to \"INACTIVE\". | [optional] 
 **AssociatedSources** | Pointer to **[]string** | List of associated sources related to this discovered application. | [optional] 
 
@@ -197,20 +197,20 @@ HasRecommendedConnectors returns a boolean if a field has been set.
 
 ### GetDiscoveredAt
 
-`func (o *GetDiscoveredApplications200ResponseInner) GetDiscoveredAt() time.Time`
+`func (o *GetDiscoveredApplications200ResponseInner) GetDiscoveredAt() SailPointTime`
 
 GetDiscoveredAt returns the DiscoveredAt field if non-nil, zero value otherwise.
 
 ### GetDiscoveredAtOk
 
-`func (o *GetDiscoveredApplications200ResponseInner) GetDiscoveredAtOk() (*time.Time, bool)`
+`func (o *GetDiscoveredApplications200ResponseInner) GetDiscoveredAtOk() (*SailPointTime, bool)`
 
 GetDiscoveredAtOk returns a tuple with the DiscoveredAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDiscoveredAt
 
-`func (o *GetDiscoveredApplications200ResponseInner) SetDiscoveredAt(v time.Time)`
+`func (o *GetDiscoveredApplications200ResponseInner) SetDiscoveredAt(v SailPointTime)`
 
 SetDiscoveredAt sets DiscoveredAt field to given value.
 
@@ -222,20 +222,20 @@ HasDiscoveredAt returns a boolean if a field has been set.
 
 ### GetCreatedAt
 
-`func (o *GetDiscoveredApplications200ResponseInner) GetCreatedAt() time.Time`
+`func (o *GetDiscoveredApplications200ResponseInner) GetCreatedAt() SailPointTime`
 
 GetCreatedAt returns the CreatedAt field if non-nil, zero value otherwise.
 
 ### GetCreatedAtOk
 
-`func (o *GetDiscoveredApplications200ResponseInner) GetCreatedAtOk() (*time.Time, bool)`
+`func (o *GetDiscoveredApplications200ResponseInner) GetCreatedAtOk() (*SailPointTime, bool)`
 
 GetCreatedAtOk returns a tuple with the CreatedAt field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedAt
 
-`func (o *GetDiscoveredApplications200ResponseInner) SetCreatedAt(v time.Time)`
+`func (o *GetDiscoveredApplications200ResponseInner) SetCreatedAt(v SailPointTime)`
 
 SetCreatedAt sets CreatedAt field to given value.
 

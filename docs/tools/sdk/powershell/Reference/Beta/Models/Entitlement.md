@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Entitlement = Initialize-PSSailpoint.BetaEntitlement  -Id 2c91808874ff91550175097daaec161c `
+$Entitlement = Initialize-BetaEntitlement  -Id 2c91808874ff91550175097daaec161c `
  -Name LauncherTest2 `
  -Created 2020-10-08T18:33:52.029Z `
  -Modified 2020-10-08T18:33:52.029Z `

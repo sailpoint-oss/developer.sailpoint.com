@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowLibraryAction = Initialize-PSSailpoint.V2025WorkflowLibraryAction  -Id sp:create-campaign `
+$WorkflowLibraryAction = Initialize-V2025WorkflowLibraryAction  -Id sp:create-campaign `
  -Name Create Certification Campaign `
  -Type ACTION `
  -Description Generates a certification campaign. `

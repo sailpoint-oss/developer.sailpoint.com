@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CorrelatedGovernanceEvent = Initialize-PSSailpoint.V2025CorrelatedGovernanceEvent  -Name Manager Certification for Jon Snow `
+$CorrelatedGovernanceEvent = Initialize-V2025CorrelatedGovernanceEvent  -Name Manager Certification for Jon Snow `
  -Dt 2019-03-08T22:37:33.901Z `
  -Type certification `
  -GovernanceId 2c91808a77ff216301782327a50f09bf `

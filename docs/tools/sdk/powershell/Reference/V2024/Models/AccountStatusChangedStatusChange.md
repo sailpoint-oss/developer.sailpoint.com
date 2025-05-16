@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountStatusChangedStatusChange = Initialize-PSSailpoint.V2024AccountStatusChangedStatusChange  -PreviousStatus null `
+$AccountStatusChangedStatusChange = Initialize-V2024AccountStatusChangedStatusChange  -PreviousStatus null `
  -NewStatus null
 ```
 

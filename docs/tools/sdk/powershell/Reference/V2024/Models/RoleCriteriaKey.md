@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleCriteriaKey = Initialize-PSSailpoint.V2024RoleCriteriaKey  -Type null `
+$RoleCriteriaKey = Initialize-V2024RoleCriteriaKey  -Type null `
  -Property attribute.email `
  -SourceId 2c9180867427f3a301745aec18211519
 ```

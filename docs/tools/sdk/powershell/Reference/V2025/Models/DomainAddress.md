@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DomainAddress = Initialize-PSSailpoint.V2025DomainAddress  -Domain sailpoint.com
+$DomainAddress = Initialize-V2025DomainAddress  -Domain sailpoint.com
 ```
 
 - Convert the resource to JSON

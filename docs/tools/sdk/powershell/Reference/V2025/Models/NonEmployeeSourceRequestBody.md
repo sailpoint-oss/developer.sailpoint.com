@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeSourceRequestBody = Initialize-PSSailpoint.V2025NonEmployeeSourceRequestBody  -Name Retail `
+$NonEmployeeSourceRequestBody = Initialize-V2025NonEmployeeSourceRequestBody  -Name Retail `
  -Description Source description `
  -Owner null `
  -ManagementWorkgroup 123299 `

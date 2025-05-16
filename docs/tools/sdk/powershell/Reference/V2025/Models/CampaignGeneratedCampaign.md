@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignGeneratedCampaign = Initialize-PSSailpoint.V2025CampaignGeneratedCampaign  -Id 2c91808576f886190176f88cac5a0010 `
+$CampaignGeneratedCampaign = Initialize-V2025CampaignGeneratedCampaign  -Id 2c91808576f886190176f88cac5a0010 `
  -Name Manager Access Campaign `
  -Description Audit access for all employees. `
  -Created 2021-02-16T03:04:45.815Z `

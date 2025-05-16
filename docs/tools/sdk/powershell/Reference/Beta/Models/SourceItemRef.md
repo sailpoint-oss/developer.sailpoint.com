@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceItemRef = Initialize-PSSailpoint.BetaSourceItemRef  -SourceId cb89bc2f1ee6445fbea12224c526ba3a `
+$SourceItemRef = Initialize-BetaSourceItemRef  -SourceId cb89bc2f1ee6445fbea12224c526ba3a `
  -Accounts null
 ```
 

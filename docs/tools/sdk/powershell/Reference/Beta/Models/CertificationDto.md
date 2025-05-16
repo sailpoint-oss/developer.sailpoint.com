@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CertificationDto = Initialize-PSSailpoint.BetaCertificationDto  -CampaignRef null `
+$CertificationDto = Initialize-BetaCertificationDto  -CampaignRef null `
  -Phase null `
  -Due 2018-10-19T13:49:37.385Z `
  -Signed 2018-10-19T13:49:37.385Z `

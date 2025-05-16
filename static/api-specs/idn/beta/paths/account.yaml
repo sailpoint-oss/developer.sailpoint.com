@@ -7,8 +7,16 @@ get:
     Use this API to return the details for a single account by its ID.  
 
     A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Account Details](https://developer.sailpoint.com/docs/api/v2025/get-account) for latest API.
   security:
     - userAuth: [idn:accounts:read, idn:accounts:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - HELPDESK
   parameters:
     - in: path
       name: id
@@ -54,8 +62,15 @@ patch:
     All accounts that are reassigned will be set to `manuallyCorrelated: true` unless you specify otherwise.
 
     >**Note:** The `attributes` field can only be modified for flat file accounts. 
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Update Account](https://developer.sailpoint.com/docs/api/v2025/update-account) for latest API.
   security:
     - userAuth: [idn:accounts:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   parameters:
     - in: path
       name: id
@@ -134,8 +149,15 @@ put:
     A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
     >**Note: You can only use this PUT endpoint to update accounts from flat file sources.**
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Update Account](https://developer.sailpoint.com/docs/api/v2025/put-account) for latest API.
   security:
     - userAuth: [idn:accounts:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   parameters:
     - in: path
       name: id
@@ -186,8 +208,15 @@ delete:
     A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
     >**NOTE:** You can only delete accounts from sources of the "DelimitedFile" type.**
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Delete Account](https://developer.sailpoint.com/docs/api/v2025/delete-account) for latest API.
   security:
     - userAuth: [idn:accounts:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   parameters:
     - in: path
       name: id

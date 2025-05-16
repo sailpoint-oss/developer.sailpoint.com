@@ -18,13 +18,13 @@ Name | Type | Description | Notes
 **Body** | **map[string]interface{}** | ManagedClientStatus body information | 
 **Status** | [**ManagedClientStatusEnum**](managed-client-status-enum) |  | 
 **Type** | [**NullableManagedClientType**](managed-client-type) |  | 
-**Timestamp** | **time.Time** | timestamp on the Client Status update | 
+**Timestamp** | **SailPointTime** | timestamp on the Client Status update | 
 
 ## Methods
 
 ### NewManagedClientStatus
 
-`func NewManagedClientStatus(body map[string]interface{}, status ManagedClientStatusEnum, type_ NullableManagedClientType, timestamp time.Time, ) *ManagedClientStatus`
+`func NewManagedClientStatus(body map[string]interface{}, status ManagedClientStatusEnum, type_ NullableManagedClientType, timestamp SailPointTime, ) *ManagedClientStatus`
 
 NewManagedClientStatus instantiates a new ManagedClientStatus object
 This constructor will assign default values to properties that have it defined,
@@ -111,20 +111,20 @@ SetType sets Type field to given value.
 UnsetType ensures that no value is present for Type, not even an explicit nil
 ### GetTimestamp
 
-`func (o *ManagedClientStatus) GetTimestamp() time.Time`
+`func (o *ManagedClientStatus) GetTimestamp() SailPointTime`
 
 GetTimestamp returns the Timestamp field if non-nil, zero value otherwise.
 
 ### GetTimestampOk
 
-`func (o *ManagedClientStatus) GetTimestampOk() (*time.Time, bool)`
+`func (o *ManagedClientStatus) GetTimestampOk() (*SailPointTime, bool)`
 
 GetTimestampOk returns a tuple with the Timestamp field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTimestamp
 
-`func (o *ManagedClientStatus) SetTimestamp(v time.Time)`
+`func (o *ManagedClientStatus) SetTimestamp(v SailPointTime)`
 
 SetTimestamp sets Timestamp field to given value.
 

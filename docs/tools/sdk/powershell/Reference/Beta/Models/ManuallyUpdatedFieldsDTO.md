@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManuallyUpdatedFieldsDTO = Initialize-PSSailpoint.BetaManuallyUpdatedFieldsDTO  -DISPLAYNAME true `
+$ManuallyUpdatedFieldsDTO = Initialize-BetaManuallyUpdatedFieldsDTO  -DISPLAYNAME true `
  -DESCRIPTION true
 ```
 

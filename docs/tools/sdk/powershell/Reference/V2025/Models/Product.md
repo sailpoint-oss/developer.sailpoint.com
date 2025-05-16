@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Product = Initialize-PSSailpoint.V2025Product  -ProductName idn `
+$Product = Initialize-V2025Product  -ProductName idn `
  -Url https://tenant-name.identitynow.com `
  -ProductTenantId tenant#product `
  -ProductRegion us-east-1 `

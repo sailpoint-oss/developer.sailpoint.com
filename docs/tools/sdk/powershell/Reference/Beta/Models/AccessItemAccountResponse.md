@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessItemAccountResponse = Initialize-PSSailpoint.BetaAccessItemAccountResponse  -AccessType account `
+$AccessItemAccountResponse = Initialize-BetaAccessItemAccountResponse  -AccessType account `
  -Id 2c918087763e69d901763e72e97f006f `
  -NativeIdentity dr.arden.ogahn.d `
  -SourceName DataScienceDataset `

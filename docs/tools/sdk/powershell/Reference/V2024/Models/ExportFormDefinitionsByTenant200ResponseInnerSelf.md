@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ExportFormDefinitionsByTenant200ResponseInnerSelf = Initialize-PSSailpoint.V2024ExportFormDefinitionsByTenant200ResponseInnerSelf  -Object null
+$ExportFormDefinitionsByTenant200ResponseInnerSelf = Initialize-V2024ExportFormDefinitionsByTenant200ResponseInnerSelf  -Object null
 ```
 
 - Convert the resource to JSON

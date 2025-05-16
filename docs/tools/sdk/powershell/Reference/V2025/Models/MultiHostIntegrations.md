@@ -53,7 +53,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MultiHostIntegrations = Initialize-PSSailpoint.V2025MultiHostIntegrations  -Id 2c91808568c529c60168cca6f90c1324 `
+$MultiHostIntegrations = Initialize-V2025MultiHostIntegrations  -Id 2c91808568c529c60168cca6f90c1324 `
  -Name My Multi-Host Integration `
  -Description This is a Multi-Host Integration. `
  -Owner null `

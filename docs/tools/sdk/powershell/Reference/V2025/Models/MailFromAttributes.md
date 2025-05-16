@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MailFromAttributes = Initialize-PSSailpoint.V2025MailFromAttributes  -Identity bob.smith@sailpoint.com `
+$MailFromAttributes = Initialize-V2025MailFromAttributes  -Identity bob.smith@sailpoint.com `
  -MailFromDomain foo.sailpoint.com `
  -MxRecord 10 feedback-smtp.us-east-1.amazonses.com `
  -TxtRecord v=spf1 include:amazonses.com ~all `

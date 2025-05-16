@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessItemAssociatedAccessItem = Initialize-PSSailpoint.V2025AccessItemAssociatedAccessItem  -AccessType role `
+$AccessItemAssociatedAccessItem = Initialize-V2025AccessItemAssociatedAccessItem  -AccessType role `
  -Id 2c918087763e69d901763e72e97f006f `
  -Name sample `
  -SourceName Source Name `

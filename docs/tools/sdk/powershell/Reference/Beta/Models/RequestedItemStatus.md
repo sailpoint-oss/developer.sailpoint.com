@@ -47,7 +47,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestedItemStatus = Initialize-PSSailpoint.BetaRequestedItemStatus  -Id 2c9180926cbfbddd016cbfc7c3b10010 `
+$RequestedItemStatus = Initialize-BetaRequestedItemStatus  -Id 2c9180926cbfbddd016cbfc7c3b10010 `
  -Name AccessProfile1 `
  -Type ACCESS_PROFILE `
  -CancelledRequestDetails null `

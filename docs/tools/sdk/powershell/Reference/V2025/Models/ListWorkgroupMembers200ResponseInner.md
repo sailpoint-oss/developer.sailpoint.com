@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListWorkgroupMembers200ResponseInner = Initialize-PSSailpoint.V2025ListWorkgroupMembers200ResponseInner  -Type IDENTITY `
+$ListWorkgroupMembers200ResponseInner = Initialize-V2025ListWorkgroupMembers200ResponseInner  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20642 `
  -Name Michael Michaels `
  -Email michael.michaels@sailpoint.com

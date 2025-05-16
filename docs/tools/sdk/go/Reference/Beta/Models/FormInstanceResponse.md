@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'FormInstanceResponse', 'BetaFormInsta
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Created** | Pointer to **time.Time** | Created is the date the form instance was assigned | [optional] 
+**Created** | Pointer to **SailPointTime** | Created is the date the form instance was assigned | [optional] 
 **CreatedBy** | Pointer to [**FormInstanceCreatedBy**](form-instance-created-by) |  | [optional] 
 **Expire** | Pointer to **string** | Expire is the maximum amount of time that a form can be in progress. After this time is reached then the form will be moved to a CANCELED state automatically. The user will no longer be able to complete the submission. When a form instance is expires an audit log will be generated for that record | [optional] 
 **FormConditions** | Pointer to [**[]FormCondition**](form-condition) | FormConditions is the conditional logic that modify the form dynamically modify the form as the recipient is interacting out the form | [optional] 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **FormErrors** | Pointer to [**[]FormError**](form-error) | FormErrors is an array of form validation errors from the last time the form instance was transitioned to the SUBMITTED state. If the form instance had validation errors then it would be moved to the IN PROGRESS state where the client can retrieve these errors | [optional] 
 **FormInput** | Pointer to **map[string]map[string]interface{}** | FormInput is an object of form input labels to value | [optional] 
 **Id** | Pointer to **string** | Unique guid identifying this form instance | [optional] 
-**Modified** | Pointer to **time.Time** | Modified is the last date the form instance was modified | [optional] 
+**Modified** | Pointer to **SailPointTime** | Modified is the last date the form instance was modified | [optional] 
 **Recipients** | Pointer to [**[]FormInstanceRecipient**](form-instance-recipient) | Recipients references to the recipient of a form. The recipients are those who are responsible for filling out a form and completing it | [optional] 
 **StandAloneForm** | Pointer to **bool** | StandAloneForm is a boolean flag to indicate if this form should be available for users to complete via the standalone form UI or should this only be available to be completed by as an embedded form | [optional] [default to false]
 **StandAloneFormUrl** | Pointer to **string** | StandAloneFormURL is the URL where this form may be completed by the designated recipients using the standalone form UI | [optional] 
@@ -52,20 +52,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetCreated
 
-`func (o *FormInstanceResponse) GetCreated() time.Time`
+`func (o *FormInstanceResponse) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *FormInstanceResponse) GetCreatedOk() (*time.Time, bool)`
+`func (o *FormInstanceResponse) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *FormInstanceResponse) SetCreated(v time.Time)`
+`func (o *FormInstanceResponse) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
@@ -322,20 +322,20 @@ HasId returns a boolean if a field has been set.
 
 ### GetModified
 
-`func (o *FormInstanceResponse) GetModified() time.Time`
+`func (o *FormInstanceResponse) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *FormInstanceResponse) GetModifiedOk() (*time.Time, bool)`
+`func (o *FormInstanceResponse) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *FormInstanceResponse) SetModified(v time.Time)`
+`func (o *FormInstanceResponse) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountUncorrelatedIdentity = Initialize-PSSailpoint.V2024AccountUncorrelatedIdentity  -Type IDENTITY `
+$AccountUncorrelatedIdentity = Initialize-V2024AccountUncorrelatedIdentity  -Type IDENTITY `
  -Id 2c3780a46faadee4016fb4e018c20652 `
  -Name Allen Albertson
 ```

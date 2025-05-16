@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PasswordStatus = Initialize-PSSailpoint.V2025PasswordStatus  -RequestId 089899f13a8f4da7824996191587bab9 `
+$PasswordStatus = Initialize-V2025PasswordStatus  -RequestId 089899f13a8f4da7824996191587bab9 `
  -State IN_PROGRESS `
  -Errors [The password change payload is invalid] `
  -SourceIds [2c918083746f642c01746f990884012a]

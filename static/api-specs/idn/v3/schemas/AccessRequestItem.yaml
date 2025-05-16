@@ -49,7 +49,7 @@ properties:
     type: string
     nullable: true
     description: |
-      The 'distinguishedName' field for an account on the identity, also called nativeIdentity. This nativeIdentity is used to revoke a specific attributeAssignment on the identity.
+      The unique identifier for an account on the identity, designated as the account ID attribute in the source's account schema. This is used to revoke a specific attributeAssignment on the identity.
       * For use with REVOKE_ACCESS requests for entitlements for identities with multiple accounts on a single source.
     example: 'CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN'
 required : ["id", "type"] 

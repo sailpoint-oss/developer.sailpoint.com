@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SelectorAccountMatchConfigMatchExpression = Initialize-PSSailpoint.V2025SelectorAccountMatchConfigMatchExpression  -MatchTerms [{name=, value=, op=null, container=true, and=false, children=[{name=businessCategory, value=Service, op=eq, container=false, and=false, children=null}]}] `
+$SelectorAccountMatchConfigMatchExpression = Initialize-V2025SelectorAccountMatchConfigMatchExpression  -MatchTerms [{name=, value=, op=null, container=true, and=false, children=[{name=businessCategory, value=Service, op=eq, container=false, and=false, children=null}]}] `
  -And true
 ```
 

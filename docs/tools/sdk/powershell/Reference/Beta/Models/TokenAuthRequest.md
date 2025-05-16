@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TokenAuthRequest = Initialize-PSSailpoint.BetaTokenAuthRequest  -Token 12345 `
+$TokenAuthRequest = Initialize-BetaTokenAuthRequest  -Token 12345 `
  -UserAlias will.albin `
  -DeliveryType EMAIL_WORK
 ```

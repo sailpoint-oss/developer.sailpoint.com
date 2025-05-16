@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LoadAccountsTask = Initialize-PSSailpoint.V2025LoadAccountsTask  -Success true `
+$LoadAccountsTask = Initialize-V2025LoadAccountsTask  -Success true `
  -Task null
 ```
 

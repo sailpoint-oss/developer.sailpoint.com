@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleInsightsIdentities = Initialize-PSSailpoint.V2024RoleInsightsIdentities  -Id null `
+$RoleInsightsIdentities = Initialize-V2024RoleInsightsIdentities  -Id null `
  -Name null `
  -Attributes null
 ```

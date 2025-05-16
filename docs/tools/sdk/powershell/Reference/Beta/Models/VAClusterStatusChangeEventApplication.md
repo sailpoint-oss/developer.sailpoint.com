@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$VAClusterStatusChangeEventApplication = Initialize-PSSailpoint.BetaVAClusterStatusChangeEventApplication  -Id 2c9180866166b5b0016167c32ef31a66 `
+$VAClusterStatusChangeEventApplication = Initialize-BetaVAClusterStatusChangeEventApplication  -Id 2c9180866166b5b0016167c32ef31a66 `
  -Name Production VA Cluster `
  -Attributes null
 ```

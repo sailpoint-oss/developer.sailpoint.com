@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMetadataBulkUpdateByFilterRequest = Initialize-PSSailpoint.V2024RoleMetadataBulkUpdateByFilterRequest  -Filters  requestable eq false `
+$RoleMetadataBulkUpdateByFilterRequest = Initialize-V2024RoleMetadataBulkUpdateByFilterRequest  -Filters  requestable eq false `
  -Operation REPLACE `
  -ReplaceScope ALL `
  -Values [{attribute=iscFederalClassifications, values=[topSecret]}]

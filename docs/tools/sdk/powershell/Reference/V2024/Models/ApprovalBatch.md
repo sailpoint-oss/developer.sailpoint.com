@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalBatch = Initialize-PSSailpoint.V2024ApprovalBatch  -BatchId 38453251-6be2-5f8f-df93-5ce19e295837 `
+$ApprovalBatch = Initialize-V2024ApprovalBatch  -BatchId 38453251-6be2-5f8f-df93-5ce19e295837 `
  -BatchSize 100
 ```
 

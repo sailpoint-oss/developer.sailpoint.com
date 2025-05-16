@@ -46,7 +46,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestAdminItemStatus = Initialize-PSSailpoint.V2025AccessRequestAdminItemStatus  -Id 2c9180926cbfbddd016cbfc7c3b10010 `
+$AccessRequestAdminItemStatus = Initialize-V2025AccessRequestAdminItemStatus  -Id 2c9180926cbfbddd016cbfc7c3b10010 `
  -Name AccessProfile1 `
  -Type ACCESS_PROFILE `
  -CancelledRequestDetails null `

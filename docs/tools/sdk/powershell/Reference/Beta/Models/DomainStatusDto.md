@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DomainStatusDto = Initialize-PSSailpoint.BetaDomainStatusDto  -Id 123b45b0-aaaa-bbbb-a7db-123456a56abc `
+$DomainStatusDto = Initialize-BetaDomainStatusDto  -Id 123b45b0-aaaa-bbbb-a7db-123456a56abc `
  -Domain sailpoint.com `
  -DkimEnabled true `
  -DkimTokens [token1, token2, token3] `

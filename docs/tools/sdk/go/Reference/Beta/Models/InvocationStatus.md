@@ -20,8 +20,8 @@ Name | Type | Description | Notes
 **SubscriptionName** | **string** | Subscription name | 
 **SubscriptionId** | **string** | Subscription ID | 
 **Type** | [**InvocationStatusType**](invocation-status-type) |  | 
-**Created** | **time.Time** | Invocation created timestamp. ISO-8601 in UTC. | 
-**Completed** | Pointer to **time.Time** | Invocation completed timestamp; empty fields imply invocation is in-flight or not completed. ISO-8601 in UTC. | [optional] 
+**Created** | **SailPointTime** | Invocation created timestamp. ISO-8601 in UTC. | 
+**Completed** | Pointer to **SailPointTime** | Invocation completed timestamp; empty fields imply invocation is in-flight or not completed. ISO-8601 in UTC. | [optional] 
 **StartInvocationInput** | [**StartInvocationInput**](start-invocation-input) |  | 
 **CompleteInvocationInput** | Pointer to [**CompleteInvocationInput**](complete-invocation-input) |  | [optional] 
 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewInvocationStatus
 
-`func NewInvocationStatus(id string, triggerId string, subscriptionName string, subscriptionId string, type_ InvocationStatusType, created time.Time, startInvocationInput StartInvocationInput, ) *InvocationStatus`
+`func NewInvocationStatus(id string, triggerId string, subscriptionName string, subscriptionId string, type_ InvocationStatusType, created SailPointTime, startInvocationInput StartInvocationInput, ) *InvocationStatus`
 
 NewInvocationStatus instantiates a new InvocationStatus object
 This constructor will assign default values to properties that have it defined,
@@ -146,40 +146,40 @@ SetType sets Type field to given value.
 
 ### GetCreated
 
-`func (o *InvocationStatus) GetCreated() time.Time`
+`func (o *InvocationStatus) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *InvocationStatus) GetCreatedOk() (*time.Time, bool)`
+`func (o *InvocationStatus) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *InvocationStatus) SetCreated(v time.Time)`
+`func (o *InvocationStatus) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
 
 ### GetCompleted
 
-`func (o *InvocationStatus) GetCompleted() time.Time`
+`func (o *InvocationStatus) GetCompleted() SailPointTime`
 
 GetCompleted returns the Completed field if non-nil, zero value otherwise.
 
 ### GetCompletedOk
 
-`func (o *InvocationStatus) GetCompletedOk() (*time.Time, bool)`
+`func (o *InvocationStatus) GetCompletedOk() (*SailPointTime, bool)`
 
 GetCompletedOk returns a tuple with the Completed field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCompleted
 
-`func (o *InvocationStatus) SetCompleted(v time.Time)`
+`func (o *InvocationStatus) SetCompleted(v SailPointTime)`
 
 SetCompleted sets Completed field to given value.
 

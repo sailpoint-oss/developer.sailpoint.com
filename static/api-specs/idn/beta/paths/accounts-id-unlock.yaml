@@ -9,8 +9,16 @@ post:
     To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required. 
 
     A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Unlock Account](https://developer.sailpoint.com/docs/api/v2025/unlock-account) for latest API.
   security:
     - userAuth: [idn:accounts-state:manage, idn:accounts-provisioning:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+    - HELPDESK
   parameters:
     - in: path
       name: id

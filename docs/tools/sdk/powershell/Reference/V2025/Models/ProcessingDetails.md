@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ProcessingDetails = Initialize-PSSailpoint.V2025ProcessingDetails  -Date 2018-06-25T20:22:28.104Z `
+$ProcessingDetails = Initialize-V2025ProcessingDetails  -Date 2018-06-25T20:22:28.104Z `
  -Stage In Process `
  -RetryCount 0 `
  -VarStackTrace <stack trace> `

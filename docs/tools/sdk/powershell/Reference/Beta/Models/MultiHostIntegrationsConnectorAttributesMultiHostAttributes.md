@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MultiHostIntegrationsConnectorAttributesMultiHostAttributes = Initialize-PSSailpoint.BetaMultiHostIntegrationsConnectorAttributesMultiHostAttributes  -Password Password `
+$MultiHostIntegrationsConnectorAttributesMultiHostAttributes = Initialize-BetaMultiHostIntegrationsConnectorAttributesMultiHostAttributes  -Password Password `
  -ConnectorFiles mssql-jdbc-8.4.1.jre8.jar `
  -AuthType SQLAuthentication `
  -User My Username

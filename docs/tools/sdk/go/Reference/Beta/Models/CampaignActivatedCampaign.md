@@ -18,9 +18,9 @@ Name | Type | Description | Notes
 **Id** | **string** | Campaign's unique ID. | 
 **Name** | **string** | Campaign's name. | 
 **Description** | **string** | Campaign's extended description. | 
-**Created** | **time.Time** | Date and time when the campaign was created. | 
+**Created** | **SailPointTime** | Date and time when the campaign was created. | 
 **Modified** | Pointer to **NullableTime** | Date and time when the campaign was last modified. | [optional] 
-**Deadline** | **time.Time** | Date and time when the campaign is due. | 
+**Deadline** | **SailPointTime** | Date and time when the campaign is due. | 
 **Type** | **map[string]interface{}** | Campaign's type. | 
 **CampaignOwner** | [**CampaignActivatedCampaignCampaignOwner**](campaign-activated-campaign-campaign-owner) |  | 
 **Status** | **map[string]interface{}** | Campaign's current status. | 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewCampaignActivatedCampaign
 
-`func NewCampaignActivatedCampaign(id string, name string, description string, created time.Time, deadline time.Time, type_ map[string]interface{}, campaignOwner CampaignActivatedCampaignCampaignOwner, status map[string]interface{}, ) *CampaignActivatedCampaign`
+`func NewCampaignActivatedCampaign(id string, name string, description string, created SailPointTime, deadline SailPointTime, type_ map[string]interface{}, campaignOwner CampaignActivatedCampaignCampaignOwner, status map[string]interface{}, ) *CampaignActivatedCampaign`
 
 NewCampaignActivatedCampaign instantiates a new CampaignActivatedCampaign object
 This constructor will assign default values to properties that have it defined,
@@ -106,40 +106,40 @@ SetDescription sets Description field to given value.
 
 ### GetCreated
 
-`func (o *CampaignActivatedCampaign) GetCreated() time.Time`
+`func (o *CampaignActivatedCampaign) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *CampaignActivatedCampaign) GetCreatedOk() (*time.Time, bool)`
+`func (o *CampaignActivatedCampaign) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *CampaignActivatedCampaign) SetCreated(v time.Time)`
+`func (o *CampaignActivatedCampaign) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
 
 ### GetModified
 
-`func (o *CampaignActivatedCampaign) GetModified() time.Time`
+`func (o *CampaignActivatedCampaign) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *CampaignActivatedCampaign) GetModifiedOk() (*time.Time, bool)`
+`func (o *CampaignActivatedCampaign) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *CampaignActivatedCampaign) SetModified(v time.Time)`
+`func (o *CampaignActivatedCampaign) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 
@@ -161,20 +161,20 @@ HasModified returns a boolean if a field has been set.
 UnsetModified ensures that no value is present for Modified, not even an explicit nil
 ### GetDeadline
 
-`func (o *CampaignActivatedCampaign) GetDeadline() time.Time`
+`func (o *CampaignActivatedCampaign) GetDeadline() SailPointTime`
 
 GetDeadline returns the Deadline field if non-nil, zero value otherwise.
 
 ### GetDeadlineOk
 
-`func (o *CampaignActivatedCampaign) GetDeadlineOk() (*time.Time, bool)`
+`func (o *CampaignActivatedCampaign) GetDeadlineOk() (*SailPointTime, bool)`
 
 GetDeadlineOk returns a tuple with the Deadline field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDeadline
 
-`func (o *CampaignActivatedCampaign) SetDeadline(v time.Time)`
+`func (o *CampaignActivatedCampaign) SetDeadline(v SailPointTime)`
 
 SetDeadline sets Deadline field to given value.
 

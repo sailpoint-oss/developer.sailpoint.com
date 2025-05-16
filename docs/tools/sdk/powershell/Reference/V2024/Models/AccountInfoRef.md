@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountInfoRef = Initialize-PSSailpoint.V2024AccountInfoRef  -Uuid {fab7119e-004f-4822-9c33-b8d570d6c6a6} `
+$AccountInfoRef = Initialize-V2024AccountInfoRef  -Uuid {fab7119e-004f-4822-9c33-b8d570d6c6a6} `
  -NativeIdentity CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local `
  -Type null `
  -Id f19d168c27374fd1aff3b483573f997f `

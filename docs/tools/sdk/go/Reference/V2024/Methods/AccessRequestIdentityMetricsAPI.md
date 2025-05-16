@@ -67,24 +67,28 @@ import (
 	"context"
 	"fmt"
 	"os"
-  v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
-	openapiclient "github.com/sailpoint-oss/golang-sdk/v2"
+  
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
 func main() {
-    identityId := 7025c863-c270-4ba6-beea-edf3cb091573 # string | Manager's identity ID. # string | Manager's identity ID.
-    requestedObjectId := 2db501be-f0fb-4cc5-a695-334133c52891 # string | Requested access item's ID. # string | Requested access item's ID.
-    type_ := ENTITLEMENT # string | Requested access item's type. # string | Requested access item's type.
+    identityId := `7025c863-c270-4ba6-beea-edf3cb091573` // string | Manager's identity ID. # string | Manager's identity ID.
+    requestedObjectId := `2db501be-f0fb-4cc5-a695-334133c52891` // string | Requested access item's ID. # string | Requested access item's ID.
+    type_ := `ENTITLEMENT` // string | Requested access item's type. # string | Requested access item's type.
 
-	configuration := NewDefaultConfiguration()
-	apiClient := NewAPIClient(configuration)
-	resp, r, err := apiClient.V2024.AccessRequestIdentityMetricsAPI.GetAccessRequestIdentityMetrics(context.Background(), identityId, requestedObjectId, type_).Execute()
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestIdentityMetricsAPI.GetAccessRequestIdentityMetrics``: %v\n", err)
-		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-	}
-	// response from `GetAccessRequestIdentityMetrics`: map[string]interface{}
-	fmt.Fprintf(os.Stdout, "Response from `AccessRequestIdentityMetricsAPI.GetAccessRequestIdentityMetrics`: %v\n", resp)
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.AccessRequestIdentityMetricsAPI.GetAccessRequestIdentityMetrics(context.Background(), identityId, requestedObjectId, type_).Execute()
+	  //resp, r, err := apiClient.V2024.AccessRequestIdentityMetricsAPI.GetAccessRequestIdentityMetrics(context.Background(), identityId, requestedObjectId, type_).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestIdentityMetricsAPI.GetAccessRequestIdentityMetrics``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetAccessRequestIdentityMetrics`: map[string]interface{}
+    fmt.Fprintf(os.Stdout, "Response from `AccessRequestIdentityMetricsAPI.GetAccessRequestIdentityMetrics`: %v\n", resp)
 }
 ```
 

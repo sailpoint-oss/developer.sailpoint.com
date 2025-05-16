@@ -63,6 +63,9 @@ Method | HTTP request | Description
 
 
 ## create-account
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Submits an account creation task - the API then returns the task ID.  
 
 The `sourceId` where this account will be created must be included in the `attributes` object.
@@ -129,6 +132,9 @@ try {
 [[Back to top]](#) 
 
 ## delete-account
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to delete an account. 
 This endpoint submits an account delete task and returns the task ID. 
 This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account's returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future. 
@@ -230,6 +236,9 @@ try {
 [[Back to top]](#) 
 
 ## disable-account
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API submits a task to disable the account and returns the task ID.  
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
 
@@ -283,6 +292,9 @@ try {
 [[Back to top]](#) 
 
 ## disable-account-for-identity
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API submits a task to disable IDN account for a single identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/disable-account-for-identity)
@@ -329,6 +341,9 @@ try {
 [[Back to top]](#) 
 
 ## disable-accounts-for-identities
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API submits tasks to disable IDN account for each identity provided in the request body.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/disable-accounts-for-identities)
@@ -377,6 +392,9 @@ try {
 [[Back to top]](#) 
 
 ## enable-account
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API submits a task to enable account and returns the task ID.  
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
 
@@ -430,6 +448,9 @@ try {
 [[Back to top]](#) 
 
 ## enable-account-for-identity
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API submits a task to enable IDN account for a single identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/enable-account-for-identity)
@@ -476,6 +497,9 @@ try {
 [[Back to top]](#) 
 
 ## enable-accounts-for-identities
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API submits tasks to enable IDN account for each identity provided in the request body.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/enable-accounts-for-identities)
@@ -524,6 +548,9 @@ try {
 [[Back to top]](#) 
 
 ## get-account
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to return the details for a single account by its ID.  
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
 
@@ -571,6 +598,9 @@ try {
 [[Back to top]](#) 
 
 ## get-account-entitlements
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API returns entitlements of the account.  
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
 
@@ -624,7 +654,10 @@ try {
 [[Back to top]](#) 
 
 ## list-accounts
-List accounts.  
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+List accounts.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-accounts)
 
@@ -679,6 +712,9 @@ try {
 [[Back to top]](#) 
 
 ## put-account
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to update an account with a PUT request. 
 
 This endpoint submits an account update task and returns the task ID.  
@@ -743,6 +779,9 @@ try {
 [[Back to top]](#) 
 
 ## submit-reload-account
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.  
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
 
@@ -790,6 +829,9 @@ try {
 [[Back to top]](#) 
 
 ## unlock-account
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API submits a task to unlock an account and returns the task ID.  
 To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required. 
 A token with ORG_ADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN, or HELPDESK authority is required to call this API.
@@ -845,6 +887,9 @@ try {
 [[Back to top]](#) 
 
 ## update-account
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Use this API to update account details. 
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 

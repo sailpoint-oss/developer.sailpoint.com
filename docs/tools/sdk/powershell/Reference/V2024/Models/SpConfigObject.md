@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SpConfigObject = Initialize-PSSailpoint.V2024SpConfigObject  -ObjectType TRIGGER_SUBSCRIPTION `
+$SpConfigObject = Initialize-V2024SpConfigObject  -ObjectType TRIGGER_SUBSCRIPTION `
  -ReferenceExtractors [$.owner] `
  -SignatureRequired false `
  -AlwaysResolveById true `

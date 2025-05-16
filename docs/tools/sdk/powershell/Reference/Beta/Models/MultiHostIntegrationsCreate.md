@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MultiHostIntegrationsCreate = Initialize-PSSailpoint.BetaMultiHostIntegrationsCreate  -Name My Multi-Host Integration `
+$MultiHostIntegrationsCreate = Initialize-BetaMultiHostIntegrationsCreate  -Name My Multi-Host Integration `
  -Description This is the Multi-Host Integration. `
  -Owner null `
  -Cluster null `

@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$VendorConnectorMapping = Initialize-PSSailpoint.V3VendorConnectorMapping  -Id 78733556-9ea3-4f59-bf69-e5cd92b011b4 `
+$VendorConnectorMapping = Initialize-VendorConnectorMapping  -Id 78733556-9ea3-4f59-bf69-e5cd92b011b4 `
  -Vendor Example vendor `
  -Connector Example connector `
  -CreatedAt 2024-03-13T12:56:19.391294Z `

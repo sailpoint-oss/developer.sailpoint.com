@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | System-generated unique ID of the Object | [optional] [readonly] 
 **Name** | **NullableString** | Name of the Object | 
-**Created** | Pointer to **time.Time** | Creation date of the Object | [optional] [readonly] 
-**Modified** | Pointer to **time.Time** | Last modification date of the Object | [optional] [readonly] 
+**Created** | Pointer to **SailPointTime** | Creation date of the Object | [optional] [readonly] 
+**Modified** | Pointer to **SailPointTime** | Last modification date of the Object | [optional] [readonly] 
 
 ## Methods
 
@@ -96,20 +96,20 @@ SetName sets Name field to given value.
 UnsetName ensures that no value is present for Name, not even an explicit nil
 ### GetCreated
 
-`func (o *BaseCommonDto1) GetCreated() time.Time`
+`func (o *BaseCommonDto1) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *BaseCommonDto1) GetCreatedOk() (*time.Time, bool)`
+`func (o *BaseCommonDto1) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *BaseCommonDto1) SetCreated(v time.Time)`
+`func (o *BaseCommonDto1) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
@@ -121,20 +121,20 @@ HasCreated returns a boolean if a field has been set.
 
 ### GetModified
 
-`func (o *BaseCommonDto1) GetModified() time.Time`
+`func (o *BaseCommonDto1) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *BaseCommonDto1) GetModifiedOk() (*time.Time, bool)`
+`func (o *BaseCommonDto1) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *BaseCommonDto1) SetModified(v time.Time)`
+`func (o *BaseCommonDto1) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

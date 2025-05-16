@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequested = Initialize-PSSailpoint.V2025AccessRequested  -AccessRequest null `
+$AccessRequested = Initialize-V2025AccessRequested  -AccessRequest null `
  -IdentityId 8a80828f643d484f01643e14202e206f `
  -EventType AccessRequested `
  -Dt 2019-03-08T22:37:33.901Z

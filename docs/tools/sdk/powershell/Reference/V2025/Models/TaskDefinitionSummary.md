@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaskDefinitionSummary = Initialize-PSSailpoint.V2025TaskDefinitionSummary  -Id 2c91808475b4334b0175e1dff64b63c5 `
+$TaskDefinitionSummary = Initialize-V2025TaskDefinitionSummary  -Id 2c91808475b4334b0175e1dff64b63c5 `
  -UniqueName Cloud Account Aggregation `
  -Description Aggregates from the specified application. `
  -ParentName Cloud Account Aggregation `

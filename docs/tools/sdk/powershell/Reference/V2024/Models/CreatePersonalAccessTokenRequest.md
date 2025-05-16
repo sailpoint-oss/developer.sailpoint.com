@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CreatePersonalAccessTokenRequest = Initialize-PSSailpoint.V2024CreatePersonalAccessTokenRequest  -Name NodeJS Integration `
+$CreatePersonalAccessTokenRequest = Initialize-V2024CreatePersonalAccessTokenRequest  -Name NodeJS Integration `
  -Scope [demo:personal-access-token-scope:first, demo:personal-access-token-scope:second] `
  -AccessTokenValiditySeconds 36900
 ```

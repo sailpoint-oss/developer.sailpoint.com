@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AppAccountDetails = Initialize-PSSailpoint.V2024AppAccountDetails  -AppId fbf4f72280304f1a8bc808fc2a3bcf7b `
+$AppAccountDetails = Initialize-V2024AppAccountDetails  -AppId fbf4f72280304f1a8bc808fc2a3bcf7b `
  -AppDisplayName AD source app `
  -SourceAccount null
 ```

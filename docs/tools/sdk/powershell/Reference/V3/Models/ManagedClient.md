@@ -42,7 +42,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManagedClient = Initialize-PSSailpoint.V3ManagedClient  -Id 2c9180878eaf4204018eb019c3570003 `
+$ManagedClient = Initialize-ManagedClient  -Id 2c9180878eaf4204018eb019c3570003 `
  -AlertKey CLIENT_STATUS_NOT_CONFIGURED `
  -ApiGatewayBaseUrl null `
  -Cookbook null `

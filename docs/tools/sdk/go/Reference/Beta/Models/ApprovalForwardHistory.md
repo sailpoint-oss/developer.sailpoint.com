@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **OldApproverName** | Pointer to **string** | Display name of approver from whom the approval was forwarded. | [optional] 
 **NewApproverName** | Pointer to **string** | Display name of approver to whom the approval was forwarded. | [optional] 
 **Comment** | Pointer to **NullableString** | Comment made while forwarding. | [optional] 
-**Modified** | Pointer to **time.Time** | Time at which approval was forwarded. | [optional] 
+**Modified** | Pointer to **SailPointTime** | Time at which approval was forwarded. | [optional] 
 **ForwarderName** | Pointer to **NullableString** | Display name of forwarder who forwarded the approval. | [optional] 
 **ReassignmentType** | Pointer to [**ReassignmentType**](reassignment-type) |  | [optional] 
 
@@ -128,20 +128,20 @@ HasComment returns a boolean if a field has been set.
 UnsetComment ensures that no value is present for Comment, not even an explicit nil
 ### GetModified
 
-`func (o *ApprovalForwardHistory) GetModified() time.Time`
+`func (o *ApprovalForwardHistory) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *ApprovalForwardHistory) GetModifiedOk() (*time.Time, bool)`
+`func (o *ApprovalForwardHistory) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *ApprovalForwardHistory) SetModified(v time.Time)`
+`func (o *ApprovalForwardHistory) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

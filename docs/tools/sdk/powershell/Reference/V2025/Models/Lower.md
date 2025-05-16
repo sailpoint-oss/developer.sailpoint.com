@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Lower = Initialize-PSSailpoint.V2025Lower  -RequiresPeriodicRefresh false `
+$Lower = Initialize-V2025Lower  -RequiresPeriodicRefresh false `
  -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```
 

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DimensionCriteriaKey = Initialize-PSSailpoint.V2024DimensionCriteriaKey  -Type null `
+$DimensionCriteriaKey = Initialize-V2024DimensionCriteriaKey  -Type null `
  -Property attribute.email
 ```
 

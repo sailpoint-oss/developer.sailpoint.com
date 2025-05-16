@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningPotentialRoleExportResponse = Initialize-PSSailpoint.V2025RoleMiningPotentialRoleExportResponse  -MinEntitlementPopularity 0 `
+$RoleMiningPotentialRoleExportResponse = Initialize-V2025RoleMiningPotentialRoleExportResponse  -MinEntitlementPopularity 0 `
  -IncludeCommonAccess true `
  -ExportId 0c6cdb76-1227-4aaf-af21-192dbdfbfa04 `
  -Status null

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ScheduledActionResponseContentBackupOptionsObjectOptionsValue = Initialize-PSSailpoint.V2025ScheduledActionResponseContentBackupOptionsObjectOptionsValue  -IncludedNames [Admin Role, User Role]
+$ScheduledActionResponseContentBackupOptionsObjectOptionsValue = Initialize-V2025ScheduledActionResponseContentBackupOptionsObjectOptionsValue  -IncludedNames [Admin Role, User Role]
 ```
 
 - Convert the resource to JSON

@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Insight id | [optional] 
 **NumberOfUpdates** | Pointer to **int32** | Total number of updates for this role | [optional] 
-**CreatedDate** | Pointer to **time.Time** | The date-time insights were last created for this role. | [optional] 
+**CreatedDate** | Pointer to **SailPointTime** | The date-time insights were last created for this role. | [optional] 
 **ModifiedDate** | Pointer to **NullableTime** | The date-time insights were last modified for this role. | [optional] 
 **Role** | Pointer to [**RoleInsightsRole**](role-insights-role) |  | [optional] 
 **Insight** | Pointer to [**RoleInsightsInsight**](role-insights-insight) |  | [optional] 
@@ -93,20 +93,20 @@ HasNumberOfUpdates returns a boolean if a field has been set.
 
 ### GetCreatedDate
 
-`func (o *RoleInsight) GetCreatedDate() time.Time`
+`func (o *RoleInsight) GetCreatedDate() SailPointTime`
 
 GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
 
 ### GetCreatedDateOk
 
-`func (o *RoleInsight) GetCreatedDateOk() (*time.Time, bool)`
+`func (o *RoleInsight) GetCreatedDateOk() (*SailPointTime, bool)`
 
 GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedDate
 
-`func (o *RoleInsight) SetCreatedDate(v time.Time)`
+`func (o *RoleInsight) SetCreatedDate(v SailPointTime)`
 
 SetCreatedDate sets CreatedDate field to given value.
 
@@ -118,20 +118,20 @@ HasCreatedDate returns a boolean if a field has been set.
 
 ### GetModifiedDate
 
-`func (o *RoleInsight) GetModifiedDate() time.Time`
+`func (o *RoleInsight) GetModifiedDate() SailPointTime`
 
 GetModifiedDate returns the ModifiedDate field if non-nil, zero value otherwise.
 
 ### GetModifiedDateOk
 
-`func (o *RoleInsight) GetModifiedDateOk() (*time.Time, bool)`
+`func (o *RoleInsight) GetModifiedDateOk() (*SailPointTime, bool)`
 
 GetModifiedDateOk returns a tuple with the ModifiedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModifiedDate
 
-`func (o *RoleInsight) SetModifiedDate(v time.Time)`
+`func (o *RoleInsight) SetModifiedDate(v SailPointTime)`
 
 SetModifiedDate sets ModifiedDate field to given value.
 

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManualDiscoverApplications = Initialize-PSSailpoint.V2024ManualDiscoverApplications  -File application_name,description
+$ManualDiscoverApplications = Initialize-V2024ManualDiscoverApplications  -File application_name,description
 "Sample App","This is a sample description for Sample App."
 "Another App","Description for Another App."
 ```

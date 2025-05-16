@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LauncherReference = Initialize-PSSailpoint.BetaLauncherReference  -Type WORKFLOW `
+$LauncherReference = Initialize-BetaLauncherReference  -Type WORKFLOW `
  -Id 2fd6ff94-2081-4d29-acbc-83a0a2f744a5
 ```
 

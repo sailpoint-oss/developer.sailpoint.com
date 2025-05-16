@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CommentsRequired** | Pointer to **NullableBool** | Whether the requester of the containing object must provide comments justifying the request | [optional] [default to false]
 **DenialCommentsRequired** | Pointer to **NullableBool** | Whether an approver must provide comments when denying the request | [optional] [default to false]
+**ReauthorizationRequired** | Pointer to **NullableBool** | Indicates whether reauthorization is required for the request. | [optional] [default to false]
 **ApprovalSchemes** | Pointer to [**[]ApprovalSchemeForRole**](approval-scheme-for-role) | List describing the steps in approving the request | [optional] 
 
 ## Methods
@@ -108,6 +109,41 @@ HasDenialCommentsRequired returns a boolean if a field has been set.
 `func (o *RequestabilityForRole) UnsetDenialCommentsRequired()`
 
 UnsetDenialCommentsRequired ensures that no value is present for DenialCommentsRequired, not even an explicit nil
+### GetReauthorizationRequired
+
+`func (o *RequestabilityForRole) GetReauthorizationRequired() bool`
+
+GetReauthorizationRequired returns the ReauthorizationRequired field if non-nil, zero value otherwise.
+
+### GetReauthorizationRequiredOk
+
+`func (o *RequestabilityForRole) GetReauthorizationRequiredOk() (*bool, bool)`
+
+GetReauthorizationRequiredOk returns a tuple with the ReauthorizationRequired field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReauthorizationRequired
+
+`func (o *RequestabilityForRole) SetReauthorizationRequired(v bool)`
+
+SetReauthorizationRequired sets ReauthorizationRequired field to given value.
+
+### HasReauthorizationRequired
+
+`func (o *RequestabilityForRole) HasReauthorizationRequired() bool`
+
+HasReauthorizationRequired returns a boolean if a field has been set.
+
+### SetReauthorizationRequiredNil
+
+`func (o *RequestabilityForRole) SetReauthorizationRequiredNil(b bool)`
+
+ SetReauthorizationRequiredNil sets the value for ReauthorizationRequired to be an explicit nil
+
+### UnsetReauthorizationRequired
+`func (o *RequestabilityForRole) UnsetReauthorizationRequired()`
+
+UnsetReauthorizationRequired ensures that no value is present for ReauthorizationRequired, not even an explicit nil
 ### GetApprovalSchemes
 
 `func (o *RequestabilityForRole) GetApprovalSchemes() []ApprovalSchemeForRole`

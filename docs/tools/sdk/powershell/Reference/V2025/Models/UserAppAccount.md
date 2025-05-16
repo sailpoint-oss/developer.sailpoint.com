@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$UserAppAccount = Initialize-PSSailpoint.V2025UserAppAccount  -Id 85d173e7d57e496569df763231d6deb6a `
+$UserAppAccount = Initialize-V2025UserAppAccount  -Id 85d173e7d57e496569df763231d6deb6a `
  -Type ACCOUNT `
  -Name test account
 ```

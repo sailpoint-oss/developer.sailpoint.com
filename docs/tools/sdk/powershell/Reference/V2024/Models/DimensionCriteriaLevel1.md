@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DimensionCriteriaLevel1 = Initialize-PSSailpoint.V2024DimensionCriteriaLevel1  -Operation null `
+$DimensionCriteriaLevel1 = Initialize-V2024DimensionCriteriaLevel1  -Operation null `
  -Key null `
  -StringValue carlee.cert1c9f9b6fd@mailinator.com `
  -Children null

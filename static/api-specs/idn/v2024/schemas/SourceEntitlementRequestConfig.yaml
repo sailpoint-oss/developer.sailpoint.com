@@ -4,3 +4,5 @@ properties:
   accessRequestConfig:
     $ref: './EntitlementAccessRequestConfig.yaml'
     description: Configuration for requesting access to entitlements
+  revocationRequestConfig:
+    $ref: './EntitlementRevocationRequestConfig.yaml'

@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **TargetId** | Pointer to **string** | The ID of the item being operated on by this task. | [optional] 
 **Status** | Pointer to **string** | The status of the task. | [optional] 
 **Errors** | Pointer to [**[]ErrorMessageDto**](error-message-dto) |  | [optional] 
-**Created** | Pointer to **time.Time** | The date and time on which this task was created. | [optional] 
+**Created** | Pointer to **SailPointTime** | The date and time on which this task was created. | [optional] 
 
 ## Methods
 
@@ -194,20 +194,20 @@ HasErrors returns a boolean if a field has been set.
 
 ### GetCreated
 
-`func (o *CertificationTask) GetCreated() time.Time`
+`func (o *CertificationTask) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *CertificationTask) GetCreatedOk() (*time.Time, bool)`
+`func (o *CertificationTask) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *CertificationTask) SetCreated(v time.Time)`
+`func (o *CertificationTask) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 

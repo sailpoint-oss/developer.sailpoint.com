@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Dimension = Initialize-PSSailpoint.V2024Dimension  -Id 2c918086749d78830174a1a40e121518 `
+$Dimension = Initialize-V2024Dimension  -Id 2c918086749d78830174a1a40e121518 `
  -Name Dimension 2567 `
  -Created 2021-03-01T22:32:58.104Z `
  -Modified 2021-03-02T20:22:28.104Z `

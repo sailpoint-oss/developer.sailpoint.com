@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityManagerRef = Initialize-PSSailpoint.V2024IdentityManagerRef  -Type IDENTITY `
+$IdentityManagerRef = Initialize-V2024IdentityManagerRef  -Type IDENTITY `
  -Id 2c4180a46faadee4016fb4e018c20626 `
  -Name Robert Robinson
 ```

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$KbaAnswerResponseItem = Initialize-PSSailpoint.V3KbaAnswerResponseItem  -Id c54fee53-2d63-4fc5-9259-3e93b9994135 `
+$KbaAnswerResponseItem = Initialize-KbaAnswerResponseItem  -Id c54fee53-2d63-4fc5-9259-3e93b9994135 `
  -Question [{"text":"Nouvelle question MFA -1 ?","locale":"fr"},{"text":"MFA new question -1 ?","locale":""}] `
  -HasAnswer true
 ```

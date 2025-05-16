@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleInsightsInsight = Initialize-PSSailpoint.V2024RoleInsightsInsight  -Type ADD `
+$RoleInsightsInsight = Initialize-V2024RoleInsightsInsight  -Type ADD `
  -IdentitiesWithAccess 850 `
  -IdentitiesImpacted 150 `
  -TotalNumberOfIdentities 1000 `

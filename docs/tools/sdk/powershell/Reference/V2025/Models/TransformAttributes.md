@@ -62,7 +62,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TransformAttributes = Initialize-PSSailpoint.V2025TransformAttributes  -SourceName Workday `
+$TransformAttributes = Initialize-V2025TransformAttributes  -SourceName Workday `
  -AttributeName DEPARTMENT `
  -AccountSortAttribute created `
  -AccountSortDescending false `

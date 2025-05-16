@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Identity = Initialize-PSSailpoint.V2025Identity  -Id 01f04e428c484542a241dc89c303b178 `
+$Identity = Initialize-V2025Identity  -Id 01f04e428c484542a241dc89c303b178 `
  -Name Walter White `
  -Created 2023-01-03T21:16:22.432Z `
  -Modified 2023-01-03T21:16:22.432Z `

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityOwnershipAssociationDetailsAssociationDetailsInner = Initialize-PSSailpoint.BetaIdentityOwnershipAssociationDetailsAssociationDetailsInner  -AssociationType ROLE_OWNER `
+$IdentityOwnershipAssociationDetailsAssociationDetailsInner = Initialize-BetaIdentityOwnershipAssociationDetailsAssociationDetailsInner  -AssociationType ROLE_OWNER `
  -Entities {id=b660a232f05b4e04812ca974b3011e0f, name=Gaston.800ddf9640a, type=ROLE}
 ```
 

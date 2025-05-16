@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceAppCreateDto = Initialize-PSSailpoint.V2025SourceAppCreateDto  -Name my app `
+$SourceAppCreateDto = Initialize-V2025SourceAppCreateDto  -Name my app `
  -Description the source app for engineers `
  -MatchAllAccounts true `
  -AccountSource null

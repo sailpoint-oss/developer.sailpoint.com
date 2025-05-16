@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Approval = Initialize-PSSailpoint.V2025Approval  -ApprovalId 38453251-6be2-5f8f-df93-5ce19e295837 `
+$Approval = Initialize-V2025Approval  -ApprovalId 38453251-6be2-5f8f-df93-5ce19e295837 `
  -Approvers null `
  -CreatedDate 2023-04-12T23:20:50.52Z `
  -Type ENTITLEMENT_DESCRIPTIONS `

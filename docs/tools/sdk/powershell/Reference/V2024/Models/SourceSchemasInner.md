@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceSchemasInner = Initialize-PSSailpoint.V2024SourceSchemasInner  -Type CONNECTOR_SCHEMA `
+$SourceSchemasInner = Initialize-V2024SourceSchemasInner  -Type CONNECTOR_SCHEMA `
  -Id 2c91808568c529c60168cca6f90c1777 `
  -Name MySchema
 ```

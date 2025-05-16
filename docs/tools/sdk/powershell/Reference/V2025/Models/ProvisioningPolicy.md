@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ProvisioningPolicy = Initialize-PSSailpoint.V2025ProvisioningPolicy  -Name example provisioning policy for inactive identities `
+$ProvisioningPolicy = Initialize-V2025ProvisioningPolicy  -Name example provisioning policy for inactive identities `
  -Description this provisioning policy creates access based on an identity going inactive `
  -UsageType null `
  -Fields null

@@ -18,25 +18,26 @@ Name | Type | Description | Notes
 **Role** | Pointer to **string** | Federation protocol role | [optional] 
 **EntityId** | Pointer to **string** | An entity ID is a globally unique name for a SAML entity, either an Identity Provider (IDP) or a Service Provider (SP). | [optional] 
 **Binding** | Pointer to **string** | Defines the binding used for the SAML flow. Used with IDP configurations. | [optional] 
-**AuthContext** | Pointer to **string** | Specifies the SAML authentication method to use. Used with IDP configurations. | [optional] 
+**AuthnContext** | Pointer to **string** | Specifies the SAML authentication method to use. Used with IDP configurations. | [optional] 
 **LogoutUrl** | Pointer to **string** | The IDP logout URL. Used with IDP configurations. | [optional] 
-**IncludeAuthContext** | Pointer to **bool** | Determines if the configured AuthnContext should be used or the default. Used with IDP configurations. | [optional] [default to false]
+**IncludeAuthnContext** | Pointer to **bool** | Determines if the configured AuthnContext should be used or the default. Used with IDP configurations. | [optional] [default to false]
 **NameId** | Pointer to **string** | The name id format to use. Used with IDP configurations. | [optional] 
 **JitConfiguration** | Pointer to [**JITConfiguration**](jit-configuration) |  | [optional] 
 **Cert** | Pointer to **string** | The Base64-encoded certificate used by the IDP. Used with IDP configurations. | [optional] 
 **LoginUrlPost** | Pointer to **string** | The IDP POST URL, used with IDP HTTP-POST bindings for IDP-initiated logins. Used with IDP configurations. | [optional] 
 **LoginUrlRedirect** | Pointer to **string** | The IDP Redirect URL. Used with IDP configurations. | [optional] 
-**MappingAttribute** | Pointer to **string** | Return the saml Id for the given user, based on the IDN as SP settings of the org. Used with IDP configurations. | [optional] 
+**MappingAttribute** | **string** | Return the saml Id for the given user, based on the IDN as SP settings of the org. Used with IDP configurations. | 
 **CertificateExpirationDate** | Pointer to **string** | The expiration date extracted from the certificate. | [optional] 
 **CertificateName** | Pointer to **string** | The name extracted from the certificate. | [optional] 
 **Alias** | Pointer to **string** | Unique alias used to identify the selected local service provider based on used URL. Used with SP configurations. | [optional] 
-**CallbackUrl** | Pointer to **string** | The allowed callback URL where users will be redirected to after authentication. Used with SP configurations. | [optional] 
+**CallbackUrl** | **string** | The allowed callback URL where users will be redirected to after authentication. Used with SP configurations. | 
+**LegacyAcsUrl** | Pointer to **string** | The legacy ACS URL used for SAML authentication. Used with SP configurations. | [optional] 
 
 ## Methods
 
 ### NewServiceProviderConfigurationFederationProtocolDetailsInner
 
-`func NewServiceProviderConfigurationFederationProtocolDetailsInner() *ServiceProviderConfigurationFederationProtocolDetailsInner`
+`func NewServiceProviderConfigurationFederationProtocolDetailsInner(mappingAttribute string, callbackUrl string, ) *ServiceProviderConfigurationFederationProtocolDetailsInner`
 
 NewServiceProviderConfigurationFederationProtocolDetailsInner instantiates a new ServiceProviderConfigurationFederationProtocolDetailsInner object
 This constructor will assign default values to properties that have it defined,
@@ -126,30 +127,30 @@ SetBinding sets Binding field to given value.
 
 HasBinding returns a boolean if a field has been set.
 
-### GetAuthContext
+### GetAuthnContext
 
-`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) GetAuthContext() string`
+`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) GetAuthnContext() string`
 
-GetAuthContext returns the AuthContext field if non-nil, zero value otherwise.
+GetAuthnContext returns the AuthnContext field if non-nil, zero value otherwise.
 
-### GetAuthContextOk
+### GetAuthnContextOk
 
-`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) GetAuthContextOk() (*string, bool)`
+`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) GetAuthnContextOk() (*string, bool)`
 
-GetAuthContextOk returns a tuple with the AuthContext field if it's non-nil, zero value otherwise
+GetAuthnContextOk returns a tuple with the AuthnContext field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAuthContext
+### SetAuthnContext
 
-`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) SetAuthContext(v string)`
+`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) SetAuthnContext(v string)`
 
-SetAuthContext sets AuthContext field to given value.
+SetAuthnContext sets AuthnContext field to given value.
 
-### HasAuthContext
+### HasAuthnContext
 
-`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) HasAuthContext() bool`
+`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) HasAuthnContext() bool`
 
-HasAuthContext returns a boolean if a field has been set.
+HasAuthnContext returns a boolean if a field has been set.
 
 ### GetLogoutUrl
 
@@ -176,30 +177,30 @@ SetLogoutUrl sets LogoutUrl field to given value.
 
 HasLogoutUrl returns a boolean if a field has been set.
 
-### GetIncludeAuthContext
+### GetIncludeAuthnContext
 
-`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) GetIncludeAuthContext() bool`
+`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) GetIncludeAuthnContext() bool`
 
-GetIncludeAuthContext returns the IncludeAuthContext field if non-nil, zero value otherwise.
+GetIncludeAuthnContext returns the IncludeAuthnContext field if non-nil, zero value otherwise.
 
-### GetIncludeAuthContextOk
+### GetIncludeAuthnContextOk
 
-`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) GetIncludeAuthContextOk() (*bool, bool)`
+`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) GetIncludeAuthnContextOk() (*bool, bool)`
 
-GetIncludeAuthContextOk returns a tuple with the IncludeAuthContext field if it's non-nil, zero value otherwise
+GetIncludeAuthnContextOk returns a tuple with the IncludeAuthnContext field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetIncludeAuthContext
+### SetIncludeAuthnContext
 
-`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) SetIncludeAuthContext(v bool)`
+`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) SetIncludeAuthnContext(v bool)`
 
-SetIncludeAuthContext sets IncludeAuthContext field to given value.
+SetIncludeAuthnContext sets IncludeAuthnContext field to given value.
 
-### HasIncludeAuthContext
+### HasIncludeAuthnContext
 
-`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) HasIncludeAuthContext() bool`
+`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) HasIncludeAuthnContext() bool`
 
-HasIncludeAuthContext returns a boolean if a field has been set.
+HasIncludeAuthnContext returns a boolean if a field has been set.
 
 ### GetNameId
 
@@ -345,11 +346,6 @@ and a boolean to check if the value has been set.
 
 SetMappingAttribute sets MappingAttribute field to given value.
 
-### HasMappingAttribute
-
-`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) HasMappingAttribute() bool`
-
-HasMappingAttribute returns a boolean if a field has been set.
 
 ### GetCertificateExpirationDate
 
@@ -445,10 +441,30 @@ and a boolean to check if the value has been set.
 
 SetCallbackUrl sets CallbackUrl field to given value.
 
-### HasCallbackUrl
 
-`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) HasCallbackUrl() bool`
+### GetLegacyAcsUrl
 
-HasCallbackUrl returns a boolean if a field has been set.
+`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) GetLegacyAcsUrl() string`
+
+GetLegacyAcsUrl returns the LegacyAcsUrl field if non-nil, zero value otherwise.
+
+### GetLegacyAcsUrlOk
+
+`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) GetLegacyAcsUrlOk() (*string, bool)`
+
+GetLegacyAcsUrlOk returns a tuple with the LegacyAcsUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLegacyAcsUrl
+
+`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) SetLegacyAcsUrl(v string)`
+
+SetLegacyAcsUrl sets LegacyAcsUrl field to given value.
+
+### HasLegacyAcsUrl
+
+`func (o *ServiceProviderConfigurationFederationProtocolDetailsInner) HasLegacyAcsUrl() bool`
+
+HasLegacyAcsUrl returns a boolean if a field has been set.
 
 

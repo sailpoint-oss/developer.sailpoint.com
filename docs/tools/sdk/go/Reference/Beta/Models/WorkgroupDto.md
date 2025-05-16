@@ -21,8 +21,8 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** | Governance group description. | [optional] 
 **MemberCount** | Pointer to **int64** | Number of members in the governance group. | [optional] [readonly] 
 **ConnectionCount** | Pointer to **int64** | Number of connections in the governance group. | [optional] [readonly] 
-**Created** | Pointer to **time.Time** |  | [optional] 
-**Modified** | Pointer to **time.Time** |  | [optional] 
+**Created** | Pointer to **SailPointTime** |  | [optional] 
+**Modified** | Pointer to **SailPointTime** |  | [optional] 
 
 ## Methods
 
@@ -195,20 +195,20 @@ HasConnectionCount returns a boolean if a field has been set.
 
 ### GetCreated
 
-`func (o *WorkgroupDto) GetCreated() time.Time`
+`func (o *WorkgroupDto) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *WorkgroupDto) GetCreatedOk() (*time.Time, bool)`
+`func (o *WorkgroupDto) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *WorkgroupDto) SetCreated(v time.Time)`
+`func (o *WorkgroupDto) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
@@ -220,20 +220,20 @@ HasCreated returns a boolean if a field has been set.
 
 ### GetModified
 
-`func (o *WorkgroupDto) GetModified() time.Time`
+`func (o *WorkgroupDto) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *WorkgroupDto) GetModifiedOk() (*time.Time, bool)`
+`func (o *WorkgroupDto) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *WorkgroupDto) SetModified(v time.Time)`
+`func (o *WorkgroupDto) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

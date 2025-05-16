@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributesChanged = Initialize-PSSailpoint.V2024AttributesChanged  -Changes null `
+$AttributesChanged = Initialize-V2024AttributesChanged  -Changes null `
  -EventType null `
  -IdentityId null `
  -Dt null

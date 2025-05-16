@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Reference = Initialize-PSSailpoint.V2025Reference  -Id Existing Transform `
+$Reference = Initialize-V2025Reference  -Id Existing Transform `
  -RequiresPeriodicRefresh false `
  -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```

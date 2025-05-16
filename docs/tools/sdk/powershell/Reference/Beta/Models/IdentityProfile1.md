@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityProfile1 = Initialize-PSSailpoint.BetaIdentityProfile1  -Id id12345 `
+$IdentityProfile1 = Initialize-BetaIdentityProfile1  -Id id12345 `
  -Name aName `
  -Created 2015-05-28T14:07:17Z `
  -Modified 2015-05-28T14:07:17Z `

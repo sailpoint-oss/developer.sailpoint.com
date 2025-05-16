@@ -30,6 +30,9 @@ Method | HTTP request | Description
 
 
 ## get-public-identity-config
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Get Public Identity Config
 This gets details of public identity config.
 
@@ -84,6 +87,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-public-identity-config
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Update Public Identity Config
 This updates the details of public identity config.
 

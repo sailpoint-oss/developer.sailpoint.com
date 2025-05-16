@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BackupResponse1 = Initialize-PSSailpoint.V2025BackupResponse1  -JobId 3469b87d-48ca-439a-868f-2160001da8c1 `
+$BackupResponse1 = Initialize-V2025BackupResponse1  -JobId 3469b87d-48ca-439a-868f-2160001da8c1 `
  -Status COMPLETE `
  -Type BACKUP `
  -Tenant tenant-name `

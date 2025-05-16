@@ -18,8 +18,8 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** | The ID of the Access Profile | [optional] 
 **Name** | Pointer to **string** | Name of the Access Profile | [optional] 
 **Description** | Pointer to **NullableString** | Information about the Access Profile | [optional] 
-**Created** | Pointer to **time.Time** | Date the Access Profile was created | [optional] 
-**Modified** | Pointer to **time.Time** | Date the Access Profile was last modified. | [optional] 
+**Created** | Pointer to **SailPointTime** | Date the Access Profile was created | [optional] 
+**Modified** | Pointer to **SailPointTime** | Date the Access Profile was last modified. | [optional] 
 **Disabled** | Pointer to **bool** | Whether the Access Profile is enabled. | [optional] [default to true]
 **Requestable** | Pointer to **bool** | Whether the Access Profile is requestable via access request. | [optional] [default to false]
 **Protected** | Pointer to **bool** | Whether the Access Profile is protected. | [optional] [default to false]
@@ -145,20 +145,20 @@ HasDescription returns a boolean if a field has been set.
 UnsetDescription ensures that no value is present for Description, not even an explicit nil
 ### GetCreated
 
-`func (o *AccessProfileDetails) GetCreated() time.Time`
+`func (o *AccessProfileDetails) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *AccessProfileDetails) GetCreatedOk() (*time.Time, bool)`
+`func (o *AccessProfileDetails) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *AccessProfileDetails) SetCreated(v time.Time)`
+`func (o *AccessProfileDetails) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
@@ -170,20 +170,20 @@ HasCreated returns a boolean if a field has been set.
 
 ### GetModified
 
-`func (o *AccessProfileDetails) GetModified() time.Time`
+`func (o *AccessProfileDetails) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *AccessProfileDetails) GetModifiedOk() (*time.Time, bool)`
+`func (o *AccessProfileDetails) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *AccessProfileDetails) SetModified(v time.Time)`
+`func (o *AccessProfileDetails) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

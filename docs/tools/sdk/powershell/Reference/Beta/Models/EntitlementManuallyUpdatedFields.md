@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementManuallyUpdatedFields = Initialize-PSSailpoint.BetaEntitlementManuallyUpdatedFields  -DISPLAYNAME true `
+$EntitlementManuallyUpdatedFields = Initialize-BetaEntitlementManuallyUpdatedFields  -DISPLAYNAME true `
  -DESCRIPTION true
 ```
 

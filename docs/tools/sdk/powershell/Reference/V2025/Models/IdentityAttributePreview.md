@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttributePreview = Initialize-PSSailpoint.V2025IdentityAttributePreview  -Name email `
+$IdentityAttributePreview = Initialize-V2025IdentityAttributePreview  -Name email `
  -Value email@mail.com `
  -PreviousValue oldEmail@mail.com `
  -ErrorMessages {locale=en-US, localeOrigin=DEFAULT, text=Error Message}

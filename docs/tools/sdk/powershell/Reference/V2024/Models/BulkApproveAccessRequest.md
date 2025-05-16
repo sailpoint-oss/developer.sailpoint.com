@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BulkApproveAccessRequest = Initialize-PSSailpoint.V2024BulkApproveAccessRequest  -ApprovalIds [2c9180835d2e5168015d32f890ca1581, 2c9180835d2e5168015d32f890ca1582] `
+$BulkApproveAccessRequest = Initialize-V2024BulkApproveAccessRequest  -ApprovalIds [2c9180835d2e5168015d32f890ca1581, 2c9180835d2e5168015d32f890ca1582] `
  -Comment I approve these request items
 ```
 

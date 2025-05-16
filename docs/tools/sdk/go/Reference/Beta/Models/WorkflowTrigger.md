@@ -17,13 +17,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** | The trigger type | 
 **DisplayName** | Pointer to **NullableString** |  | [optional] 
-**Attributes** | [**NullableWorkflowTriggerAttributes**](workflow-trigger-attributes) |  | 
+**Attributes** | **map[string]interface{}** | Workflow Trigger Attributes. | 
 
 ## Methods
 
 ### NewWorkflowTrigger
 
-`func NewWorkflowTrigger(type_ string, attributes NullableWorkflowTriggerAttributes, ) *WorkflowTrigger`
+`func NewWorkflowTrigger(type_ string, attributes map[string]interface{}, ) *WorkflowTrigger`
 
 NewWorkflowTrigger instantiates a new WorkflowTrigger object
 This constructor will assign default values to properties that have it defined,
@@ -95,20 +95,20 @@ HasDisplayName returns a boolean if a field has been set.
 UnsetDisplayName ensures that no value is present for DisplayName, not even an explicit nil
 ### GetAttributes
 
-`func (o *WorkflowTrigger) GetAttributes() WorkflowTriggerAttributes`
+`func (o *WorkflowTrigger) GetAttributes() map[string]interface{}`
 
 GetAttributes returns the Attributes field if non-nil, zero value otherwise.
 
 ### GetAttributesOk
 
-`func (o *WorkflowTrigger) GetAttributesOk() (*WorkflowTriggerAttributes, bool)`
+`func (o *WorkflowTrigger) GetAttributesOk() (*map[string]interface{}, bool)`
 
 GetAttributesOk returns a tuple with the Attributes field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAttributes
 
-`func (o *WorkflowTrigger) SetAttributes(v WorkflowTriggerAttributes)`
+`func (o *WorkflowTrigger) SetAttributes(v map[string]interface{})`
 
 SetAttributes sets Attributes field to given value.
 

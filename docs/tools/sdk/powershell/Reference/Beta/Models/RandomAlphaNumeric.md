@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RandomAlphaNumeric = Initialize-PSSailpoint.BetaRandomAlphaNumeric  -Length 10 `
+$RandomAlphaNumeric = Initialize-BetaRandomAlphaNumeric  -Length 10 `
  -RequiresPeriodicRefresh false `
  -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```

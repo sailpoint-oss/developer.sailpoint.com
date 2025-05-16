@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LifecycleState = Initialize-PSSailpoint.BetaLifecycleState  -Id 2c9180835d2e5168015d32f890ca1581 `
+$LifecycleState = Initialize-BetaLifecycleState  -Id 2c9180835d2e5168015d32f890ca1581 `
  -Name Lifecycle Name `
  -TechnicalName lifecycleTechnicalName `
  -Description LifecycleDescription `

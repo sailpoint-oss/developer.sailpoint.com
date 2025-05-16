@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestRecommendationItemDetailAccess = Initialize-PSSailpoint.BetaAccessRequestRecommendationItemDetailAccess  -Id 2c9180835d2e5168015d32f890ca1581 `
+$AccessRequestRecommendationItemDetailAccess = Initialize-BetaAccessRequestRecommendationItemDetailAccess  -Id 2c9180835d2e5168015d32f890ca1581 `
  -Type null `
  -Name Employee-database-read-write `
  -Description This item grants an employee read and write access to the database

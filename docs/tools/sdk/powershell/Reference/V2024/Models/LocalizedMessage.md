@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LocalizedMessage = Initialize-PSSailpoint.V2024LocalizedMessage  -Locale An error has occurred! `
+$LocalizedMessage = Initialize-V2024LocalizedMessage  -Locale An error has occurred! `
  -Message Error has occurred!
 ```
 

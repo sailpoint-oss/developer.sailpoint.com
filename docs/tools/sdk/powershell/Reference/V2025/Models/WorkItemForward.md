@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkItemForward = Initialize-PSSailpoint.V2025WorkItemForward  -TargetOwnerId 2c9180835d2e5168015d32f890ca1581 `
+$WorkItemForward = Initialize-V2025WorkItemForward  -TargetOwnerId 2c9180835d2e5168015d32f890ca1581 `
  -Comment I'm going on vacation. `
  -SendNotifications true
 ```

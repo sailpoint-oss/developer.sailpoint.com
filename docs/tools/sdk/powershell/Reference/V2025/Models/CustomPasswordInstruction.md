@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CustomPasswordInstruction = Initialize-PSSailpoint.V2025CustomPasswordInstruction  -PageId change-password:enter-password `
+$CustomPasswordInstruction = Initialize-V2025CustomPasswordInstruction  -PageId change-password:enter-password `
  -PageContent Please enter a new password. Your password must be at least 8 characters long and contain at least one number and one letter. `
  -Locale en
 ```

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ContextAttributeDto = Initialize-PSSailpoint.V2024ContextAttributeDto  -Attribute location `
+$ContextAttributeDto = Initialize-V2024ContextAttributeDto  -Attribute location `
  -Value null `
  -Derived false
 ```

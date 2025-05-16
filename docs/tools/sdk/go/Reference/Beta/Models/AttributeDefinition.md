@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** | The name of the attribute. | [optional] 
 **Type** | Pointer to [**AttributeDefinitionType**](attribute-definition-type) |  | [optional] 
-**Schema** | Pointer to [**AttributeDefinitionSchema**](attribute-definition-schema) |  | [optional] 
+**Schema** | Pointer to [**NullableAttributeDefinitionSchema**](attribute-definition-schema) |  | [optional] 
 **Description** | Pointer to **string** | A human-readable description of the attribute. | [optional] 
 **IsMulti** | Pointer to **bool** | Flag indicating whether or not the attribute is multi-valued. | [optional] [default to false]
 **IsEntitlement** | Pointer to **bool** | Flag indicating whether or not the attribute is an entitlement. | [optional] [default to false]
@@ -117,6 +117,16 @@ SetSchema sets Schema field to given value.
 
 HasSchema returns a boolean if a field has been set.
 
+### SetSchemaNil
+
+`func (o *AttributeDefinition) SetSchemaNil(b bool)`
+
+ SetSchemaNil sets the value for Schema to be an explicit nil
+
+### UnsetSchema
+`func (o *AttributeDefinition) UnsetSchema()`
+
+UnsetSchema ensures that no value is present for Schema, not even an explicit nil
 ### GetDescription
 
 `func (o *AttributeDefinition) GetDescription() string`

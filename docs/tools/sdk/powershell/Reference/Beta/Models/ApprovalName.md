@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalName = Initialize-PSSailpoint.BetaApprovalName  -Value Audit DB Access `
+$ApprovalName = Initialize-BetaApprovalName  -Value Audit DB Access `
  -Locale en_US
 ```
 

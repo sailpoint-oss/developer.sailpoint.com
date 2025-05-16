@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityDeletedIdentity = Initialize-PSSailpoint.V2025IdentityDeletedIdentity  -Type IDENTITY `
+$IdentityDeletedIdentity = Initialize-V2025IdentityDeletedIdentity  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20642 `
  -Name Michael Michaels
 ```

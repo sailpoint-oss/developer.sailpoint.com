@@ -22,8 +22,8 @@ Name | Type | Description | Notes
 **Connector** | **string** | Connector script name. | 
 **ConnectorAttributes** | Pointer to **map[string]interface{}** | Multi-Host Integration specific configuration. User can add any number of additional attributes. e.g. maxSourcesPerAggGroup, maxAllowedSources etc. | [optional] 
 **ManagementWorkgroup** | Pointer to [**NullableMultiHostIntegrationsManagementWorkgroup**](multi-host-integrations-management-workgroup) |  | [optional] 
-**Created** | Pointer to **time.Time** | Date-time when the source was created | [optional] 
-**Modified** | Pointer to **time.Time** | Date-time when the source was last modified. | [optional] 
+**Created** | Pointer to **SailPointTime** | Date-time when the source was created | [optional] 
+**Modified** | Pointer to **SailPointTime** | Date-time when the source was last modified. | [optional] 
 
 ## Methods
 
@@ -221,20 +221,20 @@ HasManagementWorkgroup returns a boolean if a field has been set.
 UnsetManagementWorkgroup ensures that no value is present for ManagementWorkgroup, not even an explicit nil
 ### GetCreated
 
-`func (o *MultiHostIntegrationsCreate) GetCreated() time.Time`
+`func (o *MultiHostIntegrationsCreate) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *MultiHostIntegrationsCreate) GetCreatedOk() (*time.Time, bool)`
+`func (o *MultiHostIntegrationsCreate) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *MultiHostIntegrationsCreate) SetCreated(v time.Time)`
+`func (o *MultiHostIntegrationsCreate) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
@@ -246,20 +246,20 @@ HasCreated returns a boolean if a field has been set.
 
 ### GetModified
 
-`func (o *MultiHostIntegrationsCreate) GetModified() time.Time`
+`func (o *MultiHostIntegrationsCreate) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *MultiHostIntegrationsCreate) GetModifiedOk() (*time.Time, bool)`
+`func (o *MultiHostIntegrationsCreate) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *MultiHostIntegrationsCreate) SetModified(v time.Time)`
+`func (o *MultiHostIntegrationsCreate) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

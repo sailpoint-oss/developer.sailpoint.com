@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DkimAttributes = Initialize-PSSailpoint.V2024DkimAttributes  -Id 123b45b0-aaaa-bbbb-a7db-123456a56abc `
+$DkimAttributes = Initialize-V2024DkimAttributes  -Id 123b45b0-aaaa-bbbb-a7db-123456a56abc `
  -Address BobSmith@sailpoint.com `
  -DkimEnabled true `
  -DkimTokens [uq1m3jjk25ckd3whl4n7y46c56r5l6aq, u7pm38jky9ckdawhlsn7y4dcj6f5lpgq, uhpm3jjkjjckdkwhlqn7yw6cjer5tpay] `

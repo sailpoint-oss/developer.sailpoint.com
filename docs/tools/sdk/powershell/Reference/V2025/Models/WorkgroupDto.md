@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkgroupDto = Initialize-PSSailpoint.V2025WorkgroupDto  -Owner null `
+$WorkgroupDto = Initialize-V2025WorkgroupDto  -Owner null `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name DB Access Governance Group `
  -Description Description of the Governance Group `

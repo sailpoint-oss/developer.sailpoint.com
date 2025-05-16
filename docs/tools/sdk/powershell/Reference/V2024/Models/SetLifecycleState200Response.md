@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SetLifecycleState200Response = Initialize-PSSailpoint.V2024SetLifecycleState200Response  -AccountActivityId 2c9180837ab5b716017ab7c6c9ef1e20
+$SetLifecycleState200Response = Initialize-V2024SetLifecycleState200Response  -AccountActivityId 2c9180837ab5b716017ab7c6c9ef1e20
 ```
 
 - Convert the resource to JSON

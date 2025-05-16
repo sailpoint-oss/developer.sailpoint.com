@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SodViolationCheck = Initialize-PSSailpoint.V3SodViolationCheck  -RequestId 089899f13a8f4da7824996191587bab9 `
+$SodViolationCheck = Initialize-SodViolationCheck  -RequestId 089899f13a8f4da7824996191587bab9 `
  -Created 2020-01-01T00:00Z
 ```
 

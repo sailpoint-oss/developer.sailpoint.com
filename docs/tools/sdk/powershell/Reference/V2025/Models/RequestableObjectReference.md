@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestableObjectReference = Initialize-PSSailpoint.V2025RequestableObjectReference  -Id 2c9180835d2e5168015d32f890ca1581 `
+$RequestableObjectReference = Initialize-V2025RequestableObjectReference  -Id 2c9180835d2e5168015d32f890ca1581 `
  -Name Applied Research Access `
  -Description Access to research information, lab results, and schematics `
  -Type ROLE

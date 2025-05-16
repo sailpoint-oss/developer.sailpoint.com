@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeIdentityReferenceWithId = Initialize-PSSailpoint.V2025NonEmployeeIdentityReferenceWithId  -Type null `
+$NonEmployeeIdentityReferenceWithId = Initialize-V2025NonEmployeeIdentityReferenceWithId  -Type null `
  -Id 5168015d32f890ca15812c9180835d2e
 ```
 

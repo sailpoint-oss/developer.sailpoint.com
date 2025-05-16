@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountAction = Initialize-PSSailpoint.V2024AccountAction  -Action ENABLE `
+$AccountAction = Initialize-V2024AccountAction  -Action ENABLE `
  -SourceIds [2c918084660f45d6016617daa9210584, 2c918084660f45d6016617daa9210500]
 ```
 

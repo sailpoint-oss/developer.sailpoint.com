@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Value = Initialize-PSSailpoint.V3Value  -Type STRING `
+$Value = Initialize-Value  -Type STRING `
  -Value Austin
 ```
 

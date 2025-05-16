@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$UncorrelatedAccountsReportArguments = Initialize-PSSailpoint.V2025UncorrelatedAccountsReportArguments  -SelectedFormats [CSV]
+$UncorrelatedAccountsReportArguments = Initialize-V2025UncorrelatedAccountsReportArguments  -SelectedFormats [CSV]
 ```
 
 - Convert the resource to JSON

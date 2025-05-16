@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Source** | [**AccountsCollectedForAggregationSource**](accounts-collected-for-aggregation-source) |  | 
 **Status** | **map[string]interface{}** | The overall status of the collection. | 
-**Started** | **time.Time** | The date and time when the account collection started. | 
-**Completed** | **time.Time** | The date and time when the account collection finished. | 
+**Started** | **SailPointTime** | The date and time when the account collection started. | 
+**Completed** | **SailPointTime** | The date and time when the account collection finished. | 
 **Errors** | **[]string** | A list of errors that occurred during the collection. | 
 **Warnings** | **[]string** | A list of warnings that occurred during the collection. | 
 **Stats** | [**AccountsCollectedForAggregationStats**](accounts-collected-for-aggregation-stats) |  | 
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 ### NewAccountsCollectedForAggregation
 
-`func NewAccountsCollectedForAggregation(source AccountsCollectedForAggregationSource, status map[string]interface{}, started time.Time, completed time.Time, errors []string, warnings []string, stats AccountsCollectedForAggregationStats, ) *AccountsCollectedForAggregation`
+`func NewAccountsCollectedForAggregation(source AccountsCollectedForAggregationSource, status map[string]interface{}, started SailPointTime, completed SailPointTime, errors []string, warnings []string, stats AccountsCollectedForAggregationStats, ) *AccountsCollectedForAggregation`
 
 NewAccountsCollectedForAggregation instantiates a new AccountsCollectedForAggregation object
 This constructor will assign default values to properties that have it defined,
@@ -84,40 +84,40 @@ SetStatus sets Status field to given value.
 
 ### GetStarted
 
-`func (o *AccountsCollectedForAggregation) GetStarted() time.Time`
+`func (o *AccountsCollectedForAggregation) GetStarted() SailPointTime`
 
 GetStarted returns the Started field if non-nil, zero value otherwise.
 
 ### GetStartedOk
 
-`func (o *AccountsCollectedForAggregation) GetStartedOk() (*time.Time, bool)`
+`func (o *AccountsCollectedForAggregation) GetStartedOk() (*SailPointTime, bool)`
 
 GetStartedOk returns a tuple with the Started field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStarted
 
-`func (o *AccountsCollectedForAggregation) SetStarted(v time.Time)`
+`func (o *AccountsCollectedForAggregation) SetStarted(v SailPointTime)`
 
 SetStarted sets Started field to given value.
 
 
 ### GetCompleted
 
-`func (o *AccountsCollectedForAggregation) GetCompleted() time.Time`
+`func (o *AccountsCollectedForAggregation) GetCompleted() SailPointTime`
 
 GetCompleted returns the Completed field if non-nil, zero value otherwise.
 
 ### GetCompletedOk
 
-`func (o *AccountsCollectedForAggregation) GetCompletedOk() (*time.Time, bool)`
+`func (o *AccountsCollectedForAggregation) GetCompletedOk() (*SailPointTime, bool)`
 
 GetCompletedOk returns a tuple with the Completed field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCompleted
 
-`func (o *AccountsCollectedForAggregation) SetCompleted(v time.Time)`
+`func (o *AccountsCollectedForAggregation) SetCompleted(v SailPointTime)`
 
 SetCompleted sets Completed field to given value.
 

@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityCertificationDto = Initialize-PSSailpoint.V2024IdentityCertificationDto  -Id 2c9180835d2e5168015d32f890ca1581 `
+$IdentityCertificationDto = Initialize-V2024IdentityCertificationDto  -Id 2c9180835d2e5168015d32f890ca1581 `
  -Name Source Owner Access Review for Employees [source] `
  -Campaign null `
  -Completed true `

@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetDiscoveredApplications200ResponseInner = Initialize-PSSailpoint.V2024GetDiscoveredApplications200ResponseInner  -Id null `
+$GetDiscoveredApplications200ResponseInner = Initialize-V2024GetDiscoveredApplications200ResponseInner  -Id null `
  -Name ExampleApp `
  -DiscoverySource csv `
  -DiscoveredVendor ExampleVendor `

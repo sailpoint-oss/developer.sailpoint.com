@@ -37,13 +37,13 @@ Name | Type | Description | Notes
 **ManagementWorkgroup** | Pointer to [**NullableMultiHostIntegrationsManagementWorkgroup**](multi-host-integrations-management-workgroup) |  | [optional] 
 **Healthy** | Pointer to **bool** | When this is true, it indicates that the source is healthy. | [optional] [default to false]
 **Status** | Pointer to **string** | Status identifier that gives specific information about why a source is or isn't healthy.  | [optional] 
-**Since** | Pointer to **time.Time** | Timestamp that shows when a source health check was last performed. | [optional] 
+**Since** | Pointer to **SailPointTime** | Timestamp that shows when a source health check was last performed. | [optional] 
 **ConnectorId** | Pointer to **string** | Connector ID | [optional] 
 **ConnectorName** | **string** | Name of the connector that was chosen during source creation. | 
 **ConnectionType** | Pointer to **string** | Type of connection (direct or file). | [optional] 
 **ConnectorImplementationId** | Pointer to **string** | Connector implementation ID. | [optional] 
-**Created** | Pointer to **time.Time** | Date-time when the source was created | [optional] 
-**Modified** | Pointer to **time.Time** | Date-time when the source was last modified. | [optional] 
+**Created** | Pointer to **SailPointTime** | Date-time when the source was created | [optional] 
+**Modified** | Pointer to **SailPointTime** | Date-time when the source was last modified. | [optional] 
 **CredentialProviderEnabled** | Pointer to **bool** | If this is true, it enables a credential provider for the source. If credentialProvider is turned on,  then the source can use credential provider(s) to fetch credentials. | [optional] [default to false]
 **Category** | Pointer to **NullableString** | Source category (e.g. null, CredentialProvider). | [optional] 
 
@@ -678,20 +678,20 @@ HasStatus returns a boolean if a field has been set.
 
 ### GetSince
 
-`func (o *MultiHostSources) GetSince() time.Time`
+`func (o *MultiHostSources) GetSince() SailPointTime`
 
 GetSince returns the Since field if non-nil, zero value otherwise.
 
 ### GetSinceOk
 
-`func (o *MultiHostSources) GetSinceOk() (*time.Time, bool)`
+`func (o *MultiHostSources) GetSinceOk() (*SailPointTime, bool)`
 
 GetSinceOk returns a tuple with the Since field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSince
 
-`func (o *MultiHostSources) SetSince(v time.Time)`
+`func (o *MultiHostSources) SetSince(v SailPointTime)`
 
 SetSince sets Since field to given value.
 
@@ -798,20 +798,20 @@ HasConnectorImplementationId returns a boolean if a field has been set.
 
 ### GetCreated
 
-`func (o *MultiHostSources) GetCreated() time.Time`
+`func (o *MultiHostSources) GetCreated() SailPointTime`
 
 GetCreated returns the Created field if non-nil, zero value otherwise.
 
 ### GetCreatedOk
 
-`func (o *MultiHostSources) GetCreatedOk() (*time.Time, bool)`
+`func (o *MultiHostSources) GetCreatedOk() (*SailPointTime, bool)`
 
 GetCreatedOk returns a tuple with the Created field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreated
 
-`func (o *MultiHostSources) SetCreated(v time.Time)`
+`func (o *MultiHostSources) SetCreated(v SailPointTime)`
 
 SetCreated sets Created field to given value.
 
@@ -823,20 +823,20 @@ HasCreated returns a boolean if a field has been set.
 
 ### GetModified
 
-`func (o *MultiHostSources) GetModified() time.Time`
+`func (o *MultiHostSources) GetModified() SailPointTime`
 
 GetModified returns the Modified field if non-nil, zero value otherwise.
 
 ### GetModifiedOk
 
-`func (o *MultiHostSources) GetModifiedOk() (*time.Time, bool)`
+`func (o *MultiHostSources) GetModifiedOk() (*SailPointTime, bool)`
 
 GetModifiedOk returns a tuple with the Modified field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModified
 
-`func (o *MultiHostSources) SetModified(v time.Time)`
+`func (o *MultiHostSources) SetModified(v SailPointTime)`
 
 SetModified sets Modified field to given value.
 

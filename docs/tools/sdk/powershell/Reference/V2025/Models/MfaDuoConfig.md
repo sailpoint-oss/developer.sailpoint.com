@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MfaDuoConfig = Initialize-PSSailpoint.V2025MfaDuoConfig  -MfaMethod duo-web `
+$MfaDuoConfig = Initialize-V2025MfaDuoConfig  -MfaMethod duo-web `
  -Enabled true `
  -VarHost example.com `
  -AccessKey qw123Y3QlA5UqocYpdU3rEkzrK2D497y `

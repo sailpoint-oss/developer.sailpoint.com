@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CreateFormDefinitionRequest = Initialize-PSSailpoint.V2024CreateFormDefinitionRequest  -Description My form description `
+$CreateFormDefinitionRequest = Initialize-V2024CreateFormDefinitionRequest  -Description My form description `
  -FormConditions null `
  -FormElements null `
  -FormInput null `

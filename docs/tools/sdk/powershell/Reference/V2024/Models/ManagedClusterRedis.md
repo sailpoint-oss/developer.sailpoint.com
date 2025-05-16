@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManagedClusterRedis = Initialize-PSSailpoint.V2024ManagedClusterRedis  -RedisHost megapod-useast1-shared-redis.cloud.sailpoint.com `
+$ManagedClusterRedis = Initialize-V2024ManagedClusterRedis  -RedisHost megapod-useast1-shared-redis.cloud.sailpoint.com `
  -RedisPort 6379
 ```
 

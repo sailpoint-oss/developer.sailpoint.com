@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'AccountAggregationStatus', 'BetaAccou
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Start** | Pointer to **time.Time** | When the aggregation started. | [optional] 
+**Start** | Pointer to **SailPointTime** | When the aggregation started. | [optional] 
 **Status** | Pointer to **string** | STARTED - Aggregation started, but source account iteration has not completed.  ACCOUNTS_COLLECTED - Source account iteration completed, but all accounts have not yet been processed.  COMPLETED - Aggregation completed (*possibly with errors*).  CANCELLED - Aggregation cancelled by user.  RETRIED - Aggregation retried because of connectivity issues with the Virtual Appliance.  TERMINATED - Aggregation marked as failed after 3 tries after connectivity issues with the Virtual Appliance.  | [optional] 
 **TotalAccounts** | Pointer to **int32** | The total number of *NEW, CHANGED and DELETED* accounts that need to be processed for this aggregation. This does not include accounts that were unchanged since the previous aggregation. This can be zero if there were no new, changed or deleted accounts since the previous aggregation. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.* | [optional] 
 **ProcessedAccounts** | Pointer to **int32** | The number of *NEW, CHANGED and DELETED* accounts that have been processed so far. This reflects the number of accounts that have been processed at the time of the API call, and may increase on subsequent API calls while the status is ACCOUNTS_COLLECTED. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.* | [optional] 
@@ -41,20 +41,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetStart
 
-`func (o *AccountAggregationStatus) GetStart() time.Time`
+`func (o *AccountAggregationStatus) GetStart() SailPointTime`
 
 GetStart returns the Start field if non-nil, zero value otherwise.
 
 ### GetStartOk
 
-`func (o *AccountAggregationStatus) GetStartOk() (*time.Time, bool)`
+`func (o *AccountAggregationStatus) GetStartOk() (*SailPointTime, bool)`
 
 GetStartOk returns a tuple with the Start field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStart
 
-`func (o *AccountAggregationStatus) SetStart(v time.Time)`
+`func (o *AccountAggregationStatus) SetStart(v SailPointTime)`
 
 SetStart sets Start field to given value.
 

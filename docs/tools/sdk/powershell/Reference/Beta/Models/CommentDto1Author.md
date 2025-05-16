@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CommentDto1Author = Initialize-PSSailpoint.BetaCommentDto1Author  -Type IDENTITY `
+$CommentDto1Author = Initialize-BetaCommentDto1Author  -Type IDENTITY `
  -Id 2c9180847e25f377017e2ae8cae4650b `
  -Name john.doe
 ```

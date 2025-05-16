@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttributeNames = Initialize-PSSailpoint.V2025IdentityAttributeNames  -Ids [name, displayName]
+$IdentityAttributeNames = Initialize-V2025IdentityAttributeNames  -Ids [name, displayName]
 ```
 
 - Convert the resource to JSON

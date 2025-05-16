@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TakeFromTargetRules** | Pointer to [**[]SpConfigRule**](sp-config-rule) |  | [optional] 
 **DefaultRules** | Pointer to [**[]SpConfigRule**](sp-config-rule) |  | [optional] 
-**Editable** | Pointer to **bool** | Whether this object can be edited | [optional] [default to false]
+**Editable** | Pointer to **bool** | Indicates whether the object can be edited. | [optional] [default to false]
 
 ## Methods
 

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleAssignmentDtoAssigner = Initialize-PSSailpoint.V2025RoleAssignmentDtoAssigner  -Type IDENTITY `
+$RoleAssignmentDtoAssigner = Initialize-V2025RoleAssignmentDtoAssigner  -Type IDENTITY `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name William Wilson
 ```

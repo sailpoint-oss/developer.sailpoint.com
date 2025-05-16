@@ -36,7 +36,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormInstanceResponse = Initialize-PSSailpoint.BetaFormInstanceResponse  -Created 2023-07-12T20:14:57.744860Z `
+$FormInstanceResponse = Initialize-BetaFormInstanceResponse  -Created 2023-07-12T20:14:57.744860Z `
  -CreatedBy null `
  -Expire 2023-08-12T20:14:57.74486Z `
  -FormConditions null `

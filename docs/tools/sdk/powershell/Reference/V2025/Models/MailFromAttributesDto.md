@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MailFromAttributesDto = Initialize-PSSailpoint.V2025MailFromAttributesDto  -Identity BobSmith@sailpoint.com `
+$MailFromAttributesDto = Initialize-V2025MailFromAttributesDto  -Identity BobSmith@sailpoint.com `
  -MailFromDomain example.sailpoint.com
 ```
 

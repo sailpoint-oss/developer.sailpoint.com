@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory = Initialize-PSSailpoint.V2025MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory  -ConnectorFileNameUploadedDate 2024-08-29T10:20:38.896479Z
+$MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory = Initialize-V2025MultiHostIntegrationsConnectorAttributesConnectorFileUploadHistory  -ConnectorFileNameUploadedDate 2024-08-29T10:20:38.896479Z
 ```
 
 - Convert the resource to JSON

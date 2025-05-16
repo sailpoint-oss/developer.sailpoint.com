@@ -30,8 +30,8 @@ Name | Type | Description | Notes
 **Name** | Pointer to **NullableString** | The session's saved name | [optional] 
 **DataFilePath** | Pointer to **NullableString** | The data file path of the role mining session | [optional] 
 **Id** | Pointer to **string** | Session Id for this role mining session | [optional] 
-**CreatedDate** | Pointer to **time.Time** | The date-time when this role mining session was created. | [optional] 
-**ModifiedDate** | Pointer to **time.Time** | The date-time when this role mining session was completed. | [optional] 
+**CreatedDate** | Pointer to **SailPointTime** | The date-time when this role mining session was created. | [optional] 
+**ModifiedDate** | Pointer to **SailPointTime** | The date-time when this role mining session was completed. | [optional] 
 **Type** | Pointer to [**RoleMiningRoleType**](role-mining-role-type) |  | [optional] 
 
 ## Methods
@@ -500,20 +500,20 @@ HasId returns a boolean if a field has been set.
 
 ### GetCreatedDate
 
-`func (o *RoleMiningSessionResponse) GetCreatedDate() time.Time`
+`func (o *RoleMiningSessionResponse) GetCreatedDate() SailPointTime`
 
 GetCreatedDate returns the CreatedDate field if non-nil, zero value otherwise.
 
 ### GetCreatedDateOk
 
-`func (o *RoleMiningSessionResponse) GetCreatedDateOk() (*time.Time, bool)`
+`func (o *RoleMiningSessionResponse) GetCreatedDateOk() (*SailPointTime, bool)`
 
 GetCreatedDateOk returns a tuple with the CreatedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedDate
 
-`func (o *RoleMiningSessionResponse) SetCreatedDate(v time.Time)`
+`func (o *RoleMiningSessionResponse) SetCreatedDate(v SailPointTime)`
 
 SetCreatedDate sets CreatedDate field to given value.
 
@@ -525,20 +525,20 @@ HasCreatedDate returns a boolean if a field has been set.
 
 ### GetModifiedDate
 
-`func (o *RoleMiningSessionResponse) GetModifiedDate() time.Time`
+`func (o *RoleMiningSessionResponse) GetModifiedDate() SailPointTime`
 
 GetModifiedDate returns the ModifiedDate field if non-nil, zero value otherwise.
 
 ### GetModifiedDateOk
 
-`func (o *RoleMiningSessionResponse) GetModifiedDateOk() (*time.Time, bool)`
+`func (o *RoleMiningSessionResponse) GetModifiedDateOk() (*SailPointTime, bool)`
 
 GetModifiedDateOk returns a tuple with the ModifiedDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetModifiedDate
 
-`func (o *RoleMiningSessionResponse) SetModifiedDate(v time.Time)`
+`func (o *RoleMiningSessionResponse) SetModifiedDate(v SailPointTime)`
 
 SetModifiedDate sets ModifiedDate field to given value.
 

@@ -5,11 +5,18 @@ post:
   summary: Disable IDN Accounts for Identities
   description: >-
     This API submits tasks to disable IDN account for each identity provided in the request body.
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Disable IDN Accounts for Identities](https://developer.sailpoint.com/docs/api/v2025/disable-accounts-for-identities) for latest API.
   externalDocs:
     description: 'Learn more about disabling identities here'
     url: 'https://documentation.sailpoint.com/saas/help/common/users/user_access.html#disabling-user-identities'
   security:
     - userAuth: [idn:accounts-state:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   requestBody:
     required: true
     content:

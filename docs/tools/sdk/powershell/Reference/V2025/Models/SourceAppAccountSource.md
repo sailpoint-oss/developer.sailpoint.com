@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceAppAccountSource = Initialize-PSSailpoint.V2025SourceAppAccountSource  -Id 2c9180827ca885d7017ca8ce28a000eb `
+$SourceAppAccountSource = Initialize-V2025SourceAppAccountSource  -Id 2c9180827ca885d7017ca8ce28a000eb `
  -Type SOURCE `
  -Name ODS-AD-Source `
  -UseForPasswordManagement false `

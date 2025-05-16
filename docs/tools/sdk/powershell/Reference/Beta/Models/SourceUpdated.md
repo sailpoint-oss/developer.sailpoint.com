@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceUpdated = Initialize-PSSailpoint.BetaSourceUpdated  -Id 2c9180866166b5b0016167c32ef31a66 `
+$SourceUpdated = Initialize-BetaSourceUpdated  -Id 2c9180866166b5b0016167c32ef31a66 `
  -Name Test source `
  -Type DIRECT_CONNECT `
  -Modified 2021-03-29T22:01:50.474Z `

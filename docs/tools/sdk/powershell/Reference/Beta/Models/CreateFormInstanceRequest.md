@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CreateFormInstanceRequest = Initialize-PSSailpoint.BetaCreateFormInstanceRequest  -CreatedBy null `
+$CreateFormInstanceRequest = Initialize-BetaCreateFormInstanceRequest  -CreatedBy null `
  -Expire 2023-08-12T20:14:57.74486Z `
  -FormDefinitionId 00000000-0000-0000-0000-000000000000 `
  -FormInput {input1=Sales} `

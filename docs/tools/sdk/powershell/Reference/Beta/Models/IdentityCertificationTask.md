@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityCertificationTask = Initialize-PSSailpoint.BetaIdentityCertificationTask  -Id abcd-ef12-3456 `
+$IdentityCertificationTask = Initialize-BetaIdentityCertificationTask  -Id abcd-ef12-3456 `
  -CertificationId ef38f94347e94562b5bb8424a56397d8 `
  -Type null `
  -Status null `

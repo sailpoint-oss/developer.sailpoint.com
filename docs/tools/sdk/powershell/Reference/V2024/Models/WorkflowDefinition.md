@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowDefinition = Initialize-PSSailpoint.V2024WorkflowDefinition  -Start Send Email Test `
+$WorkflowDefinition = Initialize-V2024WorkflowDefinition  -Start Send Email Test `
  -Steps {Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=ACTION}, success={type=success}}
 ```
 

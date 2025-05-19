@@ -48,12 +48,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-account-activity**](#get-account-activity) | **GET** `/account-activities/{id}` | Get an Account Activity
-[**list-account-activities**](#list-account-activities) | **GET** `/account-activities` | List Account Activities
+[**get-account-activity**](#get-account-activity) | **GET** `/account-activities/{id}` | Get an account activity
+[**list-account-activities**](#list-account-activities) | **GET** `/account-activities` | List account activities
 
 
 ## get-account-activity
-Get an Account Activity
+Get an account activity
 This gets a single account activity by its id.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-account-activity)
@@ -96,7 +96,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The account activity id # str | The account activity id
 
     try:
-        # Get an Account Activity
+        # Get an account activity
         
         results = AccountActivitiesApi(api_client).get_account_activity(id=id)
         # Below is a request that includes all optional parameters
@@ -112,7 +112,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-account-activities
-List Account Activities
+List account activities
 This gets a collection of account activities that satisfy the given query parameters.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-account-activities)
@@ -168,7 +168,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'created' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified** (optional)
 
     try:
-        # List Account Activities
+        # List account activities
         
         results = AccountActivitiesApi(api_client).list_account_activities()
         # Below is a request that includes all optional parameters

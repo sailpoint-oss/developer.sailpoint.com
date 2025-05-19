@@ -67,14 +67,14 @@ Method | HTTP request | Description
 [**create-access-model-metadata-for-entitlement**](#create-access-model-metadata-for-entitlement) | **POST** `/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add metadata to an entitlement.
 [**delete-access-model-metadata-from-entitlement**](#delete-access-model-metadata-from-entitlement) | **DELETE** `/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove metadata from an entitlement.
 [**get-entitlement**](#get-entitlement) | **GET** `/entitlements/{id}` | Get an entitlement
-[**get-entitlement-request-config**](#get-entitlement-request-config) | **GET** `/entitlements/{id}/entitlement-request-config` | Get Entitlement Request Config
-[**import-entitlements-by-source**](#import-entitlements-by-source) | **POST** `/entitlements/aggregate/sources/{id}` | Aggregate Entitlements
+[**get-entitlement-request-config**](#get-entitlement-request-config) | **GET** `/entitlements/{id}/entitlement-request-config` | Get entitlement request config
+[**import-entitlements-by-source**](#import-entitlements-by-source) | **POST** `/entitlements/aggregate/sources/{id}` | Aggregate entitlements
 [**list-entitlement-children**](#list-entitlement-children) | **GET** `/entitlements/{id}/children` | List of entitlements children
 [**list-entitlement-parents**](#list-entitlement-parents) | **GET** `/entitlements/{id}/parents` | List of entitlements parents
 [**list-entitlements**](#list-entitlements) | **GET** `/entitlements` | Gets a list of entitlements.
 [**patch-entitlement**](#patch-entitlement) | **PATCH** `/entitlements/{id}` | Patch an entitlement
-[**put-entitlement-request-config**](#put-entitlement-request-config) | **PUT** `/entitlements/{id}/entitlement-request-config` | Replace Entitlement Request Config
-[**reset-source-entitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{sourceId}` | Reset Source Entitlements
+[**put-entitlement-request-config**](#put-entitlement-request-config) | **PUT** `/entitlements/{id}/entitlement-request-config` | Replace entitlement request config
+[**reset-source-entitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{sourceId}` | Reset source entitlements
 [**update-entitlements-in-bulk**](#update-entitlements-in-bulk) | **POST** `/entitlements/bulk-update` | Bulk update an entitlement list
 
 
@@ -259,7 +259,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-entitlement-request-config
-Get Entitlement Request Config
+Get entitlement request config
 This API returns the entitlement request config for a specified entitlement.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-entitlement-request-config)
@@ -302,7 +302,7 @@ with ApiClient(configuration) as api_client:
     id = '2c91808874ff91550175097daaec161c' # str | Entitlement Id # str | Entitlement Id
 
     try:
-        # Get Entitlement Request Config
+        # Get entitlement request config
         
         results = EntitlementsApi(api_client).get_entitlement_request_config(id=id)
         # Below is a request that includes all optional parameters
@@ -321,7 +321,7 @@ with ApiClient(configuration) as api_client:
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Aggregate Entitlements
+Aggregate entitlements
 Starts an entitlement aggregation on the specified source. Though this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/beta/import-entitlements).
 
 If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.
@@ -369,7 +369,7 @@ with ApiClient(configuration) as api_client:
     csv_file = None # bytearray | The CSV file containing the source entitlements to aggregate. (optional) # bytearray | The CSV file containing the source entitlements to aggregate. (optional)
 
     try:
-        # Aggregate Entitlements
+        # Aggregate entitlements
         
         results = EntitlementsApi(api_client).import_entitlements_by_source(id=id)
         # Below is a request that includes all optional parameters
@@ -672,7 +672,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-entitlement-request-config
-Replace Entitlement Request Config
+Replace entitlement request config
 This API replaces the entitlement request config for a specified entitlement.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-entitlement-request-config)
@@ -739,7 +739,7 @@ with ApiClient(configuration) as api_client:
         }''' # EntitlementRequestConfig | 
 
     try:
-        # Replace Entitlement Request Config
+        # Replace entitlement request config
         new_entitlement_request_config = EntitlementRequestConfig.from_json(entitlement_request_config)
         results = EntitlementsApi(api_client).put_entitlement_request_config(id=id, entitlement_request_config=new_entitlement_request_config)
         # Below is a request that includes all optional parameters
@@ -755,7 +755,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## reset-source-entitlements
-Reset Source Entitlements
+Reset source entitlements
 Remove all entitlements from a specific source.
 To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Import Accounts](https://developer.sailpoint.com/docs/api/beta/import-accounts/) with `disableOptimization` = `true`. 
 
@@ -798,7 +798,7 @@ with ApiClient(configuration) as api_client:
     source_id = '2c91808a7813090a017814121919ecca' # str | ID of source for the entitlement reset # str | ID of source for the entitlement reset
 
     try:
-        # Reset Source Entitlements
+        # Reset source entitlements
         
         results = EntitlementsApi(api_client).reset_source_entitlements(source_id=source_id)
         # Below is a request that includes all optional parameters

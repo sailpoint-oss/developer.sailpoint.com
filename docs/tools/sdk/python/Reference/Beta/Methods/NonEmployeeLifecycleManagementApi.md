@@ -46,42 +46,42 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**approve-non-employee-request**](#approve-non-employee-request) | **POST** `/non-employee-approvals/{id}/approve` | Approve a Non-Employee Request
-[**create-non-employee-record**](#create-non-employee-record) | **POST** `/non-employee-records` | Create Non-Employee Record
-[**create-non-employee-request**](#create-non-employee-request) | **POST** `/non-employee-requests` | Create Non-Employee Request
-[**create-non-employee-source**](#create-non-employee-source) | **POST** `/non-employee-sources` | Create Non-Employee Source
-[**create-non-employee-source-schema-attributes**](#create-non-employee-source-schema-attributes) | **POST** `/non-employee-sources/{sourceId}/schema-attributes` | Create Non-Employee Source Schema Attribute
-[**delete-non-employee-record**](#delete-non-employee-record) | **DELETE** `/non-employee-records/{id}` | Delete Non-Employee Record
-[**delete-non-employee-record-in-bulk**](#delete-non-employee-record-in-bulk) | **POST** `/non-employee-records/bulk-delete` | Delete Multiple Non-Employee Records
-[**delete-non-employee-request**](#delete-non-employee-request) | **DELETE** `/non-employee-requests/{id}` | Delete Non-Employee Request
-[**delete-non-employee-schema-attribute**](#delete-non-employee-schema-attribute) | **DELETE** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Delete Non-Employee Source&#39;s Schema Attribute
-[**delete-non-employee-source**](#delete-non-employee-source) | **DELETE** `/non-employee-sources/{sourceId}` | Delete Non-Employee Source
+[**approve-non-employee-request**](#approve-non-employee-request) | **POST** `/non-employee-approvals/{id}/approve` | Approve a non-employee request
+[**create-non-employee-record**](#create-non-employee-record) | **POST** `/non-employee-records` | Create non-employee record
+[**create-non-employee-request**](#create-non-employee-request) | **POST** `/non-employee-requests` | Create non-employee request
+[**create-non-employee-source**](#create-non-employee-source) | **POST** `/non-employee-sources` | Create non-employee source
+[**create-non-employee-source-schema-attributes**](#create-non-employee-source-schema-attributes) | **POST** `/non-employee-sources/{sourceId}/schema-attributes` | Create non-employee source schema attribute
+[**delete-non-employee-record**](#delete-non-employee-record) | **DELETE** `/non-employee-records/{id}` | Delete non-employee record
+[**delete-non-employee-record-in-bulk**](#delete-non-employee-record-in-bulk) | **POST** `/non-employee-records/bulk-delete` | Delete multiple non-employee records
+[**delete-non-employee-request**](#delete-non-employee-request) | **DELETE** `/non-employee-requests/{id}` | Delete non-employee request
+[**delete-non-employee-schema-attribute**](#delete-non-employee-schema-attribute) | **DELETE** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Delete non-employee source&#39;s schema attribute
+[**delete-non-employee-source**](#delete-non-employee-source) | **DELETE** `/non-employee-sources/{sourceId}` | Delete non-employee source
 [**delete-non-employee-source-schema-attributes**](#delete-non-employee-source-schema-attributes) | **DELETE** `/non-employee-sources/{sourceId}/schema-attributes` | Delete all custom schema attributes
-[**export-non-employee-records**](#export-non-employee-records) | **GET** `/non-employee-sources/{id}/non-employees/download` | Exports Non-Employee Records to CSV
-[**export-non-employee-source-schema-template**](#export-non-employee-source-schema-template) | **GET** `/non-employee-sources/{id}/schema-attributes-template/download` | Exports Source Schema Template
+[**export-non-employee-records**](#export-non-employee-records) | **GET** `/non-employee-sources/{id}/non-employees/download` | Exports non-employee records to csv
+[**export-non-employee-source-schema-template**](#export-non-employee-source-schema-template) | **GET** `/non-employee-sources/{id}/schema-attributes-template/download` | Exports source schema template
 [**get-non-employee-approval**](#get-non-employee-approval) | **GET** `/non-employee-approvals/{id}` | Get a non-employee approval item detail
-[**get-non-employee-approval-summary**](#get-non-employee-approval-summary) | **GET** `/non-employee-approvals/summary/{requested-for}` | Get Summary of Non-Employee Approval Requests
+[**get-non-employee-approval-summary**](#get-non-employee-approval-summary) | **GET** `/non-employee-approvals/summary/{requested-for}` | Get summary of non-employee approval requests
 [**get-non-employee-bulk-upload-status**](#get-non-employee-bulk-upload-status) | **GET** `/non-employee-sources/{id}/non-employee-bulk-upload/status` | Bulk upload status on source
-[**get-non-employee-record**](#get-non-employee-record) | **GET** `/non-employee-records/{id}` | Get a Non-Employee Record
-[**get-non-employee-request**](#get-non-employee-request) | **GET** `/non-employee-requests/{id}` | Get a Non-Employee Request
-[**get-non-employee-request-summary**](#get-non-employee-request-summary) | **GET** `/non-employee-requests/summary/{requested-for}` | Get Summary of Non-Employee Requests
-[**get-non-employee-schema-attribute**](#get-non-employee-schema-attribute) | **GET** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Get Schema Attribute Non-Employee Source
-[**get-non-employee-source**](#get-non-employee-source) | **GET** `/non-employee-sources/{sourceId}` | Get a Non-Employee Source
-[**get-non-employee-source-schema-attributes**](#get-non-employee-source-schema-attributes) | **GET** `/non-employee-sources/{sourceId}/schema-attributes` | List Schema Attributes Non-Employee Source
-[**import-non-employee-records-in-bulk**](#import-non-employee-records-in-bulk) | **POST** `/non-employee-sources/{id}/non-employee-bulk-upload` | Imports, or Updates, Non-Employee Records
-[**list-non-employee-approval**](#list-non-employee-approval) | **GET** `/non-employee-approvals` | Get List of Non-Employee Approval Requests
-[**list-non-employee-records**](#list-non-employee-records) | **GET** `/non-employee-records` | List Non-Employee Records
-[**list-non-employee-requests**](#list-non-employee-requests) | **GET** `/non-employee-requests` | List Non-Employee Requests
-[**list-non-employee-sources**](#list-non-employee-sources) | **GET** `/non-employee-sources` | List Non-Employee Sources
-[**patch-non-employee-record**](#patch-non-employee-record) | **PATCH** `/non-employee-records/{id}` | Patch Non-Employee Record
-[**patch-non-employee-schema-attribute**](#patch-non-employee-schema-attribute) | **PATCH** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Patch Non-Employee Source&#39;s Schema Attribute
-[**patch-non-employee-source**](#patch-non-employee-source) | **PATCH** `/non-employee-sources/{sourceId}` | Patch a Non-Employee Source
-[**reject-non-employee-request**](#reject-non-employee-request) | **POST** `/non-employee-approvals/{id}/reject` | Reject a Non-Employee Request
-[**update-non-employee-record**](#update-non-employee-record) | **PUT** `/non-employee-records/{id}` | Update Non-Employee Record
+[**get-non-employee-record**](#get-non-employee-record) | **GET** `/non-employee-records/{id}` | Get a non-employee record
+[**get-non-employee-request**](#get-non-employee-request) | **GET** `/non-employee-requests/{id}` | Get a non-employee request
+[**get-non-employee-request-summary**](#get-non-employee-request-summary) | **GET** `/non-employee-requests/summary/{requested-for}` | Get summary of non-employee requests
+[**get-non-employee-schema-attribute**](#get-non-employee-schema-attribute) | **GET** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Get schema attribute non-employee source
+[**get-non-employee-source**](#get-non-employee-source) | **GET** `/non-employee-sources/{sourceId}` | Get a non-employee source
+[**get-non-employee-source-schema-attributes**](#get-non-employee-source-schema-attributes) | **GET** `/non-employee-sources/{sourceId}/schema-attributes` | List schema attributes non-employee source
+[**import-non-employee-records-in-bulk**](#import-non-employee-records-in-bulk) | **POST** `/non-employee-sources/{id}/non-employee-bulk-upload` | Imports, or updates, non-employee records
+[**list-non-employee-approval**](#list-non-employee-approval) | **GET** `/non-employee-approvals` | Get list of non-employee approval requests
+[**list-non-employee-records**](#list-non-employee-records) | **GET** `/non-employee-records` | List non-employee records
+[**list-non-employee-requests**](#list-non-employee-requests) | **GET** `/non-employee-requests` | List non-employee requests
+[**list-non-employee-sources**](#list-non-employee-sources) | **GET** `/non-employee-sources` | List non-employee sources
+[**patch-non-employee-record**](#patch-non-employee-record) | **PATCH** `/non-employee-records/{id}` | Patch non-employee record
+[**patch-non-employee-schema-attribute**](#patch-non-employee-schema-attribute) | **PATCH** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Patch non-employee source&#39;s schema attribute
+[**patch-non-employee-source**](#patch-non-employee-source) | **PATCH** `/non-employee-sources/{sourceId}` | Patch a non-employee source
+[**reject-non-employee-request**](#reject-non-employee-request) | **POST** `/non-employee-approvals/{id}/reject` | Reject a non-employee request
+[**update-non-employee-record**](#update-non-employee-record) | **PUT** `/non-employee-records/{id}` | Update non-employee record
 
 
 ## approve-non-employee-request
-Approve a Non-Employee Request
+Approve a non-employee request
 Approves a non-employee approval request and notifies the next approver.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/approve-non-employee-request)
@@ -128,7 +128,7 @@ with ApiClient(configuration) as api_client:
         }''' # NonEmployeeApprovalDecision | 
 
     try:
-        # Approve a Non-Employee Request
+        # Approve a non-employee request
         new_non_employee_approval_decision = NonEmployeeApprovalDecision.from_json(non_employee_approval_decision)
         results = NonEmployeeLifecycleManagementApi(api_client).approve_non_employee_request(id=id, non_employee_approval_decision=new_non_employee_approval_decision)
         # Below is a request that includes all optional parameters
@@ -144,7 +144,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## create-non-employee-record
-Create Non-Employee Record
+Create non-employee record
 This request will create a non-employee record.
 Request will require the following security scope:
 'idn:nesr:create'
@@ -202,7 +202,7 @@ with ApiClient(configuration) as api_client:
         }''' # NonEmployeeRequestBody | Non-Employee record creation request body.
 
     try:
-        # Create Non-Employee Record
+        # Create non-employee record
         new_non_employee_request_body = NonEmployeeRequestBody.from_json(non_employee_request_body)
         results = NonEmployeeLifecycleManagementApi(api_client).create_non_employee_record(non_employee_request_body=new_non_employee_request_body)
         # Below is a request that includes all optional parameters
@@ -218,7 +218,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## create-non-employee-request
-Create Non-Employee Request
+Create non-employee request
 This request will create a non-employee request and notify the approver
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-request)
@@ -274,7 +274,7 @@ with ApiClient(configuration) as api_client:
         }''' # NonEmployeeRequestBody | Non-Employee creation request body
 
     try:
-        # Create Non-Employee Request
+        # Create non-employee request
         new_non_employee_request_body = NonEmployeeRequestBody.from_json(non_employee_request_body)
         results = NonEmployeeLifecycleManagementApi(api_client).create_non_employee_request(non_employee_request_body=new_non_employee_request_body)
         # Below is a request that includes all optional parameters
@@ -290,7 +290,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## create-non-employee-source
-Create Non-Employee Source
+Create non-employee source
 Create a non-employee source.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-source)
@@ -358,7 +358,7 @@ with ApiClient(configuration) as api_client:
         }''' # NonEmployeeSourceRequestBody | Non-Employee source creation request body.
 
     try:
-        # Create Non-Employee Source
+        # Create non-employee source
         new_non_employee_source_request_body = NonEmployeeSourceRequestBody.from_json(non_employee_source_request_body)
         results = NonEmployeeLifecycleManagementApi(api_client).create_non_employee_source(non_employee_source_request_body=new_non_employee_source_request_body)
         # Below is a request that includes all optional parameters
@@ -374,7 +374,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## create-non-employee-source-schema-attributes
-Create Non-Employee Source Schema Attribute
+Create non-employee source schema attribute
 This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a "400.1.409 Reference conflict" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a "400.1.4 Limit violation" response.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-source-schema-attributes)
@@ -426,7 +426,7 @@ with ApiClient(configuration) as api_client:
         }''' # NonEmployeeSchemaAttributeBody | 
 
     try:
-        # Create Non-Employee Source Schema Attribute
+        # Create non-employee source schema attribute
         new_non_employee_schema_attribute_body = NonEmployeeSchemaAttributeBody.from_json(non_employee_schema_attribute_body)
         results = NonEmployeeLifecycleManagementApi(api_client).create_non_employee_source_schema_attributes(source_id=source_id, non_employee_schema_attribute_body=new_non_employee_schema_attribute_body)
         # Below is a request that includes all optional parameters
@@ -442,7 +442,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-non-employee-record
-Delete Non-Employee Record
+Delete non-employee record
 This request will delete a non-employee record.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-record)
@@ -483,7 +483,7 @@ with ApiClient(configuration) as api_client:
     id = '2c91808b6ef1d43e016efba0ce470904' # str | Non-Employee record id (UUID) # str | Non-Employee record id (UUID)
 
     try:
-        # Delete Non-Employee Record
+        # Delete non-employee record
         
         NonEmployeeLifecycleManagementApi(api_client).delete_non_employee_record(id=id)
         # Below is a request that includes all optional parameters
@@ -497,7 +497,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-non-employee-record-in-bulk
-Delete Multiple Non-Employee Records
+Delete multiple non-employee records
 This request will delete multiple non-employee records based on the non-employee ids provided.
 Request will require the following scope:
 'idn:nesr:delete'
@@ -541,7 +541,7 @@ with ApiClient(configuration) as api_client:
     delete_non_employee_record_in_bulk_request = '''sailpoint.beta.DeleteNonEmployeeRecordInBulkRequest()''' # DeleteNonEmployeeRecordInBulkRequest | Non-Employee bulk delete request body.
 
     try:
-        # Delete Multiple Non-Employee Records
+        # Delete multiple non-employee records
         new_delete_non_employee_record_in_bulk_request = DeleteNonEmployeeRecordInBulkRequest.from_json(delete_non_employee_record_in_bulk_request)
         NonEmployeeLifecycleManagementApi(api_client).delete_non_employee_record_in_bulk(delete_non_employee_record_in_bulk_request=new_delete_non_employee_record_in_bulk_request)
         # Below is a request that includes all optional parameters
@@ -555,7 +555,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-non-employee-request
-Delete Non-Employee Request
+Delete non-employee request
 This request will delete a non-employee request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-request)
@@ -597,7 +597,7 @@ with ApiClient(configuration) as api_client:
     id = '2c91808b6ef1d43e016efba0ce470904' # str | Non-Employee request id in the UUID format # str | Non-Employee request id in the UUID format
 
     try:
-        # Delete Non-Employee Request
+        # Delete non-employee request
         
         NonEmployeeLifecycleManagementApi(api_client).delete_non_employee_request(id=id)
         # Below is a request that includes all optional parameters
@@ -611,7 +611,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-non-employee-schema-attribute
-Delete Non-Employee Source's Schema Attribute
+Delete non-employee source's schema attribute
 This end-point deletes a specific schema attribute for a non-employee source.
 
 
@@ -655,7 +655,7 @@ with ApiClient(configuration) as api_client:
     source_id = '2c91808b6ef1d43e016efba0ce470904' # str | The Source id # str | The Source id
 
     try:
-        # Delete Non-Employee Source's Schema Attribute
+        # Delete non-employee source's schema attribute
         
         NonEmployeeLifecycleManagementApi(api_client).delete_non_employee_schema_attribute(attribute_id=attribute_id, source_id=source_id)
         # Below is a request that includes all optional parameters
@@ -669,7 +669,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-non-employee-source
-Delete Non-Employee Source
+Delete non-employee source
 This request will delete a non-employee source.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-source)
@@ -710,7 +710,7 @@ with ApiClient(configuration) as api_client:
     source_id = '2c91808b6ef1d43e016efba0ce470904' # str | Source Id # str | Source Id
 
     try:
-        # Delete Non-Employee Source
+        # Delete non-employee source
         
         NonEmployeeLifecycleManagementApi(api_client).delete_non_employee_source(source_id=source_id)
         # Below is a request that includes all optional parameters
@@ -779,7 +779,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## export-non-employee-records
-Exports Non-Employee Records to CSV
+Exports non-employee records to csv
 This requests a CSV download for all non-employees from a provided source.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/export-non-employee-records)
@@ -821,7 +821,7 @@ with ApiClient(configuration) as api_client:
     id = '2c918085842e69ae018432d22ccb212f' # str | Source Id (UUID) # str | Source Id (UUID)
 
     try:
-        # Exports Non-Employee Records to CSV
+        # Exports non-employee records to csv
         
         NonEmployeeLifecycleManagementApi(api_client).export_non_employee_records(id=id)
         # Below is a request that includes all optional parameters
@@ -835,7 +835,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## export-non-employee-source-schema-template
-Exports Source Schema Template
+Exports source schema template
 This requests a download for the Source Schema Template for a provided source.
 Request will require the following security scope:
 idn:nesr:read'
@@ -879,7 +879,7 @@ with ApiClient(configuration) as api_client:
     id = '2c918085842e69ae018432d22ccb212f' # str | Source Id (UUID) # str | Source Id (UUID)
 
     try:
-        # Exports Source Schema Template
+        # Exports source schema template
         
         NonEmployeeLifecycleManagementApi(api_client).export_non_employee_source_schema_template(id=id)
         # Below is a request that includes all optional parameters
@@ -953,7 +953,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-non-employee-approval-summary
-Get Summary of Non-Employee Approval Requests
+Get summary of non-employee approval requests
 This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter: 1. The current user is the Org Admin, in which case he or she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver's id. 2. The current user is an approver, in which case "me" should be provided as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-approval-summary)
@@ -995,7 +995,7 @@ with ApiClient(configuration) as api_client:
     requested_for = 'ac10d20a-841e-1e7d-8184-32d2e22c0179' # str | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \"me\" instead to indicate the current user. # str | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \"me\" instead to indicate the current user.
 
     try:
-        # Get Summary of Non-Employee Approval Requests
+        # Get summary of non-employee approval requests
         
         results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_approval_summary(requested_for=requested_for)
         # Below is a request that includes all optional parameters
@@ -1070,7 +1070,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-non-employee-record
-Get a Non-Employee Record
+Get a non-employee record
 This gets a non-employee record.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-record)
@@ -1112,7 +1112,7 @@ with ApiClient(configuration) as api_client:
     id = '2c91808b6ef1d43e016efba0ce470904' # str | Non-Employee record id (UUID) # str | Non-Employee record id (UUID)
 
     try:
-        # Get a Non-Employee Record
+        # Get a non-employee record
         
         results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_record(id=id)
         # Below is a request that includes all optional parameters
@@ -1128,7 +1128,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-non-employee-request
-Get a Non-Employee Request
+Get a non-employee request
 This gets a non-employee request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-request)
@@ -1171,7 +1171,7 @@ with ApiClient(configuration) as api_client:
     id = '2c91808b6ef1d43e016efba0ce470904' # str | Non-Employee request id (UUID) # str | Non-Employee request id (UUID)
 
     try:
-        # Get a Non-Employee Request
+        # Get a non-employee request
         
         results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_request(id=id)
         # Below is a request that includes all optional parameters
@@ -1187,7 +1187,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-non-employee-request-summary
-Get Summary of Non-Employee Requests
+Get summary of non-employee requests
 This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter: 1. The current user is the Org Admin, in which case he or she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager's id. 2. The current user is an account manager, in which case "me" should be provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-request-summary)
@@ -1229,7 +1229,7 @@ with ApiClient(configuration) as api_client:
     requested_for = 'ac10d20a-841e-1e7d-8184-32d2e22c0179' # str | The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use \"me\" instead to indicate the current user. # str | The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use \"me\" instead to indicate the current user.
 
     try:
-        # Get Summary of Non-Employee Requests
+        # Get summary of non-employee requests
         
         results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_request_summary(requested_for=requested_for)
         # Below is a request that includes all optional parameters
@@ -1245,7 +1245,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-non-employee-schema-attribute
-Get Schema Attribute Non-Employee Source
+Get schema attribute non-employee source
 This API gets a schema attribute by Id for the specified Non-Employee SourceId.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-schema-attribute)
@@ -1289,7 +1289,7 @@ with ApiClient(configuration) as api_client:
     source_id = '2c918085842e69ae018432d22ccb212f' # str | The Source id # str | The Source id
 
     try:
-        # Get Schema Attribute Non-Employee Source
+        # Get schema attribute non-employee source
         
         results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_schema_attribute(attribute_id=attribute_id, source_id=source_id)
         # Below is a request that includes all optional parameters
@@ -1305,7 +1305,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-non-employee-source
-Get a Non-Employee Source
+Get a non-employee source
 This gets a non-employee source.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-source)
@@ -1347,7 +1347,7 @@ with ApiClient(configuration) as api_client:
     source_id = '2c91808b7c28b350017c2a2ec5790aa1' # str | Source Id # str | Source Id
 
     try:
-        # Get a Non-Employee Source
+        # Get a non-employee source
         
         results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_source(source_id=source_id)
         # Below is a request that includes all optional parameters
@@ -1363,7 +1363,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-non-employee-source-schema-attributes
-List Schema Attributes Non-Employee Source
+List schema attributes non-employee source
 This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-source-schema-attributes)
@@ -1406,7 +1406,7 @@ with ApiClient(configuration) as api_client:
     source_id = '2c918085842e69ae018432d22ccb212f' # str | The Source id # str | The Source id
 
     try:
-        # List Schema Attributes Non-Employee Source
+        # List schema attributes non-employee source
         
         results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_source_schema_attributes(source_id=source_id)
         # Below is a request that includes all optional parameters
@@ -1423,7 +1423,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## import-non-employee-records-in-bulk
-Imports, or Updates, Non-Employee Records
+Imports, or updates, non-employee records
 This post will import, or update, Non-Employee records found in the CSV.
 Request will need the following security scope:
 'idn:nesr:create'
@@ -1470,7 +1470,7 @@ with ApiClient(configuration) as api_client:
     data = None # bytearray |  # bytearray | 
 
     try:
-        # Imports, or Updates, Non-Employee Records
+        # Imports, or updates, non-employee records
         
         results = NonEmployeeLifecycleManagementApi(api_client).import_non_employee_records_in_bulk(id=id, data=data)
         # Below is a request that includes all optional parameters
@@ -1486,7 +1486,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-non-employee-approval
-Get List of Non-Employee Approval Requests
+Get list of non-employee approval requests
 This gets a list of non-employee approval requests.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-approval)
@@ -1538,7 +1538,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'created' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
 
     try:
-        # Get List of Non-Employee Approval Requests
+        # Get list of non-employee approval requests
         
         results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_approval()
         # Below is a request that includes all optional parameters
@@ -1555,7 +1555,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-non-employee-records
-List Non-Employee Records
+List non-employee records
 This gets a list of non-employee records.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-records)
@@ -1605,7 +1605,7 @@ with ApiClient(configuration) as api_client:
     filters = 'sourceId eq \"2c91808568c529c60168cca6f90c1313\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq* (optional)
 
     try:
-        # List Non-Employee Records
+        # List non-employee records
         
         results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_records()
         # Below is a request that includes all optional parameters
@@ -1622,7 +1622,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-non-employee-requests
-List Non-Employee Requests
+List non-employee requests
 This gets a list of non-employee requests.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-requests)
@@ -1674,7 +1674,7 @@ with ApiClient(configuration) as api_client:
     filters = 'sourceId eq \"2c91808568c529c60168cca6f90c1313\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq* (optional)
 
     try:
-        # List Non-Employee Requests
+        # List non-employee requests
         
         results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_requests(requested_for=requested_for)
         # Below is a request that includes all optional parameters
@@ -1691,7 +1691,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-non-employee-sources
-List Non-Employee Sources
+List non-employee sources
 Get a list of non-employee sources. There are two contextual uses for the `requested-for` path parameter: 
   1. If the user has the role context of `idn:nesr:read`, he or she may request a list sources assigned to a particular account manager by passing in that manager's `id`.
   2. If the current user is an account manager, the user should provide 'me' as the `requested-for` value. Doing so provide the user with a list of the sources he or she owns.
@@ -1745,7 +1745,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'name,created' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId** (optional)
 
     try:
-        # List Non-Employee Sources
+        # List non-employee sources
         
         results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_sources()
         # Below is a request that includes all optional parameters
@@ -1762,7 +1762,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-non-employee-record
-Patch Non-Employee Record
+Patch non-employee record
 This request will patch a non-employee record.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-non-employee-record)
@@ -1808,7 +1808,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=replace, path=/endDate, value={2019-08-23T18:40:35.772Z=null}}]''' # List[JsonPatchOperation] | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
 
     try:
-        # Patch Non-Employee Record
+        # Patch non-employee record
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = NonEmployeeLifecycleManagementApi(api_client).patch_non_employee_record(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
@@ -1824,7 +1824,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-non-employee-schema-attribute
-Patch Non-Employee Source's Schema Attribute
+Patch non-employee source's schema attribute
 This end-point patches a specific schema attribute for a non-employee SourceId.
 
 
@@ -1873,7 +1873,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=replace, path=/label, value={new attribute label=null}}]''' # List[JsonPatchOperation] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update ':' 'label', 'helpText', 'placeholder', 'required'.
 
     try:
-        # Patch Non-Employee Source's Schema Attribute
+        # Patch non-employee source's schema attribute
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = NonEmployeeLifecycleManagementApi(api_client).patch_non_employee_schema_attribute(attribute_id=attribute_id, source_id=source_id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
@@ -1889,7 +1889,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-non-employee-source
-Patch a Non-Employee Source
+Patch a non-employee source
 patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers**
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-non-employee-source)
@@ -1934,7 +1934,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=replace, path=/name, value={new name=null}}, {op=replace, path=/approvers, value=[2c91809f703bb37a017040a2fe8748c7, 48b1f463c9e8427db5a5071bd81914b8]}]''' # List[JsonPatchOperation] | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
     try:
-        # Patch a Non-Employee Source
+        # Patch a non-employee source
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = NonEmployeeLifecycleManagementApi(api_client).patch_non_employee_source(source_id=source_id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
@@ -1950,7 +1950,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## reject-non-employee-request
-Reject a Non-Employee Request
+Reject a non-employee request
 This endpoint will reject an approval item request and notify user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/reject-non-employee-request)
@@ -1997,7 +1997,7 @@ with ApiClient(configuration) as api_client:
         }''' # NonEmployeeRejectApprovalDecision | 
 
     try:
-        # Reject a Non-Employee Request
+        # Reject a non-employee request
         new_non_employee_reject_approval_decision = NonEmployeeRejectApprovalDecision.from_json(non_employee_reject_approval_decision)
         results = NonEmployeeLifecycleManagementApi(api_client).reject_non_employee_request(id=id, non_employee_reject_approval_decision=new_non_employee_reject_approval_decision)
         # Below is a request that includes all optional parameters
@@ -2013,7 +2013,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-non-employee-record
-Update Non-Employee Record
+Update non-employee record
 This request will update a non-employee record.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-non-employee-record)
@@ -2072,7 +2072,7 @@ with ApiClient(configuration) as api_client:
         }''' # NonEmployeeRequestBody | Non-employee record creation request body. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
 
     try:
-        # Update Non-Employee Record
+        # Update non-employee record
         new_non_employee_request_body = NonEmployeeRequestBody.from_json(non_employee_request_body)
         results = NonEmployeeLifecycleManagementApi(api_client).update_non_employee_record(id=id, non_employee_request_body=new_non_employee_request_body)
         # Below is a request that includes all optional parameters

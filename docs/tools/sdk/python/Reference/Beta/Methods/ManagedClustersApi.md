@@ -18,8 +18,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get-client-log-configuration**](#get-client-log-configuration) | **GET** `/managed-clusters/{id}/log-config` | Get managed cluster&#39;s log configuration
-[**get-managed-cluster**](#get-managed-cluster) | **GET** `/managed-clusters/{id}` | Get a specified ManagedCluster.
-[**get-managed-clusters**](#get-managed-clusters) | **GET** `/managed-clusters` | Retrieve all Managed Clusters.
+[**get-managed-cluster**](#get-managed-cluster) | **GET** `/managed-clusters/{id}` | Get a specified managedcluster.
+[**get-managed-clusters**](#get-managed-clusters) | **GET** `/managed-clusters` | Retrieve all managed clusters.
 [**put-client-log-configuration**](#put-client-log-configuration) | **PUT** `/managed-clusters/{id}/log-config` | Update managed cluster&#39;s log configuration
 
 
@@ -89,7 +89,7 @@ with ApiClient(configuration) as api_client:
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Get a specified ManagedCluster.
+Get a specified managedcluster.
 Retrieve a ManagedCluster by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-managed-cluster)
@@ -132,7 +132,7 @@ with ApiClient(configuration) as api_client:
     id = 'aClusterId' # str | ID of the ManagedCluster to get # str | ID of the ManagedCluster to get
 
     try:
-        # Get a specified ManagedCluster.
+        # Get a specified managedcluster.
         
         results = ManagedClustersApi(api_client).get_managed_cluster(id=id)
         # Below is a request that includes all optional parameters
@@ -151,7 +151,7 @@ with ApiClient(configuration) as api_client:
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Retrieve all Managed Clusters.
+Retrieve all managed clusters.
 Retrieve all Managed Clusters for the current Org, based on request context.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-managed-clusters)
@@ -199,7 +199,7 @@ with ApiClient(configuration) as api_client:
     filters = 'operational eq operation' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional)
 
     try:
-        # Retrieve all Managed Clusters.
+        # Retrieve all managed clusters.
         
         results = ManagedClustersApi(api_client).get_managed_clusters()
         # Below is a request that includes all optional parameters

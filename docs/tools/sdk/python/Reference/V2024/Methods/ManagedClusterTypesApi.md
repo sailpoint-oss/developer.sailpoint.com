@@ -17,15 +17,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-managed-cluster-type**](#create-managed-cluster-type) | **POST** `/managed-cluster-types` | Create new Managed Cluster Type
-[**delete-managed-cluster-type**](#delete-managed-cluster-type) | **DELETE** `/managed-cluster-types/{id}` | Delete a Managed Cluster Type
-[**get-managed-cluster-type**](#get-managed-cluster-type) | **GET** `/managed-cluster-types/{id}` | Get a Managed Cluster Type
-[**get-managed-cluster-types**](#get-managed-cluster-types) | **GET** `/managed-cluster-types` | Get Managed Cluster Types
-[**update-managed-cluster-type**](#update-managed-cluster-type) | **PATCH** `/managed-cluster-types/{id}` | Update a Managed Cluster Type
+[**create-managed-cluster-type**](#create-managed-cluster-type) | **POST** `/managed-cluster-types` | Create new managed cluster type
+[**delete-managed-cluster-type**](#delete-managed-cluster-type) | **DELETE** `/managed-cluster-types/{id}` | Delete a managed cluster type
+[**get-managed-cluster-type**](#get-managed-cluster-type) | **GET** `/managed-cluster-types/{id}` | Get a managed cluster type
+[**get-managed-cluster-types**](#get-managed-cluster-types) | **GET** `/managed-cluster-types` | Get managed cluster types
+[**update-managed-cluster-type**](#update-managed-cluster-type) | **PATCH** `/managed-cluster-types/{id}` | Update a managed cluster type
 
 
 ## create-managed-cluster-type
-Create new Managed Cluster Type
+Create new managed cluster type
 Create a new Managed Cluster Type.
 AMS Security: Devops, Internal A token with SaaS Platform Internal or DevOps is required to access this endpoint.
 The API returns a result that includes the Managed Cluster Type ID
@@ -76,7 +76,7 @@ with ApiClient(configuration) as api_client:
         }''' # ManagedClusterType | 
 
     try:
-        # Create new Managed Cluster Type
+        # Create new managed cluster type
         new_managed_cluster_type = ManagedClusterType.from_json(managed_cluster_type)
         results = ManagedClusterTypesApi(api_client).create_managed_cluster_type(managed_cluster_type=new_managed_cluster_type)
         # Below is a request that includes all optional parameters
@@ -92,7 +92,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-managed-cluster-type
-Delete a Managed Cluster Type
+Delete a managed cluster type
 Delete an existing Managed Cluster Type.
 AMS Security: Devops, Internal A token with SaaS Platform Internal or DevOps is required to access this endpoint.
 
@@ -134,7 +134,7 @@ with ApiClient(configuration) as api_client:
     id = 'aClusterTypeId' # str | The Managed Cluster Type ID # str | The Managed Cluster Type ID
 
     try:
-        # Delete a Managed Cluster Type
+        # Delete a managed cluster type
         
         ManagedClusterTypesApi(api_client).delete_managed_cluster_type(id=id)
         # Below is a request that includes all optional parameters
@@ -148,7 +148,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-managed-cluster-type
-Get a Managed Cluster Type
+Get a managed cluster type
 Get a Managed Cluster Type.
 AMS Security: Devops, Internal A token with SaaS Platform Internal or DevOps is required to access this endpoint.
 
@@ -192,7 +192,7 @@ with ApiClient(configuration) as api_client:
     id = 'aClusterTypeId' # str | The Managed Cluster Type ID # str | The Managed Cluster Type ID
 
     try:
-        # Get a Managed Cluster Type
+        # Get a managed cluster type
         
         results = ManagedClusterTypesApi(api_client).get_managed_cluster_type(id=id)
         # Below is a request that includes all optional parameters
@@ -208,7 +208,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-managed-cluster-types
-Get Managed Cluster Types
+Get managed cluster types
 Get a list of Managed Cluster Types.
 AMS Security: Devops, Internal A token with SaaS Platform Internal or DevOps is required to access this endpoint.
 
@@ -260,7 +260,7 @@ with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 
     try:
-        # Get Managed Cluster Types
+        # Get managed cluster types
         
         results = ManagedClusterTypesApi(api_client).get_managed_cluster_types()
         # Below is a request that includes all optional parameters
@@ -277,7 +277,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-managed-cluster-type
-Update a Managed Cluster Type
+Update a managed cluster type
 Update an existing Managed Cluster Type.
 AMS Security: Devops, Internal A token with SaaS Platform Internal or DevOps is required to access this endpoint.
 
@@ -334,7 +334,7 @@ with ApiClient(configuration) as api_client:
         }''' # JsonPatch | The JSONPatch payload used to update the schema.
 
     try:
-        # Update a Managed Cluster Type
+        # Update a managed cluster type
         new_json_patch = JsonPatch.from_json(json_patch)
         results = ManagedClusterTypesApi(api_client).update_managed_cluster_type(id=id, json_patch=new_json_patch)
         # Below is a request that includes all optional parameters

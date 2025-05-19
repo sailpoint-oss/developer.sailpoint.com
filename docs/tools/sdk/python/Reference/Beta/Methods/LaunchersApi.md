@@ -19,11 +19,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create-launcher**](#create-launcher) | **POST** `/launchers` | Create launcher
-[**delete-launcher**](#delete-launcher) | **DELETE** `/launchers/{launcherID}` | Delete Launcher
-[**get-launcher**](#get-launcher) | **GET** `/launchers/{launcherID}` | Get Launcher by ID
-[**get-launchers**](#get-launchers) | **GET** `/launchers` | List all Launchers for tenant
-[**put-launcher**](#put-launcher) | **PUT** `/launchers/{launcherID}` | Replace Launcher
-[**start-launcher**](#start-launcher) | **POST** `/beta/launchers/{launcherID}/launch` | Launch a Launcher
+[**delete-launcher**](#delete-launcher) | **DELETE** `/launchers/{launcherID}` | Delete launcher
+[**get-launcher**](#get-launcher) | **GET** `/launchers/{launcherID}` | Get launcher by id
+[**get-launchers**](#get-launchers) | **GET** `/launchers` | List all launchers for tenant
+[**put-launcher**](#put-launcher) | **PUT** `/launchers/{launcherID}` | Replace launcher
+[**start-launcher**](#start-launcher) | **POST** `/beta/launchers/{launcherID}/launch` | Launch a launcher
 
 
 ## create-launcher
@@ -97,7 +97,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-launcher
-Delete Launcher
+Delete launcher
 Delete the given Launcher ID
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-launcher)
@@ -139,7 +139,7 @@ with ApiClient(configuration) as api_client:
     launcher_id = 'e3012408-8b61-4564-ad41-c5ec131c325b' # str | ID of the Launcher to be deleted # str | ID of the Launcher to be deleted
 
     try:
-        # Delete Launcher
+        # Delete launcher
         
         LaunchersApi(api_client).delete_launcher(launcher_id=launcher_id)
         # Below is a request that includes all optional parameters
@@ -153,7 +153,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-launcher
-Get Launcher by ID
+Get launcher by id
 Get details for the given Launcher ID
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-launcher)
@@ -196,7 +196,7 @@ with ApiClient(configuration) as api_client:
     launcher_id = 'e3012408-8b61-4564-ad41-c5ec131c325b' # str | ID of the Launcher to be retrieved # str | ID of the Launcher to be retrieved
 
     try:
-        # Get Launcher by ID
+        # Get launcher by id
         
         results = LaunchersApi(api_client).get_launcher(launcher_id=launcher_id)
         # Below is a request that includes all optional parameters
@@ -212,7 +212,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-launchers
-List all Launchers for tenant
+List all launchers for tenant
 Return a list of Launchers for the authenticated tenant
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-launchers)
@@ -259,7 +259,7 @@ with ApiClient(configuration) as api_client:
     limit = 10 # int | Number of Launchers to return (optional) (default to 10) # int | Number of Launchers to return (optional) (default to 10)
 
     try:
-        # List all Launchers for tenant
+        # List all launchers for tenant
         
         results = LaunchersApi(api_client).get_launchers()
         # Below is a request that includes all optional parameters
@@ -275,7 +275,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-launcher
-Replace Launcher
+Replace launcher
 Replace the given Launcher ID with given payload
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-launcher)
@@ -331,7 +331,7 @@ with ApiClient(configuration) as api_client:
         }''' # LauncherRequest | Payload to replace Launcher
 
     try:
-        # Replace Launcher
+        # Replace launcher
         new_launcher_request = LauncherRequest.from_json(launcher_request)
         results = LaunchersApi(api_client).put_launcher(launcher_id=launcher_id, launcher_request=new_launcher_request)
         # Below is a request that includes all optional parameters
@@ -347,7 +347,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## start-launcher
-Launch a Launcher
+Launch a launcher
 Launch the given Launcher ID
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/start-launcher)
@@ -390,7 +390,7 @@ with ApiClient(configuration) as api_client:
     launcher_id = 'e3012408-8b61-4564-ad41-c5ec131c325b' # str | ID of the Launcher to be launched # str | ID of the Launcher to be launched
 
     try:
-        # Launch a Launcher
+        # Launch a launcher
         
         results = LaunchersApi(api_client).start_launcher(launcher_id=launcher_id)
         # Below is a request that includes all optional parameters

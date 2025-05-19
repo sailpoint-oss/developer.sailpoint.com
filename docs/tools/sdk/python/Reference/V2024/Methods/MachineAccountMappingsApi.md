@@ -15,14 +15,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-machine-account-mappings**](#create-machine-account-mappings) | **POST** `/sources/{sourceId}/machine-account-mappings` | Create Machine Account Mappings
-[**delete-machine-account-mappings**](#delete-machine-account-mappings) | **DELETE** `/sources/{sourceId}/machine-account-mappings` | Delete Source&#39;s Machine Account Mappings
-[**list-machine-account-mappings**](#list-machine-account-mappings) | **GET** `/sources/{sourceId}/machine-account-mappings` | Machine Account Mapping for Source
-[**set-machine-account-mappings**](#set-machine-account-mappings) | **PUT** `/sources/{sourceId}/machine-mappings` | Update Source&#39;s Machine Account Mappings
+[**create-machine-account-mappings**](#create-machine-account-mappings) | **POST** `/sources/{sourceId}/machine-account-mappings` | Create machine account mappings
+[**delete-machine-account-mappings**](#delete-machine-account-mappings) | **DELETE** `/sources/{sourceId}/machine-account-mappings` | Delete source&#39;s machine account mappings
+[**list-machine-account-mappings**](#list-machine-account-mappings) | **GET** `/sources/{sourceId}/machine-account-mappings` | Machine account mapping for source
+[**set-machine-account-mappings**](#set-machine-account-mappings) | **PUT** `/sources/{sourceId}/machine-mappings` | Update source&#39;s machine account mappings
 
 
 ## create-machine-account-mappings
-Create Machine Account Mappings
+Create machine account mappings
 Creates Machine Account Mappings for both identities and accounts for a source.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
@@ -87,7 +87,7 @@ with ApiClient(configuration) as api_client:
         }''' # AttributeMappings | 
 
     try:
-        # Create Machine Account Mappings
+        # Create machine account mappings
         new_attribute_mappings = AttributeMappings.from_json(attribute_mappings)
         results = MachineAccountMappingsApi(api_client).create_machine_account_mappings(id=id, attribute_mappings=new_attribute_mappings)
         # Below is a request that includes all optional parameters
@@ -104,7 +104,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-machine-account-mappings
-Delete Source's Machine Account Mappings
+Delete source's machine account mappings
 Use this API to remove machine account attribute mappings for a Source. 
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
@@ -147,7 +147,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | source ID. # str | source ID.
 
     try:
-        # Delete Source's Machine Account Mappings
+        # Delete source's machine account mappings
         
         MachineAccountMappingsApi(api_client).delete_machine_account_mappings(id=id)
         # Below is a request that includes all optional parameters
@@ -161,7 +161,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-machine-account-mappings
-Machine Account Mapping for Source
+Machine account mapping for source
 Retrieves Machine account mappings for a specified source using Source ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-machine-account-mappings)
@@ -208,7 +208,7 @@ with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
     try:
-        # Machine Account Mapping for Source
+        # Machine account mapping for source
         
         results = MachineAccountMappingsApi(api_client).list_machine_account_mappings(id=id)
         # Below is a request that includes all optional parameters
@@ -225,7 +225,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## set-machine-account-mappings
-Update Source's Machine Account Mappings
+Update source's machine account mappings
 Use this API to update Machine Account Attribute Mapping for a Source. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/set-machine-account-mappings)
@@ -290,7 +290,7 @@ with ApiClient(configuration) as api_client:
         }''' # AttributeMappings | 
 
     try:
-        # Update Source's Machine Account Mappings
+        # Update source's machine account mappings
         new_attribute_mappings = AttributeMappings.from_json(attribute_mappings)
         results = MachineAccountMappingsApi(api_client).set_machine_account_mappings(id=id, attribute_mappings=new_attribute_mappings)
         # Below is a request that includes all optional parameters

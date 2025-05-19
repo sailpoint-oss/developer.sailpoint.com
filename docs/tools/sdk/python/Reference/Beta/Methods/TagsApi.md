@@ -15,14 +15,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-tag**](#create-tag) | **POST** `/tags` | Create Tag
-[**delete-tag-by-id**](#delete-tag-by-id) | **DELETE** `/tags/{id}` | Delete Tag
-[**get-tag-by-id**](#get-tag-by-id) | **GET** `/tags/{id}` | Get Tag By Id
-[**list-tags**](#list-tags) | **GET** `/tags` | List Tags
+[**create-tag**](#create-tag) | **POST** `/tags` | Create tag
+[**delete-tag-by-id**](#delete-tag-by-id) | **DELETE** `/tags/{id}` | Delete tag
+[**get-tag-by-id**](#get-tag-by-id) | **GET** `/tags/{id}` | Get tag by id
+[**list-tags**](#list-tags) | **GET** `/tags` | List tags
 
 
 ## create-tag
-Create Tag
+Create tag
 This API creates new tag.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -80,7 +80,7 @@ with ApiClient(configuration) as api_client:
         }''' # Tag | 
 
     try:
-        # Create Tag
+        # Create tag
         new_tag = Tag.from_json(tag)
         results = TagsApi(api_client).create_tag(tag=new_tag)
         # Below is a request that includes all optional parameters
@@ -96,7 +96,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-tag-by-id
-Delete Tag
+Delete tag
 This API deletes a tag by specified id.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -140,7 +140,7 @@ with ApiClient(configuration) as api_client:
     id = '329d96cf-3bdb-40a9-988a-b5037ab89022' # str | The ID of the object reference to delete. # str | The ID of the object reference to delete.
 
     try:
-        # Delete Tag
+        # Delete tag
         
         TagsApi(api_client).delete_tag_by_id(id=id)
         # Below is a request that includes all optional parameters
@@ -154,7 +154,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-tag-by-id
-Get Tag By Id
+Get tag by id
 Returns a tag by its id.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -199,7 +199,7 @@ with ApiClient(configuration) as api_client:
     id = '329d96cf-3bdb-40a9-988a-b5037ab89022' # str | The ID of the object reference to retrieve. # str | The ID of the object reference to retrieve.
 
     try:
-        # Get Tag By Id
+        # Get tag by id
         
         results = TagsApi(api_client).get_tag_by_id(id=id)
         # Below is a request that includes all optional parameters
@@ -215,7 +215,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-tags
-List Tags
+List tags
 This API returns a list of tags.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -267,7 +267,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'name,-modified' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified** (optional)
 
     try:
-        # List Tags
+        # List tags
         
         results = TagsApi(api_client).list_tags()
         # Below is a request that includes all optional parameters

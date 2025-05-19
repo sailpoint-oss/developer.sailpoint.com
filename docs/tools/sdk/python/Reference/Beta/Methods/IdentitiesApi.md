@@ -31,15 +31,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete-identity**](#delete-identity) | **DELETE** `/identities/{id}` | Delete identity
-[**get-identity**](#get-identity) | **GET** `/identities/{id}` | Identity Details
+[**get-identity**](#get-identity) | **GET** `/identities/{id}` | Identity details
 [**get-identity-ownership-details**](#get-identity-ownership-details) | **GET** `/identities/{identityId}/ownership` | Get ownership details
 [**get-role-assignment**](#get-role-assignment) | **GET** `/identities/{identityId}/role-assignments/{assignmentId}` | Role assignment details
 [**get-role-assignments**](#get-role-assignments) | **GET** `/identities/{identityId}/role-assignments` | List role assignments
-[**list-identities**](#list-identities) | **GET** `/identities` | List Identities
+[**list-identities**](#list-identities) | **GET** `/identities` | List identities
 [**reset-identity**](#reset-identity) | **POST** `/identities/{identityId}/reset` | Reset an identity
 [**send-identity-verification-account-token**](#send-identity-verification-account-token) | **POST** `/identities/{id}/verification/account/send` | Send password reset email
 [**start-identities-invite**](#start-identities-invite) | **POST** `/identities/invite` | Invite identities to register
-[**start-identity-processing**](#start-identity-processing) | **POST** `/identities/process` | Process a list of identityIds
+[**start-identity-processing**](#start-identity-processing) | **POST** `/identities/process` | Process a list of identityids
 [**synchronize-attributes-for-identity**](#synchronize-attributes-for-identity) | **POST** `/identities/{identityId}/synchronize-attributes` | Attribute synchronization for single identity.
 
 
@@ -100,7 +100,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-identity
-Identity Details
+Identity details
 This API returns a single identity using the Identity ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity)
@@ -143,7 +143,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
 
     try:
-        # Identity Details
+        # Identity details
         
         results = IdentitiesApi(api_client).get_identity(id=id)
         # Below is a request that includes all optional parameters
@@ -345,7 +345,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-identities
-List Identities
+List identities
 This API returns a list of identities.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-identities)
@@ -397,7 +397,7 @@ with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
     try:
-        # List Identities
+        # List identities
         
         results = IdentitiesApi(api_client).list_identities()
         # Below is a request that includes all optional parameters
@@ -601,7 +601,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## start-identity-processing
-Process a list of identityIds
+Process a list of identityids
 This operation should not be used to schedule your own identity processing or to perform system wide identity refreshes. The system will use a combination of [event-based processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#event-based-processing) and [scheduled processing](https://documentation.sailpoint.com/saas/help/setup/identity_processing.html?h=process#scheduled-processing) that runs every day at 8:00 AM and 8:00 PM in the tenant's timezone to keep your identities synchronized. 
 
 This endpoint will perform the following tasks:
@@ -657,7 +657,7 @@ with ApiClient(configuration) as api_client:
         }''' # ProcessIdentitiesRequest | 
 
     try:
-        # Process a list of identityIds
+        # Process a list of identityids
         new_process_identities_request = ProcessIdentitiesRequest.from_json(process_identities_request)
         results = IdentitiesApi(api_client).start_identity_processing(process_identities_request=new_process_identities_request)
         # Below is a request that includes all optional parameters

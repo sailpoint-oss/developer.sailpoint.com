@@ -26,21 +26,21 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-identity-profile**](#create-identity-profile) | **POST** `/identity-profiles` | Create Identity Profile
-[**delete-identity-profile**](#delete-identity-profile) | **DELETE** `/identity-profiles/{identity-profile-id}` | Delete Identity Profile
-[**delete-identity-profiles**](#delete-identity-profiles) | **POST** `/identity-profiles/bulk-delete` | Delete Identity Profiles
-[**export-identity-profiles**](#export-identity-profiles) | **GET** `/identity-profiles/export` | Export Identity Profiles
+[**create-identity-profile**](#create-identity-profile) | **POST** `/identity-profiles` | Create identity profile
+[**delete-identity-profile**](#delete-identity-profile) | **DELETE** `/identity-profiles/{identity-profile-id}` | Delete identity profile
+[**delete-identity-profiles**](#delete-identity-profiles) | **POST** `/identity-profiles/bulk-delete` | Delete identity profiles
+[**export-identity-profiles**](#export-identity-profiles) | **GET** `/identity-profiles/export` | Export identity profiles
 [**get-default-identity-attribute-config**](#get-default-identity-attribute-config) | **GET** `/identity-profiles/{identity-profile-id}/default-identity-attribute-config` | Default identity attribute config
-[**get-identity-profile**](#get-identity-profile) | **GET** `/identity-profiles/{identity-profile-id}` | Get Identity Profile
-[**import-identity-profiles**](#import-identity-profiles) | **POST** `/identity-profiles/import` | Import Identity Profiles
-[**list-identity-profiles**](#list-identity-profiles) | **GET** `/identity-profiles` | List Identity Profiles
-[**show-generate-identity-preview**](#show-generate-identity-preview) | **POST** `/identity-profiles/identity-preview` | Generate Identity Profile Preview
+[**get-identity-profile**](#get-identity-profile) | **GET** `/identity-profiles/{identity-profile-id}` | Get identity profile
+[**import-identity-profiles**](#import-identity-profiles) | **POST** `/identity-profiles/import` | Import identity profiles
+[**list-identity-profiles**](#list-identity-profiles) | **GET** `/identity-profiles` | List identity profiles
+[**show-generate-identity-preview**](#show-generate-identity-preview) | **POST** `/identity-profiles/identity-preview` | Generate identity profile preview
 [**sync-identity-profile**](#sync-identity-profile) | **POST** `/identity-profiles/{identity-profile-id}/process-identities` | Process identities under profile
-[**update-identity-profile**](#update-identity-profile) | **PATCH** `/identity-profiles/{identity-profile-id}` | Update Identity Profile
+[**update-identity-profile**](#update-identity-profile) | **PATCH** `/identity-profiles/{identity-profile-id}` | Update identity profile
 
 
 ## create-identity-profile
-Create Identity Profile
+Create identity profile
 Create an identity profile.
 A token with ORG_ADMIN authority is required to call this API to create an Identity Profile.
 
@@ -131,7 +131,7 @@ with ApiClient(configuration) as api_client:
         }''' # IdentityProfile | 
 
     try:
-        # Create Identity Profile
+        # Create identity profile
         new_identity_profile = IdentityProfile.from_json(identity_profile)
         results = IdentityProfilesApi(api_client).create_identity_profile(identity_profile=new_identity_profile)
         # Below is a request that includes all optional parameters
@@ -147,7 +147,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-identity-profile
-Delete Identity Profile
+Delete identity profile
 Delete an identity profile by ID.
 On success, this endpoint will return a reference to the bulk delete task result.
 A token with ORG_ADMIN authority is required to call this API.
@@ -192,7 +192,7 @@ with ApiClient(configuration) as api_client:
     identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity profile ID. # str | Identity profile ID.
 
     try:
-        # Delete Identity Profile
+        # Delete identity profile
         
         results = IdentityProfilesApi(api_client).delete_identity_profile(identity_profile_id=identity_profile_id)
         # Below is a request that includes all optional parameters
@@ -208,7 +208,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-identity-profiles
-Delete Identity Profiles
+Delete identity profiles
 This deletes multiple Identity Profiles via a list of supplied IDs.
 
 On success, this endpoint will return a reference to the bulk delete task result.
@@ -256,7 +256,7 @@ with ApiClient(configuration) as api_client:
     request_body = '''['request_body_example']''' # List[str] | Identity Profile bulk delete request body.
 
     try:
-        # Delete Identity Profiles
+        # Delete identity profiles
         new_request_body = RequestBody.from_json(request_body)
         results = IdentityProfilesApi(api_client).delete_identity_profiles(request_body=new_request_body)
         # Below is a request that includes all optional parameters
@@ -272,7 +272,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## export-identity-profiles
-Export Identity Profiles
+Export identity profiles
 This exports existing identity profiles in the format specified by the sp-config service.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/export-identity-profiles)
@@ -323,7 +323,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'name,-priority' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority** (optional)
 
     try:
-        # Export Identity Profiles
+        # Export identity profiles
         
         results = IdentityProfilesApi(api_client).export_identity_profiles()
         # Below is a request that includes all optional parameters
@@ -400,7 +400,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-identity-profile
-Get Identity Profile
+Get identity profile
 Get a single identity profile by ID.
 A token with ORG_ADMIN or API authority is required to call this API.
 
@@ -444,7 +444,7 @@ with ApiClient(configuration) as api_client:
     identity_profile_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity profile ID. # str | Identity profile ID.
 
     try:
-        # Get Identity Profile
+        # Get identity profile
         
         results = IdentityProfilesApi(api_client).get_identity_profile(identity_profile_id=identity_profile_id)
         # Below is a request that includes all optional parameters
@@ -460,7 +460,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## import-identity-profiles
-Import Identity Profiles
+Import identity profiles
 This imports previously exported identity profiles.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/import-identity-profiles)
@@ -503,7 +503,7 @@ with ApiClient(configuration) as api_client:
     identity_profile_exported_object = '''[sailpoint.beta.IdentityProfileExportedObject()]''' # List[IdentityProfileExportedObject] | Previously exported Identity Profiles.
 
     try:
-        # Import Identity Profiles
+        # Import identity profiles
         new_identity_profile_exported_object = IdentityProfileExportedObject.from_json(identity_profile_exported_object)
         results = IdentityProfilesApi(api_client).import_identity_profiles(identity_profile_exported_object=new_identity_profile_exported_object)
         # Below is a request that includes all optional parameters
@@ -519,7 +519,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-identity-profiles
-List Identity Profiles
+List identity profiles
 Get a list of identity profiles, based on the specified query parameters.
 A token with ORG_ADMIN or API authority is required to call this API to get a list of Identity Profiles.
 
@@ -570,7 +570,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'name,-priority' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional)
 
     try:
-        # List Identity Profiles
+        # List identity profiles
         
         results = IdentityProfilesApi(api_client).list_identity_profiles()
         # Below is a request that includes all optional parameters
@@ -587,7 +587,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## show-generate-identity-preview
-Generate Identity Profile Preview
+Generate identity profile preview
 Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body.
 This API only allows `accountAttribute`, `reference` and `rule` transform types in the `IdentityAttributeConfig` sent in the request body.
 A token with ORG_ADMIN authority is required to call this API to generate an identity preview.
@@ -658,7 +658,7 @@ with ApiClient(configuration) as api_client:
         }''' # IdentityPreviewRequest | Identity Preview request body.
 
     try:
-        # Generate Identity Profile Preview
+        # Generate identity profile preview
         new_identity_preview_request = IdentityPreviewRequest.from_json(identity_preview_request)
         results = IdentityProfilesApi(api_client).show_generate_identity_preview(identity_preview_request=new_identity_preview_request)
         # Below is a request that includes all optional parameters
@@ -737,7 +737,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-identity-profile
-Update Identity Profile
+Update identity profile
 Update the specified identity profile with this PATCH request. 
 A token with ORG_ADMIN authority is required to call this API to update the Identity Profile.
 These fields cannot be updated:
@@ -791,7 +791,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=add, path=/identityAttributeConfig/attributeTransforms/0, value={identityAttributeName=location, transformDefinition={type=accountAttribute, attributes={sourceName=Employees, attributeName=location, sourceId=2c91808878b7d63b0178c66ffcdc4ce4}}}}]''' # List[JsonPatchOperation] | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
     try:
-        # Update Identity Profile
+        # Update identity profile
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = IdentityProfilesApi(api_client).update_identity_profile(identity_profile_id=identity_profile_id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters

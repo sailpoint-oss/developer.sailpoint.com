@@ -16,8 +16,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-tenant-ui-metadata**](#get-tenant-ui-metadata) | **GET** `/ui-metadata/tenant` | Get a tenant UI metadata
-[**set-tenant-ui-metadata**](#set-tenant-ui-metadata) | **PUT** `/ui-metadata/tenant` | Update tenant UI metadata
+[**get-tenant-ui-metadata**](#get-tenant-ui-metadata) | **GET** `/ui-metadata/tenant` | Get a tenant ui metadata
+[**set-tenant-ui-metadata**](#set-tenant-ui-metadata) | **PUT** `/ui-metadata/tenant` | Update tenant ui metadata
 
 
 ## get-tenant-ui-metadata
@@ -32,7 +32,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get a tenant UI metadata
+Get a tenant ui metadata
 This API endpoint retrieves UI metadata configured for your tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-tenant-ui-metadata)
@@ -76,7 +76,7 @@ with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Get a tenant UI metadata
+        # Get a tenant ui metadata
         
         results = UIMetadataApi(api_client).get_tenant_ui_metadata(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -103,7 +103,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Update tenant UI metadata
+Update tenant ui metadata
 This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/set-tenant-ui-metadata)
@@ -154,7 +154,7 @@ with ApiClient(configuration) as api_client:
         }''' # TenantUiMetadataItemUpdateRequest | 
 
     try:
-        # Update tenant UI metadata
+        # Update tenant ui metadata
         new_tenant_ui_metadata_item_update_request = TenantUiMetadataItemUpdateRequest.from_json(tenant_ui_metadata_item_update_request)
         results = UIMetadataApi(api_client).set_tenant_ui_metadata(x_sail_point_experimental=x_sail_point_experimental, tenant_ui_metadata_item_update_request=new_tenant_ui_metadata_item_update_request)
         # Below is a request that includes all optional parameters

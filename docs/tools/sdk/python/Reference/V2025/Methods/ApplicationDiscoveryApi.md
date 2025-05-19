@@ -17,13 +17,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-discovered-applications**](#get-discovered-applications) | **GET** `/discovered-applications` | Get Discovered Applications for Tenant
-[**get-manual-discover-applications-csv-template**](#get-manual-discover-applications-csv-template) | **GET** `/manual-discover-applications-template` | Download CSV Template for Discovery
-[**send-manual-discover-applications-csv-template**](#send-manual-discover-applications-csv-template) | **POST** `/manual-discover-applications` | Upload CSV to Discover Applications
+[**get-discovered-applications**](#get-discovered-applications) | **GET** `/discovered-applications` | Get discovered applications for tenant
+[**get-manual-discover-applications-csv-template**](#get-manual-discover-applications-csv-template) | **GET** `/manual-discover-applications-template` | Download csv template for discovery
+[**send-manual-discover-applications-csv-template**](#send-manual-discover-applications-csv-template) | **POST** `/manual-discover-applications` | Upload csv to discover applications
 
 
 ## get-discovered-applications
-Get Discovered Applications for Tenant
+Get discovered applications for tenant
 Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors.
 
 
@@ -74,7 +74,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource** (optional)
 
     try:
-        # Get Discovered Applications for Tenant
+        # Get discovered applications for tenant
         
         results = ApplicationDiscoveryApi(api_client).get_discovered_applications()
         # Below is a request that includes all optional parameters
@@ -91,7 +91,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-manual-discover-applications-csv-template
-Download CSV Template for Discovery
+Download csv template for discovery
 Download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values 'Example Application' and 'Example Description'.
 
 The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint.
@@ -132,7 +132,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # Download CSV Template for Discovery
+        # Download csv template for discovery
         
         results = ApplicationDiscoveryApi(api_client).get_manual_discover_applications_csv_template()
         # Below is a request that includes all optional parameters
@@ -148,7 +148,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## send-manual-discover-applications-csv-template
-Upload CSV to Discover Applications
+Upload csv to discover applications
 Uploading a CSV file with application data for manual correlation to specific ISC connectors. 
 If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
 
@@ -190,7 +190,7 @@ with ApiClient(configuration) as api_client:
     file = None # bytearray | The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered. # bytearray | The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.
 
     try:
-        # Upload CSV to Discover Applications
+        # Upload csv to discover applications
         
         ApplicationDiscoveryApi(api_client).send_manual_discover_applications_csv_template(file=file)
         # Below is a request that includes all optional parameters

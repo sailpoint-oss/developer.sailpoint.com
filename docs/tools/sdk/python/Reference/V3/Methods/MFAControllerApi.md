@@ -16,11 +16,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create-send-token**](#create-send-token) | **POST** `/mfa/token/send` | Create and send user token
-[**ping-verification-status**](#ping-verification-status) | **POST** `/mfa/{method}/poll` | Polling MFA method by VerificationPollRequest
-[**send-duo-verify-request**](#send-duo-verify-request) | **POST** `/mfa/duo-web/verify` | Verifying authentication via Duo method
-[**send-kba-answers**](#send-kba-answers) | **POST** `/mfa/kba/authenticate` | Authenticate KBA provided MFA method
-[**send-okta-verify-request**](#send-okta-verify-request) | **POST** `/mfa/okta-verify/verify` | Verifying authentication via Okta method
-[**send-token-auth-request**](#send-token-auth-request) | **POST** `/mfa/token/authenticate` | Authenticate Token provided MFA method
+[**ping-verification-status**](#ping-verification-status) | **POST** `/mfa/{method}/poll` | Polling mfa method by verificationpollrequest
+[**send-duo-verify-request**](#send-duo-verify-request) | **POST** `/mfa/duo-web/verify` | Verifying authentication via duo method
+[**send-kba-answers**](#send-kba-answers) | **POST** `/mfa/kba/authenticate` | Authenticate kba provided mfa method
+[**send-okta-verify-request**](#send-okta-verify-request) | **POST** `/mfa/okta-verify/verify` | Verifying authentication via okta method
+[**send-token-auth-request**](#send-token-auth-request) | **POST** `/mfa/token/authenticate` | Authenticate token provided mfa method
 
 
 ## create-send-token
@@ -86,7 +86,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## ping-verification-status
-Polling MFA method by VerificationPollRequest
+Polling mfa method by verificationpollrequest
 This API poll the VerificationPollRequest for the specified MFA method.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/ping-verification-status)
@@ -133,7 +133,7 @@ with ApiClient(configuration) as api_client:
         }''' # VerificationPollRequest | 
 
     try:
-        # Polling MFA method by VerificationPollRequest
+        # Polling mfa method by verificationpollrequest
         new_verification_poll_request = VerificationPollRequest.from_json(verification_poll_request)
         results = MFAControllerApi(api_client).ping_verification_status(method=method, verification_poll_request=new_verification_poll_request)
         # Below is a request that includes all optional parameters
@@ -149,7 +149,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## send-duo-verify-request
-Verifying authentication via Duo method
+Verifying authentication via duo method
 This API Authenticates the user via Duo-Web MFA method.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/send-duo-verify-request)
@@ -195,7 +195,7 @@ with ApiClient(configuration) as api_client:
         }''' # DuoVerificationRequest | 
 
     try:
-        # Verifying authentication via Duo method
+        # Verifying authentication via duo method
         new_duo_verification_request = DuoVerificationRequest.from_json(duo_verification_request)
         results = MFAControllerApi(api_client).send_duo_verify_request(duo_verification_request=new_duo_verification_request)
         # Below is a request that includes all optional parameters
@@ -211,7 +211,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## send-kba-answers
-Authenticate KBA provided MFA method
+Authenticate kba provided mfa method
 This API Authenticate user in KBA MFA method.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/send-kba-answers)
@@ -254,7 +254,7 @@ with ApiClient(configuration) as api_client:
     kba_answer_request_item = '''[{id=173423, answer=822cd15d6c15aa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a0859a2fea34}, {id=c54fee53-2d63-4fc5-9259-3e93b9994135, answer=9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08}]''' # List[KbaAnswerRequestItem] | 
 
     try:
-        # Authenticate KBA provided MFA method
+        # Authenticate kba provided mfa method
         new_kba_answer_request_item = KbaAnswerRequestItem.from_json(kba_answer_request_item)
         results = MFAControllerApi(api_client).send_kba_answers(kba_answer_request_item=new_kba_answer_request_item)
         # Below is a request that includes all optional parameters
@@ -270,7 +270,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## send-okta-verify-request
-Verifying authentication via Okta method
+Verifying authentication via okta method
 This API Authenticates the user via Okta-Verify MFA method. Request requires a header called 'slpt-forwarding', and it must contain a remote IP Address of caller.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/send-okta-verify-request)
@@ -315,7 +315,7 @@ with ApiClient(configuration) as api_client:
         }''' # OktaVerificationRequest | 
 
     try:
-        # Verifying authentication via Okta method
+        # Verifying authentication via okta method
         new_okta_verification_request = OktaVerificationRequest.from_json(okta_verification_request)
         results = MFAControllerApi(api_client).send_okta_verify_request(okta_verification_request=new_okta_verification_request)
         # Below is a request that includes all optional parameters
@@ -331,7 +331,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## send-token-auth-request
-Authenticate Token provided MFA method
+Authenticate token provided mfa method
 This API Authenticate user in Token MFA method.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/send-token-auth-request)
@@ -378,7 +378,7 @@ with ApiClient(configuration) as api_client:
         }''' # TokenAuthRequest | 
 
     try:
-        # Authenticate Token provided MFA method
+        # Authenticate token provided mfa method
         new_token_auth_request = TokenAuthRequest.from_json(token_auth_request)
         results = MFAControllerApi(api_client).send_token_auth_request(token_auth_request=new_token_auth_request)
         # Below is a request that includes all optional parameters

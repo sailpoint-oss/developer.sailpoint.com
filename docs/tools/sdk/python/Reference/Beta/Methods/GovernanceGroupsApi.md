@@ -20,20 +20,20 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-workgroup**](#create-workgroup) | **POST** `/workgroups` | Create a new Governance Group.
-[**delete-workgroup**](#delete-workgroup) | **DELETE** `/workgroups/{id}` | Delete a Governance Group
-[**delete-workgroup-members**](#delete-workgroup-members) | **POST** `/workgroups/{workgroupId}/members/bulk-delete` | Remove members from Governance Group
-[**delete-workgroups-in-bulk**](#delete-workgroups-in-bulk) | **POST** `/workgroups/bulk-delete` | Delete Governance Group(s)
-[**get-workgroup**](#get-workgroup) | **GET** `/workgroups/{id}` | Get Governance Group by Id
-[**list-connections**](#list-connections) | **GET** `/workgroups/{workgroupId}/connections` | List connections for Governance Group
-[**list-workgroup-members**](#list-workgroup-members) | **GET** `/workgroups/{workgroupId}/members` | List Governance Group Members
-[**list-workgroups**](#list-workgroups) | **GET** `/workgroups` | List Governance Groups
-[**patch-workgroup**](#patch-workgroup) | **PATCH** `/workgroups/{id}` | Patch a Governance Group
-[**update-workgroup-members**](#update-workgroup-members) | **POST** `/workgroups/{workgroupId}/members/bulk-add` | Add members to Governance Group
+[**create-workgroup**](#create-workgroup) | **POST** `/workgroups` | Create a new governance group.
+[**delete-workgroup**](#delete-workgroup) | **DELETE** `/workgroups/{id}` | Delete a governance group
+[**delete-workgroup-members**](#delete-workgroup-members) | **POST** `/workgroups/{workgroupId}/members/bulk-delete` | Remove members from governance group
+[**delete-workgroups-in-bulk**](#delete-workgroups-in-bulk) | **POST** `/workgroups/bulk-delete` | Delete governance group(s)
+[**get-workgroup**](#get-workgroup) | **GET** `/workgroups/{id}` | Get governance group by id
+[**list-connections**](#list-connections) | **GET** `/workgroups/{workgroupId}/connections` | List connections for governance group
+[**list-workgroup-members**](#list-workgroup-members) | **GET** `/workgroups/{workgroupId}/members` | List governance group members
+[**list-workgroups**](#list-workgroups) | **GET** `/workgroups` | List governance groups
+[**patch-workgroup**](#patch-workgroup) | **PATCH** `/workgroups/{id}` | Patch a governance group
+[**update-workgroup-members**](#update-workgroup-members) | **POST** `/workgroups/{workgroupId}/members/bulk-add` | Add members to governance group
 
 
 ## create-workgroup
-Create a new Governance Group.
+Create a new governance group.
 This API creates a new Governance Group.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-workgroup)
@@ -90,7 +90,7 @@ with ApiClient(configuration) as api_client:
         }''' # WorkgroupDto | 
 
     try:
-        # Create a new Governance Group.
+        # Create a new governance group.
         new_workgroup_dto = WorkgroupDto.from_json(workgroup_dto)
         results = GovernanceGroupsApi(api_client).create_workgroup(workgroup_dto=new_workgroup_dto)
         # Below is a request that includes all optional parameters
@@ -106,7 +106,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-workgroup
-Delete a Governance Group
+Delete a governance group
 This API deletes a Governance Group by its ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-workgroup)
@@ -147,7 +147,7 @@ with ApiClient(configuration) as api_client:
     id = '2c9180837ca6693d017ca8d097500149' # str | ID of the Governance Group # str | ID of the Governance Group
 
     try:
-        # Delete a Governance Group
+        # Delete a governance group
         
         GovernanceGroupsApi(api_client).delete_workgroup(id=id)
         # Below is a request that includes all optional parameters
@@ -161,7 +161,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-workgroup-members
-Remove members from Governance Group
+Remove members from governance group
 This API removes one or more  members from a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.
 
 >  **Following field of Identity is an optional field in the request.**
@@ -210,7 +210,7 @@ with ApiClient(configuration) as api_client:
     bulk_workgroup_members_request_inner = '''[sailpoint.beta.BulkWorkgroupMembersRequestInner()]''' # List[BulkWorkgroupMembersRequestInner] | List of identities to be removed from  a Governance Group members list.
 
     try:
-        # Remove members from Governance Group
+        # Remove members from governance group
         new_bulk_workgroup_members_request_inner = BulkWorkgroupMembersRequestInner.from_json(bulk_workgroup_members_request_inner)
         results = GovernanceGroupsApi(api_client).delete_workgroup_members(workgroup_id=workgroup_id, bulk_workgroup_members_request_inner=new_bulk_workgroup_members_request_inner)
         # Below is a request that includes all optional parameters
@@ -227,7 +227,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-workgroups-in-bulk
-Delete Governance Group(s)
+Delete governance group(s)
 
 This API initiates a bulk deletion of one or more Governance Groups.
 
@@ -283,7 +283,7 @@ with ApiClient(configuration) as api_client:
         }''' # WorkgroupBulkDeleteRequest | 
 
     try:
-        # Delete Governance Group(s)
+        # Delete governance group(s)
         new_workgroup_bulk_delete_request = WorkgroupBulkDeleteRequest.from_json(workgroup_bulk_delete_request)
         results = GovernanceGroupsApi(api_client).delete_workgroups_in_bulk(workgroup_bulk_delete_request=new_workgroup_bulk_delete_request)
         # Below is a request that includes all optional parameters
@@ -300,7 +300,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-workgroup
-Get Governance Group by Id
+Get governance group by id
 This API returns a Governance Groups by its ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-workgroup)
@@ -342,7 +342,7 @@ with ApiClient(configuration) as api_client:
     id = '2c9180837ca6693d017ca8d097500149' # str | ID of the Governance Group # str | ID of the Governance Group
 
     try:
-        # Get Governance Group by Id
+        # Get governance group by id
         
         results = GovernanceGroupsApi(api_client).get_workgroup(id=id)
         # Below is a request that includes all optional parameters
@@ -358,7 +358,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-connections
-List connections for Governance Group
+List connections for governance group
 This API returns list of connections associated with a Governance Group.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-connections)
@@ -408,7 +408,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'name,-modified' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
 
     try:
-        # List connections for Governance Group
+        # List connections for governance group
         
         results = GovernanceGroupsApi(api_client).list_connections(workgroup_id=workgroup_id)
         # Below is a request that includes all optional parameters
@@ -425,7 +425,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-workgroup-members
-List Governance Group Members
+List governance group members
 This API returns list of members associated with a Governance Group.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-workgroup-members)
@@ -475,7 +475,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'name,-modified' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
 
     try:
-        # List Governance Group Members
+        # List governance group members
         
         results = GovernanceGroupsApi(api_client).list_workgroup_members(workgroup_id=workgroup_id)
         # Below is a request that includes all optional parameters
@@ -492,7 +492,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-workgroups
-List Governance Groups
+List governance groups
 This API returns list of Governance Groups
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-workgroups)
@@ -542,7 +542,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'name,-modified' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, description** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, description** (optional)
 
     try:
-        # List Governance Groups
+        # List governance groups
         
         results = GovernanceGroupsApi(api_client).list_workgroups()
         # Below is a request that includes all optional parameters
@@ -559,7 +559,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-workgroup
-Patch a Governance Group
+Patch a governance group
 This API updates an existing governance group by ID. 
 The following fields and objects are patchable:
   * name
@@ -610,7 +610,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=replace, path=/description, value=Governance Group new description.}]''' # List[JsonPatchOperation] |  (optional)
 
     try:
-        # Patch a Governance Group
+        # Patch a governance group
         
         results = GovernanceGroupsApi(api_client).patch_workgroup(id=id)
         # Below is a request that includes all optional parameters
@@ -626,7 +626,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-workgroup-members
-Add members to Governance Group
+Add members to governance group
 This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.
 
 >  **Following field of Identity is an optional field in the request.**
@@ -675,7 +675,7 @@ with ApiClient(configuration) as api_client:
     bulk_workgroup_members_request_inner = '''[sailpoint.beta.BulkWorkgroupMembersRequestInner()]''' # List[BulkWorkgroupMembersRequestInner] | List of identities to be added to a Governance Group members list.
 
     try:
-        # Add members to Governance Group
+        # Add members to governance group
         new_bulk_workgroup_members_request_inner = BulkWorkgroupMembersRequestInner.from_json(bulk_workgroup_members_request_inner)
         results = GovernanceGroupsApi(api_client).update_workgroup_members(workgroup_id=workgroup_id, bulk_workgroup_members_request_inner=new_bulk_workgroup_members_request_inner)
         # Below is a request that includes all optional parameters

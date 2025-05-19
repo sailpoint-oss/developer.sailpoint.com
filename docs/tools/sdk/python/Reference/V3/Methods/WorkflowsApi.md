@@ -16,28 +16,28 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancel-workflow-execution**](#cancel-workflow-execution) | **POST** `/workflow-executions/{id}/cancel` | Cancel Workflow Execution by ID
-[**create-external-execute-workflow**](#create-external-execute-workflow) | **POST** `/workflows/execute/external/{id}` | Execute Workflow via External Trigger
-[**create-workflow**](#create-workflow) | **POST** `/workflows` | Create Workflow
-[**create-workflow-external-trigger**](#create-workflow-external-trigger) | **POST** `/workflows/{id}/external/oauth-clients` | Generate External Trigger OAuth Client
-[**delete-workflow**](#delete-workflow) | **DELETE** `/workflows/{id}` | Delete Workflow By Id
-[**get-workflow**](#get-workflow) | **GET** `/workflows/{id}` | Get Workflow By Id
-[**get-workflow-execution**](#get-workflow-execution) | **GET** `/workflow-executions/{id}` | Get Workflow Execution
-[**get-workflow-execution-history**](#get-workflow-execution-history) | **GET** `/workflow-executions/{id}/history` | Get Workflow Execution History
-[**get-workflow-executions**](#get-workflow-executions) | **GET** `/workflows/{id}/executions` | List Workflow Executions
-[**list-complete-workflow-library**](#list-complete-workflow-library) | **GET** `/workflow-library` | List Complete Workflow Library
-[**list-workflow-library-actions**](#list-workflow-library-actions) | **GET** `/workflow-library/actions` | List Workflow Library Actions
-[**list-workflow-library-operators**](#list-workflow-library-operators) | **GET** `/workflow-library/operators` | List Workflow Library Operators
-[**list-workflow-library-triggers**](#list-workflow-library-triggers) | **GET** `/workflow-library/triggers` | List Workflow Library Triggers
-[**list-workflows**](#list-workflows) | **GET** `/workflows` | List Workflows
-[**patch-workflow**](#patch-workflow) | **PATCH** `/workflows/{id}` | Patch Workflow
-[**put-workflow**](#put-workflow) | **PUT** `/workflows/{id}` | Update Workflow
-[**test-external-execute-workflow**](#test-external-execute-workflow) | **POST** `/workflows/execute/external/{id}/test` | Test Workflow via External Trigger
-[**test-workflow**](#test-workflow) | **POST** `/workflows/{id}/test` | Test Workflow By Id
+[**cancel-workflow-execution**](#cancel-workflow-execution) | **POST** `/workflow-executions/{id}/cancel` | Cancel workflow execution by id
+[**create-external-execute-workflow**](#create-external-execute-workflow) | **POST** `/workflows/execute/external/{id}` | Execute workflow via external trigger
+[**create-workflow**](#create-workflow) | **POST** `/workflows` | Create workflow
+[**create-workflow-external-trigger**](#create-workflow-external-trigger) | **POST** `/workflows/{id}/external/oauth-clients` | Generate external trigger oauth client
+[**delete-workflow**](#delete-workflow) | **DELETE** `/workflows/{id}` | Delete workflow by id
+[**get-workflow**](#get-workflow) | **GET** `/workflows/{id}` | Get workflow by id
+[**get-workflow-execution**](#get-workflow-execution) | **GET** `/workflow-executions/{id}` | Get workflow execution
+[**get-workflow-execution-history**](#get-workflow-execution-history) | **GET** `/workflow-executions/{id}/history` | Get workflow execution history
+[**get-workflow-executions**](#get-workflow-executions) | **GET** `/workflows/{id}/executions` | List workflow executions
+[**list-complete-workflow-library**](#list-complete-workflow-library) | **GET** `/workflow-library` | List complete workflow library
+[**list-workflow-library-actions**](#list-workflow-library-actions) | **GET** `/workflow-library/actions` | List workflow library actions
+[**list-workflow-library-operators**](#list-workflow-library-operators) | **GET** `/workflow-library/operators` | List workflow library operators
+[**list-workflow-library-triggers**](#list-workflow-library-triggers) | **GET** `/workflow-library/triggers` | List workflow library triggers
+[**list-workflows**](#list-workflows) | **GET** `/workflows` | List workflows
+[**patch-workflow**](#patch-workflow) | **PATCH** `/workflows/{id}` | Patch workflow
+[**put-workflow**](#put-workflow) | **PUT** `/workflows/{id}` | Update workflow
+[**test-external-execute-workflow**](#test-external-execute-workflow) | **POST** `/workflows/execute/external/{id}/test` | Test workflow via external trigger
+[**test-workflow**](#test-workflow) | **POST** `/workflows/{id}/test` | Test workflow by id
 
 
 ## cancel-workflow-execution
-Cancel Workflow Execution by ID
+Cancel workflow execution by id
 Use this API to cancel a running workflow execution.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/cancel-workflow-execution)
@@ -79,7 +79,7 @@ with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | The workflow execution ID # str | The workflow execution ID
 
     try:
-        # Cancel Workflow Execution by ID
+        # Cancel workflow execution by id
         
         WorkflowsApi(api_client).cancel_workflow_execution(id=id)
         # Below is a request that includes all optional parameters
@@ -93,7 +93,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## create-external-execute-workflow
-Execute Workflow via External Trigger
+Execute workflow via external trigger
 This endpoint allows a service outside of IdentityNow to initiate a workflow that uses the "External Trigger" step.  The external service will invoke this endpoint with the input data it wants to send to the workflow in the body.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-external-execute-workflow)
@@ -138,7 +138,7 @@ with ApiClient(configuration) as api_client:
     create_external_execute_workflow_request = '''sailpoint.v3.CreateExternalExecuteWorkflowRequest()''' # CreateExternalExecuteWorkflowRequest |  (optional)
 
     try:
-        # Execute Workflow via External Trigger
+        # Execute workflow via external trigger
         
         results = WorkflowsApi(api_client).create_external_execute_workflow(id=id)
         # Below is a request that includes all optional parameters
@@ -154,7 +154,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## create-workflow
-Create Workflow
+Create workflow
 Create a new workflow with the desired trigger and steps specified in the request body.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-workflow)
@@ -197,7 +197,7 @@ with ApiClient(configuration) as api_client:
     create_workflow_request = '''{name=Send Email, owner={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}, description=Send an email to the identity who's attributes changed., definition={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}, enabled=false, trigger={type=EVENT, attributes={id=idn:identity-attributes-changed, filter=$.changes[?(@.attribute == 'manager')]}}}''' # CreateWorkflowRequest | 
 
     try:
-        # Create Workflow
+        # Create workflow
         new_create_workflow_request = CreateWorkflowRequest.from_json(create_workflow_request)
         results = WorkflowsApi(api_client).create_workflow(create_workflow_request=new_create_workflow_request)
         # Below is a request that includes all optional parameters
@@ -213,7 +213,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## create-workflow-external-trigger
-Generate External Trigger OAuth Client
+Generate external trigger oauth client
 Create OAuth client ID, client secret, and callback URL for use in an external trigger.  External triggers will need this information to generate an access token to authenticate to the callback URL and submit a trigger payload that will initiate the workflow.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-workflow-external-trigger)
@@ -255,7 +255,7 @@ with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the workflow # str | Id of the workflow
 
     try:
-        # Generate External Trigger OAuth Client
+        # Generate external trigger oauth client
         
         results = WorkflowsApi(api_client).create_workflow_external_trigger(id=id)
         # Below is a request that includes all optional parameters
@@ -271,7 +271,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-workflow
-Delete Workflow By Id
+Delete workflow by id
 Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-workflow)
@@ -312,7 +312,7 @@ with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the Workflow # str | Id of the Workflow
 
     try:
-        # Delete Workflow By Id
+        # Delete workflow by id
         
         WorkflowsApi(api_client).delete_workflow(id=id)
         # Below is a request that includes all optional parameters
@@ -326,7 +326,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-workflow
-Get Workflow By Id
+Get workflow by id
 Get a single workflow by id.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-workflow)
@@ -370,7 +370,7 @@ with ApiClient(configuration) as api_client:
     workflow_metrics = True # bool | disable workflow metrics (optional) (default to True) # bool | disable workflow metrics (optional) (default to True)
 
     try:
-        # Get Workflow By Id
+        # Get workflow by id
         
         results = WorkflowsApi(api_client).get_workflow(id=id)
         # Below is a request that includes all optional parameters
@@ -386,7 +386,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-workflow-execution
-Get Workflow Execution
+Get workflow execution
 Get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a "404 Not Found" response.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-workflow-execution)
@@ -428,7 +428,7 @@ with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Workflow execution ID. # str | Workflow execution ID.
 
     try:
-        # Get Workflow Execution
+        # Get workflow execution
         
         results = WorkflowsApi(api_client).get_workflow_execution(id=id)
         # Below is a request that includes all optional parameters
@@ -444,7 +444,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-workflow-execution-history
-Get Workflow Execution History
+Get workflow execution history
 Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-workflow-execution-history)
@@ -487,7 +487,7 @@ with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the workflow execution # str | Id of the workflow execution
 
     try:
-        # Get Workflow Execution History
+        # Get workflow execution history
         
         results = WorkflowsApi(api_client).get_workflow_execution_history(id=id)
         # Below is a request that includes all optional parameters
@@ -504,7 +504,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-workflow-executions
-List Workflow Executions
+List workflow executions
 Use this API to list a specified workflow's executions. Workflow executions are available for up to 90 days before being archived. By default, you can get a maximum of 250 executions. To get executions past the first 250 records, you can do the following:
 1. Use the [Get Workflows](https://developer.sailpoint.com/idn/api/beta/list-workflows) endpoint to get your workflows.
 2. Get your workflow ID from the response.
@@ -565,7 +565,7 @@ with ApiClient(configuration) as api_client:
     filters = 'status eq \"Failed\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq* (optional)
 
     try:
-        # List Workflow Executions
+        # List workflow executions
         
         results = WorkflowsApi(api_client).get_workflow_executions(id=id)
         # Below is a request that includes all optional parameters
@@ -582,7 +582,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-complete-workflow-library
-List Complete Workflow Library
+List complete workflow library
 This lists all triggers, actions, and operators in the library
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-complete-workflow-library)
@@ -626,7 +626,7 @@ with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
     try:
-        # List Complete Workflow Library
+        # List complete workflow library
         
         results = WorkflowsApi(api_client).list_complete_workflow_library()
         # Below is a request that includes all optional parameters
@@ -643,7 +643,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-workflow-library-actions
-List Workflow Library Actions
+List workflow library actions
 This lists the workflow actions available to you.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-workflow-library-actions)
@@ -689,7 +689,7 @@ with ApiClient(configuration) as api_client:
     filters = 'id eq \"sp:create-campaign\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional)
 
     try:
-        # List Workflow Library Actions
+        # List workflow library actions
         
         results = WorkflowsApi(api_client).list_workflow_library_actions()
         # Below is a request that includes all optional parameters
@@ -706,7 +706,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-workflow-library-operators
-List Workflow Library Operators
+List workflow library operators
 This lists the workflow operators available to you
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-workflow-library-operators)
@@ -744,7 +744,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # List Workflow Library Operators
+        # List workflow library operators
         
         results = WorkflowsApi(api_client).list_workflow_library_operators()
         # Below is a request that includes all optional parameters
@@ -761,7 +761,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-workflow-library-triggers
-List Workflow Library Triggers
+List workflow library triggers
 This lists the workflow triggers available to you
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-workflow-library-triggers)
@@ -807,7 +807,7 @@ with ApiClient(configuration) as api_client:
     filters = 'id eq \"idn:identity-attributes-changed\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional)
 
     try:
-        # List Workflow Library Triggers
+        # List workflow library triggers
         
         results = WorkflowsApi(api_client).list_workflow_library_triggers()
         # Below is a request that includes all optional parameters
@@ -824,7 +824,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-workflows
-List Workflows
+List workflows
 List all workflows in the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-workflows)
@@ -872,7 +872,7 @@ with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
     try:
-        # List Workflows
+        # List workflows
         
         results = WorkflowsApi(api_client).list_workflows()
         # Below is a request that includes all optional parameters
@@ -889,7 +889,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-workflow
-Patch Workflow
+Patch workflow
 Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/patch-workflow)
@@ -934,7 +934,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=replace, path=/name, value=Send Email}, {op=replace, path=/owner, value={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}}, {op=replace, path=/description, value=Send an email to the identity who's attributes changed.}, {op=replace, path=/enabled, value=false}, {op=replace, path=/definition, value={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}}, {op=replace, path=/trigger, value={type=EVENT, attributes={id=idn:identity-attributes-changed}}}]''' # List[JsonPatchOperation] | 
 
     try:
-        # Patch Workflow
+        # Patch workflow
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = WorkflowsApi(api_client).patch_workflow(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
@@ -950,7 +950,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-workflow
-Update Workflow
+Update workflow
 Perform a full update of a workflow.  The updated workflow object is returned in the response.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/put-workflow)
@@ -1034,7 +1034,7 @@ with ApiClient(configuration) as api_client:
         }''' # WorkflowBody | 
 
     try:
-        # Update Workflow
+        # Update workflow
         new_workflow_body = WorkflowBody.from_json(workflow_body)
         results = WorkflowsApi(api_client).put_workflow(id=id, workflow_body=new_workflow_body)
         # Below is a request that includes all optional parameters
@@ -1050,7 +1050,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## test-external-execute-workflow
-Test Workflow via External Trigger
+Test workflow via external trigger
 Validate a workflow with an "External Trigger" can receive input.  The response includes the input that the workflow received, which can be used to validate that the input is intact when it reaches the workflow.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/test-external-execute-workflow)
@@ -1095,7 +1095,7 @@ with ApiClient(configuration) as api_client:
     test_external_execute_workflow_request = '''sailpoint.v3.TestExternalExecuteWorkflowRequest()''' # TestExternalExecuteWorkflowRequest |  (optional)
 
     try:
-        # Test Workflow via External Trigger
+        # Test workflow via external trigger
         
         results = WorkflowsApi(api_client).test_external_execute_workflow(id=id)
         # Below is a request that includes all optional parameters
@@ -1111,7 +1111,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## test-workflow
-Test Workflow By Id
+Test workflow by id
 :::info
 
 Workflow must be disabled in order to use this endpoint.
@@ -1167,7 +1167,7 @@ with ApiClient(configuration) as api_client:
     test_workflow_request = '''{input={identity={id=ee769173319b41d19ccec6cea52f237b, name=john.doe, type=IDENTITY}, changes=[{attribute=department, oldValue=sales, newValue=marketing}, {attribute=manager, oldValue={id=ee769173319b41d19ccec6c235423237b, name=nice.guy, type=IDENTITY}, newValue={id=ee769173319b41d19ccec6c235423236c, name=mean.guy, type=IDENTITY}}, {attribute=email, oldValue=john.doe@hotmail.com, newValue=john.doe@gmail.com}]}}''' # TestWorkflowRequest | 
 
     try:
-        # Test Workflow By Id
+        # Test workflow by id
         new_test_workflow_request = TestWorkflowRequest.from_json(test_workflow_request)
         results = WorkflowsApi(api_client).test_workflow(id=id, test_workflow_request=new_test_workflow_request)
         # Below is a request that includes all optional parameters

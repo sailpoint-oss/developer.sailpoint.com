@@ -2,7 +2,7 @@ post:
   operationId: makeDecision
   tags:
     - Certifications
-  summary: Decide on a Certification Item
+  summary: Decide on a certification item
   description: >-
     The API makes a decision to approve or revoke a certification item. A token with ORG_ADMIN or CERT_ADMIN authority
     is required to call this API. Reviewers for this certification can also call this API.

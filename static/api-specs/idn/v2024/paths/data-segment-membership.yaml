@@ -7,7 +7,7 @@ get:
     - ORG_ADMIN
   tags:
     - Data Segmentation
-  summary: Get SegmentMembership by Identity ID
+  summary: Get segmentmembership by identity id
   description: >-
     This API returns the segment membership specified by the given identity ID.
   parameters:

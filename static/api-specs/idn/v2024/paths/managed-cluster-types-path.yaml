@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Cluster Types
-  summary: Get a Managed Cluster Type
+  summary: Get a managed cluster type
   description: >-
     Get a Managed Cluster Type.
 
@@ -43,7 +43,7 @@ get:
 patch:
   tags:
     - Managed Cluster Types
-  summary: Update a Managed Cluster Type
+  summary: Update a managed cluster type
   description: >-
     Update an existing Managed Cluster Type.
 
@@ -93,7 +93,7 @@ delete:
   operationId: deleteManagedClusterType
   tags:
     - Managed Cluster Types
-  summary: Delete a Managed Cluster Type
+  summary: Delete a managed cluster type
   description: >-
     Delete an existing Managed Cluster Type.
 

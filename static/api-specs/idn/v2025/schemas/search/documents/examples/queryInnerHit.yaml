@@ -1,4 +1,4 @@
-summary: 'Query with InnerHit'
+summary: 'Query with innerhit'
 value:
   - requestCommentsRequired: false
     schema: group

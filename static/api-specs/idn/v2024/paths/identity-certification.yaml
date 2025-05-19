@@ -2,7 +2,7 @@ get:
   operationId: getIdentityCertification
   tags:
     - Certifications
-  summary: Identity Certification by ID
+  summary: Identity certification by id
   security:
     - userAuth: []
   x-sailpoint-userLevels:

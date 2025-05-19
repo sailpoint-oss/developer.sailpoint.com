@@ -7,7 +7,7 @@ get:
     - idn:access-request-administration:read
   tags:
     - Access Requests
-  summary: Access Request Status for Administrators
+  summary: Access request status for administrators
   description: >-
     Use this API to get access request statuses of all the access requests in the org based on the specified query 
     parameters.

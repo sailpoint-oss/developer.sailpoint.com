@@ -9,7 +9,7 @@ post:
     - ORG_ADMIN
   tags:
   - Governance Groups
-  summary: Remove members from Governance Group
+  summary: Remove members from governance group
   description: 'This API removes one or more  members from a Governance Group.  A
 
     >  **Following field of Identity is an optional field in the request.**

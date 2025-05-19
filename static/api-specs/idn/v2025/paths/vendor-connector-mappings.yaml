@@ -4,7 +4,7 @@ get:
   operationId: getVendorConnectorMappings
   tags:
     - Vendor Connector Mappings
-  summary: List Vendor Connector Mappings
+  summary: List vendor connector mappings
   description: >
     Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation.
   responses:
@@ -70,7 +70,7 @@ post:
   operationId: createVendorConnectorMapping
   tags:
     - Vendor Connector Mappings
-  summary: Create Vendor Connector Mapping
+  summary: Create vendor connector mapping
   description: >
     Create a new mapping between a SaaS vendor and an ISC connector to establish correlation paths.
   requestBody:
@@ -105,7 +105,7 @@ delete:
   operationId: deleteVendorConnectorMapping
   tags:
     - Vendor Connector Mappings
-  summary: Delete Vendor Connector Mapping
+  summary: Delete vendor connector mapping
   description: >
     Soft delete a mapping between a SaaS vendor and an ISC connector, removing the established correlation.
   requestBody:

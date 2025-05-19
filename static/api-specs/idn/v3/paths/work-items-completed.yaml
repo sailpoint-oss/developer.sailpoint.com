@@ -2,7 +2,7 @@ get:
   operationId: getCompletedWorkItems
   tags:
     - Work Items
-  summary: Completed Work Items
+  summary: Completed work items
   description: >-
     This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
   parameters:

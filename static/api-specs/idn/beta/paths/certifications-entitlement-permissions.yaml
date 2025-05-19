@@ -2,7 +2,7 @@ get:
   operationId: getCertificationEntitlementPermissions
   tags:
     - Certifications
-  summary: Permissions for Entitlement in a Certification
+  summary: Permissions for entitlement in a certification
   description: >-
     This API returns the permissions associated with an entitlement that is part of a certification campaign. The
     entitlement provided must match the entitlement from an entitlement certification item, or be part of an access

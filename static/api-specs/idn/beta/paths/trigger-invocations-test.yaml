@@ -2,7 +2,7 @@ post:
   operationId: startTestTriggerInvocation
   tags:
     - Triggers
-  summary: Start a Test Invocation
+  summary: Start a test invocation
   description: Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
   requestBody:
     required: true

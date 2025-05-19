@@ -2,7 +2,7 @@ post:
   operationId: showGenerateIdentityPreview
   tags:
     - Identity Profiles
-  summary: Generate Identity Profile Preview
+  summary: Generate identity profile preview
   description: >-
     Use this API to generate a non-persisted preview of the identity object after applying `IdentityAttributeConfig` sent in request body.
 

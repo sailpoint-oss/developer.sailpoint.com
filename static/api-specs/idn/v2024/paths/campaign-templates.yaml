@@ -2,7 +2,7 @@ post:
   operationId: createCampaignTemplate
   tags:
     - Certification Campaigns
-  summary: Create a Campaign Template
+  summary: Create a campaign template
   description: |
     Use this API to create a certification campaign template based on campaign.
   security:
@@ -55,7 +55,7 @@ get:
   operationId: getCampaignTemplates
   tags:
     - Certification Campaigns
-  summary: List Campaign Templates
+  summary: List campaign templates
   description: |
     Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.
 

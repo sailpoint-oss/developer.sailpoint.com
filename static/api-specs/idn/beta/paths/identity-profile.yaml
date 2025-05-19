@@ -2,7 +2,7 @@ get:
   operationId: getIdentityProfile
   tags:
     - Identity Profiles
-  summary: Get Identity Profile
+  summary: Get identity profile
   description: >-
     Get a single identity profile by ID.
     
@@ -44,7 +44,7 @@ delete:
   operationId: deleteIdentityProfile
   tags:
     - Identity Profiles
-  summary: Delete Identity Profile
+  summary: Delete identity profile
   description: >-
     Delete an identity profile by ID.
 
@@ -89,7 +89,7 @@ patch:
   operationId: updateIdentityProfile
   tags:
     - Identity Profiles
-  summary: Update Identity Profile
+  summary: Update identity profile
   description: >-
     Update the specified identity profile with this PATCH request. 
 

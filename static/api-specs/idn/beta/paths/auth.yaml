@@ -2,7 +2,7 @@ post:
   operationId: forgot-username
   tags:
     - Forgot Username
-  summary: Retrieve Forgotten Username
+  summary: Retrieve forgotten username
   description: This API sends an email to allow a user to retrieve a forgotten username when a valid email address associated with a valid account is provided.
   requestBody:
     required: true

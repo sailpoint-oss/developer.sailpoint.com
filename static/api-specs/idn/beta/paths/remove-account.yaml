@@ -1,6 +1,6 @@
 post:
   operationId: deleteAccountAsync
-  summary: Remove Account
+  summary: Remove account
   tags:
     - Accounts
   description: |

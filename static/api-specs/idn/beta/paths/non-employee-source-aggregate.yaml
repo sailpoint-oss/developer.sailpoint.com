@@ -4,7 +4,7 @@ post:
     - userAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Aggregate all Non-Employee Source accounts
+  summary: Aggregate all non-employee source accounts
   description: >-
     This fetches all the non-employee records related to a non-employee source and publishes an aggregation event for each one.
 

@@ -2,7 +2,7 @@ get:
   operationId: getCampaignReportsConfig
   tags:
     - Certification Campaigns
-  summary: Get Campaign Reports Configuration
+  summary: Get campaign reports configuration
   description: |
     Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns. 
   security:
@@ -31,7 +31,7 @@ put:
   operationId: setCampaignReportsConfig
   tags:
     - Certification Campaigns
-  summary: Set Campaign Reports Configuration
+  summary: Set campaign reports configuration
   description: |
     Use this API to overwrite the configuration for campaign reports. 
   security:

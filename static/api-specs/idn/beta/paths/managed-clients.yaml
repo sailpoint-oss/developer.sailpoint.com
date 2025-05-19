@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clients
-  summary: Get Managed Clients
+  summary: Get managed clients
   description: >-
     List managed clients.
   operationId: getManagedClients
@@ -60,7 +60,7 @@ get:
 post:
   tags:
     - Managed Clients
-  summary: Create Managed Client
+  summary: Create managed client
   description: >-
     Created managed client.
 

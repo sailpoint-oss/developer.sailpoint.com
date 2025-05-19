@@ -1,7 +1,7 @@
 post:
   tags:
     - Multi-Host Integration
-  summary: Test Configuration For Multi-Host Integration
+  summary: Test configuration for multi-host integration
   description: >-
     This endpoint performs a more detailed validation of the Multi-Host Integration's configuration.
     

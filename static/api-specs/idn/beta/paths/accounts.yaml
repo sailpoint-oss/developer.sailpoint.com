@@ -2,7 +2,7 @@ get:
   operationId: listAccounts
   tags:
     - Accounts
-  summary: Accounts List
+  summary: Accounts list
   description: >-
     List accounts.
   deprecated: true
@@ -175,7 +175,7 @@ post:
   operationId: createAccount
   tags:
     - Accounts
-  summary: Create Account
+  summary: Create account
   description: |
     Submits an account creation task - the API then returns the task ID.  
 

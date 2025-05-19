@@ -2,7 +2,7 @@ get:
   operationId: getAccountAggregationStatus
   tags:
   - Account Aggregations
-  summary: In-progress Account Aggregation status
+  summary: In-progress account aggregation status
   security:
     - userAuth: []
   x-sailpoint-userLevels:

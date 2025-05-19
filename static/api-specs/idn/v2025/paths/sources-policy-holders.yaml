@@ -7,7 +7,7 @@ patch:
     - ROLE_SUBADMIN
   tags:
     - Sources
-  summary: Update Password Policy
+  summary: Update password policy
   description: |
     This API can be used to set up or update Password Policy in IdentityNow for the specified Source.
     Source must support PASSWORD feature.

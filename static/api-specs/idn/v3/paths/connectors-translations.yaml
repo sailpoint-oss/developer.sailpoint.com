@@ -2,7 +2,7 @@ get:
   tags:
     - Connectors
   operationId: getConnectorTranslations
-  summary: Get Connector Translations
+  summary: Get connector translations
   description: >-
     Fetches a connector's translations using its script name.    
   parameters:
@@ -54,7 +54,7 @@ put:
   tags:
     - Connectors
   operationId: putConnectorTranslations
-  summary: Update Connector Translations
+  summary: Update connector translations
   description: >-
     Update a connector's translations using its script name.    
   parameters:

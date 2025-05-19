@@ -2,7 +2,7 @@ get:
   operationId: getAuthOrgLockoutConfig
   tags:
     - Global Tenant Security Settings
-  summary: Get Auth Org Lockout Configuration.
+  summary: Get auth org lockout configuration.
   description: >-
     This API returns the details of an org's lockout auth configuration.
   security:
@@ -30,7 +30,7 @@ patch:
   operationId: patchAuthOrgLockoutConfig
   tags:
     - Global Tenant Security Settings
-  summary: Update Auth Org Lockout Configuration
+  summary: Update auth org lockout configuration
   description: |
     This API updates an existing lockout configuration for an org using PATCH
   security:

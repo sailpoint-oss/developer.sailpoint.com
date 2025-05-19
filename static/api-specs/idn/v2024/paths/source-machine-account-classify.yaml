@@ -2,7 +2,7 @@ post:
   operationId: sendClassifyMachineAccountFromSource
   tags:
     - Source Classify
-  summary: Classify Source's All Accounts
+  summary: Classify source's all accounts
   security:
     - userAuth:
         - "idn:account:update"
@@ -54,7 +54,7 @@ delete:
   operationId: deleteClassifyMachineAccountFromSource
   tags:
     - Source Classify
-  summary: Cancel Classify Source's Accounts Process
+  summary: Cancel classify source's accounts process
   security:
     - userAuth:
         - "idn:account:update"
@@ -95,7 +95,7 @@ get:
   operationId: getClassifyMachineAccountFromSourceStatus
   tags:
     - Source Classify
-  summary: Source Accounts Classification Status
+  summary: Source accounts classification status
   description: >-
     Use this API to get the status of Machine Account Classification process for a source.
 

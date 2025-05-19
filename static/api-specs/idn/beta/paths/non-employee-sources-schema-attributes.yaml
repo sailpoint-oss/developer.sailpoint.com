@@ -4,7 +4,7 @@ get:
     - userAuth: []
   tags:
     - Non-Employee Lifecycle Management
-  summary: List Schema Attributes Non-Employee Source
+  summary: List schema attributes non-employee source
   description: This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8
                mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can
                add up to 10 custom attributes. This interface returns all the mandatory attributes followed by
@@ -54,7 +54,7 @@ post:
     - userAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Create Non-Employee Source Schema Attribute
+  summary: Create non-employee source schema attribute
   description: >-
     This API creates a new schema attribute for Non-Employee Source. The schema technical name must be
     unique in the source. Attempts to create a schema attribute with an existing name will result in a

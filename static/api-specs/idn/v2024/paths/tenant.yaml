@@ -2,7 +2,7 @@ get:
   operationId: getTenant
   tags:
   - Tenant
-  summary: Get Tenant Information.
+  summary: Get tenant information.
   description: This rest endpoint can be used to retrieve tenant details.
   security:
   - userAuth:

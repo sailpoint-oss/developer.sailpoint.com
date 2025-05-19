@@ -4,7 +4,7 @@ get:
     - userAuth: []
   tags:
     - Non-Employee Lifecycle Management
-  summary: Get a Non-Employee Source
+  summary: Get a non-employee source
   description: >-
     This gets a non-employee source. There are two contextual uses for the
     requested-for path parameter: 
@@ -45,7 +45,7 @@ patch:
   #   - oauth2: [idn:nesr:update]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Patch a Non-Employee Source
+  summary: Patch a non-employee source
   description: >-
     patch a non-employee source. (partial update) <br/> Patchable field: **name,
     description, approvers, accountManagers** Requires role context of
@@ -105,7 +105,7 @@ delete:
   #   - oauth2: [idn:nesr:delete]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Delete Non-Employee Source
+  summary: Delete non-employee source
   description: >-
     This request will delete a non-employee source. Requires role
     context of `idn:nesr:delete`.

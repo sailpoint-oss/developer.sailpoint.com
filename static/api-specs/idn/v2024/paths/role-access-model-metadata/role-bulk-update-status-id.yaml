@@ -1,6 +1,6 @@
 get:
   operationId: getBulkUpdateStatusById
-  summary: Get Bulk-Update Status by ID
+  summary: Get bulk-update status by id
   description: >-
     
     This API initial a request for one bulk update's status by bulk update Id

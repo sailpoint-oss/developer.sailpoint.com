@@ -1,4 +1,4 @@
-summary: Uncorrelated Accounts report
+summary: Uncorrelated accounts report
 value:
   reportType: UNCORRELATED_ACCOUNTS
   arguments:

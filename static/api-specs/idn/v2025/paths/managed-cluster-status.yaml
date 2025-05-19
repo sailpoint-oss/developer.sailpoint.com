@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clusters
-  summary: Specified Managed Cluster Status.
+  summary: Specified managed cluster status.
   description: Retrieve Managed Cluster Status by ID.
   operationId: getManagedClusterStatus
   parameters:

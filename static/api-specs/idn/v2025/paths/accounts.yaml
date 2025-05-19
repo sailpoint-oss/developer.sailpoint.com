@@ -2,7 +2,7 @@ get:
   operationId: listAccounts
   tags:
     - Accounts
-  summary: Accounts List
+  summary: Accounts list
   description: >-
     List accounts. 
   security:
@@ -131,7 +131,7 @@ post:
   operationId: createAccount
   tags:
     - Accounts
-  summary: Create Account
+  summary: Create account
   description: |
     Submit an account creation task - the API then returns the task ID.  
 

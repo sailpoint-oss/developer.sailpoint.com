@@ -2,7 +2,7 @@ get:
   operationId: getDataPipelineEvents
   tags:
     - IAI Data Pipeline Events
-  summary: Get List of Pipeline events
+  summary: Get list of pipeline events
   description: >-
     This presents a list of events and metadata for each pipeline of a customer.
     They are summarized per qualifier.
@@ -66,7 +66,7 @@ post:
   operationId: postDataPipelineEvents
   tags:
     - IAI Data Pipeline Events
-  summary: Creates Data Pipeline Event
+  summary: Creates data pipeline event
   description: >-
     This creates a Data Pipeline Event for a customer in context.
 

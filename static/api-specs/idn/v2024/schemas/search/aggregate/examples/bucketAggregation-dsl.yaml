@@ -1,4 +1,4 @@
-summary: BucketAggregation using DSL
+summary: Bucketaggregation using dsl
 value:
   indices:  [ 'identities' ]
   aggregationType: 'DSL'

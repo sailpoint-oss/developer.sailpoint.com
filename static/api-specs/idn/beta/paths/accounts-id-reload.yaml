@@ -2,7 +2,7 @@ post:
   operationId: submitReloadAccount
   tags:
     - Accounts
-  summary: Reload Account
+  summary: Reload account
   description: >-
     This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.  
     

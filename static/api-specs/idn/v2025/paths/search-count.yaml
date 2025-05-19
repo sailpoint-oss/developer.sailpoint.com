@@ -6,7 +6,7 @@ post:
   operationId: searchCount
   security:
     - userAuth: [ sp:search:read ]
-  summary: "Count Documents Satisfying a Query"
+  summary: "Count documents satisfying a query"
   requestBody:
     content:
       application/json:

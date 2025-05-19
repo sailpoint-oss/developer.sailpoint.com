@@ -1,7 +1,7 @@
 get:
   tags:
   - Connector Rule Management
-  summary: Get Connector Rule
+  summary: Get connector rule
   operationId: getConnectorRule
   description: Get a connector rule by ID.
   parameters:
@@ -43,7 +43,7 @@ get:
 put:
   tags:
   - Connector Rule Management
-  summary: Update Connector Rule
+  summary: Update connector rule
   description: >-
     Update an existing connector rule with the one provided in the request body. These fields are immutable: `id`, `name`, `type`
   operationId: putConnectorRule
@@ -91,7 +91,7 @@ put:
 delete:
   tags:
   - Connector Rule Management
-  summary: Delete Connector Rule
+  summary: Delete connector rule
   description: Delete the connector rule for the given ID.
   operationId: deleteConnectorRule
   parameters:

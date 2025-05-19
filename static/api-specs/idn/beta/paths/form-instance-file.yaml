@@ -1,7 +1,7 @@
 get:
   tags:
     - Custom Forms
-  summary: Download instance file by fileId.
+  summary: Download instance file by fileid.
   operationId: getFormInstanceFile
   parameters:
     - name: formInstanceID

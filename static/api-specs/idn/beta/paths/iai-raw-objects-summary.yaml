@@ -2,7 +2,7 @@ get:
   operationId: summarize
   tags:
     - IAI Raw Objects
-  summary: List Objects summarized
+  summary: List objects summarized
   description: This API returns a list of Objects summarized.
   parameters:
     - in: query

@@ -2,7 +2,7 @@ get:
   operationId: getCountWorkItems
   tags:
     - Work Items
-  summary: Count Work Items
+  summary: Count work items
   description: >-
     This gets a count of work items belonging to either the specified user(admin required), or the current user.
   deprecated: true

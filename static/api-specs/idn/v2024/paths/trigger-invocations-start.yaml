@@ -2,7 +2,7 @@ post:
   operationId: startInvocation
   tags:
     - Triggers
-  summary: Start Invocation
+  summary: Start invocation
   description: Start a trigger invocation with specified trigger input and contentJson context.
   requestBody:
     required: true

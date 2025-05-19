@@ -7,7 +7,7 @@ get:
     - ORG_ADMIN
   tags:
     - Data Segmentation
-  summary: Get Segment by ID
+  summary: Get segment by id
   description: >-
     This API returns the segment specified by the given ID.
 
@@ -55,7 +55,7 @@ post:
     - ORG_ADMIN
   tags:
     - Data Segmentation
-  summary: Publish segment by ID
+  summary: Publish segment by id
   description: >-
     This will publish the segment so that it starts applying the segmentation to the desired users if enabled
   parameters:
@@ -108,7 +108,7 @@ patch:
     - ORG_ADMIN
   tags:
     - Data Segmentation
-  summary: Update Segment
+  summary: Update segment
   description: >-
     Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
@@ -197,7 +197,7 @@ delete:
     - ORG_ADMIN
   tags:
     - Data Segmentation
-  summary: Delete Segment by ID
+  summary: Delete segment by id
   description: >-
     This API deletes the segment specified by the given ID.
 

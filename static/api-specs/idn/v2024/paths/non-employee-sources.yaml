@@ -6,7 +6,7 @@ post:
     - ORG_ADMIN
   tags:
     - Non-Employee Lifecycle Management
-  summary: Create Non-Employee Source
+  summary: Create non-employee source
   description: >-
     Create a non-employee source. 
   requestBody:
@@ -41,7 +41,7 @@ get:
     - ORG_ADMIN
   tags:
     - Non-Employee Lifecycle Management
-  summary: List Non-Employee Sources
+  summary: List non-employee sources
   description: >-
     Get a list of non-employee sources. There are two contextual uses for the `requested-for` path parameter: 
       1. If the user has the role context of `idn:nesr:read`, he or she may request a list sources assigned to a particular account manager by passing in that manager's `id`.

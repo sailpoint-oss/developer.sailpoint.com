@@ -2,7 +2,7 @@ get:
   operationId: listApplications
   tags:
     - SaaS Management
-  summary: SaaS Management Applications
+  summary: Saas management applications
   description: >-
     This API returns a list of SaaS Management applications sorted by name that satisfy the given query parameters.
 

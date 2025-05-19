@@ -2,7 +2,7 @@ get:
   tags:
     - Connector Rule Management
   operationId: getConnectorRuleList
-  summary: List Connector Rules
+  summary: List connector rules
   description: >-
     Returns the list of connector rules.
 
@@ -33,7 +33,7 @@ post:
   tags:
     - Connector Rule Management
   operationId: createConnectorRule
-  summary: Create Connector Rule
+  summary: Create connector rule
   description: >-
     Creates a new connector rule.
 

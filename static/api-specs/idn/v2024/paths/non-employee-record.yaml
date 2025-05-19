@@ -4,7 +4,7 @@ get:
   #   - oauth2: [idn:nesr:read]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Get a Non-Employee Record
+  summary: Get a non-employee record
   description: >-
     This gets a non-employee record.
 
@@ -42,7 +42,7 @@ put:
     - userAuth: []
   tags:
     - Non-Employee Lifecycle Management
-  summary: Update Non-Employee Record
+  summary: Update non-employee record
   description: >-
     This request will update a non-employee record. There are two
     contextual uses for this endpoint:
@@ -95,7 +95,7 @@ patch:
     - userAuth: []
   tags:
     - Non-Employee Lifecycle Management
-  summary: Patch Non-Employee Record
+  summary: Patch non-employee record
   description: >-
     This request will patch a non-employee record. There are two
     contextual uses for this endpoint:
@@ -155,7 +155,7 @@ delete:
   #   - oauth2: [idn:nesr:delete]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Delete Non-Employee Record
+  summary: Delete non-employee record
   description: >-
     This request will delete a non-employee record.
 

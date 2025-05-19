@@ -4,7 +4,7 @@ get:
     - userAuth: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Get Schema Attribute Non-Employee Source
+  summary: Get schema attribute non-employee source
   description: This API gets a schema attribute by Id for the specified Non-Employee SourceId.
   parameters:
     - in: path
@@ -48,7 +48,7 @@ patch:
     - userAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Patch Non-Employee Source's Schema Attribute
+  summary: Patch non-employee source's schema attribute
   description: |
     This end-point patches a specific schema attribute for a non-employee SourceId.
 
@@ -108,7 +108,7 @@ delete:
     - userAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Delete Non-Employee Source's Schema Attribute
+  summary: Delete non-employee source's schema attribute
   description: | 
     This end-point deletes a specific schema attribute for a non-employee source.
 

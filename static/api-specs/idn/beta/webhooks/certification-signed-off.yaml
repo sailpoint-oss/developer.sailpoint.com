@@ -1,5 +1,5 @@
 post:
-  summary: Certification Signed Off
+  summary: Certification signed off
   operationId: certificationSignedOffEvent
   description: >-
     This event trigger fires after a certification is signed off on and moves to the 'End' status.

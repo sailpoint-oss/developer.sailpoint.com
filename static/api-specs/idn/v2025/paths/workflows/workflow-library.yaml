@@ -2,7 +2,7 @@ get:
   operationId: listCompleteWorkflowLibrary
   tags:
     - Workflows
-  summary: List Complete Workflow Library
+  summary: List complete workflow library
   description: >-
     This lists all triggers, actions, and operators in the library
   externalDocs:

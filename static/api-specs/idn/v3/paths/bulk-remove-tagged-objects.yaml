@@ -13,7 +13,7 @@ post:
     - SOURCE_SUBADMIN
   tags:
     - Tagged Objects
-  summary: Remove Tags from Multiple Objects
+  summary: Remove tags from multiple objects
   description: >-
     This API removes tags from multiple objects.
   requestBody:

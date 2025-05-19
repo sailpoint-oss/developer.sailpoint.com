@@ -1,7 +1,7 @@
 post:
   tags:
     - Sources
-  summary: Entitlement Aggregation
+  summary: Entitlement aggregation
   operationId: importEntitlements
   description: >-
     Starts an entitlement aggregation on the specified source. 

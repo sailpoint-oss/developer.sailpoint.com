@@ -2,7 +2,7 @@ post:
   operationId: unIgnoreIdentityOutliers
   tags:
     - IAI Outliers
-  summary: IAI Identity Outliers Unignore
+  summary: Iai identity outliers unignore
   description: >-
     This API receives a list of identity IDs in the request, changes the outliers to be un-ignored.
   requestBody:

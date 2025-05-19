@@ -29,11 +29,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-connector-list**](#get-connector-list) | **Get** `/connectors` | Get Connector List
+[**get-connector-list**](#get-connector-list) | **Get** `/connectors` | Get connector list
 
 
 ## get-connector-list
-Get Connector List
+Get connector list
 Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-connector-list)

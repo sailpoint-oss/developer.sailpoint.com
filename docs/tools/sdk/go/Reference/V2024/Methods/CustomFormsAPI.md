@@ -24,15 +24,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create-form-definition**](#create-form-definition) | **Post** `/form-definitions` | Creates a form definition.
-[**create-form-definition-dynamic-schema**](#create-form-definition-dynamic-schema) | **Post** `/form-definitions/forms-action-dynamic-schema` | Generate JSON Schema dynamically.
+[**create-form-definition-dynamic-schema**](#create-form-definition-dynamic-schema) | **Post** `/form-definitions/forms-action-dynamic-schema` | Generate json schema dynamically.
 [**create-form-definition-file-request**](#create-form-definition-file-request) | **Post** `/form-definitions/{formDefinitionID}/upload` | Upload new form definition file.
 [**create-form-instance**](#create-form-instance) | **Post** `/form-instances` | Creates a form instance.
 [**delete-form-definition**](#delete-form-definition) | **Delete** `/form-definitions/{formDefinitionID}` | Deletes a form definition.
 [**export-form-definitions-by-tenant**](#export-form-definitions-by-tenant) | **Get** `/form-definitions/export` | List form definitions by tenant.
-[**get-file-from-s3**](#get-file-from-s3) | **Get** `/form-definitions/{formDefinitionID}/file/{fileID}` | Download definition file by fileId.
+[**get-file-from-s3**](#get-file-from-s3) | **Get** `/form-definitions/{formDefinitionID}/file/{fileID}` | Download definition file by fileid.
 [**get-form-definition-by-key**](#get-form-definition-by-key) | **Get** `/form-definitions/{formDefinitionID}` | Return a form definition.
 [**get-form-instance-by-key**](#get-form-instance-by-key) | **Get** `/form-instances/{formInstanceID}` | Returns a form instance.
-[**get-form-instance-file**](#get-form-instance-file) | **Get** `/form-instances/{formInstanceID}/file/{fileID}` | Download instance file by fileId.
+[**get-form-instance-file**](#get-form-instance-file) | **Get** `/form-instances/{formInstanceID}/file/{fileID}` | Download instance file by fileid.
 [**import-form-definitions**](#import-form-definitions) | **Post** `/form-definitions/import` | Import form definitions from export.
 [**patch-form-definition**](#patch-form-definition) | **Patch** `/form-definitions/{formDefinitionID}` | Patch a form definition.
 [**patch-form-instance**](#patch-form-instance) | **Patch** `/form-instances/{formInstanceID}` | Patch a form instance.
@@ -216,7 +216,7 @@ func main() {
 [[Back to top]](#)
 
 ## create-form-definition-dynamic-schema
-Generate JSON Schema dynamically.
+Generate json schema dynamically.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-form-definition-dynamic-schema)
@@ -570,7 +570,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-file-from-s3
-Download definition file by fileId.
+Download definition file by fileid.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-file-from-s3)
@@ -771,7 +771,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-form-instance-file
-Download instance file by fileId.
+Download instance file by fileid.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-form-instance-file)

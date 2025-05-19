@@ -17,13 +17,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-org-config**](#get-org-config) | **Get** `/org-config` | Get Org configuration settings
+[**get-org-config**](#get-org-config) | **Get** `/org-config` | Get org configuration settings
 [**get-valid-time-zones**](#get-valid-time-zones) | **Get** `/org-config/valid-time-zones` | Get list of time zones
-[**patch-org-config**](#patch-org-config) | **Patch** `/org-config` | Patch an Org configuration property
+[**patch-org-config**](#patch-org-config) | **Patch** `/org-config` | Patch an org configuration property
 
 
 ## get-org-config
-Get Org configuration settings
+Get org configuration settings
 Get org configuration with only external (org admin) accessible properties for the current org.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-org-config)
@@ -137,7 +137,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-org-config
-Patch an Org configuration property
+Patch an org configuration property
 Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-org-config)

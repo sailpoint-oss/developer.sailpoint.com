@@ -32,15 +32,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-segment**](#create-segment) | **Post** `/segments` | Create Segment
-[**delete-segment**](#delete-segment) | **Delete** `/segments/{id}` | Delete Segment by ID
-[**get-segment**](#get-segment) | **Get** `/segments/{id}` | Get Segment by ID
-[**list-segments**](#list-segments) | **Get** `/segments` | List Segments
-[**patch-segment**](#patch-segment) | **Patch** `/segments/{id}` | Update Segment
+[**create-segment**](#create-segment) | **Post** `/segments` | Create segment
+[**delete-segment**](#delete-segment) | **Delete** `/segments/{id}` | Delete segment by id
+[**get-segment**](#get-segment) | **Get** `/segments/{id}` | Get segment by id
+[**list-segments**](#list-segments) | **Get** `/segments` | List segments
+[**patch-segment**](#patch-segment) | **Patch** `/segments/{id}` | Update segment
 
 
 ## create-segment
-Create Segment
+Create segment
 This API creates a segment. 
 >**Note:** Segment definitions may take time to propagate to all identities.
 
@@ -131,7 +131,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-segment
-Delete Segment by ID
+Delete segment by id
 This API deletes the segment specified by the given ID.
 >**Note:** that segment deletion may take some time to become effective.    
 
@@ -197,7 +197,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-segment
-Get Segment by ID
+Get segment by id
 This API returns the segment specified by the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-segment)
@@ -263,7 +263,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-segments
-List Segments
+List segments
 This API returns a list of all segments. 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-segments)
@@ -329,7 +329,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-segment
-Update Segment
+Update segment
 Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 >**Note:** Changes to a segment may take some time to propagate to all identities.
 

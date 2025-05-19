@@ -80,35 +80,35 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**complete-campaign**](#complete-campaign) | **Post** `/campaigns/{id}/complete` | Complete a Campaign
-[**create-campaign**](#create-campaign) | **Post** `/campaigns` | Create Campaign
-[**create-campaign-template**](#create-campaign-template) | **Post** `/campaign-templates` | Create a Campaign Template
-[**delete-campaign-template**](#delete-campaign-template) | **Delete** `/campaign-templates/{id}` | Delete a Campaign Template
-[**delete-campaign-template-schedule**](#delete-campaign-template-schedule) | **Delete** `/campaign-templates/{id}/schedule` | Delete Campaign Template Schedule
-[**delete-campaigns**](#delete-campaigns) | **Post** `/campaigns/delete` | Delete Campaigns
-[**get-active-campaigns**](#get-active-campaigns) | **Get** `/campaigns` | List Campaigns
-[**get-campaign**](#get-campaign) | **Get** `/campaigns/{id}` | Get Campaign
-[**get-campaign-reports**](#get-campaign-reports) | **Get** `/campaigns/{id}/reports` | Get Campaign Reports
-[**get-campaign-reports-config**](#get-campaign-reports-config) | **Get** `/campaigns/reports-configuration` | Get Campaign Reports Configuration
-[**get-campaign-template**](#get-campaign-template) | **Get** `/campaign-templates/{id}` | Get a Campaign Template
-[**get-campaign-template-schedule**](#get-campaign-template-schedule) | **Get** `/campaign-templates/{id}/schedule` | Get Campaign Template Schedule
-[**get-campaign-templates**](#get-campaign-templates) | **Get** `/campaign-templates` | List Campaign Templates
-[**move**](#move) | **Post** `/campaigns/{id}/reassign` | Reassign Certifications
-[**patch-campaign-template**](#patch-campaign-template) | **Patch** `/campaign-templates/{id}` | Update a Campaign Template
-[**set-campaign-reports-config**](#set-campaign-reports-config) | **Put** `/campaigns/reports-configuration` | Set Campaign Reports Configuration
-[**set-campaign-template-schedule**](#set-campaign-template-schedule) | **Put** `/campaign-templates/{id}/schedule` | Set Campaign Template Schedule
-[**start-campaign**](#start-campaign) | **Post** `/campaigns/{id}/activate` | Activate a Campaign
-[**start-campaign-remediation-scan**](#start-campaign-remediation-scan) | **Post** `/campaigns/{id}/run-remediation-scan` | Run Campaign Remediation Scan
-[**start-campaign-report**](#start-campaign-report) | **Post** `/campaigns/{id}/run-report/{type}` | Run Campaign Report
-[**start-generate-campaign-template**](#start-generate-campaign-template) | **Post** `/campaign-templates/{id}/generate` | Generate a Campaign from Template
-[**update-campaign**](#update-campaign) | **Patch** `/campaigns/{id}` | Update a Campaign
+[**complete-campaign**](#complete-campaign) | **Post** `/campaigns/{id}/complete` | Complete a campaign
+[**create-campaign**](#create-campaign) | **Post** `/campaigns` | Create campaign
+[**create-campaign-template**](#create-campaign-template) | **Post** `/campaign-templates` | Create a campaign template
+[**delete-campaign-template**](#delete-campaign-template) | **Delete** `/campaign-templates/{id}` | Delete a campaign template
+[**delete-campaign-template-schedule**](#delete-campaign-template-schedule) | **Delete** `/campaign-templates/{id}/schedule` | Delete campaign template schedule
+[**delete-campaigns**](#delete-campaigns) | **Post** `/campaigns/delete` | Delete campaigns
+[**get-active-campaigns**](#get-active-campaigns) | **Get** `/campaigns` | List campaigns
+[**get-campaign**](#get-campaign) | **Get** `/campaigns/{id}` | Get campaign
+[**get-campaign-reports**](#get-campaign-reports) | **Get** `/campaigns/{id}/reports` | Get campaign reports
+[**get-campaign-reports-config**](#get-campaign-reports-config) | **Get** `/campaigns/reports-configuration` | Get campaign reports configuration
+[**get-campaign-template**](#get-campaign-template) | **Get** `/campaign-templates/{id}` | Get a campaign template
+[**get-campaign-template-schedule**](#get-campaign-template-schedule) | **Get** `/campaign-templates/{id}/schedule` | Get campaign template schedule
+[**get-campaign-templates**](#get-campaign-templates) | **Get** `/campaign-templates` | List campaign templates
+[**move**](#move) | **Post** `/campaigns/{id}/reassign` | Reassign certifications
+[**patch-campaign-template**](#patch-campaign-template) | **Patch** `/campaign-templates/{id}` | Update a campaign template
+[**set-campaign-reports-config**](#set-campaign-reports-config) | **Put** `/campaigns/reports-configuration` | Set campaign reports configuration
+[**set-campaign-template-schedule**](#set-campaign-template-schedule) | **Put** `/campaign-templates/{id}/schedule` | Set campaign template schedule
+[**start-campaign**](#start-campaign) | **Post** `/campaigns/{id}/activate` | Activate a campaign
+[**start-campaign-remediation-scan**](#start-campaign-remediation-scan) | **Post** `/campaigns/{id}/run-remediation-scan` | Run campaign remediation scan
+[**start-campaign-report**](#start-campaign-report) | **Post** `/campaigns/{id}/run-report/{type}` | Run campaign report
+[**start-generate-campaign-template**](#start-generate-campaign-template) | **Post** `/campaign-templates/{id}/generate` | Generate a campaign from template
+[**update-campaign**](#update-campaign) | **Patch** `/campaigns/{id}` | Update a campaign
 
 
 ## complete-campaign
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Complete a Campaign
+Complete a campaign
 :::caution
 
 This endpoint will run successfully for any campaigns that are **past due**.
@@ -193,7 +193,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Create Campaign
+Create campaign
 Use this API to create a certification campaign with the information provided in the request body. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/create-campaign).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
@@ -374,7 +374,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Create a Campaign Template
+Create a campaign template
 Use this API to create a campaign template based on campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/create-campaign-template).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
@@ -571,7 +571,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Delete a Campaign Template
+Delete a campaign template
 Use this API to delete a certification campaign template by ID. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/delete-campaign-template).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
@@ -642,7 +642,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Delete Campaign Template Schedule
+Delete campaign template schedule
 Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/delete-campaign-template-schedule).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
@@ -713,7 +713,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Delete Campaigns
+Delete campaigns
 Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/delete-campaigns).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
@@ -788,7 +788,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-List Campaigns
+List campaigns
 Use this API to get a list of campaigns. The API can provide increased level of detail for each campaign for the correct provided query. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-active-campaigns).
 
 A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
@@ -866,7 +866,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Get Campaign
+Get campaign
 Use this API to get information for an existing certification campaign by the campaign's ID. Though this endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
@@ -938,7 +938,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Get Campaign Reports
+Get campaign reports
 Use this API to fetch all reports for a certification campaign by campaign ID. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-reports).
 
 A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
@@ -1010,7 +1010,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Get Campaign Reports Configuration
+Get campaign reports configuration
 Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-reports-config).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
@@ -1073,7 +1073,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Get a Campaign Template
+Get a campaign template
 Use this API to fetch a certification campaign template by ID. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-template).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
@@ -1145,7 +1145,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Get Campaign Template Schedule
+Get campaign template schedule
 Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-template-schedule).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
@@ -1217,7 +1217,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-List Campaign Templates
+List campaign templates
 Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/list-campaign-templates).
 
 The endpoint returns all campaign templates matching the query parameters.
@@ -1295,7 +1295,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Reassign Certifications
+Reassign certifications
 This API reassigns the specified certifications from one identity to another.  Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/move).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
@@ -1381,7 +1381,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Update a Campaign Template
+Update a campaign template
 Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/patch-campaign-template).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
@@ -1460,7 +1460,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Set Campaign Reports Configuration
+Set campaign reports configuration
 Use this API to overwrite the configuration for campaign reports. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/set-campaign-reports-config).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
@@ -1535,7 +1535,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Set Campaign Template Schedule
+Set campaign template schedule
 Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one. 
 Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/set-campaign-template-schedule).
 
@@ -1628,7 +1628,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Activate a Campaign
+Activate a campaign
 Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-campaign).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.
@@ -1704,7 +1704,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Run Campaign Remediation Scan
+Run campaign remediation scan
 Use this API to run a remediation scan task for a certification campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-campaign-remediation-scan).
 
 A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
@@ -1776,7 +1776,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Run Campaign Report
+Run campaign report
 Use this API to run a report for a certification campaign. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/start-campaign-report).
 
 A token with ORG_ADMIN, CERT_ADMIN or REPORT_ADMIN authority is required to call this API.
@@ -1851,7 +1851,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Generate a Campaign from Template
+Generate a campaign from template
 Use this API to generate a new certification campaign from a campaign template.
 
 The campaign object contained in the template has special formatting applied to its name and description
@@ -1935,7 +1935,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Update a Campaign
+Update a campaign
 Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Though this endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/update-campaign).
 
 A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API.

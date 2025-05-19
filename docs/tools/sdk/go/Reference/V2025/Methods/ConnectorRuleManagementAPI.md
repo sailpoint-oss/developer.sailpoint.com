@@ -22,16 +22,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-connector-rule**](#create-connector-rule) | **Post** `/connector-rules` | Create Connector Rule
-[**delete-connector-rule**](#delete-connector-rule) | **Delete** `/connector-rules/{id}` | Delete Connector Rule
-[**get-connector-rule**](#get-connector-rule) | **Get** `/connector-rules/{id}` | Get Connector Rule
-[**get-connector-rule-list**](#get-connector-rule-list) | **Get** `/connector-rules` | List Connector Rules
-[**put-connector-rule**](#put-connector-rule) | **Put** `/connector-rules/{id}` | Update Connector Rule
-[**test-connector-rule**](#test-connector-rule) | **Post** `/connector-rules/validate` | Validate Connector Rule
+[**create-connector-rule**](#create-connector-rule) | **Post** `/connector-rules` | Create connector rule
+[**delete-connector-rule**](#delete-connector-rule) | **Delete** `/connector-rules/{id}` | Delete connector rule
+[**get-connector-rule**](#get-connector-rule) | **Get** `/connector-rules/{id}` | Get connector rule
+[**get-connector-rule-list**](#get-connector-rule-list) | **Get** `/connector-rules` | List connector rules
+[**put-connector-rule**](#put-connector-rule) | **Put** `/connector-rules/{id}` | Update connector rule
+[**test-connector-rule**](#test-connector-rule) | **Post** `/connector-rules/validate` | Validate connector rule
 
 
 ## create-connector-rule
-Create Connector Rule
+Create connector rule
 Create a connector rule from the available types.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-connector-rule)
@@ -123,7 +123,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-connector-rule
-Delete Connector Rule
+Delete connector rule
 Delete the connector rule for the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-connector-rule)
@@ -188,7 +188,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-connector-rule
-Get Connector Rule
+Get connector rule
 Get a connector rule by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-connector-rule)
@@ -254,7 +254,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-connector-rule-list
-List Connector Rules
+List connector rules
 List existing connector rules.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-connector-rule-list)
@@ -320,7 +320,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-connector-rule
-Update Connector Rule
+Update connector rule
 Update an existing connector rule with the one provided in the request body. These fields are immutable: `id`, `name`, `type`
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/put-connector-rule)
@@ -414,7 +414,7 @@ func main() {
 [[Back to top]](#)
 
 ## test-connector-rule
-Validate Connector Rule
+Validate connector rule
 Detect issues within the connector rule's code to fix and list them.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/test-connector-rule)

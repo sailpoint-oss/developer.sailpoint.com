@@ -15,11 +15,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-pending-task-headers**](#get-pending-task-headers) | **Head** `/task-status/pending-tasks` | Retrieve Pending Task List Headers
-[**get-pending-tasks**](#get-pending-tasks) | **Get** `/task-status/pending-tasks` | Retrieve Pending Task Status List
-[**get-task-status**](#get-task-status) | **Get** `/task-status/{id}` | Get Task Status by ID
-[**get-task-status-list**](#get-task-status-list) | **Get** `/task-status` | Retrieve Task Status List
-[**update-task-status**](#update-task-status) | **Patch** `/task-status/{id}` | Update Task Status by ID
+[**get-pending-task-headers**](#get-pending-task-headers) | **Head** `/task-status/pending-tasks` | Retrieve pending task list headers
+[**get-pending-tasks**](#get-pending-tasks) | **Get** `/task-status/pending-tasks` | Retrieve pending task status list
+[**get-task-status**](#get-task-status) | **Get** `/task-status/{id}` | Get task status by id
+[**get-task-status-list**](#get-task-status-list) | **Get** `/task-status` | Retrieve task status list
+[**update-task-status**](#update-task-status) | **Patch** `/task-status/{id}` | Update task status by id
 
 
 ## get-pending-task-headers
@@ -34,7 +34,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Retrieve Pending Task List Headers
+Retrieve pending task list headers
 Responds with headers only for list of task statuses for pending tasks.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-pending-task-headers)
@@ -112,7 +112,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Retrieve Pending Task Status List
+Retrieve pending task status list
 Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-pending-tasks)
@@ -191,7 +191,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Task Status by ID
+Get task status by id
 Get task status by task ID. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-task-status)
@@ -270,7 +270,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Retrieve Task Status List
+Retrieve task status list
 Use this endpoint to get a list of statuses for **completed** tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. To get a list of statuses for **in-progress** tasks, please use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/v2024/get-pending-tasks) endpoint.
 
 
@@ -354,7 +354,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Update Task Status by ID
+Update task status by id
 Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-task-status)

@@ -15,13 +15,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete-machine-classification-config**](#delete-machine-classification-config) | **Delete** `/sources/{sourceId}/machine-classification-config` | Delete Source&#39;s Classification Config
-[**get-machine-classification-config**](#get-machine-classification-config) | **Get** `/sources/{sourceId}/machine-classification-config` | Machine Classification Config for Source
-[**set-machine-classification-config**](#set-machine-classification-config) | **Put** `/sources/{sourceId}/machine-classification-config` | Update Source&#39;s Classification Config
+[**delete-machine-classification-config**](#delete-machine-classification-config) | **Delete** `/sources/{sourceId}/machine-classification-config` | Delete source&#39;s classification config
+[**get-machine-classification-config**](#get-machine-classification-config) | **Get** `/sources/{sourceId}/machine-classification-config` | Machine classification config for source
+[**set-machine-classification-config**](#set-machine-classification-config) | **Put** `/sources/{sourceId}/machine-classification-config` | Update source&#39;s classification config
 
 
 ## delete-machine-classification-config
-Delete Source's Classification Config
+Delete source's classification config
 Use this API to remove Classification Config for a Source. 
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
@@ -87,7 +87,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-machine-classification-config
-Machine Classification Config for Source
+Machine classification config for source
 This API returns a Machine Classification Config for a Source using Source ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-machine-classification-config)
@@ -153,7 +153,7 @@ func main() {
 [[Back to top]](#)
 
 ## set-machine-classification-config
-Update Source's Classification Config
+Update source's classification config
 Use this API to update Classification Config for a Source. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/set-machine-classification-config)

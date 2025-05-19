@@ -17,17 +17,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-managed-cluster**](#create-managed-cluster) | **Post** `/managed-clusters` | Create Create Managed Cluster
-[**delete-managed-cluster**](#delete-managed-cluster) | **Delete** `/managed-clusters/{id}` | Delete Managed Cluster
-[**get-client-log-configuration**](#get-client-log-configuration) | **Get** `/managed-clusters/{id}/log-config` | Get Managed Cluster Log Configuration
-[**get-managed-cluster**](#get-managed-cluster) | **Get** `/managed-clusters/{id}` | Get Managed Cluster
-[**get-managed-clusters**](#get-managed-clusters) | **Get** `/managed-clusters` | Get Managed Clusters
-[**put-client-log-configuration**](#put-client-log-configuration) | **Put** `/managed-clusters/{id}/log-config` | Update Managed Cluster Log Configuration
-[**update-managed-cluster**](#update-managed-cluster) | **Patch** `/managed-clusters/{id}` | Update Managed Cluster
+[**create-managed-cluster**](#create-managed-cluster) | **Post** `/managed-clusters` | Create create managed cluster
+[**delete-managed-cluster**](#delete-managed-cluster) | **Delete** `/managed-clusters/{id}` | Delete managed cluster
+[**get-client-log-configuration**](#get-client-log-configuration) | **Get** `/managed-clusters/{id}/log-config` | Get managed cluster log configuration
+[**get-managed-cluster**](#get-managed-cluster) | **Get** `/managed-clusters/{id}` | Get managed cluster
+[**get-managed-clusters**](#get-managed-clusters) | **Get** `/managed-clusters` | Get managed clusters
+[**put-client-log-configuration**](#put-client-log-configuration) | **Put** `/managed-clusters/{id}/log-config` | Update managed cluster log configuration
+[**update-managed-cluster**](#update-managed-cluster) | **Patch** `/managed-clusters/{id}` | Update managed cluster
 
 
 ## create-managed-cluster
-Create Create Managed Cluster
+Create create managed cluster
 Create a new Managed Cluster.
 The API returns a result that includes the managed cluster ID.
 
@@ -103,7 +103,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-managed-cluster
-Delete Managed Cluster
+Delete managed cluster
 Delete an existing managed cluster.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-managed-cluster)
@@ -170,7 +170,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-client-log-configuration
-Get Managed Cluster Log Configuration
+Get managed cluster log configuration
 Get a managed cluster's log configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-client-log-configuration)
@@ -236,7 +236,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-managed-cluster
-Get Managed Cluster
+Get managed cluster
 Get a managed cluster by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-managed-cluster)
@@ -302,7 +302,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-managed-clusters
-Get Managed Clusters
+Get managed clusters
 List current organization's managed clusters, based on request context.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-managed-clusters)
@@ -370,7 +370,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-client-log-configuration
-Update Managed Cluster Log Configuration
+Update managed cluster log configuration
 Update a managed cluster's log configuration. You may only specify one of `durationMinutes` or `expiration`, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` is 240.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/put-client-log-configuration)
@@ -443,7 +443,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-managed-cluster
-Update Managed Cluster
+Update managed cluster
 Update an existing managed cluster.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/update-managed-cluster)

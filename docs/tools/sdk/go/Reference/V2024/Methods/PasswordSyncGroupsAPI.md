@@ -47,15 +47,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-password-sync-group**](#create-password-sync-group) | **Post** `/password-sync-groups` | Create Password Sync Group
-[**delete-password-sync-group**](#delete-password-sync-group) | **Delete** `/password-sync-groups/{id}` | Delete Password Sync Group by ID
-[**get-password-sync-group**](#get-password-sync-group) | **Get** `/password-sync-groups/{id}` | Get Password Sync Group by ID
-[**get-password-sync-groups**](#get-password-sync-groups) | **Get** `/password-sync-groups` | Get Password Sync Group List
-[**update-password-sync-group**](#update-password-sync-group) | **Put** `/password-sync-groups/{id}` | Update Password Sync Group by ID
+[**create-password-sync-group**](#create-password-sync-group) | **Post** `/password-sync-groups` | Create password sync group
+[**delete-password-sync-group**](#delete-password-sync-group) | **Delete** `/password-sync-groups/{id}` | Delete password sync group by id
+[**get-password-sync-group**](#get-password-sync-group) | **Get** `/password-sync-groups/{id}` | Get password sync group by id
+[**get-password-sync-groups**](#get-password-sync-groups) | **Get** `/password-sync-groups` | Get password sync group list
+[**update-password-sync-group**](#update-password-sync-group) | **Put** `/password-sync-groups/{id}` | Update password sync group by id
 
 
 ## create-password-sync-group
-Create Password Sync Group
+Create password sync group
 This API creates a password sync group based on the specifications provided.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-password-sync-group)
@@ -129,7 +129,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-password-sync-group
-Delete Password Sync Group by ID
+Delete password sync group by id
 This API deletes the specified password sync group.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-password-sync-group)
@@ -194,7 +194,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-password-sync-group
-Get Password Sync Group by ID
+Get password sync group by id
 This API returns the sync group for the specified ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-password-sync-group)
@@ -260,7 +260,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-password-sync-groups
-Get Password Sync Group List
+Get password sync group list
 This API returns a list of password sync groups.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-password-sync-groups)
@@ -326,7 +326,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-password-sync-group
-Update Password Sync Group by ID
+Update password sync group by id
 This API updates the specified password sync group.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-password-sync-group)

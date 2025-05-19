@@ -25,12 +25,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-public-identity-config**](#get-public-identity-config) | **Get** `/public-identities-config` | Get the Public Identities Configuration
-[**update-public-identity-config**](#update-public-identity-config) | **Put** `/public-identities-config` | Update the Public Identities Configuration
+[**get-public-identity-config**](#get-public-identity-config) | **Get** `/public-identities-config` | Get the public identities configuration
+[**update-public-identity-config**](#update-public-identity-config) | **Put** `/public-identities-config` | Update the public identities configuration
 
 
 ## get-public-identity-config
-Get the Public Identities Configuration
+Get the public identities configuration
 Returns the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-public-identity-config)
@@ -87,7 +87,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-public-identity-config
-Update the Public Identities Configuration
+Update the public identities configuration
 Updates the publicly visible attributes of an identity available to request approvers for Access Requests and Certification Campaigns.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/update-public-identity-config)

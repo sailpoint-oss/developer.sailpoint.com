@@ -25,14 +25,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-access-model-metadata-attribute**](#get-access-model-metadata-attribute) | **Get** `/access-model-metadata/attributes/{key}` | Get Access Model Metadata Attribute
-[**get-access-model-metadata-attribute-value**](#get-access-model-metadata-attribute-value) | **Get** `/access-model-metadata/attributes/{key}/values/{value}` | Get Access Model Metadata Value
-[**list-access-model-metadata-attribute**](#list-access-model-metadata-attribute) | **Get** `/access-model-metadata/attributes` | List Access Model Metadata Attributes
-[**list-access-model-metadata-attribute-value**](#list-access-model-metadata-attribute-value) | **Get** `/access-model-metadata/attributes/{key}/values` | List Access Model Metadata Values
+[**get-access-model-metadata-attribute**](#get-access-model-metadata-attribute) | **Get** `/access-model-metadata/attributes/{key}` | Get access model metadata attribute
+[**get-access-model-metadata-attribute-value**](#get-access-model-metadata-attribute-value) | **Get** `/access-model-metadata/attributes/{key}/values/{value}` | Get access model metadata value
+[**list-access-model-metadata-attribute**](#list-access-model-metadata-attribute) | **Get** `/access-model-metadata/attributes` | List access model metadata attributes
+[**list-access-model-metadata-attribute-value**](#list-access-model-metadata-attribute-value) | **Get** `/access-model-metadata/attributes/{key}/values` | List access model metadata values
 
 
 ## get-access-model-metadata-attribute
-Get Access Model Metadata Attribute
+Get access model metadata attribute
 Get single Access Model Metadata Attribute
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-model-metadata-attribute)
@@ -98,7 +98,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-access-model-metadata-attribute-value
-Get Access Model Metadata Value
+Get access model metadata value
 Get single Access Model Metadata Attribute Value
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-model-metadata-attribute-value)
@@ -167,7 +167,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-access-model-metadata-attribute
-List Access Model Metadata Attributes
+List access model metadata attributes
 Get a list of Access Model Metadata Attributes
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-access-model-metadata-attribute)
@@ -229,7 +229,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-access-model-metadata-attribute-value
-List Access Model Metadata Values
+List access model metadata values
 Get a list of Access Model Metadata Attribute Values
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-access-model-metadata-attribute-value)

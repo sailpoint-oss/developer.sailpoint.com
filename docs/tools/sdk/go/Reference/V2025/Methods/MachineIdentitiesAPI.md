@@ -15,11 +15,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-machine-identity**](#create-machine-identity) | **Post** `/machine-identities` | Create Machine Identities
+[**create-machine-identity**](#create-machine-identity) | **Post** `/machine-identities` | Create machine identities
 [**delete-machine-identity**](#delete-machine-identity) | **Delete** `/machine-identities/{id}` | Delete machine identity
-[**get-machine-identity**](#get-machine-identity) | **Get** `/machine-identities/{id}` | Machine Identity Details
-[**list-machine-identities**](#list-machine-identities) | **Get** `/machine-identities` | List Machine Identities
-[**update-machine-identity**](#update-machine-identity) | **Patch** `/machine-identities/{id}` | Update a Machine Identity
+[**get-machine-identity**](#get-machine-identity) | **Get** `/machine-identities/{id}` | Machine identity details
+[**list-machine-identities**](#list-machine-identities) | **Get** `/machine-identities` | List machine identities
+[**update-machine-identity**](#update-machine-identity) | **Patch** `/machine-identities/{id}` | Update a machine identity
 
 
 ## create-machine-identity
@@ -34,7 +34,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Create Machine Identities
+Create machine identities
 Use this API to create a machine identity.
 The maximum supported length for the description field is 2000 characters.
 
@@ -202,7 +202,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Machine Identity Details
+Machine identity details
 This API returns a single machine identity using the Machine Identity ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-machine-identity)
@@ -281,7 +281,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Machine Identities
+List machine identities
 This API returns a list of machine identities.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-machine-identities)
@@ -364,7 +364,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Update a Machine Identity
+Update a machine identity
 Use this API to update machine identity details.
 
 

@@ -29,23 +29,23 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-custom-connector**](#create-custom-connector) | **Post** `/connectors` | Create Custom Connector
-[**delete-custom-connector**](#delete-custom-connector) | **Delete** `/connectors/{scriptName}` | Delete Connector by Script Name
-[**get-connector**](#get-connector) | **Get** `/connectors/{scriptName}` | Get Connector by Script Name
-[**get-connector-correlation-config**](#get-connector-correlation-config) | **Get** `/connectors/{scriptName}/correlation-config` | Get Connector Correlation Configuration
-[**get-connector-list**](#get-connector-list) | **Get** `/connectors` | Get Connector List
-[**get-connector-source-config**](#get-connector-source-config) | **Get** `/connectors/{scriptName}/source-config` | Get Connector Source Configuration
-[**get-connector-source-template**](#get-connector-source-template) | **Get** `/connectors/{scriptName}/source-template` | Get Connector Source Template
-[**get-connector-translations**](#get-connector-translations) | **Get** `/connectors/{scriptName}/translations/{locale}` | Get Connector Translations
-[**put-connector-correlation-config**](#put-connector-correlation-config) | **Put** `/connectors/{scriptName}/correlation-config` | Update Connector Correlation Configuration
-[**put-connector-source-config**](#put-connector-source-config) | **Put** `/connectors/{scriptName}/source-config` | Update Connector Source Configuration
-[**put-connector-source-template**](#put-connector-source-template) | **Put** `/connectors/{scriptName}/source-template` | Update Connector Source Template
-[**put-connector-translations**](#put-connector-translations) | **Put** `/connectors/{scriptName}/translations/{locale}` | Update Connector Translations
-[**update-connector**](#update-connector) | **Patch** `/connectors/{scriptName}` | Update Connector by Script Name
+[**create-custom-connector**](#create-custom-connector) | **Post** `/connectors` | Create custom connector
+[**delete-custom-connector**](#delete-custom-connector) | **Delete** `/connectors/{scriptName}` | Delete connector by script name
+[**get-connector**](#get-connector) | **Get** `/connectors/{scriptName}` | Get connector by script name
+[**get-connector-correlation-config**](#get-connector-correlation-config) | **Get** `/connectors/{scriptName}/correlation-config` | Get connector correlation configuration
+[**get-connector-list**](#get-connector-list) | **Get** `/connectors` | Get connector list
+[**get-connector-source-config**](#get-connector-source-config) | **Get** `/connectors/{scriptName}/source-config` | Get connector source configuration
+[**get-connector-source-template**](#get-connector-source-template) | **Get** `/connectors/{scriptName}/source-template` | Get connector source template
+[**get-connector-translations**](#get-connector-translations) | **Get** `/connectors/{scriptName}/translations/{locale}` | Get connector translations
+[**put-connector-correlation-config**](#put-connector-correlation-config) | **Put** `/connectors/{scriptName}/correlation-config` | Update connector correlation configuration
+[**put-connector-source-config**](#put-connector-source-config) | **Put** `/connectors/{scriptName}/source-config` | Update connector source configuration
+[**put-connector-source-template**](#put-connector-source-template) | **Put** `/connectors/{scriptName}/source-template` | Update connector source template
+[**put-connector-translations**](#put-connector-translations) | **Put** `/connectors/{scriptName}/translations/{locale}` | Update connector translations
+[**update-connector**](#update-connector) | **Patch** `/connectors/{scriptName}` | Update connector by script name
 
 
 ## create-custom-connector
-Create Custom Connector
+Create custom connector
 Create custom connector.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-custom-connector)
@@ -118,7 +118,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-custom-connector
-Delete Connector by Script Name
+Delete connector by script name
 Delete a custom connector that using its script name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-custom-connector)
@@ -183,7 +183,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-connector
-Get Connector by Script Name
+Get connector by script name
 Fetches a connector that using its script name.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-connector)
@@ -251,7 +251,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-connector-correlation-config
-Get Connector Correlation Configuration
+Get connector correlation configuration
 Fetches a connector's correlation config using its script name.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-connector-correlation-config)
@@ -317,7 +317,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-connector-list
-Get Connector List
+Get connector list
 Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-connector-list)
@@ -387,7 +387,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-connector-source-config
-Get Connector Source Configuration
+Get connector source configuration
 Fetches a connector's source config using its script name.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-connector-source-config)
@@ -453,7 +453,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-connector-source-template
-Get Connector Source Template
+Get connector source template
 Fetches a connector's source template using its script name.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-connector-source-template)
@@ -519,7 +519,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-connector-translations
-Get Connector Translations
+Get connector translations
 Fetches a connector's translations using its script name.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-connector-translations)
@@ -588,7 +588,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-connector-correlation-config
-Update Connector Correlation Configuration
+Update connector correlation configuration
 Update a connector's correlation config using its script name.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/put-connector-correlation-config)
@@ -656,7 +656,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-connector-source-config
-Update Connector Source Configuration
+Update connector source configuration
 Update a connector's source config using its script name.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/put-connector-source-config)
@@ -724,7 +724,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-connector-source-template
-Update Connector Source Template
+Update connector source template
 Update a connector's source template using its script name.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/put-connector-source-template)
@@ -792,7 +792,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-connector-translations
-Update Connector Translations
+Update connector translations
 Update a connector's translations using its script name.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/put-connector-translations)
@@ -861,7 +861,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-connector
-Update Connector by Script Name
+Update connector by script name
 This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
 The following fields are patchable:

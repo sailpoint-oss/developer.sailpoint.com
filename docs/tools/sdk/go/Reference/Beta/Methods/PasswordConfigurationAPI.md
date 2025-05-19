@@ -21,13 +21,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-password-org-config**](#create-password-org-config) | **Post** `/password-org-config` | Create Password Org Config
-[**get-password-org-config**](#get-password-org-config) | **Get** `/password-org-config` | Get Password Org Config
-[**put-password-org-config**](#put-password-org-config) | **Put** `/password-org-config` | Update Password Org Config
+[**create-password-org-config**](#create-password-org-config) | **Post** `/password-org-config` | Create password org config
+[**get-password-org-config**](#get-password-org-config) | **Get** `/password-org-config` | Get password org config
+[**put-password-org-config**](#put-password-org-config) | **Put** `/password-org-config` | Update password org config
 
 
 ## create-password-org-config
-Create Password Org Config
+Create password org config
 This API creates the password org config. Unspecified fields will use default value.
 To be able to use the custom password instructions, you must set the `customInstructionsEnabled` field to "true".
 Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:write'
@@ -101,7 +101,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-password-org-config
-Get Password Org Config
+Get password org config
 This API returns the password org config . Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:read'
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-password-org-config)
@@ -158,7 +158,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-password-org-config
-Update Password Org Config
+Update password org config
 This API updates the password org config for specified fields. Other fields will keep original value.
 You must set the `customInstructionsEnabled` field to "true" to be able to use custom password instructions. 
 Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:write'

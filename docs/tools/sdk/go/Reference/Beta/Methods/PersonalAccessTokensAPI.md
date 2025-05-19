@@ -26,14 +26,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-personal-access-token**](#create-personal-access-token) | **Post** `/personal-access-tokens` | Create Personal Access Token
-[**delete-personal-access-token**](#delete-personal-access-token) | **Delete** `/personal-access-tokens/{id}` | Delete Personal Access Token
-[**list-personal-access-tokens**](#list-personal-access-tokens) | **Get** `/personal-access-tokens` | List Personal Access Tokens
-[**patch-personal-access-token**](#patch-personal-access-token) | **Patch** `/personal-access-tokens/{id}` | Patch Personal Access Token
+[**create-personal-access-token**](#create-personal-access-token) | **Post** `/personal-access-tokens` | Create personal access token
+[**delete-personal-access-token**](#delete-personal-access-token) | **Delete** `/personal-access-tokens/{id}` | Delete personal access token
+[**list-personal-access-tokens**](#list-personal-access-tokens) | **Get** `/personal-access-tokens` | List personal access tokens
+[**patch-personal-access-token**](#patch-personal-access-token) | **Patch** `/personal-access-tokens/{id}` | Patch personal access token
 
 
 ## create-personal-access-token
-Create Personal Access Token
+Create personal access token
 This creates a personal access token.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-personal-access-token)
@@ -104,7 +104,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-personal-access-token
-Delete Personal Access Token
+Delete personal access token
 This deletes a personal access token.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-personal-access-token)
@@ -169,7 +169,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-personal-access-tokens
-List Personal Access Tokens
+List personal access tokens
 This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the 'idn:all-personal-access-tokens:read' right.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-personal-access-tokens)
@@ -233,7 +233,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-personal-access-token
-Patch Personal Access Token
+Patch personal access token
 This performs a targeted update to the field(s) of a Personal Access Token.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-personal-access-token)

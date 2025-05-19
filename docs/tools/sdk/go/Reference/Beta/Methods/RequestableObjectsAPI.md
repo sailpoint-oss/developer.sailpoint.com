@@ -18,11 +18,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list-requestable-objects**](#list-requestable-objects) | **Get** `/requestable-objects` | Requestable Objects List
+[**list-requestable-objects**](#list-requestable-objects) | **Get** `/requestable-objects` | Requestable objects list
 
 
 ## list-requestable-objects
-Requestable Objects List
+Requestable objects list
 Get a list of acccess items that can be requested through the [Access Request endpoints](https://developer.sailpoint.com/docs/api/v3/access-requests). Access items are marked with `AVAILABLE`, `PENDING` or `ASSIGNED` with respect to the identity provided using `identity-id` query parameter.
 Any authenticated token can call this endpoint to see their requestable access items.
 

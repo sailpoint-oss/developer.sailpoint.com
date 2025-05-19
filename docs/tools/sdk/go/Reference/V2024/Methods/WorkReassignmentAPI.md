@@ -25,15 +25,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-reassignment-configuration**](#create-reassignment-configuration) | **Post** `/reassignment-configurations` | Create a Reassignment Configuration
-[**delete-reassignment-configuration**](#delete-reassignment-configuration) | **Delete** `/reassignment-configurations/{identityId}/{configType}` | Delete Reassignment Configuration
-[**get-evaluate-reassignment-configuration**](#get-evaluate-reassignment-configuration) | **Get** `/reassignment-configurations/{identityId}/evaluate/{configType}` | Evaluate Reassignment Configuration
-[**get-reassignment-config-types**](#get-reassignment-config-types) | **Get** `/reassignment-configurations/types` | List Reassignment Config Types
-[**get-reassignment-configuration**](#get-reassignment-configuration) | **Get** `/reassignment-configurations/{identityId}` | Get Reassignment Configuration
-[**get-tenant-config-configuration**](#get-tenant-config-configuration) | **Get** `/reassignment-configurations/tenant-config` | Get Tenant-wide Reassignment Configuration settings
-[**list-reassignment-configurations**](#list-reassignment-configurations) | **Get** `/reassignment-configurations` | List Reassignment Configurations
-[**put-reassignment-config**](#put-reassignment-config) | **Put** `/reassignment-configurations/{identityId}` | Update Reassignment Configuration
-[**put-tenant-configuration**](#put-tenant-configuration) | **Put** `/reassignment-configurations/tenant-config` | Update Tenant-wide Reassignment Configuration settings
+[**create-reassignment-configuration**](#create-reassignment-configuration) | **Post** `/reassignment-configurations` | Create a reassignment configuration
+[**delete-reassignment-configuration**](#delete-reassignment-configuration) | **Delete** `/reassignment-configurations/{identityId}/{configType}` | Delete reassignment configuration
+[**get-evaluate-reassignment-configuration**](#get-evaluate-reassignment-configuration) | **Get** `/reassignment-configurations/{identityId}/evaluate/{configType}` | Evaluate reassignment configuration
+[**get-reassignment-config-types**](#get-reassignment-config-types) | **Get** `/reassignment-configurations/types` | List reassignment config types
+[**get-reassignment-configuration**](#get-reassignment-configuration) | **Get** `/reassignment-configurations/{identityId}` | Get reassignment configuration
+[**get-tenant-config-configuration**](#get-tenant-config-configuration) | **Get** `/reassignment-configurations/tenant-config` | Get tenant-wide reassignment configuration settings
+[**list-reassignment-configurations**](#list-reassignment-configurations) | **Get** `/reassignment-configurations` | List reassignment configurations
+[**put-reassignment-config**](#put-reassignment-config) | **Put** `/reassignment-configurations/{identityId}` | Update reassignment configuration
+[**put-tenant-configuration**](#put-tenant-configuration) | **Put** `/reassignment-configurations/tenant-config` | Update tenant-wide reassignment configuration settings
 
 
 ## create-reassignment-configuration
@@ -48,7 +48,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Create a Reassignment Configuration
+Create a reassignment configuration
 Creates a new Reassignment Configuration for the specified identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-reassignment-configuration)
@@ -134,7 +134,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Delete Reassignment Configuration
+Delete reassignment configuration
 Deletes a single reassignment configuration for the specified identity
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-reassignment-configuration)
@@ -215,7 +215,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Evaluate Reassignment Configuration
+Evaluate reassignment configuration
 Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-evaluate-reassignment-configuration)
@@ -299,7 +299,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Reassignment Config Types
+List reassignment config types
 Gets a collection of types which are available in the Reassignment Configuration UI.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-reassignment-config-types)
@@ -372,7 +372,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Reassignment Configuration
+Get reassignment configuration
 Gets the Reassignment Configuration for an identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-reassignment-configuration)
@@ -451,7 +451,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Tenant-wide Reassignment Configuration settings
+Get tenant-wide reassignment configuration settings
 Gets the global Reassignment Configuration settings for the requestor's tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-tenant-config-configuration)
@@ -524,7 +524,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Reassignment Configurations
+List reassignment configurations
 Gets all Reassignment configuration for the current org.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-reassignment-configurations)
@@ -597,7 +597,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Update Reassignment Configuration
+Update reassignment configuration
 Replaces existing Reassignment configuration for an identity with the newly provided configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-reassignment-config)
@@ -689,7 +689,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Update Tenant-wide Reassignment Configuration settings
+Update tenant-wide reassignment configuration settings
 Replaces existing Tenant-wide Reassignment Configuration settings with the newly provided settings.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-tenant-configuration)

@@ -42,26 +42,26 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-account**](#create-account) | **Post** `/accounts` | Create Account
-[**delete-account**](#delete-account) | **Delete** `/accounts/{id}` | Delete Account
-[**delete-account-async**](#delete-account-async) | **Post** `/accounts/{id}/remove` | Remove Account
-[**disable-account**](#disable-account) | **Post** `/accounts/{id}/disable` | Disable Account
-[**disable-account-for-identity**](#disable-account-for-identity) | **Post** `/identities-accounts/{id}/disable` | Disable IDN Account for Identity
-[**disable-accounts-for-identities**](#disable-accounts-for-identities) | **Post** `/identities-accounts/disable` | Disable IDN Accounts for Identities
-[**enable-account**](#enable-account) | **Post** `/accounts/{id}/enable` | Enable Account
-[**enable-account-for-identity**](#enable-account-for-identity) | **Post** `/identities-accounts/{id}/enable` | Enable IDN Account for Identity
-[**enable-accounts-for-identities**](#enable-accounts-for-identities) | **Post** `/identities-accounts/enable` | Enable IDN Accounts for Identities
-[**get-account**](#get-account) | **Get** `/accounts/{id}` | Account Details
-[**get-account-entitlements**](#get-account-entitlements) | **Get** `/accounts/{id}/entitlements` | Account Entitlements
-[**list-accounts**](#list-accounts) | **Get** `/accounts` | Accounts List
-[**put-account**](#put-account) | **Put** `/accounts/{id}` | Update Account
-[**submit-reload-account**](#submit-reload-account) | **Post** `/accounts/{id}/reload` | Reload Account
-[**unlock-account**](#unlock-account) | **Post** `/accounts/{id}/unlock` | Unlock Account
-[**update-account**](#update-account) | **Patch** `/accounts/{id}` | Update Account
+[**create-account**](#create-account) | **Post** `/accounts` | Create account
+[**delete-account**](#delete-account) | **Delete** `/accounts/{id}` | Delete account
+[**delete-account-async**](#delete-account-async) | **Post** `/accounts/{id}/remove` | Remove account
+[**disable-account**](#disable-account) | **Post** `/accounts/{id}/disable` | Disable account
+[**disable-account-for-identity**](#disable-account-for-identity) | **Post** `/identities-accounts/{id}/disable` | Disable idn account for identity
+[**disable-accounts-for-identities**](#disable-accounts-for-identities) | **Post** `/identities-accounts/disable` | Disable idn accounts for identities
+[**enable-account**](#enable-account) | **Post** `/accounts/{id}/enable` | Enable account
+[**enable-account-for-identity**](#enable-account-for-identity) | **Post** `/identities-accounts/{id}/enable` | Enable idn account for identity
+[**enable-accounts-for-identities**](#enable-accounts-for-identities) | **Post** `/identities-accounts/enable` | Enable idn accounts for identities
+[**get-account**](#get-account) | **Get** `/accounts/{id}` | Account details
+[**get-account-entitlements**](#get-account-entitlements) | **Get** `/accounts/{id}/entitlements` | Account entitlements
+[**list-accounts**](#list-accounts) | **Get** `/accounts` | Accounts list
+[**put-account**](#put-account) | **Put** `/accounts/{id}` | Update account
+[**submit-reload-account**](#submit-reload-account) | **Post** `/accounts/{id}/reload` | Reload account
+[**unlock-account**](#unlock-account) | **Post** `/accounts/{id}/unlock` | Unlock account
+[**update-account**](#update-account) | **Patch** `/accounts/{id}` | Update account
 
 
 ## create-account
-Create Account
+Create account
 Submit an account creation task - the API then returns the task ID.  
 
 You must include the `sourceId` where the account will be created in the `attributes` object.
@@ -148,7 +148,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-account
-Delete Account
+Delete account
 Use this API to delete an account. 
 This endpoint submits an account delete task and returns the task ID. 
 This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account's returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future. 
@@ -228,7 +228,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Remove Account
+Remove account
 Use this endpoint to remove accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.
 
 This endpoint is good for:
@@ -302,7 +302,7 @@ func main() {
 [[Back to top]](#)
 
 ## disable-account
-Disable Account
+Disable account
 This API submits a task to disable the account and returns the task ID.      
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/disable-account)
@@ -389,7 +389,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Disable IDN Account for Identity
+Disable idn account for identity
 This API submits a task to disable IDN account for a single identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/disable-account-for-identity)
@@ -468,7 +468,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Disable IDN Accounts for Identities
+Disable idn accounts for identities
 This API submits tasks to disable IDN account for each identity provided in the request body.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/disable-accounts-for-identities)
@@ -539,7 +539,7 @@ func main() {
 [[Back to top]](#)
 
 ## enable-account
-Enable Account
+Enable account
 This API submits a task to enable account and returns the task ID.      
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/enable-account)
@@ -626,7 +626,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Enable IDN Account for Identity
+Enable idn account for identity
 This API submits a task to enable IDN account for a single identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/enable-account-for-identity)
@@ -705,7 +705,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Enable IDN Accounts for Identities
+Enable idn accounts for identities
 This API submits tasks to enable IDN account for each identity provided in the request body.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/enable-accounts-for-identities)
@@ -776,7 +776,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-account
-Account Details
+Account details
 Use this API to return the details for a single account by its ID.  
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-account)
@@ -842,7 +842,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-account-entitlements
-Account Entitlements
+Account entitlements
 This API returns entitlements of the account.      
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-account-entitlements)
@@ -914,7 +914,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-accounts
-Accounts List
+Accounts list
 List accounts. 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-accounts)
@@ -986,7 +986,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-account
-Update Account
+Update account
 Use this API to update an account with a PUT request. 
 
 This endpoint submits an account update task and returns the task ID. 
@@ -1072,7 +1072,7 @@ func main() {
 [[Back to top]](#)
 
 ## submit-reload-account
-Reload Account
+Reload account
 This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.      
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/submit-reload-account)
@@ -1138,7 +1138,7 @@ func main() {
 [[Back to top]](#)
 
 ## unlock-account
-Unlock Account
+Unlock account
 This API submits a task to unlock an account and returns the task ID.  
 To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required. 
 
@@ -1216,7 +1216,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-account
-Update Account
+Update account
 Use this API to update account details. 
 
 This API supports updating an account's correlation by modifying the `identityId` and `manuallyCorrelated` fields. 

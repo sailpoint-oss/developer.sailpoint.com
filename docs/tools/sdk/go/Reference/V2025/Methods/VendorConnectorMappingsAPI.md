@@ -19,13 +19,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-vendor-connector-mapping**](#create-vendor-connector-mapping) | **Post** `/vendor-connector-mappings` | Create Vendor Connector Mapping
-[**delete-vendor-connector-mapping**](#delete-vendor-connector-mapping) | **Delete** `/vendor-connector-mappings` | Delete Vendor Connector Mapping
-[**get-vendor-connector-mappings**](#get-vendor-connector-mappings) | **Get** `/vendor-connector-mappings` | List Vendor Connector Mappings
+[**create-vendor-connector-mapping**](#create-vendor-connector-mapping) | **Post** `/vendor-connector-mappings` | Create vendor connector mapping
+[**delete-vendor-connector-mapping**](#delete-vendor-connector-mapping) | **Delete** `/vendor-connector-mappings` | Delete vendor connector mapping
+[**get-vendor-connector-mappings**](#get-vendor-connector-mappings) | **Get** `/vendor-connector-mappings` | List vendor connector mappings
 
 
 ## create-vendor-connector-mapping
-Create Vendor Connector Mapping
+Create vendor connector mapping
 Create a new mapping between a SaaS vendor and an ISC connector to establish correlation paths.
 
 
@@ -115,7 +115,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-vendor-connector-mapping
-Delete Vendor Connector Mapping
+Delete vendor connector mapping
 Soft delete a mapping between a SaaS vendor and an ISC connector, removing the established correlation.
 
 
@@ -205,7 +205,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-vendor-connector-mappings
-List Vendor Connector Mappings
+List vendor connector mappings
 Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation.
 
 

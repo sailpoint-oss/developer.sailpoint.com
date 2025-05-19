@@ -46,42 +46,42 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**approve-non-employee-request**](#approve-non-employee-request) | **Post** `/non-employee-approvals/{id}/approve` | Approve a Non-Employee Request
-[**create-non-employee-record**](#create-non-employee-record) | **Post** `/non-employee-records` | Create Non-Employee Record
-[**create-non-employee-request**](#create-non-employee-request) | **Post** `/non-employee-requests` | Create Non-Employee Request
-[**create-non-employee-source**](#create-non-employee-source) | **Post** `/non-employee-sources` | Create Non-Employee Source
-[**create-non-employee-source-schema-attributes**](#create-non-employee-source-schema-attributes) | **Post** `/non-employee-sources/{sourceId}/schema-attributes` | Create Non-Employee Source Schema Attribute
-[**delete-non-employee-record**](#delete-non-employee-record) | **Delete** `/non-employee-records/{id}` | Delete Non-Employee Record
-[**delete-non-employee-record-in-bulk**](#delete-non-employee-record-in-bulk) | **Post** `/non-employee-records/bulk-delete` | Delete Multiple Non-Employee Records
-[**delete-non-employee-request**](#delete-non-employee-request) | **Delete** `/non-employee-requests/{id}` | Delete Non-Employee Request
-[**delete-non-employee-schema-attribute**](#delete-non-employee-schema-attribute) | **Delete** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Delete Non-Employee Source&#39;s Schema Attribute
-[**delete-non-employee-source**](#delete-non-employee-source) | **Delete** `/non-employee-sources/{sourceId}` | Delete Non-Employee Source
+[**approve-non-employee-request**](#approve-non-employee-request) | **Post** `/non-employee-approvals/{id}/approve` | Approve a non-employee request
+[**create-non-employee-record**](#create-non-employee-record) | **Post** `/non-employee-records` | Create non-employee record
+[**create-non-employee-request**](#create-non-employee-request) | **Post** `/non-employee-requests` | Create non-employee request
+[**create-non-employee-source**](#create-non-employee-source) | **Post** `/non-employee-sources` | Create non-employee source
+[**create-non-employee-source-schema-attributes**](#create-non-employee-source-schema-attributes) | **Post** `/non-employee-sources/{sourceId}/schema-attributes` | Create non-employee source schema attribute
+[**delete-non-employee-record**](#delete-non-employee-record) | **Delete** `/non-employee-records/{id}` | Delete non-employee record
+[**delete-non-employee-record-in-bulk**](#delete-non-employee-record-in-bulk) | **Post** `/non-employee-records/bulk-delete` | Delete multiple non-employee records
+[**delete-non-employee-request**](#delete-non-employee-request) | **Delete** `/non-employee-requests/{id}` | Delete non-employee request
+[**delete-non-employee-schema-attribute**](#delete-non-employee-schema-attribute) | **Delete** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Delete non-employee source&#39;s schema attribute
+[**delete-non-employee-source**](#delete-non-employee-source) | **Delete** `/non-employee-sources/{sourceId}` | Delete non-employee source
 [**delete-non-employee-source-schema-attributes**](#delete-non-employee-source-schema-attributes) | **Delete** `/non-employee-sources/{sourceId}/schema-attributes` | Delete all custom schema attributes
-[**export-non-employee-records**](#export-non-employee-records) | **Get** `/non-employee-sources/{id}/non-employees/download` | Exports Non-Employee Records to CSV
-[**export-non-employee-source-schema-template**](#export-non-employee-source-schema-template) | **Get** `/non-employee-sources/{id}/schema-attributes-template/download` | Exports Source Schema Template
+[**export-non-employee-records**](#export-non-employee-records) | **Get** `/non-employee-sources/{id}/non-employees/download` | Exports non-employee records to csv
+[**export-non-employee-source-schema-template**](#export-non-employee-source-schema-template) | **Get** `/non-employee-sources/{id}/schema-attributes-template/download` | Exports source schema template
 [**get-non-employee-approval**](#get-non-employee-approval) | **Get** `/non-employee-approvals/{id}` | Get a non-employee approval item detail
-[**get-non-employee-approval-summary**](#get-non-employee-approval-summary) | **Get** `/non-employee-approvals/summary/{requested-for}` | Get Summary of Non-Employee Approval Requests
+[**get-non-employee-approval-summary**](#get-non-employee-approval-summary) | **Get** `/non-employee-approvals/summary/{requested-for}` | Get summary of non-employee approval requests
 [**get-non-employee-bulk-upload-status**](#get-non-employee-bulk-upload-status) | **Get** `/non-employee-sources/{id}/non-employee-bulk-upload/status` | Bulk upload status on source
-[**get-non-employee-record**](#get-non-employee-record) | **Get** `/non-employee-records/{id}` | Get a Non-Employee Record
-[**get-non-employee-request**](#get-non-employee-request) | **Get** `/non-employee-requests/{id}` | Get a Non-Employee Request
-[**get-non-employee-request-summary**](#get-non-employee-request-summary) | **Get** `/non-employee-requests/summary/{requested-for}` | Get Summary of Non-Employee Requests
-[**get-non-employee-schema-attribute**](#get-non-employee-schema-attribute) | **Get** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Get Schema Attribute Non-Employee Source
-[**get-non-employee-source**](#get-non-employee-source) | **Get** `/non-employee-sources/{sourceId}` | Get a Non-Employee Source
-[**get-non-employee-source-schema-attributes**](#get-non-employee-source-schema-attributes) | **Get** `/non-employee-sources/{sourceId}/schema-attributes` | List Schema Attributes Non-Employee Source
-[**import-non-employee-records-in-bulk**](#import-non-employee-records-in-bulk) | **Post** `/non-employee-sources/{id}/non-employee-bulk-upload` | Imports, or Updates, Non-Employee Records
-[**list-non-employee-approval**](#list-non-employee-approval) | **Get** `/non-employee-approvals` | Get List of Non-Employee Approval Requests
-[**list-non-employee-records**](#list-non-employee-records) | **Get** `/non-employee-records` | List Non-Employee Records
-[**list-non-employee-requests**](#list-non-employee-requests) | **Get** `/non-employee-requests` | List Non-Employee Requests
-[**list-non-employee-sources**](#list-non-employee-sources) | **Get** `/non-employee-sources` | List Non-Employee Sources
-[**patch-non-employee-record**](#patch-non-employee-record) | **Patch** `/non-employee-records/{id}` | Patch Non-Employee Record
-[**patch-non-employee-schema-attribute**](#patch-non-employee-schema-attribute) | **Patch** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Patch Non-Employee Source&#39;s Schema Attribute
-[**patch-non-employee-source**](#patch-non-employee-source) | **Patch** `/non-employee-sources/{sourceId}` | Patch a Non-Employee Source
-[**reject-non-employee-request**](#reject-non-employee-request) | **Post** `/non-employee-approvals/{id}/reject` | Reject a Non-Employee Request
-[**update-non-employee-record**](#update-non-employee-record) | **Put** `/non-employee-records/{id}` | Update Non-Employee Record
+[**get-non-employee-record**](#get-non-employee-record) | **Get** `/non-employee-records/{id}` | Get a non-employee record
+[**get-non-employee-request**](#get-non-employee-request) | **Get** `/non-employee-requests/{id}` | Get a non-employee request
+[**get-non-employee-request-summary**](#get-non-employee-request-summary) | **Get** `/non-employee-requests/summary/{requested-for}` | Get summary of non-employee requests
+[**get-non-employee-schema-attribute**](#get-non-employee-schema-attribute) | **Get** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Get schema attribute non-employee source
+[**get-non-employee-source**](#get-non-employee-source) | **Get** `/non-employee-sources/{sourceId}` | Get a non-employee source
+[**get-non-employee-source-schema-attributes**](#get-non-employee-source-schema-attributes) | **Get** `/non-employee-sources/{sourceId}/schema-attributes` | List schema attributes non-employee source
+[**import-non-employee-records-in-bulk**](#import-non-employee-records-in-bulk) | **Post** `/non-employee-sources/{id}/non-employee-bulk-upload` | Imports, or updates, non-employee records
+[**list-non-employee-approval**](#list-non-employee-approval) | **Get** `/non-employee-approvals` | Get list of non-employee approval requests
+[**list-non-employee-records**](#list-non-employee-records) | **Get** `/non-employee-records` | List non-employee records
+[**list-non-employee-requests**](#list-non-employee-requests) | **Get** `/non-employee-requests` | List non-employee requests
+[**list-non-employee-sources**](#list-non-employee-sources) | **Get** `/non-employee-sources` | List non-employee sources
+[**patch-non-employee-record**](#patch-non-employee-record) | **Patch** `/non-employee-records/{id}` | Patch non-employee record
+[**patch-non-employee-schema-attribute**](#patch-non-employee-schema-attribute) | **Patch** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Patch non-employee source&#39;s schema attribute
+[**patch-non-employee-source**](#patch-non-employee-source) | **Patch** `/non-employee-sources/{sourceId}` | Patch a non-employee source
+[**reject-non-employee-request**](#reject-non-employee-request) | **Post** `/non-employee-approvals/{id}/reject` | Reject a non-employee request
+[**update-non-employee-record**](#update-non-employee-record) | **Put** `/non-employee-records/{id}` | Update non-employee record
 
 
 ## approve-non-employee-request
-Approve a Non-Employee Request
+Approve a non-employee request
 Approves a non-employee approval request and notifies the next approver.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/approve-non-employee-request)
@@ -156,7 +156,7 @@ func main() {
 [[Back to top]](#)
 
 ## create-non-employee-record
-Create Non-Employee Record
+Create non-employee record
 This request will create a non-employee record.
 Request will require the following security scope:
 'idn:nesr:create'
@@ -239,7 +239,7 @@ func main() {
 [[Back to top]](#)
 
 ## create-non-employee-request
-Create Non-Employee Request
+Create non-employee request
 This request will create a non-employee request and notify the approver
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-request)
@@ -320,7 +320,7 @@ func main() {
 [[Back to top]](#)
 
 ## create-non-employee-source
-Create Non-Employee Source
+Create non-employee source
 Create a non-employee source.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-source)
@@ -412,7 +412,7 @@ func main() {
 [[Back to top]](#)
 
 ## create-non-employee-source-schema-attributes
-Create Non-Employee Source Schema Attribute
+Create non-employee source schema attribute
 This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a "400.1.409 Reference conflict" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a "400.1.4 Limit violation" response.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-source-schema-attributes)
@@ -492,7 +492,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-non-employee-record
-Delete Non-Employee Record
+Delete non-employee record
 This request will delete a non-employee record.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-record)
@@ -557,7 +557,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-non-employee-record-in-bulk
-Delete Multiple Non-Employee Records
+Delete multiple non-employee records
 This request will delete multiple non-employee records based on the non-employee ids provided.
 Request will require the following scope:
 'idn:nesr:delete'
@@ -625,7 +625,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-non-employee-request
-Delete Non-Employee Request
+Delete non-employee request
 This request will delete a non-employee request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-request)
@@ -690,7 +690,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-non-employee-schema-attribute
-Delete Non-Employee Source's Schema Attribute
+Delete non-employee source's schema attribute
 This end-point deletes a specific schema attribute for a non-employee source.
 
 
@@ -759,7 +759,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-non-employee-source
-Delete Non-Employee Source
+Delete non-employee source
 This request will delete a non-employee source.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-source)
@@ -889,7 +889,7 @@ func main() {
 [[Back to top]](#)
 
 ## export-non-employee-records
-Exports Non-Employee Records to CSV
+Exports non-employee records to csv
 This requests a CSV download for all non-employees from a provided source.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/export-non-employee-records)
@@ -954,7 +954,7 @@ func main() {
 [[Back to top]](#)
 
 ## export-non-employee-source-schema-template
-Exports Source Schema Template
+Exports source schema template
 This requests a download for the Source Schema Template for a provided source.
 Request will require the following security scope:
 idn:nesr:read'
@@ -1089,7 +1089,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-non-employee-approval-summary
-Get Summary of Non-Employee Approval Requests
+Get summary of non-employee approval requests
 This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter: 1. The current user is the Org Admin, in which case he or she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver's id. 2. The current user is an approver, in which case "me" should be provided as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-approval-summary)
@@ -1222,7 +1222,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-non-employee-record
-Get a Non-Employee Record
+Get a non-employee record
 This gets a non-employee record.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-record)
@@ -1288,7 +1288,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-non-employee-request
-Get a Non-Employee Request
+Get a non-employee request
 This gets a non-employee request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-request)
@@ -1354,7 +1354,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-non-employee-request-summary
-Get Summary of Non-Employee Requests
+Get summary of non-employee requests
 This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter: 1. The current user is the Org Admin, in which case he or she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager's id. 2. The current user is an account manager, in which case "me" should be provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-request-summary)
@@ -1420,7 +1420,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-non-employee-schema-attribute
-Get Schema Attribute Non-Employee Source
+Get schema attribute non-employee source
 This API gets a schema attribute by Id for the specified Non-Employee SourceId.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-schema-attribute)
@@ -1489,7 +1489,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-non-employee-source
-Get a Non-Employee Source
+Get a non-employee source
 This gets a non-employee source.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-source)
@@ -1555,7 +1555,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-non-employee-source-schema-attributes
-List Schema Attributes Non-Employee Source
+List schema attributes non-employee source
 This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-source-schema-attributes)
@@ -1621,7 +1621,7 @@ func main() {
 [[Back to top]](#)
 
 ## import-non-employee-records-in-bulk
-Imports, or Updates, Non-Employee Records
+Imports, or updates, non-employee records
 This post will import, or update, Non-Employee records found in the CSV.
 Request will need the following security scope:
 'idn:nesr:create'
@@ -1691,7 +1691,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-non-employee-approval
-Get List of Non-Employee Approval Requests
+Get list of non-employee approval requests
 This gets a list of non-employee approval requests.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-approval)
@@ -1763,7 +1763,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-non-employee-records
-List Non-Employee Records
+List non-employee records
 This gets a list of non-employee records.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-records)
@@ -1833,7 +1833,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-non-employee-requests
-List Non-Employee Requests
+List non-employee requests
 This gets a list of non-employee requests.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-requests)
@@ -1905,7 +1905,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-non-employee-sources
-List Non-Employee Sources
+List non-employee sources
 Get a list of non-employee sources. There are two contextual uses for the `requested-for` path parameter: 
   1. If the user has the role context of `idn:nesr:read`, he or she may request a list sources assigned to a particular account manager by passing in that manager's `id`.
   2. If the current user is an account manager, the user should provide 'me' as the `requested-for` value. Doing so provide the user with a list of the sources he or she owns.
@@ -1979,7 +1979,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-non-employee-record
-Patch Non-Employee Record
+Patch non-employee record
 This request will patch a non-employee record.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-non-employee-record)
@@ -2052,7 +2052,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-non-employee-schema-attribute
-Patch Non-Employee Source's Schema Attribute
+Patch non-employee source's schema attribute
 This end-point patches a specific schema attribute for a non-employee SourceId.
 
 
@@ -2129,7 +2129,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-non-employee-source
-Patch a Non-Employee Source
+Patch a non-employee source
 patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers**
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-non-employee-source)
@@ -2202,7 +2202,7 @@ func main() {
 [[Back to top]](#)
 
 ## reject-non-employee-request
-Reject a Non-Employee Request
+Reject a non-employee request
 This endpoint will reject an approval item request and notify user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/reject-non-employee-request)
@@ -2277,7 +2277,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-non-employee-record
-Update Non-Employee Record
+Update non-employee record
 This request will update a non-employee record.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-non-employee-record)

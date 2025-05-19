@@ -17,9 +17,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-org-config**](#get-org-config) | **Get** `/org-config` | Get Org Config Settings
-[**get-valid-time-zones**](#get-valid-time-zones) | **Get** `/org-config/valid-time-zones` | Get Valid Time Zones
-[**patch-org-config**](#patch-org-config) | **Patch** `/org-config` | Patch Org Config
+[**get-org-config**](#get-org-config) | **Get** `/org-config` | Get org config settings
+[**get-valid-time-zones**](#get-valid-time-zones) | **Get** `/org-config/valid-time-zones` | Get valid time zones
+[**patch-org-config**](#patch-org-config) | **Patch** `/org-config` | Patch org config
 
 
 ## get-org-config
@@ -34,7 +34,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Org Config Settings
+Get org config settings
 Get the current organization's configuration settings, only external accessible properties.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-org-config)
@@ -107,7 +107,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Valid Time Zones
+Get valid time zones
 List the valid time zones that can be set in organization configurations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-valid-time-zones)
@@ -186,7 +186,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Patch Org Config
+Patch org config
 Patch the current organization's configuration, using http://jsonpatch.com/ syntax. This is commonly used to changing an organization's time zone.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-org-config)

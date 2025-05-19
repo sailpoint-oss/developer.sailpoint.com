@@ -30,20 +30,20 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**approve-bulk-access-request**](#approve-bulk-access-request) | **Post** `/access-request-approvals/bulk-approve` | Bulk Approve Access Request
-[**cancel-access-request**](#cancel-access-request) | **Post** `/access-requests/cancel` | Cancel Access Request
-[**cancel-access-request-in-bulk**](#cancel-access-request-in-bulk) | **Post** `/access-requests/bulk-cancel` | Bulk Cancel Access Request
-[**close-access-request**](#close-access-request) | **Post** `/access-requests/close` | Close Access Request
-[**create-access-request**](#create-access-request) | **Post** `/access-requests` | Submit Access Request
-[**get-access-request-config**](#get-access-request-config) | **Get** `/access-request-config` | Get Access Request Configuration
-[**list-access-request-status**](#list-access-request-status) | **Get** `/access-request-status` | Access Request Status
-[**list-administrators-access-request-status**](#list-administrators-access-request-status) | **Get** `/access-request-administration` | Access Request Status for Administrators
+[**approve-bulk-access-request**](#approve-bulk-access-request) | **Post** `/access-request-approvals/bulk-approve` | Bulk approve access request
+[**cancel-access-request**](#cancel-access-request) | **Post** `/access-requests/cancel` | Cancel access request
+[**cancel-access-request-in-bulk**](#cancel-access-request-in-bulk) | **Post** `/access-requests/bulk-cancel` | Bulk cancel access request
+[**close-access-request**](#close-access-request) | **Post** `/access-requests/close` | Close access request
+[**create-access-request**](#create-access-request) | **Post** `/access-requests` | Submit access request
+[**get-access-request-config**](#get-access-request-config) | **Get** `/access-request-config` | Get access request configuration
+[**list-access-request-status**](#list-access-request-status) | **Get** `/access-request-status` | Access request status
+[**list-administrators-access-request-status**](#list-administrators-access-request-status) | **Get** `/access-request-administration` | Access request status for administrators
 [**load-account-selections**](#load-account-selections) | **Post** `/access-requests/accounts-selection` | Get accounts selections for identity
-[**set-access-request-config**](#set-access-request-config) | **Put** `/access-request-config` | Update Access Request Configuration
+[**set-access-request-config**](#set-access-request-config) | **Put** `/access-request-config` | Update access request configuration
 
 
 ## approve-bulk-access-request
-Bulk Approve Access Request
+Bulk approve access request
 This API endpoint allows approving pending access requests in bulk. Maximum of 50 approval ids can be  provided in the request for one single invocation.  ORG_ADMIN or users with rights "idn:access-request-administration:write" can approve the access requests in bulk.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/approve-bulk-access-request)
@@ -113,7 +113,7 @@ func main() {
 [[Back to top]](#)
 
 ## cancel-access-request
-Cancel Access Request
+Cancel access request
 This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step.
 In addition to users with ORG_ADMIN, any user who originally submitted the access request may cancel it.
 
@@ -184,7 +184,7 @@ func main() {
 [[Back to top]](#)
 
 ## cancel-access-request-in-bulk
-Bulk Cancel Access Request
+Bulk cancel access request
 This API endpoint allows cancelling pending access requests in bulk. Maximum of 50 access request ids can be  provided in the request for one single invocation. 
 Only ORG_ADMIN or users with rights "idn:access-request-administration:write" can cancel the access requests in  bulk.
 
@@ -266,7 +266,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Close Access Request
+Close access request
 This endpoint closes access requests that are stuck in a pending state. It can be used throughout a request's lifecycle even after the approval state, unlike the [Cancel Access Request endpoint](https://developer.sailpoint.com/idn/api/v3/cancel-access-request/).
 
 To find pending access requests with the UI, navigate to Search and use this query: status: Pending AND "Access Request". Use the Column Chooser to select 'Tracking Number', and use the 'Download' button to export a CSV containing the tracking numbers.
@@ -351,7 +351,7 @@ func main() {
 [[Back to top]](#)
 
 ## create-access-request
-Submit Access Request
+Submit access request
 Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.
 
 Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request
@@ -633,7 +633,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-access-request-config
-Get Access Request Configuration
+Get access request configuration
 This endpoint returns the current access-request configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-request-config)
@@ -690,7 +690,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-access-request-status
-Access Request Status
+Access request status
 Use this API to return a list of access request statuses based on the specified query parameters.
 If an access request was made for access that an identity already has, the API ignores the access request.  These ignored requests do not display in the list of access request statuses.
 Any user with any user level can get the status of their own access requests. A user with ORG_ADMIN is required to call this API to get a list of statuses for other users.
@@ -772,7 +772,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-administrators-access-request-status
-Access Request Status for Administrators
+Access request status for administrators
 Use this API to get access request statuses of all the access requests in the org based on the specified query  parameters.
 Any user with user level ORG_ADMIN or scope idn:access-request-administration:read can access this endpoint to get  the  access request statuses
 
@@ -986,7 +986,7 @@ func main() {
 [[Back to top]](#)
 
 ## set-access-request-config
-Update Access Request Configuration
+Update access request configuration
 This endpoint replaces the current access-request configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/set-access-request-config)

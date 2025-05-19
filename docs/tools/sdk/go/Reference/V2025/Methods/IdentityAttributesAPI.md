@@ -15,12 +15,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-identity-attribute**](#create-identity-attribute) | **Post** `/identity-attributes` | Create Identity Attribute
-[**delete-identity-attribute**](#delete-identity-attribute) | **Delete** `/identity-attributes/{name}` | Delete Identity Attribute
-[**delete-identity-attributes-in-bulk**](#delete-identity-attributes-in-bulk) | **Delete** `/identity-attributes/bulk-delete` | Bulk delete Identity Attributes
-[**get-identity-attribute**](#get-identity-attribute) | **Get** `/identity-attributes/{name}` | Get Identity Attribute
-[**list-identity-attributes**](#list-identity-attributes) | **Get** `/identity-attributes` | List Identity Attributes
-[**put-identity-attribute**](#put-identity-attribute) | **Put** `/identity-attributes/{name}` | Update Identity Attribute
+[**create-identity-attribute**](#create-identity-attribute) | **Post** `/identity-attributes` | Create identity attribute
+[**delete-identity-attribute**](#delete-identity-attribute) | **Delete** `/identity-attributes/{name}` | Delete identity attribute
+[**delete-identity-attributes-in-bulk**](#delete-identity-attributes-in-bulk) | **Delete** `/identity-attributes/bulk-delete` | Bulk delete identity attributes
+[**get-identity-attribute**](#get-identity-attribute) | **Get** `/identity-attributes/{name}` | Get identity attribute
+[**list-identity-attributes**](#list-identity-attributes) | **Get** `/identity-attributes` | List identity attributes
+[**put-identity-attribute**](#put-identity-attribute) | **Put** `/identity-attributes/{name}` | Update identity attribute
 
 
 ## create-identity-attribute
@@ -35,7 +35,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Create Identity Attribute
+Create identity attribute
 Use this API to create a new identity attribute.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-identity-attribute)
@@ -136,7 +136,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Delete Identity Attribute
+Delete identity attribute
 This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-identity-attribute)
@@ -214,7 +214,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Bulk delete Identity Attributes
+Bulk delete identity attributes
 Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-identity-attributes-in-bulk)
@@ -295,7 +295,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Identity Attribute
+Get identity attribute
 This gets an identity attribute for a given technical name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identity-attribute)
@@ -374,7 +374,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Identity Attributes
+List identity attributes
 Use this API to get a collection of identity attributes.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-identity-attributes)
@@ -455,7 +455,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Update Identity Attribute
+Update identity attribute
 This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/put-identity-attribute)

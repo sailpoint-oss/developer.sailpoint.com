@@ -21,7 +21,7 @@ Method | HTTP request | Description
 [**get-sp-config-import**](#get-sp-config-import) | **Get** `/sp-config/import/{id}/download` | Download import job result
 [**get-sp-config-import-status**](#get-sp-config-import-status) | **Get** `/sp-config/import/{id}` | Get import job status
 [**import-sp-config**](#import-sp-config) | **Post** `/sp-config/import` | Initiates configuration objects import job
-[**list-sp-config-objects**](#list-sp-config-objects) | **Get** `/sp-config/config-objects` | List Config Objects
+[**list-sp-config-objects**](#list-sp-config-objects) | **Get** `/sp-config/config-objects` | List config objects
 
 
 ## export-sp-config
@@ -445,7 +445,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-sp-config-objects
-List Config Objects
+List config objects
 Get a list of object configurations that the tenant export/import service knows.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-sp-config-objects)

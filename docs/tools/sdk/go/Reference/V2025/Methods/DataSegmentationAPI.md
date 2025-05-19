@@ -17,18 +17,18 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-data-segment**](#create-data-segment) | **Post** `/data-segments` | Create Segment
-[**delete-data-segment**](#delete-data-segment) | **Delete** `/data-segments/{segmentId}` | Delete Segment by ID
-[**get-data-segment**](#get-data-segment) | **Get** `/data-segments/{segmentId}` | Get Segment by ID
-[**get-data-segment-identity-membership**](#get-data-segment-identity-membership) | **Get** `/data-segments/membership/{identityId}` | Get SegmentMembership by Identity ID
-[**get-data-segmentation-enabled-for-user**](#get-data-segmentation-enabled-for-user) | **Get** `/data-segments/user-enabled/{identityId}` | Is Segmentation enabled by Identity
-[**list-data-segments**](#list-data-segments) | **Get** `/data-segments` | Get Segments
-[**patch-data-segment**](#patch-data-segment) | **Patch** `/data-segments/{segmentId}` | Update Segment
-[**publish-data-segment**](#publish-data-segment) | **Post** `/data-segments/{segmentId}` | Publish segment by ID
+[**create-data-segment**](#create-data-segment) | **Post** `/data-segments` | Create segment
+[**delete-data-segment**](#delete-data-segment) | **Delete** `/data-segments/{segmentId}` | Delete segment by id
+[**get-data-segment**](#get-data-segment) | **Get** `/data-segments/{segmentId}` | Get segment by id
+[**get-data-segment-identity-membership**](#get-data-segment-identity-membership) | **Get** `/data-segments/membership/{identityId}` | Get segmentmembership by identity id
+[**get-data-segmentation-enabled-for-user**](#get-data-segmentation-enabled-for-user) | **Get** `/data-segments/user-enabled/{identityId}` | Is segmentation enabled by identity
+[**list-data-segments**](#list-data-segments) | **Get** `/data-segments` | Get segments
+[**patch-data-segment**](#patch-data-segment) | **Patch** `/data-segments/{segmentId}` | Update segment
+[**publish-data-segment**](#publish-data-segment) | **Post** `/data-segments/{segmentId}` | Publish segment by id
 
 
 ## create-data-segment
-Create Segment
+Create segment
 This API creates a segment. 
 >**Note:** Segment definitions may take time to propagate to all identities.
 
@@ -107,7 +107,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Delete Segment by ID
+Delete segment by id
 This API deletes the segment specified by the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-data-segment)
@@ -187,7 +187,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Segment by ID
+Get segment by id
 This API returns the segment specified by the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-data-segment)
@@ -266,7 +266,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get SegmentMembership by Identity ID
+Get segmentmembership by identity id
 This API returns the segment membership specified by the given identity ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-data-segment-identity-membership)
@@ -345,7 +345,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Is Segmentation enabled by Identity
+Is segmentation enabled by identity
 This API returns whether or not segmentation is enabled for the identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-data-segmentation-enabled-for-user)
@@ -424,7 +424,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Segments
+Get segments
 This API returns the segment specified by the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-data-segments)
@@ -511,7 +511,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Update Segment
+Update segment
 Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-data-segment)
@@ -597,7 +597,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Publish segment by ID
+Publish segment by id
 This will publish the segment so that it starts applying the segmentation to the desired users if enabled
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/publish-data-segment)

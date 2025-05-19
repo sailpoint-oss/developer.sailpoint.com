@@ -41,27 +41,27 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-sod-policy**](#create-sod-policy) | **Post** `/sod-policies` | Create SOD policy
-[**delete-sod-policy**](#delete-sod-policy) | **Delete** `/sod-policies/{id}` | Delete SOD policy by ID
-[**delete-sod-policy-schedule**](#delete-sod-policy-schedule) | **Delete** `/sod-policies/{id}/schedule` | Delete SOD policy schedule
+[**create-sod-policy**](#create-sod-policy) | **Post** `/sod-policies` | Create sod policy
+[**delete-sod-policy**](#delete-sod-policy) | **Delete** `/sod-policies/{id}` | Delete sod policy by id
+[**delete-sod-policy-schedule**](#delete-sod-policy-schedule) | **Delete** `/sod-policies/{id}/schedule` | Delete sod policy schedule
 [**get-custom-violation-report**](#get-custom-violation-report) | **Get** `/sod-violation-report/{reportResultId}/download/{fileName}` | Download custom violation report
 [**get-default-violation-report**](#get-default-violation-report) | **Get** `/sod-violation-report/{reportResultId}/download` | Download violation report
 [**get-sod-all-report-run-status**](#get-sod-all-report-run-status) | **Get** `/sod-violation-report` | Get multi-report run task status
-[**get-sod-policy**](#get-sod-policy) | **Get** `/sod-policies/{id}` | Get SOD policy by ID
-[**get-sod-policy-schedule**](#get-sod-policy-schedule) | **Get** `/sod-policies/{id}/schedule` | Get SOD policy schedule
+[**get-sod-policy**](#get-sod-policy) | **Get** `/sod-policies/{id}` | Get sod policy by id
+[**get-sod-policy-schedule**](#get-sod-policy-schedule) | **Get** `/sod-policies/{id}/schedule` | Get sod policy schedule
 [**get-sod-violation-report-run-status**](#get-sod-violation-report-run-status) | **Get** `/sod-policies/sod-violation-report-status/{reportResultId}` | Get violation report run status
-[**get-sod-violation-report-status**](#get-sod-violation-report-status) | **Get** `/sod-policies/{id}/violation-report` | Get SOD violation report status
-[**list-sod-policies**](#list-sod-policies) | **Get** `/sod-policies` | List SOD policies
-[**patch-sod-policy**](#patch-sod-policy) | **Patch** `/sod-policies/{id}` | Patch SOD policy by ID
-[**put-policy-schedule**](#put-policy-schedule) | **Put** `/sod-policies/{id}/schedule` | Update SOD Policy schedule
-[**put-sod-policy**](#put-sod-policy) | **Put** `/sod-policies/{id}` | Update SOD policy by ID
-[**start-evaluate-sod-policy**](#start-evaluate-sod-policy) | **Post** `/sod-policies/{id}/evaluate` | Evaluate one policy by ID
+[**get-sod-violation-report-status**](#get-sod-violation-report-status) | **Get** `/sod-policies/{id}/violation-report` | Get sod violation report status
+[**list-sod-policies**](#list-sod-policies) | **Get** `/sod-policies` | List sod policies
+[**patch-sod-policy**](#patch-sod-policy) | **Patch** `/sod-policies/{id}` | Patch sod policy by id
+[**put-policy-schedule**](#put-policy-schedule) | **Put** `/sod-policies/{id}/schedule` | Update sod policy schedule
+[**put-sod-policy**](#put-sod-policy) | **Put** `/sod-policies/{id}` | Update sod policy by id
+[**start-evaluate-sod-policy**](#start-evaluate-sod-policy) | **Post** `/sod-policies/{id}/evaluate` | Evaluate one policy by id
 [**start-sod-all-policies-for-org**](#start-sod-all-policies-for-org) | **Post** `/sod-violation-report/run` | Runs all policies for org
-[**start-sod-policy**](#start-sod-policy) | **Post** `/sod-policies/{id}/violation-report/run` | Runs SOD policy violation report
+[**start-sod-policy**](#start-sod-policy) | **Post** `/sod-policies/{id}/violation-report/run` | Runs sod policy violation report
 
 
 ## create-sod-policy
-Create SOD policy
+Create sod policy
 This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy.
 Requires role of ORG_ADMIN.
 
@@ -184,7 +184,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-sod-policy
-Delete SOD policy by ID
+Delete sod policy by id
 This deletes a specified SOD policy.
 Requires role of ORG_ADMIN.
 
@@ -252,7 +252,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-sod-policy-schedule
-Delete SOD policy schedule
+Delete sod policy schedule
 This deletes schedule for a specified SOD policy by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-sod-policy-schedule)
@@ -509,7 +509,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-sod-policy
-Get SOD policy by ID
+Get sod policy by id
 This gets specified SOD policy.
 Requires role of ORG_ADMIN.
 
@@ -576,7 +576,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-sod-policy-schedule
-Get SOD policy schedule
+Get sod policy schedule
 This endpoint gets a specified SOD policy's schedule.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sod-policy-schedule)
@@ -708,7 +708,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-sod-violation-report-status
-Get SOD violation report status
+Get sod violation report status
 This gets the status for a violation report run task that has already been invoked.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sod-violation-report-status)
@@ -774,7 +774,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-sod-policies
-List SOD policies
+List sod policies
 This gets list of all SOD policies.
 Requires role of ORG_ADMIN
 
@@ -845,7 +845,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-sod-policy
-Patch SOD policy by ID
+Patch sod policy by id
 Allows updating SOD Policy fields other than ["id","created","creatorId","policyQuery","type"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 Requires role of ORG_ADMIN.
 This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
@@ -920,7 +920,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-policy-schedule
-Update SOD Policy schedule
+Update sod policy schedule
 This updates schedule for a specified SOD policy.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-policy-schedule)
@@ -1078,7 +1078,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-sod-policy
-Update SOD policy by ID
+Update sod policy by id
 This updates a specified SOD policy.
 Requires role of ORG_ADMIN.
 
@@ -1207,7 +1207,7 @@ func main() {
 [[Back to top]](#)
 
 ## start-evaluate-sod-policy
-Evaluate one policy by ID
+Evaluate one policy by id
 Runs the scheduled report for the policy retrieved by passed policy ID.  The report schedule is fetched from the policy retrieved by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/start-evaluate-sod-policy)
@@ -1337,7 +1337,7 @@ func main() {
 [[Back to top]](#)
 
 ## start-sod-policy
-Runs SOD policy violation report
+Runs sod policy violation report
 This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/start-sod-policy)

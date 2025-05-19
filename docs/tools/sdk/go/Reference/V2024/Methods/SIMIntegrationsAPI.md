@@ -22,13 +22,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-sim-integration**](#create-sim-integration) | **Post** `/sim-integrations` | Create new SIM integration
-[**delete-sim-integration**](#delete-sim-integration) | **Delete** `/sim-integrations/{id}` | Delete a SIM integration
-[**get-sim-integration**](#get-sim-integration) | **Get** `/sim-integrations/{id}` | Get a SIM integration details.
-[**get-sim-integrations**](#get-sim-integrations) | **Get** `/sim-integrations` | List the existing SIM integrations.
-[**patch-before-provisioning-rule**](#patch-before-provisioning-rule) | **Patch** `/sim-integrations/{id}/beforeProvisioningRule` | Patch a SIM beforeProvisioningRule attribute.
-[**patch-sim-attributes**](#patch-sim-attributes) | **Patch** `/sim-integrations/{id}` | Patch a SIM attribute.
-[**put-sim-integration**](#put-sim-integration) | **Put** `/sim-integrations/{id}` | Update an existing SIM integration
+[**create-sim-integration**](#create-sim-integration) | **Post** `/sim-integrations` | Create new sim integration
+[**delete-sim-integration**](#delete-sim-integration) | **Delete** `/sim-integrations/{id}` | Delete a sim integration
+[**get-sim-integration**](#get-sim-integration) | **Get** `/sim-integrations/{id}` | Get a sim integration details.
+[**get-sim-integrations**](#get-sim-integrations) | **Get** `/sim-integrations` | List the existing sim integrations.
+[**patch-before-provisioning-rule**](#patch-before-provisioning-rule) | **Patch** `/sim-integrations/{id}/beforeProvisioningRule` | Patch a sim beforeprovisioningrule attribute.
+[**patch-sim-attributes**](#patch-sim-attributes) | **Patch** `/sim-integrations/{id}` | Patch a sim attribute.
+[**put-sim-integration**](#put-sim-integration) | **Put** `/sim-integrations/{id}` | Update an existing sim integration
 
 
 ## create-sim-integration
@@ -43,7 +43,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Create new SIM integration
+Create new sim integration
 Create a new SIM Integrations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-sim-integration)
@@ -140,7 +140,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Delete a SIM integration
+Delete a sim integration
 Get the details of a SIM integration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-sim-integration)
@@ -218,7 +218,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get a SIM integration details.
+Get a sim integration details.
 Get the details of a SIM integration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sim-integration)
@@ -297,7 +297,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List the existing SIM integrations.
+List the existing sim integrations.
 List the existing SIM integrations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-sim-integrations)
@@ -370,7 +370,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Patch a SIM beforeProvisioningRule attribute.
+Patch a sim beforeprovisioningrule attribute.
 Patch a SIM beforeProvisioningRule attribute given a JsonPatch object.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-before-provisioning-rule)
@@ -466,7 +466,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Patch a SIM attribute.
+Patch a sim attribute.
 Patch a SIM attribute given a JsonPatch object.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-sim-attributes)
@@ -562,7 +562,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Update an existing SIM integration
+Update an existing sim integration
 Update an existing SIM integration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-sim-integration)

@@ -42,11 +42,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create-scheduled-search**](#create-scheduled-search) | **Post** `/scheduled-searches` | Create a new scheduled search
-[**delete-scheduled-search**](#delete-scheduled-search) | **Delete** `/scheduled-searches/{id}` | Delete a Scheduled Search
-[**get-scheduled-search**](#get-scheduled-search) | **Get** `/scheduled-searches/{id}` | Get a Scheduled Search
+[**delete-scheduled-search**](#delete-scheduled-search) | **Delete** `/scheduled-searches/{id}` | Delete a scheduled search
+[**get-scheduled-search**](#get-scheduled-search) | **Get** `/scheduled-searches/{id}` | Get a scheduled search
 [**list-scheduled-search**](#list-scheduled-search) | **Get** `/scheduled-searches` | List scheduled searches
-[**unsubscribe-scheduled-search**](#unsubscribe-scheduled-search) | **Post** `/scheduled-searches/{id}/unsubscribe` | Unsubscribe a recipient from Scheduled Search
-[**update-scheduled-search**](#update-scheduled-search) | **Put** `/scheduled-searches/{id}` | Update an existing Scheduled Search
+[**unsubscribe-scheduled-search**](#unsubscribe-scheduled-search) | **Post** `/scheduled-searches/{id}/unsubscribe` | Unsubscribe a recipient from scheduled search
+[**update-scheduled-search**](#update-scheduled-search) | **Put** `/scheduled-searches/{id}` | Update an existing scheduled search
 
 
 ## create-scheduled-search
@@ -118,7 +118,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-scheduled-search
-Delete a Scheduled Search
+Delete a scheduled search
 Deletes the specified scheduled search.
 
 
@@ -184,7 +184,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-scheduled-search
-Get a Scheduled Search
+Get a scheduled search
 Returns the specified scheduled search.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-scheduled-search)
@@ -319,7 +319,7 @@ func main() {
 [[Back to top]](#)
 
 ## unsubscribe-scheduled-search
-Unsubscribe a recipient from Scheduled Search
+Unsubscribe a recipient from scheduled search
 Unsubscribes a recipient from the specified scheduled search.
 
 
@@ -395,7 +395,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-scheduled-search
-Update an existing Scheduled Search
+Update an existing scheduled search
 Updates an existing scheduled search.
 
 

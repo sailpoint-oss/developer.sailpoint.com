@@ -19,11 +19,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create-launcher**](#create-launcher) | **Post** `/launchers` | Create launcher
-[**delete-launcher**](#delete-launcher) | **Delete** `/launchers/{launcherID}` | Delete Launcher
-[**get-launcher**](#get-launcher) | **Get** `/launchers/{launcherID}` | Get Launcher by ID
-[**get-launchers**](#get-launchers) | **Get** `/launchers` | List all Launchers for tenant
-[**put-launcher**](#put-launcher) | **Put** `/launchers/{launcherID}` | Replace Launcher
-[**start-launcher**](#start-launcher) | **Post** `/beta/launchers/{launcherID}/launch` | Launch a Launcher
+[**delete-launcher**](#delete-launcher) | **Delete** `/launchers/{launcherID}` | Delete launcher
+[**get-launcher**](#get-launcher) | **Get** `/launchers/{launcherID}` | Get launcher by id
+[**get-launchers**](#get-launchers) | **Get** `/launchers` | List all launchers for tenant
+[**put-launcher**](#put-launcher) | **Put** `/launchers/{launcherID}` | Replace launcher
+[**start-launcher**](#start-launcher) | **Post** `/beta/launchers/{launcherID}/launch` | Launch a launcher
 
 
 ## create-launcher
@@ -104,7 +104,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-launcher
-Delete Launcher
+Delete launcher
 Delete the given Launcher ID
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-launcher)
@@ -169,7 +169,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-launcher
-Get Launcher by ID
+Get launcher by id
 Get details for the given Launcher ID
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-launcher)
@@ -235,7 +235,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-launchers
-List all Launchers for tenant
+List all launchers for tenant
 Return a list of Launchers for the authenticated tenant
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-launchers)
@@ -301,7 +301,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-launcher
-Replace Launcher
+Replace launcher
 Replace the given Launcher ID with given payload
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-launcher)
@@ -384,7 +384,7 @@ func main() {
 [[Back to top]](#)
 
 ## start-launcher
-Launch a Launcher
+Launch a launcher
 Launch the given Launcher ID
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/start-launcher)

@@ -15,13 +15,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-recommendations**](#get-recommendations) | **Post** `/recommendations/request` | Returns Recommendation Based on Object
+[**get-recommendations**](#get-recommendations) | **Post** `/recommendations/request` | Returns recommendation based on object
 [**get-recommendations-config**](#get-recommendations-config) | **Get** `/recommendations/config` | Get certification recommendation config values
 [**update-recommendations-config**](#update-recommendations-config) | **Put** `/recommendations/config` | Update certification recommendation config values
 
 
 ## get-recommendations
-Returns Recommendation Based on Object
+Returns recommendation based on object
 The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-recommendations)

@@ -26,9 +26,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-custom-password-instructions**](#create-custom-password-instructions) | **Post** `/custom-password-instructions` | Create Custom Password Instructions
-[**delete-custom-password-instructions**](#delete-custom-password-instructions) | **Delete** `/custom-password-instructions/{pageId}` | Delete Custom Password Instructions by page ID
-[**get-custom-password-instructions**](#get-custom-password-instructions) | **Get** `/custom-password-instructions/{pageId}` | Get Custom Password Instructions by Page ID
+[**create-custom-password-instructions**](#create-custom-password-instructions) | **Post** `/custom-password-instructions` | Create custom password instructions
+[**delete-custom-password-instructions**](#delete-custom-password-instructions) | **Delete** `/custom-password-instructions/{pageId}` | Delete custom password instructions by page id
+[**get-custom-password-instructions**](#get-custom-password-instructions) | **Get** `/custom-password-instructions/{pageId}` | Get custom password instructions by page id
 
 
 ## create-custom-password-instructions
@@ -43,7 +43,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Create Custom Password Instructions
+Create custom password instructions
 This API creates the custom password instructions for the specified page ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-custom-password-instructions)
@@ -127,7 +127,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Delete Custom Password Instructions by page ID
+Delete custom password instructions by page id
 This API delete the custom password instructions for the specified page ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-custom-password-instructions)
@@ -207,7 +207,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Custom Password Instructions by Page ID
+Get custom password instructions by page id
 This API returns the custom password instructions for the specified page ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-custom-password-instructions)

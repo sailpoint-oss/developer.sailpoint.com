@@ -16,8 +16,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-tenant-ui-metadata**](#get-tenant-ui-metadata) | **Get** `/ui-metadata/tenant` | Get a tenant UI metadata
-[**set-tenant-ui-metadata**](#set-tenant-ui-metadata) | **Put** `/ui-metadata/tenant` | Update tenant UI metadata
+[**get-tenant-ui-metadata**](#get-tenant-ui-metadata) | **Get** `/ui-metadata/tenant` | Get a tenant ui metadata
+[**set-tenant-ui-metadata**](#set-tenant-ui-metadata) | **Put** `/ui-metadata/tenant` | Update tenant ui metadata
 
 
 ## get-tenant-ui-metadata
@@ -32,7 +32,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get a tenant UI metadata
+Get a tenant ui metadata
 This API endpoint retrieves UI metadata configured for your tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-tenant-ui-metadata)
@@ -105,7 +105,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Update tenant UI metadata
+Update tenant ui metadata
 This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/set-tenant-ui-metadata)

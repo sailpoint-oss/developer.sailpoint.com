@@ -19,7 +19,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get-approval**](#get-approval) | **Get** `/generic-approvals/{id}` | Get an approval
-[**get-approvals**](#get-approvals) | **Get** `/generic-approvals` | Get Approvals
+[**get-approvals**](#get-approvals) | **Get** `/generic-approvals` | Get approvals
 
 
 ## get-approval
@@ -113,7 +113,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Approvals
+Get approvals
 Retrieve a list of approvals, which can be filtered by requester ID, status, or reference type. "Mine" query parameter can be used and it will return all approvals for the current approver. This endpoint is for generic approvals, different than the access-request-approval endpoint and does not include access-request-approvals. 
 Absence of all query parameters will will default to mine=true.
 

@@ -15,17 +15,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-mfa-duo-config**](#get-mfa-duo-config) | **Get** `/mfa/duo-web/config` | Configuration of Duo MFA method
-[**get-mfa-kba-config**](#get-mfa-kba-config) | **Get** `/mfa/kba/config` | Configuration of KBA MFA method
-[**get-mfa-okta-config**](#get-mfa-okta-config) | **Get** `/mfa/okta-verify/config` | Configuration of Okta MFA method
-[**set-mfa-duo-config**](#set-mfa-duo-config) | **Put** `/mfa/duo-web/config` | Set Duo MFA configuration
-[**set-mfakba-config**](#set-mfakba-config) | **Post** `/mfa/kba/config/answers` | Set MFA KBA configuration
-[**set-mfa-okta-config**](#set-mfa-okta-config) | **Put** `/mfa/okta-verify/config` | Set Okta MFA configuration
-[**test-mfa-config**](#test-mfa-config) | **Get** `/mfa/{method}/test` | MFA method&#39;s test configuration
+[**get-mfa-duo-config**](#get-mfa-duo-config) | **Get** `/mfa/duo-web/config` | Configuration of duo mfa method
+[**get-mfa-kba-config**](#get-mfa-kba-config) | **Get** `/mfa/kba/config` | Configuration of kba mfa method
+[**get-mfa-okta-config**](#get-mfa-okta-config) | **Get** `/mfa/okta-verify/config` | Configuration of okta mfa method
+[**set-mfa-duo-config**](#set-mfa-duo-config) | **Put** `/mfa/duo-web/config` | Set duo mfa configuration
+[**set-mfakba-config**](#set-mfakba-config) | **Post** `/mfa/kba/config/answers` | Set mfa kba configuration
+[**set-mfa-okta-config**](#set-mfa-okta-config) | **Put** `/mfa/okta-verify/config` | Set okta mfa configuration
+[**test-mfa-config**](#test-mfa-config) | **Get** `/mfa/{method}/test` | Mfa method&#39;s test configuration
 
 
 ## get-mfa-duo-config
-Configuration of Duo MFA method
+Configuration of duo mfa method
 This API returns the configuration of an Duo MFA method.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-mfa-duo-config)
@@ -82,7 +82,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-mfa-kba-config
-Configuration of KBA MFA method
+Configuration of kba mfa method
 This API returns the KBA configuration for MFA.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-mfa-kba-config)
@@ -144,7 +144,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-mfa-okta-config
-Configuration of Okta MFA method
+Configuration of okta mfa method
 This API returns the configuration of an Okta MFA method.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-mfa-okta-config)
@@ -201,7 +201,7 @@ func main() {
 [[Back to top]](#)
 
 ## set-mfa-duo-config
-Set Duo MFA configuration
+Set duo mfa configuration
 This API sets the configuration of an Duo MFA method.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/set-mfa-duo-config)
@@ -278,7 +278,7 @@ func main() {
 [[Back to top]](#)
 
 ## set-mfakba-config
-Set MFA KBA configuration
+Set mfa kba configuration
 This API sets answers to challenge questions.  Any configured questions omitted from the request are removed from user KBA configuration.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/set-mfakba-config)
@@ -345,7 +345,7 @@ func main() {
 [[Back to top]](#)
 
 ## set-mfa-okta-config
-Set Okta MFA configuration
+Set okta mfa configuration
 This API sets the configuration of an Okta MFA method.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/set-mfa-okta-config)
@@ -418,7 +418,7 @@ func main() {
 [[Back to top]](#)
 
 ## test-mfa-config
-MFA method's test configuration
+Mfa method's test configuration
 This API validates that the configuration is valid and will properly authenticate with the MFA provider identified by the method path parameter.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/test-mfa-config)

@@ -15,19 +15,19 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**export-outliers-zip**](#export-outliers-zip) | **Get** `/outliers/export` | IAI Identity Outliers Export
-[**get-identity-outlier-snapshots**](#get-identity-outlier-snapshots) | **Get** `/outlier-summaries` | IAI Identity Outliers Summary
-[**get-identity-outliers**](#get-identity-outliers) | **Get** `/outliers` | IAI Get Identity Outliers
-[**get-latest-identity-outlier-snapshots**](#get-latest-identity-outlier-snapshots) | **Get** `/outlier-summaries/latest` | IAI Identity Outliers Latest Summary
+[**export-outliers-zip**](#export-outliers-zip) | **Get** `/outliers/export` | Iai identity outliers export
+[**get-identity-outlier-snapshots**](#get-identity-outlier-snapshots) | **Get** `/outlier-summaries` | Iai identity outliers summary
+[**get-identity-outliers**](#get-identity-outliers) | **Get** `/outliers` | Iai get identity outliers
+[**get-latest-identity-outlier-snapshots**](#get-latest-identity-outlier-snapshots) | **Get** `/outlier-summaries/latest` | Iai identity outliers latest summary
 [**get-outlier-contributing-feature-summary**](#get-outlier-contributing-feature-summary) | **Get** `/outlier-feature-summaries/{outlierFeatureId}` | Get identity outlier contibuting feature summary
 [**get-peer-group-outliers-contributing-features**](#get-peer-group-outliers-contributing-features) | **Get** `/outliers/{outlierId}/contributing-features` | Get identity outlier&#39;s contibuting features
-[**ignore-identity-outliers**](#ignore-identity-outliers) | **Post** `/outliers/ignore` | IAI Identity Outliers Ignore
+[**ignore-identity-outliers**](#ignore-identity-outliers) | **Post** `/outliers/ignore` | Iai identity outliers ignore
 [**list-outliers-contributing-feature-access-items**](#list-outliers-contributing-feature-access-items) | **Get** `/outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items` | Gets a list of access items associated with each identity outlier contributing feature
-[**un-ignore-identity-outliers**](#un-ignore-identity-outliers) | **Post** `/outliers/unignore` | IAI Identity Outliers Unignore
+[**un-ignore-identity-outliers**](#un-ignore-identity-outliers) | **Post** `/outliers/unignore` | Iai identity outliers unignore
 
 
 ## export-outliers-zip
-IAI Identity Outliers Export
+Iai identity outliers export
 This API exports a list of ignored outliers to a CSV as well as list of non-ignored outliers to a CSV. These two CSVs will be zipped and exported.
 
 Columns will include: identityId, type, firstDetectionDate, latestDetectionDate, ignored, & attributes (defined set of identity attributes).
@@ -92,7 +92,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-identity-outlier-snapshots
-IAI Identity Outliers Summary
+Iai identity outliers summary
 This API returns a summary containing the number of identities that customer has, the number of outliers, and the type of outlier.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-outlier-snapshots)
@@ -162,7 +162,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-identity-outliers
-IAI Get Identity Outliers
+Iai get identity outliers
 This API returns a list of outliers, containing data such as identity ID, outlier type, detection dates, identity attributes, if identity is ignored, and certification information.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-outliers)
@@ -234,7 +234,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-latest-identity-outlier-snapshots
-IAI Identity Outliers Latest Summary
+Iai identity outliers latest summary
 This API returns a most recent snapshot of each outlier type, each containing the number of identities that customer has, the number of outliers, and the type of outlier.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-latest-identity-outlier-snapshots)
@@ -444,7 +444,7 @@ func main() {
 [[Back to top]](#)
 
 ## ignore-identity-outliers
-IAI Identity Outliers Ignore
+Iai identity outliers ignore
 This API receives a list of identity IDs in the request, changes the outliers to be ignored.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/ignore-identity-outliers)
@@ -592,7 +592,7 @@ func main() {
 [[Back to top]](#)
 
 ## un-ignore-identity-outliers
-IAI Identity Outliers Unignore
+Iai identity outliers unignore
 This API receives a list of identity IDs in the request, changes the outliers to be un-ignored.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/un-ignore-identity-outliers)

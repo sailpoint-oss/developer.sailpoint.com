@@ -32,15 +32,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-segment**](#create-segment) | **Post** `/segments` | Create Segment
-[**delete-segment**](#delete-segment) | **Delete** `/segments/{id}` | Delete Segment by ID
-[**get-segment**](#get-segment) | **Get** `/segments/{id}` | Get Segment by ID
-[**list-segments**](#list-segments) | **Get** `/segments` | List Segments
-[**patch-segment**](#patch-segment) | **Patch** `/segments/{id}` | Update Segment
+[**create-segment**](#create-segment) | **Post** `/segments` | Create segment
+[**delete-segment**](#delete-segment) | **Delete** `/segments/{id}` | Delete segment by id
+[**get-segment**](#get-segment) | **Get** `/segments/{id}` | Get segment by id
+[**list-segments**](#list-segments) | **Get** `/segments` | List segments
+[**patch-segment**](#patch-segment) | **Patch** `/segments/{id}` | Update segment
 
 
 ## create-segment
-Create Segment
+Create segment
 This API creates a segment. 
 >**Note:** Segment definitions may take time to propagate to all identities.
 A token with ORG_ADMIN or API authority is required to call this API.
@@ -132,7 +132,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-segment
-Delete Segment by ID
+Delete segment by id
 This API deletes the segment specified by the given ID.
 >**Note:** Segment deletion may take some time to go into effect. 
 A token with ORG_ADMIN or API authority is required to call this API.
@@ -199,7 +199,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-segment
-Get Segment by ID
+Get segment by id
 This API returns the segment specified by the given ID.
 A token with ORG_ADMIN or API authority is required to call this API.
 
@@ -266,7 +266,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-segments
-List Segments
+List segments
 This API returns a list of all segments.
 A token with ORG_ADMIN or API authority is required to call this API.
 
@@ -333,7 +333,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-segment
-Update Segment
+Update segment
 Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 >**Note:** Changes to a segment may take some time to propagate to all identities.
 A token with ORG_ADMIN or API authority is required to call this API.

@@ -17,16 +17,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-managed-client**](#create-managed-client) | **Post** `/managed-clients` | Create Managed Client
-[**delete-managed-client**](#delete-managed-client) | **Delete** `/managed-clients/{id}` | Delete Managed Client
-[**get-managed-client**](#get-managed-client) | **Get** `/managed-clients/{id}` | Get Managed Client
-[**get-managed-client-status**](#get-managed-client-status) | **Get** `/managed-clients/{id}/status` | Get Managed Client Status
-[**get-managed-clients**](#get-managed-clients) | **Get** `/managed-clients` | Get Managed Clients
-[**update-managed-client**](#update-managed-client) | **Patch** `/managed-clients/{id}` | Update Managed Client
+[**create-managed-client**](#create-managed-client) | **Post** `/managed-clients` | Create managed client
+[**delete-managed-client**](#delete-managed-client) | **Delete** `/managed-clients/{id}` | Delete managed client
+[**get-managed-client**](#get-managed-client) | **Get** `/managed-clients/{id}` | Get managed client
+[**get-managed-client-status**](#get-managed-client-status) | **Get** `/managed-clients/{id}/status` | Get managed client status
+[**get-managed-clients**](#get-managed-clients) | **Get** `/managed-clients` | Get managed clients
+[**update-managed-client**](#update-managed-client) | **Patch** `/managed-clients/{id}` | Update managed client
 
 
 ## create-managed-client
-Create Managed Client
+Create managed client
 Create a new managed client.
 The API returns a result that includes the managed client ID.
 
@@ -99,7 +99,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-managed-client
-Delete Managed Client
+Delete managed client
 Delete an existing managed client.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-managed-client)
@@ -164,7 +164,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-managed-client
-Get Managed Client
+Get managed client
 Get managed client by ID. 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-managed-client)
@@ -230,7 +230,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-managed-client-status
-Get Managed Client Status
+Get managed client status
 Get a managed client's status, using its ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-managed-client-status)
@@ -298,7 +298,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-managed-clients
-Get Managed Clients
+Get managed clients
 List managed clients.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-managed-clients)
@@ -366,7 +366,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-managed-client
-Update Managed Client
+Update managed client
 Update an existing managed client.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/update-managed-client)

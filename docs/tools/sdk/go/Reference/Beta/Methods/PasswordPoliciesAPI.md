@@ -24,15 +24,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-password-policy**](#create-password-policy) | **Post** `/password-policies` | Create Password Policy
-[**delete-password-policy**](#delete-password-policy) | **Delete** `/password-policies/{id}` | Delete Password Policy by ID
-[**get-password-policy-by-id**](#get-password-policy-by-id) | **Get** `/password-policies/{id}` | Get Password Policy by ID
-[**list-password-policies**](#list-password-policies) | **Get** `/password-policies` | List Password Policies
-[**set-password-policy**](#set-password-policy) | **Put** `/password-policies/{id}` | Update Password Policy by ID
+[**create-password-policy**](#create-password-policy) | **Post** `/password-policies` | Create password policy
+[**delete-password-policy**](#delete-password-policy) | **Delete** `/password-policies/{id}` | Delete password policy by id
+[**get-password-policy-by-id**](#get-password-policy-by-id) | **Get** `/password-policies/{id}` | Get password policy by id
+[**list-password-policies**](#list-password-policies) | **Get** `/password-policies` | List password policies
+[**set-password-policy**](#set-password-policy) | **Put** `/password-policies/{id}` | Update password policy by id
 
 
 ## create-password-policy
-Create Password Policy
+Create password policy
 This API creates the specified password policy.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-password-policy)
@@ -131,7 +131,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-password-policy
-Delete Password Policy by ID
+Delete password policy by id
 This API deletes the specified password policy.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-password-policy)
@@ -196,7 +196,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-password-policy-by-id
-Get Password Policy by ID
+Get password policy by id
 This API returns the password policy for the specified ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-password-policy-by-id)
@@ -262,7 +262,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-password-policies
-List Password Policies
+List password policies
 This gets list of all Password Policies.
 Requires role of ORG_ADMIN
 
@@ -329,7 +329,7 @@ func main() {
 [[Back to top]](#)
 
 ## set-password-policy
-Update Password Policy by ID
+Update password policy by id
 This API updates the specified password policy.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/set-password-policy)

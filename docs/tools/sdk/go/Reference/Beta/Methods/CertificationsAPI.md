@@ -30,19 +30,19 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-identity-certification-item-permissions**](#get-identity-certification-item-permissions) | **Get** `/certifications/{certificationId}/access-review-items/{itemId}/permissions` | Permissions for Entitlement Certification Item
-[**get-identity-certification-pending-tasks**](#get-identity-certification-pending-tasks) | **Get** `/certifications/{id}/tasks-pending` | Pending Certification Tasks
-[**get-identity-certification-task-status**](#get-identity-certification-task-status) | **Get** `/certifications/{id}/tasks/{taskId}` | Certification Task Status
-[**list-certification-reviewers**](#list-certification-reviewers) | **Get** `/certifications/{id}/reviewers` | List of Reviewers for certification
-[**list-certifications**](#list-certifications) | **Get** `/certifications` | Certifications by IDs
-[**submit-reassign-certs-async**](#submit-reassign-certs-async) | **Post** `/certifications/{id}/reassign-async` | Reassign Certifications Asynchronously
+[**get-identity-certification-item-permissions**](#get-identity-certification-item-permissions) | **Get** `/certifications/{certificationId}/access-review-items/{itemId}/permissions` | Permissions for entitlement certification item
+[**get-identity-certification-pending-tasks**](#get-identity-certification-pending-tasks) | **Get** `/certifications/{id}/tasks-pending` | Pending certification tasks
+[**get-identity-certification-task-status**](#get-identity-certification-task-status) | **Get** `/certifications/{id}/tasks/{taskId}` | Certification task status
+[**list-certification-reviewers**](#list-certification-reviewers) | **Get** `/certifications/{id}/reviewers` | List of reviewers for certification
+[**list-certifications**](#list-certifications) | **Get** `/certifications` | Certifications by ids
+[**submit-reassign-certs-async**](#submit-reassign-certs-async) | **Post** `/certifications/{id}/reassign-async` | Reassign certifications asynchronously
 
 
 ## get-identity-certification-item-permissions
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Permissions for Entitlement Certification Item
+Permissions for entitlement certification item
 This API returns the permissions associated with an entitlement certification item based on the certification item's ID. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-certification-item-permissions)
@@ -119,7 +119,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-identity-certification-pending-tasks
-Pending Certification Tasks
+Pending certification tasks
 This API returns the status of all pending (`QUEUED` or `IN_PROGRESS`) tasks for an identity campaign certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-certification-pending-tasks)
@@ -185,7 +185,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-identity-certification-task-status
-Certification Task Status
+Certification task status
 This API returns the status of a certification task. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-certification-task-status)
@@ -257,7 +257,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-List of Reviewers for certification
+List of reviewers for certification
 This API returns a list of reviewers for the certification. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-certification-reviewers)
@@ -333,7 +333,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-certifications
-Certifications by IDs
+Certifications by ids
 This API returns a list of certifications that satisfy the given query parameters. Any authenticated token can call this API, but only certifications you are authorized to review will be returned.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-certifications)
@@ -408,7 +408,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Reassign Certifications Asynchronously
+Reassign certifications asynchronously
 This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the reassignment is complete. A token with ORG_ADMIN or CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/submit-reassign-certs-async)

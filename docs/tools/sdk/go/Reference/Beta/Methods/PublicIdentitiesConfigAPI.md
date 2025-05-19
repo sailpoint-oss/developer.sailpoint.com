@@ -25,15 +25,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-public-identity-config**](#get-public-identity-config) | **Get** `/public-identities-config` | Get Public Identity Config
-[**update-public-identity-config**](#update-public-identity-config) | **Put** `/public-identities-config` | Update Public Identity Config
+[**get-public-identity-config**](#get-public-identity-config) | **Get** `/public-identities-config` | Get public identity config
+[**update-public-identity-config**](#update-public-identity-config) | **Put** `/public-identities-config` | Update public identity config
 
 
 ## get-public-identity-config
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Get Public Identity Config
+Get public identity config
 This gets details of public identity config.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-public-identity-config)
@@ -93,7 +93,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Update Public Identity Config
+Update public identity config
 This updates the details of public identity config.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-public-identity-config)

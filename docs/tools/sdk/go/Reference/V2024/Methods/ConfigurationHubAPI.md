@@ -26,30 +26,30 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-deploy**](#create-deploy) | **Post** `/configuration-hub/deploys` | Create a Deploy
+[**create-deploy**](#create-deploy) | **Post** `/configuration-hub/deploys` | Create a deploy
 [**create-object-mapping**](#create-object-mapping) | **Post** `/configuration-hub/object-mappings/{sourceOrg}` | Creates an object mapping
 [**create-object-mappings**](#create-object-mappings) | **Post** `/configuration-hub/object-mappings/{sourceOrg}/bulk-create` | Bulk creates object mappings
-[**create-scheduled-action**](#create-scheduled-action) | **Post** `/configuration-hub/scheduled-actions` | Create Scheduled Action
-[**create-uploaded-configuration**](#create-uploaded-configuration) | **Post** `/configuration-hub/backups/uploads` | Upload a Configuration
-[**delete-backup**](#delete-backup) | **Delete** `/configuration-hub/backups/{id}` | Delete a Backup
+[**create-scheduled-action**](#create-scheduled-action) | **Post** `/configuration-hub/scheduled-actions` | Create scheduled action
+[**create-uploaded-configuration**](#create-uploaded-configuration) | **Post** `/configuration-hub/backups/uploads` | Upload a configuration
+[**delete-backup**](#delete-backup) | **Delete** `/configuration-hub/backups/{id}` | Delete a backup
 [**delete-draft**](#delete-draft) | **Delete** `/configuration-hub/drafts/{id}` | Delete a draft
 [**delete-object-mapping**](#delete-object-mapping) | **Delete** `/configuration-hub/object-mappings/{sourceOrg}/{objectMappingId}` | Deletes an object mapping
-[**delete-scheduled-action**](#delete-scheduled-action) | **Delete** `/configuration-hub/scheduled-actions/{id}` | Delete Scheduled Action
-[**delete-uploaded-configuration**](#delete-uploaded-configuration) | **Delete** `/configuration-hub/backups/uploads/{id}` | Delete an Uploaded Configuration
-[**get-deploy**](#get-deploy) | **Get** `/configuration-hub/deploys/{id}` | Get a Deploy
+[**delete-scheduled-action**](#delete-scheduled-action) | **Delete** `/configuration-hub/scheduled-actions/{id}` | Delete scheduled action
+[**delete-uploaded-configuration**](#delete-uploaded-configuration) | **Delete** `/configuration-hub/backups/uploads/{id}` | Delete an uploaded configuration
+[**get-deploy**](#get-deploy) | **Get** `/configuration-hub/deploys/{id}` | Get a deploy
 [**get-object-mappings**](#get-object-mappings) | **Get** `/configuration-hub/object-mappings/{sourceOrg}` | Gets list of object mappings
-[**get-uploaded-configuration**](#get-uploaded-configuration) | **Get** `/configuration-hub/backups/uploads/{id}` | Get an Uploaded Configuration
-[**list-backups**](#list-backups) | **Get** `/configuration-hub/backups` | List Backups
-[**list-deploys**](#list-deploys) | **Get** `/configuration-hub/deploys` | List Deploys
-[**list-drafts**](#list-drafts) | **Get** `/configuration-hub/drafts` | List Drafts
-[**list-scheduled-actions**](#list-scheduled-actions) | **Get** `/configuration-hub/scheduled-actions` | List Scheduled Actions
-[**list-uploaded-configurations**](#list-uploaded-configurations) | **Get** `/configuration-hub/backups/uploads` | List Uploaded Configurations
+[**get-uploaded-configuration**](#get-uploaded-configuration) | **Get** `/configuration-hub/backups/uploads/{id}` | Get an uploaded configuration
+[**list-backups**](#list-backups) | **Get** `/configuration-hub/backups` | List backups
+[**list-deploys**](#list-deploys) | **Get** `/configuration-hub/deploys` | List deploys
+[**list-drafts**](#list-drafts) | **Get** `/configuration-hub/drafts` | List drafts
+[**list-scheduled-actions**](#list-scheduled-actions) | **Get** `/configuration-hub/scheduled-actions` | List scheduled actions
+[**list-uploaded-configurations**](#list-uploaded-configurations) | **Get** `/configuration-hub/backups/uploads` | List uploaded configurations
 [**update-object-mappings**](#update-object-mappings) | **Post** `/configuration-hub/object-mappings/{sourceOrg}/bulk-patch` | Bulk updates object mappings
-[**update-scheduled-action**](#update-scheduled-action) | **Patch** `/configuration-hub/scheduled-actions/{id}` | Update Scheduled Action
+[**update-scheduled-action**](#update-scheduled-action) | **Patch** `/configuration-hub/scheduled-actions/{id}` | Update scheduled action
 
 
 ## create-deploy
-Create a Deploy
+Create a deploy
 This API performs a deploy based on an existing daft.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-deploy)
@@ -290,7 +290,7 @@ func main() {
 [[Back to top]](#)
 
 ## create-scheduled-action
-Create Scheduled Action
+Create scheduled action
 This API creates a new scheduled action for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-scheduled-action)
@@ -379,7 +379,7 @@ func main() {
 [[Back to top]](#)
 
 ## create-uploaded-configuration
-Upload a Configuration
+Upload a configuration
 This API uploads a JSON configuration file into a tenant.
 
 Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.
@@ -447,7 +447,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-backup
-Delete a Backup
+Delete a backup
 This API deletes an existing backup for the current tenant.
 
 On success, this endpoint will return an empty response.
@@ -656,7 +656,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-scheduled-action
-Delete Scheduled Action
+Delete scheduled action
 This API deletes an existing scheduled action.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-scheduled-action)
@@ -721,7 +721,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-uploaded-configuration
-Delete an Uploaded Configuration
+Delete an uploaded configuration
 This API deletes an uploaded configuration based on Id.
 
 On success, this endpoint will return an empty response.
@@ -790,7 +790,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-deploy
-Get a Deploy
+Get a deploy
 This API gets an existing deploy for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-deploy)
@@ -925,7 +925,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-uploaded-configuration
-Get an Uploaded Configuration
+Get an uploaded configuration
 This API gets an existing uploaded configuration for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-uploaded-configuration)
@@ -991,7 +991,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-backups
-List Backups
+List backups
 This API gets a list of existing backups for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-backups)
@@ -1053,7 +1053,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-deploys
-List Deploys
+List deploys
 This API gets a list of deploys for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-deploys)
@@ -1110,7 +1110,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-drafts
-List Drafts
+List drafts
 This API gets a list of existing drafts for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-drafts)
@@ -1172,7 +1172,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-scheduled-actions
-List Scheduled Actions
+List scheduled actions
 This API gets a list of existing scheduled actions for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-scheduled-actions)
@@ -1229,7 +1229,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-uploaded-configurations
-List Uploaded Configurations
+List uploaded configurations
 This API gets a list of existing uploaded configurations for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-uploaded-configurations)
@@ -1380,7 +1380,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-scheduled-action
-Update Scheduled Action
+Update scheduled action
 This API updates an existing scheduled action using JSON Patch format.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-scheduled-action)

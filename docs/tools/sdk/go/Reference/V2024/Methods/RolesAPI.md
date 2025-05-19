@@ -52,26 +52,26 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-role**](#create-role) | **Post** `/roles` | Create a Role
-[**delete-bulk-roles**](#delete-bulk-roles) | **Post** `/roles/bulk-delete` | Delete Role(s)
-[**delete-metadata-from-role-by-key-and-value**](#delete-metadata-from-role-by-key-and-value) | **Delete** `/roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove a Metadata From Role.
-[**delete-role**](#delete-role) | **Delete** `/roles/{id}` | Delete a Role
-[**get-bulk-update-status**](#get-bulk-update-status) | **Get** `/roles/access-model-metadata/bulk-update` | Get Bulk-Update Statuses
-[**get-bulk-update-status-by-id**](#get-bulk-update-status-by-id) | **Get** `/roles/access-model-metadata/bulk-update/id` | Get Bulk-Update Status by ID
-[**get-role**](#get-role) | **Get** `/roles/{id}` | Get a Role
-[**get-role-assigned-identities**](#get-role-assigned-identities) | **Get** `/roles/{id}/assigned-identities` | List Identities assigned a Role
-[**get-role-entitlements**](#get-role-entitlements) | **Get** `/roles/{id}/entitlements` | List Role&#39;s Entitlements
-[**list-roles**](#list-roles) | **Get** `/roles` | List Roles
-[**patch-role**](#patch-role) | **Patch** `/roles/{id}` | Patch a specified Role
-[**search-roles-by-filter**](#search-roles-by-filter) | **Post** `/roles/filter` | Filter Roles by Metadata
-[**update-attribute-key-and-value-to-role**](#update-attribute-key-and-value-to-role) | **Post** `/roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add a Metadata to Role.
-[**update-roles-metadata-by-filter**](#update-roles-metadata-by-filter) | **Post** `/roles/access-model-metadata/bulk-update/filter` | Bulk-Update Roles&#39; Metadata by Filters
-[**update-roles-metadata-by-ids**](#update-roles-metadata-by-ids) | **Post** `/roles/access-model-metadata/bulk-update/ids` | Bulk-Update Roles&#39; Metadata by ID
-[**update-roles-metadata-by-query**](#update-roles-metadata-by-query) | **Post** `/roles/access-model-metadata/bulk-update/query` | Bulk-Update Roles&#39; Metadata by Query
+[**create-role**](#create-role) | **Post** `/roles` | Create a role
+[**delete-bulk-roles**](#delete-bulk-roles) | **Post** `/roles/bulk-delete` | Delete role(s)
+[**delete-metadata-from-role-by-key-and-value**](#delete-metadata-from-role-by-key-and-value) | **Delete** `/roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove a metadata from role.
+[**delete-role**](#delete-role) | **Delete** `/roles/{id}` | Delete a role
+[**get-bulk-update-status**](#get-bulk-update-status) | **Get** `/roles/access-model-metadata/bulk-update` | Get bulk-update statuses
+[**get-bulk-update-status-by-id**](#get-bulk-update-status-by-id) | **Get** `/roles/access-model-metadata/bulk-update/id` | Get bulk-update status by id
+[**get-role**](#get-role) | **Get** `/roles/{id}` | Get a role
+[**get-role-assigned-identities**](#get-role-assigned-identities) | **Get** `/roles/{id}/assigned-identities` | List identities assigned a role
+[**get-role-entitlements**](#get-role-entitlements) | **Get** `/roles/{id}/entitlements` | List role&#39;s entitlements
+[**list-roles**](#list-roles) | **Get** `/roles` | List roles
+[**patch-role**](#patch-role) | **Patch** `/roles/{id}` | Patch a specified role
+[**search-roles-by-filter**](#search-roles-by-filter) | **Post** `/roles/filter` | Filter roles by metadata
+[**update-attribute-key-and-value-to-role**](#update-attribute-key-and-value-to-role) | **Post** `/roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add a metadata to role.
+[**update-roles-metadata-by-filter**](#update-roles-metadata-by-filter) | **Post** `/roles/access-model-metadata/bulk-update/filter` | Bulk-update roles&#39; metadata by filters
+[**update-roles-metadata-by-ids**](#update-roles-metadata-by-ids) | **Post** `/roles/access-model-metadata/bulk-update/ids` | Bulk-update roles&#39; metadata by id
+[**update-roles-metadata-by-query**](#update-roles-metadata-by-query) | **Post** `/roles/access-model-metadata/bulk-update/query` | Bulk-update roles&#39; metadata by query
 
 
 ## create-role
-Create a Role
+Create a role
 This API creates a role.
 
 You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to call this API. 
@@ -302,7 +302,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-bulk-roles
-Delete Role(s)
+Delete role(s)
 This endpoint initiates a bulk deletion of one or more roles.
 When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 roles per request. 
@@ -374,7 +374,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-metadata-from-role-by-key-and-value
-Remove a Metadata From Role.
+Remove a metadata from role.
 This API initialize a request to remove a single Access Model Metadata from a role by attribute key and value. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-metadata-from-role-by-key-and-value)
@@ -445,7 +445,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-role
-Delete a Role
+Delete a role
 This API deletes a Role by its ID.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
@@ -512,7 +512,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-bulk-update-status
-Get Bulk-Update Statuses
+Get bulk-update statuses
 This API returns a list of all unfinished bulk update process status of the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-bulk-update-status)
@@ -569,7 +569,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-bulk-update-status-by-id
-Get Bulk-Update Status by ID
+Get bulk-update status by id
 
 This API initial a request for one bulk update's status by bulk update Id returns the status of the bulk update process.
 A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. 
@@ -637,7 +637,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-role
-Get a Role
+Get a role
 This API returns a Role by its ID.
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
@@ -704,7 +704,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-role-assigned-identities
-List Identities assigned a Role
+List identities assigned a role
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-assigned-identities)
@@ -791,7 +791,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Role's Entitlements
+List role's entitlements
 Get a list of entitlements associated with a specified role.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-entitlements)
@@ -869,7 +869,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-roles
-List Roles
+List roles
 This API returns a list of Roles.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
@@ -947,7 +947,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-role
-Patch a specified Role
+Patch a specified role
 This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
 The following fields are patchable:
@@ -1040,7 +1040,7 @@ func main() {
 [[Back to top]](#)
 
 ## search-roles-by-filter
-Filter Roles by Metadata
+Filter roles by metadata
 This API returns a list of Role that filter by metadata and filter, it support filter by  both path parameter and attribute key and values.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, HELPDESK, CERT_ADMIN, REPORT_ADMIN or SOURCE_ADMIN  authority is required to call this API. 
 
@@ -1123,7 +1123,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-attribute-key-and-value-to-role
-Add a Metadata to Role.
+Add a metadata to role.
 This API initialize a request to add a single Access Model Metadata to a role by attribute key and attribute value. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. The maximum number of attributes in one role is 25. Custom metadata update, including ADD and REPLACE need suit licensed.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-attribute-key-and-value-to-role)
@@ -1195,7 +1195,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-roles-metadata-by-filter
-Bulk-Update Roles' Metadata by Filters
+Bulk-update roles' metadata by filters
 This API initiates a bulk update of metadata for one or more Roles by filter.
 A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
 The maximum metadata value count for a single role is 25.
@@ -1273,7 +1273,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-roles-metadata-by-ids
-Bulk-Update Roles' Metadata by ID
+Bulk-update roles' metadata by id
 This API initiates a bulk update of metadata for one or more Roles by a list of Role Ids.
 A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
 The maximum role count in a single update request is 3000. The maximum metadata value count for a single role is 25.
@@ -1351,7 +1351,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-roles-metadata-by-query
-Bulk-Update Roles' Metadata by Query
+Bulk-update roles' metadata by query
 This API initiates a bulk update of metadata for one or more Roles by query.
 A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
 The maximum metadata value count for a single role is 25.

@@ -18,23 +18,23 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-multi-host-integration**](#create-multi-host-integration) | **Post** `/multihosts` | Create Multi-Host Integration
-[**create-sources-within-multi-host**](#create-sources-within-multi-host) | **Post** `/multihosts/{multihostId}` | Create Sources Within Multi-Host Integration
-[**delete-multi-host**](#delete-multi-host) | **Delete** `/multihosts/{multihostId}` | Delete Multi-Host Integration
-[**get-acct-aggregation-groups**](#get-acct-aggregation-groups) | **Get** `/multihosts/{multihostId}/acctAggregationGroups` | Get Account Aggregation Groups Within Multi-Host Integration ID
-[**get-entitlement-aggregation-groups**](#get-entitlement-aggregation-groups) | **Get** `/multihosts/{multiHostId}/entitlementAggregationGroups` | Get Entitlement Aggregation Groups Within Multi-Host Integration ID
-[**get-multi-host-integrations**](#get-multi-host-integrations) | **Get** `/multihosts/{multihostId}` | Get Multi-Host Integration By ID
-[**get-multi-host-integrations-list**](#get-multi-host-integrations-list) | **Get** `/multihosts` | List All Existing Multi-Host Integrations
-[**get-multi-host-source-creation-errors**](#get-multi-host-source-creation-errors) | **Get** `/multihosts/{multiHostId}/sources/errors` | List Multi-Host Source Creation Errors
-[**get-multihost-integration-types**](#get-multihost-integration-types) | **Get** `/multihosts/types` | List Multi-Host Integration Types
-[**get-sources-within-multi-host**](#get-sources-within-multi-host) | **Get** `/multihosts/{multihostId}/sources` | List Sources Within Multi-Host Integration
-[**test-connection-multi-host-sources**](#test-connection-multi-host-sources) | **Post** `/multihosts/{multihostId}/sources/testConnection` | Test Configuration For Multi-Host Integration
-[**test-source-connection-multihost**](#test-source-connection-multihost) | **Get** `/multihosts/{multihostId}/sources/{sourceId}/testConnection` | Test Configuration For Multi-Host Integration&#39;s Single Source
-[**update-multi-host-sources**](#update-multi-host-sources) | **Patch** `/multihosts/{multihostId}` | Update Multi-Host Integration
+[**create-multi-host-integration**](#create-multi-host-integration) | **Post** `/multihosts` | Create multi-host integration
+[**create-sources-within-multi-host**](#create-sources-within-multi-host) | **Post** `/multihosts/{multihostId}` | Create sources within multi-host integration
+[**delete-multi-host**](#delete-multi-host) | **Delete** `/multihosts/{multihostId}` | Delete multi-host integration
+[**get-acct-aggregation-groups**](#get-acct-aggregation-groups) | **Get** `/multihosts/{multihostId}/acctAggregationGroups` | Get account aggregation groups within multi-host integration id
+[**get-entitlement-aggregation-groups**](#get-entitlement-aggregation-groups) | **Get** `/multihosts/{multiHostId}/entitlementAggregationGroups` | Get entitlement aggregation groups within multi-host integration id
+[**get-multi-host-integrations**](#get-multi-host-integrations) | **Get** `/multihosts/{multihostId}` | Get multi-host integration by id
+[**get-multi-host-integrations-list**](#get-multi-host-integrations-list) | **Get** `/multihosts` | List all existing multi-host integrations
+[**get-multi-host-source-creation-errors**](#get-multi-host-source-creation-errors) | **Get** `/multihosts/{multiHostId}/sources/errors` | List multi-host source creation errors
+[**get-multihost-integration-types**](#get-multihost-integration-types) | **Get** `/multihosts/types` | List multi-host integration types
+[**get-sources-within-multi-host**](#get-sources-within-multi-host) | **Get** `/multihosts/{multihostId}/sources` | List sources within multi-host integration
+[**test-connection-multi-host-sources**](#test-connection-multi-host-sources) | **Post** `/multihosts/{multihostId}/sources/testConnection` | Test configuration for multi-host integration
+[**test-source-connection-multihost**](#test-source-connection-multihost) | **Get** `/multihosts/{multihostId}/sources/{sourceId}/testConnection` | Test configuration for multi-host integration&#39;s single source
+[**update-multi-host-sources**](#update-multi-host-sources) | **Patch** `/multihosts/{multihostId}` | Update multi-host integration
 
 
 ## create-multi-host-integration
-Create Multi-Host Integration
+Create multi-host integration
 This API is used to create Multi-Host Integration. Multi-host Integration holds similar types of sources.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -128,7 +128,7 @@ func main() {
 [[Back to top]](#)
 
 ## create-sources-within-multi-host
-Create Sources Within Multi-Host Integration
+Create sources within multi-host integration
 This API is used to create sources within Multi-Host Integration. Multi-Host Integration holds similar types of sources.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -202,7 +202,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-multi-host
-Delete Multi-Host Integration
+Delete multi-host integration
 Delete an existing Multi-Host Integration by ID.  
 
 A token with Org Admin or Multi Host Admin authority is required to access this endpoint.
@@ -269,7 +269,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-acct-aggregation-groups
-Get Account Aggregation Groups Within Multi-Host Integration ID
+Get account aggregation groups within multi-host integration id
 This API will return array of account aggregation groups within provided Multi-Host Integration ID.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -337,7 +337,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-entitlement-aggregation-groups
-Get Entitlement Aggregation Groups Within Multi-Host Integration ID
+Get entitlement aggregation groups within multi-host integration id
 This API will return array of aggregation groups within provided Multi-Host Integration ID.  
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -405,7 +405,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-multi-host-integrations
-Get Multi-Host Integration By ID
+Get multi-host integration by id
 Get an existing Multi-Host Integration. 
 
 A token with Org Admin or Multi-Host Integration Admin authority is required to access this endpoint.
@@ -473,7 +473,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-multi-host-integrations-list
-List All Existing Multi-Host Integrations
+List all existing multi-host integrations
 Get a list of Multi-Host Integrations.  
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -547,7 +547,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-multi-host-source-creation-errors
-List Multi-Host Source Creation Errors
+List multi-host source creation errors
 Get a list of sources creation errors within Multi-Host Integration ID.  
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -615,7 +615,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-multihost-integration-types
-List Multi-Host Integration Types
+List multi-host integration types
 This API endpoint returns the current list of supported Multi-Host Integration types.  
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -674,7 +674,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-sources-within-multi-host
-List Sources Within Multi-Host Integration
+List sources within multi-host integration
 Get a list of sources within Multi-Host Integration ID.  
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -752,7 +752,7 @@ func main() {
 [[Back to top]](#)
 
 ## test-connection-multi-host-sources
-Test Configuration For Multi-Host Integration
+Test configuration for multi-host integration
 This endpoint performs a more detailed validation of the Multi-Host Integration's configuration.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -819,7 +819,7 @@ func main() {
 [[Back to top]](#)
 
 ## test-source-connection-multihost
-Test Configuration For Multi-Host Integration's Single Source
+Test configuration for multi-host integration's single source
 This endpoint performs a more detailed validation of the source's configuration.  
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.
@@ -890,7 +890,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-multi-host-sources
-Update Multi-Host Integration
+Update multi-host integration
 Update existing sources within Multi-Host Integration.
 
 A token with Org Admin or Multi-Host Admin authority is required to access this endpoint.

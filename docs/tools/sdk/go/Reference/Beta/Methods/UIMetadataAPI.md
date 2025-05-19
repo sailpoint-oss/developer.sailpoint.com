@@ -16,12 +16,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-tenant-ui-metadata**](#get-tenant-ui-metadata) | **Get** `/ui-metadata/tenant` | Get a tenant UI metadata
-[**set-tenant-ui-metadata**](#set-tenant-ui-metadata) | **Put** `/ui-metadata/tenant` | Update tenant UI metadata
+[**get-tenant-ui-metadata**](#get-tenant-ui-metadata) | **Get** `/ui-metadata/tenant` | Get a tenant ui metadata
+[**set-tenant-ui-metadata**](#set-tenant-ui-metadata) | **Put** `/ui-metadata/tenant` | Update tenant ui metadata
 
 
 ## get-tenant-ui-metadata
-Get a tenant UI metadata
+Get a tenant ui metadata
 This API endpoint retrieves UI metadata configured for your tenant.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -79,7 +79,7 @@ func main() {
 [[Back to top]](#)
 
 ## set-tenant-ui-metadata
-Update tenant UI metadata
+Update tenant ui metadata
 This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI.
 A token with ORG_ADMIN authority is required to call this API.
 

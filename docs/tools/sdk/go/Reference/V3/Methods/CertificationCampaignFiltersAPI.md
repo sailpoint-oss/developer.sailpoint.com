@@ -42,15 +42,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-campaign-filter**](#create-campaign-filter) | **Post** `/campaign-filters` | Create Campaign Filter
-[**delete-campaign-filters**](#delete-campaign-filters) | **Post** `/campaign-filters/delete` | Deletes Campaign Filters
-[**get-campaign-filter-by-id**](#get-campaign-filter-by-id) | **Get** `/campaign-filters/{id}` | Get Campaign Filter by ID
-[**list-campaign-filters**](#list-campaign-filters) | **Get** `/campaign-filters` | List Campaign Filters
-[**update-campaign-filter**](#update-campaign-filter) | **Post** `/campaign-filters/{id}` | Updates a Campaign Filter
+[**create-campaign-filter**](#create-campaign-filter) | **Post** `/campaign-filters` | Create campaign filter
+[**delete-campaign-filters**](#delete-campaign-filters) | **Post** `/campaign-filters/delete` | Deletes campaign filters
+[**get-campaign-filter-by-id**](#get-campaign-filter-by-id) | **Get** `/campaign-filters/{id}` | Get campaign filter by id
+[**list-campaign-filters**](#list-campaign-filters) | **Get** `/campaign-filters` | List campaign filters
+[**update-campaign-filter**](#update-campaign-filter) | **Post** `/campaign-filters/{id}` | Updates a campaign filter
 
 
 ## create-campaign-filter
-Create Campaign Filter
+Create campaign filter
 Use this API to create a campaign filter based on filter details and criteria.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-campaign-filter)
@@ -134,7 +134,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-campaign-filters
-Deletes Campaign Filters
+Deletes campaign filters
 Deletes campaign filters whose Ids are specified in the provided list of campaign filter Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-campaign-filters)
@@ -200,7 +200,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-campaign-filter-by-id
-Get Campaign Filter by ID
+Get campaign filter by id
 Retrieves information for an existing campaign filter using the filter's ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-campaign-filter-by-id)
@@ -266,7 +266,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-campaign-filters
-List Campaign Filters
+List campaign filters
 Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-campaign-filters)
@@ -332,7 +332,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-campaign-filter
-Updates a Campaign Filter
+Updates a campaign filter
 Updates an existing campaign filter using the filter's ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/update-campaign-filter)

@@ -19,13 +19,9 @@ const HomepageGettingStarted: React.FC = () => {
           </div>
           <div className={styles.gridContainer}>
             <div>
-              {/* <a href="https://developer.sailpoint.com/discuss/developerdays" className={styles.registerButtonPink}>
-                Register now
-              </a> */}
               <a href="https://developer.sailpoint.com/discuss/developerdays" className={styles.registerButtonPink}>
-                Watch Now!
+                Watch now
               </a>
-
             </div>
           </div>
         </div>

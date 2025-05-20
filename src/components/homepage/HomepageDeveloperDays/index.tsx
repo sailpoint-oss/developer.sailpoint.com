@@ -10,7 +10,7 @@ const HomepageGettingStarted: React.FC = () => {
         <div className={styles.contentContainer}>
           <div className={styles.gettingStartedText}>
             <div className={styles.gettingStartedOne}>SailPoint Developer Days</div>
-            <div className={styles.gettingStartedTwo}>Join us live for developer days!</div>
+            <div className={styles.gettingStartedTwo}>Developer Days 2025 is now live!</div>
             <div className={styles.gettingStartedThree}>
               Our largest conference for developers, architects, administrators, and more is finally here! Explore
               <span className={styles.bold}> cutting-edge technologies</span>, gain insights from industry leaders, and
@@ -19,9 +19,13 @@ const HomepageGettingStarted: React.FC = () => {
           </div>
           <div className={styles.gridContainer}>
             <div>
-              <a href="https://developer.sailpoint.com/discuss/developerdays" className={styles.registerButtonPink}>
+              {/* <a href="https://developer.sailpoint.com/discuss/developerdays" className={styles.registerButtonPink}>
                 Register now
+              </a> */}
+              <a href="https://developer.sailpoint.com/discuss/developerdays" className={styles.registerButtonPink}>
+                Watch Now!
               </a>
+
             </div>
           </div>
         </div>

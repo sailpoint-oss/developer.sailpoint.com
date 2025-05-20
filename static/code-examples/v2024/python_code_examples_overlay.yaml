@@ -19872,20 +19872,26 @@
       source: |
         from sailpoint.v2024.api.suggested_entitlement_description_api import SuggestedEntitlementDescriptionApi
         from sailpoint.v2024.api_client import ApiClient
-        from sailpoint.v2024.models.sed_batch_status import SedBatchStatus
+        from sailpoint.v2024.models.sed_batch_record import SedBatchRecord
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
 
         with ApiClient(configuration) as api_client:
+          offset = 0 # int | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0) # int | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
+          limit = 250 # int | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250) # int | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
+          count = False # bool | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send `count=true` if that value will not be used. (optional) (default to False) # bool | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send `count=true` if that value will not be used. (optional) (default to False)
+          count_only = False # bool | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the `count` parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to False) # bool | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the `count` parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to False)
+          status = 'completed, failed, submitted, materialized, failed' # str | Batch Status (optional) # str | Batch Status (optional)
           try:
-              # List sed batch request
+              # List Sed Batch Record
               
               results = SuggestedEntitlementDescriptionApi(api_client).get_sed_batches()
               # Below is a request that includes all optional parameters
-              # results = SuggestedEntitlementDescriptionApi(api_client).get_sed_batches()
+              # results = SuggestedEntitlementDescriptionApi(api_client).get_sed_batches(offset, limit, count, count_only, status)
               print("The response of SuggestedEntitlementDescriptionApi->get_sed_batches:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SuggestedEntitlementDescriptionApi->get_sed_batches: %s\n" % e)
 - path: /suggested-entitlement-descriptions
@@ -20024,7 +20030,30 @@
         with ApiClient(configuration) as api_client:
           sed_batch_request = '''{
           "entitlements" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
-          "seds" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ]
+          "seds" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
+          "searchCriteria" : {
+            "key" : {
+              "indices" : [ "entitlements" ],
+              "query" : {
+                "query" : "status:active"
+              },
+              "textQuery" : {
+                "terms" : [ "admin", "user" ],
+                "matchAny" : true,
+                "fields" : [ "role", "name" ]
+              },
+              "searchAfter" : [ "12345", "67890" ],
+              "filters" : {
+                "status" : {
+                  "type" : "TERMS",
+                  "terms" : [ "active", "inactive" ]
+                }
+              },
+              "sort" : [ "name:asc", "createdAt:desc" ],
+              "queryType" : "TEXT",
+              "includeNested" : true
+            }
+          }
         }''' # SedBatchRequest | Sed Batch Request (optional)
           try:
               # Submit sed batch request

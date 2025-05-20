@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **entitlements** | **[]str** | list of entitlement ids | [optional] 
 **seds** | **[]str** | list of sed ids | [optional] 
+**search_criteria** | [**map[string]SearchCriteria**](search-criteria) | Search criteria for the batch request. | [optional] 
 }
 
 ## Example
@@ -32,7 +33,21 @@ entitlements=[
                     ],
 seds=[
                     '016629d1-1d25-463f-97f3-c6686846650'
-                    ]
+                    ],
+search_criteria={
+                    'key' : sailpoint.beta.models.search_criteria.SearchCriteria(
+                        indices = [entitlements], 
+                        filters = {status={type=TERMS, terms=[active, inactive]}}, 
+                        query = sailpoint.beta.models.search_criteria_query.SearchCriteria_query(), 
+                        query_type = 'TEXT', 
+                        text_query = sailpoint.beta.models.search_criteria_text_query.SearchCriteria_textQuery(
+                            terms = [admin, user], 
+                            fields = [role, name], 
+                            match_any = True, ), 
+                        include_nested = True, 
+                        sort = [name:asc, createdAt:desc], 
+                        search_after = [12345, 67890], )
+                    }
 )
 
 ```

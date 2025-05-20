@@ -2,6 +2,24 @@ const {createApiPageMD} = require('./createApiPageMD');
 import clsx from "clsx";
 
 const pluginConfig = [
+  // function disableExpensiveBundlerOptimizationPlugin() {
+  //   return {
+  //     name: 'disable-expensive-bundler-optimizations',
+  //     configureWebpack() {
+  //       return {
+  //         optimization: {
+  //           concatenateModules: false,
+  //           mergeDuplicateChunks: false,
+  //           removeAvailableModules: true,
+  //         },
+  //         experiments: {
+  //           parallelCodeSplitting: false,
+  //         } as any,
+  //       };
+  //     },
+  //   };
+  // },
+
   [
     '@docusaurus/plugin-google-tag-manager',
     {

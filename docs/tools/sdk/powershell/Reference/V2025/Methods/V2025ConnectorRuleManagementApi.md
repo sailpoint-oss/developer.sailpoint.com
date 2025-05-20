@@ -24,12 +24,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2025ConnectorRule**](#create-connector-rule) | **POST** `/connector-rules` | Create Connector Rule
-[**Remove-V2025ConnectorRule**](#delete-connector-rule) | **DELETE** `/connector-rules/{id}` | Delete Connector Rule
-[**Get-V2025ConnectorRule**](#get-connector-rule) | **GET** `/connector-rules/{id}` | Get Connector Rule
-[**Get-V2025ConnectorRuleList**](#get-connector-rule-list) | **GET** `/connector-rules` | List Connector Rules
-[**Send-V2025ConnectorRule**](#put-connector-rule) | **PUT** `/connector-rules/{id}` | Update Connector Rule
-[**Test-V2025ConnectorRule**](#test-connector-rule) | **POST** `/connector-rules/validate` | Validate Connector Rule
+[**New-V2025ConnectorRule**](#create-connector-rule) | **POST** `/connector-rules` | Create connector rule
+[**Remove-V2025ConnectorRule**](#delete-connector-rule) | **DELETE** `/connector-rules/{id}` | Delete connector rule
+[**Get-V2025ConnectorRule**](#get-connector-rule) | **GET** `/connector-rules/{id}` | Get connector rule
+[**Get-V2025ConnectorRuleList**](#get-connector-rule-list) | **GET** `/connector-rules` | List connector rules
+[**Send-V2025ConnectorRule**](#put-connector-rule) | **PUT** `/connector-rules/{id}` | Update connector rule
+[**Test-V2025ConnectorRule**](#test-connector-rule) | **POST** `/connector-rules/validate` | Validate connector rule
 
 
 ## create-connector-rule
@@ -88,7 +88,7 @@ $ConnectorRuleCreateRequest = @"{
   "type" : "BuildMap"
 }"@
 
-# Create Connector Rule
+# Create connector rule
 
 try {
     $Result = ConvertFrom-JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
@@ -135,7 +135,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to delete.
 
-# Delete Connector Rule
+# Delete connector rule
 
 try {
     Remove-V2025ConnectorRule -Id $Id 
@@ -181,7 +181,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to get.
 
-# Get Connector Rule
+# Get connector rule
 
 try {
     Get-V2025ConnectorRule -Id $Id 
@@ -230,7 +230,7 @@ $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. 
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# List Connector Rules
+# List connector rules
 
 try {
     Get-V2025ConnectorRuleList 
@@ -304,7 +304,7 @@ $ConnectorRuleUpdateRequest = @"{
   "type" : "BuildMap"
 }"@
 
-# Update Connector Rule
+# Update connector rule
 
 try {
     Send-V2025ConnectorRule -Id $Id 
@@ -352,7 +352,7 @@ $SourceCode = @"{
   "script" : "return \"Mr. \" + firstName;"
 }"@
 
-# Validate Connector Rule
+# Validate connector rule
 
 try {
     $Result = ConvertFrom-JsonToSourceCode -Json $SourceCode

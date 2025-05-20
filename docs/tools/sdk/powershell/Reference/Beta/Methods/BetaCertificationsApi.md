@@ -32,12 +32,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaIdentityCertificationItemPermissions**](#get-identity-certification-item-permissions) | **GET** `/certifications/{certificationId}/access-review-items/{itemId}/permissions` | Permissions for Entitlement Certification Item
-[**Get-BetaIdentityCertificationPendingTasks**](#get-identity-certification-pending-tasks) | **GET** `/certifications/{id}/tasks-pending` | Pending Certification Tasks
-[**Get-BetaIdentityCertificationTaskStatus**](#get-identity-certification-task-status) | **GET** `/certifications/{id}/tasks/{taskId}` | Certification Task Status
-[**Get-BetaCertificationReviewers**](#list-certification-reviewers) | **GET** `/certifications/{id}/reviewers` | List of Reviewers for certification
-[**Get-BetaCertifications**](#list-certifications) | **GET** `/certifications` | Certifications by IDs
-[**Submit-BetaReassignCertsAsync**](#submit-reassign-certs-async) | **POST** `/certifications/{id}/reassign-async` | Reassign Certifications Asynchronously
+[**Get-BetaIdentityCertificationItemPermissions**](#get-identity-certification-item-permissions) | **GET** `/certifications/{certificationId}/access-review-items/{itemId}/permissions` | Permissions for entitlement certification item
+[**Get-BetaIdentityCertificationPendingTasks**](#get-identity-certification-pending-tasks) | **GET** `/certifications/{id}/tasks-pending` | Pending certification tasks
+[**Get-BetaIdentityCertificationTaskStatus**](#get-identity-certification-task-status) | **GET** `/certifications/{id}/tasks/{taskId}` | Certification task status
+[**Get-BetaCertificationReviewers**](#list-certification-reviewers) | **GET** `/certifications/{id}/reviewers` | List of reviewers for certification
+[**Get-BetaCertifications**](#list-certifications) | **GET** `/certifications` | Certifications by ids
+[**Submit-BetaReassignCertsAsync**](#submit-reassign-certs-async) | **POST** `/certifications/{id}/reassign-async` | Reassign certifications asynchronously
 
 
 ## get-identity-certification-item-permissions
@@ -85,7 +85,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# Permissions for Entitlement Certification Item
+# Permissions for entitlement certification item
 
 try {
     Get-BetaIdentityCertificationItemPermissions -CertificationId $CertificationId -ItemId $ItemId 
@@ -131,7 +131,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "MyId" # String | The identity campaign certification ID
 
-# Pending Certification Tasks
+# Pending certification tasks
 
 try {
     Get-BetaIdentityCertificationPendingTasks -Id $Id 
@@ -179,7 +179,7 @@ Code | Description  | Data Type
 $Id = "MyId" # String | The identity campaign certification ID
 $TaskId = "MyTaskId" # String | The certification task ID
 
-# Certification Task Status
+# Certification task status
 
 try {
     Get-BetaIdentityCertificationTaskStatus -Id $Id -TaskId $TaskId 
@@ -238,7 +238,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'name eq "Bob"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **email**: *eq, sw* (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, email** (optional)
 
-# List of Reviewers for certification
+# List of reviewers for certification
 
 try {
     Get-BetaCertificationReviewers -Id $Id 
@@ -293,7 +293,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'MyFilters' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **phase**: *eq*  **completed**: *eq, ne*  **campaignRef.campaignType**: *eq, in*  **campaignRef.id**: *eq, in* (optional)
 $Sorters = "MySorters" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, due, signed** (optional)
 
-# Certifications by IDs
+# Certifications by ids
 
 try {
     Get-BetaCertifications 
@@ -354,7 +354,7 @@ $ReviewReassign = @"{
   } ]
 }"@
 
-# Reassign Certifications Asynchronously
+# Reassign certifications asynchronously
 
 try {
     $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign

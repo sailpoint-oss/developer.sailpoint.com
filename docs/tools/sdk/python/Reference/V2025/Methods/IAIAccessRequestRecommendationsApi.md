@@ -15,16 +15,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add-access-request-recommendations-ignored-item**](#add-access-request-recommendations-ignored-item) | **POST** `/ai-access-request-recommendations/ignored-items` | Ignore Access Request Recommendation
-[**add-access-request-recommendations-requested-item**](#add-access-request-recommendations-requested-item) | **POST** `/ai-access-request-recommendations/requested-items` | Accept Access Request Recommendation
-[**add-access-request-recommendations-viewed-item**](#add-access-request-recommendations-viewed-item) | **POST** `/ai-access-request-recommendations/viewed-items` | Mark Viewed Access Request Recommendations
-[**add-access-request-recommendations-viewed-items**](#add-access-request-recommendations-viewed-items) | **POST** `/ai-access-request-recommendations/viewed-items/bulk-create` | Bulk Mark Viewed Access Request Recommendations
-[**get-access-request-recommendations**](#get-access-request-recommendations) | **GET** `/ai-access-request-recommendations` | Identity Access Request Recommendations
-[**get-access-request-recommendations-config**](#get-access-request-recommendations-config) | **GET** `/ai-access-request-recommendations/config` | Get Access Request Recommendations config
-[**get-access-request-recommendations-ignored-items**](#get-access-request-recommendations-ignored-items) | **GET** `/ai-access-request-recommendations/ignored-items` | List Ignored Access Request Recommendations
-[**get-access-request-recommendations-requested-items**](#get-access-request-recommendations-requested-items) | **GET** `/ai-access-request-recommendations/requested-items` | List Accepted Access Request Recommendations
-[**get-access-request-recommendations-viewed-items**](#get-access-request-recommendations-viewed-items) | **GET** `/ai-access-request-recommendations/viewed-items` | List Viewed Access Request Recommendations
-[**set-access-request-recommendations-config**](#set-access-request-recommendations-config) | **PUT** `/ai-access-request-recommendations/config` | Update Access Request Recommendations config
+[**add-access-request-recommendations-ignored-item**](#add-access-request-recommendations-ignored-item) | **POST** `/ai-access-request-recommendations/ignored-items` | Ignore access request recommendation
+[**add-access-request-recommendations-requested-item**](#add-access-request-recommendations-requested-item) | **POST** `/ai-access-request-recommendations/requested-items` | Accept access request recommendation
+[**add-access-request-recommendations-viewed-item**](#add-access-request-recommendations-viewed-item) | **POST** `/ai-access-request-recommendations/viewed-items` | Mark viewed access request recommendations
+[**add-access-request-recommendations-viewed-items**](#add-access-request-recommendations-viewed-items) | **POST** `/ai-access-request-recommendations/viewed-items/bulk-create` | Bulk mark viewed access request recommendations
+[**get-access-request-recommendations**](#get-access-request-recommendations) | **GET** `/ai-access-request-recommendations` | Identity access request recommendations
+[**get-access-request-recommendations-config**](#get-access-request-recommendations-config) | **GET** `/ai-access-request-recommendations/config` | Get access request recommendations config
+[**get-access-request-recommendations-ignored-items**](#get-access-request-recommendations-ignored-items) | **GET** `/ai-access-request-recommendations/ignored-items` | List ignored access request recommendations
+[**get-access-request-recommendations-requested-items**](#get-access-request-recommendations-requested-items) | **GET** `/ai-access-request-recommendations/requested-items` | List accepted access request recommendations
+[**get-access-request-recommendations-viewed-items**](#get-access-request-recommendations-viewed-items) | **GET** `/ai-access-request-recommendations/viewed-items` | List viewed access request recommendations
+[**set-access-request-recommendations-config**](#set-access-request-recommendations-config) | **PUT** `/ai-access-request-recommendations/config` | Update access request recommendations config
 
 
 ## add-access-request-recommendations-ignored-item
@@ -39,7 +39,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Ignore Access Request Recommendation
+Ignore access request recommendation
 This API ignores a recommended access request item. Once an item is ignored, it will be marked as ignored=true if it is still a recommended item. The consumer can decide to hide ignored recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/add-access-request-recommendations-ignored-item)
@@ -91,7 +91,7 @@ with ApiClient(configuration) as api_client:
         }''' # AccessRequestRecommendationActionItemDto | The recommended access item to ignore for an identity.
 
     try:
-        # Ignore Access Request Recommendation
+        # Ignore access request recommendation
         new_access_request_recommendation_action_item_dto = AccessRequestRecommendationActionItemDto.from_json(access_request_recommendation_action_item_dto)
         results = IAIAccessRequestRecommendationsApi(api_client).add_access_request_recommendations_ignored_item(x_sail_point_experimental=x_sail_point_experimental, access_request_recommendation_action_item_dto=new_access_request_recommendation_action_item_dto)
         # Below is a request that includes all optional parameters
@@ -118,7 +118,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Accept Access Request Recommendation
+Accept access request recommendation
 This API consumes a notification that a recommended access request item was requested. This API does not actually make the request, it is just a notification. This will help provide feedback in order to improve our recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/add-access-request-recommendations-requested-item)
@@ -170,7 +170,7 @@ with ApiClient(configuration) as api_client:
         }''' # AccessRequestRecommendationActionItemDto | The recommended access item that was requested for an identity.
 
     try:
-        # Accept Access Request Recommendation
+        # Accept access request recommendation
         new_access_request_recommendation_action_item_dto = AccessRequestRecommendationActionItemDto.from_json(access_request_recommendation_action_item_dto)
         results = IAIAccessRequestRecommendationsApi(api_client).add_access_request_recommendations_requested_item(x_sail_point_experimental=x_sail_point_experimental, access_request_recommendation_action_item_dto=new_access_request_recommendation_action_item_dto)
         # Below is a request that includes all optional parameters
@@ -197,7 +197,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Mark Viewed Access Request Recommendations
+Mark viewed access request recommendations
 This API consumes a notification that a recommended access request item was viewed. Future recommendations with this item will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/add-access-request-recommendations-viewed-item)
@@ -249,7 +249,7 @@ with ApiClient(configuration) as api_client:
         }''' # AccessRequestRecommendationActionItemDto | The recommended access that was viewed for an identity.
 
     try:
-        # Mark Viewed Access Request Recommendations
+        # Mark viewed access request recommendations
         new_access_request_recommendation_action_item_dto = AccessRequestRecommendationActionItemDto.from_json(access_request_recommendation_action_item_dto)
         results = IAIAccessRequestRecommendationsApi(api_client).add_access_request_recommendations_viewed_item(x_sail_point_experimental=x_sail_point_experimental, access_request_recommendation_action_item_dto=new_access_request_recommendation_action_item_dto)
         # Below is a request that includes all optional parameters
@@ -276,7 +276,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Bulk Mark Viewed Access Request Recommendations
+Bulk mark viewed access request recommendations
 This API consumes a notification that a set of recommended access request item were viewed. Future recommendations with these items will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/add-access-request-recommendations-viewed-items)
@@ -322,7 +322,7 @@ with ApiClient(configuration) as api_client:
     access_request_recommendation_action_item_dto = '''[sailpoint.v2025.AccessRequestRecommendationActionItemDto()]''' # List[AccessRequestRecommendationActionItemDto] | The recommended access items that were viewed for an identity.
 
     try:
-        # Bulk Mark Viewed Access Request Recommendations
+        # Bulk mark viewed access request recommendations
         new_access_request_recommendation_action_item_dto = AccessRequestRecommendationActionItemDto.from_json(access_request_recommendation_action_item_dto)
         results = IAIAccessRequestRecommendationsApi(api_client).add_access_request_recommendations_viewed_items(x_sail_point_experimental=x_sail_point_experimental, access_request_recommendation_action_item_dto=new_access_request_recommendation_action_item_dto)
         # Below is a request that includes all optional parameters
@@ -350,7 +350,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Identity Access Request Recommendations
+Identity access request recommendations
 This API returns the access request recommendations for the specified identity. The default identity is *me* which indicates the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-request-recommendations)
@@ -407,7 +407,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'access.name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, access.type**  By default the recommendations are sorted by highest confidence first. (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, access.type**  By default the recommendations are sorted by highest confidence first. (optional)
 
     try:
-        # Identity Access Request Recommendations
+        # Identity access request recommendations
         
         results = IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -435,7 +435,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Access Request Recommendations config
+Get access request recommendations config
 This API returns the configurations for Access Request Recommender for the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-request-recommendations-config)
@@ -478,7 +478,7 @@ with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Get Access Request Recommendations config
+        # Get access request recommendations config
         
         results = IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations_config(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -505,7 +505,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Ignored Access Request Recommendations
+List ignored access request recommendations
 This API returns the list of ignored access request recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-request-recommendations-ignored-items)
@@ -558,7 +558,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'access.id' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional)
 
     try:
-        # List Ignored Access Request Recommendations
+        # List ignored access request recommendations
         
         results = IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations_ignored_items(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -586,7 +586,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Accepted Access Request Recommendations
+List accepted access request recommendations
 This API returns a list of requested access request recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-request-recommendations-requested-items)
@@ -639,7 +639,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'access.id' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional)
 
     try:
-        # List Accepted Access Request Recommendations
+        # List accepted access request recommendations
         
         results = IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations_requested_items(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -667,7 +667,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Viewed Access Request Recommendations
+List viewed access request recommendations
 This API returns the list of viewed access request recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-request-recommendations-viewed-items)
@@ -720,7 +720,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'access.id' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional)
 
     try:
-        # List Viewed Access Request Recommendations
+        # List viewed access request recommendations
         
         results = IAIAccessRequestRecommendationsApi(api_client).get_access_request_recommendations_viewed_items(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -748,7 +748,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Update Access Request Recommendations config
+Update access request recommendations config
 This API updates the configurations for Access Request Recommender for the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/set-access-request-recommendations-config)
@@ -800,7 +800,7 @@ with ApiClient(configuration) as api_client:
         }''' # AccessRequestRecommendationConfigDto | The desired configurations for Access Request Recommender for the tenant.
 
     try:
-        # Update Access Request Recommendations config
+        # Update access request recommendations config
         new_access_request_recommendation_config_dto = AccessRequestRecommendationConfigDto.from_json(access_request_recommendation_config_dto)
         results = IAIAccessRequestRecommendationsApi(api_client).set_access_request_recommendations_config(x_sail_point_experimental=x_sail_point_experimental, access_request_recommendation_config_dto=new_access_request_recommendation_config_dto)
         # Below is a request that includes all optional parameters

@@ -19,7 +19,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaManagedClientStatus**](#get-managed-client-status) | **GET** `/managed-clients/{id}/status` | Specified Managed Client Status.
+[**Get-BetaManagedClientStatus**](#get-managed-client-status) | **GET** `/managed-clients/{id}/status` | Specified managed client status.
 [**Update-BetaManagedClientStatus**](#update-managed-client-status) | **POST** `/managed-clients/{id}/status` | Handle status request from client
 
 
@@ -60,7 +60,7 @@ Code | Description  | Data Type
 $Id = "aClientId" # String | ID of the Managed Client Status to get
 $Type = "CCG" # ManagedClientType | Type of the Managed Client Status to get
 
-# Specified Managed Client Status.
+# Specified managed client status.
 
 try {
     Get-BetaManagedClientStatus -Id $Id -Type $Type 

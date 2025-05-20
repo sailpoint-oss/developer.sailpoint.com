@@ -32,16 +32,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**approve-access-request**](#approve-access-request) | **POST** `/access-request-approvals/{approvalId}/approve` | Approve Access Request Approval
-[**forward-access-request**](#forward-access-request) | **POST** `/access-request-approvals/{approvalId}/forward` | Forward Access Request Approval
-[**get-access-request-approval-summary**](#get-access-request-approval-summary) | **GET** `/access-request-approvals/approval-summary` | Get Access Requests Approvals Number
-[**list-completed-approvals**](#list-completed-approvals) | **GET** `/access-request-approvals/completed` | Completed Access Request Approvals List
-[**list-pending-approvals**](#list-pending-approvals) | **GET** `/access-request-approvals/pending` | Pending Access Request Approvals List
-[**reject-access-request**](#reject-access-request) | **POST** `/access-request-approvals/{approvalId}/reject` | Reject Access Request Approval
+[**approve-access-request**](#approve-access-request) | **POST** `/access-request-approvals/{approvalId}/approve` | Approve access request approval
+[**forward-access-request**](#forward-access-request) | **POST** `/access-request-approvals/{approvalId}/forward` | Forward access request approval
+[**get-access-request-approval-summary**](#get-access-request-approval-summary) | **GET** `/access-request-approvals/approval-summary` | Get access requests approvals number
+[**list-completed-approvals**](#list-completed-approvals) | **GET** `/access-request-approvals/completed` | Completed access request approvals list
+[**list-pending-approvals**](#list-pending-approvals) | **GET** `/access-request-approvals/pending` | Pending access request approvals list
+[**reject-access-request**](#reject-access-request) | **POST** `/access-request-approvals/{approvalId}/reject` | Reject access request approval
 
 
 ## approve-access-request
-Approve Access Request Approval
+Approve access request approval
 Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/approve-access-request)
@@ -94,7 +94,7 @@ with ApiClient(configuration) as api_client:
         }''' # CommentDto | Reviewer's comment.
 
     try:
-        # Approve Access Request Approval
+        # Approve access request approval
         new_comment_dto = CommentDto.from_json(comment_dto)
         results = AccessRequestApprovalsApi(api_client).approve_access_request(approval_id=approval_id, comment_dto=new_comment_dto)
         # Below is a request that includes all optional parameters
@@ -110,7 +110,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## forward-access-request
-Forward Access Request Approval
+Forward access request approval
 Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/forward-access-request)
@@ -158,7 +158,7 @@ with ApiClient(configuration) as api_client:
         }''' # ForwardApprovalDto | Information about the forwarded approval.
 
     try:
-        # Forward Access Request Approval
+        # Forward access request approval
         new_forward_approval_dto = ForwardApprovalDto.from_json(forward_approval_dto)
         results = AccessRequestApprovalsApi(api_client).forward_access_request(approval_id=approval_id, forward_approval_dto=new_forward_approval_dto)
         # Below is a request that includes all optional parameters
@@ -174,7 +174,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-access-request-approval-summary
-Get Access Requests Approvals Number
+Get access requests approvals number
 Use this API to return the number of pending, approved and rejected access requests approvals. See the "owner-id" query parameter for authorization information.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-request-approval-summary)
@@ -218,7 +218,7 @@ with ApiClient(configuration) as api_client:
     from_date = 'from-date=2020-03-19T19:59:11Z' # str | This is the date and time the results will be shown from. It must be in a valid ISO-8601 format. (optional) # str | This is the date and time the results will be shown from. It must be in a valid ISO-8601 format. (optional)
 
     try:
-        # Get Access Requests Approvals Number
+        # Get access requests approvals number
         
         results = AccessRequestApprovalsApi(api_client).get_access_request_approval_summary()
         # Below is a request that includes all optional parameters
@@ -234,7 +234,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-completed-approvals
-Completed Access Request Approvals List
+Completed access request approvals list
 This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-completed-approvals)
@@ -285,7 +285,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'sorters_example' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
 
     try:
-        # Completed Access Request Approvals List
+        # Completed access request approvals list
         
         results = AccessRequestApprovalsApi(api_client).list_completed_approvals()
         # Below is a request that includes all optional parameters
@@ -302,7 +302,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-pending-approvals
-Pending Access Request Approvals List
+Pending access request approvals list
 This endpoint returns a list of pending approvals. See "owner-id" query parameter below for authorization info.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-pending-approvals)
@@ -353,7 +353,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'sorters_example' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
 
     try:
-        # Pending Access Request Approvals List
+        # Pending access request approvals list
         
         results = AccessRequestApprovalsApi(api_client).list_pending_approvals()
         # Below is a request that includes all optional parameters
@@ -370,7 +370,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## reject-access-request
-Reject Access Request Approval
+Reject access request approval
 Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/reject-access-request)
@@ -423,7 +423,7 @@ with ApiClient(configuration) as api_client:
         }''' # CommentDto | Reviewer's comment.
 
     try:
-        # Reject Access Request Approval
+        # Reject access request approval
         new_comment_dto = CommentDto.from_json(comment_dto)
         results = AccessRequestApprovalsApi(api_client).reject_access_request(approval_id=approval_id, comment_dto=new_comment_dto)
         # Below is a request that includes all optional parameters

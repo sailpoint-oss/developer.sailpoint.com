@@ -32,11 +32,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Suspend-AccessRequest**](#cancel-access-request) | **POST** `/access-requests/cancel` | Cancel Access Request
-[**New-AccessRequest**](#create-access-request) | **POST** `/access-requests` | Submit Access Request
-[**Get-AccessRequestConfig**](#get-access-request-config) | **GET** `/access-request-config` | Get Access Request Configuration
-[**Get-AccessRequestStatus**](#list-access-request-status) | **GET** `/access-request-status` | Access Request Status
-[**Set-AccessRequestConfig**](#set-access-request-config) | **PUT** `/access-request-config` | Update Access Request Configuration
+[**Suspend-AccessRequest**](#cancel-access-request) | **POST** `/access-requests/cancel` | Cancel access request
+[**New-AccessRequest**](#create-access-request) | **POST** `/access-requests` | Submit access request
+[**Get-AccessRequestConfig**](#get-access-request-config) | **GET** `/access-request-config` | Get access request configuration
+[**Get-AccessRequestStatus**](#list-access-request-status) | **GET** `/access-request-status` | Access request status
+[**Set-AccessRequestConfig**](#set-access-request-config) | **PUT** `/access-request-config` | Update access request configuration
 
 
 ## cancel-access-request
@@ -75,7 +75,7 @@ $CancelAccessRequest = @"{
   "comment" : "I requested this role by mistake."
 }"@
 
-# Cancel Access Request
+# Cancel access request
 
 try {
     $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
@@ -122,7 +122,8 @@ __REVOKE_ACCESS__
 * Revoke requests for entitlements are limited to 1 entitlement per access request currently.
 * You can specify a `removeDate` if the access doesn't already have a sunset date. The `removeDate` must be a future date, in the UTC timezone. 
 * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone.
-* Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of 'assignmentId' and 'nativeIdentity' fields.
+* Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of 'assignmentId' and 'nativeIdentity' fields. These fields should be used within the 'requestedItems' section for the revoke requests. 
+* Usage of 'requestedForWithRequestedItems' field is not supported for revoke requests.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-access-request)
@@ -243,9 +244,7 @@ $AccessRequest = @"{
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
-      "type" : "ACCESS_PROFILE",
-      "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+      "type" : "ACCESS_PROFILE"
     }, {
       "clientMetadata" : {
         "requestedAppName" : "test-app",
@@ -273,9 +272,7 @@ $AccessRequest = @"{
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
-      "type" : "ACCESS_PROFILE",
-      "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+      "type" : "ACCESS_PROFILE"
     } ]
   }, {
     "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
@@ -306,9 +303,7 @@ $AccessRequest = @"{
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
-      "type" : "ACCESS_PROFILE",
-      "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+      "type" : "ACCESS_PROFILE"
     }, {
       "clientMetadata" : {
         "requestedAppName" : "test-app",
@@ -336,14 +331,12 @@ $AccessRequest = @"{
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
-      "type" : "ACCESS_PROFILE",
-      "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+      "type" : "ACCESS_PROFILE"
     } ]
   } ]
 }"@
 
-# Submit Access Request
+# Submit access request
 
 try {
     $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
@@ -387,7 +380,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get Access Request Configuration
+# Get access request configuration
 
 try {
     Get-AccessRequestConfig 
@@ -452,7 +445,7 @@ $Filters = 'accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"' # Strin
 $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name** (optional)
 $RequestState = "request-state=EXECUTING" # String | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
 
-# Access Request Status
+# Access request status
 
 try {
     Get-AccessRequestStatus 
@@ -522,7 +515,7 @@ $AccessRequestConfig = @"{
   "approvalsMustBeExternal" : true
 }"@
 
-# Update Access Request Configuration
+# Update access request configuration
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig

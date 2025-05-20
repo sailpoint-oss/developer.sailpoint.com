@@ -44,22 +44,22 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2024Account**](#create-account) | **POST** `/accounts` | Create Account
-[**Remove-V2024Account**](#delete-account) | **DELETE** `/accounts/{id}` | Delete Account
-[**Remove-V2024AccountAsync**](#delete-account-async) | **POST** `/accounts/{id}/remove` | Remove Account
-[**Disable-V2024Account**](#disable-account) | **POST** `/accounts/{id}/disable` | Disable Account
-[**Disable-V2024AccountForIdentity**](#disable-account-for-identity) | **POST** `/identities-accounts/{id}/disable` | Disable IDN Account for Identity
-[**Disable-V2024AccountsForIdentities**](#disable-accounts-for-identities) | **POST** `/identities-accounts/disable` | Disable IDN Accounts for Identities
-[**Enable-V2024Account**](#enable-account) | **POST** `/accounts/{id}/enable` | Enable Account
-[**Enable-V2024AccountForIdentity**](#enable-account-for-identity) | **POST** `/identities-accounts/{id}/enable` | Enable IDN Account for Identity
-[**Enable-V2024AccountsForIdentities**](#enable-accounts-for-identities) | **POST** `/identities-accounts/enable` | Enable IDN Accounts for Identities
-[**Get-V2024Account**](#get-account) | **GET** `/accounts/{id}` | Account Details
-[**Get-V2024AccountEntitlements**](#get-account-entitlements) | **GET** `/accounts/{id}/entitlements` | Account Entitlements
-[**Get-V2024Accounts**](#list-accounts) | **GET** `/accounts` | Accounts List
-[**Send-V2024Account**](#put-account) | **PUT** `/accounts/{id}` | Update Account
-[**Submit-V2024ReloadAccount**](#submit-reload-account) | **POST** `/accounts/{id}/reload` | Reload Account
-[**Unlock-V2024Account**](#unlock-account) | **POST** `/accounts/{id}/unlock` | Unlock Account
-[**Update-V2024Account**](#update-account) | **PATCH** `/accounts/{id}` | Update Account
+[**New-V2024Account**](#create-account) | **POST** `/accounts` | Create account
+[**Remove-V2024Account**](#delete-account) | **DELETE** `/accounts/{id}` | Delete account
+[**Remove-V2024AccountAsync**](#delete-account-async) | **POST** `/accounts/{id}/remove` | Remove account
+[**Disable-V2024Account**](#disable-account) | **POST** `/accounts/{id}/disable` | Disable account
+[**Disable-V2024AccountForIdentity**](#disable-account-for-identity) | **POST** `/identities-accounts/{id}/disable` | Disable idn account for identity
+[**Disable-V2024AccountsForIdentities**](#disable-accounts-for-identities) | **POST** `/identities-accounts/disable` | Disable idn accounts for identities
+[**Enable-V2024Account**](#enable-account) | **POST** `/accounts/{id}/enable` | Enable account
+[**Enable-V2024AccountForIdentity**](#enable-account-for-identity) | **POST** `/identities-accounts/{id}/enable` | Enable idn account for identity
+[**Enable-V2024AccountsForIdentities**](#enable-accounts-for-identities) | **POST** `/identities-accounts/enable` | Enable idn accounts for identities
+[**Get-V2024Account**](#get-account) | **GET** `/accounts/{id}` | Account details
+[**Get-V2024AccountEntitlements**](#get-account-entitlements) | **GET** `/accounts/{id}/entitlements` | Account entitlements
+[**Get-V2024Accounts**](#list-accounts) | **GET** `/accounts` | Accounts list
+[**Send-V2024Account**](#put-account) | **PUT** `/accounts/{id}` | Update account
+[**Submit-V2024ReloadAccount**](#submit-reload-account) | **POST** `/accounts/{id}/reload` | Reload account
+[**Unlock-V2024Account**](#unlock-account) | **POST** `/accounts/{id}/unlock` | Unlock account
+[**Update-V2024Account**](#update-account) | **PATCH** `/accounts/{id}` | Update account
 
 
 ## create-account
@@ -113,7 +113,7 @@ $AccountAttributesCreate = @"{
   }
 }"@
 
-# Create Account
+# Create account
 
 try {
     $Result = ConvertFrom-JsonToAccountAttributesCreate -Json $AccountAttributesCreate
@@ -163,7 +163,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 
-# Delete Account
+# Delete account
 
 try {
     Remove-V2024Account -Id $Id 
@@ -219,7 +219,7 @@ Code | Description  | Data Type
 $Id = "c350d6aa4f104c61b062cb632421ad10" # String | The account id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Remove Account
+# Remove account
 
 try {
     Remove-V2024AccountAsync -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -270,7 +270,7 @@ $AccountToggleRequest = @"{
   "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
 }"@
 
-# Disable Account
+# Disable account
 
 try {
     $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
@@ -322,7 +322,7 @@ Code | Description  | Data Type
 $Id = "2c91808384203c2d018437e631158309" # String | The identity id.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Disable IDN Account for Identity
+# Disable idn account for identity
 
 try {
     Disable-V2024AccountForIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -374,7 +374,7 @@ $IdentitiesAccountsBulkRequest = @"{
   "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
 }"@
 
-# Disable IDN Accounts for Identities
+# Disable idn accounts for identities
 
 try {
     $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
@@ -426,7 +426,7 @@ $AccountToggleRequest = @"{
   "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
 }"@
 
-# Enable Account
+# Enable account
 
 try {
     $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
@@ -478,7 +478,7 @@ Code | Description  | Data Type
 $Id = "2c91808384203c2d018437e631158309" # String | The identity id.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Enable IDN Account for Identity
+# Enable idn account for identity
 
 try {
     Enable-V2024AccountForIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -530,7 +530,7 @@ $IdentitiesAccountsBulkRequest = @"{
   "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
 }"@
 
-# Enable IDN Accounts for Identities
+# Enable idn accounts for identities
 
 try {
     $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
@@ -577,7 +577,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 
-# Account Details
+# Account details
 
 try {
     Get-V2024Account -Id $Id 
@@ -629,7 +629,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# Account Entitlements
+# Account entitlements
 
 try {
     Get-V2024AccountEntitlements -Id $Id 
@@ -684,7 +684,7 @@ $DetailLevel = "SLIM" # String | This value determines whether the API provides 
 $Filters = 'identityId eq "2c9180858082150f0180893dbaf44201"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **hasEntitlements**: *eq*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt* (optional)
 $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional)
 
-# Accounts List
+# Accounts list
 
 try {
     Get-V2024Accounts 
@@ -745,7 +745,7 @@ $AccountAttributes = @"{
   }
 }"@
 
-# Update Account
+# Update account
 
 try {
     $Result = ConvertFrom-JsonToAccountAttributes -Json $AccountAttributes
@@ -792,7 +792,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
 
-# Reload Account
+# Reload account
 
 try {
     Submit-V2024ReloadAccount -Id $Id 
@@ -845,7 +845,7 @@ $AccountUnlockRequest = @"{
   "unlockIDNAccount" : false
 }"@
 
-# Unlock Account
+# Unlock account
 
 try {
     $Result = ConvertFrom-JsonToAccountUnlockRequest -Json $AccountUnlockRequest
@@ -906,7 +906,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of account update operat
  $RequestBody = @"[{op=remove, path=/identityId}]"@ # SystemCollectionsHashtable[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 
-# Update Account
+# Update account
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody

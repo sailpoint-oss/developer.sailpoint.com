@@ -39,3 +39,6 @@ get:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [ idn:sed:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN

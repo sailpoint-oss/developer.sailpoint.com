@@ -23,15 +23,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-password-policy**](#create-password-policy) | **POST** `/password-policies` | Create Password Policy
-[**delete-password-policy**](#delete-password-policy) | **DELETE** `/password-policies/{id}` | Delete Password Policy by ID
-[**get-password-policy-by-id**](#get-password-policy-by-id) | **GET** `/password-policies/{id}` | Get Password Policy by ID
-[**list-password-policies**](#list-password-policies) | **GET** `/password-policies` | List Password Policies
-[**set-password-policy**](#set-password-policy) | **PUT** `/password-policies/{id}` | Update Password Policy by ID
+[**create-password-policy**](#create-password-policy) | **POST** `/password-policies` | Create password policy
+[**delete-password-policy**](#delete-password-policy) | **DELETE** `/password-policies/{id}` | Delete password policy by id
+[**get-password-policy-by-id**](#get-password-policy-by-id) | **GET** `/password-policies/{id}` | Get password policy by id
+[**list-password-policies**](#list-password-policies) | **GET** `/password-policies` | List password policies
+[**set-password-policy**](#set-password-policy) | **PUT** `/password-policies/{id}` | Update password policy by id
 
 
 ## create-password-policy
-Create Password Policy
+Create password policy
 This API creates the specified password policy.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-password-policy)
@@ -106,7 +106,7 @@ with ApiClient(configuration) as api_client:
         }''' # PasswordPolicyV3Dto | 
 
     try:
-        # Create Password Policy
+        # Create password policy
         new_password_policy_v3_dto = PasswordPolicyV3Dto.from_json(password_policy_v3_dto)
         results = PasswordPoliciesApi(api_client).create_password_policy(password_policy_v3_dto=new_password_policy_v3_dto)
         # Below is a request that includes all optional parameters
@@ -122,7 +122,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-password-policy
-Delete Password Policy by ID
+Delete password policy by id
 This API deletes the specified password policy.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-password-policy)
@@ -164,7 +164,7 @@ with ApiClient(configuration) as api_client:
     id = 'ff808081838d9e9d01838da6a03e0002' # str | The ID of password policy to delete. # str | The ID of password policy to delete.
 
     try:
-        # Delete Password Policy by ID
+        # Delete password policy by id
         
         PasswordPoliciesApi(api_client).delete_password_policy(id=id)
         # Below is a request that includes all optional parameters
@@ -178,7 +178,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-password-policy-by-id
-Get Password Policy by ID
+Get password policy by id
 This API returns the password policy for the specified ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-password-policy-by-id)
@@ -221,7 +221,7 @@ with ApiClient(configuration) as api_client:
     id = 'ff808081838d9e9d01838da6a03e0005' # str | The ID of password policy to retrieve. # str | The ID of password policy to retrieve.
 
     try:
-        # Get Password Policy by ID
+        # Get password policy by id
         
         results = PasswordPoliciesApi(api_client).get_password_policy_by_id(id=id)
         # Below is a request that includes all optional parameters
@@ -237,7 +237,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-password-policies
-List Password Policies
+List password policies
 This gets list of all Password Policies.
 Requires role of ORG_ADMIN
 
@@ -284,7 +284,7 @@ with ApiClient(configuration) as api_client:
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
     try:
-        # List Password Policies
+        # List password policies
         
         results = PasswordPoliciesApi(api_client).list_password_policies()
         # Below is a request that includes all optional parameters
@@ -301,7 +301,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## set-password-policy
-Update Password Policy by ID
+Update password policy by id
 This API updates the specified password policy.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/set-password-policy)
@@ -378,7 +378,7 @@ with ApiClient(configuration) as api_client:
         }''' # PasswordPolicyV3Dto | 
 
     try:
-        # Update Password Policy by ID
+        # Update password policy by id
         new_password_policy_v3_dto = PasswordPolicyV3Dto.from_json(password_policy_v3_dto)
         results = PasswordPoliciesApi(api_client).set_password_policy(id=id, password_policy_v3_dto=new_password_policy_v3_dto)
         # Below is a request that includes all optional parameters

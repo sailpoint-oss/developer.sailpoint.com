@@ -450,7 +450,7 @@ If you were to decode the access token data, it might look something like this:
 
 ```json
 {
-  "alg": "HS256",
+  "alg": "ES256",
   "typ": "JWT"
 }
 ```

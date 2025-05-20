@@ -27,15 +27,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2025ReassignmentConfiguration**](#create-reassignment-configuration) | **POST** `/reassignment-configurations` | Create a Reassignment Configuration
-[**Remove-V2025ReassignmentConfiguration**](#delete-reassignment-configuration) | **DELETE** `/reassignment-configurations/{identityId}/{configType}` | Delete Reassignment Configuration
-[**Get-V2025EvaluateReassignmentConfiguration**](#get-evaluate-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}/evaluate/{configType}` | Evaluate Reassignment Configuration
-[**Get-V2025ReassignmentConfigTypes**](#get-reassignment-config-types) | **GET** `/reassignment-configurations/types` | List Reassignment Config Types
-[**Get-V2025ReassignmentConfiguration**](#get-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}` | Get Reassignment Configuration
-[**Get-V2025TenantConfigConfiguration**](#get-tenant-config-configuration) | **GET** `/reassignment-configurations/tenant-config` | Get Tenant-wide Reassignment Configuration settings
-[**Get-V2025ReassignmentConfigurations**](#list-reassignment-configurations) | **GET** `/reassignment-configurations` | List Reassignment Configurations
-[**Send-V2025ReassignmentConfig**](#put-reassignment-config) | **PUT** `/reassignment-configurations/{identityId}` | Update Reassignment Configuration
-[**Send-V2025TenantConfiguration**](#put-tenant-configuration) | **PUT** `/reassignment-configurations/tenant-config` | Update Tenant-wide Reassignment Configuration settings
+[**New-V2025ReassignmentConfiguration**](#create-reassignment-configuration) | **POST** `/reassignment-configurations` | Create a reassignment configuration
+[**Remove-V2025ReassignmentConfiguration**](#delete-reassignment-configuration) | **DELETE** `/reassignment-configurations/{identityId}/{configType}` | Delete reassignment configuration
+[**Get-V2025EvaluateReassignmentConfiguration**](#get-evaluate-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}/evaluate/{configType}` | Evaluate reassignment configuration
+[**Get-V2025ReassignmentConfigTypes**](#get-reassignment-config-types) | **GET** `/reassignment-configurations/types` | List reassignment config types
+[**Get-V2025ReassignmentConfiguration**](#get-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}` | Get reassignment configuration
+[**Get-V2025TenantConfigConfiguration**](#get-tenant-config-configuration) | **GET** `/reassignment-configurations/tenant-config` | Get tenant-wide reassignment configuration settings
+[**Get-V2025ReassignmentConfigurations**](#list-reassignment-configurations) | **GET** `/reassignment-configurations` | List reassignment configurations
+[**Send-V2025ReassignmentConfig**](#put-reassignment-config) | **PUT** `/reassignment-configurations/{identityId}` | Update reassignment configuration
+[**Send-V2025TenantConfiguration**](#put-tenant-configuration) | **PUT** `/reassignment-configurations/tenant-config` | Update tenant-wide reassignment configuration settings
 
 
 ## create-reassignment-configuration
@@ -80,7 +80,7 @@ $ConfigurationItemRequest = @"{
   "startDate" : "2022-07-21T11:13:12.345Z"
 }"@
 
-# Create a Reassignment Configuration
+# Create a reassignment configuration
 
 try {
     $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
@@ -133,7 +133,7 @@ $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
 $ConfigType = "ACCESS_REQUESTS" # ConfigTypeEnum | 
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Delete Reassignment Configuration
+# Delete reassignment configuration
 
 try {
     Remove-V2025ReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType -XSailPointExperimental $XSailPointExperimental 
@@ -189,7 +189,7 @@ $ExclusionFilters = "MyExclusionFilters" # String[] | Exclusion filters that dis
 
 $ExclusionFilters = @"SELF_REVIEW_DELEGATION"@ # String[] | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional) 
 
-# Evaluate Reassignment Configuration
+# Evaluate reassignment configuration
 
 try {
     Get-V2025EvaluateReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType -XSailPointExperimental $XSailPointExperimental 
@@ -237,7 +237,7 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# List Reassignment Config Types
+# List reassignment config types
 
 try {
     Get-V2025ReassignmentConfigTypes -XSailPointExperimental $XSailPointExperimental 
@@ -288,7 +288,7 @@ Code | Description  | Data Type
 $IdentityId = "2c91808781a71ddb0181b9090b5c504f" # String | unique identity id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Reassignment Configuration
+# Get reassignment configuration
 
 try {
     Get-V2025ReassignmentConfiguration -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
@@ -337,7 +337,7 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Tenant-wide Reassignment Configuration settings
+# Get tenant-wide reassignment configuration settings
 
 try {
     Get-V2025TenantConfigConfiguration -XSailPointExperimental $XSailPointExperimental 
@@ -386,7 +386,7 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# List Reassignment Configurations
+# List reassignment configurations
 
 try {
     Get-V2025ReassignmentConfigurations -XSailPointExperimental $XSailPointExperimental 
@@ -444,7 +444,7 @@ $ConfigurationItemRequest = @"{
   "startDate" : "2022-07-21T11:13:12.345Z"
 }"@
 
-# Update Reassignment Configuration
+# Update reassignment configuration
 
 try {
     $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
@@ -499,7 +499,7 @@ $TenantConfigurationRequest = @"{
   }
 }"@
 
-# Update Tenant-wide Reassignment Configuration settings
+# Update tenant-wide reassignment configuration settings
 
 try {
     $Result = ConvertFrom-JsonToTenantConfigurationRequest -Json $TenantConfigurationRequest

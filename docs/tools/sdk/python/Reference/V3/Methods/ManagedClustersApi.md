@@ -17,17 +17,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-managed-cluster**](#create-managed-cluster) | **POST** `/managed-clusters` | Create Create Managed Cluster
-[**delete-managed-cluster**](#delete-managed-cluster) | **DELETE** `/managed-clusters/{id}` | Delete Managed Cluster
-[**get-client-log-configuration**](#get-client-log-configuration) | **GET** `/managed-clusters/{id}/log-config` | Get Managed Cluster Log Configuration
-[**get-managed-cluster**](#get-managed-cluster) | **GET** `/managed-clusters/{id}` | Get Managed Cluster
-[**get-managed-clusters**](#get-managed-clusters) | **GET** `/managed-clusters` | Get Managed Clusters
-[**put-client-log-configuration**](#put-client-log-configuration) | **PUT** `/managed-clusters/{id}/log-config` | Update Managed Cluster Log Configuration
-[**update-managed-cluster**](#update-managed-cluster) | **PATCH** `/managed-clusters/{id}` | Update Managed Cluster
+[**create-managed-cluster**](#create-managed-cluster) | **POST** `/managed-clusters` | Create create managed cluster
+[**delete-managed-cluster**](#delete-managed-cluster) | **DELETE** `/managed-clusters/{id}` | Delete managed cluster
+[**get-client-log-configuration**](#get-client-log-configuration) | **GET** `/managed-clusters/{id}/log-config` | Get managed cluster log configuration
+[**get-managed-cluster**](#get-managed-cluster) | **GET** `/managed-clusters/{id}` | Get managed cluster
+[**get-managed-clusters**](#get-managed-clusters) | **GET** `/managed-clusters` | Get managed clusters
+[**put-client-log-configuration**](#put-client-log-configuration) | **PUT** `/managed-clusters/{id}/log-config` | Update managed cluster log configuration
+[**update-managed-cluster**](#update-managed-cluster) | **PATCH** `/managed-clusters/{id}` | Update managed cluster
 
 
 ## create-managed-cluster
-Create Create Managed Cluster
+Create create managed cluster
 Create a new Managed Cluster.
 The API returns a result that includes the managed cluster ID.
 
@@ -79,7 +79,7 @@ with ApiClient(configuration) as api_client:
         }''' # ManagedClusterRequest | 
 
     try:
-        # Create Create Managed Cluster
+        # Create create managed cluster
         new_managed_cluster_request = ManagedClusterRequest.from_json(managed_cluster_request)
         results = ManagedClustersApi(api_client).create_managed_cluster(managed_cluster_request=new_managed_cluster_request)
         # Below is a request that includes all optional parameters
@@ -95,7 +95,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-managed-cluster
-Delete Managed Cluster
+Delete managed cluster
 Delete an existing managed cluster.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-managed-cluster)
@@ -138,7 +138,7 @@ with ApiClient(configuration) as api_client:
     remove_clients = False # bool | Flag to determine the need to delete a cluster with clients. (optional) (default to False) # bool | Flag to determine the need to delete a cluster with clients. (optional) (default to False)
 
     try:
-        # Delete Managed Cluster
+        # Delete managed cluster
         
         ManagedClustersApi(api_client).delete_managed_cluster(id=id)
         # Below is a request that includes all optional parameters
@@ -152,7 +152,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-client-log-configuration
-Get Managed Cluster Log Configuration
+Get managed cluster log configuration
 Get a managed cluster's log configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-client-log-configuration)
@@ -196,7 +196,7 @@ with ApiClient(configuration) as api_client:
     id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | ID of managed cluster to get log configuration for. # str | ID of managed cluster to get log configuration for.
 
     try:
-        # Get Managed Cluster Log Configuration
+        # Get managed cluster log configuration
         
         results = ManagedClustersApi(api_client).get_client_log_configuration(id=id)
         # Below is a request that includes all optional parameters
@@ -212,7 +212,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-managed-cluster
-Get Managed Cluster
+Get managed cluster
 Get a managed cluster by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-managed-cluster)
@@ -255,7 +255,7 @@ with ApiClient(configuration) as api_client:
     id = '2c9180897de347a2017de8859e8c5039' # str | Managed cluster ID. # str | Managed cluster ID.
 
     try:
-        # Get Managed Cluster
+        # Get managed cluster
         
         results = ManagedClustersApi(api_client).get_managed_cluster(id=id)
         # Below is a request that includes all optional parameters
@@ -271,7 +271,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-managed-clusters
-Get Managed Clusters
+Get managed clusters
 List current organization's managed clusters, based on request context.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-managed-clusters)
@@ -319,7 +319,7 @@ with ApiClient(configuration) as api_client:
     filters = 'operational eq \"operation\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional)
 
     try:
-        # Get Managed Clusters
+        # Get managed clusters
         
         results = ManagedClustersApi(api_client).get_managed_clusters()
         # Below is a request that includes all optional parameters
@@ -336,7 +336,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-client-log-configuration
-Update Managed Cluster Log Configuration
+Update managed cluster log configuration
 Update a managed cluster's log configuration. You may only specify one of `durationMinutes` or `expiration`, up to 1440 minutes (24 hours) in the future. If neither is specified, the default value for `durationMinutes` is 240.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/put-client-log-configuration)
@@ -382,7 +382,7 @@ with ApiClient(configuration) as api_client:
     put_client_log_configuration_request = '''sailpoint.v3.PutClientLogConfigurationRequest()''' # PutClientLogConfigurationRequest | Client log configuration for the given managed cluster.
 
     try:
-        # Update Managed Cluster Log Configuration
+        # Update managed cluster log configuration
         new_put_client_log_configuration_request = PutClientLogConfigurationRequest.from_json(put_client_log_configuration_request)
         results = ManagedClustersApi(api_client).put_client_log_configuration(id=id, put_client_log_configuration_request=new_put_client_log_configuration_request)
         # Below is a request that includes all optional parameters
@@ -398,7 +398,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-managed-cluster
-Update Managed Cluster
+Update managed cluster
 Update an existing managed cluster.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/update-managed-cluster)
@@ -444,7 +444,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[sailpoint.v3.JsonPatchOperation()]''' # List[JsonPatchOperation] | JSONPatch payload used to update the object.
 
     try:
-        # Update Managed Cluster
+        # Update managed cluster
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = ManagedClustersApi(api_client).update_managed_cluster(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters

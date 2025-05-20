@@ -15,11 +15,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-message-catalogs**](#get-message-catalogs) | **GET** `/translation-catalogs/{catalog-id}` | Get Message catalogs
+[**get-message-catalogs**](#get-message-catalogs) | **GET** `/translation-catalogs/{catalog-id}` | Get message catalogs
 
 
 ## get-message-catalogs
-Get Message catalogs
+Get message catalogs
 The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-message-catalogs)
@@ -61,7 +61,7 @@ with ApiClient(configuration) as api_client:
     catalog_id = 'recommender' # str | The ID of the message catalog. # str | The ID of the message catalog.
 
     try:
-        # Get Message catalogs
+        # Get message catalogs
         
         results = IAIMessageCatalogsApi(api_client).get_message_catalogs(catalog_id=catalog_id)
         # Below is a request that includes all optional parameters

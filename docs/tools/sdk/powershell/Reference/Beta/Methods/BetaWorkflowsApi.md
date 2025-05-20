@@ -18,24 +18,24 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Suspend-BetaWorkflowExecution**](#cancel-workflow-execution) | **POST** `/workflow-executions/{id}/cancel` | Cancel Workflow Execution by ID
-[**New-BetaWorkflow**](#create-workflow) | **POST** `/workflows` | Create Workflow
-[**Remove-BetaWorkflow**](#delete-workflow) | **DELETE** `/workflows/{id}` | Delete Workflow By Id
-[**Get-BetaWorkflow**](#get-workflow) | **GET** `/workflows/{id}` | Get Workflow By Id
-[**Get-BetaWorkflowExecution**](#get-workflow-execution) | **GET** `/workflow-executions/{id}` | Get Workflow Execution
-[**Get-BetaWorkflowExecutionHistory**](#get-workflow-execution-history) | **GET** `/workflow-executions/{id}/history` | Get Workflow Execution History
-[**Get-BetaWorkflowExecutions**](#get-workflow-executions) | **GET** `/workflows/{id}/executions` | List Workflow Executions
-[**Get-BetaCompleteWorkflowLibrary**](#list-complete-workflow-library) | **GET** `/workflow-library` | List Complete Workflow Library
-[**Get-BetaWorkflowLibraryActions**](#list-workflow-library-actions) | **GET** `/workflow-library/actions` | List Workflow Library Actions
-[**Get-BetaWorkflowLibraryOperators**](#list-workflow-library-operators) | **GET** `/workflow-library/operators` | List Workflow Library Operators
-[**Get-BetaWorkflowLibraryTriggers**](#list-workflow-library-triggers) | **GET** `/workflow-library/triggers` | List Workflow Library Triggers
-[**Get-BetaWorkflows**](#list-workflows) | **GET** `/workflows` | List Workflows
-[**Update-BetaWorkflow**](#patch-workflow) | **PATCH** `/workflows/{id}` | Patch Workflow
-[**Submit-BetaExternalExecuteWorkflow**](#post-external-execute-workflow) | **POST** `/workflows/execute/external/{id}` | Execute Workflow via External Trigger
-[**Submit-BetaWorkflowExternalTrigger**](#post-workflow-external-trigger) | **POST** `/workflows/{id}/external/oauth-clients` | Generate External Trigger OAuth Client
-[**Send-BetaWorkflow**](#put-workflow) | **PUT** `/workflows/{id}` | Update Workflow
-[**Test-BetaExternalExecuteWorkflow**](#test-external-execute-workflow) | **POST** `/workflows/execute/external/{id}/test` | Test Workflow via External Trigger
-[**Test-BetaWorkflow**](#test-workflow) | **POST** `/workflows/{id}/test` | Test Workflow By Id
+[**Suspend-BetaWorkflowExecution**](#cancel-workflow-execution) | **POST** `/workflow-executions/{id}/cancel` | Cancel workflow execution by id
+[**New-BetaWorkflow**](#create-workflow) | **POST** `/workflows` | Create workflow
+[**Remove-BetaWorkflow**](#delete-workflow) | **DELETE** `/workflows/{id}` | Delete workflow by id
+[**Get-BetaWorkflow**](#get-workflow) | **GET** `/workflows/{id}` | Get workflow by id
+[**Get-BetaWorkflowExecution**](#get-workflow-execution) | **GET** `/workflow-executions/{id}` | Get workflow execution
+[**Get-BetaWorkflowExecutionHistory**](#get-workflow-execution-history) | **GET** `/workflow-executions/{id}/history` | Get workflow execution history
+[**Get-BetaWorkflowExecutions**](#get-workflow-executions) | **GET** `/workflows/{id}/executions` | List workflow executions
+[**Get-BetaCompleteWorkflowLibrary**](#list-complete-workflow-library) | **GET** `/workflow-library` | List complete workflow library
+[**Get-BetaWorkflowLibraryActions**](#list-workflow-library-actions) | **GET** `/workflow-library/actions` | List workflow library actions
+[**Get-BetaWorkflowLibraryOperators**](#list-workflow-library-operators) | **GET** `/workflow-library/operators` | List workflow library operators
+[**Get-BetaWorkflowLibraryTriggers**](#list-workflow-library-triggers) | **GET** `/workflow-library/triggers` | List workflow library triggers
+[**Get-BetaWorkflows**](#list-workflows) | **GET** `/workflows` | List workflows
+[**Update-BetaWorkflow**](#patch-workflow) | **PATCH** `/workflows/{id}` | Patch workflow
+[**Submit-BetaExternalExecuteWorkflow**](#post-external-execute-workflow) | **POST** `/workflows/execute/external/{id}` | Execute workflow via external trigger
+[**Submit-BetaWorkflowExternalTrigger**](#post-workflow-external-trigger) | **POST** `/workflows/{id}/external/oauth-clients` | Generate external trigger oauth client
+[**Send-BetaWorkflow**](#put-workflow) | **PUT** `/workflows/{id}` | Update workflow
+[**Test-BetaExternalExecuteWorkflow**](#test-external-execute-workflow) | **POST** `/workflows/execute/external/{id}/test` | Test workflow via external trigger
+[**Test-BetaWorkflow**](#test-workflow) | **POST** `/workflows/{id}/test` | Test workflow by id
 
 
 ## cancel-workflow-execution
@@ -70,7 +70,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | The workflow execution ID
 
-# Cancel Workflow Execution by ID
+# Cancel workflow execution by id
 
 try {
     Suspend-BetaWorkflowExecution -Id $Id 
@@ -115,7 +115,7 @@ Code | Description  | Data Type
 ```powershell
 $CreateWorkflowRequest = @"{name=Send Email, owner={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}, description=Send an email to the identity who's attributes changed., definition={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}, enabled=false, trigger={type=EVENT, attributes={id=idn:identity-attributes-changed, filter=$.changes[?(@.attribute == 'manager')]}}}"@
 
-# Create Workflow
+# Create workflow
 
 try {
     $Result = ConvertFrom-JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
@@ -161,7 +161,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 
-# Delete Workflow By Id
+# Delete workflow by id
 
 try {
     Remove-BetaWorkflow -Id $Id 
@@ -208,7 +208,7 @@ Code | Description  | Data Type
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 $WorkflowMetrics = $false # Boolean | disable workflow metrics (optional) (default to $true)
 
-# Get Workflow By Id
+# Get workflow by id
 
 try {
     Get-BetaWorkflow -Id $Id 
@@ -254,7 +254,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow execution ID.
 
-# Get Workflow Execution
+# Get workflow execution
 
 try {
     Get-BetaWorkflowExecution -Id $Id 
@@ -300,7 +300,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execution
 
-# Get Workflow Execution History
+# Get workflow execution history
 
 try {
     Get-BetaWorkflowExecutionHistory -Id $Id 
@@ -364,7 +364,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'status eq "Failed"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **startTime**: *eq, lt, le, gt, ge*  **status**: *eq* (optional)
 
-# List Workflow Executions
+# List workflow executions
 
 try {
     Get-BetaWorkflowExecutions -Id $Id 
@@ -411,7 +411,7 @@ Code | Description  | Data Type
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
-# List Complete Workflow Library
+# List complete workflow library
 
 try {
     Get-BetaCompleteWorkflowLibrary 
@@ -460,7 +460,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Filters = 'id eq "sp:create-campaign"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional)
 
-# List Workflow Library Actions
+# List workflow library actions
 
 try {
     Get-BetaWorkflowLibraryActions 
@@ -503,7 +503,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# List Workflow Library Operators
+# List workflow library operators
 
 try {
     Get-BetaWorkflowLibraryOperators 
@@ -552,7 +552,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Filters = 'id eq "idn:identity-attributes-changed"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional)
 
-# List Workflow Library Triggers
+# List workflow library triggers
 
 try {
     Get-BetaWorkflowLibraryTriggers 
@@ -603,7 +603,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $TriggerId = "idn:identity-created" # String | Trigger ID (optional)
 $ConnectorInstanceId = "28541fec-bb81-4ad4-88ef-0f7d213adcad" # String | Connector Instance ID (optional)
 
-# List Workflows
+# List workflows
 
 try {
     Get-BetaWorkflows 
@@ -655,7 +655,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 }"@ # JsonPatchOperation[] | 
  
 
-# Patch Workflow
+# Patch workflow
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -703,7 +703,7 @@ Code | Description  | Data Type
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 $PostExternalExecuteWorkflowRequest = @""@
 
-# Execute Workflow via External Trigger
+# Execute workflow via external trigger
 
 try {
     Submit-BetaExternalExecuteWorkflow -Id $Id 
@@ -748,7 +748,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 
-# Generate External Trigger OAuth Client
+# Generate external trigger oauth client
 
 try {
     Submit-BetaWorkflowExternalTrigger -Id $Id 
@@ -834,7 +834,7 @@ $WorkflowBody = @"{
   "enabled" : false
 }"@
 
-# Update Workflow
+# Update workflow
 
 try {
     $Result = ConvertFrom-JsonToWorkflowBody -Json $WorkflowBody
@@ -882,7 +882,7 @@ Code | Description  | Data Type
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 $TestExternalExecuteWorkflowRequest = @""@
 
-# Test Workflow via External Trigger
+# Test workflow via external trigger
 
 try {
     Test-BetaExternalExecuteWorkflow -Id $Id 
@@ -931,7 +931,7 @@ Code | Description  | Data Type
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 $TestWorkflowRequest = @"{input={identity={id=ee769173319b41d19ccec6cea52f237b, name=john.doe, type=IDENTITY}, changes=[{attribute=department, oldValue=sales, newValue=marketing}, {attribute=manager, oldValue={id=ee769173319b41d19ccec6c235423237b, name=nice.guy, type=IDENTITY}, newValue={id=ee769173319b41d19ccec6c235423236c, name=mean.guy, type=IDENTITY}}, {attribute=email, oldValue=john.doe@hotmail.com, newValue=john.doe@gmail.com}]}}"@
 
-# Test Workflow By Id
+# Test workflow by id
 
 try {
     $Result = ConvertFrom-JsonToTestWorkflowRequest -Json $TestWorkflowRequest

@@ -21,9 +21,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2024VendorConnectorMapping**](#create-vendor-connector-mapping) | **POST** `/vendor-connector-mappings` | Create Vendor Connector Mapping
-[**Remove-V2024VendorConnectorMapping**](#delete-vendor-connector-mapping) | **DELETE** `/vendor-connector-mappings` | Delete Vendor Connector Mapping
-[**Get-V2024VendorConnectorMappings**](#get-vendor-connector-mappings) | **GET** `/vendor-connector-mappings` | List Vendor Connector Mappings
+[**New-V2024VendorConnectorMapping**](#create-vendor-connector-mapping) | **POST** `/vendor-connector-mappings` | Create vendor connector mapping
+[**Remove-V2024VendorConnectorMapping**](#delete-vendor-connector-mapping) | **DELETE** `/vendor-connector-mappings` | Delete vendor connector mapping
+[**Get-V2024VendorConnectorMappings**](#get-vendor-connector-mappings) | **GET** `/vendor-connector-mappings` | List vendor connector mappings
 
 
 ## create-vendor-connector-mapping
@@ -81,7 +81,7 @@ $VendorConnectorMapping = @"{
   }
 }"@
 
-# Create Vendor Connector Mapping
+# Create vendor connector mapping
 
 try {
     $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
@@ -151,7 +151,7 @@ $VendorConnectorMapping = @"{
   }
 }"@
 
-# Delete Vendor Connector Mapping
+# Delete vendor connector mapping
 
 try {
     $Result = ConvertFrom-JsonToVendorConnectorMapping -Json $VendorConnectorMapping
@@ -197,7 +197,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# List Vendor Connector Mappings
+# List vendor connector mappings
 
 try {
     Get-V2024VendorConnectorMappings 

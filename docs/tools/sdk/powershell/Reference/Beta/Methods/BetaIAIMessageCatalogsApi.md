@@ -17,7 +17,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaMessageCatalogs**](#get-message-catalogs) | **GET** `/translation-catalogs/{catalog-id}` | Get Message catalogs
+[**Get-BetaMessageCatalogs**](#get-message-catalogs) | **GET** `/translation-catalogs/{catalog-id}` | Get message catalogs
 
 
 ## get-message-catalogs
@@ -51,7 +51,7 @@ Code | Description  | Data Type
 ```powershell
 $CatalogId = "recommender" # String | The ID of the message catalog.
 
-# Get Message catalogs
+# Get message catalogs
 
 try {
     Get-BetaMessageCatalogs -CatalogId $CatalogId 

@@ -18,15 +18,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-oauth-client**](#create-oauth-client) | **POST** `/oauth-clients` | Create OAuth Client
-[**delete-oauth-client**](#delete-oauth-client) | **DELETE** `/oauth-clients/{id}` | Delete OAuth Client
-[**get-oauth-client**](#get-oauth-client) | **GET** `/oauth-clients/{id}` | Get OAuth Client
-[**list-oauth-clients**](#list-oauth-clients) | **GET** `/oauth-clients` | List OAuth Clients
-[**patch-oauth-client**](#patch-oauth-client) | **PATCH** `/oauth-clients/{id}` | Patch OAuth Client
+[**create-oauth-client**](#create-oauth-client) | **POST** `/oauth-clients` | Create oauth client
+[**delete-oauth-client**](#delete-oauth-client) | **DELETE** `/oauth-clients/{id}` | Delete oauth client
+[**get-oauth-client**](#get-oauth-client) | **GET** `/oauth-clients/{id}` | Get oauth client
+[**list-oauth-clients**](#list-oauth-clients) | **GET** `/oauth-clients` | List oauth clients
+[**patch-oauth-client**](#patch-oauth-client) | **PATCH** `/oauth-clients/{id}` | Patch oauth client
 
 
 ## create-oauth-client
-Create OAuth Client
+Create oauth client
 This creates an OAuth client.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-oauth-client)
@@ -85,7 +85,7 @@ with ApiClient(configuration) as api_client:
         }''' # CreateOAuthClientRequest | 
 
     try:
-        # Create OAuth Client
+        # Create oauth client
         new_create_o_auth_client_request = CreateOAuthClientRequest.from_json(create_o_auth_client_request)
         results = OAuthClientsApi(api_client).create_oauth_client(create_o_auth_client_request=new_create_o_auth_client_request)
         # Below is a request that includes all optional parameters
@@ -101,7 +101,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-oauth-client
-Delete OAuth Client
+Delete oauth client
 This deletes an OAuth client.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-oauth-client)
@@ -143,7 +143,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The OAuth client id # str | The OAuth client id
 
     try:
-        # Delete OAuth Client
+        # Delete oauth client
         
         OAuthClientsApi(api_client).delete_oauth_client(id=id)
         # Below is a request that includes all optional parameters
@@ -157,7 +157,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-oauth-client
-Get OAuth Client
+Get oauth client
 This gets details of an OAuth client.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-oauth-client)
@@ -200,7 +200,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The OAuth client id # str | The OAuth client id
 
     try:
-        # Get OAuth Client
+        # Get oauth client
         
         results = OAuthClientsApi(api_client).get_oauth_client(id=id)
         # Below is a request that includes all optional parameters
@@ -216,7 +216,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-oauth-clients
-List OAuth Clients
+List oauth clients
 This gets a list of OAuth clients.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-oauth-clients)
@@ -258,7 +258,7 @@ with ApiClient(configuration) as api_client:
     filters = 'lastUsed le 2023-02-05T10:59:27.214Z' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
 
     try:
-        # List OAuth Clients
+        # List oauth clients
         
         results = OAuthClientsApi(api_client).list_oauth_clients()
         # Below is a request that includes all optional parameters
@@ -275,7 +275,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-oauth-client
-Patch OAuth Client
+Patch oauth client
 This performs a targeted update to the field(s) of an OAuth client.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-oauth-client)
@@ -321,7 +321,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=replace, path=/strongAuthSupported, value=true}, {op=replace, path=/businessName, value=acme-solar}]''' # List[JsonPatchOperation] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
 
     try:
-        # Patch OAuth Client
+        # Patch oauth client
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = OAuthClientsApi(api_client).patch_oauth_client(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters

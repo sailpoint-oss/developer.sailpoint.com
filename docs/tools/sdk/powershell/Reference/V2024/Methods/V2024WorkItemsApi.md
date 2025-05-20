@@ -31,19 +31,19 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Approve-V2024ApprovalItem**](#approve-approval-item) | **POST** `/work-items/{id}/approve/{approvalItemId}` | Approve an Approval Item
-[**Approve-V2024ApprovalItemsInBulk**](#approve-approval-items-in-bulk) | **POST** `/work-items/bulk-approve/{id}` | Bulk approve Approval Items
-[**Complete-V2024WorkItem**](#complete-work-item) | **POST** `/work-items/{id}` | Complete a Work Item
-[**Invoke-V2024ForwardWorkItem**](#forward-work-item) | **POST** `/work-items/{id}/forward` | Forward a Work Item
-[**Get-V2024CompletedWorkItems**](#get-completed-work-items) | **GET** `/work-items/completed` | Completed Work Items
-[**Get-V2024CountCompletedWorkItems**](#get-count-completed-work-items) | **GET** `/work-items/completed/count` | Count Completed Work Items
-[**Get-V2024CountWorkItems**](#get-count-work-items) | **GET** `/work-items/count` | Count Work Items
-[**Get-V2024WorkItem**](#get-work-item) | **GET** `/work-items/{id}` | Get a Work Item
-[**Get-V2024WorkItemsSummary**](#get-work-items-summary) | **GET** `/work-items/summary` | Work Items Summary
-[**Get-V2024WorkItems**](#list-work-items) | **GET** `/work-items` | List Work Items
-[**Deny-V2024ApprovalItem**](#reject-approval-item) | **POST** `/work-items/{id}/reject/{approvalItemId}` | Reject an Approval Item
-[**Deny-V2024ApprovalItemsInBulk**](#reject-approval-items-in-bulk) | **POST** `/work-items/bulk-reject/{id}` | Bulk reject Approval Items
-[**Submit-V2024AccountSelection**](#submit-account-selection) | **POST** `/work-items/{id}/submit-account-selection` | Submit Account Selections
+[**Approve-V2024ApprovalItem**](#approve-approval-item) | **POST** `/work-items/{id}/approve/{approvalItemId}` | Approve an approval item
+[**Approve-V2024ApprovalItemsInBulk**](#approve-approval-items-in-bulk) | **POST** `/work-items/bulk-approve/{id}` | Bulk approve approval items
+[**Complete-V2024WorkItem**](#complete-work-item) | **POST** `/work-items/{id}` | Complete a work item
+[**Invoke-V2024ForwardWorkItem**](#forward-work-item) | **POST** `/work-items/{id}/forward` | Forward a work item
+[**Get-V2024CompletedWorkItems**](#get-completed-work-items) | **GET** `/work-items/completed` | Completed work items
+[**Get-V2024CountCompletedWorkItems**](#get-count-completed-work-items) | **GET** `/work-items/completed/count` | Count completed work items
+[**Get-V2024CountWorkItems**](#get-count-work-items) | **GET** `/work-items/count` | Count work items
+[**Get-V2024WorkItem**](#get-work-item) | **GET** `/work-items/{id}` | Get a work item
+[**Get-V2024WorkItemsSummary**](#get-work-items-summary) | **GET** `/work-items/summary` | Work items summary
+[**Get-V2024WorkItems**](#list-work-items) | **GET** `/work-items` | List work items
+[**Deny-V2024ApprovalItem**](#reject-approval-item) | **POST** `/work-items/{id}/reject/{approvalItemId}` | Reject an approval item
+[**Deny-V2024ApprovalItemsInBulk**](#reject-approval-items-in-bulk) | **POST** `/work-items/bulk-reject/{id}` | Bulk reject approval items
+[**Submit-V2024AccountSelection**](#submit-account-selection) | **POST** `/work-items/{id}/submit-account-selection` | Submit account selections
 
 
 ## approve-approval-item
@@ -80,7 +80,7 @@ Code | Description  | Data Type
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the approval item.
 
-# Approve an Approval Item
+# Approve an approval item
 
 try {
     Approve-V2024ApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId 
@@ -126,7 +126,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 
-# Bulk approve Approval Items
+# Bulk approve approval items
 
 try {
     Approve-V2024ApprovalItemsInBulk -Id $Id 
@@ -174,7 +174,7 @@ Code | Description  | Data Type
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 $Body = "MyBody" # String | Body is the request payload to create form definition request (optional)
 
-# Complete a Work Item
+# Complete a work item
 
 try {
     Complete-V2024WorkItem -Id $Id 
@@ -230,7 +230,7 @@ $WorkItemForward = @"{
   "sendNotifications" : true
 }"@
 
-# Forward a Work Item
+# Forward a work item
 
 try {
     $Result = ConvertFrom-JsonToWorkItemForward -Json $WorkItemForward
@@ -282,7 +282,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# Completed Work Items
+# Completed work items
 
 try {
     Get-V2024CompletedWorkItems 
@@ -330,7 +330,7 @@ Code | Description  | Data Type
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $OwnerId = "MyOwnerId" # String | ID of the work item owner. (optional)
 
-# Count Completed Work Items
+# Count completed work items
 
 try {
     Get-V2024CountCompletedWorkItems -XSailPointExperimental $XSailPointExperimental 
@@ -375,7 +375,7 @@ Code | Description  | Data Type
 ```powershell
 $OwnerId = "ef38f94347e94562b5bb8424a56397d8" # String | ID of the work item owner. (optional)
 
-# Count Work Items
+# Count work items
 
 try {
     Get-V2024CountWorkItems 
@@ -420,7 +420,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the work item.
 
-# Get a Work Item
+# Get a work item
 
 try {
     Get-V2024WorkItem -Id $Id 
@@ -465,7 +465,7 @@ Code | Description  | Data Type
 ```powershell
 $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item owner. (optional)
 
-# Work Items Summary
+# Work items summary
 
 try {
     Get-V2024WorkItemsSummary 
@@ -516,7 +516,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $OwnerId = "1211bcaa32112bcef6122adb21cef1ac" # String | ID of the work item owner. (optional)
 
-# List Work Items
+# List work items
 
 try {
     Get-V2024WorkItems 
@@ -564,7 +564,7 @@ Code | Description  | Data Type
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 $ApprovalItemId = "1211bcaa32112bcef6122adb21cef1ac" # String | The ID of the approval item.
 
-# Reject an Approval Item
+# Reject an approval item
 
 try {
     Deny-V2024ApprovalItem -Id $Id -ApprovalItemId $ApprovalItemId 
@@ -610,7 +610,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 
-# Bulk reject Approval Items
+# Bulk reject approval items
 
 try {
     Deny-V2024ApprovalItemsInBulk -Id $Id 
@@ -658,7 +658,7 @@ Code | Description  | Data Type
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the work item
 $RequestBody = @{ key_example =  } # System.Collections.Hashtable | Account Selection Data map, keyed on fieldName
 
-# Submit Account Selections
+# Submit account selections
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody

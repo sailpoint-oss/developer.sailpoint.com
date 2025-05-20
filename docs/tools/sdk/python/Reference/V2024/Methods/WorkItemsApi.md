@@ -29,23 +29,23 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**approve-approval-item**](#approve-approval-item) | **POST** `/work-items/{id}/approve/{approvalItemId}` | Approve an Approval Item
-[**approve-approval-items-in-bulk**](#approve-approval-items-in-bulk) | **POST** `/work-items/bulk-approve/{id}` | Bulk approve Approval Items
-[**complete-work-item**](#complete-work-item) | **POST** `/work-items/{id}` | Complete a Work Item
-[**forward-work-item**](#forward-work-item) | **POST** `/work-items/{id}/forward` | Forward a Work Item
-[**get-completed-work-items**](#get-completed-work-items) | **GET** `/work-items/completed` | Completed Work Items
-[**get-count-completed-work-items**](#get-count-completed-work-items) | **GET** `/work-items/completed/count` | Count Completed Work Items
-[**get-count-work-items**](#get-count-work-items) | **GET** `/work-items/count` | Count Work Items
-[**get-work-item**](#get-work-item) | **GET** `/work-items/{id}` | Get a Work Item
-[**get-work-items-summary**](#get-work-items-summary) | **GET** `/work-items/summary` | Work Items Summary
-[**list-work-items**](#list-work-items) | **GET** `/work-items` | List Work Items
-[**reject-approval-item**](#reject-approval-item) | **POST** `/work-items/{id}/reject/{approvalItemId}` | Reject an Approval Item
-[**reject-approval-items-in-bulk**](#reject-approval-items-in-bulk) | **POST** `/work-items/bulk-reject/{id}` | Bulk reject Approval Items
-[**submit-account-selection**](#submit-account-selection) | **POST** `/work-items/{id}/submit-account-selection` | Submit Account Selections
+[**approve-approval-item**](#approve-approval-item) | **POST** `/work-items/{id}/approve/{approvalItemId}` | Approve an approval item
+[**approve-approval-items-in-bulk**](#approve-approval-items-in-bulk) | **POST** `/work-items/bulk-approve/{id}` | Bulk approve approval items
+[**complete-work-item**](#complete-work-item) | **POST** `/work-items/{id}` | Complete a work item
+[**forward-work-item**](#forward-work-item) | **POST** `/work-items/{id}/forward` | Forward a work item
+[**get-completed-work-items**](#get-completed-work-items) | **GET** `/work-items/completed` | Completed work items
+[**get-count-completed-work-items**](#get-count-completed-work-items) | **GET** `/work-items/completed/count` | Count completed work items
+[**get-count-work-items**](#get-count-work-items) | **GET** `/work-items/count` | Count work items
+[**get-work-item**](#get-work-item) | **GET** `/work-items/{id}` | Get a work item
+[**get-work-items-summary**](#get-work-items-summary) | **GET** `/work-items/summary` | Work items summary
+[**list-work-items**](#list-work-items) | **GET** `/work-items` | List work items
+[**reject-approval-item**](#reject-approval-item) | **POST** `/work-items/{id}/reject/{approvalItemId}` | Reject an approval item
+[**reject-approval-items-in-bulk**](#reject-approval-items-in-bulk) | **POST** `/work-items/bulk-reject/{id}` | Bulk reject approval items
+[**submit-account-selection**](#submit-account-selection) | **POST** `/work-items/{id}/submit-account-selection` | Submit account selections
 
 
 ## approve-approval-item
-Approve an Approval Item
+Approve an approval item
 This API approves an Approval Item. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/approve-approval-item)
@@ -90,7 +90,7 @@ with ApiClient(configuration) as api_client:
     approval_item_id = '1211bcaa32112bcef6122adb21cef1ac' # str | The ID of the approval item. # str | The ID of the approval item.
 
     try:
-        # Approve an Approval Item
+        # Approve an approval item
         
         results = WorkItemsApi(api_client).approve_approval_item(id=id, approval_item_id=approval_item_id)
         # Below is a request that includes all optional parameters
@@ -106,7 +106,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## approve-approval-items-in-bulk
-Bulk approve Approval Items
+Bulk approve approval items
 This API bulk approves Approval Items. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/approve-approval-items-in-bulk)
@@ -149,7 +149,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
 
     try:
-        # Bulk approve Approval Items
+        # Bulk approve approval items
         
         results = WorkItemsApi(api_client).approve_approval_items_in_bulk(id=id)
         # Below is a request that includes all optional parameters
@@ -165,7 +165,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## complete-work-item
-Complete a Work Item
+Complete a work item
 This API completes a work item. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/complete-work-item)
@@ -210,7 +210,7 @@ with ApiClient(configuration) as api_client:
     body = 'body_example' # str | Body is the request payload to create form definition request (optional) # str | Body is the request payload to create form definition request (optional)
 
     try:
-        # Complete a Work Item
+        # Complete a work item
         
         results = WorkItemsApi(api_client).complete_work_item(id=id)
         # Below is a request that includes all optional parameters
@@ -237,7 +237,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Forward a Work Item
+Forward a work item
 This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/forward-work-item)
@@ -288,7 +288,7 @@ with ApiClient(configuration) as api_client:
         }''' # WorkItemForward | 
 
     try:
-        # Forward a Work Item
+        # Forward a work item
         new_work_item_forward = WorkItemForward.from_json(work_item_forward)
         WorkItemsApi(api_client).forward_work_item(id=id, x_sail_point_experimental=x_sail_point_experimental, work_item_forward=new_work_item_forward)
         # Below is a request that includes all optional parameters
@@ -302,7 +302,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-completed-work-items
-Completed Work Items
+Completed work items
 This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-completed-work-items)
@@ -350,7 +350,7 @@ with ApiClient(configuration) as api_client:
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
     try:
-        # Completed Work Items
+        # Completed work items
         
         results = WorkItemsApi(api_client).get_completed_work_items()
         # Below is a request that includes all optional parameters
@@ -378,7 +378,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Count Completed Work Items
+Count completed work items
 This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-count-completed-work-items)
@@ -421,7 +421,7 @@ with ApiClient(configuration) as api_client:
     owner_id = 'owner_id_example' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
 
     try:
-        # Count Completed Work Items
+        # Count completed work items
         
         results = WorkItemsApi(api_client).get_count_completed_work_items(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -437,7 +437,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-count-work-items
-Count Work Items
+Count work items
 This gets a count of work items belonging to either the specified user(admin required), or the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-count-work-items)
@@ -479,7 +479,7 @@ with ApiClient(configuration) as api_client:
     owner_id = 'ef38f94347e94562b5bb8424a56397d8' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
 
     try:
-        # Count Work Items
+        # Count work items
         
         results = WorkItemsApi(api_client).get_count_work_items()
         # Below is a request that includes all optional parameters
@@ -495,7 +495,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-work-item
-Get a Work Item
+Get a work item
 This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-work-item)
@@ -537,7 +537,7 @@ with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | ID of the work item. # str | ID of the work item.
 
     try:
-        # Get a Work Item
+        # Get a work item
         
         results = WorkItemsApi(api_client).get_work_item(id=id)
         # Below is a request that includes all optional parameters
@@ -553,7 +553,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-work-items-summary
-Work Items Summary
+Work items summary
 This gets a summary of work items belonging to either the specified user(admin required), or the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-work-items-summary)
@@ -595,7 +595,7 @@ with ApiClient(configuration) as api_client:
     owner_id = '1211bcaa32112bcef6122adb21cef1ac' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
 
     try:
-        # Work Items Summary
+        # Work items summary
         
         results = WorkItemsApi(api_client).get_work_items_summary()
         # Below is a request that includes all optional parameters
@@ -611,7 +611,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-work-items
-List Work Items
+List work items
 This gets a collection of work items belonging to either the specified user(admin required), or the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-work-items)
@@ -659,7 +659,7 @@ with ApiClient(configuration) as api_client:
     owner_id = '1211bcaa32112bcef6122adb21cef1ac' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
 
     try:
-        # List Work Items
+        # List work items
         
         results = WorkItemsApi(api_client).list_work_items()
         # Below is a request that includes all optional parameters
@@ -676,7 +676,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## reject-approval-item
-Reject an Approval Item
+Reject an approval item
 This API rejects an Approval Item. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/reject-approval-item)
@@ -721,7 +721,7 @@ with ApiClient(configuration) as api_client:
     approval_item_id = '1211bcaa32112bcef6122adb21cef1ac' # str | The ID of the approval item. # str | The ID of the approval item.
 
     try:
-        # Reject an Approval Item
+        # Reject an approval item
         
         results = WorkItemsApi(api_client).reject_approval_item(id=id, approval_item_id=approval_item_id)
         # Below is a request that includes all optional parameters
@@ -737,7 +737,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## reject-approval-items-in-bulk
-Bulk reject Approval Items
+Bulk reject approval items
 This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/reject-approval-items-in-bulk)
@@ -780,7 +780,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
 
     try:
-        # Bulk reject Approval Items
+        # Bulk reject approval items
         
         results = WorkItemsApi(api_client).reject_approval_items_in_bulk(id=id)
         # Below is a request that includes all optional parameters
@@ -796,7 +796,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## submit-account-selection
-Submit Account Selections
+Submit account selections
 This API submits account selections. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/submit-account-selection)
@@ -841,7 +841,7 @@ with ApiClient(configuration) as api_client:
     request_body = {fieldName=fieldValue} # Dict[str, object] | Account Selection Data map, keyed on fieldName # Dict[str, object] | Account Selection Data map, keyed on fieldName
 
     try:
-        # Submit Account Selections
+        # Submit account selections
         new_request_body = RequestBody.from_json(request_body)
         results = WorkItemsApi(api_client).submit_account_selection(id=id, request_body=new_request_body)
         # Below is a request that includes all optional parameters

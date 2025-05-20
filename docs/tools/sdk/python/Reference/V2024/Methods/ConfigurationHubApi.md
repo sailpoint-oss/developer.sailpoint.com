@@ -26,30 +26,30 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-deploy**](#create-deploy) | **POST** `/configuration-hub/deploys` | Create a Deploy
+[**create-deploy**](#create-deploy) | **POST** `/configuration-hub/deploys` | Create a deploy
 [**create-object-mapping**](#create-object-mapping) | **POST** `/configuration-hub/object-mappings/{sourceOrg}` | Creates an object mapping
 [**create-object-mappings**](#create-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-create` | Bulk creates object mappings
-[**create-scheduled-action**](#create-scheduled-action) | **POST** `/configuration-hub/scheduled-actions` | Create Scheduled Action
-[**create-uploaded-configuration**](#create-uploaded-configuration) | **POST** `/configuration-hub/backups/uploads` | Upload a Configuration
-[**delete-backup**](#delete-backup) | **DELETE** `/configuration-hub/backups/{id}` | Delete a Backup
+[**create-scheduled-action**](#create-scheduled-action) | **POST** `/configuration-hub/scheduled-actions` | Create scheduled action
+[**create-uploaded-configuration**](#create-uploaded-configuration) | **POST** `/configuration-hub/backups/uploads` | Upload a configuration
+[**delete-backup**](#delete-backup) | **DELETE** `/configuration-hub/backups/{id}` | Delete a backup
 [**delete-draft**](#delete-draft) | **DELETE** `/configuration-hub/drafts/{id}` | Delete a draft
 [**delete-object-mapping**](#delete-object-mapping) | **DELETE** `/configuration-hub/object-mappings/{sourceOrg}/{objectMappingId}` | Deletes an object mapping
-[**delete-scheduled-action**](#delete-scheduled-action) | **DELETE** `/configuration-hub/scheduled-actions/{id}` | Delete Scheduled Action
-[**delete-uploaded-configuration**](#delete-uploaded-configuration) | **DELETE** `/configuration-hub/backups/uploads/{id}` | Delete an Uploaded Configuration
-[**get-deploy**](#get-deploy) | **GET** `/configuration-hub/deploys/{id}` | Get a Deploy
+[**delete-scheduled-action**](#delete-scheduled-action) | **DELETE** `/configuration-hub/scheduled-actions/{id}` | Delete scheduled action
+[**delete-uploaded-configuration**](#delete-uploaded-configuration) | **DELETE** `/configuration-hub/backups/uploads/{id}` | Delete an uploaded configuration
+[**get-deploy**](#get-deploy) | **GET** `/configuration-hub/deploys/{id}` | Get a deploy
 [**get-object-mappings**](#get-object-mappings) | **GET** `/configuration-hub/object-mappings/{sourceOrg}` | Gets list of object mappings
-[**get-uploaded-configuration**](#get-uploaded-configuration) | **GET** `/configuration-hub/backups/uploads/{id}` | Get an Uploaded Configuration
-[**list-backups**](#list-backups) | **GET** `/configuration-hub/backups` | List Backups
-[**list-deploys**](#list-deploys) | **GET** `/configuration-hub/deploys` | List Deploys
-[**list-drafts**](#list-drafts) | **GET** `/configuration-hub/drafts` | List Drafts
-[**list-scheduled-actions**](#list-scheduled-actions) | **GET** `/configuration-hub/scheduled-actions` | List Scheduled Actions
-[**list-uploaded-configurations**](#list-uploaded-configurations) | **GET** `/configuration-hub/backups/uploads` | List Uploaded Configurations
+[**get-uploaded-configuration**](#get-uploaded-configuration) | **GET** `/configuration-hub/backups/uploads/{id}` | Get an uploaded configuration
+[**list-backups**](#list-backups) | **GET** `/configuration-hub/backups` | List backups
+[**list-deploys**](#list-deploys) | **GET** `/configuration-hub/deploys` | List deploys
+[**list-drafts**](#list-drafts) | **GET** `/configuration-hub/drafts` | List drafts
+[**list-scheduled-actions**](#list-scheduled-actions) | **GET** `/configuration-hub/scheduled-actions` | List scheduled actions
+[**list-uploaded-configurations**](#list-uploaded-configurations) | **GET** `/configuration-hub/backups/uploads` | List uploaded configurations
 [**update-object-mappings**](#update-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-patch` | Bulk updates object mappings
-[**update-scheduled-action**](#update-scheduled-action) | **PATCH** `/configuration-hub/scheduled-actions/{id}` | Update Scheduled Action
+[**update-scheduled-action**](#update-scheduled-action) | **PATCH** `/configuration-hub/scheduled-actions/{id}` | Update scheduled action
 
 
 ## create-deploy
-Create a Deploy
+Create a deploy
 This API performs a deploy based on an existing daft.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-deploy)
@@ -94,7 +94,7 @@ with ApiClient(configuration) as api_client:
         }''' # DeployRequest | The deploy request body.
 
     try:
-        # Create a Deploy
+        # Create a deploy
         new_deploy_request = DeployRequest.from_json(deploy_request)
         results = ConfigurationHubApi(api_client).create_deploy(deploy_request=new_deploy_request)
         # Below is a request that includes all optional parameters
@@ -260,7 +260,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## create-scheduled-action
-Create Scheduled Action
+Create scheduled action
 This API creates a new scheduled action for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-scheduled-action)
@@ -325,7 +325,7 @@ with ApiClient(configuration) as api_client:
         }''' # ScheduledActionPayload | The scheduled action creation request body.
 
     try:
-        # Create Scheduled Action
+        # Create scheduled action
         new_scheduled_action_payload = ScheduledActionPayload.from_json(scheduled_action_payload)
         results = ConfigurationHubApi(api_client).create_scheduled_action(scheduled_action_payload=new_scheduled_action_payload)
         # Below is a request that includes all optional parameters
@@ -341,7 +341,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## create-uploaded-configuration
-Upload a Configuration
+Upload a configuration
 This API uploads a JSON configuration file into a tenant.
 
 Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.
@@ -389,7 +389,7 @@ with ApiClient(configuration) as api_client:
     name = 'name_example' # str | Name that will be assigned to the uploaded configuration file. # str | Name that will be assigned to the uploaded configuration file.
 
     try:
-        # Upload a Configuration
+        # Upload a configuration
         
         results = ConfigurationHubApi(api_client).create_uploaded_configuration(data=data, name=name)
         # Below is a request that includes all optional parameters
@@ -405,7 +405,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-backup
-Delete a Backup
+Delete a backup
 This API deletes an existing backup for the current tenant.
 
 On success, this endpoint will return an empty response.
@@ -451,7 +451,7 @@ with ApiClient(configuration) as api_client:
     id = '07659d7d-2cce-47c0-9e49-185787ee565a' # str | The id of the backup to delete. # str | The id of the backup to delete.
 
     try:
-        # Delete a Backup
+        # Delete a backup
         
         ConfigurationHubApi(api_client).delete_backup(id=id)
         # Below is a request that includes all optional parameters
@@ -586,7 +586,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-scheduled-action
-Delete Scheduled Action
+Delete scheduled action
 This API deletes an existing scheduled action.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-scheduled-action)
@@ -628,7 +628,7 @@ with ApiClient(configuration) as api_client:
     scheduled_action_id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | The ID of the scheduled action. # str | The ID of the scheduled action.
 
     try:
-        # Delete Scheduled Action
+        # Delete scheduled action
         
         ConfigurationHubApi(api_client).delete_scheduled_action(scheduled_action_id=scheduled_action_id)
         # Below is a request that includes all optional parameters
@@ -642,7 +642,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-uploaded-configuration
-Delete an Uploaded Configuration
+Delete an uploaded configuration
 This API deletes an uploaded configuration based on Id.
 
 On success, this endpoint will return an empty response.
@@ -688,7 +688,7 @@ with ApiClient(configuration) as api_client:
     id = '3d0fe04b-57df-4a46-a83b-8f04b0f9d10b' # str | The id of the uploaded configuration. # str | The id of the uploaded configuration.
 
     try:
-        # Delete an Uploaded Configuration
+        # Delete an uploaded configuration
         
         ConfigurationHubApi(api_client).delete_uploaded_configuration(id=id)
         # Below is a request that includes all optional parameters
@@ -702,7 +702,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-deploy
-Get a Deploy
+Get a deploy
 This API gets an existing deploy for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-deploy)
@@ -745,7 +745,7 @@ with ApiClient(configuration) as api_client:
     id = '3d0fe04b-57df-4a46-a83b-8f04b0f9d10b' # str | The id of the deploy. # str | The id of the deploy.
 
     try:
-        # Get a Deploy
+        # Get a deploy
         
         results = ConfigurationHubApi(api_client).get_deploy(id=id)
         # Below is a request that includes all optional parameters
@@ -824,7 +824,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-uploaded-configuration
-Get an Uploaded Configuration
+Get an uploaded configuration
 This API gets an existing uploaded configuration for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-uploaded-configuration)
@@ -867,7 +867,7 @@ with ApiClient(configuration) as api_client:
     id = '3d0fe04b-57df-4a46-a83b-8f04b0f9d10b' # str | The id of the uploaded configuration. # str | The id of the uploaded configuration.
 
     try:
-        # Get an Uploaded Configuration
+        # Get an uploaded configuration
         
         results = ConfigurationHubApi(api_client).get_uploaded_configuration(id=id)
         # Below is a request that includes all optional parameters
@@ -883,7 +883,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-backups
-List Backups
+List backups
 This API gets a list of existing backups for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-backups)
@@ -925,7 +925,7 @@ with ApiClient(configuration) as api_client:
     filters = 'status eq \"COMPLETE\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
 
     try:
-        # List Backups
+        # List backups
         
         results = ConfigurationHubApi(api_client).list_backups()
         # Below is a request that includes all optional parameters
@@ -942,7 +942,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-deploys
-List Deploys
+List deploys
 This API gets a list of deploys for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-deploys)
@@ -980,7 +980,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # List Deploys
+        # List deploys
         
         results = ConfigurationHubApi(api_client).list_deploys()
         # Below is a request that includes all optional parameters
@@ -996,7 +996,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-drafts
-List Drafts
+List drafts
 This API gets a list of existing drafts for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-drafts)
@@ -1038,7 +1038,7 @@ with ApiClient(configuration) as api_client:
     filters = 'status eq \"COMPLETE\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq* (optional)
 
     try:
-        # List Drafts
+        # List drafts
         
         results = ConfigurationHubApi(api_client).list_drafts()
         # Below is a request that includes all optional parameters
@@ -1055,7 +1055,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-scheduled-actions
-List Scheduled Actions
+List scheduled actions
 This API gets a list of existing scheduled actions for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-scheduled-actions)
@@ -1093,7 +1093,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # List Scheduled Actions
+        # List scheduled actions
         
         results = ConfigurationHubApi(api_client).list_scheduled_actions()
         # Below is a request that includes all optional parameters
@@ -1110,7 +1110,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-uploaded-configurations
-List Uploaded Configurations
+List uploaded configurations
 This API gets a list of existing uploaded configurations for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-uploaded-configurations)
@@ -1153,7 +1153,7 @@ with ApiClient(configuration) as api_client:
     filters = 'status eq \"COMPLETE\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
 
     try:
-        # List Uploaded Configurations
+        # List uploaded configurations
         
         results = ConfigurationHubApi(api_client).list_uploaded_configurations()
         # Below is a request that includes all optional parameters
@@ -1248,7 +1248,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-scheduled-action
-Update Scheduled Action
+Update scheduled action
 This API updates an existing scheduled action using JSON Patch format.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-scheduled-action)
@@ -1304,7 +1304,7 @@ with ApiClient(configuration) as api_client:
         }''' # JsonPatch | The JSON Patch document containing the changes to apply to the scheduled action.
 
     try:
-        # Update Scheduled Action
+        # Update scheduled action
         new_json_patch = JsonPatch.from_json(json_patch)
         results = ConfigurationHubApi(api_client).update_scheduled_action(scheduled_action_id=scheduled_action_id, json_patch=new_json_patch)
         # Below is a request that includes all optional parameters

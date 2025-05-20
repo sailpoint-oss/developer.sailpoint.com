@@ -18,14 +18,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2025Dimension**](#create-dimension) | **POST** `/roles/{roleId}/dimensions` | Create a Dimension
-[**Remove-V2025BulkDimensions**](#delete-bulk-dimensions) | **POST** `/roles/{roleId}/dimensions/bulk-delete` | Delete Dimension(s)
-[**Remove-V2025Dimension**](#delete-dimension) | **DELETE** `/roles/{roleId}/dimensions/{dimensionId}` | Delete a Dimension
-[**Get-V2025Dimension**](#get-dimension) | **GET** `/roles/{roleId}/dimensions/{dimensionId}` | Get a Dimension under Role.
-[**Get-V2025DimensionEntitlements**](#get-dimension-entitlements) | **GET** `/roles/{roleId}/dimensions/{dimensionId}/entitlements` | List Dimension&#39;s Entitlements
-[**Get-V2025DimensionAccessProfiles**](#list-dimension-access-profiles) | **GET** `/roles/{roleId}/dimensions/{dimensionId}/access-profiles` | List Dimension&#39;s Access Profiles
-[**Get-V2025Dimensions**](#list-dimensions) | **GET** `/roles/{roleId}/dimensions` | List Dimensions
-[**Update-V2025Dimension**](#patch-dimension) | **PATCH** `/roles/{roleId}/dimensions/{dimensionId}` | Patch a specified Dimension
+[**New-V2025Dimension**](#create-dimension) | **POST** `/roles/{roleId}/dimensions` | Create a dimension
+[**Remove-V2025BulkDimensions**](#delete-bulk-dimensions) | **POST** `/roles/{roleId}/dimensions/bulk-delete` | Delete dimension(s)
+[**Remove-V2025Dimension**](#delete-dimension) | **DELETE** `/roles/{roleId}/dimensions/{dimensionId}` | Delete a dimension
+[**Get-V2025Dimension**](#get-dimension) | **GET** `/roles/{roleId}/dimensions/{dimensionId}` | Get a dimension under role.
+[**Get-V2025DimensionEntitlements**](#get-dimension-entitlements) | **GET** `/roles/{roleId}/dimensions/{dimensionId}/entitlements` | List dimension&#39;s entitlements
+[**Get-V2025DimensionAccessProfiles**](#list-dimension-access-profiles) | **GET** `/roles/{roleId}/dimensions/{dimensionId}/access-profiles` | List dimension&#39;s access profiles
+[**Get-V2025Dimensions**](#list-dimensions) | **GET** `/roles/{roleId}/dimensions` | List dimensions
+[**Update-V2025Dimension**](#patch-dimension) | **PATCH** `/roles/{roleId}/dimensions/{dimensionId}` | Patch a specified dimension
 
 
 ## create-dimension
@@ -150,7 +150,7 @@ $Dimension = @"{
   "parentId" : "2c918086749d78830174a1a40e121518"
 }"@
 
-# Create a Dimension
+# Create a dimension
 
 try {
     $Result = ConvertFrom-JsonToDimension -Json $Dimension
@@ -203,7 +203,7 @@ $DimensionBulkDeleteRequest = @"{
   "dimensionIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ]
 }"@
 
-# Delete Dimension(s)
+# Delete dimension(s)
 
 try {
     $Result = ConvertFrom-JsonToDimensionBulkDeleteRequest -Json $DimensionBulkDeleteRequest
@@ -252,7 +252,7 @@ Code | Description  | Data Type
 $RoleId = "6603fba3004f43c687610a29195252ce" # String | Parent Role Id of the dimension.
 $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
 
-# Delete a Dimension
+# Delete a dimension
 
 try {
     Remove-V2025Dimension -RoleId $RoleId -DimensionId $DimensionId 
@@ -301,7 +301,7 @@ Code | Description  | Data Type
 $RoleId = "6603fba3004f43c687610a29195252ce" # String | Parent Role Id of the dimension.
 $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
 
-# Get a Dimension under Role.
+# Get a dimension under role.
 
 try {
     Get-V2025Dimension -RoleId $RoleId -DimensionId $DimensionId 
@@ -360,7 +360,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'attribute eq "memberOf"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in* (optional)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified** (optional)
 
-# List Dimension's Entitlements
+# List dimension's entitlements
 
 try {
     Get-V2025DimensionEntitlements -RoleId $RoleId -DimensionId $DimensionId 
@@ -420,7 +420,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'source.id eq "2c91808982f979270182f99e386d00fa"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in* (optional)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
 
-# List Dimension's Access Profiles
+# List dimension's access profiles
 
 try {
     Get-V2025DimensionAccessProfiles -RoleId $RoleId -DimensionId $DimensionId 
@@ -479,7 +479,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'id eq '2c918086749d78830174a1a40e121518'' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in* (optional)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
 
-# List Dimensions
+# List dimensions
 
 try {
     Get-V2025Dimensions -RoleId $RoleId 
@@ -537,7 +537,7 @@ $DimensionId = "2c9180835d191a86015d28455b4a2329" # String | Id of the Dimension
 }"@ # JsonPatchOperation[] | 
  
 
-# Patch a specified Dimension
+# Patch a specified dimension
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

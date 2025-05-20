@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountUsage = Initialize-V2025AccountUsage  -Date Thu Apr 20 20:00:00 EDT 2023 `
+$AccountUsage = Initialize-V2025AccountUsage  -Date Fri Apr 21 00:00:00 UTC 2023 `
  -Count 10
 ```
 

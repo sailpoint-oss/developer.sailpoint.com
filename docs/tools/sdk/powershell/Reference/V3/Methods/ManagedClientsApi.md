@@ -19,12 +19,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-ManagedClient**](#create-managed-client) | **POST** `/managed-clients` | Create Managed Client
-[**Remove-ManagedClient**](#delete-managed-client) | **DELETE** `/managed-clients/{id}` | Delete Managed Client
-[**Get-ManagedClient**](#get-managed-client) | **GET** `/managed-clients/{id}` | Get Managed Client
-[**Get-ManagedClientStatus**](#get-managed-client-status) | **GET** `/managed-clients/{id}/status` | Get Managed Client Status
-[**Get-ManagedClients**](#get-managed-clients) | **GET** `/managed-clients` | Get Managed Clients
-[**Update-ManagedClient**](#update-managed-client) | **PATCH** `/managed-clients/{id}` | Update Managed Client
+[**New-ManagedClient**](#create-managed-client) | **POST** `/managed-clients` | Create managed client
+[**Remove-ManagedClient**](#delete-managed-client) | **DELETE** `/managed-clients/{id}` | Delete managed client
+[**Get-ManagedClient**](#get-managed-client) | **GET** `/managed-clients/{id}` | Get managed client
+[**Get-ManagedClientStatus**](#get-managed-client-status) | **GET** `/managed-clients/{id}/status` | Get managed client status
+[**Get-ManagedClients**](#get-managed-clients) | **GET** `/managed-clients` | Get managed clients
+[**Update-ManagedClient**](#update-managed-client) | **PATCH** `/managed-clients/{id}` | Update managed client
 
 
 ## create-managed-client
@@ -64,7 +64,7 @@ $ManagedClientRequest = @"{
   "type" : "VA"
 }"@
 
-# Create Managed Client
+# Create managed client
 
 try {
     $Result = ConvertFrom-JsonToManagedClientRequest -Json $ManagedClientRequest
@@ -110,7 +110,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 
-# Delete Managed Client
+# Delete managed client
 
 try {
     Remove-ManagedClient -Id $Id 
@@ -156,7 +156,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 
-# Get Managed Client
+# Get managed client
 
 try {
     Get-ManagedClient -Id $Id 
@@ -204,7 +204,7 @@ Code | Description  | Data Type
 $Id = "aClientId" # String | Managed client ID to get status for.
 $Type = "CCG" # ManagedClientType | Managed client type to get status for.
 
-# Get Managed Client Status
+# Get managed client status
 
 try {
     Get-ManagedClientStatus -Id $Id -Type $Type 
@@ -255,7 +255,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'name eq "client name"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **clientId**: *eq*  **clusterId**: *eq* (optional)
 
-# Get Managed Clients
+# Get managed clients
 
 try {
     Get-ManagedClients 
@@ -308,7 +308,7 @@ $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID.
 }"@ # JsonPatchOperation[] | JSONPatch payload used to update the object.
  
 
-# Update Managed Client
+# Update managed client
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

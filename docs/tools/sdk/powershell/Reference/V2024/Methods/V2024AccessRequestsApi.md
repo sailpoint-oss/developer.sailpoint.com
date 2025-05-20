@@ -32,16 +32,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Approve-V2024BulkAccessRequest**](#approve-bulk-access-request) | **POST** `/access-request-approvals/bulk-approve` | Bulk Approve Access Request
-[**Suspend-V2024AccessRequest**](#cancel-access-request) | **POST** `/access-requests/cancel` | Cancel Access Request
-[**Suspend-V2024AccessRequestInBulk**](#cancel-access-request-in-bulk) | **POST** `/access-requests/bulk-cancel` | Bulk Cancel Access Request
-[**Close-V2024AccessRequest**](#close-access-request) | **POST** `/access-requests/close` | Close Access Request
-[**New-V2024AccessRequest**](#create-access-request) | **POST** `/access-requests` | Submit Access Request
-[**Get-V2024AccessRequestConfig**](#get-access-request-config) | **GET** `/access-request-config` | Get Access Request Configuration
-[**Get-V2024AccessRequestStatus**](#list-access-request-status) | **GET** `/access-request-status` | Access Request Status
-[**Get-V2024AdministratorsAccessRequestStatus**](#list-administrators-access-request-status) | **GET** `/access-request-administration` | Access Request Status for Administrators
+[**Approve-V2024BulkAccessRequest**](#approve-bulk-access-request) | **POST** `/access-request-approvals/bulk-approve` | Bulk approve access request
+[**Suspend-V2024AccessRequest**](#cancel-access-request) | **POST** `/access-requests/cancel` | Cancel access request
+[**Suspend-V2024AccessRequestInBulk**](#cancel-access-request-in-bulk) | **POST** `/access-requests/bulk-cancel` | Bulk cancel access request
+[**Close-V2024AccessRequest**](#close-access-request) | **POST** `/access-requests/close` | Close access request
+[**New-V2024AccessRequest**](#create-access-request) | **POST** `/access-requests` | Submit access request
+[**Get-V2024AccessRequestConfig**](#get-access-request-config) | **GET** `/access-request-config` | Get access request configuration
+[**Get-V2024AccessRequestStatus**](#list-access-request-status) | **GET** `/access-request-status` | Access request status
+[**Get-V2024AdministratorsAccessRequestStatus**](#list-administrators-access-request-status) | **GET** `/access-request-administration` | Access request status for administrators
 [**Invoke-V2024LoadAccountSelections**](#load-account-selections) | **POST** `/access-requests/accounts-selection` | Get accounts selections for identity
-[**Set-V2024AccessRequestConfig**](#set-access-request-config) | **PUT** `/access-request-config` | Update Access Request Configuration
+[**Set-V2024AccessRequestConfig**](#set-access-request-config) | **PUT** `/access-request-config` | Update access request configuration
 
 
 ## approve-bulk-access-request
@@ -79,7 +79,7 @@ $BulkApproveAccessRequest = @"{
   "approvalIds" : [ "2c9180835d2e5168015d32f890ca1581", "2c9180835d2e5168015d32f890ca1582" ]
 }"@
 
-# Bulk Approve Access Request
+# Bulk approve access request
 
 try {
     $Result = ConvertFrom-JsonToBulkApproveAccessRequest -Json $BulkApproveAccessRequest
@@ -130,7 +130,7 @@ $CancelAccessRequest = @"{
   "comment" : "I requested this role by mistake."
 }"@
 
-# Cancel Access Request
+# Cancel access request
 
 try {
     $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
@@ -181,7 +181,7 @@ $BulkCancelAccessRequest = @"{
   "comment" : "I requested this role by mistake."
 }"@
 
-# Bulk Cancel Access Request
+# Bulk cancel access request
 
 try {
     $Result = ConvertFrom-JsonToBulkCancelAccessRequest -Json $BulkCancelAccessRequest
@@ -248,7 +248,7 @@ $CloseAccessRequest = @"{
   "message" : "The IdentityNow Administrator manually closed this request."
 }"@
 
-# Close Access Request
+# Close access request
 
 try {
     $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
@@ -295,7 +295,8 @@ __REVOKE_ACCESS__
 * Revoke requests for entitlements are limited to 1 entitlement per access request currently.
 * You can specify a `removeDate` if the access doesn't already have a sunset date. The `removeDate` must be a future date, in the UTC timezone. 
 * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone.
-* Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of 'assignmentId' and 'nativeIdentity' fields.
+* Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of 'assignmentId' and 'nativeIdentity' fields. These fields should be used within the 'requestedItems' section for the revoke requests. 
+* Usage of 'requestedForWithRequestedItems' field is not supported for revoke requests.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-access-request)
@@ -416,9 +417,7 @@ $AccessRequest = @"{
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
-      "type" : "ACCESS_PROFILE",
-      "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+      "type" : "ACCESS_PROFILE"
     }, {
       "clientMetadata" : {
         "requestedAppName" : "test-app",
@@ -446,9 +445,7 @@ $AccessRequest = @"{
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
-      "type" : "ACCESS_PROFILE",
-      "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+      "type" : "ACCESS_PROFILE"
     } ]
   }, {
     "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
@@ -479,9 +476,7 @@ $AccessRequest = @"{
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
-      "type" : "ACCESS_PROFILE",
-      "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+      "type" : "ACCESS_PROFILE"
     }, {
       "clientMetadata" : {
         "requestedAppName" : "test-app",
@@ -509,14 +504,12 @@ $AccessRequest = @"{
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
-      "type" : "ACCESS_PROFILE",
-      "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+      "type" : "ACCESS_PROFILE"
     } ]
   } ]
 }"@
 
-# Submit Access Request
+# Submit access request
 
 try {
     $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
@@ -560,7 +553,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get Access Request Configuration
+# Get access request configuration
 
 try {
     Get-V2024AccessRequestConfig 
@@ -625,7 +618,7 @@ $Filters = 'accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"' # Strin
 $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name** (optional)
 $RequestState = "request-state=EXECUTING" # String | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
 
-# Access Request Status
+# Access request status
 
 try {
     Get-V2024AccessRequestStatus 
@@ -689,7 +682,7 @@ $Filters = 'accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"' # Strin
 $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name, accessRequestId** (optional)
 $RequestState = "request-state=EXECUTING" # String | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
 
-# Access Request Status for Administrators
+# Access request status for administrators
 
 try {
     Get-V2024AdministratorsAccessRequestStatus 
@@ -871,14 +864,24 @@ $AccessRequestConfig = @"{
         "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
         "approverType" : "GOVERNANCE_GROUP"
       } ],
+      "reauthorizationRequired" : false,
       "requestCommentRequired" : true
+    },
+    "revocationRequestConfig" : {
+      "approvalSchemes" : [ {
+        "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+        "approverType" : "GOVERNANCE_GROUP"
+      }, {
+        "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+        "approverType" : "GOVERNANCE_GROUP"
+      } ]
     }
   },
   "reauthorizationEnabled" : true,
   "approvalsMustBeExternal" : true
 }"@
 
-# Update Access Request Configuration
+# Update access request configuration
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig

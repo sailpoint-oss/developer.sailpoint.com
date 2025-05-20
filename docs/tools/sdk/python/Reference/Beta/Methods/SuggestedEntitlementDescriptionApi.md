@@ -18,17 +18,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-sed-batch-stats**](#get-sed-batch-stats) | **GET** `/suggested-entitlement-description-batches/{batchId}/stats` | Submit Sed Batch Stats Request
-[**get-sed-batches**](#get-sed-batches) | **GET** `/suggested-entitlement-description-batches` | List Sed Batch Request
-[**list-seds**](#list-seds) | **GET** `/suggested-entitlement-descriptions` | List Suggested Entitlement Descriptions
-[**patch-sed**](#patch-sed) | **PATCH** `/suggested-entitlement-descriptions` | Patch Suggested Entitlement Description
-[**submit-sed-approval**](#submit-sed-approval) | **POST** `/suggested-entitlement-description-approvals` | Submit Bulk Approval Request
-[**submit-sed-assignment**](#submit-sed-assignment) | **POST** `/suggested-entitlement-description-assignments` | Submit Sed Assignment Request
-[**submit-sed-batch-request**](#submit-sed-batch-request) | **POST** `/suggested-entitlement-description-batches` | Submit Sed Batch Request
+[**get-sed-batch-stats**](#get-sed-batch-stats) | **GET** `/suggested-entitlement-description-batches/{batchId}/stats` | Submit sed batch stats request
+[**get-sed-batches**](#get-sed-batches) | **GET** `/suggested-entitlement-description-batches` | List sed batch request
+[**list-seds**](#list-seds) | **GET** `/suggested-entitlement-descriptions` | List suggested entitlement descriptions
+[**patch-sed**](#patch-sed) | **PATCH** `/suggested-entitlement-descriptions` | Patch suggested entitlement description
+[**submit-sed-approval**](#submit-sed-approval) | **POST** `/suggested-entitlement-description-approvals` | Submit bulk approval request
+[**submit-sed-assignment**](#submit-sed-assignment) | **POST** `/suggested-entitlement-description-assignments` | Submit sed assignment request
+[**submit-sed-batch-request**](#submit-sed-batch-request) | **POST** `/suggested-entitlement-description-batches` | Submit sed batch request
 
 
 ## get-sed-batch-stats
-Submit Sed Batch Stats Request
+Submit sed batch stats request
 Submit Sed Batch Stats Request.
 
 Submits batchId in the path param `(e.g. {batchId}/stats)`.
@@ -75,7 +75,7 @@ with ApiClient(configuration) as api_client:
     batch_id = '8c190e67-87aa-4ed9-a90b-d9d5344523fb' # str | Batch Id # str | Batch Id
 
     try:
-        # Submit Sed Batch Stats Request
+        # Submit sed batch stats request
         
         results = SuggestedEntitlementDescriptionApi(api_client).get_sed_batch_stats(batch_id=batch_id)
         # Below is a request that includes all optional parameters
@@ -91,7 +91,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-sed-batches
-List Sed Batch Request
+List sed batch request
 List Sed Batches.
 API responses with Sed Batch Status
 
@@ -131,7 +131,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # List Sed Batch Request
+        # List sed batch request
         
         results = SuggestedEntitlementDescriptionApi(api_client).get_sed_batches()
         # Below is a request that includes all optional parameters
@@ -147,7 +147,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-seds
-List Suggested Entitlement Descriptions
+List suggested entitlement descriptions
 List of Suggested Entitlement Descriptions (SED)
 
 SED field descriptions:
@@ -216,7 +216,7 @@ with ApiClient(configuration) as api_client:
     show_pending_status_only = show-pending-status-only=true # bool | Will limit records to items that are in \"suggested\" or \"approved\" status (optional) # bool | Will limit records to items that are in \"suggested\" or \"approved\" status (optional)
 
     try:
-        # List Suggested Entitlement Descriptions
+        # List suggested entitlement descriptions
         
         results = SuggestedEntitlementDescriptionApi(api_client).list_seds()
         # Below is a request that includes all optional parameters
@@ -233,7 +233,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-sed
-Patch Suggested Entitlement Description
+Patch suggested entitlement description
 Patch Suggested Entitlement Description
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-sed)
@@ -279,7 +279,7 @@ with ApiClient(configuration) as api_client:
     sed_patch = '''[sailpoint.beta.SedPatch()]''' # List[SedPatch] | Sed Patch Request
 
     try:
-        # Patch Suggested Entitlement Description
+        # Patch suggested entitlement description
         new_sed_patch = SedPatch.from_json(sed_patch)
         results = SuggestedEntitlementDescriptionApi(api_client).patch_sed(id=id, sed_patch=new_sed_patch)
         # Below is a request that includes all optional parameters
@@ -295,7 +295,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## submit-sed-approval
-Submit Bulk Approval Request
+Submit bulk approval request
 Submit Bulk Approval Request for SED.
 Request body takes list of SED Ids. API responses with list of SED Approval Status
 
@@ -340,7 +340,7 @@ with ApiClient(configuration) as api_client:
     sed_approval = '''[sailpoint.beta.SedApproval()]''' # List[SedApproval] | Sed Approval
 
     try:
-        # Submit Bulk Approval Request
+        # Submit bulk approval request
         new_sed_approval = SedApproval.from_json(sed_approval)
         results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_approval(sed_approval=new_sed_approval)
         # Below is a request that includes all optional parameters
@@ -357,7 +357,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## submit-sed-assignment
-Submit Sed Assignment Request
+Submit sed assignment request
 Submit Assignment Request.
 Request body has an assignee, and list of SED Ids that are assigned to that assignee API responses with batchId that groups all approval requests together
 
@@ -408,7 +408,7 @@ with ApiClient(configuration) as api_client:
         }''' # SedAssignment | Sed Assignment Request
 
     try:
-        # Submit Sed Assignment Request
+        # Submit sed assignment request
         new_sed_assignment = SedAssignment.from_json(sed_assignment)
         results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_assignment(sed_assignment=new_sed_assignment)
         # Below is a request that includes all optional parameters
@@ -424,7 +424,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## submit-sed-batch-request
-Submit Sed Batch Request
+Submit sed batch request
 Submit Sed Batch Request.
 Request body has one of the following:
   - a list of entitlement Ids
@@ -475,7 +475,7 @@ with ApiClient(configuration) as api_client:
         }''' # SedBatchRequest | Sed Batch Request (optional)
 
     try:
-        # Submit Sed Batch Request
+        # Submit sed batch request
         
         results = SuggestedEntitlementDescriptionApi(api_client).submit_sed_batch_request()
         # Below is a request that includes all optional parameters

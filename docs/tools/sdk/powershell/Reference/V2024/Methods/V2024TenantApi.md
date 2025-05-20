@@ -17,7 +17,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2024Tenant**](#get-tenant) | **GET** `/tenant` | Get Tenant Information.
+[**Get-V2024Tenant**](#get-tenant) | **GET** `/tenant` | Get tenant information.
 
 
 ## get-tenant
@@ -50,7 +50,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get Tenant Information.
+# Get tenant information.
 
 try {
     Get-V2024Tenant 

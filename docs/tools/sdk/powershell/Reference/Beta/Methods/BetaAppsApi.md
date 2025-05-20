@@ -21,8 +21,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaSourceApp**](#create-source-app) | **POST** `/source-apps` | Create source app
 [**Remove-BetaAccessProfilesFromSourceAppByBulk**](#delete-access-profiles-from-source-app-by-bulk) | **POST** `/source-apps/{id}/access-profiles/bulk-remove` | Bulk remove access profiles from the specified source app
-[**Remove-BetaSourceApp**](#delete-source-app) | **DELETE** `/source-apps/{id}` | Delete source app by ID
-[**Get-BetaSourceApp**](#get-source-app) | **GET** `/source-apps/{id}` | Get source app by ID
+[**Remove-BetaSourceApp**](#delete-source-app) | **DELETE** `/source-apps/{id}` | Delete source app by id
+[**Get-BetaSourceApp**](#get-source-app) | **GET** `/source-apps/{id}` | Get source app by id
 [**Get-BetaAccessProfilesForSourceApp**](#list-access-profiles-for-source-app) | **GET** `/source-apps/{id}/access-profiles` | List access profiles for the specified source app
 [**Get-BetaAllSourceApp**](#list-all-source-app) | **GET** `/source-apps/all` | List all source apps
 [**Get-BetaAllUserApps**](#list-all-user-apps) | **GET** `/user-apps/all` | List all user apps
@@ -30,8 +30,8 @@ Method | HTTP request | Description
 [**Get-BetaAvailableAccountsForUserApp**](#list-available-accounts-for-user-app) | **GET** `/user-apps/{id}/available-accounts` | List available accounts for user app
 [**Get-BetaAvailableSourceApps**](#list-available-source-apps) | **GET** `/source-apps` | List available source apps
 [**Get-BetaOwnedUserApps**](#list-owned-user-apps) | **GET** `/user-apps` | List owned user apps
-[**Update-BetaSourceApp**](#patch-source-app) | **PATCH** `/source-apps/{id}` | Patch source app by ID
-[**Update-BetaUserApp**](#patch-user-app) | **PATCH** `/user-apps/{id}` | Patch user app by ID
+[**Update-BetaSourceApp**](#patch-source-app) | **PATCH** `/source-apps/{id}` | Patch source app by id
+[**Update-BetaUserApp**](#patch-user-app) | **PATCH** `/user-apps/{id}` | Patch user app by id
 [**Update-BetaSourceAppsInBulk**](#update-source-apps-in-bulk) | **POST** `/source-apps/bulk-update` | Bulk update source apps
 
 
@@ -173,7 +173,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | source app ID.
 
-# Delete source app by ID
+# Delete source app by id
 
 try {
     Remove-BetaSourceApp -Id $Id 
@@ -219,7 +219,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app
 
-# Get source app by ID
+# Get source app by id
 
 try {
     Get-BetaSourceApp -Id $Id 
@@ -640,7 +640,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app to patc
 }"@ # JsonPatchOperation[] |  (optional)
  
 
-# Patch source app by ID
+# Patch source app by id
 
 try {
     Update-BetaSourceApp -Id $Id 
@@ -694,7 +694,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the user app to patch
 }"@ # JsonPatchOperation[] |  (optional)
  
 
-# Patch user app by ID
+# Patch user app by id
 
 try {
     Update-BetaUserApp -Id $Id 

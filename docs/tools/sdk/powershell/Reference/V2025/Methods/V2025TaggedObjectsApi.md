@@ -70,14 +70,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Remove-V2025TaggedObject**](#delete-tagged-object) | **DELETE** `/tagged-objects/{type}/{id}` | Delete Object Tags
-[**Remove-V2025TagsToManyObject**](#delete-tags-to-many-object) | **POST** `/tagged-objects/bulk-remove` | Remove Tags from Multiple Objects
-[**Get-V2025TaggedObject**](#get-tagged-object) | **GET** `/tagged-objects/{type}/{id}` | Get Tagged Object
-[**Get-V2025TaggedObjects**](#list-tagged-objects) | **GET** `/tagged-objects` | List Tagged Objects
-[**Get-V2025TaggedObjectsByType**](#list-tagged-objects-by-type) | **GET** `/tagged-objects/{type}` | List Tagged Objects by Type
-[**Send-V2025TaggedObject**](#put-tagged-object) | **PUT** `/tagged-objects/{type}/{id}` | Update Tagged Object
-[**Set-V2025TagToObject**](#set-tag-to-object) | **POST** `/tagged-objects` | Add Tag to Object
-[**Set-V2025TagsToManyObjects**](#set-tags-to-many-objects) | **POST** `/tagged-objects/bulk-add` | Tag Multiple Objects
+[**Remove-V2025TaggedObject**](#delete-tagged-object) | **DELETE** `/tagged-objects/{type}/{id}` | Delete object tags
+[**Remove-V2025TagsToManyObject**](#delete-tags-to-many-object) | **POST** `/tagged-objects/bulk-remove` | Remove tags from multiple objects
+[**Get-V2025TaggedObject**](#get-tagged-object) | **GET** `/tagged-objects/{type}/{id}` | Get tagged object
+[**Get-V2025TaggedObjects**](#list-tagged-objects) | **GET** `/tagged-objects` | List tagged objects
+[**Get-V2025TaggedObjectsByType**](#list-tagged-objects-by-type) | **GET** `/tagged-objects/{type}` | List tagged objects by type
+[**Send-V2025TaggedObject**](#put-tagged-object) | **PUT** `/tagged-objects/{type}/{id}` | Update tagged object
+[**Set-V2025TagToObject**](#set-tag-to-object) | **POST** `/tagged-objects` | Add tag to object
+[**Set-V2025TagsToManyObjects**](#set-tags-to-many-objects) | **POST** `/tagged-objects/bulk-add` | Tag multiple objects
 
 
 ## delete-tagged-object
@@ -113,7 +113,7 @@ Code | Description  | Data Type
 $Type = "ACCESS_PROFILE" # String | The type of object to delete tags from.
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object to delete tags from.
 
-# Delete Object Tags
+# Delete object tags
 
 try {
     Remove-V2025TaggedObject -Type $Type -Id $Id 
@@ -169,7 +169,7 @@ $BulkRemoveTaggedObject = @"{
   "tags" : [ "BU_FINANCE", "PCI" ]
 }"@
 
-# Remove Tags from Multiple Objects
+# Remove tags from multiple objects
 
 try {
     $Result = ConvertFrom-JsonToBulkRemoveTaggedObject -Json $BulkRemoveTaggedObject
@@ -217,7 +217,7 @@ Code | Description  | Data Type
 $Type = "ACCESS_PROFILE" # String | The type of tagged object to retrieve.
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the object reference to retrieve.
 
-# Get Tagged Object
+# Get tagged object
 
 try {
     Get-V2025TaggedObject -Type $Type -Id $Id 
@@ -270,7 +270,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'tagName eq "BU_FINANCE"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq, in*  **objectRef.type**: *eq, in*  **tagName**: *eq, in* (optional)
 
-# List Tagged Objects
+# List tagged objects
 
 try {
     Get-V2025TaggedObjects 
@@ -325,7 +325,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'objectRef.id eq "2c91808568c529c60168cca6f90c1313"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq*  **objectRef.type**: *eq* (optional)
 
-# List Tagged Objects by Type
+# List tagged objects by type
 
 try {
     Get-V2025TaggedObjectsByType -Type $Type 
@@ -381,7 +381,7 @@ $TaggedObject = @"{
   "tags" : [ "BU_FINANCE", "PCI" ]
 }"@
 
-# Update Tagged Object
+# Update tagged object
 
 try {
     $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
@@ -436,7 +436,7 @@ $TaggedObject = @"{
   "tags" : [ "BU_FINANCE", "PCI" ]
 }"@
 
-# Add Tag to Object
+# Add tag to object
 
 try {
     $Result = ConvertFrom-JsonToTaggedObject -Json $TaggedObject
@@ -494,7 +494,7 @@ $BulkAddTaggedObject = @"{
   "tags" : [ "BU_FINANCE", "PCI" ]
 }"@
 
-# Tag Multiple Objects
+# Tag multiple objects
 
 try {
     $Result = ConvertFrom-JsonToBulkAddTaggedObject -Json $BulkAddTaggedObject

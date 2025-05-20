@@ -28,10 +28,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-PersonalAccessToken**](#create-personal-access-token) | **POST** `/personal-access-tokens` | Create Personal Access Token
-[**Remove-PersonalAccessToken**](#delete-personal-access-token) | **DELETE** `/personal-access-tokens/{id}` | Delete Personal Access Token
-[**Get-PersonalAccessTokens**](#list-personal-access-tokens) | **GET** `/personal-access-tokens` | List Personal Access Tokens
-[**Update-PersonalAccessToken**](#patch-personal-access-token) | **PATCH** `/personal-access-tokens/{id}` | Patch Personal Access Token
+[**New-PersonalAccessToken**](#create-personal-access-token) | **POST** `/personal-access-tokens` | Create personal access token
+[**Remove-PersonalAccessToken**](#delete-personal-access-token) | **DELETE** `/personal-access-tokens/{id}` | Delete personal access token
+[**Get-PersonalAccessTokens**](#list-personal-access-tokens) | **GET** `/personal-access-tokens` | List personal access tokens
+[**Update-PersonalAccessToken**](#patch-personal-access-token) | **PATCH** `/personal-access-tokens/{id}` | Patch personal access token
 
 
 ## create-personal-access-token
@@ -69,7 +69,7 @@ $CreatePersonalAccessTokenRequest = @"{
   "name" : "NodeJS Integration"
 }"@
 
-# Create Personal Access Token
+# Create personal access token
 
 try {
     $Result = ConvertFrom-JsonToCreatePersonalAccessTokenRequest -Json $CreatePersonalAccessTokenRequest
@@ -116,7 +116,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The personal access token id
 
-# Delete Personal Access Token
+# Delete personal access token
 
 try {
     Remove-PersonalAccessToken -Id $Id 
@@ -163,7 +163,7 @@ Code | Description  | Data Type
 $OwnerId = "2c9180867b50d088017b554662fb281e" # String | The identity ID of the owner whose personal access tokens should be listed.  If ""me"", the caller should have the following right: 'idn:my-personal-access-tokens:read' If an actual owner ID or if the `owner-id` parameter is omitted in the request,  the caller should have the following right: 'idn:all-personal-access-tokens:read'.  If the caller has the following right, then managed personal access tokens associated with `owner-id`  will be retrieved: 'idn:managed-personal-access-tokens:read' (optional)
 $Filters = 'lastUsed le 2023-02-05T10:59:27.214Z' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
 
-# List Personal Access Tokens
+# List personal access tokens
 
 try {
     Get-PersonalAccessTokens 
@@ -217,7 +217,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The Personal Access Token id
 }"@ # JsonPatchOperation[] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
  
 
-# Patch Personal Access Token
+# Patch personal access token
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

@@ -26,11 +26,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaPasswordPolicy**](#create-password-policy) | **POST** `/password-policies` | Create Password Policy
-[**Remove-BetaPasswordPolicy**](#delete-password-policy) | **DELETE** `/password-policies/{id}` | Delete Password Policy by ID
-[**Get-BetaPasswordPolicyById**](#get-password-policy-by-id) | **GET** `/password-policies/{id}` | Get Password Policy by ID
-[**Get-BetaPasswordPolicies**](#list-password-policies) | **GET** `/password-policies` | List Password Policies
-[**Set-BetaPasswordPolicy**](#set-password-policy) | **PUT** `/password-policies/{id}` | Update Password Policy by ID
+[**New-BetaPasswordPolicy**](#create-password-policy) | **POST** `/password-policies` | Create password policy
+[**Remove-BetaPasswordPolicy**](#delete-password-policy) | **DELETE** `/password-policies/{id}` | Delete password policy by id
+[**Get-BetaPasswordPolicyById**](#get-password-policy-by-id) | **GET** `/password-policies/{id}` | Get password policy by id
+[**Get-BetaPasswordPolicies**](#list-password-policies) | **GET** `/password-policies` | List password policies
+[**Set-BetaPasswordPolicy**](#set-password-policy) | **PUT** `/password-policies/{id}` | Update password policy by id
 
 
 ## create-password-policy
@@ -97,7 +97,7 @@ $PasswordPolicyV3Dto = @"{
   "maxLength" : 25
 }"@
 
-# Create Password Policy
+# Create password policy
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
@@ -144,7 +144,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ff808081838d9e9d01838da6a03e0002" # String | The ID of password policy to delete.
 
-# Delete Password Policy by ID
+# Delete password policy by id
 
 try {
     Remove-BetaPasswordPolicy -Id $Id 
@@ -190,7 +190,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ff808081838d9e9d01838da6a03e0005" # String | The ID of password policy to retrieve.
 
-# Get Password Policy by ID
+# Get password policy by id
 
 try {
     Get-BetaPasswordPolicyById -Id $Id 
@@ -240,7 +240,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# List Password Policies
+# List password policies
 
 try {
     Get-BetaPasswordPolicies 
@@ -320,7 +320,7 @@ $PasswordPolicyV3Dto = @"{
   "maxLength" : 25
 }"@
 
-# Update Password Policy by ID
+# Update password policy by id
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto

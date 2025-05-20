@@ -15,11 +15,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-tenant**](#get-tenant) | **GET** `/tenant` | Get Tenant Information.
+[**get-tenant**](#get-tenant) | **GET** `/tenant` | Get tenant information.
 
 
 ## get-tenant
-Get Tenant Information.
+Get tenant information.
 This rest endpoint can be used to retrieve tenant details.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-tenant)
@@ -58,7 +58,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # Get Tenant Information.
+        # Get tenant information.
         
         results = TenantApi(api_client).get_tenant()
         # Below is a request that includes all optional parameters

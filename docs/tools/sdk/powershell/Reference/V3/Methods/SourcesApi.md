@@ -74,32 +74,32 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-ProvisioningPolicy**](#create-provisioning-policy) | **POST** `/sources/{sourceId}/provisioning-policies` | Create Provisioning Policy
-[**New-Source**](#create-source) | **POST** `/sources` | Creates a source in IdentityNow.
-[**New-SourceSchema**](#create-source-schema) | **POST** `/sources/{sourceId}/schemas` | Create Schema on Source
-[**Remove-ProvisioningPolicy**](#delete-provisioning-policy) | **DELETE** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete Provisioning Policy by UsageType
-[**Remove-Source**](#delete-source) | **DELETE** `/sources/{id}` | Delete Source by ID
-[**Remove-SourceSchema**](#delete-source-schema) | **DELETE** `/sources/{sourceId}/schemas/{schemaId}` | Delete Source Schema by ID
+[**New-ProvisioningPolicy**](#create-provisioning-policy) | **POST** `/sources/{sourceId}/provisioning-policies` | Create provisioning policy
+[**New-Source**](#create-source) | **POST** `/sources` | Creates a source in identitynow.
+[**New-SourceSchema**](#create-source-schema) | **POST** `/sources/{sourceId}/schemas` | Create schema on source
+[**Remove-ProvisioningPolicy**](#delete-provisioning-policy) | **DELETE** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete provisioning policy by usagetype
+[**Remove-Source**](#delete-source) | **DELETE** `/sources/{id}` | Delete source by id
+[**Remove-SourceSchema**](#delete-source-schema) | **DELETE** `/sources/{sourceId}/schemas/{schemaId}` | Delete source schema by id
 [**Get-AccountsSchema**](#get-accounts-schema) | **GET** `/sources/{id}/schemas/accounts` | Downloads source accounts schema template
 [**Get-EntitlementsSchema**](#get-entitlements-schema) | **GET** `/sources/{id}/schemas/entitlements` | Downloads source entitlements schema template
-[**Get-ProvisioningPolicy**](#get-provisioning-policy) | **GET** `/sources/{sourceId}/provisioning-policies/{usageType}` | Get Provisioning Policy by UsageType
-[**Get-Source**](#get-source) | **GET** `/sources/{id}` | Get Source by ID
-[**Get-SourceConnections**](#get-source-connections) | **GET** `/sources/{sourceId}/connections` | Get Source Connections by ID
+[**Get-ProvisioningPolicy**](#get-provisioning-policy) | **GET** `/sources/{sourceId}/provisioning-policies/{usageType}` | Get provisioning policy by usagetype
+[**Get-Source**](#get-source) | **GET** `/sources/{id}` | Get source by id
+[**Get-SourceConnections**](#get-source-connections) | **GET** `/sources/{sourceId}/connections` | Get source connections by id
 [**Get-SourceHealth**](#get-source-health) | **GET** `/sources/{sourceId}/source-health` | Fetches source health by id
-[**Get-SourceSchema**](#get-source-schema) | **GET** `/sources/{sourceId}/schemas/{schemaId}` | Get Source Schema by ID
-[**Get-SourceSchemas**](#get-source-schemas) | **GET** `/sources/{sourceId}/schemas` | List Schemas on Source
+[**Get-SourceSchema**](#get-source-schema) | **GET** `/sources/{sourceId}/schemas/{schemaId}` | Get source schema by id
+[**Get-SourceSchemas**](#get-source-schemas) | **GET** `/sources/{sourceId}/schemas` | List schemas on source
 [**Import-AccountsSchema**](#import-accounts-schema) | **POST** `/sources/{id}/schemas/accounts` | Uploads source accounts schema template
 [**Import-ConnectorFile**](#import-connector-file) | **POST** `/sources/{sourceId}/upload-connector-file` | Upload connector file to source
 [**Import-EntitlementsSchema**](#import-entitlements-schema) | **POST** `/sources/{id}/schemas/entitlements` | Uploads source entitlements schema template
-[**Get-ProvisioningPolicies**](#list-provisioning-policies) | **GET** `/sources/{sourceId}/provisioning-policies` | Lists ProvisioningPolicies
-[**Get-Sources**](#list-sources) | **GET** `/sources` | Lists all sources in IdentityNow.
-[**Send-ProvisioningPolicy**](#put-provisioning-policy) | **PUT** `/sources/{sourceId}/provisioning-policies/{usageType}` | Update Provisioning Policy by UsageType
-[**Send-Source**](#put-source) | **PUT** `/sources/{id}` | Update Source (Full)
-[**Send-SourceSchema**](#put-source-schema) | **PUT** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Full)
-[**Update-ProvisioningPoliciesInBulk**](#update-provisioning-policies-in-bulk) | **POST** `/sources/{sourceId}/provisioning-policies/bulk-update` | Bulk Update Provisioning Policies
-[**Update-ProvisioningPolicy**](#update-provisioning-policy) | **PATCH** `/sources/{sourceId}/provisioning-policies/{usageType}` | Partial update of Provisioning Policy
-[**Update-Source**](#update-source) | **PATCH** `/sources/{id}` | Update Source (Partial)
-[**Update-SourceSchema**](#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Partial)
+[**Get-ProvisioningPolicies**](#list-provisioning-policies) | **GET** `/sources/{sourceId}/provisioning-policies` | Lists provisioningpolicies
+[**Get-Sources**](#list-sources) | **GET** `/sources` | Lists all sources in identitynow.
+[**Send-ProvisioningPolicy**](#put-provisioning-policy) | **PUT** `/sources/{sourceId}/provisioning-policies/{usageType}` | Update provisioning policy by usagetype
+[**Send-Source**](#put-source) | **PUT** `/sources/{id}` | Update source (full)
+[**Send-SourceSchema**](#put-source-schema) | **PUT** `/sources/{sourceId}/schemas/{schemaId}` | Update source schema (full)
+[**Update-ProvisioningPoliciesInBulk**](#update-provisioning-policies-in-bulk) | **POST** `/sources/{sourceId}/provisioning-policies/bulk-update` | Bulk update provisioning policies
+[**Update-ProvisioningPolicy**](#update-provisioning-policy) | **PATCH** `/sources/{sourceId}/provisioning-policies/{usageType}` | Partial update of provisioning policy
+[**Update-Source**](#update-source) | **PATCH** `/sources/{id}` | Update source (partial)
+[**Update-SourceSchema**](#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update source schema (partial)
 
 
 ## create-provisioning-policy
@@ -177,7 +177,7 @@ $ProvisioningPolicyDto = @"{
   "usageType" : "CREATE"
 }"@
 
-# Create Provisioning Policy
+# Create provisioning policy
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
@@ -307,7 +307,7 @@ $Source = @"{
 }"@
 $ProvisionAsCsv = $false # Boolean | If this parameter is `true`, it configures the source as a Delimited File (CSV) source. Setting this to `true` will automatically set the `type` of the source to `DelimitedFile`.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don't set this query parameter and you attempt to set the `type` attribute directly, the request won't correctly generate the source.   (optional)
 
-# Creates a source in IdentityNow.
+# Creates a source in identitynow.
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
@@ -389,7 +389,7 @@ $Schema = @"{
   "identityAttribute" : "sAMAccountName"
 }"@
 
-# Create Schema on Source
+# Create schema on source
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
@@ -438,7 +438,7 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
 $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
 
-# Delete Provisioning Policy by UsageType
+# Delete provisioning policy by usagetype
 
 try {
     Remove-ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType 
@@ -485,7 +485,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
-# Delete Source by ID
+# Delete source by id
 
 try {
     Remove-Source -Id $Id 
@@ -533,7 +533,7 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 
-# Delete Source Schema by ID
+# Delete source schema by id
 
 try {
     Remove-SourceSchema -SourceId $SourceId -SchemaId $SchemaId 
@@ -678,7 +678,7 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
 $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
 
-# Get Provisioning Policy by UsageType
+# Get provisioning policy by usagetype
 
 try {
     Get-ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType 
@@ -724,7 +724,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
-# Get Source by ID
+# Get source by id
 
 try {
     Get-Source -Id $Id 
@@ -770,7 +770,7 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
-# Get Source Connections by ID
+# Get source connections by id
 
 try {
     Get-SourceConnections -SourceId $SourceId 
@@ -865,7 +865,7 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 
-# Get Source Schema by ID
+# Get source schema by id
 
 try {
     Get-SourceSchema -SourceId $SourceId -SchemaId $SchemaId 
@@ -915,7 +915,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 $IncludeTypes = "group" # String | If set to 'group', then the account schema is filtered and only group schemas are returned. Only a value of 'group' is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas. (optional)
 $IncludeNames = "account" # String | A comma-separated list of schema names to filter result. (optional)
 
-# List Schemas on Source
+# List schemas on source
 
 try {
     Get-SourceSchemas -SourceId $SourceId 
@@ -1116,7 +1116,7 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
 
-# Lists ProvisioningPolicies
+# Lists provisioningpolicies
 
 try {
     Get-ProvisioningPolicies -SourceId $SourceId 
@@ -1174,7 +1174,7 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 $ForSubadmin = "name" # String | Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned. (optional)
 $IncludeIDNSource = $true # Boolean | Include the IdentityNow source in the response. (optional) (default to $false)
 
-# Lists all sources in IdentityNow.
+# Lists all sources in identitynow.
 
 try {
     Get-Sources 
@@ -1265,7 +1265,7 @@ $ProvisioningPolicyDto = @"{
   "usageType" : "CREATE"
 }"@
 
-# Update Provisioning Policy by UsageType
+# Update provisioning policy by usagetype
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
@@ -1408,7 +1408,7 @@ $Source = @"{
   "since" : "2021-09-28T15:48:29.3801666300Z"
 }"@
 
-# Update Source (Full)
+# Update source (full)
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
@@ -1502,7 +1502,7 @@ $Schema = @"{
   "identityAttribute" : "sAMAccountName"
 }"@
 
-# Update Source Schema (Full)
+# Update source schema (full)
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
@@ -1591,7 +1591,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 }"@ # ProvisioningPolicyDto[] | 
  
 
-# Bulk Update Provisioning Policies
+# Bulk update provisioning policies
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
@@ -1649,7 +1649,7 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 }"@ # JsonPatchOperation[] | The JSONPatch payload used to update the schema.
  
 
-# Partial update of Provisioning Policy
+# Partial update of provisioning policy
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -1718,7 +1718,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 }"@ # JsonPatchOperation[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
  
 
-# Update Source (Partial)
+# Update source (partial)
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -1803,7 +1803,7 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 }"@ # JsonPatchOperation[] | The JSONPatch payload used to update the schema.
  
 
-# Update Source Schema (Partial)
+# Update source schema (partial)
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

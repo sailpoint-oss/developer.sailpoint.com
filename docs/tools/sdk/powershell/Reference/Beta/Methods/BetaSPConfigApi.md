@@ -23,7 +23,7 @@ Method | HTTP request | Description
 [**Get-BetaSpConfigImport**](#get-sp-config-import) | **GET** `/sp-config/import/{id}/download` | Download import job result
 [**Get-BetaSpConfigImportStatus**](#get-sp-config-import-status) | **GET** `/sp-config/import/{id}` | Get import job status
 [**Import-BetaSpConfig**](#import-sp-config) | **POST** `/sp-config/import` | Initiates configuration objects import job
-[**Get-BetaSpConfigObjects**](#list-sp-config-objects) | **GET** `/sp-config/config-objects` | List Config Objects
+[**Get-BetaSpConfigObjects**](#list-sp-config-objects) | **GET** `/sp-config/config-objects` | List config objects
 
 
 ## export-sp-config
@@ -357,7 +357,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# List Config Objects
+# List config objects
 
 try {
     Get-BetaSpConfigObjects 

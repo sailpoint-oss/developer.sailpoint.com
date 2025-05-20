@@ -17,12 +17,14 @@ tags: ['SDK', 'Software Development Kit', 'EntitlementRequestConfig', 'BetaEntit
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccessRequestConfig** | [**EntitlementAccessRequestConfig**](entitlement-access-request-config) |  | [optional] 
+**RevocationRequestConfig** | [**EntitlementRevocationRequestConfig**](entitlement-revocation-request-config) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$EntitlementRequestConfig = Initialize-BetaEntitlementRequestConfig  -AccessRequestConfig null
+$EntitlementRequestConfig = Initialize-BetaEntitlementRequestConfig  -AccessRequestConfig null `
+ -RevocationRequestConfig null
 ```
 
 - Convert the resource to JSON

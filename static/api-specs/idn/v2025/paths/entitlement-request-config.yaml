@@ -8,6 +8,10 @@ get:
   - userAuth:
     - idn:entitlement:read
     - idn:entitlement:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_SUBADMIN
+    - SOURCE_ADMIN
   parameters:
   - in: path
     name: id
@@ -36,6 +40,17 @@ get:
             accessRequestConfig:
               requestCommentRequired: true
               denialCommentRequired: true
+              reauthorizationRequired: false
+              approvalSchemes:
+              - approverType: ENTITLEMENT_OWNER
+                approverId: null
+              - approverType: SOURCE_OWNER
+                approverId: null
+              - approverType: MANAGER
+                approverId: null
+              - approverType: GOVERNANCE_GROUP
+                approverId: 46c79819-a69f-49a2-becb-12c971ae66c6
+            revocationRequestConfig:
               approvalSchemes:
               - approverType: ENTITLEMENT_OWNER
                 approverId: null
@@ -66,6 +81,10 @@ put:
   security:
   - userAuth:
     - idn:entitlement:manage
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  - SOURCE_SUBADMIN
+  - SOURCE_ADMIN
   parameters:
   - name: id
     in: path
@@ -100,6 +119,16 @@ put:
             accessRequestConfig:
               requestCommentRequired: true
               denialCommentRequired: true
+              approvalSchemes:
+              - approverType: ENTITLEMENT_OWNER
+                approverId: null
+              - approverType: SOURCE_OWNER
+                approverId: null
+              - approverType: MANAGER
+                approverId: null
+              - approverType: GOVERNANCE_GROUP
+                approverId: 46c79819-a69f-49a2-becb-12c971ae66c6
+            revocationRequestConfig:
               approvalSchemes:
               - approverType: ENTITLEMENT_OWNER
                 approverId: null

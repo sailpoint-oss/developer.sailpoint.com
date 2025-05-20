@@ -35,11 +35,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2025SearchAttributeConfig**](#create-search-attribute-config) | **POST** `/accounts/search-attribute-config` | Create Extended Search Attributes
-[**Remove-V2025SearchAttributeConfig**](#delete-search-attribute-config) | **DELETE** `/accounts/search-attribute-config/{name}` | Delete Extended Search Attribute
-[**Get-V2025SearchAttributeConfig**](#get-search-attribute-config) | **GET** `/accounts/search-attribute-config` | List Extended Search Attributes
-[**Get-V2025SingleSearchAttributeConfig**](#get-single-search-attribute-config) | **GET** `/accounts/search-attribute-config/{name}` | Get Extended Search Attribute
-[**Update-V2025SearchAttributeConfig**](#patch-search-attribute-config) | **PATCH** `/accounts/search-attribute-config/{name}` | Update Extended Search Attribute
+[**New-V2025SearchAttributeConfig**](#create-search-attribute-config) | **POST** `/accounts/search-attribute-config` | Create extended search attributes
+[**Remove-V2025SearchAttributeConfig**](#delete-search-attribute-config) | **DELETE** `/accounts/search-attribute-config/{name}` | Delete extended search attribute
+[**Get-V2025SearchAttributeConfig**](#get-search-attribute-config) | **GET** `/accounts/search-attribute-config` | List extended search attributes
+[**Get-V2025SingleSearchAttributeConfig**](#get-single-search-attribute-config) | **GET** `/accounts/search-attribute-config/{name}` | Get extended search attribute
+[**Update-V2025SearchAttributeConfig**](#patch-search-attribute-config) | **PATCH** `/accounts/search-attribute-config/{name}` | Update extended search attribute
 
 
 ## create-search-attribute-config
@@ -87,7 +87,7 @@ $SearchAttributeConfig = @"{
   }
 }"@
 
-# Create Extended Search Attributes
+# Create extended search attributes
 
 try {
     $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
@@ -138,7 +138,7 @@ Code | Description  | Data Type
 $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to delete.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Delete Extended Search Attribute
+# Delete extended search attribute
 
 try {
     Remove-V2025SearchAttributeConfig -Name $Name -XSailPointExperimental $XSailPointExperimental 
@@ -190,7 +190,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
-# List Extended Search Attributes
+# List extended search attributes
 
 try {
     Get-V2025SearchAttributeConfig -XSailPointExperimental $XSailPointExperimental 
@@ -241,7 +241,7 @@ Code | Description  | Data Type
 $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to get.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Extended Search Attribute
+# Get extended search attribute
 
 try {
     Get-V2025SingleSearchAttributeConfig -Name $Name -XSailPointExperimental $XSailPointExperimental 
@@ -301,7 +301,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 }"@ # JsonPatchOperation[] | 
  
 
-# Update Extended Search Attribute
+# Update extended search attribute
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

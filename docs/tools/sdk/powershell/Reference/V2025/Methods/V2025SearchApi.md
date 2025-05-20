@@ -40,10 +40,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Search-V2025Aggregate**](#search-aggregate) | **POST** `/search/aggregate` | Perform a Search Query Aggregation
-[**Search-V2025Count**](#search-count) | **POST** `/search/count` | Count Documents Satisfying a Query
-[**Search-V2025Get**](#search-get) | **GET** `/search/{index}/{id}` | Get a Document by ID
-[**Search-V2025Post**](#search-post) | **POST** `/search` | Perform Search
+[**Search-V2025Aggregate**](#search-aggregate) | **POST** `/search/aggregate` | Perform a search query aggregation
+[**Search-V2025Count**](#search-count) | **POST** `/search/count` | Count documents satisfying a query
+[**Search-V2025Get**](#search-get) | **GET** `/search/{index}/{id}` | Get a document by id
+[**Search-V2025Post**](#search-post) | **POST** `/search` | Perform search
 
 
 ## search-aggregate
@@ -199,7 +199,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# Perform a Search Query Aggregation
+# Perform a search query aggregation
 
 try {
     $Result = ConvertFrom-JsonToSearch -Json $Search
@@ -361,7 +361,7 @@ $Search = @"{
   }
 }"@
 
-# Count Documents Satisfying a Query
+# Count documents satisfying a query
 
 try {
     $Result = ConvertFrom-JsonToSearch -Json $Search
@@ -410,7 +410,7 @@ Code | Description  | Data Type
 $Index = "accessprofiles" # String | The index from which to fetch the specified document.  The currently supported index names are: *accessprofiles*, *accountactivities*, *entitlements*, *events*, *identities*, and *roles*. 
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
 
-# Get a Document by ID
+# Get a document by id
 
 try {
     Search-V2025Get -Index $Index -Id $Id 
@@ -577,7 +577,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Limit = 10000 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# Perform Search
+# Perform search
 
 try {
     $Result = ConvertFrom-JsonToSearch -Json $Search

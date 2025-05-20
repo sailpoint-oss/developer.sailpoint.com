@@ -54,13 +54,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-Role**](#create-role) | **POST** `/roles` | Create a Role
-[**Remove-BulkRoles**](#delete-bulk-roles) | **POST** `/roles/bulk-delete` | Delete Role(s)
-[**Remove-Role**](#delete-role) | **DELETE** `/roles/{id}` | Delete Role
-[**Get-Role**](#get-role) | **GET** `/roles/{id}` | Get Role
-[**Get-RoleAssignedIdentities**](#get-role-assigned-identities) | **GET** `/roles/{id}/assigned-identities` | List Identities assigned a Role
-[**Get-Roles**](#list-roles) | **GET** `/roles` | List Roles
-[**Update-Role**](#patch-role) | **PATCH** `/roles/{id}` | Patch Role
+[**New-Role**](#create-role) | **POST** `/roles` | Create a role
+[**Remove-BulkRoles**](#delete-bulk-roles) | **POST** `/roles/bulk-delete` | Delete role(s)
+[**Remove-Role**](#delete-role) | **DELETE** `/roles/{id}` | Delete role
+[**Get-Role**](#get-role) | **GET** `/roles/{id}` | Get role
+[**Get-RoleAssignedIdentities**](#get-role-assigned-identities) | **GET** `/roles/{id}/assigned-identities` | List identities assigned a role
+[**Get-Roles**](#list-roles) | **GET** `/roles` | List roles
+[**Update-Role**](#patch-role) | **PATCH** `/roles/{id}` | Patch role
 
 
 ## create-role
@@ -255,7 +255,7 @@ $Role = @"{
   "requestable" : true
 }"@
 
-# Create a Role
+# Create a role
 
 try {
     $Result = ConvertFrom-JsonToRole -Json $Role
@@ -306,7 +306,7 @@ $RoleBulkDeleteRequest = @"{
   "roleIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ]
 }"@
 
-# Delete Role(s)
+# Delete role(s)
 
 try {
     $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
@@ -354,7 +354,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | Role ID.
 
-# Delete Role
+# Delete role
 
 try {
     Remove-Role -Id $Id 
@@ -400,7 +400,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | Role ID.
 
-# Get Role
+# Get role
 
 try {
     Get-Role -Id $Id 
@@ -455,7 +455,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'name sw Joe' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **aliasName**: *eq, sw*  **email**: *eq, sw*  **name**: *eq, sw, co* (optional)
 $Sorters = "aliasName,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, aliasName, email** (optional)
 
-# List Identities assigned a Role
+# List identities assigned a role
 
 try {
     Get-RoleAssignedIdentities -Id $Id 
@@ -514,7 +514,7 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 $ForSegmentIds = "0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
 $IncludeUnsegmented = $false # Boolean | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to $true)
 
-# List Roles
+# List roles
 
 try {
     Get-Roles 
@@ -585,7 +585,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | Role ID to patch
 }"@ # JsonPatchOperation[] | 
  
 
-# Patch Role
+# Patch role
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

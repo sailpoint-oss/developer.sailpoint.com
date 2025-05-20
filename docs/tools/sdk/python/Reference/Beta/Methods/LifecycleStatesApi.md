@@ -51,12 +51,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-lifecycle-states**](#get-lifecycle-states) | **GET** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Get Lifecycle State
-[**update-lifecycle-states**](#update-lifecycle-states) | **PATCH** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Update Lifecycle State
+[**get-lifecycle-states**](#get-lifecycle-states) | **GET** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Get lifecycle state
+[**update-lifecycle-states**](#update-lifecycle-states) | **PATCH** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Update lifecycle state
 
 
 ## get-lifecycle-states
-Get Lifecycle State
+Get lifecycle state
 Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
 
 A token with ORG_ADMIN or API authority is required to call this API.
@@ -103,7 +103,7 @@ with ApiClient(configuration) as api_client:
     lifecycle_state_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Lifecycle State ID. # str | Lifecycle State ID.
 
     try:
-        # Get Lifecycle State
+        # Get lifecycle state
         
         results = LifecycleStatesApi(api_client).get_lifecycle_states(identity_profile_id=identity_profile_id, lifecycle_state_id=lifecycle_state_id)
         # Below is a request that includes all optional parameters
@@ -119,7 +119,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-lifecycle-states
-Update Lifecycle State
+Update lifecycle state
 Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 A token with ORG_ADMIN or API authority is required to call this API.
@@ -169,7 +169,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/accessProfileIds, value=[2c918087742bab150174407a80f3125e, 2c918087742bab150174407a80f3124f]}, {op=replace, path=/accountActions, value=[{action=ENABLE, sourceIds=[2c9180846a2f82fb016a481c1b1560c5, 2c9180846a2f82fb016a481c1b1560cc]}, {action=DISABLE, sourceIds=[2c91808869a0c9980169a207258513fb]}]}, {op=replace, path=/emailNotificationOption, value={notifyManagers=true, notifyAllAdmins=false, notifySpecificUsers=false, emailAddressList=[]}}]''' # List[JsonPatchOperation] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
 
     try:
-        # Update Lifecycle State
+        # Update lifecycle state
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = LifecycleStatesApi(api_client).update_lifecycle_states(identity_profile_id=identity_profile_id, lifecycle_state_id=lifecycle_state_id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters

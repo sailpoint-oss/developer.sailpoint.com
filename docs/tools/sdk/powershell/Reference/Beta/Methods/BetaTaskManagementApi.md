@@ -17,11 +17,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaPendingTaskHeaders**](#get-pending-task-headers) | **HEAD** `/task-status/pending-tasks` | Retrieve Pending Task List Headers
-[**Get-BetaPendingTasks**](#get-pending-tasks) | **GET** `/task-status/pending-tasks` | Retrieve Pending Task Status List
-[**Get-BetaTaskStatus**](#get-task-status) | **GET** `/task-status/{id}` | Get Task Status by ID
-[**Get-BetaTaskStatusList**](#get-task-status-list) | **GET** `/task-status` | Retrieve Task Status List
-[**Update-BetaTaskStatus**](#update-task-status) | **PATCH** `/task-status/{id}` | Update Task Status by ID
+[**Get-BetaPendingTaskHeaders**](#get-pending-task-headers) | **HEAD** `/task-status/pending-tasks` | Retrieve pending task list headers
+[**Get-BetaPendingTasks**](#get-pending-tasks) | **GET** `/task-status/pending-tasks` | Retrieve pending task status list
+[**Get-BetaTaskStatus**](#get-task-status) | **GET** `/task-status/{id}` | Get task status by id
+[**Get-BetaTaskStatusList**](#get-task-status-list) | **GET** `/task-status` | Retrieve task status list
+[**Update-BetaTaskStatus**](#update-task-status) | **PATCH** `/task-status/{id}` | Update task status by id
 
 
 ## get-pending-task-headers
@@ -60,7 +60,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# Retrieve Pending Task List Headers
+# Retrieve pending task list headers
 
 try {
     Get-BetaPendingTaskHeaders 
@@ -110,7 +110,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# Retrieve Pending Task Status List
+# Retrieve pending task status list
 
 try {
     Get-BetaPendingTasks 
@@ -156,7 +156,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
 
-# Get Task Status by ID
+# Get task status by id
 
 try {
     Get-BetaTaskStatus -Id $Id 
@@ -211,7 +211,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'completionStatus eq "Success"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in*  **type**: *eq, in* (optional)
 $Sorters = "-created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created** (optional)
 
-# Retrieve Task Status List
+# Retrieve task status list
 
 try {
     Get-BetaTaskStatusList 
@@ -264,7 +264,7 @@ $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
 }"@ # JsonPatchOperation[] | The JSONPatch payload used to update the object.
  
 
-# Update Task Status by ID
+# Update task status by id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

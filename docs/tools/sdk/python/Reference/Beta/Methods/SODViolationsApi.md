@@ -33,14 +33,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**start-predict-sod-violations**](#start-predict-sod-violations) | **POST** `/sod-violations/predict` | Predict SOD violations for identity.
+[**start-predict-sod-violations**](#start-predict-sod-violations) | **POST** `/sod-violations/predict` | Predict sod violations for identity.
 
 
 ## start-predict-sod-violations
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Predict SOD violations for identity.
+Predict sod violations for identity.
 This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
 
 A token with ORG_ADMIN or API authority is required to call this API.
@@ -97,7 +97,7 @@ with ApiClient(configuration) as api_client:
         }''' # IdentityWithNewAccess | 
 
     try:
-        # Predict SOD violations for identity.
+        # Predict sod violations for identity.
         new_identity_with_new_access = IdentityWithNewAccess.from_json(identity_with_new_access)
         results = SODViolationsApi(api_client).start_predict_sod_violations(identity_with_new_access=new_identity_with_new_access)
         # Below is a request that includes all optional parameters

@@ -27,7 +27,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaAccountAggregationStatus**](#get-account-aggregation-status) | **GET** `/account-aggregations/{id}/status` | In-progress Account Aggregation status
+[**Get-BetaAccountAggregationStatus**](#get-account-aggregation-status) | **GET** `/account-aggregations/{id}/status` | In-progress account aggregation status
 
 
 ## get-account-aggregation-status
@@ -69,7 +69,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808477a6b0c60177a81146b8110b" # String | The account aggregation id
 
-# In-progress Account Aggregation status
+# In-progress account aggregation status
 
 try {
     Get-BetaAccountAggregationStatus -Id $Id 

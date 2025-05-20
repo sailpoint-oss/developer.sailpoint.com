@@ -23,12 +23,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaConnectorRule**](#create-connector-rule) | **POST** `/connector-rules` | Create Connector Rule
-[**Remove-BetaConnectorRule**](#delete-connector-rule) | **DELETE** `/connector-rules/{id}` | Delete a Connector-Rule
-[**Get-BetaConnectorRule**](#get-connector-rule) | **GET** `/connector-rules/{id}` | Connector-Rule by ID
-[**Get-BetaConnectorRuleList**](#get-connector-rule-list) | **GET** `/connector-rules` | List Connector Rules
-[**Update-BetaConnectorRule**](#update-connector-rule) | **PUT** `/connector-rules/{id}` | Update a Connector Rule
-[**Confirm-BetaConnectorRule**](#validate-connector-rule) | **POST** `/connector-rules/validate` | Validate Connector Rule
+[**New-BetaConnectorRule**](#create-connector-rule) | **POST** `/connector-rules` | Create connector rule
+[**Remove-BetaConnectorRule**](#delete-connector-rule) | **DELETE** `/connector-rules/{id}` | Delete a connector-rule
+[**Get-BetaConnectorRule**](#get-connector-rule) | **GET** `/connector-rules/{id}` | Connector-rule by id
+[**Get-BetaConnectorRuleList**](#get-connector-rule-list) | **GET** `/connector-rules` | List connector rules
+[**Update-BetaConnectorRule**](#update-connector-rule) | **PUT** `/connector-rules/{id}` | Update a connector rule
+[**Confirm-BetaConnectorRule**](#validate-connector-rule) | **POST** `/connector-rules/validate` | Validate connector rule
 
 
 ## create-connector-rule
@@ -88,7 +88,7 @@ $ConnectorRuleCreateRequest = @"{
   "type" : "BuildMap"
 }"@
 
-# Create Connector Rule
+# Create connector rule
 
 try {
     $Result = ConvertFrom-JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
@@ -136,7 +136,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to delete
 
-# Delete a Connector-Rule
+# Delete a connector-rule
 
 try {
     Remove-BetaConnectorRule -Id $Id 
@@ -183,7 +183,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to retrieve
 
-# Connector-Rule by ID
+# Connector-rule by id
 
 try {
     Get-BetaConnectorRule -Id $Id 
@@ -227,7 +227,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# List Connector Rules
+# List connector rules
 
 try {
     Get-BetaConnectorRuleList 
@@ -302,7 +302,7 @@ $ConnectorRuleUpdateRequest = @"{
   "type" : "BuildMap"
 }"@
 
-# Update a Connector Rule
+# Update a connector rule
 
 try {
     Update-BetaConnectorRule -Id $Id 
@@ -351,7 +351,7 @@ $SourceCode = @"{
   "script" : "return \"Mr. \" + firstName;"
 }"@
 
-# Validate Connector Rule
+# Validate connector rule
 
 try {
     $Result = ConvertFrom-JsonToSourceCode -Json $SourceCode

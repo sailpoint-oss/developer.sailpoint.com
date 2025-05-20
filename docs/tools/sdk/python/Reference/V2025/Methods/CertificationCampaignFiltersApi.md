@@ -42,15 +42,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-campaign-filter**](#create-campaign-filter) | **POST** `/campaign-filters` | Create Campaign Filter
-[**delete-campaign-filters**](#delete-campaign-filters) | **POST** `/campaign-filters/delete` | Deletes Campaign Filters
-[**get-campaign-filter-by-id**](#get-campaign-filter-by-id) | **GET** `/campaign-filters/{id}` | Get Campaign Filter by ID
-[**list-campaign-filters**](#list-campaign-filters) | **GET** `/campaign-filters` | List Campaign Filters
-[**update-campaign-filter**](#update-campaign-filter) | **POST** `/campaign-filters/{id}` | Updates a Campaign Filter
+[**create-campaign-filter**](#create-campaign-filter) | **POST** `/campaign-filters` | Create campaign filter
+[**delete-campaign-filters**](#delete-campaign-filters) | **POST** `/campaign-filters/delete` | Deletes campaign filters
+[**get-campaign-filter-by-id**](#get-campaign-filter-by-id) | **GET** `/campaign-filters/{id}` | Get campaign filter by id
+[**list-campaign-filters**](#list-campaign-filters) | **GET** `/campaign-filters` | List campaign filters
+[**update-campaign-filter**](#update-campaign-filter) | **POST** `/campaign-filters/{id}` | Updates a campaign filter
 
 
 ## create-campaign-filter
-Create Campaign Filter
+Create campaign filter
 Use this API to create a campaign filter based on filter details and criteria.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-campaign-filter)
@@ -109,7 +109,7 @@ with ApiClient(configuration) as api_client:
         }''' # CampaignFilterDetails | 
 
     try:
-        # Create Campaign Filter
+        # Create campaign filter
         new_campaign_filter_details = CampaignFilterDetails.from_json(campaign_filter_details)
         results = CertificationCampaignFiltersApi(api_client).create_campaign_filter(campaign_filter_details=new_campaign_filter_details)
         # Below is a request that includes all optional parameters
@@ -125,7 +125,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-campaign-filters
-Deletes Campaign Filters
+Deletes campaign filters
 Deletes campaign filters whose Ids are specified in the provided list of campaign filter Ids. Authorized callers must be an ORG_ADMIN or a CERT_ADMIN.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-campaign-filters)
@@ -167,7 +167,7 @@ with ApiClient(configuration) as api_client:
     request_body = '''['request_body_example']''' # List[str] | A json list of IDs of campaign filters to delete.
 
     try:
-        # Deletes Campaign Filters
+        # Deletes campaign filters
         new_request_body = RequestBody.from_json(request_body)
         CertificationCampaignFiltersApi(api_client).delete_campaign_filters(request_body=new_request_body)
         # Below is a request that includes all optional parameters
@@ -181,7 +181,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-campaign-filter-by-id
-Get Campaign Filter by ID
+Get campaign filter by id
 Retrieves information for an existing campaign filter using the filter's ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-campaign-filter-by-id)
@@ -224,7 +224,7 @@ with ApiClient(configuration) as api_client:
     id = 'e9f9a1397b842fd5a65842087040d3ac' # str | The ID of the campaign filter to be retrieved. # str | The ID of the campaign filter to be retrieved.
 
     try:
-        # Get Campaign Filter by ID
+        # Get campaign filter by id
         
         results = CertificationCampaignFiltersApi(api_client).get_campaign_filter_by_id(id=id)
         # Below is a request that includes all optional parameters
@@ -240,7 +240,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-campaign-filters
-List Campaign Filters
+List campaign filters
 Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-campaign-filters)
@@ -286,7 +286,7 @@ with ApiClient(configuration) as api_client:
     include_system_filters = True # bool | If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true.  (optional) (default to True) # bool | If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true.  (optional) (default to True)
 
     try:
-        # List Campaign Filters
+        # List campaign filters
         
         results = CertificationCampaignFiltersApi(api_client).list_campaign_filters()
         # Below is a request that includes all optional parameters
@@ -302,7 +302,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-campaign-filter
-Updates a Campaign Filter
+Updates a campaign filter
 Updates an existing campaign filter using the filter's ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/update-campaign-filter)
@@ -363,7 +363,7 @@ with ApiClient(configuration) as api_client:
         }''' # CampaignFilterDetails | A campaign filter details with updated field values.
 
     try:
-        # Updates a Campaign Filter
+        # Updates a campaign filter
         new_campaign_filter_details = CampaignFilterDetails.from_json(campaign_filter_details)
         results = CertificationCampaignFiltersApi(api_client).update_campaign_filter(filter_id=filter_id, campaign_filter_details=new_campaign_filter_details)
         # Below is a request that includes all optional parameters

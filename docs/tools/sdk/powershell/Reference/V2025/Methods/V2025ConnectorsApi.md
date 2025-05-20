@@ -31,19 +31,19 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2025CustomConnector**](#create-custom-connector) | **POST** `/connectors` | Create Custom Connector
-[**Remove-V2025CustomConnector**](#delete-custom-connector) | **DELETE** `/connectors/{scriptName}` | Delete Connector by Script Name
-[**Get-V2025Connector**](#get-connector) | **GET** `/connectors/{scriptName}` | Get Connector by Script Name
-[**Get-V2025ConnectorCorrelationConfig**](#get-connector-correlation-config) | **GET** `/connectors/{scriptName}/correlation-config` | Get Connector Correlation Configuration
-[**Get-V2025ConnectorList**](#get-connector-list) | **GET** `/connectors` | Get Connector List
-[**Get-V2025ConnectorSourceConfig**](#get-connector-source-config) | **GET** `/connectors/{scriptName}/source-config` | Get Connector Source Configuration
-[**Get-V2025ConnectorSourceTemplate**](#get-connector-source-template) | **GET** `/connectors/{scriptName}/source-template` | Get Connector Source Template
-[**Get-V2025ConnectorTranslations**](#get-connector-translations) | **GET** `/connectors/{scriptName}/translations/{locale}` | Get Connector Translations
-[**Send-V2025ConnectorCorrelationConfig**](#put-connector-correlation-config) | **PUT** `/connectors/{scriptName}/correlation-config` | Update Connector Correlation Configuration
-[**Send-V2025ConnectorSourceConfig**](#put-connector-source-config) | **PUT** `/connectors/{scriptName}/source-config` | Update Connector Source Configuration
-[**Send-V2025ConnectorSourceTemplate**](#put-connector-source-template) | **PUT** `/connectors/{scriptName}/source-template` | Update Connector Source Template
-[**Send-V2025ConnectorTranslations**](#put-connector-translations) | **PUT** `/connectors/{scriptName}/translations/{locale}` | Update Connector Translations
-[**Update-V2025Connector**](#update-connector) | **PATCH** `/connectors/{scriptName}` | Update Connector by Script Name
+[**New-V2025CustomConnector**](#create-custom-connector) | **POST** `/connectors` | Create custom connector
+[**Remove-V2025CustomConnector**](#delete-custom-connector) | **DELETE** `/connectors/{scriptName}` | Delete connector by script name
+[**Get-V2025Connector**](#get-connector) | **GET** `/connectors/{scriptName}` | Get connector by script name
+[**Get-V2025ConnectorCorrelationConfig**](#get-connector-correlation-config) | **GET** `/connectors/{scriptName}/correlation-config` | Get connector correlation configuration
+[**Get-V2025ConnectorList**](#get-connector-list) | **GET** `/connectors` | Get connector list
+[**Get-V2025ConnectorSourceConfig**](#get-connector-source-config) | **GET** `/connectors/{scriptName}/source-config` | Get connector source configuration
+[**Get-V2025ConnectorSourceTemplate**](#get-connector-source-template) | **GET** `/connectors/{scriptName}/source-template` | Get connector source template
+[**Get-V2025ConnectorTranslations**](#get-connector-translations) | **GET** `/connectors/{scriptName}/translations/{locale}` | Get connector translations
+[**Send-V2025ConnectorCorrelationConfig**](#put-connector-correlation-config) | **PUT** `/connectors/{scriptName}/correlation-config` | Update connector correlation configuration
+[**Send-V2025ConnectorSourceConfig**](#put-connector-source-config) | **PUT** `/connectors/{scriptName}/source-config` | Update connector source configuration
+[**Send-V2025ConnectorSourceTemplate**](#put-connector-source-template) | **PUT** `/connectors/{scriptName}/source-template` | Update connector source template
+[**Send-V2025ConnectorTranslations**](#put-connector-translations) | **PUT** `/connectors/{scriptName}/translations/{locale}` | Update connector translations
+[**Update-V2025Connector**](#update-connector) | **PATCH** `/connectors/{scriptName}` | Update connector by script name
 
 
 ## create-custom-connector
@@ -84,7 +84,7 @@ $V3CreateConnectorDto = @"{
   "status" : "RELEASED"
 }"@
 
-# Create Custom Connector
+# Create custom connector
 
 try {
     $Result = ConvertFrom-JsonToV3CreateConnectorDto -Json $V3CreateConnectorDto
@@ -131,7 +131,7 @@ Code | Description  | Data Type
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
-# Delete Connector by Script Name
+# Delete connector by script name
 
 try {
     Remove-V2025CustomConnector -ScriptName $ScriptName 
@@ -179,7 +179,7 @@ Code | Description  | Data Type
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
 
-# Get Connector by Script Name
+# Get connector by script name
 
 try {
     Get-V2025Connector -ScriptName $ScriptName 
@@ -225,7 +225,7 @@ Code | Description  | Data Type
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
 
-# Get Connector Correlation Configuration
+# Get connector correlation configuration
 
 try {
     Get-V2025ConnectorCorrelationConfig -ScriptName $ScriptName 
@@ -279,7 +279,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
 
-# Get Connector List
+# Get connector list
 
 try {
     Get-V2025ConnectorList 
@@ -325,7 +325,7 @@ Code | Description  | Data Type
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
-# Get Connector Source Configuration
+# Get connector source configuration
 
 try {
     Get-V2025ConnectorSourceConfig -ScriptName $ScriptName 
@@ -371,7 +371,7 @@ Code | Description  | Data Type
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
-# Get Connector Source Template
+# Get connector source template
 
 try {
     Get-V2025ConnectorSourceTemplate -ScriptName $ScriptName 
@@ -419,7 +419,7 @@ Code | Description  | Data Type
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en""
 
-# Get Connector Translations
+# Get connector translations
 
 try {
     Get-V2025ConnectorTranslations -ScriptName $ScriptName -Locale $Locale 
@@ -467,7 +467,7 @@ Code | Description  | Data Type
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
 $File =  # System.IO.FileInfo | connector correlation config xml file
 
-# Update Connector Correlation Configuration
+# Update connector correlation configuration
 
 try {
     Send-V2025ConnectorCorrelationConfig -ScriptName $ScriptName -File $File 
@@ -515,7 +515,7 @@ Code | Description  | Data Type
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 $File =  # System.IO.FileInfo | connector source config xml file
 
-# Update Connector Source Configuration
+# Update connector source configuration
 
 try {
     Send-V2025ConnectorSourceConfig -ScriptName $ScriptName -File $File 
@@ -563,7 +563,7 @@ Code | Description  | Data Type
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 $File =  # System.IO.FileInfo | connector source template xml file
 
-# Update Connector Source Template
+# Update connector source template
 
 try {
     Send-V2025ConnectorSourceTemplate -ScriptName $ScriptName -File $File 
@@ -611,7 +611,7 @@ Code | Description  | Data Type
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en""
 
-# Update Connector Translations
+# Update connector translations
 
 try {
     Send-V2025ConnectorTranslations -ScriptName $ScriptName -Locale $Locale 
@@ -676,7 +676,7 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 }"@ # JsonPatchOperation[] | A list of connector detail update operations 
  
 
-# Update Connector by Script Name
+# Update connector by script name
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

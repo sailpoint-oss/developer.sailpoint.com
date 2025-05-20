@@ -17,12 +17,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaIdentityAttribute**](#create-identity-attribute) | **POST** `/identity-attributes` | Create Identity Attribute
-[**Remove-BetaIdentityAttribute**](#delete-identity-attribute) | **DELETE** `/identity-attributes/{name}` | Delete Identity Attribute
-[**Remove-BetaIdentityAttributesInBulk**](#delete-identity-attributes-in-bulk) | **DELETE** `/identity-attributes/bulk-delete` | Bulk delete Identity Attributes
-[**Get-BetaIdentityAttribute**](#get-identity-attribute) | **GET** `/identity-attributes/{name}` | Get Identity Attribute
-[**Get-BetaIdentityAttributes**](#list-identity-attributes) | **GET** `/identity-attributes` | List Identity Attributes
-[**Send-BetaIdentityAttribute**](#put-identity-attribute) | **PUT** `/identity-attributes/{name}` | Update Identity Attribute
+[**New-BetaIdentityAttribute**](#create-identity-attribute) | **POST** `/identity-attributes` | Create identity attribute
+[**Remove-BetaIdentityAttribute**](#delete-identity-attribute) | **DELETE** `/identity-attributes/{name}` | Delete identity attribute
+[**Remove-BetaIdentityAttributesInBulk**](#delete-identity-attributes-in-bulk) | **DELETE** `/identity-attributes/bulk-delete` | Bulk delete identity attributes
+[**Get-BetaIdentityAttribute**](#get-identity-attribute) | **GET** `/identity-attributes/{name}` | Get identity attribute
+[**Get-BetaIdentityAttributes**](#list-identity-attributes) | **GET** `/identity-attributes` | List identity attributes
+[**Send-BetaIdentityAttribute**](#put-identity-attribute) | **PUT** `/identity-attributes/{name}` | Update identity attribute
 
 
 ## create-identity-attribute
@@ -78,7 +78,7 @@ $IdentityAttribute = @"{
   "multi" : false
 }"@
 
-# Create Identity Attribute
+# Create identity attribute
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
@@ -125,7 +125,7 @@ Code | Description  | Data Type
 ```powershell
 $Name = "displayName" # String | The attribute's technical name.
 
-# Delete Identity Attribute
+# Delete identity attribute
 
 try {
     Remove-BetaIdentityAttribute -Name $Name 
@@ -173,7 +173,7 @@ $IdentityAttributeNames = @"{
   "ids" : [ "name", "displayName" ]
 }"@
 
-# Bulk delete Identity Attributes
+# Bulk delete identity attributes
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttributeNames -Json $IdentityAttributeNames
@@ -220,7 +220,7 @@ Code | Description  | Data Type
 ```powershell
 $Name = "displayName" # String | The attribute's technical name.
 
-# Get Identity Attribute
+# Get identity attribute
 
 try {
     Get-BetaIdentityAttribute -Name $Name 
@@ -271,7 +271,7 @@ $IncludeSilent = $false # Boolean | Include 'silent' attributes in the response.
 $SearchableOnly = $false # Boolean | Include only 'searchable' attributes in the response. (optional) (default to $false)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# List Identity Attributes
+# List identity attributes
 
 try {
     Get-BetaIdentityAttributes 
@@ -340,7 +340,7 @@ $IdentityAttribute = @"{
   "multi" : false
 }"@
 
-# Update Identity Attribute
+# Update identity attribute
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute

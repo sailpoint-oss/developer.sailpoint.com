@@ -19,14 +19,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2025DataSegment**](#create-data-segment) | **POST** `/data-segments` | Create Segment
-[**Remove-V2025DataSegment**](#delete-data-segment) | **DELETE** `/data-segments/{segmentId}` | Delete Segment by ID
-[**Get-V2025DataSegment**](#get-data-segment) | **GET** `/data-segments/{segmentId}` | Get Segment by ID
-[**Get-V2025DataSegmentIdentityMembership**](#get-data-segment-identity-membership) | **GET** `/data-segments/membership/{identityId}` | Get SegmentMembership by Identity ID
-[**Get-V2025DataSegmentationEnabledForUser**](#get-data-segmentation-enabled-for-user) | **GET** `/data-segments/user-enabled/{identityId}` | Is Segmentation enabled by Identity
-[**Get-V2025DataSegments**](#list-data-segments) | **GET** `/data-segments` | Get Segments
-[**Update-V2025DataSegment**](#patch-data-segment) | **PATCH** `/data-segments/{segmentId}` | Update Segment
-[**Publish-V2025DataSegment**](#publish-data-segment) | **POST** `/data-segments/{segmentId}` | Publish segment by ID
+[**New-V2025DataSegment**](#create-data-segment) | **POST** `/data-segments` | Create segment
+[**Remove-V2025DataSegment**](#delete-data-segment) | **DELETE** `/data-segments/{segmentId}` | Delete segment by id
+[**Get-V2025DataSegment**](#get-data-segment) | **GET** `/data-segments/{segmentId}` | Get segment by id
+[**Get-V2025DataSegmentIdentityMembership**](#get-data-segment-identity-membership) | **GET** `/data-segments/membership/{identityId}` | Get segmentmembership by identity id
+[**Get-V2025DataSegmentationEnabledForUser**](#get-data-segmentation-enabled-for-user) | **GET** `/data-segments/user-enabled/{identityId}` | Is segmentation enabled by identity
+[**Get-V2025DataSegments**](#list-data-segments) | **GET** `/data-segments` | Get segments
+[**Update-V2025DataSegment**](#patch-data-segment) | **PATCH** `/data-segments/{segmentId}` | Update segment
+[**Publish-V2025DataSegment**](#publish-data-segment) | **POST** `/data-segments/{segmentId}` | Publish segment by id
 
 
 ## create-data-segment
@@ -61,7 +61,7 @@ Code | Description  | Data Type
 ```powershell
 $DataSegment = @""@
 
-# Create Segment
+# Create segment
 
 try {
     $Result = ConvertFrom-JsonToDataSegment -Json $DataSegment
@@ -115,7 +115,7 @@ $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The segment ID to delete
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Published = $false # Boolean | This determines which version of the segment to delete (optional) (default to $false)
 
-# Delete Segment by ID
+# Delete segment by id
 
 try {
     Remove-V2025DataSegment -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -166,7 +166,7 @@ Code | Description  | Data Type
 $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The segment ID to retrieve.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Segment by ID
+# Get segment by id
 
 try {
     Get-V2025DataSegment -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -217,7 +217,7 @@ Code | Description  | Data Type
 $IdentityId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The identity ID to retrieve the segments they are in.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get SegmentMembership by Identity ID
+# Get segmentmembership by identity id
 
 try {
     Get-V2025DataSegmentIdentityMembership -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
@@ -268,7 +268,7 @@ Code | Description  | Data Type
 $IdentityId = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The identity ID to retrieve if segmentation is enabled for the identity.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Is Segmentation enabled by Identity
+# Is segmentation enabled by identity
 
 try {
     Get-V2025DataSegmentationEnabledForUser -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
@@ -331,7 +331,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'name eq ""' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw* (optional)
 
-# Get Segments
+# Get segments
 
 try {
     Get-V2025DataSegments -XSailPointExperimental $XSailPointExperimental 
@@ -386,7 +386,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of segment update operat
  $RequestBody = @"[{op=replace, path=/memberFilter, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}]"@ # SystemCollectionsHashtable[] | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * membership * memberFilter * memberSelection * scopes * enabled 
  
 
-# Update Segment
+# Update segment
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
@@ -442,7 +442,7 @@ $RequestBody = "MyRequestBody" # String[] | A list of segment ids that you wish 
  
 $PublishAll = $true # Boolean | This flag decides whether you want to publish all unpublished or a list of specific segment ids (optional) (default to $true)
 
-# Publish segment by ID
+# Publish segment by id
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody

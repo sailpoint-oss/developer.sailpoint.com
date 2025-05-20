@@ -74,56 +74,56 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2025ProvisioningPolicy**](#create-provisioning-policy) | **POST** `/sources/{sourceId}/provisioning-policies` | Create Provisioning Policy
-[**New-V2025Source**](#create-source) | **POST** `/sources` | Creates a source in IdentityNow.
-[**New-V2025SourceSchedule**](#create-source-schedule) | **POST** `/sources/{sourceId}/schedules` | Create Schedule on Source
-[**New-V2025SourceSchema**](#create-source-schema) | **POST** `/sources/{sourceId}/schemas` | Create Schema on Source
-[**Remove-V2025AccountsAsync**](#delete-accounts-async) | **POST** `/sources/{id}/remove-accounts` | Remove All Accounts in a Source
-[**Remove-V2025NativeChangeDetectionConfig**](#delete-native-change-detection-config) | **DELETE** `/sources/{sourceId}/native-change-detection-config` | Delete Native Change Detection Configuration
-[**Remove-V2025ProvisioningPolicy**](#delete-provisioning-policy) | **DELETE** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete Provisioning Policy by UsageType
-[**Remove-V2025Source**](#delete-source) | **DELETE** `/sources/{id}` | Delete Source by ID
-[**Remove-V2025SourceSchedule**](#delete-source-schedule) | **DELETE** `/sources/{sourceId}/schedules/{scheduleType}` | Delete Source Schedule by type.
-[**Remove-V2025SourceSchema**](#delete-source-schema) | **DELETE** `/sources/{sourceId}/schemas/{schemaId}` | Delete Source Schema by ID
+[**New-V2025ProvisioningPolicy**](#create-provisioning-policy) | **POST** `/sources/{sourceId}/provisioning-policies` | Create provisioning policy
+[**New-V2025Source**](#create-source) | **POST** `/sources` | Creates a source in identitynow.
+[**New-V2025SourceSchedule**](#create-source-schedule) | **POST** `/sources/{sourceId}/schedules` | Create schedule on source
+[**New-V2025SourceSchema**](#create-source-schema) | **POST** `/sources/{sourceId}/schemas` | Create schema on source
+[**Remove-V2025AccountsAsync**](#delete-accounts-async) | **POST** `/sources/{id}/remove-accounts` | Remove all accounts in a source
+[**Remove-V2025NativeChangeDetectionConfig**](#delete-native-change-detection-config) | **DELETE** `/sources/{sourceId}/native-change-detection-config` | Delete native change detection configuration
+[**Remove-V2025ProvisioningPolicy**](#delete-provisioning-policy) | **DELETE** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete provisioning policy by usagetype
+[**Remove-V2025Source**](#delete-source) | **DELETE** `/sources/{id}` | Delete source by id
+[**Remove-V2025SourceSchedule**](#delete-source-schedule) | **DELETE** `/sources/{sourceId}/schedules/{scheduleType}` | Delete source schedule by type.
+[**Remove-V2025SourceSchema**](#delete-source-schema) | **DELETE** `/sources/{sourceId}/schemas/{schemaId}` | Delete source schema by id
 [**Get-V2025AccountsSchema**](#get-accounts-schema) | **GET** `/sources/{id}/schemas/accounts` | Downloads source accounts schema template
-[**Get-V2025CorrelationConfig**](#get-correlation-config) | **GET** `/sources/{id}/correlation-config` | Get Source Correlation Configuration
+[**Get-V2025CorrelationConfig**](#get-correlation-config) | **GET** `/sources/{id}/correlation-config` | Get source correlation configuration
 [**Get-V2025EntitlementsSchema**](#get-entitlements-schema) | **GET** `/sources/{id}/schemas/entitlements` | Downloads source entitlements schema template
-[**Get-V2025NativeChangeDetectionConfig**](#get-native-change-detection-config) | **GET** `/sources/{sourceId}/native-change-detection-config` | Native Change Detection Configuration
-[**Get-V2025ProvisioningPolicy**](#get-provisioning-policy) | **GET** `/sources/{sourceId}/provisioning-policies/{usageType}` | Get Provisioning Policy by UsageType
-[**Get-V2025Source**](#get-source) | **GET** `/sources/{id}` | Get Source by ID
-[**Get-V2025SourceAttrSyncConfig**](#get-source-attr-sync-config) | **GET** `/sources/{id}/attribute-sync-config` | Attribute Sync Config
+[**Get-V2025NativeChangeDetectionConfig**](#get-native-change-detection-config) | **GET** `/sources/{sourceId}/native-change-detection-config` | Native change detection configuration
+[**Get-V2025ProvisioningPolicy**](#get-provisioning-policy) | **GET** `/sources/{sourceId}/provisioning-policies/{usageType}` | Get provisioning policy by usagetype
+[**Get-V2025Source**](#get-source) | **GET** `/sources/{id}` | Get source by id
+[**Get-V2025SourceAttrSyncConfig**](#get-source-attr-sync-config) | **GET** `/sources/{id}/attribute-sync-config` | Attribute sync config
 [**Get-V2025SourceConfig**](#get-source-config) | **GET** `/sources/{id}/connectors/source-config` | Gets source config with language-translations
-[**Get-V2025SourceConnections**](#get-source-connections) | **GET** `/sources/{sourceId}/connections` | Get Source Connections by ID
-[**Get-V2025SourceEntitlementRequestConfig**](#get-source-entitlement-request-config) | **GET** `/sources/{id}/entitlement-request-config` | Get Source Entitlement Request Configuration
+[**Get-V2025SourceConnections**](#get-source-connections) | **GET** `/sources/{sourceId}/connections` | Get source connections by id
+[**Get-V2025SourceEntitlementRequestConfig**](#get-source-entitlement-request-config) | **GET** `/sources/{id}/entitlement-request-config` | Get source entitlement request configuration
 [**Get-V2025SourceHealth**](#get-source-health) | **GET** `/sources/{sourceId}/source-health` | Fetches source health by id
-[**Get-V2025SourceSchedule**](#get-source-schedule) | **GET** `/sources/{sourceId}/schedules/{scheduleType}` | Get Source Schedule by Type
-[**Get-V2025SourceSchedules**](#get-source-schedules) | **GET** `/sources/{sourceId}/schedules` | List Schedules on Source
-[**Get-V2025SourceSchema**](#get-source-schema) | **GET** `/sources/{sourceId}/schemas/{schemaId}` | Get Source Schema by ID
-[**Get-V2025SourceSchemas**](#get-source-schemas) | **GET** `/sources/{sourceId}/schemas` | List Schemas on Source
-[**Import-V2025Accounts**](#import-accounts) | **POST** `/sources/{id}/load-accounts` | Account Aggregation
+[**Get-V2025SourceSchedule**](#get-source-schedule) | **GET** `/sources/{sourceId}/schedules/{scheduleType}` | Get source schedule by type
+[**Get-V2025SourceSchedules**](#get-source-schedules) | **GET** `/sources/{sourceId}/schedules` | List schedules on source
+[**Get-V2025SourceSchema**](#get-source-schema) | **GET** `/sources/{sourceId}/schemas/{schemaId}` | Get source schema by id
+[**Get-V2025SourceSchemas**](#get-source-schemas) | **GET** `/sources/{sourceId}/schemas` | List schemas on source
+[**Import-V2025Accounts**](#import-accounts) | **POST** `/sources/{id}/load-accounts` | Account aggregation
 [**Import-V2025AccountsSchema**](#import-accounts-schema) | **POST** `/sources/{id}/schemas/accounts` | Uploads source accounts schema template
 [**Import-V2025ConnectorFile**](#import-connector-file) | **POST** `/sources/{sourceId}/upload-connector-file` | Upload connector file to source
 [**Import-V2025EntitlementsSchema**](#import-entitlements-schema) | **POST** `/sources/{id}/schemas/entitlements` | Uploads source entitlements schema template
-[**Import-V2025UncorrelatedAccounts**](#import-uncorrelated-accounts) | **POST** `/sources/{id}/load-uncorrelated-accounts` | Process Uncorrelated Accounts
-[**Get-V2025ProvisioningPolicies**](#list-provisioning-policies) | **GET** `/sources/{sourceId}/provisioning-policies` | Lists ProvisioningPolicies
-[**Get-V2025Sources**](#list-sources) | **GET** `/sources` | Lists all sources in IdentityNow.
+[**Import-V2025UncorrelatedAccounts**](#import-uncorrelated-accounts) | **POST** `/sources/{id}/load-uncorrelated-accounts` | Process uncorrelated accounts
+[**Get-V2025ProvisioningPolicies**](#list-provisioning-policies) | **GET** `/sources/{sourceId}/provisioning-policies` | Lists provisioningpolicies
+[**Get-V2025Sources**](#list-sources) | **GET** `/sources` | Lists all sources in identitynow.
 [**Ping-V2025Cluster**](#ping-cluster) | **POST** `/sources/{sourceId}/connector/ping-cluster` | Ping cluster for source connector
-[**Send-V2025CorrelationConfig**](#put-correlation-config) | **PUT** `/sources/{id}/correlation-config` | Update Source Correlation Configuration
-[**Send-V2025NativeChangeDetectionConfig**](#put-native-change-detection-config) | **PUT** `/sources/{sourceId}/native-change-detection-config` | Update Native Change Detection Configuration
-[**Send-V2025ProvisioningPolicy**](#put-provisioning-policy) | **PUT** `/sources/{sourceId}/provisioning-policies/{usageType}` | Update Provisioning Policy by UsageType
-[**Send-V2025Source**](#put-source) | **PUT** `/sources/{id}` | Update Source (Full)
-[**Send-V2025SourceAttrSyncConfig**](#put-source-attr-sync-config) | **PUT** `/sources/{id}/attribute-sync-config` | Update Attribute Sync Config
-[**Send-V2025SourceSchema**](#put-source-schema) | **PUT** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Full)
+[**Send-V2025CorrelationConfig**](#put-correlation-config) | **PUT** `/sources/{id}/correlation-config` | Update source correlation configuration
+[**Send-V2025NativeChangeDetectionConfig**](#put-native-change-detection-config) | **PUT** `/sources/{sourceId}/native-change-detection-config` | Update native change detection configuration
+[**Send-V2025ProvisioningPolicy**](#put-provisioning-policy) | **PUT** `/sources/{sourceId}/provisioning-policies/{usageType}` | Update provisioning policy by usagetype
+[**Send-V2025Source**](#put-source) | **PUT** `/sources/{id}` | Update source (full)
+[**Send-V2025SourceAttrSyncConfig**](#put-source-attr-sync-config) | **PUT** `/sources/{id}/attribute-sync-config` | Update attribute sync config
+[**Send-V2025SourceSchema**](#put-source-schema) | **PUT** `/sources/{sourceId}/schemas/{schemaId}` | Update source schema (full)
 [**Search-V2025ResourceObjects**](#search-resource-objects) | **POST** `/sources/{sourceId}/connector/peek-resource-objects` | Peek source connector&#39;s resource objects
 [**Sync-V2025AttributesForSource**](#sync-attributes-for-source) | **POST** `/sources/{id}/synchronize-attributes` | Synchronize single source attributes.
 [**Test-V2025SourceConfiguration**](#test-source-configuration) | **POST** `/sources/{sourceId}/connector/test-configuration` | Test configuration for source connector
 [**Test-V2025SourceConnection**](#test-source-connection) | **POST** `/sources/{sourceId}/connector/check-connection` | Check connection for source connector.
-[**Update-V2025PasswordPolicyHolders**](#update-password-policy-holders) | **PATCH** `/sources/{sourceId}/password-policies` | Update Password Policy
-[**Update-V2025ProvisioningPoliciesInBulk**](#update-provisioning-policies-in-bulk) | **POST** `/sources/{sourceId}/provisioning-policies/bulk-update` | Bulk Update Provisioning Policies
-[**Update-V2025ProvisioningPolicy**](#update-provisioning-policy) | **PATCH** `/sources/{sourceId}/provisioning-policies/{usageType}` | Partial update of Provisioning Policy
-[**Update-V2025Source**](#update-source) | **PATCH** `/sources/{id}` | Update Source (Partial)
-[**Update-V2025SourceEntitlementRequestConfig**](#update-source-entitlement-request-config) | **PUT** `/sources/{id}/entitlement-request-config` | Update Source Entitlement Request Configuration
-[**Update-V2025SourceSchedule**](#update-source-schedule) | **PATCH** `/sources/{sourceId}/schedules/{scheduleType}` | Update Source Schedule (Partial)
-[**Update-V2025SourceSchema**](#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Partial)
+[**Update-V2025PasswordPolicyHolders**](#update-password-policy-holders) | **PATCH** `/sources/{sourceId}/password-policies` | Update password policy
+[**Update-V2025ProvisioningPoliciesInBulk**](#update-provisioning-policies-in-bulk) | **POST** `/sources/{sourceId}/provisioning-policies/bulk-update` | Bulk update provisioning policies
+[**Update-V2025ProvisioningPolicy**](#update-provisioning-policy) | **PATCH** `/sources/{sourceId}/provisioning-policies/{usageType}` | Partial update of provisioning policy
+[**Update-V2025Source**](#update-source) | **PATCH** `/sources/{id}` | Update source (partial)
+[**Update-V2025SourceEntitlementRequestConfig**](#update-source-entitlement-request-config) | **PUT** `/sources/{id}/entitlement-request-config` | Update source entitlement request configuration
+[**Update-V2025SourceSchedule**](#update-source-schedule) | **PATCH** `/sources/{sourceId}/schedules/{scheduleType}` | Update source schedule (partial)
+[**Update-V2025SourceSchema**](#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update source schema (partial)
 
 
 ## create-provisioning-policy
@@ -201,7 +201,7 @@ $ProvisioningPolicyDto = @"{
   "usageType" : "CREATE"
 }"@
 
-# Create Provisioning Policy
+# Create provisioning policy
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
@@ -331,7 +331,7 @@ $Source = @"{
 }"@
 $ProvisionAsCsv = $false # Boolean | If this parameter is `true`, it configures the source as a Delimited File (CSV) source. Setting this to `true` will automatically set the `type` of the source to `DelimitedFile`.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don't set this query parameter and you attempt to set the `type` attribute directly, the request won't correctly generate the source.   (optional)
 
-# Creates a source in IdentityNow.
+# Creates a source in identitynow.
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
@@ -380,7 +380,7 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 $Schedule1 = @""@
 
-# Create Schedule on Source
+# Create schedule on source
 
 try {
     $Result = ConvertFrom-JsonToSchedule1 -Json $Schedule1
@@ -462,7 +462,7 @@ $Schema = @"{
   "identityAttribute" : "sAMAccountName"
 }"@
 
-# Create Schema on Source
+# Create schema on source
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
@@ -519,7 +519,7 @@ Code | Description  | Data Type
 $Id = "ebbf35756e1140699ce52b233121384a" # String | The source id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Remove All Accounts in a Source
+# Remove all accounts in a source
 
 try {
     Remove-V2025AccountsAsync -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -570,7 +570,7 @@ Code | Description  | Data Type
 $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Delete Native Change Detection Configuration
+# Delete native change detection configuration
 
 try {
     Remove-V2025NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -618,7 +618,7 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
 $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
 
-# Delete Provisioning Policy by UsageType
+# Delete provisioning policy by usagetype
 
 try {
     Remove-V2025ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType 
@@ -665,7 +665,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
-# Delete Source by ID
+# Delete source by id
 
 try {
     Remove-V2025Source -Id $Id 
@@ -713,7 +713,7 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
 
-# Delete Source Schedule by type.
+# Delete source schedule by type.
 
 try {
     Remove-V2025SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType 
@@ -761,7 +761,7 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 
-# Delete Source Schema by ID
+# Delete source schema by id
 
 try {
     Remove-V2025SourceSchema -SourceId $SourceId -SchemaId $SchemaId 
@@ -854,7 +854,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
 
-# Get Source Correlation Configuration
+# Get source correlation configuration
 
 try {
     Get-V2025CorrelationConfig -Id $Id 
@@ -955,7 +955,7 @@ Code | Description  | Data Type
 $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Native Change Detection Configuration
+# Native change detection configuration
 
 try {
     Get-V2025NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -1003,7 +1003,7 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
 $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
 
-# Get Provisioning Policy by UsageType
+# Get provisioning policy by usagetype
 
 try {
     Get-V2025ProvisioningPolicy -SourceId $SourceId -UsageType $UsageType 
@@ -1049,7 +1049,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
-# Get Source by ID
+# Get source by id
 
 try {
     Get-V2025Source -Id $Id 
@@ -1100,7 +1100,7 @@ Code | Description  | Data Type
 $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Attribute Sync Config
+# Attribute sync config
 
 try {
     Get-V2025SourceAttrSyncConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -1194,7 +1194,7 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
-# Get Source Connections by ID
+# Get source connections by id
 
 try {
     Get-V2025SourceConnections -SourceId $SourceId 
@@ -1246,7 +1246,7 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Source Entitlement Request Configuration
+# Get source entitlement request configuration
 
 try {
     Get-V2025SourceEntitlementRequestConfig -XSailPointExperimental $XSailPointExperimental 
@@ -1341,7 +1341,7 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
 
-# Get Source Schedule by Type
+# Get source schedule by type
 
 try {
     Get-V2025SourceSchedule -SourceId $SourceId -ScheduleType $ScheduleType 
@@ -1395,7 +1395,7 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
-# List Schedules on Source
+# List schedules on source
 
 try {
     Get-V2025SourceSchedules -SourceId $SourceId 
@@ -1444,7 +1444,7 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 
-# Get Source Schema by ID
+# Get source schema by id
 
 try {
     Get-V2025SourceSchema -SourceId $SourceId -SchemaId $SchemaId 
@@ -1494,7 +1494,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 $IncludeTypes = "group" # String | If set to 'group', then the account schema is filtered and only group schemas are returned. Only a value of 'group' is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas. (optional)
 $IncludeNames = "account" # String | A comma-separated list of schema names to filter result. (optional)
 
-# List Schemas on Source
+# List schemas on source
 
 try {
     Get-V2025SourceSchemas -SourceId $SourceId 
@@ -1545,7 +1545,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
 $File =  # System.IO.FileInfo | The CSV file containing the source accounts to aggregate. (optional)
 $DisableOptimization = "MyDisableOptimization" # String | Use this flag to reprocess every account whether or not the data has changed. (optional)
 
-# Account Aggregation
+# Account aggregation
 
 try {
     Import-V2025Accounts -Id $Id 
@@ -1752,7 +1752,7 @@ $Id = "75dbec1ebe154d5785da27b95e1dd5d7" # String | Source Id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $File =  # System.IO.FileInfo |  (optional)
 
-# Process Uncorrelated Accounts
+# Process uncorrelated accounts
 
 try {
     Import-V2025UncorrelatedAccounts -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -1798,7 +1798,7 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
 
-# Lists ProvisioningPolicies
+# Lists provisioningpolicies
 
 try {
     Get-V2025ProvisioningPolicies -SourceId $SourceId 
@@ -1856,7 +1856,7 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 $ForSubadmin = "name" # String | Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned. (optional)
 $IncludeIDNSource = $true # Boolean | Include the IdentityNow source in the response. (optional) (default to $false)
 
-# Lists all sources in IdentityNow.
+# Lists all sources in identitynow.
 
 try {
     Get-V2025Sources 
@@ -1970,7 +1970,7 @@ $CorrelationConfig = @"{
   "id" : "2c9180835d191a86015d28455b4a2329"
 }"@
 
-# Update Source Correlation Configuration
+# Update source correlation configuration
 
 try {
     $Result = ConvertFrom-JsonToCorrelationConfig -Json $CorrelationConfig
@@ -2031,7 +2031,7 @@ $NativeChangeDetectionConfig = @"{
   "enabled" : true
 }"@
 
-# Update Native Change Detection Configuration
+# Update native change detection configuration
 
 try {
     $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
@@ -2123,7 +2123,7 @@ $ProvisioningPolicyDto = @"{
   "usageType" : "CREATE"
 }"@
 
-# Update Provisioning Policy by UsageType
+# Update provisioning policy by usagetype
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
@@ -2266,7 +2266,7 @@ $Source = @"{
   "since" : "2021-09-28T15:48:29.3801666300Z"
 }"@
 
-# Update Source (Full)
+# Update source (full)
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
@@ -2338,7 +2338,7 @@ $AttrSyncSourceConfig = @"{
   }
 }"@
 
-# Update Attribute Sync Config
+# Update attribute sync config
 
 try {
     $Result = ConvertFrom-JsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
@@ -2432,7 +2432,7 @@ $Schema = @"{
   "identityAttribute" : "sAMAccountName"
 }"@
 
-# Update Source Schema (Full)
+# Update source schema (full)
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
@@ -2679,7 +2679,7 @@ $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
  $PasswordPolicyHoldersDtoInner = @""@ # PasswordPolicyHoldersDtoInner[] | 
  
 
-# Update Password Policy
+# Update password policy
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyHoldersDtoInner -Json $PasswordPolicyHoldersDtoInner
@@ -2768,7 +2768,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 }"@ # ProvisioningPolicyDto[] | 
  
 
-# Bulk Update Provisioning Policies
+# Bulk update provisioning policies
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
@@ -2826,7 +2826,7 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 }"@ # JsonPatchOperation[] | The JSONPatch payload used to update the schema.
  
 
-# Partial update of Provisioning Policy
+# Partial update of provisioning policy
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -2895,7 +2895,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 }"@ # JsonPatchOperation[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
  
 
-# Update Source (Partial)
+# Update source (partial)
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -2972,7 +2972,7 @@ $SourceEntitlementRequestConfig = @"{
   }
 }"@
 
-# Update Source Entitlement Request Configuration
+# Update source entitlement request configuration
 
 try {
     $Result = ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
@@ -3033,7 +3033,7 @@ $ScheduleType = "ACCOUNT_AGGREGATION" # String | The Schedule type.
 }"@ # JsonPatchOperation[] | The JSONPatch payload used to update the schedule.
  
 
-# Update Source Schedule (Partial)
+# Update source schedule (partial)
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -3118,7 +3118,7 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 }"@ # JsonPatchOperation[] | The JSONPatch payload used to update the schema.
  
 
-# Update Source Schema (Partial)
+# Update source schema (partial)
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

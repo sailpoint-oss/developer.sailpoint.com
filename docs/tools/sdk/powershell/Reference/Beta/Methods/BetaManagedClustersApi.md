@@ -20,8 +20,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-BetaClientLogConfiguration**](#get-client-log-configuration) | **GET** `/managed-clusters/{id}/log-config` | Get managed cluster&#39;s log configuration
-[**Get-BetaManagedCluster**](#get-managed-cluster) | **GET** `/managed-clusters/{id}` | Get a specified ManagedCluster.
-[**Get-BetaManagedClusters**](#get-managed-clusters) | **GET** `/managed-clusters` | Retrieve all Managed Clusters.
+[**Get-BetaManagedCluster**](#get-managed-cluster) | **GET** `/managed-clusters/{id}` | Get a specified managedcluster.
+[**Get-BetaManagedClusters**](#get-managed-clusters) | **GET** `/managed-clusters` | Retrieve all managed clusters.
 [**Send-BetaClientLogConfiguration**](#put-client-log-configuration) | **PUT** `/managed-clusters/{id}/log-config` | Update managed cluster&#39;s log configuration
 
 
@@ -109,7 +109,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "aClusterId" # String | ID of the ManagedCluster to get
 
-# Get a specified ManagedCluster.
+# Get a specified managedcluster.
 
 try {
     Get-BetaManagedCluster -Id $Id 
@@ -163,7 +163,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'operational eq operation' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional)
 
-# Retrieve all Managed Clusters.
+# Retrieve all managed clusters.
 
 try {
     Get-BetaManagedClusters 

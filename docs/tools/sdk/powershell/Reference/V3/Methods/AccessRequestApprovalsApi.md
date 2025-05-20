@@ -34,12 +34,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Approve-AccessRequest**](#approve-access-request) | **POST** `/access-request-approvals/{approvalId}/approve` | Approve Access Request Approval
-[**Invoke-ForwardAccessRequest**](#forward-access-request) | **POST** `/access-request-approvals/{approvalId}/forward` | Forward Access Request Approval
-[**Get-AccessRequestApprovalSummary**](#get-access-request-approval-summary) | **GET** `/access-request-approvals/approval-summary` | Get Access Requests Approvals Number
-[**Get-CompletedApprovals**](#list-completed-approvals) | **GET** `/access-request-approvals/completed` | Completed Access Request Approvals List
-[**Get-PendingApprovals**](#list-pending-approvals) | **GET** `/access-request-approvals/pending` | Pending Access Request Approvals List
-[**Deny-AccessRequest**](#reject-access-request) | **POST** `/access-request-approvals/{approvalId}/reject` | Reject Access Request Approval
+[**Approve-AccessRequest**](#approve-access-request) | **POST** `/access-request-approvals/{approvalId}/approve` | Approve access request approval
+[**Invoke-ForwardAccessRequest**](#forward-access-request) | **POST** `/access-request-approvals/{approvalId}/forward` | Forward access request approval
+[**Get-AccessRequestApprovalSummary**](#get-access-request-approval-summary) | **GET** `/access-request-approvals/approval-summary` | Get access requests approvals number
+[**Get-CompletedApprovals**](#list-completed-approvals) | **GET** `/access-request-approvals/completed` | Completed access request approvals list
+[**Get-PendingApprovals**](#list-pending-approvals) | **GET** `/access-request-approvals/pending` | Pending access request approvals list
+[**Deny-AccessRequest**](#reject-access-request) | **POST** `/access-request-approvals/{approvalId}/reject` | Reject access request approval
 
 
 ## approve-access-request
@@ -84,7 +84,7 @@ $CommentDto = @"{
   "comment" : "This is a comment."
 }"@
 
-# Approve Access Request Approval
+# Approve access request approval
 
 try {
     Approve-AccessRequest -ApprovalId $ApprovalId 
@@ -135,7 +135,7 @@ $ForwardApprovalDto = @"{
   "comment" : "2c91808568c529c60168cca6f90c1313"
 }"@
 
-# Forward Access Request Approval
+# Forward access request approval
 
 try {
     $Result = ConvertFrom-JsonToForwardApprovalDto -Json $ForwardApprovalDto
@@ -183,7 +183,7 @@ Code | Description  | Data Type
 $OwnerId = "2c91808568c529c60168cca6f90c1313" # String | The ID of the owner or approver identity of the approvals. If present, the value returns approval summary for the specified identity.    * ORG_ADMIN users can call this with any identity ID value.    * ORG_ADMIN user can also fetch all the approvals in the org, when owner-id is not used.    * Non ORG_ADMIN users can only specify *me* or pass their own identity ID value. (optional)
 $FromDate = "from-date=2020-03-19T19:59:11Z" # String | This is the date and time the results will be shown from. It must be in a valid ISO-8601 format. (optional)
 
-# Get Access Requests Approvals Number
+# Get access requests approvals number
 
 try {
     Get-AccessRequestApprovalSummary 
@@ -238,7 +238,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'id eq "2c91808568c529c60168cca6f90c1313"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **requestedFor.id**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **modified**: *gt, lt, ge, le, eq, in, ne, sw* (optional)
 $Sorters = "modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
 
-# Completed Access Request Approvals List
+# Completed access request approvals list
 
 try {
     Get-CompletedApprovals 
@@ -293,7 +293,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'id eq "2c91808568c529c60168cca6f90c1313"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **requestedFor.id**: *eq, in*  **modified**: *gt, lt, ge, le, eq, in*  **accessRequestId**: *eq, in*  **created**: *gt, lt, ge, le, eq, in* (optional)
 $Sorters = "modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
 
-# Pending Access Request Approvals List
+# Pending access request approvals list
 
 try {
     Get-PendingApprovals 
@@ -349,7 +349,7 @@ $CommentDto = @"{
   "comment" : "This is a comment."
 }"@
 
-# Reject Access Request Approval
+# Reject access request approval
 
 try {
     $Result = ConvertFrom-JsonToCommentDto -Json $CommentDto

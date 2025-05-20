@@ -82,28 +82,28 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Complete-BetaCampaign**](#complete-campaign) | **POST** `/campaigns/{id}/complete` | Complete a Campaign
-[**New-BetaCampaign**](#create-campaign) | **POST** `/campaigns` | Create Campaign
-[**New-BetaCampaignTemplate**](#create-campaign-template) | **POST** `/campaign-templates` | Create a Campaign Template
-[**Remove-BetaCampaignTemplate**](#delete-campaign-template) | **DELETE** `/campaign-templates/{id}` | Delete a Campaign Template
-[**Remove-BetaCampaignTemplateSchedule**](#delete-campaign-template-schedule) | **DELETE** `/campaign-templates/{id}/schedule` | Delete Campaign Template Schedule
-[**Remove-BetaCampaigns**](#delete-campaigns) | **POST** `/campaigns/delete` | Delete Campaigns
-[**Get-BetaActiveCampaigns**](#get-active-campaigns) | **GET** `/campaigns` | List Campaigns
-[**Get-BetaCampaign**](#get-campaign) | **GET** `/campaigns/{id}` | Get Campaign
-[**Get-BetaCampaignReports**](#get-campaign-reports) | **GET** `/campaigns/{id}/reports` | Get Campaign Reports
-[**Get-BetaCampaignReportsConfig**](#get-campaign-reports-config) | **GET** `/campaigns/reports-configuration` | Get Campaign Reports Configuration
-[**Get-BetaCampaignTemplate**](#get-campaign-template) | **GET** `/campaign-templates/{id}` | Get a Campaign Template
-[**Get-BetaCampaignTemplateSchedule**](#get-campaign-template-schedule) | **GET** `/campaign-templates/{id}/schedule` | Get Campaign Template Schedule
-[**Get-BetaCampaignTemplates**](#get-campaign-templates) | **GET** `/campaign-templates` | List Campaign Templates
-[**Move-Beta**](#move) | **POST** `/campaigns/{id}/reassign` | Reassign Certifications
-[**Update-BetaCampaignTemplate**](#patch-campaign-template) | **PATCH** `/campaign-templates/{id}` | Update a Campaign Template
-[**Set-BetaCampaignReportsConfig**](#set-campaign-reports-config) | **PUT** `/campaigns/reports-configuration` | Set Campaign Reports Configuration
-[**Set-BetaCampaignTemplateSchedule**](#set-campaign-template-schedule) | **PUT** `/campaign-templates/{id}/schedule` | Set Campaign Template Schedule
-[**Start-BetaCampaign**](#start-campaign) | **POST** `/campaigns/{id}/activate` | Activate a Campaign
-[**Start-BetaCampaignRemediationScan**](#start-campaign-remediation-scan) | **POST** `/campaigns/{id}/run-remediation-scan` | Run Campaign Remediation Scan
-[**Start-BetaCampaignReport**](#start-campaign-report) | **POST** `/campaigns/{id}/run-report/{type}` | Run Campaign Report
-[**Start-BetaGenerateCampaignTemplate**](#start-generate-campaign-template) | **POST** `/campaign-templates/{id}/generate` | Generate a Campaign from Template
-[**Update-BetaCampaign**](#update-campaign) | **PATCH** `/campaigns/{id}` | Update a Campaign
+[**Complete-BetaCampaign**](#complete-campaign) | **POST** `/campaigns/{id}/complete` | Complete a campaign
+[**New-BetaCampaign**](#create-campaign) | **POST** `/campaigns` | Create campaign
+[**New-BetaCampaignTemplate**](#create-campaign-template) | **POST** `/campaign-templates` | Create a campaign template
+[**Remove-BetaCampaignTemplate**](#delete-campaign-template) | **DELETE** `/campaign-templates/{id}` | Delete a campaign template
+[**Remove-BetaCampaignTemplateSchedule**](#delete-campaign-template-schedule) | **DELETE** `/campaign-templates/{id}/schedule` | Delete campaign template schedule
+[**Remove-BetaCampaigns**](#delete-campaigns) | **POST** `/campaigns/delete` | Delete campaigns
+[**Get-BetaActiveCampaigns**](#get-active-campaigns) | **GET** `/campaigns` | List campaigns
+[**Get-BetaCampaign**](#get-campaign) | **GET** `/campaigns/{id}` | Get campaign
+[**Get-BetaCampaignReports**](#get-campaign-reports) | **GET** `/campaigns/{id}/reports` | Get campaign reports
+[**Get-BetaCampaignReportsConfig**](#get-campaign-reports-config) | **GET** `/campaigns/reports-configuration` | Get campaign reports configuration
+[**Get-BetaCampaignTemplate**](#get-campaign-template) | **GET** `/campaign-templates/{id}` | Get a campaign template
+[**Get-BetaCampaignTemplateSchedule**](#get-campaign-template-schedule) | **GET** `/campaign-templates/{id}/schedule` | Get campaign template schedule
+[**Get-BetaCampaignTemplates**](#get-campaign-templates) | **GET** `/campaign-templates` | List campaign templates
+[**Move-Beta**](#move) | **POST** `/campaigns/{id}/reassign` | Reassign certifications
+[**Update-BetaCampaignTemplate**](#patch-campaign-template) | **PATCH** `/campaign-templates/{id}` | Update a campaign template
+[**Set-BetaCampaignReportsConfig**](#set-campaign-reports-config) | **PUT** `/campaigns/reports-configuration` | Set campaign reports configuration
+[**Set-BetaCampaignTemplateSchedule**](#set-campaign-template-schedule) | **PUT** `/campaign-templates/{id}/schedule` | Set campaign template schedule
+[**Start-BetaCampaign**](#start-campaign) | **POST** `/campaigns/{id}/activate` | Activate a campaign
+[**Start-BetaCampaignRemediationScan**](#start-campaign-remediation-scan) | **POST** `/campaigns/{id}/run-remediation-scan` | Run campaign remediation scan
+[**Start-BetaCampaignReport**](#start-campaign-report) | **POST** `/campaigns/{id}/run-report/{type}` | Run campaign report
+[**Start-BetaGenerateCampaignTemplate**](#start-generate-campaign-template) | **POST** `/campaign-templates/{id}/generate` | Generate a campaign from template
+[**Update-BetaCampaign**](#update-campaign) | **PATCH** `/campaigns/{id}` | Update a campaign
 
 
 ## complete-campaign
@@ -157,7 +157,7 @@ $CompleteCampaignOptions = @"{
   "autoCompleteAction" : "REVOKE"
 }"@
 
-# Complete a Campaign
+# Complete a campaign
 
 try {
     Complete-BetaCampaign -Id $Id 
@@ -316,7 +316,7 @@ $Campaign = @"{
   "correlatedStatus" : "CORRELATED"
 }"@
 
-# Create Campaign
+# Create campaign
 
 try {
     $Result = ConvertFrom-JsonToCampaign -Json $Campaign
@@ -491,7 +491,7 @@ $CampaignTemplate = @"{
   "id" : "2c9079b270a266a60170a277bb960008"
 }"@
 
-# Create a Campaign Template
+# Create a campaign template
 
 try {
     $Result = ConvertFrom-JsonToCampaignTemplate -Json $CampaignTemplate
@@ -544,7 +544,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template being deleted.
 
-# Delete a Campaign Template
+# Delete a campaign template
 
 try {
     Remove-BetaCampaignTemplate -Id $Id 
@@ -596,7 +596,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template whose schedule is being deleted.
 
-# Delete Campaign Template Schedule
+# Delete campaign template schedule
 
 try {
     Remove-BetaCampaignTemplateSchedule -Id $Id 
@@ -650,7 +650,7 @@ $DeleteCampaignsRequest = @"{
   "ids" : [ "2c9180887335cee10173490db1776c26", "2c9180836a712436016a7125a90c0021" ]
 }"@
 
-# Delete Campaigns
+# Delete campaigns
 
 try {
     $Result = ConvertFrom-JsonToDeleteCampaignsRequest -Json $DeleteCampaignsRequest
@@ -712,7 +712,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'name eq "Manager Campaign"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **status**: *eq, in* (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created** (optional)
 
-# List Campaigns
+# List campaigns
 
 try {
     Get-BetaActiveCampaigns 
@@ -764,7 +764,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign to be retrieved.
 
-# Get Campaign
+# Get campaign
 
 try {
     Get-BetaCampaign -Id $Id 
@@ -816,7 +816,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign whose reports are being fetched.
 
-# Get Campaign Reports
+# Get campaign reports
 
 try {
     Get-BetaCampaignReports -Id $Id 
@@ -865,7 +865,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get Campaign Reports Configuration
+# Get campaign reports configuration
 
 try {
     Get-BetaCampaignReportsConfig 
@@ -917,7 +917,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | Requested campaign template's ID.
 
-# Get a Campaign Template
+# Get a campaign template
 
 try {
     Get-BetaCampaignTemplate -Id $Id 
@@ -969,7 +969,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "04bedce387bd47b2ae1f86eb0bb36dee" # String | ID of the campaign template whose schedule is being fetched.
 
-# Get Campaign Template Schedule
+# Get campaign template schedule
 
 try {
     Get-BetaCampaignTemplateSchedule -Id $Id 
@@ -1030,7 +1030,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
 $Filters = 'name eq "manager template"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, ge, gt, in, le, lt, ne, sw*  **id**: *eq, ge, gt, in, le, lt, ne, sw* (optional)
 
-# List Campaign Templates
+# List campaign templates
 
 try {
     Get-BetaCampaignTemplates 
@@ -1091,7 +1091,7 @@ $AdminReviewReassign = @"{
   }
 }"@
 
-# Reassign Certifications
+# Reassign certifications
 
 try {
     $Result = ConvertFrom-JsonToAdminReviewReassign -Json $AdminReviewReassign
@@ -1151,7 +1151,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template 
 }"@ # JsonPatchOperation[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
  
 
-# Update a Campaign Template
+# Update a campaign template
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -1205,7 +1205,7 @@ $CampaignReportsConfig = @"{
   "identityAttributeColumns" : [ "firstname", "lastname" ]
 }"@
 
-# Set Campaign Reports Configuration
+# Set campaign reports configuration
 
 try {
     $Result = ConvertFrom-JsonToCampaignReportsConfig -Json $CampaignReportsConfig
@@ -1280,7 +1280,7 @@ $Schedule = @"{
   "type" : "WEEKLY"
 }"@
 
-# Set Campaign Template Schedule
+# Set campaign template schedule
 
 try {
     Set-BetaCampaignTemplateSchedule -Id $Id 
@@ -1336,7 +1336,7 @@ $ActivateCampaignOptions = @"{
   "timeZone" : "-05:00"
 }"@
 
-# Activate a Campaign
+# Activate a campaign
 
 try {
     Start-BetaCampaign -Id $Id 
@@ -1388,7 +1388,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the remediation scan is being run for.
 
-# Run Campaign Remediation Scan
+# Run campaign remediation scan
 
 try {
     Start-BetaCampaignRemediationScan -Id $Id 
@@ -1442,7 +1442,7 @@ Code | Description  | Data Type
 $Id = "2c91808571bcfcf80171c23e4b4221fc" # String | ID of the campaign the report is being run for.
 $Type = "CAMPAIGN_COMPOSITION_REPORT" # ReportType | Type of report to run.
 
-# Run Campaign Report
+# Run campaign report
 
 try {
     Start-BetaCampaignReport -Id $Id -Type $Type 
@@ -1505,7 +1505,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | ID of the campaign template to use for generation.
 
-# Generate a Campaign from Template
+# Generate a campaign from template
 
 try {
     Start-BetaGenerateCampaignTemplate -Id $Id 
@@ -1561,7 +1561,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of campaign update opera
  $RequestBody = @"[{op=replace, path=/name, value=This field has been updated!}, {op=copy, from=/name, path=/description}]"@ # SystemCollectionsHashtable[] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
  
 
-# Update a Campaign
+# Update a campaign
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody

@@ -18,8 +18,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaTenantUiMetadata**](#get-tenant-ui-metadata) | **GET** `/ui-metadata/tenant` | Get a tenant UI metadata
-[**Set-BetaTenantUiMetadata**](#set-tenant-ui-metadata) | **PUT** `/ui-metadata/tenant` | Update tenant UI metadata
+[**Get-BetaTenantUiMetadata**](#get-tenant-ui-metadata) | **GET** `/ui-metadata/tenant` | Get a tenant ui metadata
+[**Set-BetaTenantUiMetadata**](#set-tenant-ui-metadata) | **PUT** `/ui-metadata/tenant` | Update tenant ui metadata
 
 
 ## get-tenant-ui-metadata
@@ -53,7 +53,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get a tenant UI metadata
+# Get a tenant ui metadata
 
 try {
     Get-BetaTenantUiMetadata 
@@ -104,7 +104,7 @@ $TenantUiMetadataItemUpdateRequest = @"{
   "iframeWhiteList" : "http://example.com http://example2.com"
 }"@
 
-# Update tenant UI metadata
+# Update tenant ui metadata
 
 try {
     $Result = ConvertFrom-JsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest

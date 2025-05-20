@@ -19,9 +19,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-DiscoveredApplications**](#get-discovered-applications) | **GET** `/discovered-applications` | Get Discovered Applications for Tenant
-[**Get-ManualDiscoverApplicationsCsvTemplate**](#get-manual-discover-applications-csv-template) | **GET** `/manual-discover-applications-template` | Download CSV Template for Discovery
-[**Send-ManualDiscoverApplicationsCsvTemplate**](#send-manual-discover-applications-csv-template) | **POST** `/manual-discover-applications` | Upload CSV to Discover Applications
+[**Get-DiscoveredApplications**](#get-discovered-applications) | **GET** `/discovered-applications` | Get discovered applications for tenant
+[**Get-ManualDiscoverApplicationsCsvTemplate**](#get-manual-discover-applications-csv-template) | **GET** `/manual-discover-applications-template` | Download csv template for discovery
+[**Send-ManualDiscoverApplicationsCsvTemplate**](#send-manual-discover-applications-csv-template) | **POST** `/manual-discover-applications` | Upload csv to discover applications
 
 
 ## get-discovered-applications
@@ -64,7 +64,7 @@ $Detail = "SLIM" # String | Determines whether slim, or increased level of detai
 $Filter = "name eq "Okta" and description co "Okta" and discoverySource in ("csv", "Okta Saas")" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)       Filtering is supported for the following fields and operators:  **name**: *eq, sw, co*  **description**: *eq, sw, co*  **createdAtStart**: *eq, le, ge*  **createdAtEnd**: *eq, le, ge*  **discoveredAtStart**: *eq, le, ge*  **discoveredAtEnd**: *eq, le, ge*  **discoverySource**: *eq, in*  (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, description, discoveredAt, discoverySource** (optional)
 
-# Get Discovered Applications for Tenant
+# Get discovered applications for tenant
 
 try {
     Get-DiscoveredApplications 
@@ -110,7 +110,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Download CSV Template for Discovery
+# Download csv template for discovery
 
 try {
     Get-ManualDiscoverApplicationsCsvTemplate 
@@ -156,7 +156,7 @@ Code | Description  | Data Type
 ```powershell
 $File =  # System.IO.FileInfo | The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.
 
-# Upload CSV to Discover Applications
+# Upload csv to discover applications
 
 try {
     Send-ManualDiscoverApplicationsCsvTemplate -File $File 

@@ -32,11 +32,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Suspend-AccessRequest**](#cancel-access-request) | **POST** `/access-requests/cancel` | Cancel Access Request
-[**New-AccessRequest**](#create-access-request) | **POST** `/access-requests` | Submit Access Request
-[**Get-AccessRequestConfig**](#get-access-request-config) | **GET** `/access-request-config` | Get Access Request Configuration
-[**Get-AccessRequestStatus**](#list-access-request-status) | **GET** `/access-request-status` | Access Request Status
-[**Set-AccessRequestConfig**](#set-access-request-config) | **PUT** `/access-request-config` | Update Access Request Configuration
+[**Suspend-AccessRequest**](#cancel-access-request) | **POST** `/access-requests/cancel` | Cancel access request
+[**New-AccessRequest**](#create-access-request) | **POST** `/access-requests` | Submit access request
+[**Get-AccessRequestConfig**](#get-access-request-config) | **GET** `/access-request-config` | Get access request configuration
+[**Get-AccessRequestStatus**](#list-access-request-status) | **GET** `/access-request-status` | Access request status
+[**Set-AccessRequestConfig**](#set-access-request-config) | **PUT** `/access-request-config` | Update access request configuration
 
 
 ## cancel-access-request
@@ -75,7 +75,7 @@ $CancelAccessRequest = @"{
   "comment" : "I requested this role by mistake."
 }"@
 
-# Cancel Access Request
+# Cancel access request
 
 try {
     $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
@@ -336,7 +336,7 @@ $AccessRequest = @"{
   } ]
 }"@
 
-# Submit Access Request
+# Submit access request
 
 try {
     $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
@@ -380,7 +380,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get Access Request Configuration
+# Get access request configuration
 
 try {
     Get-AccessRequestConfig 
@@ -445,7 +445,7 @@ $Filters = 'accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"' # Strin
 $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name** (optional)
 $RequestState = "request-state=EXECUTING" # String | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
 
-# Access Request Status
+# Access request status
 
 try {
     Get-AccessRequestStatus 
@@ -515,7 +515,7 @@ $AccessRequestConfig = @"{
   "approvalsMustBeExternal" : true
 }"@
 
-# Update Access Request Configuration
+# Update access request configuration
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig

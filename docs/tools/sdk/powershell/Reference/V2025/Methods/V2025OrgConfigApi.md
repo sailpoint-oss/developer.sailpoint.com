@@ -19,9 +19,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2025OrgConfig**](#get-org-config) | **GET** `/org-config` | Get Org Config Settings
-[**Get-V2025ValidTimeZones**](#get-valid-time-zones) | **GET** `/org-config/valid-time-zones` | Get Valid Time Zones
-[**Update-V2025OrgConfig**](#patch-org-config) | **PATCH** `/org-config` | Patch Org Config
+[**Get-V2025OrgConfig**](#get-org-config) | **GET** `/org-config` | Get org config settings
+[**Get-V2025ValidTimeZones**](#get-valid-time-zones) | **GET** `/org-config/valid-time-zones` | Get valid time zones
+[**Update-V2025OrgConfig**](#patch-org-config) | **PATCH** `/org-config` | Patch org config
 
 
 ## get-org-config
@@ -59,7 +59,7 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Org Config Settings
+# Get org config settings
 
 try {
     Get-V2025OrgConfig -XSailPointExperimental $XSailPointExperimental 
@@ -113,7 +113,7 @@ $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. 
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# Get Valid Time Zones
+# Get valid time zones
 
 try {
     Get-V2025ValidTimeZones -XSailPointExperimental $XSailPointExperimental 
@@ -169,7 +169,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 }"@ # JsonPatchOperation[] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 
-# Patch Org Config
+# Patch org config
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

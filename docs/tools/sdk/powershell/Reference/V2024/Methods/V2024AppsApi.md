@@ -21,8 +21,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-V2024SourceApp**](#create-source-app) | **POST** `/source-apps` | Create source app
 [**Remove-V2024AccessProfilesFromSourceAppByBulk**](#delete-access-profiles-from-source-app-by-bulk) | **POST** `/source-apps/{id}/access-profiles/bulk-remove` | Bulk remove access profiles from the specified source app
-[**Remove-V2024SourceApp**](#delete-source-app) | **DELETE** `/source-apps/{id}` | Delete source app by ID
-[**Get-V2024SourceApp**](#get-source-app) | **GET** `/source-apps/{id}` | Get source app by ID
+[**Remove-V2024SourceApp**](#delete-source-app) | **DELETE** `/source-apps/{id}` | Delete source app by id
+[**Get-V2024SourceApp**](#get-source-app) | **GET** `/source-apps/{id}` | Get source app by id
 [**Get-V2024AccessProfilesForSourceApp**](#list-access-profiles-for-source-app) | **GET** `/source-apps/{id}/access-profiles` | List access profiles for the specified source app
 [**Get-V2024AllSourceApp**](#list-all-source-app) | **GET** `/source-apps/all` | List all source apps
 [**Get-V2024AllUserApps**](#list-all-user-apps) | **GET** `/user-apps/all` | List all user apps
@@ -30,8 +30,8 @@ Method | HTTP request | Description
 [**Get-V2024AvailableAccountsForUserApp**](#list-available-accounts-for-user-app) | **GET** `/user-apps/{id}/available-accounts` | List available accounts for user app
 [**Get-V2024AvailableSourceApps**](#list-available-source-apps) | **GET** `/source-apps` | List available source apps
 [**Get-V2024OwnedUserApps**](#list-owned-user-apps) | **GET** `/user-apps` | List owned user apps
-[**Update-V2024SourceApp**](#patch-source-app) | **PATCH** `/source-apps/{id}` | Patch source app by ID
-[**Update-V2024UserApp**](#patch-user-app) | **PATCH** `/user-apps/{id}` | Patch user app by ID
+[**Update-V2024SourceApp**](#patch-source-app) | **PATCH** `/source-apps/{id}` | Patch source app by id
+[**Update-V2024UserApp**](#patch-user-app) | **PATCH** `/user-apps/{id}` | Patch user app by id
 [**Update-V2024SourceAppsInBulk**](#update-source-apps-in-bulk) | **POST** `/source-apps/bulk-update` | Bulk update source apps
 
 
@@ -188,7 +188,7 @@ Code | Description  | Data Type
 $Id = "2c9180835d191a86015d28455b4a2329" # String | source app ID.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Delete source app by ID
+# Delete source app by id
 
 try {
     Remove-V2024SourceApp -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -239,7 +239,7 @@ Code | Description  | Data Type
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the source app
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get source app by ID
+# Get source app by id
 
 try {
     Get-V2024SourceApp -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -696,7 +696,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 }"@ # JsonPatchOperation[] |  (optional)
  
 
-# Patch source app by ID
+# Patch source app by id
 
 try {
     Update-V2024SourceApp -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -755,7 +755,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 }"@ # JsonPatchOperation[] |  (optional)
  
 
-# Patch user app by ID
+# Patch user app by id
 
 try {
     Update-V2024UserApp -Id $Id -XSailPointExperimental $XSailPointExperimental 

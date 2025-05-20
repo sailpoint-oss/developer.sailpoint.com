@@ -69,14 +69,14 @@ Method | HTTP request | Description
 [**New-BetaAccessModelMetadataForEntitlement**](#create-access-model-metadata-for-entitlement) | **POST** `/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add metadata to an entitlement.
 [**Remove-BetaAccessModelMetadataFromEntitlement**](#delete-access-model-metadata-from-entitlement) | **DELETE** `/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove metadata from an entitlement.
 [**Get-BetaEntitlement**](#get-entitlement) | **GET** `/entitlements/{id}` | Get an entitlement
-[**Get-BetaEntitlementRequestConfig**](#get-entitlement-request-config) | **GET** `/entitlements/{id}/entitlement-request-config` | Get Entitlement Request Config
-[**Import-BetaEntitlementsBySource**](#import-entitlements-by-source) | **POST** `/entitlements/aggregate/sources/{id}` | Aggregate Entitlements
+[**Get-BetaEntitlementRequestConfig**](#get-entitlement-request-config) | **GET** `/entitlements/{id}/entitlement-request-config` | Get entitlement request config
+[**Import-BetaEntitlementsBySource**](#import-entitlements-by-source) | **POST** `/entitlements/aggregate/sources/{id}` | Aggregate entitlements
 [**Get-BetaEntitlementChildren**](#list-entitlement-children) | **GET** `/entitlements/{id}/children` | List of entitlements children
 [**Get-BetaEntitlementParents**](#list-entitlement-parents) | **GET** `/entitlements/{id}/parents` | List of entitlements parents
 [**Get-BetaEntitlements**](#list-entitlements) | **GET** `/entitlements` | Gets a list of entitlements.
 [**Update-BetaEntitlement**](#patch-entitlement) | **PATCH** `/entitlements/{id}` | Patch an entitlement
-[**Send-BetaEntitlementRequestConfig**](#put-entitlement-request-config) | **PUT** `/entitlements/{id}/entitlement-request-config` | Replace Entitlement Request Config
-[**Reset-BetaSourceEntitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{sourceId}` | Reset Source Entitlements
+[**Send-BetaEntitlementRequestConfig**](#put-entitlement-request-config) | **PUT** `/entitlements/{id}/entitlement-request-config` | Replace entitlement request config
+[**Reset-BetaSourceEntitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{sourceId}` | Reset source entitlements
 [**Update-BetaEntitlementsInBulk**](#update-entitlements-in-bulk) | **POST** `/entitlements/bulk-update` | Bulk update an entitlement list
 
 
@@ -256,7 +256,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808874ff91550175097daaec161c" # String | Entitlement Id
 
-# Get Entitlement Request Config
+# Get entitlement request config
 
 try {
     Get-BetaEntitlementRequestConfig -Id $Id 
@@ -310,7 +310,7 @@ Code | Description  | Data Type
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
 $CsvFile =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
 
-# Aggregate Entitlements
+# Aggregate entitlements
 
 try {
     Import-BetaEntitlementsBySource -Id $Id 
@@ -616,7 +616,7 @@ $EntitlementRequestConfig = @"{
   }
 }"@
 
-# Replace Entitlement Request Config
+# Replace entitlement request config
 
 try {
     $Result = ConvertFrom-JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
@@ -663,7 +663,7 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c91808a7813090a017814121919ecca" # String | ID of source for the entitlement reset
 
-# Reset Source Entitlements
+# Reset source entitlements
 
 try {
     Reset-BetaSourceEntitlements -SourceId $SourceId 

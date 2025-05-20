@@ -35,11 +35,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-SearchAttributeConfig**](#create-search-attribute-config) | **POST** `/accounts/search-attribute-config` | Create Extended Search Attributes
-[**Remove-SearchAttributeConfig**](#delete-search-attribute-config) | **DELETE** `/accounts/search-attribute-config/{name}` | Delete Extended Search Attribute
-[**Get-SearchAttributeConfig**](#get-search-attribute-config) | **GET** `/accounts/search-attribute-config` | List Extended Search Attributes
-[**Get-SingleSearchAttributeConfig**](#get-single-search-attribute-config) | **GET** `/accounts/search-attribute-config/{name}` | Get Extended Search Attribute
-[**Update-SearchAttributeConfig**](#patch-search-attribute-config) | **PATCH** `/accounts/search-attribute-config/{name}` | Update Extended Search Attribute
+[**New-SearchAttributeConfig**](#create-search-attribute-config) | **POST** `/accounts/search-attribute-config` | Create extended search attributes
+[**Remove-SearchAttributeConfig**](#delete-search-attribute-config) | **DELETE** `/accounts/search-attribute-config/{name}` | Delete extended search attribute
+[**Get-SearchAttributeConfig**](#get-search-attribute-config) | **GET** `/accounts/search-attribute-config` | List extended search attributes
+[**Get-SingleSearchAttributeConfig**](#get-single-search-attribute-config) | **GET** `/accounts/search-attribute-config/{name}` | Get extended search attribute
+[**Update-SearchAttributeConfig**](#patch-search-attribute-config) | **PATCH** `/accounts/search-attribute-config/{name}` | Update extended search attribute
 
 
 ## create-search-attribute-config
@@ -82,7 +82,7 @@ $SearchAttributeConfig = @"{
   }
 }"@
 
-# Create Extended Search Attributes
+# Create extended search attributes
 
 try {
     $Result = ConvertFrom-JsonToSearchAttributeConfig -Json $SearchAttributeConfig
@@ -129,7 +129,7 @@ Code | Description  | Data Type
 ```powershell
 $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to delete.
 
-# Delete Extended Search Attribute
+# Delete extended search attribute
 
 try {
     Remove-SearchAttributeConfig -Name $Name 
@@ -176,7 +176,7 @@ Code | Description  | Data Type
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
-# List Extended Search Attributes
+# List extended search attributes
 
 try {
     Get-SearchAttributeConfig 
@@ -223,7 +223,7 @@ Code | Description  | Data Type
 ```powershell
 $Name = "newMailAttribute" # String | Name of the extended search attribute configuration to retrieve.
 
-# Get Extended Search Attribute
+# Get extended search attribute
 
 try {
     Get-SingleSearchAttributeConfig -Name $Name 
@@ -278,7 +278,7 @@ $Name = "promotedMailAttribute" # String | Name of the search attribute configur
 }"@ # JsonPatchOperation[] | 
  
 
-# Update Extended Search Attribute
+# Update extended search attribute
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

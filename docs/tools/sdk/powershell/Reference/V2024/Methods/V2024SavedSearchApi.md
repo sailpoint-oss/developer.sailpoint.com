@@ -28,10 +28,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-V2024SavedSearch**](#create-saved-search) | **POST** `/saved-searches` | Create a saved search
-[**Remove-V2024SavedSearch**](#delete-saved-search) | **DELETE** `/saved-searches/{id}` | Delete document by ID
-[**Invoke-V2024ExecuteSavedSearch**](#execute-saved-search) | **POST** `/saved-searches/{id}/execute` | Execute a saved search by ID
-[**Get-V2024SavedSearch**](#get-saved-search) | **GET** `/saved-searches/{id}` | Return saved search by ID
-[**Get-V2024SavedSearches**](#list-saved-searches) | **GET** `/saved-searches` | A list of Saved Searches
+[**Remove-V2024SavedSearch**](#delete-saved-search) | **DELETE** `/saved-searches/{id}` | Delete document by id
+[**Invoke-V2024ExecuteSavedSearch**](#execute-saved-search) | **POST** `/saved-searches/{id}/execute` | Execute a saved search by id
+[**Get-V2024SavedSearch**](#get-saved-search) | **GET** `/saved-searches/{id}` | Return saved search by id
+[**Get-V2024SavedSearches**](#list-saved-searches) | **GET** `/saved-searches` | A list of saved searches
 [**Send-V2024SavedSearch**](#put-saved-search) | **PUT** `/saved-searches/{id}` | Updates an existing saved search 
 
 
@@ -115,7 +115,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
 
-# Delete document by ID
+# Delete document by id
 
 try {
     Remove-V2024SavedSearch -Id $Id 
@@ -174,7 +174,7 @@ $SearchArguments = @"{
   "scheduleId" : "7a724640-0c17-4ce9-a8c3-4a89738459c8"
 }"@
 
-# Execute a saved search by ID
+# Execute a saved search by id
 
 try {
     $Result = ConvertFrom-JsonToSearchArguments -Json $SearchArguments
@@ -222,7 +222,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
 
-# Return saved search by ID
+# Return saved search by id
 
 try {
     Get-V2024SavedSearch -Id $Id 
@@ -274,7 +274,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'owner.id eq "7a724640-0c17-4ce9-a8c3-4a89738459c8"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq* (optional)
 
-# A list of Saved Searches
+# A list of saved searches
 
 try {
     Get-V2024SavedSearches 

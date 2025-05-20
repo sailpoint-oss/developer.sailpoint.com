@@ -27,7 +27,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2024AccountAggregationStatus**](#get-account-aggregation-status) | **GET** `/account-aggregations/{id}/status` | In-progress Account Aggregation status
+[**Get-V2024AccountAggregationStatus**](#get-account-aggregation-status) | **GET** `/account-aggregations/{id}/status` | In-progress account aggregation status
 
 
 ## get-account-aggregation-status
@@ -73,7 +73,7 @@ Code | Description  | Data Type
 $Id = "2c91808477a6b0c60177a81146b8110b" # String | The account aggregation id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# In-progress Account Aggregation status
+# In-progress account aggregation status
 
 try {
     Get-V2024AccountAggregationStatus -Id $Id -XSailPointExperimental $XSailPointExperimental 

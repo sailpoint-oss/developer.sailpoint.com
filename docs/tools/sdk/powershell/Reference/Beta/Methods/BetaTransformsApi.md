@@ -24,7 +24,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaTransform**](#create-transform) | **POST** `/transforms` | Create transform
 [**Remove-BetaTransform**](#delete-transform) | **DELETE** `/transforms/{id}` | Delete a transform
-[**Get-BetaTransform**](#get-transform) | **GET** `/transforms/{id}` | Transform by ID
+[**Get-BetaTransform**](#get-transform) | **GET** `/transforms/{id}` | Transform by id
 [**Get-BetaTransforms**](#list-transforms) | **GET** `/transforms` | List transforms
 [**Update-BetaTransform**](#update-transform) | **PUT** `/transforms/{id}` | Update a transform
 
@@ -176,7 +176,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to retrieve
 
-# Transform by ID
+# Transform by id
 
 try {
     Get-BetaTransform -Id $Id 

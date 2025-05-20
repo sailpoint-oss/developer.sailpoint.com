@@ -20,7 +20,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2024RequestableObjects**](#list-requestable-objects) | **GET** `/requestable-objects` | Requestable Objects List
+[**Get-V2024RequestableObjects**](#list-requestable-objects) | **GET** `/requestable-objects` | Requestable objects list
 
 
 ## list-requestable-objects
@@ -75,7 +75,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'name sw "bob"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw*  (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**  (optional)
 
-# Requestable Objects List
+# Requestable objects list
 
 try {
     Get-V2024RequestableObjects 

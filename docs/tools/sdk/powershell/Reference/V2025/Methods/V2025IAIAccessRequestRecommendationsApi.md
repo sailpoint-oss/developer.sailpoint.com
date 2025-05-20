@@ -17,16 +17,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Add-V2025AccessRequestRecommendationsIgnoredItem**](#add-access-request-recommendations-ignored-item) | **POST** `/ai-access-request-recommendations/ignored-items` | Ignore Access Request Recommendation
-[**Add-V2025AccessRequestRecommendationsRequestedItem**](#add-access-request-recommendations-requested-item) | **POST** `/ai-access-request-recommendations/requested-items` | Accept Access Request Recommendation
-[**Add-V2025AccessRequestRecommendationsViewedItem**](#add-access-request-recommendations-viewed-item) | **POST** `/ai-access-request-recommendations/viewed-items` | Mark Viewed Access Request Recommendations
-[**Add-V2025AccessRequestRecommendationsViewedItems**](#add-access-request-recommendations-viewed-items) | **POST** `/ai-access-request-recommendations/viewed-items/bulk-create` | Bulk Mark Viewed Access Request Recommendations
-[**Get-V2025AccessRequestRecommendations**](#get-access-request-recommendations) | **GET** `/ai-access-request-recommendations` | Identity Access Request Recommendations
-[**Get-V2025AccessRequestRecommendationsConfig**](#get-access-request-recommendations-config) | **GET** `/ai-access-request-recommendations/config` | Get Access Request Recommendations config
-[**Get-V2025AccessRequestRecommendationsIgnoredItems**](#get-access-request-recommendations-ignored-items) | **GET** `/ai-access-request-recommendations/ignored-items` | List Ignored Access Request Recommendations
-[**Get-V2025AccessRequestRecommendationsRequestedItems**](#get-access-request-recommendations-requested-items) | **GET** `/ai-access-request-recommendations/requested-items` | List Accepted Access Request Recommendations
-[**Get-V2025AccessRequestRecommendationsViewedItems**](#get-access-request-recommendations-viewed-items) | **GET** `/ai-access-request-recommendations/viewed-items` | List Viewed Access Request Recommendations
-[**Set-V2025AccessRequestRecommendationsConfig**](#set-access-request-recommendations-config) | **PUT** `/ai-access-request-recommendations/config` | Update Access Request Recommendations config
+[**Add-V2025AccessRequestRecommendationsIgnoredItem**](#add-access-request-recommendations-ignored-item) | **POST** `/ai-access-request-recommendations/ignored-items` | Ignore access request recommendation
+[**Add-V2025AccessRequestRecommendationsRequestedItem**](#add-access-request-recommendations-requested-item) | **POST** `/ai-access-request-recommendations/requested-items` | Accept access request recommendation
+[**Add-V2025AccessRequestRecommendationsViewedItem**](#add-access-request-recommendations-viewed-item) | **POST** `/ai-access-request-recommendations/viewed-items` | Mark viewed access request recommendations
+[**Add-V2025AccessRequestRecommendationsViewedItems**](#add-access-request-recommendations-viewed-items) | **POST** `/ai-access-request-recommendations/viewed-items/bulk-create` | Bulk mark viewed access request recommendations
+[**Get-V2025AccessRequestRecommendations**](#get-access-request-recommendations) | **GET** `/ai-access-request-recommendations` | Identity access request recommendations
+[**Get-V2025AccessRequestRecommendationsConfig**](#get-access-request-recommendations-config) | **GET** `/ai-access-request-recommendations/config` | Get access request recommendations config
+[**Get-V2025AccessRequestRecommendationsIgnoredItems**](#get-access-request-recommendations-ignored-items) | **GET** `/ai-access-request-recommendations/ignored-items` | List ignored access request recommendations
+[**Get-V2025AccessRequestRecommendationsRequestedItems**](#get-access-request-recommendations-requested-items) | **GET** `/ai-access-request-recommendations/requested-items` | List accepted access request recommendations
+[**Get-V2025AccessRequestRecommendationsViewedItems**](#get-access-request-recommendations-viewed-items) | **GET** `/ai-access-request-recommendations/viewed-items` | List viewed access request recommendations
+[**Set-V2025AccessRequestRecommendationsConfig**](#set-access-request-recommendations-config) | **PUT** `/ai-access-request-recommendations/config` | Update access request recommendations config
 
 
 ## add-access-request-recommendations-ignored-item
@@ -71,7 +71,7 @@ $AccessRequestRecommendationActionItemDto = @"{
   "identityId" : "2c91808570313110017040b06f344ec9"
 }"@
 
-# Ignore Access Request Recommendation
+# Ignore access request recommendation
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
@@ -128,7 +128,7 @@ $AccessRequestRecommendationActionItemDto = @"{
   "identityId" : "2c91808570313110017040b06f344ec9"
 }"@
 
-# Accept Access Request Recommendation
+# Accept access request recommendation
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
@@ -185,7 +185,7 @@ $AccessRequestRecommendationActionItemDto = @"{
   "identityId" : "2c91808570313110017040b06f344ec9"
 }"@
 
-# Mark Viewed Access Request Recommendations
+# Mark viewed access request recommendations
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
@@ -243,7 +243,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 }"@ # AccessRequestRecommendationActionItemDto[] | The recommended access items that were viewed for an identity.
  
 
-# Bulk Mark Viewed Access Request Recommendations
+# Bulk mark viewed access request recommendations
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationActionItemDto -Json $AccessRequestRecommendationActionItemDto
@@ -306,7 +306,7 @@ $IncludeTranslationMessages = $false # Boolean | If *true* it will populate a li
 $Filters = 'access.name co "admin"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.name**: *co*  **access.type**: *eq, in*  **access.description**: *co, eq, in* (optional)
 $Sorters = "access.name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name, access.type**  By default the recommendations are sorted by highest confidence first. (optional)
 
-# Identity Access Request Recommendations
+# Identity access request recommendations
 
 try {
     Get-V2025AccessRequestRecommendations -XSailPointExperimental $XSailPointExperimental 
@@ -354,7 +354,7 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Access Request Recommendations config
+# Get access request recommendations config
 
 try {
     Get-V2025AccessRequestRecommendationsConfig -XSailPointExperimental $XSailPointExperimental 
@@ -412,7 +412,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'identityId eq "2c9180846b0a0583016b299f210c1314"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in* (optional)
 $Sorters = "access.id" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional)
 
-# List Ignored Access Request Recommendations
+# List ignored access request recommendations
 
 try {
     Get-V2025AccessRequestRecommendationsIgnoredItems -XSailPointExperimental $XSailPointExperimental 
@@ -470,7 +470,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'access.id eq "2c9180846b0a0583016b299f210c1314"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in* (optional)
 $Sorters = "access.id" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional)
 
-# List Accepted Access Request Recommendations
+# List accepted access request recommendations
 
 try {
     Get-V2025AccessRequestRecommendationsRequestedItems -XSailPointExperimental $XSailPointExperimental 
@@ -528,7 +528,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'access.id eq "2c9180846b0a0583016b299f210c1314"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **access.id**: *eq, in*  **access.type**: *eq, in*  **identityId**: *eq, in* (optional)
 $Sorters = "access.id" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.id, access.type, identityId, timestamp** (optional)
 
-# List Viewed Access Request Recommendations
+# List viewed access request recommendations
 
 try {
     Get-V2025AccessRequestRecommendationsViewedItems -XSailPointExperimental $XSailPointExperimental 
@@ -585,7 +585,7 @@ $AccessRequestRecommendationConfigDto = @"{
   "useRestrictionAttribute" : true
 }"@
 
-# Update Access Request Recommendations config
+# Update access request recommendations config
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestRecommendationConfigDto -Json $AccessRequestRecommendationConfigDto

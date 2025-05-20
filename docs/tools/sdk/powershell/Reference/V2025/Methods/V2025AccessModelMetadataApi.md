@@ -27,10 +27,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2025AccessModelMetadataAttribute**](#get-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes/{key}` | Get Access Model Metadata Attribute
-[**Get-V2025AccessModelMetadataAttributeValue**](#get-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values/{value}` | Get Access Model Metadata Value
-[**Get-V2025AccessModelMetadataAttribute**](#list-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes` | List Access Model Metadata Attributes
-[**Get-V2025AccessModelMetadataAttributeValue**](#list-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values` | List Access Model Metadata Values
+[**Get-V2025AccessModelMetadataAttribute**](#get-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes/{key}` | Get access model metadata attribute
+[**Get-V2025AccessModelMetadataAttributeValue**](#get-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values/{value}` | Get access model metadata value
+[**Get-V2025AccessModelMetadataAttribute**](#list-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes` | List access model metadata attributes
+[**Get-V2025AccessModelMetadataAttributeValue**](#list-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values` | List access model metadata values
 
 
 ## get-access-model-metadata-attribute
@@ -69,7 +69,7 @@ Code | Description  | Data Type
 $Key = "iscPrivacy" # String | Technical name of the Attribute.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Access Model Metadata Attribute
+# Get access model metadata attribute
 
 try {
     Get-V2025AccessModelMetadataAttribute -Key $Key -XSailPointExperimental $XSailPointExperimental 
@@ -121,7 +121,7 @@ $Key = "iscPrivacy" # String | Technical name of the Attribute.
 $Value = "public" # String | Technical name of the Attribute value.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Access Model Metadata Value
+# Get access model metadata value
 
 try {
     Get-V2025AccessModelMetadataAttributeValue -Key $Key -Value $Value -XSailPointExperimental $XSailPointExperimental 
@@ -171,7 +171,7 @@ Code | Description  | Data Type
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Filters = 'name eq "Privacy"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional)
 
-# List Access Model Metadata Attributes
+# List access model metadata attributes
 
 try {
     Get-V2025AccessModelMetadataAttribute -XSailPointExperimental $XSailPointExperimental 
@@ -221,7 +221,7 @@ Code | Description  | Data Type
 $Key = "iscPrivacy" # String | Technical name of the Attribute.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# List Access Model Metadata Values
+# List access model metadata values
 
 try {
     Get-V2025AccessModelMetadataAttributeValue -Key $Key -XSailPointExperimental $XSailPointExperimental 

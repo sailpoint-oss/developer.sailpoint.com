@@ -48,38 +48,38 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Approve-BetaNonEmployeeRequest**](#approve-non-employee-request) | **POST** `/non-employee-approvals/{id}/approve` | Approve a Non-Employee Request
-[**New-BetaNonEmployeeRecord**](#create-non-employee-record) | **POST** `/non-employee-records` | Create Non-Employee Record
-[**New-BetaNonEmployeeRequest**](#create-non-employee-request) | **POST** `/non-employee-requests` | Create Non-Employee Request
-[**New-BetaNonEmployeeSource**](#create-non-employee-source) | **POST** `/non-employee-sources` | Create Non-Employee Source
-[**New-BetaNonEmployeeSourceSchemaAttributes**](#create-non-employee-source-schema-attributes) | **POST** `/non-employee-sources/{sourceId}/schema-attributes` | Create Non-Employee Source Schema Attribute
-[**Remove-BetaNonEmployeeRecord**](#delete-non-employee-record) | **DELETE** `/non-employee-records/{id}` | Delete Non-Employee Record
-[**Remove-BetaNonEmployeeRecordInBulk**](#delete-non-employee-record-in-bulk) | **POST** `/non-employee-records/bulk-delete` | Delete Multiple Non-Employee Records
-[**Remove-BetaNonEmployeeRequest**](#delete-non-employee-request) | **DELETE** `/non-employee-requests/{id}` | Delete Non-Employee Request
-[**Remove-BetaNonEmployeeSchemaAttribute**](#delete-non-employee-schema-attribute) | **DELETE** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Delete Non-Employee Source&#39;s Schema Attribute
-[**Remove-BetaNonEmployeeSource**](#delete-non-employee-source) | **DELETE** `/non-employee-sources/{sourceId}` | Delete Non-Employee Source
+[**Approve-BetaNonEmployeeRequest**](#approve-non-employee-request) | **POST** `/non-employee-approvals/{id}/approve` | Approve a non-employee request
+[**New-BetaNonEmployeeRecord**](#create-non-employee-record) | **POST** `/non-employee-records` | Create non-employee record
+[**New-BetaNonEmployeeRequest**](#create-non-employee-request) | **POST** `/non-employee-requests` | Create non-employee request
+[**New-BetaNonEmployeeSource**](#create-non-employee-source) | **POST** `/non-employee-sources` | Create non-employee source
+[**New-BetaNonEmployeeSourceSchemaAttributes**](#create-non-employee-source-schema-attributes) | **POST** `/non-employee-sources/{sourceId}/schema-attributes` | Create non-employee source schema attribute
+[**Remove-BetaNonEmployeeRecord**](#delete-non-employee-record) | **DELETE** `/non-employee-records/{id}` | Delete non-employee record
+[**Remove-BetaNonEmployeeRecordInBulk**](#delete-non-employee-record-in-bulk) | **POST** `/non-employee-records/bulk-delete` | Delete multiple non-employee records
+[**Remove-BetaNonEmployeeRequest**](#delete-non-employee-request) | **DELETE** `/non-employee-requests/{id}` | Delete non-employee request
+[**Remove-BetaNonEmployeeSchemaAttribute**](#delete-non-employee-schema-attribute) | **DELETE** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Delete non-employee source&#39;s schema attribute
+[**Remove-BetaNonEmployeeSource**](#delete-non-employee-source) | **DELETE** `/non-employee-sources/{sourceId}` | Delete non-employee source
 [**Remove-BetaNonEmployeeSourceSchemaAttributes**](#delete-non-employee-source-schema-attributes) | **DELETE** `/non-employee-sources/{sourceId}/schema-attributes` | Delete all custom schema attributes
-[**Export-BetaNonEmployeeRecords**](#export-non-employee-records) | **GET** `/non-employee-sources/{id}/non-employees/download` | Exports Non-Employee Records to CSV
-[**Export-BetaNonEmployeeSourceSchemaTemplate**](#export-non-employee-source-schema-template) | **GET** `/non-employee-sources/{id}/schema-attributes-template/download` | Exports Source Schema Template
+[**Export-BetaNonEmployeeRecords**](#export-non-employee-records) | **GET** `/non-employee-sources/{id}/non-employees/download` | Exports non-employee records to csv
+[**Export-BetaNonEmployeeSourceSchemaTemplate**](#export-non-employee-source-schema-template) | **GET** `/non-employee-sources/{id}/schema-attributes-template/download` | Exports source schema template
 [**Get-BetaNonEmployeeApproval**](#get-non-employee-approval) | **GET** `/non-employee-approvals/{id}` | Get a non-employee approval item detail
-[**Get-BetaNonEmployeeApprovalSummary**](#get-non-employee-approval-summary) | **GET** `/non-employee-approvals/summary/{requested-for}` | Get Summary of Non-Employee Approval Requests
+[**Get-BetaNonEmployeeApprovalSummary**](#get-non-employee-approval-summary) | **GET** `/non-employee-approvals/summary/{requested-for}` | Get summary of non-employee approval requests
 [**Get-BetaNonEmployeeBulkUploadStatus**](#get-non-employee-bulk-upload-status) | **GET** `/non-employee-sources/{id}/non-employee-bulk-upload/status` | Bulk upload status on source
-[**Get-BetaNonEmployeeRecord**](#get-non-employee-record) | **GET** `/non-employee-records/{id}` | Get a Non-Employee Record
-[**Get-BetaNonEmployeeRequest**](#get-non-employee-request) | **GET** `/non-employee-requests/{id}` | Get a Non-Employee Request
-[**Get-BetaNonEmployeeRequestSummary**](#get-non-employee-request-summary) | **GET** `/non-employee-requests/summary/{requested-for}` | Get Summary of Non-Employee Requests
-[**Get-BetaNonEmployeeSchemaAttribute**](#get-non-employee-schema-attribute) | **GET** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Get Schema Attribute Non-Employee Source
-[**Get-BetaNonEmployeeSource**](#get-non-employee-source) | **GET** `/non-employee-sources/{sourceId}` | Get a Non-Employee Source
-[**Get-BetaNonEmployeeSourceSchemaAttributes**](#get-non-employee-source-schema-attributes) | **GET** `/non-employee-sources/{sourceId}/schema-attributes` | List Schema Attributes Non-Employee Source
-[**Import-BetaNonEmployeeRecordsInBulk**](#import-non-employee-records-in-bulk) | **POST** `/non-employee-sources/{id}/non-employee-bulk-upload` | Imports, or Updates, Non-Employee Records
-[**Get-BetaNonEmployeeApproval**](#list-non-employee-approval) | **GET** `/non-employee-approvals` | Get List of Non-Employee Approval Requests
-[**Get-BetaNonEmployeeRecords**](#list-non-employee-records) | **GET** `/non-employee-records` | List Non-Employee Records
-[**Get-BetaNonEmployeeRequests**](#list-non-employee-requests) | **GET** `/non-employee-requests` | List Non-Employee Requests
-[**Get-BetaNonEmployeeSources**](#list-non-employee-sources) | **GET** `/non-employee-sources` | List Non-Employee Sources
-[**Update-BetaNonEmployeeRecord**](#patch-non-employee-record) | **PATCH** `/non-employee-records/{id}` | Patch Non-Employee Record
-[**Update-BetaNonEmployeeSchemaAttribute**](#patch-non-employee-schema-attribute) | **PATCH** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Patch Non-Employee Source&#39;s Schema Attribute
-[**Update-BetaNonEmployeeSource**](#patch-non-employee-source) | **PATCH** `/non-employee-sources/{sourceId}` | Patch a Non-Employee Source
-[**Deny-BetaNonEmployeeRequest**](#reject-non-employee-request) | **POST** `/non-employee-approvals/{id}/reject` | Reject a Non-Employee Request
-[**Update-BetaNonEmployeeRecord**](#update-non-employee-record) | **PUT** `/non-employee-records/{id}` | Update Non-Employee Record
+[**Get-BetaNonEmployeeRecord**](#get-non-employee-record) | **GET** `/non-employee-records/{id}` | Get a non-employee record
+[**Get-BetaNonEmployeeRequest**](#get-non-employee-request) | **GET** `/non-employee-requests/{id}` | Get a non-employee request
+[**Get-BetaNonEmployeeRequestSummary**](#get-non-employee-request-summary) | **GET** `/non-employee-requests/summary/{requested-for}` | Get summary of non-employee requests
+[**Get-BetaNonEmployeeSchemaAttribute**](#get-non-employee-schema-attribute) | **GET** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Get schema attribute non-employee source
+[**Get-BetaNonEmployeeSource**](#get-non-employee-source) | **GET** `/non-employee-sources/{sourceId}` | Get a non-employee source
+[**Get-BetaNonEmployeeSourceSchemaAttributes**](#get-non-employee-source-schema-attributes) | **GET** `/non-employee-sources/{sourceId}/schema-attributes` | List schema attributes non-employee source
+[**Import-BetaNonEmployeeRecordsInBulk**](#import-non-employee-records-in-bulk) | **POST** `/non-employee-sources/{id}/non-employee-bulk-upload` | Imports, or updates, non-employee records
+[**Get-BetaNonEmployeeApproval**](#list-non-employee-approval) | **GET** `/non-employee-approvals` | Get list of non-employee approval requests
+[**Get-BetaNonEmployeeRecords**](#list-non-employee-records) | **GET** `/non-employee-records` | List non-employee records
+[**Get-BetaNonEmployeeRequests**](#list-non-employee-requests) | **GET** `/non-employee-requests` | List non-employee requests
+[**Get-BetaNonEmployeeSources**](#list-non-employee-sources) | **GET** `/non-employee-sources` | List non-employee sources
+[**Update-BetaNonEmployeeRecord**](#patch-non-employee-record) | **PATCH** `/non-employee-records/{id}` | Patch non-employee record
+[**Update-BetaNonEmployeeSchemaAttribute**](#patch-non-employee-schema-attribute) | **PATCH** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Patch non-employee source&#39;s schema attribute
+[**Update-BetaNonEmployeeSource**](#patch-non-employee-source) | **PATCH** `/non-employee-sources/{sourceId}` | Patch a non-employee source
+[**Deny-BetaNonEmployeeRequest**](#reject-non-employee-request) | **POST** `/non-employee-approvals/{id}/reject` | Reject a non-employee request
+[**Update-BetaNonEmployeeRecord**](#update-non-employee-record) | **PUT** `/non-employee-records/{id}` | Update non-employee record
 
 
 ## approve-non-employee-request
@@ -117,7 +117,7 @@ $NonEmployeeApprovalDecision = @"{
   "comment" : "comment"
 }"@
 
-# Approve a Non-Employee Request
+# Approve a non-employee request
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
@@ -178,7 +178,7 @@ $NonEmployeeRequestBody = @"{
   "startDate" : "2020-03-24T00:00:00-05:00"
 }"@
 
-# Create Non-Employee Record
+# Create non-employee record
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
@@ -237,7 +237,7 @@ $NonEmployeeRequestBody = @"{
   "startDate" : "2020-03-24T00:00:00-05:00"
 }"@
 
-# Create Non-Employee Request
+# Create non-employee request
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
@@ -308,7 +308,7 @@ $NonEmployeeSourceRequestBody = @"{
   } ]
 }"@
 
-# Create Non-Employee Source
+# Create non-employee source
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
@@ -363,7 +363,7 @@ $NonEmployeeSchemaAttributeBody = @"{
   "required" : true
 }"@
 
-# Create Non-Employee Source Schema Attribute
+# Create non-employee source schema attribute
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
@@ -409,7 +409,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee record id (UUID)
 
-# Delete Non-Employee Record
+# Delete non-employee record
 
 try {
     Remove-BetaNonEmployeeRecord -Id $Id 
@@ -456,7 +456,7 @@ Code | Description  | Data Type
 ```powershell
 $DeleteNonEmployeeRecordInBulkRequest = @""@
 
-# Delete Multiple Non-Employee Records
+# Delete multiple non-employee records
 
 try {
     $Result = ConvertFrom-JsonToDeleteNonEmployeeRecordInBulkRequest -Json $DeleteNonEmployeeRecordInBulkRequest
@@ -503,7 +503,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee request id in the UUID format
 
-# Delete Non-Employee Request
+# Delete non-employee request
 
 try {
     Remove-BetaNonEmployeeRequest -Id $Id 
@@ -551,7 +551,7 @@ Code | Description  | Data Type
 $AttributeId = "2c91808b6ef1d43e016efba0ce470904" # String | The Schema Attribute Id (UUID)
 $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
 
-# Delete Non-Employee Source's Schema Attribute
+# Delete non-employee source's schema attribute
 
 try {
     Remove-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId 
@@ -596,7 +596,7 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | Source Id
 
-# Delete Non-Employee Source
+# Delete non-employee source
 
 try {
     Remove-BetaNonEmployeeSource -SourceId $SourceId 
@@ -687,7 +687,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c918085842e69ae018432d22ccb212f" # String | Source Id (UUID)
 
-# Exports Non-Employee Records to CSV
+# Exports non-employee records to csv
 
 try {
     Export-BetaNonEmployeeRecords -Id $Id 
@@ -735,7 +735,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c918085842e69ae018432d22ccb212f" # String | Source Id (UUID)
 
-# Exports Source Schema Template
+# Exports source schema template
 
 try {
     Export-BetaNonEmployeeSourceSchemaTemplate -Id $Id 
@@ -827,7 +827,7 @@ Code | Description  | Data Type
 ```powershell
 $RequestedFor = "ac10d20a-841e-1e7d-8184-32d2e22c0179" # String | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use ""me"" instead to indicate the current user.
 
-# Get Summary of Non-Employee Approval Requests
+# Get summary of non-employee approval requests
 
 try {
     Get-BetaNonEmployeeApprovalSummary -RequestedFor $RequestedFor 
@@ -918,7 +918,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee record id (UUID)
 
-# Get a Non-Employee Record
+# Get a non-employee record
 
 try {
     Get-BetaNonEmployeeRecord -Id $Id 
@@ -964,7 +964,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee request id (UUID)
 
-# Get a Non-Employee Request
+# Get a non-employee request
 
 try {
     Get-BetaNonEmployeeRequest -Id $Id 
@@ -1009,7 +1009,7 @@ Code | Description  | Data Type
 ```powershell
 $RequestedFor = "ac10d20a-841e-1e7d-8184-32d2e22c0179" # String | The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use ""me"" instead to indicate the current user.
 
-# Get Summary of Non-Employee Requests
+# Get summary of non-employee requests
 
 try {
     Get-BetaNonEmployeeRequestSummary -RequestedFor $RequestedFor 
@@ -1056,7 +1056,7 @@ Code | Description  | Data Type
 $AttributeId = "2c918085842e69ae018432d22ccb212f" # String | The Schema Attribute Id (UUID)
 $SourceId = "2c918085842e69ae018432d22ccb212f" # String | The Source id
 
-# Get Schema Attribute Non-Employee Source
+# Get schema attribute non-employee source
 
 try {
     Get-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId 
@@ -1101,7 +1101,7 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c91808b7c28b350017c2a2ec5790aa1" # String | Source Id
 
-# Get a Non-Employee Source
+# Get a non-employee source
 
 try {
     Get-BetaNonEmployeeSource -SourceId $SourceId 
@@ -1147,7 +1147,7 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c918085842e69ae018432d22ccb212f" # String | The Source id
 
-# List Schema Attributes Non-Employee Source
+# List schema attributes non-employee source
 
 try {
     Get-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId 
@@ -1197,7 +1197,7 @@ Code | Description  | Data Type
 $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id (UUID)
 $Data =  # System.IO.FileInfo | 
 
-# Imports, or Updates, Non-Employee Records
+# Imports, or updates, non-employee records
 
 try {
     Import-BetaNonEmployeeRecordsInBulk -Id $Id -Data $Data 
@@ -1252,7 +1252,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'approvalStatus eq "PENDING"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **approvalStatus**: *eq* (optional)
 $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
 
-# Get List of Non-Employee Approval Requests
+# Get list of non-employee approval requests
 
 try {
     Get-BetaNonEmployeeApproval 
@@ -1305,7 +1305,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Sorters = "accountName,sourceId" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, accountName, sourceId, manager, firstName, lastName, email, phone, startDate, endDate, created, modified** (optional)
 $Filters = 'sourceId eq "2c91808568c529c60168cca6f90c1313"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq* (optional)
 
-# List Non-Employee Records
+# List non-employee records
 
 try {
     Get-BetaNonEmployeeRecords 
@@ -1360,7 +1360,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Sorters = "approvalStatus,firstName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, approvalStatus, firstName, lastName, email, phone, accountName, startDate, endDate** (optional)
 $Filters = 'sourceId eq "2c91808568c529c60168cca6f90c1313"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq* (optional)
 
-# List Non-Employee Requests
+# List non-employee requests
 
 try {
     Get-BetaNonEmployeeRequests -RequestedFor $RequestedFor 
@@ -1417,7 +1417,7 @@ $RequestedFor = "me" # String | Identity the request was made for. Use 'me' to i
 $NonEmployeeCount = $false # Boolean | Flag that determines whether the API will return a non-employee count associated with the source. (optional) (default to $false)
 $Sorters = "name,created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId** (optional)
 
-# List Non-Employee Sources
+# List non-employee sources
 
 try {
     Get-BetaNonEmployeeSources 
@@ -1470,7 +1470,7 @@ $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-employee record id (UUID
 }"@ # JsonPatchOperation[] | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
  
 
-# Patch Non-Employee Record
+# Patch non-employee record
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -1527,7 +1527,7 @@ $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
 }"@ # JsonPatchOperation[] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update ':' 'label', 'helpText', 'placeholder', 'required'.
  
 
-# Patch Non-Employee Source's Schema Attribute
+# Patch non-employee source's schema attribute
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -1580,7 +1580,7 @@ $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | Source Id
 }"@ # JsonPatchOperation[] | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 
-# Patch a Non-Employee Source
+# Patch a non-employee source
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -1630,7 +1630,7 @@ $NonEmployeeRejectApprovalDecision = @"{
   "comment" : "comment"
 }"@
 
-# Reject a Non-Employee Request
+# Reject a non-employee request
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
@@ -1692,7 +1692,7 @@ $NonEmployeeRequestBody = @"{
   "startDate" : "2020-03-24T00:00:00-05:00"
 }"@
 
-# Update Non-Employee Record
+# Update non-employee record
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody

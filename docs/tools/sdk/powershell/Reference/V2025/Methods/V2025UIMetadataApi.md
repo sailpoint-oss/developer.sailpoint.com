@@ -18,8 +18,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2025TenantUiMetadata**](#get-tenant-ui-metadata) | **GET** `/ui-metadata/tenant` | Get a tenant UI metadata
-[**Set-V2025TenantUiMetadata**](#set-tenant-ui-metadata) | **PUT** `/ui-metadata/tenant` | Update tenant UI metadata
+[**Get-V2025TenantUiMetadata**](#get-tenant-ui-metadata) | **GET** `/ui-metadata/tenant` | Get a tenant ui metadata
+[**Set-V2025TenantUiMetadata**](#set-tenant-ui-metadata) | **PUT** `/ui-metadata/tenant` | Update tenant ui metadata
 
 
 ## get-tenant-ui-metadata
@@ -57,7 +57,7 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get a tenant UI metadata
+# Get a tenant ui metadata
 
 try {
     Get-V2025TenantUiMetadata -XSailPointExperimental $XSailPointExperimental 
@@ -112,7 +112,7 @@ $TenantUiMetadataItemUpdateRequest = @"{
   "iframeWhiteList" : "http://example.com http://example2.com"
 }"@
 
-# Update tenant UI metadata
+# Update tenant ui metadata
 
 try {
     $Result = ConvertFrom-JsonToTenantUiMetadataItemUpdateRequest -Json $TenantUiMetadataItemUpdateRequest

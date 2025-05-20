@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Entitlements** | Pointer to **[]string** | list of entitlement ids | [optional] 
 **Seds** | Pointer to **[]string** | list of sed ids | [optional] 
+**SearchCriteria** | Pointer to [**map[string]SearchCriteria**](search-criteria) | Search criteria for the batch request. | [optional] 
 
 ## Methods
 
@@ -62,6 +63,16 @@ SetEntitlements sets Entitlements field to given value.
 
 HasEntitlements returns a boolean if a field has been set.
 
+### SetEntitlementsNil
+
+`func (o *SedBatchRequest) SetEntitlementsNil(b bool)`
+
+ SetEntitlementsNil sets the value for Entitlements to be an explicit nil
+
+### UnsetEntitlements
+`func (o *SedBatchRequest) UnsetEntitlements()`
+
+UnsetEntitlements ensures that no value is present for Entitlements, not even an explicit nil
 ### GetSeds
 
 `func (o *SedBatchRequest) GetSeds() []string`
@@ -87,4 +98,49 @@ SetSeds sets Seds field to given value.
 
 HasSeds returns a boolean if a field has been set.
 
+### SetSedsNil
+
+`func (o *SedBatchRequest) SetSedsNil(b bool)`
+
+ SetSedsNil sets the value for Seds to be an explicit nil
+
+### UnsetSeds
+`func (o *SedBatchRequest) UnsetSeds()`
+
+UnsetSeds ensures that no value is present for Seds, not even an explicit nil
+### GetSearchCriteria
+
+`func (o *SedBatchRequest) GetSearchCriteria() map[string]SearchCriteria`
+
+GetSearchCriteria returns the SearchCriteria field if non-nil, zero value otherwise.
+
+### GetSearchCriteriaOk
+
+`func (o *SedBatchRequest) GetSearchCriteriaOk() (*map[string]SearchCriteria, bool)`
+
+GetSearchCriteriaOk returns a tuple with the SearchCriteria field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSearchCriteria
+
+`func (o *SedBatchRequest) SetSearchCriteria(v map[string]SearchCriteria)`
+
+SetSearchCriteria sets SearchCriteria field to given value.
+
+### HasSearchCriteria
+
+`func (o *SedBatchRequest) HasSearchCriteria() bool`
+
+HasSearchCriteria returns a boolean if a field has been set.
+
+### SetSearchCriteriaNil
+
+`func (o *SedBatchRequest) SetSearchCriteriaNil(b bool)`
+
+ SetSearchCriteriaNil sets the value for SearchCriteria to be an explicit nil
+
+### UnsetSearchCriteria
+`func (o *SedBatchRequest) UnsetSearchCriteria()`
+
+UnsetSearchCriteria ensures that no value is present for SearchCriteria, not even an explicit nil
 

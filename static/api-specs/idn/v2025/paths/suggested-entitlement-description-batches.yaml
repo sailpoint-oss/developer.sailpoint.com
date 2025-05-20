@@ -1,18 +1,86 @@
 get:
   tags:
-  - Suggested Entitlement Description
+    - Suggested Entitlement Description
   operationId: getSedBatches
-  summary: List sed batch request
-  description: 'List Sed Batches.
+  summary: List Sed Batch Record
+  description: >-
+    List Sed Batches.
 
-    API responses with Sed Batch Status'
+    API responses with Sed Batch Records
+  parameters:
+    - name: offset
+      in: query
+      description: |-
+        Offset
+
+        Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
+        The offset value is record-based, not page-based, and the index starts at 0.
+      schema:
+        type: integer
+        format: int64
+        default: 0
+        x-go-name: Offset
+      example: 0
+      required: false
+      x-go-name: Offset
+    - name: limit
+      in: query
+      description: |-
+        Limit
+
+        Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
+        If it is not specified, a default limit is used.
+      schema:
+        type: integer
+        format: int64
+        maxLength: 250
+        minLength: 0
+        default: 250
+        x-go-name: Limit
+      example: 250
+      required: false
+      x-go-name: Limit
+    - name: count
+      in: query
+      description: >-
+        If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. 
+
+        The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results).
+
+        Since requesting a total count can have a performance impact, it is recommended not to send `count=true` if that value will not be used.
+      schema:
+        type: boolean
+        default: false
+      example: true
+      required: false
+    - name: count-only
+      in: query
+      description: >-
+        If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored.
+
+        This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array.
+
+      schema:
+        type: boolean
+        default: false
+      example: true
+      required: false
+    - name: status
+      in: query
+      description: Batch Status
+      schema:
+        type: string
+      example: completed, failed, submitted, materialized, failed
+      required: false
   responses:
     '200':
-      description: Status of batch
+      description: List of Sed Batch Records
       content:
         application/json:
           schema:
-            $ref: ../schemas/SedBatchStatus.yaml
+            items:
+              $ref: ../schemas/SedBatchRecord.yaml
+            type: array
     '400':
       $ref: ../responses/400.yaml
     '401':

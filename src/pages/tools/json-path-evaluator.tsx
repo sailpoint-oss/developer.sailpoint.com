@@ -150,8 +150,8 @@ const JsonPathEvaluator: React.FC = () => {
                 />
 
                 <Button
+                  className={styles.runButton}
                   variant="contained"
-                  color="primary"
                   onClick={handleRunQuery}
                   sx={{ height: '56px', minWidth: 220, maxWidth: 220 }}
                 >

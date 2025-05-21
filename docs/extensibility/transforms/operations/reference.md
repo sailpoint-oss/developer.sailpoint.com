@@ -14,7 +14,7 @@ tags: ['Transforms', 'Transform Operations']
 
 Use the reference transform to reuse a transform that has already been written within another transform. This transform is often useful when you want to repeat the same logic multiple times within other transforms. This transform allows you to maintain only one transform and have it propagate through to other implementations of that logic.
 
-## Transform Structure
+## Transform structure
 
 In addition to the standard `type` and `name` attributes, the structure of a reference transform requires the name of the transform you want to reference specified in the `attributes.id` key:
 
@@ -44,7 +44,7 @@ In addition to the standard `type` and `name` attributes, the structure of a ref
 
 If you had a "Get Worker Type" transform that evaluated multiple pieces of data to determine whether a user is an employee or a contractor, this transform would output the result of that transform just as if the logic were contained directly within this transform.
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -62,7 +62,7 @@ If you had a "Get Worker Type" transform that evaluated multiple pieces of data 
 
 This transform builds the user's display name, adds a hyphen to the end, and then adds the evaluated worker type from the earlier transform to build a string that would look something like "John Smith - Employee".
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

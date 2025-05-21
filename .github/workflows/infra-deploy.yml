@@ -92,6 +92,7 @@ jobs:
           export DOCUSAURUS_IGNORE_SSG_WARNINGS=true
           npm ci 
           npm run gen-api-docs-all
+          npm run sentence-case-all
           npm run build
       # push these files to AWS
       - name: Copy files to the test website with the AWS CLI

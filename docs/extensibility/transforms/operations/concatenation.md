@@ -14,7 +14,7 @@ tags: ['Transforms', 'Transform Operations']
 
 Use the concatenation transform to join two or more string values into a combined output. The concatenation transform often joins elements such as first and last name into a full display name, but it has many other uses.
 
-## Transform Structure
+## Transform structure
 
 The concatenation transform requires an array list of `values` that need to be joined. These values can be static strings or the return values of other nested transforms.
 
@@ -41,7 +41,7 @@ The concatenation transform requires an array list of `values` that need to be j
 
 This transform joins the user's first name from the "HR Source" with his/her last name, adds a space between them, and then adds a parenthetical note that the user is a contractor at the end.
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -76,7 +76,7 @@ This transform joins the user's first name from the "HR Source" with his/her las
 
 This transform joins the user's job title with his/her job code value and adds a hyphen between those two pieces of data.
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

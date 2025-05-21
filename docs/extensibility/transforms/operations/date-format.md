@@ -27,7 +27,7 @@ This transform leverages the Java SimpleDateFormat syntax; see the [References](
 
 :::
 
-## Transform Structure
+## Transform structure
 
 The date format transform takes whatever value provided as the input, parses the datetime based on the `inputFormat` provided, and then reformats it into the desired `outputFormat`.
 
@@ -66,7 +66,7 @@ Input: 144642632190
 Output: 1974-08-02T02:30:32.190-00
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -90,7 +90,7 @@ Input: 4/1/1975
 Output: 1975-04-01
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

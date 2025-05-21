@@ -21,7 +21,7 @@ Use the username generator transform to specify logic to use when it derives a u
 
 :::
 
-## Transform Structure
+## Transform structure
 
 The username generator transform is intended for use as a configuration within the account create profile for a source. Thus, this transform's structure is more extensive than a typical Seaspray implementation -- it must be assigned to a create profile attribute (designated by `name`) and provide certain uniqueness check attributes such as `cloudMaxSize`, `cloudMaxUniqueChecks`, and `cloudRequired`.
 
@@ -111,7 +111,7 @@ This generator takes the user's first initial, appends the user's full last name
 
 If the generator does not find a unique value within the first 25 tries, it returns an IllegalStateException.
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -161,7 +161,7 @@ This generator takes the user's first name, appends a period and then the user's
 
 If the generator does not find a unique value within the first 10 tries, it returns an IllegalStateException.
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

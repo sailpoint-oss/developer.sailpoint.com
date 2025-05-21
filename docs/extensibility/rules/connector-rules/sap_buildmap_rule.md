@@ -83,6 +83,6 @@ This rule gathers additional attributes from SAP systems to build accounts. This
 </Rule>
 ```
 
-## Attach to Source
+## Attach to source
 
 Refer to [Attaching Connector-Related Rules to Sources](./index.md#buildmap-rule) for details on how to attach your rule to your source.

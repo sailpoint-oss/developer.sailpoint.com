@@ -89,6 +89,6 @@ Boolean “inactive” attribute in the map.
 </Rule>
 ```
 
-## Attach to Source
+## Attach to source
 
 Refer to [Attaching Connector-Related Rules to Sources](./index.md#jdbcbuildmap-rule) for details on how to attach your rule to your source.

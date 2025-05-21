@@ -1,6 +1,6 @@
 ---
 id: powershell-sdk-error-handling
-title: Error Handling with the PowerShell SDK
+title: Error handling with the PowerShell SDK
 pagination_label: PowerShell SDK
 sidebar_label: Error Handling
 sidebar_position: 7

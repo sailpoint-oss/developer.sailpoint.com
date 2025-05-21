@@ -20,7 +20,7 @@ Use the identity attribute transform to get the value of a user's identity attri
 
 :::
 
-## Transform Structure
+## Transform structure
 
 The transform for identity attributes requires the desired identity attribute's system `name,` along with the `type` and `name` attributes:
 
@@ -50,7 +50,7 @@ The transform for identity attributes requires the desired identity attribute's 
 
 This transform returns a user's SailPoint User Name attribute.
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -68,7 +68,7 @@ This transform returns a user's SailPoint User Name attribute.
 
 This transform returns a user's Employee Number attribute.
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

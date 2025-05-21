@@ -4,11 +4,11 @@ const footerConfig = {
       {
         title: 'Identity Security Cloud',
         items: [
-          { label: 'Your First API Call', to: 'docs/api/getting-started' },
-          { label: 'Build A Transform', to: 'docs/extensibility/transforms/guides/your-first-transform' },
-          { label: 'Build A SaaS Connector', to: 'docs/connectivity/saas-connectivity' },
+          { label: 'Your first API call', to: 'docs/api/getting-started' },
+          { label: 'Build a transform', to: 'docs/extensibility/transforms/guides/your-first-transform' },
+          { label: 'Build a SaaS connector', to: 'docs/connectivity/saas-connectivity' },
           { 
-            label: 'Get Certified', 
+            label: 'Get certified', 
             href: 'https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003041/true/xxemptyxx/' 
           },
         ],
@@ -17,11 +17,11 @@ const footerConfig = {
         title: 'IdentityIQ',
         items: [
           { 
-            label: 'Build A Plugin', 
+            label: 'Build a plugin', 
             to: 'https://documentation.sailpoint.com/identityiq/help/plugins/identityiq_plugins.html' 
           },
           { 
-            label: 'Get Certified', 
+            label: 'Get certified', 
             href: 'https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003042/true/xxemptyxx/' 
           },
         ],
@@ -30,9 +30,9 @@ const footerConfig = {
         title: 'Community',
         items: [
           { label: 'Discuss', to: 'https://developer.sailpoint.com/discuss' },
-          { label: 'Submit an Idea', to: 'https://developer-sailpoint.ideas.aha.io/' },
+          { label: 'Submit an idea', to: 'https://developer-sailpoint.ideas.aha.io/' },
           { 
-            label: 'Contact Our Team', 
+            label: 'Contact our team', 
             to: 'https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations' 
           },
         ],
@@ -40,7 +40,7 @@ const footerConfig = {
       {
         title: 'More',
         items: [
-          { label: 'Engineering Blog', href: 'https://medium.com/sailpointtechblog' },
+          { label: 'Engineering blog', href: 'https://medium.com/sailpointtechblog' },
           { label: 'GitHub', href: 'https://github.com/sailpoint-oss' },
           { label: 'Twitter', href: 'https://twitter.com/sailpoint' },
         ],
@@ -48,19 +48,19 @@ const footerConfig = {
       {
         title: 'Company',
         items: [
-          { label: 'The SailPoint Story', to: 'https://www.sailpoint.com/company/' },
+          { label: 'The SailPoint story', to: 'https://www.sailpoint.com/company/' },
           { 
-            label: 'The SailPoint Way', 
+            label: 'The SailPoint way', 
             to: 'https://www.sailpoint.com/company/diversity-inclusion-and-belonging/' 
           },
-          { label: 'Leadership Team', to: 'https://www.sailpoint.com/company/#h-our-leadership' },
-          { label: 'Become A Partner', to: 'https://www.sailpoint.com/partners/become-partner/' },
+          { label: 'Leadership team', to: 'https://www.sailpoint.com/company/#h-our-leadership' },
+          { label: 'Become a partner', to: 'https://www.sailpoint.com/partners/become-partner/' },
         ],
       },
       {
         title: 'Legal',
         items: [
-          { label: 'Terms & Conditions', to: 'https://developer.sailpoint.com/discuss/tos' },
+          { label: 'Terms & conditions', to: 'https://developer.sailpoint.com/discuss/tos' },
         ],
       },
     ],

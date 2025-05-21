@@ -1,6 +1,6 @@
 ---
 id: filtering-events
-title: Filtering Events
+title: Filtering events
 pagination_label: Filtering Events
 sidebar_label: Filtering Events
 sidebar_position: 4
@@ -11,15 +11,15 @@ slug: /extensibility/event-triggers/filtering-events
 tags: ['Event Triggers']
 ---
 
-## What is a Filter
+## What is a filter
 
 Many triggers can produce a staggering amount of events if left unfiltered, resulting in more network traffic and more processing time on a subscribing service. Your subscribing service usually only needs to be notified of events containing a key attribute or value you want to process. For example, the Identity Attributes Changed trigger emits an event whenever an identity has a change in attributes. This can occur during the mover process when an identity changes departments or a manager is promoted, resulting in several identities receiving a new manager. Rather than inundate your subscribing service with every identity change, you can use an event trigger filter to specify which events your service is interested in processing.
 
-## Benefits of Using Filters
+## Benefits of using filters
 
 Network bandwidth and processing power come at a cost, especially when you are using managed solutions like AWS or no-code providers like Zapier. Without filtering, a subscribing service would be sent every single event that the trigger receives. The first thing any subscriber must do in this scenario is inspect each event to figure out which ones it must process and which ones it can ignore. Taking this approach with managed providers that charge per invocation, like AWS Lambda, can become expensive. Furthermore, some no-code providers may put a limit on the total number of invocations that a service can make in a given month, which would be quickly exhausted with this approach. Trigger filters take the filtering logic out of your subscribing service and place it on the event trigger within SailPoint, so you only receive the events matching your filter criteria.
 
-## Constructing a Filter
+## Constructing a filter
 
 Event trigger filters are constructed using a **Jayway** JSONpath expression. See the following tables for a list of operators that can be used in a trigger filter.
 
@@ -116,17 +116,17 @@ Most of the examples provided in the operator tables above can be used against t
 }
 ```
 
-## Validating Filters
+## Validating filters
 
 When you are finished developing your JSONpath filter, you must validate it with SailPoint's trigger service. There are two ways to do this: use the UI or the API.
 
-### Validating Filters Using the UI
+### Validating filters using the UI
 
 To validate a filter using the UI, subscribe to a new event trigger or edit an existing one. In the configuration options, paste your JSONpath expression in the `Filter` input box and select `Update`. If you do not receive an error message, then your filter expression is valid with SailPoint.
 
 ![UI filter](./img/ui-filter.png)
 
-### Validating Filters Using the API
+### Validating filters using the API
 
 You can validate a trigger filter by using the [test filter](/docs/api/beta/test-subscription-filter) API endpoint. You must escape any double quotes, as seen in the example payload in the API description. Also, you must provide a sample input for the validation engine to run against. It is best to use the input example included in the input/output schemas for the event trigger you want to apply your filter to. Refer to [this table](/docs/api/beta/triggers#available-event-triggers) to find the schema of your event trigger. This is an example request:
 
@@ -172,7 +172,7 @@ POST https://{tenant}.api.identitynow.com/beta/trigger-subscriptions/validate-fi
 }
 ```
 
-## Testing Filters
+## Testing filters
 
 If SailPoint accepts your trigger filter, you must test whether it actually works. You must configure your trigger subscription to point to the URL of your testing service. [webhook.site](https://webhook.site) is an easy to use testing service. Just copy the unique URL it generates and paste it into your subscription's integration URL field. The easiest way to test a trigger subscription is to use the UI to fire off a test event.
 

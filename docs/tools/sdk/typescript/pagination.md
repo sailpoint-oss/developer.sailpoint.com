@@ -1,6 +1,6 @@
 ---
 id: typescript-sdk-pagination
-title: Paginate Results with The TypeScript SDK
+title: Paginate results with The TypeScript SDK
 pagination_label: Paginate Results
 sidebar_label: Paginate Results
 sidebar_position: 5

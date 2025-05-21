@@ -15,7 +15,7 @@ tags: ['Transforms', 'Transform Operations']
 
 Use the get reference identity attribute transform as an out-of-the-box rule provided through SailPoint's Cloud Services Deployment Utility rule. The transform allows you to get the identity attribute of another user from within a given identity's calculation. For your convenience, the transform allows you to use "manager" as a referential lookup to the target identity.
 
-## Transform Structure
+## Transform structure
 
 The structure of a get reference identity transform requires the `name` of the referenced rule to be the `Cloud Services Deployment Utility` rule built by SailPoint. Additionally, you must set the `operation` to `getReferenceIdentityAttribute` and specify a `uid` attribute that correlates to the identity whose attribute is desired. Last, you must include the `type` and `name` attributes required for all transforms:
 
@@ -50,7 +50,7 @@ The structure of a get reference identity transform requires the `name` of the r
 
 This transform gets the user's manager's email address.
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -71,7 +71,7 @@ This transform gets the user's manager's email address.
 
 This transform gets the alternate phone number for the user identified as "corporate.admin".
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

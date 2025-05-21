@@ -22,7 +22,7 @@ Use the conditional transform to output different values depending on simple con
 
 :::
 
-## Transform Structure
+## Transform structure
 
 In addition to the `type` and `name` attributes, the conditional transform requires an `expression`, a `positiveCondition`, and a `negativeCondition`. If the expression evaluates to false, the transform returns the negative condition; otherwise it returns the positive condition.
 
@@ -53,7 +53,7 @@ In addition to the `type` and `name` attributes, the conditional transform requi
 
 This transform takes the user's HR-defined department attribute and compares it to the value of "Science". If this is the user's department, the transform returns `true`. Otherwise, it returns `false`.
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -80,7 +80,7 @@ This transform takes the user's HR-defined department attribute and compares it 
 
 This transform extends the previous one by returning the output of another Seaspray transform depending on the result of the expression. You can assign Seaspray transforms' outputs to variables and then reference them within the `positiveCondition` and `negativeCondition` attributes.
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

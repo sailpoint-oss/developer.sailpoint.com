@@ -1,6 +1,6 @@
 ---
 id: use-preferred-name
-title: Use Preferred Name
+title: Use preferred name
 pagination_label: Use Preferred Name
 sidebar_label: Use Preferred Name
 sidebar_class_name: usePreferredName
@@ -14,7 +14,7 @@ tags: ['Transforms', 'OOTB']
 
 The `Use Preferred Name` transform uses the [displayName](../operations/display-name.md) operation and forms an identity’s `Display Name` value using the `Preferred Name` value when it exists over the `Given Name` (first name) value. The `Family Name` (last name) value is then appended to form the complete `Display Name`, e.g., ("Preferred Name" or "Given Name") + "Family Name"
 
-## Transform Structure
+## Transform structure
 
 ```json
 {

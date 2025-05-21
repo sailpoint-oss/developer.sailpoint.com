@@ -14,7 +14,7 @@ tags: ['Transforms', 'Transform Operations']
 
 Use the random numeric transform to generate a random number of any length.
 
-## Transform Structure
+## Transform structure
 
 The random numeric transform only requires the standard `type` and `name` attributes:
 
@@ -43,7 +43,7 @@ The random numeric transform only requires the standard `type` and `name` attrib
 
 No explicit length is provided, so this transform generates a 10-digit random integer, such as "2334776774".
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -58,7 +58,7 @@ No explicit length is provided, so this transform generates a 10-digit random in
 
 This transform generates a 6-digit random integer, such as "759931".
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

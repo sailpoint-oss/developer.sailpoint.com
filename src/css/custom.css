@@ -217,14 +217,30 @@
 @font-face {
   font-family: 'Poppins';
   src: url('../../static/fonts/poppins/Poppins-Regular.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
+}
+
+* {
+  font-family: 'Poppins' !important;
+}
+html {
+  font-family: 'Poppins' !important;
+}
+html * {
+  font-family: 'Poppins' !important;
 }
 
 :root {
   font-family: Poppins !important;
   --doc-sidebar-width: 445px !important;
+}
+
+h1 {
+  font-family: 'Poppins' !important;
+  font-weight: 600 !important;
+  color: var(--ifm-color-primary) !important;
 }
 
 :root {
@@ -237,6 +253,8 @@
   --ifm-color-primary-light: #0038b1;
   --ifm-color-primary-lighter: #003bb9;
   --ifm-color-primary-lightest: #0042d1;
+  --ifm-button-colors: rgba(0,113,206,1);
+
 
   --ifm-color-secondary: #cc27b0;
   --ifm-color-secondary-dark: rgb(181, 13, 152);
@@ -294,9 +312,9 @@
   --ifm-color-primary-dark: #5ec3ea;
   --ifm-color-primary-darker: #4ebde8;
   --ifm-color-primary-darkest: #1eabe1;
-  --ifm-color-primary-light: #8ed5f0;
-  --ifm-color-primary-lighter: #aee1f4;
-  --ifm-color-primary-lightest: #bee7f6;
+  --ifm-color-primary-light: #d0ebf6;
+  --ifm-color-primary-lighter: #d0ebf6;
+  --ifm-color-primary-lightest: #d0ebf6;
   --ifm-link-color: #7ecfee;
   --link-color: #7ecfee;
 
@@ -338,18 +356,31 @@
   --main-hero-card-background: #202122;
 }
 
+.openapi-schema__container:hover .openapi-schema__property {
+  color: var(--link-color) !important;
+}
+
 .navbar__link:hover {
-  color: var(--ifm-link-color) !important;
+  color: var(--link-color) !important;
 }
 
 .footer__link-item:hover {
-  color: var(--ifm-link-color) !important;
+  color: var(--link-color) !important;
   text-decoration: underline !important;
 }
 
 .navbar__logo {
   margin-right: 0.5rem;
 }
+
+.cardContainer_S8oU {
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.cardContainer_S8oU:hover {
+  border-color: var(--link-color) !important;
+}
+
 
 @media only screen and (max-width: 1450px) {
   .navbar__logo {
@@ -371,6 +402,23 @@
 
 .menu__link {
   padding-left: 13%;
+}
+
+.menu__link:hover {
+  color: var(--link-color) !important;
+}
+
+.menu__link--active  {
+  color: var(--link-color) !important;
+  text-decoration: underline !important;
+}
+
+.navbar__link:hover {
+  color: var(--link-color) !important;
+}
+
+.dropdown__link:hover {
+  color: var(--link-color) !important;
 }
 
 /* Sidebar Method labels */
@@ -636,3 +684,10 @@ details ol li a:link, details p a:link {
   color: var(--link-color) !important;
 }
 
+p a:link, td a:link {
+  text-decoration: underline !important;
+}
+
+p a:link:hover, td a:link:hover {
+  text-decoration: none !important;
+}

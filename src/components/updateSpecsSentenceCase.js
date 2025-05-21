@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const fs = require('fs').promises;
 const path = require('path');
 
@@ -15,7 +13,28 @@ function toSentenceCase(str) {
 }
 
 /**
- * Recursively process a path, updating only `summary:` lines in YAML files.
+ * Process each YAML file's content, updating both `summary:` and `name:` lines.
+ */
+function updateContent(content, filePath) {
+  const patterns = [
+    /^(\s*summary:\s*)(["']?)(.+?)(["']?)\s*$/gm,
+    /^(\s*-?\s*name:\s*)(["']?)(.+?)(["']?)\s*$/gm
+  ];
+  let updated = content;
+  patterns.forEach(regex => {
+    updated = updated.replace(regex, (_, prefix, openQ, text, closeQ) => {
+      const newText = toSentenceCase(text);
+      if (newText !== text) {
+        console.log(`Updating ${filePath}: "${text}" → "${newText}"`);
+      }
+      return `${prefix}${openQ}${newText}${closeQ}`;
+    });
+  });
+  return updated;
+}
+
+/**
+ * Recursively traverse and process YAML files in a directory.
  */
 async function processPath(inputPath) {
   let stat;
@@ -41,17 +60,7 @@ async function processPath(inputPath) {
     return;
   }
 
-  const updated = content.replace(
-    /^(\s*summary:\s*)(["']?)(.+?)(["']?)\s*$/gm,
-    (_, prefix, openQ, text, closeQ) => {
-      const newText = toSentenceCase(text);
-      if (newText !== text) {
-        console.log(`Updating ${inputPath}: "${text}" → "${newText}"`);
-      }
-      return `${prefix}${openQ}${newText}${closeQ}`;
-    }
-  );
-
+  const updated = updateContent(content, inputPath);
   if (updated !== content) {
     try {
       await fs.writeFile(inputPath, updated, 'utf8');

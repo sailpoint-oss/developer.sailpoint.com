@@ -1,0 +1,27 @@
+type: object
+properties:
+  certificationIds:
+    description: List of certification IDs to reassign
+    type: array
+    items:
+      type: string
+    minItems: 1
+    maxItems: 250
+    example: ['af3859464779471211bb8424a563abc1','af3859464779471211bb8424a563abc2','af3859464779471211bb8424a563abc3']
+  reassignTo:
+    type: object
+    properties:
+      id:
+        type: string
+        description: The identity ID to which the review is being assigned.
+        example: ef38f94347e94562b5bb8424a56397d8
+      type:
+        type: string
+        description: The type of the ID provided.
+        enum:
+          - IDENTITY
+        example: IDENTITY
+  reason:
+    type: string
+    description: Comment to explain why the certification was reassigned
+    example: 'reassigned for some reason'

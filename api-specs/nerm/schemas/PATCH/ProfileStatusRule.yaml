@@ -1,0 +1,20 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  type:
+    type: string
+    required: true
+    enum: [ProfileStatusRule]
+  comparison_operator:
+    type: string
+    enum: ['==', '!=']
+  value:
+    type: string
+    enum: [Active, Inactive, Leave of absence, Terminated]
+  _destroy:
+    type: boolean
+    default: false
+  

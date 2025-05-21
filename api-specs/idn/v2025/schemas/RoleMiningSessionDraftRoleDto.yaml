@@ -1,0 +1,49 @@
+type: object
+properties:
+  name:
+    type: string
+    description: Name of the draft role
+    example: "Saved RM Session - 07/10"
+  description:
+    type: string
+    description: Draft role description
+    example: "Person who develops software"
+  identityIds:
+    type: array
+    items:
+      type: string
+    description: The list of identities for this role mining session.
+    example: [ "2c918090761a5aac0176215c46a62d58","2c918090761a5aac01722015c46a62d42" ]
+  entitlementIds:
+    type: array
+    items:
+      type: string
+    description: The list of entitlement ids for this role mining session.
+    example: [ "2c91808a7624751a01762f19d665220d","2c91808a7624751a01762f19d67c220e", ]
+  excludedEntitlements:
+    type: array
+    description: The list of excluded entitlement ids.
+    items:
+      type: string
+    example: [ "07a0b4e2","13b4e2a0" ]
+  modified:
+    type: string
+    format: date-time
+    description: Last modified date
+    example: '2020-09-16T18:49:32.150Z'
+  type:
+    $ref: './iai/RoleMiningRoleType.yaml'
+    description: Role mining session type
+    example: SPECIALIZED
+  id:
+    type: string
+    description: Id of the potential draft role
+    example: "e0cc5d7d-bf7f-4f81-b2af-8885b09d9923"
+  createdDate:
+    type: string
+    format: 'date-time'
+    description: The date-time when this potential draft role was created.
+  modifiedDate:
+    type: string
+    format: 'date-time'
+    description: The date-time when this potential draft role was modified.

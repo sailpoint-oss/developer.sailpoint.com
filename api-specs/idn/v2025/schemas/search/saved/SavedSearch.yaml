@@ -1,0 +1,24 @@
+type: object
+allOf:
+- type: object
+  properties:
+    id:
+      description: |
+        The saved search ID.
+      type: string
+      example: '0de46054-fe90-434a-b84e-c6b3359d0c64'
+    owner:
+      description: |
+          The owner of the saved search.
+      $ref: ../model/base/TypedReference.yaml
+    ownerId:
+      type: string
+      description: The ID of the identity that owns this saved search.
+      example: 2c91808568c529c60168cca6f90c1313
+    public:
+      type: boolean
+      description: Whether this saved search is visible to anyone but the owner. This field will always be false as there is no way to set a saved search as public at this time.
+      default: false
+      example: false
+- $ref: 'SavedSearchName.yaml'
+- $ref: 'SavedSearchDetail.yaml'

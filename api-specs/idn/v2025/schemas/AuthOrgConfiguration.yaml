@@ -1,0 +1,17 @@
+type: object
+properties:
+  enabled:
+    type: boolean
+  tenant:
+    type: string
+    description: This is the tenant's or organization's name.
+  serviceProviderConfig:
+    $ref: 'ServiceProviderConfiguration.yaml'
+  lockoutConfig:
+    $ref: 'LockoutConfiguration.yaml'
+  networkConfig:
+    $ref: 'NetworkConfiguration.yaml'
+  orgConfig:
+    $ref: 'OrgConfiguration.yaml'
+  sessionConfig:
+    $ref: 'SessionConfiguration.yaml'

@@ -1,0 +1,19 @@
+type: object
+properties:
+  name:
+    type: string
+    description: Attribute name. 
+    example: groups
+  op:
+    type: string
+    description: Operation to perform on attribute. 
+    example: Add
+  value:
+    oneOf:
+      - type: string
+        example: "3203537556531076"
+      - type: array
+        items:
+          type: string
+          example: [ "3203537556531076", "1263537556831096"]
+    description: Value of attribute.

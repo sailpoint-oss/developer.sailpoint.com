@@ -1,0 +1,29 @@
+# Replaces AccessSummary.yaml
+description: An object holding the entity that is being reviewed
+type: object
+properties:
+  entity:
+    type: object
+    properties:
+      type:
+        $ref: './CertificationItemType.yaml'
+      id:
+        type: string
+        description: The ID of the item whose data is in the review data
+        example: 2c9180867160846801719932c5153fb7
+      name:
+        type: string
+        description: The name of the item whose data is in the review data
+        example: Role Name
+  entitlement:
+    $ref: './reviews/ReviewableEntitlement.yaml'
+  accessProfile:
+    $ref: './reviews/ReviewableAccessProfile.yaml'
+  role:
+    $ref: './reviews/ReviewableRole.yaml'
+  identity:
+    $ref: './MemberReference.yaml'
+  roleCriteria:
+    $ref: './ComplexRoleCriterion.yaml'
+  rule:
+    $ref: './RuleReference.yaml'

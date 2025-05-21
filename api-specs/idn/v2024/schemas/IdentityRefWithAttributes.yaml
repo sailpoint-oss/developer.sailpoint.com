@@ -1,0 +1,15 @@
+type: object
+properties:
+  id:
+    type: string
+    description: the identity ID
+    example: "ff80808144fc70f10144feb6d33400c3"
+  name:
+    type: string
+    description: the identity name
+    example: "Vemg Wefis"
+  attributes:
+    type: object
+    additionalProperties:
+      type: object
+    description: the attributes associated to an identity

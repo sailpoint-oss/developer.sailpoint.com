@@ -1,0 +1,19 @@
+type: object
+properties:
+  requestId:
+    type: string
+    nullable: true
+    description: The token request ID
+    example: 089899f13a8f4da7824996191587bab9
+  status:
+    type: string
+    enum:
+      - SUCCESS
+      - FAILED
+    description: Status of sending token
+    example: SUCCESS
+  errorMessage:
+    type: string
+    nullable: true
+    description: Error messages from token send request
+    example: Unable to sent text message

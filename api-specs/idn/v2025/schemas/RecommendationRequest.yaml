@@ -1,0 +1,8 @@
+type: object
+properties:
+  identityId:
+    type: string
+    description: The identity ID
+    example: 2c938083633d259901633d25c68c00fa
+  item:
+    $ref: './AccessItemRef.yaml'

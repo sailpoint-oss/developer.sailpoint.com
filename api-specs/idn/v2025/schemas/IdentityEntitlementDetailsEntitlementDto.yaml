@@ -1,0 +1,51 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The entitlement id
+    example: "2c91808874ff91550175097daaec161c"
+  name:
+    type: string
+    description: The entitlement name
+    example: "LauncherTest2"
+  created:
+    type: string
+    description: Time when the entitlement was last modified
+    format: 'date-time'
+    example: "2020-10-08T18:33:52.029Z"
+  modified:
+    type: string
+    description: Time when the entitlement was last modified
+    format: 'date-time'
+    example: "2020-10-08T18:33:52.029Z"
+  description:
+    type: string
+    description: The description of the entitlement
+    example: "CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local"
+    nullable: true
+  type:
+    type: string
+    description: The type of the object, will always be "ENTITLEMENT"
+    example: "ENTITLEMENT"
+  sourceId:
+    type: string
+    description: The source ID
+    example: 2c9180827ca885d7017ca8ce28a000eb
+  sourceName:
+    type: string
+    description: The source name
+    example: ODS-AD-Source
+  owner:
+    $ref: "./OwnerDto.yaml"
+  value:
+    type: string
+    description: The value of the entitlement
+    example: "CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutomationAD,DC=local"
+  flags:
+    description: a list of properties informing the viewer about the entitlement
+    type: array
+    items: 
+      type: string
+    example: [
+      "privileged"
+    ]

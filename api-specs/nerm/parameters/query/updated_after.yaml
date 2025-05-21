@@ -1,0 +1,8 @@
+name: updated_after
+in: query
+description: Adds support for filtering profiles by updated_at using the updated_after parameter, which requires the be_profiles_enableUpdatedAfterParam feature flag to be enabled. Can be combined with after_id.
+required: false
+schema:
+  type: string
+  format: date
+  example: "2025-05-05"

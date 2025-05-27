@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleIdentity = Initialize-PSSailpoint.BetaRoleIdentity  -Id 2c9180a46faadee4016fb4e018c20639 `
+$RoleIdentity = Initialize-BetaRoleIdentity  -Id 2c9180a46faadee4016fb4e018c20639 `
  -AliasName t.edison `
  -Name Thomas Edison `
  -Email t.edison@identitynow.com `

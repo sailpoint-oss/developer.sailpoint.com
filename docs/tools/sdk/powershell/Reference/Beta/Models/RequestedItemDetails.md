@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestedItemDetails = Initialize-PSSailpoint.BetaRequestedItemDetails  -Type ENTITLEMENT `
+$RequestedItemDetails = Initialize-BetaRequestedItemDetails  -Type ENTITLEMENT `
  -Id 779c6fd7171540bba1184e5946112c28
 ```
 

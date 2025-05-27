@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningSessionResponseCreatedBy = Initialize-PSSailpoint.V2025RoleMiningSessionResponseCreatedBy  -Id 2c918090761a5aac0176215c46a62d58 `
+$RoleMiningSessionResponseCreatedBy = Initialize-V2025RoleMiningSessionResponseCreatedBy  -Id 2c918090761a5aac0176215c46a62d58 `
  -DisplayName Ashley.Pierce
 ```
 

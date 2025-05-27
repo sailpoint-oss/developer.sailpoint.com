@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ProvisioningDetails = Initialize-PSSailpoint.BetaProvisioningDetails  -OrderedSubPhaseReferences manualWorkItemDetails
+$ProvisioningDetails = Initialize-BetaProvisioningDetails  -OrderedSubPhaseReferences manualWorkItemDetails
 ```
 
 - Convert the resource to JSON

@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountActivity = Initialize-PSSailpoint.V3AccountActivity  -Id 2c9180835d2e5168015d32f890ca1581 `
+$AccountActivity = Initialize-AccountActivity  -Id 2c9180835d2e5168015d32f890ca1581 `
  -Name 2c9180835d2e5168015d32f890ca1581 `
  -Created 2017-07-11T18:45:37.098Z `
  -Modified 2018-06-25T20:22:28.104Z `

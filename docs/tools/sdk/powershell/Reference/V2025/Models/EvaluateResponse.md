@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EvaluateResponse = Initialize-PSSailpoint.V2025EvaluateResponse  -ReassignToId 869320b6b6f34a169b6178b1a865e66f `
+$EvaluateResponse = Initialize-V2025EvaluateResponse  -ReassignToId 869320b6b6f34a169b6178b1a865e66f `
  -LookupTrail null
 ```
 

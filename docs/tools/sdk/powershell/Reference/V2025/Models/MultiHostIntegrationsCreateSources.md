@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MultiHostIntegrationsCreateSources = Initialize-PSSailpoint.V2025MultiHostIntegrationsCreateSources  -Name My Source `
+$MultiHostIntegrationsCreateSources = Initialize-V2025MultiHostIntegrationsCreateSources  -Name My Source `
  -Description This is the corporate directory. `
  -ConnectorAttributes {authType=SQLAuthentication, url=jdbc:sqlserver://178.18.41.118:1433, user=username, driverClass=com.microsoft.sqlserver.jdbc.SQLServerDriver, maxSourcesPerAggGroup=10, maxAllowedSources=300}
 ```

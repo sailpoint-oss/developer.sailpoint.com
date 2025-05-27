@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DeployResponse = Initialize-PSSailpoint.V2024DeployResponse  -JobId 07659d7d-2cce-47c0-9e49-185787ee565a `
+$DeployResponse = Initialize-V2024DeployResponse  -JobId 07659d7d-2cce-47c0-9e49-185787ee565a `
  -Status COMPLETE `
  -Type CONFIG_DEPLOY_DRAFT `
  -Message Deploy creation message `

@@ -20,10 +20,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Suspend-Report**](#cancel-report) | **POST** `/reports/{id}/cancel` | Cancel Report
-[**Get-Report**](#get-report) | **GET** `/reports/{taskResultId}` | Get Report File
-[**Get-ReportResult**](#get-report-result) | **GET** `/reports/{taskResultId}/result` | Get Report Result
-[**Start-Report**](#start-report) | **POST** `/reports/run` | Run Report
+[**Suspend-Report**](#cancel-report) | **POST** `/reports/{id}/cancel` | Cancel report
+[**Get-Report**](#get-report) | **GET** `/reports/{taskResultId}` | Get report file
+[**Get-ReportResult**](#get-report-result) | **GET** `/reports/{taskResultId}/result` | Get report result
+[**Start-Report**](#start-report) | **POST** `/reports/run` | Run report
 
 
 ## cancel-report
@@ -57,7 +57,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "a1ed223247144cc29d23c632624b4767" # String | ID of the running Report to cancel
 
-# Cancel Report
+# Cancel report
 
 try {
     Suspend-Report -Id $Id 
@@ -109,7 +109,7 @@ $FileFormat = "csv" # String | Output format of the requested report file
 $Name = "Identities Details Report" # String | preferred Report file name, by default will be used report name from task result. (optional)
 $Auditable = $true # Boolean | Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId. (optional) (default to $false)
 
-# Get Report File
+# Get report file
 
 try {
     Get-Report -TaskResultId $TaskResultId -FileFormat $FileFormat 
@@ -156,7 +156,7 @@ Code | Description  | Data Type
 $TaskResultId = "ef38f94347e94562b5bb8424a56397d8" # String | Unique identifier of the task result which handled report
 $Completed = $true # Boolean | state of task result to apply ordering when results are fetching from the DB (optional) (default to $false)
 
-# Get Report Result
+# Get report result
 
 try {
     Get-ReportResult -TaskResultId $TaskResultId 
@@ -207,7 +207,7 @@ $ReportDetails = @"{
   }
 }"@
 
-# Run Report
+# Run report
 
 try {
     $Result = ConvertFrom-JsonToReportDetails -Json $ReportDetails

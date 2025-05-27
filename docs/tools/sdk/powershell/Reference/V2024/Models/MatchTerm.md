@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MatchTerm = Initialize-PSSailpoint.V2024MatchTerm  -Name mail `
+$MatchTerm = Initialize-V2024MatchTerm  -Name mail `
  -Value 1234 Albany Dr `
  -Op eq `
  -Container true `

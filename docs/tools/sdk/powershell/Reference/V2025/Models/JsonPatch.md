@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$JsonPatch = Initialize-PSSailpoint.V2025JsonPatch  -Operations null
+$JsonPatch = Initialize-V2025JsonPatch  -Operations null
 ```
 
 - Convert the resource to JSON

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ImportEntitlementsBySourceRequest = Initialize-PSSailpoint.V2025ImportEntitlementsBySourceRequest  -CsvFile null
+$ImportEntitlementsBySourceRequest = Initialize-V2025ImportEntitlementsBySourceRequest  -CsvFile null
 ```
 
 - Convert the resource to JSON

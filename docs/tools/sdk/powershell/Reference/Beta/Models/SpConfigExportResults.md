@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SpConfigExportResults = Initialize-PSSailpoint.BetaSpConfigExportResults  -Version 1 `
+$SpConfigExportResults = Initialize-BetaSpConfigExportResults  -Version 1 `
  -Timestamp 2021-05-11T22:23:16Z `
  -Tenant sample-tenant `
  -Description Export Job 1 Test `

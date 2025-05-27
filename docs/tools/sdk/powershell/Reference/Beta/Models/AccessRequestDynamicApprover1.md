@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestDynamicApprover1 = Initialize-PSSailpoint.BetaAccessRequestDynamicApprover1  -Id 2c91808b6ef1d43e016efba0ce470906 `
+$AccessRequestDynamicApprover1 = Initialize-BetaAccessRequestDynamicApprover1  -Id 2c91808b6ef1d43e016efba0ce470906 `
  -Name Adam Adams `
  -Type IDENTITY
 ```

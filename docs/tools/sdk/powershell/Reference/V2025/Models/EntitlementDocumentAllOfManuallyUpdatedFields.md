@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementDocumentAllOfManuallyUpdatedFields = Initialize-PSSailpoint.V2025EntitlementDocumentAllOfManuallyUpdatedFields  -DESCRIPTION false `
+$EntitlementDocumentAllOfManuallyUpdatedFields = Initialize-V2025EntitlementDocumentAllOfManuallyUpdatedFields  -DESCRIPTION false `
  -DISPLAYNAME false
 ```
 

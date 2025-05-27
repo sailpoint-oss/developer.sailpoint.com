@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DeleteSource202Response = Initialize-PSSailpoint.V3DeleteSource202Response  -Type TASK_RESULT `
+$DeleteSource202Response = Initialize-DeleteSource202Response  -Type TASK_RESULT `
  -Id 2c91808779ecf55b0179f720942f181a `
  -Name null
 ```

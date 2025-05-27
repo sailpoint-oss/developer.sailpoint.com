@@ -43,7 +43,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PendingApproval = Initialize-PSSailpoint.V3PendingApproval  -Id id12345 `
+$PendingApproval = Initialize-PendingApproval  -Id id12345 `
  -AccessRequestId 2b838de9db9babcfe646d4f274ad4238 `
  -Name aName `
  -Created 2017-07-11T18:45:37.098Z `

@@ -20,11 +20,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaOauthClient**](#create-oauth-client) | **POST** `/oauth-clients` | Create OAuth Client
-[**Remove-BetaOauthClient**](#delete-oauth-client) | **DELETE** `/oauth-clients/{id}` | Delete OAuth Client
-[**Get-BetaOauthClient**](#get-oauth-client) | **GET** `/oauth-clients/{id}` | Get OAuth Client
-[**Get-BetaOauthClients**](#list-oauth-clients) | **GET** `/oauth-clients` | List OAuth Clients
-[**Update-BetaOauthClient**](#patch-oauth-client) | **PATCH** `/oauth-clients/{id}` | Patch OAuth Client
+[**New-BetaOauthClient**](#create-oauth-client) | **POST** `/oauth-clients` | Create oauth client
+[**Remove-BetaOauthClient**](#delete-oauth-client) | **DELETE** `/oauth-clients/{id}` | Delete oauth client
+[**Get-BetaOauthClient**](#get-oauth-client) | **GET** `/oauth-clients/{id}` | Get oauth client
+[**Get-BetaOauthClients**](#list-oauth-clients) | **GET** `/oauth-clients` | List oauth clients
+[**Update-BetaOauthClient**](#patch-oauth-client) | **PATCH** `/oauth-clients/{id}` | Patch oauth client
 
 
 ## create-oauth-client
@@ -74,7 +74,7 @@ $CreateOAuthClientRequest = @"{
   "claimsSupported" : false
 }"@
 
-# Create OAuth Client
+# Create oauth client
 
 try {
     $Result = ConvertFrom-JsonToCreateOAuthClientRequest -Json $CreateOAuthClientRequest
@@ -121,7 +121,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 
-# Delete OAuth Client
+# Delete oauth client
 
 try {
     Remove-BetaOauthClient -Id $Id 
@@ -167,7 +167,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 
-# Get OAuth Client
+# Get oauth client
 
 try {
     Get-BetaOauthClient -Id $Id 
@@ -212,7 +212,7 @@ Code | Description  | Data Type
 ```powershell
 $Filters = 'lastUsed le 2023-02-05T10:59:27.214Z' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
 
-# List OAuth Clients
+# List oauth clients
 
 try {
     Get-BetaOauthClients 
@@ -267,7 +267,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The OAuth client id
 }"@ # JsonPatchOperation[] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * tenant * businessName * homepageUrl * name * description * accessTokenValiditySeconds * refreshTokenValiditySeconds * redirectUris * grantTypes * accessType * enabled * strongAuthSupported * claimsSupported 
  
 
-# Patch OAuth Client
+# Patch oauth client
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

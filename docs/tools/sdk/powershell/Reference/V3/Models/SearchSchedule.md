@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SearchSchedule = Initialize-PSSailpoint.V3SearchSchedule  -SavedSearchId 554f1511-f0a1-4744-ab14-599514d3e57c `
+$SearchSchedule = Initialize-SearchSchedule  -SavedSearchId 554f1511-f0a1-4744-ab14-599514d3e57c `
  -Created 2018-06-25T20:22:28.104Z `
  -Modified 2018-06-25T20:22:28.104Z `
  -Schedule null `

@@ -18,16 +18,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-connector-customizer**](#create-connector-customizer) | **POST** `/connector-customizers` | Create Connector Customizer
+[**create-connector-customizer**](#create-connector-customizer) | **POST** `/connector-customizers` | Create connector customizer
 [**create-connector-customizer-version**](#create-connector-customizer-version) | **POST** `/connector-customizers/{id}/versions` | Creates a connector customizer version
-[**delete-connector-customizer**](#delete-connector-customizer) | **DELETE** `/connector-customizers/{id}` | Delete Connector Customizer
+[**delete-connector-customizer**](#delete-connector-customizer) | **DELETE** `/connector-customizers/{id}` | Delete connector customizer
 [**get-connector-customizer**](#get-connector-customizer) | **GET** `/connector-customizers/{id}` | Get connector customizer
-[**list-connector-customizers**](#list-connector-customizers) | **GET** `/connector-customizers` | List All Connector Customizers
-[**put-connector-customizer**](#put-connector-customizer) | **PUT** `/connector-customizers/{id}` | Update Connector Customizer
+[**list-connector-customizers**](#list-connector-customizers) | **GET** `/connector-customizers` | List all connector customizers
+[**put-connector-customizer**](#put-connector-customizer) | **PUT** `/connector-customizers/{id}` | Update connector customizer
 
 
 ## create-connector-customizer
-Create Connector Customizer
+Create connector customizer
 Create a connector customizer.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-connector-customizer)
@@ -72,7 +72,7 @@ with ApiClient(configuration) as api_client:
         }''' # ConnectorCustomizerCreateRequest | Connector customizer to create.
 
     try:
-        # Create Connector Customizer
+        # Create connector customizer
         new_connector_customizer_create_request = ConnectorCustomizerCreateRequest.from_json(connector_customizer_create_request)
         results = ConnectorCustomizersApi(api_client).create_connector_customizer(connector_customizer_create_request=new_connector_customizer_create_request)
         # Below is a request that includes all optional parameters
@@ -147,7 +147,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-connector-customizer
-Delete Connector Customizer
+Delete connector customizer
 Delete the connector customizer for the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-connector-customizer)
@@ -189,7 +189,7 @@ with ApiClient(configuration) as api_client:
     id = 'b07dc46a-1498-4de8-bfbb-259a68e70c8a' # str | ID of the connector customizer to delete. # str | ID of the connector customizer to delete.
 
     try:
-        # Delete Connector Customizer
+        # Delete connector customizer
         
         ConnectorCustomizersApi(api_client).delete_connector_customizer(id=id)
         # Below is a request that includes all optional parameters
@@ -262,7 +262,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-connector-customizers
-List All Connector Customizers
+List all connector customizers
 List all connector customizers.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-connector-customizers)
@@ -306,7 +306,7 @@ with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 
     try:
-        # List All Connector Customizers
+        # List all connector customizers
         
         results = ConnectorCustomizersApi(api_client).list_connector_customizers()
         # Below is a request that includes all optional parameters
@@ -323,7 +323,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-connector-customizer
-Update Connector Customizer
+Update connector customizer
 Update an existing connector customizer with the one provided in the request body. These fields are immutable: `id`, `name`, `type`.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/put-connector-customizer)
@@ -371,7 +371,7 @@ with ApiClient(configuration) as api_client:
         }''' # ConnectorCustomizerUpdateRequest | Connector rule with updated data. (optional)
 
     try:
-        # Update Connector Customizer
+        # Update connector customizer
         
         results = ConnectorCustomizersApi(api_client).put_connector_customizer(id=id)
         # Below is a request that includes all optional parameters

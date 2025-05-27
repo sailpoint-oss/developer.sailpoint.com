@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignTemplate = Initialize-PSSailpoint.V2025CampaignTemplate  -Id 2c9079b270a266a60170a277bb960008 `
+$CampaignTemplate = Initialize-V2025CampaignTemplate  -Id 2c9079b270a266a60170a277bb960008 `
  -Name Manager Campaign Template `
  -Description Template for the annual manager campaign. `
  -Created 2020-03-05T22:44:00.364Z `

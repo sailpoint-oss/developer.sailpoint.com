@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ResourceObjectsRequest = Initialize-PSSailpoint.V2024ResourceObjectsRequest  -ObjectType group `
+$ResourceObjectsRequest = Initialize-V2024ResourceObjectsRequest  -ObjectType group `
  -MaxCount 100
 ```
 

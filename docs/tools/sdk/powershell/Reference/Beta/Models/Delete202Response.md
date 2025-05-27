@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Delete202Response = Initialize-PSSailpoint.BetaDelete202Response  -Type TASK_RESULT `
+$Delete202Response = Initialize-BetaDelete202Response  -Type TASK_RESULT `
  -Id 2c91808779ecf55b0179f720942f181a `
  -Name null
 ```

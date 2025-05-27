@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessItemRequestedForDto = Initialize-PSSailpoint.V2025AccessItemRequestedForDto  -Type IDENTITY `
+$AccessItemRequestedForDto = Initialize-V2025AccessItemRequestedForDto  -Type IDENTITY `
  -Id 2c4180a46faadee4016fb4e018c20626 `
  -Name Robert Robinson
 ```

@@ -1,6 +1,6 @@
 post:
   operationId: deleteAccessProfilesInBulk
-  summary: Delete Access Profile(s)
+  summary: Delete access profile(s)
   tags:
     - Access Profiles
   description: >-

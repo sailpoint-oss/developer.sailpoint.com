@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaskResultDetailsMessagesInner = Initialize-PSSailpoint.V2025TaskResultDetailsMessagesInner  -Type WARN `
+$TaskResultDetailsMessagesInner = Initialize-V2025TaskResultDetailsMessagesInner  -Type WARN `
  -VarError false `
  -Warning true `
  -Key The following account(s) failed to correlate: A,B,C `

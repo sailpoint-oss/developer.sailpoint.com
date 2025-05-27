@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RecommendationRequestDto = Initialize-PSSailpoint.BetaRecommendationRequestDto  -Requests null `
+$RecommendationRequestDto = Initialize-BetaRecommendationRequestDto  -Requests null `
  -ExcludeInterpretations false `
  -IncludeTranslationMessages false `
  -IncludeDebugInformation true `

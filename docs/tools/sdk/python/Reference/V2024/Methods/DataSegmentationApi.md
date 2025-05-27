@@ -17,18 +17,18 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-data-segment**](#create-data-segment) | **POST** `/data-segments` | Create Segment
-[**delete-data-segment**](#delete-data-segment) | **DELETE** `/data-segments/{segmentId}` | Delete Segment by ID
-[**get-data-segment**](#get-data-segment) | **GET** `/data-segments/{segmentId}` | Get Segment by ID
-[**get-data-segment-identity-membership**](#get-data-segment-identity-membership) | **GET** `/data-segments/membership/{identityId}` | Get SegmentMembership by Identity ID
-[**get-data-segmentation-enabled-for-user**](#get-data-segmentation-enabled-for-user) | **GET** `/data-segments/user-enabled/{identityId}` | Is Segmentation enabled by Identity
-[**list-data-segments**](#list-data-segments) | **GET** `/data-segments` | Get Segments
-[**patch-data-segment**](#patch-data-segment) | **PATCH** `/data-segments/{segmentId}` | Update Segment
-[**publish-data-segment**](#publish-data-segment) | **POST** `/data-segments/{segmentId}` | Publish segment by ID
+[**create-data-segment**](#create-data-segment) | **POST** `/data-segments` | Create segment
+[**delete-data-segment**](#delete-data-segment) | **DELETE** `/data-segments/{segmentId}` | Delete segment by id
+[**get-data-segment**](#get-data-segment) | **GET** `/data-segments/{segmentId}` | Get segment by id
+[**get-data-segment-identity-membership**](#get-data-segment-identity-membership) | **GET** `/data-segments/membership/{identityId}` | Get segmentmembership by identity id
+[**get-data-segmentation-enabled-for-user**](#get-data-segmentation-enabled-for-user) | **GET** `/data-segments/user-enabled/{identityId}` | Is segmentation enabled by identity
+[**list-data-segments**](#list-data-segments) | **GET** `/data-segments` | Get segments
+[**patch-data-segment**](#patch-data-segment) | **PATCH** `/data-segments/{segmentId}` | Update segment
+[**publish-data-segment**](#publish-data-segment) | **POST** `/data-segments/{segmentId}` | Publish segment by id
 
 
 ## create-data-segment
-Create Segment
+Create segment
 This API creates a segment. 
 >**Note:** Segment definitions may take time to propagate to all identities.
 
@@ -71,7 +71,7 @@ with ApiClient(configuration) as api_client:
     data_segment = '''sailpoint.v2024.DataSegment()''' # DataSegment | 
 
     try:
-        # Create Segment
+        # Create segment
         new_data_segment = DataSegment.from_json(data_segment)
         results = DataSegmentationApi(api_client).create_data_segment(data_segment=new_data_segment)
         # Below is a request that includes all optional parameters
@@ -98,7 +98,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Delete Segment by ID
+Delete segment by id
 This API deletes the segment specified by the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-data-segment)
@@ -145,7 +145,7 @@ with ApiClient(configuration) as api_client:
     published = False # bool | This determines which version of the segment to delete (optional) (default to False) # bool | This determines which version of the segment to delete (optional) (default to False)
 
     try:
-        # Delete Segment by ID
+        # Delete segment by id
         
         DataSegmentationApi(api_client).delete_data_segment(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -170,7 +170,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Segment by ID
+Get segment by id
 This API returns the segment specified by the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-data-segment)
@@ -216,7 +216,7 @@ with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Get Segment by ID
+        # Get segment by id
         
         results = DataSegmentationApi(api_client).get_data_segment(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -243,7 +243,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get SegmentMembership by Identity ID
+Get segmentmembership by identity id
 This API returns the segment membership specified by the given identity ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-data-segment-identity-membership)
@@ -288,7 +288,7 @@ with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Get SegmentMembership by Identity ID
+        # Get segmentmembership by identity id
         
         results = DataSegmentationApi(api_client).get_data_segment_identity_membership(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -315,7 +315,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Is Segmentation enabled by Identity
+Is segmentation enabled by identity
 This API returns whether or not segmentation is enabled for the identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-data-segmentation-enabled-for-user)
@@ -360,7 +360,7 @@ with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Is Segmentation enabled by Identity
+        # Is segmentation enabled by identity
         
         results = DataSegmentationApi(api_client).get_data_segmentation_enabled_for_user(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -387,7 +387,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Segments
+Get segments
 This API returns the segment specified by the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-data-segments)
@@ -445,7 +445,7 @@ with ApiClient(configuration) as api_client:
     filters = 'name eq \"\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, in, sw* (optional)
 
     try:
-        # Get Segments
+        # Get segments
         
         results = DataSegmentationApi(api_client).list_data_segments(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -473,7 +473,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Update Segment
+Update segment
 Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-data-segment)
@@ -521,7 +521,7 @@ with ApiClient(configuration) as api_client:
     request_body = '''[{op=replace, path=/memberFilter, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}]''' # List[object] | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * membership * memberFilter * memberSelection * scopes * enabled 
 
     try:
-        # Update Segment
+        # Update segment
         new_request_body = RequestBody.from_json(request_body)
         results = DataSegmentationApi(api_client).patch_data_segment(id=id, x_sail_point_experimental=x_sail_point_experimental, request_body=new_request_body)
         # Below is a request that includes all optional parameters
@@ -548,7 +548,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Publish segment by ID
+Publish segment by id
 This will publish the segment so that it starts applying the segmentation to the desired users if enabled
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/publish-data-segment)
@@ -595,7 +595,7 @@ with ApiClient(configuration) as api_client:
     publish_all = True # bool | This flag decides whether you want to publish all unpublished or a list of specific segment ids (optional) (default to True) # bool | This flag decides whether you want to publish all unpublished or a list of specific segment ids (optional) (default to True)
 
     try:
-        # Publish segment by ID
+        # Publish segment by id
         new_request_body = RequestBody.from_json(request_body)
         DataSegmentationApi(api_client).publish_data_segment(x_sail_point_experimental=x_sail_point_experimental, request_body=new_request_body)
         # Below is a request that includes all optional parameters

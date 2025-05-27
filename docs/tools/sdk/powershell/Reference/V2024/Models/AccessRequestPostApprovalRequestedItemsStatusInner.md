@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestPostApprovalRequestedItemsStatusInner = Initialize-PSSailpoint.V2024AccessRequestPostApprovalRequestedItemsStatusInner  -Id 2c91808b6ef1d43e016efba0ce470904 `
+$AccessRequestPostApprovalRequestedItemsStatusInner = Initialize-V2024AccessRequestPostApprovalRequestedItemsStatusInner  -Id 2c91808b6ef1d43e016efba0ce470904 `
  -Name Engineering Access `
  -Description Access to engineering database `
  -Type ACCESS_PROFILE `

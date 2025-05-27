@@ -18,15 +18,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Compare-BetaIdentitySnapshots**](#compare-identity-snapshots) | **GET** `/historical-identities/{id}/compare` | Gets a difference of count for each access item types for the given identity between 2 snapshots
-[**Compare-BetaIdentitySnapshotsAccessType**](#compare-identity-snapshots-access-type) | **GET** `/historical-identities/{id}/compare/{accessType}` | Gets a list of differences of specific accessType for the given identity between 2 snapshots
+[**Compare-BetaIdentitySnapshotsAccessType**](#compare-identity-snapshots-access-type) | **GET** `/historical-identities/{id}/compare/{accessType}` | Gets a list of differences of specific accesstype for the given identity between 2 snapshots
 [**Get-BetaHistoricalIdentity**](#get-historical-identity) | **GET** `/historical-identities/{id}` | Get latest snapshot of identity
 [**Get-BetaHistoricalIdentityEvents**](#get-historical-identity-events) | **GET** `/historical-identities/{id}/events` | Lists all events for the given identity
 [**Get-BetaIdentitySnapshot**](#get-identity-snapshot) | **GET** `/historical-identities/{id}/snapshots/{date}` | Gets an identity snapshot at a given date
 [**Get-BetaIdentitySnapshotSummary**](#get-identity-snapshot-summary) | **GET** `/historical-identities/{id}/snapshot-summary` | Gets the summary for the event count for a specific identity
 [**Get-BetaIdentityStartDate**](#get-identity-start-date) | **GET** `/historical-identities/{id}/start-date` | Gets the start date of the identity
 [**Get-BetaHistoricalIdentities**](#list-historical-identities) | **GET** `/historical-identities` | Lists all the identities
-[**Get-BetaIdentityAccessItems**](#list-identity-access-items) | **GET** `/historical-identities/{id}/access-items` | List Access Items by Identity
-[**Get-BetaIdentitySnapshotAccessItems**](#list-identity-snapshot-access-items) | **GET** `/historical-identities/{id}/snapshots/{date}/access-items` | Get Identity Access Items Snapshot
+[**Get-BetaIdentityAccessItems**](#list-identity-access-items) | **GET** `/historical-identities/{id}/access-items` | List access items by identity
+[**Get-BetaIdentitySnapshotAccessItems**](#list-identity-snapshot-access-items) | **GET** `/historical-identities/{id}/snapshots/{date}/access-items` | Get identity access items snapshot
 [**Get-BetaIdentitySnapshots**](#list-identity-snapshots) | **GET** `/historical-identities/{id}/snapshots` | Lists all the snapshots for the identity
 
 
@@ -134,7 +134,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# Gets a list of differences of specific accessType for the given identity between 2 snapshots
+# Gets a list of differences of specific accesstype for the given identity between 2 snapshots
 
 try {
     Compare-BetaIdentitySnapshotsAccessType -Id $Id -AccessType $AccessType 
@@ -503,7 +503,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
-# List Access Items by Identity
+# List access items by identity
 
 try {
     Get-BetaIdentityAccessItems -Id $Id 
@@ -553,7 +553,7 @@ $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | Identity ID.
 $Date = "2007-03-01T13:00:00Z" # String | Specified date.
 $Type = "role" # String | Access item type. (optional)
 
-# Get Identity Access Items Snapshot
+# Get identity access items snapshot
 
 try {
     Get-BetaIdentitySnapshotAccessItems -Id $Id -Date $Date 

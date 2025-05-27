@@ -33,12 +33,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**start-predict-sod-violations**](#start-predict-sod-violations) | **POST** `/sod-violations/predict` | Predict SOD violations for identity.
-[**start-violation-check**](#start-violation-check) | **POST** `/sod-violations/check` | Check SOD violations
+[**start-predict-sod-violations**](#start-predict-sod-violations) | **POST** `/sod-violations/predict` | Predict sod violations for identity.
+[**start-violation-check**](#start-violation-check) | **POST** `/sod-violations/check` | Check sod violations
 
 
 ## start-predict-sod-violations
-Predict SOD violations for identity.
+Predict sod violations for identity.
 This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/start-predict-sod-violations)
@@ -93,7 +93,7 @@ with ApiClient(configuration) as api_client:
         }''' # IdentityWithNewAccess | 
 
     try:
-        # Predict SOD violations for identity.
+        # Predict sod violations for identity.
         new_identity_with_new_access = IdentityWithNewAccess.from_json(identity_with_new_access)
         results = SODViolationsApi(api_client).start_predict_sod_violations(identity_with_new_access=new_identity_with_new_access)
         # Below is a request that includes all optional parameters
@@ -109,7 +109,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## start-violation-check
-Check SOD violations
+Check sod violations
 This API initiates a SOD policy verification asynchronously.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/start-violation-check)
@@ -153,7 +153,7 @@ with ApiClient(configuration) as api_client:
     identity_with_new_access1 = '''{identityId=2c91808568c529c60168cca6f90c1313, accessRefs=[{type=ENTITLEMENT, id=2c918087682f9a86016839c050861ab1, name=CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local}, {type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2, name=CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local}], clientMetadata={additionalProp1=string, additionalProp2=string, additionalProp3=string}}''' # IdentityWithNewAccess1 | 
 
     try:
-        # Check SOD violations
+        # Check sod violations
         new_identity_with_new_access1 = IdentityWithNewAccess1.from_json(identity_with_new_access1)
         results = SODViolationsApi(api_client).start_violation_check(identity_with_new_access1=new_identity_with_new_access1)
         # Below is a request that includes all optional parameters

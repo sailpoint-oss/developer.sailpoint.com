@@ -22,7 +22,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create-transform**](#create-transform) | **POST** `/transforms` | Create transform
 [**delete-transform**](#delete-transform) | **DELETE** `/transforms/{id}` | Delete a transform
-[**get-transform**](#get-transform) | **GET** `/transforms/{id}` | Transform by ID
+[**get-transform**](#get-transform) | **GET** `/transforms/{id}` | Transform by id
 [**list-transforms**](#list-transforms) | **GET** `/transforms` | List transforms
 [**update-transform**](#update-transform) | **PUT** `/transforms/{id}` | Update a transform
 
@@ -148,7 +148,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-transform
-Transform by ID
+Transform by id
 This API returns the transform specified by the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-transform)
@@ -191,7 +191,7 @@ with ApiClient(configuration) as api_client:
     id = '2cd78adghjkja34jh2b1hkjhasuecd' # str | ID of the transform to retrieve # str | ID of the transform to retrieve
 
     try:
-        # Transform by ID
+        # Transform by id
         
         results = TransformsApi(api_client).get_transform(id=id)
         # Below is a request that includes all optional parameters

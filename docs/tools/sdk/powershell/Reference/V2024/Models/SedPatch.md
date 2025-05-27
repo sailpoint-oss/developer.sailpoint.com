@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SedPatch = Initialize-PSSailpoint.V2024SedPatch  -Op replace `
+$SedPatch = Initialize-V2024SedPatch  -Op replace `
  -Path status `
  -Value approved
 ```

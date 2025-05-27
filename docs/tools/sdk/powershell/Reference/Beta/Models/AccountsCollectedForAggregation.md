@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountsCollectedForAggregation = Initialize-PSSailpoint.BetaAccountsCollectedForAggregation  -Source null `
+$AccountsCollectedForAggregation = Initialize-BetaAccountsCollectedForAggregation  -Source null `
  -Status Success `
  -Started 2020-06-29T22:01:50.474Z `
  -Completed 2020-06-29T22:02:04.090Z `

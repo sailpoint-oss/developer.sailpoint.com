@@ -2,7 +2,7 @@ post:
   operationId: forwardWorkItem
   tags:
   - Work Items
-  summary: Forward a Work Item
+  summary: Forward a work item
   description: This API forwards a work item to a new owner. Either an admin, or the
     owning/current user must make this request.
   parameters:

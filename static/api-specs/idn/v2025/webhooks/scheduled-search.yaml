@@ -1,5 +1,5 @@
 post:
-  summary: Scheduled Search
+  summary: Scheduled search
   operationId: scheduledSearchEvent
   description: >-
     This event trigger fires after Identity Security Cloud (ISC) generates a report from a saved search. 

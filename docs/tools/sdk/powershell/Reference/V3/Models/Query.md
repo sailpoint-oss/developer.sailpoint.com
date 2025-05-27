@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Query = Initialize-PSSailpoint.V3Query  -Query name:a* `
+$Query = Initialize-Query  -Query name:a* `
  -Fields [firstName,lastName,email] `
  -TimeZone America/Chicago `
  -InnerHit null

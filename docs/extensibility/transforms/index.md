@@ -23,7 +23,7 @@ Transforms are configurable objects that define easy ways to manipulate attribut
 
 ```mermaid
 flowchart LR
-  id1(Input) ====> id2[Transform] ====> id3([Output])
+  id1(Input) ===> id2[Transform] ===> id3([Output])
 ```
 
 </div>
@@ -46,7 +46,7 @@ For example, a [Lower transform](./operations/lower.md) transforms any input tex
 
 ```mermaid
 flowchart LR
-  id1(Foo) ====> id2[Lower\nTransform] ====> id3(foo)
+  id1(Foo) ===> id2[Lower\nTransform] ===> id3(foo)
 ```
 
 </div>
@@ -57,7 +57,7 @@ There are other types of transforms too. For example, an [E.164 Phone transform]
 
 ```mermaid
 flowchart LR
-  id1("(512) 346-2000") ====> id2[E.164\nTransform] ====> id3(+1 5123462000)
+  id1("(512) 346-2000") ===> id2[E.164\nTransform] ===> id3(+1 5123462000)
 ```
 
 </div>
@@ -70,8 +70,8 @@ In the previous examples, each transform had a single input. Some transforms can
 
 ```mermaid
 flowchart LR
-  id1(Foo) ====> id2[Concat\nTransform] ====> id3(FooBar)
-  id4(Bar) ====> id2[Concat\nTransform]
+  id1(Foo) ===> id2[Concat\nTransform] ===> id3(FooBar)
+  id4(Bar) ===> id2[Concat\nTransform]
 ```
 
 </div>
@@ -86,8 +86,8 @@ An example of a nested transform would be using the previous [Concat transform](
 
 ```mermaid
 flowchart LR
-  id1(Foo) ====> id2[Concat\nTransform] ====> id3[Lower\nTransform] ====> id4(foobar)
-  id5(Bar) ====> id2[Concat\nTransform]
+  id1(Foo) ===> id2[Concat\nTransform] ===> id3[Lower\nTransform] ===> id4(foobar)
+  id5(Bar) ===> id2[Concat\nTransform]
 ```
 
 </div>
@@ -104,8 +104,8 @@ It is possible to extend the earlier complex nested transform example. If a Repl
 
 ```mermaid
 flowchart LR
-  id1(Foo) ====> id2[Concat\nTransform] ====> id3[Lower\nTransform] ====> id4(foobaz)
-  id5(Bar) ====> id6[Replace Transform\n Bar:Baz] ====> id2[Concat\nTransform]
+  id1(Foo) ===> id2[Concat\nTransform] ===> id3[Lower\nTransform] ===> id4(foobaz)
+  id5(Bar) ===> id6[Replace Transform\n Bar:Baz] ===> id2[Concat\nTransform]
 ```
 
 </div>

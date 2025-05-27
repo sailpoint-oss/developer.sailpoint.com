@@ -69,14 +69,14 @@ Method | HTTP request | Description
 [**New-V2025AccessModelMetadataForEntitlement**](#create-access-model-metadata-for-entitlement) | **POST** `/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add metadata to an entitlement.
 [**Remove-V2025AccessModelMetadataFromEntitlement**](#delete-access-model-metadata-from-entitlement) | **DELETE** `/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove metadata from an entitlement.
 [**Get-V2025Entitlement**](#get-entitlement) | **GET** `/entitlements/{id}` | Get an entitlement
-[**Get-V2025EntitlementRequestConfig**](#get-entitlement-request-config) | **GET** `/entitlements/{id}/entitlement-request-config` | Get Entitlement Request Config
-[**Import-V2025EntitlementsBySource**](#import-entitlements-by-source) | **POST** `/entitlements/aggregate/sources/{id}` | Aggregate Entitlements
+[**Get-V2025EntitlementRequestConfig**](#get-entitlement-request-config) | **GET** `/entitlements/{id}/entitlement-request-config` | Get entitlement request config
+[**Import-V2025EntitlementsBySource**](#import-entitlements-by-source) | **POST** `/entitlements/aggregate/sources/{id}` | Aggregate entitlements
 [**Get-V2025EntitlementChildren**](#list-entitlement-children) | **GET** `/entitlements/{id}/children` | List of entitlements children
 [**Get-V2025EntitlementParents**](#list-entitlement-parents) | **GET** `/entitlements/{id}/parents` | List of entitlements parents
 [**Get-V2025Entitlements**](#list-entitlements) | **GET** `/entitlements` | Gets a list of entitlements.
 [**Update-V2025Entitlement**](#patch-entitlement) | **PATCH** `/entitlements/{id}` | Patch an entitlement
-[**Send-V2025EntitlementRequestConfig**](#put-entitlement-request-config) | **PUT** `/entitlements/{id}/entitlement-request-config` | Replace Entitlement Request Config
-[**Reset-V2025SourceEntitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{id}` | Reset Source Entitlements
+[**Send-V2025EntitlementRequestConfig**](#put-entitlement-request-config) | **PUT** `/entitlements/{id}/entitlement-request-config` | Replace entitlement request config
+[**Reset-V2025SourceEntitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{id}` | Reset source entitlements
 [**Update-V2025EntitlementsInBulk**](#update-entitlements-in-bulk) | **POST** `/entitlements/bulk-update` | Bulk update an entitlement list
 
 
@@ -276,7 +276,7 @@ Code | Description  | Data Type
 $Id = "2c91808874ff91550175097daaec161c" # String | Entitlement Id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Entitlement Request Config
+# Get entitlement request config
 
 try {
     Get-V2025EntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -335,7 +335,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $CsvFile =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
 
-# Aggregate Entitlements
+# Aggregate entitlements
 
 try {
     Import-V2025EntitlementsBySource -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -641,13 +641,30 @@ Code | Description  | Data Type
 $Id = "2c91808a7813090a017814121e121518" # String | Entitlement ID
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $EntitlementRequestConfig = @"{
-  "requestCommentsRequired" : false,
-  "deniedCommentsRequired" : false,
-  "allowEntitlementRequest" : true,
-  "grantRequestApprovalSchemes" : "entitlementOwner, sourceOwner, manager, workgroup:2c918084660f45d6016617daa9210584"
+  "accessRequestConfig" : {
+    "denialCommentRequired" : false,
+    "approvalSchemes" : [ {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ],
+    "reauthorizationRequired" : false,
+    "requestCommentRequired" : true
+  },
+  "revocationRequestConfig" : {
+    "approvalSchemes" : [ {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ]
+  }
 }"@
 
-# Replace Entitlement Request Config
+# Replace entitlement request config
 
 try {
     $Result = ConvertFrom-JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
@@ -699,7 +716,7 @@ Code | Description  | Data Type
 $Id = "2c91808a7813090a017814121919ecca" # String | ID of source for the entitlement reset
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Reset Source Entitlements
+# Reset source entitlements
 
 try {
     Reset-V2025SourceEntitlements -Id $Id -XSailPointExperimental $XSailPointExperimental 

@@ -34,6 +34,7 @@ properties:
       * Adds ability to specify which account the user wants the access on, in case they have multiple accounts on a source
       * Allows the ability to request items with different remove dates
       * Also allows different combinations of request items and identities in the same request
+      * Only for use in GRANT_ACCESS type requests
     type: array
     items:
       $ref: './access-requests/RequestedForDtoRef.yaml'

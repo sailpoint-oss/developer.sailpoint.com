@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RecommenderCalculations = Initialize-PSSailpoint.V2024RecommenderCalculations  -IdentityId 2c91808457d8f3ab0157e3e62cb4213c `
+$RecommenderCalculations = Initialize-V2024RecommenderCalculations  -IdentityId 2c91808457d8f3ab0157e3e62cb4213c `
  -EntitlementId 2c91809050db617d0150e0bf3215385e `
  -Recommendation YES `
  -OverallWeightedScore null `

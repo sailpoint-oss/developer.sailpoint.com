@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAccountSelections = Initialize-PSSailpoint.V2024IdentityAccountSelections  -RequestedItems null `
+$IdentityAccountSelections = Initialize-V2024IdentityAccountSelections  -RequestedItems null `
  -AccountsSelectionRequired false `
  -Type null `
  -Id 70016590f2df4b879bdb1313a9e4e19e `

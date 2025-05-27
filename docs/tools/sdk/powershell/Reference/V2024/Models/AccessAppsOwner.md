@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessAppsOwner = Initialize-PSSailpoint.V2024AccessAppsOwner  -Type IDENTITY `
+$AccessAppsOwner = Initialize-V2024AccessAppsOwner  -Type IDENTITY `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name John Doe `
  -Email john.doe@sailpoint.com

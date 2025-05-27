@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ValidateFilterOutputDto = Initialize-PSSailpoint.BetaValidateFilterOutputDto  -IsValid true `
+$ValidateFilterOutputDto = Initialize-BetaValidateFilterOutputDto  -IsValid true `
  -IsValidJSONPath true `
  -IsPathExist true
 ```

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ExportOptions1 = Initialize-PSSailpoint.V2025ExportOptions1  -ExcludeTypes null `
+$ExportOptions1 = Initialize-V2025ExportOptions1  -ExcludeTypes null `
  -IncludeTypes null `
  -ObjectOptions {TRIGGER_SUBSCRIPTION={includedIds=[be9e116d-08e1-49fc-ab7f-fa585e96c9e4], includedNames=[Test 2]}}
 ```

@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$UserApp = Initialize-PSSailpoint.V2024UserApp  -Id 2c91808874ff91550175097daaec161c `
+$UserApp = Initialize-V2024UserApp  -Id 2c91808874ff91550175097daaec161c `
  -Created 2020-10-08T18:33:52.029Z `
  -Modified 2020-10-08T18:33:52.029Z `
  -HasMultipleAccounts false `

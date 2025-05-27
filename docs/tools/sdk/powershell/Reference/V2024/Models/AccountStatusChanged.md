@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountStatusChanged = Initialize-PSSailpoint.V2024AccountStatusChanged  -EventType null `
+$AccountStatusChanged = Initialize-V2024AccountStatusChanged  -EventType null `
  -IdentityId null `
  -Dt null `
  -Account null `

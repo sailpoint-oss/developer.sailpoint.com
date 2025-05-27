@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PatchPotentialRoleRequestInner = Initialize-PSSailpoint.V2024PatchPotentialRoleRequestInner  -Op replace `
+$PatchPotentialRoleRequestInner = Initialize-V2024PatchPotentialRoleRequestInner  -Op replace `
  -Path /description `
  -Value null
 ```

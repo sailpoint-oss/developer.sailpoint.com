@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountsCollectedForAggregationStats = Initialize-PSSailpoint.V2025AccountsCollectedForAggregationStats  -Scanned 200 `
+$AccountsCollectedForAggregationStats = Initialize-V2025AccountsCollectedForAggregationStats  -Scanned 200 `
  -Unchanged 190 `
  -Changed 6 `
  -Added 4 `

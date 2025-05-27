@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$E164phone = Initialize-PSSailpoint.BetaE164phone  -DefaultRegion US `
+$E164phone = Initialize-BetaE164phone  -DefaultRegion US `
  -RequiresPeriodicRefresh false `
  -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```

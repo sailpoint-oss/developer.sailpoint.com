@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PasswordChangeResponse = Initialize-PSSailpoint.BetaPasswordChangeResponse  -RequestId 089899f13a8f4da7824996191587bab9 `
+$PasswordChangeResponse = Initialize-BetaPasswordChangeResponse  -RequestId 089899f13a8f4da7824996191587bab9 `
  -State null
 ```
 

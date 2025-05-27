@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountStatusChangedAccount = Initialize-PSSailpoint.V2025AccountStatusChangedAccount  -Id null `
+$AccountStatusChangedAccount = Initialize-V2025AccountStatusChangedAccount  -Id null `
  -NativeIdentity null `
  -DisplayName null `
  -SourceId null `

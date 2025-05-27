@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetTenantContext200ResponseInner = Initialize-PSSailpoint.V2025GetTenantContext200ResponseInner  -Key null `
+$GetTenantContext200ResponseInner = Initialize-V2025GetTenantContext200ResponseInner  -Key null `
  -Value null
 ```
 

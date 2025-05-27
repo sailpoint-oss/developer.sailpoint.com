@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DataAccess = Initialize-PSSailpoint.V3DataAccess  -Policies null `
+$DataAccess = Initialize-DataAccess  -Policies null `
  -Categories null `
  -ImpactScore null
 ```

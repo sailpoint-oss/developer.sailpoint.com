@@ -18,14 +18,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancel-report**](#cancel-report) | **POST** `/reports/{id}/cancel` | Cancel Report
-[**get-report**](#get-report) | **GET** `/reports/{taskResultId}` | Get Report File
-[**get-report-result**](#get-report-result) | **GET** `/reports/{taskResultId}/result` | Get Report Result
-[**start-report**](#start-report) | **POST** `/reports/run` | Run Report
+[**cancel-report**](#cancel-report) | **POST** `/reports/{id}/cancel` | Cancel report
+[**get-report**](#get-report) | **GET** `/reports/{taskResultId}` | Get report file
+[**get-report-result**](#get-report-result) | **GET** `/reports/{taskResultId}/result` | Get report result
+[**start-report**](#start-report) | **POST** `/reports/run` | Run report
 
 
 ## cancel-report
-Cancel Report
+Cancel report
 Cancels a running report.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/cancel-report)
@@ -66,7 +66,7 @@ with ApiClient(configuration) as api_client:
     id = 'a1ed223247144cc29d23c632624b4767' # str | ID of the running Report to cancel # str | ID of the running Report to cancel
 
     try:
-        # Cancel Report
+        # Cancel report
         
         ReportsDataExtractionApi(api_client).cancel_report(id=id)
         # Below is a request that includes all optional parameters
@@ -80,7 +80,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-report
-Get Report File
+Get report file
 Gets a report in file format.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-report)
@@ -128,7 +128,7 @@ with ApiClient(configuration) as api_client:
     auditable = False # bool | Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId. (optional) (default to False) # bool | Enables auditing for current report download. Will create an audit event and sent it to the REPORT cloud-audit kafka topic.  Event will be created if there is any result present by requested taskResultId. (optional) (default to False)
 
     try:
-        # Get Report File
+        # Get report file
         
         results = ReportsDataExtractionApi(api_client).get_report(task_result_id=task_result_id, file_format=file_format)
         # Below is a request that includes all optional parameters
@@ -144,7 +144,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-report-result
-Get Report Result
+Get report result
 Get the report results for a report that was run or is running. Returns empty report result in case there are no active task definitions with used in payload task definition name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-report-result)
@@ -188,7 +188,7 @@ with ApiClient(configuration) as api_client:
     completed = False # bool | state of task result to apply ordering when results are fetching from the DB (optional) (default to False) # bool | state of task result to apply ordering when results are fetching from the DB (optional) (default to False)
 
     try:
-        # Get Report Result
+        # Get report result
         
         results = ReportsDataExtractionApi(api_client).get_report_result(task_result_id=task_result_id)
         # Below is a request that includes all optional parameters
@@ -204,7 +204,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## start-report
-Run Report
+Run report
 Use this API to run a report according to report input details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/start-report)
@@ -253,7 +253,7 @@ with ApiClient(configuration) as api_client:
         }''' # ReportDetails | 
 
     try:
-        # Run Report
+        # Run report
         new_report_details = ReportDetails.from_json(report_details)
         results = ReportsDataExtractionApi(api_client).start_report(report_details=new_report_details)
         # Below is a request that includes all optional parameters

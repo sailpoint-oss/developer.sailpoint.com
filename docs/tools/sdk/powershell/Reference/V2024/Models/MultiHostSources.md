@@ -52,7 +52,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MultiHostSources = Initialize-PSSailpoint.V2024MultiHostSources  -Id 2c91808568c529c60168cca6f90c1324 `
+$MultiHostSources = Initialize-V2024MultiHostSources  -Id 2c91808568c529c60168cca6f90c1324 `
  -Name My Source `
  -Description This is the Source. `
  -Owner null `

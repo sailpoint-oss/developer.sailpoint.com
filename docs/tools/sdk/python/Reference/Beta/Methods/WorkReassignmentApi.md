@@ -25,19 +25,19 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-reassignment-configuration**](#create-reassignment-configuration) | **POST** `/reassignment-configurations` | Create a Reassignment Configuration
-[**delete-reassignment-configuration**](#delete-reassignment-configuration) | **DELETE** `/reassignment-configurations/{identityId}/{configType}` | Delete Reassignment Configuration
-[**get-evaluate-reassignment-configuration**](#get-evaluate-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}/evaluate/{configType}` | Evaluate Reassignment Configuration
-[**get-reassignment-config-types**](#get-reassignment-config-types) | **GET** `/reassignment-configurations/types` | List Reassignment Config Types
-[**get-reassignment-configuration**](#get-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}` | Get Reassignment Configuration
-[**get-tenant-config-configuration**](#get-tenant-config-configuration) | **GET** `/reassignment-configurations/tenant-config` | Get Tenant-wide Reassignment Configuration settings
-[**list-reassignment-configurations**](#list-reassignment-configurations) | **GET** `/reassignment-configurations` | List Reassignment Configurations
-[**put-reassignment-config**](#put-reassignment-config) | **PUT** `/reassignment-configurations/{identityId}` | Update Reassignment Configuration
-[**put-tenant-configuration**](#put-tenant-configuration) | **PUT** `/reassignment-configurations/tenant-config` | Update Tenant-wide Reassignment Configuration settings
+[**create-reassignment-configuration**](#create-reassignment-configuration) | **POST** `/reassignment-configurations` | Create a reassignment configuration
+[**delete-reassignment-configuration**](#delete-reassignment-configuration) | **DELETE** `/reassignment-configurations/{identityId}/{configType}` | Delete reassignment configuration
+[**get-evaluate-reassignment-configuration**](#get-evaluate-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}/evaluate/{configType}` | Evaluate reassignment configuration
+[**get-reassignment-config-types**](#get-reassignment-config-types) | **GET** `/reassignment-configurations/types` | List reassignment config types
+[**get-reassignment-configuration**](#get-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}` | Get reassignment configuration
+[**get-tenant-config-configuration**](#get-tenant-config-configuration) | **GET** `/reassignment-configurations/tenant-config` | Get tenant-wide reassignment configuration settings
+[**list-reassignment-configurations**](#list-reassignment-configurations) | **GET** `/reassignment-configurations` | List reassignment configurations
+[**put-reassignment-config**](#put-reassignment-config) | **PUT** `/reassignment-configurations/{identityId}` | Update reassignment configuration
+[**put-tenant-configuration**](#put-tenant-configuration) | **PUT** `/reassignment-configurations/tenant-config` | Update tenant-wide reassignment configuration settings
 
 
 ## create-reassignment-configuration
-Create a Reassignment Configuration
+Create a reassignment configuration
 Creates a new Reassignment Configuration for the specified identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-reassignment-configuration)
@@ -86,7 +86,7 @@ with ApiClient(configuration) as api_client:
         }''' # ConfigurationItemRequest | 
 
     try:
-        # Create a Reassignment Configuration
+        # Create a reassignment configuration
         new_configuration_item_request = ConfigurationItemRequest.from_json(configuration_item_request)
         results = WorkReassignmentApi(api_client).create_reassignment_configuration(configuration_item_request=new_configuration_item_request)
         # Below is a request that includes all optional parameters
@@ -102,7 +102,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-reassignment-configuration
-Delete Reassignment Configuration
+Delete reassignment configuration
 Deletes a single reassignment configuration for the specified identity
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-reassignment-configuration)
@@ -146,7 +146,7 @@ with ApiClient(configuration) as api_client:
     config_type = sailpoint.beta.ConfigTypeEnum() # ConfigTypeEnum |  # ConfigTypeEnum | 
 
     try:
-        # Delete Reassignment Configuration
+        # Delete reassignment configuration
         
         WorkReassignmentApi(api_client).delete_reassignment_configuration(identity_id=identity_id, config_type=config_type)
         # Below is a request that includes all optional parameters
@@ -160,7 +160,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-evaluate-reassignment-configuration
-Evaluate Reassignment Configuration
+Evaluate reassignment configuration
 Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-evaluate-reassignment-configuration)
@@ -207,7 +207,7 @@ with ApiClient(configuration) as api_client:
     exclusion_filters = '''['SELF_REVIEW_DELEGATION']''' # List[str] | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
 
     try:
-        # Evaluate Reassignment Configuration
+        # Evaluate reassignment configuration
         
         results = WorkReassignmentApi(api_client).get_evaluate_reassignment_configuration(identity_id=identity_id, config_type=config_type)
         # Below is a request that includes all optional parameters
@@ -224,7 +224,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-reassignment-config-types
-List Reassignment Config Types
+List reassignment config types
 Gets a collection of types which are available in the Reassignment Configuration UI.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-reassignment-config-types)
@@ -262,7 +262,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # List Reassignment Config Types
+        # List reassignment config types
         
         results = WorkReassignmentApi(api_client).get_reassignment_config_types()
         # Below is a request that includes all optional parameters
@@ -279,7 +279,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-reassignment-configuration
-Get Reassignment Configuration
+Get reassignment configuration
 Gets the Reassignment Configuration for an identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-reassignment-configuration)
@@ -322,7 +322,7 @@ with ApiClient(configuration) as api_client:
     identity_id = '2c91808781a71ddb0181b9090b5c504f' # str | unique identity id # str | unique identity id
 
     try:
-        # Get Reassignment Configuration
+        # Get reassignment configuration
         
         results = WorkReassignmentApi(api_client).get_reassignment_configuration(identity_id=identity_id)
         # Below is a request that includes all optional parameters
@@ -338,7 +338,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-tenant-config-configuration
-Get Tenant-wide Reassignment Configuration settings
+Get tenant-wide reassignment configuration settings
 Gets the global Reassignment Configuration settings for the requestor's tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-tenant-config-configuration)
@@ -377,7 +377,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # Get Tenant-wide Reassignment Configuration settings
+        # Get tenant-wide reassignment configuration settings
         
         results = WorkReassignmentApi(api_client).get_tenant_config_configuration()
         # Below is a request that includes all optional parameters
@@ -393,7 +393,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-reassignment-configurations
-List Reassignment Configurations
+List reassignment configurations
 Gets all Reassignment configuration for the current org.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-reassignment-configurations)
@@ -438,7 +438,7 @@ with ApiClient(configuration) as api_client:
     offset = 10 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
 
     try:
-        # List Reassignment Configurations
+        # List reassignment configurations
         
         results = WorkReassignmentApi(api_client).list_reassignment_configurations()
         # Below is a request that includes all optional parameters
@@ -455,7 +455,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-reassignment-config
-Update Reassignment Configuration
+Update reassignment configuration
 Replaces existing Reassignment configuration for an identity with the newly provided configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-reassignment-config)
@@ -506,7 +506,7 @@ with ApiClient(configuration) as api_client:
         }''' # ConfigurationItemRequest | 
 
     try:
-        # Update Reassignment Configuration
+        # Update reassignment configuration
         new_configuration_item_request = ConfigurationItemRequest.from_json(configuration_item_request)
         results = WorkReassignmentApi(api_client).put_reassignment_config(identity_id=identity_id, configuration_item_request=new_configuration_item_request)
         # Below is a request that includes all optional parameters
@@ -522,7 +522,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-tenant-configuration
-Update Tenant-wide Reassignment Configuration settings
+Update tenant-wide reassignment configuration settings
 Replaces existing Tenant-wide Reassignment Configuration settings with the newly provided settings.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-tenant-configuration)
@@ -569,7 +569,7 @@ with ApiClient(configuration) as api_client:
         }''' # TenantConfigurationRequest | 
 
     try:
-        # Update Tenant-wide Reassignment Configuration settings
+        # Update tenant-wide reassignment configuration settings
         new_tenant_configuration_request = TenantConfigurationRequest.from_json(tenant_configuration_request)
         results = WorkReassignmentApi(api_client).put_tenant_configuration(tenant_configuration_request=new_tenant_configuration_request)
         # Below is a request that includes all optional parameters

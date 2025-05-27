@@ -45,7 +45,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CompletedApproval = Initialize-PSSailpoint.BetaCompletedApproval  -Id 2c938083633d259901633d25c68c00fa `
+$CompletedApproval = Initialize-BetaCompletedApproval  -Id 2c938083633d259901633d25c68c00fa `
  -Name Approval Name `
  -Created 2017-07-11T18:45:37.098Z `
  -Modified 2018-07-25T20:22:28.104Z `

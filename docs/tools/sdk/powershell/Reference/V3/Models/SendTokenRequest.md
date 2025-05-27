@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SendTokenRequest = Initialize-PSSailpoint.V3SendTokenRequest  -UserAlias will.albin `
+$SendTokenRequest = Initialize-SendTokenRequest  -UserAlias will.albin `
  -DeliveryType EMAIL_WORK
 ```
 

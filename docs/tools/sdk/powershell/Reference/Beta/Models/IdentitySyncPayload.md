@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentitySyncPayload = Initialize-PSSailpoint.BetaIdentitySyncPayload  -Type SYNCHRONIZE_IDENTITY_ATTRIBUTES `
+$IdentitySyncPayload = Initialize-BetaIdentitySyncPayload  -Type SYNCHRONIZE_IDENTITY_ATTRIBUTES `
  -DataJson {"identityId":"2c918083746f642c01746f990884012a"}
 ```
 

@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CertificationSignedOffCertification = Initialize-PSSailpoint.BetaCertificationSignedOffCertification  -Id 2c91808576f886190176f88caf0d0067 `
+$CertificationSignedOffCertification = Initialize-BetaCertificationSignedOffCertification  -Id 2c91808576f886190176f88caf0d0067 `
  -Name Manager Access Review for Alice Baker `
  -Created 2020-02-16T03:04:45.815Z `
  -Modified 2020-02-16T03:06:45.815Z `

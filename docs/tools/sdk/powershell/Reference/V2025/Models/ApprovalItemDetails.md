@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalItemDetails = Initialize-PSSailpoint.V2025ApprovalItemDetails  -Id 2c9180835d2e5168015d32f890ca1581 `
+$ApprovalItemDetails = Initialize-V2025ApprovalItemDetails  -Id 2c9180835d2e5168015d32f890ca1581 `
  -Account john.smith `
  -Application Active Directory `
  -Name emailAddress `

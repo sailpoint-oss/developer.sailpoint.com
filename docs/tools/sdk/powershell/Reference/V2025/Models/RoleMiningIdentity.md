@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningIdentity = Initialize-PSSailpoint.V2025RoleMiningIdentity  -Id 2c9180877212632a017228d5934525e6 `
+$RoleMiningIdentity = Initialize-V2025RoleMiningIdentity  -Id 2c9180877212632a017228d5934525e6 `
  -Name Allene Abernathy-Welch `
  -Attributes {jobTitle=SQL Developer, department=IT, location=NYC, firstName=Allene}
 ```

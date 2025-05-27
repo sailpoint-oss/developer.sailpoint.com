@@ -2,7 +2,7 @@ post:
   operationId: makeIdentityDecision
   tags:
     - Certifications
-  summary: Decide on a Certification Item
+  summary: Decide on a certification item
   security:
     - userAuth: []
   x-sailpoint-userLevels:

@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$UserAppOwner = Initialize-PSSailpoint.BetaUserAppOwner  -Id 2c9180827ca885d7017ca8ce28a000eb `
+$UserAppOwner = Initialize-BetaUserAppOwner  -Id 2c9180827ca885d7017ca8ce28a000eb `
  -Type IDENTITY `
  -Name John `
  -Alias John.Doe

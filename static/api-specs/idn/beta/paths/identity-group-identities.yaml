@@ -1,6 +1,6 @@
 get:
   operationId: getIdentities
-  summary: Identities in an Identity Group
+  summary: Identities in an identity group
   tags:
     - IAI Identity Groups
   description: >-

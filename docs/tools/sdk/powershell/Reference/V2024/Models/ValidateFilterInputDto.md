@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ValidateFilterInputDto = Initialize-PSSailpoint.V2024ValidateFilterInputDto  -VarInput {identityId=201327fda1c44704ac01181e963d463c} `
+$ValidateFilterInputDto = Initialize-V2024ValidateFilterInputDto  -VarInput {identityId=201327fda1c44704ac01181e963d463c} `
  -VarFilter $[?($.identityId == "201327fda1c44704ac01181e963d463c")]
 ```
 

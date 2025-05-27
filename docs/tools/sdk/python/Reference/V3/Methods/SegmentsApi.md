@@ -32,15 +32,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-segment**](#create-segment) | **POST** `/segments` | Create Segment
-[**delete-segment**](#delete-segment) | **DELETE** `/segments/{id}` | Delete Segment by ID
-[**get-segment**](#get-segment) | **GET** `/segments/{id}` | Get Segment by ID
-[**list-segments**](#list-segments) | **GET** `/segments` | List Segments
-[**patch-segment**](#patch-segment) | **PATCH** `/segments/{id}` | Update Segment
+[**create-segment**](#create-segment) | **POST** `/segments` | Create segment
+[**delete-segment**](#delete-segment) | **DELETE** `/segments/{id}` | Delete segment by id
+[**get-segment**](#get-segment) | **GET** `/segments/{id}` | Get segment by id
+[**list-segments**](#list-segments) | **GET** `/segments` | List segments
+[**patch-segment**](#patch-segment) | **PATCH** `/segments/{id}` | Update segment
 
 
 ## create-segment
-Create Segment
+Create segment
 This API creates a segment. 
 >**Note:** Segment definitions may take time to propagate to all identities.
 
@@ -106,7 +106,7 @@ with ApiClient(configuration) as api_client:
         }''' # Segment | 
 
     try:
-        # Create Segment
+        # Create segment
         new_segment = Segment.from_json(segment)
         results = SegmentsApi(api_client).create_segment(segment=new_segment)
         # Below is a request that includes all optional parameters
@@ -122,7 +122,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-segment
-Delete Segment by ID
+Delete segment by id
 This API deletes the segment specified by the given ID.
 >**Note:** that segment deletion may take some time to become effective.    
 
@@ -165,7 +165,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The segment ID to delete. # str | The segment ID to delete.
 
     try:
-        # Delete Segment by ID
+        # Delete segment by id
         
         SegmentsApi(api_client).delete_segment(id=id)
         # Below is a request that includes all optional parameters
@@ -179,7 +179,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-segment
-Get Segment by ID
+Get segment by id
 This API returns the segment specified by the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-segment)
@@ -222,7 +222,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The segment ID to retrieve. # str | The segment ID to retrieve.
 
     try:
-        # Get Segment by ID
+        # Get segment by id
         
         results = SegmentsApi(api_client).get_segment(id=id)
         # Below is a request that includes all optional parameters
@@ -238,7 +238,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-segments
-List Segments
+List segments
 This API returns a list of all segments. 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-segments)
@@ -284,7 +284,7 @@ with ApiClient(configuration) as api_client:
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
     try:
-        # List Segments
+        # List segments
         
         results = SegmentsApi(api_client).list_segments()
         # Below is a request that includes all optional parameters
@@ -301,7 +301,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-segment
-Update Segment
+Update segment
 Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 >**Note:** Changes to a segment may take some time to propagate to all identities.
 
@@ -347,7 +347,7 @@ with ApiClient(configuration) as api_client:
     request_body = '''[{op=replace, path=/visibilityCriteria, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}]''' # List[object] | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
 
     try:
-        # Update Segment
+        # Update segment
         new_request_body = RequestBody.from_json(request_body)
         results = SegmentsApi(api_client).patch_segment(id=id, request_body=new_request_body)
         # Below is a request that includes all optional parameters

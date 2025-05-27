@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Schedule1 = Initialize-PSSailpoint.BetaSchedule1  -Type null `
+$Schedule1 = Initialize-BetaSchedule1  -Type null `
  -Months null `
  -Days null `
  -Hours null `

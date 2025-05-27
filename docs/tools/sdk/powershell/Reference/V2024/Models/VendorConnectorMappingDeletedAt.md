@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$VendorConnectorMappingDeletedAt = Initialize-PSSailpoint.V2024VendorConnectorMappingDeletedAt  -Time 0001-01-01T00:00Z `
+$VendorConnectorMappingDeletedAt = Initialize-V2024VendorConnectorMappingDeletedAt  -Time 0001-01-01T00:00Z `
  -Valid false
 ```
 

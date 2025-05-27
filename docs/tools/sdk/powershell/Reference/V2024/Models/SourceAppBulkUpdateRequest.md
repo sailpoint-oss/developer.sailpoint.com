@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceAppBulkUpdateRequest = Initialize-PSSailpoint.V2024SourceAppBulkUpdateRequest  -AppIds [2c91808a7624751a01762f19d665220d, 2c91808a7624751a01762f19d67c220e, 2c91808a7624751a01762f19d692220f] `
+$SourceAppBulkUpdateRequest = Initialize-V2024SourceAppBulkUpdateRequest  -AppIds [2c91808a7624751a01762f19d665220d, 2c91808a7624751a01762f19d67c220e, 2c91808a7624751a01762f19d692220f] `
  -JsonPatch [{op=replace, path=/enabled, value=false}, {op=replace, path=/matchAllAccounts, value=false}]
 ```
 

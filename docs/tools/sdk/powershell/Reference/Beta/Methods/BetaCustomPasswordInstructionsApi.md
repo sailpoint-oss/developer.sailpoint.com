@@ -28,9 +28,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaCustomPasswordInstructions**](#create-custom-password-instructions) | **POST** `/custom-password-instructions` | Create Custom Password Instructions
-[**Remove-BetaCustomPasswordInstructions**](#delete-custom-password-instructions) | **DELETE** `/custom-password-instructions/{pageId}` | Delete Custom Password Instructions by page ID
-[**Get-BetaCustomPasswordInstructions**](#get-custom-password-instructions) | **GET** `/custom-password-instructions/{pageId}` | Get Custom Password Instructions by Page ID
+[**New-BetaCustomPasswordInstructions**](#create-custom-password-instructions) | **POST** `/custom-password-instructions` | Create custom password instructions
+[**Remove-BetaCustomPasswordInstructions**](#delete-custom-password-instructions) | **DELETE** `/custom-password-instructions/{pageId}` | Delete custom password instructions by page id
+[**Get-BetaCustomPasswordInstructions**](#get-custom-password-instructions) | **GET** `/custom-password-instructions/{pageId}` | Get custom password instructions by page id
 
 
 ## create-custom-password-instructions
@@ -66,7 +66,7 @@ $CustomPasswordInstruction = @"{
   "locale" : "en"
 }"@
 
-# Create Custom Password Instructions
+# Create custom password instructions
 
 try {
     $Result = ConvertFrom-JsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
@@ -113,7 +113,7 @@ Code | Description  | Data Type
 $PageId = "change-password:enter-password" # String | The page ID of custom password instructions to delete.
 $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 language tag. The default value is \""default\"". (optional)
 
-# Delete Custom Password Instructions by page ID
+# Delete custom password instructions by page id
 
 try {
     Remove-BetaCustomPasswordInstructions -PageId $PageId 
@@ -159,7 +159,7 @@ Code | Description  | Data Type
 $PageId = "change-password:enter-password" # String | The page ID of custom password instructions to query.
 $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 language tag. The default value is \""default\"". (optional)
 
-# Get Custom Password Instructions by Page ID
+# Get custom password instructions by page id
 
 try {
     Get-BetaCustomPasswordInstructions -PageId $PageId 

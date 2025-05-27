@@ -27,10 +27,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaAccessModelMetadataAttribute**](#get-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes/{key}` | Get Access Model Metadata Attribute
-[**Get-BetaAccessModelMetadataAttributeValue**](#get-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values/{value}` | Get Access Model Metadata Value
-[**Get-BetaAccessModelMetadataAttribute**](#list-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes` | List Access Model Metadata Attributes
-[**Get-BetaAccessModelMetadataAttributeValue**](#list-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values` | List Access Model Metadata Values
+[**Get-BetaAccessModelMetadataAttribute**](#get-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes/{key}` | Get access model metadata attribute
+[**Get-BetaAccessModelMetadataAttributeValue**](#get-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values/{value}` | Get access model metadata value
+[**Get-BetaAccessModelMetadataAttribute**](#list-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes` | List access model metadata attributes
+[**Get-BetaAccessModelMetadataAttributeValue**](#list-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values` | List access model metadata values
 
 
 ## get-access-model-metadata-attribute
@@ -64,7 +64,7 @@ Code | Description  | Data Type
 ```powershell
 $Key = "iscPrivacy" # String | Technical name of the Attribute.
 
-# Get Access Model Metadata Attribute
+# Get access model metadata attribute
 
 try {
     Get-BetaAccessModelMetadataAttribute -Key $Key 
@@ -111,7 +111,7 @@ Code | Description  | Data Type
 $Key = "iscPrivacy" # String | Technical name of the Attribute.
 $Value = "public" # String | Technical name of the Attribute value.
 
-# Get Access Model Metadata Value
+# Get access model metadata value
 
 try {
     Get-BetaAccessModelMetadataAttributeValue -Key $Key -Value $Value 
@@ -156,7 +156,7 @@ Code | Description  | Data Type
 ```powershell
 $Filters = 'name eq "Privacy"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional)
 
-# List Access Model Metadata Attributes
+# List access model metadata attributes
 
 try {
     Get-BetaAccessModelMetadataAttribute 
@@ -201,7 +201,7 @@ Code | Description  | Data Type
 ```powershell
 $Key = "iscPrivacy" # String | Technical name of the Attribute.
 
-# List Access Model Metadata Values
+# List access model metadata values
 
 try {
     Get-BetaAccessModelMetadataAttributeValue -Key $Key 

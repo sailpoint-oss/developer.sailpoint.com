@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityPreviewResponse = Initialize-PSSailpoint.BetaIdentityPreviewResponse  -Identity null `
+$IdentityPreviewResponse = Initialize-BetaIdentityPreviewResponse  -Identity null `
  -PreviewAttributes null
 ```
 

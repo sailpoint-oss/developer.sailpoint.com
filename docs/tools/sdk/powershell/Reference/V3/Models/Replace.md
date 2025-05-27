@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Replace = Initialize-PSSailpoint.V3Replace  -Regex [^a-zA-Z] `
+$Replace = Initialize-Replace  -Regex [^a-zA-Z] `
  -Replacement   `
  -RequiresPeriodicRefresh false `
  -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}

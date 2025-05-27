@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$License = Initialize-PSSailpoint.BetaLicense  -LicenseId idn:access-request `
+$License = Initialize-BetaLicense  -LicenseId idn:access-request `
  -LegacyFeatureName ACCESS_REQUEST
 ```
 

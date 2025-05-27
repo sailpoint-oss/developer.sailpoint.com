@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Field = Initialize-PSSailpoint.BetaField  -Name Field1 `
+$Field = Initialize-BetaField  -Name Field1 `
  -DisplayName Field 1 `
  -DisplayType checkbox `
  -Required null `

@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$StatusResponse = Initialize-PSSailpoint.V2025StatusResponse  -Id 2c91808568c529c60168cca6f90c1313 `
+$StatusResponse = Initialize-V2025StatusResponse  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name ODS-AD-Test [source-999999] `
  -Status SUCCESS `
  -ElapsedMillis 1000 `

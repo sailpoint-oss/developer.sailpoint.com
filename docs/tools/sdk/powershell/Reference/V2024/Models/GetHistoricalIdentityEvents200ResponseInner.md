@@ -36,7 +36,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetHistoricalIdentityEvents200ResponseInner = Initialize-PSSailpoint.V2024GetHistoricalIdentityEvents200ResponseInner  -AccessItem null `
+$GetHistoricalIdentityEvents200ResponseInner = Initialize-V2024GetHistoricalIdentityEvents200ResponseInner  -AccessItem null `
  -IdentityId null `
  -EventType null `
  -Dt null `

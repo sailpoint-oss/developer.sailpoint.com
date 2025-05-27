@@ -29,23 +29,26 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**approve-approval-item**](#approve-approval-item) | **POST** `/work-items/{id}/approve/{approvalItemId}` | Approve an Approval Item
-[**approve-approval-items-in-bulk**](#approve-approval-items-in-bulk) | **POST** `/work-items/bulk-approve/{id}` | Bulk approve Approval Items
-[**complete-work-item**](#complete-work-item) | **POST** `/work-items/{id}` | Complete a Work Item
-[**forward-work-item**](#forward-work-item) | **POST** `/work-items/{id}/forward` | Forward a Work Item
-[**get-completed-work-items**](#get-completed-work-items) | **GET** `/work-items/completed` | Completed Work Items
-[**get-count-completed-work-items**](#get-count-completed-work-items) | **GET** `/work-items/completed/count` | Count Completed Work Items
-[**get-count-work-items**](#get-count-work-items) | **GET** `/work-items/count` | Count Work Items
-[**get-work-item**](#get-work-item) | **GET** `/work-items/{id}` | Get a Work Item
-[**get-work-items-summary**](#get-work-items-summary) | **GET** `/work-items/summary` | Work Items Summary
-[**list-work-items**](#list-work-items) | **GET** `/work-items` | List Work Items
-[**reject-approval-item**](#reject-approval-item) | **POST** `/work-items/{id}/reject/{approvalItemId}` | Reject an Approval Item
-[**reject-approval-items-in-bulk**](#reject-approval-items-in-bulk) | **POST** `/work-items/bulk-reject/{id}` | Bulk reject Approval Items
-[**submit-account-selection**](#submit-account-selection) | **POST** `/work-items/{id}/submit-account-selection` | Submit Account Selections
+[**approve-approval-item**](#approve-approval-item) | **POST** `/work-items/{id}/approve/{approvalItemId}` | Approve an approval item
+[**approve-approval-items-in-bulk**](#approve-approval-items-in-bulk) | **POST** `/work-items/bulk-approve/{id}` | Bulk approve approval items
+[**complete-work-item**](#complete-work-item) | **POST** `/work-items/{id}` | Complete a work item
+[**get-completed-work-items**](#get-completed-work-items) | **GET** `/work-items/completed` | Completed work items
+[**get-count-completed-work-items**](#get-count-completed-work-items) | **GET** `/work-items/completed/count` | Count completed work items
+[**get-count-work-items**](#get-count-work-items) | **GET** `/work-items/count` | Count work items
+[**get-work-item**](#get-work-item) | **GET** `/work-items/{id}` | Get a work item
+[**get-work-items-summary**](#get-work-items-summary) | **GET** `/work-items/summary` | Work items summary
+[**list-work-items**](#list-work-items) | **GET** `/work-items` | List work items
+[**reject-approval-item**](#reject-approval-item) | **POST** `/work-items/{id}/reject/{approvalItemId}` | Reject an approval item
+[**reject-approval-items-in-bulk**](#reject-approval-items-in-bulk) | **POST** `/work-items/bulk-reject/{id}` | Bulk reject approval items
+[**submit-account-selection**](#submit-account-selection) | **POST** `/work-items/{id}/submit-account-selection` | Submit account selections
+[**submit-forward-work-item**](#submit-forward-work-item) | **POST** `/work-items/{id}/forward` | Forward a work item
 
 
 ## approve-approval-item
-Approve an Approval Item
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Approve an approval item
 This API approves an Approval Item. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/approve-approval-item)
@@ -64,9 +67,12 @@ Path   | approval_item_id | **str** | True  | The ID of the approval item.
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
 200 | A work items details object. | WorkItems |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -87,7 +93,7 @@ with ApiClient(configuration) as api_client:
     approval_item_id = '1211bcaa32112bcef6122adb21cef1ac' # str | The ID of the approval item. # str | The ID of the approval item.
 
     try:
-        # Approve an Approval Item
+        # Approve an approval item
         
         results = WorkItemsApi(api_client).approve_approval_item(id=id, approval_item_id=approval_item_id)
         # Below is a request that includes all optional parameters
@@ -103,7 +109,10 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## approve-approval-items-in-bulk
-Bulk approve Approval Items
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Bulk approve approval items
 This API bulk approves Approval Items. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/approve-approval-items-in-bulk)
@@ -121,9 +130,12 @@ Path   | id | **str** | True  | The ID of the work item
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
 200 | A work items details object. | WorkItems |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
 ### HTTP request headers
  - **Content-Type**: Not defined
@@ -143,7 +155,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
 
     try:
-        # Bulk approve Approval Items
+        # Bulk approve approval items
         
         results = WorkItemsApi(api_client).approve_approval_items_in_bulk(id=id)
         # Below is a request that includes all optional parameters
@@ -159,7 +171,10 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## complete-work-item
-Complete a Work Item
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Complete a work item
 This API completes a work item. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/complete-work-item)
@@ -204,7 +219,7 @@ with ApiClient(configuration) as api_client:
     body = 'body_example' # str | Body is the request payload to create form definition request (optional) # str | Body is the request payload to create form definition request (optional)
 
     try:
-        # Complete a Work Item
+        # Complete a work item
         
         results = WorkItemsApi(api_client).complete_work_item(id=id)
         # Below is a request that includes all optional parameters
@@ -219,11 +234,596 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) 
 
-## forward-work-item
-Forward a Work Item
+## get-completed-work-items
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Completed work items
+This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-completed-work-items)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | owner_id | **str** |   (optional) | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request.
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+### Return type
+[**List[WorkItems]**](../models/work-items)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of completed work items. | List[WorkItems] |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
+from sailpoint.beta.models.work_items import WorkItems
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    owner_id = '2c91808571bcfcf80171c23e4b4221fc' # str | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional) # str | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional)
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
+
+    try:
+        # Completed work items
+        
+        results = WorkItemsApi(api_client).get_completed_work_items()
+        # Below is a request that includes all optional parameters
+        # results = WorkItemsApi(api_client).get_completed_work_items(owner_id, limit, offset, count)
+        print("The response of WorkItemsApi->get_completed_work_items:\n")
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkItemsApi->get_completed_work_items: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## get-count-completed-work-items
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Count completed work items
+This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-count-completed-work-items)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | owner_id | **str** |   (optional) | ID of the work item owner.
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+### Return type
+[**List[WorkItemsCount]**](../models/work-items-count)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of work items | List[WorkItemsCount] |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
+from sailpoint.beta.models.work_items_count import WorkItemsCount
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    owner_id = '2c91808571bcfcf80171c23e4b4221fc' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+
+    try:
+        # Count completed work items
+        
+        results = WorkItemsApi(api_client).get_count_completed_work_items()
+        # Below is a request that includes all optional parameters
+        # results = WorkItemsApi(api_client).get_count_completed_work_items(owner_id, limit, offset)
+        print("The response of WorkItemsApi->get_count_completed_work_items:\n")
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkItemsApi->get_count_completed_work_items: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## get-count-work-items
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Count work items
+This gets a count of work items belonging to either the specified user(admin required), or the current user.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-count-work-items)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | owner_id | **str** |   (optional) | ID of the work item owner.
+
+### Return type
+[**WorkItemsCount**](../models/work-items-count)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of work items | WorkItemsCount |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
+from sailpoint.beta.models.work_items_count import WorkItemsCount
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    owner_id = '2c91808571bcfcf80171c23e4b4221fc' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
+
+    try:
+        # Count work items
+        
+        results = WorkItemsApi(api_client).get_count_work_items()
+        # Below is a request that includes all optional parameters
+        # results = WorkItemsApi(api_client).get_count_work_items(owner_id)
+        print("The response of WorkItemsApi->get_count_work_items:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkItemsApi->get_count_work_items: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## get-work-item
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Get a work item
+This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-work-item)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | ID of the work item.
+  Query | owner_id | **str** |   (optional) | ID of the work item owner.
+
+### Return type
+**object**
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The work item with the given ID. | object |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    id = '2c9180835d191a86015d28455b4a2329' # str | ID of the work item. # str | ID of the work item.
+    owner_id = '2c9180835d191a86015d28455b4a2329' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
+
+    try:
+        # Get a work item
+        
+        results = WorkItemsApi(api_client).get_work_item(id=id)
+        # Below is a request that includes all optional parameters
+        # results = WorkItemsApi(api_client).get_work_item(id, owner_id)
+        print("The response of WorkItemsApi->get_work_item:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkItemsApi->get_work_item: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## get-work-items-summary
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Work items summary
+This gets a summary of work items belonging to either the specified user(admin required), or the current user.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-work-items-summary)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | owner_id | **str** |   (optional) | ID of the work item owner.
+
+### Return type
+[**WorkItemsSummary**](../models/work-items-summary)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of work items | WorkItemsSummary |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
+from sailpoint.beta.models.work_items_summary import WorkItemsSummary
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    owner_id = 'ef38f94347e94562b5bb8424a56397d8' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
+
+    try:
+        # Work items summary
+        
+        results = WorkItemsApi(api_client).get_work_items_summary()
+        # Below is a request that includes all optional parameters
+        # results = WorkItemsApi(api_client).get_work_items_summary(owner_id)
+        print("The response of WorkItemsApi->get_work_items_summary:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkItemsApi->get_work_items_summary: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## list-work-items
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+List work items
+This gets a collection of work items belonging to either the specified user(admin required), or the current user.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/list-work-items)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | owner_id | **str** |   (optional) | ID of the work item owner.
+
+### Return type
+[**List[WorkItems]**](../models/work-items)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of work items | List[WorkItems] |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
+from sailpoint.beta.models.work_items import WorkItems
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
+    owner_id = 'ef38f94347e94562b5bb8424a56397d8' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
+
+    try:
+        # List work items
+        
+        results = WorkItemsApi(api_client).list_work_items()
+        # Below is a request that includes all optional parameters
+        # results = WorkItemsApi(api_client).list_work_items(limit, offset, count, owner_id)
+        print("The response of WorkItemsApi->list_work_items:\n")
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkItemsApi->list_work_items: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## reject-approval-item
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Reject an approval item
+This API rejects an Approval Item. Either an admin, or the owning/current user must make this request.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/reject-approval-item)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The ID of the work item
+Path   | approval_item_id | **str** | True  | The ID of the approval item.
+
+### Return type
+[**WorkItems**](../models/work-items)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | A work items details object. | WorkItems |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
+from sailpoint.beta.models.work_items import WorkItems
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
+    approval_item_id = '1211bcaa32112bcef6122adb21cef1ac' # str | The ID of the approval item. # str | The ID of the approval item.
+
+    try:
+        # Reject an approval item
+        
+        results = WorkItemsApi(api_client).reject_approval_item(id=id, approval_item_id=approval_item_id)
+        # Below is a request that includes all optional parameters
+        # results = WorkItemsApi(api_client).reject_approval_item(id, approval_item_id)
+        print("The response of WorkItemsApi->reject_approval_item:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkItemsApi->reject_approval_item: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## reject-approval-items-in-bulk
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Bulk reject approval items
+This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/reject-approval-items-in-bulk)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The ID of the work item
+
+### Return type
+[**WorkItems**](../models/work-items)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | A work items details object. | WorkItems |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
+from sailpoint.beta.models.work_items import WorkItems
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
+
+    try:
+        # Bulk reject approval items
+        
+        results = WorkItemsApi(api_client).reject_approval_items_in_bulk(id=id)
+        # Below is a request that includes all optional parameters
+        # results = WorkItemsApi(api_client).reject_approval_items_in_bulk(id)
+        print("The response of WorkItemsApi->reject_approval_items_in_bulk:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkItemsApi->reject_approval_items_in_bulk: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## submit-account-selection
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Submit account selections
+This API submits account selections. Either an admin, or the owning/current user must make this request.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/submit-account-selection)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | The ID of the work item
+ Body  | request_body | **map[string]object** | True  | Account Selection Data map, keyed on fieldName
+
+### Return type
+[**WorkItems**](../models/work-items)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | A work items details object. | WorkItems |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.beta.api.work_items_api import WorkItemsApi
+from sailpoint.beta.api_client import ApiClient
+from sailpoint.beta.models.work_items import WorkItems
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
+    request_body = {fieldName=fieldValue} # Dict[str, object] | Account Selection Data map, keyed on fieldName # Dict[str, object] | Account Selection Data map, keyed on fieldName
+
+    try:
+        # Submit account selections
+        new_request_body = RequestBody.from_json(request_body)
+        results = WorkItemsApi(api_client).submit_account_selection(id=id, request_body=new_request_body)
+        # Below is a request that includes all optional parameters
+        # results = WorkItemsApi(api_client).submit_account_selection(id, new_request_body)
+        print("The response of WorkItemsApi->submit_account_selection:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling WorkItemsApi->submit_account_selection: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## submit-forward-work-item
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Forward a work item
 This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/forward-work-item)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/submit-forward-work-item)
 
 ### Parameters 
 
@@ -268,540 +868,13 @@ with ApiClient(configuration) as api_client:
         }''' # WorkItemForward | 
 
     try:
-        # Forward a Work Item
+        # Forward a work item
         new_work_item_forward = WorkItemForward.from_json(work_item_forward)
-        WorkItemsApi(api_client).forward_work_item(id=id, work_item_forward=new_work_item_forward)
+        WorkItemsApi(api_client).submit_forward_work_item(id=id, work_item_forward=new_work_item_forward)
         # Below is a request that includes all optional parameters
-        # WorkItemsApi(api_client).forward_work_item(id, new_work_item_forward)
+        # WorkItemsApi(api_client).submit_forward_work_item(id, new_work_item_forward)
     except Exception as e:
-        print("Exception when calling WorkItemsApi->forward_work_item: %s\n" % e)
-```
-
-
-
-[[Back to top]](#) 
-
-## get-completed-work-items
-Completed Work Items
-This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
-
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-completed-work-items)
-
-### Parameters 
-
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | owner_id | **str** |   (optional) | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request.
-  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-
-### Return type
-[**List[WorkItems]**](../models/work-items)
-
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | List of completed work items. | List[WorkItems] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-
-### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### Example
-
-```python
-from sailpoint.beta.api.work_items_api import WorkItemsApi
-from sailpoint.beta.api_client import ApiClient
-from sailpoint.beta.models.work_items import WorkItems
-from sailpoint.configuration import Configuration
-configuration = Configuration()
-
-
-with ApiClient(configuration) as api_client:
-    owner_id = 'owner_id_example' # str | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional) # str | The id of the owner of the work item list being requested.  Either an admin, or the owning/current user must make this request. (optional)
-    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-
-    try:
-        # Completed Work Items
-        
-        results = WorkItemsApi(api_client).get_completed_work_items()
-        # Below is a request that includes all optional parameters
-        # results = WorkItemsApi(api_client).get_completed_work_items(owner_id, limit, offset, count)
-        print("The response of WorkItemsApi->get_completed_work_items:\n")
-        for item in results:
-            print(item.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling WorkItemsApi->get_completed_work_items: %s\n" % e)
-```
-
-
-
-[[Back to top]](#) 
-
-## get-count-completed-work-items
-Count Completed Work Items
-This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
-
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-count-completed-work-items)
-
-### Parameters 
-
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | owner_id | **str** |   (optional) | ID of the work item owner.
-
-### Return type
-[**List[WorkItemsCount]**](../models/work-items-count)
-
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | List of work items | List[WorkItemsCount] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-
-### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### Example
-
-```python
-from sailpoint.beta.api.work_items_api import WorkItemsApi
-from sailpoint.beta.api_client import ApiClient
-from sailpoint.beta.models.work_items_count import WorkItemsCount
-from sailpoint.configuration import Configuration
-configuration = Configuration()
-
-
-with ApiClient(configuration) as api_client:
-    owner_id = 'owner_id_example' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
-
-    try:
-        # Count Completed Work Items
-        
-        results = WorkItemsApi(api_client).get_count_completed_work_items()
-        # Below is a request that includes all optional parameters
-        # results = WorkItemsApi(api_client).get_count_completed_work_items(owner_id)
-        print("The response of WorkItemsApi->get_count_completed_work_items:\n")
-        for item in results:
-            print(item.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling WorkItemsApi->get_count_completed_work_items: %s\n" % e)
-```
-
-
-
-[[Back to top]](#) 
-
-## get-count-work-items
-Count Work Items
-This gets a count of work items belonging to either the specified user(admin required), or the current user.
-
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-count-work-items)
-
-### Parameters 
-
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | owner_id | **str** |   (optional) | ID of the work item owner.
-
-### Return type
-[**WorkItemsCount**](../models/work-items-count)
-
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | List of work items | WorkItemsCount |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-
-### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### Example
-
-```python
-from sailpoint.beta.api.work_items_api import WorkItemsApi
-from sailpoint.beta.api_client import ApiClient
-from sailpoint.beta.models.work_items_count import WorkItemsCount
-from sailpoint.configuration import Configuration
-configuration = Configuration()
-
-
-with ApiClient(configuration) as api_client:
-    owner_id = 'owner_id_example' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
-
-    try:
-        # Count Work Items
-        
-        results = WorkItemsApi(api_client).get_count_work_items()
-        # Below is a request that includes all optional parameters
-        # results = WorkItemsApi(api_client).get_count_work_items(owner_id)
-        print("The response of WorkItemsApi->get_count_work_items:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling WorkItemsApi->get_count_work_items: %s\n" % e)
-```
-
-
-
-[[Back to top]](#) 
-
-## get-work-item
-Get a Work Item
-This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
-
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-work-item)
-
-### Parameters 
-
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | ID of the work item.
-  Query | owner_id | **str** |   (optional) | ID of the work item owner.
-
-### Return type
-**object**
-
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | The work item with the given ID. | object |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
-### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### Example
-
-```python
-from sailpoint.beta.api.work_items_api import WorkItemsApi
-from sailpoint.beta.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
-
-
-with ApiClient(configuration) as api_client:
-    id = '2c9180835d191a86015d28455b4a2329' # str | ID of the work item. # str | ID of the work item.
-    owner_id = '2c9180835d191a86015d28455b4a2329' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
-
-    try:
-        # Get a Work Item
-        
-        results = WorkItemsApi(api_client).get_work_item(id=id)
-        # Below is a request that includes all optional parameters
-        # results = WorkItemsApi(api_client).get_work_item(id, owner_id)
-        print("The response of WorkItemsApi->get_work_item:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling WorkItemsApi->get_work_item: %s\n" % e)
-```
-
-
-
-[[Back to top]](#) 
-
-## get-work-items-summary
-Work Items Summary
-This gets a summary of work items belonging to either the specified user(admin required), or the current user.
-
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-work-items-summary)
-
-### Parameters 
-
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | owner_id | **str** |   (optional) | ID of the work item owner.
-
-### Return type
-[**WorkItemsSummary**](../models/work-items-summary)
-
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | List of work items | WorkItemsSummary |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-
-### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### Example
-
-```python
-from sailpoint.beta.api.work_items_api import WorkItemsApi
-from sailpoint.beta.api_client import ApiClient
-from sailpoint.beta.models.work_items_summary import WorkItemsSummary
-from sailpoint.configuration import Configuration
-configuration = Configuration()
-
-
-with ApiClient(configuration) as api_client:
-    owner_id = 'owner_id_example' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
-
-    try:
-        # Work Items Summary
-        
-        results = WorkItemsApi(api_client).get_work_items_summary()
-        # Below is a request that includes all optional parameters
-        # results = WorkItemsApi(api_client).get_work_items_summary(owner_id)
-        print("The response of WorkItemsApi->get_work_items_summary:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling WorkItemsApi->get_work_items_summary: %s\n" % e)
-```
-
-
-
-[[Back to top]](#) 
-
-## list-work-items
-List Work Items
-This gets a collection of work items belonging to either the specified user(admin required), or the current user.
-
-[API Spec](https://developer.sailpoint.com/docs/api/beta/list-work-items)
-
-### Parameters 
-
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | owner_id | **str** |   (optional) | ID of the work item owner.
-
-### Return type
-[**List[WorkItems]**](../models/work-items)
-
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | List of work items | List[WorkItems] |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-
-### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### Example
-
-```python
-from sailpoint.beta.api.work_items_api import WorkItemsApi
-from sailpoint.beta.api_client import ApiClient
-from sailpoint.beta.models.work_items import WorkItems
-from sailpoint.configuration import Configuration
-configuration = Configuration()
-
-
-with ApiClient(configuration) as api_client:
-    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
-    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-    owner_id = 'owner_id_example' # str | ID of the work item owner. (optional) # str | ID of the work item owner. (optional)
-
-    try:
-        # List Work Items
-        
-        results = WorkItemsApi(api_client).list_work_items()
-        # Below is a request that includes all optional parameters
-        # results = WorkItemsApi(api_client).list_work_items(limit, offset, count, owner_id)
-        print("The response of WorkItemsApi->list_work_items:\n")
-        for item in results:
-            print(item.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling WorkItemsApi->list_work_items: %s\n" % e)
-```
-
-
-
-[[Back to top]](#) 
-
-## reject-approval-item
-Reject an Approval Item
-This API rejects an Approval Item. Either an admin, or the owning/current user must make this request.
-
-[API Spec](https://developer.sailpoint.com/docs/api/beta/reject-approval-item)
-
-### Parameters 
-
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The ID of the work item
-Path   | approval_item_id | **str** | True  | The ID of the approval item.
-
-### Return type
-[**WorkItems**](../models/work-items)
-
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | A work items details object. | WorkItems |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-
-### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### Example
-
-```python
-from sailpoint.beta.api.work_items_api import WorkItemsApi
-from sailpoint.beta.api_client import ApiClient
-from sailpoint.beta.models.work_items import WorkItems
-from sailpoint.configuration import Configuration
-configuration = Configuration()
-
-
-with ApiClient(configuration) as api_client:
-    id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
-    approval_item_id = '1211bcaa32112bcef6122adb21cef1ac' # str | The ID of the approval item. # str | The ID of the approval item.
-
-    try:
-        # Reject an Approval Item
-        
-        results = WorkItemsApi(api_client).reject_approval_item(id=id, approval_item_id=approval_item_id)
-        # Below is a request that includes all optional parameters
-        # results = WorkItemsApi(api_client).reject_approval_item(id, approval_item_id)
-        print("The response of WorkItemsApi->reject_approval_item:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling WorkItemsApi->reject_approval_item: %s\n" % e)
-```
-
-
-
-[[Back to top]](#) 
-
-## reject-approval-items-in-bulk
-Bulk reject Approval Items
-This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
-
-[API Spec](https://developer.sailpoint.com/docs/api/beta/reject-approval-items-in-bulk)
-
-### Parameters 
-
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The ID of the work item
-
-### Return type
-[**WorkItems**](../models/work-items)
-
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | A work items details object. | WorkItems |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-
-### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### Example
-
-```python
-from sailpoint.beta.api.work_items_api import WorkItemsApi
-from sailpoint.beta.api_client import ApiClient
-from sailpoint.beta.models.work_items import WorkItems
-from sailpoint.configuration import Configuration
-configuration = Configuration()
-
-
-with ApiClient(configuration) as api_client:
-    id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
-
-    try:
-        # Bulk reject Approval Items
-        
-        results = WorkItemsApi(api_client).reject_approval_items_in_bulk(id=id)
-        # Below is a request that includes all optional parameters
-        # results = WorkItemsApi(api_client).reject_approval_items_in_bulk(id)
-        print("The response of WorkItemsApi->reject_approval_items_in_bulk:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling WorkItemsApi->reject_approval_items_in_bulk: %s\n" % e)
-```
-
-
-
-[[Back to top]](#) 
-
-## submit-account-selection
-Submit Account Selections
-This API submits account selections. Either an admin, or the owning/current user must make this request.
-
-[API Spec](https://developer.sailpoint.com/docs/api/beta/submit-account-selection)
-
-### Parameters 
-
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | The ID of the work item
- Body  | request_body | **map[string]object** | True  | Account Selection Data map, keyed on fieldName
-
-### Return type
-[**WorkItems**](../models/work-items)
-
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | A work items details object. | WorkItems |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-
-### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### Example
-
-```python
-from sailpoint.beta.api.work_items_api import WorkItemsApi
-from sailpoint.beta.api_client import ApiClient
-from sailpoint.beta.models.work_items import WorkItems
-from sailpoint.configuration import Configuration
-configuration = Configuration()
-
-
-with ApiClient(configuration) as api_client:
-    id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the work item # str | The ID of the work item
-    request_body = {fieldName=fieldValue} # Dict[str, object] | Account Selection Data map, keyed on fieldName # Dict[str, object] | Account Selection Data map, keyed on fieldName
-
-    try:
-        # Submit Account Selections
-        new_request_body = RequestBody.from_json(request_body)
-        results = WorkItemsApi(api_client).submit_account_selection(id=id, request_body=new_request_body)
-        # Below is a request that includes all optional parameters
-        # results = WorkItemsApi(api_client).submit_account_selection(id, new_request_body)
-        print("The response of WorkItemsApi->submit_account_selection:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling WorkItemsApi->submit_account_selection: %s\n" % e)
+        print("Exception when calling WorkItemsApi->submit_forward_work_item: %s\n" % e)
 ```
 
 

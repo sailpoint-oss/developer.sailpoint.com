@@ -17,13 +17,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2025MFADuoConfig**](#get-mfa-duo-config) | **GET** `/mfa/duo-web/config` | Configuration of Duo MFA method
-[**Get-V2025MFAKbaConfig**](#get-mfa-kba-config) | **GET** `/mfa/kba/config` | Configuration of KBA MFA method
-[**Get-V2025MFAOktaConfig**](#get-mfa-okta-config) | **GET** `/mfa/okta-verify/config` | Configuration of Okta MFA method
-[**Set-V2025MFADuoConfig**](#set-mfa-duo-config) | **PUT** `/mfa/duo-web/config` | Set Duo MFA configuration
-[**Set-V2025MFAKBAConfig**](#set-mfakba-config) | **POST** `/mfa/kba/config/answers` | Set MFA KBA configuration
-[**Set-V2025MFAOktaConfig**](#set-mfa-okta-config) | **PUT** `/mfa/okta-verify/config` | Set Okta MFA configuration
-[**Test-V2025MFAConfig**](#test-mfa-config) | **GET** `/mfa/{method}/test` | MFA method&#39;s test configuration
+[**Get-V2025MFADuoConfig**](#get-mfa-duo-config) | **GET** `/mfa/duo-web/config` | Configuration of duo mfa method
+[**Get-V2025MFAKbaConfig**](#get-mfa-kba-config) | **GET** `/mfa/kba/config` | Configuration of kba mfa method
+[**Get-V2025MFAOktaConfig**](#get-mfa-okta-config) | **GET** `/mfa/okta-verify/config` | Configuration of okta mfa method
+[**Set-V2025MFADuoConfig**](#set-mfa-duo-config) | **PUT** `/mfa/duo-web/config` | Set duo mfa configuration
+[**Set-V2025MFAKBAConfig**](#set-mfakba-config) | **POST** `/mfa/kba/config/answers` | Set mfa kba configuration
+[**Set-V2025MFAOktaConfig**](#set-mfa-okta-config) | **PUT** `/mfa/okta-verify/config` | Set okta mfa configuration
+[**Test-V2025MFAConfig**](#test-mfa-config) | **GET** `/mfa/{method}/test` | Mfa method&#39;s test configuration
 
 
 ## get-mfa-duo-config
@@ -55,7 +55,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Configuration of Duo MFA method
+# Configuration of duo mfa method
 
 try {
     Get-V2025MFADuoConfig 
@@ -100,7 +100,7 @@ Code | Description  | Data Type
 ```powershell
 $AllLanguages = $false # Boolean | Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false (optional)
 
-# Configuration of KBA MFA method
+# Configuration of kba mfa method
 
 try {
     Get-V2025MFAKbaConfig 
@@ -143,7 +143,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Configuration of Okta MFA method
+# Configuration of okta mfa method
 
 try {
     Get-V2025MFAOktaConfig 
@@ -198,7 +198,7 @@ $MfaDuoConfig = @"{
   "identityAttribute" : "email"
 }"@
 
-# Set Duo MFA configuration
+# Set duo mfa configuration
 
 try {
     $Result = ConvertFrom-JsonToMfaDuoConfig -Json $MfaDuoConfig
@@ -248,7 +248,7 @@ Code | Description  | Data Type
 }"@ # KbaAnswerRequestItem[] | 
  
 
-# Set MFA KBA configuration
+# Set mfa kba configuration
 
 try {
     $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
@@ -300,7 +300,7 @@ $MfaOktaConfig = @"{
   "identityAttribute" : "email"
 }"@
 
-# Set Okta MFA configuration
+# Set okta mfa configuration
 
 try {
     $Result = ConvertFrom-JsonToMfaOktaConfig -Json $MfaOktaConfig
@@ -346,7 +346,7 @@ Code | Description  | Data Type
 ```powershell
 $Method = "okta-verify" # String | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
 
-# MFA method's test configuration
+# Mfa method's test configuration
 
 try {
     Test-V2025MFAConfig -Method $Method 

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentitySnapshotSummaryResponse = Initialize-PSSailpoint.V2025IdentitySnapshotSummaryResponse  -Snapshot 2007-03-01T13:00:00.000Z
+$IdentitySnapshotSummaryResponse = Initialize-V2025IdentitySnapshotSummaryResponse  -Snapshot 2007-03-01T13:00:00.000Z
 ```
 
 - Convert the resource to JSON

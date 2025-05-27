@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ScheduledActionResponseContent = Initialize-PSSailpoint.V2024ScheduledActionResponseContent  -Name Daily Backup `
+$ScheduledActionResponseContent = Initialize-V2024ScheduledActionResponseContent  -Name Daily Backup `
  -BackupOptions null `
  -SourceBackupId 5678b87d-48ca-439a-868f-2160001da8c2 `
  -SourceTenant tenant-name `

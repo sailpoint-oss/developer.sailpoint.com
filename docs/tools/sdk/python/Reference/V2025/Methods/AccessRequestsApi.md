@@ -30,21 +30,21 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**approve-bulk-access-request**](#approve-bulk-access-request) | **POST** `/access-request-approvals/bulk-approve` | Bulk Approve Access Request
-[**cancel-access-request**](#cancel-access-request) | **POST** `/access-requests/cancel` | Cancel Access Request
-[**cancel-access-request-in-bulk**](#cancel-access-request-in-bulk) | **POST** `/access-requests/bulk-cancel` | Bulk Cancel Access Request
-[**close-access-request**](#close-access-request) | **POST** `/access-requests/close` | Close Access Request
-[**create-access-request**](#create-access-request) | **POST** `/access-requests` | Submit Access Request
-[**get-access-request-config**](#get-access-request-config) | **GET** `/access-request-config` | Get Access Request Configuration
-[**get-entitlement-details-for-identity**](#get-entitlement-details-for-identity) | **GET** `/access-requests/revocable-objects` | Identity Entitlement Details
-[**list-access-request-status**](#list-access-request-status) | **GET** `/access-request-status` | Access Request Status
-[**list-administrators-access-request-status**](#list-administrators-access-request-status) | **GET** `/access-request-administration` | Access Request Status for Administrators
+[**approve-bulk-access-request**](#approve-bulk-access-request) | **POST** `/access-request-approvals/bulk-approve` | Bulk approve access request
+[**cancel-access-request**](#cancel-access-request) | **POST** `/access-requests/cancel` | Cancel access request
+[**cancel-access-request-in-bulk**](#cancel-access-request-in-bulk) | **POST** `/access-requests/bulk-cancel` | Bulk cancel access request
+[**close-access-request**](#close-access-request) | **POST** `/access-requests/close` | Close access request
+[**create-access-request**](#create-access-request) | **POST** `/access-requests` | Submit access request
+[**get-access-request-config**](#get-access-request-config) | **GET** `/access-request-config` | Get access request configuration
+[**get-entitlement-details-for-identity**](#get-entitlement-details-for-identity) | **GET** `/access-requests/revocable-objects` | Identity entitlement details
+[**list-access-request-status**](#list-access-request-status) | **GET** `/access-request-status` | Access request status
+[**list-administrators-access-request-status**](#list-administrators-access-request-status) | **GET** `/access-request-administration` | Access request status for administrators
 [**load-account-selections**](#load-account-selections) | **POST** `/access-requests/accounts-selection` | Get accounts selections for identity
-[**set-access-request-config**](#set-access-request-config) | **PUT** `/access-request-config` | Update Access Request Configuration
+[**set-access-request-config**](#set-access-request-config) | **PUT** `/access-request-config` | Update access request configuration
 
 
 ## approve-bulk-access-request
-Bulk Approve Access Request
+Bulk approve access request
 This API endpoint allows approving pending access requests in bulk. Maximum of 50 approval ids can be  provided in the request for one single invocation.  ORG_ADMIN or users with rights "idn:access-request-administration:write" can approve the access requests in bulk.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/approve-bulk-access-request)
@@ -90,7 +90,7 @@ with ApiClient(configuration) as api_client:
         }''' # BulkApproveAccessRequest | 
 
     try:
-        # Bulk Approve Access Request
+        # Bulk approve access request
         new_bulk_approve_access_request = BulkApproveAccessRequest.from_json(bulk_approve_access_request)
         results = AccessRequestsApi(api_client).approve_bulk_access_request(bulk_approve_access_request=new_bulk_approve_access_request)
         # Below is a request that includes all optional parameters
@@ -106,7 +106,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## cancel-access-request
-Cancel Access Request
+Cancel access request
 This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step.
 In addition to users with ORG_ADMIN, any user who originally submitted the access request may cancel it.
 
@@ -153,7 +153,7 @@ with ApiClient(configuration) as api_client:
         }''' # CancelAccessRequest | 
 
     try:
-        # Cancel Access Request
+        # Cancel access request
         new_cancel_access_request = CancelAccessRequest.from_json(cancel_access_request)
         results = AccessRequestsApi(api_client).cancel_access_request(cancel_access_request=new_cancel_access_request)
         # Below is a request that includes all optional parameters
@@ -169,7 +169,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## cancel-access-request-in-bulk
-Bulk Cancel Access Request
+Bulk cancel access request
 This API endpoint allows cancelling pending access requests in bulk. Maximum of 50 access request ids can be  provided in the request for one single invocation. 
 Only ORG_ADMIN or users with rights "idn:access-request-administration:write" can cancel the access requests in  bulk.
 
@@ -216,7 +216,7 @@ with ApiClient(configuration) as api_client:
         }''' # BulkCancelAccessRequest | 
 
     try:
-        # Bulk Cancel Access Request
+        # Bulk cancel access request
         new_bulk_cancel_access_request = BulkCancelAccessRequest.from_json(bulk_cancel_access_request)
         results = AccessRequestsApi(api_client).cancel_access_request_in_bulk(bulk_cancel_access_request=new_bulk_cancel_access_request)
         # Below is a request that includes all optional parameters
@@ -243,7 +243,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Close Access Request
+Close access request
 This endpoint closes access requests that are stuck in a pending state. It can be used throughout a request's lifecycle even after the approval state, unlike the [Cancel Access Request endpoint](https://developer.sailpoint.com/idn/api/v3/cancel-access-request/).
 
 To find pending access requests with the UI, navigate to Search and use this query: status: Pending AND "Access Request". Use the Column Chooser to select 'Tracking Number', and use the 'Download' button to export a CSV containing the tracking numbers.
@@ -304,7 +304,7 @@ with ApiClient(configuration) as api_client:
         }''' # CloseAccessRequest | 
 
     try:
-        # Close Access Request
+        # Close access request
         new_close_access_request = CloseAccessRequest.from_json(close_access_request)
         results = AccessRequestsApi(api_client).close_access_request(x_sail_point_experimental=x_sail_point_experimental, close_access_request=new_close_access_request)
         # Below is a request that includes all optional parameters
@@ -320,7 +320,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## create-access-request
-Submit Access Request
+Submit access request
 Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.
 
 Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request
@@ -352,7 +352,8 @@ __REVOKE_ACCESS__
 * Revoke requests for entitlements are limited to 1 entitlement per access request currently.
 * You can specify a `removeDate` if the access doesn't already have a sunset date. The `removeDate` must be a future date, in the UTC timezone. 
 * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone.
-* Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of 'assignmentId' and 'nativeIdentity' fields.
+* Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of 'assignmentId' and 'nativeIdentity' fields. These fields should be used within the 'requestedItems' section for the revoke requests. 
+* Usage of 'requestedForWithRequestedItems' field is not supported for revoke requests.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-access-request)
@@ -407,7 +408,9 @@ with ApiClient(configuration) as api_client:
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
               "requestedAppName" : "test-app",
@@ -416,7 +419,9 @@ with ApiClient(configuration) as api_client:
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
               "requestedAppName" : "test-app",
@@ -425,7 +430,9 @@ with ApiClient(configuration) as api_client:
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
               "requestedAppName" : "test-app",
@@ -434,7 +441,9 @@ with ApiClient(configuration) as api_client:
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           }, {
             "clientMetadata" : {
               "requestedAppName" : "test-app",
@@ -443,7 +452,9 @@ with ApiClient(configuration) as api_client:
             "removeDate" : "2020-07-11T21:23:15Z",
             "comment" : "Requesting access profile for John Doe",
             "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE"
+            "type" : "ACCESS_PROFILE",
+            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           } ],
           "requestedForWithRequestedItems" : [ {
             "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
@@ -474,9 +485,7 @@ with ApiClient(configuration) as api_client:
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             }, {
               "clientMetadata" : {
                 "requestedAppName" : "test-app",
@@ -504,9 +513,7 @@ with ApiClient(configuration) as api_client:
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             } ]
           }, {
             "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
@@ -537,9 +544,7 @@ with ApiClient(configuration) as api_client:
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             }, {
               "clientMetadata" : {
                 "requestedAppName" : "test-app",
@@ -567,15 +572,13 @@ with ApiClient(configuration) as api_client:
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             } ]
           } ]
         }''' # AccessRequest | 
 
     try:
-        # Submit Access Request
+        # Submit access request
         new_access_request = AccessRequest.from_json(access_request)
         results = AccessRequestsApi(api_client).create_access_request(access_request=new_access_request)
         # Below is a request that includes all optional parameters
@@ -591,7 +594,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-access-request-config
-Get Access Request Configuration
+Get access request configuration
 This endpoint returns the current access-request configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-request-config)
@@ -629,7 +632,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # Get Access Request Configuration
+        # Get access request configuration
         
         results = AccessRequestsApi(api_client).get_access_request_config()
         # Below is a request that includes all optional parameters
@@ -656,7 +659,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Identity Entitlement Details
+Identity entitlement details
 Use this API to return the details for a entitlement on an identity including specific data relating to remove date and the ability to revoke the identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-entitlement-details-for-identity)
@@ -704,7 +707,7 @@ with ApiClient(configuration) as api_client:
     entitlement_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The entitlement ID # str | The entitlement ID
 
     try:
-        # Identity Entitlement Details
+        # Identity entitlement details
         
         results = AccessRequestsApi(api_client).get_entitlement_details_for_identity(x_sail_point_experimental=x_sail_point_experimental, identity_id=identity_id, entitlement_id=entitlement_id)
         # Below is a request that includes all optional parameters
@@ -720,7 +723,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-access-request-status
-Access Request Status
+Access request status
 Use this API to return a list of access request statuses based on the specified query parameters.
 If an access request was made for access that an identity already has, the API ignores the access request.  These ignored requests do not display in the list of access request statuses.
 Any user with any user level can get the status of their own access requests. A user with ORG_ADMIN is required to call this API to get a list of statuses for other users.
@@ -782,7 +785,7 @@ with ApiClient(configuration) as api_client:
     request_state = 'request-state=EXECUTING' # str | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional) # str | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
 
     try:
-        # Access Request Status
+        # Access request status
         
         results = AccessRequestsApi(api_client).list_access_request_status()
         # Below is a request that includes all optional parameters
@@ -799,7 +802,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-administrators-access-request-status
-Access Request Status for Administrators
+Access request status for administrators
 Use this API to get access request statuses of all the access requests in the org based on the specified query  parameters.
 Any user with user level ORG_ADMIN or scope idn:access-request-administration:read can access this endpoint to get  the  access request statuses
 
@@ -860,7 +863,7 @@ with ApiClient(configuration) as api_client:
     request_state = 'request-state=EXECUTING' # str | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional) # str | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
 
     try:
-        # Access Request Status for Administrators
+        # Access request status for administrators
         
         results = AccessRequestsApi(api_client).list_administrators_access_request_status()
         # Below is a request that includes all optional parameters
@@ -1002,7 +1005,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## set-access-request-config
-Update Access Request Configuration
+Update access request configuration
 This endpoint replaces the current access-request configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/set-access-request-config)
@@ -1059,17 +1062,34 @@ with ApiClient(configuration) as api_client:
           },
           "autoApprovalEnabled" : true,
           "entitlementRequestConfig" : {
-            "requestCommentsRequired" : false,
-            "deniedCommentsRequired" : false,
-            "allowEntitlementRequest" : true,
-            "grantRequestApprovalSchemes" : "entitlementOwner, sourceOwner, manager, workgroup:2c918084660f45d6016617daa9210584"
+            "accessRequestConfig" : {
+              "denialCommentRequired" : false,
+              "approvalSchemes" : [ {
+                "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+                "approverType" : "GOVERNANCE_GROUP"
+              }, {
+                "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+                "approverType" : "GOVERNANCE_GROUP"
+              } ],
+              "reauthorizationRequired" : false,
+              "requestCommentRequired" : true
+            },
+            "revocationRequestConfig" : {
+              "approvalSchemes" : [ {
+                "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+                "approverType" : "GOVERNANCE_GROUP"
+              }, {
+                "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+                "approverType" : "GOVERNANCE_GROUP"
+              } ]
+            }
           },
           "reauthorizationEnabled" : true,
           "approvalsMustBeExternal" : true
         }''' # AccessRequestConfig | 
 
     try:
-        # Update Access Request Configuration
+        # Update access request configuration
         new_access_request_config = AccessRequestConfig.from_json(access_request_config)
         results = AccessRequestsApi(api_client).set_access_request_config(access_request_config=new_access_request_config)
         # Below is a request that includes all optional parameters

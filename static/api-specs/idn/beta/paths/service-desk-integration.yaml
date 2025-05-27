@@ -1,7 +1,7 @@
 get:
   tags:
     - Service Desk Integration
-  summary: Get a Service Desk integration
+  summary: Get a service desk integration
   description: Get an existing Service Desk integration by ID.
   operationId: getServiceDeskIntegration
   parameters:
@@ -42,7 +42,7 @@ get:
 put:
   tags:
     - Service Desk Integration
-  summary: Update a Service Desk integration
+  summary: Update a service desk integration
   description: Update an existing Service Desk integration by ID.
   operationId: putServiceDeskIntegration
   parameters:
@@ -90,7 +90,7 @@ put:
 delete:
   tags:
     - Service Desk Integration
-  summary: Delete a Service Desk integration
+  summary: Delete a service desk integration
   description: Delete an existing Service Desk integration by ID.
   operationId: deleteServiceDeskIntegration
   parameters:
@@ -128,7 +128,7 @@ patch:
   operationId: patchServiceDeskIntegration
   tags:
     - Service Desk Integration
-  summary: Patch a Service Desk Integration
+  summary: Patch a service desk integration
   description: Update an existing Service Desk integration by ID with a PATCH request.
   parameters:
     - name: id

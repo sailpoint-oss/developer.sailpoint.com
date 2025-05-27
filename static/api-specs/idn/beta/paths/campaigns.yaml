@@ -2,7 +2,7 @@ get:
   operationId: getActiveCampaigns
   tags:
     - Certification Campaigns
-  summary: List Campaigns
+  summary: List campaigns
   description: |
     Use this API to get a list of campaigns. The API can provide increased level of detail for each campaign for the correct provided query. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-active-campaigns).
 
@@ -91,7 +91,7 @@ post:
   operationId: createCampaign
   tags:
     - Certification Campaigns
-  summary: Create Campaign
+  summary: Create campaign
   description: |
     Use this API to create a certification campaign with the information provided in the request body. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/create-campaign).
 

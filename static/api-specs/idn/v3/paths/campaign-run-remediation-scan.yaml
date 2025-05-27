@@ -2,7 +2,7 @@ post:
   operationId: startCampaignRemediationScan
   tags:
     - Certification Campaigns
-  summary: Run Campaign Remediation Scan
+  summary: Run campaign remediation scan
   description: |
     Use this API to run a remediation scan task for a certification campaign.
   security:

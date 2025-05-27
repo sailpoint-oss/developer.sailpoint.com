@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessItemAccessProfileResponse = Initialize-PSSailpoint.BetaAccessItemAccessProfileResponse  -AccessType accessProfile `
+$AccessItemAccessProfileResponse = Initialize-BetaAccessItemAccessProfileResponse  -AccessType accessProfile `
  -Id 2c918087763e69d901763e72e97f006f `
  -Name sample `
  -SourceName DataScienceDataset `

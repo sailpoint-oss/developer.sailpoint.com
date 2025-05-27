@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EventDocument = Initialize-PSSailpoint.V2024EventDocument  -Id 2c91808375d8e80a0175e1f88a575222 `
+$EventDocument = Initialize-V2024EventDocument  -Id 2c91808375d8e80a0175e1f88a575222 `
  -Name Add Entitlement Passed `
  -Created 2018-06-25T20:22:28.104Z `
  -Synced 2018-06-25T20:22:28.104Z `

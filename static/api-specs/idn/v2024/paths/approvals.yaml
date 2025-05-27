@@ -5,7 +5,7 @@ get:
   operationId: getApprovals
   tags:
   - Approvals
-  summary: Get Approvals
+  summary: Get approvals
   description: "Retrieve a list of approvals, which can be filtered by requester ID,\
     \ status, or reference type. \"Mine\" query parameter can be used and it will\
     \ return all approvals for the current approver. This endpoint is for generic\

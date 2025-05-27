@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Base64Decode = Initialize-PSSailpoint.V2025Base64Decode  -RequiresPeriodicRefresh false `
+$Base64Decode = Initialize-V2025Base64Decode  -RequiresPeriodicRefresh false `
  -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```
 

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountsExportReportArguments = Initialize-PSSailpoint.V2025AccountsExportReportArguments  -Application 2c9180897eSourceIde781782f705b9 `
+$AccountsExportReportArguments = Initialize-V2025AccountsExportReportArguments  -Application 2c9180897eSourceIde781782f705b9 `
  -SourceName Active Directory
 ```
 

@@ -33,15 +33,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Remove-V2024Identity**](#delete-identity) | **DELETE** `/identities/{id}` | Delete identity
-[**Get-V2024Identity**](#get-identity) | **GET** `/identities/{id}` | Identity Details
+[**Get-V2024Identity**](#get-identity) | **GET** `/identities/{id}` | Identity details
 [**Get-V2024IdentityOwnershipDetails**](#get-identity-ownership-details) | **GET** `/identities/{identityId}/ownership` | Get ownership details
 [**Get-V2024RoleAssignment**](#get-role-assignment) | **GET** `/identities/{identityId}/role-assignments/{assignmentId}` | Role assignment details
 [**Get-V2024RoleAssignments**](#get-role-assignments) | **GET** `/identities/{identityId}/role-assignments` | List role assignments
-[**Get-V2024Identities**](#list-identities) | **GET** `/identities` | List Identities
+[**Get-V2024Identities**](#list-identities) | **GET** `/identities` | List identities
 [**Reset-V2024Identity**](#reset-identity) | **POST** `/identities/{id}/reset` | Reset an identity
 [**Send-V2024IdentityVerificationAccountToken**](#send-identity-verification-account-token) | **POST** `/identities/{id}/verification/account/send` | Send password reset email
 [**Start-V2024IdentitiesInvite**](#start-identities-invite) | **POST** `/identities/invite` | Invite identities to register
-[**Start-V2024IdentityProcessing**](#start-identity-processing) | **POST** `/identities/process` | Process a list of identityIds
+[**Start-V2024IdentityProcessing**](#start-identity-processing) | **POST** `/identities/process` | Process a list of identityids
 [**Sync-V2024hronizeAttributesForIdentity**](#synchronize-attributes-for-identity) | **POST** `/identities/{identityId}/synchronize-attributes` | Attribute synchronization for single identity.
 
 
@@ -133,7 +133,7 @@ Code | Description  | Data Type
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Identity Details
+# Identity details
 
 try {
     Get-V2024Identity -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -354,7 +354,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
-# List Identities
+# List identities
 
 try {
     Get-V2024Identities -XSailPointExperimental $XSailPointExperimental 
@@ -583,7 +583,7 @@ $ProcessIdentitiesRequest = @"{
   "identityIds" : [ "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8" ]
 }"@
 
-# Process a list of identityIds
+# Process a list of identityids
 
 try {
     $Result = ConvertFrom-JsonToProcessIdentitiesRequest -Json $ProcessIdentitiesRequest

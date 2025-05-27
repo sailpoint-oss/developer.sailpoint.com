@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BucketAggregation = Initialize-PSSailpoint.V2025BucketAggregation  -Name Identity Locations `
+$BucketAggregation = Initialize-V2025BucketAggregation  -Name Identity Locations `
  -Type null `
  -Field attributes.city `
  -Size 100 `

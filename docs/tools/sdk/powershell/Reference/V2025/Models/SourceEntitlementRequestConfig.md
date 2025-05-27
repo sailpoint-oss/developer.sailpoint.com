@@ -17,12 +17,14 @@ tags: ['SDK', 'Software Development Kit', 'SourceEntitlementRequestConfig', 'V20
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccessRequestConfig** | [**EntitlementAccessRequestConfig**](entitlement-access-request-config) |  | [optional] 
+**RevocationRequestConfig** | [**EntitlementRevocationRequestConfig**](entitlement-revocation-request-config) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$SourceEntitlementRequestConfig = Initialize-PSSailpoint.V2025SourceEntitlementRequestConfig  -AccessRequestConfig null
+$SourceEntitlementRequestConfig = Initialize-V2025SourceEntitlementRequestConfig  -AccessRequestConfig null `
+ -RevocationRequestConfig null
 ```
 
 - Convert the resource to JSON

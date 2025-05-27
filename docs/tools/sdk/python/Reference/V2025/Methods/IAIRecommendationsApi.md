@@ -15,7 +15,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-recommendations**](#get-recommendations) | **POST** `/recommendations/request` | Returns Recommendation Based on Object
+[**get-recommendations**](#get-recommendations) | **POST** `/recommendations/request` | Returns recommendation based on object
 [**get-recommendations-config**](#get-recommendations-config) | **GET** `/recommendations/config` | Get certification recommendation config values
 [**update-recommendations-config**](#update-recommendations-config) | **PUT** `/recommendations/config` | Update certification recommendation config values
 
@@ -32,7 +32,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Returns Recommendation Based on Object
+Returns recommendation based on object
 The getRecommendations API returns recommendations based on the requested object. The recommendations are invoked by IdentityIQ and IdentityNow plug-ins that retrieve recommendations based on the performed calculations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-recommendations)
@@ -96,7 +96,7 @@ with ApiClient(configuration) as api_client:
         }''' # RecommendationRequestDto | 
 
     try:
-        # Returns Recommendation Based on Object
+        # Returns recommendation based on object
         new_recommendation_request_dto = RecommendationRequestDto.from_json(recommendation_request_dto)
         results = IAIRecommendationsApi(api_client).get_recommendations(x_sail_point_experimental=x_sail_point_experimental, recommendation_request_dto=new_recommendation_request_dto)
         # Below is a request that includes all optional parameters

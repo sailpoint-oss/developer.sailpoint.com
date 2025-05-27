@@ -67,7 +67,7 @@ Example:
 
 ## Advanced Profile Filtering
 
-More advanced filtering can be performed on **profiles** by using the [Advanced Search Endpoint](https://developer.sailpoint.com/nerm/api).
+More advanced filtering can be performed on **profiles** by using the [Advanced Search Endpoint](https://developer.sailpoint.com/docs/api/nerm/v1).
 
 For example, if you wanted to find all profiles where the **personal_first_name** started with the letter "a", you would first need to find the **id** of the **personal_first_name** attribute, and provide a JSON body like so:
 

@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SedBatchStats = Initialize-PSSailpoint.BetaSedBatchStats  -BatchComplete true `
+$SedBatchStats = Initialize-BetaSedBatchStats  -BatchComplete true `
  -BatchId 016629d1-1d25-463f-97f3-0c6686846650 `
  -DiscoveredCount 100 `
  -DiscoveryComplete true `

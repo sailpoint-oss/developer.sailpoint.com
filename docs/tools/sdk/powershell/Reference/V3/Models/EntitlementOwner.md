@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementOwner = Initialize-PSSailpoint.V3EntitlementOwner  -Id 2c9180827ca885d7017ca8ce28a000eb `
+$EntitlementOwner = Initialize-EntitlementOwner  -Id 2c9180827ca885d7017ca8ce28a000eb `
  -Type IDENTITY `
  -Name john.doe
 ```

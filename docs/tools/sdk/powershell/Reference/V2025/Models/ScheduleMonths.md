@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ScheduleMonths = Initialize-PSSailpoint.V2025ScheduleMonths  -Type LIST `
+$ScheduleMonths = Initialize-V2025ScheduleMonths  -Type LIST `
  -Values [1] `
  -Interval 2
 ```

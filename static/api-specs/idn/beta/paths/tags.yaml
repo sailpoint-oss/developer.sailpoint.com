@@ -2,7 +2,7 @@ get:
   operationId: listTags
   tags:
     - Tags
-  summary: List Tags
+  summary: List tags
   description: >-
     This API returns a list of tags.
 
@@ -65,7 +65,7 @@ post:
   operationId: createTag
   tags:
     - Tags
-  summary: Create Tag
+  summary: Create tag
   description: >-
     This API creates new tag.
 

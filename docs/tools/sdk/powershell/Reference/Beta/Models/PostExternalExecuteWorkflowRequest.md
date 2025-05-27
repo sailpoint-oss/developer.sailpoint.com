@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PostExternalExecuteWorkflowRequest = Initialize-PSSailpoint.BetaPostExternalExecuteWorkflowRequest  -VarInput {customAttribute1=value1, customAttribute2=value2}
+$PostExternalExecuteWorkflowRequest = Initialize-BetaPostExternalExecuteWorkflowRequest  -VarInput {customAttribute1=value1, customAttribute2=value2}
 ```
 
 - Convert the resource to JSON

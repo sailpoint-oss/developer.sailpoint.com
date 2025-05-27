@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SearchScheduleRecipientsInner = Initialize-PSSailpoint.V2024SearchScheduleRecipientsInner  -Type IDENTITY `
+$SearchScheduleRecipientsInner = Initialize-V2024SearchScheduleRecipientsInner  -Type IDENTITY `
  -Id 2c9180867624cbd7017642d8c8c81f67
 ```
 

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReviewableEntitlementAccountOwner = Initialize-PSSailpoint.V3ReviewableEntitlementAccountOwner  -Id 2c9180857182305e0171993737eb29e8 `
+$ReviewableEntitlementAccountOwner = Initialize-ReviewableEntitlementAccountOwner  -Id 2c9180857182305e0171993737eb29e8 `
  -Type IDENTITY `
  -DisplayName Alison Ferguson
 ```

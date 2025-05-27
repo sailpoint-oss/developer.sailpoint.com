@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityLifecycleState = Initialize-PSSailpoint.BetaIdentityLifecycleState  -StateName active `
+$IdentityLifecycleState = Initialize-BetaIdentityLifecycleState  -StateName active `
  -ManuallyUpdated true
 ```
 

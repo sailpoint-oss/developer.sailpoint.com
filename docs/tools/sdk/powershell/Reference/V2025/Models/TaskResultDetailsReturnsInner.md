@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaskResultDetailsReturnsInner = Initialize-PSSailpoint.V2025TaskResultDetailsReturnsInner  -DisplayLabel   `
+$TaskResultDetailsReturnsInner = Initialize-V2025TaskResultDetailsReturnsInner  -DisplayLabel   `
  -AttributeName  
 ```
 

@@ -17,16 +17,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-managed-client**](#create-managed-client) | **POST** `/managed-clients` | Create Managed Client
-[**delete-managed-client**](#delete-managed-client) | **DELETE** `/managed-clients/{id}` | Delete Managed Client
-[**get-managed-client**](#get-managed-client) | **GET** `/managed-clients/{id}` | Get Managed Client
-[**get-managed-client-status**](#get-managed-client-status) | **GET** `/managed-clients/{id}/status` | Get Managed Client Status
-[**get-managed-clients**](#get-managed-clients) | **GET** `/managed-clients` | Get Managed Clients
-[**update-managed-client**](#update-managed-client) | **PATCH** `/managed-clients/{id}` | Update Managed Client
+[**create-managed-client**](#create-managed-client) | **POST** `/managed-clients` | Create managed client
+[**delete-managed-client**](#delete-managed-client) | **DELETE** `/managed-clients/{id}` | Delete managed client
+[**get-managed-client**](#get-managed-client) | **GET** `/managed-clients/{id}` | Get managed client
+[**get-managed-client-status**](#get-managed-client-status) | **GET** `/managed-clients/{id}/status` | Get managed client status
+[**get-managed-clients**](#get-managed-clients) | **GET** `/managed-clients` | Get managed clients
+[**update-managed-client**](#update-managed-client) | **PATCH** `/managed-clients/{id}` | Update managed client
 
 
 ## create-managed-client
-Create Managed Client
+Create managed client
 Create a new managed client.
 The API returns a result that includes the managed client ID.
 
@@ -75,7 +75,7 @@ with ApiClient(configuration) as api_client:
         }''' # ManagedClientRequest | 
 
     try:
-        # Create Managed Client
+        # Create managed client
         new_managed_client_request = ManagedClientRequest.from_json(managed_client_request)
         results = ManagedClientsApi(api_client).create_managed_client(managed_client_request=new_managed_client_request)
         # Below is a request that includes all optional parameters
@@ -91,7 +91,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-managed-client
-Delete Managed Client
+Delete managed client
 Delete an existing managed client.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-managed-client)
@@ -132,7 +132,7 @@ with ApiClient(configuration) as api_client:
     id = '4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7' # str | Managed client ID. # str | Managed client ID.
 
     try:
-        # Delete Managed Client
+        # Delete managed client
         
         ManagedClientsApi(api_client).delete_managed_client(id=id)
         # Below is a request that includes all optional parameters
@@ -146,7 +146,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-managed-client
-Get Managed Client
+Get managed client
 Get managed client by ID. 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-managed-client)
@@ -189,7 +189,7 @@ with ApiClient(configuration) as api_client:
     id = '4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7' # str | Managed client ID. # str | Managed client ID.
 
     try:
-        # Get Managed Client
+        # Get managed client
         
         results = ManagedClientsApi(api_client).get_managed_client(id=id)
         # Below is a request that includes all optional parameters
@@ -205,7 +205,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-managed-client-status
-Get Managed Client Status
+Get managed client status
 Get a managed client's status, using its ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-managed-client-status)
@@ -251,7 +251,7 @@ with ApiClient(configuration) as api_client:
     type = sailpoint.v3.ManagedClientType() # ManagedClientType | Managed client type to get status for. # ManagedClientType | Managed client type to get status for.
 
     try:
-        # Get Managed Client Status
+        # Get managed client status
         
         results = ManagedClientsApi(api_client).get_managed_client_status(id=id, type=type)
         # Below is a request that includes all optional parameters
@@ -267,7 +267,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-managed-clients
-Get Managed Clients
+Get managed clients
 List managed clients.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-managed-clients)
@@ -315,7 +315,7 @@ with ApiClient(configuration) as api_client:
     filters = 'name eq \"client name\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **clientId**: *eq*  **clusterId**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **name**: *eq*  **clientId**: *eq*  **clusterId**: *eq* (optional)
 
     try:
-        # Get Managed Clients
+        # Get managed clients
         
         results = ManagedClientsApi(api_client).get_managed_clients()
         # Below is a request that includes all optional parameters
@@ -332,7 +332,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-managed-client
-Update Managed Client
+Update managed client
 Update an existing managed client.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/update-managed-client)
@@ -378,7 +378,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[sailpoint.v3.JsonPatchOperation()]''' # List[JsonPatchOperation] | JSONPatch payload used to update the object.
 
     try:
-        # Update Managed Client
+        # Update managed client
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = ManagedClientsApi(api_client).update_managed_client(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters

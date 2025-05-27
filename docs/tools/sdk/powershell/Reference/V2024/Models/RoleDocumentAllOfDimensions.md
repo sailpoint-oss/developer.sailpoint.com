@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleDocumentAllOfDimensions = Initialize-PSSailpoint.V2024RoleDocumentAllOfDimensions  -Id b3c28992ba964a40a7598978139d1ced `
+$RoleDocumentAllOfDimensions = Initialize-V2024RoleDocumentAllOfDimensions  -Id b3c28992ba964a40a7598978139d1ced `
  -Name Manager Austin Branch `
  -Description Managers located at the Austin branch `
  -Entitlements null `

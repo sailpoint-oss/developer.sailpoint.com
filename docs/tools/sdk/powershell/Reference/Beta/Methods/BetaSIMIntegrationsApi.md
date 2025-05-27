@@ -24,13 +24,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaSIMIntegration**](#create-sim-integration) | **POST** `/sim-integrations` | Create new SIM integration
-[**Remove-BetaSIMIntegration**](#delete-sim-integration) | **DELETE** `/sim-integrations/{id}` | Delete a SIM integration
-[**Get-BetaSIMIntegration**](#get-sim-integration) | **GET** `/sim-integrations/{id}` | Get a SIM integration details.
-[**Get-BetaSIMIntegrations**](#get-sim-integrations) | **GET** `/sim-integrations` | List the existing SIM integrations.
-[**Update-BetaBeforeProvisioningRule**](#patch-before-provisioning-rule) | **PATCH** `/sim-integrations/{id}/beforeProvisioningRule` | Patch a SIM beforeProvisioningRule attribute.
-[**Update-BetaSIMAttributes**](#patch-sim-attributes) | **PATCH** `/sim-integrations/{id}` | Patch a SIM attribute.
-[**Send-BetaSIMIntegration**](#put-sim-integration) | **PUT** `/sim-integrations/{id}` | Update an existing SIM integration
+[**New-BetaSIMIntegration**](#create-sim-integration) | **POST** `/sim-integrations` | Create new sim integration
+[**Remove-BetaSIMIntegration**](#delete-sim-integration) | **DELETE** `/sim-integrations/{id}` | Delete a sim integration
+[**Get-BetaSIMIntegration**](#get-sim-integration) | **GET** `/sim-integrations/{id}` | Get a sim integration details.
+[**Get-BetaSIMIntegrations**](#get-sim-integrations) | **GET** `/sim-integrations` | List the existing sim integrations.
+[**Update-BetaBeforeProvisioningRule**](#patch-before-provisioning-rule) | **PATCH** `/sim-integrations/{id}/beforeProvisioningRule` | Patch a sim beforeprovisioningrule attribute.
+[**Update-BetaSIMAttributes**](#patch-sim-attributes) | **PATCH** `/sim-integrations/{id}` | Patch a sim attribute.
+[**Send-BetaSIMIntegration**](#put-sim-integration) | **PUT** `/sim-integrations/{id}` | Update an existing sim integration
 
 
 ## create-sim-integration
@@ -82,7 +82,7 @@ $SimIntegrationDetails = @"{
   }
 }"@
 
-# Create new SIM integration
+# Create new sim integration
 
 try {
     $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails
@@ -129,7 +129,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "12345" # String | The id of the integration to delete.
 
-# Delete a SIM integration
+# Delete a sim integration
 
 try {
     Remove-BetaSIMIntegration -Id $Id 
@@ -175,7 +175,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "12345" # String | The id of the integration.
 
-# Get a SIM integration details.
+# Get a sim integration details.
 
 try {
     Get-BetaSIMIntegration -Id $Id 
@@ -219,7 +219,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# List the existing SIM integrations.
+# List the existing sim integrations.
 
 try {
     Get-BetaSIMIntegrations 
@@ -267,7 +267,7 @@ Code | Description  | Data Type
 $Id = "12345" # String | SIM integration id
 $JsonPatch = @""[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]""@
 
-# Patch a SIM beforeProvisioningRule attribute.
+# Patch a sim beforeprovisioningrule attribute.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
@@ -316,7 +316,7 @@ Code | Description  | Data Type
 $Id = "12345" # String | SIM integration id
 $JsonPatch = @""[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]""@
 
-# Patch a SIM attribute.
+# Patch a sim attribute.
 
 try {
     $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
@@ -382,7 +382,7 @@ $SimIntegrationDetails = @"{
   }
 }"@
 
-# Update an existing SIM integration
+# Update an existing sim integration
 
 try {
     $Result = ConvertFrom-JsonToSimIntegrationDetails -Json $SimIntegrationDetails

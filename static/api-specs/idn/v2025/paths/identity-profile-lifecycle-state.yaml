@@ -2,7 +2,7 @@ get:
   operationId: getLifecycleState
   tags:
     - Lifecycle States
-  summary: Get Lifecycle State
+  summary: Get lifecycle state
   description: >-
     Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
   security:
@@ -49,7 +49,7 @@ patch:
   operationId: updateLifecycleStates
   tags:
     - Lifecycle States
-  summary: Update Lifecycle State
+  summary: Update lifecycle state
   description: >-
     Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
   security:
@@ -140,7 +140,7 @@ delete:
   operationId: deleteLifecycleState
   tags:
     - Lifecycle States
-  summary: Delete Lifecycle State 
+  summary: Delete lifecycle state
   description: >-
     Use this endpoint to delete the lifecycle state by its ID. 
   security:

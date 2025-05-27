@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PasswordPolicyHoldersDtoInner = Initialize-PSSailpoint.V2024PasswordPolicyHoldersDtoInner  -PolicyId 2c91808e7d976f3b017d9f5ceae440c8 `
+$PasswordPolicyHoldersDtoInner = Initialize-V2024PasswordPolicyHoldersDtoInner  -PolicyId 2c91808e7d976f3b017d9f5ceae440c8 `
  -PolicyName PasswordPolicy Example `
  -Selectors {identityAttr=[{name=displayName, value=Robert}, {name=lastname, value=Juice}]}
 ```

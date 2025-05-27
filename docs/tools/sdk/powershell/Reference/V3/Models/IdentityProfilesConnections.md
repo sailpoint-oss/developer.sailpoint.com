@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityProfilesConnections = Initialize-PSSailpoint.V3IdentityProfilesConnections  -Id 76cfddb62818416f816bc494410f46c4 `
+$IdentityProfilesConnections = Initialize-IdentityProfilesConnections  -Id 76cfddb62818416f816bc494410f46c4 `
  -Name ODS-Identity-Profile `
  -IdentityCount 100
 ```

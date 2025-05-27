@@ -2,7 +2,7 @@ get:
   operationId: getSegment
   tags:
     - Segments
-  summary: Get Segment by ID
+  summary: Get segment by id
   description: >-
     This API returns the segment specified by the given ID.
 
@@ -39,7 +39,7 @@ delete:
   operationId: deleteSegment
   tags:
     - Segments
-  summary: Delete Segment by ID
+  summary: Delete segment by id
   description: >-
     This API deletes the segment specified by the given ID.
 
@@ -74,7 +74,7 @@ patch:
   operationId: patchSegment
   tags:
     - Segments
-  summary: Update Segment
+  summary: Update segment
   description: >-
     Use this API to update segment fields by using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 

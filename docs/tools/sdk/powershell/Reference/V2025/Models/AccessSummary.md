@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessSummary = Initialize-PSSailpoint.V2025AccessSummary  -Access null `
+$AccessSummary = Initialize-V2025AccessSummary  -Access null `
  -Entitlement null `
  -AccessProfile null `
  -Role null

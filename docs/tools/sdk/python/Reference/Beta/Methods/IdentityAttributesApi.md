@@ -15,16 +15,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-identity-attribute**](#create-identity-attribute) | **POST** `/identity-attributes` | Create Identity Attribute
-[**delete-identity-attribute**](#delete-identity-attribute) | **DELETE** `/identity-attributes/{name}` | Delete Identity Attribute
-[**delete-identity-attributes-in-bulk**](#delete-identity-attributes-in-bulk) | **DELETE** `/identity-attributes/bulk-delete` | Bulk delete Identity Attributes
-[**get-identity-attribute**](#get-identity-attribute) | **GET** `/identity-attributes/{name}` | Get Identity Attribute
-[**list-identity-attributes**](#list-identity-attributes) | **GET** `/identity-attributes` | List Identity Attributes
-[**put-identity-attribute**](#put-identity-attribute) | **PUT** `/identity-attributes/{name}` | Update Identity Attribute
+[**create-identity-attribute**](#create-identity-attribute) | **POST** `/identity-attributes` | Create identity attribute
+[**delete-identity-attribute**](#delete-identity-attribute) | **DELETE** `/identity-attributes/{name}` | Delete identity attribute
+[**delete-identity-attributes-in-bulk**](#delete-identity-attributes-in-bulk) | **DELETE** `/identity-attributes/bulk-delete` | Bulk delete identity attributes
+[**get-identity-attribute**](#get-identity-attribute) | **GET** `/identity-attributes/{name}` | Get identity attribute
+[**list-identity-attributes**](#list-identity-attributes) | **GET** `/identity-attributes` | List identity attributes
+[**put-identity-attribute**](#put-identity-attribute) | **PUT** `/identity-attributes/{name}` | Update identity attribute
 
 
 ## create-identity-attribute
-Create Identity Attribute
+Create identity attribute
 Use this API to create a new identity attribute.   A token with ORG_ADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-identity-attribute)
@@ -88,7 +88,7 @@ with ApiClient(configuration) as api_client:
         }''' # IdentityAttribute | 
 
     try:
-        # Create Identity Attribute
+        # Create identity attribute
         new_identity_attribute = IdentityAttribute.from_json(identity_attribute)
         results = IdentityAttributesApi(api_client).create_identity_attribute(identity_attribute=new_identity_attribute)
         # Below is a request that includes all optional parameters
@@ -104,7 +104,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-identity-attribute
-Delete Identity Attribute
+Delete identity attribute
 This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.   A token with ORG_ADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-identity-attribute)
@@ -146,7 +146,7 @@ with ApiClient(configuration) as api_client:
     name = 'displayName' # str | The attribute's technical name. # str | The attribute's technical name.
 
     try:
-        # Delete Identity Attribute
+        # Delete identity attribute
         
         IdentityAttributesApi(api_client).delete_identity_attribute(name=name)
         # Below is a request that includes all optional parameters
@@ -160,7 +160,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-identity-attributes-in-bulk
-Bulk delete Identity Attributes
+Bulk delete identity attributes
 Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.   A token with ORG_ADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-identity-attributes-in-bulk)
@@ -205,7 +205,7 @@ with ApiClient(configuration) as api_client:
         }''' # IdentityAttributeNames | 
 
     try:
-        # Bulk delete Identity Attributes
+        # Bulk delete identity attributes
         new_identity_attribute_names = IdentityAttributeNames.from_json(identity_attribute_names)
         IdentityAttributesApi(api_client).delete_identity_attributes_in_bulk(identity_attribute_names=new_identity_attribute_names)
         # Below is a request that includes all optional parameters
@@ -219,7 +219,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-identity-attribute
-Get Identity Attribute
+Get identity attribute
 This gets an identity attribute for a given technical name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-identity-attribute)
@@ -262,7 +262,7 @@ with ApiClient(configuration) as api_client:
     name = 'displayName' # str | The attribute's technical name. # str | The attribute's technical name.
 
     try:
-        # Get Identity Attribute
+        # Get identity attribute
         
         results = IdentityAttributesApi(api_client).get_identity_attribute(name=name)
         # Below is a request that includes all optional parameters
@@ -278,7 +278,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-identity-attributes
-List Identity Attributes
+List identity attributes
 Use this API to get a collection of identity attributes.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-identity-attributes)
@@ -326,7 +326,7 @@ with ApiClient(configuration) as api_client:
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
     try:
-        # List Identity Attributes
+        # List identity attributes
         
         results = IdentityAttributesApi(api_client).list_identity_attributes()
         # Below is a request that includes all optional parameters
@@ -343,7 +343,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-identity-attribute
-Update Identity Attribute
+Update identity attribute
 This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.   A token with ORG_ADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-identity-attribute)
@@ -409,7 +409,7 @@ with ApiClient(configuration) as api_client:
         }''' # IdentityAttribute | 
 
     try:
-        # Update Identity Attribute
+        # Update identity attribute
         new_identity_attribute = IdentityAttribute.from_json(identity_attribute)
         results = IdentityAttributesApi(api_client).put_identity_attribute(name=name, identity_attribute=new_identity_attribute)
         # Below is a request that includes all optional parameters

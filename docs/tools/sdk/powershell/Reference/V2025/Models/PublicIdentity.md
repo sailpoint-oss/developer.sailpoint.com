@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PublicIdentity = Initialize-PSSailpoint.V2025PublicIdentity  -Id 2c9180857182305e0171993735622948 `
+$PublicIdentity = Initialize-V2025PublicIdentity  -Id 2c9180857182305e0171993735622948 `
  -Name Alison Ferguso `
  -Alias alison.ferguso `
  -Email alison.ferguso@acme-solar.com `

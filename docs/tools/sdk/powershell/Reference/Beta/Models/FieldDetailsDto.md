@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FieldDetailsDto = Initialize-PSSailpoint.BetaFieldDetailsDto  -Name userName `
+$FieldDetailsDto = Initialize-BetaFieldDetailsDto  -Name userName `
  -Transform {type=rule, attributes={name=Create Unique LDAP Attribute}} `
  -Attributes {template=${firstname}.${lastname}${uniqueCounter}, cloudMaxUniqueChecks=50, cloudMaxSize=20, cloudRequired=true} `
  -IsRequired false `

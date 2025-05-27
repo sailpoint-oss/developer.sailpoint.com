@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ExceptionCriteriaCriteriaListInner = Initialize-PSSailpoint.BetaExceptionCriteriaCriteriaListInner  -Type ENTITLEMENT `
+$ExceptionCriteriaCriteriaListInner = Initialize-BetaExceptionCriteriaCriteriaListInner  -Type ENTITLEMENT `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name CN=HelpDesk,OU=test,OU=test-service,DC=TestAD,DC=local `
  -Existing true

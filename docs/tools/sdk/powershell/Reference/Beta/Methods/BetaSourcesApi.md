@@ -74,49 +74,49 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaProvisioningPolicy**](#create-provisioning-policy) | **POST** `/sources/{sourceId}/provisioning-policies` | Create Provisioning Policy
-[**New-BetaSource**](#create-source) | **POST** `/sources` | Creates a source in IdentityNow.
-[**New-BetaSourceSchema**](#create-source-schema) | **POST** `/sources/{sourceId}/schemas` | Create Schema on Source
-[**Remove-Beta**](#delete) | **DELETE** `/sources/{id}` | Delete Source by ID
-[**Remove-BetaAccountsAsync**](#delete-accounts-async) | **POST** `/sources/{sourceId}/remove-accounts` | Remove All Accounts in a Source
-[**Remove-BetaNativeChangeDetectionConfig**](#delete-native-change-detection-config) | **DELETE** `/sources/{sourceId}/native-change-detection-config` | Delete Native Change Detection Configuration
-[**Remove-BetaProvisioningPolicy**](#delete-provisioning-policy) | **DELETE** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete Provisioning Policy by UsageType
-[**Remove-BetaSourceSchema**](#delete-source-schema) | **DELETE** `/sources/{sourceId}/schemas/{schemaId}` | Delete Source Schema by ID
-[**Get-BetaCorrelationConfig**](#get-correlation-config) | **GET** `/sources/{sourceId}/correlation-config` | Get Source Correlation Configuration
-[**Get-BetaNativeChangeDetectionConfig**](#get-native-change-detection-config) | **GET** `/sources/{sourceId}/native-change-detection-config` | Native Change Detection Configuration
-[**Get-BetaProvisioningPolicy**](#get-provisioning-policy) | **GET** `/sources/{sourceId}/provisioning-policies/{usageType}` | Get Provisioning Policy by UsageType
-[**Get-BetaSource**](#get-source) | **GET** `/sources/{id}` | Get Source by ID
+[**New-BetaProvisioningPolicy**](#create-provisioning-policy) | **POST** `/sources/{sourceId}/provisioning-policies` | Create provisioning policy
+[**New-BetaSource**](#create-source) | **POST** `/sources` | Creates a source in identitynow.
+[**New-BetaSourceSchema**](#create-source-schema) | **POST** `/sources/{sourceId}/schemas` | Create schema on source
+[**Remove-Beta**](#delete) | **DELETE** `/sources/{id}` | Delete source by id
+[**Remove-BetaAccountsAsync**](#delete-accounts-async) | **POST** `/sources/{sourceId}/remove-accounts` | Remove all accounts in a source
+[**Remove-BetaNativeChangeDetectionConfig**](#delete-native-change-detection-config) | **DELETE** `/sources/{sourceId}/native-change-detection-config` | Delete native change detection configuration
+[**Remove-BetaProvisioningPolicy**](#delete-provisioning-policy) | **DELETE** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete provisioning policy by usagetype
+[**Remove-BetaSourceSchema**](#delete-source-schema) | **DELETE** `/sources/{sourceId}/schemas/{schemaId}` | Delete source schema by id
+[**Get-BetaCorrelationConfig**](#get-correlation-config) | **GET** `/sources/{sourceId}/correlation-config` | Get source correlation configuration
+[**Get-BetaNativeChangeDetectionConfig**](#get-native-change-detection-config) | **GET** `/sources/{sourceId}/native-change-detection-config` | Native change detection configuration
+[**Get-BetaProvisioningPolicy**](#get-provisioning-policy) | **GET** `/sources/{sourceId}/provisioning-policies/{usageType}` | Get provisioning policy by usagetype
+[**Get-BetaSource**](#get-source) | **GET** `/sources/{id}` | Get source by id
 [**Get-BetaSourceAccountsSchema**](#get-source-accounts-schema) | **GET** `/sources/{sourceId}/schemas/accounts` | Downloads source accounts schema template
-[**Get-BetaSourceAttrSyncConfig**](#get-source-attr-sync-config) | **GET** `/sources/{id}/attribute-sync-config` | Attribute Sync Config
+[**Get-BetaSourceAttrSyncConfig**](#get-source-attr-sync-config) | **GET** `/sources/{id}/attribute-sync-config` | Attribute sync config
 [**Get-BetaSourceConfig**](#get-source-config) | **GET** `/sources/{id}/connectors/source-config` | Gets source config with language translations
-[**Get-BetaSourceEntitlementRequestConfig**](#get-source-entitlement-request-config) | **GET** `/sources/{sourceId}/entitlement-request-config` | Get Source Entitlement Request Configuration
+[**Get-BetaSourceEntitlementRequestConfig**](#get-source-entitlement-request-config) | **GET** `/sources/{sourceId}/entitlement-request-config` | Get source entitlement request configuration
 [**Get-BetaSourceEntitlementsSchema**](#get-source-entitlements-schema) | **GET** `/sources/{sourceId}/schemas/entitlements` | Downloads source entitlements schema template
-[**Get-BetaSourceSchema**](#get-source-schema) | **GET** `/sources/{sourceId}/schemas/{schemaId}` | Get Source Schema by ID
-[**Get-BetaSourceSchemas**](#get-source-schemas) | **GET** `/sources/{sourceId}/schemas` | List Schemas on Source
-[**Import-BetaAccounts**](#import-accounts) | **POST** `/sources/{sourceId}/load-accounts` | Account Aggregation
-[**Import-BetaEntitlements**](#import-entitlements) | **POST** `/sources/{sourceId}/load-entitlements` | Entitlement Aggregation
+[**Get-BetaSourceSchema**](#get-source-schema) | **GET** `/sources/{sourceId}/schemas/{schemaId}` | Get source schema by id
+[**Get-BetaSourceSchemas**](#get-source-schemas) | **GET** `/sources/{sourceId}/schemas` | List schemas on source
+[**Import-BetaAccounts**](#import-accounts) | **POST** `/sources/{sourceId}/load-accounts` | Account aggregation
+[**Import-BetaEntitlements**](#import-entitlements) | **POST** `/sources/{sourceId}/load-entitlements` | Entitlement aggregation
 [**Import-BetaSourceAccountsSchema**](#import-source-accounts-schema) | **POST** `/sources/{sourceId}/schemas/accounts` | Uploads source accounts schema template
 [**Import-BetaSourceConnectorFile**](#import-source-connector-file) | **POST** `/sources/{sourceId}/upload-connector-file` | Upload connector file to source
 [**Import-BetaSourceEntitlementsSchema**](#import-source-entitlements-schema) | **POST** `/sources/{sourceId}/schemas/entitlements` | Uploads source entitlements schema template
-[**Import-BetaUncorrelatedAccounts**](#import-uncorrelated-accounts) | **POST** `/sources/{sourceId}/load-uncorrelated-accounts` | Process Uncorrelated Accounts
-[**Get-BetaProvisioningPolicies**](#list-provisioning-policies) | **GET** `/sources/{sourceId}/provisioning-policies` | Lists ProvisioningPolicies
-[**Get-BetaSources**](#list-sources) | **GET** `/sources` | Lists all sources in IdentityNow.
+[**Import-BetaUncorrelatedAccounts**](#import-uncorrelated-accounts) | **POST** `/sources/{sourceId}/load-uncorrelated-accounts` | Process uncorrelated accounts
+[**Get-BetaProvisioningPolicies**](#list-provisioning-policies) | **GET** `/sources/{sourceId}/provisioning-policies` | Lists provisioningpolicies
+[**Get-BetaSources**](#list-sources) | **GET** `/sources` | Lists all sources in identitynow.
 [**Receive-BetaResourceObjects**](#peek-resource-objects) | **POST** `/sources/{sourceId}/connector/peek-resource-objects` | Peek source connector&#39;s resource objects
 [**Ping-BetaCluster**](#ping-cluster) | **POST** `/sources/{sourceId}/connector/ping-cluster` | Ping cluster for source connector
-[**Send-BetaCorrelationConfig**](#put-correlation-config) | **PUT** `/sources/{sourceId}/correlation-config` | Update Source Correlation Configuration
-[**Send-BetaNativeChangeDetectionConfig**](#put-native-change-detection-config) | **PUT** `/sources/{sourceId}/native-change-detection-config` | Update Native Change Detection Configuration
-[**Send-BetaProvisioningPolicy**](#put-provisioning-policy) | **PUT** `/sources/{sourceId}/provisioning-policies/{usageType}` | Update Provisioning Policy by UsageType
-[**Send-BetaSource**](#put-source) | **PUT** `/sources/{id}` | Update Source (Full)
-[**Send-BetaSourceAttrSyncConfig**](#put-source-attr-sync-config) | **PUT** `/sources/{id}/attribute-sync-config` | Update Attribute Sync Config
-[**Send-BetaSourceSchema**](#put-source-schema) | **PUT** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Full)
+[**Send-BetaCorrelationConfig**](#put-correlation-config) | **PUT** `/sources/{sourceId}/correlation-config` | Update source correlation configuration
+[**Send-BetaNativeChangeDetectionConfig**](#put-native-change-detection-config) | **PUT** `/sources/{sourceId}/native-change-detection-config` | Update native change detection configuration
+[**Send-BetaProvisioningPolicy**](#put-provisioning-policy) | **PUT** `/sources/{sourceId}/provisioning-policies/{usageType}` | Update provisioning policy by usagetype
+[**Send-BetaSource**](#put-source) | **PUT** `/sources/{id}` | Update source (full)
+[**Send-BetaSourceAttrSyncConfig**](#put-source-attr-sync-config) | **PUT** `/sources/{id}/attribute-sync-config` | Update attribute sync config
+[**Send-BetaSourceSchema**](#put-source-schema) | **PUT** `/sources/{sourceId}/schemas/{schemaId}` | Update source schema (full)
 [**Sync-BetaAttributesForSource**](#sync-attributes-for-source) | **POST** `/sources/{sourceId}/synchronize-attributes` | Synchronize single source attributes.
 [**Test-BetaSourceConfiguration**](#test-source-configuration) | **POST** `/sources/{sourceId}/connector/test-configuration` | Test configuration for source connector
 [**Test-BetaSourceConnection**](#test-source-connection) | **POST** `/sources/{sourceId}/connector/check-connection` | Check connection for source connector.
-[**Update-BetaProvisioningPoliciesInBulk**](#update-provisioning-policies-in-bulk) | **POST** `/sources/{sourceId}/provisioning-policies/bulk-update` | Bulk Update Provisioning Policies
-[**Update-BetaProvisioningPolicy**](#update-provisioning-policy) | **PATCH** `/sources/{sourceId}/provisioning-policies/{usageType}` | Partial update of Provisioning Policy
-[**Update-BetaSource**](#update-source) | **PATCH** `/sources/{id}` | Update Source (Partial)
-[**Update-BetaSourceEntitlementRequestConfig**](#update-source-entitlement-request-config) | **PUT** `/sources/{sourceId}/entitlement-request-config` | Update Source Entitlement Request Configuration
-[**Update-BetaSourceSchema**](#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Partial)
+[**Update-BetaProvisioningPoliciesInBulk**](#update-provisioning-policies-in-bulk) | **POST** `/sources/{sourceId}/provisioning-policies/bulk-update` | Bulk update provisioning policies
+[**Update-BetaProvisioningPolicy**](#update-provisioning-policy) | **PATCH** `/sources/{sourceId}/provisioning-policies/{usageType}` | Partial update of provisioning policy
+[**Update-BetaSource**](#update-source) | **PATCH** `/sources/{id}` | Update source (partial)
+[**Update-BetaSourceEntitlementRequestConfig**](#update-source-entitlement-request-config) | **PUT** `/sources/{sourceId}/entitlement-request-config` | Update source entitlement request configuration
+[**Update-BetaSourceSchema**](#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update source schema (partial)
 
 
 ## create-provisioning-policy
@@ -194,7 +194,7 @@ $ProvisioningPolicyDto = @"{
   "usageType" : "CREATE"
 }"@
 
-# Create Provisioning Policy
+# Create provisioning policy
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
@@ -325,7 +325,7 @@ $Source = @"{
 }"@
 $ProvisionAsCsv = $false # Boolean | If this parameter is `true`, it configures the source as a Delimited File (CSV) source. Setting this to `true` will automatically set the `type` of the source to `DelimitedFile`.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don't set this query parameter and you attempt to set the `type` attribute directly, the request won't correctly generate the source.   (optional)
 
-# Creates a source in IdentityNow.
+# Creates a source in identitynow.
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
@@ -406,7 +406,7 @@ $Schema = @"{
   "identityAttribute" : "sAMAccountName"
 }"@
 
-# Create Schema on Source
+# Create schema on source
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
@@ -455,7 +455,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
-# Delete Source by ID
+# Delete source by id
 
 try {
     Remove-Beta -Id $Id 
@@ -506,7 +506,7 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "ebbf35756e1140699ce52b233121384a" # String | The source id
 
-# Remove All Accounts in a Source
+# Remove all accounts in a source
 
 try {
     Remove-BetaAccountsAsync -SourceId $SourceId 
@@ -553,7 +553,7 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
 
-# Delete Native Change Detection Configuration
+# Delete native change detection configuration
 
 try {
     Remove-BetaNativeChangeDetectionConfig -SourceId $SourceId 
@@ -601,7 +601,7 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
 $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
 
-# Delete Provisioning Policy by UsageType
+# Delete provisioning policy by usagetype
 
 try {
     Remove-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType 
@@ -649,7 +649,7 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
 $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema ID.
 
-# Delete Source Schema by ID
+# Delete source schema by id
 
 try {
     Remove-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId 
@@ -695,7 +695,7 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
 
-# Get Source Correlation Configuration
+# Get source correlation configuration
 
 try {
     Get-BetaCorrelationConfig -SourceId $SourceId 
@@ -742,7 +742,7 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
 
-# Native Change Detection Configuration
+# Native change detection configuration
 
 try {
     Get-BetaNativeChangeDetectionConfig -SourceId $SourceId 
@@ -790,7 +790,7 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
 $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
 
-# Get Provisioning Policy by UsageType
+# Get provisioning policy by usagetype
 
 try {
     Get-BetaProvisioningPolicy -SourceId $SourceId -UsageType $UsageType 
@@ -837,7 +837,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 
-# Get Source by ID
+# Get source by id
 
 try {
     Get-BetaSource -Id $Id 
@@ -930,7 +930,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
 
-# Attribute Sync Config
+# Attribute sync config
 
 try {
     Get-BetaSourceAttrSyncConfig -Id $Id 
@@ -1029,7 +1029,7 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "8c190e6787aa4ed9a90bd9d5344523fb" # String | The Source id
 
-# Get Source Entitlement Request Configuration
+# Get source entitlement request configuration
 
 try {
     Get-BetaSourceEntitlementRequestConfig -SourceId $SourceId 
@@ -1126,7 +1126,7 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source ID.
 $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema ID.
 
-# Get Source Schema by ID
+# Get source schema by id
 
 try {
     Get-BetaSourceSchema -SourceId $SourceId -SchemaId $SchemaId 
@@ -1176,7 +1176,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 $IncludeTypes = "group" # String | If set to 'group', then the account schema is filtered and only group schemas are returned. Only a value of 'group' is recognized presently.  Note: The API will check whether include-types is group or not, if not, it will list schemas based on include-names, if include-names is not provided, it will list all schemas. (optional)
 $IncludeNames = "account" # String | A comma-separated list of schema names to filter result. (optional)
 
-# List Schemas on Source
+# List schemas on source
 
 try {
     Get-BetaSourceSchemas -SourceId $SourceId 
@@ -1228,7 +1228,7 @@ $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
 $File =  # System.IO.FileInfo | The CSV file containing the source accounts to aggregate. (optional)
 $DisableOptimization = "true" # String | Use this flag to reprocess every account whether or not the data has changed. (optional)
 
-# Account Aggregation
+# Account aggregation
 
 try {
     Import-BetaAccounts -SourceId $SourceId 
@@ -1278,7 +1278,7 @@ Code | Description  | Data Type
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
 $File =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
 
-# Entitlement Aggregation
+# Entitlement aggregation
 
 try {
     Import-BetaEntitlements -SourceId $SourceId 
@@ -1469,7 +1469,7 @@ Code | Description  | Data Type
 $SourceId = "75dbec1ebe154d5785da27b95e1dd5d7" # String | Source Id
 $File =  # System.IO.FileInfo |  (optional)
 
-# Process Uncorrelated Accounts
+# Process uncorrelated accounts
 
 try {
     Import-BetaUncorrelatedAccounts -SourceId $SourceId 
@@ -1515,7 +1515,7 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id
 
-# Lists ProvisioningPolicies
+# Lists provisioningpolicies
 
 try {
     Get-BetaProvisioningPolicies -SourceId $SourceId 
@@ -1575,7 +1575,7 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 $ForSubadmin = "name" # String | Filter the returned list of sources for the identity specified by the parameter, which is the id of an identity with the role SOURCE_SUBADMIN. By convention, the value **me** indicates the identity id of the current user. Subadmins may only view Sources which they are able to administer; all other Sources will be filtered out when this parameter is set. If the current user is a SOURCE_SUBADMIN but fails to pass a valid value for this parameter, a 403 Forbidden is returned. (optional)
 $IncludeIDNSource = $true # Boolean | Include the IdentityNow source in the response. (optional) (default to $false)
 
-# Lists all sources in IdentityNow.
+# Lists all sources in identitynow.
 
 try {
     Get-BetaSources 
@@ -1743,7 +1743,7 @@ $CorrelationConfig = @"{
   "id" : "2c9180835d191a86015d28455b4a2329"
 }"@
 
-# Update Source Correlation Configuration
+# Update source correlation configuration
 
 try {
     $Result = ConvertFrom-JsonToCorrelationConfig -Json $CorrelationConfig
@@ -1801,7 +1801,7 @@ $NativeChangeDetectionConfig = @"{
   "enabled" : true
 }"@
 
-# Update Native Change Detection Configuration
+# Update native change detection configuration
 
 try {
     $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
@@ -1893,7 +1893,7 @@ $ProvisioningPolicyDto = @"{
   "usageType" : "CREATE"
 }"@
 
-# Update Provisioning Policy by UsageType
+# Update provisioning policy by usagetype
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
@@ -2038,7 +2038,7 @@ $Source = @"{
   "since" : "2021-09-28T15:48:29.3801666300Z"
 }"@
 
-# Update Source (Full)
+# Update source (full)
 
 try {
     $Result = ConvertFrom-JsonToSource -Json $Source
@@ -2106,7 +2106,7 @@ $AttrSyncSourceConfig = @"{
   }
 }"@
 
-# Update Attribute Sync Config
+# Update attribute sync config
 
 try {
     $Result = ConvertFrom-JsonToAttrSyncSourceConfig -Json $AttrSyncSourceConfig
@@ -2195,7 +2195,7 @@ $Schema = @"{
   "identityAttribute" : "sAMAccountName"
 }"@
 
-# Update Source Schema (Full)
+# Update source schema (full)
 
 try {
     $Result = ConvertFrom-JsonToSchema -Json $Schema
@@ -2425,7 +2425,7 @@ $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The Source id.
 }"@ # ProvisioningPolicyDto[] | 
  
 
-# Bulk Update Provisioning Policies
+# Bulk update provisioning policies
 
 try {
     $Result = ConvertFrom-JsonToProvisioningPolicyDto -Json $ProvisioningPolicyDto
@@ -2483,7 +2483,7 @@ $UsageType = "CREATE" # UsageType | The type of provisioning policy usage.  In I
 }"@ # JsonPatchOperation[] | The JSONPatch payload used to update the schema.
  
 
-# Partial update of Provisioning Policy
+# Partial update of provisioning policy
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -2553,7 +2553,7 @@ $Id = "2c9180835d191a86015d28455b4a2329" # String | Source ID.
 }"@ # JsonPatchOperation[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
  
 
-# Update Source (Partial)
+# Update source (partial)
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -2615,11 +2615,21 @@ $SourceEntitlementRequestConfig = @"{
       "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
       "approverType" : "GOVERNANCE_GROUP"
     } ],
+    "reauthorizationRequired" : false,
     "requestCommentRequired" : true
+  },
+  "revocationRequestConfig" : {
+    "approvalSchemes" : [ {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ]
   }
 }"@
 
-# Update Source Entitlement Request Configuration
+# Update source entitlement request configuration
 
 try {
     $Result = ConvertFrom-JsonToSourceEntitlementRequestConfig -Json $SourceEntitlementRequestConfig
@@ -2704,7 +2714,7 @@ $SchemaId = "2c9180835d191a86015d28455b4a2329" # String | The Schema id.
 }"@ # JsonPatchOperation[] | The JSONPatch payload used to update the schema.
  
 
-# Update Source Schema (Partial)
+# Update source schema (partial)
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

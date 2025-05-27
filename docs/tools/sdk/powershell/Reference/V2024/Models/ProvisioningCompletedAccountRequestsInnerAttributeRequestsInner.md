@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner = Initialize-PSSailpoint.V2024ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner  -AttributeName memberOf `
+$ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner = Initialize-V2024ProvisioningCompletedAccountRequestsInnerAttributeRequestsInner  -AttributeName memberOf `
  -AttributeValue CN=jedi,DC=starwars,DC=com `
  -Operation Add
 ```

@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestRecommendationConfigDto = Initialize-PSSailpoint.V2025AccessRequestRecommendationConfigDto  -ScoreThreshold 0.5 `
+$AccessRequestRecommendationConfigDto = Initialize-V2025AccessRequestRecommendationConfigDto  -ScoreThreshold 0.5 `
  -StartDateAttribute startDate `
  -RestrictionAttribute location `
  -MoverAttribute isMover `

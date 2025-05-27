@@ -2,7 +2,7 @@ get:
   operationId: listIdentityProfiles
   tags:
     - Identity Profiles
-  summary: List Identity Profiles
+  summary: List identity profiles
   description: >-
     Get a list of identity profiles, based on the specified query parameters.
   parameters:
@@ -67,7 +67,7 @@ get:
     - ORG_ADMIN
 post:
   operationId: createIdentityProfile
-  summary: Create Identity Profile
+  summary: Create identity profile
   description: >-
     Creates an identity profile.    
   tags:

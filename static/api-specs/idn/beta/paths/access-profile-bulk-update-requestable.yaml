@@ -1,6 +1,6 @@
 post:
   operationId: updateAccessProfilesInBulk
-  summary: Update Access Profile(s) requestable field.
+  summary: Update access profile(s) requestable field.
   tags:
     - Access Profiles
   description: >-

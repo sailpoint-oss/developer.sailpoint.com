@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeRequestWithoutApprovalItem = Initialize-PSSailpoint.BetaNonEmployeeRequestWithoutApprovalItem  -Id ac10e21c-931c-1ef2-8193-1c51e7ff0003 `
+$NonEmployeeRequestWithoutApprovalItem = Initialize-BetaNonEmployeeRequestWithoutApprovalItem  -Id ac10e21c-931c-1ef2-8193-1c51e7ff0003 `
  -Requester null `
  -AccountName william.smith `
  -FirstName William `
@@ -51,8 +51,8 @@ $NonEmployeeRequestWithoutApprovalItem = Initialize-PSSailpoint.BetaNonEmployeeR
  -ApprovalStatus null `
  -Comment approved `
  -CompletionDate 2020-03-24T11:11:41.139-05:00 `
- -StartDate Mon Mar 23 20:00:00 EDT 2020 `
- -EndDate Wed Mar 24 20:00:00 EDT 2021 `
+ -StartDate Tue Mar 24 00:00:00 UTC 2020 `
+ -EndDate Thu Mar 25 00:00:00 UTC 2021 `
  -Modified 2020-03-24T11:11:41.139-05:00 `
  -Created 2020-03-24T11:11:41.139-05:00
 ```

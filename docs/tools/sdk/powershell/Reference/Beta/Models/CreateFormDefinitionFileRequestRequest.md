@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CreateFormDefinitionFileRequestRequest = Initialize-PSSailpoint.BetaCreateFormDefinitionFileRequestRequest  -File null
+$CreateFormDefinitionFileRequestRequest = Initialize-BetaCreateFormDefinitionFileRequestRequest  -File null
 ```
 
 - Convert the resource to JSON

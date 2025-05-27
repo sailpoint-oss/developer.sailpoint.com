@@ -2,7 +2,7 @@ post:
   operationId: submitReassignCertsAsync
   tags:
     - Certifications
-  summary: Reassign Certifications Asynchronously
+  summary: Reassign certifications asynchronously
   description: |
     This API initiates a task to reassign up to 500 identities or items in an identity campaign certification to another
     reviewer. The `certification-tasks` API can be used to get an updated status on the task and determine when the

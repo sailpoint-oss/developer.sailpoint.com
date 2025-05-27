@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowExecution = Initialize-PSSailpoint.V3WorkflowExecution  -Id b393f4e2-4785-4d7f-ab27-3a6b8ded4c81 `
+$WorkflowExecution = Initialize-WorkflowExecution  -Id b393f4e2-4785-4d7f-ab27-3a6b8ded4c81 `
  -WorkflowId d201c5d9-d37b-4a2f-af14-66414f39d568 `
  -RequestId 41e12a74fa7b4a6a98ae47887b64acdb `
  -StartTime 2022-02-07T20:13:29.356648026Z `

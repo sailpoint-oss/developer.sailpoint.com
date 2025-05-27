@@ -70,7 +70,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TriggerExampleInput = Initialize-PSSailpoint.V2024TriggerExampleInput  -AccessRequestId 2c91808b6ef1d43e016efba0ce470904 `
+$TriggerExampleInput = Initialize-V2024TriggerExampleInput  -AccessRequestId 2c91808b6ef1d43e016efba0ce470904 `
  -RequestedFor null `
  -RequestedItems null `
  -RequestedBy null `

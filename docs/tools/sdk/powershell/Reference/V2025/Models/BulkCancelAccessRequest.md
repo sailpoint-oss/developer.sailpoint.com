@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BulkCancelAccessRequest = Initialize-PSSailpoint.V2025BulkCancelAccessRequest  -AccessRequestIds [2c9180835d2e5168015d32f890ca1581, 2c9180835d2e5168015d32f890ca1582] `
+$BulkCancelAccessRequest = Initialize-V2025BulkCancelAccessRequest  -AccessRequestIds [2c9180835d2e5168015d32f890ca1581, 2c9180835d2e5168015d32f890ca1582] `
  -Comment I requested this role by mistake.
 ```
 

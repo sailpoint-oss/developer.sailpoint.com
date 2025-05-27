@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowExecutionEvent = Initialize-PSSailpoint.BetaWorkflowExecutionEvent  -Type WorkflowTaskScheduled `
+$WorkflowExecutionEvent = Initialize-BetaWorkflowExecutionEvent  -Type WorkflowTaskScheduled `
  -Timestamp 2022-02-07T20:13:31.640618296Z `
  -Attributes {}
 ```

@@ -17,9 +17,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-org-config**](#get-org-config) | **GET** `/org-config` | Get Org Config Settings
-[**get-valid-time-zones**](#get-valid-time-zones) | **GET** `/org-config/valid-time-zones` | Get Valid Time Zones
-[**patch-org-config**](#patch-org-config) | **PATCH** `/org-config` | Patch Org Config
+[**get-org-config**](#get-org-config) | **GET** `/org-config` | Get org config settings
+[**get-valid-time-zones**](#get-valid-time-zones) | **GET** `/org-config/valid-time-zones` | Get valid time zones
+[**patch-org-config**](#patch-org-config) | **PATCH** `/org-config` | Patch org config
 
 
 ## get-org-config
@@ -34,7 +34,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Org Config Settings
+Get org config settings
 Get the current organization's configuration settings, only external accessible properties.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-org-config)
@@ -78,7 +78,7 @@ with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Get Org Config Settings
+        # Get org config settings
         
         results = OrgConfigApi(api_client).get_org_config(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -105,7 +105,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Valid Time Zones
+Get valid time zones
 List the valid time zones that can be set in organization configurations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-valid-time-zones)
@@ -153,7 +153,7 @@ with ApiClient(configuration) as api_client:
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
     try:
-        # Get Valid Time Zones
+        # Get valid time zones
         
         results = OrgConfigApi(api_client).get_valid_time_zones(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -181,7 +181,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Patch Org Config
+Patch org config
 Patch the current organization's configuration, using http://jsonpatch.com/ syntax. This is commonly used to changing an organization's time zone.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-org-config)
@@ -228,7 +228,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=replace, path=/timeZone, value=America/Toronto}]''' # List[JsonPatchOperation] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
     try:
-        # Patch Org Config
+        # Patch org config
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = OrgConfigApi(api_client).patch_org_config(x_sail_point_experimental=x_sail_point_experimental, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters

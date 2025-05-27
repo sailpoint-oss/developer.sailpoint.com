@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DimensionMembershipSelector = Initialize-PSSailpoint.V2024DimensionMembershipSelector  -Type null `
+$DimensionMembershipSelector = Initialize-V2024DimensionMembershipSelector  -Type null `
  -Criteria null
 ```
 

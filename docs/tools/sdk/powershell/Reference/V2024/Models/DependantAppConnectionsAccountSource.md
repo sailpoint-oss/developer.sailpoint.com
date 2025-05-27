@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DependantAppConnectionsAccountSource = Initialize-PSSailpoint.V2024DependantAppConnectionsAccountSource  -UseForPasswordManagement false `
+$DependantAppConnectionsAccountSource = Initialize-V2024DependantAppConnectionsAccountSource  -UseForPasswordManagement false `
  -PasswordPolicies null
 ```
 

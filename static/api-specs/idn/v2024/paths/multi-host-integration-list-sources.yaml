@@ -1,7 +1,7 @@
 get:
   tags:
     - Multi-Host Integration
-  summary: List Sources Within Multi-Host Integration
+  summary: List sources within multi-host integration
   description: >-
     Get a list of sources within Multi-Host Integration ID.  
     

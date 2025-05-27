@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityProfileAllOfOwner = Initialize-PSSailpoint.V2024IdentityProfileAllOfOwner  -Type IDENTITY `
+$IdentityProfileAllOfOwner = Initialize-V2024IdentityProfileAllOfOwner  -Type IDENTITY `
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name William Wilson
 ```

@@ -27,17 +27,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-IdentityProfile**](#create-identity-profile) | **POST** `/identity-profiles` | Create Identity Profile
-[**Remove-IdentityProfile**](#delete-identity-profile) | **DELETE** `/identity-profiles/{identity-profile-id}` | Delete Identity Profile
-[**Remove-IdentityProfiles**](#delete-identity-profiles) | **POST** `/identity-profiles/bulk-delete` | Delete Identity Profiles
-[**Export-IdentityProfiles**](#export-identity-profiles) | **GET** `/identity-profiles/export` | Export Identity Profiles
-[**Get-DefaultIdentityAttributeConfig**](#get-default-identity-attribute-config) | **GET** `/identity-profiles/{identity-profile-id}/default-identity-attribute-config` | Get default Identity Attribute Config
-[**Get-IdentityProfile**](#get-identity-profile) | **GET** `/identity-profiles/{identity-profile-id}` | Get Identity Profile
-[**Import-IdentityProfiles**](#import-identity-profiles) | **POST** `/identity-profiles/import` | Import Identity Profiles
-[**Get-IdentityProfiles**](#list-identity-profiles) | **GET** `/identity-profiles` | List Identity Profiles
-[**Show-IdentityPreview**](#show-identity-preview) | **POST** `/identity-profiles/identity-preview` | Generate Identity Profile Preview
+[**New-IdentityProfile**](#create-identity-profile) | **POST** `/identity-profiles` | Create identity profile
+[**Remove-IdentityProfile**](#delete-identity-profile) | **DELETE** `/identity-profiles/{identity-profile-id}` | Delete identity profile
+[**Remove-IdentityProfiles**](#delete-identity-profiles) | **POST** `/identity-profiles/bulk-delete` | Delete identity profiles
+[**Export-IdentityProfiles**](#export-identity-profiles) | **GET** `/identity-profiles/export` | Export identity profiles
+[**Get-DefaultIdentityAttributeConfig**](#get-default-identity-attribute-config) | **GET** `/identity-profiles/{identity-profile-id}/default-identity-attribute-config` | Get default identity attribute config
+[**Get-IdentityProfile**](#get-identity-profile) | **GET** `/identity-profiles/{identity-profile-id}` | Get identity profile
+[**Import-IdentityProfiles**](#import-identity-profiles) | **POST** `/identity-profiles/import` | Import identity profiles
+[**Get-IdentityProfiles**](#list-identity-profiles) | **GET** `/identity-profiles` | List identity profiles
+[**Show-IdentityPreview**](#show-identity-preview) | **POST** `/identity-profiles/identity-preview` | Generate identity profile preview
 [**Sync-IdentityProfile**](#sync-identity-profile) | **POST** `/identity-profiles/{identity-profile-id}/process-identities` | Process identities under profile
-[**Update-IdentityProfile**](#update-identity-profile) | **PATCH** `/identity-profiles/{identity-profile-id}` | Update Identity Profile
+[**Update-IdentityProfile**](#update-identity-profile) | **PATCH** `/identity-profiles/{identity-profile-id}` | Update identity profile
 
 
 ## create-identity-profile
@@ -119,7 +119,7 @@ $IdentityProfile = @"{
   "id" : "id12345"
 }"@
 
-# Create Identity Profile
+# Create identity profile
 
 try {
     $Result = ConvertFrom-JsonToIdentityProfile -Json $IdentityProfile
@@ -167,7 +167,7 @@ Code | Description  | Data Type
 ```powershell
 $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity profile ID.
 
-# Delete Identity Profile
+# Delete identity profile
 
 try {
     Remove-IdentityProfile -IdentityProfileId $IdentityProfileId 
@@ -218,7 +218,7 @@ $RequestBody = "MyRequestBody" # String[] | Identity Profile bulk delete request
  $RequestBody = @""@ # String[] | Identity Profile bulk delete request body.
  
 
-# Delete Identity Profiles
+# Delete identity profiles
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
@@ -272,7 +272,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'id eq "ef38f94347e94562b5bb8424a56397d8"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne*  **name**: *eq, ne*  **priority**: *eq, ne* (optional)
 $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority** (optional)
 
-# Export Identity Profiles
+# Export identity profiles
 
 try {
     Export-IdentityProfiles 
@@ -318,7 +318,7 @@ Code | Description  | Data Type
 ```powershell
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | The Identity Profile ID.
 
-# Get default Identity Attribute Config
+# Get default identity attribute config
 
 try {
     Get-DefaultIdentityAttributeConfig -IdentityProfileId $IdentityProfileId 
@@ -364,7 +364,7 @@ Code | Description  | Data Type
 ```powershell
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
 
-# Get Identity Profile
+# Get identity profile
 
 try {
     Get-IdentityProfile -IdentityProfileId $IdentityProfileId 
@@ -471,7 +471,7 @@ Code | Description  | Data Type
 }"@ # IdentityProfileExportedObject[] | Previously exported Identity Profiles.
  
 
-# Import Identity Profiles
+# Import identity profiles
 
 try {
     $Result = ConvertFrom-JsonToIdentityProfileExportedObject -Json $IdentityProfileExportedObject
@@ -525,7 +525,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'id eq "ef38f94347e94562b5bb8424a56397d8"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ne, ge, gt, in, le, sw*  **name**: *eq, ne, ge, gt, in, le, sw*  **priority**: *eq, ne* (optional)
 $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, priority, created, modified, owner.id, owner.name** (optional)
 
-# List Identity Profiles
+# List identity profiles
 
 try {
     Get-IdentityProfiles 
@@ -597,7 +597,7 @@ $IdentityPreviewRequest = @"{
   }
 }"@
 
-# Generate Identity Profile Preview
+# Generate identity profile preview
 
 try {
     $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
@@ -709,7 +709,7 @@ $IdentityProfileId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity prof
 }"@ # JsonPatchOperation[] | List of identity profile update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 
-# Update Identity Profile
+# Update identity profile
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

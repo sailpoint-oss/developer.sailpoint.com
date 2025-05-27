@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormUsedBy = Initialize-PSSailpoint.BetaFormUsedBy  -Type WORKFLOW `
+$FormUsedBy = Initialize-BetaFormUsedBy  -Type WORKFLOW `
  -Id 61940a92-5484-42bc-bc10-b9982b218cdf `
  -Name Access Request Form
 ```

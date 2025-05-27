@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NonEmployeeApprovalSummary = Initialize-PSSailpoint.V2025NonEmployeeApprovalSummary  -Approved 2 `
+$NonEmployeeApprovalSummary = Initialize-V2025NonEmployeeApprovalSummary  -Approved 2 `
  -Pending 2 `
  -Rejected 2
 ```

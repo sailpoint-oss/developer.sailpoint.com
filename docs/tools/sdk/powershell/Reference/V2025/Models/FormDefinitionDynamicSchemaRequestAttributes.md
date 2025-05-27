@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormDefinitionDynamicSchemaRequestAttributes = Initialize-PSSailpoint.V2025FormDefinitionDynamicSchemaRequestAttributes  -FormDefinitionId 00000000-0000-0000-0000-000000000000
+$FormDefinitionDynamicSchemaRequestAttributes = Initialize-V2025FormDefinitionDynamicSchemaRequestAttributes  -FormDefinitionId 00000000-0000-0000-0000-000000000000
 ```
 
 - Convert the resource to JSON

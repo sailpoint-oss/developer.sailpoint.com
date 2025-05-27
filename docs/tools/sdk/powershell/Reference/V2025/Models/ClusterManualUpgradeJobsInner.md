@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ClusterManualUpgradeJobsInner = Initialize-PSSailpoint.V2025ClusterManualUpgradeJobsInner  -Uuid 4732440c-dacb-45b2-b2f8-ee2fa1327a07 `
+$ClusterManualUpgradeJobsInner = Initialize-V2025ClusterManualUpgradeJobsInner  -Uuid 4732440c-dacb-45b2-b2f8-ee2fa1327a07 `
  -Cookbook 4732440c-dacb-45b2-b2f8-ee2fa1327a07 `
  -State PENDING `
  -Type VA_UPGRADE `

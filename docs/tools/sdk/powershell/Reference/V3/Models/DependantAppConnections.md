@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DependantAppConnections = Initialize-PSSailpoint.V3DependantAppConnections  -CloudAppId 9e3cdd80edf84f119327df8bbd5bb5ac `
+$DependantAppConnections = Initialize-DependantAppConnections  -CloudAppId 9e3cdd80edf84f119327df8bbd5bb5ac `
  -Description This is a Sailpoint application `
  -Enabled true `
  -ProvisionRequestEnabled true `

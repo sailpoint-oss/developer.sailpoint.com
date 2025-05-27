@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestResponse1 = Initialize-PSSailpoint.BetaAccessRequestResponse1  -RequesterId 2c91808a77ff216301782327a50f09bf `
+$AccessRequestResponse1 = Initialize-BetaAccessRequestResponse1  -RequesterId 2c91808a77ff216301782327a50f09bf `
  -RequesterName Bing C `
  -Items [{operation=Add, accessItemType=role, name=Role-1, decision=APPROVED, description=The role descrition, sourceId=8a80828f643d484f01643e14202e206f, sourceName=Source1, approvalInfos=[{name=John Snow, id=8a80828f643d484f01643e14202e2000, status=Approved}]}]
 ```

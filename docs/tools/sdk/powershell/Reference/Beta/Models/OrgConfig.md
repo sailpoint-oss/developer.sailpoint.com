@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OrgConfig = Initialize-PSSailpoint.BetaOrgConfig  -OrgName acme-solar `
+$OrgConfig = Initialize-BetaOrgConfig  -OrgName acme-solar `
  -TimeZone America/Toronto `
  -LcsChangeHonorsSourceEnableFeature false `
  -ArmCustomerId DE38E75A-5FF6-4A65-5DC7-08D64426B09E `

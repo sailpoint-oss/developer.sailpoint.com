@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LauncherOwner = Initialize-PSSailpoint.BetaLauncherOwner  -Type IDENTITY `
+$LauncherOwner = Initialize-BetaLauncherOwner  -Type IDENTITY `
  -Id 123180847373330f0173c7e1756b6890
 ```
 

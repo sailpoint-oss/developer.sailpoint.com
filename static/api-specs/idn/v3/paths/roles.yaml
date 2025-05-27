@@ -2,7 +2,7 @@ get:
   operationId: listRoles
   tags:
     - Roles
-  summary: List Roles
+  summary: List roles
   description: >-
     This API returns a list of Roles.
   parameters:
@@ -117,7 +117,7 @@ post:
   operationId: createRole
   tags:
     - Roles
-  summary: Create a Role
+  summary: Create a role
   description: >-
     This API creates a role.
 

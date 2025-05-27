@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TestWorkflow200Response = Initialize-PSSailpoint.V3TestWorkflow200Response  -WorkflowExecutionId 0e11cefa-96e7-4b67-90d0-065bc1da5753
+$TestWorkflow200Response = Initialize-TestWorkflow200Response  -WorkflowExecutionId 0e11cefa-96e7-4b67-90d0-065bc1da5753
 ```
 
 - Convert the resource to JSON

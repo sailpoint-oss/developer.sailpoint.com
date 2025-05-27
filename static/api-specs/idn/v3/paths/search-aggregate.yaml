@@ -9,7 +9,7 @@ post:
   operationId: searchAggregate
   security:
     - userAuth: [ sp:search:read ]
-  summary: "Perform a Search Query Aggregation"
+  summary: "Perform a search query aggregation"
   parameters:
   - $ref: '../parameters/offset.yaml'
   - $ref: '../parameters/limit.yaml'

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$InnerHit = Initialize-PSSailpoint.V2024InnerHit  -Query source.name:\"Active Directory\" `
+$InnerHit = Initialize-V2024InnerHit  -Query source.name:\"Active Directory\" `
  -Type access
 ```
 

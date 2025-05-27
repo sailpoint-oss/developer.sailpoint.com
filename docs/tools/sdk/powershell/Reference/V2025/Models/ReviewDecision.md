@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReviewDecision = Initialize-PSSailpoint.V2025ReviewDecision  -Id ef38f94347e94562b5bb8424a56397d8 `
+$ReviewDecision = Initialize-V2025ReviewDecision  -Id ef38f94347e94562b5bb8424a56397d8 `
  -Decision null `
  -ProposedEndDate 2017-07-11T18:45:37.098Z `
  -Bulk true `

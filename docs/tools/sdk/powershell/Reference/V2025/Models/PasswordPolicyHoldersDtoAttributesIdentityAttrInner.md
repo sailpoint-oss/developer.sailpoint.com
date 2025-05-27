@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PasswordPolicyHoldersDtoAttributesIdentityAttrInner = Initialize-PSSailpoint.V2025PasswordPolicyHoldersDtoAttributesIdentityAttrInner  -Name Country `
+$PasswordPolicyHoldersDtoAttributesIdentityAttrInner = Initialize-V2025PasswordPolicyHoldersDtoAttributesIdentityAttrInner  -Name Country `
  -Value Canada
 ```
 

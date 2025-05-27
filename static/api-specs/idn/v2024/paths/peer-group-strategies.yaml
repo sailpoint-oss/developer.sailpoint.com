@@ -2,7 +2,7 @@ get:
   operationId: getPeerGroupOutliers
   tags:
   - IAI Peer Group Strategies
-  summary: Identity Outliers List
+  summary: Identity outliers list
   deprecated: true
   description: '-- Deprecated : See ''IAI Outliers'' This API will be used by Identity
     Governance systems to identify identities that are not included in an organization''s

@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessItemRemoved = Initialize-PSSailpoint.V2025AccessItemRemoved  -AccessItem null `
+$AccessItemRemoved = Initialize-V2025AccessItemRemoved  -AccessItem null `
  -IdentityId 8c190e6787aa4ed9a90bd9d5344523fb `
  -EventType AccessItemRemoved `
  -Dt 2019-03-08T22:37:33.901Z `

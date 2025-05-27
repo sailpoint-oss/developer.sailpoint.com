@@ -4,7 +4,7 @@ delete:
     - userAuth: [sp:config-backup:manage]
   tags:
     - Configuration Hub
-  summary: Delete a Backup
+  summary: Delete a backup
   description: >-
     This API deletes an existing backup for the current tenant.
 

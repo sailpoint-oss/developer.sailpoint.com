@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementApprovalScheme = Initialize-PSSailpoint.V2025EntitlementApprovalScheme  -ApproverType GOVERNANCE_GROUP `
+$EntitlementApprovalScheme = Initialize-V2025EntitlementApprovalScheme  -ApproverType GOVERNANCE_GROUP `
  -ApproverId e3eab852-8315-467f-9de7-70eda97f63c8
 ```
 

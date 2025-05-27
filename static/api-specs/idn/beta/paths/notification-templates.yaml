@@ -2,7 +2,7 @@ get:
   operationId: listNotificationTemplates
   tags:
     - Notifications
-  summary: List Notification Templates
+  summary: List notification templates
   description: >-
     This lists the templates that you have modified for your site.
   security:
@@ -53,7 +53,7 @@ post:
   operationId: createNotificationTemplate
   tags:
     - Notifications
-  summary: Create Notification Template
+  summary: Create notification template
   description: >-
     This creates a template for your site. 
     

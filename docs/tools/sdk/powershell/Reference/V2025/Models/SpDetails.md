@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SpDetails = Initialize-PSSailpoint.V2025SpDetails  -Role SAML_IDP `
+$SpDetails = Initialize-V2025SpDetails  -Role SAML_IDP `
  -EntityId http://www.okta.com/exkdaruy8Ln5Ry7C54x6 `
  -Alias acme-sp `
  -CallbackUrl https://stradbroke-sso.identitysoon.com/sso/Consumer/metaAlias/cdov-saml/sp `

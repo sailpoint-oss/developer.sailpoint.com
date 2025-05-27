@@ -17,14 +17,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Remove-BetaMFAConfig**](#delete-mfa-config) | **DELETE** `/mfa/{method}/delete` | Delete MFA method configuration
-[**Get-BetaMFADuoConfig**](#get-mfa-duo-config) | **GET** `/mfa/duo-web/config` | Configuration of Duo MFA method
-[**Get-BetaMFAKbaConfig**](#get-mfa-kba-config) | **GET** `/mfa/kba/config` | Configuration of KBA MFA method
-[**Get-BetaMFAOktaConfig**](#get-mfa-okta-config) | **GET** `/mfa/okta-verify/config` | Configuration of Okta MFA method
-[**Set-BetaMFADuoConfig**](#set-mfa-duo-config) | **PUT** `/mfa/duo-web/config` | Set Duo MFA configuration
-[**Set-BetaMFAKBAConfig**](#set-mfakba-config) | **POST** `/mfa/kba/config/answers` | Set MFA KBA configuration
-[**Set-BetaMFAOktaConfig**](#set-mfa-okta-config) | **PUT** `/mfa/okta-verify/config` | Set Okta MFA configuration
-[**Test-BetaMFAConfig**](#test-mfa-config) | **GET** `/mfa/{method}/test` | MFA method&#39;s test configuration
+[**Remove-BetaMFAConfig**](#delete-mfa-config) | **DELETE** `/mfa/{method}/delete` | Delete mfa method configuration
+[**Get-BetaMFADuoConfig**](#get-mfa-duo-config) | **GET** `/mfa/duo-web/config` | Configuration of duo mfa method
+[**Get-BetaMFAKbaConfig**](#get-mfa-kba-config) | **GET** `/mfa/kba/config` | Configuration of kba mfa method
+[**Get-BetaMFAOktaConfig**](#get-mfa-okta-config) | **GET** `/mfa/okta-verify/config` | Configuration of okta mfa method
+[**Set-BetaMFADuoConfig**](#set-mfa-duo-config) | **PUT** `/mfa/duo-web/config` | Set duo mfa configuration
+[**Set-BetaMFAKBAConfig**](#set-mfakba-config) | **POST** `/mfa/kba/config/answers` | Set mfa kba configuration
+[**Set-BetaMFAOktaConfig**](#set-mfa-okta-config) | **PUT** `/mfa/okta-verify/config` | Set okta mfa configuration
+[**Test-BetaMFAConfig**](#test-mfa-config) | **GET** `/mfa/{method}/test` | Mfa method&#39;s test configuration
 
 
 ## delete-mfa-config
@@ -58,7 +58,7 @@ Code | Description  | Data Type
 ```powershell
 $Method = "okta-verify" # String | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
 
-# Delete MFA method configuration
+# Delete mfa method configuration
 
 try {
     Remove-BetaMFAConfig -Method $Method 
@@ -101,7 +101,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Configuration of Duo MFA method
+# Configuration of duo mfa method
 
 try {
     Get-BetaMFADuoConfig 
@@ -146,7 +146,7 @@ Code | Description  | Data Type
 ```powershell
 $AllLanguages = $false # Boolean | Indicator whether the question text should be returned in all configured languages    * If true, the question text is returned in all languages that it is configured in.    * If false, the question text is returned in the user locale if available, else for the default locale.     * If not passed, it behaves the same way as passing this parameter as false (optional)
 
-# Configuration of KBA MFA method
+# Configuration of kba mfa method
 
 try {
     Get-BetaMFAKbaConfig 
@@ -189,7 +189,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Configuration of Okta MFA method
+# Configuration of okta mfa method
 
 try {
     Get-BetaMFAOktaConfig 
@@ -244,7 +244,7 @@ $MfaDuoConfig = @"{
   "identityAttribute" : "email"
 }"@
 
-# Set Duo MFA configuration
+# Set duo mfa configuration
 
 try {
     $Result = ConvertFrom-JsonToMfaDuoConfig -Json $MfaDuoConfig
@@ -294,7 +294,7 @@ Code | Description  | Data Type
 }"@ # KbaAnswerRequestItem[] | 
  
 
-# Set MFA KBA configuration
+# Set mfa kba configuration
 
 try {
     $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
@@ -346,7 +346,7 @@ $MfaOktaConfig = @"{
   "identityAttribute" : "email"
 }"@
 
-# Set Okta MFA configuration
+# Set okta mfa configuration
 
 try {
     $Result = ConvertFrom-JsonToMfaOktaConfig -Json $MfaOktaConfig
@@ -392,7 +392,7 @@ Code | Description  | Data Type
 ```powershell
 $Method = "okta-verify" # String | The name of the MFA method. The currently supported method names are 'okta-verify' and 'duo-web'.
 
-# MFA method's test configuration
+# Mfa method's test configuration
 
 try {
     Test-BetaMFAConfig -Method $Method 

@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DateCompare = Initialize-PSSailpoint.V3DateCompare  -FirstDate null `
+$DateCompare = Initialize-DateCompare  -FirstDate null `
  -SecondDate null `
  -Operator LT `
  -PositiveCondition true `

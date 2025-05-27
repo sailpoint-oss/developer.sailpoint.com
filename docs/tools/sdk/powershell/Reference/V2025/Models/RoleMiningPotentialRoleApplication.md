@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningPotentialRoleApplication = Initialize-PSSailpoint.V2025RoleMiningPotentialRoleApplication  -Id {id=2c9180877212632a017228d5a796292b} `
+$RoleMiningPotentialRoleApplication = Initialize-V2025RoleMiningPotentialRoleApplication  -Id {id=2c9180877212632a017228d5a796292b} `
  -Name {name=Slack}
 ```
 

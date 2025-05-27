@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CorrelationConfigAttributeAssignmentsInner = Initialize-PSSailpoint.V2025CorrelationConfigAttributeAssignmentsInner  -Property first_name `
+$CorrelationConfigAttributeAssignmentsInner = Initialize-V2025CorrelationConfigAttributeAssignmentsInner  -Property first_name `
  -Value firstName `
  -Operation EQ `
  -Complex false `

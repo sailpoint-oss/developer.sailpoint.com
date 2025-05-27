@@ -27,15 +27,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaReassignmentConfiguration**](#create-reassignment-configuration) | **POST** `/reassignment-configurations` | Create a Reassignment Configuration
-[**Remove-BetaReassignmentConfiguration**](#delete-reassignment-configuration) | **DELETE** `/reassignment-configurations/{identityId}/{configType}` | Delete Reassignment Configuration
-[**Get-BetaEvaluateReassignmentConfiguration**](#get-evaluate-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}/evaluate/{configType}` | Evaluate Reassignment Configuration
-[**Get-BetaReassignmentConfigTypes**](#get-reassignment-config-types) | **GET** `/reassignment-configurations/types` | List Reassignment Config Types
-[**Get-BetaReassignmentConfiguration**](#get-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}` | Get Reassignment Configuration
-[**Get-BetaTenantConfigConfiguration**](#get-tenant-config-configuration) | **GET** `/reassignment-configurations/tenant-config` | Get Tenant-wide Reassignment Configuration settings
-[**Get-BetaReassignmentConfigurations**](#list-reassignment-configurations) | **GET** `/reassignment-configurations` | List Reassignment Configurations
-[**Send-BetaReassignmentConfig**](#put-reassignment-config) | **PUT** `/reassignment-configurations/{identityId}` | Update Reassignment Configuration
-[**Send-BetaTenantConfiguration**](#put-tenant-configuration) | **PUT** `/reassignment-configurations/tenant-config` | Update Tenant-wide Reassignment Configuration settings
+[**New-BetaReassignmentConfiguration**](#create-reassignment-configuration) | **POST** `/reassignment-configurations` | Create a reassignment configuration
+[**Remove-BetaReassignmentConfiguration**](#delete-reassignment-configuration) | **DELETE** `/reassignment-configurations/{identityId}/{configType}` | Delete reassignment configuration
+[**Get-BetaEvaluateReassignmentConfiguration**](#get-evaluate-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}/evaluate/{configType}` | Evaluate reassignment configuration
+[**Get-BetaReassignmentConfigTypes**](#get-reassignment-config-types) | **GET** `/reassignment-configurations/types` | List reassignment config types
+[**Get-BetaReassignmentConfiguration**](#get-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}` | Get reassignment configuration
+[**Get-BetaTenantConfigConfiguration**](#get-tenant-config-configuration) | **GET** `/reassignment-configurations/tenant-config` | Get tenant-wide reassignment configuration settings
+[**Get-BetaReassignmentConfigurations**](#list-reassignment-configurations) | **GET** `/reassignment-configurations` | List reassignment configurations
+[**Send-BetaReassignmentConfig**](#put-reassignment-config) | **PUT** `/reassignment-configurations/{identityId}` | Update reassignment configuration
+[**Send-BetaTenantConfiguration**](#put-tenant-configuration) | **PUT** `/reassignment-configurations/tenant-config` | Update tenant-wide reassignment configuration settings
 
 
 ## create-reassignment-configuration
@@ -75,7 +75,7 @@ $ConfigurationItemRequest = @"{
   "startDate" : "2022-07-21T11:13:12.345Z"
 }"@
 
-# Create a Reassignment Configuration
+# Create a reassignment configuration
 
 try {
     $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
@@ -123,7 +123,7 @@ Code | Description  | Data Type
 $IdentityId = "2c91808781a71ddb0181b9090b5c504e" # String | unique identity id
 $ConfigType = "ACCESS_REQUESTS" # ConfigTypeEnum | 
 
-# Delete Reassignment Configuration
+# Delete reassignment configuration
 
 try {
     Remove-BetaReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType 
@@ -174,7 +174,7 @@ $ExclusionFilters = "MyExclusionFilters" # String[] | Exclusion filters that dis
 
 $ExclusionFilters = @"SELF_REVIEW_DELEGATION"@ # String[] | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional) 
 
-# Evaluate Reassignment Configuration
+# Evaluate reassignment configuration
 
 try {
     Get-BetaEvaluateReassignmentConfiguration -IdentityId $IdentityId -ConfigType $ConfigType 
@@ -217,7 +217,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# List Reassignment Config Types
+# List reassignment config types
 
 try {
     Get-BetaReassignmentConfigTypes 
@@ -263,7 +263,7 @@ Code | Description  | Data Type
 ```powershell
 $IdentityId = "2c91808781a71ddb0181b9090b5c504f" # String | unique identity id
 
-# Get Reassignment Configuration
+# Get reassignment configuration
 
 try {
     Get-BetaReassignmentConfiguration -IdentityId $IdentityId 
@@ -307,7 +307,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get Tenant-wide Reassignment Configuration settings
+# Get tenant-wide reassignment configuration settings
 
 try {
     Get-BetaTenantConfigConfiguration 
@@ -355,7 +355,7 @@ Code | Description  | Data Type
 $Limit = 20 # Int32 | Max number of results to return. (optional) (default to 20)
 $Offset = 10 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
 
-# List Reassignment Configurations
+# List reassignment configurations
 
 try {
     Get-BetaReassignmentConfigurations 
@@ -408,7 +408,7 @@ $ConfigurationItemRequest = @"{
   "startDate" : "2022-07-21T11:13:12.345Z"
 }"@
 
-# Update Reassignment Configuration
+# Update reassignment configuration
 
 try {
     $Result = ConvertFrom-JsonToConfigurationItemRequest -Json $ConfigurationItemRequest
@@ -458,7 +458,7 @@ $TenantConfigurationRequest = @"{
   }
 }"@
 
-# Update Tenant-wide Reassignment Configuration settings
+# Update tenant-wide reassignment configuration settings
 
 try {
     $Result = ConvertFrom-JsonToTenantConfigurationRequest -Json $TenantConfigurationRequest

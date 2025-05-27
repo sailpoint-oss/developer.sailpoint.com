@@ -15,15 +15,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-pending-task-headers**](#get-pending-task-headers) | **HEAD** `/task-status/pending-tasks` | Retrieve Pending Task List Headers
-[**get-pending-tasks**](#get-pending-tasks) | **GET** `/task-status/pending-tasks` | Retrieve Pending Task Status List
-[**get-task-status**](#get-task-status) | **GET** `/task-status/{id}` | Get Task Status by ID
-[**get-task-status-list**](#get-task-status-list) | **GET** `/task-status` | Retrieve Task Status List
-[**update-task-status**](#update-task-status) | **PATCH** `/task-status/{id}` | Update Task Status by ID
+[**get-pending-task-headers**](#get-pending-task-headers) | **HEAD** `/task-status/pending-tasks` | Retrieve pending task list headers
+[**get-pending-tasks**](#get-pending-tasks) | **GET** `/task-status/pending-tasks` | Retrieve pending task status list
+[**get-task-status**](#get-task-status) | **GET** `/task-status/{id}` | Get task status by id
+[**get-task-status-list**](#get-task-status-list) | **GET** `/task-status` | Retrieve task status list
+[**update-task-status**](#update-task-status) | **PATCH** `/task-status/{id}` | Update task status by id
 
 
 ## get-pending-task-headers
-Retrieve Pending Task List Headers
+Retrieve pending task list headers
 Responds with headers only for list of task statuses for pending tasks.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-pending-task-headers)
@@ -69,7 +69,7 @@ with ApiClient(configuration) as api_client:
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
     try:
-        # Retrieve Pending Task List Headers
+        # Retrieve pending task list headers
         
         TaskManagementApi(api_client).get_pending_task_headers()
         # Below is a request that includes all optional parameters
@@ -83,7 +83,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-pending-tasks
-Retrieve Pending Task Status List
+Retrieve pending task status list
 Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-pending-tasks)
@@ -130,7 +130,7 @@ with ApiClient(configuration) as api_client:
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
     try:
-        # Retrieve Pending Task Status List
+        # Retrieve pending task status list
         
         results = TaskManagementApi(api_client).get_pending_tasks()
         # Below is a request that includes all optional parameters
@@ -147,7 +147,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-task-status
-Get Task Status by ID
+Get task status by id
 Get task status by task ID. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-task-status)
@@ -190,7 +190,7 @@ with ApiClient(configuration) as api_client:
     id = '00eebcf881994e419d72e757fd30dc0e' # str | Task ID. # str | Task ID.
 
     try:
-        # Get Task Status by ID
+        # Get task status by id
         
         results = TaskManagementApi(api_client).get_task_status(id=id)
         # Below is a request that includes all optional parameters
@@ -206,7 +206,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-task-status-list
-Retrieve Task Status List
+Retrieve task status list
 Use this endpoint to get a list of statuses for **completed** tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. To get a list of statuses for **in-progress** tasks, please use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/beta/get-pending-tasks) endpoint.
 
 
@@ -258,7 +258,7 @@ with ApiClient(configuration) as api_client:
     sorters = '-created' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created** (optional)
 
     try:
-        # Retrieve Task Status List
+        # Retrieve task status list
         
         results = TaskManagementApi(api_client).get_task_status_list()
         # Below is a request that includes all optional parameters
@@ -275,7 +275,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-task-status
-Update Task Status by ID
+Update task status by id
 Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-task-status)
@@ -321,7 +321,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[sailpoint.beta.JsonPatchOperation()]''' # List[JsonPatchOperation] | The JSONPatch payload used to update the object.
 
     try:
-        # Update Task Status by ID
+        # Update task status by id
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = TaskManagementApi(api_client).update_task_status(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters

@@ -6,7 +6,7 @@ get:
     - ORG_ADMIN
   tags:
     - Search Attribute Configuration
-  summary: Get Extended Search Attribute
+  summary: Get extended search attribute
   description: >-
     Get an extended attribute configuration by name.
   parameters:
@@ -48,7 +48,7 @@ delete:
     - ORG_ADMIN
   tags:
     - Search Attribute Configuration
-  summary: Delete Extended Search Attribute
+  summary: Delete extended search attribute
   description: >-
     Delete an extended attribute configuration by name.
   parameters:
@@ -82,7 +82,7 @@ patch:
     - ORG_ADMIN
   tags:
     - Search Attribute Configuration
-  summary: Update Extended Search Attribute 
+  summary: Update extended search attribute
   description: >-
     Update an existing search attribute configuration. 
     

@@ -20,13 +20,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2025SedBatchStats**](#get-sed-batch-stats) | **GET** `/suggested-entitlement-description-batches/{batchId}/stats` | Submit Sed Batch Stats Request
-[**Get-V2025SedBatches**](#get-sed-batches) | **GET** `/suggested-entitlement-description-batches` | List Sed Batch Request
-[**Get-V2025Seds**](#list-seds) | **GET** `/suggested-entitlement-descriptions` | List Suggested Entitlement Descriptions
-[**Update-V2025Sed**](#patch-sed) | **PATCH** `/suggested-entitlement-descriptions` | Patch Suggested Entitlement Description
-[**Submit-V2025SedApproval**](#submit-sed-approval) | **POST** `/suggested-entitlement-description-approvals` | Submit Bulk Approval Request
-[**Submit-V2025SedAssignment**](#submit-sed-assignment) | **POST** `/suggested-entitlement-description-assignments` | Submit Sed Assignment Request
-[**Submit-V2025SedBatchRequest**](#submit-sed-batch-request) | **POST** `/suggested-entitlement-description-batches` | Submit Sed Batch Request
+[**Get-V2025SedBatchStats**](#get-sed-batch-stats) | **GET** `/suggested-entitlement-description-batches/{batchId}/stats` | Submit sed batch stats request
+[**Get-V2025SedBatches**](#get-sed-batches) | **GET** `/suggested-entitlement-description-batches` | List Sed Batch Record
+[**Get-V2025Seds**](#list-seds) | **GET** `/suggested-entitlement-descriptions` | List suggested entitlement descriptions
+[**Update-V2025Sed**](#patch-sed) | **PATCH** `/suggested-entitlement-descriptions` | Patch suggested entitlement description
+[**Submit-V2025SedApproval**](#submit-sed-approval) | **POST** `/suggested-entitlement-description-approvals` | Submit bulk approval request
+[**Submit-V2025SedAssignment**](#submit-sed-assignment) | **POST** `/suggested-entitlement-description-assignments` | Submit sed assignment request
+[**Submit-V2025SedBatchRequest**](#submit-sed-batch-request) | **POST** `/suggested-entitlement-description-batches` | Submit sed batch request
 
 
 ## get-sed-batch-stats
@@ -65,7 +65,7 @@ Code | Description  | Data Type
 ```powershell
 $BatchId = "8c190e67-87aa-4ed9-a90b-d9d5344523fb" # String | Batch Id
 
-# Submit Sed Batch Stats Request
+# Submit sed batch stats request
 
 try {
     Get-V2025SedBatchStats -BatchId $BatchId 
@@ -81,21 +81,26 @@ try {
 
 ## get-sed-batches
 List Sed Batches.
-API responses with Sed Batch Status
+API responses with Sed Batch Records
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-sed-batches)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+  Query | Offset | **Int64** |   (optional) (default to 0) | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0.
+  Query | Limit | **Int64** |   (optional) (default to 250) | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send `count=true` if that value will not be used.
+  Query | CountOnly | **Boolean** |   (optional) (default to $false) | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array.
+  Query | Status | **String** |   (optional) | Batch Status
 
 ### Return type
-[**SedBatchStatus**](../models/sed-batch-status)
+[**SedBatchRecord[]**](../models/sed-batch-record)
 
 ### Responses
 Code | Description  | Data Type
 ------------- | ------------- | -------------
-200 | Status of batch | SedBatchStatus
+200 | List of Sed Batch Records | SedBatchRecord[]
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
@@ -109,14 +114,19 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$Offset = 0 # Int64 | Offset  Integer specifying the offset of the first result from the beginning of the collection. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). The offset value is record-based, not page-based, and the index starts at 0. (optional) (default to 0)
+$Limit = 250 # Int64 | Limit  Integer specifying the maximum number of records to return in a single API call. The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). If it is not specified, a default limit is used. (optional) (default to 250)
+$Count = $true # Boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored.  The standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results). Since requesting a total count can have a performance impact, it is recommended not to send `count=true` if that value will not be used. (optional) (default to $false)
+$CountOnly = $true # Boolean | If `true` it will populate the `X-Total-Count` response header with the number of results that would be returned if `limit` and `offset` were ignored. This parameter differs from the count parameter in that this one skips executing the actual query and always return an empty array. (optional) (default to $false)
+$Status = "completed, failed, submitted, materialized, failed" # String | Batch Status (optional)
 
-# List Sed Batch Request
+# List Sed Batch Record
 
 try {
     Get-V2025SedBatches 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025SedBatches  
+    # Get-V2025SedBatches -Offset $Offset -Limit $Limit -Count $Count -CountOnly $CountOnly -Status $Status  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025SedBatches"
     Write-Host $_.ErrorDetails
@@ -184,7 +194,7 @@ $CountOnly = $false # Boolean | If `true` it will populate the `X-Total-Count` r
 $RequestedByAnyone = $false # Boolean | By default, the ListSeds API will only return items that you have requested to be generated.   This option will allow you to see all items that have been requested (optional) (default to $false)
 $ShowPendingStatusOnly = $false # Boolean | Will limit records to items that are in ""suggested"" or ""approved"" status (optional) (default to $false)
 
-# List Suggested Entitlement Descriptions
+# List suggested entitlement descriptions
 
 try {
     Get-V2025Seds 
@@ -237,7 +247,7 @@ $Id = "ebab396f-0af1-4050-89b7-dafc63ec70e7" # String | id is sed id
 }"@ # SedPatch[] | Sed Patch Request
  
 
-# Patch Suggested Entitlement Description
+# Patch suggested entitlement description
 
 try {
     $Result = ConvertFrom-JsonToSedPatch -Json $SedPatch
@@ -288,7 +298,7 @@ Code | Description  | Data Type
 }"@ # SedApproval[] | Sed Approval
  
 
-# Submit Bulk Approval Request
+# Submit bulk approval request
 
 try {
     $Result = ConvertFrom-JsonToSedApproval -Json $SedApproval
@@ -342,7 +352,7 @@ $SedAssignment = @"{
   "items" : [ "016629d1-1d25-463f-97f3-0c6686846650", "016629d1-1d25-463f-97f3-0c6686846650" ]
 }"@
 
-# Submit Sed Assignment Request
+# Submit sed assignment request
 
 try {
     $Result = ConvertFrom-JsonToSedAssignment -Json $SedAssignment
@@ -390,10 +400,33 @@ Code | Description  | Data Type
 ```powershell
 $SedBatchRequest = @"{
   "entitlements" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
-  "seds" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ]
+  "seds" : [ "016629d1-1d25-463f-97f3-c6686846650", "016629d1-1d25-463f-97f3-c6686846650" ],
+  "searchCriteria" : {
+    "key" : {
+      "indices" : [ "entitlements" ],
+      "query" : {
+        "query" : "status:active"
+      },
+      "textQuery" : {
+        "terms" : [ "admin", "user" ],
+        "matchAny" : true,
+        "fields" : [ "role", "name" ]
+      },
+      "searchAfter" : [ "12345", "67890" ],
+      "filters" : {
+        "status" : {
+          "type" : "TERMS",
+          "terms" : [ "active", "inactive" ]
+        }
+      },
+      "sort" : [ "name:asc", "createdAt:desc" ],
+      "queryType" : "TEXT",
+      "includeNested" : true
+    }
+  }
 }"@
 
-# Submit Sed Batch Request
+# Submit sed batch request
 
 try {
     Submit-V2025SedBatchRequest 

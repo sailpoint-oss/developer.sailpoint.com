@@ -28,12 +28,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-ObjectMapping**](#create-object-mapping) | **POST** `/configuration-hub/object-mappings/{sourceOrg}` | Creates an object mapping
 [**New-ObjectMappings**](#create-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-create` | Bulk creates object mappings
-[**New-UploadedConfiguration**](#create-uploaded-configuration) | **POST** `/configuration-hub/backups/uploads` | Upload a Configuration
+[**New-UploadedConfiguration**](#create-uploaded-configuration) | **POST** `/configuration-hub/backups/uploads` | Upload a configuration
 [**Remove-ObjectMapping**](#delete-object-mapping) | **DELETE** `/configuration-hub/object-mappings/{sourceOrg}/{objectMappingId}` | Deletes an object mapping
-[**Remove-UploadedConfiguration**](#delete-uploaded-configuration) | **DELETE** `/configuration-hub/backups/uploads/{id}` | Delete an Uploaded Configuration
+[**Remove-UploadedConfiguration**](#delete-uploaded-configuration) | **DELETE** `/configuration-hub/backups/uploads/{id}` | Delete an uploaded configuration
 [**Get-ObjectMappings**](#get-object-mappings) | **GET** `/configuration-hub/object-mappings/{sourceOrg}` | Gets list of object mappings
-[**Get-UploadedConfiguration**](#get-uploaded-configuration) | **GET** `/configuration-hub/backups/uploads/{id}` | Get an Uploaded Configuration
-[**Get-UploadedConfigurations**](#list-uploaded-configurations) | **GET** `/configuration-hub/backups/uploads` | List Uploaded Configurations
+[**Get-UploadedConfiguration**](#get-uploaded-configuration) | **GET** `/configuration-hub/backups/uploads/{id}` | Get an uploaded configuration
+[**Get-UploadedConfigurations**](#list-uploaded-configurations) | **GET** `/configuration-hub/backups/uploads` | List uploaded configurations
 [**Update-ObjectMappings**](#update-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-patch` | Bulk updates object mappings
 
 
@@ -198,7 +198,7 @@ Code | Description  | Data Type
 $Data =  # System.IO.FileInfo | JSON file containing the objects to be imported.
 $Name = "MyName" # String | Name that will be assigned to the uploaded configuration file.
 
-# Upload a Configuration
+# Upload a configuration
 
 try {
     New-UploadedConfiguration -Data $Data -Name $Name 
@@ -299,7 +299,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded configuration.
 
-# Delete an Uploaded Configuration
+# Delete an uploaded configuration
 
 try {
     Remove-UploadedConfiguration -Id $Id 
@@ -394,7 +394,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded configuration.
 
-# Get an Uploaded Configuration
+# Get an uploaded configuration
 
 try {
     Get-UploadedConfiguration -Id $Id 
@@ -440,7 +440,7 @@ Code | Description  | Data Type
 ```powershell
 $Filters = 'status eq "COMPLETE"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
 
-# List Uploaded Configurations
+# List uploaded configurations
 
 try {
     Get-UploadedConfigurations 

@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BaseEntitlement = Initialize-PSSailpoint.V3BaseEntitlement  -HasPermissions false `
+$BaseEntitlement = Initialize-BaseEntitlement  -HasPermissions false `
  -Description Cloud engineering `
  -Attribute memberOf `
  -Value CN=Cloud Engineering,DC=sailpoint,DC=COM `

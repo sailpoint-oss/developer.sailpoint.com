@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LoadUncorrelatedAccountsTask = Initialize-PSSailpoint.BetaLoadUncorrelatedAccountsTask  -Success true `
+$LoadUncorrelatedAccountsTask = Initialize-BetaLoadUncorrelatedAccountsTask  -Success true `
  -Task null
 ```
 

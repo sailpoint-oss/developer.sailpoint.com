@@ -20,8 +20,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaApproval**](#get-approval) | **GET** `/generic-approvals/{id}` | Get Approval
-[**Get-BetaApprovals**](#get-approvals) | **GET** `/generic-approvals` | Get Approvals
+[**Get-BetaApproval**](#get-approval) | **GET** `/generic-approvals/{id}` | Get approval
+[**Get-BetaApprovals**](#get-approvals) | **GET** `/generic-approvals` | Get approvals
 
 
 ## get-approval
@@ -55,7 +55,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "38453251-6be2-5f8f-df93-5ce19e295837" # String | ID of the approval that to be returned.
 
-# Get Approval
+# Get approval
 
 try {
     Get-BetaApproval -Id $Id 
@@ -105,7 +105,7 @@ $Mine = $true # Boolean | Returns the list of approvals for the current caller. 
 $RequesterId = "17e633e7d57e481569df76323169deb6a" # String | Returns the list of approvals for a given requester ID. (optional)
 $Filters = 'filters=status eq PENDING' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq* (optional)
 
-# Get Approvals
+# Get approvals
 
 try {
     Get-BetaApprovals 

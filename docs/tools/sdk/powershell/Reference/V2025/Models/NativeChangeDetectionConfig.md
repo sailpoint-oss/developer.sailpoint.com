@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NativeChangeDetectionConfig = Initialize-PSSailpoint.V2025NativeChangeDetectionConfig  -Enabled true `
+$NativeChangeDetectionConfig = Initialize-V2025NativeChangeDetectionConfig  -Enabled true `
  -Operations [ACCOUNT_UPDATED, ACCOUNT_DELETED] `
  -AllEntitlements false `
  -AllNonEntitlementAttributes false `

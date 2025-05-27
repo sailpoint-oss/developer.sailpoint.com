@@ -2,7 +2,7 @@ get:
   operationId: getAccountAggregationStatus
   tags:
     - Account Aggregations
-  summary: In-progress Account Aggregation status
+  summary: In-progress account aggregation status
   description: >-
     This API returns the status of an *in-progress* account aggregation, along with the total number of **NEW**,
     **CHANGED** and **DELETED** accounts found since the previous aggregation, and the number of those accounts that

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountRequestInfo = Initialize-PSSailpoint.V3AccountRequestInfo  -RequestedObjectId 2c91808563ef85690164001c31140c0c `
+$AccountRequestInfo = Initialize-AccountRequestInfo  -RequestedObjectId 2c91808563ef85690164001c31140c0c `
  -RequestedObjectName Treasury Analyst `
  -RequestedObjectType null
 ```

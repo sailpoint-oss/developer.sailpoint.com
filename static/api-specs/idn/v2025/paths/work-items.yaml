@@ -2,7 +2,7 @@ get:
   operationId: listWorkItems
   tags:
     - Work Items
-  summary: List Work Items
+  summary: List work items
   description: >-
     This gets a collection of work items belonging to either the specified user(admin required), or the current user.
   parameters:

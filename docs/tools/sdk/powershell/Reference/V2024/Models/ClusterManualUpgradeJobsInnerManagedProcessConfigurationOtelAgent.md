@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent = Initialize-PSSailpoint.V2024ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent  -Version 3003 `
+$ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent = Initialize-V2024ClusterManualUpgradeJobsInnerManagedProcessConfigurationOtelAgent  -Version 3003 `
  -Path sailpoint/otel_agent `
  -Description version of otel_agent used by the va `
  -RestartNeeded true

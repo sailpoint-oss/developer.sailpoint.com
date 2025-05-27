@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Tag = Initialize-PSSailpoint.BetaTag  -Id 449ecdc0-d4ff-4341-acf6-92f6f7ce604f `
+$Tag = Initialize-BetaTag  -Id 449ecdc0-d4ff-4341-acf6-92f6f7ce604f `
  -Name PCI `
  -Created 2022-05-04T14:48:49Z `
  -Modified 2022-07-14T16:31:11Z `

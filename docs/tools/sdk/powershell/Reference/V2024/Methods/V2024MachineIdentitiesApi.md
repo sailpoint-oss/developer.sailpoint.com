@@ -17,11 +17,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2024MachineIdentity**](#create-machine-identity) | **POST** `/machine-identities` | Create Machine Identities
+[**New-V2024MachineIdentity**](#create-machine-identity) | **POST** `/machine-identities` | Create machine identities
 [**Remove-V2024MachineIdentity**](#delete-machine-identity) | **DELETE** `/machine-identities/{id}` | Delete machine identity
-[**Get-V2024MachineIdentity**](#get-machine-identity) | **GET** `/machine-identities/{id}` | Machine Identity Details
-[**Get-V2024MachineIdentities**](#list-machine-identities) | **GET** `/machine-identities` | List Machine Identities
-[**Update-V2024MachineIdentity**](#update-machine-identity) | **PATCH** `/machine-identities/{id}` | Update a Machine Identity
+[**Get-V2024MachineIdentity**](#get-machine-identity) | **GET** `/machine-identities/{id}` | Machine identity details
+[**Get-V2024MachineIdentities**](#list-machine-identities) | **GET** `/machine-identities` | List machine identities
+[**Update-V2024MachineIdentity**](#update-machine-identity) | **PATCH** `/machine-identities/{id}` | Update a machine identity
 
 
 ## create-machine-identity
@@ -71,7 +71,7 @@ $MachineIdentity = @"{
   "manuallyEdited" : true
 }"@
 
-# Create Machine Identities
+# Create machine identities
 
 try {
     $Result = ConvertFrom-JsonToMachineIdentity -Json $MachineIdentity
@@ -174,7 +174,7 @@ Code | Description  | Data Type
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Machine Identity ID
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Machine Identity Details
+# Machine identity details
 
 try {
     Get-V2024MachineIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -233,7 +233,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
-# List Machine Identities
+# List machine identities
 
 try {
     Get-V2024MachineIdentities -XSailPointExperimental $XSailPointExperimental 
@@ -289,7 +289,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A JSON of updated values [JSON 
  $RequestBody = @"[{op=add, path=/attributes/securityRisk, value=medium}]"@ # SystemCollectionsHashtable[] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 
-# Update a Machine Identity
+# Update a machine identity
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody

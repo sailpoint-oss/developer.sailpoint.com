@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeRequestValue = Initialize-PSSailpoint.V3AttributeRequestValue 
+$AttributeRequestValue = Initialize-AttributeRequestValue 
 ```
 
 - Convert the resource to JSON

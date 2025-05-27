@@ -3,7 +3,7 @@ post:
     - Saved Search
   description: |
     Executes the specified saved search.
-  summary: Execute a saved search by ID
+  summary: Execute a saved search by id
   operationId: executeSavedSearch
   parameters:
   - $ref: '../parameters/path/search/id.yaml'

@@ -6,7 +6,7 @@ post:
     - ORG_ADMIN
   tags:
     - Access Requests
-  summary: Cancel Access Request
+  summary: Cancel access request
   description: >-
     This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step.
 

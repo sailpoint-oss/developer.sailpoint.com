@@ -46,6 +46,7 @@ All submitted rules must follow proper rule submission guidelines.
 - **Rule Quality**
   - Rules must follow the [Rule Guidelines](../index.md#rule-guidelines) and [Code Restrictions](../index.md#rule-code-restrictions)
   - Rules must be adequately tested prior to submission.
+  - Rules must be properly formatted and indented to maintain readability.
 - **Documentation**
   - Include detailed comments for non-obvious features in the configurations, including supporting documentation where appropriate. This includes justification for why something was created or done in a certain way. - _e.g. I did this because..._
 - **Standards**

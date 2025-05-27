@@ -21,7 +21,7 @@ Method | HTTP request | Description
 [**New-BetaRoleMiningSessions**](#create-role-mining-sessions) | **POST** `/role-mining-sessions` | Create a role mining session
 [**Invoke-BetaDownloadRoleMiningPotentialRoleZip**](#download-role-mining-potential-role-zip) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId}/download` | Export (download) details for a potential role in a role mining session
 [**Export-BetaRoleMiningPotentialRole**](#export-role-mining-potential-role) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export` | Export (download) details for a potential role in a role mining session
-[**Export-BetaRoleMiningPotentialRoleAsync**](#export-role-mining-potential-role-async) | **POST** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async` | Asynchronously export details for a potential role in a role mining session and upload to S3
+[**Export-BetaRoleMiningPotentialRoleAsync**](#export-role-mining-potential-role-async) | **POST** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async` | Asynchronously export details for a potential role in a role mining session and upload to s3
 [**Export-BetaRoleMiningPotentialRoleStatus**](#export-role-mining-potential-role-status) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId}` | Retrieve status of a potential role export job
 [**Get-BetaAllPotentialRoleSummaries**](#get-all-potential-role-summaries) | **GET** `/role-mining-potential-roles` | Retrieves all potential role summaries
 [**Get-BetaEntitlementDistributionPotentialRole**](#get-entitlement-distribution-potential-role) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularity-distribution` | Retrieves entitlement popularity distribution for a potential role in a role mining session
@@ -311,7 +311,7 @@ $RoleMiningPotentialRoleExportRequest = @"{
   "includeCommonAccess" : true
 }"@
 
-# Asynchronously export details for a potential role in a role mining session and upload to S3
+# Asynchronously export details for a potential role in a role mining session and upload to s3
 
 try {
     Export-BetaRoleMiningPotentialRoleAsync -SessionId $SessionId -PotentialRoleId $PotentialRoleId 

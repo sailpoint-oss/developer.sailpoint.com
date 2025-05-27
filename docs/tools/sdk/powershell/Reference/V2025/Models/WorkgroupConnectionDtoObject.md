@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkgroupConnectionDtoObject = Initialize-PSSailpoint.V2025WorkgroupConnectionDtoObject  -Type null `
+$WorkgroupConnectionDtoObject = Initialize-V2025WorkgroupConnectionDtoObject  -Type null `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name Employee-database-read-write `
  -Description Collection of entitlements to read/write the employee database.

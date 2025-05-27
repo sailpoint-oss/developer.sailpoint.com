@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay = Initialize-PSSailpoint.V2024ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay  -Version 3000 `
+$ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay = Initialize-V2024ClusterManualUpgradeJobsInnerManagedProcessConfigurationRelay  -Version 3000 `
  -Path sailpoint/relay `
  -Description version of relay used by the va `
  -RestartNeeded true

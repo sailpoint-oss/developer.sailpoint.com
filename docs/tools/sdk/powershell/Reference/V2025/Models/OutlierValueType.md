@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OutlierValueType = Initialize-PSSailpoint.V2025OutlierValueType  -Name INTEGER `
+$OutlierValueType = Initialize-V2025OutlierValueType  -Name INTEGER `
  -Ordinal 0
 ```
 

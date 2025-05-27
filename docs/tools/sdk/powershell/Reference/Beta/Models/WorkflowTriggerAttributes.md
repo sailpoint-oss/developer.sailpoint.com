@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowTriggerAttributes = Initialize-PSSailpoint.BetaWorkflowTriggerAttributes  -Id idn:identity-attributes-changed `
+$WorkflowTriggerAttributes = Initialize-BetaWorkflowTriggerAttributes  -Id idn:identity-attributes-changed `
  -VarFilter $.changes[?(@.attribute == 'manager')] `
  -Description Run a search and notify the results `
  -AttributeToFilter LifecycleState `

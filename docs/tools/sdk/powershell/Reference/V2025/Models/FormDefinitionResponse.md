@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormDefinitionResponse = Initialize-PSSailpoint.V2025FormDefinitionResponse  -Id 00000000-0000-0000-0000-000000000000 `
+$FormDefinitionResponse = Initialize-V2025FormDefinitionResponse  -Id 00000000-0000-0000-0000-000000000000 `
  -Name My form `
  -Description My form description `
  -Owner null `

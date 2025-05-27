@@ -35,7 +35,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TaskResultDetails = Initialize-PSSailpoint.V2025TaskResultDetails  -Type MENTOS `
+$TaskResultDetails = Initialize-V2025TaskResultDetails  -Type MENTOS `
  -Id a248c16fe22222b2bd49615481311111 `
  -ReportType IDENTITIES_DETAILS `
  -Description A detailed view of the identities in the system. `

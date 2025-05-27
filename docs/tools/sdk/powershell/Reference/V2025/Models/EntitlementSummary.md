@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementSummary = Initialize-PSSailpoint.V2025EntitlementSummary  -Id 2c91808568c529c60168cca6f90c1313 `
+$EntitlementSummary = Initialize-V2025EntitlementSummary  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -DisplayName John Q. Doe `
  -Description null `

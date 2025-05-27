@@ -2,7 +2,7 @@ post:
   operationId: assignVerifiedFromAddresses
   tags:
     - Notifications
-  summary: Assign Verified From Address
+  summary: Assign verified from address
   description: >-
     Assign pre-existing verified, From email address to current tenant.
   requestBody:

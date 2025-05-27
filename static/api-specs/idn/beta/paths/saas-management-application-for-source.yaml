@@ -2,7 +2,7 @@ get:
   operationId: getApplicationForSource
   tags:
     - SaaS Management
-  summary: SaaS Management Application for source
+  summary: Saas management application for source
   description: >-
     This API returns the mapped SaaS Management application for an IdentityNow source ID or 404 if not mapped.
 

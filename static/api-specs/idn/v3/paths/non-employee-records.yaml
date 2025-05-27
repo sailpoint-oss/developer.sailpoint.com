@@ -4,7 +4,7 @@ post:
   #   - oauth2: [idn:nesr:create]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Create Non-Employee Record
+  summary: Create non-employee record
   description: >-
     This request will create a non-employee record.
 
@@ -39,7 +39,7 @@ get:
     - userAuth: []
   tags:
     - Non-Employee Lifecycle Management
-  summary: List Non-Employee Records
+  summary: List non-employee records
   description: >-
     This gets a list of non-employee records.
     There are two contextual uses for this endpoint:

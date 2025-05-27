@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConditionEffect = Initialize-PSSailpoint.V2025ConditionEffect  -EffectType HIDE `
+$ConditionEffect = Initialize-V2025ConditionEffect  -EffectType HIDE `
  -Config null
 ```
 

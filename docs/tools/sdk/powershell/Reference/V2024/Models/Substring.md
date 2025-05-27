@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Substring = Initialize-PSSailpoint.V2024Substring  -VarBegin 1 `
+$Substring = Initialize-V2024Substring  -VarBegin 1 `
  -BeginOffset 3 `
  -VarEnd 6 `
  -EndOffset 1 `

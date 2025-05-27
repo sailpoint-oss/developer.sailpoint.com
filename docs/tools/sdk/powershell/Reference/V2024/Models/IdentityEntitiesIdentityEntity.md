@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityEntitiesIdentityEntity = Initialize-PSSailpoint.V2024IdentityEntitiesIdentityEntity  -Id 031034e97f094a4096c1be53f75f6b91 `
+$IdentityEntitiesIdentityEntity = Initialize-V2024IdentityEntitiesIdentityEntity  -Id 031034e97f094a4096c1be53f75f6b91 `
  -Name Gaston.800ddf9640a `
  -Type CAMPAIGN_CAMPAIGNER
 ```

@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SpConfigRuleValue = Initialize-PSSailpoint.V2024SpConfigRuleValue 
+$SpConfigRuleValue = Initialize-V2024SpConfigRuleValue 
 ```
 
 - Convert the resource to JSON

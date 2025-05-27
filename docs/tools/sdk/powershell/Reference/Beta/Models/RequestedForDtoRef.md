@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestedForDtoRef = Initialize-PSSailpoint.BetaRequestedForDtoRef  -IdentityId cb89bc2f1ee6445fbea12224c526ba3a `
+$RequestedForDtoRef = Initialize-BetaRequestedForDtoRef  -IdentityId cb89bc2f1ee6445fbea12224c526ba3a `
  -RequestedItems null
 ```
 

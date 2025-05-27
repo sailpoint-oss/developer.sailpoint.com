@@ -42,7 +42,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleDocument = Initialize-PSSailpoint.V2025RoleDocument  -Description Admin access `
+$RoleDocument = Initialize-V2025RoleDocument  -Description Admin access `
  -Created 2018-06-25T20:22:28.104Z `
  -Modified 2018-06-25T20:22:28.104Z `
  -Synced 2018-06-25T20:22:33.104Z `

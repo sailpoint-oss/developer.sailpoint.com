@@ -4,7 +4,7 @@ get:
   operationId: getSodViolationReportStatus
   tags:
     - SOD Policies
-  summary: Get SOD violation report status
+  summary: Get sod violation report status
   description: >-
     This gets the status for a violation report run task that has already been invoked.
   parameters:

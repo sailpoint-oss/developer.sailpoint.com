@@ -17,7 +17,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaRecommendations**](#get-recommendations) | **POST** `/recommendations/request` | Returns Recommendation Based on Object
+[**Get-BetaRecommendations**](#get-recommendations) | **POST** `/recommendations/request` | Returns recommendation based on object
 [**Get-BetaRecommendationsConfig**](#get-recommendations-config) | **GET** `/recommendations/config` | Get certification recommendation config values
 [**Update-BetaRecommendationsConfig**](#update-recommendations-config) | **PUT** `/recommendations/config` | Update certification recommendation config values
 
@@ -71,7 +71,7 @@ $RecommendationRequestDto = @"{
   "includeDebugInformation" : true
 }"@
 
-# Returns Recommendation Based on Object
+# Returns recommendation based on object
 
 try {
     $Result = ConvertFrom-JsonToRecommendationRequestDto -Json $RecommendationRequestDto

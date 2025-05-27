@@ -26,14 +26,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-personal-access-token**](#create-personal-access-token) | **POST** `/personal-access-tokens` | Create Personal Access Token
-[**delete-personal-access-token**](#delete-personal-access-token) | **DELETE** `/personal-access-tokens/{id}` | Delete Personal Access Token
-[**list-personal-access-tokens**](#list-personal-access-tokens) | **GET** `/personal-access-tokens` | List Personal Access Tokens
-[**patch-personal-access-token**](#patch-personal-access-token) | **PATCH** `/personal-access-tokens/{id}` | Patch Personal Access Token
+[**create-personal-access-token**](#create-personal-access-token) | **POST** `/personal-access-tokens` | Create personal access token
+[**delete-personal-access-token**](#delete-personal-access-token) | **DELETE** `/personal-access-tokens/{id}` | Delete personal access token
+[**list-personal-access-tokens**](#list-personal-access-tokens) | **GET** `/personal-access-tokens` | List personal access tokens
+[**patch-personal-access-token**](#patch-personal-access-token) | **PATCH** `/personal-access-tokens/{id}` | Patch personal access token
 
 
 ## create-personal-access-token
-Create Personal Access Token
+Create personal access token
 This creates a personal access token.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-personal-access-token)
@@ -80,7 +80,7 @@ with ApiClient(configuration) as api_client:
         }''' # CreatePersonalAccessTokenRequest | Name and scope of personal access token.
 
     try:
-        # Create Personal Access Token
+        # Create personal access token
         new_create_personal_access_token_request = CreatePersonalAccessTokenRequest.from_json(create_personal_access_token_request)
         results = PersonalAccessTokensApi(api_client).create_personal_access_token(create_personal_access_token_request=new_create_personal_access_token_request)
         # Below is a request that includes all optional parameters
@@ -96,7 +96,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-personal-access-token
-Delete Personal Access Token
+Delete personal access token
 This deletes a personal access token.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-personal-access-token)
@@ -138,7 +138,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The personal access token id # str | The personal access token id
 
     try:
-        # Delete Personal Access Token
+        # Delete personal access token
         
         PersonalAccessTokensApi(api_client).delete_personal_access_token(id=id)
         # Below is a request that includes all optional parameters
@@ -152,7 +152,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-personal-access-tokens
-List Personal Access Tokens
+List personal access tokens
 This gets a collection of personal access tokens associated with the optional `owner-id`.  query parameter. If the `owner-id` query parameter is omitted, all personal access tokens  for a tenant will be retrieved, but the caller must have the 'idn:all-personal-access-tokens:read' right.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-personal-access-tokens)
@@ -196,7 +196,7 @@ with ApiClient(configuration) as api_client:
     filters = 'lastUsed le 2023-02-05T10:59:27.214Z' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **lastUsed**: *le, isnull* (optional)
 
     try:
-        # List Personal Access Tokens
+        # List personal access tokens
         
         results = PersonalAccessTokensApi(api_client).list_personal_access_tokens()
         # Below is a request that includes all optional parameters
@@ -213,7 +213,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-personal-access-token
-Patch Personal Access Token
+Patch personal access token
 This performs a targeted update to the field(s) of a Personal Access Token.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-personal-access-token)
@@ -259,7 +259,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=replace, path=/name, value=New name}, {op=replace, path=/scope, value=[sp:scopes:all]}]''' # List[JsonPatchOperation] | A list of OAuth client update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * scope 
 
     try:
-        # Patch Personal Access Token
+        # Patch personal access token
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = PersonalAccessTokensApi(api_client).patch_personal_access_token(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters

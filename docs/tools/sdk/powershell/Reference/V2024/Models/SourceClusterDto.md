@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceClusterDto = Initialize-PSSailpoint.V2024SourceClusterDto  -Type CLUSTER `
+$SourceClusterDto = Initialize-V2024SourceClusterDto  -Type CLUSTER `
  -Id 2c9180847a7fccdd017aa5896f9f4f6f `
  -Name Training VA
 ```

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningPotentialRoleEntitlements = Initialize-PSSailpoint.BetaRoleMiningPotentialRoleEntitlements  -Id {id=2c9180877212632a017228d5a796292c} `
+$RoleMiningPotentialRoleEntitlements = Initialize-BetaRoleMiningPotentialRoleEntitlements  -Id {id=2c9180877212632a017228d5a796292c} `
  -Name {name=LauncherTest2}
 ```
 

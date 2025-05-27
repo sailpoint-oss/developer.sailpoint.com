@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$VendorConnectorMappingUpdatedAt = Initialize-PSSailpoint.V2025VendorConnectorMappingUpdatedAt  -Time 2024-03-14T12:56:19.391294Z `
+$VendorConnectorMappingUpdatedAt = Initialize-V2025VendorConnectorMappingUpdatedAt  -Time 2024-03-14T12:56:19.391294Z `
  -Valid true
 ```
 

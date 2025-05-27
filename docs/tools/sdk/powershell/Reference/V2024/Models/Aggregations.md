@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Aggregations = Initialize-PSSailpoint.V2024Aggregations  -Nested null `
+$Aggregations = Initialize-V2024Aggregations  -Nested null `
  -Metric null `
  -VarFilter null `
  -Bucket null

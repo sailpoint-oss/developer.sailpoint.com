@@ -4,7 +4,7 @@ get:
     - userAuth: [ idn:tag:read, idn:tag:manage ]
   tags:
     - Tagged Objects
-  summary: List Tagged Objects by Type
+  summary: List tagged objects by type
   description: >-
     This API returns a list of all tagged objects by type.
 

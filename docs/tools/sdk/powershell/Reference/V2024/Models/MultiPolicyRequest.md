@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MultiPolicyRequest = Initialize-PSSailpoint.V2024MultiPolicyRequest  -FilteredPolicyList null
+$MultiPolicyRequest = Initialize-V2024MultiPolicyRequest  -FilteredPolicyList null
 ```
 
 - Convert the resource to JSON

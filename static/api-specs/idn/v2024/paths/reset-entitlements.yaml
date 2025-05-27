@@ -2,7 +2,7 @@ post:
   operationId: resetSourceEntitlements
   tags:
   - Entitlements
-  summary: Reset Source Entitlements
+  summary: Reset source entitlements
   description: >-
     Remove all entitlements from a specific source.
 

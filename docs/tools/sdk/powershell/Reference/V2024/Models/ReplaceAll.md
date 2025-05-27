@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReplaceAll = Initialize-PSSailpoint.V2024ReplaceAll  -Table {-= , "=', ñ=n} `
+$ReplaceAll = Initialize-V2024ReplaceAll  -Table {-= , "=', ñ=n} `
  -RequiresPeriodicRefresh false `
  -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```

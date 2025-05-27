@@ -2,7 +2,7 @@ get:
   operationId: getAccessProfile
   tags:
     - Access Profiles
-  summary: Get an Access Profile
+  summary: Get an access profile
   description: >-
     This API returns an Access Profile by its ID.
   parameters:
@@ -45,7 +45,7 @@ patch:
   operationId: patchAccessProfile
   tags:
     - Access Profiles
-  summary: Patch a specified Access Profile
+  summary: Patch a specified access profile
   description: >-
     This API updates an existing Access Profile. The following fields are patchable:
 
@@ -135,7 +135,7 @@ delete:
   operationId: deleteAccessProfile
   tags:
     - Access Profiles
-  summary: Delete the specified Access Profile
+  summary: Delete the specified access profile
   description: >-
     This API deletes an existing Access Profile.
 

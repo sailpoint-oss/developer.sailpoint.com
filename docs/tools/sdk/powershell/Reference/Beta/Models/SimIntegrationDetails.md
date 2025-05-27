@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SimIntegrationDetails = Initialize-PSSailpoint.BetaSimIntegrationDetails  -Id id12345 `
+$SimIntegrationDetails = Initialize-BetaSimIntegrationDetails  -Id id12345 `
  -Name aName `
  -Created 2023-01-03T21:16:22.432Z `
  -Modified 2023-01-03T21:16:22.432Z `

@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ImportOptions = Initialize-PSSailpoint.V2024ImportOptions  -ExcludeTypes null `
+$ImportOptions = Initialize-V2024ImportOptions  -ExcludeTypes null `
  -IncludeTypes null `
  -ObjectOptions {TRIGGER_SUBSCRIPTION={includedIds=[be9e116d-08e1-49fc-ab7f-fa585e96c9e4], includedNames=[Test 2]}} `
  -DefaultReferences null `

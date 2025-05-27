@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MultiHostSourcesManagerCorrelationRule = Initialize-PSSailpoint.BetaMultiHostSourcesManagerCorrelationRule  -Type RULE `
+$MultiHostSourcesManagerCorrelationRule = Initialize-BetaMultiHostSourcesManagerCorrelationRule  -Type RULE `
  -Id 2c918085708c274401708c2a8a760001 `
  -Name Example Rule
 ```

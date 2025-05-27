@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleAssignmentRef = Initialize-PSSailpoint.BetaRoleAssignmentRef  -Id 1cbb0705b38c4226b1334eadd8874086 `
+$RoleAssignmentRef = Initialize-BetaRoleAssignmentRef  -Id 1cbb0705b38c4226b1334eadd8874086 `
  -Role null
 ```
 

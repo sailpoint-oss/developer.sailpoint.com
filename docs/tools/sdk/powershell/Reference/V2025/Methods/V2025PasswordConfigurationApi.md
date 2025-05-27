@@ -23,9 +23,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2025PasswordOrgConfig**](#create-password-org-config) | **POST** `/password-org-config` | Create Password Org Config
-[**Get-V2025PasswordOrgConfig**](#get-password-org-config) | **GET** `/password-org-config` | Get Password Org Config
-[**Send-V2025PasswordOrgConfig**](#put-password-org-config) | **PUT** `/password-org-config` | Update Password Org Config
+[**New-V2025PasswordOrgConfig**](#create-password-org-config) | **POST** `/password-org-config` | Create password org config
+[**Get-V2025PasswordOrgConfig**](#get-password-org-config) | **GET** `/password-org-config` | Get password org config
+[**Send-V2025PasswordOrgConfig**](#put-password-org-config) | **PUT** `/password-org-config` | Update password org config
 
 
 ## create-password-org-config
@@ -66,7 +66,7 @@ $PasswordOrgConfig = @"{
   "customInstructionsEnabled" : true
 }"@
 
-# Create Password Org Config
+# Create password org config
 
 try {
     $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig
@@ -110,7 +110,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get Password Org Config
+# Get password org config
 
 try {
     Get-V2025PasswordOrgConfig 
@@ -162,7 +162,7 @@ $PasswordOrgConfig = @"{
   "customInstructionsEnabled" : true
 }"@
 
-# Update Password Org Config
+# Update password org config
 
 try {
     $Result = ConvertFrom-JsonToPasswordOrgConfig -Json $PasswordOrgConfig

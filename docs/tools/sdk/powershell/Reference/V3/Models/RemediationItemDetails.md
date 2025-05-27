@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RemediationItemDetails = Initialize-PSSailpoint.V3RemediationItemDetails  -Id 2c9180835d2e5168015d32f890ca1581 `
+$RemediationItemDetails = Initialize-RemediationItemDetails  -Id 2c9180835d2e5168015d32f890ca1581 `
  -TargetId 2c9180835d2e5168015d32f890ca1581 `
  -TargetName john.smith `
  -TargetDisplayName emailAddress `

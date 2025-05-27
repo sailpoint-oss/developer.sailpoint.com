@@ -51,13 +51,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-AccessProfile**](#create-access-profile) | **POST** `/access-profiles` | Create Access Profile
-[**Remove-AccessProfile**](#delete-access-profile) | **DELETE** `/access-profiles/{id}` | Delete the specified Access Profile
-[**Remove-AccessProfilesInBulk**](#delete-access-profiles-in-bulk) | **POST** `/access-profiles/bulk-delete` | Delete Access Profile(s)
-[**Get-AccessProfile**](#get-access-profile) | **GET** `/access-profiles/{id}` | Get an Access Profile
-[**Get-AccessProfileEntitlements**](#get-access-profile-entitlements) | **GET** `/access-profiles/{id}/entitlements` | List Access Profile&#39;s Entitlements
-[**Get-AccessProfiles**](#list-access-profiles) | **GET** `/access-profiles` | List Access Profiles
-[**Update-AccessProfile**](#patch-access-profile) | **PATCH** `/access-profiles/{id}` | Patch a specified Access Profile
+[**New-AccessProfile**](#create-access-profile) | **POST** `/access-profiles` | Create access profile
+[**Remove-AccessProfile**](#delete-access-profile) | **DELETE** `/access-profiles/{id}` | Delete the specified access profile
+[**Remove-AccessProfilesInBulk**](#delete-access-profiles-in-bulk) | **POST** `/access-profiles/bulk-delete` | Delete access profile(s)
+[**Get-AccessProfile**](#get-access-profile) | **GET** `/access-profiles/{id}` | Get an access profile
+[**Get-AccessProfileEntitlements**](#get-access-profile-entitlements) | **GET** `/access-profiles/{id}/entitlements` | List access profile&#39;s entitlements
+[**Get-AccessProfiles**](#list-access-profiles) | **GET** `/access-profiles` | List access profiles
+[**Update-AccessProfile**](#patch-access-profile) | **PATCH** `/access-profiles/{id}` | Patch a specified access profile
 
 
 ## create-access-profile
@@ -179,7 +179,7 @@ $AccessProfile = @"{
   "requestable" : true
 }"@
 
-# Create Access Profile
+# Create access profile
 
 try {
     $Result = ConvertFrom-JsonToAccessProfile -Json $AccessProfile
@@ -229,7 +229,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to delete
 
-# Delete the specified Access Profile
+# Delete the specified access profile
 
 try {
     Remove-AccessProfile -Id $Id 
@@ -282,7 +282,7 @@ $AccessProfileBulkDeleteRequest = @"{
   "bestEffortOnly" : true
 }"@
 
-# Delete Access Profile(s)
+# Delete access profile(s)
 
 try {
     $Result = ConvertFrom-JsonToAccessProfileBulkDeleteRequest -Json $AccessProfileBulkDeleteRequest
@@ -328,7 +328,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Access Profile
 
-# Get an Access Profile
+# Get an access profile
 
 try {
     Get-AccessProfile -Id $Id 
@@ -385,7 +385,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'attribute eq "memberOf"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in*  Filtering is not supported for access profiles and entitlements that have the '+' symbol in their names.  (optional)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified** (optional)
 
-# List Access Profile's Entitlements
+# List access profile's entitlements
 
 try {
     Get-AccessProfileEntitlements -Id $Id 
@@ -445,7 +445,7 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 $ForSegmentIds = "0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
 $IncludeUnsegmented = $false # Boolean | Indicates whether the response list should contain unsegmented access profiles. If `for-segment-ids` is absent or empty, specifying *include-unsegmented* as `false` results in an error. (optional) (default to $true)
 
-# List Access Profiles
+# List access profiles
 
 try {
     Get-AccessProfiles 
@@ -526,7 +526,7 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Access Profile to 
 }"@ # JsonPatchOperation[] | 
  
 
-# Patch a specified Access Profile
+# Patch a specified access profile
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

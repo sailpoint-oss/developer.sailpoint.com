@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowLibraryOperator = Initialize-PSSailpoint.V3WorkflowLibraryOperator  -Id sp:compare-boolean `
+$WorkflowLibraryOperator = Initialize-WorkflowLibraryOperator  -Id sp:compare-boolean `
  -Name Compare Boolean Values `
  -Type OPERATOR `
  -Description Compare two boolean values and decide what happens based on the result. `

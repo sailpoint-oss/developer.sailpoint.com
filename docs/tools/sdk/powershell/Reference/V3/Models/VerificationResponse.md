@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$VerificationResponse = Initialize-PSSailpoint.V3VerificationResponse  -RequestId 089899f13a8f4da7824996191587bab9 `
+$VerificationResponse = Initialize-VerificationResponse  -RequestId 089899f13a8f4da7824996191587bab9 `
  -Status SUCCESS `
  -VarError Unable to connect DUO Service during verification
 ```

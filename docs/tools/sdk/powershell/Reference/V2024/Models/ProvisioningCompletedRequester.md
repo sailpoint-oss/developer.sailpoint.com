@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ProvisioningCompletedRequester = Initialize-PSSailpoint.V2024ProvisioningCompletedRequester  -Type IDENTITY `
+$ProvisioningCompletedRequester = Initialize-V2024ProvisioningCompletedRequester  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20648 `
  -Name William Wilson
 ```

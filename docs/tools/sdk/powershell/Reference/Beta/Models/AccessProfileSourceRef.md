@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileSourceRef = Initialize-PSSailpoint.BetaAccessProfileSourceRef  -Id 2c91809773dee3610173fdb0b6061ef4 `
+$AccessProfileSourceRef = Initialize-BetaAccessProfileSourceRef  -Id 2c91809773dee3610173fdb0b6061ef4 `
  -Type SOURCE `
  -Name ODS-AD-SOURCE
 ```

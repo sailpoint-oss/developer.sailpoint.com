@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountCorrelatedAccount = Initialize-PSSailpoint.BetaAccountCorrelatedAccount  -Type ACCOUNT `
+$AccountCorrelatedAccount = Initialize-BetaAccountCorrelatedAccount  -Type ACCOUNT `
  -Id 98da47c31df444558c211f9b205184f6 `
  -Name Brian Mendoza `
  -NativeIdentity cn=john.doe,ou=users,dc=acme,dc=com `

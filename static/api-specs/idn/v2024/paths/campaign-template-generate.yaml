@@ -2,7 +2,7 @@ post:
   operationId: startGenerateCampaignTemplate
   tags:
     - Certification Campaigns
-  summary: Generate a Campaign from Template
+  summary: Generate a campaign from template
   security:
      - userAuth: [idn:campaign-template:manage]
   x-sailpoint-userLevels:

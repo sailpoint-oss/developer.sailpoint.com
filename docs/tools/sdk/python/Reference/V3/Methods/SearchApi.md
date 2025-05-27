@@ -38,14 +38,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**search-aggregate**](#search-aggregate) | **POST** `/search/aggregate` | Perform a Search Query Aggregation
-[**search-count**](#search-count) | **POST** `/search/count` | Count Documents Satisfying a Query
-[**search-get**](#search-get) | **GET** `/search/{index}/{id}` | Get a Document by ID
-[**search-post**](#search-post) | **POST** `/search` | Perform Search
+[**search-aggregate**](#search-aggregate) | **POST** `/search/aggregate` | Perform a search query aggregation
+[**search-count**](#search-count) | **POST** `/search/count` | Count documents satisfying a query
+[**search-get**](#search-get) | **GET** `/search/{index}/{id}` | Get a document by id
+[**search-post**](#search-post) | **POST** `/search` | Perform search
 
 
 ## search-aggregate
-Perform a Search Query Aggregation
+Perform a search query aggregation
 Performs a search query aggregation and returns the aggregation result. By default, you can page a maximum of 10,000 search result records.  To page past 10,000 records, you can use searchAfter paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement searchAfter paging. 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/search-aggregate)
@@ -210,7 +210,7 @@ with ApiClient(configuration) as api_client:
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
     try:
-        # Perform a Search Query Aggregation
+        # Perform a search query aggregation
         new_search = Search.from_json(search)
         results = SearchApi(api_client).search_aggregate(search=new_search)
         # Below is a request that includes all optional parameters
@@ -226,7 +226,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## search-count
-Count Documents Satisfying a Query
+Count documents satisfying a query
 Performs a search with a provided query and returns the count of results in the X-Total-Count header.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/search-count)
@@ -384,7 +384,7 @@ with ApiClient(configuration) as api_client:
         }''' # Search | 
 
     try:
-        # Count Documents Satisfying a Query
+        # Count documents satisfying a query
         new_search = Search.from_json(search)
         SearchApi(api_client).search_count(search=new_search)
         # Below is a request that includes all optional parameters
@@ -398,7 +398,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## search-get
-Get a Document by ID
+Get a document by id
 Fetches a single document from the specified index, using the specified document ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/search-get)
@@ -442,7 +442,7 @@ with ApiClient(configuration) as api_client:
     id = '2c91808568c529c60168cca6f90c1313' # str | ID of the requested document. # str | ID of the requested document.
 
     try:
-        # Get a Document by ID
+        # Get a document by id
         
         results = SearchApi(api_client).search_get(index=index, id=id)
         # Below is a request that includes all optional parameters
@@ -458,7 +458,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## search-post
-Perform Search
+Perform search
 Perform a search with the provided query and return a matching result collection. To page past 10,000 records, you can use `searchAfter` paging.  Refer to [Paginating Search Queries](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-search-queries) for more information about how to implement `searchAfter` paging. 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/search-post)
@@ -622,7 +622,7 @@ with ApiClient(configuration) as api_client:
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
     try:
-        # Perform Search
+        # Perform search
         new_search = Search.from_json(search)
         results = SearchApi(api_client).search_post(search=new_search)
         # Below is a request that includes all optional parameters

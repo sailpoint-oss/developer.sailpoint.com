@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SedAssignee = Initialize-PSSailpoint.BetaSedAssignee  -Type SOURCE_OWNER `
+$SedAssignee = Initialize-BetaSedAssignee  -Type SOURCE_OWNER `
  -Value 016629d1-1d25-463f-97f3-c6686846650
 ```
 

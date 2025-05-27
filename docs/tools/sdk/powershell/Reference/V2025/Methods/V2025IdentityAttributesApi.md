@@ -17,12 +17,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2025IdentityAttribute**](#create-identity-attribute) | **POST** `/identity-attributes` | Create Identity Attribute
-[**Remove-V2025IdentityAttribute**](#delete-identity-attribute) | **DELETE** `/identity-attributes/{name}` | Delete Identity Attribute
-[**Remove-V2025IdentityAttributesInBulk**](#delete-identity-attributes-in-bulk) | **DELETE** `/identity-attributes/bulk-delete` | Bulk delete Identity Attributes
-[**Get-V2025IdentityAttribute**](#get-identity-attribute) | **GET** `/identity-attributes/{name}` | Get Identity Attribute
-[**Get-V2025IdentityAttributes**](#list-identity-attributes) | **GET** `/identity-attributes` | List Identity Attributes
-[**Send-V2025IdentityAttribute**](#put-identity-attribute) | **PUT** `/identity-attributes/{name}` | Update Identity Attribute
+[**New-V2025IdentityAttribute**](#create-identity-attribute) | **POST** `/identity-attributes` | Create identity attribute
+[**Remove-V2025IdentityAttribute**](#delete-identity-attribute) | **DELETE** `/identity-attributes/{name}` | Delete identity attribute
+[**Remove-V2025IdentityAttributesInBulk**](#delete-identity-attributes-in-bulk) | **DELETE** `/identity-attributes/bulk-delete` | Bulk delete identity attributes
+[**Get-V2025IdentityAttribute**](#get-identity-attribute) | **GET** `/identity-attributes/{name}` | Get identity attribute
+[**Get-V2025IdentityAttributes**](#list-identity-attributes) | **GET** `/identity-attributes` | List identity attributes
+[**Send-V2025IdentityAttribute**](#put-identity-attribute) | **PUT** `/identity-attributes/{name}` | Update identity attribute
 
 
 ## create-identity-attribute
@@ -83,7 +83,7 @@ $IdentityAttribute = @"{
   "multi" : false
 }"@
 
-# Create Identity Attribute
+# Create identity attribute
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
@@ -135,7 +135,7 @@ Code | Description  | Data Type
 $Name = "displayName" # String | The attribute's technical name.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Delete Identity Attribute
+# Delete identity attribute
 
 try {
     Remove-V2025IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental 
@@ -188,7 +188,7 @@ $IdentityAttributeNames = @"{
   "ids" : [ "name", "displayName" ]
 }"@
 
-# Bulk delete Identity Attributes
+# Bulk delete identity attributes
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttributeNames -Json $IdentityAttributeNames
@@ -240,7 +240,7 @@ Code | Description  | Data Type
 $Name = "displayName" # String | The attribute's technical name.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Identity Attribute
+# Get identity attribute
 
 try {
     Get-V2025IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental 
@@ -296,7 +296,7 @@ $IncludeSilent = $false # Boolean | Include 'silent' attributes in the response.
 $SearchableOnly = $false # Boolean | Include only 'searchable' attributes in the response. (optional) (default to $false)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# List Identity Attributes
+# List identity attributes
 
 try {
     Get-V2025IdentityAttributes -XSailPointExperimental $XSailPointExperimental 
@@ -370,7 +370,7 @@ $IdentityAttribute = @"{
   "multi" : false
 }"@
 
-# Update Identity Attribute
+# Update identity attribute
 
 try {
     $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute

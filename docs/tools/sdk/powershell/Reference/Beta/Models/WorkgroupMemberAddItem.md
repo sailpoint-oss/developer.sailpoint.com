@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkgroupMemberAddItem = Initialize-PSSailpoint.BetaWorkgroupMemberAddItem  -Id 464ae7bf791e49fdb74606a2e4a89635 `
+$WorkgroupMemberAddItem = Initialize-BetaWorkgroupMemberAddItem  -Id 464ae7bf791e49fdb74606a2e4a89635 `
  -Status 201 `
  -Description 
 > Identity is added into Governance Group members list.

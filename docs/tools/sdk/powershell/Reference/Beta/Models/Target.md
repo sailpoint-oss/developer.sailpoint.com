@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Target = Initialize-PSSailpoint.BetaTarget  -Id c6dc37bf508149b28ce5b7d90ca4bbf9 `
+$Target = Initialize-BetaTarget  -Id c6dc37bf508149b28ce5b7d90ca4bbf9 `
  -Type APPLICATION `
  -Name Active Directory [source]
 ```

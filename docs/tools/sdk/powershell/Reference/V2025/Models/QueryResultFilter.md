@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$QueryResultFilter = Initialize-PSSailpoint.V2025QueryResultFilter  -Includes [name, displayName] `
+$QueryResultFilter = Initialize-V2025QueryResultFilter  -Includes [name, displayName] `
  -Excludes [stacktrace]
 ```
 

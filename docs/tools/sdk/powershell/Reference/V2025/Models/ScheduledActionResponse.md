@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ScheduledActionResponse = Initialize-PSSailpoint.V2025ScheduledActionResponse  -Id 3469b87d-48ca-439a-868f-2160001da8c1 `
+$ScheduledActionResponse = Initialize-V2025ScheduledActionResponse  -Id 3469b87d-48ca-439a-868f-2160001da8c1 `
  -Created 2021-05-11T22:23:16Z `
  -JobType BACKUP `
  -Content null `

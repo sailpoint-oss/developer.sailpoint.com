@@ -31,7 +31,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaConnectorList**](#get-connector-list) | **GET** `/connectors` | Get Connector List
+[**Get-BetaConnectorList**](#get-connector-list) | **GET** `/connectors` | Get connector list
 
 
 ## get-connector-list
@@ -74,7 +74,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
 
-# Get Connector List
+# Get connector list
 
 try {
     Get-BetaConnectorList 

@@ -21,7 +21,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Get-V2024Approval**](#get-approval) | **GET** `/generic-approvals/{id}` | Get an approval
-[**Get-V2024Approvals**](#get-approvals) | **GET** `/generic-approvals` | Get Approvals
+[**Get-V2024Approvals**](#get-approvals) | **GET** `/generic-approvals` | Get approvals
 
 
 ## get-approval
@@ -115,7 +115,7 @@ $Mine = $true # Boolean | Returns the list of approvals for the current caller (
 $RequesterId = "17e633e7d57e481569df76323169deb6a" # String | Returns the list of approvals for a given requester ID (optional)
 $Filters = 'filters=status eq PENDING' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq* (optional)
 
-# Get Approvals
+# Get approvals
 
 try {
     Get-V2024Approvals -XSailPointExperimental $XSailPointExperimental 

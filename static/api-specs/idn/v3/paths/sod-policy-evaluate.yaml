@@ -4,7 +4,7 @@ post:
   operationId: startEvaluateSodPolicy
   tags:
     - SOD Policies
-  summary: Evaluate one policy by ID
+  summary: Evaluate one policy by id
   description: >-
     Runs the scheduled report for the policy retrieved by passed policy ID. 
     The report schedule is fetched from the policy retrieved by ID.

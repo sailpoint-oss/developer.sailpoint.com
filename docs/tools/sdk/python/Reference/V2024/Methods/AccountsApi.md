@@ -42,26 +42,26 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-account**](#create-account) | **POST** `/accounts` | Create Account
-[**delete-account**](#delete-account) | **DELETE** `/accounts/{id}` | Delete Account
-[**delete-account-async**](#delete-account-async) | **POST** `/accounts/{id}/remove` | Remove Account
-[**disable-account**](#disable-account) | **POST** `/accounts/{id}/disable` | Disable Account
-[**disable-account-for-identity**](#disable-account-for-identity) | **POST** `/identities-accounts/{id}/disable` | Disable IDN Account for Identity
-[**disable-accounts-for-identities**](#disable-accounts-for-identities) | **POST** `/identities-accounts/disable` | Disable IDN Accounts for Identities
-[**enable-account**](#enable-account) | **POST** `/accounts/{id}/enable` | Enable Account
-[**enable-account-for-identity**](#enable-account-for-identity) | **POST** `/identities-accounts/{id}/enable` | Enable IDN Account for Identity
-[**enable-accounts-for-identities**](#enable-accounts-for-identities) | **POST** `/identities-accounts/enable` | Enable IDN Accounts for Identities
-[**get-account**](#get-account) | **GET** `/accounts/{id}` | Account Details
-[**get-account-entitlements**](#get-account-entitlements) | **GET** `/accounts/{id}/entitlements` | Account Entitlements
-[**list-accounts**](#list-accounts) | **GET** `/accounts` | Accounts List
-[**put-account**](#put-account) | **PUT** `/accounts/{id}` | Update Account
-[**submit-reload-account**](#submit-reload-account) | **POST** `/accounts/{id}/reload` | Reload Account
-[**unlock-account**](#unlock-account) | **POST** `/accounts/{id}/unlock` | Unlock Account
-[**update-account**](#update-account) | **PATCH** `/accounts/{id}` | Update Account
+[**create-account**](#create-account) | **POST** `/accounts` | Create account
+[**delete-account**](#delete-account) | **DELETE** `/accounts/{id}` | Delete account
+[**delete-account-async**](#delete-account-async) | **POST** `/accounts/{id}/remove` | Remove account
+[**disable-account**](#disable-account) | **POST** `/accounts/{id}/disable` | Disable account
+[**disable-account-for-identity**](#disable-account-for-identity) | **POST** `/identities-accounts/{id}/disable` | Disable idn account for identity
+[**disable-accounts-for-identities**](#disable-accounts-for-identities) | **POST** `/identities-accounts/disable` | Disable idn accounts for identities
+[**enable-account**](#enable-account) | **POST** `/accounts/{id}/enable` | Enable account
+[**enable-account-for-identity**](#enable-account-for-identity) | **POST** `/identities-accounts/{id}/enable` | Enable idn account for identity
+[**enable-accounts-for-identities**](#enable-accounts-for-identities) | **POST** `/identities-accounts/enable` | Enable idn accounts for identities
+[**get-account**](#get-account) | **GET** `/accounts/{id}` | Account details
+[**get-account-entitlements**](#get-account-entitlements) | **GET** `/accounts/{id}/entitlements` | Account entitlements
+[**list-accounts**](#list-accounts) | **GET** `/accounts` | Accounts list
+[**put-account**](#put-account) | **PUT** `/accounts/{id}` | Update account
+[**submit-reload-account**](#submit-reload-account) | **POST** `/accounts/{id}/reload` | Reload account
+[**unlock-account**](#unlock-account) | **POST** `/accounts/{id}/unlock` | Unlock account
+[**update-account**](#update-account) | **PATCH** `/accounts/{id}` | Update account
 
 
 ## create-account
-Create Account
+Create account
 Submit an account creation task - the API then returns the task ID.  
 
 You must include the `sourceId` where the account will be created in the `attributes` object.
@@ -124,7 +124,7 @@ with ApiClient(configuration) as api_client:
         }''' # AccountAttributesCreate | 
 
     try:
-        # Create Account
+        # Create account
         new_account_attributes_create = AccountAttributesCreate.from_json(account_attributes_create)
         results = AccountsApi(api_client).create_account(account_attributes_create=new_account_attributes_create)
         # Below is a request that includes all optional parameters
@@ -140,7 +140,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-account
-Delete Account
+Delete account
 Use this API to delete an account. 
 This endpoint submits an account delete task and returns the task ID. 
 This endpoint only deletes the account from IdentityNow, not the source itself, which can result in the account's returning with the next aggregation between the source and IdentityNow.  To avoid this scenario, it is recommended that you [disable accounts](https://developer.sailpoint.com/idn/api/v3/disable-account) rather than delete them. This will also allow you to reenable the accounts in the future. 
@@ -186,7 +186,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Account ID. # str | Account ID.
 
     try:
-        # Delete Account
+        # Delete account
         
         results = AccountsApi(api_client).delete_account(id=id)
         # Below is a request that includes all optional parameters
@@ -213,7 +213,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Remove Account
+Remove account
 Use this endpoint to remove accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.
 
 This endpoint is good for:
@@ -264,7 +264,7 @@ with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Remove Account
+        # Remove account
         
         results = AccountsApi(api_client).delete_account_async(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -280,7 +280,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## disable-account
-Disable Account
+Disable account
 This API submits a task to disable the account and returns the task ID.      
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/disable-account)
@@ -329,7 +329,7 @@ with ApiClient(configuration) as api_client:
         }''' # AccountToggleRequest | 
 
     try:
-        # Disable Account
+        # Disable account
         new_account_toggle_request = AccountToggleRequest.from_json(account_toggle_request)
         results = AccountsApi(api_client).disable_account(id=id, account_toggle_request=new_account_toggle_request)
         # Below is a request that includes all optional parameters
@@ -356,7 +356,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Disable IDN Account for Identity
+Disable idn account for identity
 This API submits a task to disable IDN account for a single identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/disable-account-for-identity)
@@ -401,7 +401,7 @@ with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Disable IDN Account for Identity
+        # Disable idn account for identity
         
         results = AccountsApi(api_client).disable_account_for_identity(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -428,7 +428,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Disable IDN Accounts for Identities
+Disable idn accounts for identities
 This API submits tasks to disable IDN account for each identity provided in the request body.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/disable-accounts-for-identities)
@@ -476,7 +476,7 @@ with ApiClient(configuration) as api_client:
         }''' # IdentitiesAccountsBulkRequest | 
 
     try:
-        # Disable IDN Accounts for Identities
+        # Disable idn accounts for identities
         new_identities_accounts_bulk_request = IdentitiesAccountsBulkRequest.from_json(identities_accounts_bulk_request)
         results = AccountsApi(api_client).disable_accounts_for_identities(x_sail_point_experimental=x_sail_point_experimental, identities_accounts_bulk_request=new_identities_accounts_bulk_request)
         # Below is a request that includes all optional parameters
@@ -493,7 +493,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## enable-account
-Enable Account
+Enable account
 This API submits a task to enable account and returns the task ID.      
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/enable-account)
@@ -542,7 +542,7 @@ with ApiClient(configuration) as api_client:
         }''' # AccountToggleRequest | 
 
     try:
-        # Enable Account
+        # Enable account
         new_account_toggle_request = AccountToggleRequest.from_json(account_toggle_request)
         results = AccountsApi(api_client).enable_account(id=id, account_toggle_request=new_account_toggle_request)
         # Below is a request that includes all optional parameters
@@ -569,7 +569,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Enable IDN Account for Identity
+Enable idn account for identity
 This API submits a task to enable IDN account for a single identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/enable-account-for-identity)
@@ -614,7 +614,7 @@ with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Enable IDN Account for Identity
+        # Enable idn account for identity
         
         results = AccountsApi(api_client).enable_account_for_identity(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -641,7 +641,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Enable IDN Accounts for Identities
+Enable idn accounts for identities
 This API submits tasks to enable IDN account for each identity provided in the request body.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/enable-accounts-for-identities)
@@ -689,7 +689,7 @@ with ApiClient(configuration) as api_client:
         }''' # IdentitiesAccountsBulkRequest | 
 
     try:
-        # Enable IDN Accounts for Identities
+        # Enable idn accounts for identities
         new_identities_accounts_bulk_request = IdentitiesAccountsBulkRequest.from_json(identities_accounts_bulk_request)
         results = AccountsApi(api_client).enable_accounts_for_identities(x_sail_point_experimental=x_sail_point_experimental, identities_accounts_bulk_request=new_identities_accounts_bulk_request)
         # Below is a request that includes all optional parameters
@@ -706,7 +706,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-account
-Account Details
+Account details
 Use this API to return the details for a single account by its ID.  
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-account)
@@ -749,7 +749,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Account ID. # str | Account ID.
 
     try:
-        # Account Details
+        # Account details
         
         results = AccountsApi(api_client).get_account(id=id)
         # Below is a request that includes all optional parameters
@@ -765,7 +765,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-account-entitlements
-Account Entitlements
+Account entitlements
 This API returns entitlements of the account.      
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-account-entitlements)
@@ -814,7 +814,7 @@ with ApiClient(configuration) as api_client:
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
     try:
-        # Account Entitlements
+        # Account entitlements
         
         results = AccountsApi(api_client).get_account_entitlements(id=id)
         # Below is a request that includes all optional parameters
@@ -831,7 +831,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-accounts
-Accounts List
+Accounts list
 List accounts. 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-accounts)
@@ -883,7 +883,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'id,name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional)
 
     try:
-        # Accounts List
+        # Accounts list
         
         results = AccountsApi(api_client).list_accounts()
         # Below is a request that includes all optional parameters
@@ -900,7 +900,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-account
-Update Account
+Update account
 Use this API to update an account with a PUT request. 
 
 This endpoint submits an account update task and returns the task ID. 
@@ -959,7 +959,7 @@ with ApiClient(configuration) as api_client:
         }''' # AccountAttributes | 
 
     try:
-        # Update Account
+        # Update account
         new_account_attributes = AccountAttributes.from_json(account_attributes)
         results = AccountsApi(api_client).put_account(id=id, account_attributes=new_account_attributes)
         # Below is a request that includes all optional parameters
@@ -975,7 +975,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## submit-reload-account
-Reload Account
+Reload account
 This API asynchronously reloads the account directly from the connector and performs a one-time aggregation process.      
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/submit-reload-account)
@@ -1018,7 +1018,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The account id # str | The account id
 
     try:
-        # Reload Account
+        # Reload account
         
         results = AccountsApi(api_client).submit_reload_account(id=id)
         # Below is a request that includes all optional parameters
@@ -1034,7 +1034,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## unlock-account
-Unlock Account
+Unlock account
 This API submits a task to unlock an account and returns the task ID.  
 To use this endpoint to unlock an account that has the `forceProvisioning` option set to true, the `idn:accounts-provisioning:manage` scope is required. 
 
@@ -1085,7 +1085,7 @@ with ApiClient(configuration) as api_client:
         }''' # AccountUnlockRequest | 
 
     try:
-        # Unlock Account
+        # Unlock account
         new_account_unlock_request = AccountUnlockRequest.from_json(account_unlock_request)
         results = AccountsApi(api_client).unlock_account(id=id, account_unlock_request=new_account_unlock_request)
         # Below is a request that includes all optional parameters
@@ -1101,7 +1101,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-account
-Update Account
+Update account
 Use this API to update account details. 
 
 This API supports updating an account's correlation by modifying the `identityId` and `manuallyCorrelated` fields. 
@@ -1155,7 +1155,7 @@ with ApiClient(configuration) as api_client:
     request_body = '''[{op=remove, path=/identityId}]''' # List[object] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
     try:
-        # Update Account
+        # Update account
         new_request_body = RequestBody.from_json(request_body)
         results = AccountsApi(api_client).update_account(id=id, request_body=new_request_body)
         # Below is a request that includes all optional parameters

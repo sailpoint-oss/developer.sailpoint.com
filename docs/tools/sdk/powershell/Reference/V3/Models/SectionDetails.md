@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SectionDetails = Initialize-PSSailpoint.V3SectionDetails  -Name Field1 `
+$SectionDetails = Initialize-SectionDetails  -Name Field1 `
  -Label Section 1 `
  -FormItems []
 ```

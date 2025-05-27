@@ -1,5 +1,5 @@
 post:
-  summary: Account Aggregation Completed
+  summary: Account aggregation completed
   operationId: accountAggregationCompletedEvent
   description: >-
     This event trigger fires after a source aggregation has either succeeded or failed in collecting source accounts but before Identity Security Cloud (ISC) processes the aggregation.

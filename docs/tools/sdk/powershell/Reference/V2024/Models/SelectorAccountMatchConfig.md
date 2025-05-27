@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SelectorAccountMatchConfig = Initialize-PSSailpoint.V2024SelectorAccountMatchConfig  -MatchExpression null
+$SelectorAccountMatchConfig = Initialize-V2024SelectorAccountMatchConfig  -MatchExpression null
 ```
 
 - Convert the resource to JSON

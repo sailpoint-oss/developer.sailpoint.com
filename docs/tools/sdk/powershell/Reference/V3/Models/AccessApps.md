@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessApps = Initialize-PSSailpoint.V3AccessApps  -Id 2c91808568c529c60168cca6f90c1313 `
+$AccessApps = Initialize-AccessApps  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name Travel and Expense `
  -Description Travel and Expense Application `
  -Owner null

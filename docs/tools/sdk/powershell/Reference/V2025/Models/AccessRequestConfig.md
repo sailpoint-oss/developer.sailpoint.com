@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestConfig = Initialize-PSSailpoint.V2025AccessRequestConfig  -ApprovalsMustBeExternal true `
+$AccessRequestConfig = Initialize-V2025AccessRequestConfig  -ApprovalsMustBeExternal true `
  -AutoApprovalEnabled true `
  -ReauthorizationEnabled true `
  -RequestOnBehalfOfConfig null `

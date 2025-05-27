@@ -6,7 +6,7 @@ get:
     - ORG_ADMIN
   tags:
     - Access Requests
-  summary: Access Request Status
+  summary: Access request status
   description: >-
     Use this API to return a list of access request statuses
     based on the specified query parameters.

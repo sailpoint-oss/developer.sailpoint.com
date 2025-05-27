@@ -2,7 +2,7 @@ get:
   operationId: listTriggers
   tags:
   - Triggers
-  summary: List Triggers
+  summary: List triggers
   description: Gets a list of triggers that are available in the tenant.
   parameters:
   - $ref: ../parameters/limit.yaml

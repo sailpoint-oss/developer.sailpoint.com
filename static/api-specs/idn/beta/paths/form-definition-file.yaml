@@ -1,7 +1,7 @@
 get:
   tags:
     - Custom Forms
-  summary: Download definition file by fileId.
+  summary: Download definition file by fileid.
   operationId: getFileFromS3
   parameters:
     - name: formDefinitionID

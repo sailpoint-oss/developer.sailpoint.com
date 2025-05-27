@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestOnBehalfOfConfig = Initialize-PSSailpoint.V3RequestOnBehalfOfConfig  -AllowRequestOnBehalfOfAnyoneByAnyone true `
+$RequestOnBehalfOfConfig = Initialize-RequestOnBehalfOfConfig  -AllowRequestOnBehalfOfAnyoneByAnyone true `
  -AllowRequestOnBehalfOfEmployeeByManager true
 ```
 

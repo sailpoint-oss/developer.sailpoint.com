@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SetIcon200Response = Initialize-PSSailpoint.V2025SetIcon200Response  -Icon 
+$SetIcon200Response = Initialize-V2025SetIcon200Response  -Icon 
 ```
 
 - Convert the resource to JSON

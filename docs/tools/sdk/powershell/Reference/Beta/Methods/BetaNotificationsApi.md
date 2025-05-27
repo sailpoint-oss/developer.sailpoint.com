@@ -17,21 +17,21 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaDomainDkim**](#create-domain-dkim) | **POST** `/verified-domains` | Verify domain address via DKIM
-[**New-BetaNotificationTemplate**](#create-notification-template) | **POST** `/notification-templates` | Create Notification Template
-[**New-BetaVerifiedFromAddress**](#create-verified-from-address) | **POST** `/verified-from-addresses` | Create Verified From Address
-[**Remove-BetaNotificationTemplatesInBulk**](#delete-notification-templates-in-bulk) | **POST** `/notification-templates/bulk-delete` | Bulk Delete Notification Templates
-[**Remove-BetaVerifiedFromAddress**](#delete-verified-from-address) | **DELETE** `/verified-from-addresses/{id}` | Delete Verified From Address
-[**Get-BetaDkimAttributes**](#get-dkim-attributes) | **GET** `/verified-domains` | Get DKIM Attributes
-[**Get-BetaMailFromAttributes**](#get-mail-from-attributes) | **GET** `/mail-from-attributes/{identityId}` | Get MAIL FROM Attributes
-[**Get-BetaNotificationTemplate**](#get-notification-template) | **GET** `/notification-templates/{id}` | Get Notification Template By Id
-[**Get-BetaNotificationsTemplateContext**](#get-notifications-template-context) | **GET** `/notification-template-context` | Get Notification Template Context
-[**Get-BetaFromAddresses**](#list-from-addresses) | **GET** `/verified-from-addresses` | List From Addresses
-[**Get-BetaNotificationPreferences**](#list-notification-preferences) | **GET** `/notification-preferences/{key}` | List Notification Preferences for tenant.
-[**Get-BetaNotificationTemplateDefaults**](#list-notification-template-defaults) | **GET** `/notification-template-defaults` | List Notification Template Defaults
-[**Get-BetaNotificationTemplates**](#list-notification-templates) | **GET** `/notification-templates` | List Notification Templates
-[**Send-BetaMailFromAttributes**](#put-mail-from-attributes) | **PUT** `/mail-from-attributes` | Change MAIL FROM domain
-[**Send-BetaTestNotification**](#send-test-notification) | **POST** `/send-test-notification` | Send Test Notification
+[**New-BetaDomainDkim**](#create-domain-dkim) | **POST** `/verified-domains` | Verify domain address via dkim
+[**New-BetaNotificationTemplate**](#create-notification-template) | **POST** `/notification-templates` | Create notification template
+[**New-BetaVerifiedFromAddress**](#create-verified-from-address) | **POST** `/verified-from-addresses` | Create verified from address
+[**Remove-BetaNotificationTemplatesInBulk**](#delete-notification-templates-in-bulk) | **POST** `/notification-templates/bulk-delete` | Bulk delete notification templates
+[**Remove-BetaVerifiedFromAddress**](#delete-verified-from-address) | **DELETE** `/verified-from-addresses/{id}` | Delete verified from address
+[**Get-BetaDkimAttributes**](#get-dkim-attributes) | **GET** `/verified-domains` | Get dkim attributes
+[**Get-BetaMailFromAttributes**](#get-mail-from-attributes) | **GET** `/mail-from-attributes/{identityId}` | Get mail from attributes
+[**Get-BetaNotificationTemplate**](#get-notification-template) | **GET** `/notification-templates/{id}` | Get notification template by id
+[**Get-BetaNotificationsTemplateContext**](#get-notifications-template-context) | **GET** `/notification-template-context` | Get notification template context
+[**Get-BetaFromAddresses**](#list-from-addresses) | **GET** `/verified-from-addresses` | List from addresses
+[**Get-BetaNotificationPreferences**](#list-notification-preferences) | **GET** `/notification-preferences/{key}` | List notification preferences for tenant.
+[**Get-BetaNotificationTemplateDefaults**](#list-notification-template-defaults) | **GET** `/notification-template-defaults` | List notification template defaults
+[**Get-BetaNotificationTemplates**](#list-notification-templates) | **GET** `/notification-templates` | List notification templates
+[**Send-BetaMailFromAttributes**](#put-mail-from-attributes) | **PUT** `/mail-from-attributes` | Change mail from domain
+[**Send-BetaTestNotification**](#send-test-notification) | **POST** `/send-test-notification` | Send test notification
 
 
 ## create-domain-dkim
@@ -68,7 +68,7 @@ $DomainAddress = @"{
   "domain" : "sailpoint.com"
 }"@
 
-# Verify domain address via DKIM
+# Verify domain address via dkim
 
 try {
     $Result = ConvertFrom-JsonToDomainAddress -Json $DomainAddress
@@ -133,7 +133,7 @@ $TemplateDto = @"{
   "key" : "cloud_manual_work_item_summary"
 }"@
 
-# Create Notification Template
+# Create notification template
 
 try {
     $Result = ConvertFrom-JsonToTemplateDto -Json $TemplateDto
@@ -184,7 +184,7 @@ $EmailStatusDto = @"{
   "email" : "sender@example.com"
 }"@
 
-# Create Verified From Address
+# Create verified from address
 
 try {
     $Result = ConvertFrom-JsonToEmailStatusDto -Json $EmailStatusDto
@@ -235,7 +235,7 @@ Code | Description  | Data Type
 }"@ # TemplateBulkDeleteDto[] | 
  
 
-# Bulk Delete Notification Templates
+# Bulk delete notification templates
 
 try {
     $Result = ConvertFrom-JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
@@ -282,7 +282,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "MyId" # String | 
 
-# Delete Verified From Address
+# Delete verified from address
 
 try {
     Remove-BetaVerifiedFromAddress -Id $Id 
@@ -325,7 +325,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get DKIM Attributes
+# Get dkim attributes
 
 try {
     Get-BetaDkimAttributes 
@@ -370,7 +370,7 @@ Code | Description  | Data Type
 ```powershell
 $IdentityId = "bobsmith@sailpoint.com" # String | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
 
-# Get MAIL FROM Attributes
+# Get mail from attributes
 
 try {
     Get-BetaMailFromAttributes -IdentityId $IdentityId 
@@ -415,7 +415,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Notification Template
 
-# Get Notification Template By Id
+# Get notification template by id
 
 try {
     Get-BetaNotificationTemplate -Id $Id 
@@ -459,7 +459,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get Notification Template Context
+# Get notification template context
 
 try {
     Get-BetaNotificationsTemplateContext 
@@ -511,7 +511,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'email eq "john.doe@company.com"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, sw* (optional)
 $Sorters = "email" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** (optional)
 
-# List From Addresses
+# List from addresses
 
 try {
     Get-BetaFromAddresses 
@@ -557,7 +557,7 @@ Code | Description  | Data Type
 ```powershell
 $Key = "cloud_manual_work_item_summary" # String | The notification key.
 
-# List Notification Preferences for tenant.
+# List notification preferences for tenant.
 
 try {
     Get-BetaNotificationPreferences -Key $Key 
@@ -606,7 +606,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Filters = 'key eq "cloud_manual_work_item_summary"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
 
-# List Notification Template Defaults
+# List notification template defaults
 
 try {
     Get-BetaNotificationTemplateDefaults 
@@ -655,7 +655,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Filters = 'medium eq "EMAIL"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
 
-# List Notification Templates
+# List notification templates
 
 try {
     Get-BetaNotificationTemplates 
@@ -703,7 +703,7 @@ $MailFromAttributesDto = @"{
   "mailFromDomain" : "example.sailpoint.com"
 }"@
 
-# Change MAIL FROM domain
+# Change mail from domain
 
 try {
     $Result = ConvertFrom-JsonToMailFromAttributesDto -Json $MailFromAttributesDto
@@ -754,7 +754,7 @@ $SendTestNotificationRequestDto = @"{
   "key" : "cloud_manual_work_item_summary"
 }"@
 
-# Send Test Notification
+# Send test notification
 
 try {
     $Result = ConvertFrom-JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto

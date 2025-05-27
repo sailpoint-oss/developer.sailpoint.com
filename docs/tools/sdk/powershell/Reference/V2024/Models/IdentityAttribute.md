@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAttribute = Initialize-PSSailpoint.V2024IdentityAttribute  -Name costCenter `
+$IdentityAttribute = Initialize-V2024IdentityAttribute  -Name costCenter `
  -DisplayName Cost Center `
  -Standard false `
  -Type string `

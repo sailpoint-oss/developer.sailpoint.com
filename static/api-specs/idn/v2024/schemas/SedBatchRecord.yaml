@@ -1,0 +1,49 @@
+description: Sed Batch Record
+type: object
+properties:
+  tenantId:
+    type: string
+    format: uuid
+    description: The tenant ID associated with the batch.
+    example: 123e4567-e89b-12d3-a456-426614174000
+  batchId:
+    type: string
+    format: uuid
+    description: The unique ID of the batch.
+    example: 016629d1-1d25-463f-97f3-c6686846650
+  name:
+    type: string
+    nullable: true
+    description: The name of the batch.
+    example: Example Batch Name
+  processedState:
+    type: string
+    nullable: true
+    description: The current state of the batch (e.g., submitted, materialized, completed).
+    example: submitted | materialized | completed | failed
+  requestedBy:
+    type: string
+    format: uuid
+    description: The ID of the user who requested the batch.
+    example: 987e6543-e21b-45d3-b123-123456789abc
+  materializedCount:
+    type: integer
+    format: int32
+    description: The number of items materialized in the batch.
+    example: 50
+  processedCount:
+    type: integer
+    format: int32
+    description: The number of items processed in the batch.
+    example: 45
+  createdAt:
+    type: string
+    format: date-time
+    description: The timestamp when the batch was created.
+    example: 2023-10-01T12:00:00Z
+  updatedAt:
+    type: string
+    format: date-time
+    nullable: true
+    description: The timestamp when the batch was last updated.
+    example: 2023-10-02T15:30:00Z

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountSource = Initialize-PSSailpoint.V2025AccountSource  -Id 2c91808568c529c60168cca6f90c1313 `
+$AccountSource = Initialize-V2025AccountSource  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name John Doe `
  -Type Delimited File
 ```

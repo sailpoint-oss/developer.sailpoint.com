@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessItemRoleResponse = Initialize-PSSailpoint.BetaAccessItemRoleResponse  -AccessType role `
+$AccessItemRoleResponse = Initialize-BetaAccessItemRoleResponse  -AccessType role `
  -Id 2c918087763e69d901763e72e97f006f `
  -DisplayName sample `
  -Description Role - Workday/Citizenship access `

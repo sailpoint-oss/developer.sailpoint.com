@@ -49,11 +49,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaPasswordSyncGroup**](#create-password-sync-group) | **POST** `/password-sync-groups` | Create Password Sync Group
-[**Remove-BetaPasswordSyncGroup**](#delete-password-sync-group) | **DELETE** `/password-sync-groups/{id}` | Delete Password Sync Group by ID
-[**Get-BetaPasswordSyncGroup**](#get-password-sync-group) | **GET** `/password-sync-groups/{id}` | Get Password Sync Group by ID
-[**Get-BetaPasswordSyncGroups**](#get-password-sync-groups) | **GET** `/password-sync-groups` | Get Password Sync Group List
-[**Update-BetaPasswordSyncGroup**](#update-password-sync-group) | **PUT** `/password-sync-groups/{id}` | Update Password Sync Group by ID
+[**New-BetaPasswordSyncGroup**](#create-password-sync-group) | **POST** `/password-sync-groups` | Create password sync group
+[**Remove-BetaPasswordSyncGroup**](#delete-password-sync-group) | **DELETE** `/password-sync-groups/{id}` | Delete password sync group by id
+[**Get-BetaPasswordSyncGroup**](#get-password-sync-group) | **GET** `/password-sync-groups/{id}` | Get password sync group by id
+[**Get-BetaPasswordSyncGroups**](#get-password-sync-groups) | **GET** `/password-sync-groups` | Get password sync group list
+[**Update-BetaPasswordSyncGroup**](#update-password-sync-group) | **PUT** `/password-sync-groups/{id}` | Update password sync group by id
 
 
 ## create-password-sync-group
@@ -94,7 +94,7 @@ $PasswordSyncGroup = @"{
   "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
 }"@
 
-# Create Password Sync Group
+# Create password sync group
 
 try {
     $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup
@@ -140,7 +140,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync group to delete.
 
-# Delete Password Sync Group by ID
+# Delete password sync group by id
 
 try {
     Remove-BetaPasswordSyncGroup -Id $Id 
@@ -186,7 +186,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "6881f631-3bd5-4213-9c75-8e05cc3e35dd" # String | The ID of password sync group to retrieve.
 
-# Get Password Sync Group by ID
+# Get password sync group by id
 
 try {
     Get-BetaPasswordSyncGroup -Id $Id 
@@ -235,7 +235,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# Get Password Sync Group List
+# Get password sync group list
 
 try {
     Get-BetaPasswordSyncGroups 
@@ -290,7 +290,7 @@ $PasswordSyncGroup = @"{
   "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
 }"@
 
-# Update Password Sync Group by ID
+# Update password sync group by id
 
 try {
     $Result = ConvertFrom-JsonToPasswordSyncGroup -Json $PasswordSyncGroup

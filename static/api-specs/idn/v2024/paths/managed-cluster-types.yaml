@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Cluster Types
-  summary: Get Managed Cluster Types
+  summary: Get managed cluster types
   description: >-
     Get a list of Managed Cluster Types.
 
@@ -60,7 +60,7 @@ get:
 post:
   tags:
     - Managed Cluster Types
-  summary: Create new Managed Cluster Type
+  summary: Create new managed cluster type
   description: >-
     Create a new Managed Cluster Type.
 

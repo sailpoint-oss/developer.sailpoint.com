@@ -2,7 +2,7 @@ get:
   operationId: exportIdentityProfiles
   tags:
     - Identity Profiles
-  summary: Export Identity Profiles
+  summary: Export identity profiles
   description: >-
     This exports existing identity profiles in the format specified by the sp-config service.
   parameters:

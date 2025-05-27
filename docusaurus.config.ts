@@ -1,7 +1,7 @@
+import { ThemeConfig } from '@docusaurus/preset-classic';
+import { Config } from '@docusaurus/types';
 import 'dotenv/config';
-import {Config} from '@docusaurus/types';
-import {ThemeConfig} from '@docusaurus/preset-classic';
-import {themes} from 'prism-react-renderer';
+import { themes } from 'prism-react-renderer';
 
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
@@ -45,8 +45,8 @@ const config: Config = {
         docs: {
           editUrl:
             'https://github.com/sailpoint-oss/developer-community-site/edit/main/',
-          showLastUpdateAuthor: true,
-          showLastUpdateTime: true,
+          showLastUpdateAuthor: false,
+          showLastUpdateTime: false,
           sidebarCollapsible: true,
           sidebarPath: require.resolve('./sidebars.js'),
           docItemComponent: '@theme/ApiItem', // Derived from docusaurus-theme-openapi
@@ -103,6 +103,10 @@ const config: Config = {
     },
     mermaid: {
       options: {
+        securityLevel: 'loose',
+        flowchart: {
+          htmlLabels: true,     
+        },
         er: {
           layoutDirection: 'RL',
         },

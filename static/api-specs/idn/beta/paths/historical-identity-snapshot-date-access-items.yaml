@@ -2,7 +2,7 @@ get:
   operationId: listIdentitySnapshotAccessItems
   tags:
     - Identity History
-  summary: Get Identity Access Items Snapshot 
+  summary: Get identity access items snapshot
   description: >-
     Use this API to get a list of identity access items at a specified date, filtered by item type.
   security:

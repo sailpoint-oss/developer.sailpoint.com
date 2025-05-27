@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ImportSpConfigRequest = Initialize-PSSailpoint.V2025ImportSpConfigRequest  -VarData null `
+$ImportSpConfigRequest = Initialize-V2025ImportSpConfigRequest  -VarData null `
  -Options null
 ```
 

@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CreateOAuthClientResponse = Initialize-PSSailpoint.BetaCreateOAuthClientResponse  -Id 2c9180835d2e5168015d32f890ca1581 `
+$CreateOAuthClientResponse = Initialize-BetaCreateOAuthClientResponse  -Id 2c9180835d2e5168015d32f890ca1581 `
  -Secret 5c32dd9b21adb51c77794d46e71de117a1d0ddb36a7ff941fa28014ab7de2cf3 `
  -BusinessName Acme-Solar `
  -HomepageUrl http://localhost:12345 `

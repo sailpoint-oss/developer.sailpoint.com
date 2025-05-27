@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ScheduledActionPayload = Initialize-PSSailpoint.V2024ScheduledActionPayload  -JobType BACKUP `
+$ScheduledActionPayload = Initialize-V2024ScheduledActionPayload  -JobType BACKUP `
  -StartTime 2024-08-16T14:16:58.389Z `
  -CronString 0 0 12 * * * * `
  -TimeZoneId America/Chicago `

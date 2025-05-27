@@ -18,11 +18,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**list-requestable-objects**](#list-requestable-objects) | **GET** `/requestable-objects` | Requestable Objects List
+[**list-requestable-objects**](#list-requestable-objects) | **GET** `/requestable-objects` | Requestable objects list
 
 
 ## list-requestable-objects
-Requestable Objects List
+Requestable objects list
 Get a list of acccess items that can be requested through the [Access Request endpoints](https://developer.sailpoint.com/docs/api/v3/access-requests). Access items are marked with `AVAILABLE`, `PENDING` or `ASSIGNED` with respect to the identity provided using `identity-id` query parameter.
 Any authenticated token can call this endpoint to see their requestable access items.
 
@@ -83,7 +83,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**  (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name**  (optional)
 
     try:
-        # Requestable Objects List
+        # Requestable objects list
         
         results = RequestableObjectsApi(api_client).list_requestable_objects()
         # Below is a request that includes all optional parameters

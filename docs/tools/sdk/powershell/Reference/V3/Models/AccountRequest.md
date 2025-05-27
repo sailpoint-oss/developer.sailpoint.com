@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountRequest = Initialize-PSSailpoint.V3AccountRequest  -AccountId John.Doe `
+$AccountRequest = Initialize-AccountRequest  -AccountId John.Doe `
  -AttributeRequests null `
  -Op Modify `
  -ProvisioningTarget null `

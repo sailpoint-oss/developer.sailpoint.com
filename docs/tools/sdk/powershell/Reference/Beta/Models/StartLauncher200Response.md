@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$StartLauncher200Response = Initialize-PSSailpoint.BetaStartLauncher200Response  -InteractiveProcessId 5da68cfe-2d60-4b09-858f-0d03acd2f47a
+$StartLauncher200Response = Initialize-BetaStartLauncher200Response  -InteractiveProcessId 5da68cfe-2d60-4b09-858f-0d03acd2f47a
 ```
 
 - Convert the resource to JSON

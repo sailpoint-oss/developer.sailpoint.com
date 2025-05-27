@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OwnerDto = Initialize-PSSailpoint.V2025OwnerDto  -Type IDENTITY `
+$OwnerDto = Initialize-V2025OwnerDto  -Type IDENTITY `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name Support
 ```

@@ -42,9 +42,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-V2024DigitToken**](#create-digit-token) | **POST** `/generate-password-reset-token/digit` | Generate a digit token
-[**Get-V2024PasswordChangeStatus**](#get-password-change-status) | **GET** `/password-change-status/{id}` | Get Password Change Request Status
-[**Search-V2024PasswordInfo**](#query-password-info) | **POST** `/query-password-info` | Query Password Info
-[**Set-V2024Password**](#set-password) | **POST** `/set-password` | Set Identity&#39;s Password
+[**Get-V2024PasswordChangeStatus**](#get-password-change-status) | **GET** `/password-change-status/{id}` | Get password change request status
+[**Search-V2024PasswordInfo**](#query-password-info) | **POST** `/query-password-info` | Query password info
+[**Set-V2024Password**](#set-password) | **POST** `/set-password` | Set identity&#39;s password
 
 
 ## create-digit-token
@@ -134,7 +134,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "089899f13a8f4da7824996191587bab9" # String | Password change request ID
 
-# Get Password Change Request Status
+# Get password change request status
 
 try {
     Get-V2024PasswordChangeStatus -Id $Id 
@@ -183,7 +183,7 @@ $PasswordInfoQueryDTO = @"{
   "userName" : "Abby.Smith"
 }"@
 
-# Query Password Info
+# Query password info
 
 try {
     $Result = ConvertFrom-JsonToPasswordInfoQueryDTO -Json $PasswordInfoQueryDTO
@@ -254,7 +254,7 @@ $PasswordChangeRequest = @"{
   "encryptedPassword" : "XzN+YwKgr2C+InkMYFMBG3UtjMEw5ZIql/XFlXo8cJNeslmkplx6vn4kd4/43IF9STBk5RnzR6XmjpEO+FwHDoiBwYZAkAZK/Iswxk4OdybG6Y4MStJCOCiK8osKr35IMMSV/mbO4wAeltoCk7daTWzTGLiI6UaT5tf+F2EgdjJZ7YqM8W8r7aUWsm3p2Xt01Y46ZRx0QaM91QruiIx2rECFT2pUO0wr+7oQ77jypATyGWRtADsu3YcvCk/6U5MqCnXMzKBcRas7NnZdSL/d5H1GglVGz3VLPMaivG4/oL4chOMmFCRl/zVsGxZ9RhN8rxsRGFFKn+rhExTi+bax3A=="
 }"@
 
-# Set Identity's Password
+# Set identity's password
 
 try {
     $Result = ConvertFrom-JsonToPasswordChangeRequest -Json $PasswordChangeRequest

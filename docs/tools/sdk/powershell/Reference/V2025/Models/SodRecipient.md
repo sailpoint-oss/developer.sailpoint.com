@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SodRecipient = Initialize-PSSailpoint.V2025SodRecipient  -Type IDENTITY `
+$SodRecipient = Initialize-V2025SodRecipient  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20642 `
  -Name Michael Michaels
 ```

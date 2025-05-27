@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMetadataBulkUpdateByQueryRequest = Initialize-PSSailpoint.V2024RoleMetadataBulkUpdateByQueryRequest  -Query {query"={indices=[roles], queryType=TEXT, textQuery={terms=[test123], fields=[id], matchAny=false, contains=true}, includeNested=false}} `
+$RoleMetadataBulkUpdateByQueryRequest = Initialize-V2024RoleMetadataBulkUpdateByQueryRequest  -Query {query"={indices=[roles], queryType=TEXT, textQuery={terms=[test123], fields=[id], matchAny=false, contains=true}, includeNested=false}} `
  -Operation REPLACE `
  -ReplaceScope ALL `
  -Values null

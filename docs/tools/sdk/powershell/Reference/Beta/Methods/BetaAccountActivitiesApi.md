@@ -50,8 +50,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaAccountActivity**](#get-account-activity) | **GET** `/account-activities/{id}` | Get Account Activity
-[**Get-BetaAccountActivities**](#list-account-activities) | **GET** `/account-activities` | List Account Activities
+[**Get-BetaAccountActivity**](#get-account-activity) | **GET** `/account-activities/{id}` | Get account activity
+[**Get-BetaAccountActivities**](#list-account-activities) | **GET** `/account-activities` | List account activities
 
 
 ## get-account-activity
@@ -86,7 +86,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account activity id
 
-# Get Account Activity
+# Get account activity
 
 try {
     Get-BetaAccountActivity -Id $Id 
@@ -147,7 +147,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'MyFilters' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **type**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *gt, lt, ge, le, eq, in, ne, isnull, sw*  **modified**: *gt, lt, ge, le, eq, in, ne, isnull, sw* (optional)
 $Sorters = "MySorters" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **type, created, modified** (optional)
 
-# List Account Activities
+# List account activities
 
 try {
     Get-BetaAccountActivities 

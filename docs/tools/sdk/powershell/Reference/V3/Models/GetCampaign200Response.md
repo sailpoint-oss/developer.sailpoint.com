@@ -44,7 +44,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetCampaign200Response = Initialize-PSSailpoint.V3GetCampaign200Response  -Id 2c9079b270a266a60170a2779fcb0007 `
+$GetCampaign200Response = Initialize-GetCampaign200Response  -Id 2c9079b270a266a60170a2779fcb0007 `
  -Name Manager Campaign `
  -Description Everyone needs to be reviewed by their manager `
  -Deadline 2020-03-15T10:00:01.456Z `

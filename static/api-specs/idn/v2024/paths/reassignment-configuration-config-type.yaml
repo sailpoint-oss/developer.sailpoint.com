@@ -2,7 +2,7 @@ delete:
   operationId: deleteReassignmentConfiguration
   tags:
   - Work Reassignment
-  summary: Delete Reassignment Configuration
+  summary: Delete reassignment configuration
   description: >-
     Deletes a single reassignment configuration for the specified identity
   security:

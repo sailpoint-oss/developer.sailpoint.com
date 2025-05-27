@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityAssociationDetails = Initialize-PSSailpoint.BetaIdentityAssociationDetails  -Message Identity cannot be deleted as it is owner of following resources `
+$IdentityAssociationDetails = Initialize-BetaIdentityAssociationDetails  -Message Identity cannot be deleted as it is owner of following resources `
  -AssociationDetails null
 ```
 

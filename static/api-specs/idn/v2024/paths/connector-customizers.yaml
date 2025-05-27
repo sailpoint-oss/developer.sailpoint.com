@@ -2,7 +2,7 @@ get:
   tags:
     - Connector Customizers
   operationId: listConnectorCustomizers
-  summary: List All Connector Customizers
+  summary: List all connector customizers
   description: List all connector customizers.
   parameters:
     - $ref: '../parameters/offset.yaml'
@@ -35,7 +35,7 @@ post:
   tags:
     - Connector Customizers
   operationId: createConnectorCustomizer
-  summary: Create Connector Customizer
+  summary: Create connector customizer
   description: Create a connector customizer.
   requestBody:
     required: true

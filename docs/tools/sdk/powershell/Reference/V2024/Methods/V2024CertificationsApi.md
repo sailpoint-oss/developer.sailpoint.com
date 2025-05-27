@@ -40,17 +40,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2024CertificationTask**](#get-certification-task) | **GET** `/certification-tasks/{id}` | Certification Task by ID
-[**Get-V2024IdentityCertification**](#get-identity-certification) | **GET** `/certifications/{id}` | Identity Certification by ID
-[**Get-V2024IdentityCertificationItemPermissions**](#get-identity-certification-item-permissions) | **GET** `/certifications/{certificationId}/access-review-items/{itemId}/permissions` | Permissions for Entitlement Certification Item
-[**Get-V2024PendingCertificationTasks**](#get-pending-certification-tasks) | **GET** `/certification-tasks` | List of Pending Certification Tasks
-[**Get-V2024CertificationReviewers**](#list-certification-reviewers) | **GET** `/certifications/{id}/reviewers` | List of Reviewers for certification
-[**Get-V2024IdentityAccessReviewItems**](#list-identity-access-review-items) | **GET** `/certifications/{id}/access-review-items` | List of Access Review Items
-[**Get-V2024IdentityCertifications**](#list-identity-certifications) | **GET** `/certifications` | List Identity Campaign Certifications
-[**Select-V2024IdentityDecision**](#make-identity-decision) | **POST** `/certifications/{id}/decide` | Decide on a Certification Item
-[**Invoke-V2024ReassignIdentityCertifications**](#reassign-identity-certifications) | **POST** `/certifications/{id}/reassign` | Reassign Identities or Items
-[**Invoke-V2024SignOffIdentityCertification**](#sign-off-identity-certification) | **POST** `/certifications/{id}/sign-off` | Finalize Identity Certification Decisions
-[**Submit-V2024ReassignCertsAsync**](#submit-reassign-certs-async) | **POST** `/certifications/{id}/reassign-async` | Reassign Certifications Asynchronously
+[**Get-V2024CertificationTask**](#get-certification-task) | **GET** `/certification-tasks/{id}` | Certification task by id
+[**Get-V2024IdentityCertification**](#get-identity-certification) | **GET** `/certifications/{id}` | Identity certification by id
+[**Get-V2024IdentityCertificationItemPermissions**](#get-identity-certification-item-permissions) | **GET** `/certifications/{certificationId}/access-review-items/{itemId}/permissions` | Permissions for entitlement certification item
+[**Get-V2024PendingCertificationTasks**](#get-pending-certification-tasks) | **GET** `/certification-tasks` | List of pending certification tasks
+[**Get-V2024CertificationReviewers**](#list-certification-reviewers) | **GET** `/certifications/{id}/reviewers` | List of reviewers for certification
+[**Get-V2024IdentityAccessReviewItems**](#list-identity-access-review-items) | **GET** `/certifications/{id}/access-review-items` | List of access review items
+[**Get-V2024IdentityCertifications**](#list-identity-certifications) | **GET** `/certifications` | List identity campaign certifications
+[**Select-V2024IdentityDecision**](#make-identity-decision) | **POST** `/certifications/{id}/decide` | Decide on a certification item
+[**Invoke-V2024ReassignIdentityCertifications**](#reassign-identity-certifications) | **POST** `/certifications/{id}/reassign` | Reassign identities or items
+[**Invoke-V2024SignOffIdentityCertification**](#sign-off-identity-certification) | **POST** `/certifications/{id}/sign-off` | Finalize identity certification decisions
+[**Submit-V2024ReassignCertsAsync**](#submit-reassign-certs-async) | **POST** `/certifications/{id}/reassign-async` | Reassign certifications asynchronously
 
 
 ## get-certification-task
@@ -85,7 +85,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "63b32151-26c0-42f4-9299-8898dc1c9daa" # String | The task ID
 
-# Certification Task by ID
+# Certification task by id
 
 try {
     Get-V2024CertificationTask -Id $Id 
@@ -131,7 +131,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification id
 
-# Identity Certification by ID
+# Identity certification by id
 
 try {
     Get-V2024IdentityCertification -Id $Id 
@@ -187,7 +187,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# Permissions for Entitlement Certification Item
+# Permissions for entitlement certification item
 
 try {
     Get-V2024IdentityCertificationItemPermissions -CertificationId $CertificationId -ItemId $ItemId 
@@ -241,7 +241,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'type eq "ADMIN_REASSIGN"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **targetId**: *eq, in*  **type**: *eq, in* (optional)
 
-# List of Pending Certification Tasks
+# List of pending certification tasks
 
 try {
     Get-V2024PendingCertificationTasks 
@@ -297,7 +297,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'name eq "Bob"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **email**: *eq, sw* (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, email** (optional)
 
-# List of Reviewers for certification
+# List of reviewers for certification
 
 try {
     Get-V2024CertificationReviewers -Id $Id 
@@ -359,7 +359,7 @@ $Entitlements = "identityEntitlement" # String | Filter results to view access r
 $AccessProfiles = "accessProfile1" # String | Filter results to view access review items that pertain to any of the specified comma-separated access-profle IDs.  An error will occur if this param is used with **entitlements** or **roles** as only one of these query params can be used at a time. (optional)
 $Roles = "userRole" # String | Filter results to view access review items that pertain to any of the specified comma-separated role IDs.  An error will occur if this param is used with **entitlements** or **access-profiles** as only one of these query params can be used at a time. (optional)
 
-# List of Access Review Items
+# List of access review items
 
 try {
     Get-V2024IdentityAccessReviewItems -Id $Id 
@@ -414,7 +414,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'id eq "ef38f94347e94562b5bb8424a56397d8"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **campaign.id**: *eq, in*  **phase**: *eq*  **completed**: *eq* (optional)
 $Sorters = "name,due" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, due, signed** (optional)
 
-# List Identity Campaign Certifications
+# List identity campaign certifications
 
 try {
     Get-V2024IdentityCertifications 
@@ -474,7 +474,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The ID of the identity campa
 }"@ # ReviewDecision[] | A non-empty array of decisions to be made.
  
 
-# Decide on a Certification Item
+# Decide on a certification item
 
 try {
     $Result = ConvertFrom-JsonToReviewDecision -Json $ReviewDecision
@@ -533,7 +533,7 @@ $ReviewReassign = @"{
   } ]
 }"@
 
-# Reassign Identities or Items
+# Reassign identities or items
 
 try {
     $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign
@@ -580,7 +580,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
 
-# Finalize Identity Certification Decisions
+# Finalize identity certification decisions
 
 try {
     Invoke-V2024SignOffIdentityCertification -Id $Id 
@@ -643,7 +643,7 @@ $ReviewReassign = @"{
   } ]
 }"@
 
-# Reassign Certifications Asynchronously
+# Reassign certifications asynchronously
 
 try {
     $Result = ConvertFrom-JsonToReviewReassign -Json $ReviewReassign

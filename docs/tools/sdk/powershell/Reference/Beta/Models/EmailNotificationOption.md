@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EmailNotificationOption = Initialize-PSSailpoint.BetaEmailNotificationOption  -NotifyManagers true `
+$EmailNotificationOption = Initialize-BetaEmailNotificationOption  -NotifyManagers true `
  -NotifyAllAdmins true `
  -NotifySpecificUsers true `
  -EmailAddressList [test@test.com, test2@test.com]

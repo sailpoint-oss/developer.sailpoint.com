@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestableObjectReference = Initialize-PSSailpoint.BetaRequestableObjectReference  -Id 2c938083633d259901633d25c68c00fa `
+$RequestableObjectReference = Initialize-BetaRequestableObjectReference  -Id 2c938083633d259901633d25c68c00fa `
  -Name Object Name `
  -Description Object Description `
  -Type ROLE

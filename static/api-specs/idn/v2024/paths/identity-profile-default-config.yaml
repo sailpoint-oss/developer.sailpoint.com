@@ -2,7 +2,7 @@ get:
   operationId: getDefaultIdentityAttributeConfig
   tags:
     - Identity Profiles
-  summary: Get default Identity Attribute Config
+  summary: Get default identity attribute config
   description: >-
     This returns the default identity attribute config.
   parameters:

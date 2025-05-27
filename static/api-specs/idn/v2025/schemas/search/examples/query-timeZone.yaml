@@ -1,4 +1,4 @@
-summary: Query with TimeZone
+summary: Query with timezone
 value:
   indices:
   - 'identities'

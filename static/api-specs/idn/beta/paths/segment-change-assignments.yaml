@@ -2,7 +2,7 @@ post:
   operationId: segmentChangeAssignments
   tags:
     - Segments
-  summary: Change Segment assignments.
+  summary: Change segment assignments.
   description: >-
     This API makes changes to the objects which are assigned to a Segment. 
 

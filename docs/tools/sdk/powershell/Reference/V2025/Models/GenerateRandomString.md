@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GenerateRandomString = Initialize-PSSailpoint.V2025GenerateRandomString  -Name Cloud Services Deployment Utility `
+$GenerateRandomString = Initialize-V2025GenerateRandomString  -Name Cloud Services Deployment Utility `
  -Operation generateRandomString `
  -IncludeNumbers true `
  -IncludeSpecialChars true `

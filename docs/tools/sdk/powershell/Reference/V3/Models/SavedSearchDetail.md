@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SavedSearchDetail = Initialize-PSSailpoint.V3SavedSearchDetail  -Created 2018-06-25T20:22:28.104Z `
+$SavedSearchDetail = Initialize-SavedSearchDetail  -Created 2018-06-25T20:22:28.104Z `
  -Modified 2018-06-25T20:22:28.104Z `
  -Indices [identities] `
  -Columns {identity=[{field=displayName, header=Display Name}, {field=e-mail, header=Work Email}]} `

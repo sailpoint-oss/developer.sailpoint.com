@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormDefinitionFileUploadResponse = Initialize-PSSailpoint.V2025FormDefinitionFileUploadResponse  -Created 2023-07-12T20:14:57.74486Z `
+$FormDefinitionFileUploadResponse = Initialize-V2025FormDefinitionFileUploadResponse  -Created 2023-07-12T20:14:57.74486Z `
  -FileId 01FHZXHK8PTP9FVK99Z66GXQTX.png `
  -FormDefinitionId 00000000-0000-0000-0000-000000000000
 ```

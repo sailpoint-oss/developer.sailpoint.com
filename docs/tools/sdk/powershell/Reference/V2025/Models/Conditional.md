@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Conditional = Initialize-PSSailpoint.V2025Conditional  -Expression ValueA eq ValueB `
+$Conditional = Initialize-V2025Conditional  -Expression ValueA eq ValueB `
  -PositiveCondition true `
  -NegativeCondition false `
  -RequiresPeriodicRefresh false `

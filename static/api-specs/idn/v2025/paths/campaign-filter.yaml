@@ -2,7 +2,7 @@ get:
   operationId: getCampaignFilterById
   tags:
     - Certification Campaign Filters
-  summary: Get Campaign Filter by ID
+  summary: Get campaign filter by id
   description: >-
     Retrieves information for an existing campaign filter using the filter's ID.
   security:
@@ -39,7 +39,7 @@ post:
   operationId: updateCampaignFilter
   tags:
     - Certification Campaign Filters
-  summary: Updates a Campaign Filter
+  summary: Updates a campaign filter
   description: >-
     Updates an existing campaign filter using the filter's ID.
   security:

@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CertificationTask = Initialize-PSSailpoint.V2025CertificationTask  -Id 2c918086719eec070171a7e3355a360a `
+$CertificationTask = Initialize-V2025CertificationTask  -Id 2c918086719eec070171a7e3355a360a `
  -Type ADMIN_REASSIGN `
  -TargetType CAMPAIGN `
  -TargetId 2c918086719eec070171a7e3355a834c `

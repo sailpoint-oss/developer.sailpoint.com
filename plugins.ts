@@ -3,24 +3,22 @@ import clsx from 'clsx';
 import type {PluginConfig} from '@docusaurus/types';
 
 const pluginConfig: PluginConfig[] = [
-  function disableExpensiveBundlerOptimizationPlugin() {
-    return {
-      name: 'disable-expensive-bundler-optimizations',
-      configureWebpack() {
-        return {
-          optimization: {
-            concatenateModules: false,
-            mergeDuplicateChunks: false,
-            removeAvailableModules: true,
-          },
-          experiments: {
-            parallelCodeSplitting: false,
-          } as any,
-        };
-      },
-    };
-  },
-
+  [
+    function disableExpensiveBundlerOptimizationPlugin() {
+      return {
+        name: 'disable-expensive-bundler-optimizations',
+        configureWebpack(config, isServer) {
+          return {
+            optimization: {
+              // See https://github.com/facebook/docusaurus/discussions/11199
+              concatenateModules: false,
+            },
+          };
+        },
+      };
+    },
+    {},
+  ],
   [
     '@docusaurus/plugin-google-tag-manager',
     {

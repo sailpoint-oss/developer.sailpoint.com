@@ -1,4 +1,4 @@
-summary: Query for Acccount Activities
+summary: Query for acccount activities
 value:
   indices:
     - accountactivities

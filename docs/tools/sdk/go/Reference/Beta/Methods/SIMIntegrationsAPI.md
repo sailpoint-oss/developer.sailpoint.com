@@ -22,17 +22,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-sim-integration**](#create-sim-integration) | **Post** `/sim-integrations` | Create new SIM integration
-[**delete-sim-integration**](#delete-sim-integration) | **Delete** `/sim-integrations/{id}` | Delete a SIM integration
-[**get-sim-integration**](#get-sim-integration) | **Get** `/sim-integrations/{id}` | Get a SIM integration details.
-[**get-sim-integrations**](#get-sim-integrations) | **Get** `/sim-integrations` | List the existing SIM integrations.
-[**patch-before-provisioning-rule**](#patch-before-provisioning-rule) | **Patch** `/sim-integrations/{id}/beforeProvisioningRule` | Patch a SIM beforeProvisioningRule attribute.
-[**patch-sim-attributes**](#patch-sim-attributes) | **Patch** `/sim-integrations/{id}` | Patch a SIM attribute.
-[**put-sim-integration**](#put-sim-integration) | **Put** `/sim-integrations/{id}` | Update an existing SIM integration
+[**create-sim-integration**](#create-sim-integration) | **Post** `/sim-integrations` | Create new sim integration
+[**delete-sim-integration**](#delete-sim-integration) | **Delete** `/sim-integrations/{id}` | Delete a sim integration
+[**get-sim-integration**](#get-sim-integration) | **Get** `/sim-integrations/{id}` | Get a sim integration details.
+[**get-sim-integrations**](#get-sim-integrations) | **Get** `/sim-integrations` | List the existing sim integrations.
+[**patch-before-provisioning-rule**](#patch-before-provisioning-rule) | **Patch** `/sim-integrations/{id}/beforeProvisioningRule` | Patch a sim beforeprovisioningrule attribute.
+[**patch-sim-attributes**](#patch-sim-attributes) | **Patch** `/sim-integrations/{id}` | Patch a sim attribute.
+[**put-sim-integration**](#put-sim-integration) | **Put** `/sim-integrations/{id}` | Update an existing sim integration
 
 
 ## create-sim-integration
-Create new SIM integration
+Create new sim integration
 Create a new SIM Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-sim-integration)
@@ -116,7 +116,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-sim-integration
-Delete a SIM integration
+Delete a sim integration
 Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-sim-integration)
@@ -181,7 +181,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-sim-integration
-Get a SIM integration details.
+Get a sim integration details.
 Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-sim-integration)
@@ -247,7 +247,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-sim-integrations
-List the existing SIM integrations.
+List the existing sim integrations.
 List the existing SIM integrations. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-sim-integrations)
@@ -304,7 +304,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-before-provisioning-rule
-Patch a SIM beforeProvisioningRule attribute.
+Patch a sim beforeprovisioningrule attribute.
 Patch a SIM beforeProvisioningRule attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-before-provisioning-rule)
@@ -377,7 +377,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-sim-attributes
-Patch a SIM attribute.
+Patch a sim attribute.
 Patch a SIM attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-sim-attributes)
@@ -450,7 +450,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-sim-integration
-Update an existing SIM integration
+Update an existing sim integration
 Update an existing SIM integration.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-sim-integration)

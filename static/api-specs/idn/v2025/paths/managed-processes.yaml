@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Processes
-  summary: Get Managed Processes
+  summary: Get managed processes
   description: >-
     Get a list of Managed Processes.
 
@@ -53,7 +53,7 @@ get:
 post:
   tags:
     - Managed Processes
-  summary: Create new Managed Processes
+  summary: Create new managed processes
   description: >-
     Create a new Managed Process.
 

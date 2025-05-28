@@ -2,7 +2,7 @@ get:
   operationId: getReassignmentConfigTypes
   tags:
     - Work Reassignment
-  summary: List Reassignment Config Types
+  summary: List reassignment config types
   description: >-
     Gets a collection of types which are available in the Reassignment Configuration UI.
   security:

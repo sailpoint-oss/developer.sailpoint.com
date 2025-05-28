@@ -1,6 +1,6 @@
 get:
   operationId: listAccessRequestRecommendations
-  summary: Access Request Recommendations List
+  summary: Access request recommendations list
   tags:
     - Access Request Recommendations
   description: >-

@@ -22,17 +22,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-sim-integration**](#create-sim-integration) | **POST** `/sim-integrations` | Create new SIM integration
-[**delete-sim-integration**](#delete-sim-integration) | **DELETE** `/sim-integrations/{id}` | Delete a SIM integration
-[**get-sim-integration**](#get-sim-integration) | **GET** `/sim-integrations/{id}` | Get a SIM integration details.
-[**get-sim-integrations**](#get-sim-integrations) | **GET** `/sim-integrations` | List the existing SIM integrations.
-[**patch-before-provisioning-rule**](#patch-before-provisioning-rule) | **PATCH** `/sim-integrations/{id}/beforeProvisioningRule` | Patch a SIM beforeProvisioningRule attribute.
-[**patch-sim-attributes**](#patch-sim-attributes) | **PATCH** `/sim-integrations/{id}` | Patch a SIM attribute.
-[**put-sim-integration**](#put-sim-integration) | **PUT** `/sim-integrations/{id}` | Update an existing SIM integration
+[**create-sim-integration**](#create-sim-integration) | **POST** `/sim-integrations` | Create new sim integration
+[**delete-sim-integration**](#delete-sim-integration) | **DELETE** `/sim-integrations/{id}` | Delete a sim integration
+[**get-sim-integration**](#get-sim-integration) | **GET** `/sim-integrations/{id}` | Get a sim integration details.
+[**get-sim-integrations**](#get-sim-integrations) | **GET** `/sim-integrations` | List the existing sim integrations.
+[**patch-before-provisioning-rule**](#patch-before-provisioning-rule) | **PATCH** `/sim-integrations/{id}/beforeProvisioningRule` | Patch a sim beforeprovisioningrule attribute.
+[**patch-sim-attributes**](#patch-sim-attributes) | **PATCH** `/sim-integrations/{id}` | Patch a sim attribute.
+[**put-sim-integration**](#put-sim-integration) | **PUT** `/sim-integrations/{id}` | Update an existing sim integration
 
 
 ## create-sim-integration
-Create new SIM integration
+Create new sim integration
 Create a new SIM Integrations.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-sim-integration)
@@ -93,7 +93,7 @@ with ApiClient(configuration) as api_client:
         }''' # SimIntegrationDetails | DTO containing the details of the SIM integration
 
     try:
-        # Create new SIM integration
+        # Create new sim integration
         new_sim_integration_details = SimIntegrationDetails.from_json(sim_integration_details)
         results = SIMIntegrationsApi(api_client).create_sim_integration(sim_integration_details=new_sim_integration_details)
         # Below is a request that includes all optional parameters
@@ -109,7 +109,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-sim-integration
-Delete a SIM integration
+Delete a sim integration
 Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-sim-integration)
@@ -151,7 +151,7 @@ with ApiClient(configuration) as api_client:
     id = '12345' # str | The id of the integration to delete. # str | The id of the integration to delete.
 
     try:
-        # Delete a SIM integration
+        # Delete a sim integration
         
         SIMIntegrationsApi(api_client).delete_sim_integration(id=id)
         # Below is a request that includes all optional parameters
@@ -165,7 +165,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-sim-integration
-Get a SIM integration details.
+Get a sim integration details.
 Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-sim-integration)
@@ -208,7 +208,7 @@ with ApiClient(configuration) as api_client:
     id = '12345' # str | The id of the integration. # str | The id of the integration.
 
     try:
-        # Get a SIM integration details.
+        # Get a sim integration details.
         
         results = SIMIntegrationsApi(api_client).get_sim_integration(id=id)
         # Below is a request that includes all optional parameters
@@ -224,7 +224,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-sim-integrations
-List the existing SIM integrations.
+List the existing sim integrations.
 List the existing SIM integrations. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-sim-integrations)
@@ -263,7 +263,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # List the existing SIM integrations.
+        # List the existing sim integrations.
         
         results = SIMIntegrationsApi(api_client).get_sim_integrations()
         # Below is a request that includes all optional parameters
@@ -279,7 +279,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-before-provisioning-rule
-Patch a SIM beforeProvisioningRule attribute.
+Patch a sim beforeprovisioningrule attribute.
 Patch a SIM beforeProvisioningRule attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-before-provisioning-rule)
@@ -325,7 +325,7 @@ with ApiClient(configuration) as api_client:
     json_patch = '''"[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]"''' # JsonPatch | The JsonPatch object that describes the changes of SIM beforeProvisioningRule.
 
     try:
-        # Patch a SIM beforeProvisioningRule attribute.
+        # Patch a sim beforeprovisioningrule attribute.
         new_json_patch = JsonPatch.from_json(json_patch)
         results = SIMIntegrationsApi(api_client).patch_before_provisioning_rule(id=id, json_patch=new_json_patch)
         # Below is a request that includes all optional parameters
@@ -341,7 +341,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-sim-attributes
-Patch a SIM attribute.
+Patch a sim attribute.
 Patch a SIM attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-sim-attributes)
@@ -387,7 +387,7 @@ with ApiClient(configuration) as api_client:
     json_patch = '''"[\n  {\n\t  \"op\": \"replace\",\n\t  \"path\": \"/description\",\n\t  \"value\": \"A new description\"\n  }\n]"''' # JsonPatch | The JsonPatch object that describes the changes of SIM
 
     try:
-        # Patch a SIM attribute.
+        # Patch a sim attribute.
         new_json_patch = JsonPatch.from_json(json_patch)
         results = SIMIntegrationsApi(api_client).patch_sim_attributes(id=id, json_patch=new_json_patch)
         # Below is a request that includes all optional parameters
@@ -403,7 +403,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-sim-integration
-Update an existing SIM integration
+Update an existing sim integration
 Update an existing SIM integration.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-sim-integration)
@@ -466,7 +466,7 @@ with ApiClient(configuration) as api_client:
         }''' # SimIntegrationDetails | The full DTO of the integration containing the updated model
 
     try:
-        # Update an existing SIM integration
+        # Update an existing sim integration
         new_sim_integration_details = SimIntegrationDetails.from_json(sim_integration_details)
         results = SIMIntegrationsApi(api_client).put_sim_integration(id=id, sim_integration_details=new_sim_integration_details)
         # Below is a request that includes all optional parameters

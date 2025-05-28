@@ -15,21 +15,21 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-domain-dkim**](#create-domain-dkim) | **Post** `/verified-domains` | Verify domain address via DKIM
-[**create-notification-template**](#create-notification-template) | **Post** `/notification-templates` | Create Notification Template
-[**create-verified-from-address**](#create-verified-from-address) | **Post** `/verified-from-addresses` | Create Verified From Address
-[**delete-notification-templates-in-bulk**](#delete-notification-templates-in-bulk) | **Post** `/notification-templates/bulk-delete` | Bulk Delete Notification Templates
-[**delete-verified-from-address**](#delete-verified-from-address) | **Delete** `/verified-from-addresses/{id}` | Delete Verified From Address
-[**get-dkim-attributes**](#get-dkim-attributes) | **Get** `/verified-domains` | Get DKIM Attributes
-[**get-mail-from-attributes**](#get-mail-from-attributes) | **Get** `/mail-from-attributes/{identity}` | Get MAIL FROM Attributes
-[**get-notification-template**](#get-notification-template) | **Get** `/notification-templates/{id}` | Get Notification Template By Id
-[**get-notifications-template-context**](#get-notifications-template-context) | **Get** `/notification-template-context` | Get Notification Template Context
-[**list-from-addresses**](#list-from-addresses) | **Get** `/verified-from-addresses` | List From Addresses
-[**list-notification-preferences**](#list-notification-preferences) | **Get** `/notification-preferences/{key}` | List Notification Preferences for tenant.
-[**list-notification-template-defaults**](#list-notification-template-defaults) | **Get** `/notification-template-defaults` | List Notification Template Defaults
-[**list-notification-templates**](#list-notification-templates) | **Get** `/notification-templates` | List Notification Templates
-[**put-mail-from-attributes**](#put-mail-from-attributes) | **Put** `/mail-from-attributes` | Change MAIL FROM domain
-[**send-test-notification**](#send-test-notification) | **Post** `/send-test-notification` | Send Test Notification
+[**create-domain-dkim**](#create-domain-dkim) | **Post** `/verified-domains` | Verify domain address via dkim
+[**create-notification-template**](#create-notification-template) | **Post** `/notification-templates` | Create notification template
+[**create-verified-from-address**](#create-verified-from-address) | **Post** `/verified-from-addresses` | Create verified from address
+[**delete-notification-templates-in-bulk**](#delete-notification-templates-in-bulk) | **Post** `/notification-templates/bulk-delete` | Bulk delete notification templates
+[**delete-verified-from-address**](#delete-verified-from-address) | **Delete** `/verified-from-addresses/{id}` | Delete verified from address
+[**get-dkim-attributes**](#get-dkim-attributes) | **Get** `/verified-domains` | Get dkim attributes
+[**get-mail-from-attributes**](#get-mail-from-attributes) | **Get** `/mail-from-attributes/{identity}` | Get mail from attributes
+[**get-notification-template**](#get-notification-template) | **Get** `/notification-templates/{id}` | Get notification template by id
+[**get-notifications-template-context**](#get-notifications-template-context) | **Get** `/notification-template-context` | Get notification template context
+[**list-from-addresses**](#list-from-addresses) | **Get** `/verified-from-addresses` | List from addresses
+[**list-notification-preferences**](#list-notification-preferences) | **Get** `/notification-preferences/{key}` | List notification preferences for tenant.
+[**list-notification-template-defaults**](#list-notification-template-defaults) | **Get** `/notification-template-defaults` | List notification template defaults
+[**list-notification-templates**](#list-notification-templates) | **Get** `/notification-templates` | List notification templates
+[**put-mail-from-attributes**](#put-mail-from-attributes) | **Put** `/mail-from-attributes` | Change mail from domain
+[**send-test-notification**](#send-test-notification) | **Post** `/send-test-notification` | Send test notification
 
 
 ## create-domain-dkim
@@ -44,7 +44,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Verify domain address via DKIM
+Verify domain address via dkim
 Create a domain to be verified via DKIM (DomainKeys Identified Mail)
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-domain-dkim)
@@ -126,7 +126,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Create Notification Template
+Create notification template
 This creates a template for your site. 
 
 You can also use this endpoint to update a template.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready.
@@ -225,7 +225,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Create Verified From Address
+Create verified from address
 Create a new sender email address and initiate verification process.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-verified-from-address)
@@ -310,7 +310,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Bulk Delete Notification Templates
+Bulk delete notification templates
 This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, please contact support to enable usage.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-notification-templates-in-bulk)
@@ -389,7 +389,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Delete Verified From Address
+Delete verified from address
 Delete a verified sender email address
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-verified-from-address)
@@ -467,7 +467,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get DKIM Attributes
+Get dkim attributes
 Retrieve DKIM (DomainKeys Identified Mail) attributes for all your tenants' AWS SES identities. Limits retrieval to 100 identities per call.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-dkim-attributes)
@@ -540,7 +540,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get MAIL FROM Attributes
+Get mail from attributes
 Retrieve MAIL FROM attributes for a given AWS SES identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-mail-from-attributes)
@@ -615,7 +615,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Notification Template By Id
+Get notification template by id
 This gets a template that you have modified for your site by Id.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-notification-template)
@@ -694,7 +694,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Notification Template Context
+Get notification template context
 The notification service maintains metadata to construct the notification templates or supply any information during the event propagation. The data-store where this information is retrieved is called "Global Context" (a.k.a. notification template context). It defines a set of attributes
  that will be available per tenant (organization).
 
@@ -768,7 +768,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List From Addresses
+List from addresses
 Retrieve a list of sender email addresses and their verification statuses
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-from-addresses)
@@ -851,7 +851,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Notification Preferences for tenant.
+List notification preferences for tenant.
 Returns a list of notification preferences for tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-notification-preferences)
@@ -924,7 +924,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Notification Template Defaults
+List notification template defaults
 This lists the default templates used for notifications, such as emails from IdentityNow.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-notification-template-defaults)
@@ -1003,7 +1003,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Notification Templates
+List notification templates
 This lists the templates that you have modified for your site.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-notification-templates)
@@ -1082,7 +1082,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Change MAIL FROM domain
+Change mail from domain
 Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller's DNS
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-mail-from-attributes)
@@ -1165,7 +1165,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Send Test Notification
+Send test notification
 Send a Test Notification
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/send-test-notification)

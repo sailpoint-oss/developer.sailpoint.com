@@ -2,7 +2,7 @@ get:
   operationId: getIdentityCertificationItemPermissions
   tags:
     - Certifications
-  summary: Permissions for Entitlement Certification Item
+  summary: Permissions for entitlement certification item
   description: >-
     This API returns the permissions associated with an entitlement certification item based on the certification item's
     ID. Reviewers for this certification can also call this API.

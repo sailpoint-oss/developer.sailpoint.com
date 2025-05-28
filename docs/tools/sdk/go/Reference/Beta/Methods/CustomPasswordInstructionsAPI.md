@@ -26,13 +26,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-custom-password-instructions**](#create-custom-password-instructions) | **Post** `/custom-password-instructions` | Create Custom Password Instructions
-[**delete-custom-password-instructions**](#delete-custom-password-instructions) | **Delete** `/custom-password-instructions/{pageId}` | Delete Custom Password Instructions by page ID
-[**get-custom-password-instructions**](#get-custom-password-instructions) | **Get** `/custom-password-instructions/{pageId}` | Get Custom Password Instructions by Page ID
+[**create-custom-password-instructions**](#create-custom-password-instructions) | **Post** `/custom-password-instructions` | Create custom password instructions
+[**delete-custom-password-instructions**](#delete-custom-password-instructions) | **Delete** `/custom-password-instructions/{pageId}` | Delete custom password instructions by page id
+[**get-custom-password-instructions**](#get-custom-password-instructions) | **Get** `/custom-password-instructions/{pageId}` | Get custom password instructions by page id
 
 
 ## create-custom-password-instructions
-Create Custom Password Instructions
+Create custom password instructions
 This API creates the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-custom-password-instructions)
@@ -103,7 +103,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-custom-password-instructions
-Delete Custom Password Instructions by page ID
+Delete custom password instructions by page id
 This API delete the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-custom-password-instructions)
@@ -170,7 +170,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-custom-password-instructions
-Get Custom Password Instructions by Page ID
+Get custom password instructions by page id
 This API returns the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-custom-password-instructions)

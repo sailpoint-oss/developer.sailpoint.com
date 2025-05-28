@@ -18,15 +18,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-oauth-client**](#create-oauth-client) | **Post** `/oauth-clients` | Create OAuth Client
-[**delete-oauth-client**](#delete-oauth-client) | **Delete** `/oauth-clients/{id}` | Delete OAuth Client
-[**get-oauth-client**](#get-oauth-client) | **Get** `/oauth-clients/{id}` | Get OAuth Client
-[**list-oauth-clients**](#list-oauth-clients) | **Get** `/oauth-clients` | List OAuth Clients
-[**patch-oauth-client**](#patch-oauth-client) | **Patch** `/oauth-clients/{id}` | Patch OAuth Client
+[**create-oauth-client**](#create-oauth-client) | **Post** `/oauth-clients` | Create oauth client
+[**delete-oauth-client**](#delete-oauth-client) | **Delete** `/oauth-clients/{id}` | Delete oauth client
+[**get-oauth-client**](#get-oauth-client) | **Get** `/oauth-clients/{id}` | Get oauth client
+[**list-oauth-clients**](#list-oauth-clients) | **Get** `/oauth-clients` | List oauth clients
+[**patch-oauth-client**](#patch-oauth-client) | **Patch** `/oauth-clients/{id}` | Patch oauth client
 
 
 ## create-oauth-client
-Create OAuth Client
+Create oauth client
 This creates an OAuth client.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-oauth-client)
@@ -109,7 +109,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-oauth-client
-Delete OAuth Client
+Delete oauth client
 This deletes an OAuth client.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-oauth-client)
@@ -174,7 +174,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-oauth-client
-Get OAuth Client
+Get oauth client
 This gets details of an OAuth client.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-oauth-client)
@@ -240,7 +240,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-oauth-clients
-List OAuth Clients
+List oauth clients
 This gets a list of OAuth clients.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-oauth-clients)
@@ -302,7 +302,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-oauth-client
-Patch OAuth Client
+Patch oauth client
 This performs a targeted update to the field(s) of an OAuth client.
 Request will require a security scope of 
 - sp:oauth-client:manage

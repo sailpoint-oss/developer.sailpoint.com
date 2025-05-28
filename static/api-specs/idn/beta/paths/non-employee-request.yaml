@@ -4,7 +4,7 @@ get:
     - userAuth: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Get a Non-Employee Request
+  summary: Get a non-employee request
   description: >-
     This gets a non-employee request.
   parameters:
@@ -42,7 +42,7 @@ delete:
     - userAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Delete Non-Employee Request
+  summary: Delete non-employee request
   description: >-
     This request will delete a non-employee request.
   parameters:

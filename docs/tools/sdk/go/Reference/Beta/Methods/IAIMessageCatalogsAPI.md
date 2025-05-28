@@ -15,11 +15,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-message-catalogs**](#get-message-catalogs) | **Get** `/translation-catalogs/{catalog-id}` | Get Message catalogs
+[**get-message-catalogs**](#get-message-catalogs) | **Get** `/translation-catalogs/{catalog-id}` | Get message catalogs
 
 
 ## get-message-catalogs
-Get Message catalogs
+Get message catalogs
 The getMessageCatalogs API returns message catalog based on the language headers in the requested object.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-message-catalogs)

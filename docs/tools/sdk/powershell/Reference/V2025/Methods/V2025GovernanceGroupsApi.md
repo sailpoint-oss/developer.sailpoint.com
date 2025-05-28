@@ -22,16 +22,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2025Workgroup**](#create-workgroup) | **POST** `/workgroups` | Create a new Governance Group.
-[**Remove-V2025Workgroup**](#delete-workgroup) | **DELETE** `/workgroups/{id}` | Delete a Governance Group
-[**Remove-V2025WorkgroupMembers**](#delete-workgroup-members) | **POST** `/workgroups/{workgroupId}/members/bulk-delete` | Remove members from Governance Group
-[**Remove-V2025WorkgroupsInBulk**](#delete-workgroups-in-bulk) | **POST** `/workgroups/bulk-delete` | Delete Governance Group(s)
-[**Get-V2025Workgroup**](#get-workgroup) | **GET** `/workgroups/{id}` | Get Governance Group by Id
-[**Get-V2025Connections**](#list-connections) | **GET** `/workgroups/{workgroupId}/connections` | List connections for Governance Group
-[**Get-V2025WorkgroupMembers**](#list-workgroup-members) | **GET** `/workgroups/{workgroupId}/members` | List Governance Group Members
-[**Get-V2025Workgroups**](#list-workgroups) | **GET** `/workgroups` | List Governance Groups
-[**Update-V2025Workgroup**](#patch-workgroup) | **PATCH** `/workgroups/{id}` | Patch a Governance Group
-[**Update-V2025WorkgroupMembers**](#update-workgroup-members) | **POST** `/workgroups/{workgroupId}/members/bulk-add` | Add members to Governance Group
+[**New-V2025Workgroup**](#create-workgroup) | **POST** `/workgroups` | Create a new governance group.
+[**Remove-V2025Workgroup**](#delete-workgroup) | **DELETE** `/workgroups/{id}` | Delete a governance group
+[**Remove-V2025WorkgroupMembers**](#delete-workgroup-members) | **POST** `/workgroups/{workgroupId}/members/bulk-delete` | Remove members from governance group
+[**Remove-V2025WorkgroupsInBulk**](#delete-workgroups-in-bulk) | **POST** `/workgroups/bulk-delete` | Delete governance group(s)
+[**Get-V2025Workgroup**](#get-workgroup) | **GET** `/workgroups/{id}` | Get governance group by id
+[**Get-V2025Connections**](#list-connections) | **GET** `/workgroups/{workgroupId}/connections` | List connections for governance group
+[**Get-V2025WorkgroupMembers**](#list-workgroup-members) | **GET** `/workgroups/{workgroupId}/members` | List governance group members
+[**Get-V2025Workgroups**](#list-workgroups) | **GET** `/workgroups` | List governance groups
+[**Update-V2025Workgroup**](#patch-workgroup) | **PATCH** `/workgroups/{id}` | Patch a governance group
+[**Update-V2025WorkgroupMembers**](#update-workgroup-members) | **POST** `/workgroups/{workgroupId}/members/bulk-add` | Add members to governance group
 
 
 ## create-workgroup
@@ -85,7 +85,7 @@ $WorkgroupDto = @"{
   "id" : "2c91808568c529c60168cca6f90c1313"
 }"@
 
-# Create a new Governance Group.
+# Create a new governance group.
 
 try {
     $Result = ConvertFrom-JsonToWorkgroupDto -Json $WorkgroupDto
@@ -136,7 +136,7 @@ Code | Description  | Data Type
 $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Delete a Governance Group
+# Delete a governance group
 
 try {
     Remove-V2025Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -192,7 +192,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
  $IdentityPreviewResponseIdentity = @""@ # IdentityPreviewResponseIdentity[] | List of identities to be removed from  a Governance Group members list.
  
 
-# Remove members from Governance Group
+# Remove members from governance group
 
 try {
     $Result = ConvertFrom-JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity
@@ -256,7 +256,7 @@ $WorkgroupBulkDeleteRequest = @"{
   "ids" : [ "567a697e-885b-495a-afc5-d55e1c23a302", "c7b0f7b2-1e78-4063-b294-a555333dacd2" ]
 }"@
 
-# Delete Governance Group(s)
+# Delete governance group(s)
 
 try {
     $Result = ConvertFrom-JsonToWorkgroupBulkDeleteRequest -Json $WorkgroupBulkDeleteRequest
@@ -307,7 +307,7 @@ Code | Description  | Data Type
 $Id = "2c9180837ca6693d017ca8d097500149" # String | ID of the Governance Group
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Governance Group by Id
+# Get governance group by id
 
 try {
     Get-V2025Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -365,7 +365,7 @@ $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. 
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
 
-# List connections for Governance Group
+# List connections for governance group
 
 try {
     Get-V2025Connections -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental 
@@ -423,7 +423,7 @@ $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. 
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
 
-# List Governance Group Members
+# List governance group members
 
 try {
     Get-V2025WorkgroupMembers -WorkgroupId $WorkgroupId -XSailPointExperimental $XSailPointExperimental 
@@ -481,7 +481,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'name sw "Test"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **name**: *eq, sw, in*  **memberships.identityId**: *eq, in* (optional)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified, id, description** (optional)
 
-# List Governance Groups
+# List governance groups
 
 try {
     Get-V2025Workgroups -XSailPointExperimental $XSailPointExperimental 
@@ -541,7 +541,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 }"@ # JsonPatchOperation[] |  (optional)
  
 
-# Patch a Governance Group
+# Patch a governance group
 
 try {
     Update-V2025Workgroup -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -598,7 +598,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
  $IdentityPreviewResponseIdentity = @""@ # IdentityPreviewResponseIdentity[] | List of identities to be added to a Governance Group members list.
  
 
-# Add members to Governance Group
+# Add members to governance group
 
 try {
     $Result = ConvertFrom-JsonToIdentityPreviewResponseIdentity -Json $IdentityPreviewResponseIdentity

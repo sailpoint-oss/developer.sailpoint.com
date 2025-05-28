@@ -33,11 +33,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-search-attribute-config**](#create-search-attribute-config) | **POST** `/accounts/search-attribute-config` | Create Extended Search Attributes
-[**delete-search-attribute-config**](#delete-search-attribute-config) | **DELETE** `/accounts/search-attribute-config/{name}` | Delete Extended Search Attribute
-[**get-search-attribute-config**](#get-search-attribute-config) | **GET** `/accounts/search-attribute-config` | List Extended Search Attributes
-[**get-single-search-attribute-config**](#get-single-search-attribute-config) | **GET** `/accounts/search-attribute-config/{name}` | Get Extended Search Attribute
-[**patch-search-attribute-config**](#patch-search-attribute-config) | **PATCH** `/accounts/search-attribute-config/{name}` | Update Extended Search Attribute
+[**create-search-attribute-config**](#create-search-attribute-config) | **POST** `/accounts/search-attribute-config` | Create extended search attributes
+[**delete-search-attribute-config**](#delete-search-attribute-config) | **DELETE** `/accounts/search-attribute-config/{name}` | Delete extended search attribute
+[**get-search-attribute-config**](#get-search-attribute-config) | **GET** `/accounts/search-attribute-config` | List extended search attributes
+[**get-single-search-attribute-config**](#get-single-search-attribute-config) | **GET** `/accounts/search-attribute-config/{name}` | Get extended search attribute
+[**patch-search-attribute-config**](#patch-search-attribute-config) | **PATCH** `/accounts/search-attribute-config/{name}` | Update extended search attribute
 
 
 ## create-search-attribute-config
@@ -52,7 +52,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Create Extended Search Attributes
+Create extended search attributes
 Create and configure extended search attributes.  This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names.  It will then validate the inputs and configure/create the attribute promotion configuration in the Link ObjectConfig.
 >**Note: Give searchable attributes unique names.  Do not give them the same names used for account attributes or source attributes.  Also, do not give them the same names present in account schema for a current or future source, regardless of whether that source is included in the searchable attributes' `applicationAttributes`.**
 
@@ -106,7 +106,7 @@ with ApiClient(configuration) as api_client:
         }''' # SearchAttributeConfig | 
 
     try:
-        # Create Extended Search Attributes
+        # Create extended search attributes
         new_search_attribute_config = SearchAttributeConfig.from_json(search_attribute_config)
         results = SearchAttributeConfigurationApi(api_client).create_search_attribute_config(x_sail_point_experimental=x_sail_point_experimental, search_attribute_config=new_search_attribute_config)
         # Below is a request that includes all optional parameters
@@ -133,7 +133,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Delete Extended Search Attribute
+Delete extended search attribute
 Delete an extended attribute configuration by name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-search-attribute-config)
@@ -177,7 +177,7 @@ with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Delete Extended Search Attribute
+        # Delete extended search attribute
         
         SearchAttributeConfigurationApi(api_client).delete_search_attribute_config(name=name, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -202,7 +202,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Extended Search Attributes
+List extended search attributes
 Get a list of attribute/application attributes currently configured in Identity Security Cloud (ISC).
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-search-attribute-config)
@@ -249,7 +249,7 @@ with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
     try:
-        # List Extended Search Attributes
+        # List extended search attributes
         
         results = SearchAttributeConfigurationApi(api_client).get_search_attribute_config(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -277,7 +277,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Extended Search Attribute
+Get extended search attribute
 Get an extended attribute configuration by name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-single-search-attribute-config)
@@ -323,7 +323,7 @@ with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Get Extended Search Attribute
+        # Get extended search attribute
         
         results = SearchAttributeConfigurationApi(api_client).get_single_search_attribute_config(name=name, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -350,7 +350,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Update Extended Search Attribute
+Update extended search attribute
 Update an existing search attribute configuration. 
 You can patch these fields:
 * name  * displayName * applicationAttributes
@@ -401,7 +401,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=replace, path=/name, value=newAttributeName}, {op=replace, path=/displayName, value=new attribute display name}, {op=add, path=/applicationAttributes, value={2c91808b79fd2422017a0b35d30f3968=employeeNumber}}]''' # List[JsonPatchOperation] | 
 
     try:
-        # Update Extended Search Attribute
+        # Update extended search attribute
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = SearchAttributeConfigurationApi(api_client).patch_search_attribute_config(name=name, x_sail_point_experimental=x_sail_point_experimental, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters

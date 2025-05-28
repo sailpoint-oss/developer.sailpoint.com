@@ -26,10 +26,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create-saved-search**](#create-saved-search) | **Post** `/saved-searches` | Create a saved search
-[**delete-saved-search**](#delete-saved-search) | **Delete** `/saved-searches/{id}` | Delete document by ID
-[**execute-saved-search**](#execute-saved-search) | **Post** `/saved-searches/{id}/execute` | Execute a saved search by ID
-[**get-saved-search**](#get-saved-search) | **Get** `/saved-searches/{id}` | Return saved search by ID
-[**list-saved-searches**](#list-saved-searches) | **Get** `/saved-searches` | A list of Saved Searches
+[**delete-saved-search**](#delete-saved-search) | **Delete** `/saved-searches/{id}` | Delete document by id
+[**execute-saved-search**](#execute-saved-search) | **Post** `/saved-searches/{id}/execute` | Execute a saved search by id
+[**get-saved-search**](#get-saved-search) | **Get** `/saved-searches/{id}` | Return saved search by id
+[**list-saved-searches**](#list-saved-searches) | **Get** `/saved-searches` | A list of saved searches
 [**put-saved-search**](#put-saved-search) | **Put** `/saved-searches/{id}` | Updates an existing saved search 
 
 
@@ -102,7 +102,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-saved-search
-Delete document by ID
+Delete document by id
 Deletes the specified saved search.
 
 
@@ -168,7 +168,7 @@ func main() {
 [[Back to top]](#)
 
 ## execute-saved-search
-Execute a saved search by ID
+Execute a saved search by id
 Executes the specified saved search.
 
 
@@ -251,7 +251,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-saved-search
-Return saved search by ID
+Return saved search by id
 Returns the specified saved search.
 
 
@@ -318,7 +318,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-saved-searches
-A list of Saved Searches
+A list of saved searches
 Returns a list of saved searches.
 
 

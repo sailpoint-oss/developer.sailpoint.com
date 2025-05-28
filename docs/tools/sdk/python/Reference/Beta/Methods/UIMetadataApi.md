@@ -16,12 +16,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-tenant-ui-metadata**](#get-tenant-ui-metadata) | **GET** `/ui-metadata/tenant` | Get a tenant UI metadata
-[**set-tenant-ui-metadata**](#set-tenant-ui-metadata) | **PUT** `/ui-metadata/tenant` | Update tenant UI metadata
+[**get-tenant-ui-metadata**](#get-tenant-ui-metadata) | **GET** `/ui-metadata/tenant` | Get a tenant ui metadata
+[**set-tenant-ui-metadata**](#set-tenant-ui-metadata) | **PUT** `/ui-metadata/tenant` | Update tenant ui metadata
 
 
 ## get-tenant-ui-metadata
-Get a tenant UI metadata
+Get a tenant ui metadata
 This API endpoint retrieves UI metadata configured for your tenant.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -61,7 +61,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # Get a tenant UI metadata
+        # Get a tenant ui metadata
         
         results = UIMetadataApi(api_client).get_tenant_ui_metadata()
         # Below is a request that includes all optional parameters
@@ -77,7 +77,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## set-tenant-ui-metadata
-Update tenant UI metadata
+Update tenant ui metadata
 This API endpoint updates UI metadata for your tenant. These changes may require up to 5 minutes to take effect on the UI.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -126,7 +126,7 @@ with ApiClient(configuration) as api_client:
         }''' # TenantUiMetadataItemUpdateRequest | 
 
     try:
-        # Update tenant UI metadata
+        # Update tenant ui metadata
         new_tenant_ui_metadata_item_update_request = TenantUiMetadataItemUpdateRequest.from_json(tenant_ui_metadata_item_update_request)
         results = UIMetadataApi(api_client).set_tenant_ui_metadata(tenant_ui_metadata_item_update_request=new_tenant_ui_metadata_item_update_request)
         # Below is a request that includes all optional parameters

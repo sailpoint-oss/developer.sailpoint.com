@@ -26,15 +26,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-V2024FormDefinition**](#create-form-definition) | **POST** `/form-definitions` | Creates a form definition.
-[**New-V2024FormDefinitionDynamicSchema**](#create-form-definition-dynamic-schema) | **POST** `/form-definitions/forms-action-dynamic-schema` | Generate JSON Schema dynamically.
+[**New-V2024FormDefinitionDynamicSchema**](#create-form-definition-dynamic-schema) | **POST** `/form-definitions/forms-action-dynamic-schema` | Generate json schema dynamically.
 [**New-V2024FormDefinitionFileRequest**](#create-form-definition-file-request) | **POST** `/form-definitions/{formDefinitionID}/upload` | Upload new form definition file.
 [**New-V2024FormInstance**](#create-form-instance) | **POST** `/form-instances` | Creates a form instance.
 [**Remove-V2024FormDefinition**](#delete-form-definition) | **DELETE** `/form-definitions/{formDefinitionID}` | Deletes a form definition.
 [**Export-V2024FormDefinitionsByTenant**](#export-form-definitions-by-tenant) | **GET** `/form-definitions/export` | List form definitions by tenant.
-[**Get-V2024FileFromS3**](#get-file-from-s3) | **GET** `/form-definitions/{formDefinitionID}/file/{fileID}` | Download definition file by fileId.
+[**Get-V2024FileFromS3**](#get-file-from-s3) | **GET** `/form-definitions/{formDefinitionID}/file/{fileID}` | Download definition file by fileid.
 [**Get-V2024FormDefinitionByKey**](#get-form-definition-by-key) | **GET** `/form-definitions/{formDefinitionID}` | Return a form definition.
 [**Get-V2024FormInstanceByKey**](#get-form-instance-by-key) | **GET** `/form-instances/{formInstanceID}` | Returns a form instance.
-[**Get-V2024FormInstanceFile**](#get-form-instance-file) | **GET** `/form-instances/{formInstanceID}/file/{fileID}` | Download instance file by fileId.
+[**Get-V2024FormInstanceFile**](#get-form-instance-file) | **GET** `/form-instances/{formInstanceID}/file/{fileID}` | Download instance file by fileid.
 [**Import-V2024FormDefinitions**](#import-form-definitions) | **POST** `/form-definitions/import` | Import form definitions from export.
 [**Update-V2024FormDefinition**](#patch-form-definition) | **PATCH** `/form-definitions/{formDefinitionID}` | Patch a form definition.
 [**Update-V2024FormInstance**](#patch-form-instance) | **PATCH** `/form-instances/{formInstanceID}` | Patch a form instance.
@@ -240,7 +240,7 @@ $Body = @"{
   "versionNumber" : 1
 }"@
 
-# Generate JSON Schema dynamically.
+# Generate json schema dynamically.
 
 try {
     New-V2024FormDefinitionDynamicSchema 
@@ -502,7 +502,7 @@ Code | Description  | Data Type
 $FormDefinitionID = "00000000-0000-0000-0000-000000000000" # String | FormDefinitionID  Form definition ID
 $FileID = "00000031N0J7R2B57M8YG73J7M.png" # String | FileID  String specifying the hashed name of the uploaded file we are retrieving.
 
-# Download definition file by fileId.
+# Download definition file by fileid.
 
 try {
     Get-V2024FileFromS3 -FormDefinitionID $FormDefinitionID -FileID $FileID 
@@ -643,7 +643,7 @@ Code | Description  | Data Type
 $FormInstanceID = "00000000-0000-0000-0000-000000000000" # String | FormInstanceID  Form instance ID
 $FileID = "00000031N0J7R2B57M8YG73J7M.png" # String | FileID  String specifying the hashed name of the uploaded file we are retrieving.
 
-# Download instance file by fileId.
+# Download instance file by fileid.
 
 try {
     Get-V2024FormInstanceFile -FormInstanceID $FormInstanceID -FileID $FileID 

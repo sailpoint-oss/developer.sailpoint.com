@@ -18,11 +18,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaSendToken**](#create-send-token) | **POST** `/mfa/token/send` | Create and send user token
-[**Ping-BetaVerificationStatus**](#ping-verification-status) | **POST** `/mfa/{method}/poll` | Polling MFA method by VerificationPollRequest
-[**Send-BetaDuoVerifyRequest**](#send-duo-verify-request) | **POST** `/mfa/duo-web/verify` | Verifying authentication via Duo method
-[**Send-BetaKbaAnswers**](#send-kba-answers) | **POST** `/mfa/kba/authenticate` | Authenticate KBA provided MFA method
-[**Send-BetaOktaVerifyRequest**](#send-okta-verify-request) | **POST** `/mfa/okta-verify/verify` | Verifying authentication via Okta method
-[**Send-BetaTokenAuthRequest**](#send-token-auth-request) | **POST** `/mfa/token/authenticate` | Authenticate Token provided MFA method
+[**Ping-BetaVerificationStatus**](#ping-verification-status) | **POST** `/mfa/{method}/poll` | Polling mfa method by verificationpollrequest
+[**Send-BetaDuoVerifyRequest**](#send-duo-verify-request) | **POST** `/mfa/duo-web/verify` | Verifying authentication via duo method
+[**Send-BetaKbaAnswers**](#send-kba-answers) | **POST** `/mfa/kba/authenticate` | Authenticate kba provided mfa method
+[**Send-BetaOktaVerifyRequest**](#send-okta-verify-request) | **POST** `/mfa/okta-verify/verify` | Verifying authentication via okta method
+[**Send-BetaTokenAuthRequest**](#send-token-auth-request) | **POST** `/mfa/token/authenticate` | Authenticate token provided mfa method
 
 
 ## create-send-token
@@ -109,7 +109,7 @@ $VerificationPollRequest = @"{
   "requestId" : "089899f13a8f4da7824996191587bab9"
 }"@
 
-# Polling MFA method by VerificationPollRequest
+# Polling mfa method by verificationpollrequest
 
 try {
     $Result = ConvertFrom-JsonToVerificationPollRequest -Json $VerificationPollRequest
@@ -158,7 +158,7 @@ $DuoVerificationRequest = @"{
   "userId" : "2c9180947f0ef465017f215cbcfd004b"
 }"@
 
-# Verifying authentication via Duo method
+# Verifying authentication via duo method
 
 try {
     $Result = ConvertFrom-JsonToDuoVerificationRequest -Json $DuoVerificationRequest
@@ -208,7 +208,7 @@ Code | Description  | Data Type
 }"@ # KbaAnswerRequestItem[] | 
  
 
-# Authenticate KBA provided MFA method
+# Authenticate kba provided mfa method
 
 try {
     $Result = ConvertFrom-JsonToKbaAnswerRequestItem -Json $KbaAnswerRequestItem
@@ -256,7 +256,7 @@ $OktaVerificationRequest = @"{
   "userId" : "example@mail.com"
 }"@
 
-# Verifying authentication via Okta method
+# Verifying authentication via okta method
 
 try {
     $Result = ConvertFrom-JsonToOktaVerificationRequest -Json $OktaVerificationRequest
@@ -306,7 +306,7 @@ $TokenAuthRequest = @"{
   "token" : "12345"
 }"@
 
-# Authenticate Token provided MFA method
+# Authenticate token provided mfa method
 
 try {
     $Result = ConvertFrom-JsonToTokenAuthRequest -Json $TokenAuthRequest

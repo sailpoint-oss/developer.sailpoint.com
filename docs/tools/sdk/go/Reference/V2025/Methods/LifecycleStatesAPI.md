@@ -53,16 +53,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-lifecycle-state**](#create-lifecycle-state) | **Post** `/identity-profiles/{identity-profile-id}/lifecycle-states` | Create Lifecycle State
-[**delete-lifecycle-state**](#delete-lifecycle-state) | **Delete** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Delete Lifecycle State
-[**get-lifecycle-state**](#get-lifecycle-state) | **Get** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Get Lifecycle State
-[**get-lifecycle-states**](#get-lifecycle-states) | **Get** `/identity-profiles/{identity-profile-id}/lifecycle-states` | Lists LifecycleStates
-[**set-lifecycle-state**](#set-lifecycle-state) | **Post** `/identities/{identity-id}/set-lifecycle-state` | Set Lifecycle State
-[**update-lifecycle-states**](#update-lifecycle-states) | **Patch** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Update Lifecycle State
+[**create-lifecycle-state**](#create-lifecycle-state) | **Post** `/identity-profiles/{identity-profile-id}/lifecycle-states` | Create lifecycle state
+[**delete-lifecycle-state**](#delete-lifecycle-state) | **Delete** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Delete lifecycle state
+[**get-lifecycle-state**](#get-lifecycle-state) | **Get** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Get lifecycle state
+[**get-lifecycle-states**](#get-lifecycle-states) | **Get** `/identity-profiles/{identity-profile-id}/lifecycle-states` | Lists lifecyclestates
+[**set-lifecycle-state**](#set-lifecycle-state) | **Post** `/identities/{identity-id}/set-lifecycle-state` | Set lifecycle state
+[**update-lifecycle-states**](#update-lifecycle-states) | **Patch** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Update lifecycle state
 
 
 ## create-lifecycle-state
-Create Lifecycle State
+Create lifecycle state
 Use this endpoint to create a lifecycle state.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-lifecycle-state)
@@ -159,7 +159,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-lifecycle-state
-Delete Lifecycle State
+Delete lifecycle state
 Use this endpoint to delete the lifecycle state by its ID. 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-lifecycle-state)
@@ -228,7 +228,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-lifecycle-state
-Get Lifecycle State
+Get lifecycle state
 Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-lifecycle-state)
@@ -297,7 +297,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-lifecycle-states
-Lists LifecycleStates
+Lists lifecyclestates
 Use this endpoint to list all lifecycle states by their associated identity profiles. 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-lifecycle-states)
@@ -371,7 +371,7 @@ func main() {
 [[Back to top]](#)
 
 ## set-lifecycle-state
-Set Lifecycle State
+Set lifecycle state
 Use this API to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/set-lifecycle-state)
@@ -444,7 +444,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-lifecycle-states
-Update Lifecycle State
+Update lifecycle state
 Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/update-lifecycle-states)

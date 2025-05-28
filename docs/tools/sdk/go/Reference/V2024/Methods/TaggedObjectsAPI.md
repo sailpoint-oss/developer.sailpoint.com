@@ -68,18 +68,18 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete-tagged-object**](#delete-tagged-object) | **Delete** `/tagged-objects/{type}/{id}` | Delete Object Tags
-[**delete-tags-to-many-object**](#delete-tags-to-many-object) | **Post** `/tagged-objects/bulk-remove` | Remove Tags from Multiple Objects
-[**get-tagged-object**](#get-tagged-object) | **Get** `/tagged-objects/{type}/{id}` | Get Tagged Object
-[**list-tagged-objects**](#list-tagged-objects) | **Get** `/tagged-objects` | List Tagged Objects
-[**list-tagged-objects-by-type**](#list-tagged-objects-by-type) | **Get** `/tagged-objects/{type}` | List Tagged Objects by Type
-[**put-tagged-object**](#put-tagged-object) | **Put** `/tagged-objects/{type}/{id}` | Update Tagged Object
-[**set-tag-to-object**](#set-tag-to-object) | **Post** `/tagged-objects` | Add Tag to Object
-[**set-tags-to-many-objects**](#set-tags-to-many-objects) | **Post** `/tagged-objects/bulk-add` | Tag Multiple Objects
+[**delete-tagged-object**](#delete-tagged-object) | **Delete** `/tagged-objects/{type}/{id}` | Delete object tags
+[**delete-tags-to-many-object**](#delete-tags-to-many-object) | **Post** `/tagged-objects/bulk-remove` | Remove tags from multiple objects
+[**get-tagged-object**](#get-tagged-object) | **Get** `/tagged-objects/{type}/{id}` | Get tagged object
+[**list-tagged-objects**](#list-tagged-objects) | **Get** `/tagged-objects` | List tagged objects
+[**list-tagged-objects-by-type**](#list-tagged-objects-by-type) | **Get** `/tagged-objects/{type}` | List tagged objects by type
+[**put-tagged-object**](#put-tagged-object) | **Put** `/tagged-objects/{type}/{id}` | Update tagged object
+[**set-tag-to-object**](#set-tag-to-object) | **Post** `/tagged-objects` | Add tag to object
+[**set-tags-to-many-objects**](#set-tags-to-many-objects) | **Post** `/tagged-objects/bulk-add` | Tag multiple objects
 
 
 ## delete-tagged-object
-Delete Object Tags
+Delete object tags
 Delete all tags from a tagged object.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-tagged-object)
@@ -147,7 +147,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-tags-to-many-object
-Remove Tags from Multiple Objects
+Remove tags from multiple objects
 This API removes tags from multiple objects.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-tags-to-many-object)
@@ -224,7 +224,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-tagged-object
-Get Tagged Object
+Get tagged object
 This gets a tagged object for the specified type.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-tagged-object)
@@ -293,7 +293,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-tagged-objects
-List Tagged Objects
+List tagged objects
 This API returns a list of all tagged objects.
 
 Any authenticated token may be used to call this API.
@@ -363,7 +363,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-tagged-objects-by-type
-List Tagged Objects by Type
+List tagged objects by type
 This API returns a list of all tagged objects by type.
 
 Any authenticated token may be used to call this API.
@@ -439,7 +439,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-tagged-object
-Update Tagged Object
+Update tagged object
 This updates a tagged object for the specified type.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-tagged-object)
@@ -522,7 +522,7 @@ func main() {
 [[Back to top]](#)
 
 ## set-tag-to-object
-Add Tag to Object
+Add tag to object
 This adds a tag to an object.
 
 Any authenticated token may be used to call this API.
@@ -597,7 +597,7 @@ func main() {
 [[Back to top]](#)
 
 ## set-tags-to-many-objects
-Tag Multiple Objects
+Tag multiple objects
 This API adds tags to multiple objects.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/set-tags-to-many-objects)

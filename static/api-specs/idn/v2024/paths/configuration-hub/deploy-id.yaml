@@ -4,7 +4,7 @@ get:
     - userAuth: [sp:config-deploy:read, sp:config-deploy:manage]
   tags:
     - Configuration Hub
-  summary: Get a Deploy
+  summary: Get a deploy
   description: >-
     This API gets an existing deploy for the current tenant.
   parameters:

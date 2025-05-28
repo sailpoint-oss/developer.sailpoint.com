@@ -1,6 +1,6 @@
 get:
   operationId: listCompletedApprovals
-  summary: Completed Access Request Approvals List
+  summary: Completed access request approvals list
   tags:
     - Access Request Approvals
   description: >-

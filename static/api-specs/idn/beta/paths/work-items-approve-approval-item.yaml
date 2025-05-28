@@ -2,7 +2,7 @@ post:
   operationId: approveApprovalItem
   tags:
     - Work Items
-  summary: Approve an Approval Item
+  summary: Approve an approval item
   description: >-
     This API approves an Approval Item. Either an admin, or the owning/current user must make this request.
   deprecated: true

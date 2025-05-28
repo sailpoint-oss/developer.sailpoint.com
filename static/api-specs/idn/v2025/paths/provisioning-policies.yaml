@@ -2,7 +2,7 @@ get:
   operationId: listProvisioningPolicies
   tags:
     - Sources
-  summary: Lists ProvisioningPolicies
+  summary: Lists provisioningpolicies
   description: >-
     This end-point lists all the ProvisioningPolicies in IdentityNow.
   security:
@@ -44,7 +44,7 @@ post:
   operationId: createProvisioningPolicy
   tags:
     - Sources
-  summary: Create Provisioning Policy
+  summary: Create provisioning policy
   description: >-
     This API generates a create policy/template based on field value transforms. This API is intended for use when
     setting up JDBC Provisioning type sources, but it will also work on other source types.

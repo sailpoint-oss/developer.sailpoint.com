@@ -16,28 +16,28 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancel-workflow-execution**](#cancel-workflow-execution) | **Post** `/workflow-executions/{id}/cancel` | Cancel Workflow Execution by ID
-[**create-external-execute-workflow**](#create-external-execute-workflow) | **Post** `/workflows/execute/external/{id}` | Execute Workflow via External Trigger
-[**create-workflow**](#create-workflow) | **Post** `/workflows` | Create Workflow
-[**create-workflow-external-trigger**](#create-workflow-external-trigger) | **Post** `/workflows/{id}/external/oauth-clients` | Generate External Trigger OAuth Client
-[**delete-workflow**](#delete-workflow) | **Delete** `/workflows/{id}` | Delete Workflow By Id
-[**get-workflow**](#get-workflow) | **Get** `/workflows/{id}` | Get Workflow By Id
-[**get-workflow-execution**](#get-workflow-execution) | **Get** `/workflow-executions/{id}` | Get Workflow Execution
-[**get-workflow-execution-history**](#get-workflow-execution-history) | **Get** `/workflow-executions/{id}/history` | Get Workflow Execution History
-[**get-workflow-executions**](#get-workflow-executions) | **Get** `/workflows/{id}/executions` | List Workflow Executions
-[**list-complete-workflow-library**](#list-complete-workflow-library) | **Get** `/workflow-library` | List Complete Workflow Library
-[**list-workflow-library-actions**](#list-workflow-library-actions) | **Get** `/workflow-library/actions` | List Workflow Library Actions
-[**list-workflow-library-operators**](#list-workflow-library-operators) | **Get** `/workflow-library/operators` | List Workflow Library Operators
-[**list-workflow-library-triggers**](#list-workflow-library-triggers) | **Get** `/workflow-library/triggers` | List Workflow Library Triggers
-[**list-workflows**](#list-workflows) | **Get** `/workflows` | List Workflows
-[**patch-workflow**](#patch-workflow) | **Patch** `/workflows/{id}` | Patch Workflow
-[**put-workflow**](#put-workflow) | **Put** `/workflows/{id}` | Update Workflow
-[**test-external-execute-workflow**](#test-external-execute-workflow) | **Post** `/workflows/execute/external/{id}/test` | Test Workflow via External Trigger
-[**test-workflow**](#test-workflow) | **Post** `/workflows/{id}/test` | Test Workflow By Id
+[**cancel-workflow-execution**](#cancel-workflow-execution) | **Post** `/workflow-executions/{id}/cancel` | Cancel workflow execution by id
+[**create-external-execute-workflow**](#create-external-execute-workflow) | **Post** `/workflows/execute/external/{id}` | Execute workflow via external trigger
+[**create-workflow**](#create-workflow) | **Post** `/workflows` | Create workflow
+[**create-workflow-external-trigger**](#create-workflow-external-trigger) | **Post** `/workflows/{id}/external/oauth-clients` | Generate external trigger oauth client
+[**delete-workflow**](#delete-workflow) | **Delete** `/workflows/{id}` | Delete workflow by id
+[**get-workflow**](#get-workflow) | **Get** `/workflows/{id}` | Get workflow by id
+[**get-workflow-execution**](#get-workflow-execution) | **Get** `/workflow-executions/{id}` | Get workflow execution
+[**get-workflow-execution-history**](#get-workflow-execution-history) | **Get** `/workflow-executions/{id}/history` | Get workflow execution history
+[**get-workflow-executions**](#get-workflow-executions) | **Get** `/workflows/{id}/executions` | List workflow executions
+[**list-complete-workflow-library**](#list-complete-workflow-library) | **Get** `/workflow-library` | List complete workflow library
+[**list-workflow-library-actions**](#list-workflow-library-actions) | **Get** `/workflow-library/actions` | List workflow library actions
+[**list-workflow-library-operators**](#list-workflow-library-operators) | **Get** `/workflow-library/operators` | List workflow library operators
+[**list-workflow-library-triggers**](#list-workflow-library-triggers) | **Get** `/workflow-library/triggers` | List workflow library triggers
+[**list-workflows**](#list-workflows) | **Get** `/workflows` | List workflows
+[**patch-workflow**](#patch-workflow) | **Patch** `/workflows/{id}` | Patch workflow
+[**put-workflow**](#put-workflow) | **Put** `/workflows/{id}` | Update workflow
+[**test-external-execute-workflow**](#test-external-execute-workflow) | **Post** `/workflows/execute/external/{id}/test` | Test workflow via external trigger
+[**test-workflow**](#test-workflow) | **Post** `/workflows/{id}/test` | Test workflow by id
 
 
 ## cancel-workflow-execution
-Cancel Workflow Execution by ID
+Cancel workflow execution by id
 Use this API to cancel a running workflow execution.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/cancel-workflow-execution)
@@ -102,7 +102,7 @@ func main() {
 [[Back to top]](#)
 
 ## create-external-execute-workflow
-Execute Workflow via External Trigger
+Execute workflow via external trigger
 This endpoint allows a service outside of IdentityNow to initiate a workflow that uses the "External Trigger" step.  The external service will invoke this endpoint with the input data it wants to send to the workflow in the body.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-external-execute-workflow)
@@ -170,7 +170,7 @@ func main() {
 [[Back to top]](#)
 
 ## create-workflow
-Create Workflow
+Create workflow
 Create a new workflow with the desired trigger and steps specified in the request body.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-workflow)
@@ -237,7 +237,7 @@ func main() {
 [[Back to top]](#)
 
 ## create-workflow-external-trigger
-Generate External Trigger OAuth Client
+Generate external trigger oauth client
 Create OAuth client ID, client secret, and callback URL for use in an external trigger.  External triggers will need this information to generate an access token to authenticate to the callback URL and submit a trigger payload that will initiate the workflow.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-workflow-external-trigger)
@@ -303,7 +303,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-workflow
-Delete Workflow By Id
+Delete workflow by id
 Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-workflow)
@@ -368,7 +368,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-workflow
-Get Workflow By Id
+Get workflow by id
 Get a single workflow by id.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-workflow)
@@ -434,7 +434,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-workflow-execution
-Get Workflow Execution
+Get workflow execution
 Use this API to get a single workflow execution. Workflow executions are available for up to 90 days before being archived. If you attempt to access a workflow execution that has been archived, you will receive a "404 Not Found" response.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-workflow-execution)
@@ -500,7 +500,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-workflow-execution-history
-Get Workflow Execution History
+Get workflow execution history
 Get a detailed history of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-workflow-execution-history)
@@ -566,7 +566,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-workflow-executions
-List Workflow Executions
+List workflow executions
 Use this API to list a specified workflow's executions. Workflow executions are available for up to 90 days before being archived. By default, you can get a maximum of 250 executions. To get executions past the first 250 records, you can do the following:
 1. Use the [Get Workflows](https://developer.sailpoint.com/idn/api/beta/list-workflows) endpoint to get your workflows.
 2. Get your workflow ID from the response.
@@ -650,7 +650,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-complete-workflow-library
-List Complete Workflow Library
+List complete workflow library
 This lists all triggers, actions, and operators in the library
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-complete-workflow-library)
@@ -714,7 +714,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-workflow-library-actions
-List Workflow Library Actions
+List workflow library actions
 This lists the workflow actions available to you.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workflow-library-actions)
@@ -780,7 +780,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-workflow-library-operators
-List Workflow Library Operators
+List workflow library operators
 This lists the workflow operators available to you
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workflow-library-operators)
@@ -837,7 +837,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-workflow-library-triggers
-List Workflow Library Triggers
+List workflow library triggers
 This lists the workflow triggers available to you
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workflow-library-triggers)
@@ -903,7 +903,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-workflows
-List Workflows
+List workflows
 List all workflows in the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workflows)
@@ -960,7 +960,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-workflow
-Patch Workflow
+Patch workflow
 Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-workflow)
@@ -1033,7 +1033,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-workflow
-Update Workflow
+Update workflow
 Perform a full update of a workflow.  The updated workflow object is returned in the response.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-workflow)
@@ -1139,7 +1139,7 @@ func main() {
 [[Back to top]](#)
 
 ## test-external-execute-workflow
-Test Workflow via External Trigger
+Test workflow via external trigger
 Validate a workflow with an "External Trigger" can receive input.  The response includes the input that the workflow received, which can be used to validate that the input is intact when it reaches the workflow.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/test-external-execute-workflow)
@@ -1207,7 +1207,7 @@ func main() {
 [[Back to top]](#)
 
 ## test-workflow
-Test Workflow By Id
+Test workflow by id
 :::info
 
 Workflow must be disabled in order to use this endpoint.

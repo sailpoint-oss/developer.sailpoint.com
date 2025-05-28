@@ -17,15 +17,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-managed-cluster-type**](#create-managed-cluster-type) | **Post** `/managed-cluster-types` | Create new Managed Cluster Type
-[**delete-managed-cluster-type**](#delete-managed-cluster-type) | **Delete** `/managed-cluster-types/{id}` | Delete a Managed Cluster Type
-[**get-managed-cluster-type**](#get-managed-cluster-type) | **Get** `/managed-cluster-types/{id}` | Get a Managed Cluster Type
-[**get-managed-cluster-types**](#get-managed-cluster-types) | **Get** `/managed-cluster-types` | Get Managed Cluster Types
-[**update-managed-cluster-type**](#update-managed-cluster-type) | **Patch** `/managed-cluster-types/{id}` | Update a Managed Cluster Type
+[**create-managed-cluster-type**](#create-managed-cluster-type) | **Post** `/managed-cluster-types` | Create new managed cluster type
+[**delete-managed-cluster-type**](#delete-managed-cluster-type) | **Delete** `/managed-cluster-types/{id}` | Delete a managed cluster type
+[**get-managed-cluster-type**](#get-managed-cluster-type) | **Get** `/managed-cluster-types/{id}` | Get a managed cluster type
+[**get-managed-cluster-types**](#get-managed-cluster-types) | **Get** `/managed-cluster-types` | Get managed cluster types
+[**update-managed-cluster-type**](#update-managed-cluster-type) | **Patch** `/managed-cluster-types/{id}` | Update a managed cluster type
 
 
 ## create-managed-cluster-type
-Create new Managed Cluster Type
+Create new managed cluster type
 Create a new Managed Cluster Type.
 AMS Security: Devops, Internal A token with SaaS Platform Internal or DevOps is required to access this endpoint.
 The API returns a result that includes the Managed Cluster Type ID
@@ -100,7 +100,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-managed-cluster-type
-Delete a Managed Cluster Type
+Delete a managed cluster type
 Delete an existing Managed Cluster Type.
 AMS Security: Devops, Internal A token with SaaS Platform Internal or DevOps is required to access this endpoint.
 
@@ -166,7 +166,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-managed-cluster-type
-Get a Managed Cluster Type
+Get a managed cluster type
 Get a Managed Cluster Type.
 AMS Security: Devops, Internal A token with SaaS Platform Internal or DevOps is required to access this endpoint.
 
@@ -233,7 +233,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-managed-cluster-types
-Get Managed Cluster Types
+Get managed cluster types
 Get a list of Managed Cluster Types.
 AMS Security: Devops, Internal A token with SaaS Platform Internal or DevOps is required to access this endpoint.
 
@@ -304,7 +304,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-managed-cluster-type
-Update a Managed Cluster Type
+Update a managed cluster type
 Update an existing Managed Cluster Type.
 AMS Security: Devops, Internal A token with SaaS Platform Internal or DevOps is required to access this endpoint.
 

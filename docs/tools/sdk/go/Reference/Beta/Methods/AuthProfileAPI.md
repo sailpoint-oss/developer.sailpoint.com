@@ -21,13 +21,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-profile-config**](#get-profile-config) | **Get** `/auth-profiles/{id}` | Get Auth Profile.
-[**get-profile-config-list**](#get-profile-config-list) | **Get** `/auth-profiles` | Get list of Auth Profiles.
-[**patch-profile-config**](#patch-profile-config) | **Patch** `/auth-profiles/{id}` | Patch a specified Auth Profile
+[**get-profile-config**](#get-profile-config) | **Get** `/auth-profiles/{id}` | Get auth profile.
+[**get-profile-config-list**](#get-profile-config-list) | **Get** `/auth-profiles` | Get list of auth profiles.
+[**patch-profile-config**](#patch-profile-config) | **Patch** `/auth-profiles/{id}` | Patch a specified auth profile
 
 
 ## get-profile-config
-Get Auth Profile.
+Get auth profile.
 This API returns auth profile information.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-profile-config)
@@ -93,7 +93,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-profile-config-list
-Get list of Auth Profiles.
+Get list of auth profiles.
 This API returns a list of auth profiles.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-profile-config-list)
@@ -150,7 +150,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-profile-config
-Patch a specified Auth Profile
+Patch a specified auth profile
 This API updates an existing Auth Profile. The following fields are patchable:
 **offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
 

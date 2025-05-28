@@ -4,7 +4,7 @@
 get:
   tags:
     - Task Management
-  summary: Get Task Status by ID
+  summary: Get task status by id
   description: Get task status by task ID. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. 
   operationId: getTaskStatus
   parameters:
@@ -53,7 +53,7 @@ patch:
   operationId: updateTaskStatus
   tags:
     - Task Management
-  summary: Update Task Status by ID
+  summary: Update task status by id
   description: Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
   parameters:
     - name: id

@@ -1,7 +1,7 @@
 post:
   tags:
     - Managed Clients
-  summary: Create a provisional Managed Client
+  summary: Create a provisional managed client
   description: >-
     Create a draft Managed Client.
   operationId: createProvisionalManagedClient

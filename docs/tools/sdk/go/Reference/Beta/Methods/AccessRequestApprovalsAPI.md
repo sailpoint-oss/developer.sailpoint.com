@@ -32,16 +32,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**approve-access-request**](#approve-access-request) | **Post** `/access-request-approvals/{approvalId}/approve` | Approve Access Request Approval
-[**forward-access-request**](#forward-access-request) | **Post** `/access-request-approvals/{approvalId}/forward` | Forward Access Request Approval
-[**get-access-request-approval-summary**](#get-access-request-approval-summary) | **Get** `/access-request-approvals/approval-summary` | Get Access Requests Approvals Number
-[**list-completed-approvals**](#list-completed-approvals) | **Get** `/access-request-approvals/completed` | Completed Access Request Approvals List
-[**list-pending-approvals**](#list-pending-approvals) | **Get** `/access-request-approvals/pending` | Pending Access Request Approvals List
-[**reject-access-request**](#reject-access-request) | **Post** `/access-request-approvals/{approvalId}/reject` | Reject Access Request Approval
+[**approve-access-request**](#approve-access-request) | **Post** `/access-request-approvals/{approvalId}/approve` | Approve access request approval
+[**forward-access-request**](#forward-access-request) | **Post** `/access-request-approvals/{approvalId}/forward` | Forward access request approval
+[**get-access-request-approval-summary**](#get-access-request-approval-summary) | **Get** `/access-request-approvals/approval-summary` | Get access requests approvals number
+[**list-completed-approvals**](#list-completed-approvals) | **Get** `/access-request-approvals/completed` | Completed access request approvals list
+[**list-pending-approvals**](#list-pending-approvals) | **Get** `/access-request-approvals/pending` | Pending access request approvals list
+[**reject-access-request**](#reject-access-request) | **Post** `/access-request-approvals/{approvalId}/reject` | Reject access request approval
 
 
 ## approve-access-request
-Approve Access Request Approval
+Approve access request approval
 Use this endpoint to approve an access request approval. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/approve-access-request)
@@ -122,7 +122,7 @@ func main() {
 [[Back to top]](#)
 
 ## forward-access-request
-Forward Access Request Approval
+Forward access request approval
 Use this API to forward an access request approval to a new owner. Only the owner of the approval and ORG_ADMIN users are allowed to perform this action.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/forward-access-request)
@@ -198,7 +198,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-access-request-approval-summary
-Get Access Requests Approvals Number
+Get access requests approvals number
 Use this API to return the number of pending, approved and rejected access requests approvals. See the "owner-id" query parameter for authorization information.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-request-approval-summary)
@@ -262,7 +262,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-completed-approvals
-Completed Access Request Approvals List
+Completed access request approvals list
 This endpoint returns list of completed approvals. See *owner-id* query parameter below for authorization info.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-completed-approvals)
@@ -334,7 +334,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-pending-approvals
-Pending Access Request Approvals List
+Pending access request approvals list
 This endpoint returns a list of pending approvals. See "owner-id" query parameter below for authorization info.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-pending-approvals)
@@ -406,7 +406,7 @@ func main() {
 [[Back to top]](#)
 
 ## reject-access-request
-Reject Access Request Approval
+Reject access request approval
 Use this API to reject an access request approval. Only the owner of the approval and admin users are allowed to perform this action.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/reject-access-request)

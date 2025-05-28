@@ -20,12 +20,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-auth-user**](#get-auth-user) | **Get** `/auth-users/{id}` | Auth User Details
-[**patch-auth-user**](#patch-auth-user) | **Patch** `/auth-users/{id}` | Auth User Update
+[**get-auth-user**](#get-auth-user) | **Get** `/auth-users/{id}` | Auth user details
+[**patch-auth-user**](#patch-auth-user) | **Patch** `/auth-users/{id}` | Auth user update
 
 
 ## get-auth-user
-Auth User Details
+Auth user details
 Return the specified user's authentication system details.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-auth-user)
@@ -91,7 +91,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-auth-user
-Auth User Update
+Auth user update
 Use a PATCH request to update an existing user in the authentication system.
 Use this endpoint to modify these fields: 
   * `capabilities`

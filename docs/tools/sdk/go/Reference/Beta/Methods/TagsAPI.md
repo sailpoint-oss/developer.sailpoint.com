@@ -15,14 +15,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-tag**](#create-tag) | **Post** `/tags` | Create Tag
-[**delete-tag-by-id**](#delete-tag-by-id) | **Delete** `/tags/{id}` | Delete Tag
-[**get-tag-by-id**](#get-tag-by-id) | **Get** `/tags/{id}` | Get Tag By Id
-[**list-tags**](#list-tags) | **Get** `/tags` | List Tags
+[**create-tag**](#create-tag) | **Post** `/tags` | Create tag
+[**delete-tag-by-id**](#delete-tag-by-id) | **Delete** `/tags/{id}` | Delete tag
+[**get-tag-by-id**](#get-tag-by-id) | **Get** `/tags/{id}` | Get tag by id
+[**list-tags**](#list-tags) | **Get** `/tags` | List tags
 
 
 ## create-tag
-Create Tag
+Create tag
 This API creates new tag.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -106,7 +106,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-tag-by-id
-Delete Tag
+Delete tag
 This API deletes a tag by specified id.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -173,7 +173,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-tag-by-id
-Get Tag By Id
+Get tag by id
 Returns a tag by its id.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -241,7 +241,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-tags
-List Tags
+List tags
 This API returns a list of tags.
 
 A token with API, ORG_ADMIN, CERT_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.

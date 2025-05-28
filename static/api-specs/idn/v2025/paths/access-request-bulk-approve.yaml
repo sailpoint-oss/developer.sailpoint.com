@@ -6,7 +6,7 @@ post:
     - ORG_ADMIN
   tags:
     - Access Requests
-  summary: Bulk Approve Access Request
+  summary: Bulk approve access request
   description: >-
     This API endpoint allows approving pending access requests in bulk. Maximum of 50 approval ids can be 
     provided in the request for one single invocation. 

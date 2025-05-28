@@ -2,7 +2,7 @@ get:
   tags:
     - Connectors
   operationId: getConnectorCorrelationConfig
-  summary: Get Connector Correlation Configuration
+  summary: Get connector correlation configuration
   description: >-
     Fetches a connector's correlation config using its script name.    
   parameters:
@@ -45,7 +45,7 @@ put:
   tags:
     - Connectors
   operationId: putConnectorCorrelationConfig
-  summary: Update Connector Correlation Configuration
+  summary: Update connector correlation configuration
   description: >-
     Update a connector's correlation config using its script name.    
   parameters:

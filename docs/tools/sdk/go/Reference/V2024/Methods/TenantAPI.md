@@ -15,11 +15,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-tenant**](#get-tenant) | **Get** `/tenant` | Get Tenant Information.
+[**get-tenant**](#get-tenant) | **Get** `/tenant` | Get tenant information.
 
 
 ## get-tenant
-Get Tenant Information.
+Get tenant information.
 This rest endpoint can be used to retrieve tenant details.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-tenant)

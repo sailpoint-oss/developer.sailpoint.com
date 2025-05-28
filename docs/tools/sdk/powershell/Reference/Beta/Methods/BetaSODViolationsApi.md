@@ -35,7 +35,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Start-BetaPredictSodViolations**](#start-predict-sod-violations) | **POST** `/sod-violations/predict` | Predict SOD violations for identity.
+[**Start-BetaPredictSodViolations**](#start-predict-sod-violations) | **POST** `/sod-violations/predict` | Predict sod violations for identity.
 
 
 ## start-predict-sod-violations
@@ -86,7 +86,7 @@ $IdentityWithNewAccess = @"{
   } ]
 }"@
 
-# Predict SOD violations for identity.
+# Predict sod violations for identity.
 
 try {
     $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess

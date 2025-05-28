@@ -2,7 +2,7 @@ post:
   operationId: createSodPolicy
   tags:
     - SOD Policies
-  summary: Create SOD policy
+  summary: Create sod policy
   deprecated: true
   security:
     - userAuth: [idn:sod-policy:write]
@@ -234,7 +234,7 @@ get:
   operationId: listSodPolicies
   tags:
     - SOD Policies
-  summary: List SOD policies
+  summary: List sod policies
   deprecated: true
   security:
     - userAuth: [idn:sod-policy:read]

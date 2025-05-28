@@ -62,12 +62,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-password-dictionary**](#get-password-dictionary) | **Get** `/password-dictionary` | Get Password Dictionary
-[**put-password-dictionary**](#put-password-dictionary) | **Put** `/password-dictionary` | Update Password Dictionary
+[**get-password-dictionary**](#get-password-dictionary) | **Get** `/password-dictionary` | Get password dictionary
+[**put-password-dictionary**](#put-password-dictionary) | **Put** `/password-dictionary` | Update password dictionary
 
 
 ## get-password-dictionary
-Get Password Dictionary
+Get password dictionary
 This gets password dictionary for the organization.
 The password dictionary file can contain lines that are:
 1. comment lines - the first character is '#', can be 128 Unicode codepoints in length, and are ignored during processing
@@ -152,7 +152,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-password-dictionary
-Update Password Dictionary
+Update password dictionary
 This updates password dictionary for the organization.
 The password dictionary file can contain lines that are:
 1. comment lines - the first character is '#', can be 128 Unicode codepoints in length, and are ignored during processing

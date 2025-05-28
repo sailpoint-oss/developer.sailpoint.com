@@ -2,7 +2,7 @@ get:
   operationId: listPendingEvents
   tags:
     - Triggers
-  summary: List Pending Events
+  summary: List pending events
   description: Get a list of event status, i.e. count of persisted, pending events per topic.
   parameters:
     - $ref: '../parameters/limit.yaml'

@@ -44,11 +44,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-V2024ScheduledSearch**](#create-scheduled-search) | **POST** `/scheduled-searches` | Create a new scheduled search
-[**Remove-V2024ScheduledSearch**](#delete-scheduled-search) | **DELETE** `/scheduled-searches/{id}` | Delete a Scheduled Search
-[**Get-V2024ScheduledSearch**](#get-scheduled-search) | **GET** `/scheduled-searches/{id}` | Get a Scheduled Search
+[**Remove-V2024ScheduledSearch**](#delete-scheduled-search) | **DELETE** `/scheduled-searches/{id}` | Delete a scheduled search
+[**Get-V2024ScheduledSearch**](#get-scheduled-search) | **GET** `/scheduled-searches/{id}` | Get a scheduled search
 [**Get-V2024ScheduledSearch**](#list-scheduled-search) | **GET** `/scheduled-searches` | List scheduled searches
-[**Invoke-V2024UnsubscribeScheduledSearch**](#unsubscribe-scheduled-search) | **POST** `/scheduled-searches/{id}/unsubscribe` | Unsubscribe a recipient from Scheduled Search
-[**Update-V2024ScheduledSearch**](#update-scheduled-search) | **PUT** `/scheduled-searches/{id}` | Update an existing Scheduled Search
+[**Invoke-V2024UnsubscribeScheduledSearch**](#unsubscribe-scheduled-search) | **POST** `/scheduled-searches/{id}/unsubscribe` | Unsubscribe a recipient from scheduled search
+[**Update-V2024ScheduledSearch**](#update-scheduled-search) | **PUT** `/scheduled-searches/{id}` | Update an existing scheduled search
 
 
 ## create-scheduled-search
@@ -132,7 +132,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
 
-# Delete a Scheduled Search
+# Delete a scheduled search
 
 try {
     Remove-V2024ScheduledSearch -Id $Id 
@@ -178,7 +178,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808568c529c60168cca6f90c1313" # String | ID of the requested document.
 
-# Get a Scheduled Search
+# Get a scheduled search
 
 try {
     Get-V2024ScheduledSearch -Id $Id 
@@ -280,7 +280,7 @@ $TypedReference = @"{
   "type" : "IDENTITY"
 }"@
 
-# Unsubscribe a recipient from Scheduled Search
+# Unsubscribe a recipient from scheduled search
 
 try {
     $Result = ConvertFrom-JsonToTypedReference -Json $TypedReference
@@ -420,7 +420,7 @@ $ScheduledSearch = @"{
   "emailEmptyResults" : false
 }"@
 
-# Update an existing Scheduled Search
+# Update an existing scheduled search
 
 try {
     $Result = ConvertFrom-JsonToScheduledSearch -Json $ScheduledSearch

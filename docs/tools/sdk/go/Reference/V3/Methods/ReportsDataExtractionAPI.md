@@ -18,14 +18,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancel-report**](#cancel-report) | **Post** `/reports/{id}/cancel` | Cancel Report
-[**get-report**](#get-report) | **Get** `/reports/{taskResultId}` | Get Report File
-[**get-report-result**](#get-report-result) | **Get** `/reports/{taskResultId}/result` | Get Report Result
-[**start-report**](#start-report) | **Post** `/reports/run` | Run Report
+[**cancel-report**](#cancel-report) | **Post** `/reports/{id}/cancel` | Cancel report
+[**get-report**](#get-report) | **Get** `/reports/{taskResultId}` | Get report file
+[**get-report-result**](#get-report-result) | **Get** `/reports/{taskResultId}/result` | Get report result
+[**start-report**](#start-report) | **Post** `/reports/run` | Run report
 
 
 ## cancel-report
-Cancel Report
+Cancel report
 Cancels a running report.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/cancel-report)
@@ -90,7 +90,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-report
-Get Report File
+Get report file
 Gets a report in file format.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-report)
@@ -162,7 +162,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-report-result
-Get Report Result
+Get report result
 Get the report results for a report that was run or is running. Returns empty report result in case there are no active task definitions with used in payload task definition name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-report-result)
@@ -230,7 +230,7 @@ func main() {
 [[Back to top]](#)
 
 ## start-report
-Run Report
+Run report
 Use this API to run a report according to report input details. If non-concurrent task is already running then it returns, otherwise new task creates and returns.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/start-report)

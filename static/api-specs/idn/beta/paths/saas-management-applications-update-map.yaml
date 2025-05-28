@@ -2,7 +2,7 @@ post:
   operationId: updateApplicationsMap
   tags:
     - SaaS Management
-  summary: Update SaaS Management Application mapping
+  summary: Update saas management application mapping
   description: >-
     This API updates SaaS Management Application mappings to IdentityNow sources.
 

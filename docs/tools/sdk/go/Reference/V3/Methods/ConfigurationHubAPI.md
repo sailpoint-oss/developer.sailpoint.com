@@ -26,12 +26,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create-object-mapping**](#create-object-mapping) | **Post** `/configuration-hub/object-mappings/{sourceOrg}` | Creates an object mapping
 [**create-object-mappings**](#create-object-mappings) | **Post** `/configuration-hub/object-mappings/{sourceOrg}/bulk-create` | Bulk creates object mappings
-[**create-uploaded-configuration**](#create-uploaded-configuration) | **Post** `/configuration-hub/backups/uploads` | Upload a Configuration
+[**create-uploaded-configuration**](#create-uploaded-configuration) | **Post** `/configuration-hub/backups/uploads` | Upload a configuration
 [**delete-object-mapping**](#delete-object-mapping) | **Delete** `/configuration-hub/object-mappings/{sourceOrg}/{objectMappingId}` | Deletes an object mapping
-[**delete-uploaded-configuration**](#delete-uploaded-configuration) | **Delete** `/configuration-hub/backups/uploads/{id}` | Delete an Uploaded Configuration
+[**delete-uploaded-configuration**](#delete-uploaded-configuration) | **Delete** `/configuration-hub/backups/uploads/{id}` | Delete an uploaded configuration
 [**get-object-mappings**](#get-object-mappings) | **Get** `/configuration-hub/object-mappings/{sourceOrg}` | Gets list of object mappings
-[**get-uploaded-configuration**](#get-uploaded-configuration) | **Get** `/configuration-hub/backups/uploads/{id}` | Get an Uploaded Configuration
-[**list-uploaded-configurations**](#list-uploaded-configurations) | **Get** `/configuration-hub/backups/uploads` | List Uploaded Configurations
+[**get-uploaded-configuration**](#get-uploaded-configuration) | **Get** `/configuration-hub/backups/uploads/{id}` | Get an uploaded configuration
+[**list-uploaded-configurations**](#list-uploaded-configurations) | **Get** `/configuration-hub/backups/uploads` | List uploaded configurations
 [**update-object-mappings**](#update-object-mappings) | **Post** `/configuration-hub/object-mappings/{sourceOrg}/bulk-patch` | Bulk updates object mappings
 
 
@@ -208,7 +208,7 @@ func main() {
 [[Back to top]](#)
 
 ## create-uploaded-configuration
-Upload a Configuration
+Upload a configuration
 This API uploads a JSON configuration file into a tenant.
 
 Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.
@@ -347,7 +347,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-uploaded-configuration
-Delete an Uploaded Configuration
+Delete an uploaded configuration
 This API deletes an uploaded configuration based on Id.
 
 On success, this endpoint will return an empty response.
@@ -485,7 +485,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-uploaded-configuration
-Get an Uploaded Configuration
+Get an uploaded configuration
 This API gets an existing uploaded configuration for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-uploaded-configuration)
@@ -551,7 +551,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-uploaded-configurations
-List Uploaded Configurations
+List uploaded configurations
 This API gets a list of existing uploaded configurations for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-uploaded-configurations)

@@ -16,18 +16,18 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-dimension**](#create-dimension) | **Post** `/roles/{roleId}/dimensions` | Create a Dimension
-[**delete-bulk-dimensions**](#delete-bulk-dimensions) | **Post** `/roles/{roleId}/dimensions/bulk-delete` | Delete Dimension(s)
-[**delete-dimension**](#delete-dimension) | **Delete** `/roles/{roleId}/dimensions/{dimensionId}` | Delete a Dimension
-[**get-dimension**](#get-dimension) | **Get** `/roles/{roleId}/dimensions/{dimensionId}` | Get a Dimension under Role.
-[**get-dimension-entitlements**](#get-dimension-entitlements) | **Get** `/roles/{roleId}/dimensions/{dimensionId}/entitlements` | List Dimension&#39;s Entitlements
-[**list-dimension-access-profiles**](#list-dimension-access-profiles) | **Get** `/roles/{roleId}/dimensions/{dimensionId}/access-profiles` | List Dimension&#39;s Access Profiles
-[**list-dimensions**](#list-dimensions) | **Get** `/roles/{roleId}/dimensions` | List Dimensions
-[**patch-dimension**](#patch-dimension) | **Patch** `/roles/{roleId}/dimensions/{dimensionId}` | Patch a specified Dimension
+[**create-dimension**](#create-dimension) | **Post** `/roles/{roleId}/dimensions` | Create a dimension
+[**delete-bulk-dimensions**](#delete-bulk-dimensions) | **Post** `/roles/{roleId}/dimensions/bulk-delete` | Delete dimension(s)
+[**delete-dimension**](#delete-dimension) | **Delete** `/roles/{roleId}/dimensions/{dimensionId}` | Delete a dimension
+[**get-dimension**](#get-dimension) | **Get** `/roles/{roleId}/dimensions/{dimensionId}` | Get a dimension under role.
+[**get-dimension-entitlements**](#get-dimension-entitlements) | **Get** `/roles/{roleId}/dimensions/{dimensionId}/entitlements` | List dimension&#39;s entitlements
+[**list-dimension-access-profiles**](#list-dimension-access-profiles) | **Get** `/roles/{roleId}/dimensions/{dimensionId}/access-profiles` | List dimension&#39;s access profiles
+[**list-dimensions**](#list-dimensions) | **Get** `/roles/{roleId}/dimensions` | List dimensions
+[**patch-dimension**](#patch-dimension) | **Patch** `/roles/{roleId}/dimensions/{dimensionId}` | Patch a specified dimension
 
 
 ## create-dimension
-Create a Dimension
+Create a dimension
 This API creates a dimension.
 You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to call this API. 
 Additionally, a ROLE_SUBADMIN cannot create a dimension that includes an access profile or entitlement if that access profile or entitlement is linked to a source that the ROLE_SUBADMIN is not associated with. 
@@ -189,7 +189,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-bulk-dimensions
-Delete Dimension(s)
+Delete dimension(s)
 This endpoint initiates a bulk deletion of one or more dimensions.
 When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 roles per request. 
@@ -267,7 +267,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-dimension
-Delete a Dimension
+Delete a dimension
 This API deletes a Dimension by its ID.
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles/Entitlements included in the Dimension are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
@@ -336,7 +336,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-dimension
-Get a Dimension under Role.
+Get a dimension under role.
 This API returns a Dimension by its ID.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles or Entitlements included in the Dimension or Parent Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
@@ -407,7 +407,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-dimension-entitlements
-List Dimension's Entitlements
+List dimension's entitlements
 This API lists the Entitlements associated with a given dimension.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
@@ -488,7 +488,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-dimension-access-profiles
-List Dimension's Access Profiles
+List dimension's access profiles
 This API lists the Access Profiles associated with a given Dimension
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
@@ -569,7 +569,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-dimensions
-List Dimensions
+List dimensions
 This API returns a list of dimensions under a specified role.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
@@ -649,7 +649,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-dimension
-Patch a specified Dimension
+Patch a specified dimension
 This API updates an existing dimension using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 The following fields are patchable: **name** **description** **owner** **accessProfiles** **entitlements** **membership**
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all access profiles/entitlements included in the dimension are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.

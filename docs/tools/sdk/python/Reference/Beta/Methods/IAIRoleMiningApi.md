@@ -19,7 +19,7 @@ Method | HTTP request | Description
 [**create-role-mining-sessions**](#create-role-mining-sessions) | **POST** `/role-mining-sessions` | Create a role mining session
 [**download-role-mining-potential-role-zip**](#download-role-mining-potential-role-zip) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId}/download` | Export (download) details for a potential role in a role mining session
 [**export-role-mining-potential-role**](#export-role-mining-potential-role) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export` | Export (download) details for a potential role in a role mining session
-[**export-role-mining-potential-role-async**](#export-role-mining-potential-role-async) | **POST** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async` | Asynchronously export details for a potential role in a role mining session and upload to S3
+[**export-role-mining-potential-role-async**](#export-role-mining-potential-role-async) | **POST** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async` | Asynchronously export details for a potential role in a role mining session and upload to s3
 [**export-role-mining-potential-role-status**](#export-role-mining-potential-role-status) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/export-async/{exportId}` | Retrieve status of a potential role export job
 [**get-all-potential-role-summaries**](#get-all-potential-role-summaries) | **GET** `/role-mining-potential-roles` | Retrieves all potential role summaries
 [**get-entitlement-distribution-potential-role**](#get-entitlement-distribution-potential-role) | **GET** `/role-mining-sessions/{sessionId}/potential-roles/{potentialRoleId}/entitlement-popularity-distribution` | Retrieves entitlement popularity distribution for a potential role in a role mining session
@@ -324,7 +324,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## export-role-mining-potential-role-async
-Asynchronously export details for a potential role in a role mining session and upload to S3
+Asynchronously export details for a potential role in a role mining session and upload to s3
 This endpoint uploads all the information for a potential role in a role mining session to S3 as a downloadable zip archive.  Includes identities and entitlements in the potential role.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/export-role-mining-potential-role-async)
@@ -373,7 +373,7 @@ with ApiClient(configuration) as api_client:
         }''' # RoleMiningPotentialRoleExportRequest |  (optional)
 
     try:
-        # Asynchronously export details for a potential role in a role mining session and upload to S3
+        # Asynchronously export details for a potential role in a role mining session and upload to s3
         
         results = IAIRoleMiningApi(api_client).export_role_mining_potential_role_async(session_id=session_id, potential_role_id=potential_role_id)
         # Below is a request that includes all optional parameters

@@ -1,5 +1,5 @@
 post:
-  summary: Native Change Account Updated
+  summary: Native change account updated
   operationId: nativeChangeAccountUpdatedEvent
   description: >-
     This event trigger fires when Identity Security Cloud (ISC) aggregates data from an external source and detects that an account has been updated on the source.

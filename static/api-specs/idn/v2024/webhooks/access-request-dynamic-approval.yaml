@@ -1,5 +1,5 @@
 post:
-  summary: Access Request Dynamic Approval
+  summary: Access request dynamic approval
   operationId: accessRequestDynamicApprovalEvent
   description: >-
     This event trigger fires after an access request is submitted but before the request is approved or denied.

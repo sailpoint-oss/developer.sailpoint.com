@@ -28,9 +28,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2025CustomPasswordInstructions**](#create-custom-password-instructions) | **POST** `/custom-password-instructions` | Create Custom Password Instructions
-[**Remove-V2025CustomPasswordInstructions**](#delete-custom-password-instructions) | **DELETE** `/custom-password-instructions/{pageId}` | Delete Custom Password Instructions by page ID
-[**Get-V2025CustomPasswordInstructions**](#get-custom-password-instructions) | **GET** `/custom-password-instructions/{pageId}` | Get Custom Password Instructions by Page ID
+[**New-V2025CustomPasswordInstructions**](#create-custom-password-instructions) | **POST** `/custom-password-instructions` | Create custom password instructions
+[**Remove-V2025CustomPasswordInstructions**](#delete-custom-password-instructions) | **DELETE** `/custom-password-instructions/{pageId}` | Delete custom password instructions by page id
+[**Get-V2025CustomPasswordInstructions**](#get-custom-password-instructions) | **GET** `/custom-password-instructions/{pageId}` | Get custom password instructions by page id
 
 
 ## create-custom-password-instructions
@@ -71,7 +71,7 @@ $CustomPasswordInstruction = @"{
   "locale" : "en"
 }"@
 
-# Create Custom Password Instructions
+# Create custom password instructions
 
 try {
     $Result = ConvertFrom-JsonToCustomPasswordInstruction -Json $CustomPasswordInstruction
@@ -123,7 +123,7 @@ $PageId = "change-password:enter-password" # String | The page ID of custom pass
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 language tag. The default value is \""default\"". (optional)
 
-# Delete Custom Password Instructions by page ID
+# Delete custom password instructions by page id
 
 try {
     Remove-V2025CustomPasswordInstructions -PageId $PageId -XSailPointExperimental $XSailPointExperimental 
@@ -174,7 +174,7 @@ $PageId = "change-password:enter-password" # String | The page ID of custom pass
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Locale = "MyLocale" # String | The locale for the custom instructions, a BCP47 language tag. The default value is \""default\"". (optional)
 
-# Get Custom Password Instructions by Page ID
+# Get custom password instructions by page id
 
 try {
     Get-V2025CustomPasswordInstructions -PageId $PageId -XSailPointExperimental $XSailPointExperimental 

@@ -2,7 +2,7 @@ post:
   operationId: createSodException
   tags:
     - SOD Exception
-  summary: Create SOD exception
+  summary: Create sod exception
   description: >-
     This API creates a SOD exception.
 
@@ -34,7 +34,7 @@ get:
   operationId: listSodExceptions
   tags:
     - SOD Exception
-  summary: List SOD exceptions
+  summary: List sod exceptions
   description: >-
     This API returns a list of all SOD exceptions.
 

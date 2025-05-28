@@ -2,7 +2,7 @@ get:
   operationId: listTriggerInvocationStatus
   tags:
   - Triggers
-  summary: List Latest Invocation Statuses
+  summary: List latest invocation statuses
   description: 'Gets a list of latest invocation statuses.
 
     Statuses of successful invocations are available for up to 24 hours. Statuses

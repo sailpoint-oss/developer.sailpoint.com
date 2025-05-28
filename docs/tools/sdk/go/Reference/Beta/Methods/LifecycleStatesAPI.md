@@ -51,12 +51,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-lifecycle-states**](#get-lifecycle-states) | **Get** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Get Lifecycle State
-[**update-lifecycle-states**](#update-lifecycle-states) | **Patch** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Update Lifecycle State
+[**get-lifecycle-states**](#get-lifecycle-states) | **Get** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Get lifecycle state
+[**update-lifecycle-states**](#update-lifecycle-states) | **Patch** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Update lifecycle state
 
 
 ## get-lifecycle-states
-Get Lifecycle State
+Get lifecycle state
 Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
 
 A token with ORG_ADMIN or API authority is required to call this API.
@@ -128,7 +128,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-lifecycle-states
-Update Lifecycle State
+Update lifecycle state
 Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 A token with ORG_ADMIN or API authority is required to call this API.

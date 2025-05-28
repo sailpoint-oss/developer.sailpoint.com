@@ -4,7 +4,7 @@ post:
     - userAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Delete Multiple Non-Employee Records
+  summary: Delete multiple non-employee records
   description: >-
     This request will delete multiple non-employee records based on the non-employee ids provided.
   

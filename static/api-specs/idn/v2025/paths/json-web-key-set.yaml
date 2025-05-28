@@ -4,7 +4,7 @@ get:
     - { }
   tags:
     - OAuth JWKS
-  summary: List OAuth JWKS
+  summary: List oauth jwks
   description: >-
     This retrieves the set of OAuth JSON web keys used for validating JWTs issued by Identity Security Center.
 

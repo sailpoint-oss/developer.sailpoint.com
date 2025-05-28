@@ -19,11 +19,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaDiscoveredApplicationByID**](#get-discovered-application-by-id) | **GET** `/discovered-applications/{id}` | Get Discovered Application by ID
+[**Get-BetaDiscoveredApplicationByID**](#get-discovered-application-by-id) | **GET** `/discovered-applications/{id}` | Get discovered application by id
 [**Get-BetaDiscoveredApplications**](#get-discovered-applications) | **GET** `/discovered-applications` | Retrieve discovered applications for tenant
-[**Get-BetaManualDiscoverApplicationsCsvTemplate**](#get-manual-discover-applications-csv-template) | **GET** `/manual-discover-applications-template` | Download CSV Template for Discovery
-[**Update-BetaDiscoveredApplicationByID**](#patch-discovered-application-by-id) | **PATCH** `/discovered-applications/{id}` | Patch Discovered Application by ID
-[**Send-BetaManualDiscoverApplicationsCsvTemplate**](#send-manual-discover-applications-csv-template) | **POST** `/manual-discover-applications` | Upload CSV to Discover Applications
+[**Get-BetaManualDiscoverApplicationsCsvTemplate**](#get-manual-discover-applications-csv-template) | **GET** `/manual-discover-applications-template` | Download csv template for discovery
+[**Update-BetaDiscoveredApplicationByID**](#patch-discovered-application-by-id) | **PATCH** `/discovered-applications/{id}` | Patch discovered application by id
+[**Send-BetaManualDiscoverApplicationsCsvTemplate**](#send-manual-discover-applications-csv-template) | **POST** `/manual-discover-applications` | Upload csv to discover applications
 
 
 ## get-discovered-application-by-id
@@ -58,7 +58,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "123e4567-e89b-12d3-a456-426655440000" # String | Discovered application's ID.
 
-# Get Discovered Application by ID
+# Get discovered application by id
 
 try {
     Get-BetaDiscoveredApplicationByID -Id $Id 
@@ -158,7 +158,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Download CSV Template for Discovery
+# Download csv template for discovery
 
 try {
     Get-BetaManualDiscoverApplicationsCsvTemplate 
@@ -211,7 +211,7 @@ $Id = "123e4567-e89b-12d3-a456-426655440000" # String | Discovered application's
 }"@ # JsonPatchOperations[] |  (optional)
  
 
-# Patch Discovered Application by ID
+# Patch discovered application by id
 
 try {
     Update-BetaDiscoveredApplicationByID -Id $Id 
@@ -257,7 +257,7 @@ Code | Description  | Data Type
 ```powershell
 $File =  # System.IO.FileInfo | The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.
 
-# Upload CSV to Discover Applications
+# Upload csv to discover applications
 
 try {
     Send-BetaManualDiscoverApplicationsCsvTemplate -File $File 

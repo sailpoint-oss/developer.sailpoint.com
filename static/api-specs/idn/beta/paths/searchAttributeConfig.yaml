@@ -2,7 +2,7 @@ post:
   operationId: createSearchAttributeConfig
   tags:
     - Search Attribute Configuration
-  summary: Create Extended Search Attributes
+  summary: Create extended search attributes
   security:
     - userAuth: [ idn:account-config:create ]
   x-sailpoint-userLevels:
@@ -49,7 +49,7 @@ get:
   operationId: getSearchAttributeConfig
   tags:
     - Search Attribute Configuration
-  summary: List Extended Search Attributes
+  summary: List extended search attributes
   security:
     - userAuth: [ idn:account-config:read ]
   x-sailpoint-userLevels:

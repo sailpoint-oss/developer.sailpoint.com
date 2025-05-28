@@ -4,7 +4,7 @@ post:
     - userAuth: [idn:nelm:manage]
   tags:
     - Non-Employee Lifecycle Management
-  summary: Create Non-Employee Request
+  summary: Create non-employee request
   description: >-
     This request will create a non-employee request and notify the approver
   requestBody:
@@ -62,7 +62,7 @@ get:
     - userAuth: [idn:nelm:read]
   tags:
     - Non-Employee Lifecycle Management
-  summary: List Non-Employee Requests
+  summary: List non-employee requests
   description: >-
     This gets a list of non-employee requests.
   parameters:

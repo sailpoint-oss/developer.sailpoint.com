@@ -2,7 +2,7 @@ get:
   operationId: listReviewItems
   tags:
     - Certifications
-  summary: List of Review Items
+  summary: List of review items
   description: >-
     This API returns a list of review items for and identity campaign certification. A token with ORG_ADMIN or
     CERT_ADMIN authority is required to call this API. Reviewers for this certification can also call this API.

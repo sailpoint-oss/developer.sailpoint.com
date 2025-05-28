@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clusters
-  summary: Get Managed Cluster
+  summary: Get managed cluster
   description: Get a managed cluster by ID.
   operationId: getManagedCluster
   parameters:
@@ -41,7 +41,7 @@ get:
 patch:
   tags:
     - Managed Clusters
-  summary: Update Managed Cluster
+  summary: Update managed cluster
   description: >-
     Update an existing managed cluster.
   operationId: updateManagedCluster
@@ -90,7 +90,7 @@ delete:
   operationId: deleteManagedCluster
   tags:
     - Managed Clusters
-  summary: Delete Managed Cluster
+  summary: Delete managed cluster
   description: >-
     Delete an existing managed cluster.
   parameters:

@@ -17,13 +17,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-discovered-applications**](#get-discovered-applications) | **Get** `/discovered-applications` | Get Discovered Applications for Tenant
-[**get-manual-discover-applications-csv-template**](#get-manual-discover-applications-csv-template) | **Get** `/manual-discover-applications-template` | Download CSV Template for Discovery
-[**send-manual-discover-applications-csv-template**](#send-manual-discover-applications-csv-template) | **Post** `/manual-discover-applications` | Upload CSV to Discover Applications
+[**get-discovered-applications**](#get-discovered-applications) | **Get** `/discovered-applications` | Get discovered applications for tenant
+[**get-manual-discover-applications-csv-template**](#get-manual-discover-applications-csv-template) | **Get** `/manual-discover-applications-template` | Download csv template for discovery
+[**send-manual-discover-applications-csv-template**](#send-manual-discover-applications-csv-template) | **Post** `/manual-discover-applications` | Upload csv to discover applications
 
 
 ## get-discovered-applications
-Get Discovered Applications for Tenant
+Get discovered applications for tenant
 Get a list of applications that have been identified within the environment. This includes details such as application names, discovery dates, potential correlated saas_vendors and related suggested connectors.
 
 
@@ -94,7 +94,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-manual-discover-applications-csv-template
-Download CSV Template for Discovery
+Download csv template for discovery
 Download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values 'Example Application' and 'Example Description'.
 
 The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint.
@@ -154,7 +154,7 @@ func main() {
 [[Back to top]](#)
 
 ## send-manual-discover-applications-csv-template
-Upload CSV to Discover Applications
+Upload csv to discover applications
 Uploading a CSV file with application data for manual correlation to specific ISC connectors. 
 If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
 

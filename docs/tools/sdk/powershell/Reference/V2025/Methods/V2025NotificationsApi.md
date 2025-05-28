@@ -17,21 +17,21 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2025DomainDkim**](#create-domain-dkim) | **POST** `/verified-domains` | Verify domain address via DKIM
-[**New-V2025NotificationTemplate**](#create-notification-template) | **POST** `/notification-templates` | Create Notification Template
-[**New-V2025VerifiedFromAddress**](#create-verified-from-address) | **POST** `/verified-from-addresses` | Create Verified From Address
-[**Remove-V2025NotificationTemplatesInBulk**](#delete-notification-templates-in-bulk) | **POST** `/notification-templates/bulk-delete` | Bulk Delete Notification Templates
-[**Remove-V2025VerifiedFromAddress**](#delete-verified-from-address) | **DELETE** `/verified-from-addresses/{id}` | Delete Verified From Address
-[**Get-V2025DkimAttributes**](#get-dkim-attributes) | **GET** `/verified-domains` | Get DKIM Attributes
-[**Get-V2025MailFromAttributes**](#get-mail-from-attributes) | **GET** `/mail-from-attributes/{identity}` | Get MAIL FROM Attributes
-[**Get-V2025NotificationTemplate**](#get-notification-template) | **GET** `/notification-templates/{id}` | Get Notification Template By Id
-[**Get-V2025NotificationsTemplateContext**](#get-notifications-template-context) | **GET** `/notification-template-context` | Get Notification Template Context
-[**Get-V2025FromAddresses**](#list-from-addresses) | **GET** `/verified-from-addresses` | List From Addresses
-[**Get-V2025NotificationPreferences**](#list-notification-preferences) | **GET** `/notification-preferences/{key}` | List Notification Preferences for tenant.
-[**Get-V2025NotificationTemplateDefaults**](#list-notification-template-defaults) | **GET** `/notification-template-defaults` | List Notification Template Defaults
-[**Get-V2025NotificationTemplates**](#list-notification-templates) | **GET** `/notification-templates` | List Notification Templates
-[**Send-V2025MailFromAttributes**](#put-mail-from-attributes) | **PUT** `/mail-from-attributes` | Change MAIL FROM domain
-[**Send-V2025TestNotification**](#send-test-notification) | **POST** `/send-test-notification` | Send Test Notification
+[**New-V2025DomainDkim**](#create-domain-dkim) | **POST** `/verified-domains` | Verify domain address via dkim
+[**New-V2025NotificationTemplate**](#create-notification-template) | **POST** `/notification-templates` | Create notification template
+[**New-V2025VerifiedFromAddress**](#create-verified-from-address) | **POST** `/verified-from-addresses` | Create verified from address
+[**Remove-V2025NotificationTemplatesInBulk**](#delete-notification-templates-in-bulk) | **POST** `/notification-templates/bulk-delete` | Bulk delete notification templates
+[**Remove-V2025VerifiedFromAddress**](#delete-verified-from-address) | **DELETE** `/verified-from-addresses/{id}` | Delete verified from address
+[**Get-V2025DkimAttributes**](#get-dkim-attributes) | **GET** `/verified-domains` | Get dkim attributes
+[**Get-V2025MailFromAttributes**](#get-mail-from-attributes) | **GET** `/mail-from-attributes/{identity}` | Get mail from attributes
+[**Get-V2025NotificationTemplate**](#get-notification-template) | **GET** `/notification-templates/{id}` | Get notification template by id
+[**Get-V2025NotificationsTemplateContext**](#get-notifications-template-context) | **GET** `/notification-template-context` | Get notification template context
+[**Get-V2025FromAddresses**](#list-from-addresses) | **GET** `/verified-from-addresses` | List from addresses
+[**Get-V2025NotificationPreferences**](#list-notification-preferences) | **GET** `/notification-preferences/{key}` | List notification preferences for tenant.
+[**Get-V2025NotificationTemplateDefaults**](#list-notification-template-defaults) | **GET** `/notification-template-defaults` | List notification template defaults
+[**Get-V2025NotificationTemplates**](#list-notification-templates) | **GET** `/notification-templates` | List notification templates
+[**Send-V2025MailFromAttributes**](#put-mail-from-attributes) | **PUT** `/mail-from-attributes` | Change mail from domain
+[**Send-V2025TestNotification**](#send-test-notification) | **POST** `/send-test-notification` | Send test notification
 
 
 ## create-domain-dkim
@@ -73,7 +73,7 @@ $DomainAddress = @"{
   "domain" : "sailpoint.com"
 }"@
 
-# Verify domain address via DKIM
+# Verify domain address via dkim
 
 try {
     $Result = ConvertFrom-JsonToDomainAddress -Json $DomainAddress
@@ -143,7 +143,7 @@ $TemplateDto = @"{
   "key" : "cloud_manual_work_item_summary"
 }"@
 
-# Create Notification Template
+# Create notification template
 
 try {
     $Result = ConvertFrom-JsonToTemplateDto -Json $TemplateDto
@@ -199,7 +199,7 @@ $EmailStatusDto = @"{
   "email" : "sender@example.com"
 }"@
 
-# Create Verified From Address
+# Create verified from address
 
 try {
     $Result = ConvertFrom-JsonToEmailStatusDto -Json $EmailStatusDto
@@ -255,7 +255,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 }"@ # TemplateBulkDeleteDto[] | 
  
 
-# Bulk Delete Notification Templates
+# Bulk delete notification templates
 
 try {
     $Result = ConvertFrom-JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
@@ -307,7 +307,7 @@ Code | Description  | Data Type
 $Id = "MyId" # String | 
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Delete Verified From Address
+# Delete verified from address
 
 try {
     Remove-V2025VerifiedFromAddress -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -355,7 +355,7 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get DKIM Attributes
+# Get dkim attributes
 
 try {
     Get-V2025DkimAttributes -XSailPointExperimental $XSailPointExperimental 
@@ -405,7 +405,7 @@ Code | Description  | Data Type
 $Id = "bobsmith@sailpoint.com" # String | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get MAIL FROM Attributes
+# Get mail from attributes
 
 try {
     Get-V2025MailFromAttributes -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -455,7 +455,7 @@ Code | Description  | Data Type
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Notification Template
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Notification Template By Id
+# Get notification template by id
 
 try {
     Get-V2025NotificationTemplate -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -504,7 +504,7 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Notification Template Context
+# Get notification template context
 
 try {
     Get-V2025NotificationsTemplateContext -XSailPointExperimental $XSailPointExperimental 
@@ -561,7 +561,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'email eq "john.doe@company.com"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, sw* (optional)
 $Sorters = "email" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** (optional)
 
-# List From Addresses
+# List from addresses
 
 try {
     Get-V2025FromAddresses -XSailPointExperimental $XSailPointExperimental 
@@ -610,7 +610,7 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# List Notification Preferences for tenant.
+# List notification preferences for tenant.
 
 try {
     Get-V2025NotificationPreferences -XSailPointExperimental $XSailPointExperimental 
@@ -664,7 +664,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Filters = 'key eq "cloud_manual_work_item_summary"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
 
-# List Notification Template Defaults
+# List notification template defaults
 
 try {
     Get-V2025NotificationTemplateDefaults -XSailPointExperimental $XSailPointExperimental 
@@ -718,7 +718,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Filters = 'medium eq "EMAIL"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
 
-# List Notification Templates
+# List notification templates
 
 try {
     Get-V2025NotificationTemplates -XSailPointExperimental $XSailPointExperimental 
@@ -771,7 +771,7 @@ $MailFromAttributesDto = @"{
   "mailFromDomain" : "example.sailpoint.com"
 }"@
 
-# Change MAIL FROM domain
+# Change mail from domain
 
 try {
     $Result = ConvertFrom-JsonToMailFromAttributesDto -Json $MailFromAttributesDto
@@ -827,7 +827,7 @@ $SendTestNotificationRequestDto = @"{
   "key" : "cloud_manual_work_item_summary"
 }"@
 
-# Send Test Notification
+# Send test notification
 
 try {
     $Result = ConvertFrom-JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto

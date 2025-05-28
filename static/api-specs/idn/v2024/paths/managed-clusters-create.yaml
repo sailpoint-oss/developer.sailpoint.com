@@ -1,7 +1,7 @@
 post:
   tags:
     - Managed Clusters
-  summary: Create new Managed Cluster
+  summary: Create new managed cluster
   description: >-
     Create a new Managed Cluster.
 

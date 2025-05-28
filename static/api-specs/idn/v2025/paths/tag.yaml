@@ -2,7 +2,7 @@ get:
   operationId: getTagById
   tags:
     - Tags
-  summary: Get Tag By Id
+  summary: Get tag by id
   description: >-
     Returns a tag by its id.
 
@@ -41,7 +41,7 @@ delete:
   operationId: deleteTagById
   tags:
     - Tags
-  summary: Delete Tag
+  summary: Delete tag
   description: >-
     This API deletes a tag by specified id.
 

@@ -49,17 +49,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-access-profile**](#create-access-profile) | **Post** `/access-profiles` | Create Access Profile
-[**delete-access-profile**](#delete-access-profile) | **Delete** `/access-profiles/{id}` | Delete the specified Access Profile
-[**delete-access-profiles-in-bulk**](#delete-access-profiles-in-bulk) | **Post** `/access-profiles/bulk-delete` | Delete Access Profile(s)
-[**get-access-profile**](#get-access-profile) | **Get** `/access-profiles/{id}` | Get an Access Profile
-[**get-access-profile-entitlements**](#get-access-profile-entitlements) | **Get** `/access-profiles/{id}/entitlements` | List Access Profile&#39;s Entitlements
-[**list-access-profiles**](#list-access-profiles) | **Get** `/access-profiles` | List Access Profiles
-[**patch-access-profile**](#patch-access-profile) | **Patch** `/access-profiles/{id}` | Patch a specified Access Profile
+[**create-access-profile**](#create-access-profile) | **Post** `/access-profiles` | Create access profile
+[**delete-access-profile**](#delete-access-profile) | **Delete** `/access-profiles/{id}` | Delete the specified access profile
+[**delete-access-profiles-in-bulk**](#delete-access-profiles-in-bulk) | **Post** `/access-profiles/bulk-delete` | Delete access profile(s)
+[**get-access-profile**](#get-access-profile) | **Get** `/access-profiles/{id}` | Get an access profile
+[**get-access-profile-entitlements**](#get-access-profile-entitlements) | **Get** `/access-profiles/{id}/entitlements` | List access profile&#39;s entitlements
+[**list-access-profiles**](#list-access-profiles) | **Get** `/access-profiles` | List access profiles
+[**patch-access-profile**](#patch-access-profile) | **Patch** `/access-profiles/{id}` | Patch a specified access profile
 
 
 ## create-access-profile
-Create Access Profile
+Create access profile
 Create an access profile.
 A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile's source.
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles.  However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
@@ -214,7 +214,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-access-profile
-Delete the specified Access Profile
+Delete the specified access profile
 This API deletes an existing Access Profile.
 
 The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.
@@ -283,7 +283,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-access-profiles-in-bulk
-Delete Access Profile(s)
+Delete access profile(s)
 This endpoint initiates a bulk deletion of one or more access profiles.
 When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 access profiles per request. 
@@ -357,7 +357,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-access-profile
-Get an Access Profile
+Get an access profile
 This API returns an Access Profile by its ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-access-profile)
@@ -423,7 +423,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-access-profile-entitlements
-List Access Profile's Entitlements
+List access profile's entitlements
 Use this API to get a list of an access profile's entitlements. 
 A SOURCE_SUBADMIN user must have access to the source associated with the specified access profile.
 >**Note:** When you filter for access profiles that have the '+' symbol in their names, the response is blank. 
@@ -501,7 +501,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-access-profiles
-List Access Profiles
+List access profiles
 Get a list of access profiles. 
 >**Note:** When you filter for access profiles that have the '+' symbol in their names, the response is blank. 
 
@@ -578,7 +578,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-access-profile
-Patch a specified Access Profile
+Patch a specified access profile
 This API updates an existing Access Profile. The following fields are patchable:
 
 **name**

@@ -15,13 +15,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete-machine-classification-config**](#delete-machine-classification-config) | **DELETE** `/sources/{sourceId}/machine-classification-config` | Delete Source&#39;s Classification Config
-[**get-machine-classification-config**](#get-machine-classification-config) | **GET** `/sources/{sourceId}/machine-classification-config` | Machine Classification Config for Source
-[**set-machine-classification-config**](#set-machine-classification-config) | **PUT** `/sources/{sourceId}/machine-classification-config` | Update Source&#39;s Classification Config
+[**delete-machine-classification-config**](#delete-machine-classification-config) | **DELETE** `/sources/{sourceId}/machine-classification-config` | Delete source&#39;s classification config
+[**get-machine-classification-config**](#get-machine-classification-config) | **GET** `/sources/{sourceId}/machine-classification-config` | Machine classification config for source
+[**set-machine-classification-config**](#set-machine-classification-config) | **PUT** `/sources/{sourceId}/machine-classification-config` | Update source&#39;s classification config
 
 
 ## delete-machine-classification-config
-Delete Source's Classification Config
+Delete source's classification config
 Use this API to remove Classification Config for a Source. 
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
@@ -64,7 +64,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source ID. # str | Source ID.
 
     try:
-        # Delete Source's Classification Config
+        # Delete source's classification config
         
         MachineClassificationConfigApi(api_client).delete_machine_classification_config(id=id)
         # Below is a request that includes all optional parameters
@@ -78,7 +78,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-machine-classification-config
-Machine Classification Config for Source
+Machine classification config for source
 This API returns a Machine Classification Config for a Source using Source ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-machine-classification-config)
@@ -121,7 +121,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source ID # str | Source ID
 
     try:
-        # Machine Classification Config for Source
+        # Machine classification config for source
         
         results = MachineClassificationConfigApi(api_client).get_machine_classification_config(id=id)
         # Below is a request that includes all optional parameters
@@ -137,7 +137,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## set-machine-classification-config
-Update Source's Classification Config
+Update source's classification config
 Use this API to update Classification Config for a Source. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/set-machine-classification-config)
@@ -188,7 +188,7 @@ with ApiClient(configuration) as api_client:
         }''' # MachineClassificationConfig | 
 
     try:
-        # Update Source's Classification Config
+        # Update source's classification config
         new_machine_classification_config = MachineClassificationConfig.from_json(machine_classification_config)
         results = MachineClassificationConfigApi(api_client).set_machine_classification_config(id=id, machine_classification_config=new_machine_classification_config)
         # Below is a request that includes all optional parameters

@@ -29,14 +29,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-identity-access-summaries**](#get-identity-access-summaries) | **Get** `/certifications/{id}/access-summaries/{type}` | Access Summaries
-[**get-identity-decision-summary**](#get-identity-decision-summary) | **Get** `/certifications/{id}/decision-summary` | Summary of Certification Decisions
-[**get-identity-summaries**](#get-identity-summaries) | **Get** `/certifications/{id}/identity-summaries` | Identity Summaries for Campaign Certification
-[**get-identity-summary**](#get-identity-summary) | **Get** `/certifications/{id}/identity-summaries/{identitySummaryId}` | Summary for Identity
+[**get-identity-access-summaries**](#get-identity-access-summaries) | **Get** `/certifications/{id}/access-summaries/{type}` | Access summaries
+[**get-identity-decision-summary**](#get-identity-decision-summary) | **Get** `/certifications/{id}/decision-summary` | Summary of certification decisions
+[**get-identity-summaries**](#get-identity-summaries) | **Get** `/certifications/{id}/identity-summaries` | Identity summaries for campaign certification
+[**get-identity-summary**](#get-identity-summary) | **Get** `/certifications/{id}/identity-summaries/{identitySummaryId}` | Summary for identity
 
 
 ## get-identity-access-summaries
-Access Summaries
+Access summaries
 This API returns a list of access summaries for the specified identity campaign certification and type. Reviewers for this certification can also call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-identity-access-summaries)
@@ -115,7 +115,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-identity-decision-summary
-Summary of Certification Decisions
+Summary of certification decisions
 This API returns a summary of the decisions made on an identity campaign certification. The decisions are summarized by type. Reviewers for this certification can also call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-identity-decision-summary)
@@ -183,7 +183,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-identity-summaries
-Identity Summaries for Campaign Certification
+Identity summaries for campaign certification
 This API returns a list of the identity summaries for a specific identity campaign certification. Reviewers for this certification can also call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-identity-summaries)
@@ -259,7 +259,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-identity-summary
-Summary for Identity
+Summary for identity
 This API returns the summary for an identity on a specified identity campaign certification. Reviewers for this certification can also call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-identity-summary)

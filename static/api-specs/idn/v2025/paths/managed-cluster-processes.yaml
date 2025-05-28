@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clusters
-  summary: Retrieve all Managed Cluster processes
+  summary: Retrieve all managed cluster processes
   description: Retrieve a list of the ManagedProcesses that this particular VA instance is configured for.
   operationId: getManagedClusterProcesses
   parameters:

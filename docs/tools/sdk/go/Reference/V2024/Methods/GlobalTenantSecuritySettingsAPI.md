@@ -19,14 +19,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create-auth-org-network-config**](#create-auth-org-network-config) | **Post** `/auth-org/network-config` | Create security network configuration.
-[**get-auth-org-lockout-config**](#get-auth-org-lockout-config) | **Get** `/auth-org/lockout-config` | Get Auth Org Lockout Configuration.
+[**get-auth-org-lockout-config**](#get-auth-org-lockout-config) | **Get** `/auth-org/lockout-config` | Get auth org lockout configuration.
 [**get-auth-org-network-config**](#get-auth-org-network-config) | **Get** `/auth-org/network-config` | Get security network configuration.
-[**get-auth-org-service-provider-config**](#get-auth-org-service-provider-config) | **Get** `/auth-org/service-provider-config` | Get Service Provider Configuration.
-[**get-auth-org-session-config**](#get-auth-org-session-config) | **Get** `/auth-org/session-config` | Get Auth Org Session Configuration.
-[**patch-auth-org-lockout-config**](#patch-auth-org-lockout-config) | **Patch** `/auth-org/lockout-config` | Update Auth Org Lockout Configuration
+[**get-auth-org-service-provider-config**](#get-auth-org-service-provider-config) | **Get** `/auth-org/service-provider-config` | Get service provider configuration.
+[**get-auth-org-session-config**](#get-auth-org-session-config) | **Get** `/auth-org/session-config` | Get auth org session configuration.
+[**patch-auth-org-lockout-config**](#patch-auth-org-lockout-config) | **Patch** `/auth-org/lockout-config` | Update auth org lockout configuration
 [**patch-auth-org-network-config**](#patch-auth-org-network-config) | **Patch** `/auth-org/network-config` | Update security network configuration.
-[**patch-auth-org-service-provider-config**](#patch-auth-org-service-provider-config) | **Patch** `/auth-org/service-provider-config` | Update Service Provider Configuration
-[**patch-auth-org-session-config**](#patch-auth-org-session-config) | **Patch** `/auth-org/session-config` | Update Auth Org Session Configuration
+[**patch-auth-org-service-provider-config**](#patch-auth-org-service-provider-config) | **Patch** `/auth-org/service-provider-config` | Update service provider configuration
+[**patch-auth-org-session-config**](#patch-auth-org-session-config) | **Patch** `/auth-org/session-config` | Update auth org session configuration
 
 
 ## create-auth-org-network-config
@@ -101,7 +101,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-auth-org-lockout-config
-Get Auth Org Lockout Configuration.
+Get auth org lockout configuration.
 This API returns the details of an org's lockout auth configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-auth-org-lockout-config)
@@ -215,7 +215,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-auth-org-service-provider-config
-Get Service Provider Configuration.
+Get service provider configuration.
 This API returns the details of an org's service provider auth configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-auth-org-service-provider-config)
@@ -272,7 +272,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-auth-org-session-config
-Get Auth Org Session Configuration.
+Get auth org session configuration.
 This API returns the details of an org's session auth configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-auth-org-session-config)
@@ -329,7 +329,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-auth-org-lockout-config
-Update Auth Org Lockout Configuration
+Update auth org lockout configuration
 This API updates an existing lockout configuration for an org using PATCH
 
 
@@ -465,7 +465,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-auth-org-service-provider-config
-Update Service Provider Configuration
+Update service provider configuration
 This API updates an existing service provider configuration for an org using PATCH.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-auth-org-service-provider-config)
@@ -532,7 +532,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-auth-org-session-config
-Update Auth Org Session Configuration
+Update auth org session configuration
 This API updates an existing session configuration for an org using PATCH.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-auth-org-session-config)

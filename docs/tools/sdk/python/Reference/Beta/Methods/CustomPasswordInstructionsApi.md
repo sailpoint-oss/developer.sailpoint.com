@@ -26,13 +26,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-custom-password-instructions**](#create-custom-password-instructions) | **POST** `/custom-password-instructions` | Create Custom Password Instructions
-[**delete-custom-password-instructions**](#delete-custom-password-instructions) | **DELETE** `/custom-password-instructions/{pageId}` | Delete Custom Password Instructions by page ID
-[**get-custom-password-instructions**](#get-custom-password-instructions) | **GET** `/custom-password-instructions/{pageId}` | Get Custom Password Instructions by Page ID
+[**create-custom-password-instructions**](#create-custom-password-instructions) | **POST** `/custom-password-instructions` | Create custom password instructions
+[**delete-custom-password-instructions**](#delete-custom-password-instructions) | **DELETE** `/custom-password-instructions/{pageId}` | Delete custom password instructions by page id
+[**get-custom-password-instructions**](#get-custom-password-instructions) | **GET** `/custom-password-instructions/{pageId}` | Get custom password instructions by page id
 
 
 ## create-custom-password-instructions
-Create Custom Password Instructions
+Create custom password instructions
 This API creates the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-custom-password-instructions)
@@ -76,7 +76,7 @@ with ApiClient(configuration) as api_client:
         }''' # CustomPasswordInstruction | 
 
     try:
-        # Create Custom Password Instructions
+        # Create custom password instructions
         new_custom_password_instruction = CustomPasswordInstruction.from_json(custom_password_instruction)
         results = CustomPasswordInstructionsApi(api_client).create_custom_password_instructions(custom_password_instruction=new_custom_password_instruction)
         # Below is a request that includes all optional parameters
@@ -92,7 +92,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-custom-password-instructions
-Delete Custom Password Instructions by page ID
+Delete custom password instructions by page id
 This API delete the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-custom-password-instructions)
@@ -134,7 +134,7 @@ with ApiClient(configuration) as api_client:
     locale = 'locale_example' # str | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional) # str | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional)
 
     try:
-        # Delete Custom Password Instructions by page ID
+        # Delete custom password instructions by page id
         
         CustomPasswordInstructionsApi(api_client).delete_custom_password_instructions(page_id=page_id)
         # Below is a request that includes all optional parameters
@@ -148,7 +148,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-custom-password-instructions
-Get Custom Password Instructions by Page ID
+Get custom password instructions by page id
 This API returns the custom password instructions for the specified page ID. A token with ORG_ADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-custom-password-instructions)
@@ -191,7 +191,7 @@ with ApiClient(configuration) as api_client:
     locale = 'locale_example' # str | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional) # str | The locale for the custom instructions, a BCP47 language tag. The default value is \\\"default\\\". (optional)
 
     try:
-        # Get Custom Password Instructions by Page ID
+        # Get custom password instructions by page id
         
         results = CustomPasswordInstructionsApi(api_client).get_custom_password_instructions(page_id=page_id)
         # Below is a request that includes all optional parameters

@@ -29,26 +29,26 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**approve-approval-item**](#approve-approval-item) | **Post** `/work-items/{id}/approve/{approvalItemId}` | Approve an Approval Item
-[**approve-approval-items-in-bulk**](#approve-approval-items-in-bulk) | **Post** `/work-items/bulk-approve/{id}` | Bulk approve Approval Items
-[**complete-work-item**](#complete-work-item) | **Post** `/work-items/{id}` | Complete a Work Item
-[**get-completed-work-items**](#get-completed-work-items) | **Get** `/work-items/completed` | Completed Work Items
-[**get-count-completed-work-items**](#get-count-completed-work-items) | **Get** `/work-items/completed/count` | Count Completed Work Items
-[**get-count-work-items**](#get-count-work-items) | **Get** `/work-items/count` | Count Work Items
-[**get-work-item**](#get-work-item) | **Get** `/work-items/{id}` | Get a Work Item
-[**get-work-items-summary**](#get-work-items-summary) | **Get** `/work-items/summary` | Work Items Summary
-[**list-work-items**](#list-work-items) | **Get** `/work-items` | List Work Items
-[**reject-approval-item**](#reject-approval-item) | **Post** `/work-items/{id}/reject/{approvalItemId}` | Reject an Approval Item
-[**reject-approval-items-in-bulk**](#reject-approval-items-in-bulk) | **Post** `/work-items/bulk-reject/{id}` | Bulk reject Approval Items
-[**submit-account-selection**](#submit-account-selection) | **Post** `/work-items/{id}/submit-account-selection` | Submit Account Selections
-[**submit-forward-work-item**](#submit-forward-work-item) | **Post** `/work-items/{id}/forward` | Forward a Work Item
+[**approve-approval-item**](#approve-approval-item) | **Post** `/work-items/{id}/approve/{approvalItemId}` | Approve an approval item
+[**approve-approval-items-in-bulk**](#approve-approval-items-in-bulk) | **Post** `/work-items/bulk-approve/{id}` | Bulk approve approval items
+[**complete-work-item**](#complete-work-item) | **Post** `/work-items/{id}` | Complete a work item
+[**get-completed-work-items**](#get-completed-work-items) | **Get** `/work-items/completed` | Completed work items
+[**get-count-completed-work-items**](#get-count-completed-work-items) | **Get** `/work-items/completed/count` | Count completed work items
+[**get-count-work-items**](#get-count-work-items) | **Get** `/work-items/count` | Count work items
+[**get-work-item**](#get-work-item) | **Get** `/work-items/{id}` | Get a work item
+[**get-work-items-summary**](#get-work-items-summary) | **Get** `/work-items/summary` | Work items summary
+[**list-work-items**](#list-work-items) | **Get** `/work-items` | List work items
+[**reject-approval-item**](#reject-approval-item) | **Post** `/work-items/{id}/reject/{approvalItemId}` | Reject an approval item
+[**reject-approval-items-in-bulk**](#reject-approval-items-in-bulk) | **Post** `/work-items/bulk-reject/{id}` | Bulk reject approval items
+[**submit-account-selection**](#submit-account-selection) | **Post** `/work-items/{id}/submit-account-selection` | Submit account selections
+[**submit-forward-work-item**](#submit-forward-work-item) | **Post** `/work-items/{id}/forward` | Forward a work item
 
 
 ## approve-approval-item
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Approve an Approval Item
+Approve an approval item
 This API approves an Approval Item. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/approve-approval-item)
@@ -120,7 +120,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Bulk approve Approval Items
+Bulk approve approval items
 This API bulk approves Approval Items. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/approve-approval-items-in-bulk)
@@ -189,7 +189,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Complete a Work Item
+Complete a work item
 This API completes a work item. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/complete-work-item)
@@ -260,7 +260,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Completed Work Items
+Completed work items
 This gets a collection of completed work items belonging to either the specified user(admin required), or the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-completed-work-items)
@@ -331,7 +331,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Count Completed Work Items
+Count completed work items
 This gets a count of completed work items belonging to either the specified user(admin required), or the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-count-completed-work-items)
@@ -400,7 +400,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Count Work Items
+Count work items
 This gets a count of work items belonging to either the specified user(admin required), or the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-count-work-items)
@@ -465,7 +465,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Get a Work Item
+Get a work item
 This gets the details of a Work Item belonging to either the specified user(admin required), or the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-work-item)
@@ -536,7 +536,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Work Items Summary
+Work items summary
 This gets a summary of work items belonging to either the specified user(admin required), or the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-work-items-summary)
@@ -601,7 +601,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-List Work Items
+List work items
 This gets a collection of work items belonging to either the specified user(admin required), or the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-work-items)
@@ -672,7 +672,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Reject an Approval Item
+Reject an approval item
 This API rejects an Approval Item. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/reject-approval-item)
@@ -744,7 +744,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Bulk reject Approval Items
+Bulk reject approval items
 This API bulk rejects Approval Items. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/reject-approval-items-in-bulk)
@@ -813,7 +813,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Submit Account Selections
+Submit account selections
 This API submits account selections. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/submit-account-selection)
@@ -889,7 +889,7 @@ func main() {
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Forward a Work Item
+Forward a work item
 This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/submit-forward-work-item)

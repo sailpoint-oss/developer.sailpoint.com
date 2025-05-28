@@ -5,6 +5,7 @@ properties:
   entitlements:
     description: list of entitlement ids
     type: array
+    nullable: true
     minItems: 1
     items:
       type: string
@@ -12,7 +13,13 @@ properties:
   seds:
     description: list of sed ids
     type: array
+    nullable: true
     minItems: 1
     items:
       type: string
       example: 016629d1-1d25-463f-97f3-c6686846650
+  searchCriteria:
+    additionalProperties:
+      $ref: SearchCriteria.yaml
+    nullable: true
+    description: Search criteria for the batch request.

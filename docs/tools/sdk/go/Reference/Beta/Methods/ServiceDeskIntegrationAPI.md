@@ -39,20 +39,20 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-service-desk-integration**](#create-service-desk-integration) | **Post** `/service-desk-integrations` | Create new Service Desk integration
-[**delete-service-desk-integration**](#delete-service-desk-integration) | **Delete** `/service-desk-integrations/{id}` | Delete a Service Desk integration
-[**get-service-desk-integration**](#get-service-desk-integration) | **Get** `/service-desk-integrations/{id}` | Get a Service Desk integration
-[**get-service-desk-integration-list**](#get-service-desk-integration-list) | **Get** `/service-desk-integrations` | List existing Service Desk integrations
-[**get-service-desk-integration-template**](#get-service-desk-integration-template) | **Get** `/service-desk-integrations/templates/{scriptName}` | Service Desk integration template by scriptName
-[**get-service-desk-integration-types**](#get-service-desk-integration-types) | **Get** `/service-desk-integrations/types` | List Service Desk integration types
+[**create-service-desk-integration**](#create-service-desk-integration) | **Post** `/service-desk-integrations` | Create new service desk integration
+[**delete-service-desk-integration**](#delete-service-desk-integration) | **Delete** `/service-desk-integrations/{id}` | Delete a service desk integration
+[**get-service-desk-integration**](#get-service-desk-integration) | **Get** `/service-desk-integrations/{id}` | Get a service desk integration
+[**get-service-desk-integration-list**](#get-service-desk-integration-list) | **Get** `/service-desk-integrations` | List existing service desk integrations
+[**get-service-desk-integration-template**](#get-service-desk-integration-template) | **Get** `/service-desk-integrations/templates/{scriptName}` | Service desk integration template by scriptname
+[**get-service-desk-integration-types**](#get-service-desk-integration-types) | **Get** `/service-desk-integrations/types` | List service desk integration types
 [**get-status-check-details**](#get-status-check-details) | **Get** `/service-desk-integrations/status-check-configuration` | Get the time check configuration
-[**patch-service-desk-integration**](#patch-service-desk-integration) | **Patch** `/service-desk-integrations/{id}` | Patch a Service Desk Integration
-[**put-service-desk-integration**](#put-service-desk-integration) | **Put** `/service-desk-integrations/{id}` | Update a Service Desk integration
+[**patch-service-desk-integration**](#patch-service-desk-integration) | **Patch** `/service-desk-integrations/{id}` | Patch a service desk integration
+[**put-service-desk-integration**](#put-service-desk-integration) | **Put** `/service-desk-integrations/{id}` | Update a service desk integration
 [**update-status-check-details**](#update-status-check-details) | **Put** `/service-desk-integrations/status-check-configuration` | Update the time check configuration
 
 
 ## create-service-desk-integration
-Create new Service Desk integration
+Create new service desk integration
 Create a new Service Desk integration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-service-desk-integration)
@@ -149,7 +149,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-service-desk-integration
-Delete a Service Desk integration
+Delete a service desk integration
 Delete an existing Service Desk integration by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-service-desk-integration)
@@ -214,7 +214,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-service-desk-integration
-Get a Service Desk integration
+Get a service desk integration
 Get an existing Service Desk integration by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-service-desk-integration)
@@ -280,7 +280,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-service-desk-integration-list
-List existing Service Desk integrations
+List existing service desk integrations
 Get a list of Service Desk integration objects.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-service-desk-integration-list)
@@ -350,7 +350,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-service-desk-integration-template
-Service Desk integration template by scriptName
+Service desk integration template by scriptname
 This API endpoint returns an existing Service Desk integration template by scriptName.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-service-desk-integration-template)
@@ -416,7 +416,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-service-desk-integration-types
-List Service Desk integration types
+List service desk integration types
 This API endpoint returns the current list of supported Service Desk integration types.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-service-desk-integration-types)
@@ -530,7 +530,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-service-desk-integration
-Patch a Service Desk Integration
+Patch a service desk integration
 Update an existing Service Desk integration by ID with a PATCH request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-service-desk-integration)
@@ -603,7 +603,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-service-desk-integration
-Update a Service Desk integration
+Update a service desk integration
 Update an existing Service Desk integration by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-service-desk-integration)

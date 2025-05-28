@@ -1,7 +1,7 @@
 get:
   tags:
   - Task Management
-  summary: Retrieve Task Status List
+  summary: Retrieve task status list
   description: | 
     Use this endpoint to get a list of statuses for **completed** tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. To get a list of statuses for **in-progress** tasks, please use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/v2024/get-pending-tasks) endpoint.
   operationId: getTaskStatusList

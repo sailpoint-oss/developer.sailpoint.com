@@ -2,7 +2,7 @@ get:
   operationId: getLifecycleStates
   tags:
     - Lifecycle States
-  summary: Lists LifecycleStates
+  summary: Lists lifecyclestates
   description: >-
     Use this endpoint to list all lifecycle states by their associated identity profiles. 
   security:
@@ -57,7 +57,7 @@ post:
   operationId: createLifecycleState
   tags:
     - Lifecycle States
-  summary: Create Lifecycle State
+  summary: Create lifecycle state
   description: >-
     Use this endpoint to create a lifecycle state.
   security:

@@ -3,7 +3,7 @@ get:
   operationId: getSourceAttrSyncConfig
   tags:
     - Sources
-  summary: Attribute Sync Config
+  summary: Attribute sync config
   description: >-
     This API returns the existing attribute synchronization configuration for a source specified by the
     given ID. The response contains all attributes, regardless of whether they enabled or not.
@@ -44,7 +44,7 @@ put:
   operationId: putSourceAttrSyncConfig
   tags:
     - Sources
-  summary: Update Attribute Sync Config
+  summary: Update attribute sync config
   description: >-
     Replaces the attribute synchronization configuration for the source specified by the given ID with the
     configuration provided in the request body. Only the "enabled" field of the values in the "attributes"

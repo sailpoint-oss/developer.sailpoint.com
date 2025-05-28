@@ -72,36 +72,36 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-provisioning-policy**](#create-provisioning-policy) | **POST** `/sources/{sourceId}/provisioning-policies` | Create Provisioning Policy
-[**create-source**](#create-source) | **POST** `/sources` | Creates a source in IdentityNow.
-[**create-source-schema**](#create-source-schema) | **POST** `/sources/{sourceId}/schemas` | Create Schema on Source
-[**delete-provisioning-policy**](#delete-provisioning-policy) | **DELETE** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete Provisioning Policy by UsageType
-[**delete-source**](#delete-source) | **DELETE** `/sources/{id}` | Delete Source by ID
-[**delete-source-schema**](#delete-source-schema) | **DELETE** `/sources/{sourceId}/schemas/{schemaId}` | Delete Source Schema by ID
+[**create-provisioning-policy**](#create-provisioning-policy) | **POST** `/sources/{sourceId}/provisioning-policies` | Create provisioning policy
+[**create-source**](#create-source) | **POST** `/sources` | Creates a source in identitynow.
+[**create-source-schema**](#create-source-schema) | **POST** `/sources/{sourceId}/schemas` | Create schema on source
+[**delete-provisioning-policy**](#delete-provisioning-policy) | **DELETE** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete provisioning policy by usagetype
+[**delete-source**](#delete-source) | **DELETE** `/sources/{id}` | Delete source by id
+[**delete-source-schema**](#delete-source-schema) | **DELETE** `/sources/{sourceId}/schemas/{schemaId}` | Delete source schema by id
 [**get-accounts-schema**](#get-accounts-schema) | **GET** `/sources/{id}/schemas/accounts` | Downloads source accounts schema template
 [**get-entitlements-schema**](#get-entitlements-schema) | **GET** `/sources/{id}/schemas/entitlements` | Downloads source entitlements schema template
-[**get-provisioning-policy**](#get-provisioning-policy) | **GET** `/sources/{sourceId}/provisioning-policies/{usageType}` | Get Provisioning Policy by UsageType
-[**get-source**](#get-source) | **GET** `/sources/{id}` | Get Source by ID
-[**get-source-connections**](#get-source-connections) | **GET** `/sources/{sourceId}/connections` | Get Source Connections by ID
+[**get-provisioning-policy**](#get-provisioning-policy) | **GET** `/sources/{sourceId}/provisioning-policies/{usageType}` | Get provisioning policy by usagetype
+[**get-source**](#get-source) | **GET** `/sources/{id}` | Get source by id
+[**get-source-connections**](#get-source-connections) | **GET** `/sources/{sourceId}/connections` | Get source connections by id
 [**get-source-health**](#get-source-health) | **GET** `/sources/{sourceId}/source-health` | Fetches source health by id
-[**get-source-schema**](#get-source-schema) | **GET** `/sources/{sourceId}/schemas/{schemaId}` | Get Source Schema by ID
-[**get-source-schemas**](#get-source-schemas) | **GET** `/sources/{sourceId}/schemas` | List Schemas on Source
+[**get-source-schema**](#get-source-schema) | **GET** `/sources/{sourceId}/schemas/{schemaId}` | Get source schema by id
+[**get-source-schemas**](#get-source-schemas) | **GET** `/sources/{sourceId}/schemas` | List schemas on source
 [**import-accounts-schema**](#import-accounts-schema) | **POST** `/sources/{id}/schemas/accounts` | Uploads source accounts schema template
 [**import-connector-file**](#import-connector-file) | **POST** `/sources/{sourceId}/upload-connector-file` | Upload connector file to source
 [**import-entitlements-schema**](#import-entitlements-schema) | **POST** `/sources/{id}/schemas/entitlements` | Uploads source entitlements schema template
-[**list-provisioning-policies**](#list-provisioning-policies) | **GET** `/sources/{sourceId}/provisioning-policies` | Lists ProvisioningPolicies
-[**list-sources**](#list-sources) | **GET** `/sources` | Lists all sources in IdentityNow.
-[**put-provisioning-policy**](#put-provisioning-policy) | **PUT** `/sources/{sourceId}/provisioning-policies/{usageType}` | Update Provisioning Policy by UsageType
-[**put-source**](#put-source) | **PUT** `/sources/{id}` | Update Source (Full)
-[**put-source-schema**](#put-source-schema) | **PUT** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Full)
-[**update-provisioning-policies-in-bulk**](#update-provisioning-policies-in-bulk) | **POST** `/sources/{sourceId}/provisioning-policies/bulk-update` | Bulk Update Provisioning Policies
-[**update-provisioning-policy**](#update-provisioning-policy) | **PATCH** `/sources/{sourceId}/provisioning-policies/{usageType}` | Partial update of Provisioning Policy
-[**update-source**](#update-source) | **PATCH** `/sources/{id}` | Update Source (Partial)
-[**update-source-schema**](#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Partial)
+[**list-provisioning-policies**](#list-provisioning-policies) | **GET** `/sources/{sourceId}/provisioning-policies` | Lists provisioningpolicies
+[**list-sources**](#list-sources) | **GET** `/sources` | Lists all sources in identitynow.
+[**put-provisioning-policy**](#put-provisioning-policy) | **PUT** `/sources/{sourceId}/provisioning-policies/{usageType}` | Update provisioning policy by usagetype
+[**put-source**](#put-source) | **PUT** `/sources/{id}` | Update source (full)
+[**put-source-schema**](#put-source-schema) | **PUT** `/sources/{sourceId}/schemas/{schemaId}` | Update source schema (full)
+[**update-provisioning-policies-in-bulk**](#update-provisioning-policies-in-bulk) | **POST** `/sources/{sourceId}/provisioning-policies/bulk-update` | Bulk update provisioning policies
+[**update-provisioning-policy**](#update-provisioning-policy) | **PATCH** `/sources/{sourceId}/provisioning-policies/{usageType}` | Partial update of provisioning policy
+[**update-source**](#update-source) | **PATCH** `/sources/{id}` | Update source (partial)
+[**update-source-schema**](#update-source-schema) | **PATCH** `/sources/{sourceId}/schemas/{schemaId}` | Update source schema (partial)
 
 
 ## create-provisioning-policy
-Create Provisioning Policy
+Create provisioning policy
 This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
@@ -187,7 +187,7 @@ with ApiClient(configuration) as api_client:
         }''' # ProvisioningPolicyDto | 
 
     try:
-        # Create Provisioning Policy
+        # Create provisioning policy
         new_provisioning_policy_dto = ProvisioningPolicyDto.from_json(provisioning_policy_dto)
         results = SourcesApi(api_client).create_provisioning_policy(source_id=source_id, provisioning_policy_dto=new_provisioning_policy_dto)
         # Below is a request that includes all optional parameters
@@ -203,7 +203,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## create-source
-Creates a source in IdentityNow.
+Creates a source in identitynow.
 This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-source)
@@ -329,7 +329,7 @@ with ApiClient(configuration) as api_client:
     provision_as_csv = false # bool | If this parameter is `true`, it configures the source as a Delimited File (CSV) source. Setting this to `true` will automatically set the `type` of the source to `DelimitedFile`.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don't set this query parameter and you attempt to set the `type` attribute directly, the request won't correctly generate the source.   (optional) # bool | If this parameter is `true`, it configures the source as a Delimited File (CSV) source. Setting this to `true` will automatically set the `type` of the source to `DelimitedFile`.  You must use this query parameter to create a Delimited File source as you would in the UI.  If you don't set this query parameter and you attempt to set the `type` attribute directly, the request won't correctly generate the source.   (optional)
 
     try:
-        # Creates a source in IdentityNow.
+        # Creates a source in identitynow.
         new_source = Source.from_json(source)
         results = SourcesApi(api_client).create_source(source=new_source)
         # Below is a request that includes all optional parameters
@@ -345,7 +345,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## create-source-schema
-Create Schema on Source
+Create schema on source
 Use this API to create a new schema on the specified source in Identity Security Cloud (ISC).
 
 
@@ -390,7 +390,7 @@ with ApiClient(configuration) as api_client:
     model_schema = '''sailpoint.v3.ModelSchema()''' # ModelSchema | 
 
     try:
-        # Create Schema on Source
+        # Create schema on source
         new_model_schema = ModelSchema.from_json(model_schema)
         results = SourcesApi(api_client).create_source_schema(source_id=source_id, model_schema=new_model_schema)
         # Below is a request that includes all optional parameters
@@ -406,7 +406,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-provisioning-policy
-Delete Provisioning Policy by UsageType
+Delete provisioning policy by usagetype
 Deletes the provisioning policy with the specified usage on an application.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-provisioning-policy)
@@ -451,7 +451,7 @@ with ApiClient(configuration) as api_client:
     usage_type = sailpoint.v3.UsageType() # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.  # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
 
     try:
-        # Delete Provisioning Policy by UsageType
+        # Delete provisioning policy by usagetype
         
         SourcesApi(api_client).delete_provisioning_policy(source_id=source_id, usage_type=usage_type)
         # Below is a request that includes all optional parameters
@@ -465,7 +465,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-source
-Delete Source by ID
+Delete source by id
 Use this API to delete a specific source in Identity Security Cloud (ISC).
 The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
 
@@ -509,7 +509,7 @@ with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | Source ID. # str | Source ID.
 
     try:
-        # Delete Source by ID
+        # Delete source by id
         
         results = SourcesApi(api_client).delete_source(id=id)
         # Below is a request that includes all optional parameters
@@ -525,7 +525,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-source-schema
-Delete Source Schema by ID
+Delete source schema by id
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-source-schema)
@@ -569,7 +569,7 @@ with ApiClient(configuration) as api_client:
     schema_id = '2c9180835d191a86015d28455b4a2329' # str | The Schema id. # str | The Schema id.
 
     try:
-        # Delete Source Schema by ID
+        # Delete source schema by id
         
         SourcesApi(api_client).delete_source_schema(source_id=source_id, schema_id=schema_id)
         # Below is a request that includes all optional parameters
@@ -700,7 +700,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-provisioning-policy
-Get Provisioning Policy by UsageType
+Get provisioning policy by usagetype
 This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-provisioning-policy)
@@ -746,7 +746,7 @@ with ApiClient(configuration) as api_client:
     usage_type = sailpoint.v3.UsageType() # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs.  # UsageType | The type of provisioning policy usage.  In IdentityNow, a source can support various provisioning operations. For example, when a joiner is added to a source, this may trigger both CREATE and UPDATE provisioning operations.  Each usage type is considered a provisioning policy.  A source can have any number of these provisioning policies defined.  These are the common usage types:  CREATE - This usage type relates to 'Create Account Profile', the provisioning template for the account to be created. For example, this would be used for a joiner on a source.   UPDATE - This usage type relates to 'Update Account Profile', the provisioning template for the 'Update' connector operations. For example, this would be used for an attribute sync on a source. ENABLE - This usage type relates to 'Enable Account Profile', the provisioning template for the account to be enabled. For example, this could be used for a joiner on a source once the joiner's account is created.  DISABLE - This usage type relates to 'Disable Account Profile', the provisioning template for the account to be disabled. For example, this could be used when a leaver is removed temporarily from a source.  You can use these four usage types for all your provisioning policy needs. 
 
     try:
-        # Get Provisioning Policy by UsageType
+        # Get provisioning policy by usagetype
         
         results = SourcesApi(api_client).get_provisioning_policy(source_id=source_id, usage_type=usage_type)
         # Below is a request that includes all optional parameters
@@ -762,7 +762,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-source
-Get Source by ID
+Get source by id
 Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-source)
@@ -805,7 +805,7 @@ with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | Source ID. # str | Source ID.
 
     try:
-        # Get Source by ID
+        # Get source by id
         
         results = SourcesApi(api_client).get_source(id=id)
         # Below is a request that includes all optional parameters
@@ -821,7 +821,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-source-connections
-Get Source Connections by ID
+Get source connections by id
 Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-source-connections)
@@ -864,7 +864,7 @@ with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | Source ID. # str | Source ID.
 
     try:
-        # Get Source Connections by ID
+        # Get source connections by id
         
         results = SourcesApi(api_client).get_source_connections(source_id=source_id)
         # Below is a request that includes all optional parameters
@@ -939,7 +939,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-source-schema
-Get Source Schema by ID
+Get source schema by id
 Get the Source Schema by ID in IdentityNow.
 
 
@@ -985,7 +985,7 @@ with ApiClient(configuration) as api_client:
     schema_id = '2c9180835d191a86015d28455b4a2329' # str | The Schema id. # str | The Schema id.
 
     try:
-        # Get Source Schema by ID
+        # Get source schema by id
         
         results = SourcesApi(api_client).get_source_schema(source_id=source_id, schema_id=schema_id)
         # Below is a request that includes all optional parameters
@@ -1001,7 +1001,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-source-schemas
-List Schemas on Source
+List schemas on source
 Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-source-schemas)
@@ -1048,7 +1048,7 @@ with ApiClient(configuration) as api_client:
     include_names = 'account' # str | A comma-separated list of schema names to filter result. (optional) # str | A comma-separated list of schema names to filter result. (optional)
 
     try:
-        # List Schemas on Source
+        # List schemas on source
         
         results = SourcesApi(api_client).get_source_schemas(source_id=source_id)
         # Below is a request that includes all optional parameters
@@ -1259,7 +1259,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-provisioning-policies
-Lists ProvisioningPolicies
+Lists provisioningpolicies
 This end-point lists all the ProvisioningPolicies in IdentityNow.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-provisioning-policies)
@@ -1302,7 +1302,7 @@ with ApiClient(configuration) as api_client:
     source_id = '2c9180835d191a86015d28455b4a2329' # str | The Source id # str | The Source id
 
     try:
-        # Lists ProvisioningPolicies
+        # Lists provisioningpolicies
         
         results = SourcesApi(api_client).list_provisioning_policies(source_id=source_id)
         # Below is a request that includes all optional parameters
@@ -1319,7 +1319,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-sources
-Lists all sources in IdentityNow.
+Lists all sources in identitynow.
 This end-point lists all the sources in IdentityNow.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-sources)
@@ -1374,7 +1374,7 @@ with ApiClient(configuration) as api_client:
     include_idn_source = False # bool | Include the IdentityNow source in the response. (optional) (default to False) # bool | Include the IdentityNow source in the response. (optional) (default to False)
 
     try:
-        # Lists all sources in IdentityNow.
+        # Lists all sources in identitynow.
         
         results = SourcesApi(api_client).list_sources()
         # Below is a request that includes all optional parameters
@@ -1391,7 +1391,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-provisioning-policy
-Update Provisioning Policy by UsageType
+Update provisioning policy by usagetype
 This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
@@ -1480,7 +1480,7 @@ with ApiClient(configuration) as api_client:
         }''' # ProvisioningPolicyDto | 
 
     try:
-        # Update Provisioning Policy by UsageType
+        # Update provisioning policy by usagetype
         new_provisioning_policy_dto = ProvisioningPolicyDto.from_json(provisioning_policy_dto)
         results = SourcesApi(api_client).put_provisioning_policy(source_id=source_id, usage_type=usage_type, provisioning_policy_dto=new_provisioning_policy_dto)
         # Below is a request that includes all optional parameters
@@ -1496,7 +1496,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-source
-Update Source (Full)
+Update source (full)
 Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.
 
 These fields are immutable, so they cannot be changed:
@@ -1635,7 +1635,7 @@ with ApiClient(configuration) as api_client:
         }''' # Source | 
 
     try:
-        # Update Source (Full)
+        # Update source (full)
         new_source = Source.from_json(source)
         results = SourcesApi(api_client).put_source(id=id, source=new_source)
         # Below is a request that includes all optional parameters
@@ -1651,7 +1651,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-source-schema
-Update Source Schema (Full)
+Update source schema (full)
 This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.
 
 * id
@@ -1708,7 +1708,7 @@ with ApiClient(configuration) as api_client:
     model_schema = '''sailpoint.v3.ModelSchema()''' # ModelSchema | 
 
     try:
-        # Update Source Schema (Full)
+        # Update source schema (full)
         new_model_schema = ModelSchema.from_json(model_schema)
         results = SourcesApi(api_client).put_source_schema(source_id=source_id, schema_id=schema_id, model_schema=new_model_schema)
         # Below is a request that includes all optional parameters
@@ -1724,7 +1724,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-provisioning-policies-in-bulk
-Bulk Update Provisioning Policies
+Bulk update provisioning policies
 This end-point updates a list of provisioning policies on the specified source in IdentityNow.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/update-provisioning-policies-in-bulk)
@@ -1769,7 +1769,7 @@ with ApiClient(configuration) as api_client:
     provisioning_policy_dto = '''[sailpoint.v3.ProvisioningPolicyDto()]''' # List[ProvisioningPolicyDto] | 
 
     try:
-        # Bulk Update Provisioning Policies
+        # Bulk update provisioning policies
         new_provisioning_policy_dto = ProvisioningPolicyDto.from_json(provisioning_policy_dto)
         results = SourcesApi(api_client).update_provisioning_policies_in_bulk(source_id=source_id, provisioning_policy_dto=new_provisioning_policy_dto)
         # Below is a request that includes all optional parameters
@@ -1786,7 +1786,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-provisioning-policy
-Partial update of Provisioning Policy
+Partial update of provisioning policy
 This API selectively updates an existing Provisioning Policy using a JSONPatch payload.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
@@ -1837,7 +1837,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=add, path=/fields/0, value={name=email, transform={type=identityAttribute, attributes={name=email}}, attributes={}, isRequired=false, type=string, isMultiValued=false}}]''' # List[JsonPatchOperation] | The JSONPatch payload used to update the schema.
 
     try:
-        # Partial update of Provisioning Policy
+        # Partial update of provisioning policy
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = SourcesApi(api_client).update_provisioning_policy(source_id=source_id, usage_type=usage_type, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
@@ -1853,7 +1853,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-source
-Update Source (Partial)
+Update source (partial)
 Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the
 [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
@@ -1914,7 +1914,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=replace, path=/description, value=new description}]''' # List[JsonPatchOperation] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Any password changes are submitted as plain-text and encrypted upon receipt in Identity Security Cloud (ISC).
 
     try:
-        # Update Source (Partial)
+        # Update source (partial)
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = SourcesApi(api_client).update_source(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
@@ -1930,7 +1930,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-source-schema
-Update Source Schema (Partial)
+Update source schema (partial)
 Use this API to selectively update an existing Schema using a JSONPatch payload. 
 
 The following schema fields are immutable and cannot be updated:
@@ -2007,7 +2007,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=add, path=/attributes/-, value={name=location, type=STRING, schema=null, description=Employee location, isMulti=false, isEntitlement=false, isGroup=false}}]''' # List[JsonPatchOperation] | The JSONPatch payload used to update the schema.
 
     try:
-        # Update Source Schema (Partial)
+        # Update source schema (partial)
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = SourcesApi(api_client).update_source_schema(source_id=source_id, schema_id=schema_id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters

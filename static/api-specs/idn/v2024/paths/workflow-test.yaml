@@ -2,7 +2,7 @@ post:
   operationId: testWorkflow
   tags:
     - Workflows
-  summary: Test Workflow By Id
+  summary: Test workflow by id
   description: >-
     Test a workflow with the provided input data.  The input data should resemble the input that the trigger will send the workflow.  See the [event trigger documentation](https://developer.sailpoint.com/idn/docs/event-triggers/available) for an example input for the trigger that initiates this workflow.
     

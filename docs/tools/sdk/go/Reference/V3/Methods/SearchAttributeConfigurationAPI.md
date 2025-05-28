@@ -33,15 +33,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-search-attribute-config**](#create-search-attribute-config) | **Post** `/accounts/search-attribute-config` | Create Extended Search Attributes
-[**delete-search-attribute-config**](#delete-search-attribute-config) | **Delete** `/accounts/search-attribute-config/{name}` | Delete Extended Search Attribute
-[**get-search-attribute-config**](#get-search-attribute-config) | **Get** `/accounts/search-attribute-config` | List Extended Search Attributes
-[**get-single-search-attribute-config**](#get-single-search-attribute-config) | **Get** `/accounts/search-attribute-config/{name}` | Get Extended Search Attribute
-[**patch-search-attribute-config**](#patch-search-attribute-config) | **Patch** `/accounts/search-attribute-config/{name}` | Update Extended Search Attribute
+[**create-search-attribute-config**](#create-search-attribute-config) | **Post** `/accounts/search-attribute-config` | Create extended search attributes
+[**delete-search-attribute-config**](#delete-search-attribute-config) | **Delete** `/accounts/search-attribute-config/{name}` | Delete extended search attribute
+[**get-search-attribute-config**](#get-search-attribute-config) | **Get** `/accounts/search-attribute-config` | List extended search attributes
+[**get-single-search-attribute-config**](#get-single-search-attribute-config) | **Get** `/accounts/search-attribute-config/{name}` | Get extended search attribute
+[**patch-search-attribute-config**](#patch-search-attribute-config) | **Patch** `/accounts/search-attribute-config/{name}` | Update extended search attribute
 
 
 ## create-search-attribute-config
-Create Extended Search Attributes
+Create extended search attributes
 Create and configure extended search attributes. This API accepts an attribute name, an attribute display name and a list of name/value pair associates of application IDs to attribute names. It will then validate the inputs and configure/create the attribute promotion configuration in the Link ObjectConfig.
 >**Note: Give searchable attributes unique names.  Do not give them the same names used for account attributes or source attributes.  Also, do not give them the same names present in account schema for a current or future source, regardless of whether that source is included in the searchable attributes' `applicationAttributes`.**
 
@@ -116,7 +116,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-search-attribute-config
-Delete Extended Search Attribute
+Delete extended search attribute
 Delete an extended attribute configuration by name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-search-attribute-config)
@@ -181,7 +181,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-search-attribute-config
-List Extended Search Attributes
+List extended search attributes
 Get a list of attribute/application attributes currently configured in Identity Security Cloud (ISC).
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-search-attribute-config)
@@ -245,7 +245,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-single-search-attribute-config
-Get Extended Search Attribute
+Get extended search attribute
 Get an extended attribute configuration by name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-single-search-attribute-config)
@@ -311,7 +311,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-search-attribute-config
-Update Extended Search Attribute
+Update extended search attribute
 Update an existing search attribute configuration. 
 You can patch these fields:
 * name  * displayName * applicationAttributes

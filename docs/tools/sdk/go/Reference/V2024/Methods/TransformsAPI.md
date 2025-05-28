@@ -22,7 +22,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create-transform**](#create-transform) | **Post** `/transforms` | Create transform
 [**delete-transform**](#delete-transform) | **Delete** `/transforms/{id}` | Delete a transform
-[**get-transform**](#get-transform) | **Get** `/transforms/{id}` | Transform by ID
+[**get-transform**](#get-transform) | **Get** `/transforms/{id}` | Transform by id
 [**list-transforms**](#list-transforms) | **Get** `/transforms` | List transforms
 [**update-transform**](#update-transform) | **Put** `/transforms/{id}` | Update a transform
 
@@ -164,7 +164,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-transform
-Transform by ID
+Transform by id
 This API returns the transform specified by the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-transform)

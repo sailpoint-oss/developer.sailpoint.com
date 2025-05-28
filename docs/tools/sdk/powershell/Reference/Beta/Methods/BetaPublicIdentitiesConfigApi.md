@@ -27,8 +27,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaPublicIdentityConfig**](#get-public-identity-config) | **GET** `/public-identities-config` | Get Public Identity Config
-[**Update-BetaPublicIdentityConfig**](#update-public-identity-config) | **PUT** `/public-identities-config` | Update Public Identity Config
+[**Get-BetaPublicIdentityConfig**](#get-public-identity-config) | **GET** `/public-identities-config` | Get public identity config
+[**Update-BetaPublicIdentityConfig**](#update-public-identity-config) | **PUT** `/public-identities-config` | Update public identity config
 
 
 ## get-public-identity-config
@@ -63,7 +63,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get Public Identity Config
+# Get public identity config
 
 try {
     Get-BetaPublicIdentityConfig 
@@ -125,7 +125,7 @@ $PublicIdentityConfig = @"{
   }
 }"@
 
-# Update Public Identity Config
+# Update public identity config
 
 try {
     $Result = ConvertFrom-JsonToPublicIdentityConfig -Json $PublicIdentityConfig

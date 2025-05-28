@@ -1,4 +1,4 @@
-summary: Query for Entitlements
+summary: Query for entitlements
 value:
   indices:
     - entitlements

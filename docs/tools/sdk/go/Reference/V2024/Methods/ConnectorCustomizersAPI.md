@@ -18,16 +18,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-connector-customizer**](#create-connector-customizer) | **Post** `/connector-customizers` | Create Connector Customizer
+[**create-connector-customizer**](#create-connector-customizer) | **Post** `/connector-customizers` | Create connector customizer
 [**create-connector-customizer-version**](#create-connector-customizer-version) | **Post** `/connector-customizers/{id}/versions` | Creates a connector customizer version
-[**delete-connector-customizer**](#delete-connector-customizer) | **Delete** `/connector-customizers/{id}` | Delete Connector Customizer
+[**delete-connector-customizer**](#delete-connector-customizer) | **Delete** `/connector-customizers/{id}` | Delete connector customizer
 [**get-connector-customizer**](#get-connector-customizer) | **Get** `/connector-customizers/{id}` | Get connector customizer
-[**list-connector-customizers**](#list-connector-customizers) | **Get** `/connector-customizers` | List All Connector Customizers
-[**put-connector-customizer**](#put-connector-customizer) | **Put** `/connector-customizers/{id}` | Update Connector Customizer
+[**list-connector-customizers**](#list-connector-customizers) | **Get** `/connector-customizers` | List all connector customizers
+[**put-connector-customizer**](#put-connector-customizer) | **Put** `/connector-customizers/{id}` | Update connector customizer
 
 
 ## create-connector-customizer
-Create Connector Customizer
+Create connector customizer
 Create a connector customizer.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-connector-customizer)
@@ -162,7 +162,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-connector-customizer
-Delete Connector Customizer
+Delete connector customizer
 Delete the connector customizer for the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-connector-customizer)
@@ -293,7 +293,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-connector-customizers
-List All Connector Customizers
+List all connector customizers
 List all connector customizers.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-connector-customizers)
@@ -357,7 +357,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-connector-customizer
-Update Connector Customizer
+Update connector customizer
 Update an existing connector customizer with the one provided in the request body. These fields are immutable: `id`, `name`, `type`.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-connector-customizer)

@@ -4,7 +4,7 @@ post:
     - userAuth: [ idn:tag:manage ]
   tags:
     - Tagged Objects
-  summary: Tag Multiple Objects
+  summary: Tag multiple objects
   description: >-
     This API adds tags to multiple objects.
 

@@ -32,12 +32,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Suspend-BetaAccessRequest**](#cancel-access-request) | **POST** `/access-requests/cancel` | Cancel Access Request
-[**Close-BetaAccessRequest**](#close-access-request) | **POST** `/access-requests/close` | Close Access Request
-[**New-BetaAccessRequest**](#create-access-request) | **POST** `/access-requests` | Submit Access Request
-[**Get-BetaAccessRequestConfig**](#get-access-request-config) | **GET** `/access-request-config` | Get Access Request Configuration
-[**Get-BetaAccessRequestStatus**](#list-access-request-status) | **GET** `/access-request-status` | Access Request Status
-[**Set-BetaAccessRequestConfig**](#set-access-request-config) | **PUT** `/access-request-config` | Update Access Request Configuration
+[**Suspend-BetaAccessRequest**](#cancel-access-request) | **POST** `/access-requests/cancel` | Cancel access request
+[**Close-BetaAccessRequest**](#close-access-request) | **POST** `/access-requests/close` | Close access request
+[**New-BetaAccessRequest**](#create-access-request) | **POST** `/access-requests` | Submit access request
+[**Get-BetaAccessRequestConfig**](#get-access-request-config) | **GET** `/access-request-config` | Get access request configuration
+[**Get-BetaAccessRequestStatus**](#list-access-request-status) | **GET** `/access-request-status` | Access request status
+[**Set-BetaAccessRequestConfig**](#set-access-request-config) | **PUT** `/access-request-config` | Update access request configuration
 
 
 ## cancel-access-request
@@ -76,7 +76,7 @@ $CancelAccessRequest = @"{
   "comment" : "I requested this role by mistake."
 }"@
 
-# Cancel Access Request
+# Cancel access request
 
 try {
     $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
@@ -138,7 +138,7 @@ $CloseAccessRequest = @"{
   "message" : "The IdentityNow Administrator manually closed this request."
 }"@
 
-# Close Access Request
+# Close access request
 
 try {
     $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
@@ -399,7 +399,7 @@ $AccessRequest = @"{
   } ]
 }"@
 
-# Submit Access Request
+# Submit access request
 
 try {
     $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
@@ -443,7 +443,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get Access Request Configuration
+# Get access request configuration
 
 try {
     Get-BetaAccessRequestConfig 
@@ -508,7 +508,7 @@ $Filters = 'accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"' # Strin
 $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name** (optional)
 $RequestState = "request-state=EXECUTING" # String | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
 
-# Access Request Status
+# Access request status
 
 try {
     Get-BetaAccessRequestStatus 
@@ -578,7 +578,7 @@ $AccessRequestConfig = @"{
   "approvalsMustBeExternal" : true
 }"@
 
-# Update Access Request Configuration
+# Update access request configuration
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig

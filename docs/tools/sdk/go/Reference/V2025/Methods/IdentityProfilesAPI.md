@@ -25,21 +25,21 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-identity-profile**](#create-identity-profile) | **Post** `/identity-profiles` | Create Identity Profile
-[**delete-identity-profile**](#delete-identity-profile) | **Delete** `/identity-profiles/{identity-profile-id}` | Delete Identity Profile
-[**delete-identity-profiles**](#delete-identity-profiles) | **Post** `/identity-profiles/bulk-delete` | Delete Identity Profiles
-[**export-identity-profiles**](#export-identity-profiles) | **Get** `/identity-profiles/export` | Export Identity Profiles
-[**generate-identity-preview**](#generate-identity-preview) | **Post** `/identity-profiles/identity-preview` | Generate Identity Profile Preview
-[**get-default-identity-attribute-config**](#get-default-identity-attribute-config) | **Get** `/identity-profiles/{identity-profile-id}/default-identity-attribute-config` | Get default Identity Attribute Config
-[**get-identity-profile**](#get-identity-profile) | **Get** `/identity-profiles/{identity-profile-id}` | Get Identity Profile
-[**import-identity-profiles**](#import-identity-profiles) | **Post** `/identity-profiles/import` | Import Identity Profiles
-[**list-identity-profiles**](#list-identity-profiles) | **Get** `/identity-profiles` | List Identity Profiles
+[**create-identity-profile**](#create-identity-profile) | **Post** `/identity-profiles` | Create identity profile
+[**delete-identity-profile**](#delete-identity-profile) | **Delete** `/identity-profiles/{identity-profile-id}` | Delete identity profile
+[**delete-identity-profiles**](#delete-identity-profiles) | **Post** `/identity-profiles/bulk-delete` | Delete identity profiles
+[**export-identity-profiles**](#export-identity-profiles) | **Get** `/identity-profiles/export` | Export identity profiles
+[**generate-identity-preview**](#generate-identity-preview) | **Post** `/identity-profiles/identity-preview` | Generate identity profile preview
+[**get-default-identity-attribute-config**](#get-default-identity-attribute-config) | **Get** `/identity-profiles/{identity-profile-id}/default-identity-attribute-config` | Get default identity attribute config
+[**get-identity-profile**](#get-identity-profile) | **Get** `/identity-profiles/{identity-profile-id}` | Get identity profile
+[**import-identity-profiles**](#import-identity-profiles) | **Post** `/identity-profiles/import` | Import identity profiles
+[**list-identity-profiles**](#list-identity-profiles) | **Get** `/identity-profiles` | List identity profiles
 [**sync-identity-profile**](#sync-identity-profile) | **Post** `/identity-profiles/{identity-profile-id}/process-identities` | Process identities under profile
-[**update-identity-profile**](#update-identity-profile) | **Patch** `/identity-profiles/{identity-profile-id}` | Update Identity Profile
+[**update-identity-profile**](#update-identity-profile) | **Patch** `/identity-profiles/{identity-profile-id}` | Update identity profile
 
 
 ## create-identity-profile
-Create Identity Profile
+Create identity profile
 Creates an identity profile.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-identity-profile)
@@ -154,7 +154,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-identity-profile
-Delete Identity Profile
+Delete identity profile
 Delete an identity profile by ID.
 On success, this endpoint will return a reference to the bulk delete task result.
 
@@ -221,7 +221,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-identity-profiles
-Delete Identity Profiles
+Delete identity profiles
 This deletes multiple Identity Profiles via a list of supplied IDs.
 
 On success, this endpoint will return a reference to the bulk delete task result.
@@ -292,7 +292,7 @@ func main() {
 [[Back to top]](#)
 
 ## export-identity-profiles
-Export Identity Profiles
+Export identity profiles
 This exports existing identity profiles in the format specified by the sp-config service.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/export-identity-profiles)
@@ -373,7 +373,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Generate Identity Profile Preview
+Generate identity profile preview
 This generates a non-persisted IdentityDetails object that will represent as the preview of the identities attribute when the given policy''s attribute config is applied.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/generate-identity-preview)
@@ -468,7 +468,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-default-identity-attribute-config
-Get default Identity Attribute Config
+Get default identity attribute config
 This returns the default identity attribute config.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-default-identity-attribute-config)
@@ -534,7 +534,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-identity-profile
-Get Identity Profile
+Get identity profile
 Get a single identity profile by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identity-profile)
@@ -600,7 +600,7 @@ func main() {
 [[Back to top]](#)
 
 ## import-identity-profiles
-Import Identity Profiles
+Import identity profiles
 This imports previously exported identity profiles.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/import-identity-profiles)
@@ -667,7 +667,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-identity-profiles
-List Identity Profiles
+List identity profiles
 Get a list of identity profiles, based on the specified query parameters.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-identity-profiles)
@@ -807,7 +807,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-identity-profile
-Update Identity Profile
+Update identity profile
 Update a specified identity profile with this PATCH request.
   
 You cannot update these fields:

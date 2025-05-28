@@ -23,7 +23,7 @@ Method | HTTP request | Description
 [**Get-V2025SpConfigImport**](#get-sp-config-import) | **GET** `/sp-config/import/{id}/download` | Download import job result
 [**Get-V2025SpConfigImportStatus**](#get-sp-config-import-status) | **GET** `/sp-config/import/{id}` | Get import job status
 [**Import-V2025SpConfig**](#import-sp-config) | **POST** `/sp-config/import` | Initiates configuration objects import job
-[**Get-V2025SpConfigObjects**](#list-sp-config-objects) | **GET** `/sp-config/config-objects` | List Config Objects
+[**Get-V2025SpConfigObjects**](#list-sp-config-objects) | **GET** `/sp-config/config-objects` | List config objects
 
 
 ## export-sp-config
@@ -360,7 +360,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# List Config Objects
+# List config objects
 
 try {
     Get-V2025SpConfigObjects 

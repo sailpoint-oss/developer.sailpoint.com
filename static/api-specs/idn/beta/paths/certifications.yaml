@@ -2,7 +2,7 @@ get:
   operationId: listCertifications
   tags:
     - Certifications
-  summary: Certifications by IDs
+  summary: Certifications by ids
   description: >-
     This API returns a list of certifications that satisfy the given query parameters. Any authenticated token can call
     this API, but only certifications you are authorized to review will be returned.

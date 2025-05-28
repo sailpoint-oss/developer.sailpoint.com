@@ -2,7 +2,7 @@ get:
   operationId: getPublicIdentityConfig
   tags:
     - Public Identities Config
-  summary: Get Public Identity Config
+  summary: Get public identity config
   description: >-
     This gets details of public identity config.
   deprecated: true
@@ -33,7 +33,7 @@ put:
   operationId: updatePublicIdentityConfig
   tags:
     - Public Identities Config
-  summary: Update Public Identity Config
+  summary: Update public identity config
   description: >-
     This updates the details of public identity config.
   deprecated: true

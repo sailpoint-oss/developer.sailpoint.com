@@ -25,10 +25,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-access-model-metadata-attribute**](#get-access-model-metadata-attribute) | **Get** `/access-model-metadata/attributes/{key}` | Get Access Model Metadata Attribute
-[**get-access-model-metadata-attribute-value**](#get-access-model-metadata-attribute-value) | **Get** `/access-model-metadata/attributes/{key}/values/{value}` | Get Access Model Metadata Value
-[**list-access-model-metadata-attribute**](#list-access-model-metadata-attribute) | **Get** `/access-model-metadata/attributes` | List Access Model Metadata Attributes
-[**list-access-model-metadata-attribute-value**](#list-access-model-metadata-attribute-value) | **Get** `/access-model-metadata/attributes/{key}/values` | List Access Model Metadata Values
+[**get-access-model-metadata-attribute**](#get-access-model-metadata-attribute) | **Get** `/access-model-metadata/attributes/{key}` | Get access model metadata attribute
+[**get-access-model-metadata-attribute-value**](#get-access-model-metadata-attribute-value) | **Get** `/access-model-metadata/attributes/{key}/values/{value}` | Get access model metadata value
+[**list-access-model-metadata-attribute**](#list-access-model-metadata-attribute) | **Get** `/access-model-metadata/attributes` | List access model metadata attributes
+[**list-access-model-metadata-attribute-value**](#list-access-model-metadata-attribute-value) | **Get** `/access-model-metadata/attributes/{key}/values` | List access model metadata values
 
 
 ## get-access-model-metadata-attribute
@@ -43,7 +43,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Access Model Metadata Attribute
+Get access model metadata attribute
 Get single Access Model Metadata Attribute
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-model-metadata-attribute)
@@ -122,7 +122,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Access Model Metadata Value
+Get access model metadata value
 Get single Access Model Metadata Attribute Value
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-model-metadata-attribute-value)
@@ -204,7 +204,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Access Model Metadata Attributes
+List access model metadata attributes
 Get a list of Access Model Metadata Attributes
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-access-model-metadata-attribute)
@@ -279,7 +279,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Access Model Metadata Values
+List access model metadata values
 Get a list of Access Model Metadata Attribute Values
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-access-model-metadata-attribute-value)

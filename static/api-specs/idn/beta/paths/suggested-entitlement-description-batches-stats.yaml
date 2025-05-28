@@ -2,7 +2,7 @@ get:
   tags:
     - Suggested Entitlement Description
   operationId: getSedBatchStats
-  summary: Submit Sed Batch Stats Request
+  summary: Submit sed batch stats request
   description: |
     Submit Sed Batch Stats Request.
 
@@ -39,3 +39,6 @@ get:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [ idn:sed:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN

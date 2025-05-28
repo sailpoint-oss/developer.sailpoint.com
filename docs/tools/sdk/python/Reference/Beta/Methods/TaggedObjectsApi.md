@@ -68,18 +68,18 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete-tagged-object**](#delete-tagged-object) | **DELETE** `/tagged-objects/{type}/{id}` | Delete Object Tags
-[**delete-tags-to-many-object**](#delete-tags-to-many-object) | **POST** `/tagged-objects/bulk-remove` | Remove Tags from Multiple Objects
-[**get-tagged-object**](#get-tagged-object) | **GET** `/tagged-objects/{type}/{id}` | Get Tagged Object
-[**list-tagged-objects**](#list-tagged-objects) | **GET** `/tagged-objects` | List Tagged Objects
-[**list-tagged-objects-by-type**](#list-tagged-objects-by-type) | **GET** `/tagged-objects/{type}` | List Tagged Objects by Type
-[**put-tagged-object**](#put-tagged-object) | **PUT** `/tagged-objects/{type}/{id}` | Update Tagged Object
-[**set-tag-to-object**](#set-tag-to-object) | **POST** `/tagged-objects` | Add Tag to Object
-[**set-tags-to-many-objects**](#set-tags-to-many-objects) | **POST** `/tagged-objects/bulk-add` | Tag Multiple Objects
+[**delete-tagged-object**](#delete-tagged-object) | **DELETE** `/tagged-objects/{type}/{id}` | Delete object tags
+[**delete-tags-to-many-object**](#delete-tags-to-many-object) | **POST** `/tagged-objects/bulk-remove` | Remove tags from multiple objects
+[**get-tagged-object**](#get-tagged-object) | **GET** `/tagged-objects/{type}/{id}` | Get tagged object
+[**list-tagged-objects**](#list-tagged-objects) | **GET** `/tagged-objects` | List tagged objects
+[**list-tagged-objects-by-type**](#list-tagged-objects-by-type) | **GET** `/tagged-objects/{type}` | List tagged objects by type
+[**put-tagged-object**](#put-tagged-object) | **PUT** `/tagged-objects/{type}/{id}` | Update tagged object
+[**set-tag-to-object**](#set-tag-to-object) | **POST** `/tagged-objects` | Add tag to object
+[**set-tags-to-many-objects**](#set-tags-to-many-objects) | **POST** `/tagged-objects/bulk-add` | Tag multiple objects
 
 
 ## delete-tagged-object
-Delete Object Tags
+Delete object tags
 Delete all tags from a tagged object.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-tagged-object)
@@ -122,7 +122,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the object to delete tags from. # str | The ID of the object to delete tags from.
 
     try:
-        # Delete Object Tags
+        # Delete object tags
         
         TaggedObjectsApi(api_client).delete_tagged_object(type=type, id=id)
         # Below is a request that includes all optional parameters
@@ -136,7 +136,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-tags-to-many-object
-Remove Tags from Multiple Objects
+Remove tags from multiple objects
 This API removes tags from multiple objects.
 
 A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -192,7 +192,7 @@ with ApiClient(configuration) as api_client:
         }''' # BulkTaggedObject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
     try:
-        # Remove Tags from Multiple Objects
+        # Remove tags from multiple objects
         new_bulk_tagged_object = BulkTaggedObject.from_json(bulk_tagged_object)
         TaggedObjectsApi(api_client).delete_tags_to_many_object(bulk_tagged_object=new_bulk_tagged_object)
         # Below is a request that includes all optional parameters
@@ -206,7 +206,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-tagged-object
-Get Tagged Object
+Get tagged object
 This gets a tagged object for the specified type.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-tagged-object)
@@ -250,7 +250,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | The ID of the object reference to retrieve. # str | The ID of the object reference to retrieve.
 
     try:
-        # Get Tagged Object
+        # Get tagged object
         
         results = TaggedObjectsApi(api_client).get_tagged_object(type=type, id=id)
         # Below is a request that includes all optional parameters
@@ -266,7 +266,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-tagged-objects
-List Tagged Objects
+List tagged objects
 This API returns a list of all tagged objects.
 
 Any authenticated token may be used to call this API.
@@ -316,7 +316,7 @@ with ApiClient(configuration) as api_client:
     filters = 'tagName eq \"BU_FINANCE\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq, in*  **objectRef.type**: *eq, in*  **tagName**: *eq, in* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq, in*  **objectRef.type**: *eq, in*  **tagName**: *eq, in* (optional)
 
     try:
-        # List Tagged Objects
+        # List tagged objects
         
         results = TaggedObjectsApi(api_client).list_tagged_objects()
         # Below is a request that includes all optional parameters
@@ -333,7 +333,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-tagged-objects-by-type
-List Tagged Objects by Type
+List tagged objects by type
 This API returns a list of all tagged objects by type.
 
 Any authenticated token may be used to call this API.
@@ -385,7 +385,7 @@ with ApiClient(configuration) as api_client:
     filters = 'objectRef.id eq \"2c91808568c529c60168cca6f90c1313\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq*  **objectRef.type**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **objectRef.id**: *eq*  **objectRef.type**: *eq* (optional)
 
     try:
-        # List Tagged Objects by Type
+        # List tagged objects by type
         
         results = TaggedObjectsApi(api_client).list_tagged_objects_by_type(type=type)
         # Below is a request that includes all optional parameters
@@ -402,7 +402,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-tagged-object
-Update Tagged Object
+Update tagged object
 This updates a tagged object for the specified type.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-tagged-object)
@@ -455,7 +455,7 @@ with ApiClient(configuration) as api_client:
         }''' # TaggedObject | 
 
     try:
-        # Update Tagged Object
+        # Update tagged object
         new_tagged_object = TaggedObject.from_json(tagged_object)
         results = TaggedObjectsApi(api_client).put_tagged_object(type=type, id=id, tagged_object=new_tagged_object)
         # Below is a request that includes all optional parameters
@@ -471,7 +471,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## set-tag-to-object
-Add Tag to Object
+Add tag to object
 This adds a tag to an object.
 
 Any authenticated token may be used to call this API.
@@ -522,7 +522,7 @@ with ApiClient(configuration) as api_client:
         }''' # TaggedObject | 
 
     try:
-        # Add Tag to Object
+        # Add tag to object
         new_tagged_object = TaggedObject.from_json(tagged_object)
         TaggedObjectsApi(api_client).set_tag_to_object(tagged_object=new_tagged_object)
         # Below is a request that includes all optional parameters
@@ -536,7 +536,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## set-tags-to-many-objects
-Tag Multiple Objects
+Tag multiple objects
 This API adds tags to multiple objects.
 
 A token with API, CERT_ADMIN, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -592,7 +592,7 @@ with ApiClient(configuration) as api_client:
         }''' # BulkTaggedObject | Supported object types are ACCESS_PROFILE, APPLICATION, CAMPAIGN, ENTITLEMENT, IDENTITY, ROLE, SOD_POLICY, SOURCE.
 
     try:
-        # Tag Multiple Objects
+        # Tag multiple objects
         new_bulk_tagged_object = BulkTaggedObject.from_json(bulk_tagged_object)
         results = TaggedObjectsApi(api_client).set_tags_to_many_objects(bulk_tagged_object=new_bulk_tagged_object)
         # Below is a request that includes all optional parameters

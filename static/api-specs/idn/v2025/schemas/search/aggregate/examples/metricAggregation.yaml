@@ -1,4 +1,4 @@
-summary: MetricAggregation
+summary: Metricaggregation
 value:
   indices:  [ 'identities' ]
   aggregationType: 'SAILPOINT'

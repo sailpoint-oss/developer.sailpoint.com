@@ -15,16 +15,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add-access-request-recommendations-ignored-item**](#add-access-request-recommendations-ignored-item) | **Post** `/ai-access-request-recommendations/ignored-items` | Ignore Access Request Recommendation
-[**add-access-request-recommendations-requested-item**](#add-access-request-recommendations-requested-item) | **Post** `/ai-access-request-recommendations/requested-items` | Accept Access Request Recommendation
-[**add-access-request-recommendations-viewed-item**](#add-access-request-recommendations-viewed-item) | **Post** `/ai-access-request-recommendations/viewed-items` | Mark Viewed Access Request Recommendations
-[**add-access-request-recommendations-viewed-items**](#add-access-request-recommendations-viewed-items) | **Post** `/ai-access-request-recommendations/viewed-items/bulk-create` | Bulk Mark Viewed Access Request Recommendations
-[**get-access-request-recommendations**](#get-access-request-recommendations) | **Get** `/ai-access-request-recommendations` | Identity Access Request Recommendations
-[**get-access-request-recommendations-config**](#get-access-request-recommendations-config) | **Get** `/ai-access-request-recommendations/config` | Get Access Request Recommendations config
-[**get-access-request-recommendations-ignored-items**](#get-access-request-recommendations-ignored-items) | **Get** `/ai-access-request-recommendations/ignored-items` | List Ignored Access Request Recommendations
-[**get-access-request-recommendations-requested-items**](#get-access-request-recommendations-requested-items) | **Get** `/ai-access-request-recommendations/requested-items` | List Accepted Access Request Recommendations
-[**get-access-request-recommendations-viewed-items**](#get-access-request-recommendations-viewed-items) | **Get** `/ai-access-request-recommendations/viewed-items` | List Viewed Access Request Recommendations
-[**set-access-request-recommendations-config**](#set-access-request-recommendations-config) | **Put** `/ai-access-request-recommendations/config` | Update Access Request Recommendations config
+[**add-access-request-recommendations-ignored-item**](#add-access-request-recommendations-ignored-item) | **Post** `/ai-access-request-recommendations/ignored-items` | Ignore access request recommendation
+[**add-access-request-recommendations-requested-item**](#add-access-request-recommendations-requested-item) | **Post** `/ai-access-request-recommendations/requested-items` | Accept access request recommendation
+[**add-access-request-recommendations-viewed-item**](#add-access-request-recommendations-viewed-item) | **Post** `/ai-access-request-recommendations/viewed-items` | Mark viewed access request recommendations
+[**add-access-request-recommendations-viewed-items**](#add-access-request-recommendations-viewed-items) | **Post** `/ai-access-request-recommendations/viewed-items/bulk-create` | Bulk mark viewed access request recommendations
+[**get-access-request-recommendations**](#get-access-request-recommendations) | **Get** `/ai-access-request-recommendations` | Identity access request recommendations
+[**get-access-request-recommendations-config**](#get-access-request-recommendations-config) | **Get** `/ai-access-request-recommendations/config` | Get access request recommendations config
+[**get-access-request-recommendations-ignored-items**](#get-access-request-recommendations-ignored-items) | **Get** `/ai-access-request-recommendations/ignored-items` | List ignored access request recommendations
+[**get-access-request-recommendations-requested-items**](#get-access-request-recommendations-requested-items) | **Get** `/ai-access-request-recommendations/requested-items` | List accepted access request recommendations
+[**get-access-request-recommendations-viewed-items**](#get-access-request-recommendations-viewed-items) | **Get** `/ai-access-request-recommendations/viewed-items` | List viewed access request recommendations
+[**set-access-request-recommendations-config**](#set-access-request-recommendations-config) | **Put** `/ai-access-request-recommendations/config` | Update access request recommendations config
 
 
 ## add-access-request-recommendations-ignored-item
@@ -39,7 +39,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Ignore Access Request Recommendation
+Ignore access request recommendation
 This API ignores a recommended access request item. Once an item is ignored, it will be marked as ignored=true if it is still a recommended item. The consumer can decide to hide ignored recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/add-access-request-recommendations-ignored-item)
@@ -125,7 +125,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Accept Access Request Recommendation
+Accept access request recommendation
 This API consumes a notification that a recommended access request item was requested. This API does not actually make the request, it is just a notification. This will help provide feedback in order to improve our recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/add-access-request-recommendations-requested-item)
@@ -211,7 +211,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Mark Viewed Access Request Recommendations
+Mark viewed access request recommendations
 This API consumes a notification that a recommended access request item was viewed. Future recommendations with this item will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/add-access-request-recommendations-viewed-item)
@@ -297,7 +297,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Bulk Mark Viewed Access Request Recommendations
+Bulk mark viewed access request recommendations
 This API consumes a notification that a set of recommended access request item were viewed. Future recommendations with these items will be marked with viewed=true. This can be useful for the consumer to determine if there are any new/unviewed recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/add-access-request-recommendations-viewed-items)
@@ -377,7 +377,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Identity Access Request Recommendations
+Identity access request recommendations
 This API returns the access request recommendations for the specified identity. The default identity is *me* which indicates the current user.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-request-recommendations)
@@ -464,7 +464,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Access Request Recommendations config
+Get access request recommendations config
 This API returns the configurations for Access Request Recommender for the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-request-recommendations-config)
@@ -537,7 +537,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Ignored Access Request Recommendations
+List ignored access request recommendations
 This API returns the list of ignored access request recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-request-recommendations-ignored-items)
@@ -620,7 +620,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Accepted Access Request Recommendations
+List accepted access request recommendations
 This API returns a list of requested access request recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-request-recommendations-requested-items)
@@ -703,7 +703,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Viewed Access Request Recommendations
+List viewed access request recommendations
 This API returns the list of viewed access request recommendations.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-access-request-recommendations-viewed-items)
@@ -786,7 +786,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Update Access Request Recommendations config
+Update access request recommendations config
 This API updates the configurations for Access Request Recommender for the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/set-access-request-recommendations-config)

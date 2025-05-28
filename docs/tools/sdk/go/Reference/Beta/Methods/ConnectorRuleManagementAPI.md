@@ -21,16 +21,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-connector-rule**](#create-connector-rule) | **Post** `/connector-rules` | Create Connector Rule
-[**delete-connector-rule**](#delete-connector-rule) | **Delete** `/connector-rules/{id}` | Delete a Connector-Rule
-[**get-connector-rule**](#get-connector-rule) | **Get** `/connector-rules/{id}` | Connector-Rule by ID
-[**get-connector-rule-list**](#get-connector-rule-list) | **Get** `/connector-rules` | List Connector Rules
-[**update-connector-rule**](#update-connector-rule) | **Put** `/connector-rules/{id}` | Update a Connector Rule
-[**validate-connector-rule**](#validate-connector-rule) | **Post** `/connector-rules/validate` | Validate Connector Rule
+[**create-connector-rule**](#create-connector-rule) | **Post** `/connector-rules` | Create connector rule
+[**delete-connector-rule**](#delete-connector-rule) | **Delete** `/connector-rules/{id}` | Delete a connector-rule
+[**get-connector-rule**](#get-connector-rule) | **Get** `/connector-rules/{id}` | Connector-rule by id
+[**get-connector-rule-list**](#get-connector-rule-list) | **Get** `/connector-rules` | List connector rules
+[**update-connector-rule**](#update-connector-rule) | **Put** `/connector-rules/{id}` | Update a connector rule
+[**validate-connector-rule**](#validate-connector-rule) | **Post** `/connector-rules/validate` | Validate connector rule
 
 
 ## create-connector-rule
-Create Connector Rule
+Create connector rule
 Creates a new connector rule.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -123,7 +123,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-connector-rule
-Delete a Connector-Rule
+Delete a connector-rule
 Deletes the connector rule specified by the given ID.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -189,7 +189,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-connector-rule
-Connector-Rule by ID
+Connector-rule by id
 Returns the connector rule specified by ID.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -256,7 +256,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-connector-rule-list
-List Connector Rules
+List connector rules
 Returns the list of connector rules.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -314,7 +314,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-connector-rule
-Update a Connector Rule
+Update a connector rule
 Updates an existing connector rule with the one provided in the request body. Note that the fields 'id', 'name', and 'type' are immutable.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -409,7 +409,7 @@ func main() {
 [[Back to top]](#)
 
 ## validate-connector-rule
-Validate Connector Rule
+Validate connector rule
 Returns a list of issues within the code to fix, if any.
 A token with ORG_ADMIN authority is required to call this API.
 

@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clients
-  summary: Get Managed Client
+  summary: Get managed client
   description: >-
     Get managed client by ID. 
   operationId: getManagedClient
@@ -40,7 +40,7 @@ get:
 patch:
   tags:
     - Managed Clients
-  summary: Update Managed Client
+  summary: Update managed client
   description: >-
     Update an existing managed client.
   operationId: updateManagedClient
@@ -89,7 +89,7 @@ delete:
   operationId: deleteManagedClient
   tags:
     - Managed Clients
-  summary: Delete Managed Client
+  summary: Delete managed client
   description: >-
     Delete an existing managed client.
   parameters:

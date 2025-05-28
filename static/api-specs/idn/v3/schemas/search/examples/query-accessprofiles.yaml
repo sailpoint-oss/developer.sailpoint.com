@@ -1,4 +1,4 @@
-summary: Query for Access Profiles 
+summary: Query for access profiles
 value:
   indices:
     - accessprofiles

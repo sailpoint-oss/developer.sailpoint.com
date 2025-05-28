@@ -16,11 +16,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create-send-token**](#create-send-token) | **Post** `/mfa/token/send` | Create and send user token
-[**ping-verification-status**](#ping-verification-status) | **Post** `/mfa/{method}/poll` | Polling MFA method by VerificationPollRequest
-[**send-duo-verify-request**](#send-duo-verify-request) | **Post** `/mfa/duo-web/verify` | Verifying authentication via Duo method
-[**send-kba-answers**](#send-kba-answers) | **Post** `/mfa/kba/authenticate` | Authenticate KBA provided MFA method
-[**send-okta-verify-request**](#send-okta-verify-request) | **Post** `/mfa/okta-verify/verify` | Verifying authentication via Okta method
-[**send-token-auth-request**](#send-token-auth-request) | **Post** `/mfa/token/authenticate` | Authenticate Token provided MFA method
+[**ping-verification-status**](#ping-verification-status) | **Post** `/mfa/{method}/poll` | Polling mfa method by verificationpollrequest
+[**send-duo-verify-request**](#send-duo-verify-request) | **Post** `/mfa/duo-web/verify` | Verifying authentication via duo method
+[**send-kba-answers**](#send-kba-answers) | **Post** `/mfa/kba/authenticate` | Authenticate kba provided mfa method
+[**send-okta-verify-request**](#send-okta-verify-request) | **Post** `/mfa/okta-verify/verify` | Verifying authentication via okta method
+[**send-token-auth-request**](#send-token-auth-request) | **Post** `/mfa/token/authenticate` | Authenticate token provided mfa method
 
 
 ## create-send-token
@@ -94,7 +94,7 @@ func main() {
 [[Back to top]](#)
 
 ## ping-verification-status
-Polling MFA method by VerificationPollRequest
+Polling mfa method by verificationpollrequest
 This API poll the VerificationPollRequest for the specified MFA method.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/ping-verification-status)
@@ -169,7 +169,7 @@ func main() {
 [[Back to top]](#)
 
 ## send-duo-verify-request
-Verifying authentication via Duo method
+Verifying authentication via duo method
 This API Authenticates the user via Duo-Web MFA method.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/send-duo-verify-request)
@@ -239,7 +239,7 @@ func main() {
 [[Back to top]](#)
 
 ## send-kba-answers
-Authenticate KBA provided MFA method
+Authenticate kba provided mfa method
 This API Authenticate user in KBA MFA method.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/send-kba-answers)
@@ -306,7 +306,7 @@ func main() {
 [[Back to top]](#)
 
 ## send-okta-verify-request
-Verifying authentication via Okta method
+Verifying authentication via okta method
 This API Authenticates the user via Okta-Verify MFA method. Request requires a header called 'slpt-forwarding', and it must contain a remote IP Address of caller.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/send-okta-verify-request)
@@ -375,7 +375,7 @@ func main() {
 [[Back to top]](#)
 
 ## send-token-auth-request
-Authenticate Token provided MFA method
+Authenticate token provided mfa method
 This API Authenticate user in Token MFA method.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/send-token-auth-request)

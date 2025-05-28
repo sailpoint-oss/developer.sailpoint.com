@@ -67,14 +67,14 @@ Method | HTTP request | Description
 [**create-access-model-metadata-for-entitlement**](#create-access-model-metadata-for-entitlement) | **Post** `/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add metadata to an entitlement.
 [**delete-access-model-metadata-from-entitlement**](#delete-access-model-metadata-from-entitlement) | **Delete** `/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove metadata from an entitlement.
 [**get-entitlement**](#get-entitlement) | **Get** `/entitlements/{id}` | Get an entitlement
-[**get-entitlement-request-config**](#get-entitlement-request-config) | **Get** `/entitlements/{id}/entitlement-request-config` | Get Entitlement Request Config
-[**import-entitlements-by-source**](#import-entitlements-by-source) | **Post** `/entitlements/aggregate/sources/{id}` | Aggregate Entitlements
+[**get-entitlement-request-config**](#get-entitlement-request-config) | **Get** `/entitlements/{id}/entitlement-request-config` | Get entitlement request config
+[**import-entitlements-by-source**](#import-entitlements-by-source) | **Post** `/entitlements/aggregate/sources/{id}` | Aggregate entitlements
 [**list-entitlement-children**](#list-entitlement-children) | **Get** `/entitlements/{id}/children` | List of entitlements children
 [**list-entitlement-parents**](#list-entitlement-parents) | **Get** `/entitlements/{id}/parents` | List of entitlements parents
 [**list-entitlements**](#list-entitlements) | **Get** `/entitlements` | Gets a list of entitlements.
 [**patch-entitlement**](#patch-entitlement) | **Patch** `/entitlements/{id}` | Patch an entitlement
-[**put-entitlement-request-config**](#put-entitlement-request-config) | **Put** `/entitlements/{id}/entitlement-request-config` | Replace Entitlement Request Config
-[**reset-source-entitlements**](#reset-source-entitlements) | **Post** `/entitlements/reset/sources/{id}` | Reset Source Entitlements
+[**put-entitlement-request-config**](#put-entitlement-request-config) | **Put** `/entitlements/{id}/entitlement-request-config` | Replace entitlement request config
+[**reset-source-entitlements**](#reset-source-entitlements) | **Post** `/entitlements/reset/sources/{id}` | Reset source entitlements
 [**update-entitlements-in-bulk**](#update-entitlements-in-bulk) | **Post** `/entitlements/bulk-update` | Bulk update an entitlement list
 
 
@@ -338,7 +338,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Entitlement Request Config
+Get entitlement request config
 This API returns the entitlement request config for a specified entitlement.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-entitlement-request-config)
@@ -420,7 +420,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Aggregate Entitlements
+Aggregate entitlements
 Starts an entitlement aggregation on the specified source. Though this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/beta/import-entitlements).
 
 If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.
@@ -863,7 +863,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Replace Entitlement Request Config
+Replace entitlement request config
 This API replaces the entitlement request config for a specified entitlement.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-entitlement-request-config)
@@ -971,7 +971,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Reset Source Entitlements
+Reset source entitlements
 Remove all entitlements from a specific source.
 To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Account Aggregation](https://developer.sailpoint.com/docs/api/v2024/import-accounts/) with `disableOptimization` = `true`. 
 

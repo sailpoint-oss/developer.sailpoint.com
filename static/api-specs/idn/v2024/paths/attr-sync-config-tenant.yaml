@@ -3,7 +3,7 @@ get:
   operationId: getTenantAttrSyncConfig
   tags:
     - Attribute Synchronization
-  summary: Tenant Attribute Sync Config
+  summary: Tenant attribute sync config
   description: >-
     This API returns the attribute synchronization configuration for a tenant. The response contains
     configuration data for individual identity attributes and the corresponding target sources that
@@ -34,7 +34,7 @@ post:
   operationId: createTenantAttrSyncConfig
   tags:
     - Attribute Synchronization
-  summary: New Tenant Attribute Sync Config
+  summary: New tenant attribute sync config
   description: >-
     This API creates a new attribute synchronization configuration for a tenant. The payload contains
     configuration data for individual identity attributes and the corresponding target sources that
@@ -71,7 +71,7 @@ put:
   operationId: replaceTenantAttrSyncConfig
   tags:
     - Attribute Synchronization
-  summary: Update Tenant Attribute Sync Config
+  summary: Update tenant attribute sync config
   description: >-
     This API replaces an existing attribute synchronization configuration for a tenant. Only the
     "attributes" property is mutable. The "attributes" property contains the synchronization configuration

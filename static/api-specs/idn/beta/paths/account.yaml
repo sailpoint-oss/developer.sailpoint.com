@@ -2,7 +2,7 @@ get:
   operationId: getAccount
   tags:
     - Accounts
-  summary: Account Details
+  summary: Account details
   description: >-
     Use this API to return the details for a single account by its ID.  
 
@@ -49,7 +49,7 @@ patch:
   operationId: updateAccount
   tags:
     - Accounts
-  summary: Update Account
+  summary: Update account
   description: |
     Use this API to update account details. 
     A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
@@ -140,7 +140,7 @@ put:
   operationId: putAccount
   tags:
     - Accounts
-  summary: Update Account
+  summary: Update account
   description: |
     Use this API to update an account with a PUT request. 
     
@@ -196,7 +196,7 @@ delete:
   operationId: deleteAccount
   tags:
     - Accounts
-  summary: Delete Account
+  summary: Delete account
   description: >-
     Use this API to delete an account. 
 

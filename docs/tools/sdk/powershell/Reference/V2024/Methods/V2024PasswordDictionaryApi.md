@@ -64,8 +64,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2024PasswordDictionary**](#get-password-dictionary) | **GET** `/password-dictionary` | Get Password Dictionary
-[**Send-V2024PasswordDictionary**](#put-password-dictionary) | **PUT** `/password-dictionary` | Update Password Dictionary
+[**Get-V2024PasswordDictionary**](#get-password-dictionary) | **GET** `/password-dictionary` | Get password dictionary
+[**Send-V2024PasswordDictionary**](#put-password-dictionary) | **PUT** `/password-dictionary` | Update password dictionary
 
 
 ## get-password-dictionary
@@ -126,7 +126,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get Password Dictionary
+# Get password dictionary
 
 try {
     Get-V2024PasswordDictionary 
@@ -201,7 +201,7 @@ Code | Description  | Data Type
 ```powershell
 $File =  # System.IO.FileInfo |  (optional)
 
-# Update Password Dictionary
+# Update password dictionary
 
 try {
     Send-V2024PasswordDictionary 

@@ -2,7 +2,7 @@ get:
   operationId: getIdentitySummary
   tags:
     - Certification Summaries
-  summary: Summary for Identity
+  summary: Summary for identity
   security:
     - userAuth: []
   x-sailpoint-userLevels:

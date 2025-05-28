@@ -20,16 +20,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-workgroup**](#create-workgroup) | **Post** `/workgroups` | Create a new Governance Group.
-[**delete-workgroup**](#delete-workgroup) | **Delete** `/workgroups/{id}` | Delete a Governance Group
-[**delete-workgroup-members**](#delete-workgroup-members) | **Post** `/workgroups/{workgroupId}/members/bulk-delete` | Remove members from Governance Group
-[**delete-workgroups-in-bulk**](#delete-workgroups-in-bulk) | **Post** `/workgroups/bulk-delete` | Delete Governance Group(s)
-[**get-workgroup**](#get-workgroup) | **Get** `/workgroups/{id}` | Get Governance Group by Id
-[**list-connections**](#list-connections) | **Get** `/workgroups/{workgroupId}/connections` | List connections for Governance Group
-[**list-workgroup-members**](#list-workgroup-members) | **Get** `/workgroups/{workgroupId}/members` | List Governance Group Members
-[**list-workgroups**](#list-workgroups) | **Get** `/workgroups` | List Governance Groups
-[**patch-workgroup**](#patch-workgroup) | **Patch** `/workgroups/{id}` | Patch a Governance Group
-[**update-workgroup-members**](#update-workgroup-members) | **Post** `/workgroups/{workgroupId}/members/bulk-add` | Add members to Governance Group
+[**create-workgroup**](#create-workgroup) | **Post** `/workgroups` | Create a new governance group.
+[**delete-workgroup**](#delete-workgroup) | **Delete** `/workgroups/{id}` | Delete a governance group
+[**delete-workgroup-members**](#delete-workgroup-members) | **Post** `/workgroups/{workgroupId}/members/bulk-delete` | Remove members from governance group
+[**delete-workgroups-in-bulk**](#delete-workgroups-in-bulk) | **Post** `/workgroups/bulk-delete` | Delete governance group(s)
+[**get-workgroup**](#get-workgroup) | **Get** `/workgroups/{id}` | Get governance group by id
+[**list-connections**](#list-connections) | **Get** `/workgroups/{workgroupId}/connections` | List connections for governance group
+[**list-workgroup-members**](#list-workgroup-members) | **Get** `/workgroups/{workgroupId}/members` | List governance group members
+[**list-workgroups**](#list-workgroups) | **Get** `/workgroups` | List governance groups
+[**patch-workgroup**](#patch-workgroup) | **Patch** `/workgroups/{id}` | Patch a governance group
+[**update-workgroup-members**](#update-workgroup-members) | **Post** `/workgroups/{workgroupId}/members/bulk-add` | Add members to governance group
 
 
 ## create-workgroup
@@ -44,7 +44,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Create a new Governance Group.
+Create a new governance group.
 This API creates a new Governance Group.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-workgroup)
@@ -139,7 +139,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Delete a Governance Group
+Delete a governance group
 This API deletes a Governance Group by its ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-workgroup)
@@ -217,7 +217,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Remove members from Governance Group
+Remove members from governance group
 This API removes one or more  members from a Governance Group.  A
 >  **Following field of Identity is an optional field in the request.**
 
@@ -306,7 +306,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Delete Governance Group(s)
+Delete governance group(s)
 
 This API initiates a bulk deletion of one or more Governance Groups.
 
@@ -399,7 +399,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Governance Group by Id
+Get governance group by id
 This API returns a Governance Groups by its ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-workgroup)
@@ -478,7 +478,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List connections for Governance Group
+List connections for governance group
 This API returns list of connections associated with a Governance Group.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-connections)
@@ -565,7 +565,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Governance Group Members
+List governance group members
 This API returns list of members associated with a Governance Group.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workgroup-members)
@@ -652,7 +652,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Governance Groups
+List governance groups
 This API returns list of Governance Groups
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-workgroups)
@@ -735,7 +735,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Patch a Governance Group
+Patch a governance group
 This API updates an existing governance group by ID. The following fields and objects are patchable:
 * name
 * description
@@ -819,7 +819,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Add members to Governance Group
+Add members to governance group
 This API adds one or more members to a Governance Group.  A token with API, ORG_ADMIN authority is required to call this API.
 
 >  **Following field of Identity is an optional field in the request.**

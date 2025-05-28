@@ -30,15 +30,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancel-access-request**](#cancel-access-request) | **Post** `/access-requests/cancel` | Cancel Access Request
-[**create-access-request**](#create-access-request) | **Post** `/access-requests` | Submit Access Request
-[**get-access-request-config**](#get-access-request-config) | **Get** `/access-request-config` | Get Access Request Configuration
-[**list-access-request-status**](#list-access-request-status) | **Get** `/access-request-status` | Access Request Status
-[**set-access-request-config**](#set-access-request-config) | **Put** `/access-request-config` | Update Access Request Configuration
+[**cancel-access-request**](#cancel-access-request) | **Post** `/access-requests/cancel` | Cancel access request
+[**create-access-request**](#create-access-request) | **Post** `/access-requests` | Submit access request
+[**get-access-request-config**](#get-access-request-config) | **Get** `/access-request-config` | Get access request configuration
+[**list-access-request-status**](#list-access-request-status) | **Get** `/access-request-status` | Access request status
+[**set-access-request-config**](#set-access-request-config) | **Put** `/access-request-config` | Update access request configuration
 
 
 ## cancel-access-request
-Cancel Access Request
+Cancel access request
 This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step.
 In addition to users with ORG_ADMIN, any user who originally submitted the access request may cancel it.
 
@@ -109,7 +109,7 @@ func main() {
 [[Back to top]](#)
 
 ## create-access-request
-Submit Access Request
+Submit access request
 Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.
 
 Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request
@@ -391,7 +391,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-access-request-config
-Get Access Request Configuration
+Get access request configuration
 This endpoint returns the current access-request configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-access-request-config)
@@ -448,7 +448,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-access-request-status
-Access Request Status
+Access request status
 Use this API to return a list of access request statuses based on the specified query parameters.
 If an access request was made for access that an identity already has, the API ignores the access request.  These ignored requests do not display in the list of access request statuses.
 Any user with any user level can get the status of their own access requests. A user with ORG_ADMIN is required to call this API to get a list of statuses for other users.
@@ -530,7 +530,7 @@ func main() {
 [[Back to top]](#)
 
 ## set-access-request-config
-Update Access Request Configuration
+Update access request configuration
 This endpoint replaces the current access-request configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/set-access-request-config)

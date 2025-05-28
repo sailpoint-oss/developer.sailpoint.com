@@ -6,7 +6,7 @@ post:
     - userAuth: [ iai:access-request-recommender:manage ]
   x-sailpoint-userLevels:
     - Any
-  summary: Accept Access Request Recommendation
+  summary: Accept access request recommendation
   description: This API consumes a notification that a recommended access request
     item was requested. This API does not actually make the request, it is just a
     notification. This will help provide feedback in order to improve our recommendations.
@@ -51,7 +51,7 @@ get:
     - userAuth: [ iai:access-request-recommender:manage ]
   x-sailpoint-userLevels:
     - Any
-  summary: List Accepted Access Request Recommendations
+  summary: List accepted access request recommendations
   description: This API returns a list of requested access request recommendations.
   parameters:
   - $ref: ../parameters/limit.yaml

@@ -27,8 +27,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2024PublicIdentityConfig**](#get-public-identity-config) | **GET** `/public-identities-config` | Get the Public Identities Configuration
-[**Update-V2024PublicIdentityConfig**](#update-public-identity-config) | **PUT** `/public-identities-config` | Update the Public Identities Configuration
+[**Get-V2024PublicIdentityConfig**](#get-public-identity-config) | **GET** `/public-identities-config` | Get the public identities configuration
+[**Update-V2024PublicIdentityConfig**](#update-public-identity-config) | **PUT** `/public-identities-config` | Update the public identities configuration
 
 
 ## get-public-identity-config
@@ -60,7 +60,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get the Public Identities Configuration
+# Get the public identities configuration
 
 try {
     Get-V2024PublicIdentityConfig 
@@ -119,7 +119,7 @@ $PublicIdentityConfig = @"{
   }
 }"@
 
-# Update the Public Identities Configuration
+# Update the public identities configuration
 
 try {
     $Result = ConvertFrom-JsonToPublicIdentityConfig -Json $PublicIdentityConfig

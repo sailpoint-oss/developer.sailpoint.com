@@ -15,14 +15,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-machine-account-mappings**](#create-machine-account-mappings) | **Post** `/sources/{sourceId}/machine-account-mappings` | Create Machine Account Mappings
-[**delete-machine-account-mappings**](#delete-machine-account-mappings) | **Delete** `/sources/{sourceId}/machine-account-mappings` | Delete Source&#39;s Machine Account Mappings
-[**list-machine-account-mappings**](#list-machine-account-mappings) | **Get** `/sources/{sourceId}/machine-account-mappings` | Machine Account Mapping for Source
-[**set-machine-account-mappings**](#set-machine-account-mappings) | **Put** `/sources/{sourceId}/machine-mappings` | Update Source&#39;s Machine Account Mappings
+[**create-machine-account-mappings**](#create-machine-account-mappings) | **Post** `/sources/{sourceId}/machine-account-mappings` | Create machine account mappings
+[**delete-machine-account-mappings**](#delete-machine-account-mappings) | **Delete** `/sources/{sourceId}/machine-account-mappings` | Delete source&#39;s machine account mappings
+[**list-machine-account-mappings**](#list-machine-account-mappings) | **Get** `/sources/{sourceId}/machine-account-mappings` | Machine account mapping for source
+[**set-machine-account-mappings**](#set-machine-account-mappings) | **Put** `/sources/{sourceId}/machine-mappings` | Update source&#39;s machine account mappings
 
 
 ## create-machine-account-mappings
-Create Machine Account Mappings
+Create machine account mappings
 Creates Machine Account Mappings for both identities and accounts for a source.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
@@ -116,7 +116,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-machine-account-mappings
-Delete Source's Machine Account Mappings
+Delete source's machine account mappings
 Use this API to remove machine account attribute mappings for a Source. 
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
@@ -182,7 +182,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-machine-account-mappings
-Machine Account Mapping for Source
+Machine account mapping for source
 Retrieves Machine account mappings for a specified source using Source ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-machine-account-mappings)
@@ -252,7 +252,7 @@ func main() {
 [[Back to top]](#)
 
 ## set-machine-account-mappings
-Update Source's Machine Account Mappings
+Update source's machine account mappings
 Use this API to update Machine Account Attribute Mapping for a Source. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/set-machine-account-mappings)

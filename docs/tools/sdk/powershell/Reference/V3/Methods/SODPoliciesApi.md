@@ -43,23 +43,23 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-SodPolicy**](#create-sod-policy) | **POST** `/sod-policies` | Create SOD policy
-[**Remove-SodPolicy**](#delete-sod-policy) | **DELETE** `/sod-policies/{id}` | Delete SOD policy by ID
-[**Remove-SodPolicySchedule**](#delete-sod-policy-schedule) | **DELETE** `/sod-policies/{id}/schedule` | Delete SOD policy schedule
+[**New-SodPolicy**](#create-sod-policy) | **POST** `/sod-policies` | Create sod policy
+[**Remove-SodPolicy**](#delete-sod-policy) | **DELETE** `/sod-policies/{id}` | Delete sod policy by id
+[**Remove-SodPolicySchedule**](#delete-sod-policy-schedule) | **DELETE** `/sod-policies/{id}/schedule` | Delete sod policy schedule
 [**Get-CustomViolationReport**](#get-custom-violation-report) | **GET** `/sod-violation-report/{reportResultId}/download/{fileName}` | Download custom violation report
 [**Get-DefaultViolationReport**](#get-default-violation-report) | **GET** `/sod-violation-report/{reportResultId}/download` | Download violation report
 [**Get-SodAllReportRunStatus**](#get-sod-all-report-run-status) | **GET** `/sod-violation-report` | Get multi-report run task status
-[**Get-SodPolicy**](#get-sod-policy) | **GET** `/sod-policies/{id}` | Get SOD policy by ID
-[**Get-SodPolicySchedule**](#get-sod-policy-schedule) | **GET** `/sod-policies/{id}/schedule` | Get SOD policy schedule
+[**Get-SodPolicy**](#get-sod-policy) | **GET** `/sod-policies/{id}` | Get sod policy by id
+[**Get-SodPolicySchedule**](#get-sod-policy-schedule) | **GET** `/sod-policies/{id}/schedule` | Get sod policy schedule
 [**Get-SodViolationReportRunStatus**](#get-sod-violation-report-run-status) | **GET** `/sod-policies/sod-violation-report-status/{reportResultId}` | Get violation report run status
-[**Get-SodViolationReportStatus**](#get-sod-violation-report-status) | **GET** `/sod-policies/{id}/violation-report` | Get SOD violation report status
-[**Get-SodPolicies**](#list-sod-policies) | **GET** `/sod-policies` | List SOD policies
-[**Update-SodPolicy**](#patch-sod-policy) | **PATCH** `/sod-policies/{id}` | Patch SOD policy by ID
-[**Send-PolicySchedule**](#put-policy-schedule) | **PUT** `/sod-policies/{id}/schedule` | Update SOD Policy schedule
-[**Send-SodPolicy**](#put-sod-policy) | **PUT** `/sod-policies/{id}` | Update SOD policy by ID
-[**Start-EvaluateSodPolicy**](#start-evaluate-sod-policy) | **POST** `/sod-policies/{id}/evaluate` | Evaluate one policy by ID
+[**Get-SodViolationReportStatus**](#get-sod-violation-report-status) | **GET** `/sod-policies/{id}/violation-report` | Get sod violation report status
+[**Get-SodPolicies**](#list-sod-policies) | **GET** `/sod-policies` | List sod policies
+[**Update-SodPolicy**](#patch-sod-policy) | **PATCH** `/sod-policies/{id}` | Patch sod policy by id
+[**Send-PolicySchedule**](#put-policy-schedule) | **PUT** `/sod-policies/{id}/schedule` | Update sod policy schedule
+[**Send-SodPolicy**](#put-sod-policy) | **PUT** `/sod-policies/{id}` | Update sod policy by id
+[**Start-EvaluateSodPolicy**](#start-evaluate-sod-policy) | **POST** `/sod-policies/{id}/evaluate` | Evaluate one policy by id
 [**Start-SodAllPoliciesForOrg**](#start-sod-all-policies-for-org) | **POST** `/sod-violation-report/run` | Runs all policies for org
-[**Start-SodPolicy**](#start-sod-policy) | **POST** `/sod-policies/{id}/violation-report/run` | Runs SOD policy violation report
+[**Start-SodPolicy**](#start-sod-policy) | **POST** `/sod-policies/{id}/violation-report/run` | Runs sod policy violation report
 
 
 ## create-sod-policy
@@ -149,7 +149,7 @@ $SodPolicy = @"{
   "externalPolicyReference" : "XYZ policy"
 }"@
 
-# Create SOD policy
+# Create sod policy
 
 try {
     $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
@@ -199,7 +199,7 @@ Code | Description  | Data Type
 $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD Policy to delete.
 $Logical = $true # Boolean | Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call. (optional) (default to $true)
 
-# Delete SOD policy by ID
+# Delete sod policy by id
 
 try {
     Remove-SodPolicy -Id $Id 
@@ -245,7 +245,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy the schedule must be deleted for.
 
-# Delete SOD policy schedule
+# Delete sod policy schedule
 
 try {
     Remove-SodPolicySchedule -Id $Id 
@@ -429,7 +429,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD Policy to retrieve.
 
-# Get SOD policy by ID
+# Get sod policy by id
 
 try {
     Get-SodPolicy -Id $Id 
@@ -474,7 +474,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the SOD policy schedule to retrieve.
 
-# Get SOD policy schedule
+# Get sod policy schedule
 
 try {
     Get-SodPolicySchedule -Id $Id 
@@ -566,7 +566,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The ID of the violation report to retrieve status for.
 
-# Get SOD violation report status
+# Get sod violation report status
 
 try {
     Get-SodViolationReportStatus -Id $Id 
@@ -620,7 +620,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'id eq "bc693f07e7b645539626c25954c58554"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in*  **state**: *eq, in* (optional)
 $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description** (optional)
 
-# List SOD policies
+# List sod policies
 
 try {
     Get-SodPolicies 
@@ -675,7 +675,7 @@ $Id = "2c918083-5d19-1a86-015d-28455b4a2329" # String | The ID of the SOD policy
 }"@ # JsonPatchOperation[] | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
  
 
-# Patch SOD policy by ID
+# Patch sod policy by id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -760,7 +760,7 @@ $SodPolicySchedule = @"{
   "emailEmptyResults" : false
 }"@
 
-# Update SOD Policy schedule
+# Update sod policy schedule
 
 try {
     $Result = ConvertFrom-JsonToSodPolicySchedule -Json $SodPolicySchedule
@@ -865,7 +865,7 @@ $SodPolicy = @"{
   "externalPolicyReference" : "XYZ policy"
 }"@
 
-# Update SOD policy by ID
+# Update sod policy by id
 
 try {
     $Result = ConvertFrom-JsonToSodPolicy -Json $SodPolicy
@@ -911,7 +911,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run.
 
-# Evaluate one policy by ID
+# Evaluate one policy by id
 
 try {
     Start-EvaluateSodPolicy -Id $Id 
@@ -1004,7 +1004,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f943-47e9-4562-b5bb-8424a56397d8" # String | The SOD policy ID to run.
 
-# Runs SOD policy violation report
+# Runs sod policy violation report
 
 try {
     Start-SodPolicy -Id $Id 

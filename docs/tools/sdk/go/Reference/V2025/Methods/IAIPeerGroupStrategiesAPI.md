@@ -15,7 +15,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-peer-group-outliers**](#get-peer-group-outliers) | **Get** `/peer-group-strategies/{strategy}/identity-outliers` | Identity Outliers List
+[**get-peer-group-outliers**](#get-peer-group-outliers) | **Get** `/peer-group-strategies/{strategy}/identity-outliers` | Identity outliers list
 
 
 ## get-peer-group-outliers
@@ -33,7 +33,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Identity Outliers List
+Identity outliers list
 -- Deprecated : See 'IAI Outliers' This API will be used by Identity Governance systems to identify identities that are not included in an organization's peer groups. By default, 250 identities are returned. You can specify between 1 and 1000 number of identities that can be returned.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-peer-group-outliers)

@@ -80,32 +80,32 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**complete-campaign**](#complete-campaign) | **Post** `/campaigns/{id}/complete` | Complete a Campaign
+[**complete-campaign**](#complete-campaign) | **Post** `/campaigns/{id}/complete` | Complete a campaign
 [**create-campaign**](#create-campaign) | **Post** `/campaigns` | Create a campaign
-[**create-campaign-template**](#create-campaign-template) | **Post** `/campaign-templates` | Create a Campaign Template
-[**delete-campaign-template**](#delete-campaign-template) | **Delete** `/campaign-templates/{id}` | Delete a Campaign Template
-[**delete-campaign-template-schedule**](#delete-campaign-template-schedule) | **Delete** `/campaign-templates/{id}/schedule` | Delete Campaign Template Schedule
-[**delete-campaigns**](#delete-campaigns) | **Post** `/campaigns/delete` | Delete Campaigns
-[**get-active-campaigns**](#get-active-campaigns) | **Get** `/campaigns` | List Campaigns
-[**get-campaign**](#get-campaign) | **Get** `/campaigns/{id}` | Get Campaign
-[**get-campaign-reports**](#get-campaign-reports) | **Get** `/campaigns/{id}/reports` | Get Campaign Reports
-[**get-campaign-reports-config**](#get-campaign-reports-config) | **Get** `/campaigns/reports-configuration` | Get Campaign Reports Configuration
-[**get-campaign-template**](#get-campaign-template) | **Get** `/campaign-templates/{id}` | Get a Campaign Template
-[**get-campaign-template-schedule**](#get-campaign-template-schedule) | **Get** `/campaign-templates/{id}/schedule` | Get Campaign Template Schedule
-[**get-campaign-templates**](#get-campaign-templates) | **Get** `/campaign-templates` | List Campaign Templates
-[**move**](#move) | **Post** `/campaigns/{id}/reassign` | Reassign Certifications
-[**patch-campaign-template**](#patch-campaign-template) | **Patch** `/campaign-templates/{id}` | Update a Campaign Template
-[**set-campaign-reports-config**](#set-campaign-reports-config) | **Put** `/campaigns/reports-configuration` | Set Campaign Reports Configuration
-[**set-campaign-template-schedule**](#set-campaign-template-schedule) | **Put** `/campaign-templates/{id}/schedule` | Set Campaign Template Schedule
-[**start-campaign**](#start-campaign) | **Post** `/campaigns/{id}/activate` | Activate a Campaign
-[**start-campaign-remediation-scan**](#start-campaign-remediation-scan) | **Post** `/campaigns/{id}/run-remediation-scan` | Run Campaign Remediation Scan
-[**start-campaign-report**](#start-campaign-report) | **Post** `/campaigns/{id}/run-report/{type}` | Run Campaign Report
-[**start-generate-campaign-template**](#start-generate-campaign-template) | **Post** `/campaign-templates/{id}/generate` | Generate a Campaign from Template
-[**update-campaign**](#update-campaign) | **Patch** `/campaigns/{id}` | Update a Campaign
+[**create-campaign-template**](#create-campaign-template) | **Post** `/campaign-templates` | Create a campaign template
+[**delete-campaign-template**](#delete-campaign-template) | **Delete** `/campaign-templates/{id}` | Delete a campaign template
+[**delete-campaign-template-schedule**](#delete-campaign-template-schedule) | **Delete** `/campaign-templates/{id}/schedule` | Delete campaign template schedule
+[**delete-campaigns**](#delete-campaigns) | **Post** `/campaigns/delete` | Delete campaigns
+[**get-active-campaigns**](#get-active-campaigns) | **Get** `/campaigns` | List campaigns
+[**get-campaign**](#get-campaign) | **Get** `/campaigns/{id}` | Get campaign
+[**get-campaign-reports**](#get-campaign-reports) | **Get** `/campaigns/{id}/reports` | Get campaign reports
+[**get-campaign-reports-config**](#get-campaign-reports-config) | **Get** `/campaigns/reports-configuration` | Get campaign reports configuration
+[**get-campaign-template**](#get-campaign-template) | **Get** `/campaign-templates/{id}` | Get a campaign template
+[**get-campaign-template-schedule**](#get-campaign-template-schedule) | **Get** `/campaign-templates/{id}/schedule` | Get campaign template schedule
+[**get-campaign-templates**](#get-campaign-templates) | **Get** `/campaign-templates` | List campaign templates
+[**move**](#move) | **Post** `/campaigns/{id}/reassign` | Reassign certifications
+[**patch-campaign-template**](#patch-campaign-template) | **Patch** `/campaign-templates/{id}` | Update a campaign template
+[**set-campaign-reports-config**](#set-campaign-reports-config) | **Put** `/campaigns/reports-configuration` | Set campaign reports configuration
+[**set-campaign-template-schedule**](#set-campaign-template-schedule) | **Put** `/campaign-templates/{id}/schedule` | Set campaign template schedule
+[**start-campaign**](#start-campaign) | **Post** `/campaigns/{id}/activate` | Activate a campaign
+[**start-campaign-remediation-scan**](#start-campaign-remediation-scan) | **Post** `/campaigns/{id}/run-remediation-scan` | Run campaign remediation scan
+[**start-campaign-report**](#start-campaign-report) | **Post** `/campaigns/{id}/run-report/{type}` | Run campaign report
+[**start-generate-campaign-template**](#start-generate-campaign-template) | **Post** `/campaign-templates/{id}/generate` | Generate a campaign from template
+[**update-campaign**](#update-campaign) | **Patch** `/campaigns/{id}` | Update a campaign
 
 
 ## complete-campaign
-Complete a Campaign
+Complete a campaign
 :::caution
 
 This endpoint will run successfully for any campaigns that are **past due**.
@@ -362,7 +362,7 @@ func main() {
 [[Back to top]](#)
 
 ## create-campaign-template
-Create a Campaign Template
+Create a campaign template
 Use this API to create a certification campaign template based on campaign.
 
 
@@ -555,7 +555,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-campaign-template
-Delete a Campaign Template
+Delete a campaign template
 Use this API to delete a certification campaign template by ID.
 
 
@@ -621,7 +621,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-campaign-template-schedule
-Delete Campaign Template Schedule
+Delete campaign template schedule
 Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
 
 
@@ -687,7 +687,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-campaigns
-Delete Campaigns
+Delete campaigns
 Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.
 
 
@@ -757,7 +757,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-active-campaigns
-List Campaigns
+List campaigns
 Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query.
 
 
@@ -830,7 +830,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-campaign
-Get Campaign
+Get campaign
 Use this API to get information for an existing certification campaign by the campaign's ID.
 
 
@@ -899,7 +899,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-campaign-reports
-Get Campaign Reports
+Get campaign reports
 Use this API to fetch all reports for a certification campaign by campaign ID.
 
 
@@ -966,7 +966,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-campaign-reports-config
-Get Campaign Reports Configuration
+Get campaign reports configuration
 Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns. 
 
 
@@ -1024,7 +1024,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-campaign-template
-Get a Campaign Template
+Get a campaign template
 Use this API to fetch a certification campaign template by ID.
 
 
@@ -1091,7 +1091,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-campaign-template-schedule
-Get Campaign Template Schedule
+Get campaign template schedule
 Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
 
 
@@ -1158,7 +1158,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-campaign-templates
-List Campaign Templates
+List campaign templates
 Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.
 
 The API returns all campaign templates matching the query parameters. 
@@ -1231,7 +1231,7 @@ func main() {
 [[Back to top]](#)
 
 ## move
-Reassign Certifications
+Reassign certifications
 This API reassigns the specified certifications from one identity to another.    
 
 
@@ -1312,7 +1312,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-campaign-template
-Update a Campaign Template
+Update a campaign template
 Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 
@@ -1386,7 +1386,7 @@ func main() {
 [[Back to top]](#)
 
 ## set-campaign-reports-config
-Set Campaign Reports Configuration
+Set campaign reports configuration
 Use this API to overwrite the configuration for campaign reports. 
 
 
@@ -1456,7 +1456,7 @@ func main() {
 [[Back to top]](#)
 
 ## set-campaign-template-schedule
-Set Campaign Template Schedule
+Set campaign template schedule
 Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one.
 
 
@@ -1543,7 +1543,7 @@ func main() {
 [[Back to top]](#)
 
 ## start-campaign
-Activate a Campaign
+Activate a campaign
 Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.
 
 
@@ -1614,7 +1614,7 @@ func main() {
 [[Back to top]](#)
 
 ## start-campaign-remediation-scan
-Run Campaign Remediation Scan
+Run campaign remediation scan
 Use this API to run a remediation scan task for a certification campaign.
 
 
@@ -1681,7 +1681,7 @@ func main() {
 [[Back to top]](#)
 
 ## start-campaign-report
-Run Campaign Report
+Run campaign report
 Use this API to run a report for a certification campaign.
 
 
@@ -1751,7 +1751,7 @@ func main() {
 [[Back to top]](#)
 
 ## start-generate-campaign-template
-Generate a Campaign from Template
+Generate a campaign from template
 Use this API to generate a new certification campaign from a campaign template.
 
 The campaign object contained in the template has special formatting applied to its name and description
@@ -1828,7 +1828,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-campaign
-Update a Campaign
+Update a campaign
 Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 

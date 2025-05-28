@@ -17,15 +17,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-discovered-application-by-id**](#get-discovered-application-by-id) | **Get** `/discovered-applications/{id}` | Get Discovered Application by ID
+[**get-discovered-application-by-id**](#get-discovered-application-by-id) | **Get** `/discovered-applications/{id}` | Get discovered application by id
 [**get-discovered-applications**](#get-discovered-applications) | **Get** `/discovered-applications` | Retrieve discovered applications for tenant
-[**get-manual-discover-applications-csv-template**](#get-manual-discover-applications-csv-template) | **Get** `/manual-discover-applications-template` | Download CSV Template for Discovery
-[**patch-discovered-application-by-id**](#patch-discovered-application-by-id) | **Patch** `/discovered-applications/{id}` | Patch Discovered Application by ID
-[**send-manual-discover-applications-csv-template**](#send-manual-discover-applications-csv-template) | **Post** `/manual-discover-applications` | Upload CSV to Discover Applications
+[**get-manual-discover-applications-csv-template**](#get-manual-discover-applications-csv-template) | **Get** `/manual-discover-applications-template` | Download csv template for discovery
+[**patch-discovered-application-by-id**](#patch-discovered-application-by-id) | **Patch** `/discovered-applications/{id}` | Patch discovered application by id
+[**send-manual-discover-applications-csv-template**](#send-manual-discover-applications-csv-template) | **Post** `/manual-discover-applications` | Upload csv to discover applications
 
 
 ## get-discovered-application-by-id
-Get Discovered Application by ID
+Get discovered application by id
 Get the discovered application, along with with its associated sources, based on the provided ID.
 
 
@@ -162,7 +162,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-manual-discover-applications-csv-template
-Download CSV Template for Discovery
+Download csv template for discovery
 Download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values 'Example Application' and 'Example Description'.
 
 The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint.
@@ -222,7 +222,7 @@ func main() {
 [[Back to top]](#)
 
 ## patch-discovered-application-by-id
-Patch Discovered Application by ID
+Patch discovered application by id
 Update an existing discovered application by using a limited version of the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 You can patch these fields: - **associatedSources** - **dismissed**
 
@@ -290,7 +290,7 @@ func main() {
 [[Back to top]](#)
 
 ## send-manual-discover-applications-csv-template
-Upload CSV to Discover Applications
+Upload csv to discover applications
 Upload a CSV file with application data for manual correlation to specific ISC connectors. 
 If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
 

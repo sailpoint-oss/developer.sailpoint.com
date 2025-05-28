@@ -28,26 +28,26 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2024Deploy**](#create-deploy) | **POST** `/configuration-hub/deploys` | Create a Deploy
+[**New-V2024Deploy**](#create-deploy) | **POST** `/configuration-hub/deploys` | Create a deploy
 [**New-V2024ObjectMapping**](#create-object-mapping) | **POST** `/configuration-hub/object-mappings/{sourceOrg}` | Creates an object mapping
 [**New-V2024ObjectMappings**](#create-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-create` | Bulk creates object mappings
-[**New-V2024ScheduledAction**](#create-scheduled-action) | **POST** `/configuration-hub/scheduled-actions` | Create Scheduled Action
-[**New-V2024UploadedConfiguration**](#create-uploaded-configuration) | **POST** `/configuration-hub/backups/uploads` | Upload a Configuration
-[**Remove-V2024Backup**](#delete-backup) | **DELETE** `/configuration-hub/backups/{id}` | Delete a Backup
+[**New-V2024ScheduledAction**](#create-scheduled-action) | **POST** `/configuration-hub/scheduled-actions` | Create scheduled action
+[**New-V2024UploadedConfiguration**](#create-uploaded-configuration) | **POST** `/configuration-hub/backups/uploads` | Upload a configuration
+[**Remove-V2024Backup**](#delete-backup) | **DELETE** `/configuration-hub/backups/{id}` | Delete a backup
 [**Remove-V2024Draft**](#delete-draft) | **DELETE** `/configuration-hub/drafts/{id}` | Delete a draft
 [**Remove-V2024ObjectMapping**](#delete-object-mapping) | **DELETE** `/configuration-hub/object-mappings/{sourceOrg}/{objectMappingId}` | Deletes an object mapping
-[**Remove-V2024ScheduledAction**](#delete-scheduled-action) | **DELETE** `/configuration-hub/scheduled-actions/{id}` | Delete Scheduled Action
-[**Remove-V2024UploadedConfiguration**](#delete-uploaded-configuration) | **DELETE** `/configuration-hub/backups/uploads/{id}` | Delete an Uploaded Configuration
-[**Get-V2024Deploy**](#get-deploy) | **GET** `/configuration-hub/deploys/{id}` | Get a Deploy
+[**Remove-V2024ScheduledAction**](#delete-scheduled-action) | **DELETE** `/configuration-hub/scheduled-actions/{id}` | Delete scheduled action
+[**Remove-V2024UploadedConfiguration**](#delete-uploaded-configuration) | **DELETE** `/configuration-hub/backups/uploads/{id}` | Delete an uploaded configuration
+[**Get-V2024Deploy**](#get-deploy) | **GET** `/configuration-hub/deploys/{id}` | Get a deploy
 [**Get-V2024ObjectMappings**](#get-object-mappings) | **GET** `/configuration-hub/object-mappings/{sourceOrg}` | Gets list of object mappings
-[**Get-V2024UploadedConfiguration**](#get-uploaded-configuration) | **GET** `/configuration-hub/backups/uploads/{id}` | Get an Uploaded Configuration
-[**Get-V2024Backups**](#list-backups) | **GET** `/configuration-hub/backups` | List Backups
-[**Get-V2024Deploys**](#list-deploys) | **GET** `/configuration-hub/deploys` | List Deploys
-[**Get-V2024Drafts**](#list-drafts) | **GET** `/configuration-hub/drafts` | List Drafts
-[**Get-V2024ScheduledActions**](#list-scheduled-actions) | **GET** `/configuration-hub/scheduled-actions` | List Scheduled Actions
-[**Get-V2024UploadedConfigurations**](#list-uploaded-configurations) | **GET** `/configuration-hub/backups/uploads` | List Uploaded Configurations
+[**Get-V2024UploadedConfiguration**](#get-uploaded-configuration) | **GET** `/configuration-hub/backups/uploads/{id}` | Get an uploaded configuration
+[**Get-V2024Backups**](#list-backups) | **GET** `/configuration-hub/backups` | List backups
+[**Get-V2024Deploys**](#list-deploys) | **GET** `/configuration-hub/deploys` | List deploys
+[**Get-V2024Drafts**](#list-drafts) | **GET** `/configuration-hub/drafts` | List drafts
+[**Get-V2024ScheduledActions**](#list-scheduled-actions) | **GET** `/configuration-hub/scheduled-actions` | List scheduled actions
+[**Get-V2024UploadedConfigurations**](#list-uploaded-configurations) | **GET** `/configuration-hub/backups/uploads` | List uploaded configurations
 [**Update-V2024ObjectMappings**](#update-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-patch` | Bulk updates object mappings
-[**Update-V2024ScheduledAction**](#update-scheduled-action) | **PATCH** `/configuration-hub/scheduled-actions/{id}` | Update Scheduled Action
+[**Update-V2024ScheduledAction**](#update-scheduled-action) | **PATCH** `/configuration-hub/scheduled-actions/{id}` | Update scheduled action
 
 
 ## create-deploy
@@ -83,7 +83,7 @@ $DeployRequest = @"{
   "draftId" : "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b"
 }"@
 
-# Create a Deploy
+# Create a deploy
 
 try {
     $Result = ConvertFrom-JsonToDeployRequest -Json $DeployRequest
@@ -275,7 +275,7 @@ $ScheduledActionPayload = @"{
   }
 }"@
 
-# Create Scheduled Action
+# Create scheduled action
 
 try {
     $Result = ConvertFrom-JsonToScheduledActionPayload -Json $ScheduledActionPayload
@@ -327,7 +327,7 @@ Code | Description  | Data Type
 $Data =  # System.IO.FileInfo | JSON file containing the objects to be imported.
 $Name = "MyName" # String | Name that will be assigned to the uploaded configuration file.
 
-# Upload a Configuration
+# Upload a configuration
 
 try {
     New-V2024UploadedConfiguration -Data $Data -Name $Name 
@@ -377,7 +377,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "07659d7d-2cce-47c0-9e49-185787ee565a" # String | The id of the backup to delete.
 
-# Delete a Backup
+# Delete a backup
 
 try {
     Remove-V2024Backup -Id $Id 
@@ -524,7 +524,7 @@ Code | Description  | Data Type
 ```powershell
 $ScheduledActionId = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | The ID of the scheduled action.
 
-# Delete Scheduled Action
+# Delete scheduled action
 
 try {
     Remove-V2024ScheduledAction -ScheduledActionId $ScheduledActionId 
@@ -574,7 +574,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded configuration.
 
-# Delete an Uploaded Configuration
+# Delete an uploaded configuration
 
 try {
     Remove-V2024UploadedConfiguration -Id $Id 
@@ -620,7 +620,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the deploy.
 
-# Get a Deploy
+# Get a deploy
 
 try {
     Get-V2024Deploy -Id $Id 
@@ -715,7 +715,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded configuration.
 
-# Get an Uploaded Configuration
+# Get an uploaded configuration
 
 try {
     Get-V2024UploadedConfiguration -Id $Id 
@@ -760,7 +760,7 @@ Code | Description  | Data Type
 ```powershell
 $Filters = 'status eq "COMPLETE"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
 
-# List Backups
+# List backups
 
 try {
     Get-V2024Backups 
@@ -803,7 +803,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# List Deploys
+# List deploys
 
 try {
     Get-V2024Deploys 
@@ -848,7 +848,7 @@ Code | Description  | Data Type
 ```powershell
 $Filters = 'status eq "COMPLETE"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq* (optional)
 
-# List Drafts
+# List drafts
 
 try {
     Get-V2024Drafts 
@@ -891,7 +891,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# List Scheduled Actions
+# List scheduled actions
 
 try {
     Get-V2024ScheduledActions 
@@ -937,7 +937,7 @@ Code | Description  | Data Type
 ```powershell
 $Filters = 'status eq "COMPLETE"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
 
-# List Uploaded Configurations
+# List uploaded configurations
 
 try {
     Get-V2024UploadedConfigurations 
@@ -1060,7 +1060,7 @@ $JsonPatch = @"{
   } ]
 }"@
 
-# Update Scheduled Action
+# Update scheduled action
 
 try {
     $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch

@@ -1,5 +1,5 @@
 post:
-  summary: Outlier Detected
+  summary: Outlier detected
   operationId: outlierDetectedEvent
   description: >-
     This event trigger fires when Identity Security Cloud (ISC) detects that identities have unusual access relative their peers.

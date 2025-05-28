@@ -17,10 +17,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaTag**](#create-tag) | **POST** `/tags` | Create Tag
-[**Remove-BetaTagById**](#delete-tag-by-id) | **DELETE** `/tags/{id}` | Delete Tag
-[**Get-BetaTagById**](#get-tag-by-id) | **GET** `/tags/{id}` | Get Tag By Id
-[**Get-BetaTags**](#list-tags) | **GET** `/tags` | List Tags
+[**New-BetaTag**](#create-tag) | **POST** `/tags` | Create tag
+[**Remove-BetaTagById**](#delete-tag-by-id) | **DELETE** `/tags/{id}` | Delete tag
+[**Get-BetaTagById**](#get-tag-by-id) | **GET** `/tags/{id}` | Get tag by id
+[**Get-BetaTags**](#list-tags) | **GET** `/tags` | List tags
 
 
 ## create-tag
@@ -70,7 +70,7 @@ $Tag = @"{
   "id" : "449ecdc0-d4ff-4341-acf6-92f6f7ce604f"
 }"@
 
-# Create Tag
+# Create tag
 
 try {
     $Result = ConvertFrom-JsonToTag -Json $Tag
@@ -119,7 +119,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "329d96cf-3bdb-40a9-988a-b5037ab89022" # String | The ID of the object reference to delete.
 
-# Delete Tag
+# Delete tag
 
 try {
     Remove-BetaTagById -Id $Id 
@@ -167,7 +167,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "329d96cf-3bdb-40a9-988a-b5037ab89022" # String | The ID of the object reference to retrieve.
 
-# Get Tag By Id
+# Get tag by id
 
 try {
     Get-BetaTagById -Id $Id 
@@ -222,7 +222,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'id eq "27462f54-61c7-4140-b5da-d5dbe27fc6db"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw* (optional)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified** (optional)
 
-# List Tags
+# List tags
 
 try {
     Get-BetaTags 

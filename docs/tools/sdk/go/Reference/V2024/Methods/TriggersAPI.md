@@ -56,16 +56,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**complete-trigger-invocation**](#complete-trigger-invocation) | **Post** `/trigger-invocations/{id}/complete` | Complete Trigger Invocation
-[**create-subscription**](#create-subscription) | **Post** `/trigger-subscriptions` | Create a Subscription
-[**delete-subscription**](#delete-subscription) | **Delete** `/trigger-subscriptions/{id}` | Delete a Subscription
-[**list-subscriptions**](#list-subscriptions) | **Get** `/trigger-subscriptions` | List Subscriptions
-[**list-trigger-invocation-status**](#list-trigger-invocation-status) | **Get** `/trigger-invocations/status` | List Latest Invocation Statuses
-[**list-triggers**](#list-triggers) | **Get** `/triggers` | List Triggers
-[**patch-subscription**](#patch-subscription) | **Patch** `/trigger-subscriptions/{id}` | Patch a Subscription
-[**start-test-trigger-invocation**](#start-test-trigger-invocation) | **Post** `/trigger-invocations/test` | Start a Test Invocation
-[**test-subscription-filter**](#test-subscription-filter) | **Post** `/trigger-subscriptions/validate-filter` | Validate a Subscription Filter
-[**update-subscription**](#update-subscription) | **Put** `/trigger-subscriptions/{id}` | Update a Subscription
+[**complete-trigger-invocation**](#complete-trigger-invocation) | **Post** `/trigger-invocations/{id}/complete` | Complete trigger invocation
+[**create-subscription**](#create-subscription) | **Post** `/trigger-subscriptions` | Create a subscription
+[**delete-subscription**](#delete-subscription) | **Delete** `/trigger-subscriptions/{id}` | Delete a subscription
+[**list-subscriptions**](#list-subscriptions) | **Get** `/trigger-subscriptions` | List subscriptions
+[**list-trigger-invocation-status**](#list-trigger-invocation-status) | **Get** `/trigger-invocations/status` | List latest invocation statuses
+[**list-triggers**](#list-triggers) | **Get** `/triggers` | List triggers
+[**patch-subscription**](#patch-subscription) | **Patch** `/trigger-subscriptions/{id}` | Patch a subscription
+[**start-test-trigger-invocation**](#start-test-trigger-invocation) | **Post** `/trigger-invocations/test` | Start a test invocation
+[**test-subscription-filter**](#test-subscription-filter) | **Post** `/trigger-subscriptions/validate-filter` | Validate a subscription filter
+[**update-subscription**](#update-subscription) | **Put** `/trigger-subscriptions/{id}` | Update a subscription
 
 
 ## complete-trigger-invocation
@@ -80,7 +80,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Complete Trigger Invocation
+Complete trigger invocation
 Completes an invocation to a REQUEST_RESPONSE type trigger.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/complete-trigger-invocation)
@@ -171,7 +171,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Create a Subscription
+Create a subscription
 This API creates a new subscription to a trigger and defines trigger invocation details. The type of subscription determines which config object is required:
 * HTTP subscriptions require httpConfig
 * EventBridge subscriptions require eventBridgeConfig
@@ -277,7 +277,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Delete a Subscription
+Delete a subscription
 Deletes an existing subscription to a trigger.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-subscription)
@@ -355,7 +355,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Subscriptions
+List subscriptions
 Gets a list of all trigger subscriptions.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-subscriptions)
@@ -438,7 +438,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Latest Invocation Statuses
+List latest invocation statuses
 Gets a list of latest invocation statuses.
 Statuses of successful invocations are available for up to 24 hours. Statuses of failed invocations are available for up to 48 hours.
 This endpoint may only fetch up to 2000 invocations, and should not be treated as a representation of the full history of invocations.
@@ -523,7 +523,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Triggers
+List triggers
 Gets a list of triggers that are available in the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-triggers)
@@ -606,7 +606,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Patch a Subscription
+Patch a subscription
 This API updates a trigger subscription in IdentityNow, using a set of instructions to modify a subscription partially. The following fields are patchable:
 
 **name**, **description**, **enabled**, **type**, **filter**, **responseDeadline**, **httpConfig**, **eventBridgeConfig**, **workflowConfig**
@@ -694,7 +694,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Start a Test Invocation
+Start a test invocation
 Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/start-test-trigger-invocation)
@@ -783,7 +783,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Validate a Subscription Filter
+Validate a subscription filter
 Validates a JSONPath filter expression against a provided mock input.
 Request requires a security scope of: 
 
@@ -869,7 +869,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Update a Subscription
+Update a subscription
 This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing
   Subscription is completely replaced. The following fields are immutable:
 

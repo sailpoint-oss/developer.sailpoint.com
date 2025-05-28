@@ -72,36 +72,36 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-provisioning-policy**](#create-provisioning-policy) | **Post** `/sources/{sourceId}/provisioning-policies` | Create Provisioning Policy
-[**create-source**](#create-source) | **Post** `/sources` | Creates a source in IdentityNow.
-[**create-source-schema**](#create-source-schema) | **Post** `/sources/{sourceId}/schemas` | Create Schema on Source
-[**delete-provisioning-policy**](#delete-provisioning-policy) | **Delete** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete Provisioning Policy by UsageType
-[**delete-source**](#delete-source) | **Delete** `/sources/{id}` | Delete Source by ID
-[**delete-source-schema**](#delete-source-schema) | **Delete** `/sources/{sourceId}/schemas/{schemaId}` | Delete Source Schema by ID
+[**create-provisioning-policy**](#create-provisioning-policy) | **Post** `/sources/{sourceId}/provisioning-policies` | Create provisioning policy
+[**create-source**](#create-source) | **Post** `/sources` | Creates a source in identitynow.
+[**create-source-schema**](#create-source-schema) | **Post** `/sources/{sourceId}/schemas` | Create schema on source
+[**delete-provisioning-policy**](#delete-provisioning-policy) | **Delete** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete provisioning policy by usagetype
+[**delete-source**](#delete-source) | **Delete** `/sources/{id}` | Delete source by id
+[**delete-source-schema**](#delete-source-schema) | **Delete** `/sources/{sourceId}/schemas/{schemaId}` | Delete source schema by id
 [**get-accounts-schema**](#get-accounts-schema) | **Get** `/sources/{id}/schemas/accounts` | Downloads source accounts schema template
 [**get-entitlements-schema**](#get-entitlements-schema) | **Get** `/sources/{id}/schemas/entitlements` | Downloads source entitlements schema template
-[**get-provisioning-policy**](#get-provisioning-policy) | **Get** `/sources/{sourceId}/provisioning-policies/{usageType}` | Get Provisioning Policy by UsageType
-[**get-source**](#get-source) | **Get** `/sources/{id}` | Get Source by ID
-[**get-source-connections**](#get-source-connections) | **Get** `/sources/{sourceId}/connections` | Get Source Connections by ID
+[**get-provisioning-policy**](#get-provisioning-policy) | **Get** `/sources/{sourceId}/provisioning-policies/{usageType}` | Get provisioning policy by usagetype
+[**get-source**](#get-source) | **Get** `/sources/{id}` | Get source by id
+[**get-source-connections**](#get-source-connections) | **Get** `/sources/{sourceId}/connections` | Get source connections by id
 [**get-source-health**](#get-source-health) | **Get** `/sources/{sourceId}/source-health` | Fetches source health by id
-[**get-source-schema**](#get-source-schema) | **Get** `/sources/{sourceId}/schemas/{schemaId}` | Get Source Schema by ID
-[**get-source-schemas**](#get-source-schemas) | **Get** `/sources/{sourceId}/schemas` | List Schemas on Source
+[**get-source-schema**](#get-source-schema) | **Get** `/sources/{sourceId}/schemas/{schemaId}` | Get source schema by id
+[**get-source-schemas**](#get-source-schemas) | **Get** `/sources/{sourceId}/schemas` | List schemas on source
 [**import-accounts-schema**](#import-accounts-schema) | **Post** `/sources/{id}/schemas/accounts` | Uploads source accounts schema template
 [**import-connector-file**](#import-connector-file) | **Post** `/sources/{sourceId}/upload-connector-file` | Upload connector file to source
 [**import-entitlements-schema**](#import-entitlements-schema) | **Post** `/sources/{id}/schemas/entitlements` | Uploads source entitlements schema template
-[**list-provisioning-policies**](#list-provisioning-policies) | **Get** `/sources/{sourceId}/provisioning-policies` | Lists ProvisioningPolicies
-[**list-sources**](#list-sources) | **Get** `/sources` | Lists all sources in IdentityNow.
-[**put-provisioning-policy**](#put-provisioning-policy) | **Put** `/sources/{sourceId}/provisioning-policies/{usageType}` | Update Provisioning Policy by UsageType
-[**put-source**](#put-source) | **Put** `/sources/{id}` | Update Source (Full)
-[**put-source-schema**](#put-source-schema) | **Put** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Full)
-[**update-provisioning-policies-in-bulk**](#update-provisioning-policies-in-bulk) | **Post** `/sources/{sourceId}/provisioning-policies/bulk-update` | Bulk Update Provisioning Policies
-[**update-provisioning-policy**](#update-provisioning-policy) | **Patch** `/sources/{sourceId}/provisioning-policies/{usageType}` | Partial update of Provisioning Policy
-[**update-source**](#update-source) | **Patch** `/sources/{id}` | Update Source (Partial)
-[**update-source-schema**](#update-source-schema) | **Patch** `/sources/{sourceId}/schemas/{schemaId}` | Update Source Schema (Partial)
+[**list-provisioning-policies**](#list-provisioning-policies) | **Get** `/sources/{sourceId}/provisioning-policies` | Lists provisioningpolicies
+[**list-sources**](#list-sources) | **Get** `/sources` | Lists all sources in identitynow.
+[**put-provisioning-policy**](#put-provisioning-policy) | **Put** `/sources/{sourceId}/provisioning-policies/{usageType}` | Update provisioning policy by usagetype
+[**put-source**](#put-source) | **Put** `/sources/{id}` | Update source (full)
+[**put-source-schema**](#put-source-schema) | **Put** `/sources/{sourceId}/schemas/{schemaId}` | Update source schema (full)
+[**update-provisioning-policies-in-bulk**](#update-provisioning-policies-in-bulk) | **Post** `/sources/{sourceId}/provisioning-policies/bulk-update` | Bulk update provisioning policies
+[**update-provisioning-policy**](#update-provisioning-policy) | **Patch** `/sources/{sourceId}/provisioning-policies/{usageType}` | Partial update of provisioning policy
+[**update-source**](#update-source) | **Patch** `/sources/{id}` | Update source (partial)
+[**update-source-schema**](#update-source-schema) | **Patch** `/sources/{sourceId}/schemas/{schemaId}` | Update source schema (partial)
 
 
 ## create-provisioning-policy
-Create Provisioning Policy
+Create provisioning policy
 This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
@@ -215,7 +215,7 @@ func main() {
 [[Back to top]](#)
 
 ## create-source
-Creates a source in IdentityNow.
+Creates a source in identitynow.
 This creates a specific source with a full source JSON representation. Any passwords are submitted as plain-text and encrypted upon receipt in IdentityNow.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-source)
@@ -366,7 +366,7 @@ func main() {
 [[Back to top]](#)
 
 ## create-source-schema
-Create Schema on Source
+Create schema on source
 Use this API to create a new schema on the specified source in Identity Security Cloud (ISC).
 
 
@@ -473,7 +473,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-provisioning-policy
-Delete Provisioning Policy by UsageType
+Delete provisioning policy by usagetype
 Deletes the provisioning policy with the specified usage on an application.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-provisioning-policy)
@@ -541,7 +541,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-source
-Delete Source by ID
+Delete source by id
 Use this API to delete a specific source in Identity Security Cloud (ISC).
 The API removes all the accounts on the source first, and then it deletes the source. You can retrieve the actual task execution status with this method: GET `/task-status/{id}`
 
@@ -608,7 +608,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-source-schema
-Delete Source Schema by ID
+Delete source schema by id
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-source-schema)
@@ -811,7 +811,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-provisioning-policy
-Get Provisioning Policy by UsageType
+Get provisioning policy by usagetype
 This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-provisioning-policy)
@@ -880,7 +880,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-source
-Get Source by ID
+Get source by id
 Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-source)
@@ -946,7 +946,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-source-connections
-Get Source Connections by ID
+Get source connections by id
 Use this API to get all dependent Profiles, Attributes, Applications and Custom Transforms for a source by a specified ID in Identity Security Cloud (ISC).
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-source-connections)
@@ -1078,7 +1078,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-source-schema
-Get Source Schema by ID
+Get source schema by id
 Get the Source Schema by ID in IdentityNow.
 
 
@@ -1148,7 +1148,7 @@ func main() {
 [[Back to top]](#)
 
 ## get-source-schemas
-List Schemas on Source
+List schemas on source
 Use this API to list the schemas that exist on the specified source in Identity Security Cloud (ISC).
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-source-schemas)
@@ -1436,7 +1436,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-provisioning-policies
-Lists ProvisioningPolicies
+Lists provisioningpolicies
 This end-point lists all the ProvisioningPolicies in IdentityNow.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-provisioning-policies)
@@ -1502,7 +1502,7 @@ func main() {
 [[Back to top]](#)
 
 ## list-sources
-Lists all sources in IdentityNow.
+Lists all sources in identitynow.
 This end-point lists all the sources in IdentityNow.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-sources)
@@ -1576,7 +1576,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-provisioning-policy
-Update Provisioning Policy by UsageType
+Update provisioning policy by usagetype
 This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
@@ -1693,7 +1693,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-source
-Update Source (Full)
+Update source (full)
 Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.
 
 These fields are immutable, so they cannot be changed:
@@ -1860,7 +1860,7 @@ func main() {
 [[Back to top]](#)
 
 ## put-source-schema
-Update Source Schema (Full)
+Update source schema (full)
 This API will completely replace an existing Schema with the submitted payload. Some fields of the Schema cannot be updated. These fields are listed below.
 
 * id
@@ -1979,7 +1979,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-provisioning-policies-in-bulk
-Bulk Update Provisioning Policies
+Bulk update provisioning policies
 This end-point updates a list of provisioning policies on the specified source in IdentityNow.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/update-provisioning-policies-in-bulk)
@@ -2052,7 +2052,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-provisioning-policy
-Partial update of Provisioning Policy
+Partial update of provisioning policy
 This API selectively updates an existing Provisioning Policy using a JSONPatch payload.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
 Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
@@ -2130,7 +2130,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-source
-Update Source (Partial)
+Update source (partial)
 Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the
 [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
@@ -2218,7 +2218,7 @@ func main() {
 [[Back to top]](#)
 
 ## update-source-schema
-Update Source Schema (Partial)
+Update source schema (partial)
 Use this API to selectively update an existing Schema using a JSONPatch payload. 
 
 The following schema fields are immutable and cannot be updated:

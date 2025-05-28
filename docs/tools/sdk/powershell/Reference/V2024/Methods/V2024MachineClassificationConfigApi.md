@@ -17,9 +17,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Remove-V2024MachineClassificationConfig**](#delete-machine-classification-config) | **DELETE** `/sources/{sourceId}/machine-classification-config` | Delete Source&#39;s Classification Config
-[**Get-V2024MachineClassificationConfig**](#get-machine-classification-config) | **GET** `/sources/{sourceId}/machine-classification-config` | Machine Classification Config for Source
-[**Set-V2024MachineClassificationConfig**](#set-machine-classification-config) | **PUT** `/sources/{sourceId}/machine-classification-config` | Update Source&#39;s Classification Config
+[**Remove-V2024MachineClassificationConfig**](#delete-machine-classification-config) | **DELETE** `/sources/{sourceId}/machine-classification-config` | Delete source&#39;s classification config
+[**Get-V2024MachineClassificationConfig**](#get-machine-classification-config) | **GET** `/sources/{sourceId}/machine-classification-config` | Machine classification config for source
+[**Set-V2024MachineClassificationConfig**](#set-machine-classification-config) | **PUT** `/sources/{sourceId}/machine-classification-config` | Update source&#39;s classification config
 
 
 ## delete-machine-classification-config
@@ -55,7 +55,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
 
-# Delete Source's Classification Config
+# Delete source's classification config
 
 try {
     Remove-V2024MachineClassificationConfig -Id $Id 
@@ -101,7 +101,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID
 
-# Machine Classification Config for Source
+# Machine classification config for source
 
 try {
     Get-V2024MachineClassificationConfig -Id $Id 
@@ -155,7 +155,7 @@ $MachineClassificationConfig = @"{
   "enabled" : true
 }"@
 
-# Update Source's Classification Config
+# Update source's classification config
 
 try {
     $Result = ConvertFrom-JsonToMachineClassificationConfig -Json $MachineClassificationConfig

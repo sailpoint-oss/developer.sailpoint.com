@@ -33,12 +33,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**start-predict-sod-violations**](#start-predict-sod-violations) | **Post** `/sod-violations/predict` | Predict SOD violations for identity.
-[**start-violation-check**](#start-violation-check) | **Post** `/sod-violations/check` | Check SOD violations
+[**start-predict-sod-violations**](#start-predict-sod-violations) | **Post** `/sod-violations/predict` | Predict sod violations for identity.
+[**start-violation-check**](#start-violation-check) | **Post** `/sod-violations/check` | Check sod violations
 
 
 ## start-predict-sod-violations
-Predict SOD violations for identity.
+Predict sod violations for identity.
 This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies. Returns the violations that would be caused.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/start-predict-sod-violations)
@@ -116,7 +116,7 @@ func main() {
 [[Back to top]](#)
 
 ## start-violation-check
-Check SOD violations
+Check sod violations
 This API initiates a SOD policy verification asynchronously.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/start-violation-check)

@@ -17,13 +17,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-org-config**](#get-org-config) | **GET** `/org-config` | Get Org configuration settings
+[**get-org-config**](#get-org-config) | **GET** `/org-config` | Get org configuration settings
 [**get-valid-time-zones**](#get-valid-time-zones) | **GET** `/org-config/valid-time-zones` | Get list of time zones
-[**patch-org-config**](#patch-org-config) | **PATCH** `/org-config` | Patch an Org configuration property
+[**patch-org-config**](#patch-org-config) | **PATCH** `/org-config` | Patch an org configuration property
 
 
 ## get-org-config
-Get Org configuration settings
+Get org configuration settings
 Get org configuration with only external (org admin) accessible properties for the current org.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-org-config)
@@ -62,7 +62,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # Get Org configuration settings
+        # Get org configuration settings
         
         results = OrgConfigApi(api_client).get_org_config()
         # Below is a request that includes all optional parameters
@@ -132,7 +132,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-org-config
-Patch an Org configuration property
+Patch an org configuration property
 Patch configuration of the current org using http://jsonpatch.com/ syntax.  Commonly used for changing the time zone of an org.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-org-config)
@@ -176,7 +176,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=replace, path=/timeZone, value=America/Toronto}]''' # List[JsonPatchOperation] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
     try:
-        # Patch an Org configuration property
+        # Patch an org configuration property
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = OrgConfigApi(api_client).patch_org_config(json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters

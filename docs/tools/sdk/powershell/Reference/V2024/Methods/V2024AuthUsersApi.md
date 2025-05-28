@@ -22,8 +22,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2024AuthUser**](#get-auth-user) | **GET** `/auth-users/{id}` | Auth User Details
-[**Update-V2024AuthUser**](#patch-auth-user) | **PATCH** `/auth-users/{id}` | Auth User Update
+[**Get-V2024AuthUser**](#get-auth-user) | **GET** `/auth-users/{id}` | Auth user details
+[**Update-V2024AuthUser**](#patch-auth-user) | **PATCH** `/auth-users/{id}` | Auth user update
 
 
 ## get-auth-user
@@ -58,7 +58,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
 
-# Auth User Details
+# Auth user details
 
 try {
     Get-V2024AuthUser -Id $Id 
@@ -115,7 +115,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity ID
 }"@ # JsonPatchOperation[] | A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 
-# Auth User Update
+# Auth user update
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

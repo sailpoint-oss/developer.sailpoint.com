@@ -21,11 +21,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaLauncher**](#create-launcher) | **POST** `/launchers` | Create launcher
-[**Remove-BetaLauncher**](#delete-launcher) | **DELETE** `/launchers/{launcherID}` | Delete Launcher
-[**Get-BetaLauncher**](#get-launcher) | **GET** `/launchers/{launcherID}` | Get Launcher by ID
-[**Get-BetaLaunchers**](#get-launchers) | **GET** `/launchers` | List all Launchers for tenant
-[**Send-BetaLauncher**](#put-launcher) | **PUT** `/launchers/{launcherID}` | Replace Launcher
-[**Start-BetaLauncher**](#start-launcher) | **POST** `/beta/launchers/{launcherID}/launch` | Launch a Launcher
+[**Remove-BetaLauncher**](#delete-launcher) | **DELETE** `/launchers/{launcherID}` | Delete launcher
+[**Get-BetaLauncher**](#get-launcher) | **GET** `/launchers/{launcherID}` | Get launcher by id
+[**Get-BetaLaunchers**](#get-launchers) | **GET** `/launchers` | List all launchers for tenant
+[**Send-BetaLauncher**](#put-launcher) | **PUT** `/launchers/{launcherID}` | Replace launcher
+[**Start-BetaLauncher**](#start-launcher) | **POST** `/beta/launchers/{launcherID}/launch` | Launch a launcher
 
 
 ## create-launcher
@@ -117,7 +117,7 @@ Code | Description  | Data Type
 ```powershell
 $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be deleted
 
-# Delete Launcher
+# Delete launcher
 
 try {
     Remove-BetaLauncher -LauncherID $LauncherID 
@@ -163,7 +163,7 @@ Code | Description  | Data Type
 ```powershell
 $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be retrieved
 
-# Get Launcher by ID
+# Get launcher by id
 
 try {
     Get-BetaLauncher -LauncherID $LauncherID 
@@ -213,7 +213,7 @@ $Filters = 'disabled eq "true"' # String | Filter results using the standard syn
 $Next = "eyJuZXh0IjoxMjN9Cg==" # String | Pagination marker (optional)
 $Limit = 42 # Int32 | Number of Launchers to return (optional) (default to 10)
 
-# List all Launchers for tenant
+# List all launchers for tenant
 
 try {
     Get-BetaLaunchers 
@@ -271,7 +271,7 @@ $LauncherRequest = @"{
   "config" : "{\"workflowId\" : \"6b42d9be-61b6-46af-827e-ea29ba8aa3d9\"}"
 }"@
 
-# Replace Launcher
+# Replace launcher
 
 try {
     $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
@@ -318,7 +318,7 @@ Code | Description  | Data Type
 ```powershell
 $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be launched
 
-# Launch a Launcher
+# Launch a launcher
 
 try {
     Start-BetaLauncher -LauncherID $LauncherID 

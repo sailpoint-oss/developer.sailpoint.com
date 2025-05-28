@@ -103,7 +103,7 @@ jobs:
           export DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY=1000000000
           export 
 
-          npm ci --legacy-peer-deps
+          npm ci 
           npm run gen-api-docs-all
           npm run build
       # push these files to AWS

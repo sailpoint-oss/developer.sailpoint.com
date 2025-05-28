@@ -1,0 +1,38 @@
+description: An identity with a set of access to be added
+required:
+  - identityId
+  - accessRefs
+type: object
+properties:
+  identityId:
+    description: Identity id to be checked.
+    type: string
+    example: 2c91808568c529c60168cca6f90c1313
+  accessRefs:
+    description: The list of entitlements to consider for possible violations in a preventive check.
+    type: array
+    items:
+      type: object
+      description: Entitlement including a specific set of access.
+      properties:
+        type:
+          type: string 
+          description: Entitlement's DTO type. 
+          enum: 
+            - ENTITLEMENT
+          example: ENTITLEMENT
+        id:
+          type: string
+          description: Entitlement's ID. 
+          example: 2c91809773dee32014e13e122092014e
+        name:
+          type: string
+          description: Entitlement's display name. 
+          example: "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local"
+    example: 
+    - type: ENTITLEMENT
+      id: 2c918087682f9a86016839c050861ab1
+      name: CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local
+    - type: ENTITLEMENT
+      id: 2c918087682f9a86016839c0509c1ab2
+      name: CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local

@@ -1,0 +1,17 @@
+type: object
+description: SOD policy recipient. 
+properties:
+  type:
+    type: string 
+    description: SOD policy recipient DTO type. 
+    enum: 
+      - IDENTITY
+    example: IDENTITY
+  id:
+    type: string
+    description: SOD policy recipient's identity ID. 
+    example: 2c7180a46faadee4016fb4e018c20642
+  name:
+    type: string
+    description: SOD policy recipient's display name. 
+    example: Michael Michaels

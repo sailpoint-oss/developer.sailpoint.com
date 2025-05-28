@@ -1,0 +1,14 @@
+type: object
+properties:
+  limit:
+    type: integer
+  offset:
+    type: integer
+  total:
+    type: integer
+  next:
+    type: string
+    example: /endpoint?limit=10&offset=60
+  previous:
+    type: string
+    example: /endpoint?limit=10&offset=40

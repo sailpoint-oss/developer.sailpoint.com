@@ -1,0 +1,31 @@
+type: object
+description: >-
+  The bucket to group the results of the aggregation query by.
+required: ["name", "field"]
+properties:
+  name:
+    description: >-
+      The name of the bucket aggregate to be included in the result.
+    type: string
+    example: 'Identity Locations'
+  type:
+    $ref: 'BucketType.yaml'
+  field:
+    description: >-
+      The field to bucket on.
+
+      Prefix the field name with '@' to reference a nested object.
+    type: string
+    example: 'attributes.city'
+  size:
+    description: >-
+      Maximum number of buckets to include.
+    type: integer
+    format: int32
+    example: 100
+  minDocCount:
+    description: >-
+      Minimum number of documents a bucket should have.
+    type: integer
+    format: int32
+    example: 2

@@ -1,0 +1,110 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Policy ID.
+    example: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
+    readOnly: true
+  name:
+    type: string
+    description: Policy business name. 
+    example: "policy-xyz"
+  created:
+    type: string
+    format: date-time
+    description: The time when this SOD policy is created.
+    example: "2020-01-01T00:00:00.000000Z"
+    readOnly: true
+  modified:
+    type: string
+    format: date-time
+    description: The time when this SOD policy is modified.
+    example: "2020-01-01T00:00:00.000000Z"
+    readOnly: true
+  description:
+    type: string
+    description: Optional description of the SOD policy.
+    example: "This policy ensures compliance of xyz"
+    nullable: true
+  ownerRef:
+    type: object
+    description: The owner of the SOD policy.
+    properties:
+      type:
+        type: string 
+        description: Owner type. 
+        enum: 
+          - IDENTITY
+          - GOVERNANCE_GROUP
+        example: IDENTITY
+      id:
+        type: string
+        description: Owner's ID.
+        example: 2c9180a46faadee4016fb4e018c20639
+      name:
+        type: string
+        description: Owner's name. 
+        example: Support
+  externalPolicyReference:
+    type: string
+    description: Optional external policy reference. 
+    example: "XYZ policy"
+    nullable: true
+  policyQuery:
+    type: string
+    description: Search query of the SOD policy.
+    example: "@access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdg) AND @access(id:0f11f2a4-7c94-4bf3-a2bd-742580fe3bdf)"
+  compensatingControls:
+    type: string
+    description: Optional compensating controls (Mitigating Controls).
+    example: "Have a manager review the transaction decisions for their \"out of compliance\" employee"
+    nullable: true
+  correctionAdvice:
+    type: string
+    description: Optional correction advice.
+    example: "Based on the role of the employee, managers should remove access that is not required for their job function."
+    nullable: true
+  state:
+    type: string
+    description: Whether the policy is enforced or not.
+    enum:
+      - ENFORCED
+      - NOT_ENFORCED
+    example: ENFORCED
+  tags:
+    type: array
+    description: Tags for the policy object.
+    example: ["TAG1", "TAG2"]
+    items:
+      type: string
+  creatorId:
+    type: string
+    description: Policy's creator ID.
+    example: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
+    readOnly: true
+  modifierId:
+    type: string
+    description: Policy's modifier ID.
+    example: "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
+    nullable : true
+    readOnly: true
+  violationOwnerAssignmentConfig:
+    $ref: './ViolationOwnerAssignmentConfig.yaml'
+    nullable: true
+  scheduled:
+    type: boolean
+    description: Defines whether a policy has been scheduled or not.
+    example: true
+    default: false
+  type:
+    type: string
+    description: Whether a policy is query based or conflicting access based.
+    default: GENERAL
+    enum:
+      - GENERAL
+      - CONFLICTING_ACCESS_BASED
+    example: GENERAL
+  conflictingAccessCriteria:
+    allOf:
+      - $ref: './ConflictingAccessCriteria.yaml'
+      - nullable: true

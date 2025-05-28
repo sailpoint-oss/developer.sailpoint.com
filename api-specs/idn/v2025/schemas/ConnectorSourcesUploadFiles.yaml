@@ -1,0 +1,19 @@
+description: Connector Sources Upload Files
+type: object
+properties:
+  id:
+    description: V3 Source Id
+    type: string
+    example: 2c918088776e36550177746ac4c71a44
+  uploadHistory:
+    description: List of the connector upload history
+    type: array
+    items:
+      $ref: 'ConnectorFileUploadHistory.yaml'
+    example:
+      - file: "temp7081703651350031905mysql-connector-java-8.0.11.jar"
+        date: "2022-06-02T10:00:20.670870Z"
+  cloudExternalId:
+    description: CC Id, will be removed without notice when Migration to CEGS is finished
+    type: string
+    example: 540717

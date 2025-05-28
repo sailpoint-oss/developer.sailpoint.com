@@ -1,0 +1,111 @@
+name: saml_configuration
+in: body
+description: Sets the SAML configuration for the object.
+required: false
+schema:
+  type: object
+  properties:
+    id:
+      description: the ID of the saml configuration
+      example: 113e95cb-a6b7-405e-961b-63b4336ea57c
+      type: string
+      format: uuid
+      readonly: true
+    cert:
+      description: saml configuration certificate
+      example: "<CERTIFICATE EXAMPLE>"
+      type: string
+    cert_fingerprint:
+      description: the certificate fingerprint
+      example: "EE:F2:CC:4F:4A:BC:BF:F6:3F:45:8F:7F:08:12:94:4C:A2:E9:20:4A"
+      type: string
+    collaboration_login:
+      description: displays or not the Collaboration login page
+      example: true
+      type: boolean
+    email_attribute:
+      description: the attribute that maps to user email
+      example: user_email
+      type: string
+    enabled:
+      description: the configuration is enabled or not
+      example: false
+      type: boolean
+    entity_id:
+      description: the entity ID that maps to the user
+      example: 113e95cb-a6b7-405e-961b-63b4336ea57c
+      type: string
+    fingerprint_algorithm:
+      description: the certificate fingerprint algorithm
+      example: SHA-1
+      type: string
+    groups_attribute:
+      description: from the Service Provider, the attribute that maps to groups
+      example: user_groups
+      type: string
+    hide_local_login_form:
+      description: when enabled, username and password fill form will not appear on login page
+      example: false
+      type: boolean
+    idp_mapping_attribute:
+      description: for the Identity Provider, the user mapping attribute
+      example: email
+      type: string
+    legacy_id:
+      description: legacy ID for this portal
+      example: 1
+      format: int32
+      readonly: true
+      type: integer
+    login_url:
+      description: for the Identity Provider, the URL that directs to the login page
+      example: https://superidp.com/login
+      type: string
+    logout_url:
+      description: for the Identity Provider, the URL that logouts the user
+      example: https://superidp.com/logout
+      type: string
+    name:
+      description: the name of the SAML configuration
+      example: SAML-SSO
+      type: string
+    name_attribute:
+      description: from the Service Provider, the attribute that maps to the user name
+      example: user_name
+      type: string
+    neaccess_domain:
+      description: from the Service Proivder, the domain for Collaboration
+      example: neaccess
+      type: string
+    neprofile_domain:
+      description: from the Service Provider, the domain for LifeCycle
+      example: neprofile
+      type: string
+    portal_id:
+      description: the Portal ID that belongs this configuration
+      example: 113e95cb-a6b7-405e-961b-63b4336ea57c
+      format: uuid
+      readonly: true
+      type: string
+    profile_creation:
+      description: allows portal to create profiles
+      example: true
+      type: boolean
+    sp_entity_id:
+      description: from the Service Provider, the entity ID
+      default: SecZetta
+      example: SecZetta
+      type: string
+  example:
+    cert_fingerprint: "EE:F2:CC:4F:4A:BC:BF:F6:3F:45:8F:7F:08:12:94:4C:A2:E9:20:4A"
+    groups_attribute: groups
+    name_attribute: displayName
+    email_attribute: login
+    entity_id: seczetta
+    name: SAML-SSO
+    login_url: https://superportallogin.com
+    enabled: true
+    hide_local_login_form: flase
+    collaboration_login: true
+    profile_creation: true
+    idp_mapping_attribute: email

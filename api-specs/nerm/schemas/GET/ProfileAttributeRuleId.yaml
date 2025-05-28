@@ -1,0 +1,31 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  uid:
+    type: string
+    minLength: 32
+    maxLength: 32
+    readOnly: true
+  type:
+    type: string
+    required: true
+    enum: [ProfileAttributeRule]
+  condition_object_type:
+    type: string
+    required: true
+    enum: [ProfileSelectAttribute, ProfileSearchAttribute, OwnerSelectAttribute, OwnerSearchAttribute, ContributorSelectAttribute, ContributorSearchAttribute]
+  condition_object_id:
+    type: string
+    required: true
+    format: uuid
+  comparison_operator:
+    type: string
+    required: true
+    enum: ['include?', 'exclude?']
+  value:
+    type: string
+    required: true
+    format: uuid

@@ -1,0 +1,9 @@
+type : object
+properties:
+  timeZone:
+    type: string
+    description:
+      The timezone must be in a valid ISO 8601 format. Timezones in ISO 8601 are represented as UTC (represented as 'Z')
+      or as an offset from UTC. The offset format can be +/-hh:mm, +/-hhmm, or +/-hh.
+    default: Z
+    example: -05:00

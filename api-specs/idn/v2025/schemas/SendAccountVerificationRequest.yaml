@@ -1,0 +1,18 @@
+type: object
+properties:
+  sourceName:
+    description: The source name where identity account password should be reset
+    type: string
+    nullable: true
+    example: "Active Directory Source"
+  via:
+    description: The method to send notification
+    type: string
+    enum:
+      - EMAIL_WORK
+      - EMAIL_PERSONAL
+      - LINK_WORK
+      - LINK_PERSONAL
+    example: EMAIL_WORK
+required:
+  - via

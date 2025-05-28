@@ -1,0 +1,41 @@
+type: object
+properties:
+  name:
+    type: string
+    description: Business name for the access construct list
+    example: "money-in"
+  criteriaList:
+    type: array
+    description: List of criteria.  There is a min of 1 and max of 50 items in the list.
+    items:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - ENTITLEMENT
+          description: DTO type
+          example: ENTITLEMENT
+        id:
+          type: string
+          description: ID of the object to which this reference applies to
+          example: 2c91808568c529c60168cca6f90c1313
+        name:
+          type: string
+          description: Human-readable display name of the object to which this reference applies to
+          example: Administrator
+    # oneOf:
+    #   - minItems: 1
+    #   - maxItems: 50
+    example: [
+    {
+      type: "ENTITLEMENT",
+      id: "2c9180866166b5b0016167c32ef31a66",
+      name: "Administrator"
+    },
+    {
+      type: "ENTITLEMENT",
+      id: "2c9180866166b5b0016167c32ef31a67",
+      name: "Administrator"
+    }
+    ]

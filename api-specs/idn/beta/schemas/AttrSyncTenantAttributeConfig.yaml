@@ -1,0 +1,39 @@
+
+type: object
+description: Specification of tenant attribute sync mapping configuration for an identity attribute
+required:
+  - name
+  - displayName
+  - targets
+properties:
+  name:
+    type: string
+    description: Name of the identity attribute
+    example: email
+  displayName:
+    type: string
+    description: Display name of the identity attribute
+    example: Email
+  targets:
+    type: array
+    description: Collection of source synchronization targets to which the identity attribute values should be synchronized
+    items:
+      $ref: './AttrSyncTenantSyncTarget.yaml'
+    example: [
+      {
+        source: {
+          type: "SOURCE",
+          id: "2c9180835d191a86015d28455b4b232a",
+          name: "Corporate Active Directory"
+        },
+        attribute: "mail"
+      },
+      {
+        source: {
+          type: "SOURCE",
+          id: "2c9180835d191a86015d28455b4b232a",
+          name: "HR Workday"
+        },
+        attribute: "EMAIL_ADDRESS_WORK"
+      }
+    ]

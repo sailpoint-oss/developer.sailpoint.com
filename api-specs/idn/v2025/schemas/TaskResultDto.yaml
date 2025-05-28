@@ -1,0 +1,18 @@
+type: object
+description: Task result. 
+properties:
+  type:
+    type: string 
+    description: Task result DTO type. 
+    enum: 
+      - TASK_RESULT
+    example: TASK_RESULT
+  id:
+    type: string
+    description: Task result ID. 
+    example: 464ae7bf791e49fdb74606a2e4a89635
+  name:
+    type: string
+    description: Task result display name. 
+    nullable: true
+    example: null

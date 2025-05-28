@@ -1,0 +1,22 @@
+type: object
+description: >-
+  Represents the role's criteria for membership. The 'children' field is recursive to create compound logical
+  expressions.
+properties:
+  operation:
+    $ref: './Operation.yaml'
+  key:
+    $ref: './ComplexRoleCriterionKey.yaml'
+  value:
+    type: string
+    description: The value for the specified key
+    example: Allie
+  children:
+    title: Role Criteria
+    description: List of child role criteria objects
+    type: array
+    # There is an issue in OpenAPI displaying recursive data types (github.com/swagger-api/swagger-ui/issues/3325)
+    # This should reference itself, instead using description and title to provide context for object.
+    # Using an empty object to prevent referencing errors in the UI
+    items:
+      type: object

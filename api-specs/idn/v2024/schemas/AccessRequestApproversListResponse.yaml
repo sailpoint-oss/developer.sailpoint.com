@@ -1,0 +1,22 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Approver id.
+    example: id12345
+  email:
+    type: string
+    description: Email of the approver.
+    example: jdoe@sailpoint.com
+  name:
+    type: string
+    description: Name of the approver.
+    example: John Doe
+  approvalId:
+    type: string
+    description: Id of the approval item.
+    example: ap12345
+  type:
+    type: string
+    description: Type of the object returned. In this case, the value for this field will always Identity.
+    example: Identity

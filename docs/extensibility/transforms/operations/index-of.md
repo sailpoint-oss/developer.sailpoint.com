@@ -20,7 +20,7 @@ Use the index of transform to get the location of a specific substring within an
 
 :::
 
-## Transform Structure
+## Transform structure
 
 The indexOf transform requires only the substring which you want to search for, along with the `type` and `name` attributes:
 
@@ -55,7 +55,7 @@ Input: "admin_jsmith"
 Output: "0"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -78,7 +78,7 @@ Input: "abcabcabc"
 Output: "1"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

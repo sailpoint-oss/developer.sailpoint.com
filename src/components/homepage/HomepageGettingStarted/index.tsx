@@ -19,20 +19,20 @@ export default function HomepageGettingStarted(): ReactNode {
             </div>
             <div className={styles.gettingStartedThree}>
               Jump into our{' '}
-              <span className={styles.bold}>Get Started Guides</span> for more
+              <span className={styles.bold}>Get started Guides</span> for more
               information.
             </div>
           </div>
           <div className={styles.gridContainer}>
             <HomepageCard
               link="/docs"
-              title="Get Started with Identity Security Cloud"
+              title="Get started with Identity Security Cloud"
               image="/homepage/SailPointIdentitySecurityCloud.svg"
               product={null}
             />
             <HomepageCard
               link="https://documentation.sailpoint.com/identityiq/help/iiqlandingpage.html"
-              title="Get Started with IdentityIQ"
+              title="Get started with IdentityIQ"
               image="/homepage/IdentityIQ.svg"
               product={null}
             />

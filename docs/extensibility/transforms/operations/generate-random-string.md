@@ -20,7 +20,7 @@ Use the generate random string transform as an out-of-the-box rule transform pro
 
 :::
 
-## Transform Structure
+## Transform structure
 
 The structure of a generate random string transform requires the `name` of the referenced rule to be the "Cloud Services Deployment Utility" rule built by SailPoint. You must also must set `operation` to `generateRandomString`, provide a `length`, and provide the true/false attributes for `includeNumbers` and `includeSpecialChars`. Last, you must include the `type` and `name` attributes required for all transforms:
 
@@ -69,7 +69,7 @@ The structure of a generate random string transform requires the `name` of the r
 
 This transform generates a 16-character random string containing letters, numbers and special characters.
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -91,7 +91,7 @@ This transform generates a 16-character random string containing letters, number
 
 This transform generates an 8-character random string containing only letters and numbers.
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

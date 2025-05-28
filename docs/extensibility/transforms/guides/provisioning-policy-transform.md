@@ -1,6 +1,6 @@
 ---
 id: transforms-in-provisioning-policies
-title: Transforms in Provisioning Policies
+title: Transforms in provisioning policies
 pagination_label: Transforms in Provisioning Policies
 sidebar_label: Transforms in Provisioning Policies
 sidebar_class_name: transformsInProvisioningPolicies
@@ -129,7 +129,7 @@ This is an example create provisioning policy response for a source:
 }
 ```
 
-## Add to the Create policy
+## Add to the create policy
 
 This transform concatenates the identityAttributes `firstName`, `lastName`, the two digit month of the `hireDate` and the static string `Rt4e!` to form a temporaryPassword.
 
@@ -348,6 +348,6 @@ This is the example response with the full policy, along with the new attribute:
 }
 ```
 
-## Next Steps
+## Next steps
 
 For more information on all available transforms, refer to [Transform Operations](/docs/extensibility/transforms/operations). If you're having trouble creating your transform in provisioning policies, reach out with your question in the [Developer Community Forum](https://developer.sailpoint.com/discuss/)!

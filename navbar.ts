@@ -17,7 +17,7 @@ const navbarConfig = {
       },
       {
         type: 'dropdown',
-        label: 'API Specifications',
+        label: 'API specifications',
         position: 'left',
         items: [
           { label: 'Identity Security Cloud', to: '/docs/api/v2025' },
@@ -43,15 +43,15 @@ const navbarConfig = {
         label: 'Community',
         position: 'left',
         items: [
-          { label: 'Developer Forum', to: 'https://developer.sailpoint.com/discuss/' },
-          { label: 'CoLab Marketplace', to: '/colab' },
-          { label: 'Developer Blog', to: '/blog' },
-          { label: 'Ambassador Program', to: '/ambassadors' },
+          { label: 'Developer forum', to: 'https://developer.sailpoint.com/discuss/' },
+          { label: 'CoLab marketplace', to: '/colab' },
+          { label: 'Developer blog', to: '/blog' },
+          { label: 'Ambassador program', to: '/ambassadors' },
         ],
       },
       {
         position: 'left',
-        label: 'Video Library',
+        label: 'Video library',
         to: '/videos',
       },
       {

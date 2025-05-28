@@ -20,7 +20,7 @@ Use the substring transform to get the inner portion of a string passed into the
 
 :::
 
-## Transform Structure
+## Transform structure
 
 In addition to the standard `type` and `name` attributes, the substring transform requires you to provide the beginning location of the input, which indicates the start of the desired substring output:
 
@@ -60,7 +60,7 @@ Input: "abcdef"
 Output: "cd"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -84,7 +84,7 @@ Input: "abcdef"
 Output: "cde"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

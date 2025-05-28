@@ -75,7 +75,7 @@ Then make sure you can run the `sail` command.
 
 Each release on the [releases page](https://github.com/sailpoint-oss/sailpoint-cli/releases) includes a tarball that can be extracted and run on Linux. Or you can install using the available .deb or .rpm packages.
 
-#### Deb Package
+#### Deb package
 
 Download the specific .deb package from the release you wish to install
 
@@ -89,7 +89,7 @@ sudo apt install ./sail_x.x.x_linux_amd64.deb
 sudo apt install /path/to/deb/package/sail_x.x.x_linux_amd64.deb
 ```
 
-#### RPM Package
+#### RPM package
 
 Download the specific .rpm package from the release you wish to install
 
@@ -124,11 +124,11 @@ You will be prompted for the following information:
 - The Tenant URL - The web URL used to access your Identity Security Cloud tenant (ex. https://tenant.identitynow.com), this is used during the OAuth process.
 - The API URL - The API URL used to access your Identity Security Cloud tenant (ex. https://tenant.api.identitynow.com), this is used for the api calls made by certain commands.
 
-### OAuth Authentication
+### OAuth authentication
 
 With the default environment values populated you can immediately begin using the CLI with OAuth authentication. Just make sure OAuth is your selected authentication method, this can be done by running `sail set auth oauth`.
 
-### PAT Authentication
+### PAT authentication
 
 After you have configured your environment, if you want to use PAT authentication, run the `sail set pat` command. You can then provide your PAT client ID and client secret.
 

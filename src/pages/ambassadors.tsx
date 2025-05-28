@@ -17,10 +17,10 @@ const Ambassador: React.FC = () => {
           <img
             className={styles.ambassadorPurposeImage}
             src={useBaseUrl('/ambassador/Ambassador-Program-Banner.png')}
-            alt="Ambassador Program Banner"
+            alt="Ambassador program Banner"
           />
           <div className={styles.ambassadorPurposeText}>
-            Our Ambassador Program offers not just exclusive benefits but also
+            Our Ambassador program offers not just exclusive benefits but also
             an enriching learning experience on SailPoint; it's a journey to
             expertise. As an Ambassador, your contributions foster community
             growth, enabling knowledge-sharing among experts like you.

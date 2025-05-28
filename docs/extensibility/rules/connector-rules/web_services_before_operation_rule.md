@@ -140,6 +140,6 @@ import sailpoint.object.ProvisioningPlan.AccountRequest;
 </Rule>
 ```
 
-## Attach to Source
+## Attach to source
 
 Refer to [Attaching Connector-Related Rules to Sources](./index.md#webservicebeforeoperation-rule) for details on how to attach your rule to your source.

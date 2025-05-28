@@ -14,7 +14,7 @@ tags: ['Transforms', 'Transform Operations']
 
 Use the upper transform to convert an input string into all uppercase letters.
 
-## Transform Structure
+## Transform structure
 
 The upper transform only requires the transform's `type` and `name` attributes:
 
@@ -45,7 +45,7 @@ Input: "inactive"
 Output: "INACTIVE"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -73,7 +73,7 @@ Input: "Everyone"
 Output: "EVERYONE"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

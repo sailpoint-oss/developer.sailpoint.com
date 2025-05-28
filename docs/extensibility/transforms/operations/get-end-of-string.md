@@ -14,7 +14,7 @@ tags: ['Transforms', 'Transform Operations']
 
 Use the get end of string transform as an out-of-the-box rule transform provided through SailPoint's Cloud Services Deployment Utility rule. The transform allows you to get the rightmost N characters of a string.
 
-## Transform Structure
+## Transform structure
 
 The structure of a get end of string transform requires the `name` of the referenced rule to be the `Cloud Services Deployment Utility` rule built by SailPoint. You must also set `operation` to `getEndOfString,` and provide a `numChars` value. Last, you must include the `type` and `name` attributes required for all transforms:
 
@@ -53,7 +53,7 @@ Input: "abcd1234"
 Output: "1234"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -73,7 +73,7 @@ Output: "1234"
 
 This transform returns a null value because the incoming string length is only 15 characters long, but the transform requests the rightmost 16 characters.
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

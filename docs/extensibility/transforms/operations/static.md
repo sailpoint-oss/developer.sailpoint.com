@@ -23,7 +23,7 @@ Use the static transform to return a fixed string value, or more commonly, to ev
 
 :::
 
-## Transform Structure
+## Transform structure
 
 In addition to the standard `type` and `name` attributes, the static transform requires a value attribute to be specified:
 
@@ -53,7 +53,7 @@ In addition to the standard `type` and `name` attributes, the static transform r
 
 This transform uses a dynamic variable called `workerType`, which is set to the value of the user's HR record's empType value. The static transform then returns that value through the use of Velocity variable notation (i.e., `$<variableName>`).
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -78,7 +78,7 @@ This transform uses a dynamic variable called `workerType`, which is set to the 
 
 This transform extends the previous one to show how you can use if/else logic to return data based on contingent logic.
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

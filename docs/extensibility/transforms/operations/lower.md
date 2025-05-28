@@ -14,7 +14,7 @@ tags: ['Transforms', 'Transform Operations']
 
 Use the lower transform to convert an input string into all lowercase letters.
 
-## Transform Structure
+## Transform structure
 
 The lower transform only requires the transform's `type` and `name` attributes:
 
@@ -45,7 +45,7 @@ Input:"ACTIVE"
 Output:"active"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -73,7 +73,7 @@ Input:"All-Access"
 Output:"all-access"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

@@ -49,7 +49,7 @@ const Marketplace: React.FC = () => {
           <div className={styles.mainCard}>
             <div className={styles.contentContainer}>
               <div className={styles.gettingStartedText}>
-                <div className={styles.gettingStartedOne}>CoLab Marketplace</div>
+                <div className={styles.gettingStartedOne}>CoLab marketplace</div>
                 <div className={styles.gettingStartedTwo}>What is the CoLab?</div>
                 <div className={styles.gettingStartedThree}>
                   <span>

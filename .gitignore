@@ -9,6 +9,8 @@ node_modules
 .docusaurus
 .cache-loader
 
+bundler-cpu-profile.json
+
 # Misc
 .DS_Store
 .idea

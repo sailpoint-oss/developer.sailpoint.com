@@ -18,7 +18,7 @@ export default function Home(): ReactNode {
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
-        <HomepageDeveloperDays />
+        {/* <HomepageDeveloperDays /> */}
         <HomepageGettingStarted />
         <HomepageBasics
           description={

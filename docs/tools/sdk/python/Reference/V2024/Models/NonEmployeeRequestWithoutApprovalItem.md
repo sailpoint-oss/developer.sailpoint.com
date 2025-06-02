@@ -56,8 +56,8 @@ data={description=Auditing},
 approval_status='APPROVED',
 comment='approved',
 completion_date='2020-03-24T11:11:41.139-05:00',
-start_date='Tue Mar 24 00:00:00 UTC 2020',
-end_date='Thu Mar 25 00:00:00 UTC 2021',
+start_date='Mon Mar 23 20:00:00 EDT 2020',
+end_date='Wed Mar 24 20:00:00 EDT 2021',
 modified='2020-03-24T11:11:41.139-05:00',
 created='2020-03-24T11:11:41.139-05:00'
 )

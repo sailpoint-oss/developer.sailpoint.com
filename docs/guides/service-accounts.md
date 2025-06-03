@@ -50,6 +50,16 @@ If it's successful, you will see one account imported.
 
 ![imported account](./img/service-accounts/imported-account.png)
 
+#### Creating service accounts via API
+
+Alternatively, this can also be done using the ISC API:
+
+1. Get the Source ID of the previously-created source you'd like to add an account to, either from the URL when you browse to the source in the UI, or by calling the [list sources](../api/v2025/list-sources) endpoint.
+2. Call the [List Accounts](../api/v2025/list-accounts) endpoint to retrieve all existing accounts in that particular source, using the `filter` parameter to specify the ID of the source you want to add an account to (`sourceId eq "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx").
+3. Using the `attributes` hash table from one of the accounts returned as a reference, craft a suitable body for a `POST` call to the [create account](../api/v2025/accounts) endpoint. Note: in addition to the source-specific attributes, you'll also need to include the `sourceId` attribute, and remove the `idNowDescription` attribute.
+
+If your call is successful, you should get a `202 Accepted` response with a response body showing the new account's ID.
+
 ### Make the source authoritative
 
 The service account source must be authoritative to be able to create new identities for each service account. This will allow you to log in as the service account to generate access tokens.

@@ -19051,6 +19051,34 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling SourcesApi->import_connector_file: %s\n" % e)
+- path: /sources/{sourceId}/load-entitlements
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2024/methods/sources#import-entitlements
+      source: |
+        from sailpoint.v2024.api.sources_api import SourcesApi
+        from sailpoint.v2024.api_client import ApiClient
+        from sailpoint.v2024.models.load_entitlement_task import LoadEntitlementTask
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+        configuration.experimental = True
+
+        with ApiClient(configuration) as api_client:
+          source_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source Id # str | Source Id
+          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+          file = None # bytearray | The CSV file containing the source entitlements to aggregate. (optional) # bytearray | The CSV file containing the source entitlements to aggregate. (optional)
+          try:
+              # Entitlement aggregation
+              
+              results = SourcesApi(api_client).import_entitlements(source_id=source_id, x_sail_point_experimental=x_sail_point_experimental)
+              # Below is a request that includes all optional parameters
+              # results = SourcesApi(api_client).import_entitlements(source_id, x_sail_point_experimental, file)
+              print("The response of SourcesApi->import_entitlements:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling SourcesApi->import_entitlements: %s\n" % e)
 - path: /sources/{id}/schemas/entitlements
   method: POST
   xCodeSample:

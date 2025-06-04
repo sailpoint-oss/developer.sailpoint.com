@@ -2,7 +2,7 @@ get:
   tags:
     - Suggested Entitlement Description
   operationId: getSedBatches
-  summary: List sed batch record
+  summary: List Sed Batch Record
   description: >-
     List Sed Batches.
  

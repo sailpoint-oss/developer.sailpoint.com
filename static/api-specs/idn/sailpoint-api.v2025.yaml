@@ -2161,6 +2161,8 @@ paths:
     $ref: ./v2025/paths/sources-entitlement-request-config.yaml
   /sources/{id}/load-accounts:
     $ref: ./v2025/paths/load-accounts.yaml
+  /sources/{sourceId}/load-entitlements:
+    $ref: ./v2025/paths/load-entitlements.yaml
   /sources/{id}/load-uncorrelated-accounts:
     $ref: ./v2025/paths/load-uncorrelated-accounts.yaml
   /task-status/{id}:

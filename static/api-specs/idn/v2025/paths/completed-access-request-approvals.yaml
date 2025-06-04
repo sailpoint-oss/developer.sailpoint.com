@@ -6,6 +6,9 @@ get:
   description: >-
     This endpoint returns list of completed approvals. See *owner-id* query
     parameter below for authorization info.
+  security:
+  - userAuth:
+    - idn:access-request-approvals:read
   parameters:
     - in: query
       name: owner-id

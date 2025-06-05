@@ -1,17 +1,17 @@
 ---
-id: v2024-machine-account-mappings
+id: v2025-machine-account-mappings
 title: Machine_Account_Mappings
 pagination_label: Machine_Account_Mappings
 sidebar_label: Machine_Account_Mappings
 sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'Machine_Account_Mappings', 'V2024Machine_Account_Mappings'] 
-slug: /tools/sdk/python/v2024/methods/machine-account-mappings
-tags: ['SDK', 'Software Development Kit', 'Machine_Account_Mappings', 'V2024Machine_Account_Mappings']
+keywords: ['python', 'Python', 'sdk', 'Machine_Account_Mappings', 'V2025Machine_Account_Mappings'] 
+slug: /tools/sdk/python/v2025/methods/machine-account-mappings
+tags: ['SDK', 'Software Development Kit', 'Machine_Account_Mappings', 'V2025Machine_Account_Mappings']
 ---
 
-# sailpoint.v2024.MachineAccountMappingsApi
+# sailpoint.v2025.MachineAccountMappingsApi
    
-All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
+All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,7 +26,7 @@ Create machine account mappings
 Creates Machine Account Mappings for both identities and accounts for a source.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-machine-account-mappings)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-machine-account-mappings)
 
 ### Parameters 
 
@@ -55,9 +55,9 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-from sailpoint.v2024.api.machine_account_mappings_api import MachineAccountMappingsApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.attribute_mappings import AttributeMappings
+from sailpoint.v2025.api.machine_account_mappings_api import MachineAccountMappingsApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.attribute_mappings import AttributeMappings
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -108,7 +108,7 @@ Delete source's machine account mappings
 Use this API to remove machine account attribute mappings for a Source. 
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-machine-account-mappings)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-machine-account-mappings)
 
 ### Parameters 
 
@@ -137,8 +137,8 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-from sailpoint.v2024.api.machine_account_mappings_api import MachineAccountMappingsApi
-from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2025.api.machine_account_mappings_api import MachineAccountMappingsApi
+from sailpoint.v2025.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -164,7 +164,7 @@ with ApiClient(configuration) as api_client:
 Machine account mapping for source
 Retrieves Machine account mappings for a specified source using Source ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-machine-account-mappings)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-machine-account-mappings)
 
 ### Parameters 
 
@@ -195,9 +195,9 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-from sailpoint.v2024.api.machine_account_mappings_api import MachineAccountMappingsApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.attribute_mappings import AttributeMappings
+from sailpoint.v2025.api.machine_account_mappings_api import MachineAccountMappingsApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.attribute_mappings import AttributeMappings
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -228,7 +228,7 @@ with ApiClient(configuration) as api_client:
 Update Source's Machine Account Mappings
 Use this API to update Machine Account Attribute Mapping for a Source. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/set-machine-account-mappings)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/set-machine-account-mappings)
 
 ### Parameters 
 
@@ -258,9 +258,9 @@ Code | Description  | Data Type | Response headers |
 ### Example
 
 ```python
-from sailpoint.v2024.api.machine_account_mappings_api import MachineAccountMappingsApi
-from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.attribute_mappings import AttributeMappings
+from sailpoint.v2025.api.machine_account_mappings_api import MachineAccountMappingsApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.attribute_mappings import AttributeMappings
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 

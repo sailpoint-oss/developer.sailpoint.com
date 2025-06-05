@@ -10935,7 +10935,7 @@
           }
         }''' # AttributeMappings | 
           try:
-              # Update source's machine account mappings
+              # Update Source's Machine Account Mappings
               new_attribute_mappings = AttributeMappings.from_json(attribute_mappings)
               results = MachineAccountMappingsApi(api_client).set_machine_account_mappings(id=id, attribute_mappings=new_attribute_mappings)
               # Below is a request that includes all optional parameters

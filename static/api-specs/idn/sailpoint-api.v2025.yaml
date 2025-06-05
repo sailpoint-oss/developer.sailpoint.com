@@ -370,6 +370,7 @@ tags:
 
       Once all the reviewers have signed off, the certification campaign either completes or, if any reviewers decided to revoke access for any of the involved identities, it moves into a remediation phase. In the remediation phase, identities' entitlements are altered to remove any entitlements marked for revocation.
       In this situation, the certification campaign completes once all the remediation requests are completed.
+  - name: Classify Source
   - name: Configuration Hub
     description: |
       Use this API to implement and customize configuration settings management. With this functionality, you can access the Configuration Hub actions and build your own automated pipeline for Identity Security Cloud configuration change delivery and deployment.
@@ -598,8 +599,12 @@ tags:
       Refer to [Moving Identities into Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#moving-identities-into-lifecycle-states) for more information about these different lifecycle state statuses. 
 
       Refer to [Setting Up Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html) for more information about lifecycle states.
+  - name: Machine Account Classify
+  - name: Machine Account Mappings
   - name: Machine Accounts
+  - name: Machine Classification Config
   - name: Machine Identities
+  - name: Machine Mapping Metadata
   - name: Managed Clients
     description: |
       Use this API to implement managed client functionality. 
@@ -2009,6 +2014,16 @@ paths:
     $ref: ./v2025/paths/machine-accounts.yaml
   /machine-accounts/{id}:
     $ref: ./v2025/paths/machine-account.yaml
+  /sources/{sourceId}/machine-classification-config:
+    $ref: "./v2025/paths/machine-classification-config.yaml"
+  /sources/{sourceId}/machine-account-mappings:
+    $ref: "./v2025/paths/machine-account-mapping.yaml"
+  /sources/{sourceId}/machine-mappings:
+    $ref: "./v2025/paths/machine-mappings.yaml"
+  /sources/{sourceId}/classify:
+    $ref: "./v2025/paths/source-machine-account-classify.yaml"
+  /accounts/{id}/classify:
+    $ref: "./v2025/paths/machine-account-classify.yaml"
   /machine-identities:
     $ref: ./v2025/paths/machine-identities.yaml
   /machine-identities/{id}:

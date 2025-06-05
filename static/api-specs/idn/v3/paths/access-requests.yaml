@@ -18,8 +18,9 @@ post:
     It's best practice to check for any existing access requests that reference the same access items before submitting a new access request. This can
     be accomplished by using the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [Pending Access Request Approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) APIs. You can also
     use the [Search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items an identity has before submitting
-    an access request to ensure that you aren't requesting access that is already granted. If you use this API to request access that an identity already has, the API will ignore the request. 
-    These ignored requests do not display when you use the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) API.
+    an access request to ensure that you aren't requesting access that is already granted. If you use this API to request access that an identity already has, 
+    without changing the account details or end date information from the existing assignment, 
+    the API will cancel the request as a duplicate.
   
     There are two types of access request:
     
@@ -28,6 +29,8 @@ post:
     * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.  
     * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others.
     * Roles, access profiles and entitlements can be requested.
+    * You can specify a `removeDate` to set or alter a sunset date-time on an assignment. The removeDate must be a future date-time, in the UTC timezone. Additionally, if the user already has the access assigned with a sunset date, you can also submit a request without a `removeDate` to request removal of the sunset date and time.
+    * If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time.
     * While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.
     * Now supports an alternate field 'requestedForWithRequestedItems' for users to specify account selections while requesting items where they have more than one account on the source.
      
@@ -35,10 +38,10 @@ post:
     * Can only be requested for a single identity at a time.
     * You cannot use an access request to revoke access from an identity if that access has been granted by role membership or by birthright provisioning. 
     * Does not support self request. Only manager can request to revoke access for their directly managed employees.
-    * If a `removeDate` is specified, then the access will be removed on that date and time only for roles, access profiles and entitlements.
+    * If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time.
     * Roles, access profiles, and entitlements can be requested for revocation.
     * Revoke requests for entitlements are limited to 1 entitlement per access request currently.
-    * You can specify a `removeDate` if the access doesn't already have a sunset date. The `removeDate` must be a future date, in the UTC timezone. 
+    * You can specify a `removeDate` to add or alter a sunset date and time on an assignment. The `removeDate` must be a future date-time, in the UTC timezone. If the user already has the access assigned with a sunset date and time, the removeDate must be a date-time earlier than the existing sunset date and time. 
     * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone.
     * Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of 'assignmentId' and 'nativeIdentity' fields. These fields should be used within the 'requestedItems' section for the revoke requests. 
     * Usage of 'requestedForWithRequestedItems' field is not supported for revoke requests.

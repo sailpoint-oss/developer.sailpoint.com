@@ -32,10 +32,10 @@ properties:
   removeDate:
     type: string
     description: |
-      The date the role or access profile or entitlement is no longer assigned to the specified identity. Also known as the expiration date.
-      * Specify a date in the future.
+      The date and time the role or access profile or entitlement is no longer assigned to the specified identity. Also known as the expiration date.
+      * Specify a date-time in the future.
       * The current SLA for the deprovisioning is 24 hours.
-      * This date can be modified to either extend or decrease the duration of access item assignments for the specified identity. You can change the expiration date for requests for yourself or direct reports, but you cannot remove an expiration date on an already approved item. If the access request has not been approved, you can cancel it and submit a new one without the expiration. If it has already been approved, then you have to revoke the access and then re-request without the expiration.
+      * This date-time can be used to change the duration of an existing access item assignment for the specified identity. A GRANT_ACCESS request can extend duration or even remove an expiration date, and either a  GRANT_ACCESS or REVOKE_ACCESS request can reduce duration or add an expiration date where one has not previously been present. You can change the expiration date in requests for yourself or others you are authorized to request for.
     format: 'date-time'
     example: '2020-07-11T21:23:15.000Z'
   assignmentId:

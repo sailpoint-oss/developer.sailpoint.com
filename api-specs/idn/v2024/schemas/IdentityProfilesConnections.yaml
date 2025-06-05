@@ -1,0 +1,15 @@
+type: object
+properties:
+  id:
+    type: string
+    description: ID of the IdentityProfile this reference applies
+    example: 76cfddb62818416f816bc494410f46c4
+  name:
+    type: string
+    description: Human-readable display name of the IdentityProfile to which this reference applies
+    example: ODS-Identity-Profile
+  identityCount:
+    type: integer
+    format: int64
+    description: The Number of Identities managed by this IdentityProfile
+    example: 100

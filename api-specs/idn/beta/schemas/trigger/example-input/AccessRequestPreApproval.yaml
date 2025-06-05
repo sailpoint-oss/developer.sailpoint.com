@@ -1,0 +1,74 @@
+title: Access Request Pre Approval
+type: object
+required:
+- accessRequestId
+- requestedFor
+- requestedItems
+- requestedBy
+properties:
+  accessRequestId:
+    type: string
+    description: Access request's unique ID.
+    example: 2c91808b6ef1d43e016efba0ce470904
+  requestedFor:
+    required:
+    - id
+    - type
+    - name
+    type: array
+    description: Identities whom access was requested for. 
+    items: 
+      $ref: './AccessItemRequestedForDto.yaml'
+    minItems: 1
+    maxItems: 10
+  requestedItems:
+    description: Details about each requested access item.
+    type: array
+    items:
+      type: object
+      required:
+      - id
+      - name
+      - type
+      - operation
+      properties:
+        id:
+          type: string
+          description: Access item's unique ID.
+          example: 2c91808b6ef1d43e016efba0ce470904
+        name:
+          type: string
+          description: Access item's name.
+          example: Engineering Access
+        description:
+          nullable: true
+          type: string
+          description: Access item's description.
+          example: Access to engineering database
+        type:
+          enum:
+          - ACCESS_PROFILE
+          - ROLE
+          - ENTITLEMENT
+          description: Access item's type.
+          example: ACCESS_PROFILE
+        operation:
+          enum:
+          - Add
+          - Remove
+          description: Action to perform on the access item.
+          example: Add
+        comment:
+          nullable: true
+          type: string
+          description: Comment from the identity requesting access.
+          example: William needs this access to do his job.
+    minItems: 1
+    maxItems: 25
+  requestedBy:
+    required:
+    - id
+    - type
+    - name
+    allOf:
+    - $ref: './AccessItemRequesterDto.yaml'

@@ -1,0 +1,13 @@
+type: object
+title: Config Object for Export and Import
+description: Config export and import format for individual object configurations.
+properties:
+  version:
+    type: integer
+    description: Current version of configuration object.
+    example: 1
+  self:
+    $ref: '../../v3/schemas/SelfImportExportDto.yaml'
+  object:
+    description: Object details. Format dependant on the object type.
+    additionalProperties: true

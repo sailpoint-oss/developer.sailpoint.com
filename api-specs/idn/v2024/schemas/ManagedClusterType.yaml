@@ -1,0 +1,30 @@
+description: Managed Cluster Type for Cluster upgrade configuration information
+type: object
+required:
+  - type
+  - pod
+  - org
+properties:
+  id:
+    description: ManagedClusterType ID
+    readOnly: true
+    type: string
+    example: aClusterTypeId
+  type:
+    description: ManagedClusterType type name
+    type: string
+    example: idn
+  pod:
+    description: ManagedClusterType pod
+    type: string
+    example: megapod-useast1
+  org:
+    description: ManagedClusterType org
+    type: string
+    example: denali-cjh
+  managedProcessIds:
+    type: array
+    description: List of processes for the cluster type
+    items:
+      type: string
+    example: ["someId", "someId2"]

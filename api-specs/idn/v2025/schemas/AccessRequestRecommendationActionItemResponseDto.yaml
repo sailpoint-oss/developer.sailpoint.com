@@ -1,0 +1,13 @@
+type: object
+properties:
+  identityId:
+    type: string
+    format: UUID
+    description: The identity ID taking the action.
+    example: 2c91808570313110017040b06f344ec9
+  access:
+    $ref: './AccessRequestRecommendationItem.yaml'
+  timestamp:
+    type: string
+    format: 'date-time'
+    example: '2017-07-11T18:45:37.098Z'

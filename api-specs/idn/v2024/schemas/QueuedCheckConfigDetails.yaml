@@ -1,0 +1,14 @@
+description: Configuration of maximum number of days and interval for checking Service Desk integration queue status.
+required:
+  - provisioningStatusCheckIntervalMinutes
+  - provisioningMaxStatusCheckDays
+type: object
+properties:
+  provisioningStatusCheckIntervalMinutes:
+    description: Interval in minutes between status checks
+    type: string
+    example: 30
+  provisioningMaxStatusCheckDays:
+    description: Maximum number of days to check
+    type: string
+    example: 2

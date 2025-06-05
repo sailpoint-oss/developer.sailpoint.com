@@ -1,0 +1,23 @@
+type: object
+properties:
+  triggerId:
+    type: string
+    example: "idn:access-request-post-approval"
+    description: Trigger ID
+  input:
+    type: object
+    example: {"identityId": "201327fda1c44704ac01181e963d463c"}
+    description: Mock input to use for test invocation.  This must adhere to the input schema defined in the trigger being invoked.  If this property is omitted, then the default trigger sample payload will be sent.
+  contentJson:
+    type: object
+    example: {"workflowId": 1234}
+    description: JSON map of invocation metadata.
+  subscriptionIds:
+    type: array
+    items:
+      type: string
+    example: ["0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"]
+    description: Only send the test event to the subscription IDs listed.  If omitted, the test event will be sent to all subscribers.
+required:
+  - triggerId
+  - contentJson

@@ -1,0 +1,11 @@
+type : object
+properties:
+  id:
+    type: string
+    description: Id of the potential role
+    example: "e0cc5d7d-bf7f-4f81-b2af-8885b09d9923"
+  name:
+    type: string
+    description: Name of the potential role
+    example: "Potential Role - e0cc5d"
+

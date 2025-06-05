@@ -1,0 +1,11 @@
+type: object
+properties:
+  tenant:
+    type: string
+    description: Tenant name.
+    example: "test-tenant"
+  id:
+    type: string
+    description: Identity ID.
+    example: 2c91808458ae7a4f0158b1bbf8af0628
+

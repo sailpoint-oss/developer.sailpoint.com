@@ -1,0 +1,19 @@
+description: Details of the Entitlement criteria
+type: object
+properties:
+  existing:
+    type: boolean
+    default: false
+    example: true
+    description: If the entitlement already belonged to the user or not.
+  type:
+    $ref: "./DtoType.yaml"
+    example: "ENTITLEMENT"
+  id:
+    type: string
+    description: Entitlement ID
+    example: "2c918085771e9d3301773b3cb66f6398"
+  name:
+    type: string
+    description: Entitlement name
+    example: "My HR Entitlement"

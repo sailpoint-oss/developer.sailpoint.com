@@ -1,0 +1,13 @@
+type: object
+properties:
+  id:
+    type: string
+    description: "Assignment Id"
+    example: "1cbb0705b38c4226b1334eadd8874086"
+  role:
+    $ref: "./BaseReferenceDto.yaml"
+    description: "Role Id and Name related to this assignment"
+    example:
+      id: "e7697a1e96d04db1ac7b0f4544915d2c"
+      type: "ROLE"
+      name: "Engineer"

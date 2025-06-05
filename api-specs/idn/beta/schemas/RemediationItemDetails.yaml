@@ -1,0 +1,38 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The ID of the certification
+    example: 2c9180835d2e5168015d32f890ca1581
+  targetId:
+    type: string
+    description: The ID of the certification target
+    example: 2c9180835d2e5168015d32f890ca1581
+  targetName:
+    type: string
+    description: The name of the certification target
+    example: john.smith
+  targetDisplayName:
+    type: string
+    description: The display name of the certification target
+    example: emailAddress
+  applicationName:
+    type: string
+    description: The name of the application/source
+    example: Active Directory
+  attributeName:
+    type: string
+    description: The name of the attribute being certified
+    example: phoneNumber
+  attributeOperation:
+    type: string
+    description: The operation of the certification on the attribute
+    example: update
+  attributeValue:
+    type: string
+    description: The value of the attribute being certified
+    example: 512-555-1212
+  nativeIdentity:
+    type: string
+    description: The native identity of the target
+    example: jason.smith2

@@ -1,0 +1,48 @@
+type: object
+required:
+  - name
+  - description
+  - type
+  - disabled
+  - config
+properties:
+  name:
+    type: string
+    description: Name of the Launcher, limited to 255 characters
+    example: Group Create
+  description:
+    type: string
+    description: Description of the Launcher, limited to 2000 characters
+    example: Create a new Active Directory Group
+  type:
+    type: string
+    description: Launcher type
+    example: INTERACTIVE_PROCESS
+    enum:
+      - INTERACTIVE_PROCESS
+  disabled:
+    type: boolean
+    description: State of the Launcher
+    example: false
+  reference:
+    type: object
+    required:
+      - id
+      - type
+    properties:
+      type:
+        type: string
+        description: Type of Launcher reference
+        example: WORKFLOW
+        enum:
+          - WORKFLOW
+      id:
+        type: string
+        description: ID of Launcher reference
+        example: 2fd6ff94-2081-4d29-acbc-83a0a2f744a5
+  config:
+    type: string
+    description: |
+      JSON configuration associated with this Launcher, restricted to a max size of 4KB
+    example: '{"workflowId" : "6b42d9be-61b6-46af-827e-ea29ba8aa3d9"}'
+    pattern: '^\{\}$'

@@ -1,0 +1,173 @@
+type : object
+properties:
+  type:
+    type: string
+    description: >-
+      Determines the overall schedule cadence. In general, all time period fields smaller than the chosen type
+      can be configured. For example, a DAILY schedule can have 'hours' set, but not 'days'; a WEEKLY schedule
+      can have both 'hours' and 'days' set.
+    enum:
+      - WEEKLY
+      - MONTHLY
+      - ANNUALLY
+      - CALENDAR
+    example:
+      WEEKLY
+  months:
+    type: object
+    description: |
+      Specifies which months of a schedule are active. Only valid for ANNUALLY schedule types. Examples:
+
+      On February and March:
+      * type LIST
+      * values "2", "3"
+
+      Every 3 months, starting in January (quarterly):
+      * type LIST
+      * values "1"
+      * interval 3
+
+      Every two months between July and December:
+      * type RANGE
+      * values "7", "12"
+      * interval 2
+    properties:
+      type:
+        type: string
+        description: Enum type to specify months value
+        enum:
+          - LIST
+          - RANGE
+        example:
+          LIST
+      values:
+        type: array
+        description:
+          Values of the months based on the enum type mentioned above
+        items:
+          type: string
+        example:
+          - "1"
+      interval:
+        type: integer
+        example: 2
+        format: int64
+        description: Interval between the cert generations
+    required:
+      - type
+      - values
+  days:
+    type: object
+    description: |
+      Specifies which day(s) a schedule is active for. This is required for all schedule types.
+      The "values" field holds different data depending on the type of schedule:
+      * WEEKLY: days of the week (1-7)
+      * MONTHLY: days of the month (1-31, L, L-1...)
+      * ANNUALLY: if the "months" field is also set: days of the month (1-31, L, L-1...); otherwise: ISO-8601 dates without year ("--12-31")
+      * CALENDAR: ISO-8601 dates ("2020-12-31")
+
+      Note that CALENDAR only supports the LIST type, and ANNUALLY does not support the RANGE type when provided
+      with ISO-8601 dates without year.
+
+      Examples:
+
+      On Sundays:
+      * type LIST
+      * values "1"
+
+      The second to last day of the month:
+      * type LIST
+      * values "L-1"
+
+      From the 20th to the last day of the month:
+      * type RANGE
+      * values "20", "L"
+
+      Every March 2nd:
+      * type LIST
+      * values "--03-02"
+
+      On March 2nd, 2021:
+      * type: LIST
+      * values "2021-03-02"
+    properties:
+      type:
+        type: string
+        description: Enum type to specify days value
+        enum:
+          - LIST
+          - RANGE
+        example: LIST
+      values:
+        type: array
+        description:
+          Values of the days based on the enum type mentioned above
+        items:
+          type: string
+        example:
+          - "1"
+      interval:
+        type: integer
+        example: 2
+        format: int64
+        description: Interval between the cert generations
+    required:
+      - type
+      - values
+  hours:
+    type: object
+    description: |
+      Specifies which hour(s) a schedule is active for. Examples:
+
+      Every three hours starting from 8AM, inclusive:
+      * type LIST
+      * values "8"
+      * interval 3
+
+      During business hours:
+      * type RANGE
+      * values "9", "5"
+
+      At 5AM, noon, and 5PM:
+      * type LIST
+      * values "5", "12", "17"
+    properties:
+      type:
+        type: string
+        description: Enum type to specify hours value
+        enum:
+          - LIST
+          - RANGE
+        example:
+          LIST
+      values:
+        type: array
+        description:
+          Values of the days based on the enum type mentioned above
+        items:
+          type: string
+        example:
+          - "1"
+      interval:
+        type: integer
+        format: int64
+        example: 2
+        description: Interval between the cert generations
+    required:
+      - type
+      - values
+  expiration:
+    type: string
+    format: date-time
+    description: >-
+      Specifies the time after which this schedule will no longer occur.
+    example: "2022-09-19 13:55:26"
+  timeZoneId:
+    type: string
+    description: >-
+      The time zone to use when running the schedule. For instance, if the schedule is scheduled
+      to run at 1AM, and this field is set to "CST", the schedule will run at 1AM CST.
+    example: "CST"
+required:
+  - type
+  - hours

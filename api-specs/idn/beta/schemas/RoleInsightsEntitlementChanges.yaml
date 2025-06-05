@@ -1,0 +1,23 @@
+type : object
+properties:
+  name:
+    type: string
+    description: Name of the entitlement
+  id:
+    type: string
+    description: Id of the entitlement
+  description:
+    type: string
+    description: Description for the entitlement
+  attribute:
+    type: string
+    description: Attribute for the entitlement
+  value:
+    type: string
+    description: Attribute value for the entitlement
+  source:
+    type: string
+    description: Source or the application for the entitlement
+  insight:
+    $ref: './RoleInsightsInsight.yaml'
+    description: The kind of insight this is and some stats

@@ -1,0 +1,8 @@
+type: object
+properties:
+  reviewItemId:
+    type: string
+    description: The review item's ID
+    example: ef38f94347e94562b5bb8424a56397d8
+  activityData:
+    $ref: './ActivityData.yaml'

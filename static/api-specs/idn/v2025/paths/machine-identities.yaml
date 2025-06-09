@@ -44,7 +44,22 @@ get:
         **attributes**: *eq*
 
 
-        **manuallyEdited**: *eq*'
+        **manuallyEdited**: *eq*
+
+
+        **subtype**: *eq, in*
+
+
+        **owners.primaryIdentity.id**: *eq, in, sw*
+
+
+        **owners.primaryIdentity.name**: *eq, in, isnull, pr*
+
+
+        **owners.secondaryIdentity.id**: *eq, in, sw*
+
+
+        **owners.secondaryIdentity.name**: *eq, in, isnull, pr*'
     - in: query
       name: sorters
       schema:

@@ -5,6 +5,7 @@ allOf:
     title: MachineIdentityDto
     required:
       - businessApplication
+      - subtype
     properties:
       businessApplication:
         type: string
@@ -24,3 +25,24 @@ allOf:
         type: object
         description: A map of custom machine identity attributes
         example: '{"Region":"EU"}'
+      subtype:
+        type: string
+        description: The subtype value associated to the machine identity
+        example: 'Application'
+      owners:
+        type: object
+        description: The owner configuration associated to the machine identity
+        required:
+            - primaryIdentity
+            - secondaryIdentities
+        properties:
+          primaryIdentity:
+            type: object
+            description: Defines the identity which is selected as the primary owner
+            allOf:
+              - $ref: './BaseReferenceDto.yaml'
+          secondaryIdentities:
+            type: array
+            items:
+              $ref: './BaseReferenceDto.yaml'
+            description: Defines the identities which are selected as secondary owners

@@ -570,17 +570,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-native-change-detection-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Delete native change detection configuration
 Deletes the native change detection configuration for the source specified by the given ID.
 
@@ -591,7 +580,6 @@ Deletes the native change detection configuration for the source specified by th
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | The source id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
  (empty response body)
@@ -619,18 +607,16 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Delete native change detection configuration
         
-        SourcesApi(api_client).delete_native_change_detection_config(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        SourcesApi(api_client).delete_native_change_detection_config(id=id)
         # Below is a request that includes all optional parameters
-        # SourcesApi(api_client).delete_native_change_detection_config(id, x_sail_point_experimental)
+        # SourcesApi(api_client).delete_native_change_detection_config(id)
     except Exception as e:
         print("Exception when calling SourcesApi->delete_native_change_detection_config: %s\n" % e)
 ```
@@ -1051,17 +1037,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-native-change-detection-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Native change detection configuration
 This API returns the existing native change detection configuration for a source specified by the given ID.
 
@@ -1072,7 +1047,6 @@ This API returns the existing native change detection configuration for a source
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | The source id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 [**NativeChangeDetectionConfig**](../models/native-change-detection-config)
@@ -1101,18 +1075,16 @@ from sailpoint.v2024.models.native_change_detection_config import NativeChangeDe
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Native change detection configuration
         
-        results = SourcesApi(api_client).get_native_change_detection_config(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        results = SourcesApi(api_client).get_native_change_detection_config(id=id)
         # Below is a request that includes all optional parameters
-        # results = SourcesApi(api_client).get_native_change_detection_config(id, x_sail_point_experimental)
+        # results = SourcesApi(api_client).get_native_change_detection_config(id)
         print("The response of SourcesApi->get_native_change_detection_config:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -2522,17 +2494,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-native-change-detection-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Update native change detection configuration
 Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.
 
@@ -2543,7 +2504,6 @@ Replaces the native change detection configuration for the source specified by t
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | The source id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
  Body  | native_change_detection_config | [**NativeChangeDetectionConfig**](../models/native-change-detection-config) | True  | 
 
 ### Return type
@@ -2573,11 +2533,9 @@ from sailpoint.v2024.models.native_change_detection_config import NativeChangeDe
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     native_change_detection_config = '''{
           "selectedEntitlements" : [ "memberOf", "memberOfSharedMailbox" ],
           "operations" : [ "ACCOUNT_UPDATED", "ACCOUNT_DELETED" ],
@@ -2590,9 +2548,9 @@ with ApiClient(configuration) as api_client:
     try:
         # Update native change detection configuration
         new_native_change_detection_config = NativeChangeDetectionConfig.from_json(native_change_detection_config)
-        results = SourcesApi(api_client).put_native_change_detection_config(id=id, x_sail_point_experimental=x_sail_point_experimental, native_change_detection_config=new_native_change_detection_config)
+        results = SourcesApi(api_client).put_native_change_detection_config(id=id, native_change_detection_config=new_native_change_detection_config)
         # Below is a request that includes all optional parameters
-        # results = SourcesApi(api_client).put_native_change_detection_config(id, x_sail_point_experimental, new_native_change_detection_config)
+        # results = SourcesApi(api_client).put_native_change_detection_config(id, new_native_change_detection_config)
         print("The response of SourcesApi->put_native_change_detection_config:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:

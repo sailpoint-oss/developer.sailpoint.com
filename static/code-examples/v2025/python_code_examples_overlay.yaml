@@ -9307,17 +9307,15 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
               # Identity details
               
-              results = IdentitiesApi(api_client).get_identity(id=id, x_sail_point_experimental=x_sail_point_experimental)
+              results = IdentitiesApi(api_client).get_identity(id=id)
               # Below is a request that includes all optional parameters
-              # results = IdentitiesApi(api_client).get_identity(id, x_sail_point_experimental)
+              # results = IdentitiesApi(api_client).get_identity(id)
               print("The response of IdentitiesApi->get_identity:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -9334,17 +9332,15 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           identity_id = 'ff8081814d2a8036014d701f3fbf53fa' # str | Identity ID. # str | Identity ID.
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
               # Get ownership details
               
-              results = IdentitiesApi(api_client).get_identity_ownership_details(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
+              results = IdentitiesApi(api_client).get_identity_ownership_details(identity_id=identity_id)
               # Below is a request that includes all optional parameters
-              # results = IdentitiesApi(api_client).get_identity_ownership_details(identity_id, x_sail_point_experimental)
+              # results = IdentitiesApi(api_client).get_identity_ownership_details(identity_id)
               print("The response of IdentitiesApi->get_identity_ownership_details:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -9361,18 +9357,16 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           identity_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
           assignment_id = '1cbb0705b38c4226b1334eadd8874086' # str | Assignment Id # str | Assignment Id
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
               # Role assignment details
               
-              results = IdentitiesApi(api_client).get_role_assignment(identity_id=identity_id, assignment_id=assignment_id, x_sail_point_experimental=x_sail_point_experimental)
+              results = IdentitiesApi(api_client).get_role_assignment(identity_id=identity_id, assignment_id=assignment_id)
               # Below is a request that includes all optional parameters
-              # results = IdentitiesApi(api_client).get_role_assignment(identity_id, assignment_id, x_sail_point_experimental)
+              # results = IdentitiesApi(api_client).get_role_assignment(identity_id, assignment_id)
               print("The response of IdentitiesApi->get_role_assignment:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -9389,19 +9383,17 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           identity_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id to get the role assignments for # str | Identity Id to get the role assignments for
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           role_id = 'e7697a1e96d04db1ac7b0f4544915d2c' # str | Role Id to filter the role assignments with (optional) # str | Role Id to filter the role assignments with (optional)
           role_name = 'Engineer' # str | Role name to filter the role assignments with (optional) # str | Role name to filter the role assignments with (optional)
           try:
               # List role assignments
               
-              results = IdentitiesApi(api_client).get_role_assignments(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
+              results = IdentitiesApi(api_client).get_role_assignments(identity_id=identity_id)
               # Below is a request that includes all optional parameters
-              # results = IdentitiesApi(api_client).get_role_assignments(identity_id, x_sail_point_experimental, role_id, role_name)
+              # results = IdentitiesApi(api_client).get_role_assignments(identity_id, role_id, role_name)
               print("The response of IdentitiesApi->get_role_assignments:\n")
               for item in results:
                   print(item.model_dump_json(by_alias=True, indent=4))
@@ -9419,10 +9411,8 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           filters = 'id eq \"6c9079b270a266a60170a2779fcb0006\" or correlated eq false' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional)
           sorters = 'name,-cloudStatus' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional)
           default_filter = CORRELATED_ONLY # str | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated=true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter. (optional) (default to CORRELATED_ONLY) # str | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated=true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter. (optional) (default to CORRELATED_ONLY)
@@ -9432,9 +9422,9 @@
           try:
               # List identities
               
-              results = IdentitiesApi(api_client).list_identities(x_sail_point_experimental=x_sail_point_experimental)
+              results = IdentitiesApi(api_client).list_identities()
               # Below is a request that includes all optional parameters
-              # results = IdentitiesApi(api_client).list_identities(x_sail_point_experimental, filters, sorters, default_filter, count, limit, offset)
+              # results = IdentitiesApi(api_client).list_identities(filters, sorters, default_filter, count, limit, offset)
               print("The response of IdentitiesApi->list_identities:\n")
               for item in results:
                   print(item.model_dump_json(by_alias=True, indent=4))
@@ -9451,17 +9441,15 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           identity_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
               # Reset an identity
               
-              IdentitiesApi(api_client).reset_identity(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
+              IdentitiesApi(api_client).reset_identity(identity_id=identity_id)
               # Below is a request that includes all optional parameters
-              # IdentitiesApi(api_client).reset_identity(identity_id, x_sail_point_experimental)
+              # IdentitiesApi(api_client).reset_identity(identity_id)
           except Exception as e:
               print("Exception when calling IdentitiesApi->reset_identity: %s\n" % e)
 - path: /identities/{id}/verification/account/send
@@ -9506,10 +9494,8 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           invite_identities_request = '''{
           "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
           "uninvited" : false
@@ -9517,9 +9503,9 @@
           try:
               # Invite identities to register
               new_invite_identities_request = InviteIdentitiesRequest.from_json(invite_identities_request)
-              results = IdentitiesApi(api_client).start_identities_invite(x_sail_point_experimental=x_sail_point_experimental, invite_identities_request=new_invite_identities_request)
+              results = IdentitiesApi(api_client).start_identities_invite(invite_identities_request=new_invite_identities_request)
               # Below is a request that includes all optional parameters
-              # results = IdentitiesApi(api_client).start_identities_invite(x_sail_point_experimental, new_invite_identities_request)
+              # results = IdentitiesApi(api_client).start_identities_invite(new_invite_identities_request)
               print("The response of IdentitiesApi->start_identities_invite:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -9593,10 +9579,8 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           identity_attribute = '''{
           "standard" : false,
           "system" : false,
@@ -9622,9 +9606,9 @@
           try:
               # Create identity attribute
               new_identity_attribute = IdentityAttribute.from_json(identity_attribute)
-              results = IdentityAttributesApi(api_client).create_identity_attribute(x_sail_point_experimental=x_sail_point_experimental, identity_attribute=new_identity_attribute)
+              results = IdentityAttributesApi(api_client).create_identity_attribute(identity_attribute=new_identity_attribute)
               # Below is a request that includes all optional parameters
-              # results = IdentityAttributesApi(api_client).create_identity_attribute(x_sail_point_experimental, new_identity_attribute)
+              # results = IdentityAttributesApi(api_client).create_identity_attribute(new_identity_attribute)
               print("The response of IdentityAttributesApi->create_identity_attribute:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -9640,17 +9624,15 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           name = 'displayName' # str | The attribute's technical name. # str | The attribute's technical name.
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
               # Delete identity attribute
               
-              IdentityAttributesApi(api_client).delete_identity_attribute(name=name, x_sail_point_experimental=x_sail_point_experimental)
+              IdentityAttributesApi(api_client).delete_identity_attribute(name=name)
               # Below is a request that includes all optional parameters
-              # IdentityAttributesApi(api_client).delete_identity_attribute(name, x_sail_point_experimental)
+              # IdentityAttributesApi(api_client).delete_identity_attribute(name)
           except Exception as e:
               print("Exception when calling IdentityAttributesApi->delete_identity_attribute: %s\n" % e)
 - path: /identity-attributes/bulk-delete
@@ -9665,19 +9647,17 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           identity_attribute_names = '''{
           "ids" : [ "name", "displayName" ]
         }''' # IdentityAttributeNames | 
           try:
               # Bulk delete identity attributes
               new_identity_attribute_names = IdentityAttributeNames.from_json(identity_attribute_names)
-              IdentityAttributesApi(api_client).delete_identity_attributes_in_bulk(x_sail_point_experimental=x_sail_point_experimental, identity_attribute_names=new_identity_attribute_names)
+              IdentityAttributesApi(api_client).delete_identity_attributes_in_bulk(identity_attribute_names=new_identity_attribute_names)
               # Below is a request that includes all optional parameters
-              # IdentityAttributesApi(api_client).delete_identity_attributes_in_bulk(x_sail_point_experimental, new_identity_attribute_names)
+              # IdentityAttributesApi(api_client).delete_identity_attributes_in_bulk(new_identity_attribute_names)
           except Exception as e:
               print("Exception when calling IdentityAttributesApi->delete_identity_attributes_in_bulk: %s\n" % e)
 - path: /identity-attributes/{name}
@@ -9692,17 +9672,15 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           name = 'displayName' # str | The attribute's technical name. # str | The attribute's technical name.
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
               # Get identity attribute
               
-              results = IdentityAttributesApi(api_client).get_identity_attribute(name=name, x_sail_point_experimental=x_sail_point_experimental)
+              results = IdentityAttributesApi(api_client).get_identity_attribute(name=name)
               # Below is a request that includes all optional parameters
-              # results = IdentityAttributesApi(api_client).get_identity_attribute(name, x_sail_point_experimental)
+              # results = IdentityAttributesApi(api_client).get_identity_attribute(name)
               print("The response of IdentityAttributesApi->get_identity_attribute:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -9719,10 +9697,8 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           include_system = False # bool | Include 'system' attributes in the response. (optional) (default to False) # bool | Include 'system' attributes in the response. (optional) (default to False)
           include_silent = False # bool | Include 'silent' attributes in the response. (optional) (default to False) # bool | Include 'silent' attributes in the response. (optional) (default to False)
           searchable_only = False # bool | Include only 'searchable' attributes in the response. (optional) (default to False) # bool | Include only 'searchable' attributes in the response. (optional) (default to False)
@@ -9730,9 +9706,9 @@
           try:
               # List identity attributes
               
-              results = IdentityAttributesApi(api_client).list_identity_attributes(x_sail_point_experimental=x_sail_point_experimental)
+              results = IdentityAttributesApi(api_client).list_identity_attributes()
               # Below is a request that includes all optional parameters
-              # results = IdentityAttributesApi(api_client).list_identity_attributes(x_sail_point_experimental, include_system, include_silent, searchable_only, count)
+              # results = IdentityAttributesApi(api_client).list_identity_attributes(include_system, include_silent, searchable_only, count)
               print("The response of IdentityAttributesApi->list_identity_attributes:\n")
               for item in results:
                   print(item.model_dump_json(by_alias=True, indent=4))
@@ -9750,11 +9726,9 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           name = 'displayName' # str | The attribute's technical name. # str | The attribute's technical name.
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           identity_attribute = '''{
           "standard" : false,
           "system" : false,
@@ -9780,9 +9754,9 @@
           try:
               # Update identity attribute
               new_identity_attribute = IdentityAttribute.from_json(identity_attribute)
-              results = IdentityAttributesApi(api_client).put_identity_attribute(name=name, x_sail_point_experimental=x_sail_point_experimental, identity_attribute=new_identity_attribute)
+              results = IdentityAttributesApi(api_client).put_identity_attribute(name=name, identity_attribute=new_identity_attribute)
               # Below is a request that includes all optional parameters
-              # results = IdentityAttributesApi(api_client).put_identity_attribute(name, x_sail_point_experimental, new_identity_attribute)
+              # results = IdentityAttributesApi(api_client).put_identity_attribute(name, new_identity_attribute)
               print("The response of IdentityAttributesApi->put_identity_attribute:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -18591,17 +18565,15 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
               # Delete native change detection configuration
               
-              SourcesApi(api_client).delete_native_change_detection_config(id=id, x_sail_point_experimental=x_sail_point_experimental)
+              SourcesApi(api_client).delete_native_change_detection_config(id=id)
               # Below is a request that includes all optional parameters
-              # SourcesApi(api_client).delete_native_change_detection_config(id, x_sail_point_experimental)
+              # SourcesApi(api_client).delete_native_change_detection_config(id)
           except Exception as e:
               print("Exception when calling SourcesApi->delete_native_change_detection_config: %s\n" % e)
 - path: /sources/{sourceId}/provisioning-policies/{usageType}
@@ -18781,17 +18753,15 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
               # Native change detection configuration
               
-              results = SourcesApi(api_client).get_native_change_detection_config(id=id, x_sail_point_experimental=x_sail_point_experimental)
+              results = SourcesApi(api_client).get_native_change_detection_config(id=id)
               # Below is a request that includes all optional parameters
-              # results = SourcesApi(api_client).get_native_change_detection_config(id, x_sail_point_experimental)
+              # results = SourcesApi(api_client).get_native_change_detection_config(id)
               print("The response of SourcesApi->get_native_change_detection_config:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -19386,11 +19356,9 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           native_change_detection_config = '''{
           "selectedEntitlements" : [ "memberOf", "memberOfSharedMailbox" ],
           "operations" : [ "ACCOUNT_UPDATED", "ACCOUNT_DELETED" ],
@@ -19402,9 +19370,9 @@
           try:
               # Update native change detection configuration
               new_native_change_detection_config = NativeChangeDetectionConfig.from_json(native_change_detection_config)
-              results = SourcesApi(api_client).put_native_change_detection_config(id=id, x_sail_point_experimental=x_sail_point_experimental, native_change_detection_config=new_native_change_detection_config)
+              results = SourcesApi(api_client).put_native_change_detection_config(id=id, native_change_detection_config=new_native_change_detection_config)
               # Below is a request that includes all optional parameters
-              # results = SourcesApi(api_client).put_native_change_detection_config(id, x_sail_point_experimental, new_native_change_detection_config)
+              # results = SourcesApi(api_client).put_native_change_detection_config(id, new_native_change_detection_config)
               print("The response of SourcesApi->put_native_change_detection_config:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:

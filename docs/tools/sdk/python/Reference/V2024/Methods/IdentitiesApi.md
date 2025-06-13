@@ -44,17 +44,6 @@ Method | HTTP request | Description
 
 
 ## delete-identity
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Delete identity
 The API returns successful response if the requested identity was deleted.
 
@@ -65,7 +54,6 @@ The API returns successful response if the requested identity was deleted.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | Identity Id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
  (empty response body)
@@ -93,18 +81,16 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Delete identity
         
-        IdentitiesApi(api_client).delete_identity(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        IdentitiesApi(api_client).delete_identity(id=id)
         # Below is a request that includes all optional parameters
-        # IdentitiesApi(api_client).delete_identity(id, x_sail_point_experimental)
+        # IdentitiesApi(api_client).delete_identity(id)
     except Exception as e:
         print("Exception when calling IdentitiesApi->delete_identity: %s\n" % e)
 ```
@@ -114,17 +100,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-identity
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Identity details
 This API returns a single identity using the Identity ID.
 
@@ -135,7 +110,6 @@ This API returns a single identity using the Identity ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | Identity Id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 [**Identity**](../models/identity)
@@ -164,18 +138,16 @@ from sailpoint.v2024.models.identity import Identity
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Identity details
         
-        results = IdentitiesApi(api_client).get_identity(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        results = IdentitiesApi(api_client).get_identity(id=id)
         # Below is a request that includes all optional parameters
-        # results = IdentitiesApi(api_client).get_identity(id, x_sail_point_experimental)
+        # results = IdentitiesApi(api_client).get_identity(id)
         print("The response of IdentitiesApi->get_identity:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -187,17 +159,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-identity-ownership-details
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Get ownership details
 Use this API to return an identity's owned objects that will cause problems for deleting the identity. 
 Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity. 
@@ -210,7 +171,6 @@ For a full list of objects owned by an identity, use the [Search API](https://de
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | identity_id | **str** | True  | Identity ID.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 [**IdentityOwnershipAssociationDetails**](../models/identity-ownership-association-details)
@@ -239,18 +199,16 @@ from sailpoint.v2024.models.identity_ownership_association_details import Identi
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     identity_id = 'ff8081814d2a8036014d701f3fbf53fa' # str | Identity ID. # str | Identity ID.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get ownership details
         
-        results = IdentitiesApi(api_client).get_identity_ownership_details(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
+        results = IdentitiesApi(api_client).get_identity_ownership_details(identity_id=identity_id)
         # Below is a request that includes all optional parameters
-        # results = IdentitiesApi(api_client).get_identity_ownership_details(identity_id, x_sail_point_experimental)
+        # results = IdentitiesApi(api_client).get_identity_ownership_details(identity_id)
         print("The response of IdentitiesApi->get_identity_ownership_details:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -262,17 +220,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-role-assignment
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Role assignment details
 
 
@@ -284,7 +231,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | identity_id | **str** | True  | Identity Id
 Path   | assignment_id | **str** | True  | Assignment Id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 [**RoleAssignmentDto**](../models/role-assignment-dto)
@@ -313,19 +259,17 @@ from sailpoint.v2024.models.role_assignment_dto import RoleAssignmentDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     identity_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
     assignment_id = '1cbb0705b38c4226b1334eadd8874086' # str | Assignment Id # str | Assignment Id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Role assignment details
         
-        results = IdentitiesApi(api_client).get_role_assignment(identity_id=identity_id, assignment_id=assignment_id, x_sail_point_experimental=x_sail_point_experimental)
+        results = IdentitiesApi(api_client).get_role_assignment(identity_id=identity_id, assignment_id=assignment_id)
         # Below is a request that includes all optional parameters
-        # results = IdentitiesApi(api_client).get_role_assignment(identity_id, assignment_id, x_sail_point_experimental)
+        # results = IdentitiesApi(api_client).get_role_assignment(identity_id, assignment_id)
         print("The response of IdentitiesApi->get_role_assignment:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -337,17 +281,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-role-assignments
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 List role assignments
 This returns either a list of Role Assignments when querying with either a Role Id or Role Name, or a list of Role Assignment References if querying with only identity Id.
 
@@ -358,7 +291,6 @@ This returns either a list of Role Assignments when querying with either a Role 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | identity_id | **str** | True  | Identity Id to get the role assignments for
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
   Query | role_id | **str** |   (optional) | Role Id to filter the role assignments with
   Query | role_name | **str** |   (optional) | Role name to filter the role assignments with
 
@@ -389,20 +321,18 @@ from sailpoint.v2024.models.get_role_assignments200_response_inner import GetRol
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     identity_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id to get the role assignments for # str | Identity Id to get the role assignments for
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     role_id = 'e7697a1e96d04db1ac7b0f4544915d2c' # str | Role Id to filter the role assignments with (optional) # str | Role Id to filter the role assignments with (optional)
     role_name = 'Engineer' # str | Role name to filter the role assignments with (optional) # str | Role name to filter the role assignments with (optional)
 
     try:
         # List role assignments
         
-        results = IdentitiesApi(api_client).get_role_assignments(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
+        results = IdentitiesApi(api_client).get_role_assignments(identity_id=identity_id)
         # Below is a request that includes all optional parameters
-        # results = IdentitiesApi(api_client).get_role_assignments(identity_id, x_sail_point_experimental, role_id, role_name)
+        # results = IdentitiesApi(api_client).get_role_assignments(identity_id, role_id, role_name)
         print("The response of IdentitiesApi->get_role_assignments:\n")
         for item in results:
             print(item.model_dump_json(by_alias=True, indent=4))
@@ -415,17 +345,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-identities
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 List identities
 This API returns a list of identities.
 
@@ -435,7 +354,6 @@ This API returns a list of identities.
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
   Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq*
   Query | sorters | **str** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus**
   Query | default_filter | **str** |   (optional) (default to CORRELATED_ONLY) | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated=true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter.
@@ -469,10 +387,8 @@ from sailpoint.v2024.models.identity import Identity
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     filters = 'id eq \"6c9079b270a266a60170a2779fcb0006\" or correlated eq false' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional)
     sorters = 'name,-cloudStatus' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional)
     default_filter = CORRELATED_ONLY # str | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated=true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter. (optional) (default to CORRELATED_ONLY) # str | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated=true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter. (optional) (default to CORRELATED_ONLY)
@@ -483,9 +399,9 @@ with ApiClient(configuration) as api_client:
     try:
         # List identities
         
-        results = IdentitiesApi(api_client).list_identities(x_sail_point_experimental=x_sail_point_experimental)
+        results = IdentitiesApi(api_client).list_identities()
         # Below is a request that includes all optional parameters
-        # results = IdentitiesApi(api_client).list_identities(x_sail_point_experimental, filters, sorters, default_filter, count, limit, offset)
+        # results = IdentitiesApi(api_client).list_identities(filters, sorters, default_filter, count, limit, offset)
         print("The response of IdentitiesApi->list_identities:\n")
         for item in results:
             print(item.model_dump_json(by_alias=True, indent=4))
@@ -498,17 +414,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## reset-identity
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Reset an identity
 Use this endpoint to reset a user's identity if they have forgotten their authentication information like their answers to knowledge-based questions. Resetting an identity de-registers the user and removes any elevated user levels they have.
 
@@ -519,7 +424,6 @@ Use this endpoint to reset a user's identity if they have forgotten their authen
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | identity_id | **str** | True  | Identity Id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
  (empty response body)
@@ -547,18 +451,16 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     identity_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Reset an identity
         
-        IdentitiesApi(api_client).reset_identity(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
+        IdentitiesApi(api_client).reset_identity(identity_id=identity_id)
         # Below is a request that includes all optional parameters
-        # IdentitiesApi(api_client).reset_identity(identity_id, x_sail_point_experimental)
+        # IdentitiesApi(api_client).reset_identity(identity_id)
     except Exception as e:
         print("Exception when calling IdentitiesApi->reset_identity: %s\n" % e)
 ```
@@ -645,17 +547,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## start-identities-invite
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Invite identities to register
 This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.
 
@@ -670,7 +561,6 @@ The executed task status can be checked by Task Management > [Get task status by
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
  Body  | invite_identities_request | [**InviteIdentitiesRequest**](../models/invite-identities-request) | True  | 
 
 ### Return type
@@ -701,10 +591,8 @@ from sailpoint.v2024.models.task_status import TaskStatus
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     invite_identities_request = '''{
           "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
           "uninvited" : false
@@ -713,9 +601,9 @@ with ApiClient(configuration) as api_client:
     try:
         # Invite identities to register
         new_invite_identities_request = InviteIdentitiesRequest.from_json(invite_identities_request)
-        results = IdentitiesApi(api_client).start_identities_invite(x_sail_point_experimental=x_sail_point_experimental, invite_identities_request=new_invite_identities_request)
+        results = IdentitiesApi(api_client).start_identities_invite(invite_identities_request=new_invite_identities_request)
         # Below is a request that includes all optional parameters
-        # results = IdentitiesApi(api_client).start_identities_invite(x_sail_point_experimental, new_invite_identities_request)
+        # results = IdentitiesApi(api_client).start_identities_invite(new_invite_identities_request)
         print("The response of IdentitiesApi->start_identities_invite:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:

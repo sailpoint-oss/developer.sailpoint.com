@@ -33,8 +33,12 @@ get:
       schema:
         type: array
         items:
-          $ref: '../schemas/RequestableObjectType.yaml'
-      example: ROLE,ACCESS_PROFILE
+          type: string
+          enum:
+            - ACCESS_PROFILE
+            - ROLE
+          description: Currently supported requestable object types.
+      example: ACCESS_PROFILE,ROLE
       explode: false
     - in: query
       name: term

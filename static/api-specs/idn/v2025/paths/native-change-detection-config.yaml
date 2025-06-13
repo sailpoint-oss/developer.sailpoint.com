@@ -20,14 +20,6 @@ get:
       type: string
     description: The source id
     example: 2c9180835d191a86015d28455b4a2329
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   responses:
     '200':
       description: Native change detection configuration for a source
@@ -69,14 +61,6 @@ put:
       type: string
     description: The source id
     example: 2c9180835d191a86015d28455b4a2329
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   requestBody:
     required: true
     content:
@@ -126,14 +110,6 @@ delete:
       type: string
     description: The source id
     example: 2c9180835d191a86015d28455b4a2329
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   responses:
     '204':
       $ref: ../responses/204.yaml

@@ -1,0 +1,57 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Tag id
+    example: '449ecdc0-d4ff-4341-acf6-92f6f7ce604f'
+    readOnly: true
+  name:
+    type: string
+    description: Name of the tag.
+    example: 'PCI'
+  created:
+    type: string
+    description: Date the tag was created.
+    format: 'date-time'
+    example: '2022-05-04T14:48:49Z'
+    readOnly: true
+  modified:
+    type: string
+    description: Date the tag was last modified.
+    format: 'date-time'
+    example: '2022-07-14T16:31:11Z'
+    readOnly: true
+  tagCategoryRefs:
+    type: array
+    items: 
+      type: object
+      description: Tagged object's category. 
+      properties:
+        type:
+          type: string 
+          description: DTO type of the tagged object's category. 
+          enum: 
+            - ACCESS_PROFILE
+            - APPLICATION
+            - CAMPAIGN
+            - ENTITLEMENT
+            - IDENTITY
+            - ROLE
+            - SOD_POLICY
+            - SOURCE
+          example: ENTITLEMENT
+        id:
+          type: string
+          description: Tagged object's ID. 
+          example: 2c91809773dee32014e13e122092014e
+        name:
+          type: string
+          description: Tagged object's display name. 
+          example: "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local"
+    readOnly: true
+required:
+  - id
+  - name
+  - created
+  - modified
+  - tagCategoryRefs

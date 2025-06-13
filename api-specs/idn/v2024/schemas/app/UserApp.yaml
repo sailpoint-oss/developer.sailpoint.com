@@ -1,0 +1,100 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The user app id
+    example: "2c91808874ff91550175097daaec161c"
+  created:
+    type: string
+    description: Time when the user app was created
+    format: 'date-time'
+    example: "2020-10-08T18:33:52.029Z"
+  modified:
+    type: string
+    description: Time when the user app was last modified
+    format: 'date-time'
+    example: "2020-10-08T18:33:52.029Z"
+  hasMultipleAccounts:
+    type: boolean
+    default: false
+    description: True if the owner has multiple accounts for the source
+    example: false
+  useForPasswordManagement:
+    type: boolean
+    default: false
+    description: True if the source has password feature
+    example: true
+  provisionRequestEnabled:
+    type: boolean
+    default: false
+    description: True if the source app related to the user app is provision request enabled
+    example: true
+  appCenterEnabled:
+    type: boolean
+    default: true
+    description: True if the source app related to the user app is shown in the app center
+    example: true
+  sourceApp:
+    type: object
+    properties:
+      id:
+        type: string
+        description: the source app ID
+        example: "edcb0951812949d085b60cd8bf35bc78"
+      type:
+        type: string
+        description: It will always be "APPLICATION"
+        example: APPLICATION
+      name:
+        type: string
+        description: the source app name
+        example: test-app
+  source:
+    type: object
+    properties:
+      id:
+        type: string
+        description: the source ID
+        example: "9870808a7190d06e01719938fcd20792"
+      type:
+        type: string
+        description: It will always be "SOURCE"
+        example: SOURCE
+      name:
+        type: string
+        description: the source name
+        example: test-source
+  account:
+    type: object
+    properties:
+      id:
+        type: string
+        description: the account ID
+        example: "85d173e7d57e496569df763231d6deb6a"
+      type:
+        type: string
+        description: It will always be "ACCOUNT"
+        example: ACCOUNT
+      name:
+        type: string
+        description: the account name
+        example: test account
+  owner:
+    type: object
+    properties:
+      id:
+        type: string
+        description: The identity ID
+        example: 2c9180827ca885d7017ca8ce28a000eb
+      type:
+        type: string
+        description: It will always be "IDENTITY"
+        example: IDENTITY
+      name:
+        type: string
+        description: The identity name
+        example: John
+      alias:
+        type: string
+        description: The identity alias
+        example: John.Doe

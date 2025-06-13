@@ -1,0 +1,36 @@
+type: object
+properties:
+  id:
+    description: Identifier of Access Profile in bulk update request.
+    type: string
+    example: "2c7180a46faadee4016fb4e018c20642"
+  requestable:
+    description: Access Profile requestable or not.
+    type: boolean
+    example: false
+  status:
+    description: >
+
+      The HTTP response status code returned for an individual Access Profile that is requested for update during a bulk update operation.
+      
+      
+      > 201   - Access profile is updated successfully.
+      
+
+      > 404   - Access profile not found.
+
+    type: string
+    example: "201"
+  description:
+    description: >
+      Human readable status description and containing additional
+      context information about success or failures etc.
+    type: string
+    example: >
+     
+      > Access profile is updated successfully.
+      
+      
+      > Referenced Access profile with Id "2c7180a46faadee4016fb4e018c20642" was not found.
+
+required: [id, requestable, status]

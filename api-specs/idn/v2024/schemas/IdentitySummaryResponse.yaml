@@ -1,0 +1,15 @@
+type: object
+properties:
+  id:
+    type: string
+    description: the id of the identity
+  name:
+    type: string
+    description: the name of the identity
+  displayName:
+    type: string
+    description: the display name of identity
+example:
+  id: 8a80828f643d484f01643e14202e206f
+  name: Certifier Name
+  displayName: John Snow    

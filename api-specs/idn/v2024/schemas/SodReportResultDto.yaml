@@ -1,0 +1,17 @@
+type: object
+description: SOD policy violation report result. 
+properties:
+  type:
+    type: string 
+    description: SOD policy violation report result DTO type. 
+    enum: 
+      - REPORT_RESULT
+    example: REPORT_RESULT
+  id:
+    type: string
+    description: SOD policy violation report result ID. 
+    example: 2c9180835d191a86015d28455b4b232a
+  name:
+    type: string
+    description: Human-readable name of the SOD policy violation report result. 
+    example: SOD Policy 1 Violation 

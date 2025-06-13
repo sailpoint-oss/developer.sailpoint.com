@@ -1,0 +1,14 @@
+type: object
+properties:
+  open:
+    type: integer
+    description: The count of open work items
+    example: 29
+  completed:
+    type: integer
+    description: The count of completed work items
+    example: 1
+  total:
+    type: integer
+    description: The count of total work items
+    example: 30

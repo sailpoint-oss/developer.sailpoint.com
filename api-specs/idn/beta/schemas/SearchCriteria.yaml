@@ -1,0 +1,106 @@
+description: Represents the search criteria for querying entitlements.
+type: object
+properties:
+  indices:
+    type: array
+    items:
+      type: string
+    description: A list of indices to search within. Must contain exactly one item, typically "entitlements".
+    example: ["entitlements"]
+  filters:
+    type: object
+    additionalProperties:
+      type: object
+      properties:
+        type:
+          type: string
+          description: The type of filter, e.g., "TERMS" or "RANGE".
+          example: "TERMS"
+        terms:
+          type: array
+          items:
+            type: string
+          description: Terms to filter by (for "TERMS" type).
+          example: ["active", "inactive"]
+        range:
+          type: object
+          properties:
+            lower:
+              type: object
+              properties:
+                value:
+                  type: string
+                  description: The lower bound value.
+                  example: "10"
+                inclusive:
+                  type: boolean
+                  default: false
+                  description: Whether the lower bound is inclusive.
+                  example: true
+            upper:
+              type: object
+              properties:
+                value:
+                  type: string
+                  description: The upper bound value.
+                  example: "20"
+                inclusive:
+                  type: boolean
+                  default: false
+                  description: Whether the upper bound is inclusive.
+                  example: false
+    description: A map of filters applied to the search. Keys are filter names, and values are filter definitions.
+    example:
+      status:
+        type: "TERMS"
+        terms: ["active", "inactive"]
+  query:
+    type: object
+    properties:
+      query:
+        type: string
+        description: A structured query for advanced search.
+        example: "status:active"
+  queryType:
+    type: string
+    description: Specifies the type of query. Must be "TEXT" if `textQuery` is used.
+    example: "TEXT"
+  textQuery:
+    type: object
+    properties:
+      terms:
+        type: array
+        items:
+          type: string
+        description: Terms to search for.
+        example: ["admin", "user"]
+      fields:
+        type: array
+        items:
+          type: string
+        description: Fields to search within.
+        example: ["role", "name"]
+      matchAny:
+        type: boolean
+        default: false
+        description: Whether to match any of the terms.
+        example: true
+  includeNested:
+    type: boolean
+    default: false
+    description: Whether to include nested objects in the search results.
+    example: true
+  sort:
+    type: array
+    items:
+      type: string
+    description: Specifies the sorting order for the results.
+    example: ["name:asc", "createdAt:desc"]
+  searchAfter:
+    type: array
+    items:
+      type: string
+    description: Used for pagination to fetch results after a specific point.
+    example: ["12345", "67890"]
+required:
+  - indices

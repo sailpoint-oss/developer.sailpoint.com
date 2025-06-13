@@ -1,0 +1,27 @@
+type: object
+properties:
+  mfaMethod:
+    type: string
+    nullable: true
+    description: Mfa method name
+    example: okta-verify
+  enabled:
+    type: boolean
+    description: If MFA method is enabled.
+    default: false
+    example: true
+  host:
+    type: string
+    nullable: true
+    description: The server host name or IP address of the MFA provider.
+    example: example.com
+  accessKey:
+    type: string
+    nullable: true
+    description: The secret key for authenticating requests to the MFA provider.
+    example: qw123Y3QlA5UqocYpdU3rEkzrK2D497y
+  identityAttribute:
+    type: string
+    nullable: true
+    description: Optional. The name of the attribute for mapping IdentityNow identity to the MFA provider.
+    example: email

@@ -1,0 +1,39 @@
+description: Managed Clients Status Bodies for UI Consumption
+type: object
+properties:
+  id:
+    type: string
+    example: 1528
+    description: Cloud Commander Id for the Client
+  alertKey:
+    type: string
+    example: NORMAL
+    description: Alert Key for the UI to decode into badges
+  description:
+    type: string
+    example: This is a client
+    description: description for client
+  internal_ip:
+    type: string
+    example: 10.0.3.90
+    description: IP for the client
+  lastSeen:
+    type: string
+    example: 1629387264188
+    description: Last Client Poll
+  sinceSeen:
+    type: string
+    example: 1629387264188
+    description: Since Last Seen
+  status:
+    type: string
+    example: NORMAL
+    description: Status for the client
+  type:
+    type: string
+    example: VA
+    description: Type of the client can be VA, CCG, INTERNAL
+  ccgVersion:
+    type: string
+    example: 619
+    description: CCG version of the client

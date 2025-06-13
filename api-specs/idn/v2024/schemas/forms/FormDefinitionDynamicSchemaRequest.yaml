@@ -1,0 +1,33 @@
+properties:
+  attributes:
+    properties:
+      formDefinitionId:
+        description: FormDefinitionID is a unique guid identifying this form definition
+        example: 00000000-0000-0000-0000-000000000000
+        type: string
+        x-go-name: FormDefinitionID
+    type: object
+    x-go-name: Attributes
+  description:
+    description: Description is the form definition dynamic schema description text
+    example: A description
+    type: string
+    x-go-name: Description
+  id:
+    description: ID is a unique identifier
+    example: 00000000-0000-0000-0000-000000000000
+    type: string
+    x-go-name: ID
+  type:
+    description: Type is the form definition dynamic schema type
+    example: action
+    type: string
+    x-go-name: Type
+  versionNumber:
+    description: VersionNumber is the form definition dynamic schema version number
+    example: 1
+    format: int64
+    type: integer
+    x-go-name: VersionNumber
+type: object
+x-go-package: github.com/sailpoint/sp-forms/domain

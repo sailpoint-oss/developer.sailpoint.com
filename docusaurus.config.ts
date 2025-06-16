@@ -45,8 +45,8 @@ const config: Config = {
         docs: {
           editUrl:
             'https://github.com/sailpoint-oss/developer-community-site/edit/main/',
-          showLastUpdateAuthor: false,
-          showLastUpdateTime: false,
+          showLastUpdateAuthor: true,
+          showLastUpdateTime: true,
           sidebarCollapsible: true,
           sidebarPath: require.resolve('./sidebars.js'),
           docItemComponent: '@theme/ApiItem', // Derived from docusaurus-theme-openapi

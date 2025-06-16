@@ -23,12 +23,14 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** | Description of machine identity | [optional] 
 **ManuallyEdited** | Pointer to **bool** | Indicates if the machine identity has been manually edited | [optional] [default to false]
 **Attributes** | Pointer to **map[string]interface{}** | A map of custom machine identity attributes | [optional] 
+**Subtype** | **string** | The subtype value associated to the machine identity | 
+**Owners** | Pointer to [**MachineIdentityDtoOwners**](machine-identity-dto-owners) |  | [optional] 
 
 ## Methods
 
 ### NewMachineIdentity
 
-`func NewMachineIdentity(name NullableString, businessApplication string, ) *MachineIdentity`
+`func NewMachineIdentity(name NullableString, businessApplication string, subtype string, ) *MachineIdentity`
 
 NewMachineIdentity instantiates a new MachineIdentity object
 This constructor will assign default values to properties that have it defined,
@@ -242,5 +244,50 @@ SetAttributes sets Attributes field to given value.
 `func (o *MachineIdentity) HasAttributes() bool`
 
 HasAttributes returns a boolean if a field has been set.
+
+### GetSubtype
+
+`func (o *MachineIdentity) GetSubtype() string`
+
+GetSubtype returns the Subtype field if non-nil, zero value otherwise.
+
+### GetSubtypeOk
+
+`func (o *MachineIdentity) GetSubtypeOk() (*string, bool)`
+
+GetSubtypeOk returns a tuple with the Subtype field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSubtype
+
+`func (o *MachineIdentity) SetSubtype(v string)`
+
+SetSubtype sets Subtype field to given value.
+
+
+### GetOwners
+
+`func (o *MachineIdentity) GetOwners() MachineIdentityDtoOwners`
+
+GetOwners returns the Owners field if non-nil, zero value otherwise.
+
+### GetOwnersOk
+
+`func (o *MachineIdentity) GetOwnersOk() (*MachineIdentityDtoOwners, bool)`
+
+GetOwnersOk returns a tuple with the Owners field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOwners
+
+`func (o *MachineIdentity) SetOwners(v MachineIdentityDtoOwners)`
+
+SetOwners sets Owners field to given value.
+
+### HasOwners
+
+`func (o *MachineIdentity) HasOwners() bool`
+
+HasOwners returns a boolean if a field has been set.
 
 

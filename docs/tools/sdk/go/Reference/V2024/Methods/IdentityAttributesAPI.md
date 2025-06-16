@@ -24,17 +24,6 @@ Method | HTTP request | Description
 
 
 ## create-identity-attribute
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Create identity attribute
 Use this API to create a new identity attribute.
 
@@ -51,7 +40,6 @@ Other parameters are passed through a pointer to a apiCreateIdentityAttributeReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **identityAttribute** | [**IdentityAttribute**](../models/identity-attribute) |  | 
 
 ### Return type
@@ -78,7 +66,6 @@ import (
 )
 
 func main() {
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     identityattribute := []byte(`{
           "standard" : false,
           "system" : false,
@@ -111,8 +98,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2024.IdentityAttributesAPI.CreateIdentityAttribute(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityAttribute(identityAttribute).Execute()
-	  //resp, r, err := apiClient.V2024.IdentityAttributesAPI.CreateIdentityAttribute(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityAttribute(identityAttribute).Execute()
+    resp, r, err := apiClient.V2024.IdentityAttributesAPI.CreateIdentityAttribute(context.Background()).IdentityAttribute(identityAttribute).Execute()
+	  //resp, r, err := apiClient.V2024.IdentityAttributesAPI.CreateIdentityAttribute(context.Background()).IdentityAttribute(identityAttribute).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.CreateIdentityAttribute``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -125,17 +112,6 @@ func main() {
 [[Back to top]](#)
 
 ## delete-identity-attribute
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Delete identity attribute
 This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.
 
@@ -157,7 +133,6 @@ Other parameters are passed through a pointer to a apiDeleteIdentityAttributeReq
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
 
@@ -184,14 +159,13 @@ import (
 
 func main() {
     name := `displayName` // string | The attribute's technical name. # string | The attribute's technical name.
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
     
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    r, err := apiClient.V2024.IdentityAttributesAPI.DeleteIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).Execute()
-	  //r, err := apiClient.V2024.IdentityAttributesAPI.DeleteIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).Execute()
+    r, err := apiClient.V2024.IdentityAttributesAPI.DeleteIdentityAttribute(context.Background(), name).Execute()
+	  //r, err := apiClient.V2024.IdentityAttributesAPI.DeleteIdentityAttribute(context.Background(), name).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.DeleteIdentityAttribute``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -203,17 +177,6 @@ func main() {
 [[Back to top]](#)
 
 ## delete-identity-attributes-in-bulk
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Bulk delete identity attributes
 Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.
 
@@ -230,7 +193,6 @@ Other parameters are passed through a pointer to a apiDeleteIdentityAttributesIn
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **identityAttributeNames** | [**IdentityAttributeNames**](../models/identity-attribute-names) |  | 
 
 ### Return type
@@ -257,7 +219,6 @@ import (
 )
 
 func main() {
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     identityattributenames := []byte(`{
           "ids" : [ "name", "displayName" ]
         }`) // IdentityAttributeNames | 
@@ -271,8 +232,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    r, err := apiClient.V2024.IdentityAttributesAPI.DeleteIdentityAttributesInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityAttributeNames(identityAttributeNames).Execute()
-	  //r, err := apiClient.V2024.IdentityAttributesAPI.DeleteIdentityAttributesInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityAttributeNames(identityAttributeNames).Execute()
+    r, err := apiClient.V2024.IdentityAttributesAPI.DeleteIdentityAttributesInBulk(context.Background()).IdentityAttributeNames(identityAttributeNames).Execute()
+	  //r, err := apiClient.V2024.IdentityAttributesAPI.DeleteIdentityAttributesInBulk(context.Background()).IdentityAttributeNames(identityAttributeNames).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.DeleteIdentityAttributesInBulk``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -284,17 +245,6 @@ func main() {
 [[Back to top]](#)
 
 ## get-identity-attribute
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Get identity attribute
 This gets an identity attribute for a given technical name.
 
@@ -316,7 +266,6 @@ Other parameters are passed through a pointer to a apiGetIdentityAttributeReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
 
@@ -343,14 +292,13 @@ import (
 
 func main() {
     name := `displayName` // string | The attribute's technical name. # string | The attribute's technical name.
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
     
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2024.IdentityAttributesAPI.GetIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).Execute()
-	  //resp, r, err := apiClient.V2024.IdentityAttributesAPI.GetIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).Execute()
+    resp, r, err := apiClient.V2024.IdentityAttributesAPI.GetIdentityAttribute(context.Background(), name).Execute()
+	  //resp, r, err := apiClient.V2024.IdentityAttributesAPI.GetIdentityAttribute(context.Background(), name).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.GetIdentityAttribute``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -363,17 +311,6 @@ func main() {
 [[Back to top]](#)
 
 ## list-identity-attributes
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 List identity attributes
 Use this API to get a collection of identity attributes.
 
@@ -390,7 +327,6 @@ Other parameters are passed through a pointer to a apiListIdentityAttributesRequ
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **includeSystem** | **bool** | Include &#39;system&#39; attributes in the response. | [default to false]
  **includeSilent** | **bool** | Include &#39;silent&#39; attributes in the response. | [default to false]
  **searchableOnly** | **bool** | Include only &#39;searchable&#39; attributes in the response. | [default to false]
@@ -420,7 +356,6 @@ import (
 )
 
 func main() {
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     includeSystem := false // bool | Include 'system' attributes in the response. (optional) (default to false) # bool | Include 'system' attributes in the response. (optional) (default to false)
     includeSilent := false // bool | Include 'silent' attributes in the response. (optional) (default to false) # bool | Include 'silent' attributes in the response. (optional) (default to false)
     searchableOnly := false // bool | Include only 'searchable' attributes in the response. (optional) (default to false) # bool | Include only 'searchable' attributes in the response. (optional) (default to false)
@@ -430,8 +365,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2024.IdentityAttributesAPI.ListIdentityAttributes(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
-	  //resp, r, err := apiClient.V2024.IdentityAttributesAPI.ListIdentityAttributes(context.Background()).XSailPointExperimental(xSailPointExperimental).IncludeSystem(includeSystem).IncludeSilent(includeSilent).SearchableOnly(searchableOnly).Count(count).Execute()
+    resp, r, err := apiClient.V2024.IdentityAttributesAPI.ListIdentityAttributes(context.Background()).Execute()
+	  //resp, r, err := apiClient.V2024.IdentityAttributesAPI.ListIdentityAttributes(context.Background()).IncludeSystem(includeSystem).IncludeSilent(includeSilent).SearchableOnly(searchableOnly).Count(count).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.ListIdentityAttributes``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -444,17 +379,6 @@ func main() {
 [[Back to top]](#)
 
 ## put-identity-attribute
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Update identity attribute
 This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.
 
@@ -476,7 +400,6 @@ Other parameters are passed through a pointer to a apiPutIdentityAttributeReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **identityAttribute** | [**IdentityAttribute**](../models/identity-attribute) |  | 
 
 ### Return type
@@ -504,7 +427,6 @@ import (
 
 func main() {
     name := `displayName` // string | The attribute's technical name. # string | The attribute's technical name.
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     identityattribute := []byte(`{
           "standard" : false,
           "system" : false,
@@ -537,8 +459,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2024.IdentityAttributesAPI.PutIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).IdentityAttribute(identityAttribute).Execute()
-	  //resp, r, err := apiClient.V2024.IdentityAttributesAPI.PutIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).IdentityAttribute(identityAttribute).Execute()
+    resp, r, err := apiClient.V2024.IdentityAttributesAPI.PutIdentityAttribute(context.Background(), name).IdentityAttribute(identityAttribute).Execute()
+	  //resp, r, err := apiClient.V2024.IdentityAttributesAPI.PutIdentityAttribute(context.Background(), name).IdentityAttribute(identityAttribute).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.PutIdentityAttribute``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

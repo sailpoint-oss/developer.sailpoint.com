@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **Created** | Pointer to **SailPointTime** | Date the Role was created | [optional] [readonly] 
 **Modified** | Pointer to **SailPointTime** | Date the Role was last modified. | [optional] [readonly] 
 **Description** | Pointer to **NullableString** | A human-readable description of the Role | [optional] 
-**Owner** | [**OwnerReference**](owner-reference) |  | 
+**Owner** | [**NullableOwnerReference**](owner-reference) |  | 
 **AccessProfiles** | Pointer to [**[]AccessProfileRef**](access-profile-ref) |  | [optional] 
 **Entitlements** | Pointer to [**[]EntitlementRef**](entitlement-ref) |  | [optional] 
 **Membership** | Pointer to [**NullableRoleMembershipSelector**](role-membership-selector) |  | [optional] 
@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 
 ### NewRole
 
-`func NewRole(name string, owner OwnerReference, ) *Role`
+`func NewRole(name string, owner NullableOwnerReference, ) *Role`
 
 NewRole instantiates a new Role object
 This constructor will assign default values to properties that have it defined,
@@ -203,6 +203,16 @@ and a boolean to check if the value has been set.
 SetOwner sets Owner field to given value.
 
 
+### SetOwnerNil
+
+`func (o *Role) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *Role) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetAccessProfiles
 
 `func (o *Role) GetAccessProfiles() []AccessProfileRef`

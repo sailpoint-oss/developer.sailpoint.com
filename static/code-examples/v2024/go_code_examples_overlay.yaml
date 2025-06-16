@@ -12052,15 +12052,14 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | Identity Id # string | Identity Id
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
           
 
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          r, err := apiClient.V2024.IdentitiesAPI.DeleteIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-          //r, err := apiClient.V2024.IdentitiesAPI.DeleteIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+          r, err := apiClient.V2024.IdentitiesAPI.DeleteIdentity(context.Background(), id).Execute()
+          //r, err := apiClient.V2024.IdentitiesAPI.DeleteIdentity(context.Background(), id).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.DeleteIdentity``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12085,15 +12084,14 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | Identity Id # string | Identity Id
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
           
 
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.IdentitiesAPI.GetIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2024.IdentitiesAPI.GetIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+          resp, r, err := apiClient.V2024.IdentitiesAPI.GetIdentity(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2024.IdentitiesAPI.GetIdentity(context.Background(), id).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.GetIdentity``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12120,15 +12118,14 @@
 
         func main() {
           identityId := `ff8081814d2a8036014d701f3fbf53fa` // string | Identity ID. # string | Identity ID.
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
           
 
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.IdentitiesAPI.GetIdentityOwnershipDetails(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2024.IdentitiesAPI.GetIdentityOwnershipDetails(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
+          resp, r, err := apiClient.V2024.IdentitiesAPI.GetIdentityOwnershipDetails(context.Background(), identityId).Execute()
+          //resp, r, err := apiClient.V2024.IdentitiesAPI.GetIdentityOwnershipDetails(context.Background(), identityId).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.GetIdentityOwnershipDetails``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12156,15 +12153,14 @@
         func main() {
           identityId := `ef38f94347e94562b5bb8424a56397d8` // string | Identity Id # string | Identity Id
           assignmentId := `1cbb0705b38c4226b1334eadd8874086` // string | Assignment Id # string | Assignment Id
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
           
 
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.IdentitiesAPI.GetRoleAssignment(context.Background(), identityId, assignmentId).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2024.IdentitiesAPI.GetRoleAssignment(context.Background(), identityId, assignmentId).XSailPointExperimental(xSailPointExperimental).Execute()
+          resp, r, err := apiClient.V2024.IdentitiesAPI.GetRoleAssignment(context.Background(), identityId, assignmentId).Execute()
+          //resp, r, err := apiClient.V2024.IdentitiesAPI.GetRoleAssignment(context.Background(), identityId, assignmentId).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.GetRoleAssignment``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12191,7 +12187,6 @@
 
         func main() {
           identityId := `ef38f94347e94562b5bb8424a56397d8` // string | Identity Id to get the role assignments for # string | Identity Id to get the role assignments for
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
           roleId := `e7697a1e96d04db1ac7b0f4544915d2c` // string | Role Id to filter the role assignments with (optional) # string | Role Id to filter the role assignments with (optional)
           roleName := `Engineer` // string | Role name to filter the role assignments with (optional) # string | Role name to filter the role assignments with (optional)
 
@@ -12200,8 +12195,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.IdentitiesAPI.GetRoleAssignments(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2024.IdentitiesAPI.GetRoleAssignments(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).RoleId(roleId).RoleName(roleName).Execute()
+          resp, r, err := apiClient.V2024.IdentitiesAPI.GetRoleAssignments(context.Background(), identityId).Execute()
+          //resp, r, err := apiClient.V2024.IdentitiesAPI.GetRoleAssignments(context.Background(), identityId).RoleId(roleId).RoleName(roleName).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.GetRoleAssignments``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12227,7 +12222,6 @@
         )
 
         func main() {
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
           filters := `id eq "6c9079b270a266a60170a2779fcb0006" or correlated eq false` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional)
           sorters := `name,-cloudStatus` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional)
           defaultFilter := `NONE` // string | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated=true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter. (optional) (default to "CORRELATED_ONLY") # string | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated=true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter. (optional) (default to "CORRELATED_ONLY")
@@ -12240,8 +12234,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.IdentitiesAPI.ListIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2024.IdentitiesAPI.ListIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).Filters(filters).Sorters(sorters).DefaultFilter(defaultFilter).Count(count).Limit(limit).Offset(offset).Execute()
+          resp, r, err := apiClient.V2024.IdentitiesAPI.ListIdentities(context.Background()).Execute()
+          //resp, r, err := apiClient.V2024.IdentitiesAPI.ListIdentities(context.Background()).Filters(filters).Sorters(sorters).DefaultFilter(defaultFilter).Count(count).Limit(limit).Offset(offset).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.ListIdentities``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12268,15 +12262,14 @@
 
         func main() {
           identityId := `ef38f94347e94562b5bb8424a56397d8` // string | Identity Id # string | Identity Id
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
           
 
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          r, err := apiClient.V2024.IdentitiesAPI.ResetIdentity(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
-          //r, err := apiClient.V2024.IdentitiesAPI.ResetIdentity(context.Background(), identityId).XSailPointExperimental(xSailPointExperimental).Execute()
+          r, err := apiClient.V2024.IdentitiesAPI.ResetIdentity(context.Background(), identityId).Execute()
+          //r, err := apiClient.V2024.IdentitiesAPI.ResetIdentity(context.Background(), identityId).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.ResetIdentity``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12343,7 +12336,6 @@
         )
 
         func main() {
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
            inviteidentitiesrequest := []byte(`{
           "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
           "uninvited" : false
@@ -12360,8 +12352,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.IdentitiesAPI.StartIdentitiesInvite(context.Background()).XSailPointExperimental(xSailPointExperimental).InviteIdentitiesRequest(inviteIdentitiesRequest).Execute()
-          //resp, r, err := apiClient.V2024.IdentitiesAPI.StartIdentitiesInvite(context.Background()).XSailPointExperimental(xSailPointExperimental).InviteIdentitiesRequest(inviteIdentitiesRequest).Execute()
+          resp, r, err := apiClient.V2024.IdentitiesAPI.StartIdentitiesInvite(context.Background()).InviteIdentitiesRequest(inviteIdentitiesRequest).Execute()
+          //resp, r, err := apiClient.V2024.IdentitiesAPI.StartIdentitiesInvite(context.Background()).InviteIdentitiesRequest(inviteIdentitiesRequest).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.StartIdentitiesInvite``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12465,7 +12457,6 @@
         )
 
         func main() {
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
            identityattribute := []byte(`{
           "standard" : false,
           "system" : false,
@@ -12500,8 +12491,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.IdentityAttributesAPI.CreateIdentityAttribute(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityAttribute(identityAttribute).Execute()
-          //resp, r, err := apiClient.V2024.IdentityAttributesAPI.CreateIdentityAttribute(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityAttribute(identityAttribute).Execute()
+          resp, r, err := apiClient.V2024.IdentityAttributesAPI.CreateIdentityAttribute(context.Background()).IdentityAttribute(identityAttribute).Execute()
+          //resp, r, err := apiClient.V2024.IdentityAttributesAPI.CreateIdentityAttribute(context.Background()).IdentityAttribute(identityAttribute).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.CreateIdentityAttribute``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12528,15 +12519,14 @@
 
         func main() {
           name := `displayName` // string | The attribute's technical name. # string | The attribute's technical name.
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
           
 
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          r, err := apiClient.V2024.IdentityAttributesAPI.DeleteIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).Execute()
-          //r, err := apiClient.V2024.IdentityAttributesAPI.DeleteIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).Execute()
+          r, err := apiClient.V2024.IdentityAttributesAPI.DeleteIdentityAttribute(context.Background(), name).Execute()
+          //r, err := apiClient.V2024.IdentityAttributesAPI.DeleteIdentityAttribute(context.Background(), name).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.DeleteIdentityAttribute``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12560,7 +12550,6 @@
         )
 
         func main() {
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
            identityattributenames := []byte(`{
           "ids" : [ "name", "displayName" ]
         }`) // IdentityAttributeNames | 
@@ -12576,8 +12565,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          r, err := apiClient.V2024.IdentityAttributesAPI.DeleteIdentityAttributesInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityAttributeNames(identityAttributeNames).Execute()
-          //r, err := apiClient.V2024.IdentityAttributesAPI.DeleteIdentityAttributesInBulk(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityAttributeNames(identityAttributeNames).Execute()
+          r, err := apiClient.V2024.IdentityAttributesAPI.DeleteIdentityAttributesInBulk(context.Background()).IdentityAttributeNames(identityAttributeNames).Execute()
+          //r, err := apiClient.V2024.IdentityAttributesAPI.DeleteIdentityAttributesInBulk(context.Background()).IdentityAttributeNames(identityAttributeNames).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.DeleteIdentityAttributesInBulk``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12602,15 +12591,14 @@
 
         func main() {
           name := `displayName` // string | The attribute's technical name. # string | The attribute's technical name.
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
           
 
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.IdentityAttributesAPI.GetIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2024.IdentityAttributesAPI.GetIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).Execute()
+          resp, r, err := apiClient.V2024.IdentityAttributesAPI.GetIdentityAttribute(context.Background(), name).Execute()
+          //resp, r, err := apiClient.V2024.IdentityAttributesAPI.GetIdentityAttribute(context.Background(), name).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.GetIdentityAttribute``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12636,7 +12624,6 @@
         )
 
         func main() {
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
           includeSystem := false // bool | Include 'system' attributes in the response. (optional) (default to false) # bool | Include 'system' attributes in the response. (optional) (default to false)
           includeSilent := false // bool | Include 'silent' attributes in the response. (optional) (default to false) # bool | Include 'silent' attributes in the response. (optional) (default to false)
           searchableOnly := false // bool | Include only 'searchable' attributes in the response. (optional) (default to false) # bool | Include only 'searchable' attributes in the response. (optional) (default to false)
@@ -12647,8 +12634,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.IdentityAttributesAPI.ListIdentityAttributes(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2024.IdentityAttributesAPI.ListIdentityAttributes(context.Background()).XSailPointExperimental(xSailPointExperimental).IncludeSystem(includeSystem).IncludeSilent(includeSilent).SearchableOnly(searchableOnly).Count(count).Execute()
+          resp, r, err := apiClient.V2024.IdentityAttributesAPI.ListIdentityAttributes(context.Background()).Execute()
+          //resp, r, err := apiClient.V2024.IdentityAttributesAPI.ListIdentityAttributes(context.Background()).IncludeSystem(includeSystem).IncludeSilent(includeSilent).SearchableOnly(searchableOnly).Count(count).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.ListIdentityAttributes``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12675,7 +12662,6 @@
 
         func main() {
           name := `displayName` // string | The attribute's technical name. # string | The attribute's technical name.
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
            identityattribute := []byte(`{
           "standard" : false,
           "system" : false,
@@ -12710,8 +12696,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.IdentityAttributesAPI.PutIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).IdentityAttribute(identityAttribute).Execute()
-          //resp, r, err := apiClient.V2024.IdentityAttributesAPI.PutIdentityAttribute(context.Background(), name).XSailPointExperimental(xSailPointExperimental).IdentityAttribute(identityAttribute).Execute()
+          resp, r, err := apiClient.V2024.IdentityAttributesAPI.PutIdentityAttribute(context.Background(), name).IdentityAttribute(identityAttribute).Execute()
+          //resp, r, err := apiClient.V2024.IdentityAttributesAPI.PutIdentityAttribute(context.Background(), name).IdentityAttribute(identityAttribute).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `IdentityAttributesAPI.PutIdentityAttribute``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -19426,7 +19412,7 @@
 
         func main() {
           identityId := `e7eab60924f64aa284175b9fa3309599` // string | If present, the value returns only requestable objects for the specified identity.  * Admin users can call this with any identity ID value.  * Non-admin users can only specify *me* or pass their own identity ID value.  * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result. (optional) # string | If present, the value returns only requestable objects for the specified identity.  * Admin users can call this with any identity ID value.  * Non-admin users can only specify *me* or pass their own identity ID value.  * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result. (optional)
-          types := []byte(`ROLE,ACCESS_PROFILE`) // []RequestableObjectType | Filters the results to the specified type/types, where each type is one of `ROLE` or `ACCESS_PROFILE`. If absent, all types are returned. SailPoint may add support for additional types in the future without notice. (optional)
+          types := []byte(`ACCESS_PROFILE,ROLE`) // []string | Filters the results to the specified type/types, where each type is one of `ROLE` or `ACCESS_PROFILE`. If absent, all types are returned. SailPoint may add support for additional types in the future without notice. (optional)
           term := `Finance Role` // string | Allows searching requestable access items with a partial match on the name or description. If `term` is provided, then the API will ignore the `filter` query parameter. (optional) # string | Allows searching requestable access items with a partial match on the name or description. If `term` is provided, then the API will ignore the `filter` query parameter. (optional)
           statuses := []byte(`[ASSIGNED, PENDING]`) // []RequestableObjectRequestStatus | Filters the result to the specified status/statuses, where each status is one of `AVAILABLE`, `ASSIGNED`, or `PENDING`. Specifying this parameter without also specifying an `identity-id` parameter results in an error.  SailPoint may add additional statuses in the future without notice. (optional)
           limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -24431,15 +24417,14 @@
 
         func main() {
           id := `2c9180835d191a86015d28455b4a2329` // string | The source id # string | The source id
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
           
 
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          r, err := apiClient.V2024.SourcesAPI.DeleteNativeChangeDetectionConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-          //r, err := apiClient.V2024.SourcesAPI.DeleteNativeChangeDetectionConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+          r, err := apiClient.V2024.SourcesAPI.DeleteNativeChangeDetectionConfig(context.Background(), id).Execute()
+          //r, err := apiClient.V2024.SourcesAPI.DeleteNativeChangeDetectionConfig(context.Background(), id).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.DeleteNativeChangeDetectionConfig``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -24696,15 +24681,14 @@
 
         func main() {
           id := `2c9180835d191a86015d28455b4a2329` // string | The source id # string | The source id
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
           
 
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.SourcesAPI.GetNativeChangeDetectionConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2024.SourcesAPI.GetNativeChangeDetectionConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+          resp, r, err := apiClient.V2024.SourcesAPI.GetNativeChangeDetectionConfig(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2024.SourcesAPI.GetNativeChangeDetectionConfig(context.Background(), id).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.GetNativeChangeDetectionConfig``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -25200,6 +25184,42 @@
           // response from `ImportConnectorFile`: Source
           fmt.Fprintf(os.Stdout, "Response from `SourcesAPI.ImportConnectorFile`: %v\n", resp)
         }
+- path: /sources/{sourceId}/load-entitlements
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2024/methods/sources#import-entitlements
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          sourceId := `ef38f94347e94562b5bb8424a56397d8` // string | Source Id # string | Source Id
+          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+          file := BINARY_DATA_HERE // *os.File | The CSV file containing the source entitlements to aggregate. (optional) # *os.File | The CSV file containing the source entitlements to aggregate. (optional)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2024.SourcesAPI.ImportEntitlements(context.Background(), sourceId).XSailPointExperimental(xSailPointExperimental).Execute()
+          //resp, r, err := apiClient.V2024.SourcesAPI.ImportEntitlements(context.Background(), sourceId).XSailPointExperimental(xSailPointExperimental).File(file).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.ImportEntitlements``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `ImportEntitlements`: LoadEntitlementTask
+          fmt.Fprintf(os.Stdout, "Response from `SourcesAPI.ImportEntitlements`: %v\n", resp)
+        }
 - path: /sources/{id}/schemas/entitlements
   method: Post
   xCodeSample:
@@ -25460,7 +25480,6 @@
 
         func main() {
           id := `2c9180835d191a86015d28455b4a2329` // string | The source id # string | The source id
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
            nativechangedetectionconfig := []byte(`{
           "selectedEntitlements" : [ "memberOf", "memberOfSharedMailbox" ],
           "operations" : [ "ACCOUNT_UPDATED", "ACCOUNT_DELETED" ],
@@ -25481,8 +25500,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.SourcesAPI.PutNativeChangeDetectionConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).NativeChangeDetectionConfig(nativeChangeDetectionConfig).Execute()
-          //resp, r, err := apiClient.V2024.SourcesAPI.PutNativeChangeDetectionConfig(context.Background(), id).XSailPointExperimental(xSailPointExperimental).NativeChangeDetectionConfig(nativeChangeDetectionConfig).Execute()
+          resp, r, err := apiClient.V2024.SourcesAPI.PutNativeChangeDetectionConfig(context.Background(), id).NativeChangeDetectionConfig(nativeChangeDetectionConfig).Execute()
+          //resp, r, err := apiClient.V2024.SourcesAPI.PutNativeChangeDetectionConfig(context.Background(), id).NativeChangeDetectionConfig(nativeChangeDetectionConfig).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.PutNativeChangeDetectionConfig``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

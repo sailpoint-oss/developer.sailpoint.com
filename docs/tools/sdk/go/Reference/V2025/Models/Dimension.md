@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **Created** | Pointer to **SailPointTime** | Date the Dimension was created | [optional] [readonly] 
 **Modified** | Pointer to **SailPointTime** | Date the Dimension was last modified. | [optional] [readonly] 
 **Description** | Pointer to **NullableString** | A human-readable description of the Dimension | [optional] 
-**Owner** | [**OwnerReference**](owner-reference) |  | 
+**Owner** | [**NullableOwnerReference**](owner-reference) |  | 
 **AccessProfiles** | Pointer to [**[]AccessProfileRef**](access-profile-ref) |  | [optional] 
 **Entitlements** | Pointer to [**[]EntitlementRef**](entitlement-ref) |  | [optional] 
 **Membership** | Pointer to [**NullableDimensionMembershipSelector**](dimension-membership-selector) |  | [optional] 
@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 ### NewDimension
 
-`func NewDimension(name string, owner OwnerReference, ) *Dimension`
+`func NewDimension(name string, owner NullableOwnerReference, ) *Dimension`
 
 NewDimension instantiates a new Dimension object
 This constructor will assign default values to properties that have it defined,
@@ -195,6 +195,16 @@ and a boolean to check if the value has been set.
 SetOwner sets Owner field to given value.
 
 
+### SetOwnerNil
+
+`func (o *Dimension) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *Dimension) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetAccessProfiles
 
 `func (o *Dimension) GetAccessProfiles() []AccessProfileRef`

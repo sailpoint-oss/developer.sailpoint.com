@@ -1,17 +1,17 @@
 ---
-id: v2024-machine-account-mappings
+id: v2025-machine-account-mappings
 title: MachineAccountMappings
 pagination_label: MachineAccountMappings
 sidebar_label: MachineAccountMappings
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'MachineAccountMappings', 'V2024MachineAccountMappings'] 
-slug: /tools/sdk/go/v2024/methods/machine-account-mappings
-tags: ['SDK', 'Software Development Kit', 'MachineAccountMappings', 'V2024MachineAccountMappings']
+keywords: ['go', 'Golang', 'sdk', 'MachineAccountMappings', 'V2025MachineAccountMappings'] 
+slug: /tools/sdk/go/v2025/methods/machine-account-mappings
+tags: ['SDK', 'Software Development Kit', 'MachineAccountMappings', 'V2025MachineAccountMappings']
 ---
 
 # MachineAccountMappingsAPI
    
-All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
+All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,7 +26,7 @@ Create machine account mappings
 Creates Machine Account Mappings for both identities and accounts for a source.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-machine-account-mappings)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-machine-account-mappings)
 
 ### Path Parameters
 
@@ -65,7 +65,7 @@ import (
 	"fmt"
 	"os"
   "encoding/json"
-    v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -93,7 +93,7 @@ func main() {
           }
         }`) // AttributeMappings | 
 
-    var attributeMappings v2024.AttributeMappings
+    var attributeMappings v2025.AttributeMappings
     if err := json.Unmarshal(attributemappings, &attributeMappings); err != nil {
       fmt.Println("Error:", err)
       return
@@ -102,8 +102,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2024.MachineAccountMappingsAPI.CreateMachineAccountMappings(context.Background(), id).AttributeMappings(attributeMappings).Execute()
-	  //resp, r, err := apiClient.V2024.MachineAccountMappingsAPI.CreateMachineAccountMappings(context.Background(), id).AttributeMappings(attributeMappings).Execute()
+    resp, r, err := apiClient.V2025.MachineAccountMappingsAPI.CreateMachineAccountMappings(context.Background(), id).AttributeMappings(attributeMappings).Execute()
+	  //resp, r, err := apiClient.V2025.MachineAccountMappingsAPI.CreateMachineAccountMappings(context.Background(), id).AttributeMappings(attributeMappings).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountMappingsAPI.CreateMachineAccountMappings``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -120,7 +120,7 @@ Delete source's machine account mappings
 Use this API to remove machine account attribute mappings for a Source. 
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-machine-account-mappings)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-machine-account-mappings)
 
 ### Path Parameters
 
@@ -169,8 +169,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    r, err := apiClient.V2024.MachineAccountMappingsAPI.DeleteMachineAccountMappings(context.Background(), id).Execute()
-	  //r, err := apiClient.V2024.MachineAccountMappingsAPI.DeleteMachineAccountMappings(context.Background(), id).Execute()
+    r, err := apiClient.V2025.MachineAccountMappingsAPI.DeleteMachineAccountMappings(context.Background(), id).Execute()
+	  //r, err := apiClient.V2025.MachineAccountMappingsAPI.DeleteMachineAccountMappings(context.Background(), id).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountMappingsAPI.DeleteMachineAccountMappings``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -185,7 +185,7 @@ func main() {
 Machine account mapping for source
 Retrieves Machine account mappings for a specified source using Source ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-machine-account-mappings)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-machine-account-mappings)
 
 ### Path Parameters
 
@@ -238,8 +238,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2024.MachineAccountMappingsAPI.ListMachineAccountMappings(context.Background(), id).Execute()
-	  //resp, r, err := apiClient.V2024.MachineAccountMappingsAPI.ListMachineAccountMappings(context.Background(), id).Limit(limit).Offset(offset).Execute()
+    resp, r, err := apiClient.V2025.MachineAccountMappingsAPI.ListMachineAccountMappings(context.Background(), id).Execute()
+	  //resp, r, err := apiClient.V2025.MachineAccountMappingsAPI.ListMachineAccountMappings(context.Background(), id).Limit(limit).Offset(offset).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountMappingsAPI.ListMachineAccountMappings``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -255,7 +255,7 @@ func main() {
 Update Source's Machine Account Mappings
 Use this API to update Machine Account Attribute Mapping for a Source. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/set-machine-account-mappings)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/set-machine-account-mappings)
 
 ### Path Parameters
 
@@ -294,7 +294,7 @@ import (
 	"fmt"
 	"os"
   "encoding/json"
-    v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
 	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
 )
 
@@ -322,7 +322,7 @@ func main() {
           }
         }`) // AttributeMappings | 
 
-    var attributeMappings v2024.AttributeMappings
+    var attributeMappings v2025.AttributeMappings
     if err := json.Unmarshal(attributemappings, &attributeMappings); err != nil {
       fmt.Println("Error:", err)
       return
@@ -331,8 +331,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2024.MachineAccountMappingsAPI.SetMachineAccountMappings(context.Background(), id).AttributeMappings(attributeMappings).Execute()
-	  //resp, r, err := apiClient.V2024.MachineAccountMappingsAPI.SetMachineAccountMappings(context.Background(), id).AttributeMappings(attributeMappings).Execute()
+    resp, r, err := apiClient.V2025.MachineAccountMappingsAPI.SetMachineAccountMappings(context.Background(), id).AttributeMappings(attributeMappings).Execute()
+	  //resp, r, err := apiClient.V2025.MachineAccountMappingsAPI.SetMachineAccountMappings(context.Background(), id).AttributeMappings(attributeMappings).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountMappingsAPI.SetMachineAccountMappings``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

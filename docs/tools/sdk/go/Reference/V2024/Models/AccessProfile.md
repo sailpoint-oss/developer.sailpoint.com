@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **Created** | Pointer to **SailPointTime** | Date and time when the access profile was created. | [optional] [readonly] 
 **Modified** | Pointer to **SailPointTime** | Date and time when the access profile was last modified. | [optional] [readonly] 
 **Enabled** | Pointer to **bool** | Indicates whether the access profile is enabled. If it's enabled, you must include at least one entitlement. | [optional] [default to false]
-**Owner** | [**OwnerReference**](owner-reference) |  | 
+**Owner** | [**NullableOwnerReference**](owner-reference) |  | 
 **Source** | [**AccessProfileSourceRef**](access-profile-source-ref) |  | 
 **Entitlements** | Pointer to [**[]EntitlementRef**](entitlement-ref) | List of entitlements associated with the access profile. If `enabled` is false, this can be empty. Otherwise, it must contain at least one entitlement. | [optional] 
 **Requestable** | Pointer to **bool** | Indicates whether the access profile is requestable by access request. Currently, making an access profile non-requestable is only supported  for customers enabled with the new Request Center. Otherwise, attempting to create an access profile with a value  **false** in this field results in a 400 error. | [optional] [default to true]
@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 
 ### NewAccessProfile
 
-`func NewAccessProfile(name string, owner OwnerReference, source AccessProfileSourceRef, ) *AccessProfile`
+`func NewAccessProfile(name string, owner NullableOwnerReference, source AccessProfileSourceRef, ) *AccessProfile`
 
 NewAccessProfile instantiates a new AccessProfile object
 This constructor will assign default values to properties that have it defined,
@@ -224,6 +224,16 @@ and a boolean to check if the value has been set.
 SetOwner sets Owner field to given value.
 
 
+### SetOwnerNil
+
+`func (o *AccessProfile) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *AccessProfile) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetSource
 
 `func (o *AccessProfile) GetSource() AccessProfileSourceRef`

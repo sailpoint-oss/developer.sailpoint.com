@@ -298,6 +298,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
     CERTIFICATION ||--o{ CERTIFICATION_CERTIFIER  : "associated to and owns"
     CERTIFICATION ||--o{ CERTIFICATION_MANAGER  : "associated to and owns"
     CERTIFICATION ||--o{ CERTIFICATION_SIGNER  : "associated to and owns"
+    CERTIFICATION ||--o{ CERTIFICATION_STATS  : "associated to and owns"
     IDENTITY ||--o{ IDENTITY_REQUEST_IDENTITY_REQUEST_ITEM_FULL : "associated to and owns"
     IDENTITY_REQUEST_IDENTITY_REQUEST_ITEM_FULL ||--o{ IDENTITY_ITEM_APPROVER : "associated to and owns"
     IDENTITY_REQUEST_IDENTITY_REQUEST_ITEM_FULL ||--o{ IDENTITY_ITEM_REQUESTER : "associated to and owns"'></MermaidViewer>

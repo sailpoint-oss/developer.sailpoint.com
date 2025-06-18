@@ -21,36 +21,28 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
 <MermaidViewer diagram='erDiagram
     IDENTITY_ATRIBUTE {
         varchar IDENTITY_ID "This contains the unique identifier for the identity"
-        varchar DisplayName "This is the user friendly label for the Identity"
-        varchar FirstName "This is the first name of the Identity"
-        varchar IdentityState "This shows if the state of the identity is active"
+        varchar City "Identity’s City"
+        varchar Cloud_Lifecycle_State "Identity’s Cloud Lifecycle State"
+        varchar Company "Identity Company"
+        varchar CompanyName "Identity CompanyName"
+        varchar Cost_Center "Identity Cost Center"
         varchar Country "Identity Country"
         varchar Department "Identity Department"
-        varchar Email "Identity email"
-        varchar LastName "This is the last name of the Identity"
-        varchar Manager "This contains the name of the Identity Manager"
-        varchar personalEmail "This is the Identity personal email"
-        varchar IdentificationNumber "This is the unique id number for the identity"
-        boolean Inactive "This shows if the state of the identity is inactive or not"
-        varchar JobTitle "Identity Job title"
-        varchar uid "This is the unique label for the Identity"
-        varchar Phone "Identity phone number"
+        varchar Job "Identity Job"
         varchar Location "Identity Location"
-        boolean Protected "This shows if the identity is protected or not"
-        varchar StartDate "This shows the start date of the identity"
-        varchar WorkPhone "Identity work phone number"
+        varchar Postal_Code "Identity Postal Code"
+        varchar Region "Identity Region"
+        varchar State "Identity State"
+        varchar Title "Identity Title"
     }
-    ROLE {
+    IDENTITY_ROLES_FULL {
+        varchar IDENTITY_ID "This is the unique identifier for the Identity"
         varchar ROLE_ID "This is the unique identifier for the Role"
         varchar ROLE_NAME "This is the human-readable name of the Role"
         varchar ROLE_DISPLAY_NAME "This is the user friendly label for the Role"
-        varchar ROLE_DESCRIPTION "This is the unique identifier for the Role"
-        varchar ROLE_CREATED_DATE "This is the Role created date"
-        varchar ROLE_UPDATED_DATE "This is the Role modified date"
-        varchar ROLE_DELETED_DATE "TThis is the Role deleted date"
-        varchar ROLE_IS_ASSIGNABLE "This is a boolean value to show if the role is assignable"
     }
     IDENTITY {
+        varchar ID PK "This is the primary key"
         varchar TENANT_ID "This is the unique identifier of customer organization"
         varchar IDENTITY_ID "This is the unique identifier for the Identity"
         timestamp IDENTITY_CREATED "This is the Identity created date"
@@ -66,92 +58,58 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar DEPARTMENT "This is the Identity department"
         varchar IDENTITY_CREATED_MONTH_SORT "This is the field to sort charts based on the month an Identity was created"
         number IDENTITY_CREATED_WEEK_SORT "This is the field to sort charts based on the week an Identity was created"
-        timestamp IDENTITY_SYNC_DATE "This is the date the data was synced to the table"
+        timestamp SYNC_DATE "This is the date the data was synced to the table"
     }
-    ACCESS_PROFILE {
-        varchar ACCESS_PROFILE_ID "This is the unique identifier for the Access Profile"
-        varchar ACCESS_PROFILE_SOURCE_ID "This is the unique identifier for the Access Profile Source"
+    ACCESS_PROFILES_FULL {
+        varchar IDENTITY_ID "This is the unique identifier for the Identity"
+        varchar ACCESS_PROFILE_ID "This is the unique identifier for Access Profile"
         varchar ACCESS_PROFILE_NAME "This is the human-readable name of the Access Profile"
         varchar ACCESS_PROFILE_DISPLAY_NAME "This is the user friendly label for the Access Profile"
         varchar ACCESS_PROFILE_DESCRIPTION "This is a short description for the Access Profile"
-        timestamp ACCESS_PROFILE_CREATED_DATE "This is the Access Profile created date"
-        timestamp ACCESS_PROFILE_UPDATED_DATE "This is the Access Profile modified date"
-        timestamp ACCESS_PROFILE_DELETED_DATE "This is the Access Profile deleted date"
-        varchar ACCESS_PROFILE_IS_ASSIGNABLE "This is a boolean value to show if the Access Profile is assignable"
-        timestamp ACCESS_PROFILE_SYNC_DAE "This is the date the data was synced to the table"
     }
-    ACCESS_PROFILES_SOURCE {
-        varchar ACCESS_PROFILE_SOURCE_ID "This is the unique identifier for the Access Profile Source"
-        varchar ACCESS_PROFILE_SOURCE_DISPLAY_NAME "This is the user friendly label for the Access Profile Source"
-        varchar ACCESS_PROFILE_SOURCE_TYPE "This is the type associated to the Access Profile Source"
-        varchar ACCESS_PROFILE_SOURCE_CONNECTOR "This is the connector associated to the Access Profile Source"
-        timestamp ACCESS_PROFILE_SOURCE_DELETED_DATE "This is the Access Profile Source deleted date" 
-        timestamp ACCESS_PROFILE_SOURCE_SYNC_DATE "This is the date the data was synced to the table"
-    }
-    ACCOUNT {
+    IDENTITY_ACCOUNTS_FULL {
         varchar IDENTITY_ID "This is the unique identifier for the Identity"
         varchar ACCOUNT_ID "This is the unique identifier for the Account"
-        varchar NATIVE_IDENTITY "This is the name of the Native Identity of the Accont"
+        varchar NATIVE_IDENTITY "This is the name of the native Identity"
         varchar ACCOUNT_DISPLAY_NAME "This is the user friendly label for the Account"
         varchar ACCOUNT_SOURCE_ID "This is the unique identifier for the Account source"
-        varchar ACCOUNT_STATUS "This shows the status of the Account"
+        varchar ACCOUNT_SOURCE__DISPLAY_NAME "This is the user friendly label for the Account source"
+        varchar ACCOUNT_SOURCE_TYPE "This is the type of the Account source"
     }
-    ACCOUNT_SOURCE {
-        varchar ACCOUNT_SOURCE_ID "This is the unique identifier for the Account Source"
-        varchar ACCOUNT_SOURCE_DISPLAY_NAME "This is the user friendly label for the Account Source"
-        varchar ACCOUNT_SOURCE_TYPE "This is the type associated to the Account Source"
-        varchar ACCOUNT_SOURCE_CONNECTOR "This is the connector associated to the Account Source"
-        timestamp ACCOUNT_SOURCE_DELETED_DATE "This is the Account Source deleted date" 
-        timestamp ACCOUNT_SOURCE_SYNC_DATE "This is the date the data was synced to the table"
-    }
-    IDENTITY_APP {
+    IDENTITY_APPS_FULL {
         varchar IDENTITY_ID "This is the unique identifier for the Identity"
         varchar APP_ID "This is the unique identifier for the App"
-    }
-    APP {
-        varchar APP_ID "This is the unique identifier for the App"
         varchar APP_DISPLAY_NAME "This is the user friendly label for the App"
-        varchar APP_DESCRIPTION "This is a short description for the App"
-        varchar APP_DELETED_DATE "This is the App deleted date"
-        timestamp APP_SYNC_DATE "This is the date the data was synced to the table"
-    }        
-    ENTITLEMENT {
+    }
+    IDENTITY_ENTITLEMENTS_FULL {
+        varchar IDENTITY_ID "This is the unique identifier for the Identity"
         varchar ENTITLEMENT_ID "This is the unique identifier for the Entitlement"
         varchar ENTITLEMENT_DISPLAY_NAME "This is the user friendly label for the Entitlement"
-        timestamp ENTITLEMENT_DELETED_DATE "This is the Entitlement created date"
+        timestamp ENTITLEMENT_CREATED_DATE "This is the Entitlement created date"
+        timestamp ENTITLEMENT_UPDATED_DATE "This is the Entitlement modified date"
         varchar ENTITLEMENT_ATTRIBUTE "This is the attribute associated with the Entitlement"
         varchar ENTITLEMENT_VALUE "This is the actual value of the attribute associated with the Entitlement"
-        varchar ENTITLEMENT_SOURCE_ID "This is the user friendly label for the Entitlement source"
-        varchar ENTITLEMENT_TYPE "This is the user friendly label for the Entitlement"
-        timestamp ENTITLEMENT_DESCRIPTION "This is the Entitlement created date"
-        timestamp ENTITLEMENT_IS_REQUESTABLE "This is the Entitlement modified date"
-        timestamp ENTITLEMENT_SYNC_DATE "This is the attribute associated with the Entitlement"
-    }
-    ENTITLEMENT_SOURCE {
-        varchar ENTITLEMENT_SOURCE_ID "This is the unique identifier for the Entitlement Source"
-        varchar ENTITLEMENT_SOURCE_DISPLAY_NAME "This is the user friendly label for the Entitlement Source"
-        varchar ENTITLEMENT_SOURCE_TYPE "This is the type associated with the Entitlement Source"
-        varchar ENTITLEMENT_SOURCE_CONNECTOR "This is the connector associated with the Entitlement Source"
-        timestamp ENTITLEMENT_SOURCE_DELETED_DATE "This is the Entitlement Source deleted date" 
-        timestamp ENTITLEMENT_SOURCE_SYNC_DATE "This is the date the data was synced to the table"
-    }      
+        varchar ENTITLEMENT_SOURCE_DISPLAY_NAME "This is the user friendly label for the Entitlement source"
+    }   
     ACCESS_REQUEST_DURATION {
         varchar IDENTITY_ID "This is the unique identifier for the Identity"
         varchar DURATION_HOURS "This is the duration in hours from the create date to the end date of an Identity Access Request"
+    } 
+    CERTIFICATION_STATS {
+        varchar CERTIFICATION_ID "This is the unique identifier for the Certification"
+        timestamp DUE_DATE "This is the date a Certification is due"
+        timestamp FINISHED_DATE "This is the date a Certification was completed"
+        number DAYS_LATE "This is the number of days after the due date that a Certification was completed"
+        number HOURS_LATE "This is the number of hours after the due date that a Certification was completed"
+        varchar CERTIFIER_DISPLAY_NAME "This is the user friendly label for the Certifier"
     }   
-    CROSS_REFERENCES{
-        varchar IDENTITY_ID "This is the unique identifier for the Identity"
-        varchar ROLE_ID "This is the unique identifier for the Role"
-        varchar ACCESS_PROFILE_ID "This is the unique identifier for the Access Profile"
-        varchar ENTITLEMENT_ID "This is the unique identifier for the Entitlement"
-    }
     CERTIFICATION_ITEM {
         varchar CERTIFICATION_ID "This is the unique identifier for the Certification"
         varchar REVIEWER_ID "This is the Identity ID of the Certifier"
         varchar IDENTITY_ID "This is the unique identifier for the Identity"
-        varchar CERTIFICATION_ITEM_ID "This is the unique identifier for the Certification Item"
+        varchar ID "This is the unique identifier for the Certification Item"
         timestamp CREATED_DATE "This is the date a Certification Item was created"
-        timestamp UPDATED_DATE "This is the date a Certification Item was last modified"
+        timestamp UPDATED_DATE "This is the date a Certification Item was last updated"
         timestamp DELETED_DATE "This is the date a Certification Item was deleted"
         varchar APPLICATION_ID "This is the unique identifier for the Application"
         varchar REVIEWED_ID "This is the unique identifier of the reviewed Identity"
@@ -164,59 +122,31 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar CERTIFICATION_ITEM_STATUS "This is the status of the Certification Item"
         varchar DECISION "This is the decision made on the Certification Item"
         varchar BULK "This is the bulk nature of the Certification Item"
-        boolean REMEDIATED "This tells if the Certification Item was remediated or not"
-        boolean PRIVILEGED "This tells if the Certification Item was privileged or not"
+        varchar REMEDIATED "This tells if the Certification Item was remediated or not"
+        varchar PRIVILEGED "This tells if the Certification Item was privileged or not"
         varchar REMEDIATION_ACTION "This is the remediated action on the Certification Item"
         varchar MITIGATION_EXPIRATION "This shows if the mitigation for the Certification Item has expired or not"
         varchar INSTANCE "This is the instance of the Certifier Item"
-        boolean ACCOUNT_ONLY "This tells if the Cerification Item is account_only or not"
+        varchar ACCOUNT_ONLY "This tells if the Cerification Item is account_only or not"
         varchar NEW_ACCESS "This tells if the Cerification Item has new_access properties"
         varchar POLICY_NAME "This is the name of the policy associated with the Cerification Item"
         varchar CONSTRAINT_NAME "This shows constraints associated with the Cerification Item"
         timestamp SYNC_DATE "This is the date the data was synced to the table"
     } 
     CERTIFICATION_IDENTITY_FULL {
-        varchar CERT_ID as (CERTIFICATION_ID) "This is the unique identifier for the Certification"
-        varchar CERTIFICATION_CAMPAIGN_STATUS "This is the status of a Certification Campaign"
-        varchar CERTIFICATION_CAMPAIGN_DEADLINE "This is the deadline of a Certification Campaign"
-        varchar CERTIFICATION_CAMPAIGN_NAME "This is the name of a Certification Campaign"
-        varchar CERTIFICATION_CAMPAIGN_TYPE "This is the type of a Certification Campaign"
-        varchar CERTIFICATION_CERTIFIER_ID "This is the unique Identity ID for the certifier of a Certification"
-        boolean CERTIFICATION_REJECTED "This is a boolean value for the rejection status of a Certification"
+        varchar CERT_ID "This is the unique identifier for the Certification"
+        varchar NAME "This is the human-readable name of the Certification"
+        varchar ORIGINAL_CERTIFICATION_ID "This is the original unique identifier of the Certification"
+        varchar CERTIFICATION_CAMPAIGN_ID "This is the unique identifier of a Certification campaign"
+        varchar CERTIFICATION_CAMPAIGN_STATUS "This is the status of a Certification campaign"
+        varchar CERTIFICATION_CAMPAIGN_DEADLINE "This is the deadline of a Certification ampaign"
+        varchar CERTIFICATION_CAMPAIGN_TYPE "This is the type of a Certification campaign"
+        varchar SIGNER_ID "This is the unique Identity ID of the signer of a Certification"
+        varchar MANAGER_ID "This is the unique Identity ID for the manager of a Certification"
+        varchar CERTIFIER_ID "This is the unique Identity ID for the certifier of a Certification"
+        boolean REJECTED "This is a boolean value for the rejection status of a Certification"
     } 
-    CERTIFICATION {
-        varchar CERTIFICATION_ID "This is the unique identifier for the Certification"
-        varchar CERTIFICATION_SOURCE_ID "This is the unique identifier for the Certification Source"
-        varchar CERTIFICATION_SIGNER_ID "This is the unique Identity ID of the Identity Certification Signer"
-        varchar CERTIFICATION_MANAGER_ID "This is the unique Identity ID of the Identity Certification Manager"
-        timestamp CERTIFICATION_DUE_DATE "This is the deadline date of a Certification"
-        timestamp CERTIFICATION_NAME "This is the human-friendly format of a Certification Item"
-        timestamp FINISHED_DATE "This is the day Certification is completed"
-        timestamp SIGNED_DATE "This is the date a Certification was signed"
-        timestamp CERTIFICATION_CREATED_DATE "This is the date a Certification was created"
-        timestamp CERTIFICATION_DELETED_DATE "This is the date a Certification was deleted"
-        varchar CERTIFICATION_CAMPAIGN_ID "This is the unique identifier for the Certification Campaign"
-        varchar ORIGINAL_CERTIFICATION_ID "This is the unique identifier for the Original Certification if present"
-        varchar CERTIFICATION_CAMPAIGN_NAME "This is the human friendly name for the Certification Campaign"
-        boolean CERTIFICATION_COMPLETE "This is a boolean to show if the Certification is complete"
-        varchar CERTIFICATION_PHASE "This shows the phase of a Certification"
-        boolean CERTIFICATION_IS_BULK_REASSIGNMENT "This is a boolean to show if the Certification is a bulk reassignement"
-        timestamp CERTIFICATION_ELECTRONICALLY_SIGNED "This shows when the certification was electronically signed"
-        boolean CERTIFICATION_PROCESS_REVOKES_IMMEDIATELY "This is a boolean to show if the Certification is to be revoked immediately"
-        timestamp CERTIFICATION_SYNC_DATE "This is the date the data was synced to the table"
-        varchar CERTIFIER_DISPLAY_NAME "This is the user friendly label for the Certifier"
-        number DAYS_LATE "This is the number of days after the due date that a Certification was completed"
-        number HOURS_LATE "This is the number of hours after the due date that a Certification was completed"
-    }
-    CERTIFICATION_SOURCE {
-        varchar CERTIFICATION_SOURCE_ID "This is the unique identifier for the Certification Source"
-        varchar CERTIFICATION_SOURCE_DISPLAY_NAME "This is the human-readable name of the Certification Source"
-        varchar CERTIFICATION_SOURCE_TYPE "This is the type associated with the Certification Source"
-        varchar CERTIFICATION_SOURCE_CONNECTOR "This is the connector associated with the Certification Source"
-        timestamp CERTIFICATION_SOURCE_DELETED_DATE "This is the date a Certification Source was deleted" 
-        timestamp CERTIFICATION_SOURCE_SYNC_DATE "This is the date the data was synced to the table"
-    }
-    IDENTITY_REQUEST_ITEM {
+    IDENTITY_REQUEST_IDENTITY_REQUEST_ITEM_FULL {
         varchar IDENTITY_REQUEST_ITEM_APPROVER_ID "This is the unique Identity ID of the Identity Request approver"
         varchar IDENTITY_REQUEST_ITEM_REQUEST_ID "This is the unique Identity Item Request id"
         varchar IDENTITY_REQUEST_ITEM_REQUESTER_ID "This is the unique Identity ID of the Identity Request requester"
@@ -264,7 +194,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar IDENTITY_REQUEST_ITEM_ROLE_NAME "This is the name of the Identity Request Item role"
         varchar IDENTITY_REQUEST_ITEM_ROLE_DISPLAY_NAME "This is the name of the Identity Request Item role display"
     } 
-    IDENTITY_ITEM_APPROVER_IDENTITY {
+    IDENTITY_ITEM_APPROVER {
         varchar IDENTITY_REQUEST_ITEM_APPROVER_ID "This is the unique Identity ID of the Identity Request Approver"
         timestamp APPROVER_IDENTITY_CREATED "This is the date that the Identity Item Approver was created"
         timestamp APPROVER_IDENTITY_UPDATED "This is the date that the Identity Item Approver was updated"
@@ -279,7 +209,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar APPROVER_DEPARTMENT "The department of the Identity Item Approver"   
         timestamp APPROVER_SYNC_DATE "This is the date the data was synced to the table"
     }
-    IDENTITY_ITEM_REQUESTER_IDENTITY {
+    IDENTITY_ITEM_REQUESTER {
         varchar IDENTITY_REQUEST_ITEM_REQUESTER_ID "This is the unique Identity ID of the Identity Item Requester"
         timestamp REQUESTER_IDENTITY_CREATED "This is the date that the Identity Item Requester was created"
         timestamp REQUESTER_IDENTITY_UPDATED "This is the date that the Identity Item Requester was updated"
@@ -294,7 +224,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar REQUESTER_DEPARTMENT "The department of the Identity Item Requester"   
         timestamp REQUESTER_SYNC_DATE "This is the date the data was synced to the table"
     }
-    CERTIFICATION_ITEM_REVIEWER_IDENTITY {
+    CERTIFICATION_ITEM_REVIEWER {
         varchar REVIEWER_ID "This is the unique Identity ID of the Identity Certification Item Reviewer"
         timestamp REVIEWER_IDENTITY_CREATED "This is the date that the Identity Certification Item Reviewer was created"
         timestamp REVIEWER_IDENTITY_UPDATED "This is the date that the Identity Certification Item Reviewer was updated"
@@ -309,7 +239,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar REVIEWER_DEPARTMENT "The department of the Identity Certification Item Reviewer"   
         timestamp REVIEWER_SYNC_DATE "This is the date the data was synced to the table"
     }
-    CERTIFICATION_CERTIFIER_IDENTITY {
+    CERTIFICATION_CERTIFIER {
         varchar CERTIFICATION_CERTIFIER_ID "This is the unique Identity ID of the Identity Certification Certifier"
         timestamp CERTIFICATION_CERTIFIER_IDENTITY_CREATED "This is the date that the Identity Certification Certifier was created"
         timestamp CERTIFICATION_CERTIFIER_IDENTITY_UPDATED "This is the date that the Identity Certification Certifier was updated"
@@ -324,7 +254,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar CERTIFICATION_CERTIFIER_DEPARTMENT "The department of the Identity Certification Certifier"   
         timestamp CERTIFICATION_CERTIFIER_SYNC_DATE "This is the date the data was synced to the table"
     }
-    CERTIFICATION_MANAGER_IDENTITY {
+    CERTIFICATION_MANAGER {
         varchar CERTIFICATION_MANAGER_ID "This is the unique Identity ID of the Identity Certification Manager"
         timestamp CERTIFICATION_MANAGER_IDENTITY_CREATED "This is the date that the Identity Certification Manager was created"
         timestamp CERTIFICATION_MANAGER_IDENTITY_UPDATED "This is the date that the Identity Certification Manager was updated"
@@ -339,7 +269,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar CERTIFICATION_MANAGER_DEPARTMENT "The department of the Identity Certification Manager"   
         timestamp CERTIFICATION_MANAGER_SYNC_DATE "This is the date the data was synced to the table"
     }
-    CERTIFICATION_SIGNER_IDENTITY {
+    CERTIFICATION_SIGNER {
         varchar CERTIFICATION_SIGNER_ID "This is the unique Identity ID of the Identity Certification Signer"
         timestamp CERTIFICATION_SIGNER_IDENTITY_CREATED "This is the date that the Identity Certification Signer was created"
         timestamp CERTIFICATION_SIGNER_IDENTITY_UPDATED "This is the date that the Identity Certification Signer was updated"

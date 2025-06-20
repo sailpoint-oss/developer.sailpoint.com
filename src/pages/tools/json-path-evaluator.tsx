@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import Layout from '@theme/Layout';
 import styles from './json-path.module.css';
 import Alert from '@mui/material/Alert';
@@ -35,14 +35,28 @@ const JsonPathEvaluator: React.FC = () => {
   const [fontSize, setFontSize] = useState<string>('16');
   const [inputJson, setInputJson] = useState<string>(JSON.stringify(require('./sample.json'), null, 4));
   const [implementation, setImplementation] = useState<ImplementationType>('Workflows');
-  const [localJson, setLocalJson] = useState<string>(inputJson);
   const [jsonParseError, setJsonParseError] = useState<boolean>(false);
   const [isQueryFocused, setIsQueryFocused] = useState<boolean>(false);
   const [isDropdownFocused, setIsDropdownFocused] = useState<boolean>(false);
+  
+  // Refs to track the latest values without causing re-renders
+  const queryRef = useRef<string>(query);
+  const inputJsonRef = useRef<string>(inputJson);
+  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
+  
   const { siteConfig } = useDocusaurusContext();
 
+  // Update refs when state changes
+  useEffect(() => {
+    queryRef.current = query;
+  }, [query]);
+
+  useEffect(() => {
+    inputJsonRef.current = inputJson;
+  }, [inputJson]);
+
   // Apply JSONPath query with the current implementation
-  const applyJsonPathQuery = async (json: string, jsonPath: string) => {
+  const applyJsonPathQuery = useCallback(async (json: string, jsonPath: string) => {
     const quoteCount = (jsonPath.match(/"/g) || []).length;
     if (quoteCount % 2 !== 0) {
       setResult('No match');
@@ -61,13 +75,14 @@ const JsonPathEvaluator: React.FC = () => {
       const parsedJson = JSON.parse(json);
 
       try {
+        const apiEndpoint = siteConfig.customFields?.CMS_APP_API_ENDPOINT as string;
         switch (implementation) {
           case 'Workflows':
-            tempResult = await evaluateJSONPathGo(siteConfig.customFields.CMS_APP_API_ENDPOINT, jsonPath, parsedJson);
+            tempResult = await evaluateJSONPathGo(apiEndpoint, jsonPath, parsedJson);
             result = tempResult.error ? tempResult.error : tempResult.result;
             break;
           case 'EventTrigger':
-            tempResult = await evaluateJSONPathJava(siteConfig.customFields.CMS_APP_API_ENDPOINT, jsonPath, parsedJson);
+            tempResult = await evaluateJSONPathJava(apiEndpoint, jsonPath, parsedJson);
             result = tempResult.error ? tempResult.error : tempResult.result;
             break;
         }
@@ -83,33 +98,59 @@ const JsonPathEvaluator: React.FC = () => {
       setJsonParseError(error.message.includes("JSON at position") || error.message.includes("is not valid JSON"));
       setQueryParseError(error.message || 'Error executing JSONPath query');
     }
-  };
+  }, [implementation, siteConfig.customFields?.CMS_APP_API_ENDPOINT]);
 
-  // Handle input change
-  const handleJsonChange = (newJson: string) => {
-    setLocalJson(newJson);
-  };
+  // Handle input change with debouncing to prevent cursor issues
+  const handleJsonChange = useCallback((newJson: string) => {
+    // Update the state immediately for responsive UI
+    setInputJson(newJson);
+    
+    // Clear any existing timer
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+    }
+    
+    // Set a new timer for validation (optional - can be used for auto-validation)
+    debounceTimerRef.current = setTimeout(() => {
+      // Any additional processing can go here if needed
+    }, 300);
+  }, []);
 
-  // Handle query input change
-  const handleQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value);
-  };
+  // Handle query input change with useCallback to prevent re-renders
+  const handleQueryChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    const newQuery = event.target.value;
+    setQuery(newQuery);
+    
+    // Clear any existing parse errors when user starts typing
+    if (queryParseError) {
+      setQueryParseError('');
+    }
+  }, [queryParseError]);
 
-  // Handle implementation change
-  const handleImplementationChange = (newImplementation: ImplementationType) => {
+  // Handle implementation change with useCallback
+  const handleImplementationChange = useCallback((newImplementation: ImplementationType) => {
     setImplementation(newImplementation);
-  };
+  }, []);
 
-  // Handle focus events
-  const handleQueryFocus = () => setIsQueryFocused(true);
-  const handleQueryBlur = () => setIsQueryFocused(false);
-  const handleDropdownFocus = () => setIsDropdownFocused(true);
-  const handleDropdownBlur = () => setIsDropdownFocused(false);
+  // Handle focus events with useCallback
+  const handleQueryFocus = useCallback(() => setIsQueryFocused(true), []);
+  const handleQueryBlur = useCallback(() => setIsQueryFocused(false), []);
+  const handleDropdownFocus = useCallback(() => setIsDropdownFocused(true), []);
+  const handleDropdownBlur = useCallback(() => setIsDropdownFocused(false), []);
 
-  // Run button handler
-  const handleRunQuery = () => {
-    applyJsonPathQuery(localJson, query);
-  };
+  // Run button handler with useCallback
+  const handleRunQuery = useCallback(() => {
+    applyJsonPathQuery(inputJson, query);
+  }, [applyJsonPathQuery, inputJson, query]);
+
+  // Clean up timer on unmount
+  useEffect(() => {
+    return () => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+      }
+    };
+  }, []);
 
   return (
     <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
@@ -171,7 +212,7 @@ const JsonPathEvaluator: React.FC = () => {
           <Stack sx={{ justifyContent: 'center' }} direction={{ xs: 'column', sm: 'column', md: 'column', lg: 'row', xl: 'row' }} spacing={1}>
             <InputTerminal
               fontSize={fontSize}
-              value={localJson}
+              value={inputJson}
               onChange={handleJsonChange}
               hasJsonParseError={jsonParseError}
             />

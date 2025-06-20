@@ -1,4 +1,4 @@
-import React, { useState, FocusEvent, ChangeEvent } from 'react';
+import React, { useState, FocusEvent, ChangeEvent, useCallback } from 'react';
 import TextField from '@mui/material/TextField';
 import { useColorMode } from '@docusaurus/theme-common';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -15,7 +15,8 @@ const JsonPathQueryInput: React.FC<JsonPathQueryInputProps> = ({ value, onChange
   const { colorMode } = useColorMode();
   const [isFocused, setIsFocused] = useState<boolean>(false);
 
-  const theme = createTheme({
+  // Memoize theme to prevent recreation on every render
+  const theme = React.useMemo(() => createTheme({
     components: {
       MuiOutlinedInput: {
         styleOverrides: {
@@ -31,19 +32,26 @@ const JsonPathQueryInput: React.FC<JsonPathQueryInputProps> = ({ value, onChange
         },
       },
     },
-  });
+  }), [colorMode]);
+
+  // Handle focus with useCallback to prevent unnecessary re-renders
+  const handleFocus = useCallback((event: FocusEvent<HTMLInputElement>) => {
+    setIsFocused(true);
+    if (onFocus) onFocus(event);
+  }, [onFocus]);
+
+  // Handle blur with useCallback to prevent unnecessary re-renders
+  const handleBlur = useCallback((event: FocusEvent<HTMLInputElement>) => {
+    setIsFocused(false);
+    if (onBlur) onBlur(event);
+  }, [onBlur]);
 
   return (
     <ThemeProvider theme={theme}>
       <TextField
-        onFocus={(event) => {
-          setIsFocused(true);
-          if (onFocus) onFocus(event);
-        }}
-        onBlur={(event) => {
-          setIsFocused(false);
-          if (onBlur) onBlur(event);
-        }}
+        key="jsonpath-query-input" // Stable key to prevent remounting
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         sx={{
           m: 1,
           minWidth: 800,
@@ -61,6 +69,8 @@ const JsonPathQueryInput: React.FC<JsonPathQueryInputProps> = ({ value, onChange
         variant="outlined"
         value={value}
         onChange={onChange}
+        autoComplete="off"
+        spellCheck={false}
       />
     </ThemeProvider>
   );

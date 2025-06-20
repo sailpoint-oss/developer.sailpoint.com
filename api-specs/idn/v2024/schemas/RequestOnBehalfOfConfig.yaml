@@ -1,0 +1,12 @@
+type : object
+properties:
+  allowRequestOnBehalfOfAnyoneByAnyone:
+    type: boolean
+    description: If this is true, anyone can request access for anyone.
+    default: false
+    example: true
+  allowRequestOnBehalfOfEmployeeByManager:
+    type: boolean
+    description: If this is true, a manager can request access for his or her direct reports.
+    default: false
+    example: true

@@ -1,0 +1,38 @@
+type: object
+properties:
+  name:
+    type: string
+    description: Authentication Profile name.
+    example: EndToEnd-Profile
+  offNetwork:
+    type: boolean
+    description: Use it to block access from off network.
+    default: false
+    example: true
+  untrustedGeography:
+    type: boolean
+    description: Use it to block access from untrusted geoographies.
+    default: false
+    example: true
+  applicationId:
+    type: string
+    description: Application ID.
+    example: 2c91808458ae7a4f0158b1bbf8af0628
+  applicationName:
+    type: string
+    description: Application name.
+    example: EndToEnd-Source
+  type:
+    type: string
+    enum:
+      - BLOCK
+      - MFA
+      - NON_PTA
+      - PTA
+    description: Type of the Authentication Profile.
+    example: PTA
+  strongAuthLogin:
+    type: boolean
+    description: Use it to enable strong authentication.
+    default: false
+    example: true

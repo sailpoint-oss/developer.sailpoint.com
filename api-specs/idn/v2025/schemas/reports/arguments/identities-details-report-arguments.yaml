@@ -1,0 +1,13 @@
+title: IDENTITIES_DETAILS
+type: object
+description: >-
+  Arguments for Identities Details report (IDENTITIES_DETAILS)
+required:
+  - correlatedOnly
+properties:
+  correlatedOnly:
+    type: boolean
+    description: >-
+      Flag to specify if only correlated identities are included in report.
+    default: false
+    example: true

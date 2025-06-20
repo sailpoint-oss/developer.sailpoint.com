@@ -1,0 +1,74 @@
+type: object
+properties:
+  id:
+    type: string
+    description: ID of the work item
+    example: 2c9180835d2e5168015d32f890ca1581
+  requesterId:
+    type: string
+    nullable: true
+    description: ID of the requester
+    example: 2c9180835d2e5168015d32f890ca1581
+  requesterDisplayName:
+    type: string
+    nullable: true
+    description: The displayname of the requester
+    example: John Smith
+  ownerId:
+    type: string
+    nullable: true
+    description: The ID of the owner
+    example: 2c9180835d2e5168015d32f890ca1581
+  ownerName:
+    type: string
+    description: The name of the owner
+    example: Jason Smith
+  created:
+    type: string
+    format: 'date-time'
+    example: '2017-07-11T18:45:37.098Z'
+  modified:
+    type: string
+    nullable: true
+    format: 'date-time'
+    example: '2018-06-25T20:22:28.104Z'
+  description:
+    type: string
+    description: The description of the work item
+    example: Create account on source 'AD'
+  state:
+    $ref: '../../v3/schemas/WorkItemState.yaml'
+  type:
+    $ref: '../../v3/schemas/WorkItemType.yaml'
+  remediationItems:
+    nullable: true
+    type: array
+    items:
+      $ref: './RemediationItemDetails.yaml'
+  approvalItems:
+    nullable: true
+    type: array
+    items:
+      $ref: './ApprovalItemDetails.yaml'
+  name:
+    type: string
+    nullable: true
+    description: The work item name
+    example: Account Create
+  completed:
+    type: string
+    nullable: true
+    format: 'date-time'
+    example: '2018-10-19T13:49:37.385Z'
+  numItems:
+    type: integer
+    nullable: true
+    description: The number of items in the work item
+    example: 19
+  errors:
+    type: array
+    items: 
+      type: string
+    example: ["The work item ID that was specified was not found."]
+  form:
+    $ref: './FormDetails.yaml'

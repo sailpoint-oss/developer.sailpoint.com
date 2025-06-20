@@ -1,0 +1,9 @@
+type: object
+properties:
+  attributeName:
+    type: string
+    description: the attribute name
+    example: "2c918085704000d90170456dae770028"
+  distribution:
+    type: object
+    $ref: './IdentityAttributeValueCountDto.yaml'

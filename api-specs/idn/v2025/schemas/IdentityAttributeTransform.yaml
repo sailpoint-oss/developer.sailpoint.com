@@ -1,0 +1,10 @@
+type: object
+description: Transform definition for an identity attribute.
+properties:
+  identityAttributeName:
+    type: string
+    description: Identity attribute's name.
+    example: email
+  transformDefinition:
+    $ref: './TransformDefinition.yaml'
+    description: Seaspray transform definition.

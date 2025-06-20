@@ -1,0 +1,17 @@
+type: object
+properties:
+  input:
+    type: object
+    description: Mock input to evaluate filter expression against.
+    example: {"identityId": "201327fda1c44704ac01181e963d463c"}
+  filter:
+    type: string
+    description: JSONPath filter to conditionally invoke trigger when expression evaluates to true.
+    example: '$[?($.identityId == "201327fda1c44704ac01181e963d463c")]'
+    externalDocs:
+      description: JSONPath filter documentation
+      url: https://developer.sailpoint.com/idn/docs/event-triggers/filtering-events
+
+required:
+  - input
+  - filter

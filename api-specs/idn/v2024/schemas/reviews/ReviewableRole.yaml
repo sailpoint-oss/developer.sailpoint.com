@@ -1,0 +1,40 @@
+type : object
+nullable: true
+properties:
+  id:
+    type: string
+    description: The id for the Role
+    example: 2c91808a7190d06e0171993907fd0794
+  name:
+    type: string
+    description: The name of the Role
+    example: Accounting-Employees
+  description:
+    type: string
+    description: Information about the Role
+    example: Role for members of the accounting department with the necessary Access Profiles
+  privileged:
+    type: boolean
+    description: Indicates if the entitlement is a privileged entitlement
+    example: false
+  owner:
+    $ref: '../IdentityReferenceWithNameAndEmail.yaml'
+  revocable:
+    type: boolean
+    description: Indicates whether the Role can be revoked or requested
+    example: false
+  endDate:
+    type: string
+    format: 'date-time'
+    description: The date when a user's access expires.
+    example: '2021-12-25T00:00:00.000Z'
+  accessProfiles:
+    type: array
+    description: The list of Access Profiles associated with this Role
+    items:
+      $ref: './ReviewableAccessProfile.yaml'
+  entitlements:
+    type: array
+    description: The list of entitlements associated with this Role
+    items:
+      $ref: './ReviewableEntitlement.yaml'

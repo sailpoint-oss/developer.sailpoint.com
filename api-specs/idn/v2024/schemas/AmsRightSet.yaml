@@ -1,0 +1,26 @@
+type: object
+description: Authorization model named set of rights
+properties:
+  id:
+    type: string
+    description: ID of the right set
+    example: sp:config-export-import
+  name:
+    type: string
+    description: The descriptive name of the right set
+    example: Export/Import configuration
+  rights:
+    type: array
+    items:
+      type: string
+      example: sp:config:export
+    description: A list of rights belonging to this right set
+    example: >-
+      [
+        "sp:config:export",
+        "sp:config:import"
+      ]
+required:
+  - id
+  - name
+  - rights

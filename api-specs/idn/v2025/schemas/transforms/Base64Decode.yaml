@@ -1,0 +1,10 @@
+title: base64Decode
+type: object
+properties:
+  requiresPeriodicRefresh:
+    $ref: './RequiresPeriodicRefresh.yaml'
+  input:
+    $ref: './input.yaml'
+
+  
+  

@@ -3470,6 +3470,63 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Submit-V2025ReassignCertsAsync"
             Write-Host $_.ErrorDetails
         }
+- path: /sources/{sourceId}/classify
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/classify-source#delete-classify-machine-account-from-source
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        
+        # Cancel classify source's accounts process
+        
+        try {
+            Remove-V2025ClassifyMachineAccountFromSource -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2025ClassifyMachineAccountFromSource -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025ClassifyMachineAccountFromSource"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/classify
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/classify-source#get-classify-machine-account-from-source-status
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        
+        # Source accounts classification status
+        
+        try {
+            Get-V2025ClassifyMachineAccountFromSourceStatus -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025ClassifyMachineAccountFromSourceStatus -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025ClassifyMachineAccountFromSourceStatus"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/classify
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/classify-source#send-classify-machine-account-from-source
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        
+        # Classify source's all accounts
+        
+        try {
+            Send-V2025ClassifyMachineAccountFromSource -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Send-V2025ClassifyMachineAccountFromSource -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025ClassifyMachineAccountFromSource"
+            Write-Host $_.ErrorDetails
+        }
 - path: /configuration-hub/deploys
   method: POST
   xCodeSample:
@@ -7683,15 +7740,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/identities#get-identity
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Identity details
         
         try {
-            Get-V2025Identity -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025Identity -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025Identity -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2025Identity -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Identity"
             Write-Host $_.ErrorDetails
@@ -7703,15 +7759,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/identities#get-identity-ownership-details
       source: |
         $IdentityId = "ff8081814d2a8036014d701f3fbf53fa" # String | Identity ID.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get ownership details
         
         try {
-            Get-V2025IdentityOwnershipDetails -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025IdentityOwnershipDetails -IdentityId $IdentityId 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025IdentityOwnershipDetails -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2025IdentityOwnershipDetails -IdentityId $IdentityId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025IdentityOwnershipDetails"
             Write-Host $_.ErrorDetails
@@ -7724,15 +7779,14 @@
       source: |
         $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
         $AssignmentId = "1cbb0705b38c4226b1334eadd8874086" # String | Assignment Id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Role assignment details
         
         try {
-            Get-V2025RoleAssignment -IdentityId $IdentityId -AssignmentId $AssignmentId -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025RoleAssignment -IdentityId $IdentityId -AssignmentId $AssignmentId 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025RoleAssignment -IdentityId $IdentityId -AssignmentId $AssignmentId -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2025RoleAssignment -IdentityId $IdentityId -AssignmentId $AssignmentId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025RoleAssignment"
             Write-Host $_.ErrorDetails
@@ -7744,17 +7798,16 @@
       label: SDK_tools/sdk/powershell/v2025/methods/identities#get-role-assignments
       source: |
         $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id to get the role assignments for
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $RoleId = "e7697a1e96d04db1ac7b0f4544915d2c" # String | Role Id to filter the role assignments with (optional)
         $RoleName = "Engineer" # String | Role name to filter the role assignments with (optional)
         
         # List role assignments
         
         try {
-            Get-V2025RoleAssignments -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025RoleAssignments -IdentityId $IdentityId 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025RoleAssignments -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental -RoleId $RoleId -RoleName $RoleName   
+            # Get-V2025RoleAssignments -IdentityId $IdentityId -RoleId $RoleId -RoleName $RoleName   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025RoleAssignments"
             Write-Host $_.ErrorDetails
@@ -7765,7 +7818,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/identities#list-identities
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Filters = "id eq "6c9079b270a266a60170a2779fcb0006" or correlated eq false" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional)
         $Sorters = "name,-cloudStatus" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional)
         $DefaultFilter = "CORRELATED_ONLY" # String | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated=true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter. (optional) (default to "CORRELATED_ONLY")
@@ -7776,10 +7828,10 @@
         # List identities
         
         try {
-            Get-V2025Identities -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025Identities 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025Identities -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Sorters $Sorters -DefaultFilter $DefaultFilter -Count $Count -Limit $Limit -Offset $Offset   
+            # Get-V2025Identities -Filters $Filters -Sorters $Sorters -DefaultFilter $DefaultFilter -Count $Count -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Identities"
             Write-Host $_.ErrorDetails
@@ -7791,15 +7843,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/identities#reset-identity
       source: |
         $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Reset an identity
         
         try {
-            Reset-V2025Identity -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
+            Reset-V2025Identity -IdentityId $IdentityId 
     
             # Below is a request that includes all optional parameters
-            # Reset-V2025Identity -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental   
+            # Reset-V2025Identity -IdentityId $IdentityId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Reset-V2025Identity"
             Write-Host $_.ErrorDetails
@@ -7837,7 +7888,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/identities#start-identities-invite
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $InviteIdentitiesRequest = @"
         {
           "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
@@ -7849,10 +7899,10 @@
         
         try {
             $Result = ConvertFrom-JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
-            Start-V2025IdentitiesInvite -XSailPointExperimental $XSailPointExperimental -InviteIdentitiesRequest $Result 
+            Start-V2025IdentitiesInvite -InviteIdentitiesRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Start-V2025IdentitiesInvite -XSailPointExperimental $XSailPointExperimental -InviteIdentitiesRequest $Result   
+            # Start-V2025IdentitiesInvite -InviteIdentitiesRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2025IdentitiesInvite"
             Write-Host $_.ErrorDetails
@@ -7908,7 +7958,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/identity-attributes#create-identity-attribute
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $IdentityAttribute = @"
         {
           "standard" : false,
@@ -7938,10 +7987,10 @@
         
         try {
             $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
-            New-V2025IdentityAttribute -XSailPointExperimental $XSailPointExperimental -IdentityAttribute $Result 
+            New-V2025IdentityAttribute -IdentityAttribute $Result 
     
             # Below is a request that includes all optional parameters
-            # New-V2025IdentityAttribute -XSailPointExperimental $XSailPointExperimental -IdentityAttribute $Result   
+            # New-V2025IdentityAttribute -IdentityAttribute $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025IdentityAttribute"
             Write-Host $_.ErrorDetails
@@ -7953,15 +8002,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/identity-attributes#delete-identity-attribute
       source: |
         $Name = "displayName" # String | The attribute's technical name.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Delete identity attribute
         
         try {
-            Remove-V2025IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental 
+            Remove-V2025IdentityAttribute -Name $Name 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2025IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental   
+            # Remove-V2025IdentityAttribute -Name $Name   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025IdentityAttribute"
             Write-Host $_.ErrorDetails
@@ -7972,7 +8020,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/identity-attributes#delete-identity-attributes-in-bulk
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $IdentityAttributeNames = @"
         {
           "ids" : [ "name", "displayName" ]
@@ -7983,10 +8030,10 @@
         
         try {
             $Result = ConvertFrom-JsonToIdentityAttributeNames -Json $IdentityAttributeNames
-            Remove-V2025IdentityAttributesInBulk -XSailPointExperimental $XSailPointExperimental -IdentityAttributeNames $Result 
+            Remove-V2025IdentityAttributesInBulk -IdentityAttributeNames $Result 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2025IdentityAttributesInBulk -XSailPointExperimental $XSailPointExperimental -IdentityAttributeNames $Result   
+            # Remove-V2025IdentityAttributesInBulk -IdentityAttributeNames $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025IdentityAttributesInBulk"
             Write-Host $_.ErrorDetails
@@ -7998,15 +8045,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/identity-attributes#get-identity-attribute
       source: |
         $Name = "displayName" # String | The attribute's technical name.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get identity attribute
         
         try {
-            Get-V2025IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025IdentityAttribute -Name $Name 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2025IdentityAttribute -Name $Name   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025IdentityAttribute"
             Write-Host $_.ErrorDetails
@@ -8017,7 +8063,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/identity-attributes#list-identity-attributes
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $IncludeSystem = $false # Boolean | Include 'system' attributes in the response. (optional) (default to $false)
         $IncludeSilent = $false # Boolean | Include 'silent' attributes in the response. (optional) (default to $false)
         $SearchableOnly = $false # Boolean | Include only 'searchable' attributes in the response. (optional) (default to $false)
@@ -8026,10 +8071,10 @@
         # List identity attributes
         
         try {
-            Get-V2025IdentityAttributes -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025IdentityAttributes 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025IdentityAttributes -XSailPointExperimental $XSailPointExperimental -IncludeSystem $IncludeSystem -IncludeSilent $IncludeSilent -SearchableOnly $SearchableOnly -Count $Count   
+            # Get-V2025IdentityAttributes -IncludeSystem $IncludeSystem -IncludeSilent $IncludeSilent -SearchableOnly $SearchableOnly -Count $Count   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025IdentityAttributes"
             Write-Host $_.ErrorDetails
@@ -8041,7 +8086,6 @@
       label: SDK_tools/sdk/powershell/v2025/methods/identity-attributes#put-identity-attribute
       source: |
         $Name = "displayName" # String | The attribute's technical name.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $IdentityAttribute = @"
         {
           "standard" : false,
@@ -8071,10 +8115,10 @@
         
         try {
             $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
-            Send-V2025IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental -IdentityAttribute $Result 
+            Send-V2025IdentityAttribute -Name $Name -IdentityAttribute $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-V2025IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental -IdentityAttribute $Result   
+            # Send-V2025IdentityAttribute -Name $Name -IdentityAttribute $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025IdentityAttribute"
             Write-Host $_.ErrorDetails
@@ -9035,6 +9079,152 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2025MFAConfig"
             Write-Host $_.ErrorDetails
         }
+- path: /accounts/{id}/classify
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/machine-account-classify#send-classify-machine-account
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
+        $ClassificationMode = "default" # String | Specifies how the accounts should be classified.        default - uses criteria to classify account as machine or human, excludes accounts that were manually classified.       ignoreManual - like default, but includes accounts that were manually classified.       forceMachine - forces account to be classified as machine.       forceHuman - forces account to be classified as human. (optional) (default to "default")
+        
+        # Classify a Single Machine Account
+        
+        try {
+            Send-V2025ClassifyMachineAccount -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Send-V2025ClassifyMachineAccount -Id $Id -ClassificationMode $ClassificationMode   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025ClassifyMachineAccount"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/machine-account-mappings
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/machine-account-mappings#create-machine-account-mappings
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        $AttributeMappings = @"
+        {
+          "transformDefinition" : {
+            "attributes" : {
+              "input" : {
+                "attributes" : {
+                  "name" : "8d3e0094e99445de98eef6c75e25jc04",
+                  "attributeName" : "givenName",
+                  "sourceName" : "delimited-src"
+                },
+                "type" : "accountAttribute"
+              }
+            },
+            "id" : "ToUpper",
+            "type" : "reference"
+          },
+          "target" : {
+            "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+            "attributeName" : "businessApplication",
+            "type" : "IDENTITY"
+          }
+        }
+        "@
+        
+        # Create machine account mappings
+        
+        try {
+            $Result = ConvertFrom-JsonToAttributeMappings -Json $AttributeMappings
+            New-V2025MachineAccountMappings -Id $Id -AttributeMappings $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2025MachineAccountMappings -Id $Id -AttributeMappings $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025MachineAccountMappings"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/machine-account-mappings
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/machine-account-mappings#delete-machine-account-mappings
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | source ID.
+        
+        # Delete source's machine account mappings
+        
+        try {
+            Remove-V2025MachineAccountMappings -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2025MachineAccountMappings -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025MachineAccountMappings"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/machine-account-mappings
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/machine-account-mappings#list-machine-account-mappings
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # Machine account mapping for source
+        
+        try {
+            Get-V2025MachineAccountMappings -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025MachineAccountMappings -Id $Id -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025MachineAccountMappings"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/machine-mappings
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/machine-account-mappings#set-machine-account-mappings
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        $AttributeMappings = @"
+        {
+          "transformDefinition" : {
+            "attributes" : {
+              "input" : {
+                "attributes" : {
+                  "name" : "8d3e0094e99445de98eef6c75e25jc04",
+                  "attributeName" : "givenName",
+                  "sourceName" : "delimited-src"
+                },
+                "type" : "accountAttribute"
+              }
+            },
+            "id" : "ToUpper",
+            "type" : "reference"
+          },
+          "target" : {
+            "sourceId" : "2c9180835d2e5168015d32f890ca1581",
+            "attributeName" : "businessApplication",
+            "type" : "IDENTITY"
+          }
+        }
+        "@
+        
+        # Update Source's Machine Account Mappings
+        
+        try {
+            $Result = ConvertFrom-JsonToAttributeMappings -Json $AttributeMappings
+            Set-V2025MachineAccountMappings -Id $Id -AttributeMappings $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-V2025MachineAccountMappings -Id $Id -AttributeMappings $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2025MachineAccountMappings"
+            Write-Host $_.ErrorDetails
+        }
 - path: /machine-accounts/{id}
   method: GET
   xCodeSample:
@@ -9103,6 +9293,73 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025MachineAccount"
             Write-Host $_.ErrorDetails
         }
+- path: /sources/{sourceId}/machine-classification-config
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/machine-classification-config#delete-machine-classification-config
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        
+        # Delete source's classification config
+        
+        try {
+            Remove-V2025MachineClassificationConfig -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2025MachineClassificationConfig -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025MachineClassificationConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/machine-classification-config
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/machine-classification-config#get-machine-classification-config
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID
+        
+        # Machine classification config for source
+        
+        try {
+            Get-V2025MachineClassificationConfig -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025MachineClassificationConfig -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025MachineClassificationConfig"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/machine-classification-config
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/machine-classification-config#set-machine-classification-config
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
+        $MachineClassificationConfig = @"
+        {
+          "criteria" : "criteria",
+          "created" : "2017-07-11T18:45:37.098Z",
+          "modified" : "2018-06-25T20:22:28.104Z",
+          "classificationMethod" : "SOURCE",
+          "enabled" : true
+        }
+        "@
+        
+        # Update source's classification config
+        
+        try {
+            $Result = ConvertFrom-JsonToMachineClassificationConfig -Json $MachineClassificationConfig
+            Set-V2025MachineClassificationConfig -Id $Id -MachineClassificationConfig $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Set-V2025MachineClassificationConfig -Id $Id -MachineClassificationConfig $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2025MachineClassificationConfig"
+            Write-Host $_.ErrorDetails
+        }
 - path: /machine-identities
   method: POST
   xCodeSample:
@@ -9112,12 +9369,25 @@
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $MachineIdentity = @"
         {
+          "subtype" : "Application",
           "created" : "2015-05-28T14:07:17Z",
           "businessApplication" : "ADService",
           "name" : "aName",
           "modified" : "2015-05-28T14:07:17Z",
           "description" : "",
           "attributes" : "{\"Region\":\"EU\"}",
+          "owners" : {
+            "primaryIdentity" : "{}",
+            "secondaryIdentities" : [ {
+              "name" : "William Wilson",
+              "id" : "2c91808568c529c60168cca6f90c1313",
+              "type" : "IDENTITY"
+            }, {
+              "name" : "William Wilson",
+              "id" : "2c91808568c529c60168cca6f90c1313",
+              "type" : "IDENTITY"
+            } ]
+          },
           "id" : "id12345",
           "manuallyEdited" : true
         }
@@ -9182,7 +9452,7 @@
       label: SDK_tools/sdk/powershell/v2025/methods/machine-identities#list-machine-identities
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Filters = "identityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **cisIdentityId**: *eq, in, sw*  **description**: *eq, in, sw*  **businessApplication**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq* (optional)
+        $Filters = "identityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **cisIdentityId**: *eq, in, sw*  **description**: *eq, in, sw*  **businessApplication**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr* (optional)
         $Sorters = "businessApplication" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **businessApplication, name** (optional)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
@@ -12022,9 +12292,9 @@
       label: SDK_tools/sdk/powershell/v2025/methods/requestable-objects#list-requestable-objects
       source: |
         $IdentityId = "e7eab60924f64aa284175b9fa3309599" # String | If present, the value returns only requestable objects for the specified identity.  * Admin users can call this with any identity ID value.  * Non-admin users can only specify *me* or pass their own identity ID value.  * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result. (optional)
-        $Types = "ACCESS_PROFILE" # RequestableObjectType[] | Filters the results to the specified type/types, where each type is one of `ROLE` or `ACCESS_PROFILE`. If absent, all types are returned. SailPoint may add support for additional types in the future without notice. (optional)
+        $Types = "ACCESS_PROFILE" # String[] | Filters the results to the specified type/types, where each type is one of `ROLE` or `ACCESS_PROFILE`. If absent, all types are returned. SailPoint may add support for additional types in the future without notice. (optional)
         
-        $Types = @"ROLE,ACCESS_PROFILE"@
+        $Types = @"ACCESS_PROFILE,ROLE"@
         $Term = "Finance Role" # String | Allows searching requestable access items with a partial match on the name or description. If `term` is provided, then the API will ignore the `filter` query parameter. (optional)
         $Statuses = "AVAILABLE" # RequestableObjectRequestStatus[] | Filters the result to the specified status/statuses, where each status is one of `AVAILABLE`, `ASSIGNED`, or `PENDING`. Specifying this parameter without also specifying an `identity-id` parameter results in an error.  SailPoint may add additional statuses in the future without notice. (optional)
         
@@ -15430,15 +15700,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/sources#delete-native-change-detection-config
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Delete native change detection configuration
         
         try {
-            Remove-V2025NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Remove-V2025NativeChangeDetectionConfig -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2025NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Remove-V2025NativeChangeDetectionConfig -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025NativeChangeDetectionConfig"
             Write-Host $_.ErrorDetails
@@ -15587,15 +15856,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/sources#get-native-change-detection-config
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Native change detection configuration
         
         try {
-            Get-V2025NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025NativeChangeDetectionConfig -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2025NativeChangeDetectionConfig -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025NativeChangeDetectionConfig"
             Write-Host $_.ErrorDetails
@@ -15877,6 +16145,27 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2025ConnectorFile"
             Write-Host $_.ErrorDetails
         }
+- path: /sources/{sourceId}/load-entitlements
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/sources#import-entitlements
+      source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $File =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
+        
+        # Entitlement aggregation
+        
+        try {
+            Import-V2025Entitlements -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Import-V2025Entitlements -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -File $File   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2025Entitlements"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/{id}/schemas/entitlements
   method: POST
   xCodeSample:
@@ -16032,7 +16321,6 @@
       label: SDK_tools/sdk/powershell/v2025/methods/sources#put-native-change-detection-config
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $NativeChangeDetectionConfig = @"
         {
           "selectedEntitlements" : [ "memberOf", "memberOfSharedMailbox" ],
@@ -16048,10 +16336,10 @@
         
         try {
             $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
-            Send-V2025NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -NativeChangeDetectionConfig $Result 
+            Send-V2025NativeChangeDetectionConfig -Id $Id -NativeChangeDetectionConfig $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-V2025NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -NativeChangeDetectionConfig $Result   
+            # Send-V2025NativeChangeDetectionConfig -Id $Id -NativeChangeDetectionConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025NativeChangeDetectionConfig"
             Write-Host $_.ErrorDetails

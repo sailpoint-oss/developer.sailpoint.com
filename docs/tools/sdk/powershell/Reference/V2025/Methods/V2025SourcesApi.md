@@ -102,6 +102,7 @@ Method | HTTP request | Description
 [**Import-V2025Accounts**](#import-accounts) | **POST** `/sources/{id}/load-accounts` | Account aggregation
 [**Import-V2025AccountsSchema**](#import-accounts-schema) | **POST** `/sources/{id}/schemas/accounts` | Uploads source accounts schema template
 [**Import-V2025ConnectorFile**](#import-connector-file) | **POST** `/sources/{sourceId}/upload-connector-file` | Upload connector file to source
+[**Import-V2025Entitlements**](#import-entitlements) | **POST** `/sources/{sourceId}/load-entitlements` | Entitlement aggregation
 [**Import-V2025EntitlementsSchema**](#import-entitlements-schema) | **POST** `/sources/{id}/schemas/entitlements` | Uploads source entitlements schema template
 [**Import-V2025UncorrelatedAccounts**](#import-uncorrelated-accounts) | **POST** `/sources/{id}/load-uncorrelated-accounts` | Process uncorrelated accounts
 [**Get-V2025ProvisioningPolicies**](#list-provisioning-policies) | **GET** `/sources/{sourceId}/provisioning-policies` | Lists provisioningpolicies
@@ -534,9 +535,6 @@ try {
 [[Back to top]](#) 
 
 ## delete-native-change-detection-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Deletes the native change detection configuration for the source specified by the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-native-change-detection-config)
@@ -545,7 +543,6 @@ Deletes the native change detection configuration for the source specified by th
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The source id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
  (empty response body)
@@ -568,15 +565,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Delete native change detection configuration
 
 try {
-    Remove-V2025NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Remove-V2025NativeChangeDetectionConfig -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2025NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2025NativeChangeDetectionConfig -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025NativeChangeDetectionConfig"
     Write-Host $_.ErrorDetails
@@ -919,9 +915,6 @@ try {
 [[Back to top]](#) 
 
 ## get-native-change-detection-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API returns the existing native change detection configuration for a source specified by the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-native-change-detection-config)
@@ -930,7 +923,6 @@ This API returns the existing native change detection configuration for a source
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The source id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**NativeChangeDetectionConfig**](../models/native-change-detection-config)
@@ -953,15 +945,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Native change detection configuration
 
 try {
-    Get-V2025NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025NativeChangeDetectionConfig -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2025NativeChangeDetectionConfig -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025NativeChangeDetectionConfig"
     Write-Host $_.ErrorDetails
@@ -1659,6 +1650,61 @@ try {
 ```
 [[Back to top]](#) 
 
+## import-entitlements
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+Starts an entitlement aggregation on the specified source. 
+If the target source is a delimited file source, then the CSV file needs to be included in the request body. 
+You will also need to set the Content-Type header to `multipart/form-data`.
+A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/import-entitlements)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | SourceId | **String** | True  | Source Id
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+   | File | **System.IO.FileInfo** |   (optional) | The CSV file containing the source entitlements to aggregate.
+
+### Return type
+[**LoadEntitlementTask**](../models/load-entitlement-task)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+202 | Aggregate Entitlements Task | LoadEntitlementTask
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+### Example
+```powershell
+$SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$File =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
+
+# Entitlement aggregation
+
+try {
+    Import-V2025Entitlements -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    
+    # Below is a request that includes all optional parameters
+    # Import-V2025Entitlements -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -File $File  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2025Entitlements"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## import-entitlements-schema
 This API uploads a source schema template file to configure a source's entitlement attributes.
 
@@ -1986,9 +2032,6 @@ try {
 [[Back to top]](#) 
 
 ## put-native-change-detection-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Replaces the native change detection configuration for the source specified by the given ID with the configuration provided in the request body.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/put-native-change-detection-config)
@@ -1997,7 +2040,6 @@ Replaces the native change detection configuration for the source specified by t
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The source id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | NativeChangeDetectionConfig | [**NativeChangeDetectionConfig**](../models/native-change-detection-config) | True  | 
 
 ### Return type
@@ -2021,7 +2063,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $NativeChangeDetectionConfig = @"{
   "selectedEntitlements" : [ "memberOf", "memberOfSharedMailbox" ],
   "operations" : [ "ACCOUNT_UPDATED", "ACCOUNT_DELETED" ],
@@ -2035,10 +2076,10 @@ $NativeChangeDetectionConfig = @"{
 
 try {
     $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
-    Send-V2025NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -NativeChangeDetectionConfig $Result 
+    Send-V2025NativeChangeDetectionConfig -Id $Id -NativeChangeDetectionConfig $Result 
     
     # Below is a request that includes all optional parameters
-    # Send-V2025NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -NativeChangeDetectionConfig $Result  
+    # Send-V2025NativeChangeDetectionConfig -Id $Id -NativeChangeDetectionConfig $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025NativeChangeDetectionConfig"
     Write-Host $_.ErrorDetails

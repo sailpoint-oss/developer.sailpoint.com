@@ -1,33 +1,33 @@
 ---
-id: v2024-machine-account-mappings
+id: v2025-machine-account-mappings
 title: MachineAccountMappings
 pagination_label: MachineAccountMappings
 sidebar_label: MachineAccountMappings
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MachineAccountMappings', 'V2024MachineAccountMappings'] 
-slug: /tools/sdk/powershell/v2024/methods/machine-account-mappings
-tags: ['SDK', 'Software Development Kit', 'MachineAccountMappings', 'V2024MachineAccountMappings']
+keywords: ['powershell', 'PowerShell', 'sdk', 'MachineAccountMappings', 'V2025MachineAccountMappings'] 
+slug: /tools/sdk/powershell/v2025/methods/machine-account-mappings
+tags: ['SDK', 'Software Development Kit', 'MachineAccountMappings', 'V2025MachineAccountMappings']
 ---
 
 # MachineAccountMappings
    
   
 
-All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
+All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2024MachineAccountMappings**](#create-machine-account-mappings) | **POST** `/sources/{sourceId}/machine-account-mappings` | Create machine account mappings
-[**Remove-V2024MachineAccountMappings**](#delete-machine-account-mappings) | **DELETE** `/sources/{sourceId}/machine-account-mappings` | Delete source&#39;s machine account mappings
-[**Get-V2024MachineAccountMappings**](#list-machine-account-mappings) | **GET** `/sources/{sourceId}/machine-account-mappings` | Machine account mapping for source
-[**Set-V2024MachineAccountMappings**](#set-machine-account-mappings) | **PUT** `/sources/{sourceId}/machine-mappings` | Update Source&#39;s Machine Account Mappings
+[**New-V2025MachineAccountMappings**](#create-machine-account-mappings) | **POST** `/sources/{sourceId}/machine-account-mappings` | Create machine account mappings
+[**Remove-V2025MachineAccountMappings**](#delete-machine-account-mappings) | **DELETE** `/sources/{sourceId}/machine-account-mappings` | Delete source&#39;s machine account mappings
+[**Get-V2025MachineAccountMappings**](#list-machine-account-mappings) | **GET** `/sources/{sourceId}/machine-account-mappings` | Machine account mapping for source
+[**Set-V2025MachineAccountMappings**](#set-machine-account-mappings) | **PUT** `/sources/{sourceId}/machine-mappings` | Update Source&#39;s Machine Account Mappings
 
 
 ## create-machine-account-mappings
 Creates Machine Account Mappings for both identities and accounts for a source.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-machine-account-mappings)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-machine-account-mappings)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -81,12 +81,12 @@ $AttributeMappings = @"{
 
 try {
     $Result = ConvertFrom-JsonToAttributeMappings -Json $AttributeMappings
-    New-V2024MachineAccountMappings -Id $Id -AttributeMappings $Result 
+    New-V2025MachineAccountMappings -Id $Id -AttributeMappings $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024MachineAccountMappings -Id $Id -AttributeMappings $Result  
+    # New-V2025MachineAccountMappings -Id $Id -AttributeMappings $Result  
 } catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024MachineAccountMappings"
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025MachineAccountMappings"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -96,7 +96,7 @@ try {
 Use this API to remove machine account attribute mappings for a Source. 
 A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-machine-account-mappings)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-machine-account-mappings)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -128,12 +128,12 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | source ID.
 # Delete source's machine account mappings
 
 try {
-    Remove-V2024MachineAccountMappings -Id $Id 
+    Remove-V2025MachineAccountMappings -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024MachineAccountMappings -Id $Id  
+    # Remove-V2025MachineAccountMappings -Id $Id  
 } catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024MachineAccountMappings"
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025MachineAccountMappings"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -142,7 +142,7 @@ try {
 ## list-machine-account-mappings
 Retrieves Machine account mappings for a specified source using Source ID.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-machine-account-mappings)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-machine-account-mappings)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -178,12 +178,12 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # Machine account mapping for source
 
 try {
-    Get-V2024MachineAccountMappings -Id $Id 
+    Get-V2025MachineAccountMappings -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024MachineAccountMappings -Id $Id -Limit $Limit -Offset $Offset  
+    # Get-V2025MachineAccountMappings -Id $Id -Limit $Limit -Offset $Offset  
 } catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024MachineAccountMappings"
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025MachineAccountMappings"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -192,7 +192,7 @@ try {
 ## set-machine-account-mappings
 Use this API to update Machine Account Attribute Mapping for a Source. A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required to call this API.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/set-machine-account-mappings)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/set-machine-account-mappings)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -247,12 +247,12 @@ $AttributeMappings = @"{
 
 try {
     $Result = ConvertFrom-JsonToAttributeMappings -Json $AttributeMappings
-    Set-V2024MachineAccountMappings -Id $Id -AttributeMappings $Result 
+    Set-V2025MachineAccountMappings -Id $Id -AttributeMappings $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2024MachineAccountMappings -Id $Id -AttributeMappings $Result  
+    # Set-V2025MachineAccountMappings -Id $Id -AttributeMappings $Result  
 } catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2024MachineAccountMappings"
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2025MachineAccountMappings"
     Write-Host $_.ErrorDetails
 }
 ```

@@ -7642,15 +7642,14 @@
       label: SDK_tools/sdk/powershell/v2024/methods/identities#delete-identity
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Delete identity
         
         try {
-            Remove-V2024Identity -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Remove-V2024Identity -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2024Identity -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Remove-V2024Identity -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024Identity"
             Write-Host $_.ErrorDetails
@@ -7662,15 +7661,14 @@
       label: SDK_tools/sdk/powershell/v2024/methods/identities#get-identity
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Identity details
         
         try {
-            Get-V2024Identity -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024Identity -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024Identity -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2024Identity -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Identity"
             Write-Host $_.ErrorDetails
@@ -7682,15 +7680,14 @@
       label: SDK_tools/sdk/powershell/v2024/methods/identities#get-identity-ownership-details
       source: |
         $IdentityId = "ff8081814d2a8036014d701f3fbf53fa" # String | Identity ID.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get ownership details
         
         try {
-            Get-V2024IdentityOwnershipDetails -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024IdentityOwnershipDetails -IdentityId $IdentityId 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024IdentityOwnershipDetails -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2024IdentityOwnershipDetails -IdentityId $IdentityId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityOwnershipDetails"
             Write-Host $_.ErrorDetails
@@ -7703,15 +7700,14 @@
       source: |
         $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
         $AssignmentId = "1cbb0705b38c4226b1334eadd8874086" # String | Assignment Id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Role assignment details
         
         try {
-            Get-V2024RoleAssignment -IdentityId $IdentityId -AssignmentId $AssignmentId -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024RoleAssignment -IdentityId $IdentityId -AssignmentId $AssignmentId 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024RoleAssignment -IdentityId $IdentityId -AssignmentId $AssignmentId -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2024RoleAssignment -IdentityId $IdentityId -AssignmentId $AssignmentId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024RoleAssignment"
             Write-Host $_.ErrorDetails
@@ -7723,17 +7719,16 @@
       label: SDK_tools/sdk/powershell/v2024/methods/identities#get-role-assignments
       source: |
         $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id to get the role assignments for
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $RoleId = "e7697a1e96d04db1ac7b0f4544915d2c" # String | Role Id to filter the role assignments with (optional)
         $RoleName = "Engineer" # String | Role name to filter the role assignments with (optional)
         
         # List role assignments
         
         try {
-            Get-V2024RoleAssignments -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024RoleAssignments -IdentityId $IdentityId 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024RoleAssignments -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental -RoleId $RoleId -RoleName $RoleName   
+            # Get-V2024RoleAssignments -IdentityId $IdentityId -RoleId $RoleId -RoleName $RoleName   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024RoleAssignments"
             Write-Host $_.ErrorDetails
@@ -7744,7 +7739,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/identities#list-identities
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Filters = "id eq "6c9079b270a266a60170a2779fcb0006" or correlated eq false" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional)
         $Sorters = "name,-cloudStatus" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional)
         $DefaultFilter = "CORRELATED_ONLY" # String | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated=true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter. (optional) (default to "CORRELATED_ONLY")
@@ -7755,10 +7749,10 @@
         # List identities
         
         try {
-            Get-V2024Identities -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024Identities 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024Identities -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Sorters $Sorters -DefaultFilter $DefaultFilter -Count $Count -Limit $Limit -Offset $Offset   
+            # Get-V2024Identities -Filters $Filters -Sorters $Sorters -DefaultFilter $DefaultFilter -Count $Count -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Identities"
             Write-Host $_.ErrorDetails
@@ -7770,15 +7764,14 @@
       label: SDK_tools/sdk/powershell/v2024/methods/identities#reset-identity
       source: |
         $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Reset an identity
         
         try {
-            Reset-V2024Identity -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
+            Reset-V2024Identity -IdentityId $IdentityId 
     
             # Below is a request that includes all optional parameters
-            # Reset-V2024Identity -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental   
+            # Reset-V2024Identity -IdentityId $IdentityId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Reset-V2024Identity"
             Write-Host $_.ErrorDetails
@@ -7816,7 +7809,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/identities#start-identities-invite
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $InviteIdentitiesRequest = @"
         {
           "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
@@ -7828,10 +7820,10 @@
         
         try {
             $Result = ConvertFrom-JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
-            Start-V2024IdentitiesInvite -XSailPointExperimental $XSailPointExperimental -InviteIdentitiesRequest $Result 
+            Start-V2024IdentitiesInvite -InviteIdentitiesRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Start-V2024IdentitiesInvite -XSailPointExperimental $XSailPointExperimental -InviteIdentitiesRequest $Result   
+            # Start-V2024IdentitiesInvite -InviteIdentitiesRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024IdentitiesInvite"
             Write-Host $_.ErrorDetails
@@ -7887,7 +7879,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/identity-attributes#create-identity-attribute
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $IdentityAttribute = @"
         {
           "standard" : false,
@@ -7917,10 +7908,10 @@
         
         try {
             $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
-            New-V2024IdentityAttribute -XSailPointExperimental $XSailPointExperimental -IdentityAttribute $Result 
+            New-V2024IdentityAttribute -IdentityAttribute $Result 
     
             # Below is a request that includes all optional parameters
-            # New-V2024IdentityAttribute -XSailPointExperimental $XSailPointExperimental -IdentityAttribute $Result   
+            # New-V2024IdentityAttribute -IdentityAttribute $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024IdentityAttribute"
             Write-Host $_.ErrorDetails
@@ -7932,15 +7923,14 @@
       label: SDK_tools/sdk/powershell/v2024/methods/identity-attributes#delete-identity-attribute
       source: |
         $Name = "displayName" # String | The attribute's technical name.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Delete identity attribute
         
         try {
-            Remove-V2024IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental 
+            Remove-V2024IdentityAttribute -Name $Name 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2024IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental   
+            # Remove-V2024IdentityAttribute -Name $Name   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024IdentityAttribute"
             Write-Host $_.ErrorDetails
@@ -7951,7 +7941,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/identity-attributes#delete-identity-attributes-in-bulk
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $IdentityAttributeNames = @"
         {
           "ids" : [ "name", "displayName" ]
@@ -7962,10 +7951,10 @@
         
         try {
             $Result = ConvertFrom-JsonToIdentityAttributeNames -Json $IdentityAttributeNames
-            Remove-V2024IdentityAttributesInBulk -XSailPointExperimental $XSailPointExperimental -IdentityAttributeNames $Result 
+            Remove-V2024IdentityAttributesInBulk -IdentityAttributeNames $Result 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2024IdentityAttributesInBulk -XSailPointExperimental $XSailPointExperimental -IdentityAttributeNames $Result   
+            # Remove-V2024IdentityAttributesInBulk -IdentityAttributeNames $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024IdentityAttributesInBulk"
             Write-Host $_.ErrorDetails
@@ -7977,15 +7966,14 @@
       label: SDK_tools/sdk/powershell/v2024/methods/identity-attributes#get-identity-attribute
       source: |
         $Name = "displayName" # String | The attribute's technical name.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get identity attribute
         
         try {
-            Get-V2024IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024IdentityAttribute -Name $Name 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2024IdentityAttribute -Name $Name   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityAttribute"
             Write-Host $_.ErrorDetails
@@ -7996,7 +7984,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2024/methods/identity-attributes#list-identity-attributes
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $IncludeSystem = $false # Boolean | Include 'system' attributes in the response. (optional) (default to $false)
         $IncludeSilent = $false # Boolean | Include 'silent' attributes in the response. (optional) (default to $false)
         $SearchableOnly = $false # Boolean | Include only 'searchable' attributes in the response. (optional) (default to $false)
@@ -8005,10 +7992,10 @@
         # List identity attributes
         
         try {
-            Get-V2024IdentityAttributes -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024IdentityAttributes 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024IdentityAttributes -XSailPointExperimental $XSailPointExperimental -IncludeSystem $IncludeSystem -IncludeSilent $IncludeSilent -SearchableOnly $SearchableOnly -Count $Count   
+            # Get-V2024IdentityAttributes -IncludeSystem $IncludeSystem -IncludeSilent $IncludeSilent -SearchableOnly $SearchableOnly -Count $Count   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024IdentityAttributes"
             Write-Host $_.ErrorDetails
@@ -8020,7 +8007,6 @@
       label: SDK_tools/sdk/powershell/v2024/methods/identity-attributes#put-identity-attribute
       source: |
         $Name = "displayName" # String | The attribute's technical name.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $IdentityAttribute = @"
         {
           "standard" : false,
@@ -8050,10 +8036,10 @@
         
         try {
             $Result = ConvertFrom-JsonToIdentityAttribute -Json $IdentityAttribute
-            Send-V2024IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental -IdentityAttribute $Result 
+            Send-V2024IdentityAttribute -Name $Name -IdentityAttribute $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-V2024IdentityAttribute -Name $Name -XSailPointExperimental $XSailPointExperimental -IdentityAttribute $Result   
+            # Send-V2024IdentityAttribute -Name $Name -IdentityAttribute $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024IdentityAttribute"
             Write-Host $_.ErrorDetails
@@ -9148,7 +9134,7 @@
         }
         "@
         
-        # Update source's machine account mappings
+        # Update Source's Machine Account Mappings
         
         try {
             $Result = ConvertFrom-JsonToAttributeMappings -Json $AttributeMappings
@@ -12214,9 +12200,9 @@
       label: SDK_tools/sdk/powershell/v2024/methods/requestable-objects#list-requestable-objects
       source: |
         $IdentityId = "e7eab60924f64aa284175b9fa3309599" # String | If present, the value returns only requestable objects for the specified identity.  * Admin users can call this with any identity ID value.  * Non-admin users can only specify *me* or pass their own identity ID value.  * If absent, returns a list of all requestable objects for the tenant. Only admin users can make such a call. In this case, the available, pending, assigned accesses will not be annotated in the result. (optional)
-        $Types = "ACCESS_PROFILE" # RequestableObjectType[] | Filters the results to the specified type/types, where each type is one of `ROLE` or `ACCESS_PROFILE`. If absent, all types are returned. SailPoint may add support for additional types in the future without notice. (optional)
+        $Types = "ACCESS_PROFILE" # String[] | Filters the results to the specified type/types, where each type is one of `ROLE` or `ACCESS_PROFILE`. If absent, all types are returned. SailPoint may add support for additional types in the future without notice. (optional)
         
-        $Types = @"ROLE,ACCESS_PROFILE"@
+        $Types = @"ACCESS_PROFILE,ROLE"@
         $Term = "Finance Role" # String | Allows searching requestable access items with a partial match on the name or description. If `term` is provided, then the API will ignore the `filter` query parameter. (optional)
         $Statuses = "AVAILABLE" # RequestableObjectRequestStatus[] | Filters the result to the specified status/statuses, where each status is one of `AVAILABLE`, `ASSIGNED`, or `PENDING`. Specifying this parameter without also specifying an `identity-id` parameter results in an error.  SailPoint may add additional statuses in the future without notice. (optional)
         
@@ -15622,15 +15608,14 @@
       label: SDK_tools/sdk/powershell/v2024/methods/sources#delete-native-change-detection-config
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Delete native change detection configuration
         
         try {
-            Remove-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Remove-V2024NativeChangeDetectionConfig -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Remove-V2024NativeChangeDetectionConfig -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024NativeChangeDetectionConfig"
             Write-Host $_.ErrorDetails
@@ -15779,15 +15764,14 @@
       label: SDK_tools/sdk/powershell/v2024/methods/sources#get-native-change-detection-config
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Native change detection configuration
         
         try {
-            Get-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Get-V2024NativeChangeDetectionConfig -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2024NativeChangeDetectionConfig -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NativeChangeDetectionConfig"
             Write-Host $_.ErrorDetails
@@ -16070,6 +16054,27 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2024ConnectorFile"
             Write-Host $_.ErrorDetails
         }
+- path: /sources/{sourceId}/load-entitlements
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2024/methods/sources#import-entitlements
+      source: |
+        $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $File =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
+        
+        # Entitlement aggregation
+        
+        try {
+            Import-V2024Entitlements -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Import-V2024Entitlements -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -File $File   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2024Entitlements"
+            Write-Host $_.ErrorDetails
+        }
 - path: /sources/{id}/schemas/entitlements
   method: POST
   xCodeSample:
@@ -16225,7 +16230,6 @@
       label: SDK_tools/sdk/powershell/v2024/methods/sources#put-native-change-detection-config
       source: |
         $Id = "2c9180835d191a86015d28455b4a2329" # String | The source id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $NativeChangeDetectionConfig = @"
         {
           "selectedEntitlements" : [ "memberOf", "memberOfSharedMailbox" ],
@@ -16241,10 +16245,10 @@
         
         try {
             $Result = ConvertFrom-JsonToNativeChangeDetectionConfig -Json $NativeChangeDetectionConfig
-            Send-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -NativeChangeDetectionConfig $Result 
+            Send-V2024NativeChangeDetectionConfig -Id $Id -NativeChangeDetectionConfig $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-V2024NativeChangeDetectionConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -NativeChangeDetectionConfig $Result   
+            # Send-V2024NativeChangeDetectionConfig -Id $Id -NativeChangeDetectionConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024NativeChangeDetectionConfig"
             Write-Host $_.ErrorDetails

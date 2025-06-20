@@ -97,9 +97,6 @@ try {
 [[Back to top]](#) 
 
 ## get-identity
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API returns a single identity using the Identity ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-identity)
@@ -108,7 +105,6 @@ This API returns a single identity using the Identity ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Identity Id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**Identity**](../models/identity)
@@ -131,15 +127,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Identity details
 
 try {
-    Get-V2025Identity -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025Identity -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025Identity -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2025Identity -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Identity"
     Write-Host $_.ErrorDetails
@@ -148,9 +143,6 @@ try {
 [[Back to top]](#) 
 
 ## get-identity-ownership-details
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Use this API to return an identity's owned objects that will cause problems for deleting the identity. 
 Use this API as a checklist of objects that you need to reassign to a different identity before you can delete the identity. 
 For a full list of objects owned by an identity, use the [Search API](https://developer.sailpoint.com/docs/api/v3/search-post/).  When you search for identities, the returned identities have a property, `owns`, that contains a more comprehensive list of identity's owned objects.
@@ -161,7 +153,6 @@ For a full list of objects owned by an identity, use the [Search API](https://de
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | IdentityId | **String** | True  | Identity ID.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**IdentityOwnershipAssociationDetails**](../models/identity-ownership-association-details)
@@ -184,15 +175,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $IdentityId = "ff8081814d2a8036014d701f3fbf53fa" # String | Identity ID.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Get ownership details
 
 try {
-    Get-V2025IdentityOwnershipDetails -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025IdentityOwnershipDetails -IdentityId $IdentityId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025IdentityOwnershipDetails -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2025IdentityOwnershipDetails -IdentityId $IdentityId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025IdentityOwnershipDetails"
     Write-Host $_.ErrorDetails
@@ -201,9 +191,6 @@ try {
 [[Back to top]](#) 
 
 ## get-role-assignment
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-role-assignment)
@@ -213,7 +200,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | IdentityId | **String** | True  | Identity Id
 Path   | AssignmentId | **String** | True  | Assignment Id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**RoleAssignmentDto**](../models/role-assignment-dto)
@@ -237,15 +223,14 @@ Code | Description  | Data Type
 ```powershell
 $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 $AssignmentId = "1cbb0705b38c4226b1334eadd8874086" # String | Assignment Id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Role assignment details
 
 try {
-    Get-V2025RoleAssignment -IdentityId $IdentityId -AssignmentId $AssignmentId -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025RoleAssignment -IdentityId $IdentityId -AssignmentId $AssignmentId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025RoleAssignment -IdentityId $IdentityId -AssignmentId $AssignmentId -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2025RoleAssignment -IdentityId $IdentityId -AssignmentId $AssignmentId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025RoleAssignment"
     Write-Host $_.ErrorDetails
@@ -254,9 +239,6 @@ try {
 [[Back to top]](#) 
 
 ## get-role-assignments
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This returns either a list of Role Assignments when querying with either a Role Id or Role Name, or a list of Role Assignment References if querying with only identity Id.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-role-assignments)
@@ -265,7 +247,6 @@ This returns either a list of Role Assignments when querying with either a Role 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | IdentityId | **String** | True  | Identity Id to get the role assignments for
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | RoleId | **String** |   (optional) | Role Id to filter the role assignments with
   Query | RoleName | **String** |   (optional) | Role name to filter the role assignments with
 
@@ -290,17 +271,16 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id to get the role assignments for
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $RoleId = "e7697a1e96d04db1ac7b0f4544915d2c" # String | Role Id to filter the role assignments with (optional)
 $RoleName = "Engineer" # String | Role name to filter the role assignments with (optional)
 
 # List role assignments
 
 try {
-    Get-V2025RoleAssignments -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025RoleAssignments -IdentityId $IdentityId 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025RoleAssignments -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental -RoleId $RoleId -RoleName $RoleName  
+    # Get-V2025RoleAssignments -IdentityId $IdentityId -RoleId $RoleId -RoleName $RoleName  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025RoleAssignments"
     Write-Host $_.ErrorDetails
@@ -309,9 +289,6 @@ try {
 [[Back to top]](#) 
 
 ## list-identities
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API returns a list of identities.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-identities)
@@ -319,7 +296,6 @@ This API returns a list of identities.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq*
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus**
   Query | DefaultFilter | **String** |   (optional) (default to "CORRELATED_ONLY") | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated=true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter.
@@ -346,7 +322,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Filters = 'id eq "6c9079b270a266a60170a2779fcb0006" or correlated eq false' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **alias**: *eq, sw*  **firstname**: *eq, sw*  **lastname**: *eq, sw*  **email**: *eq, sw*  **cloudStatus**: *eq*  **processingState**: *eq*  **correlated**: *eq*  **protected**: *eq* (optional)
 $Sorters = "name,-cloudStatus" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, alias, cloudStatus** (optional)
 $DefaultFilter = "CORRELATED_ONLY" # String | Adds additional filter to filters query parameter.  CORRELATED_ONLY adds correlated=true and returns only identities that are correlated.  NONE does not add any and returns all identities that satisfy filters query parameter. (optional) (default to "CORRELATED_ONLY")
@@ -357,10 +332,10 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 # List identities
 
 try {
-    Get-V2025Identities -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025Identities 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025Identities -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Sorters $Sorters -DefaultFilter $DefaultFilter -Count $Count -Limit $Limit -Offset $Offset  
+    # Get-V2025Identities -Filters $Filters -Sorters $Sorters -DefaultFilter $DefaultFilter -Count $Count -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Identities"
     Write-Host $_.ErrorDetails
@@ -369,9 +344,6 @@ try {
 [[Back to top]](#) 
 
 ## reset-identity
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Use this endpoint to reset a user's identity if they have forgotten their authentication information like their answers to knowledge-based questions. Resetting an identity de-registers the user and removes any elevated user levels they have.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/reset-identity)
@@ -380,7 +352,6 @@ Use this endpoint to reset a user's identity if they have forgotten their authen
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | IdentityId | **String** | True  | Identity Id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
  (empty response body)
@@ -403,15 +374,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $IdentityId = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Reset an identity
 
 try {
-    Reset-V2025Identity -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental 
+    Reset-V2025Identity -IdentityId $IdentityId 
     
     # Below is a request that includes all optional parameters
-    # Reset-V2025Identity -IdentityId $IdentityId -XSailPointExperimental $XSailPointExperimental  
+    # Reset-V2025Identity -IdentityId $IdentityId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Reset-V2025Identity"
     Write-Host $_.ErrorDetails
@@ -478,9 +448,6 @@ try {
 [[Back to top]](#) 
 
 ## start-identities-invite
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.
 
 This task will send an invitation email only for unregistered identities.
@@ -493,7 +460,6 @@ The executed task status can be checked by Task Management > [Get task status by
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | InviteIdentitiesRequest | [**InviteIdentitiesRequest**](../models/invite-identities-request) | True  | 
 
 ### Return type
@@ -516,7 +482,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $InviteIdentitiesRequest = @"{
   "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
   "uninvited" : false
@@ -526,10 +491,10 @@ $InviteIdentitiesRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
-    Start-V2025IdentitiesInvite -XSailPointExperimental $XSailPointExperimental -InviteIdentitiesRequest $Result 
+    Start-V2025IdentitiesInvite -InviteIdentitiesRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-V2025IdentitiesInvite -XSailPointExperimental $XSailPointExperimental -InviteIdentitiesRequest $Result  
+    # Start-V2025IdentitiesInvite -InviteIdentitiesRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2025IdentitiesInvite"
     Write-Host $_.ErrorDetails

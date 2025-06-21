@@ -35,7 +35,7 @@ If you'd like to contribute directly (which we encourage!), please read the cont
 ## Getting Started
 
 If you want to build this project locally, follow the steps below.
-If you're new to GitHub or web development, you can also start by editing files directly in the browser — no need to install anything!
+ <br> If you're new to GitHub or web development, you can also start by editing files directly in the browser — no need to install anything!
 
 
 ### Prerequisites
@@ -77,8 +77,7 @@ npm install npm@latest -g
 
 ## Discuss
 
-[Click Here](https://developer.sailpoint.com/discuss) to discuss this tool with other users.
-You can ask questions, suggest ideas, or get help from the SailPoint developer community.
+[Click Here](https://developer.sailpoint.com/discuss) to discuss this tool with other users.<br>You can ask questions, suggest ideas, or get help from the SailPoint developer community.
 
 <!-- LICENSE -->
 

@@ -10,7 +10,13 @@ tags: ['SDK', 'Software Development Kit', 'Workflows', 'V2024Workflows']
 ---
 
 # WorkflowsAPI
-  Workflows allow administrators to create custom automation scripts directly within Identity Security Cloud.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/docs/extensibility/event-triggers/#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the Identity Security Cloud UI.  Workflows can be configured via a graphical user interface within Identity Security Cloud, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
+  Workflows allow administrators to create custom automation scripts directly within Identity Security Cloud.  
+These automation scripts respond to [event triggers](https://developer.sailpoint.com/docs/extensibility/event-triggers/#how-to-get-started-with-event-triggers) and 
+perform a series of actions to perform tasks that are either too cumbersome or not available in the Identity Security Cloud UI.  
+
+Workflows can be configured via a graphical user interface within Identity Security Cloud, or by creating and uploading a JSON formatted script to the Workflow service.  
+
+The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
  
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

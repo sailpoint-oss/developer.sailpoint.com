@@ -203,9 +203,14 @@ __GRANT_ACCESS__
 * Roles, access profiles and entitlements can be requested.
 * You can specify a `removeDate` to set or alter a sunset date-time on an assignment. The removeDate must be a future date-time, in the UTC timezone. Additionally, if the user already has the access assigned with a sunset date, you can also submit a request without a `removeDate` to request removal of the sunset date and time.
 * If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time.
-* While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.
 * Now supports an alternate field 'requestedForWithRequestedItems' for users to specify account selections while requesting items where they have more than one account on the source.
- 
+
+:::caution
+
+If any entitlements are being requested, then the maximum number of entitlements that can be requested is 25, and the maximum number of identities that can be requested for is 10. If you exceed these limits, the request will fail with a 400 error. If you are not requesting any entitlements, then there are no limits.
+
+:::
+
 __REVOKE_ACCESS__
 * Can only be requested for a single identity at a time.
 * You cannot use an access request to revoke access from an identity if that access has been granted by role membership or by birthright provisioning. 
@@ -264,39 +269,6 @@ with ApiClient(configuration) as api_client:
           },
           "requestType" : "GRANT_ACCESS",
           "requestedItems" : [ {
-            "clientMetadata" : {
-              "requestedAppName" : "test-app",
-              "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
-            },
-            "removeDate" : "2020-07-11T21:23:15Z",
-            "comment" : "Requesting access profile for John Doe",
-            "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE",
-            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
-          }, {
-            "clientMetadata" : {
-              "requestedAppName" : "test-app",
-              "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
-            },
-            "removeDate" : "2020-07-11T21:23:15Z",
-            "comment" : "Requesting access profile for John Doe",
-            "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE",
-            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
-          }, {
-            "clientMetadata" : {
-              "requestedAppName" : "test-app",
-              "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
-            },
-            "removeDate" : "2020-07-11T21:23:15Z",
-            "comment" : "Requesting access profile for John Doe",
-            "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE",
-            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
-          }, {
             "clientMetadata" : {
               "requestedAppName" : "test-app",
               "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"

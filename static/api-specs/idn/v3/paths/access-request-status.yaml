@@ -1,7 +1,7 @@
 get:
   operationId: listAccessRequestStatus
   security:
-    - userAuth: [ idn:access-request-status:read ]
+    - userAuth: [idn:access-request-status:read]
   x-sailpoint-userLevels:
     - ORG_ADMIN
   tags:
@@ -102,14 +102,14 @@ get:
 
 
         Filtering is supported for the following fields and operators:
-        
-        
-        **accessRequestId**: *in*
-        
-        
+
+
+        **accessRequestId**: *eq, in, ge, gt, le, lt, ne, sw*
+
+
         **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
-        
-        
+
+
         **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
       required: false
     - in: query
@@ -130,7 +130,7 @@ get:
         type: string
       example: request-state=EXECUTING
       description: >-
-          Filter the results by the state of the request. The only valid value is *EXECUTING*.
+        Filter the results by the state of the request. The only valid value is *EXECUTING*.
       required: false
   responses:
     "200":

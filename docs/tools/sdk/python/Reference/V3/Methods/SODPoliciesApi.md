@@ -71,15 +71,15 @@ Requires role of ORG_ADMIN.
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | sod_policy | [**SodPolicy**](../models/sod-policy) | True  | 
+ Body  | sod_policy_request | [**SodPolicyRequest**](../models/sod-policy-request) | True  | 
 
 ### Return type
-[**SodPolicy**](../models/sod-policy)
+[**SodPolicyRead**](../models/sod-policy-read)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-201 | SOD policy created | SodPolicy |  -  |
+201 | SOD policy created | SodPolicyRead |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -95,13 +95,14 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
 from sailpoint.v3.api_client import ApiClient
-from sailpoint.v3.models.sod_policy import SodPolicy
+from sailpoint.v3.models.sod_policy_read import SodPolicyRead
+from sailpoint.v3.models.sod_policy_request import SodPolicyRequest
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
 
 with ApiClient(configuration) as api_client:
-    sod_policy = '''{
+    sod_policy_request = '''{
           "conflictingAccessCriteria" : {
             "leftCriteria" : {
               "name" : "money-in",
@@ -156,14 +157,14 @@ with ApiClient(configuration) as api_client:
           "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
           "state" : "ENFORCED",
           "externalPolicyReference" : "XYZ policy"
-        }''' # SodPolicy | 
+        }''' # SodPolicyRequest | 
 
     try:
         # Create sod policy
-        new_sod_policy = SodPolicy.from_json(sod_policy)
-        results = SODPoliciesApi(api_client).create_sod_policy(sod_policy=new_sod_policy)
+        new_sod_policy_request = SodPolicyRequest.from_json(sod_policy_request)
+        results = SODPoliciesApi(api_client).create_sod_policy(sod_policy_request=new_sod_policy_request)
         # Below is a request that includes all optional parameters
-        # results = SODPoliciesApi(api_client).create_sod_policy(new_sod_policy)
+        # results = SODPoliciesApi(api_client).create_sod_policy(new_sod_policy_request)
         print("The response of SODPoliciesApi->create_sod_policy:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -475,12 +476,12 @@ Param Type | Name | Data Type | Required  | Description
 Path   | id | **str** | True  | The ID of the SOD Policy to retrieve.
 
 ### Return type
-[**SodPolicy**](../models/sod-policy)
+[**SodPolicyRead**](../models/sod-policy-read)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | SOD policy ID. | SodPolicy |  -  |
+200 | SOD policy ID. | SodPolicyRead |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -497,7 +498,7 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
 from sailpoint.v3.api_client import ApiClient
-from sailpoint.v3.models.sod_policy import SodPolicy
+from sailpoint.v3.models.sod_policy_read import SodPolicyRead
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -715,12 +716,12 @@ Param Type | Name | Data Type | Required  | Description
   Query | sorters | **str** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description**
 
 ### Return type
-[**List[SodPolicy]**](../models/sod-policy)
+[**List[SodPolicyRead]**](../models/sod-policy-read)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | List of all SOD policies. | List[SodPolicy] |  -  |
+200 | List of all SOD policies. | List[SodPolicyRead] |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -736,7 +737,7 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
 from sailpoint.v3.api_client import ApiClient
-from sailpoint.v3.models.sod_policy import SodPolicy
+from sailpoint.v3.models.sod_policy_read import SodPolicyRead
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -781,12 +782,12 @@ Path   | id | **str** | True  | The ID of the SOD policy being modified.
  Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
 
 ### Return type
-[**SodPolicy**](../models/sod-policy)
+[**SodPolicyRead**](../models/sod-policy-read)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | Indicates the PATCH operation succeeded, and returns the SOD policy&#39;s new representation. | SodPolicy |  -  |
+200 | Indicates the PATCH operation succeeded, and returns the SOD policy&#39;s new representation. | SodPolicyRead |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -804,7 +805,7 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
-from sailpoint.v3.models.sod_policy import SodPolicy
+from sailpoint.v3.models.sod_policy_read import SodPolicyRead
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -938,15 +939,15 @@ Requires role of ORG_ADMIN.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | The ID of the SOD policy to update.
- Body  | sod_policy | [**SodPolicy**](../models/sod-policy) | True  | 
+ Body  | sod_policy_read | [**SodPolicyRead**](../models/sod-policy-read) | True  | 
 
 ### Return type
-[**SodPolicy**](../models/sod-policy)
+[**SodPolicyRead**](../models/sod-policy-read)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | SOD Policy by ID | SodPolicy |  -  |
+200 | SOD Policy by ID | SodPolicyRead |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -963,14 +964,14 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
 from sailpoint.v3.api_client import ApiClient
-from sailpoint.v3.models.sod_policy import SodPolicy
+from sailpoint.v3.models.sod_policy_read import SodPolicyRead
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the SOD policy to update. # str | The ID of the SOD policy to update.
-    sod_policy = '''{
+    sod_policy_read = '''{
           "conflictingAccessCriteria" : {
             "leftCriteria" : {
               "name" : "money-in",
@@ -1025,14 +1026,14 @@ with ApiClient(configuration) as api_client:
           "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
           "state" : "ENFORCED",
           "externalPolicyReference" : "XYZ policy"
-        }''' # SodPolicy | 
+        }''' # SodPolicyRead | 
 
     try:
         # Update sod policy by id
-        new_sod_policy = SodPolicy.from_json(sod_policy)
-        results = SODPoliciesApi(api_client).put_sod_policy(id=id, sod_policy=new_sod_policy)
+        new_sod_policy_read = SodPolicyRead.from_json(sod_policy_read)
+        results = SODPoliciesApi(api_client).put_sod_policy(id=id, sod_policy_read=new_sod_policy_read)
         # Below is a request that includes all optional parameters
-        # results = SODPoliciesApi(api_client).put_sod_policy(id, new_sod_policy)
+        # results = SODPoliciesApi(api_client).put_sod_policy(id, new_sod_policy_read)
         print("The response of SODPoliciesApi->put_sod_policy:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:

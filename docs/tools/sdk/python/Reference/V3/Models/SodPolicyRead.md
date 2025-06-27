@@ -1,15 +1,15 @@
 ---
-id: sod-policy
-title: SodPolicy
-pagination_label: SodPolicy
-sidebar_label: SodPolicy
+id: sod-policy-read
+title: SodPolicyRead
+pagination_label: SodPolicyRead
+sidebar_label: SodPolicyRead
 sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'SodPolicy', 'SodPolicy'] 
-slug: /tools/sdk/python/v3/models/sod-policy
-tags: ['SDK', 'Software Development Kit', 'SodPolicy', 'SodPolicy']
+keywords: ['python', 'Python', 'sdk', 'SodPolicyRead', 'SodPolicyRead'] 
+slug: /tools/sdk/python/v3/models/sod-policy-read
+tags: ['SDK', 'Software Development Kit', 'SodPolicyRead', 'SodPolicyRead']
 ---
 
-# SodPolicy
+# SodPolicyRead
 
 
 ## Properties
@@ -33,14 +33,15 @@ Name | Type | Description | Notes
 **violation_owner_assignment_config** | [**ViolationOwnerAssignmentConfig**](violation-owner-assignment-config) |  | [optional] 
 **scheduled** | **bool** | defines whether a policy has been scheduled or not | [optional] [default to False]
 **type** |  **Enum** [  'GENERAL',    'CONFLICTING_ACCESS_BASED' ] | whether a policy is query based or conflicting access based | [optional] [default to 'GENERAL']
+**conflicting_access_criteria** | [**SodPolicyReadAllOfConflictingAccessCriteria**](sod-policy-read-all-of-conflicting-access-criteria) |  | [optional] 
 }
 
 ## Example
 
 ```python
-from sailpoint.v3.models.sod_policy import SodPolicy
+from sailpoint.v3.models.sod_policy_read import SodPolicyRead
 
-sod_policy = SodPolicy(
+sod_policy_read = SodPolicyRead(
 id='0f11f2a4-7c94-4bf3-a2bd-742580fe3bde',
 name='policy-xyz',
 created='2020-01-01T00:00Z',
@@ -65,7 +66,8 @@ violation_owner_assignment_config=sailpoint.v3.models.violation_owner_assignment
                         id = '2c9180a46faadee4016fb4e018c20639', 
                         name = 'Support', ), ),
 scheduled=True,
-type='GENERAL'
+type='GENERAL',
+conflicting_access_criteria=
 )
 
 ```

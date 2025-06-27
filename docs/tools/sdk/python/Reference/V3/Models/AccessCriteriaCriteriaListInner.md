@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'AccessCriteriaCriteriaListInner', 'Ac
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** |  **Enum** [  'ENTITLEMENT' ] | Type of the propery to which this reference applies to | [optional] 
+**type** |  **Enum** [  'ENTITLEMENT' ] | Type of the property to which this reference applies to | [optional] 
 **id** | **str** | ID of the object to which this reference applies to | [optional] 
 **name** | **str** | Human-readable display name of the object to which this reference applies to | [optional] 
 }

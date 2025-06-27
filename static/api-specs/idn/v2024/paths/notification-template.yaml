@@ -36,6 +36,8 @@ get:
       $ref: ../responses/401.yaml
     '403':
       $ref: ../responses/403.yaml
+    '404':
+      $ref: ../responses/404.yaml
     '429':
       $ref: ../responses/429.yaml
     '500':

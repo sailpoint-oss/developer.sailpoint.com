@@ -1,0 +1,25 @@
+type: object
+properties:
+  name:
+    type: string
+    description: Display name of the account for the user
+    example: 'Glen.067da3248e914'
+  type:
+    description: The type of item
+    $ref: './DtoType.yaml'
+    example: 'ACCOUNT'
+  accountUuid:
+    type: string
+    nullable: true
+    description: The uuid for the account
+    example: '{fab7119e-004f-4822-9c33-b8d570d6c6a6}'
+  accountId:
+    type: string
+    nullable: true
+    description: The native identity for the account
+    example: 'CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local'
+  sourceName:
+    type: string
+    nullable: false
+    description: Display name of the source for the account
+    example: 'Multi Account AD source name'

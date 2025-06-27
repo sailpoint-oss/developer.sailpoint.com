@@ -1,0 +1,14 @@
+type : object
+properties:
+  level:
+    type: string
+    enum:
+      - ERROR
+      - WARN
+      - INFO
+    description: Denotes the level of the message
+    example: ERROR
+  localizations:
+    type: array
+    items:
+      $ref: './ErrorMessageDto.yaml'

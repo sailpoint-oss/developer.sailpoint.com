@@ -1,0 +1,37 @@
+post:
+  operationId: loadAccountSelections
+  security:
+    - userAuth: [ idn:access-request:create ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - USER
+  summary: Get accounts selections for identity
+  tags:
+    - Access Requests
+  description: |
+    Use this API to fetch account information for an identity against the items in an access request.
+    
+    Used to fetch accountSelection for the AccessRequest prior to submitting for async processing.
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/AccountsSelectionRequest.yaml'
+  responses:
+    '200':
+      description: Accounts Selection Response
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/access-requests/AccountsSelectionResponse.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

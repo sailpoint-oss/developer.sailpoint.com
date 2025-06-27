@@ -1,0 +1,17 @@
+type: object
+properties:
+  accessRequest:
+    $ref: './AccessRequestResponse.yaml'
+    description: the access request details
+  identityId:
+    type: string
+    example: 8a80828f643d484f01643e14202e206f
+    description: the identity id
+  eventType:
+    type: string
+    example: AccessRequested
+    description: the event type
+  dt:
+    type: string
+    example: '2019-03-08T22:37:33.901Z'
+    description: the date of event     

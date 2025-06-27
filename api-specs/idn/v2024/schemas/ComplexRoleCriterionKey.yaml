@@ -1,0 +1,22 @@
+type: object
+properties:
+  type:
+    type: string
+    enum:
+      - IDENTITY
+      - ACCOUNT
+      - ENTITLEMENT
+    description: The type of object being used by the criterion
+    example: ACCOUNT
+  property:
+    type: string
+    description: The property for which the criteria is evaluated on
+    example: attribute.firstName
+  sourceId:
+    type: string
+    description: The ID for the source on which the property exists
+    example: 2c9180897194c68c01719935df1e1f5a
+  sourceName:
+    type: string
+    description: The name of the source on which the property exists
+    example: ODS-AD-Source

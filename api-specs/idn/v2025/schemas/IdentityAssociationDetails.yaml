@@ -1,0 +1,27 @@
+type: object
+properties:
+  message:
+    type: string
+    description: any additional context information of the http call result
+    example: Identity cannot be deleted as it is owner of following resources
+  associationDetails:
+    type: array
+    description: list of all the resource associations for the identity
+    items:
+      type: object
+      properties:
+        associationType:
+          type: string
+          description: association type with the identity
+          example: CAMPAIGN_OWNER
+        entities:
+          type: array
+          description: the specific resource this identity has ownership on
+          items:
+            $ref: './IdentityEntities.yaml'
+          example:
+            {
+              "id": "b660a232f05b4e04812ca974b3011e0f",
+              "name": "Gaston.800ddf9640a",
+              "type": "CAMPAIGN_CAMPAIGNER"
+            }

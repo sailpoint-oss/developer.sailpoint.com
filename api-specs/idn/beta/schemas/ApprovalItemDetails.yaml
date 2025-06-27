@@ -1,0 +1,31 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The approval item's ID
+    example: 2c9180835d2e5168015d32f890ca1581
+  account:
+    type: string
+    nullable: true
+    description: The account referenced by the approval item
+    example: john.smith
+  application:
+    type: string
+    description: The name of the application/source
+    example: Active Directory
+  name:
+    type: string
+    nullable: true
+    description: The attribute's name 
+    example: emailAddress
+  operation:
+    type: string
+    description: The attribute's operation 
+    example: update
+  value:
+    type: string
+    nullable: true
+    description: The attribute's value 
+    example: a@b.com
+  state:
+    $ref: '../../v3/schemas/WorkItemState.yaml'

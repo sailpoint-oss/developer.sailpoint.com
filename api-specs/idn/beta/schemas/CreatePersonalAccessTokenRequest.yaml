@@ -1,0 +1,29 @@
+type: object
+description: Object for specifying the name of a personal access token to create
+properties:
+  name:
+    type: string
+    description: >-
+      The name of the personal access token (PAT) to be created. Cannot be the same as another PAT owned by the user for whom this PAT is being created.
+    example: "NodeJS Integration"
+  scope:
+    type: array
+    nullable: true
+    items:
+      type: string
+      default: "sp:scopes:all"
+    description: Scopes of the personal access token. If no scope is specified, the token will be created with the default scope "sp:scopes:all". This means the personal access token will have all the rights of the owner who created it.
+    example: [ "demo:personal-access-token-scope:first", "demo:personal-access-token-scope:second" ]
+  accessTokenValiditySeconds:
+    type: integer
+    format: int32
+    minimum: 15
+    maximum: 43200
+    items:
+      type: integer
+      format: int32
+      default: 43200
+    description: Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200.
+    example: 36900
+required:
+  - name

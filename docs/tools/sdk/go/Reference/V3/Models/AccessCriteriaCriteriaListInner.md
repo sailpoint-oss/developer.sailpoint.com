@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'AccessCriteriaCriteriaListInner', 'Ac
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | Pointer to **string** | Type of the propery to which this reference applies to | [optional] 
+**Type** | Pointer to **string** | Type of the property to which this reference applies to | [optional] 
 **Id** | Pointer to **string** | ID of the object to which this reference applies to | [optional] 
 **Name** | Pointer to **string** | Human-readable display name of the object to which this reference applies to | [optional] 
 

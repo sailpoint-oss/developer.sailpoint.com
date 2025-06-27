@@ -78,11 +78,11 @@ Other parameters are passed through a pointer to a apiCreateSodPolicyRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sodPolicy** | [**SodPolicy**](../models/sod-policy) |  | 
+ **sodPolicyRequest** | [**SodPolicyRequest**](../models/sod-policy-request) |  | 
 
 ### Return type
 
-[**SodPolicy**](../models/sod-policy)
+[**SodPolicyRead**](../models/sod-policy-read)
 
 ### HTTP request headers
 
@@ -104,7 +104,7 @@ import (
 )
 
 func main() {
-    sodpolicy := []byte(`{
+    sodpolicyrequest := []byte(`{
           "conflictingAccessCriteria" : {
             "leftCriteria" : {
               "name" : "money-in",
@@ -159,10 +159,10 @@ func main() {
           "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
           "state" : "ENFORCED",
           "externalPolicyReference" : "XYZ policy"
-        }`) // SodPolicy | 
+        }`) // SodPolicyRequest | 
 
-    var sodPolicy v3.SodPolicy
-    if err := json.Unmarshal(sodpolicy, &sodPolicy); err != nil {
+    var sodPolicyRequest v3.SodPolicyRequest
+    if err := json.Unmarshal(sodpolicyrequest, &sodPolicyRequest); err != nil {
       fmt.Println("Error:", err)
       return
     }
@@ -170,13 +170,13 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V3.SODPoliciesAPI.CreateSodPolicy(context.Background()).SodPolicy(sodPolicy).Execute()
-	  //resp, r, err := apiClient.V3.SODPoliciesAPI.CreateSodPolicy(context.Background()).SodPolicy(sodPolicy).Execute()
+    resp, r, err := apiClient.V3.SODPoliciesAPI.CreateSodPolicy(context.Background()).SodPolicyRequest(sodPolicyRequest).Execute()
+	  //resp, r, err := apiClient.V3.SODPoliciesAPI.CreateSodPolicy(context.Background()).SodPolicyRequest(sodPolicyRequest).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.CreateSodPolicy``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateSodPolicy`: SodPolicy
+    // response from `CreateSodPolicy`: SodPolicyRead
     fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.CreateSodPolicy`: %v\n", resp)
 }
 ```
@@ -534,7 +534,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SodPolicy**](../models/sod-policy)
+[**SodPolicyRead**](../models/sod-policy-read)
 
 ### HTTP request headers
 
@@ -568,7 +568,7 @@ func main() {
 	    fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.GetSodPolicy``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetSodPolicy`: SodPolicy
+    // response from `GetSodPolicy`: SodPolicyRead
     fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.GetSodPolicy`: %v\n", resp)
 }
 ```
@@ -799,7 +799,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]SodPolicy**](../models/sod-policy)
+[**[]SodPolicyRead**](../models/sod-policy-read)
 
 ### HTTP request headers
 
@@ -837,7 +837,7 @@ func main() {
 	    fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.ListSodPolicies``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListSodPolicies`: []SodPolicy
+    // response from `ListSodPolicies`: []SodPolicyRead
     fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.ListSodPolicies`: %v\n", resp)
 }
 ```
@@ -872,7 +872,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SodPolicy**](../models/sod-policy)
+[**SodPolicyRead**](../models/sod-policy-read)
 
 ### HTTP request headers
 
@@ -912,7 +912,7 @@ func main() {
 	    fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.PatchSodPolicy``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PatchSodPolicy`: SodPolicy
+    // response from `PatchSodPolicy`: SodPolicyRead
     fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.PatchSodPolicy`: %v\n", resp)
 }
 ```
@@ -1052,11 +1052,11 @@ Other parameters are passed through a pointer to a apiPutSodPolicyRequest struct
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **sodPolicy** | [**SodPolicy**](../models/sod-policy) |  | 
+ **sodPolicyRead** | [**SodPolicyRead**](../models/sod-policy-read) |  | 
 
 ### Return type
 
-[**SodPolicy**](../models/sod-policy)
+[**SodPolicyRead**](../models/sod-policy-read)
 
 ### HTTP request headers
 
@@ -1079,7 +1079,7 @@ import (
 
 func main() {
     id := `ef38f943-47e9-4562-b5bb-8424a56397d8` // string | The ID of the SOD policy to update. # string | The ID of the SOD policy to update.
-    sodpolicy := []byte(`{
+    sodpolicyread := []byte(`{
           "conflictingAccessCriteria" : {
             "leftCriteria" : {
               "name" : "money-in",
@@ -1134,10 +1134,10 @@ func main() {
           "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
           "state" : "ENFORCED",
           "externalPolicyReference" : "XYZ policy"
-        }`) // SodPolicy | 
+        }`) // SodPolicyRead | 
 
-    var sodPolicy v3.SodPolicy
-    if err := json.Unmarshal(sodpolicy, &sodPolicy); err != nil {
+    var sodPolicyRead v3.SodPolicyRead
+    if err := json.Unmarshal(sodpolicyread, &sodPolicyRead); err != nil {
       fmt.Println("Error:", err)
       return
     }
@@ -1145,13 +1145,13 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V3.SODPoliciesAPI.PutSodPolicy(context.Background(), id).SodPolicy(sodPolicy).Execute()
-	  //resp, r, err := apiClient.V3.SODPoliciesAPI.PutSodPolicy(context.Background(), id).SodPolicy(sodPolicy).Execute()
+    resp, r, err := apiClient.V3.SODPoliciesAPI.PutSodPolicy(context.Background(), id).SodPolicyRead(sodPolicyRead).Execute()
+	  //resp, r, err := apiClient.V3.SODPoliciesAPI.PutSodPolicy(context.Background(), id).SodPolicyRead(sodPolicyRead).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `SODPoliciesAPI.PutSodPolicy``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `PutSodPolicy`: SodPolicy
+    // response from `PutSodPolicy`: SodPolicyRead
     fmt.Fprintf(os.Stdout, "Response from `SODPoliciesAPI.PutSodPolicy`: %v\n", resp)
 }
 ```

@@ -22,10 +22,6 @@ properties:
           type: string
           description: ID of the object to which this reference applies to
           example: 2c91808568c529c60168cca6f90c1313
-        name:
-          type: string
-          description: Human-readable display name of the object to which this reference applies to
-          example: Administrator
     example: [
     {
       type: "ENTITLEMENT",

@@ -11,6 +11,10 @@ post:
   description: |
     Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.
 
+    :::info
+    The ability to request access using this API is constrained by the Access Request Segments defined in the API token’s user context.
+    :::
+
     Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request
     has been submitted to ISC and is queued for processing. Because this endpoint is asynchronous, it doesn't return an error
     if you submit duplicate access requests in quick succession or submit an access request for access that is already in progress, approved, or rejected.

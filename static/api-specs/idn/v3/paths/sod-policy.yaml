@@ -24,7 +24,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: '../schemas/SodPolicy.yaml'
+            $ref: '../schemas/SodPolicyRead.yaml'
           examples:
             Conflicting Access Based Policy:
               value:
@@ -151,7 +151,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: '../schemas/SodPolicy.yaml'
+          $ref: '../schemas/SodPolicyRead.yaml'
         examples:
           Conflicting Access Based Policy:
             value:
@@ -237,7 +237,7 @@ put:
       content:
         application/json:
           schema:
-            $ref: '../schemas/SodPolicy.yaml'
+            $ref: '../schemas/SodPolicyRead.yaml'
           examples:
             Conflicting Access Based Policy:
               value:
@@ -464,7 +464,7 @@ patch:
       content:
         application/json:
           schema:
-            $ref: '../schemas/SodPolicy.yaml'
+            $ref: '../schemas/SodPolicyRead.yaml'
           examples:
             Conflicting Access Based Policy:
               value:

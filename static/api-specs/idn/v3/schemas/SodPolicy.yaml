@@ -104,7 +104,3 @@ properties:
       - GENERAL
       - CONFLICTING_ACCESS_BASED
     example: GENERAL
-  conflictingAccessCriteria:
-    allOf:
-      - $ref: './ConflictingAccessCriteria.yaml'
-      - nullable: true

@@ -16,7 +16,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: "../schemas/SodPolicy.yaml"
+          $ref: "../schemas/SodPolicyRequest.yaml"
         examples:
           Conflicting Access Based Policy:
             value:
@@ -114,7 +114,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: "../schemas/SodPolicy.yaml"
+            $ref: "../schemas/SodPolicyRead.yaml"
           examples:
             Conflicting Access Based Policy:
               value:
@@ -284,7 +284,7 @@ get:
           schema:
             type: array
             items:
-              $ref: "../schemas/SodPolicy.yaml"
+              $ref: "../schemas/SodPolicyRead.yaml"
           example:
             [
               {

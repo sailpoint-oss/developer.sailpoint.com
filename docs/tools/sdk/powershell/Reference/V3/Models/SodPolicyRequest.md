@@ -1,16 +1,16 @@
 ---
-id: sod-policy
-title: SodPolicy
-pagination_label: SodPolicy
-sidebar_label: SodPolicy
+id: sod-policy-request
+title: SodPolicyRequest
+pagination_label: SodPolicyRequest
+sidebar_label: SodPolicyRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'SodPolicy', 'SodPolicy'] 
-slug: /tools/sdk/powershell/v3/models/sod-policy
-tags: ['SDK', 'Software Development Kit', 'SodPolicy', 'SodPolicy']
+keywords: ['powershell', 'PowerShell', 'sdk', 'SodPolicyRequest', 'SodPolicyRequest'] 
+slug: /tools/sdk/powershell/v3/models/sod-policy-request
+tags: ['SDK', 'Software Development Kit', 'SodPolicyRequest', 'SodPolicyRequest']
 ---
 
 
-# SodPolicy
+# SodPolicyRequest
 
 ## Properties
 
@@ -33,12 +33,13 @@ Name | Type | Description | Notes
 **ViolationOwnerAssignmentConfig** | [**ViolationOwnerAssignmentConfig**](violation-owner-assignment-config) |  | [optional] 
 **Scheduled** | **Boolean** | defines whether a policy has been scheduled or not | [optional] [default to $false]
 **Type** |  **Enum** [  "GENERAL",    "CONFLICTING_ACCESS_BASED" ] | whether a policy is query based or conflicting access based | [optional] [default to "GENERAL"]
+**ConflictingAccessCriteria** | [**SodPolicyRequestAllOfConflictingAccessCriteria**](sod-policy-request-all-of-conflicting-access-criteria) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$SodPolicy = Initialize-SodPolicy  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
+$SodPolicyRequest = Initialize-SodPolicyRequest  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -Name policy-xyz `
  -Created 2020-01-01T00:00Z `
  -Modified 2020-01-01T00:00Z `
@@ -54,12 +55,13 @@ $SodPolicy = Initialize-SodPolicy  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -ModifierId 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -ViolationOwnerAssignmentConfig null `
  -Scheduled true `
- -Type GENERAL
+ -Type GENERAL `
+ -ConflictingAccessCriteria null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$SodPolicy | ConvertTo-JSON
+$SodPolicyRequest | ConvertTo-JSON
 ```
 
 

@@ -1,0 +1,54 @@
+type: object
+description: Representation of an ingested object. This differs from the internal representation in that we denormalize some of the reference data for UI consumption.
+properties:
+  id:
+    type: string
+    description: id
+    example: '24bdaf69-e5ce-4c08-96c4-2b93bce82088'
+  name:
+    type: string
+    description: Objects name
+    example: 'Ocie.48ad9323dbff4'
+  type:
+    type: string
+    description: Type of object
+    example: 'identity'
+  meta:
+    type: object
+    description: Object metadata
+    example: {"created" : "2021-09-29T14:16:23.995Z"}
+  attributes:
+    type: object
+    description: Object attributes
+    example: {"lastname" : "48ad9323dbff4"}
+  refs:
+    type: array
+    description: References to instance(s) of another name of object
+    items:
+      $ref: '../../beta/schemas/ExternalObjectDetailsReference.yaml'
+    example: '[
+                  {
+                    "type": "identity",
+                    "targets": [
+                      {
+                        "id": "2c91808b6e61caab016e6b8ef796084b",
+                        "name": "support"
+                      }
+                    ],
+                    "label": "owner"
+                  },
+                  {
+                    "type": "accessProfile",
+                    "targets": [
+                      {
+                        "id": "2c91808674927fc6017493f12c3c04ee",
+                        "name": "RoleMining-AccessProfile-One"
+                      }
+                    ],
+                    "label": "accessProfiles"
+                  }
+                ]'
+  integrationId:
+    type: string
+    description: integrationId
+    example: '24bdaf69-e5ce-4c08-96c4-2b93bce82088'

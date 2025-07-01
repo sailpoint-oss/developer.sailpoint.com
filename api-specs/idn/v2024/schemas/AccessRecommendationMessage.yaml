@@ -1,0 +1,6 @@
+type: object
+properties:
+  interpretation:
+    type: string
+    description: Information about why the access item was recommended.
+    example: 95% of your peers have this access.

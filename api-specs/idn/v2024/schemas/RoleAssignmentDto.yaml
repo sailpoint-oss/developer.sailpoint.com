@@ -1,0 +1,86 @@
+type: object
+properties:
+  id:
+    type: string
+    description: "Assignment Id"
+    example: "1cbb0705b38c4226b1334eadd8874086"
+  role:
+    $ref: "./BaseReferenceDto.yaml"
+    description: "Role Id and Name related to this assignment"
+    example:
+      id: "e7697a1e96d04db1ac7b0f4544915d2c"
+      type: "ROLE"
+      name: "Engineer"
+  comments:
+    type: string
+    nullable: true
+    description: "Comments added by the user when the assignment was made"
+    example: "I'm a new Engineer and need this role to do my work"
+  assignmentSource:
+    type: string
+    description: "Source describing how this assignment was made"
+    example: "UI"
+  assigner:
+    type: object
+    description: The identity that performed the assignment. This could be blank or system
+    properties:
+      type:
+        type: string
+        enum:
+          - IDENTITY
+          - UNKNOWN
+        description: Object type
+        example: IDENTITY
+      id:
+        type: string
+        description: ID of the object to which this reference applies
+        example: 2c91808568c529c60168cca6f90c1313
+      name:
+        type: string
+        nullable: true
+        description: Human-readable display name of the object to which this reference applies
+        example: William Wilson
+  assignedDimensions:
+    type: array
+    description: "Dimensions assigned related to this role"
+    example: [
+      {
+        "id": "1acc8ffe5fcf457090de28bee2af36ee",
+        "type": "DIMENSION",
+        "name": "Northeast region"
+      }
+    ]
+    items:
+      $ref: "./BaseReferenceDto.yaml"
+  assignmentContext:
+    allOf:
+      - $ref: "./AssignmentContextDto.yaml"
+      - nullable: true
+        description: "The context around the role assignment"
+    example:
+      requested: {
+        contextAttributes: [
+          {
+            attribute: "department",
+            value: "Engineering",
+            derived: false
+          }
+        ]
+      }
+      matched: [
+        {
+          id: "e7697a1e96d04db1ac7b0f4544915d2c",
+          type: "DIMENSION",
+          name: "Engineer"
+        }
+      ]
+      computedDate: "Wed Feb 14 10:58:42"
+  accountTargets:
+    type: array
+    items:
+      $ref: "./RoleTargetDto.yaml"
+  removeDate:
+    type: string
+    nullable: true
+    description: "Date that the assignment will be removed"
+    example: "Wed Feb 14 10:58:42"

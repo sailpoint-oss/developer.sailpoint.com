@@ -1,0 +1,17 @@
+type: object
+properties:
+  id:
+    type: string
+    description: The id of the certification.
+    example: ef38f94347e94562b5bb8424a56397d8
+  name:
+    type: string
+    description: The name of the certification.
+    example: "Certification Name"
+  type:
+    type: string
+    enum:
+      - CERTIFICATION
+    example: CERTIFICATION
+  reviewer:
+    $ref: "./Reviewer.yaml"

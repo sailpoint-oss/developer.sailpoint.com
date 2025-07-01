@@ -1,0 +1,20 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  type:
+    type: string
+    required: true
+    enum: [ProfileTypeRule]
+  comparison_operator:
+    type: string
+    enum: ['==', '!=']
+  value:
+    type: string
+    format: uuid
+  _destroy:
+    type: boolean
+    default: false
+  

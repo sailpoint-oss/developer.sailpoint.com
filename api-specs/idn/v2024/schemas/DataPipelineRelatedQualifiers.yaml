@@ -1,0 +1,14 @@
+type: object
+properties:
+  sourceQualifier:
+    type: string
+    description: The specific qualifier to search for.
+    example: 20110909123456
+  derivedQualifiers:
+    type: array
+    description: The list of related qualifiers for the given qualifier
+    items:
+      type: string
+    example: 
+      - 20110909124646
+      - 2011909343432

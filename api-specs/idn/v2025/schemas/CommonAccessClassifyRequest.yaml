@@ -1,0 +1,8 @@
+type: object
+properties:
+  commonAccessItemDTOs:
+    type: array
+    items:
+      $ref: 'CommonAccessItemRequest.yaml'
+  discover:
+    type: boolean

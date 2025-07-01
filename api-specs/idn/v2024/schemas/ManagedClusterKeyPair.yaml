@@ -1,0 +1,18 @@
+description: Managed Cluster key pair for Cluster
+type: object
+properties:
+  publicKey:
+    nullable: true
+    description: ManagedCluster publicKey
+    type: string
+    example: -----BEGIN PUBLIC KEY-----******-----END PUBLIC KEY-----
+  publicKeyThumbprint:
+    nullable: true
+    description: ManagedCluster publicKeyThumbprint
+    type: string
+    example: 6CMlaJIV44-xJxcB3CJBjDUUn54
+  publicKeyCertificate:
+    nullable: true
+    description: ManagedCluster publicKeyCertificate
+    type: string
+    example: -----BEGIN CERTIFICATE-----****-----END CERTIFICATE-----

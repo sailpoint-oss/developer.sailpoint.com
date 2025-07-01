@@ -1,0 +1,11 @@
+type: object
+properties:
+  approved:
+    type: number
+    description: The number of approved non-employee approval requests.
+  pending:
+    type: number
+    description: The number of pending non-employee approval requests.
+  rejected:
+    type: number
+    description: The number of rejected non-employee approval requests.

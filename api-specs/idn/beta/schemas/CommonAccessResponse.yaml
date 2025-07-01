@@ -1,0 +1,31 @@
+type : object
+properties:
+  id:
+    type: string
+    description: Unique ID of the common access item
+    example: 555ab47a-0d32-4813-906f-adf3567de6a4
+  access:
+    $ref: './CommonAccessItemAccess.yaml'
+    description: common access item
+  status:
+    type: string
+    description: CONFIRMED or DENIED
+  commonAccessType:
+    type: string
+    example: UNSET
+  lastUpdated:
+    type: string
+    readOnly: true
+    format: date-time
+  reviewedByUser:
+    type: boolean
+    description: true if user has confirmed or denied status
+  lastReviewed:
+    type: string
+    readOnly: true
+    format: date-time
+    nullable: true
+  createdByUser:
+    type: boolean
+    default: false
+    example: false

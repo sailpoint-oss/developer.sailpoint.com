@@ -1,0 +1,18 @@
+type: object
+required:
+- targetOwnerId
+- comment
+properties:
+  targetOwnerId:
+    type: string
+    description: The ID of the identity to forward this work item to.
+    example: 2c9180835d2e5168015d32f890ca1581
+  comment:
+    type: string
+    description: Comments to send to the target owner
+    example: "I'm going on vacation."
+  sendNotifications:
+    type: boolean
+    description: If true, send a notification to the target owner.
+    default: true
+    example: true

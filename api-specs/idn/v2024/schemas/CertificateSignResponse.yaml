@@ -1,0 +1,13 @@
+description: Sign Certificate Response
+type: object
+properties:
+  certificate:
+    description: Certificate
+    readOnly: true
+    type: string
+    example: -----BEGIN CERTIFICATE-----******-----END CERTIFICATE-----
+  certificateChain:
+    description: Certificate chain
+    readOnly: true
+    type: string
+    example: -----BEGIN CERTIFICATE CHAIN-----******-----END CERTIFICATE CHAIN-----

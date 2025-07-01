@@ -7,6 +7,8 @@ get:
   security:
   - userAuth:
     - idn:notification-templates:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
   - $ref: ../parameters/limit.yaml
   - $ref: ../parameters/offset.yaml
@@ -29,6 +31,19 @@ get:
 
       **locale**: *eq, sw*'
     example: medium eq "EMAIL"
+    required: false
+  - in: query
+    name: sorters
+    schema:
+      type: string
+      format: comma-separated
+    description: >-
+      Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+      Sorting is supported for the following fields: **key, name, medium**
+    example: key, -name
+    required: false
   - name: X-SailPoint-Experimental
     in: header
     description: Use this header to enable this experimental API.
@@ -61,15 +76,15 @@ post:
   tags:
   - Notifications
   summary: Create notification template
-  description: "This creates a template for your site. \n\nYou can also use this endpoint\
-    \ to update a template.  First, copy the response body from the [get notification\
-    \ template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template)\
-    \ for a template you wish to update and paste it into the request body for this\
-    \ endpoint.   Modify the fields you want to change and submit the POST request\
-    \ when ready."
+  description: |
+    This will update notification templates that are available in your tenant. 
+    Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.  
+    Modify the fields you want to change and submit the POST request when ready.
   security:
   - userAuth:
     - idn:notification-templates:create
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   requestBody:
     required: true
     content:

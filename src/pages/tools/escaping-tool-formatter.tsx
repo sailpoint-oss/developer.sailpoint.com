@@ -9,13 +9,13 @@ import styles from './EscapeTool.module.css';
 
 const escapeJavaDotNet = (str: string): string =>
   str
-    .replace(/\\/g, '\\\\')
-    .replace(/"/g, '\\"')
-    .replace(/\b/g, '\\b')
-    .replace(/\f/g, '\\f')
-    .replace(/\n/g, '\\n')
-    .replace(/\r/g, '\\r')
-    .replace(/\t/g, '\\t');
+    .replace(/\\/g, '\\\\') 
+    .replace(/"/g, '\\"') 
+    .replace(/\r/g, '\\r') 
+    .replace(/\n/g, '\\n') 
+    .replace(/\t/g, '\\t') 
+    .replace(/\f/g, '\\f'); 
+
 
 const unescapeJavaDotNet = (str: string): string =>
   str
@@ -23,12 +23,11 @@ const unescapeJavaDotNet = (str: string): string =>
     .replace(/\\r/g, '\r')
     .replace(/\\n/g, '\n')
     .replace(/\\f/g, '\f')
-    .replace(/\\b/g, '\b')
     .replace(/\\"/g, '"')
     .replace(/\\\\/g, '\\');
 
+
 const EscapeTool: React.FC = () => {
-  const [mode, setMode] = useState<'escape' | 'unescape'>('escape');
   const [fontSize, setFontSize] = useState<string>('16');
   const [isDropdownFocused, setIsDropdownFocused] = useState<boolean>(false);
   const [inputJson, setInputJson] = useState<string>('');
@@ -40,19 +39,17 @@ const EscapeTool: React.FC = () => {
 
   const transform = (text: string, mode: 'escape' | 'unescape'): string => {
     try {
-      const transformed =
-        mode === 'escape' ? escapeJavaDotNet(text) : unescapeJavaDotNet(text);
-      return transformed;
+      return mode === 'escape'
+        ? escapeJavaDotNet(text)
+        : unescapeJavaDotNet(text);
     } catch (err) {
       console.error('Error transforming text:', err);
       return '// Invalid input';
     }
   };
 
-  const handleModeToggleAndRun = () => {
-    const newMode = mode === 'escape' ? 'unescape' : 'escape';
-    setMode(newMode);
-    const newResult = transform(inputJson, newMode);
+  const handleTransform = (mode: 'escape' | 'unescape') => {
+    const newResult = transform(inputJson, mode);
     setResult(newResult);
   };
 
@@ -73,17 +70,20 @@ const EscapeTool: React.FC = () => {
         <div className={styles.containerFluid}>
           <h2 className={styles.title}>Java/.NET String Escaper</h2>
           <div className={styles.actionBar}>
-            
-
             <Stack direction="row" spacing={2} mb={2}>
               <Button
                 className={styles.runButton}
                 variant="contained"
-                onClick={handleModeToggleAndRun}
-                sx={{height: '56px', minWidth: 220}}>
-                {mode === 'escape'
-                  ? 'Switch to Unescape'
-                  : 'Switch to Escape'}
+                onClick={() => handleTransform('escape')}
+                sx={{height: '56px', minWidth: 160}}>
+                Escape
+              </Button>
+              <Button
+                className={styles.runButton}
+                variant="contained"
+                onClick={() => handleTransform('unescape')}
+                sx={{height: '56px', minWidth: 160}}>
+                Unescape
               </Button>
               <Button
                 className={styles.runButton}

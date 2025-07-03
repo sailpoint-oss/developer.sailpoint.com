@@ -32,6 +32,7 @@ const navbarConfig = {
         items: [
           { label: 'SDKs', to: '/docs/tools/sdk' },
           { label: 'CLI', to: '/docs/tools/cli' },
+          { label: 'Escaping Tool Formatter', to: '/tools/escaping-tool-formatter' },
           { label: 'JSON Path Evaluator', to: '/tools/json-path-evaluator' },
           { label: 'Rule Development Kit', to: '/docs/tools/rule-development-kit' },
           { label: 'UI Development Kit', to: '/docs/tools/ui-development-kit' },

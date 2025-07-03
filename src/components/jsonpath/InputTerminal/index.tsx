@@ -1,10 +1,11 @@
 import React from 'react';
 import AceEditor from 'react-ace';
-import 'ace-builds/src-noconflict/mode-json'; // Import mode for JSON
-import 'ace-builds/src-noconflict/theme-github_dark'; // Dark theme
-import 'ace-builds/src-noconflict/theme-github_light_default'; // Light theme
+import 'ace-builds/src-noconflict/mode-json';
+import 'ace-builds/src-noconflict/mode-text';
+import 'ace-builds/src-noconflict/theme-github_dark';
+import 'ace-builds/src-noconflict/theme-github_light_default';
 import 'ace-builds/src-noconflict/ext-language_tools';
-import {useColorMode} from '@docusaurus/theme-common';
+import { useColorMode } from '@docusaurus/theme-common';
 import styles from '../../../pages/tools/json-path.module.css';
 
 // Ensure ace is properly configured
@@ -19,23 +20,23 @@ if (typeof ace !== 'undefined' && ace.config) {
   );
 }
 
-// Define props interface
 interface InputTerminalProps {
   fontSize: string;
   value: string;
   onChange: (value: string) => void;
-  hasJsonParseError: boolean;
+  hasJsonParseError?: boolean;
+  mode?: 'json' | 'text'; // 🔄 new optional mode prop
 }
 
 const InputTerminal: React.FC<InputTerminalProps> = ({
   fontSize,
   value,
   onChange,
-  hasJsonParseError,
+  hasJsonParseError = false,
+  mode = 'json', // default to 'json' for backward compatibility
 }) => {
-  const {colorMode} = useColorMode();
+  const { colorMode } = useColorMode();
 
-  // Dynamic class based on the presence of a JSON parse error
   const terminalClass = hasJsonParseError
     ? styles.inputTerminalContainer
     : styles.terminalContainerDefault;
@@ -45,16 +46,16 @@ const InputTerminal: React.FC<InputTerminalProps> = ({
       <h2>Inputs</h2>
       <AceEditor
         className={terminalClass}
-        mode="json" // Set the mode to JSON for syntax highlighting
-        theme={colorMode === 'dark' ? 'github_dark' : 'github_light_default'} // Switch between dark and light themes based on color mode
+        mode={mode}
+        theme={colorMode === 'dark' ? 'github_dark' : 'github_light_default'}
         value={value}
-        onChange={onChange} // Handle changes in the editor
-        fontSize={`${fontSize}px`} // Set the font size
+        onChange={onChange}
+        fontSize={`${fontSize}px`}
         width="auto"
         showPrintMargin={false}
-        editorProps={{$blockScrolling: true}}
+        editorProps={{ $blockScrolling: true }}
         setOptions={{
-          fontFamily: 'monospace', // still keep this in JS for redundancy
+          fontFamily: 'monospace',
         }}
       />
     </div>

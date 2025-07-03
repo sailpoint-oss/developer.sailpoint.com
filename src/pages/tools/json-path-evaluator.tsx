@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Layout from '@theme/Layout';
 import styles from './json-path.module.css';
 import Alert from '@mui/material/Alert';
@@ -9,7 +9,10 @@ import InputTerminal from '../../components/jsonpath/InputTerminal';
 import ResultTerminal from '../../components/jsonpath/ResultTerminal';
 import ImplementationDropdown from '../../components/jsonpath/ImplementationDropdown';
 import JsonPathQueryInput from '../../components/jsonpath/JsonPathQueryInput';
-import { evaluateJSONPathJava, evaluateJSONPathGo } from '../../services/JSONPathService';
+import {
+  evaluateJSONPathJava,
+  evaluateJSONPathGo,
+} from '../../services/JSONPathService';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Button from '@mui/material/Button';
 
@@ -17,15 +20,18 @@ import Button from '@mui/material/Button';
 type ImplementationType = 'EventTrigger' | 'Workflows';
 
 // Define the documentation links type
-const documentationLinks: Record<ImplementationType, { url: string; text: string }> = {
+const documentationLinks: Record<
+  ImplementationType,
+  {url: string; text: string}
+> = {
   EventTrigger: {
-    url: "https://developer.sailpoint.com/docs/extensibility/event-triggers/filtering-events/",
-    text: "Event Trigger Implementation Documentation"
+    url: 'https://developer.sailpoint.com/docs/extensibility/event-triggers/filtering-events/',
+    text: 'Event Trigger Implementation Documentation',
   },
   Workflows: {
-    url: "https://github.com/celene-isip-sp/jsonslice?tab=readme-ov-file#specs-and-references",
-    text: "Workflows Implementation Documentation"
-  }
+    url: 'https://github.com/celene-isip-sp/jsonslice?tab=readme-ov-file#specs-and-references',
+    text: 'Workflows Implementation Documentation',
+  },
 };
 
 const JsonPathEvaluator: React.FC = () => {
@@ -33,13 +39,16 @@ const JsonPathEvaluator: React.FC = () => {
   const [query, setQuery] = useState<string>('$.requestedItemsStatus[*].name');
   const [queryParseError, setQueryParseError] = useState<string>('');
   const [fontSize, setFontSize] = useState<string>('16');
-  const [inputJson, setInputJson] = useState<string>(JSON.stringify(require('./sample.json'), null, 4));
-  const [implementation, setImplementation] = useState<ImplementationType>('Workflows');
+  const [inputJson, setInputJson] = useState<string>(
+    JSON.stringify(require('./sample.json'), null, 4),
+  );
+  const [implementation, setImplementation] =
+    useState<ImplementationType>('Workflows');
   const [localJson, setLocalJson] = useState<string>(inputJson);
   const [jsonParseError, setJsonParseError] = useState<boolean>(false);
   const [isQueryFocused, setIsQueryFocused] = useState<boolean>(false);
   const [isDropdownFocused, setIsDropdownFocused] = useState<boolean>(false);
-  const { siteConfig } = useDocusaurusContext();
+  const {siteConfig} = useDocusaurusContext();
 
   // Apply JSONPath query with the current implementation
   const applyJsonPathQuery = async (json: string, jsonPath: string) => {
@@ -63,11 +72,19 @@ const JsonPathEvaluator: React.FC = () => {
       try {
         switch (implementation) {
           case 'Workflows':
-            tempResult = await evaluateJSONPathGo(siteConfig.customFields.CMS_APP_API_ENDPOINT, jsonPath, parsedJson);
+            tempResult = await evaluateJSONPathGo(
+              siteConfig.customFields.CMS_APP_API_ENDPOINT,
+              jsonPath,
+              parsedJson,
+            );
             result = tempResult.error ? tempResult.error : tempResult.result;
             break;
           case 'EventTrigger':
-            tempResult = await evaluateJSONPathJava(siteConfig.customFields.CMS_APP_API_ENDPOINT, jsonPath, parsedJson);
+            tempResult = await evaluateJSONPathJava(
+              siteConfig.customFields.CMS_APP_API_ENDPOINT,
+              jsonPath,
+              parsedJson,
+            );
             result = tempResult.error ? tempResult.error : tempResult.result;
             break;
         }
@@ -75,12 +92,22 @@ const JsonPathEvaluator: React.FC = () => {
         result = error.message;
       }
 
-      setResult((result.length > 0 || typeof result === 'number' || typeof result === 'object' || typeof result === 'boolean') ? JSON.stringify(result, null, 2) : 'No match');
+      setResult(
+        result.length > 0 ||
+          typeof result === 'number' ||
+          typeof result === 'object' ||
+          typeof result === 'boolean'
+          ? JSON.stringify(result, null, 2)
+          : 'No match',
+      );
       setQueryParseError('');
       setJsonParseError(false);
     } catch (error: any) {
       setResult('No match');
-      setJsonParseError(error.message.includes("JSON at position") || error.message.includes("is not valid JSON"));
+      setJsonParseError(
+        error.message.includes('JSON at position') ||
+          error.message.includes('is not valid JSON'),
+      );
       setQueryParseError(error.message || 'Error executing JSONPath query');
     }
   };
@@ -96,7 +123,9 @@ const JsonPathEvaluator: React.FC = () => {
   };
 
   // Handle implementation change
-  const handleImplementationChange = (newImplementation: ImplementationType) => {
+  const handleImplementationChange = (
+    newImplementation: ImplementationType,
+  ) => {
     setImplementation(newImplementation);
   };
 
@@ -116,8 +145,17 @@ const JsonPathEvaluator: React.FC = () => {
       <main>
         <div className={styles.containerFluid}>
           <div className={styles.actionBar}>
-            <Stack sx={{ justifyContent: 'center' }} direction={{ xs: 'column', sm: 'column', md: 'column', lg: 'column', xl: 'row' }} spacing={1}>
-              <Stack sx={{ justifyContent: 'center' }} spacing={1}>
+            <Stack
+              sx={{justifyContent: 'center'}}
+              direction={{
+                xs: 'column',
+                sm: 'column',
+                md: 'column',
+                lg: 'column',
+                xl: 'row',
+              }}
+              spacing={1}>
+              <Stack sx={{justifyContent: 'center'}} spacing={1}>
                 <JsonPathQueryInput
                   value={query}
                   onChange={handleQueryChange}
@@ -126,22 +164,26 @@ const JsonPathEvaluator: React.FC = () => {
                 />
                 {documentationLinks[implementation] && (
                   <Link
-                    id='jsonpathDocumentationLink'
+                    id="jsonpathDocumentationLink"
                     href={documentationLinks[implementation].url}
                     target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                    rel="noopener noreferrer">
                     {documentationLinks[implementation].text}
                   </Link>
                 )}
                 {queryParseError && (
                   <div className={styles.alertContainer}>
-                    <Alert id='jsonpathalert' severity="error">{queryParseError}</Alert>
+                    <Alert id="jsonpathalert" severity="error">
+                      {queryParseError}
+                    </Alert>
                   </div>
                 )}
               </Stack>
 
-              <Stack sx={{ justifyContent: 'flex-start' }} direction={'row'} spacing={1}>
+              <Stack
+                sx={{justifyContent: 'flex-start'}}
+                direction={'row'}
+                spacing={1}>
                 <ImplementationDropdown
                   implementation={implementation}
                   onImplementationChange={handleImplementationChange}
@@ -153,8 +195,7 @@ const JsonPathEvaluator: React.FC = () => {
                   className={styles.runButton}
                   variant="contained"
                   onClick={handleRunQuery}
-                  sx={{ height: '56px', minWidth: 220, maxWidth: 220 }}
-                >
+                  sx={{height: '56px', minWidth: 220, maxWidth: 220}}>
                   Run
                 </Button>
 
@@ -168,17 +209,23 @@ const JsonPathEvaluator: React.FC = () => {
             </Stack>
           </div>
 
-          <Stack sx={{ justifyContent: 'center' }} direction={{ xs: 'column', sm: 'column', md: 'column', lg: 'row', xl: 'row' }} spacing={1}>
+          <Stack
+            sx={{justifyContent: 'center'}}
+            direction={{
+              xs: 'column',
+              sm: 'column',
+              md: 'column',
+              lg: 'row',
+              xl: 'row',
+            }}
+            spacing={1}>
             <InputTerminal
               fontSize={fontSize}
               value={localJson}
               onChange={handleJsonChange}
               hasJsonParseError={jsonParseError}
             />
-            <ResultTerminal
-              result={result}
-              fontSize={fontSize}
-            />
+            <ResultTerminal result={result} fontSize={fontSize} />
           </Stack>
         </div>
       </main>

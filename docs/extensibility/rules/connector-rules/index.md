@@ -86,7 +86,7 @@ requestEndPoint.getBody().put(\"jsonBody\",requestXML); \n              }\n     
   - `sourceVersion` - String indicating the rule's version. Typically, this is the same as `version`.
 - `sourceCode` - Object housing the actual source code that makes the rule work.
   - `version` - String indicating the rule's version. Typically, this is the same as `sourceVersion`.
-  - `script` - Rule’s code the connector runs. This must be an escaped string. For help with formatting, use an escaping tool like [Free Formatter.](https://www.freeformatter.com/java-dotnet-escape.html#before-output)
+  - `script` - Rule’s code the connector runs. This must be an escaped string. For help with formatting, use an escaping tool like [Escaping Tool Formatter.](/tools/escaping-tool-formatter)
 
 ## Attaching connector-related Rules to sources
 

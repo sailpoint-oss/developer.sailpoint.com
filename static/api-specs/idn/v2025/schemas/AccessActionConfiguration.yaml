@@ -1,0 +1,8 @@
+type : object
+description: This is used for access configuration for a lifecycle state
+properties:
+  removeAllAccessEnabled:
+    type: boolean
+    default: false
+    example: true
+    description: If true, then all accesses are marked for removal.

@@ -4,7 +4,7 @@ get:
     - Lifecycle States
   summary: Get lifecycle state
   description: >-
-    Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
+    Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID.
   security:
     - userAuth: [idn:identity-profile-lifecycle-state:read]
   x-sailpoint-userLevels:
@@ -85,6 +85,8 @@ patch:
       * accountActions
       * accessProfileIds
       * emailNotificationOption
+      * accessActionConfiguration
+      * priority
     content:
       application/json-patch+json:
         schema:
@@ -107,9 +109,13 @@ patch:
                 "sourceIds":
                   - "2c9180846a2f82fb016a481c1b1560c5"
                   - "2c9180846a2f82fb016a481c1b1560cc"
+                "excludeSourceIds": null
+                allSources: false
               - "action": "DISABLE"
-                "sourceIds":
-                  - "2c91808869a0c9980169a207258513fb"
+                "sourceIds": null
+                "excludeSourceIds":
+                  - "3b551ccf5566478b9b77f37de25303aa"
+                allSources: true
           - op: "replace"
             path: "/emailNotificationOption"
             value:
@@ -117,6 +123,10 @@ patch:
               "notifyAllAdmins": false
               "notifySpecificUsers": false
               "emailAddressList": []
+          - op: "replace"
+            path: "/accessActionConfiguration"
+            value:
+              "removeAllAccessEnabled": true
   responses:
     '200':
       description: The LifecycleState was successfully updated.
@@ -142,7 +152,7 @@ delete:
     - Lifecycle States
   summary: Delete lifecycle state
   description: >-
-    Use this endpoint to delete the lifecycle state by its ID. 
+    Use this endpoint to delete the lifecycle state by its ID.
   security:
     - userAuth: [idn:identity-profile-lifecycle-state:manage]
     - applicationAuth: [idn:identity-profile-lifecycle-state:manage]

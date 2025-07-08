@@ -65,7 +65,7 @@ const EscapeTool: React.FC = () => {
   };
 
   return (
-    <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+    <Layout title="Java/.NET String Escaper" description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
         <div className={styles.containerFluid}>
           <h2 className={styles.title}>Java/.NET String Escaper</h2>

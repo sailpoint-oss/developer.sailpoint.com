@@ -42,7 +42,7 @@ const Marketplace: React.FC = () => {
   });
 
   return (
-    <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+    <Layout title="CoLab" description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
         <MarketplaceBanner />
         <div>

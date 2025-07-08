@@ -10,7 +10,7 @@ const Ambassador: React.FC = () => {
   const { siteConfig } = useDocusaurusContext();
 
   return (
-    <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+    <Layout title="Ambassadors" description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
         {/* <AmbassadorBanner /> */}
         <div className={styles.ambassadorPurposeContainer}>

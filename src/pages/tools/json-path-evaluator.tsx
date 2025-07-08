@@ -141,7 +141,7 @@ const JsonPathEvaluator: React.FC = () => {
   };
 
   return (
-    <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+    <Layout title="Json Path Evaluator" description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
         <div className={styles.containerFluid}>
           <div className={styles.actionBar}>

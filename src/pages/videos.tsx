@@ -24,7 +24,7 @@ const VideoLibrary: React.FC = () => {
   };
 
   return (
-    <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+    <Layout title="Video Library" description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
         <div>
           <div className={styles.titleContainer}></div>

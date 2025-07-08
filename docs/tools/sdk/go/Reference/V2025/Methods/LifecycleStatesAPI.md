@@ -111,6 +111,9 @@ import (
 func main() {
     identityProfileId := `2b838de9-db9b-abcf-e646-d4f274ad4238` // string | Identity profile ID. # string | Identity profile ID.
     lifecyclestate := []byte(`{
+          "accessActionConfiguration" : {
+            "removeAllAccessEnabled" : true
+          },
           "accessProfileIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ],
           "emailNotificationOption" : {
             "notifyManagers" : true,
@@ -119,21 +122,26 @@ func main() {
             "notifyAllAdmins" : true
           },
           "created" : "2015-05-28T14:07:17Z",
+          "description" : "Lifecycle description",
+          "identityCount" : 42,
+          "priority" : 10,
+          "technicalName" : "Technical Name",
+          "identityState" : "INACTIVE_LONG_TERM",
+          "enabled" : true,
           "name" : "aName",
           "modified" : "2015-05-28T14:07:17Z",
-          "description" : "Lifecycle description",
           "accountActions" : [ {
+            "allSources" : true,
             "action" : "ENABLE",
+            "excludeSourceIds" : [ "3b551ccf5566478b9b77f37de25303aa" ],
             "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
           }, {
+            "allSources" : true,
             "action" : "ENABLE",
+            "excludeSourceIds" : [ "3b551ccf5566478b9b77f37de25303aa" ],
             "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
           } ],
-          "id" : "id12345",
-          "identityCount" : 42,
-          "technicalName" : "Technical Name",
-          "identityState" : "identityState",
-          "enabled" : true
+          "id" : "id12345"
         }`) // LifecycleState | Lifecycle state to be created.
 
     var lifecycleState v2025.LifecycleState
@@ -160,7 +168,7 @@ func main() {
 
 ## delete-lifecycle-state
 Delete lifecycle state
-Use this endpoint to delete the lifecycle state by its ID. 
+Use this endpoint to delete the lifecycle state by its ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-lifecycle-state)
 
@@ -229,7 +237,7 @@ func main() {
 
 ## get-lifecycle-state
 Get lifecycle state
-Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
+Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-lifecycle-state)
 
@@ -467,7 +475,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
 
- **jsonPatchOperation** | [**[]JsonPatchOperation**](../models/json-patch-operation) | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption  | 
+ **jsonPatchOperation** | [**[]JsonPatchOperation**](../models/json-patch-operation) | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority  | 
 
 ### Return type
 
@@ -495,7 +503,7 @@ import (
 func main() {
     identityProfileId := `2b838de9-db9b-abcf-e646-d4f274ad4238` // string | Identity profile ID. # string | Identity profile ID.
     lifecycleStateId := `ef38f94347e94562b5bb8424a56397d8` // string | Lifecycle state ID. # string | Lifecycle state ID.
-    jsonpatchoperation := []byte(`[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/accessProfileIds, value=[2c918087742bab150174407a80f3125e, 2c918087742bab150174407a80f3124f]}, {op=replace, path=/accountActions, value=[{action=ENABLE, sourceIds=[2c9180846a2f82fb016a481c1b1560c5, 2c9180846a2f82fb016a481c1b1560cc]}, {action=DISABLE, sourceIds=[2c91808869a0c9980169a207258513fb]}]}, {op=replace, path=/emailNotificationOption, value={notifyManagers=true, notifyAllAdmins=false, notifySpecificUsers=false, emailAddressList=[]}}]`) // []JsonPatchOperation | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
+    jsonpatchoperation := []byte(`[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/accessProfileIds, value=[2c918087742bab150174407a80f3125e, 2c918087742bab150174407a80f3124f]}, {op=replace, path=/accountActions, value=[{action=ENABLE, sourceIds=[2c9180846a2f82fb016a481c1b1560c5, 2c9180846a2f82fb016a481c1b1560cc], excludeSourceIds=null, allSources=false}, {action=DISABLE, sourceIds=null, excludeSourceIds=[3b551ccf5566478b9b77f37de25303aa], allSources=true}]}, {op=replace, path=/emailNotificationOption, value={notifyManagers=true, notifyAllAdmins=false, notifySpecificUsers=false, emailAddressList=[]}}, {op=replace, path=/accessActionConfiguration, value={removeAllAccessEnabled=true}}]`) // []JsonPatchOperation | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
 
     var jsonPatchOperation []v2025.JsonPatchOperation
     if err := json.Unmarshal(jsonpatchoperation, &jsonPatchOperation); err != nil {

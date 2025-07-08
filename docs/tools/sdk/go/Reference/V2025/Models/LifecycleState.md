@@ -27,6 +27,8 @@ Name | Type | Description | Notes
 **AccountActions** | Pointer to [**[]AccountAction**](account-action) |  | [optional] 
 **AccessProfileIds** | Pointer to **[]string** | List of unique access-profile IDs that are associated with the lifecycle state. | [optional] 
 **IdentityState** | Pointer to **NullableString** | The lifecycle state's associated identity state. This field is generally 'null'. | [optional] 
+**AccessActionConfiguration** | Pointer to [**AccessActionConfiguration**](access-action-configuration) |  | [optional] 
+**Priority** | Pointer to **NullableInt32** | Priority level used to determine which profile to assign when a user exists in multiple profiles. Lower numeric values have higher priority.  By default, new profiles are assigned the lowest priority. The assigned profile also controls access granted or removed during provisioning based on lifecycle state changes. | [optional] 
 
 ## Methods
 
@@ -367,4 +369,64 @@ HasIdentityState returns a boolean if a field has been set.
 `func (o *LifecycleState) UnsetIdentityState()`
 
 UnsetIdentityState ensures that no value is present for IdentityState, not even an explicit nil
+### GetAccessActionConfiguration
+
+`func (o *LifecycleState) GetAccessActionConfiguration() AccessActionConfiguration`
+
+GetAccessActionConfiguration returns the AccessActionConfiguration field if non-nil, zero value otherwise.
+
+### GetAccessActionConfigurationOk
+
+`func (o *LifecycleState) GetAccessActionConfigurationOk() (*AccessActionConfiguration, bool)`
+
+GetAccessActionConfigurationOk returns a tuple with the AccessActionConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessActionConfiguration
+
+`func (o *LifecycleState) SetAccessActionConfiguration(v AccessActionConfiguration)`
+
+SetAccessActionConfiguration sets AccessActionConfiguration field to given value.
+
+### HasAccessActionConfiguration
+
+`func (o *LifecycleState) HasAccessActionConfiguration() bool`
+
+HasAccessActionConfiguration returns a boolean if a field has been set.
+
+### GetPriority
+
+`func (o *LifecycleState) GetPriority() int32`
+
+GetPriority returns the Priority field if non-nil, zero value otherwise.
+
+### GetPriorityOk
+
+`func (o *LifecycleState) GetPriorityOk() (*int32, bool)`
+
+GetPriorityOk returns a tuple with the Priority field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPriority
+
+`func (o *LifecycleState) SetPriority(v int32)`
+
+SetPriority sets Priority field to given value.
+
+### HasPriority
+
+`func (o *LifecycleState) HasPriority() bool`
+
+HasPriority returns a boolean if a field has been set.
+
+### SetPriorityNil
+
+`func (o *LifecycleState) SetPriorityNil(b bool)`
+
+ SetPriorityNil sets the value for Priority to be an explicit nil
+
+### UnsetPriority
+`func (o *LifecycleState) UnsetPriority()`
+
+UnsetPriority ensures that no value is present for Priority, not even an explicit nil
 

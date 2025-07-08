@@ -95,6 +95,9 @@ Code | Description  | Data Type
 ```powershell
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
 $LifecycleState = @"{
+  "accessActionConfiguration" : {
+    "removeAllAccessEnabled" : true
+  },
   "accessProfileIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ],
   "emailNotificationOption" : {
     "notifyManagers" : true,
@@ -103,21 +106,26 @@ $LifecycleState = @"{
     "notifyAllAdmins" : true
   },
   "created" : "2015-05-28T14:07:17Z",
+  "description" : "Lifecycle description",
+  "identityCount" : 42,
+  "priority" : 10,
+  "technicalName" : "Technical Name",
+  "identityState" : "INACTIVE_LONG_TERM",
+  "enabled" : true,
   "name" : "aName",
   "modified" : "2015-05-28T14:07:17Z",
-  "description" : "Lifecycle description",
   "accountActions" : [ {
+    "allSources" : true,
     "action" : "ENABLE",
+    "excludeSourceIds" : [ "3b551ccf5566478b9b77f37de25303aa" ],
     "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
   }, {
+    "allSources" : true,
     "action" : "ENABLE",
+    "excludeSourceIds" : [ "3b551ccf5566478b9b77f37de25303aa" ],
     "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
   } ],
-  "id" : "id12345",
-  "identityCount" : 42,
-  "technicalName" : "Technical Name",
-  "identityState" : "identityState",
-  "enabled" : true
+  "id" : "id12345"
 }"@
 
 # Create lifecycle state
@@ -136,7 +144,7 @@ try {
 [[Back to top]](#) 
 
 ## delete-lifecycle-state
-Use this endpoint to delete the lifecycle state by its ID. 
+Use this endpoint to delete the lifecycle state by its ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-lifecycle-state)
 
@@ -184,7 +192,7 @@ try {
 [[Back to top]](#) 
 
 ## get-lifecycle-state
-Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
+Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-lifecycle-state)
 
@@ -343,7 +351,7 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | IdentityProfileId | **String** | True  | Identity profile ID.
 Path   | LifecycleStateId | **String** | True  | Lifecycle state ID.
- Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
 
 ### Return type
 [**LifecycleState**](../models/lifecycle-state)
@@ -371,7 +379,7 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle stat
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ # JsonPatchOperation[] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
+}"@ # JsonPatchOperation[] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
  
 
 # Update lifecycle state

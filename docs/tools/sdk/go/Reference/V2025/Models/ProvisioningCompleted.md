@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **Warnings** | Pointer to **[]string** | A list of any accumulated warning messages that occurred during provisioning. | [optional] 
 **Recipient** | [**ProvisioningCompletedRecipient**](provisioning-completed-recipient) |  | 
 **Requester** | Pointer to [**NullableProvisioningCompletedRequester**](provisioning-completed-requester) |  | [optional] 
-**AccountRequests** | [**[]ProvisioningCompletedAccountRequestsInner**](provisioning-completed-account-requests-inner) | A list of provisioning instructions to perform on an account-by-account basis. | 
+**AccountRequests** | [**[]ProvisioningCompletedAccountRequestsInner**](provisioning-completed-account-requests-inner) | A list of provisioning instructions to be executed on a per-account basis. The order in which operations are executed may not always be predictable. | 
 
 ## Methods
 

@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 **Action** | Pointer to **NullableString** | Origin of where the provisioning request came from. | [optional] 
 **Recipient** | [**ProvisioningCompletedRecipient**](provisioning-completed-recipient) |  | 
 **Requester** | Pointer to [**NullableProvisioningCompletedRequester**](provisioning-completed-requester) |  | [optional] 
-**AccountRequests** | [**[]ProvisioningCompletedAccountRequestsInner**](provisioning-completed-account-requests-inner) | A list of provisioning instructions to perform on an account-by-account basis. | 
+**AccountRequests** | [**[]ProvisioningCompletedAccountRequestsInner**](provisioning-completed-account-requests-inner) | A list of provisioning instructions to be executed on a per-account basis. The order in which operations are executed may not always be predictable. | 
 **FileName** | **string** | A name for the report file. | 
 **OwnerEmail** | **string** | The email address of the identity that owns the saved search. | 
 **OwnerName** | **string** | The name of the identity that owns the saved search. | 

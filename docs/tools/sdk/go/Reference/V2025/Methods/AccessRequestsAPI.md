@@ -36,7 +36,7 @@ Method | HTTP request | Description
 [**close-access-request**](#close-access-request) | **Post** `/access-requests/close` | Close access request
 [**create-access-request**](#create-access-request) | **Post** `/access-requests` | Submit access request
 [**get-access-request-config**](#get-access-request-config) | **Get** `/access-request-config` | Get access request configuration
-[**get-entitlement-details-for-identity**](#get-entitlement-details-for-identity) | **Get** `/access-requests/revocable-objects` | Identity entitlement details
+[**get-entitlement-details-for-identity**](#get-entitlement-details-for-identity) | **Get** `/revocable-objects` | Identity entitlement details
 [**list-access-request-status**](#list-access-request-status) | **Get** `/access-request-status` | Access request status
 [**list-administrators-access-request-status**](#list-administrators-access-request-status) | **Get** `/access-request-administration` | Access request status for administrators
 [**load-account-selections**](#load-account-selections) | **Post** `/access-requests/accounts-selection` | Get accounts selections for identity

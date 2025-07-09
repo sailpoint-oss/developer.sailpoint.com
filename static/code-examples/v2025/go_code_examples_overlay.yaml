@@ -1254,7 +1254,7 @@
           // response from `GetAccessRequestConfig`: AccessRequestConfig
           fmt.Fprintf(os.Stdout, "Response from `AccessRequestsAPI.GetAccessRequestConfig`: %v\n", resp)
         }
-- path: /access-requests/revocable-objects
+- path: /revocable-objects
   method: Get
   xCodeSample:
     - lang: Go

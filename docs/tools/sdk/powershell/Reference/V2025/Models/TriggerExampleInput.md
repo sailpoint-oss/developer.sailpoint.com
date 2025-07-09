@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 **Action** | **String** | Origin of where the provisioning request came from. | [optional] 
 **Recipient** | [**ProvisioningCompletedRecipient**](provisioning-completed-recipient) |  | [required]
 **Requester** | [**ProvisioningCompletedRequester**](provisioning-completed-requester) |  | [optional] 
-**AccountRequests** | [**[]ProvisioningCompletedAccountRequestsInner**](provisioning-completed-account-requests-inner) | A list of provisioning instructions to perform on an account-by-account basis. | [required]
+**AccountRequests** | [**[]ProvisioningCompletedAccountRequestsInner**](provisioning-completed-account-requests-inner) | A list of provisioning instructions to be executed on a per-account basis. The order in which operations are executed may not always be predictable. | [required]
 **FileName** | **String** | A name for the report file. | [required]
 **OwnerEmail** | **String** | The email address of the identity that owns the saved search. | [required]
 **OwnerName** | **String** | The name of the identity that owns the saved search. | [required]

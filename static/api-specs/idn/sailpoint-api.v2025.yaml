@@ -1666,7 +1666,7 @@ paths:
     $ref: ./v2025/paths/public-identities-config.yaml
   /requestable-objects:
     $ref: ./v2025/paths/requestable-object-list.yaml
-  /access-requests/revocable-objects:
+  /revocable-objects:
     $ref: ./v2025/paths/revocable-objects.yaml
   /roles:
     $ref: ./v2025/paths/roles.yaml

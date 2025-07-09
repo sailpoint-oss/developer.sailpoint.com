@@ -837,7 +837,7 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025AccessRequestConfig"
             Write-Host $_.ErrorDetails
         }
-- path: /access-requests/revocable-objects
+- path: /revocable-objects
   method: GET
   xCodeSample:
     - lang: PowerShell

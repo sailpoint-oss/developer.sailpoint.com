@@ -38,7 +38,7 @@ Method | HTTP request | Description
 [**Close-V2025AccessRequest**](#close-access-request) | **POST** `/access-requests/close` | Close access request
 [**New-V2025AccessRequest**](#create-access-request) | **POST** `/access-requests` | Submit access request
 [**Get-V2025AccessRequestConfig**](#get-access-request-config) | **GET** `/access-request-config` | Get access request configuration
-[**Get-V2025EntitlementDetailsForIdentity**](#get-entitlement-details-for-identity) | **GET** `/access-requests/revocable-objects` | Identity entitlement details
+[**Get-V2025EntitlementDetailsForIdentity**](#get-entitlement-details-for-identity) | **GET** `/revocable-objects` | Identity entitlement details
 [**Get-V2025AccessRequestStatus**](#list-access-request-status) | **GET** `/access-request-status` | Access request status
 [**Get-V2025AdministratorsAccessRequestStatus**](#list-administrators-access-request-status) | **GET** `/access-request-administration` | Access request status for administrators
 [**Invoke-V2025LoadAccountSelections**](#load-account-selections) | **POST** `/access-requests/accounts-selection` | Get accounts selections for identity

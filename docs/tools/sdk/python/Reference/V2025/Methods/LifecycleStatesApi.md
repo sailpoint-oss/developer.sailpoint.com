@@ -104,6 +104,9 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
     identity_profile_id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | Identity profile ID. # str | Identity profile ID.
     lifecycle_state = '''{
+          "accessActionConfiguration" : {
+            "removeAllAccessEnabled" : true
+          },
           "accessProfileIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ],
           "emailNotificationOption" : {
             "notifyManagers" : true,
@@ -112,21 +115,26 @@ with ApiClient(configuration) as api_client:
             "notifyAllAdmins" : true
           },
           "created" : "2015-05-28T14:07:17Z",
+          "description" : "Lifecycle description",
+          "identityCount" : 42,
+          "priority" : 10,
+          "technicalName" : "Technical Name",
+          "identityState" : "INACTIVE_LONG_TERM",
+          "enabled" : true,
           "name" : "aName",
           "modified" : "2015-05-28T14:07:17Z",
-          "description" : "Lifecycle description",
           "accountActions" : [ {
+            "allSources" : true,
             "action" : "ENABLE",
+            "excludeSourceIds" : [ "3b551ccf5566478b9b77f37de25303aa" ],
             "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
           }, {
+            "allSources" : true,
             "action" : "ENABLE",
+            "excludeSourceIds" : [ "3b551ccf5566478b9b77f37de25303aa" ],
             "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
           } ],
-          "id" : "id12345",
-          "identityCount" : 42,
-          "technicalName" : "Technical Name",
-          "identityState" : "identityState",
-          "enabled" : true
+          "id" : "id12345"
         }''' # LifecycleState | Lifecycle state to be created.
 
     try:
@@ -147,7 +155,7 @@ with ApiClient(configuration) as api_client:
 
 ## delete-lifecycle-state
 Delete lifecycle state
-Use this endpoint to delete the lifecycle state by its ID. 
+Use this endpoint to delete the lifecycle state by its ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-lifecycle-state)
 
@@ -208,7 +216,7 @@ with ApiClient(configuration) as api_client:
 
 ## get-lifecycle-state
 Get lifecycle state
-Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
+Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-lifecycle-state)
 
@@ -408,7 +416,7 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | identity_profile_id | **str** | True  | Identity profile ID.
 Path   | lifecycle_state_id | **str** | True  | Lifecycle state ID.
- Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
+ Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
 
 ### Return type
 [**LifecycleState**](../models/lifecycle-state)
@@ -442,7 +450,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
     identity_profile_id = '2b838de9-db9b-abcf-e646-d4f274ad4238' # str | Identity profile ID. # str | Identity profile ID.
     lifecycle_state_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Lifecycle state ID. # str | Lifecycle state ID.
-    json_patch_operation = '''[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/accessProfileIds, value=[2c918087742bab150174407a80f3125e, 2c918087742bab150174407a80f3124f]}, {op=replace, path=/accountActions, value=[{action=ENABLE, sourceIds=[2c9180846a2f82fb016a481c1b1560c5, 2c9180846a2f82fb016a481c1b1560cc]}, {action=DISABLE, sourceIds=[2c91808869a0c9980169a207258513fb]}]}, {op=replace, path=/emailNotificationOption, value={notifyManagers=true, notifyAllAdmins=false, notifySpecificUsers=false, emailAddressList=[]}}]''' # List[JsonPatchOperation] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
+    json_patch_operation = '''[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/accessProfileIds, value=[2c918087742bab150174407a80f3125e, 2c918087742bab150174407a80f3124f]}, {op=replace, path=/accountActions, value=[{action=ENABLE, sourceIds=[2c9180846a2f82fb016a481c1b1560c5, 2c9180846a2f82fb016a481c1b1560cc], excludeSourceIds=null, allSources=false}, {action=DISABLE, sourceIds=null, excludeSourceIds=[3b551ccf5566478b9b77f37de25303aa], allSources=true}]}, {op=replace, path=/emailNotificationOption, value={notifyManagers=true, notifyAllAdmins=false, notifySpecificUsers=false, emailAddressList=[]}}, {op=replace, path=/accessActionConfiguration, value={removeAllAccessEnabled=true}}]''' # List[JsonPatchOperation] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
 
     try:
         # Update lifecycle state

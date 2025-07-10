@@ -626,7 +626,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/access-requests#close-access-request
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $CloseAccessRequest = @"
         {
           "executionStatus" : "Terminated",
@@ -640,10 +639,10 @@
         
         try {
             $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
-            Close-V2025AccessRequest -XSailPointExperimental $XSailPointExperimental -CloseAccessRequest $Result 
+            Close-V2025AccessRequest -CloseAccessRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Close-V2025AccessRequest -XSailPointExperimental $XSailPointExperimental -CloseAccessRequest $Result   
+            # Close-V2025AccessRequest -CloseAccessRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Close-V2025AccessRequest"
             Write-Host $_.ErrorDetails
@@ -1115,15 +1114,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/account-aggregations#get-account-aggregation-status
       source: |
         $Id = "2c91808477a6b0c60177a81146b8110b" # String | The account aggregation id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # In-progress account aggregation status
         
         try {
-            Get-V2025AccountAggregationStatus -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025AccountAggregationStatus -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025AccountAggregationStatus -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2025AccountAggregationStatus -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025AccountAggregationStatus"
             Write-Host $_.ErrorDetails
@@ -1208,15 +1206,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/accounts#delete-account-async
       source: |
         $Id = "c350d6aa4f104c61b062cb632421ad10" # String | The account id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Remove account
         
         try {
-            Remove-V2025AccountAsync -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Remove-V2025AccountAsync -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2025AccountAsync -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Remove-V2025AccountAsync -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025AccountAsync"
             Write-Host $_.ErrorDetails
@@ -1254,15 +1251,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/accounts#disable-account-for-identity
       source: |
         $Id = "2c91808384203c2d018437e631158309" # String | The identity id.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Disable idn account for identity
         
         try {
-            Disable-V2025AccountForIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Disable-V2025AccountForIdentity -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Disable-V2025AccountForIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Disable-V2025AccountForIdentity -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-V2025AccountForIdentity"
             Write-Host $_.ErrorDetails
@@ -1273,7 +1269,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/accounts#disable-accounts-for-identities
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $IdentitiesAccountsBulkRequest = @"
         {
           "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
@@ -1284,10 +1279,10 @@
         
         try {
             $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
-            Disable-V2025AccountsForIdentities -XSailPointExperimental $XSailPointExperimental -IdentitiesAccountsBulkRequest $Result 
+            Disable-V2025AccountsForIdentities -IdentitiesAccountsBulkRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Disable-V2025AccountsForIdentities -XSailPointExperimental $XSailPointExperimental -IdentitiesAccountsBulkRequest $Result   
+            # Disable-V2025AccountsForIdentities -IdentitiesAccountsBulkRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-V2025AccountsForIdentities"
             Write-Host $_.ErrorDetails
@@ -1325,15 +1320,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/accounts#enable-account-for-identity
       source: |
         $Id = "2c91808384203c2d018437e631158309" # String | The identity id.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Enable idn account for identity
         
         try {
-            Enable-V2025AccountForIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Enable-V2025AccountForIdentity -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Enable-V2025AccountForIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Enable-V2025AccountForIdentity -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-V2025AccountForIdentity"
             Write-Host $_.ErrorDetails
@@ -1344,7 +1338,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/accounts#enable-accounts-for-identities
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $IdentitiesAccountsBulkRequest = @"
         {
           "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
@@ -1355,10 +1348,10 @@
         
         try {
             $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
-            Enable-V2025AccountsForIdentities -XSailPointExperimental $XSailPointExperimental -IdentitiesAccountsBulkRequest $Result 
+            Enable-V2025AccountsForIdentities -IdentitiesAccountsBulkRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Enable-V2025AccountsForIdentities -XSailPointExperimental $XSailPointExperimental -IdentitiesAccountsBulkRequest $Result   
+            # Enable-V2025AccountsForIdentities -IdentitiesAccountsBulkRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-V2025AccountsForIdentities"
             Write-Host $_.ErrorDetails
@@ -15656,15 +15649,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/sources#delete-accounts-async
       source: |
         $Id = "ebbf35756e1140699ce52b233121384a" # String | The source id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
-        # Remove all accounts in a source
+        # Remove all accounts in source
         
         try {
-            Remove-V2025AccountsAsync -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Remove-V2025AccountsAsync -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2025AccountsAsync -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Remove-V2025AccountsAsync -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025AccountsAsync"
             Write-Host $_.ErrorDetails
@@ -16170,16 +16162,15 @@
       label: SDK_tools/sdk/powershell/v2025/methods/sources#import-uncorrelated-accounts
       source: |
         $Id = "75dbec1ebe154d5785da27b95e1dd5d7" # String | Source Id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $File =  # System.IO.FileInfo |  (optional)
         
         # Process uncorrelated accounts
         
         try {
-            Import-V2025UncorrelatedAccounts -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Import-V2025UncorrelatedAccounts -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Import-V2025UncorrelatedAccounts -Id $Id -XSailPointExperimental $XSailPointExperimental -File $File   
+            # Import-V2025UncorrelatedAccounts -Id $Id -File $File   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2025UncorrelatedAccounts"
             Write-Host $_.ErrorDetails

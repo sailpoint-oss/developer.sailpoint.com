@@ -178,9 +178,6 @@ try {
 [[Back to top]](#) 
 
 ## delete-account-async
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Use this endpoint to remove accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.
 
 This endpoint is good for:
@@ -195,7 +192,6 @@ This endpoint is good for:
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The account id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**TaskResultDto**](../models/task-result-dto)
@@ -217,15 +213,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "c350d6aa4f104c61b062cb632421ad10" # String | The account id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Remove account
 
 try {
-    Remove-V2025AccountAsync -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Remove-V2025AccountAsync -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2025AccountAsync -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2025AccountAsync -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025AccountAsync"
     Write-Host $_.ErrorDetails
@@ -286,9 +281,6 @@ try {
 [[Back to top]](#) 
 
 ## disable-account-for-identity
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API submits a task to disable IDN account for a single identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/disable-account-for-identity)
@@ -297,7 +289,6 @@ This API submits a task to disable IDN account for a single identity.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The identity id.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -320,15 +311,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c91808384203c2d018437e631158309" # String | The identity id.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Disable idn account for identity
 
 try {
-    Disable-V2025AccountForIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Disable-V2025AccountForIdentity -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Disable-V2025AccountForIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Disable-V2025AccountForIdentity -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-V2025AccountForIdentity"
     Write-Host $_.ErrorDetails
@@ -337,9 +327,6 @@ try {
 [[Back to top]](#) 
 
 ## disable-accounts-for-identities
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API submits tasks to disable IDN account for each identity provided in the request body.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/disable-accounts-for-identities)
@@ -347,7 +334,6 @@ This API submits tasks to disable IDN account for each identity provided in the 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | IdentitiesAccountsBulkRequest | [**IdentitiesAccountsBulkRequest**](../models/identities-accounts-bulk-request) | True  | 
 
 ### Return type
@@ -369,7 +355,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $IdentitiesAccountsBulkRequest = @"{
   "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
 }"@
@@ -378,10 +363,10 @@ $IdentitiesAccountsBulkRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
-    Disable-V2025AccountsForIdentities -XSailPointExperimental $XSailPointExperimental -IdentitiesAccountsBulkRequest $Result 
+    Disable-V2025AccountsForIdentities -IdentitiesAccountsBulkRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Disable-V2025AccountsForIdentities -XSailPointExperimental $XSailPointExperimental -IdentitiesAccountsBulkRequest $Result  
+    # Disable-V2025AccountsForIdentities -IdentitiesAccountsBulkRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Disable-V2025AccountsForIdentities"
     Write-Host $_.ErrorDetails
@@ -442,9 +427,6 @@ try {
 [[Back to top]](#) 
 
 ## enable-account-for-identity
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API submits a task to enable IDN account for a single identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/enable-account-for-identity)
@@ -453,7 +435,6 @@ This API submits a task to enable IDN account for a single identity.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The identity id.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**SystemCollectionsHashtable**](https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0)
@@ -476,15 +457,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c91808384203c2d018437e631158309" # String | The identity id.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Enable idn account for identity
 
 try {
-    Enable-V2025AccountForIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Enable-V2025AccountForIdentity -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Enable-V2025AccountForIdentity -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Enable-V2025AccountForIdentity -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-V2025AccountForIdentity"
     Write-Host $_.ErrorDetails
@@ -493,9 +473,6 @@ try {
 [[Back to top]](#) 
 
 ## enable-accounts-for-identities
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API submits tasks to enable IDN account for each identity provided in the request body.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/enable-accounts-for-identities)
@@ -503,7 +480,6 @@ This API submits tasks to enable IDN account for each identity provided in the r
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | IdentitiesAccountsBulkRequest | [**IdentitiesAccountsBulkRequest**](../models/identities-accounts-bulk-request) | True  | 
 
 ### Return type
@@ -525,7 +501,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $IdentitiesAccountsBulkRequest = @"{
   "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
 }"@
@@ -534,10 +509,10 @@ $IdentitiesAccountsBulkRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentitiesAccountsBulkRequest -Json $IdentitiesAccountsBulkRequest
-    Enable-V2025AccountsForIdentities -XSailPointExperimental $XSailPointExperimental -IdentitiesAccountsBulkRequest $Result 
+    Enable-V2025AccountsForIdentities -IdentitiesAccountsBulkRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Enable-V2025AccountsForIdentities -XSailPointExperimental $XSailPointExperimental -IdentitiesAccountsBulkRequest $Result  
+    # Enable-V2025AccountsForIdentities -IdentitiesAccountsBulkRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Enable-V2025AccountsForIdentities"
     Write-Host $_.ErrorDetails

@@ -197,9 +197,6 @@ try {
 [[Back to top]](#) 
 
 ## close-access-request
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This endpoint closes access requests that are stuck in a pending state. It can be used throughout a request's lifecycle even after the approval state, unlike the [Cancel Access Request endpoint](https://developer.sailpoint.com/idn/api/v3/cancel-access-request/).
 
 To find pending access requests with the UI, navigate to Search and use this query: status: Pending AND "Access Request". Use the Column Chooser to select 'Tracking Number', and use the 'Download' button to export a CSV containing the tracking numbers.
@@ -218,7 +215,6 @@ This API triggers the [Provisioning Completed event trigger](https://developer.s
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | CloseAccessRequest | [**CloseAccessRequest**](../models/close-access-request) | True  | 
 
 ### Return type
@@ -240,7 +236,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $CloseAccessRequest = @"{
   "executionStatus" : "Terminated",
   "accessRequestIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
@@ -252,10 +247,10 @@ $CloseAccessRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
-    Close-V2024AccessRequest -XSailPointExperimental $XSailPointExperimental -CloseAccessRequest $Result 
+    Close-V2024AccessRequest -CloseAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Close-V2024AccessRequest -XSailPointExperimental $XSailPointExperimental -CloseAccessRequest $Result  
+    # Close-V2024AccessRequest -CloseAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Close-V2024AccessRequest"
     Write-Host $_.ErrorDetails

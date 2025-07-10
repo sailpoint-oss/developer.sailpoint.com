@@ -78,7 +78,7 @@ Method | HTTP request | Description
 [**New-V2024Source**](#create-source) | **POST** `/sources` | Creates a source in identitynow.
 [**New-V2024SourceSchedule**](#create-source-schedule) | **POST** `/sources/{sourceId}/schedules` | Create schedule on source
 [**New-V2024SourceSchema**](#create-source-schema) | **POST** `/sources/{sourceId}/schemas` | Create schema on source
-[**Remove-V2024AccountsAsync**](#delete-accounts-async) | **POST** `/sources/{id}/remove-accounts` | Remove all accounts in a source
+[**Remove-V2024AccountsAsync**](#delete-accounts-async) | **POST** `/sources/{id}/remove-accounts` | Remove all accounts in source
 [**Remove-V2024NativeChangeDetectionConfig**](#delete-native-change-detection-config) | **DELETE** `/sources/{sourceId}/native-change-detection-config` | Delete native change detection configuration
 [**Remove-V2024ProvisioningPolicy**](#delete-provisioning-policy) | **DELETE** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete provisioning policy by usagetype
 [**Remove-V2024Source**](#delete-source) | **DELETE** `/sources/{id}` | Delete source by id
@@ -479,9 +479,6 @@ try {
 [[Back to top]](#) 
 
 ## delete-accounts-async
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Use this endpoint to remove all accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.
 
 This endpoint is good for:
@@ -496,7 +493,6 @@ This endpoint is good for:
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The source id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**TaskResultDto**](../models/task-result-dto)
@@ -518,15 +514,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ebbf35756e1140699ce52b233121384a" # String | The source id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Remove all accounts in a source
+# Remove all accounts in source
 
 try {
-    Remove-V2024AccountsAsync -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024AccountsAsync -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024AccountsAsync -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2024AccountsAsync -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024AccountsAsync"
     Write-Host $_.ErrorDetails
@@ -1500,9 +1495,6 @@ try {
 [[Back to top]](#) 
 
 ## import-accounts
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Starts an account aggregation on the specified source. 
 If the target source is a delimited file source, then the CSV file needs to be included in the request body.
 You will also need to set the Content-Type header to `multipart/form-data`.
@@ -1513,7 +1505,6 @@ You will also need to set the Content-Type header to `multipart/form-data`.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Source Id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
    | File | **System.IO.FileInfo** |   (optional) | The CSV file containing the source accounts to aggregate.
    | DisableOptimization | **String** |   (optional) | Use this flag to reprocess every account whether or not the data has changed.
 
@@ -1537,17 +1528,16 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $File =  # System.IO.FileInfo | The CSV file containing the source accounts to aggregate. (optional)
 $DisableOptimization = "MyDisableOptimization" # String | Use this flag to reprocess every account whether or not the data has changed. (optional)
 
 # Account aggregation
 
 try {
-    Import-V2024Accounts -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Import-V2024Accounts -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Import-V2024Accounts -Id $Id -XSailPointExperimental $XSailPointExperimental -File $File -DisableOptimization $DisableOptimization  
+    # Import-V2024Accounts -Id $Id -File $File -DisableOptimization $DisableOptimization  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2024Accounts"
     Write-Host $_.ErrorDetails
@@ -1766,9 +1756,6 @@ try {
 [[Back to top]](#) 
 
 ## import-uncorrelated-accounts
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 File is required for upload. You will also need to set the Content-Type header to `multipart/form-data`
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/import-uncorrelated-accounts)
@@ -1777,7 +1764,6 @@ File is required for upload. You will also need to set the Content-Type header t
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Source Id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
    | File | **System.IO.FileInfo** |   (optional) | 
 
 ### Return type
@@ -1800,16 +1786,15 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "75dbec1ebe154d5785da27b95e1dd5d7" # String | Source Id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $File =  # System.IO.FileInfo |  (optional)
 
 # Process uncorrelated accounts
 
 try {
-    Import-V2024UncorrelatedAccounts -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Import-V2024UncorrelatedAccounts -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Import-V2024UncorrelatedAccounts -Id $Id -XSailPointExperimental $XSailPointExperimental -File $File  
+    # Import-V2024UncorrelatedAccounts -Id $Id -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2024UncorrelatedAccounts"
     Write-Host $_.ErrorDetails

@@ -7433,7 +7433,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/beta/methods/non-employee-lifecycle-management#approve-non-employee-request
       source: |
-        $Id = "MyId" # String | Non-Employee approval item id (UUID)
+        $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee approval item id (UUID)
         $NonEmployeeApprovalDecision = @"
         {
           "comment" : "comment"
@@ -7717,44 +7717,6 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-BetaNonEmployeeSourceSchemaAttributes"
             Write-Host $_.ErrorDetails
         }
-- path: /non-employee-sources/{id}/non-employees/download
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/non-employee-lifecycle-management#export-non-employee-records
-      source: |
-        $Id = "2c918085842e69ae018432d22ccb212f" # String | Source Id (UUID)
-        
-        # Exports non-employee records to csv
-        
-        try {
-            Export-BetaNonEmployeeRecords -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Export-BetaNonEmployeeRecords -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-BetaNonEmployeeRecords"
-            Write-Host $_.ErrorDetails
-        }
-- path: /non-employee-sources/{id}/schema-attributes-template/download
-  method: GET
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/non-employee-lifecycle-management#export-non-employee-source-schema-template
-      source: |
-        $Id = "2c918085842e69ae018432d22ccb212f" # String | Source Id (UUID)
-        
-        # Exports source schema template
-        
-        try {
-            Export-BetaNonEmployeeSourceSchemaTemplate -Id $Id 
-    
-            # Below is a request that includes all optional parameters
-            # Export-BetaNonEmployeeSourceSchemaTemplate -Id $Id   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-BetaNonEmployeeSourceSchemaTemplate"
-            Write-Host $_.ErrorDetails
-        }
 - path: /non-employee-approvals/{id}
   method: GET
   xCodeSample:
@@ -7764,7 +7726,7 @@
         $Id = "ac10d20a-841e-1e7d-8184-32d2e22c0179" # String | Non-Employee approval item id (UUID)
         $IncludeDetail = "include-detail=false" # String | The object nonEmployeeRequest will not be included detail when set to false. *Default value is true* (optional)
         
-        # Get a non-employee approval item detail
+        # A non-employee approval item detail
         
         try {
             Get-BetaNonEmployeeApproval -Id $Id 
@@ -7783,7 +7745,7 @@
       source: |
         $RequestedFor = "ac10d20a-841e-1e7d-8184-32d2e22c0179" # String | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use ""me"" instead to indicate the current user.
         
-        # Get summary of non-employee approval requests
+        # Summary of non-employee approval requests
         
         try {
             Get-BetaNonEmployeeApprovalSummary -RequestedFor $RequestedFor 
@@ -7811,6 +7773,44 @@
             # Get-BetaNonEmployeeBulkUploadStatus -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeBulkUploadStatus"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/{id}/non-employees/download
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/non-employee-lifecycle-management#get-non-employee-export-records
+      source: |
+        $Id = "2c918085842e69ae018432d22ccb212f" # String | Source Id (UUID)
+        
+        # Exports non-employee records to csv
+        
+        try {
+            Get-BetaNonEmployeeExportRecords -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaNonEmployeeExportRecords -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeExportRecords"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-sources/{id}/schema-attributes-template/download
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/non-employee-lifecycle-management#get-non-employee-export-source-schema-template
+      source: |
+        $Id = "2c918085842e69ae018432d22ccb212f" # String | Source Id (UUID)
+        
+        # Exports source schema template
+        
+        try {
+            Get-BetaNonEmployeeExportSourceSchemaTemplate -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-BetaNonEmployeeExportSourceSchemaTemplate -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeExportSourceSchemaTemplate"
             Write-Host $_.ErrorDetails
         }
 - path: /non-employee-records/{id}
@@ -7916,6 +7916,8 @@
       label: SDK_tools/sdk/powershell/beta/methods/non-employee-lifecycle-management#get-non-employee-source-schema-attributes
       source: |
         $SourceId = "2c918085842e69ae018432d22ccb212f" # String | The Source id
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         
         # List schema attributes non-employee source
         
@@ -7923,7 +7925,7 @@
             Get-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId 
     
             # Below is a request that includes all optional parameters
-            # Get-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId   
+            # Get-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId -Limit $Limit -Offset $Offset   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeSourceSchemaAttributes"
             Write-Host $_.ErrorDetails
@@ -7961,7 +7963,7 @@
         $Filters = "approvalStatus eq "PENDING"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **approvalStatus**: *eq* (optional)
         $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
         
-        # Get list of non-employee approval requests
+        # List of non-employee approval requests
         
         try {
             Get-BetaNonEmployeeApproval 
@@ -8122,36 +8124,11 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaNonEmployeeSource"
             Write-Host $_.ErrorDetails
         }
-- path: /non-employee-approvals/{id}/reject
-  method: POST
-  xCodeSample:
-    - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/non-employee-lifecycle-management#reject-non-employee-request
-      source: |
-        $Id = "MyId" # String | Non-Employee approval item id (UUID)
-        $NonEmployeeRejectApprovalDecision = @"
-        {
-          "comment" : "comment"
-        }
-        "@
-        
-        # Reject a non-employee request
-        
-        try {
-            $Result = ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
-            Deny-BetaNonEmployeeRequest -Id $Id -NonEmployeeRejectApprovalDecision $Result 
-    
-            # Below is a request that includes all optional parameters
-            # Deny-BetaNonEmployeeRequest -Id $Id -NonEmployeeRejectApprovalDecision $Result   
-        } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-BetaNonEmployeeRequest"
-            Write-Host $_.ErrorDetails
-        }
 - path: /non-employee-records/{id}
   method: PUT
   xCodeSample:
     - lang: PowerShell
-      label: SDK_tools/sdk/powershell/beta/methods/non-employee-lifecycle-management#update-non-employee-record
+      label: SDK_tools/sdk/powershell/beta/methods/non-employee-lifecycle-management#put-non-employee-record
       source: |
         $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-employee record id (UUID)
         $NonEmployeeRequestBody = @"
@@ -8175,12 +8152,37 @@
         
         try {
             $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-            Update-BetaNonEmployeeRecord -Id $Id -NonEmployeeRequestBody $Result 
+            Send-BetaNonEmployeeRecord -Id $Id -NonEmployeeRequestBody $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-BetaNonEmployeeRecord -Id $Id -NonEmployeeRequestBody $Result   
+            # Send-BetaNonEmployeeRecord -Id $Id -NonEmployeeRequestBody $Result   
         } catch {
-            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaNonEmployeeRecord"
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaNonEmployeeRecord"
+            Write-Host $_.ErrorDetails
+        }
+- path: /non-employee-approvals/{id}/reject
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/beta/methods/non-employee-lifecycle-management#reject-non-employee-request
+      source: |
+        $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee approval item id (UUID)
+        $NonEmployeeRejectApprovalDecision = @"
+        {
+          "comment" : "comment"
+        }
+        "@
+        
+        # Reject a non-employee request
+        
+        try {
+            $Result = ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
+            Deny-BetaNonEmployeeRequest -Id $Id -NonEmployeeRejectApprovalDecision $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Deny-BetaNonEmployeeRequest -Id $Id -NonEmployeeRejectApprovalDecision $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-BetaNonEmployeeRequest"
             Write-Host $_.ErrorDetails
         }
 - path: /verified-domains

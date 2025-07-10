@@ -31,6 +31,7 @@ properties:
       TERMINATED - Aggregation marked as failed after 3 tries after connectivity issues with the Virtual Appliance.
   totalAccounts:
     type: integer
+    format: int32
     example: 520
     description: >-
       The total number of *NEW, CHANGED and DELETED* accounts that need to be processed for this aggregation. This
@@ -39,9 +40,38 @@ properties:
       *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.*
   processedAccounts:
     type: integer
+    format: int32
     example: 150
     description: >-
       The number of *NEW, CHANGED and DELETED* accounts that have been processed so far. This reflects the number of
       accounts that have been processed at the time of the API call, and may increase on subsequent API calls while
       the status is ACCOUNTS_COLLECTED.
+      *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.*
+  totalAccountsMarkedForDeletion:
+    type: integer
+    format: int32
+    example: 10
+    description: >-
+      The total number of accounts that have been marked for deletion during the aggregation.
+      *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.*
+  deletedAccounts:
+    type: integer
+    format: int32
+    example: 5
+    description: >-
+      The number of accounts that have been deleted during the aggregation.
+      *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.*
+  totalIdentities:
+    type: integer
+    format: int32
+    example: 300
+    description: >-
+      The total number of unique identities that have been marked for refresh.
+      *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.*
+  processedIdentities:
+    type: integer
+    format: int32
+    example: 250
+    description: >-
+      The number of unique identities that have been refreshed at the time of the API call, and may increase on subsequent API calls while the status is ACCOUNTS_COLLECTED.
       *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.*

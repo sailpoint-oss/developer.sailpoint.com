@@ -1,6 +1,6 @@
 post:
   operationId: deleteAccountsAsync
-  summary: Remove all accounts in a source
+  summary: Remove all accounts in source
   tags:
   - Sources
   description: 'Use this endpoint to remove all accounts from the system without provisioning
@@ -19,6 +19,8 @@ post:
     processing, support testing, etc.
 
     '
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
   - in: path
     name: id
@@ -28,14 +30,6 @@ post:
     x-sailpoint-resource-operation-id: listSources
     description: The source id
     example: ebbf35756e1140699ce52b233121384a
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   responses:
     '202':
       description: Accepted. Returns task result details of removal request.

@@ -1358,6 +1358,8 @@ paths:
     $ref: ./v2025/paths/access-requests.yaml
   /access-requests/cancel:
     $ref: ./v2025/paths/access-request-cancel.yaml
+  /access-requests/close:
+    $ref: ./v2025/paths/access-request-close.yaml
   /access-requests/bulk-cancel:
     $ref: ./v2025/paths/bulk-cancel-access-request.yaml
   /access-requests/accounts-selection:
@@ -1398,10 +1400,14 @@ paths:
     $ref: ./v2025/paths/accounts-id-disable.yaml
   /accounts/{id}/unlock:
     $ref: ./v2025/paths/accounts-id-unlock.yaml
+  /accounts/{id}/remove:
+    $ref: ./v2025/paths/remove-account.yaml
   /account-activities:
     $ref: ./v2025/paths/account-activity-list.yaml
   /account-activities/{id}:
     $ref: ./v2025/paths/account-activity-get-one.yaml
+  /account-aggregations/{id}/status:
+    $ref: ./v2025/paths/account-aggregation-status.yaml
   /auth-org/network-config:
     $ref: ./v2025/paths/auth-org-network-config.yaml
   /auth-org/lockout-config:
@@ -1540,6 +1546,26 @@ paths:
     $ref: "./v2025/paths/data-segment.yaml"
   /data-segments:
     $ref: "./v2025/paths/data-segments.yaml"
+  /identities:
+    $ref: ./v2025/paths/identities.yaml
+  /identities/{id}:
+    $ref: ./v2025/paths/identity.yaml
+  /identities-accounts/{id}/enable:
+    $ref: ./v2025/paths/identity-accounts-id-enable.yaml
+  /identities-accounts/{id}/disable:
+    $ref: ./v2025/paths/identity-accounts-id-disable.yaml
+  /identities-accounts/enable:
+    $ref: ./v2025/paths/identities-accounts-enable.yaml
+  /identities-accounts/disable:
+    $ref: ./v2025/paths/identities-accounts-disable.yaml
+  /identities/{identityId}/ownership:
+    $ref: ./v2025/paths/identity-ownership.yaml
+  /identities/{id}/reset:
+    $ref: ./v2025/paths/identity-reset.yaml
+  /identities/{identityId}/role-assignments:
+    $ref: ./v2025/paths/identities-role-assignments.yaml
+  /identities/{identityId}/role-assignments/{assignmentId}:
+    $ref: ./v2025/paths/identities-role-assignment.yaml
   /identities/{identity-id}/set-lifecycle-state:
     $ref: ./v2025/paths/identity-set-lifecycle-state.yaml
   /identity-profiles/{identity-profile-id}/lifecycle-states:
@@ -1806,6 +1832,14 @@ paths:
     $ref: ./v2025/paths/source-connector-test-configuration.yaml
   /sources/{id}/connectors/source-config:
     $ref: ./v2025/paths/source-connectors-source-config.yaml
+  /sources/{sourceId}/native-change-detection-config:
+    $ref: ./v2025/paths/native-change-detection-config.yaml
+  /sources/{id}/remove-accounts:
+    $ref: ./v2025/paths/remove-accounts.yaml
+  /sources/{id}/load-accounts:
+    $ref: ./v2025/paths/load-accounts.yaml
+  /sources/{id}/load-uncorrelated-accounts:
+    $ref: ./v2025/paths/load-uncorrelated-accounts.yaml
   /tagged-objects:
     $ref: ./v2025/paths/tagged-objects.yaml
   /tagged-objects/{type}:
@@ -1884,7 +1918,7 @@ paths:
     $ref: ./v2025/paths/searchAttributeConfig.yaml
   /accounts/search-attribute-config/{name}:
     $ref: ./v2025/paths/searchAttributeConfig-get-patch-delete.yaml
-  
+
   # v2025 Public Preview Endpoints (Requires: X-SailPoint-Experimental header)  
   /access-model-metadata/attributes:
     $ref: ./v2025/paths/access-model-metadata-list.yaml
@@ -1896,8 +1930,6 @@ paths:
     $ref: ./v2025/paths/access-model-metadata-value.yaml
   /access-profiles/bulk-update-requestable:
     $ref: ./v2025/paths/access-profile-bulk-update-requestable.yaml
-  /access-requests/close:
-    $ref: ./v2025/paths/access-request-close.yaml
   /ai-access-request-recommendations:
     $ref: ./v2025/paths/ai-access-request-recommendations.yaml
   /ai-access-request-recommendations/config:
@@ -1910,18 +1942,6 @@ paths:
     $ref: ./v2025/paths/ai-access-request-recommendations-viewed.yaml
   /ai-access-request-recommendations/viewed-items/bulk-create:
     $ref: ./v2025/paths/ai-access-request-recommendations-viewed-bulk-create.yaml
-  /accounts/{id}/remove:
-    $ref: ./v2025/paths/remove-account.yaml
-  /identities-accounts/{id}/enable:
-    $ref: ./v2025/paths/identity-accounts-id-enable.yaml
-  /identities-accounts/{id}/disable:
-    $ref: ./v2025/paths/identity-accounts-id-disable.yaml
-  /identities-accounts/enable:
-    $ref: ./v2025/paths/identities-accounts-enable.yaml
-  /identities-accounts/disable:
-    $ref: ./v2025/paths/identities-accounts-disable.yaml
-  /account-aggregations/{id}/status:
-    $ref: ./v2025/paths/account-aggregation-status.yaml
   /auth-profiles:
     $ref: ./v2025/paths/auth-profiles.yaml
   /auth-profiles/{id}:
@@ -1978,24 +1998,12 @@ paths:
     $ref: ./v2025/paths/historical-identity-compare-type.yaml
   /identities/{identityId}/synchronize-attributes:
     $ref: ./v2025/paths/identity-synchronize-attributes.yaml
-  /identities/{identityId}/ownership:
-    $ref: ./v2025/paths/identity-ownership.yaml
-  /identities:
-    $ref: ./v2025/paths/identities.yaml
-  /identities/{id}:
-    $ref: ./v2025/paths/identity.yaml
   /identities/invite:
     $ref: ./v2025/paths/identities-invite.yaml
   /identities/{id}/verification/account/send:
     $ref: ./v2025/paths/identity-send-account-verification.yaml
   /identities/process:
     $ref: ./v2025/paths/identities-process.yaml
-  /identities/{id}/reset:
-    $ref: ./v2025/paths/identity-reset.yaml
-  /identities/{identityId}/role-assignments:
-    $ref: ./v2025/paths/identities-role-assignments.yaml
-  /identities/{identityId}/role-assignments/{assignmentId}:
-    $ref: ./v2025/paths/identities-role-assignment.yaml
   /identity-attributes:
     $ref: ./v2025/paths/identity-attributes.yaml
   /identity-attributes/{name}:
@@ -2166,20 +2174,12 @@ paths:
     $ref: ./v2025/paths/sp-config-objects.yaml
   /sources/{id}/attribute-sync-config:
     $ref: ./v2025/paths/attr-sync-config-source.yaml
-  /sources/{sourceId}/native-change-detection-config:
-    $ref: ./v2025/paths/native-change-detection-config.yaml
-  /sources/{id}/remove-accounts:
-    $ref: ./v2025/paths/remove-accounts.yaml
   /sources/{id}/synchronize-attributes:
     $ref: ./v2025/paths/source-synchronize-attributes.yaml
   /sources/{id}/entitlement-request-config:
     $ref: ./v2025/paths/sources-entitlement-request-config.yaml
-  /sources/{id}/load-accounts:
-    $ref: ./v2025/paths/load-accounts.yaml
   /sources/{sourceId}/load-entitlements:
     $ref: ./v2025/paths/load-entitlements.yaml
-  /sources/{id}/load-uncorrelated-accounts:
-    $ref: ./v2025/paths/load-uncorrelated-accounts.yaml
   /task-status/{id}:
     $ref: ./v2025/paths/task-status.yaml
   /task-status:

@@ -8,6 +8,8 @@ post:
   security:
   - userAuth:
     - idn:sources:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
   - in: path
     name: id
@@ -17,14 +19,6 @@ post:
     x-sailpoint-resource-operation-id: listSources
     description: Source Id
     example: 75dbec1ebe154d5785da27b95e1dd5d7
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   requestBody:
     content:
       multipart/form-data:

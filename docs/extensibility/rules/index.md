@@ -131,6 +131,7 @@ For more details on the sp-config API see [sp-config](/docs/api/beta/export-sp-c
 
 - **Performance**
   - Rules should be as performant as possible to achieve the task at hand.
+  - Rules must not invoke wait / sleep functions to add delay within the rule
   - Be careful with iterative rules execution. Heavily iterative rules will have greater performance scrutiny.
   - Do not iterate over lists of objects like accounts or identities. Doing so causes cache bloat. Use a projection query wherever possible to find the data you need, and then return the values you want. If you are unsure, ask [SailPoint Expert Services](https://www.sailpoint.com/services/professional/#contact-form).
 
@@ -187,6 +188,7 @@ context.
 .notifyAll()
 .reconnect()
 .removeObject()
+.sleep()
 SailpointFactory
 .toXml()
 System.out.

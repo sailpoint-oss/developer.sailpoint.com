@@ -29,17 +29,6 @@ Method | HTTP request | Description
 
 
 ## get-account-aggregation-status
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 In-progress account aggregation status
 This API returns the status of an *in-progress* account aggregation, along with the total number of **NEW**, **CHANGED** and **DELETED** accounts found since the previous aggregation, and the number of those accounts that have been processed so far.
 
@@ -68,7 +57,6 @@ Other parameters are passed through a pointer to a apiGetAccountAggregationStatu
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
 
@@ -95,14 +83,13 @@ import (
 
 func main() {
     id := `2c91808477a6b0c60177a81146b8110b` // string | The account aggregation id # string | The account aggregation id
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
     
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2024.AccountAggregationsAPI.GetAccountAggregationStatus(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-	  //resp, r, err := apiClient.V2024.AccountAggregationsAPI.GetAccountAggregationStatus(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+    resp, r, err := apiClient.V2024.AccountAggregationsAPI.GetAccountAggregationStatus(context.Background(), id).Execute()
+	  //resp, r, err := apiClient.V2024.AccountAggregationsAPI.GetAccountAggregationStatus(context.Background(), id).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `AccountAggregationsAPI.GetAccountAggregationStatus``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

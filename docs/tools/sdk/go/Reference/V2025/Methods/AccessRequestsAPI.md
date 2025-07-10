@@ -256,17 +256,6 @@ func main() {
 [[Back to top]](#)
 
 ## close-access-request
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Close access request
 This endpoint closes access requests that are stuck in a pending state. It can be used throughout a request's lifecycle even after the approval state, unlike the [Cancel Access Request endpoint](https://developer.sailpoint.com/idn/api/v3/cancel-access-request/).
 
@@ -294,7 +283,6 @@ Other parameters are passed through a pointer to a apiCloseAccessRequestRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **closeAccessRequest** | [**CloseAccessRequest**](../models/close-access-request) |  | 
 
 ### Return type
@@ -321,7 +309,6 @@ import (
 )
 
 func main() {
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     closeaccessrequest := []byte(`{
           "executionStatus" : "Terminated",
           "accessRequestIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
@@ -338,8 +325,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2025.AccessRequestsAPI.CloseAccessRequest(context.Background()).XSailPointExperimental(xSailPointExperimental).CloseAccessRequest(closeAccessRequest).Execute()
-	  //resp, r, err := apiClient.V2025.AccessRequestsAPI.CloseAccessRequest(context.Background()).XSailPointExperimental(xSailPointExperimental).CloseAccessRequest(closeAccessRequest).Execute()
+    resp, r, err := apiClient.V2025.AccessRequestsAPI.CloseAccessRequest(context.Background()).CloseAccessRequest(closeAccessRequest).Execute()
+	  //resp, r, err := apiClient.V2025.AccessRequestsAPI.CloseAccessRequest(context.Background()).CloseAccessRequest(closeAccessRequest).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestsAPI.CloseAccessRequest``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

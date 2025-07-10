@@ -76,7 +76,7 @@ Method | HTTP request | Description
 [**create-source**](#create-source) | **Post** `/sources` | Creates a source in identitynow.
 [**create-source-schedule**](#create-source-schedule) | **Post** `/sources/{sourceId}/schedules` | Create schedule on source
 [**create-source-schema**](#create-source-schema) | **Post** `/sources/{sourceId}/schemas` | Create schema on source
-[**delete-accounts-async**](#delete-accounts-async) | **Post** `/sources/{id}/remove-accounts` | Remove all accounts in a source
+[**delete-accounts-async**](#delete-accounts-async) | **Post** `/sources/{id}/remove-accounts` | Remove all accounts in source
 [**delete-native-change-detection-config**](#delete-native-change-detection-config) | **Delete** `/sources/{sourceId}/native-change-detection-config` | Delete native change detection configuration
 [**delete-provisioning-policy**](#delete-provisioning-policy) | **Delete** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete provisioning policy by usagetype
 [**delete-source**](#delete-source) | **Delete** `/sources/{id}` | Delete source by id
@@ -572,18 +572,7 @@ func main() {
 [[Back to top]](#)
 
 ## delete-accounts-async
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
-Remove all accounts in a source
+Remove all accounts in source
 Use this endpoint to remove all accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.
 
 This endpoint is good for:
@@ -610,7 +599,6 @@ Other parameters are passed through a pointer to a apiDeleteAccountsAsyncRequest
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
 
@@ -637,14 +625,13 @@ import (
 
 func main() {
     id := `ebbf35756e1140699ce52b233121384a` // string | The source id # string | The source id
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
     
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2025.SourcesAPI.DeleteAccountsAsync(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-	  //resp, r, err := apiClient.V2025.SourcesAPI.DeleteAccountsAsync(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+    resp, r, err := apiClient.V2025.SourcesAPI.DeleteAccountsAsync(context.Background(), id).Execute()
+	  //resp, r, err := apiClient.V2025.SourcesAPI.DeleteAccountsAsync(context.Background(), id).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.DeleteAccountsAsync``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2409,17 +2396,6 @@ func main() {
 [[Back to top]](#)
 
 ## import-uncorrelated-accounts
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Process uncorrelated accounts
 File is required for upload. You will also need to set the Content-Type header to `multipart/form-data`
 
@@ -2441,7 +2417,6 @@ Other parameters are passed through a pointer to a apiImportUncorrelatedAccounts
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **file** | ***os.File** |  | 
 
 ### Return type
@@ -2469,15 +2444,14 @@ import (
 
 func main() {
     id := `75dbec1ebe154d5785da27b95e1dd5d7` // string | Source Id # string | Source Id
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     file := BINARY_DATA_HERE // *os.File |  (optional) # *os.File |  (optional)
 
     
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2025.SourcesAPI.ImportUncorrelatedAccounts(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-	  //resp, r, err := apiClient.V2025.SourcesAPI.ImportUncorrelatedAccounts(context.Background(), id).XSailPointExperimental(xSailPointExperimental).File(file).Execute()
+    resp, r, err := apiClient.V2025.SourcesAPI.ImportUncorrelatedAccounts(context.Background(), id).Execute()
+	  //resp, r, err := apiClient.V2025.SourcesAPI.ImportUncorrelatedAccounts(context.Background(), id).File(file).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.ImportUncorrelatedAccounts``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

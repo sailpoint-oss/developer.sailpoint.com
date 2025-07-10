@@ -217,17 +217,6 @@ func main() {
 [[Back to top]](#)
 
 ## delete-account-async
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Remove account
 Use this endpoint to remove accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.
 
@@ -255,7 +244,6 @@ Other parameters are passed through a pointer to a apiDeleteAccountAsyncRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
 
@@ -282,14 +270,13 @@ import (
 
 func main() {
     id := `c350d6aa4f104c61b062cb632421ad10` // string | The account id # string | The account id
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
     
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2024.AccountsAPI.DeleteAccountAsync(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-	  //resp, r, err := apiClient.V2024.AccountsAPI.DeleteAccountAsync(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+    resp, r, err := apiClient.V2024.AccountsAPI.DeleteAccountAsync(context.Background(), id).Execute()
+	  //resp, r, err := apiClient.V2024.AccountsAPI.DeleteAccountAsync(context.Background(), id).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.DeleteAccountAsync``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -378,17 +365,6 @@ func main() {
 [[Back to top]](#)
 
 ## disable-account-for-identity
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Disable idn account for identity
 This API submits a task to disable IDN account for a single identity.
 
@@ -410,7 +386,6 @@ Other parameters are passed through a pointer to a apiDisableAccountForIdentityR
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
 
@@ -437,14 +412,13 @@ import (
 
 func main() {
     id := `2c91808384203c2d018437e631158309` // string | The identity id. # string | The identity id.
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
     
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2024.AccountsAPI.DisableAccountForIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-	  //resp, r, err := apiClient.V2024.AccountsAPI.DisableAccountForIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+    resp, r, err := apiClient.V2024.AccountsAPI.DisableAccountForIdentity(context.Background(), id).Execute()
+	  //resp, r, err := apiClient.V2024.AccountsAPI.DisableAccountForIdentity(context.Background(), id).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.DisableAccountForIdentity``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -457,17 +431,6 @@ func main() {
 [[Back to top]](#)
 
 ## disable-accounts-for-identities
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Disable idn accounts for identities
 This API submits tasks to disable IDN account for each identity provided in the request body.
 
@@ -484,7 +447,6 @@ Other parameters are passed through a pointer to a apiDisableAccountsForIdentiti
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **identitiesAccountsBulkRequest** | [**IdentitiesAccountsBulkRequest**](../models/identities-accounts-bulk-request) |  | 
 
 ### Return type
@@ -511,7 +473,6 @@ import (
 )
 
 func main() {
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     identitiesaccountsbulkrequest := []byte(`{
           "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
         }`) // IdentitiesAccountsBulkRequest | 
@@ -525,8 +486,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2024.AccountsAPI.DisableAccountsForIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
-	  //resp, r, err := apiClient.V2024.AccountsAPI.DisableAccountsForIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
+    resp, r, err := apiClient.V2024.AccountsAPI.DisableAccountsForIdentities(context.Background()).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
+	  //resp, r, err := apiClient.V2024.AccountsAPI.DisableAccountsForIdentities(context.Background()).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.DisableAccountsForIdentities``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -615,17 +576,6 @@ func main() {
 [[Back to top]](#)
 
 ## enable-account-for-identity
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Enable idn account for identity
 This API submits a task to enable IDN account for a single identity.
 
@@ -647,7 +597,6 @@ Other parameters are passed through a pointer to a apiEnableAccountForIdentityRe
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
 
@@ -674,14 +623,13 @@ import (
 
 func main() {
     id := `2c91808384203c2d018437e631158309` // string | The identity id. # string | The identity id.
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
     
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2024.AccountsAPI.EnableAccountForIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-	  //resp, r, err := apiClient.V2024.AccountsAPI.EnableAccountForIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+    resp, r, err := apiClient.V2024.AccountsAPI.EnableAccountForIdentity(context.Background(), id).Execute()
+	  //resp, r, err := apiClient.V2024.AccountsAPI.EnableAccountForIdentity(context.Background(), id).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.EnableAccountForIdentity``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -694,17 +642,6 @@ func main() {
 [[Back to top]](#)
 
 ## enable-accounts-for-identities
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Enable idn accounts for identities
 This API submits tasks to enable IDN account for each identity provided in the request body.
 
@@ -721,7 +658,6 @@ Other parameters are passed through a pointer to a apiEnableAccountsForIdentitie
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **identitiesAccountsBulkRequest** | [**IdentitiesAccountsBulkRequest**](../models/identities-accounts-bulk-request) |  | 
 
 ### Return type
@@ -748,7 +684,6 @@ import (
 )
 
 func main() {
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     identitiesaccountsbulkrequest := []byte(`{
           "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
         }`) // IdentitiesAccountsBulkRequest | 
@@ -762,8 +697,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2024.AccountsAPI.EnableAccountsForIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
-	  //resp, r, err := apiClient.V2024.AccountsAPI.EnableAccountsForIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
+    resp, r, err := apiClient.V2024.AccountsAPI.EnableAccountsForIdentities(context.Background()).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
+	  //resp, r, err := apiClient.V2024.AccountsAPI.EnableAccountsForIdentities(context.Background()).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.EnableAccountsForIdentities``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

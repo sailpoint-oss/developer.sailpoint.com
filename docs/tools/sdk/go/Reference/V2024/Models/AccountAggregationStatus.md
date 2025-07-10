@@ -19,6 +19,10 @@ Name | Type | Description | Notes
 **Status** | Pointer to **string** | STARTED - Aggregation started, but source account iteration has not completed.  ACCOUNTS_COLLECTED - Source account iteration completed, but all accounts have not yet been processed.  COMPLETED - Aggregation completed (*possibly with errors*).  CANCELLED - Aggregation cancelled by user.  RETRIED - Aggregation retried because of connectivity issues with the Virtual Appliance.  TERMINATED - Aggregation marked as failed after 3 tries after connectivity issues with the Virtual Appliance.  | [optional] 
 **TotalAccounts** | Pointer to **int32** | The total number of *NEW, CHANGED and DELETED* accounts that need to be processed for this aggregation. This does not include accounts that were unchanged since the previous aggregation. This can be zero if there were no new, changed or deleted accounts since the previous aggregation. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.* | [optional] 
 **ProcessedAccounts** | Pointer to **int32** | The number of *NEW, CHANGED and DELETED* accounts that have been processed so far. This reflects the number of accounts that have been processed at the time of the API call, and may increase on subsequent API calls while the status is ACCOUNTS_COLLECTED. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.* | [optional] 
+**TotalAccountsMarkedForDeletion** | Pointer to **int32** | The total number of accounts that have been marked for deletion during the aggregation. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.* | [optional] 
+**DeletedAccounts** | Pointer to **int32** | The number of accounts that have been deleted during the aggregation. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.* | [optional] 
+**TotalIdentities** | Pointer to **int32** | The total number of unique identities that have been marked for refresh. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.* | [optional] 
+**ProcessedIdentities** | Pointer to **int32** | The number of unique identities that have been refreshed at the time of the API call, and may increase on subsequent API calls while the status is ACCOUNTS_COLLECTED. *Only available when status is ACCOUNTS_COLLECTED or COMPLETED.* | [optional] 
 
 ## Methods
 
@@ -148,5 +152,105 @@ SetProcessedAccounts sets ProcessedAccounts field to given value.
 `func (o *AccountAggregationStatus) HasProcessedAccounts() bool`
 
 HasProcessedAccounts returns a boolean if a field has been set.
+
+### GetTotalAccountsMarkedForDeletion
+
+`func (o *AccountAggregationStatus) GetTotalAccountsMarkedForDeletion() int32`
+
+GetTotalAccountsMarkedForDeletion returns the TotalAccountsMarkedForDeletion field if non-nil, zero value otherwise.
+
+### GetTotalAccountsMarkedForDeletionOk
+
+`func (o *AccountAggregationStatus) GetTotalAccountsMarkedForDeletionOk() (*int32, bool)`
+
+GetTotalAccountsMarkedForDeletionOk returns a tuple with the TotalAccountsMarkedForDeletion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalAccountsMarkedForDeletion
+
+`func (o *AccountAggregationStatus) SetTotalAccountsMarkedForDeletion(v int32)`
+
+SetTotalAccountsMarkedForDeletion sets TotalAccountsMarkedForDeletion field to given value.
+
+### HasTotalAccountsMarkedForDeletion
+
+`func (o *AccountAggregationStatus) HasTotalAccountsMarkedForDeletion() bool`
+
+HasTotalAccountsMarkedForDeletion returns a boolean if a field has been set.
+
+### GetDeletedAccounts
+
+`func (o *AccountAggregationStatus) GetDeletedAccounts() int32`
+
+GetDeletedAccounts returns the DeletedAccounts field if non-nil, zero value otherwise.
+
+### GetDeletedAccountsOk
+
+`func (o *AccountAggregationStatus) GetDeletedAccountsOk() (*int32, bool)`
+
+GetDeletedAccountsOk returns a tuple with the DeletedAccounts field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDeletedAccounts
+
+`func (o *AccountAggregationStatus) SetDeletedAccounts(v int32)`
+
+SetDeletedAccounts sets DeletedAccounts field to given value.
+
+### HasDeletedAccounts
+
+`func (o *AccountAggregationStatus) HasDeletedAccounts() bool`
+
+HasDeletedAccounts returns a boolean if a field has been set.
+
+### GetTotalIdentities
+
+`func (o *AccountAggregationStatus) GetTotalIdentities() int32`
+
+GetTotalIdentities returns the TotalIdentities field if non-nil, zero value otherwise.
+
+### GetTotalIdentitiesOk
+
+`func (o *AccountAggregationStatus) GetTotalIdentitiesOk() (*int32, bool)`
+
+GetTotalIdentitiesOk returns a tuple with the TotalIdentities field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalIdentities
+
+`func (o *AccountAggregationStatus) SetTotalIdentities(v int32)`
+
+SetTotalIdentities sets TotalIdentities field to given value.
+
+### HasTotalIdentities
+
+`func (o *AccountAggregationStatus) HasTotalIdentities() bool`
+
+HasTotalIdentities returns a boolean if a field has been set.
+
+### GetProcessedIdentities
+
+`func (o *AccountAggregationStatus) GetProcessedIdentities() int32`
+
+GetProcessedIdentities returns the ProcessedIdentities field if non-nil, zero value otherwise.
+
+### GetProcessedIdentitiesOk
+
+`func (o *AccountAggregationStatus) GetProcessedIdentitiesOk() (*int32, bool)`
+
+GetProcessedIdentitiesOk returns a tuple with the ProcessedIdentities field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetProcessedIdentities
+
+`func (o *AccountAggregationStatus) SetProcessedIdentities(v int32)`
+
+SetProcessedIdentities sets ProcessedIdentities field to given value.
+
+### HasProcessedIdentities
+
+`func (o *AccountAggregationStatus) HasProcessedIdentities() bool`
+
+HasProcessedIdentities returns a boolean if a field has been set.
 
 

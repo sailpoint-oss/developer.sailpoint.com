@@ -11677,7 +11677,7 @@
         )
 
         func main() {
-          id := `id_example` // string | Non-Employee approval item id (UUID) # string | Non-Employee approval item id (UUID)
+          id := `2c91808b6ef1d43e016efba0ce470904` // string | Non-Employee approval item id (UUID) # string | Non-Employee approval item id (UUID)
            nonemployeeapprovaldecision := []byte(`{
           "comment" : "comment"
         }`) // NonEmployeeApprovalDecision | 
@@ -12122,70 +12122,6 @@
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
           }
         }
-- path: /non-employee-sources/{id}/non-employees/download
-  method: Get
-  xCodeSample:
-    - lang: Go
-      label: SDK_tools/sdk/go/beta/methods/non-employee-lifecycle-management#export-non-employee-records
-      source: |
-        package main
-
-        import (
-          "context"
-          "fmt"
-          "os"
-            
-            beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
-        )
-
-        func main() {
-          id := `2c918085842e69ae018432d22ccb212f` // string | Source Id (UUID) # string | Source Id (UUID)
-
-          
-
-
-          configuration := sailpoint.NewDefaultConfiguration()
-          apiClient := sailpoint.NewAPIClient(configuration)
-          r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.ExportNonEmployeeRecords(context.Background(), id).Execute()
-          //r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.ExportNonEmployeeRecords(context.Background(), id).Execute()
-          if err != nil {
-            fmt.Fprintf(os.Stderr, "Error when calling `NonEmployeeLifecycleManagementAPI.ExportNonEmployeeRecords``: %v\n", err)
-            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-          }
-        }
-- path: /non-employee-sources/{id}/schema-attributes-template/download
-  method: Get
-  xCodeSample:
-    - lang: Go
-      label: SDK_tools/sdk/go/beta/methods/non-employee-lifecycle-management#export-non-employee-source-schema-template
-      source: |
-        package main
-
-        import (
-          "context"
-          "fmt"
-          "os"
-            
-            beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
-        )
-
-        func main() {
-          id := `2c918085842e69ae018432d22ccb212f` // string | Source Id (UUID) # string | Source Id (UUID)
-
-          
-
-
-          configuration := sailpoint.NewDefaultConfiguration()
-          apiClient := sailpoint.NewAPIClient(configuration)
-          r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.ExportNonEmployeeSourceSchemaTemplate(context.Background(), id).Execute()
-          //r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.ExportNonEmployeeSourceSchemaTemplate(context.Background(), id).Execute()
-          if err != nil {
-            fmt.Fprintf(os.Stderr, "Error when calling `NonEmployeeLifecycleManagementAPI.ExportNonEmployeeSourceSchemaTemplate``: %v\n", err)
-            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-          }
-        }
 - path: /non-employee-approvals/{id}
   method: Get
   xCodeSample:
@@ -12288,6 +12224,70 @@
           }
           // response from `GetNonEmployeeBulkUploadStatus`: NonEmployeeBulkUploadStatus
           fmt.Fprintf(os.Stdout, "Response from `NonEmployeeLifecycleManagementAPI.GetNonEmployeeBulkUploadStatus`: %v\n", resp)
+        }
+- path: /non-employee-sources/{id}/non-employees/download
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/beta/methods/non-employee-lifecycle-management#get-non-employee-export-records
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := `2c918085842e69ae018432d22ccb212f` // string | Source Id (UUID) # string | Source Id (UUID)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.GetNonEmployeeExportRecords(context.Background(), id).Execute()
+          //r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.GetNonEmployeeExportRecords(context.Background(), id).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `NonEmployeeLifecycleManagementAPI.GetNonEmployeeExportRecords``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+        }
+- path: /non-employee-sources/{id}/schema-attributes-template/download
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/beta/methods/non-employee-lifecycle-management#get-non-employee-export-source-schema-template
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := `2c918085842e69ae018432d22ccb212f` // string | Source Id (UUID) # string | Source Id (UUID)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.GetNonEmployeeExportSourceSchemaTemplate(context.Background(), id).Execute()
+          //r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.GetNonEmployeeExportSourceSchemaTemplate(context.Background(), id).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `NonEmployeeLifecycleManagementAPI.GetNonEmployeeExportSourceSchemaTemplate``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
         }
 - path: /non-employee-records/{id}
   method: Get
@@ -12479,6 +12479,8 @@
 
         func main() {
           sourceId := `2c918085842e69ae018432d22ccb212f` // string | The Source id # string | The Source id
+          limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
           
 
@@ -12486,7 +12488,7 @@
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
           resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.GetNonEmployeeSourceSchemaAttributes(context.Background(), sourceId).Execute()
-          //resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.GetNonEmployeeSourceSchemaAttributes(context.Background(), sourceId).Execute()
+          //resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.GetNonEmployeeSourceSchemaAttributes(context.Background(), sourceId).Limit(limit).Offset(offset).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `NonEmployeeLifecycleManagementAPI.GetNonEmployeeSourceSchemaAttributes``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12808,54 +12810,11 @@
           // response from `PatchNonEmployeeSource`: NonEmployeeSource
           fmt.Fprintf(os.Stdout, "Response from `NonEmployeeLifecycleManagementAPI.PatchNonEmployeeSource`: %v\n", resp)
         }
-- path: /non-employee-approvals/{id}/reject
-  method: Post
-  xCodeSample:
-    - lang: Go
-      label: SDK_tools/sdk/go/beta/methods/non-employee-lifecycle-management#reject-non-employee-request
-      source: |
-        package main
-
-        import (
-          "context"
-          "fmt"
-          "os"
-             "encoding/json"
-            beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
-        )
-
-        func main() {
-          id := `id_example` // string | Non-Employee approval item id (UUID) # string | Non-Employee approval item id (UUID)
-           nonemployeerejectapprovaldecision := []byte(`{
-          "comment" : "comment"
-        }`) // NonEmployeeRejectApprovalDecision | 
-
-          
-          var nonEmployeeRejectApprovalDecision beta.NonEmployeeRejectApprovalDecision
-          if err := json.Unmarshal(nonemployeerejectapprovaldecision, &nonEmployeeRejectApprovalDecision); err != nil {
-            fmt.Println("Error:", err)
-            return
-          }
-          
-
-
-          configuration := sailpoint.NewDefaultConfiguration()
-          apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.RejectNonEmployeeRequest(context.Background(), id).NonEmployeeRejectApprovalDecision(nonEmployeeRejectApprovalDecision).Execute()
-          //resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.RejectNonEmployeeRequest(context.Background(), id).NonEmployeeRejectApprovalDecision(nonEmployeeRejectApprovalDecision).Execute()
-          if err != nil {
-            fmt.Fprintf(os.Stderr, "Error when calling `NonEmployeeLifecycleManagementAPI.RejectNonEmployeeRequest``: %v\n", err)
-            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-          }
-          // response from `RejectNonEmployeeRequest`: NonEmployeeApprovalItem
-          fmt.Fprintf(os.Stdout, "Response from `NonEmployeeLifecycleManagementAPI.RejectNonEmployeeRequest`: %v\n", resp)
-        }
 - path: /non-employee-records/{id}
   method: Put
   xCodeSample:
     - lang: Go
-      label: SDK_tools/sdk/go/beta/methods/non-employee-lifecycle-management#update-non-employee-record
+      label: SDK_tools/sdk/go/beta/methods/non-employee-lifecycle-management#put-non-employee-record
       source: |
         package main
 
@@ -12897,14 +12856,57 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.UpdateNonEmployeeRecord(context.Background(), id).NonEmployeeRequestBody(nonEmployeeRequestBody).Execute()
-          //resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.UpdateNonEmployeeRecord(context.Background(), id).NonEmployeeRequestBody(nonEmployeeRequestBody).Execute()
+          resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.PutNonEmployeeRecord(context.Background(), id).NonEmployeeRequestBody(nonEmployeeRequestBody).Execute()
+          //resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.PutNonEmployeeRecord(context.Background(), id).NonEmployeeRequestBody(nonEmployeeRequestBody).Execute()
           if err != nil {
-            fmt.Fprintf(os.Stderr, "Error when calling `NonEmployeeLifecycleManagementAPI.UpdateNonEmployeeRecord``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Error when calling `NonEmployeeLifecycleManagementAPI.PutNonEmployeeRecord``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
           }
-          // response from `UpdateNonEmployeeRecord`: NonEmployeeRecord
-          fmt.Fprintf(os.Stdout, "Response from `NonEmployeeLifecycleManagementAPI.UpdateNonEmployeeRecord`: %v\n", resp)
+          // response from `PutNonEmployeeRecord`: NonEmployeeRecord
+          fmt.Fprintf(os.Stdout, "Response from `NonEmployeeLifecycleManagementAPI.PutNonEmployeeRecord`: %v\n", resp)
+        }
+- path: /non-employee-approvals/{id}/reject
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/beta/methods/non-employee-lifecycle-management#reject-non-employee-request
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := `2c91808b6ef1d43e016efba0ce470904` // string | Non-Employee approval item id (UUID) # string | Non-Employee approval item id (UUID)
+           nonemployeerejectapprovaldecision := []byte(`{
+          "comment" : "comment"
+        }`) // NonEmployeeRejectApprovalDecision | 
+
+          
+          var nonEmployeeRejectApprovalDecision beta.NonEmployeeRejectApprovalDecision
+          if err := json.Unmarshal(nonemployeerejectapprovaldecision, &nonEmployeeRejectApprovalDecision); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.RejectNonEmployeeRequest(context.Background(), id).NonEmployeeRejectApprovalDecision(nonEmployeeRejectApprovalDecision).Execute()
+          //resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.RejectNonEmployeeRequest(context.Background(), id).NonEmployeeRejectApprovalDecision(nonEmployeeRejectApprovalDecision).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `NonEmployeeLifecycleManagementAPI.RejectNonEmployeeRequest``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `RejectNonEmployeeRequest`: NonEmployeeApprovalItem
+          fmt.Fprintf(os.Stdout, "Response from `NonEmployeeLifecycleManagementAPI.RejectNonEmployeeRequest`: %v\n", resp)
         }
 - path: /verified-domains
   method: Post

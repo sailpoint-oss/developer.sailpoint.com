@@ -1004,7 +1004,6 @@
         )
 
         func main() {
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
            closeaccessrequest := []byte(`{
           "executionStatus" : "Terminated",
           "accessRequestIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
@@ -1023,8 +1022,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.AccessRequestsAPI.CloseAccessRequest(context.Background()).XSailPointExperimental(xSailPointExperimental).CloseAccessRequest(closeAccessRequest).Execute()
-          //resp, r, err := apiClient.V2024.AccessRequestsAPI.CloseAccessRequest(context.Background()).XSailPointExperimental(xSailPointExperimental).CloseAccessRequest(closeAccessRequest).Execute()
+          resp, r, err := apiClient.V2024.AccessRequestsAPI.CloseAccessRequest(context.Background()).CloseAccessRequest(closeAccessRequest).Execute()
+          //resp, r, err := apiClient.V2024.AccessRequestsAPI.CloseAccessRequest(context.Background()).CloseAccessRequest(closeAccessRequest).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestsAPI.CloseAccessRequest``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1619,15 +1618,14 @@
 
         func main() {
           id := `2c91808477a6b0c60177a81146b8110b` // string | The account aggregation id # string | The account aggregation id
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
           
 
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.AccountAggregationsAPI.GetAccountAggregationStatus(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2024.AccountAggregationsAPI.GetAccountAggregationStatus(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+          resp, r, err := apiClient.V2024.AccountAggregationsAPI.GetAccountAggregationStatus(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2024.AccountAggregationsAPI.GetAccountAggregationStatus(context.Background(), id).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `AccountAggregationsAPI.GetAccountAggregationStatus``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1775,15 +1773,14 @@
 
         func main() {
           id := `c350d6aa4f104c61b062cb632421ad10` // string | The account id # string | The account id
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
           
 
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.AccountsAPI.DeleteAccountAsync(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2024.AccountsAPI.DeleteAccountAsync(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+          resp, r, err := apiClient.V2024.AccountsAPI.DeleteAccountAsync(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2024.AccountsAPI.DeleteAccountAsync(context.Background(), id).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.DeleteAccountAsync``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1854,15 +1851,14 @@
 
         func main() {
           id := `2c91808384203c2d018437e631158309` // string | The identity id. # string | The identity id.
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
           
 
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.AccountsAPI.DisableAccountForIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2024.AccountsAPI.DisableAccountForIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+          resp, r, err := apiClient.V2024.AccountsAPI.DisableAccountForIdentity(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2024.AccountsAPI.DisableAccountForIdentity(context.Background(), id).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.DisableAccountForIdentity``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1888,7 +1884,6 @@
         )
 
         func main() {
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
            identitiesaccountsbulkrequest := []byte(`{
           "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
         }`) // IdentitiesAccountsBulkRequest | 
@@ -1904,8 +1899,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.AccountsAPI.DisableAccountsForIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
-          //resp, r, err := apiClient.V2024.AccountsAPI.DisableAccountsForIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
+          resp, r, err := apiClient.V2024.AccountsAPI.DisableAccountsForIdentities(context.Background()).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
+          //resp, r, err := apiClient.V2024.AccountsAPI.DisableAccountsForIdentities(context.Background()).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.DisableAccountsForIdentities``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1976,15 +1971,14 @@
 
         func main() {
           id := `2c91808384203c2d018437e631158309` // string | The identity id. # string | The identity id.
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
           
 
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.AccountsAPI.EnableAccountForIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2024.AccountsAPI.EnableAccountForIdentity(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+          resp, r, err := apiClient.V2024.AccountsAPI.EnableAccountForIdentity(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2024.AccountsAPI.EnableAccountForIdentity(context.Background(), id).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.EnableAccountForIdentity``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -2010,7 +2004,6 @@
         )
 
         func main() {
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
            identitiesaccountsbulkrequest := []byte(`{
           "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
         }`) // IdentitiesAccountsBulkRequest | 
@@ -2026,8 +2019,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.AccountsAPI.EnableAccountsForIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
-          //resp, r, err := apiClient.V2024.AccountsAPI.EnableAccountsForIdentities(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
+          resp, r, err := apiClient.V2024.AccountsAPI.EnableAccountsForIdentities(context.Background()).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
+          //resp, r, err := apiClient.V2024.AccountsAPI.EnableAccountsForIdentities(context.Background()).IdentitiesAccountsBulkRequest(identitiesAccountsBulkRequest).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `AccountsAPI.EnableAccountsForIdentities``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -24350,15 +24343,14 @@
 
         func main() {
           id := `ebbf35756e1140699ce52b233121384a` // string | The source id # string | The source id
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
           
 
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.SourcesAPI.DeleteAccountsAsync(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2024.SourcesAPI.DeleteAccountsAsync(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+          resp, r, err := apiClient.V2024.SourcesAPI.DeleteAccountsAsync(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2024.SourcesAPI.DeleteAccountsAsync(context.Background(), id).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.DeleteAccountsAsync``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -25064,7 +25056,6 @@
 
         func main() {
           id := `ef38f94347e94562b5bb8424a56397d8` // string | Source Id # string | Source Id
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
           file := BINARY_DATA_HERE // *os.File | The CSV file containing the source accounts to aggregate. (optional) # *os.File | The CSV file containing the source accounts to aggregate. (optional)
           disableOptimization := `disableOptimization_example` // string | Use this flag to reprocess every account whether or not the data has changed. (optional) # string | Use this flag to reprocess every account whether or not the data has changed. (optional)
 
@@ -25073,8 +25064,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.SourcesAPI.ImportAccounts(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2024.SourcesAPI.ImportAccounts(context.Background(), id).XSailPointExperimental(xSailPointExperimental).File(file).DisableOptimization(disableOptimization).Execute()
+          resp, r, err := apiClient.V2024.SourcesAPI.ImportAccounts(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2024.SourcesAPI.ImportAccounts(context.Background(), id).File(file).DisableOptimization(disableOptimization).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.ImportAccounts``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -25243,7 +25234,6 @@
 
         func main() {
           id := `75dbec1ebe154d5785da27b95e1dd5d7` // string | Source Id # string | Source Id
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
           file := BINARY_DATA_HERE // *os.File |  (optional) # *os.File |  (optional)
 
           
@@ -25251,8 +25241,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.SourcesAPI.ImportUncorrelatedAccounts(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
-          //resp, r, err := apiClient.V2024.SourcesAPI.ImportUncorrelatedAccounts(context.Background(), id).XSailPointExperimental(xSailPointExperimental).File(file).Execute()
+          resp, r, err := apiClient.V2024.SourcesAPI.ImportUncorrelatedAccounts(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2024.SourcesAPI.ImportUncorrelatedAccounts(context.Background(), id).File(file).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.ImportUncorrelatedAccounts``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

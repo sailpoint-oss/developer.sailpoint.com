@@ -22,8 +22,8 @@ Name | Type | Description | Notes
 **Type** | [**NonEmployeeSchemaAttributeType**](non-employee-schema-attribute-type) |  | 
 **Label** | **string** | Label displayed on the UI for this schema attribute. | 
 **TechnicalName** | **string** | The technical name of the attribute. Must be unique per source. | 
-**HelpText** | Pointer to **string** | help text displayed by UI. | [optional] 
-**Placeholder** | Pointer to **string** | Hint text that fills UI box. | [optional] 
+**HelpText** | Pointer to **NullableString** | help text displayed by UI. | [optional] 
+**Placeholder** | Pointer to **NullableString** | Hint text that fills UI box. | [optional] 
 **Required** | Pointer to **bool** | If true, the schema attribute is required for all non-employees in the source | [optional] [default to false]
 
 ## Methods
@@ -230,6 +230,16 @@ SetHelpText sets HelpText field to given value.
 
 HasHelpText returns a boolean if a field has been set.
 
+### SetHelpTextNil
+
+`func (o *NonEmployeeSchemaAttribute) SetHelpTextNil(b bool)`
+
+ SetHelpTextNil sets the value for HelpText to be an explicit nil
+
+### UnsetHelpText
+`func (o *NonEmployeeSchemaAttribute) UnsetHelpText()`
+
+UnsetHelpText ensures that no value is present for HelpText, not even an explicit nil
 ### GetPlaceholder
 
 `func (o *NonEmployeeSchemaAttribute) GetPlaceholder() string`
@@ -255,6 +265,16 @@ SetPlaceholder sets Placeholder field to given value.
 
 HasPlaceholder returns a boolean if a field has been set.
 
+### SetPlaceholderNil
+
+`func (o *NonEmployeeSchemaAttribute) SetPlaceholderNil(b bool)`
+
+ SetPlaceholderNil sets the value for Placeholder to be an explicit nil
+
+### UnsetPlaceholder
+`func (o *NonEmployeeSchemaAttribute) UnsetPlaceholder()`
+
+UnsetPlaceholder ensures that no value is present for Placeholder, not even an explicit nil
 ### GetRequired
 
 `func (o *NonEmployeeSchemaAttribute) GetRequired() bool`

@@ -57,11 +57,11 @@ Method | HTTP request | Description
 [**delete-non-employee-schema-attribute**](#delete-non-employee-schema-attribute) | **Delete** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Delete non-employee source&#39;s schema attribute
 [**delete-non-employee-source**](#delete-non-employee-source) | **Delete** `/non-employee-sources/{sourceId}` | Delete non-employee source
 [**delete-non-employee-source-schema-attributes**](#delete-non-employee-source-schema-attributes) | **Delete** `/non-employee-sources/{sourceId}/schema-attributes` | Delete all custom schema attributes
-[**export-non-employee-records**](#export-non-employee-records) | **Get** `/non-employee-sources/{id}/non-employees/download` | Exports non-employee records to csv
-[**export-non-employee-source-schema-template**](#export-non-employee-source-schema-template) | **Get** `/non-employee-sources/{id}/schema-attributes-template/download` | Exports source schema template
-[**get-non-employee-approval**](#get-non-employee-approval) | **Get** `/non-employee-approvals/{id}` | Get a non-employee approval item detail
-[**get-non-employee-approval-summary**](#get-non-employee-approval-summary) | **Get** `/non-employee-approvals/summary/{requested-for}` | Get summary of non-employee approval requests
+[**get-non-employee-approval**](#get-non-employee-approval) | **Get** `/non-employee-approvals/{id}` | A non-employee approval item detail
+[**get-non-employee-approval-summary**](#get-non-employee-approval-summary) | **Get** `/non-employee-approvals/summary/{requested-for}` | Summary of non-employee approval requests
 [**get-non-employee-bulk-upload-status**](#get-non-employee-bulk-upload-status) | **Get** `/non-employee-sources/{id}/non-employee-bulk-upload/status` | Bulk upload status on source
+[**get-non-employee-export-records**](#get-non-employee-export-records) | **Get** `/non-employee-sources/{id}/non-employees/download` | Exports non-employee records to csv
+[**get-non-employee-export-source-schema-template**](#get-non-employee-export-source-schema-template) | **Get** `/non-employee-sources/{id}/schema-attributes-template/download` | Exports source schema template
 [**get-non-employee-record**](#get-non-employee-record) | **Get** `/non-employee-records/{id}` | Get a non-employee record
 [**get-non-employee-request**](#get-non-employee-request) | **Get** `/non-employee-requests/{id}` | Get a non-employee request
 [**get-non-employee-request-summary**](#get-non-employee-request-summary) | **Get** `/non-employee-requests/summary/{requested-for}` | Get summary of non-employee requests
@@ -69,18 +69,21 @@ Method | HTTP request | Description
 [**get-non-employee-source**](#get-non-employee-source) | **Get** `/non-employee-sources/{sourceId}` | Get a non-employee source
 [**get-non-employee-source-schema-attributes**](#get-non-employee-source-schema-attributes) | **Get** `/non-employee-sources/{sourceId}/schema-attributes` | List schema attributes non-employee source
 [**import-non-employee-records-in-bulk**](#import-non-employee-records-in-bulk) | **Post** `/non-employee-sources/{id}/non-employee-bulk-upload` | Imports, or updates, non-employee records
-[**list-non-employee-approval**](#list-non-employee-approval) | **Get** `/non-employee-approvals` | Get list of non-employee approval requests
+[**list-non-employee-approval**](#list-non-employee-approval) | **Get** `/non-employee-approvals` | List of non-employee approval requests
 [**list-non-employee-records**](#list-non-employee-records) | **Get** `/non-employee-records` | List non-employee records
 [**list-non-employee-requests**](#list-non-employee-requests) | **Get** `/non-employee-requests` | List non-employee requests
 [**list-non-employee-sources**](#list-non-employee-sources) | **Get** `/non-employee-sources` | List non-employee sources
 [**patch-non-employee-record**](#patch-non-employee-record) | **Patch** `/non-employee-records/{id}` | Patch non-employee record
 [**patch-non-employee-schema-attribute**](#patch-non-employee-schema-attribute) | **Patch** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Patch non-employee source&#39;s schema attribute
 [**patch-non-employee-source**](#patch-non-employee-source) | **Patch** `/non-employee-sources/{sourceId}` | Patch a non-employee source
+[**put-non-employee-record**](#put-non-employee-record) | **Put** `/non-employee-records/{id}` | Update non-employee record
 [**reject-non-employee-request**](#reject-non-employee-request) | **Post** `/non-employee-approvals/{id}/reject` | Reject a non-employee request
-[**update-non-employee-record**](#update-non-employee-record) | **Put** `/non-employee-records/{id}` | Update non-employee record
 
 
 ## approve-non-employee-request
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Approve a non-employee request
 Approves a non-employee approval request and notifies the next approver.
 
@@ -128,7 +131,7 @@ import (
 )
 
 func main() {
-    id := `id_example` // string | Non-Employee approval item id (UUID) # string | Non-Employee approval item id (UUID)
+    id := `2c91808b6ef1d43e016efba0ce470904` // string | Non-Employee approval item id (UUID) # string | Non-Employee approval item id (UUID)
     nonemployeeapprovaldecision := []byte(`{
           "comment" : "comment"
         }`) // NonEmployeeApprovalDecision | 
@@ -156,6 +159,9 @@ func main() {
 [[Back to top]](#)
 
 ## create-non-employee-record
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Create non-employee record
 This request will create a non-employee record.
 Request will require the following security scope:
@@ -239,6 +245,9 @@ func main() {
 [[Back to top]](#)
 
 ## create-non-employee-request
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Create non-employee request
 This request will create a non-employee request and notify the approver
 
@@ -320,6 +329,9 @@ func main() {
 [[Back to top]](#)
 
 ## create-non-employee-source
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Create non-employee source
 Create a non-employee source.
 
@@ -412,6 +424,9 @@ func main() {
 [[Back to top]](#)
 
 ## create-non-employee-source-schema-attributes
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Create non-employee source schema attribute
 This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a "400.1.409 Reference conflict" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a "400.1.4 Limit violation" response.
 
@@ -492,6 +507,9 @@ func main() {
 [[Back to top]](#)
 
 ## delete-non-employee-record
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Delete non-employee record
 This request will delete a non-employee record.
 
@@ -557,6 +575,9 @@ func main() {
 [[Back to top]](#)
 
 ## delete-non-employee-record-in-bulk
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Delete multiple non-employee records
 This request will delete multiple non-employee records based on the non-employee ids provided.
 Request will require the following scope:
@@ -625,6 +646,9 @@ func main() {
 [[Back to top]](#)
 
 ## delete-non-employee-request
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Delete non-employee request
 This request will delete a non-employee request.
 
@@ -690,6 +714,9 @@ func main() {
 [[Back to top]](#)
 
 ## delete-non-employee-schema-attribute
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Delete non-employee source's schema attribute
 This end-point deletes a specific schema attribute for a non-employee source.
 
@@ -759,6 +786,9 @@ func main() {
 [[Back to top]](#)
 
 ## delete-non-employee-source
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Delete non-employee source
 This request will delete a non-employee source.
 
@@ -824,6 +854,9 @@ func main() {
 [[Back to top]](#)
 
 ## delete-non-employee-source-schema-attributes
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Delete all custom schema attributes
 This end-point deletes all custom schema attributes for a non-employee source.
 
@@ -888,140 +921,11 @@ func main() {
 
 [[Back to top]](#)
 
-## export-non-employee-records
-Exports non-employee records to csv
-This requests a CSV download for all non-employees from a provided source.
-
-[API Spec](https://developer.sailpoint.com/docs/api/beta/export-non-employee-records)
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Source Id (UUID) | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiExportNonEmployeeRecordsRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
- (empty response body)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-  
-    
-	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
-)
-
-func main() {
-    id := `2c918085842e69ae018432d22ccb212f` // string | Source Id (UUID) # string | Source Id (UUID)
-
-    
-
-    configuration := sailpoint.NewDefaultConfiguration()
-    apiClient := sailpoint.NewAPIClient(configuration)
-    r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.ExportNonEmployeeRecords(context.Background(), id).Execute()
-	  //r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.ExportNonEmployeeRecords(context.Background(), id).Execute()
-    if err != nil {
-	    fmt.Fprintf(os.Stderr, "Error when calling `NonEmployeeLifecycleManagementAPI.ExportNonEmployeeRecords``: %v\n", err)
-	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    
-}
-```
-
-[[Back to top]](#)
-
-## export-non-employee-source-schema-template
-Exports source schema template
-This requests a download for the Source Schema Template for a provided source.
-Request will require the following security scope:
-idn:nesr:read'
-
-[API Spec](https://developer.sailpoint.com/docs/api/beta/export-non-employee-source-schema-template)
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Source Id (UUID) | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiExportNonEmployeeSourceSchemaTemplateRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
-
-### Return type
-
- (empty response body)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-  
-    
-	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
-)
-
-func main() {
-    id := `2c918085842e69ae018432d22ccb212f` // string | Source Id (UUID) # string | Source Id (UUID)
-
-    
-
-    configuration := sailpoint.NewDefaultConfiguration()
-    apiClient := sailpoint.NewAPIClient(configuration)
-    r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.ExportNonEmployeeSourceSchemaTemplate(context.Background(), id).Execute()
-	  //r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.ExportNonEmployeeSourceSchemaTemplate(context.Background(), id).Execute()
-    if err != nil {
-	    fmt.Fprintf(os.Stderr, "Error when calling `NonEmployeeLifecycleManagementAPI.ExportNonEmployeeSourceSchemaTemplate``: %v\n", err)
-	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    
-}
-```
-
-[[Back to top]](#)
-
 ## get-non-employee-approval
-Get a non-employee approval item detail
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+A non-employee approval item detail
 Approves a non-employee approval request and notifies the next approver.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-approval)
@@ -1089,7 +993,10 @@ func main() {
 [[Back to top]](#)
 
 ## get-non-employee-approval-summary
-Get summary of non-employee approval requests
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Summary of non-employee approval requests
 This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter: 1. The current user is the Org Admin, in which case he or she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver's id. 2. The current user is an approver, in which case "me" should be provided as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-approval-summary)
@@ -1155,6 +1062,9 @@ func main() {
 [[Back to top]](#)
 
 ## get-non-employee-bulk-upload-status
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Bulk upload status on source
 The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source.
 
@@ -1221,7 +1131,148 @@ func main() {
 
 [[Back to top]](#)
 
+## get-non-employee-export-records
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Exports non-employee records to csv
+This requests a CSV download for all non-employees from a provided source.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-export-records)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Source Id (UUID) | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetNonEmployeeExportRecordsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/csv, application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    id := `2c918085842e69ae018432d22ccb212f` // string | Source Id (UUID) # string | Source Id (UUID)
+
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.GetNonEmployeeExportRecords(context.Background(), id).Execute()
+	  //r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.GetNonEmployeeExportRecords(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `NonEmployeeLifecycleManagementAPI.GetNonEmployeeExportRecords``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
+}
+```
+
+[[Back to top]](#)
+
+## get-non-employee-export-source-schema-template
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Exports source schema template
+This requests a download for the Source Schema Template for a provided source.
+Request will require the following security scope:
+idn:nesr:read'
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-export-source-schema-template)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Source Id (UUID) | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetNonEmployeeExportSourceSchemaTemplateRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+ (empty response body)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: text/csv, application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    id := `2c918085842e69ae018432d22ccb212f` // string | Source Id (UUID) # string | Source Id (UUID)
+
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.GetNonEmployeeExportSourceSchemaTemplate(context.Background(), id).Execute()
+	  //r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.GetNonEmployeeExportSourceSchemaTemplate(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `NonEmployeeLifecycleManagementAPI.GetNonEmployeeExportSourceSchemaTemplate``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
+}
+```
+
+[[Back to top]](#)
+
 ## get-non-employee-record
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Get a non-employee record
 This gets a non-employee record.
 
@@ -1288,6 +1339,9 @@ func main() {
 [[Back to top]](#)
 
 ## get-non-employee-request
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Get a non-employee request
 This gets a non-employee request.
 
@@ -1354,6 +1408,9 @@ func main() {
 [[Back to top]](#)
 
 ## get-non-employee-request-summary
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Get summary of non-employee requests
 This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter: 1. The current user is the Org Admin, in which case he or she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager's id. 2. The current user is an account manager, in which case "me" should be provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
 
@@ -1420,6 +1477,9 @@ func main() {
 [[Back to top]](#)
 
 ## get-non-employee-schema-attribute
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Get schema attribute non-employee source
 This API gets a schema attribute by Id for the specified Non-Employee SourceId.
 
@@ -1489,6 +1549,9 @@ func main() {
 [[Back to top]](#)
 
 ## get-non-employee-source
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Get a non-employee source
 This gets a non-employee source.
 
@@ -1555,6 +1618,9 @@ func main() {
 [[Back to top]](#)
 
 ## get-non-employee-source-schema-attributes
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 List schema attributes non-employee source
 This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned.
 
@@ -1576,6 +1642,8 @@ Other parameters are passed through a pointer to a apiGetNonEmployeeSourceSchema
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
+ **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
 
 ### Return type
 
@@ -1602,13 +1670,15 @@ import (
 
 func main() {
     sourceId := `2c918085842e69ae018432d22ccb212f` // string | The Source id # string | The Source id
+    limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
     
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
     resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.GetNonEmployeeSourceSchemaAttributes(context.Background(), sourceId).Execute()
-	  //resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.GetNonEmployeeSourceSchemaAttributes(context.Background(), sourceId).Execute()
+	  //resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.GetNonEmployeeSourceSchemaAttributes(context.Background(), sourceId).Limit(limit).Offset(offset).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `NonEmployeeLifecycleManagementAPI.GetNonEmployeeSourceSchemaAttributes``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -1621,6 +1691,9 @@ func main() {
 [[Back to top]](#)
 
 ## import-non-employee-records-in-bulk
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Imports, or updates, non-employee records
 This post will import, or update, Non-Employee records found in the CSV.
 Request will need the following security scope:
@@ -1691,7 +1764,10 @@ func main() {
 [[Back to top]](#)
 
 ## list-non-employee-approval
-Get list of non-employee approval requests
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+List of non-employee approval requests
 This gets a list of non-employee approval requests.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-approval)
@@ -1763,6 +1839,9 @@ func main() {
 [[Back to top]](#)
 
 ## list-non-employee-records
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 List non-employee records
 This gets a list of non-employee records.
 
@@ -1833,6 +1912,9 @@ func main() {
 [[Back to top]](#)
 
 ## list-non-employee-requests
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 List non-employee requests
 This gets a list of non-employee requests.
 
@@ -1905,6 +1987,9 @@ func main() {
 [[Back to top]](#)
 
 ## list-non-employee-sources
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 List non-employee sources
 Get a list of non-employee sources. There are two contextual uses for the `requested-for` path parameter: 
   1. If the user has the role context of `idn:nesr:read`, he or she may request a list sources assigned to a particular account manager by passing in that manager's `id`.
@@ -1979,6 +2064,9 @@ func main() {
 [[Back to top]](#)
 
 ## patch-non-employee-record
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Patch non-employee record
 This request will patch a non-employee record.
 
@@ -2052,6 +2140,9 @@ func main() {
 [[Back to top]](#)
 
 ## patch-non-employee-schema-attribute
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Patch non-employee source's schema attribute
 This end-point patches a specific schema attribute for a non-employee SourceId.
 
@@ -2129,6 +2220,9 @@ func main() {
 [[Back to top]](#)
 
 ## patch-non-employee-source
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Patch a non-employee source
 patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers**
 
@@ -2201,86 +2295,14 @@ func main() {
 
 [[Back to top]](#)
 
-## reject-non-employee-request
-Reject a non-employee request
-This endpoint will reject an approval item request and notify user.
-
-[API Spec](https://developer.sailpoint.com/docs/api/beta/reject-non-employee-request)
-
-### Path Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**id** | **string** | Non-Employee approval item id (UUID) | 
-
-### Other Parameters
-
-Other parameters are passed through a pointer to a apiRejectNonEmployeeRequestRequest struct via the builder pattern
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-
- **nonEmployeeRejectApprovalDecision** | [**NonEmployeeRejectApprovalDecision**](../models/non-employee-reject-approval-decision) |  | 
-
-### Return type
-
-[**NonEmployeeApprovalItem**](../models/non-employee-approval-item)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### Example
-
-```go
-package main
-
-import (
-	"context"
-	"fmt"
-	"os"
-  "encoding/json"
-    beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
-	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
-)
-
-func main() {
-    id := `id_example` // string | Non-Employee approval item id (UUID) # string | Non-Employee approval item id (UUID)
-    nonemployeerejectapprovaldecision := []byte(`{
-          "comment" : "comment"
-        }`) // NonEmployeeRejectApprovalDecision | 
-
-    var nonEmployeeRejectApprovalDecision beta.NonEmployeeRejectApprovalDecision
-    if err := json.Unmarshal(nonemployeerejectapprovaldecision, &nonEmployeeRejectApprovalDecision); err != nil {
-      fmt.Println("Error:", err)
-      return
-    }
-    
-
-    configuration := sailpoint.NewDefaultConfiguration()
-    apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.RejectNonEmployeeRequest(context.Background(), id).NonEmployeeRejectApprovalDecision(nonEmployeeRejectApprovalDecision).Execute()
-	  //resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.RejectNonEmployeeRequest(context.Background(), id).NonEmployeeRejectApprovalDecision(nonEmployeeRejectApprovalDecision).Execute()
-    if err != nil {
-	    fmt.Fprintf(os.Stderr, "Error when calling `NonEmployeeLifecycleManagementAPI.RejectNonEmployeeRequest``: %v\n", err)
-	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
-    }
-    // response from `RejectNonEmployeeRequest`: NonEmployeeApprovalItem
-    fmt.Fprintf(os.Stdout, "Response from `NonEmployeeLifecycleManagementAPI.RejectNonEmployeeRequest`: %v\n", resp)
-}
-```
-
-[[Back to top]](#)
-
-## update-non-employee-record
+## put-non-employee-record
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Update non-employee record
 This request will update a non-employee record.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/update-non-employee-record)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-non-employee-record)
 
 ### Path Parameters
 
@@ -2292,7 +2314,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiUpdateNonEmployeeRecordRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiPutNonEmployeeRecordRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -2350,14 +2372,92 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.UpdateNonEmployeeRecord(context.Background(), id).NonEmployeeRequestBody(nonEmployeeRequestBody).Execute()
-	  //resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.UpdateNonEmployeeRecord(context.Background(), id).NonEmployeeRequestBody(nonEmployeeRequestBody).Execute()
+    resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.PutNonEmployeeRecord(context.Background(), id).NonEmployeeRequestBody(nonEmployeeRequestBody).Execute()
+	  //resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.PutNonEmployeeRecord(context.Background(), id).NonEmployeeRequestBody(nonEmployeeRequestBody).Execute()
     if err != nil {
-	    fmt.Fprintf(os.Stderr, "Error when calling `NonEmployeeLifecycleManagementAPI.UpdateNonEmployeeRecord``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Error when calling `NonEmployeeLifecycleManagementAPI.PutNonEmployeeRecord``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `UpdateNonEmployeeRecord`: NonEmployeeRecord
-    fmt.Fprintf(os.Stdout, "Response from `NonEmployeeLifecycleManagementAPI.UpdateNonEmployeeRecord`: %v\n", resp)
+    // response from `PutNonEmployeeRecord`: NonEmployeeRecord
+    fmt.Fprintf(os.Stdout, "Response from `NonEmployeeLifecycleManagementAPI.PutNonEmployeeRecord`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
+## reject-non-employee-request
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Reject a non-employee request
+This endpoint will reject an approval item request and notify user.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/reject-non-employee-request)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Non-Employee approval item id (UUID) | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiRejectNonEmployeeRequestRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **nonEmployeeRejectApprovalDecision** | [**NonEmployeeRejectApprovalDecision**](../models/non-employee-reject-approval-decision) |  | 
+
+### Return type
+
+[**NonEmployeeApprovalItem**](../models/non-employee-approval-item)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  "encoding/json"
+    beta "github.com/sailpoint-oss/golang-sdk/v2/api_beta"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    id := `2c91808b6ef1d43e016efba0ce470904` // string | Non-Employee approval item id (UUID) # string | Non-Employee approval item id (UUID)
+    nonemployeerejectapprovaldecision := []byte(`{
+          "comment" : "comment"
+        }`) // NonEmployeeRejectApprovalDecision | 
+
+    var nonEmployeeRejectApprovalDecision beta.NonEmployeeRejectApprovalDecision
+    if err := json.Unmarshal(nonemployeerejectapprovaldecision, &nonEmployeeRejectApprovalDecision); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.RejectNonEmployeeRequest(context.Background(), id).NonEmployeeRejectApprovalDecision(nonEmployeeRejectApprovalDecision).Execute()
+	  //resp, r, err := apiClient.Beta.NonEmployeeLifecycleManagementAPI.RejectNonEmployeeRequest(context.Background(), id).NonEmployeeRejectApprovalDecision(nonEmployeeRejectApprovalDecision).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `NonEmployeeLifecycleManagementAPI.RejectNonEmployeeRequest``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `RejectNonEmployeeRequest`: NonEmployeeApprovalItem
+    fmt.Fprintf(os.Stdout, "Response from `NonEmployeeLifecycleManagementAPI.RejectNonEmployeeRequest`: %v\n", resp)
 }
 ```
 

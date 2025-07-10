@@ -2,11 +2,16 @@ get:
   operationId: getNonEmployeeSource
   security:
     - userAuth: [idn:nelm:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
   summary: Get a non-employee source
   description: >-
     This gets a non-employee source.
+  deprecated: true
   parameters:
     - in: path
       example: 2c91808b7c28b350017c2a2ec5790aa1
@@ -38,12 +43,17 @@ patch:
   operationId: patchNonEmployeeSource
   security:
     - userAuth: [idn:nelm:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
   summary: Patch a non-employee source
   description: >-
     patch a non-employee source. (Partial Update)  Patchable field: **name,
     description, approvers, accountManagers**
+  deprecated: true
 
   parameters:
     - in: path
@@ -98,11 +108,16 @@ delete:
   operationId: deleteNonEmployeeSource
   security:
     - userAuth: [idn:nelm:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete non-employee source
   description: >-
     This request will delete a non-employee source.
+  deprecated: true
 
   parameters:
     - in: path

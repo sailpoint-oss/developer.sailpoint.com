@@ -2,11 +2,16 @@ get:
   operationId: listNonEmployeeApproval
   security:
     - userAuth: [idn:nelm:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
-  summary: Get list of non-employee approval requests
+  summary: List of non-employee approval requests
   description: >-
     This gets a list of non-employee approval requests.
+  deprecated: true
   parameters:
     - in: query
       example: "ac10d20a-841e-1e7d-8184-32d2e22c0179"
@@ -23,6 +28,7 @@ get:
     - in: query
       example: approvalStatus eq "PENDING"
       name: filters
+      required: false
       schema:
         type: string
       description: >-
@@ -36,6 +42,7 @@ get:
     - in: query
       example: created
       name: sorters
+      required: false
       schema:
         type: string
         format: comma-separated

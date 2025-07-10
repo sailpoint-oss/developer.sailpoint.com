@@ -2,6 +2,10 @@ get:
   operationId: getNonEmployeeRequestSummary
   security:
     - userAuth: [idn:nelm:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
   summary: Get summary of non-employee requests
@@ -14,6 +18,7 @@ get:
     which case "me" should be provided as the `requested-for` value. This will
     provide the user with a summary of the non-employee requests in the
     source(s) he or she manages.
+  deprecated: true
   parameters:
     - in: path
       example: "ac10d20a-841e-1e7d-8184-32d2e22c0179"

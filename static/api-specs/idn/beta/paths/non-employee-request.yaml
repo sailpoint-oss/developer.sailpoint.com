@@ -2,11 +2,16 @@ get:
   operationId: getNonEmployeeRequest
   security:
     - userAuth: [idn:nelm:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
   summary: Get a non-employee request
   description: >-
     This gets a non-employee request.
+  deprecated: true
   parameters:
     - in: path
       name: id
@@ -40,11 +45,16 @@ delete:
   operationId: deleteNonEmployeeRequest
   security:
     - userAuth: [idn:nelm:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete non-employee request
   description: >-
     This request will delete a non-employee request.
+  deprecated: true
   parameters:
     - in: path
       name: id

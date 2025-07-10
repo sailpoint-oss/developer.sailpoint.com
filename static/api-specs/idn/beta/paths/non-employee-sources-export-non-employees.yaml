@@ -1,13 +1,17 @@
 get:
-  operationId: exportNonEmployeeRecords
+  operationId: getNonEmployeeExportRecords
   security:
     - userAuth: [idn:nelm:read, idn:nelm:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
   summary: Exports non-employee records to csv
   description: >-
     This requests a CSV download for all non-employees from a provided source.
-
+  deprecated: true
   parameters:
     - in: path
       example: "2c918085842e69ae018432d22ccb212f"

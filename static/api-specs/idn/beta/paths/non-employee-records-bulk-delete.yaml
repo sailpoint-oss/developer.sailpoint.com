@@ -2,6 +2,10 @@ post:
   operationId: deleteNonEmployeeRecordInBulk
   security:
     - userAuth: [idn:nelm:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete multiple non-employee records
@@ -11,7 +15,7 @@ post:
     Request will require the following scope:
 
     'idn:nesr:delete'
-
+  deprecated: true
   requestBody:
     description: Non-Employee bulk delete request body.
     required: true

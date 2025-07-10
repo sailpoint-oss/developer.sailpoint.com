@@ -1,7 +1,11 @@
 post:
   security:
    - userAuth: [idn:nelm:manage]
-  operationId: nonEmployeeBulkUploadJobFail
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
+  operationId: importNonEmployeeBulkUploadJobFail
   tags:
     - Non-Employee Lifecycle Management
   summary: Fail bulk upload
@@ -19,12 +23,15 @@ post:
     A token with idn:nesr:update authority is required to call this API.
 
     This is for internal use only.
+  deprecated: true
   parameters:
     - in: path
+      x-sailpoint-resource-operation-id: listNonEmployeeSources
       name: bulkUploadJobId
       description: >-
         Bulk Upload Job ID (UUID)
       required: true
+      example: 2c91808b6ef1d43e016efba0ce470904
       schema:
         type: string
   responses:

@@ -1,13 +1,17 @@
 post:
-  operationId: nonEmployeeSourceAggregateGet
+  operationId: publishNonEmployeeSourceAggregateGet
   security:
     - userAuth: [idn:nelm:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
   summary: Aggregate all non-employee source accounts
   description: >-
     This fetches all the non-employee records related to a non-employee source and publishes an aggregation event for each one.
-
+  deprecated: true
   parameters:
     - in: path
       name: sourceId

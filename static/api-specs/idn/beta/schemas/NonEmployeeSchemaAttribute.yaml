@@ -34,10 +34,12 @@ properties:
     type: string
     description: help text displayed by UI.
     example: "The unique identifier for the account"
+    nullable: true
   placeholder:
     type: string
     description: Hint text that fills UI box.
     example: "Enter a unique user name for this account."
+    nullable: true
   required:
     type: boolean
     description: If true, the schema attribute is required for all non-employees in the source

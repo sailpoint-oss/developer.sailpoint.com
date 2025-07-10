@@ -2,6 +2,10 @@ post:
   operationId: importNonEmployeeRecordsInBulk
   security:
     - userAuth: [idn:nelm:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
   summary: Imports, or updates, non-employee records
@@ -11,6 +15,7 @@ post:
     Request will need the following security scope:
 
     'idn:nesr:create'
+  deprecated: true
   parameters:
     - in: path
       name: id

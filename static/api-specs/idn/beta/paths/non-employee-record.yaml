@@ -2,12 +2,16 @@ get:
   operationId: getNonEmployeeRecord
   security:
     - userAuth: [idn:nelm:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
   summary: Get a non-employee record
   description: >-
     This gets a non-employee record.
-
+  deprecated: true
   parameters:
     - in: path
       name: id
@@ -36,14 +40,19 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
 put:
-  operationId: updateNonEmployeeRecord
+  operationId: putNonEmployeeRecord
   security:
     - userAuth: [idn:nelm:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
   summary: Update non-employee record
   description: >-
     This request will update a non-employee record.
+  deprecated: true
   parameters:
     - in: path
       name: id
@@ -84,11 +93,16 @@ patch:
   operationId: patchNonEmployeeRecord
   security:
     - userAuth: [idn:nelm:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
   summary: Patch non-employee record
   description: >-
     This request will patch a non-employee record.
+  deprecated: true
   parameters:
     - in: path
       name: id
@@ -135,11 +149,16 @@ delete:
   operationId: deleteNonEmployeeRecord
   security:
     - userAuth: [idn:nelm:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
   summary: Delete non-employee record
   description: >-
     This request will delete a non-employee record.
+  deprecated: true
 
   parameters:
     - in: path

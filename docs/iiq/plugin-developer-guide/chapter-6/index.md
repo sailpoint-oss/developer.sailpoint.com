@@ -23,6 +23,6 @@ Everything in the 'import' folder is imported - the SailPoint objects can be sep
 
 The development of regular IdentityIQ objects is beyond the scope of this document, but many helpful resources are available:
 
-[Technical White Papers - IdentityIQ](https://community.sailpoint.com/space/2068)
+[Technical White Papers - IdentityIQ](https://community.sailpoint.com/t5/Technical-White-Papers/IdentityIQ-Technical-White-Papers/ta-p/169455)
 
 [BeanShell Developer's Guide for IdentityIQ](https://community.sailpoint.com/docs/DOC-3375)

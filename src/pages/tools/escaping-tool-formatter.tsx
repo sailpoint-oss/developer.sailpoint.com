@@ -63,11 +63,14 @@ requestEndPoint.setFullUrl(fullUrl);`);
   const handleDropdownFocus = () => setIsDropdownFocused(true);
   const handleDropdownBlur = () => setIsDropdownFocused(false);
 
+  const normalizeLineEndings = (text: string) => text.replace(/\r?\n/g, '\r\n'); // force CRLF (Windows) style
+
   const transform = (text: string, mode: 'escape' | 'unescape'): string => {
     try {
+      const normalized = mode === 'escape' ? normalizeLineEndings(text) : text;
       return mode === 'escape'
-        ? escapeJavaDotNet(text)
-        : unescapeJavaDotNet(text);
+        ? escapeJavaDotNet(normalized)
+        : unescapeJavaDotNet(normalized);
     } catch (err) {
       console.error('Error transforming text:', err);
       return '// Invalid input';

@@ -9,13 +9,12 @@ import styles from './EscapeTool.module.css';
 
 const escapeJavaDotNet = (str: string): string =>
   str
-    .replace(/\\/g, '\\\\') 
-    .replace(/"/g, '\\"') 
-    .replace(/\r/g, '\\r') 
-    .replace(/\n/g, '\\n') 
-    .replace(/\t/g, '\\t') 
-    .replace(/\f/g, '\\f'); 
-
+    .replace(/\\/g, '\\\\')
+    .replace(/"/g, '\\"')
+    .replace(/\r/g, '\\r')
+    .replace(/\n/g, '\\n')
+    .replace(/\t/g, '\\t')
+    .replace(/\f/g, '\\f');
 
 const unescapeJavaDotNet = (str: string): string =>
   str
@@ -26,22 +25,52 @@ const unescapeJavaDotNet = (str: string): string =>
     .replace(/\\"/g, '"')
     .replace(/\\\\/g, '\\');
 
-
 const EscapeTool: React.FC = () => {
   const [fontSize, setFontSize] = useState<string>('16');
   const [isDropdownFocused, setIsDropdownFocused] = useState<boolean>(false);
-  const [inputJson, setInputJson] = useState<string>('');
+  const [inputJson, setInputJson] =
+    useState<string>(`import sailpoint.object.ProvisioningPlan;
+import sailpoint.object.ProvisioningPlan.AccountRequest;
+import sailpoint.api.*;
+import sailpoint.object.*;
+import sailpoint.server.idnRuleUtil;
+import java.util.*;
+import org.apache.commons.lang.StringUtils;
+import sailpoint.thunderbolt.service.ConnectorService;
+import sailpoint.thunderbolt.service.module.ServiceModule;
+import sailpoint.rule.Account;
+import sailpoint.object.Application;
+
+log.info("Entering : Before operation rule : Going to update the new rule");
+String fullUrl = requestEndPoint.getFullUrl();
+
+//String applicationName = "webservice-airtable-tyler";
+//
+//Account airtableAccount = idn.getAccountByNativeIdentity(application.getName(), provisioningPlan.getNativeIdentity());
+//String accountId = (String) idn.getRawAccountAttribute(airtableAccount,"id");
+
+Map requestMap = requestEndPoint.getResMappingObj();
+log.info("Before operation rule requestMap:" + requestMap.toString());
+
+fullUrl = fullUrl.replace("accountId","test");
+
+log.info("Before operation rule : the full url" + fullUrl );
+requestEndPoint.setFullUrl(fullUrl);`);
+
   const [result, setResult] = useState<string>('');
   const [copySuccess, setCopySuccess] = useState<string>('');
 
   const handleDropdownFocus = () => setIsDropdownFocused(true);
   const handleDropdownBlur = () => setIsDropdownFocused(false);
 
+  const normalizeLineEndings = (text: string) => text.replace(/\r?\n/g, '\r\n'); // force CRLF (Windows) style
+
   const transform = (text: string, mode: 'escape' | 'unescape'): string => {
     try {
+      const normalized = mode === 'escape' ? normalizeLineEndings(text) : text;
       return mode === 'escape'
-        ? escapeJavaDotNet(text)
-        : unescapeJavaDotNet(text);
+        ? escapeJavaDotNet(normalized)
+        : unescapeJavaDotNet(normalized);
     } catch (err) {
       console.error('Error transforming text:', err);
       return '// Invalid input';
@@ -65,7 +94,9 @@ const EscapeTool: React.FC = () => {
   };
 
   return (
-    <Layout title="Java/.NET String Escaper" description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+    <Layout
+      title="Java/.NET String Escaper"
+      description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
         <div className={styles.containerFluid}>
           <h2 className={styles.title}>Java/.NET String Escaper</h2>

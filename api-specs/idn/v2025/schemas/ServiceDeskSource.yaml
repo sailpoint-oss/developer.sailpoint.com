@@ -1,0 +1,17 @@
+type: object
+description: Source for Service Desk integration template. 
+properties:
+  type:
+    type: string 
+    description: DTO type of source for service desk integration template. 
+    enum: 
+      - SOURCE
+    example: SOURCE
+  id:
+    type: string
+    description: ID of source for service desk integration template. 
+    example: 2c9180835d191a86015d28455b4b232a
+  name:
+    type: string
+    description: Human-readable name of source for service desk integration template. 
+    example: HR Active Directory

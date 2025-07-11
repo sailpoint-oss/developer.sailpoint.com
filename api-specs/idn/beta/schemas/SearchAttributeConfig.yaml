@@ -1,0 +1,17 @@
+type: object
+properties:
+  name:
+    type: string
+    description: Name of the new attribute
+    example: newMailAttribute
+  displayName:
+    type: string
+    description: The display name of the new attribute
+    example: New Mail Attribute
+  applicationAttributes:
+    type: object
+    description: Map of application id and their associated attribute.
+    example: {
+      "2c91808b79fd2422017a0b35d30f3968": "employeeNumber",
+      "2c91808b79fd2422017a0b36008f396b": "employeeNumber"
+    }

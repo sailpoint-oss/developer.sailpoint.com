@@ -1,0 +1,9 @@
+type : object
+properties:
+  ids:
+    description: The ids of the campaigns to delete
+    type: array
+    items:
+      type: string
+    example:
+      ["2c9180887335cee10173490db1776c26", "2c9180836a712436016a7125a90c0021"]

@@ -1,0 +1,43 @@
+type: object
+properties:
+  name:
+    type: string
+    description: The connector name
+    example: "name"
+  type:
+    type: string
+    description: The connector type
+    example: "ServiceNow"
+  scriptName:
+    type: string
+    description: The connector script name
+    example: "servicenow"
+  className:
+    type: string
+    description: The connector class name.
+    nullable: true
+    example: "sailpoint.connector.OpenConnectorAdapter"
+  features:
+    type: array
+    description: The list of features supported by the connector
+    nullable: true
+    items:
+      type: string
+    example: ["PROVISIONING", "SYNC_PROVISIONING", "SEARCH", "UNSTRUCTURED_TARGETS"]
+  directConnect:
+    type: boolean
+    description: true if the source is a direct connect source
+    example: true
+    default: false
+  connectorMetadata:
+    type: object
+    description: Object containing metadata pertinent to the UI to be used
+    example: {
+      "supportedUI": "EXTJS",
+      "platform": "ccg",
+      "shortDesc": "connector description"
+    }
+  status:
+    type: string
+    description: The connector status
+    example: "RELEASED"

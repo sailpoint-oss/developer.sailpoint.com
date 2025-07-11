@@ -1,0 +1,45 @@
+type: object
+properties:
+  accessItem:
+    type: object
+    oneOf:
+      - $ref: './AccessItemAccessProfileResponse.yaml'
+      - $ref: './AccessItemAccountResponse.yaml'
+      - $ref: './AccessItemAppResponse.yaml'
+      - $ref: './AccessItemEntitlementResponse.yaml'
+      - $ref: './AccessItemRoleResponse.yaml'
+    example:
+      id: 8c190e6787aa4ed9a90bd9d5344523fb
+      accessType: account
+      nativeIdentity: 127999
+      sourceName: JDBC Entitlements Source
+      entitlementCount: 0
+      displayName: Sample Name
+  identityId:
+    type: string
+    description: the identity id
+    example: 8c190e6787aa4ed9a90bd9d5344523fb
+  eventType:
+    type: string
+    description: the event type
+    example: AccessItemAssociated
+  dt:
+    type: string
+    description: the date of event
+    example: '2019-03-08T22:37:33.901Z'
+  governanceEvent:
+    $ref: './CorrelatedGovernanceEvent.yaml'
+    example:
+      name: Manager Certification for Jon Snow
+      dt: '2019-03-08T22:37:33.901Z'
+      type: certification
+      governanceId: 2c91808a77ff216301782327a50f09bf
+      owners:
+        - id: bc693f07e7b645539626c25954c58554
+          displayName: Jon Snow
+      reviewers:
+        - id: bc693f07e7b645539626c25954c58554
+          displayName: Jon Snow
+      decisionMaker:
+        id: bc693f07e7b645539626c25954c58554
+        displayName: Jon Snow

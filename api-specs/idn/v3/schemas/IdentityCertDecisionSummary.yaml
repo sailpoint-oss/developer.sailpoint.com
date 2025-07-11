@@ -1,0 +1,83 @@
+# Replaced by DecisionSummary.yaml
+type : object
+properties:
+  entitlementDecisionsMade:
+    type: integer
+    description: Number of entitlement decisions that have been made
+    example: 3
+    format: 'int32'
+  accessProfileDecisionsMade:
+    type: integer
+    description: Number of access profile decisions that have been made
+    example: 5
+    format: 'int32'
+  roleDecisionsMade:
+    type: integer
+    description: Number of role decisions that have been made
+    example: 2
+    format: 'int32'
+  accountDecisionsMade:
+    type: integer
+    description: Number of account decisions that have been made
+    example: 4
+    format: 'int32'
+  entitlementDecisionsTotal:
+    type: integer
+    description: The total number of entitlement decisions on the certification, both complete and incomplete
+    example: 6
+    format: 'int32'
+  accessProfileDecisionsTotal:
+    type: integer
+    description: The total number of access profile decisions on the certification, both complete and incomplete
+    example: 10
+    format: 'int32'
+  roleDecisionsTotal:
+    type: integer
+    description: The total number of role decisions on the certification, both complete and incomplete
+    example: 4
+    format: 'int32'
+  accountDecisionsTotal:
+    type: integer
+    description: The total number of account decisions on the certification, both complete and incomplete
+    example: 8
+    format: 'int32'
+  entitlementsApproved:
+    type: integer
+    description: The number of entitlement decisions that have been made which were approved
+    example: 2
+    format: 'int32'
+  entitlementsRevoked:
+    type: integer
+    description: The number of entitlement decisions that have been made which were revoked
+    example: 1
+    format: 'int32'
+  accessProfilesApproved:
+    type: integer
+    description: The number of access profile decisions that have been made which were approved
+    example: 3
+    format: 'int32'
+  accessProfilesRevoked:
+    type: integer
+    description: The number of access profile decisions that have been made which were revoked
+    example: 2
+    format: 'int32'
+  rolesApproved:
+    type: integer
+    description: The number of role decisions that have been made which were approved
+    example: 2
+    format: 'int32'
+  rolesRevoked:
+    type: integer
+    description: The number of role decisions that have been made which were revoked
+    example: 0
+    format: 'int32'
+  accountsApproved:
+    type: integer
+    description: The number of account decisions that have been made which were approved
+    example: 1
+    format: 'int32'
+  accountsRevoked:
+    type: integer
+    description: The number of account decisions that have been made which were revoked
+    example: 3
+    format: 'int32'

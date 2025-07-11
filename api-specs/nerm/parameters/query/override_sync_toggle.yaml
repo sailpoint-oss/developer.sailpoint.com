@@ -1,0 +1,8 @@
+name: override_sync_toggle
+in: query
+description: The override_sync_toggle parameter returns all non-employee and assignment profiles regardless of the sync status when set to true.
+required: false
+schema:
+  type: boolean
+  default: false
+  example: true

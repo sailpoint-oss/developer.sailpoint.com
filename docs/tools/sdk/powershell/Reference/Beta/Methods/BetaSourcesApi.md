@@ -1723,6 +1723,7 @@ Code | Description  | Data Type
 $SourceId = "2c9180835d191a86015d28455b4a2329" # String | The source id
 $CorrelationConfig = @"{
   "attributeAssignments" : [ {
+    "sequence" : 1,
     "filterString" : "first_name == \"John\"",
     "ignoreCase" : false,
     "complex" : false,
@@ -1731,6 +1732,7 @@ $CorrelationConfig = @"{
     "operation" : "EQ",
     "matchMode" : "ANYWHERE"
   }, {
+    "sequence" : 1,
     "filterString" : "first_name == \"John\"",
     "ignoreCase" : false,
     "complex" : false,

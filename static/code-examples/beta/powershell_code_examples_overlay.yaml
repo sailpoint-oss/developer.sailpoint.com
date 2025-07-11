@@ -12094,6 +12094,7 @@
         $CorrelationConfig = @"
         {
           "attributeAssignments" : [ {
+            "sequence" : 1,
             "filterString" : "first_name == \"John\"",
             "ignoreCase" : false,
             "complex" : false,
@@ -12102,6 +12103,7 @@
             "operation" : "EQ",
             "matchMode" : "ANYWHERE"
           }, {
+            "sequence" : 1,
             "filterString" : "first_name == \"John\"",
             "ignoreCase" : false,
             "complex" : false,

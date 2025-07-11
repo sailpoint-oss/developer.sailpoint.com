@@ -157,6 +157,33 @@ async function exchangeCodeForToken(
   return tokenExchangeData;
 }
 
+async function exchangeRefreshToken(
+  baseURL: string,
+  refreshToken: string,
+) {
+  const tokenExchangeURL = new URL(baseURL + `/oauth/token`);
+  tokenExchangeURL.searchParams.set('grant_type', 'refresh_token');
+  tokenExchangeURL.searchParams.set('client_id', validatedClientId);
+  tokenExchangeURL.searchParams.set('refresh_token', refreshToken);
+
+  const tokenExchangeResp = await fetch(tokenExchangeURL, {
+    method: 'POST',
+  });
+
+  if (!tokenExchangeResp.ok) {
+    console.error('Refresh token exchange failed:', await tokenExchangeResp.text());
+    throw new HTTPException(400, {message: 'Error exchanging refresh token'});
+  }
+
+  const tokenExchangeData = await tokenExchangeResp.json();
+
+  if (!tokenExchangeData.access_token) {
+    throw new HTTPException(400, {message: 'Invalid token response'});
+  }
+
+  return tokenExchangeData;
+}
+
 function encryptToken(tokenData: any, encryptionKey: string) {
   const iv = randomBytes(16);
   const encryptionKeyBuffer = Buffer.from(encryptionKey, 'hex');
@@ -272,6 +299,33 @@ app.get('/Prod/sailapps/uuid/:uuid', async (c) => {
   }
 
   return c.json(data, 200);
+});
+
+// Refresh token endpoint
+app.post('/Prod/sailapps/refresh', async (c) => {
+  if (c.req.header('Content-Type') !== 'application/json') {
+    throw new HTTPException(400, {
+      message: 'Content-Type must be application/json',
+    });
+  }
+
+  const body = await c.req.json();
+  
+  if (!body.refreshToken) {
+    throw new HTTPException(400, {message: 'refreshToken is required'});
+  }
+
+  const baseURL = await validateApiUrl(body.apiBaseURL, body.tenant);
+  
+  try {
+    const tokenData = await exchangeRefreshToken(baseURL, body.refreshToken);
+    return c.json(tokenData, 200);
+  } catch (error) {
+    if (error instanceof HTTPException) {
+      throw error;
+    }
+    throw new HTTPException(500, {message: 'Internal server error'});
+  }
 });
 
 export const handler = handle(app);

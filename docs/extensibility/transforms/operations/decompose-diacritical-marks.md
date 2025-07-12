@@ -1,8 +1,8 @@
 ---
 id: decompose-diacritical-marks
-title: Decompose Diacritial Marks
-pagination_label: Decompose Diacritial Marks
-sidebar_label: Decompose Diacritial Marks
+title: Decompose Diacritical Marks
+pagination_label: Decompose Diacritical Marks
+sidebar_label: Decompose Diacritical Marks
 sidebar_class_name: decomposeDiacriticalMarks
 keywords: ['transforms', 'operations', 'decompose', 'diacritical', 'marks']
 description: Clean or standardize symbols used within language.

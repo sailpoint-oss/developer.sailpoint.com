@@ -11482,7 +11482,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/org-config#patch-org-config
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $JsonPatchOperation = @"{
           "op" : "replace",
           "path" : "/description",
@@ -11494,10 +11493,10 @@
         
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-V2025OrgConfig -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+            Update-V2025OrgConfig -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2025OrgConfig -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
+            # Update-V2025OrgConfig -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025OrgConfig"
             Write-Host $_.ErrorDetails

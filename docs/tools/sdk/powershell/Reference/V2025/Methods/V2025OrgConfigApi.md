@@ -128,9 +128,6 @@ try {
 [[Back to top]](#) 
 
 ## patch-org-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Patch the current organization's configuration, using http://jsonpatch.com/ syntax. This is commonly used to changing an organization's time zone.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-org-config)
@@ -138,7 +135,6 @@ Patch the current organization's configuration, using http://jsonpatch.com/ synt
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Return type
@@ -161,7 +157,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
@@ -173,10 +168,10 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2025OrgConfig -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+    Update-V2025OrgConfig -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2025OrgConfig -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
+    # Update-V2025OrgConfig -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025OrgConfig"
     Write-Host $_.ErrorDetails

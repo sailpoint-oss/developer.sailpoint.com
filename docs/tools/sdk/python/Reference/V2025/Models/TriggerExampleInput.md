@@ -41,7 +41,7 @@ Name | Type | Description | Notes
 **action** | **str** | Origin of where the provisioning request came from. | [optional] 
 **recipient** | [**ProvisioningCompletedRecipient**](provisioning-completed-recipient) |  | [required]
 **requester** | [**ProvisioningCompletedRequester**](provisioning-completed-requester) |  | [optional] 
-**account_requests** | [**[]ProvisioningCompletedAccountRequestsInner**](provisioning-completed-account-requests-inner) | A list of provisioning instructions to perform on an account-by-account basis. | [required]
+**account_requests** | [**[]ProvisioningCompletedAccountRequestsInner**](provisioning-completed-account-requests-inner) | A list of provisioning instructions to be executed on a per-account basis. The order in which operations are executed may not always be predictable. | [required]
 **file_name** | **str** | A name for the report file. | [required]
 **owner_email** | **str** | The email address of the identity that owns the saved search. | [required]
 **owner_name** | **str** | The name of the identity that owns the saved search. | [required]

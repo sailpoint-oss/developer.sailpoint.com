@@ -32,6 +32,7 @@ id='2c9180835d191a86015d28455b4a2329',
 name='Source [source] Account Correlation',
 attribute_assignments=[
                     sailpoint.beta.models.correlation_config_attribute_assignments_inner.CorrelationConfig_attributeAssignments_inner(
+                        sequence = 1, 
                         property = 'first_name', 
                         value = 'firstName', 
                         operation = 'EQ', 

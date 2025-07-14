@@ -29,17 +29,6 @@ Method | HTTP request | Description
 
 
 ## get-account-aggregation-status
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 In-progress account aggregation status
 This API returns the status of an *in-progress* account aggregation, along with the total number of **NEW**, **CHANGED** and **DELETED** accounts found since the previous aggregation, and the number of those accounts that have been processed so far.
 
@@ -57,7 +46,6 @@ required to call this API.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | The account aggregation id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 [**AccountAggregationStatus**](../models/account-aggregation-status)
@@ -66,6 +54,7 @@ Path   | id | **str** | True  | The account aggregation id
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
 200 | An account aggregation status object | AccountAggregationStatus |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
@@ -85,18 +74,16 @@ from sailpoint.v2024.models.account_aggregation_status import AccountAggregation
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c91808477a6b0c60177a81146b8110b' # str | The account aggregation id # str | The account aggregation id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # In-progress account aggregation status
         
-        results = AccountAggregationsApi(api_client).get_account_aggregation_status(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        results = AccountAggregationsApi(api_client).get_account_aggregation_status(id=id)
         # Below is a request that includes all optional parameters
-        # results = AccountAggregationsApi(api_client).get_account_aggregation_status(id, x_sail_point_experimental)
+        # results = AccountAggregationsApi(api_client).get_account_aggregation_status(id)
         print("The response of AccountAggregationsApi->get_account_aggregation_status:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:

@@ -751,10 +751,8 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           close_access_request = '''{
           "executionStatus" : "Terminated",
           "accessRequestIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
@@ -764,9 +762,9 @@
           try:
               # Close access request
               new_close_access_request = CloseAccessRequest.from_json(close_access_request)
-              results = AccessRequestsApi(api_client).close_access_request(x_sail_point_experimental=x_sail_point_experimental, close_access_request=new_close_access_request)
+              results = AccessRequestsApi(api_client).close_access_request(close_access_request=new_close_access_request)
               # Below is a request that includes all optional parameters
-              # results = AccessRequestsApi(api_client).close_access_request(x_sail_point_experimental, new_close_access_request)
+              # results = AccessRequestsApi(api_client).close_access_request(new_close_access_request)
               print("The response of AccessRequestsApi->close_access_request:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -1266,17 +1264,15 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = '2c91808477a6b0c60177a81146b8110b' # str | The account aggregation id # str | The account aggregation id
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
               # In-progress account aggregation status
               
-              results = AccountAggregationsApi(api_client).get_account_aggregation_status(id=id, x_sail_point_experimental=x_sail_point_experimental)
+              results = AccountAggregationsApi(api_client).get_account_aggregation_status(id=id)
               # Below is a request that includes all optional parameters
-              # results = AccountAggregationsApi(api_client).get_account_aggregation_status(id, x_sail_point_experimental)
+              # results = AccountAggregationsApi(api_client).get_account_aggregation_status(id)
               print("The response of AccountAggregationsApi->get_account_aggregation_status:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -1383,17 +1379,15 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = 'c350d6aa4f104c61b062cb632421ad10' # str | The account id # str | The account id
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
               # Remove account
               
-              results = AccountsApi(api_client).delete_account_async(id=id, x_sail_point_experimental=x_sail_point_experimental)
+              results = AccountsApi(api_client).delete_account_async(id=id)
               # Below is a request that includes all optional parameters
-              # results = AccountsApi(api_client).delete_account_async(id, x_sail_point_experimental)
+              # results = AccountsApi(api_client).delete_account_async(id)
               print("The response of AccountsApi->delete_account_async:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -1439,17 +1433,15 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = '2c91808384203c2d018437e631158309' # str | The identity id. # str | The identity id.
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
               # Disable idn account for identity
               
-              results = AccountsApi(api_client).disable_account_for_identity(id=id, x_sail_point_experimental=x_sail_point_experimental)
+              results = AccountsApi(api_client).disable_account_for_identity(id=id)
               # Below is a request that includes all optional parameters
-              # results = AccountsApi(api_client).disable_account_for_identity(id, x_sail_point_experimental)
+              # results = AccountsApi(api_client).disable_account_for_identity(id)
               print("The response of AccountsApi->disable_account_for_identity:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -1467,19 +1459,17 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           identities_accounts_bulk_request = '''{
           "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
         }''' # IdentitiesAccountsBulkRequest | 
           try:
               # Disable idn accounts for identities
               new_identities_accounts_bulk_request = IdentitiesAccountsBulkRequest.from_json(identities_accounts_bulk_request)
-              results = AccountsApi(api_client).disable_accounts_for_identities(x_sail_point_experimental=x_sail_point_experimental, identities_accounts_bulk_request=new_identities_accounts_bulk_request)
+              results = AccountsApi(api_client).disable_accounts_for_identities(identities_accounts_bulk_request=new_identities_accounts_bulk_request)
               # Below is a request that includes all optional parameters
-              # results = AccountsApi(api_client).disable_accounts_for_identities(x_sail_point_experimental, new_identities_accounts_bulk_request)
+              # results = AccountsApi(api_client).disable_accounts_for_identities(new_identities_accounts_bulk_request)
               print("The response of AccountsApi->disable_accounts_for_identities:\n")
               for item in results:
                   print(item.model_dump_json(by_alias=True, indent=4))
@@ -1526,17 +1516,15 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = '2c91808384203c2d018437e631158309' # str | The identity id. # str | The identity id.
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
               # Enable idn account for identity
               
-              results = AccountsApi(api_client).enable_account_for_identity(id=id, x_sail_point_experimental=x_sail_point_experimental)
+              results = AccountsApi(api_client).enable_account_for_identity(id=id)
               # Below is a request that includes all optional parameters
-              # results = AccountsApi(api_client).enable_account_for_identity(id, x_sail_point_experimental)
+              # results = AccountsApi(api_client).enable_account_for_identity(id)
               print("The response of AccountsApi->enable_account_for_identity:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -1554,19 +1542,17 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           identities_accounts_bulk_request = '''{
           "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
         }''' # IdentitiesAccountsBulkRequest | 
           try:
               # Enable idn accounts for identities
               new_identities_accounts_bulk_request = IdentitiesAccountsBulkRequest.from_json(identities_accounts_bulk_request)
-              results = AccountsApi(api_client).enable_accounts_for_identities(x_sail_point_experimental=x_sail_point_experimental, identities_accounts_bulk_request=new_identities_accounts_bulk_request)
+              results = AccountsApi(api_client).enable_accounts_for_identities(identities_accounts_bulk_request=new_identities_accounts_bulk_request)
               # Below is a request that includes all optional parameters
-              # results = AccountsApi(api_client).enable_accounts_for_identities(x_sail_point_experimental, new_identities_accounts_bulk_request)
+              # results = AccountsApi(api_client).enable_accounts_for_identities(new_identities_accounts_bulk_request)
               print("The response of AccountsApi->enable_accounts_for_identities:\n")
               for item in results:
                   print(item.model_dump_json(by_alias=True, indent=4))
@@ -6771,7 +6757,7 @@
         with ApiClient(configuration) as api_client:
           x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           account_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). (optional) # str | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). (optional)
-          segmented_for_identity = 'me' # str | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. By convention, the value **me** can stand in for the current user's Identity ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional) # str | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. By convention, the value **me** can stand in for the current user's Identity ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional)
+          segmented_for_identity = 'e554098913544630b5985e9042f5e44b' # str | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional) # str | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional)
           for_segment_ids = '041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649' # str | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s). (optional) # str | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s). (optional)
           include_unsegmented = True # bool | Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented=false** results in an error. (optional) (default to True) # bool | Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented=false** results in an error. (optional) (default to True)
           offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -18391,17 +18377,15 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = 'ebbf35756e1140699ce52b233121384a' # str | The source id # str | The source id
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
-              # Remove all accounts in a source
+              # Remove all accounts in source
               
-              results = SourcesApi(api_client).delete_accounts_async(id=id, x_sail_point_experimental=x_sail_point_experimental)
+              results = SourcesApi(api_client).delete_accounts_async(id=id)
               # Below is a request that includes all optional parameters
-              # results = SourcesApi(api_client).delete_accounts_async(id, x_sail_point_experimental)
+              # results = SourcesApi(api_client).delete_accounts_async(id)
               print("The response of SourcesApi->delete_accounts_async:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -18917,19 +18901,17 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source Id # str | Source Id
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           file = None # bytearray | The CSV file containing the source accounts to aggregate. (optional) # bytearray | The CSV file containing the source accounts to aggregate. (optional)
           disable_optimization = 'disable_optimization_example' # str | Use this flag to reprocess every account whether or not the data has changed. (optional) # str | Use this flag to reprocess every account whether or not the data has changed. (optional)
           try:
               # Account aggregation
               
-              results = SourcesApi(api_client).import_accounts(id=id, x_sail_point_experimental=x_sail_point_experimental)
+              results = SourcesApi(api_client).import_accounts(id=id)
               # Below is a request that includes all optional parameters
-              # results = SourcesApi(api_client).import_accounts(id, x_sail_point_experimental, file, disable_optimization)
+              # results = SourcesApi(api_client).import_accounts(id, file, disable_optimization)
               print("The response of SourcesApi->import_accounts:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -19053,18 +19035,16 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = '75dbec1ebe154d5785da27b95e1dd5d7' # str | Source Id # str | Source Id
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           file = None # bytearray |  (optional) # bytearray |  (optional)
           try:
               # Process uncorrelated accounts
               
-              results = SourcesApi(api_client).import_uncorrelated_accounts(id=id, x_sail_point_experimental=x_sail_point_experimental)
+              results = SourcesApi(api_client).import_uncorrelated_accounts(id=id)
               # Below is a request that includes all optional parameters
-              # results = SourcesApi(api_client).import_uncorrelated_accounts(id, x_sail_point_experimental, file)
+              # results = SourcesApi(api_client).import_uncorrelated_accounts(id, file)
               print("The response of SourcesApi->import_uncorrelated_accounts:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:

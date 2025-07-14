@@ -57,11 +57,11 @@ Method | HTTP request | Description
 [**delete-non-employee-schema-attribute**](#delete-non-employee-schema-attribute) | **DELETE** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Delete non-employee source&#39;s schema attribute
 [**delete-non-employee-source**](#delete-non-employee-source) | **DELETE** `/non-employee-sources/{sourceId}` | Delete non-employee source
 [**delete-non-employee-source-schema-attributes**](#delete-non-employee-source-schema-attributes) | **DELETE** `/non-employee-sources/{sourceId}/schema-attributes` | Delete all custom schema attributes
-[**export-non-employee-records**](#export-non-employee-records) | **GET** `/non-employee-sources/{id}/non-employees/download` | Exports non-employee records to csv
-[**export-non-employee-source-schema-template**](#export-non-employee-source-schema-template) | **GET** `/non-employee-sources/{id}/schema-attributes-template/download` | Exports source schema template
-[**get-non-employee-approval**](#get-non-employee-approval) | **GET** `/non-employee-approvals/{id}` | Get a non-employee approval item detail
-[**get-non-employee-approval-summary**](#get-non-employee-approval-summary) | **GET** `/non-employee-approvals/summary/{requested-for}` | Get summary of non-employee approval requests
+[**get-non-employee-approval**](#get-non-employee-approval) | **GET** `/non-employee-approvals/{id}` | A non-employee approval item detail
+[**get-non-employee-approval-summary**](#get-non-employee-approval-summary) | **GET** `/non-employee-approvals/summary/{requested-for}` | Summary of non-employee approval requests
 [**get-non-employee-bulk-upload-status**](#get-non-employee-bulk-upload-status) | **GET** `/non-employee-sources/{id}/non-employee-bulk-upload/status` | Bulk upload status on source
+[**get-non-employee-export-records**](#get-non-employee-export-records) | **GET** `/non-employee-sources/{id}/non-employees/download` | Exports non-employee records to csv
+[**get-non-employee-export-source-schema-template**](#get-non-employee-export-source-schema-template) | **GET** `/non-employee-sources/{id}/schema-attributes-template/download` | Exports source schema template
 [**get-non-employee-record**](#get-non-employee-record) | **GET** `/non-employee-records/{id}` | Get a non-employee record
 [**get-non-employee-request**](#get-non-employee-request) | **GET** `/non-employee-requests/{id}` | Get a non-employee request
 [**get-non-employee-request-summary**](#get-non-employee-request-summary) | **GET** `/non-employee-requests/summary/{requested-for}` | Get summary of non-employee requests
@@ -69,18 +69,21 @@ Method | HTTP request | Description
 [**get-non-employee-source**](#get-non-employee-source) | **GET** `/non-employee-sources/{sourceId}` | Get a non-employee source
 [**get-non-employee-source-schema-attributes**](#get-non-employee-source-schema-attributes) | **GET** `/non-employee-sources/{sourceId}/schema-attributes` | List schema attributes non-employee source
 [**import-non-employee-records-in-bulk**](#import-non-employee-records-in-bulk) | **POST** `/non-employee-sources/{id}/non-employee-bulk-upload` | Imports, or updates, non-employee records
-[**list-non-employee-approval**](#list-non-employee-approval) | **GET** `/non-employee-approvals` | Get list of non-employee approval requests
+[**list-non-employee-approval**](#list-non-employee-approval) | **GET** `/non-employee-approvals` | List of non-employee approval requests
 [**list-non-employee-records**](#list-non-employee-records) | **GET** `/non-employee-records` | List non-employee records
 [**list-non-employee-requests**](#list-non-employee-requests) | **GET** `/non-employee-requests` | List non-employee requests
 [**list-non-employee-sources**](#list-non-employee-sources) | **GET** `/non-employee-sources` | List non-employee sources
 [**patch-non-employee-record**](#patch-non-employee-record) | **PATCH** `/non-employee-records/{id}` | Patch non-employee record
 [**patch-non-employee-schema-attribute**](#patch-non-employee-schema-attribute) | **PATCH** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Patch non-employee source&#39;s schema attribute
 [**patch-non-employee-source**](#patch-non-employee-source) | **PATCH** `/non-employee-sources/{sourceId}` | Patch a non-employee source
+[**put-non-employee-record**](#put-non-employee-record) | **PUT** `/non-employee-records/{id}` | Update non-employee record
 [**reject-non-employee-request**](#reject-non-employee-request) | **POST** `/non-employee-approvals/{id}/reject` | Reject a non-employee request
-[**update-non-employee-record**](#update-non-employee-record) | **PUT** `/non-employee-records/{id}` | Update non-employee record
 
 
 ## approve-non-employee-request
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Approve a non-employee request
 Approves a non-employee approval request and notifies the next approver.
 
@@ -122,7 +125,7 @@ configuration = Configuration()
 
 
 with ApiClient(configuration) as api_client:
-    id = 'id_example' # str | Non-Employee approval item id (UUID) # str | Non-Employee approval item id (UUID)
+    id = '2c91808b6ef1d43e016efba0ce470904' # str | Non-Employee approval item id (UUID) # str | Non-Employee approval item id (UUID)
     non_employee_approval_decision = '''{
           "comment" : "comment"
         }''' # NonEmployeeApprovalDecision | 
@@ -144,6 +147,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## create-non-employee-record
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Create non-employee record
 This request will create a non-employee record.
 Request will require the following security scope:
@@ -218,6 +224,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## create-non-employee-request
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Create non-employee request
 This request will create a non-employee request and notify the approver
 
@@ -290,6 +299,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## create-non-employee-source
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Create non-employee source
 Create a non-employee source.
 
@@ -374,6 +386,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## create-non-employee-source-schema-attributes
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Create non-employee source schema attribute
 This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a "400.1.409 Reference conflict" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a "400.1.4 Limit violation" response.
 
@@ -442,6 +457,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-non-employee-record
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Delete non-employee record
 This request will delete a non-employee record.
 
@@ -497,6 +515,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-non-employee-record-in-bulk
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Delete multiple non-employee records
 This request will delete multiple non-employee records based on the non-employee ids provided.
 Request will require the following scope:
@@ -555,6 +576,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-non-employee-request
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Delete non-employee request
 This request will delete a non-employee request.
 
@@ -611,6 +635,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-non-employee-schema-attribute
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Delete non-employee source's schema attribute
 This end-point deletes a specific schema attribute for a non-employee source.
 
@@ -669,6 +696,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-non-employee-source
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Delete non-employee source
 This request will delete a non-employee source.
 
@@ -724,6 +754,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-non-employee-source-schema-attributes
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Delete all custom schema attributes
 This end-point deletes all custom schema attributes for a non-employee source.
 
@@ -778,122 +811,11 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) 
 
-## export-non-employee-records
-Exports non-employee records to csv
-This requests a CSV download for all non-employees from a provided source.
-
-[API Spec](https://developer.sailpoint.com/docs/api/beta/export-non-employee-records)
-
-### Parameters 
-
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Source Id (UUID)
-
-### Return type
- (empty response body)
-
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Exported CSV |  |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
-### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: text/csv, application/json
-
-### Example
-
-```python
-from sailpoint.beta.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
-from sailpoint.beta.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
-
-
-with ApiClient(configuration) as api_client:
-    id = '2c918085842e69ae018432d22ccb212f' # str | Source Id (UUID) # str | Source Id (UUID)
-
-    try:
-        # Exports non-employee records to csv
-        
-        NonEmployeeLifecycleManagementApi(api_client).export_non_employee_records(id=id)
-        # Below is a request that includes all optional parameters
-        # NonEmployeeLifecycleManagementApi(api_client).export_non_employee_records(id)
-    except Exception as e:
-        print("Exception when calling NonEmployeeLifecycleManagementApi->export_non_employee_records: %s\n" % e)
-```
-
-
-
-[[Back to top]](#) 
-
-## export-non-employee-source-schema-template
-Exports source schema template
-This requests a download for the Source Schema Template for a provided source.
-Request will require the following security scope:
-idn:nesr:read'
-
-[API Spec](https://developer.sailpoint.com/docs/api/beta/export-non-employee-source-schema-template)
-
-### Parameters 
-
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Source Id (UUID)
-
-### Return type
- (empty response body)
-
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Exported Source Schema Template |  |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
-### HTTP request headers
- - **Content-Type**: Not defined
- - **Accept**: text/csv, application/json
-
-### Example
-
-```python
-from sailpoint.beta.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
-from sailpoint.beta.api_client import ApiClient
-from sailpoint.configuration import Configuration
-configuration = Configuration()
-
-
-with ApiClient(configuration) as api_client:
-    id = '2c918085842e69ae018432d22ccb212f' # str | Source Id (UUID) # str | Source Id (UUID)
-
-    try:
-        # Exports source schema template
-        
-        NonEmployeeLifecycleManagementApi(api_client).export_non_employee_source_schema_template(id=id)
-        # Below is a request that includes all optional parameters
-        # NonEmployeeLifecycleManagementApi(api_client).export_non_employee_source_schema_template(id)
-    except Exception as e:
-        print("Exception when calling NonEmployeeLifecycleManagementApi->export_non_employee_source_schema_template: %s\n" % e)
-```
-
-
-
-[[Back to top]](#) 
-
 ## get-non-employee-approval
-Get a non-employee approval item detail
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+A non-employee approval item detail
 Approves a non-employee approval request and notifies the next approver.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-approval)
@@ -937,7 +859,7 @@ with ApiClient(configuration) as api_client:
     include_detail = 'include-detail=false' # str | The object nonEmployeeRequest will not be included detail when set to false. *Default value is true* (optional) # str | The object nonEmployeeRequest will not be included detail when set to false. *Default value is true* (optional)
 
     try:
-        # Get a non-employee approval item detail
+        # A non-employee approval item detail
         
         results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_approval(id=id)
         # Below is a request that includes all optional parameters
@@ -953,7 +875,10 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-non-employee-approval-summary
-Get summary of non-employee approval requests
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Summary of non-employee approval requests
 This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter: 1. The current user is the Org Admin, in which case he or she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver's id. 2. The current user is an approver, in which case "me" should be provided as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-approval-summary)
@@ -995,7 +920,7 @@ with ApiClient(configuration) as api_client:
     requested_for = 'ac10d20a-841e-1e7d-8184-32d2e22c0179' # str | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \"me\" instead to indicate the current user. # str | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \"me\" instead to indicate the current user.
 
     try:
-        # Get summary of non-employee approval requests
+        # Summary of non-employee approval requests
         
         results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_approval_summary(requested_for=requested_for)
         # Below is a request that includes all optional parameters
@@ -1011,6 +936,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-non-employee-bulk-upload-status
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Bulk upload status on source
 The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source.
 
@@ -1069,7 +997,130 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) 
 
+## get-non-employee-export-records
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Exports non-employee records to csv
+This requests a CSV download for all non-employees from a provided source.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-export-records)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | Source Id (UUID)
+
+### Return type
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Exported CSV |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: text/csv, application/json
+
+### Example
+
+```python
+from sailpoint.beta.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.beta.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    id = '2c918085842e69ae018432d22ccb212f' # str | Source Id (UUID) # str | Source Id (UUID)
+
+    try:
+        # Exports non-employee records to csv
+        
+        NonEmployeeLifecycleManagementApi(api_client).get_non_employee_export_records(id=id)
+        # Below is a request that includes all optional parameters
+        # NonEmployeeLifecycleManagementApi(api_client).get_non_employee_export_records(id)
+    except Exception as e:
+        print("Exception when calling NonEmployeeLifecycleManagementApi->get_non_employee_export_records: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## get-non-employee-export-source-schema-template
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Exports source schema template
+This requests a download for the Source Schema Template for a provided source.
+Request will require the following security scope:
+idn:nesr:read'
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-export-source-schema-template)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | Source Id (UUID)
+
+### Return type
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Exported Source Schema Template |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: text/csv, application/json
+
+### Example
+
+```python
+from sailpoint.beta.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.beta.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    id = '2c918085842e69ae018432d22ccb212f' # str | Source Id (UUID) # str | Source Id (UUID)
+
+    try:
+        # Exports source schema template
+        
+        NonEmployeeLifecycleManagementApi(api_client).get_non_employee_export_source_schema_template(id=id)
+        # Below is a request that includes all optional parameters
+        # NonEmployeeLifecycleManagementApi(api_client).get_non_employee_export_source_schema_template(id)
+    except Exception as e:
+        print("Exception when calling NonEmployeeLifecycleManagementApi->get_non_employee_export_source_schema_template: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
 ## get-non-employee-record
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Get a non-employee record
 This gets a non-employee record.
 
@@ -1128,6 +1179,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-non-employee-request
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Get a non-employee request
 This gets a non-employee request.
 
@@ -1187,6 +1241,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-non-employee-request-summary
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Get summary of non-employee requests
 This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter: 1. The current user is the Org Admin, in which case he or she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager's id. 2. The current user is an account manager, in which case "me" should be provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
 
@@ -1245,6 +1302,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-non-employee-schema-attribute
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Get schema attribute non-employee source
 This API gets a schema attribute by Id for the specified Non-Employee SourceId.
 
@@ -1305,6 +1365,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-non-employee-source
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Get a non-employee source
 This gets a non-employee source.
 
@@ -1363,6 +1426,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-non-employee-source-schema-attributes
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 List schema attributes non-employee source
 This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned.
 
@@ -1373,6 +1439,8 @@ This API gets the list of schema attributes for the specified Non-Employee Sourc
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | source_id | **str** | True  | The Source id
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**List[NonEmployeeSchemaAttribute]**](../models/non-employee-schema-attribute)
@@ -1404,13 +1472,15 @@ configuration = Configuration()
 
 with ApiClient(configuration) as api_client:
     source_id = '2c918085842e69ae018432d22ccb212f' # str | The Source id # str | The Source id
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
     try:
         # List schema attributes non-employee source
         
         results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_source_schema_attributes(source_id=source_id)
         # Below is a request that includes all optional parameters
-        # results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_source_schema_attributes(source_id)
+        # results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_source_schema_attributes(source_id, limit, offset)
         print("The response of NonEmployeeLifecycleManagementApi->get_non_employee_source_schema_attributes:\n")
         for item in results:
             print(item.model_dump_json(by_alias=True, indent=4))
@@ -1423,6 +1493,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## import-non-employee-records-in-bulk
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Imports, or updates, non-employee records
 This post will import, or update, Non-Employee records found in the CSV.
 Request will need the following security scope:
@@ -1486,7 +1559,10 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-non-employee-approval
-Get list of non-employee approval requests
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+List of non-employee approval requests
 This gets a list of non-employee approval requests.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-approval)
@@ -1538,7 +1614,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'created' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
 
     try:
-        # Get list of non-employee approval requests
+        # List of non-employee approval requests
         
         results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_approval()
         # Below is a request that includes all optional parameters
@@ -1555,6 +1631,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-non-employee-records
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 List non-employee records
 This gets a list of non-employee records.
 
@@ -1622,6 +1701,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-non-employee-requests
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 List non-employee requests
 This gets a list of non-employee requests.
 
@@ -1691,6 +1773,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-non-employee-sources
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 List non-employee sources
 Get a list of non-employee sources. There are two contextual uses for the `requested-for` path parameter: 
   1. If the user has the role context of `idn:nesr:read`, he or she may request a list sources assigned to a particular account manager by passing in that manager's `id`.
@@ -1762,6 +1847,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-non-employee-record
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Patch non-employee record
 This request will patch a non-employee record.
 
@@ -1824,6 +1912,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-non-employee-schema-attribute
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Patch non-employee source's schema attribute
 This end-point patches a specific schema attribute for a non-employee SourceId.
 
@@ -1889,6 +1980,9 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-non-employee-source
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Patch a non-employee source
 patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers**
 
@@ -1949,74 +2043,14 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) 
 
-## reject-non-employee-request
-Reject a non-employee request
-This endpoint will reject an approval item request and notify user.
-
-[API Spec](https://developer.sailpoint.com/docs/api/beta/reject-non-employee-request)
-
-### Parameters 
-
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | id | **str** | True  | Non-Employee approval item id (UUID)
- Body  | non_employee_reject_approval_decision | [**NonEmployeeRejectApprovalDecision**](../models/non-employee-reject-approval-decision) | True  | 
-
-### Return type
-[**NonEmployeeApprovalItem**](../models/non-employee-approval-item)
-
-### Responses
-Code | Description  | Data Type | Response headers |
-------------- | ------------- | ------------- |------------------|
-200 | Non-Employee approval item object. | NonEmployeeApprovalItem |  -  |
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
-
-### HTTP request headers
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### Example
-
-```python
-from sailpoint.beta.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
-from sailpoint.beta.api_client import ApiClient
-from sailpoint.beta.models.non_employee_approval_item import NonEmployeeApprovalItem
-from sailpoint.beta.models.non_employee_reject_approval_decision import NonEmployeeRejectApprovalDecision
-from sailpoint.configuration import Configuration
-configuration = Configuration()
-
-
-with ApiClient(configuration) as api_client:
-    id = 'id_example' # str | Non-Employee approval item id (UUID) # str | Non-Employee approval item id (UUID)
-    non_employee_reject_approval_decision = '''{
-          "comment" : "comment"
-        }''' # NonEmployeeRejectApprovalDecision | 
-
-    try:
-        # Reject a non-employee request
-        new_non_employee_reject_approval_decision = NonEmployeeRejectApprovalDecision.from_json(non_employee_reject_approval_decision)
-        results = NonEmployeeLifecycleManagementApi(api_client).reject_non_employee_request(id=id, non_employee_reject_approval_decision=new_non_employee_reject_approval_decision)
-        # Below is a request that includes all optional parameters
-        # results = NonEmployeeLifecycleManagementApi(api_client).reject_non_employee_request(id, new_non_employee_reject_approval_decision)
-        print("The response of NonEmployeeLifecycleManagementApi->reject_non_employee_request:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
-    except Exception as e:
-        print("Exception when calling NonEmployeeLifecycleManagementApi->reject_non_employee_request: %s\n" % e)
-```
-
-
-
-[[Back to top]](#) 
-
-## update-non-employee-record
+## put-non-employee-record
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Update non-employee record
 This request will update a non-employee record.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/update-non-employee-record)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-non-employee-record)
 
 ### Parameters 
 
@@ -2074,13 +2108,79 @@ with ApiClient(configuration) as api_client:
     try:
         # Update non-employee record
         new_non_employee_request_body = NonEmployeeRequestBody.from_json(non_employee_request_body)
-        results = NonEmployeeLifecycleManagementApi(api_client).update_non_employee_record(id=id, non_employee_request_body=new_non_employee_request_body)
+        results = NonEmployeeLifecycleManagementApi(api_client).put_non_employee_record(id=id, non_employee_request_body=new_non_employee_request_body)
         # Below is a request that includes all optional parameters
-        # results = NonEmployeeLifecycleManagementApi(api_client).update_non_employee_record(id, new_non_employee_request_body)
-        print("The response of NonEmployeeLifecycleManagementApi->update_non_employee_record:\n")
+        # results = NonEmployeeLifecycleManagementApi(api_client).put_non_employee_record(id, new_non_employee_request_body)
+        print("The response of NonEmployeeLifecycleManagementApi->put_non_employee_record:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
-        print("Exception when calling NonEmployeeLifecycleManagementApi->update_non_employee_record: %s\n" % e)
+        print("Exception when calling NonEmployeeLifecycleManagementApi->put_non_employee_record: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## reject-non-employee-request
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Reject a non-employee request
+This endpoint will reject an approval item request and notify user.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/reject-non-employee-request)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | Non-Employee approval item id (UUID)
+ Body  | non_employee_reject_approval_decision | [**NonEmployeeRejectApprovalDecision**](../models/non-employee-reject-approval-decision) | True  | 
+
+### Return type
+[**NonEmployeeApprovalItem**](../models/non-employee-approval-item)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Non-Employee approval item object. | NonEmployeeApprovalItem |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.beta.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+from sailpoint.beta.api_client import ApiClient
+from sailpoint.beta.models.non_employee_approval_item import NonEmployeeApprovalItem
+from sailpoint.beta.models.non_employee_reject_approval_decision import NonEmployeeRejectApprovalDecision
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    id = '2c91808b6ef1d43e016efba0ce470904' # str | Non-Employee approval item id (UUID) # str | Non-Employee approval item id (UUID)
+    non_employee_reject_approval_decision = '''{
+          "comment" : "comment"
+        }''' # NonEmployeeRejectApprovalDecision | 
+
+    try:
+        # Reject a non-employee request
+        new_non_employee_reject_approval_decision = NonEmployeeRejectApprovalDecision.from_json(non_employee_reject_approval_decision)
+        results = NonEmployeeLifecycleManagementApi(api_client).reject_non_employee_request(id=id, non_employee_reject_approval_decision=new_non_employee_reject_approval_decision)
+        # Below is a request that includes all optional parameters
+        # results = NonEmployeeLifecycleManagementApi(api_client).reject_non_employee_request(id, new_non_employee_reject_approval_decision)
+        print("The response of NonEmployeeLifecycleManagementApi->reject_non_employee_request:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling NonEmployeeLifecycleManagementApi->reject_non_employee_request: %s\n" % e)
 ```
 
 

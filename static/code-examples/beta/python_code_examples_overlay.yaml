@@ -4463,7 +4463,7 @@
 
         with ApiClient(configuration) as api_client:
           account_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). This parameter is deprecated. Please use [Account Entitlements API](https://developer.sailpoint.com/apis/beta/#operation/getAccountEntitlements) to get account entitlements. (optional) # str | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). This parameter is deprecated. Please use [Account Entitlements API](https://developer.sailpoint.com/apis/beta/#operation/getAccountEntitlements) to get account entitlements. (optional)
-          segmented_for_identity = 'me' # str | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. By convention, the value **me** can stand in for the current user's Identity ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional) # str | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. By convention, the value **me** can stand in for the current user's Identity ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional)
+          segmented_for_identity = 'e554098913544630b5985e9042f5e44b' # str | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID.  Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional) # str | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID.  Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional)
           for_segment_ids = '041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649' # str | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s). (optional) # str | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s). (optional)
           include_unsegmented = True # bool | Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented=false** results in an error. (optional) (default to True) # bool | Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented=false** results in an error. (optional) (default to True)
           offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -8782,7 +8782,7 @@
 
 
         with ApiClient(configuration) as api_client:
-          id = 'id_example' # str | Non-Employee approval item id (UUID) # str | Non-Employee approval item id (UUID)
+          id = '2c91808b6ef1d43e016efba0ce470904' # str | Non-Employee approval item id (UUID) # str | Non-Employee approval item id (UUID)
           non_employee_approval_decision = '''{
           "comment" : "comment"
         }''' # NonEmployeeApprovalDecision | 
@@ -9093,50 +9093,6 @@
               # NonEmployeeLifecycleManagementApi(api_client).delete_non_employee_source_schema_attributes(source_id)
           except Exception as e:
               print("Exception when calling NonEmployeeLifecycleManagementApi->delete_non_employee_source_schema_attributes: %s\n" % e)
-- path: /non-employee-sources/{id}/non-employees/download
-  method: GET
-  xCodeSample:
-    - lang: Python
-      label: SDK_tools/sdk/python/beta/methods/non-employee-lifecycle-management#export-non-employee-records
-      source: |
-        from sailpoint.beta.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
-        from sailpoint.beta.api_client import ApiClient
-        from sailpoint.configuration import Configuration
-        configuration = Configuration()
-
-
-        with ApiClient(configuration) as api_client:
-          id = '2c918085842e69ae018432d22ccb212f' # str | Source Id (UUID) # str | Source Id (UUID)
-          try:
-              # Exports non-employee records to csv
-              
-              NonEmployeeLifecycleManagementApi(api_client).export_non_employee_records(id=id)
-              # Below is a request that includes all optional parameters
-              # NonEmployeeLifecycleManagementApi(api_client).export_non_employee_records(id)
-          except Exception as e:
-              print("Exception when calling NonEmployeeLifecycleManagementApi->export_non_employee_records: %s\n" % e)
-- path: /non-employee-sources/{id}/schema-attributes-template/download
-  method: GET
-  xCodeSample:
-    - lang: Python
-      label: SDK_tools/sdk/python/beta/methods/non-employee-lifecycle-management#export-non-employee-source-schema-template
-      source: |
-        from sailpoint.beta.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
-        from sailpoint.beta.api_client import ApiClient
-        from sailpoint.configuration import Configuration
-        configuration = Configuration()
-
-
-        with ApiClient(configuration) as api_client:
-          id = '2c918085842e69ae018432d22ccb212f' # str | Source Id (UUID) # str | Source Id (UUID)
-          try:
-              # Exports source schema template
-              
-              NonEmployeeLifecycleManagementApi(api_client).export_non_employee_source_schema_template(id=id)
-              # Below is a request that includes all optional parameters
-              # NonEmployeeLifecycleManagementApi(api_client).export_non_employee_source_schema_template(id)
-          except Exception as e:
-              print("Exception when calling NonEmployeeLifecycleManagementApi->export_non_employee_source_schema_template: %s\n" % e)
 - path: /non-employee-approvals/{id}
   method: GET
   xCodeSample:
@@ -9154,7 +9110,7 @@
           id = 'ac10d20a-841e-1e7d-8184-32d2e22c0179' # str | Non-Employee approval item id (UUID) # str | Non-Employee approval item id (UUID)
           include_detail = 'include-detail=false' # str | The object nonEmployeeRequest will not be included detail when set to false. *Default value is true* (optional) # str | The object nonEmployeeRequest will not be included detail when set to false. *Default value is true* (optional)
           try:
-              # Get a non-employee approval item detail
+              # A non-employee approval item detail
               
               results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_approval(id=id)
               # Below is a request that includes all optional parameters
@@ -9179,7 +9135,7 @@
         with ApiClient(configuration) as api_client:
           requested_for = 'ac10d20a-841e-1e7d-8184-32d2e22c0179' # str | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \"me\" instead to indicate the current user. # str | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use \"me\" instead to indicate the current user.
           try:
-              # Get summary of non-employee approval requests
+              # Summary of non-employee approval requests
               
               results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_approval_summary(requested_for=requested_for)
               # Below is a request that includes all optional parameters
@@ -9213,6 +9169,50 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling NonEmployeeLifecycleManagementApi->get_non_employee_bulk_upload_status: %s\n" % e)
+- path: /non-employee-sources/{id}/non-employees/download
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/beta/methods/non-employee-lifecycle-management#get-non-employee-export-records
+      source: |
+        from sailpoint.beta.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+        from sailpoint.beta.api_client import ApiClient
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = '2c918085842e69ae018432d22ccb212f' # str | Source Id (UUID) # str | Source Id (UUID)
+          try:
+              # Exports non-employee records to csv
+              
+              NonEmployeeLifecycleManagementApi(api_client).get_non_employee_export_records(id=id)
+              # Below is a request that includes all optional parameters
+              # NonEmployeeLifecycleManagementApi(api_client).get_non_employee_export_records(id)
+          except Exception as e:
+              print("Exception when calling NonEmployeeLifecycleManagementApi->get_non_employee_export_records: %s\n" % e)
+- path: /non-employee-sources/{id}/schema-attributes-template/download
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/beta/methods/non-employee-lifecycle-management#get-non-employee-export-source-schema-template
+      source: |
+        from sailpoint.beta.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+        from sailpoint.beta.api_client import ApiClient
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = '2c918085842e69ae018432d22ccb212f' # str | Source Id (UUID) # str | Source Id (UUID)
+          try:
+              # Exports source schema template
+              
+              NonEmployeeLifecycleManagementApi(api_client).get_non_employee_export_source_schema_template(id=id)
+              # Below is a request that includes all optional parameters
+              # NonEmployeeLifecycleManagementApi(api_client).get_non_employee_export_source_schema_template(id)
+          except Exception as e:
+              print("Exception when calling NonEmployeeLifecycleManagementApi->get_non_employee_export_source_schema_template: %s\n" % e)
 - path: /non-employee-records/{id}
   method: GET
   xCodeSample:
@@ -9354,12 +9354,14 @@
 
         with ApiClient(configuration) as api_client:
           source_id = '2c918085842e69ae018432d22ccb212f' # str | The Source id # str | The Source id
+          limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           try:
               # List schema attributes non-employee source
               
               results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_source_schema_attributes(source_id=source_id)
               # Below is a request that includes all optional parameters
-              # results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_source_schema_attributes(source_id)
+              # results = NonEmployeeLifecycleManagementApi(api_client).get_non_employee_source_schema_attributes(source_id, limit, offset)
               print("The response of NonEmployeeLifecycleManagementApi->get_non_employee_source_schema_attributes:\n")
               for item in results:
                   print(item.model_dump_json(by_alias=True, indent=4))
@@ -9412,7 +9414,7 @@
           filters = 'approvalStatus eq \"PENDING\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **approvalStatus**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **approvalStatus**: *eq* (optional)
           sorters = 'created' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
           try:
-              # Get list of non-employee approval requests
+              # List of non-employee approval requests
               
               results = NonEmployeeLifecycleManagementApi(api_client).list_non_employee_approval()
               # Below is a request that includes all optional parameters
@@ -9596,40 +9598,11 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling NonEmployeeLifecycleManagementApi->patch_non_employee_source: %s\n" % e)
-- path: /non-employee-approvals/{id}/reject
-  method: POST
-  xCodeSample:
-    - lang: Python
-      label: SDK_tools/sdk/python/beta/methods/non-employee-lifecycle-management#reject-non-employee-request
-      source: |
-        from sailpoint.beta.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
-        from sailpoint.beta.api_client import ApiClient
-        from sailpoint.beta.models.non_employee_approval_item import NonEmployeeApprovalItem
-        from sailpoint.beta.models.non_employee_reject_approval_decision import NonEmployeeRejectApprovalDecision
-        from sailpoint.configuration import Configuration
-        configuration = Configuration()
-
-
-        with ApiClient(configuration) as api_client:
-          id = 'id_example' # str | Non-Employee approval item id (UUID) # str | Non-Employee approval item id (UUID)
-          non_employee_reject_approval_decision = '''{
-          "comment" : "comment"
-        }''' # NonEmployeeRejectApprovalDecision | 
-          try:
-              # Reject a non-employee request
-              new_non_employee_reject_approval_decision = NonEmployeeRejectApprovalDecision.from_json(non_employee_reject_approval_decision)
-              results = NonEmployeeLifecycleManagementApi(api_client).reject_non_employee_request(id=id, non_employee_reject_approval_decision=new_non_employee_reject_approval_decision)
-              # Below is a request that includes all optional parameters
-              # results = NonEmployeeLifecycleManagementApi(api_client).reject_non_employee_request(id, new_non_employee_reject_approval_decision)
-              print("The response of NonEmployeeLifecycleManagementApi->reject_non_employee_request:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
-          except Exception as e:
-              print("Exception when calling NonEmployeeLifecycleManagementApi->reject_non_employee_request: %s\n" % e)
 - path: /non-employee-records/{id}
   method: PUT
   xCodeSample:
     - lang: Python
-      label: SDK_tools/sdk/python/beta/methods/non-employee-lifecycle-management#update-non-employee-record
+      label: SDK_tools/sdk/python/beta/methods/non-employee-lifecycle-management#put-non-employee-record
       source: |
         from sailpoint.beta.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
         from sailpoint.beta.api_client import ApiClient
@@ -9658,13 +9631,42 @@
           try:
               # Update non-employee record
               new_non_employee_request_body = NonEmployeeRequestBody.from_json(non_employee_request_body)
-              results = NonEmployeeLifecycleManagementApi(api_client).update_non_employee_record(id=id, non_employee_request_body=new_non_employee_request_body)
+              results = NonEmployeeLifecycleManagementApi(api_client).put_non_employee_record(id=id, non_employee_request_body=new_non_employee_request_body)
               # Below is a request that includes all optional parameters
-              # results = NonEmployeeLifecycleManagementApi(api_client).update_non_employee_record(id, new_non_employee_request_body)
-              print("The response of NonEmployeeLifecycleManagementApi->update_non_employee_record:\n")
+              # results = NonEmployeeLifecycleManagementApi(api_client).put_non_employee_record(id, new_non_employee_request_body)
+              print("The response of NonEmployeeLifecycleManagementApi->put_non_employee_record:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
-              print("Exception when calling NonEmployeeLifecycleManagementApi->update_non_employee_record: %s\n" % e)
+              print("Exception when calling NonEmployeeLifecycleManagementApi->put_non_employee_record: %s\n" % e)
+- path: /non-employee-approvals/{id}/reject
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/beta/methods/non-employee-lifecycle-management#reject-non-employee-request
+      source: |
+        from sailpoint.beta.api.non_employee_lifecycle_management_api import NonEmployeeLifecycleManagementApi
+        from sailpoint.beta.api_client import ApiClient
+        from sailpoint.beta.models.non_employee_approval_item import NonEmployeeApprovalItem
+        from sailpoint.beta.models.non_employee_reject_approval_decision import NonEmployeeRejectApprovalDecision
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = '2c91808b6ef1d43e016efba0ce470904' # str | Non-Employee approval item id (UUID) # str | Non-Employee approval item id (UUID)
+          non_employee_reject_approval_decision = '''{
+          "comment" : "comment"
+        }''' # NonEmployeeRejectApprovalDecision | 
+          try:
+              # Reject a non-employee request
+              new_non_employee_reject_approval_decision = NonEmployeeRejectApprovalDecision.from_json(non_employee_reject_approval_decision)
+              results = NonEmployeeLifecycleManagementApi(api_client).reject_non_employee_request(id=id, non_employee_reject_approval_decision=new_non_employee_reject_approval_decision)
+              # Below is a request that includes all optional parameters
+              # results = NonEmployeeLifecycleManagementApi(api_client).reject_non_employee_request(id, new_non_employee_reject_approval_decision)
+              print("The response of NonEmployeeLifecycleManagementApi->reject_non_employee_request:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling NonEmployeeLifecycleManagementApi->reject_non_employee_request: %s\n" % e)
 - path: /verified-domains
   method: POST
   xCodeSample:
@@ -14263,6 +14265,7 @@
           source_id = '2c9180835d191a86015d28455b4a2329' # str | The source id # str | The source id
           correlation_config = '''{
           "attributeAssignments" : [ {
+            "sequence" : 1,
             "filterString" : "first_name == \"John\"",
             "ignoreCase" : false,
             "complex" : false,
@@ -14271,6 +14274,7 @@
             "operation" : "EQ",
             "matchMode" : "ANYWHERE"
           }, {
+            "sequence" : 1,
             "filterString" : "first_name == \"John\"",
             "ignoreCase" : false,
             "complex" : false,

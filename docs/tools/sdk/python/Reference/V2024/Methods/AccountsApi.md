@@ -202,17 +202,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-account-async
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Remove account
 Use this endpoint to remove accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.
 
@@ -229,7 +218,6 @@ This endpoint is good for:
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | The account id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 [**TaskResultDto**](../models/task-result-dto)
@@ -257,18 +245,16 @@ from sailpoint.v2024.models.task_result_dto import TaskResultDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'c350d6aa4f104c61b062cb632421ad10' # str | The account id # str | The account id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Remove account
         
-        results = AccountsApi(api_client).delete_account_async(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        results = AccountsApi(api_client).delete_account_async(id=id)
         # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).delete_account_async(id, x_sail_point_experimental)
+        # results = AccountsApi(api_client).delete_account_async(id)
         print("The response of AccountsApi->delete_account_async:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -345,17 +331,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## disable-account-for-identity
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Disable idn account for identity
 This API submits a task to disable IDN account for a single identity.
 
@@ -366,7 +341,6 @@ This API submits a task to disable IDN account for a single identity.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | The identity id.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 **object**
@@ -394,18 +368,16 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c91808384203c2d018437e631158309' # str | The identity id. # str | The identity id.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Disable idn account for identity
         
-        results = AccountsApi(api_client).disable_account_for_identity(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        results = AccountsApi(api_client).disable_account_for_identity(id=id)
         # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).disable_account_for_identity(id, x_sail_point_experimental)
+        # results = AccountsApi(api_client).disable_account_for_identity(id)
         print("The response of AccountsApi->disable_account_for_identity:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -417,17 +389,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## disable-accounts-for-identities
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Disable idn accounts for identities
 This API submits tasks to disable IDN account for each identity provided in the request body.
 
@@ -437,7 +398,6 @@ This API submits tasks to disable IDN account for each identity provided in the 
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
  Body  | identities_accounts_bulk_request | [**IdentitiesAccountsBulkRequest**](../models/identities-accounts-bulk-request) | True  | 
 
 ### Return type
@@ -467,10 +427,8 @@ from sailpoint.v2024.models.identities_accounts_bulk_request import IdentitiesAc
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     identities_accounts_bulk_request = '''{
           "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
         }''' # IdentitiesAccountsBulkRequest | 
@@ -478,9 +436,9 @@ with ApiClient(configuration) as api_client:
     try:
         # Disable idn accounts for identities
         new_identities_accounts_bulk_request = IdentitiesAccountsBulkRequest.from_json(identities_accounts_bulk_request)
-        results = AccountsApi(api_client).disable_accounts_for_identities(x_sail_point_experimental=x_sail_point_experimental, identities_accounts_bulk_request=new_identities_accounts_bulk_request)
+        results = AccountsApi(api_client).disable_accounts_for_identities(identities_accounts_bulk_request=new_identities_accounts_bulk_request)
         # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).disable_accounts_for_identities(x_sail_point_experimental, new_identities_accounts_bulk_request)
+        # results = AccountsApi(api_client).disable_accounts_for_identities(new_identities_accounts_bulk_request)
         print("The response of AccountsApi->disable_accounts_for_identities:\n")
         for item in results:
             print(item.model_dump_json(by_alias=True, indent=4))
@@ -558,17 +516,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## enable-account-for-identity
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Enable idn account for identity
 This API submits a task to enable IDN account for a single identity.
 
@@ -579,7 +526,6 @@ This API submits a task to enable IDN account for a single identity.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | The identity id.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 **object**
@@ -607,18 +553,16 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c91808384203c2d018437e631158309' # str | The identity id. # str | The identity id.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Enable idn account for identity
         
-        results = AccountsApi(api_client).enable_account_for_identity(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        results = AccountsApi(api_client).enable_account_for_identity(id=id)
         # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).enable_account_for_identity(id, x_sail_point_experimental)
+        # results = AccountsApi(api_client).enable_account_for_identity(id)
         print("The response of AccountsApi->enable_account_for_identity:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -630,17 +574,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## enable-accounts-for-identities
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Enable idn accounts for identities
 This API submits tasks to enable IDN account for each identity provided in the request body.
 
@@ -650,7 +583,6 @@ This API submits tasks to enable IDN account for each identity provided in the r
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
  Body  | identities_accounts_bulk_request | [**IdentitiesAccountsBulkRequest**](../models/identities-accounts-bulk-request) | True  | 
 
 ### Return type
@@ -680,10 +612,8 @@ from sailpoint.v2024.models.identities_accounts_bulk_request import IdentitiesAc
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     identities_accounts_bulk_request = '''{
           "identityIds" : [ "2c91808384203c2d018437e631158308", "2c9180858082150f0180893dbaf553fe" ]
         }''' # IdentitiesAccountsBulkRequest | 
@@ -691,9 +621,9 @@ with ApiClient(configuration) as api_client:
     try:
         # Enable idn accounts for identities
         new_identities_accounts_bulk_request = IdentitiesAccountsBulkRequest.from_json(identities_accounts_bulk_request)
-        results = AccountsApi(api_client).enable_accounts_for_identities(x_sail_point_experimental=x_sail_point_experimental, identities_accounts_bulk_request=new_identities_accounts_bulk_request)
+        results = AccountsApi(api_client).enable_accounts_for_identities(identities_accounts_bulk_request=new_identities_accounts_bulk_request)
         # Below is a request that includes all optional parameters
-        # results = AccountsApi(api_client).enable_accounts_for_identities(x_sail_point_experimental, new_identities_accounts_bulk_request)
+        # results = AccountsApi(api_client).enable_accounts_for_identities(new_identities_accounts_bulk_request)
         print("The response of AccountsApi->enable_accounts_for_identities:\n")
         for item in results:
             print(item.model_dump_json(by_alias=True, indent=4))

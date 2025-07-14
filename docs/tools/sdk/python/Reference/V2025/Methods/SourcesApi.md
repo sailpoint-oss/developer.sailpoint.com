@@ -76,7 +76,7 @@ Method | HTTP request | Description
 [**create-source**](#create-source) | **POST** `/sources` | Creates a source in identitynow.
 [**create-source-schedule**](#create-source-schedule) | **POST** `/sources/{sourceId}/schedules` | Create schedule on source
 [**create-source-schema**](#create-source-schema) | **POST** `/sources/{sourceId}/schemas` | Create schema on source
-[**delete-accounts-async**](#delete-accounts-async) | **POST** `/sources/{id}/remove-accounts` | Remove all accounts in a source
+[**delete-accounts-async**](#delete-accounts-async) | **POST** `/sources/{id}/remove-accounts` | Remove all accounts in source
 [**delete-native-change-detection-config**](#delete-native-change-detection-config) | **DELETE** `/sources/{sourceId}/native-change-detection-config` | Delete native change detection configuration
 [**delete-provisioning-policy**](#delete-provisioning-policy) | **DELETE** `/sources/{sourceId}/provisioning-policies/{usageType}` | Delete provisioning policy by usagetype
 [**delete-source**](#delete-source) | **DELETE** `/sources/{id}` | Delete source by id
@@ -492,18 +492,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-accounts-async
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
-Remove all accounts in a source
+Remove all accounts in source
 Use this endpoint to remove all accounts from the system without provisioning changes to the source. Accounts that are removed could be re-created during the next aggregation.
 
 This endpoint is good for:
@@ -519,7 +508,6 @@ This endpoint is good for:
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | The source id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 [**TaskResultDto**](../models/task-result-dto)
@@ -547,18 +535,16 @@ from sailpoint.v2025.models.task_result_dto import TaskResultDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'ebbf35756e1140699ce52b233121384a' # str | The source id # str | The source id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Remove all accounts in a source
+        # Remove all accounts in source
         
-        results = SourcesApi(api_client).delete_accounts_async(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        results = SourcesApi(api_client).delete_accounts_async(id=id)
         # Below is a request that includes all optional parameters
-        # results = SourcesApi(api_client).delete_accounts_async(id, x_sail_point_experimental)
+        # results = SourcesApi(api_client).delete_accounts_async(id)
         print("The response of SourcesApi->delete_accounts_async:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -2134,17 +2120,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## import-uncorrelated-accounts
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Process uncorrelated accounts
 File is required for upload. You will also need to set the Content-Type header to `multipart/form-data`
 
@@ -2155,7 +2130,6 @@ File is required for upload. You will also need to set the Content-Type header t
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | Source Id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
    | file | **bytearray** |   (optional) | 
 
 ### Return type
@@ -2184,19 +2158,17 @@ from sailpoint.v2025.models.load_uncorrelated_accounts_task import LoadUncorrela
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '75dbec1ebe154d5785da27b95e1dd5d7' # str | Source Id # str | Source Id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     file = None # bytearray |  (optional) # bytearray |  (optional)
 
     try:
         # Process uncorrelated accounts
         
-        results = SourcesApi(api_client).import_uncorrelated_accounts(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        results = SourcesApi(api_client).import_uncorrelated_accounts(id=id)
         # Below is a request that includes all optional parameters
-        # results = SourcesApi(api_client).import_uncorrelated_accounts(id, x_sail_point_experimental, file)
+        # results = SourcesApi(api_client).import_uncorrelated_accounts(id, file)
         print("The response of SourcesApi->import_uncorrelated_accounts:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:

@@ -25,9 +25,6 @@ Method | HTTP request | Description
 
 
 ## get-org-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Get the current organization's configuration settings, only external accessible properties.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-org-config)
@@ -35,7 +32,6 @@ Get the current organization's configuration settings, only external accessible 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**OrgConfig**](../models/org-config)
@@ -57,15 +53,14 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Get org config settings
 
 try {
-    Get-V2025OrgConfig -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025OrgConfig 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025OrgConfig -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2025OrgConfig  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025OrgConfig"
     Write-Host $_.ErrorDetails

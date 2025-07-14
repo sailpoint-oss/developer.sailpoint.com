@@ -11441,15 +11441,14 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/org-config#get-org-config
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get org config settings
         
         try {
-            Get-V2025OrgConfig -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025OrgConfig 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025OrgConfig -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2025OrgConfig   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025OrgConfig"
             Write-Host $_.ErrorDetails

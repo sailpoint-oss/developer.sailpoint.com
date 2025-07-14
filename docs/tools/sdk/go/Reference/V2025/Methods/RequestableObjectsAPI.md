@@ -24,6 +24,7 @@ Method | HTTP request | Description
 ## list-requestable-objects
 Requestable objects list
 Get a list of acccess items that can be requested through the [Access Request endpoints](https://developer.sailpoint.com/docs/api/v2024/access-requests). Access items are marked with `AVAILABLE`, `PENDING` or `ASSIGNED` with respect to the identity provided using `identity-id` query parameter.
+This endpoint only lists roles and access profiles. For gathering requestable entitlements, the [Entitlements List API](https://developer.sailpoint.com/docs/api/v2025/list-entitlements) can be used with the segmented-for-identity parameter.
 Any authenticated token can call this endpoint to see their requestable access items.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/list-requestable-objects)

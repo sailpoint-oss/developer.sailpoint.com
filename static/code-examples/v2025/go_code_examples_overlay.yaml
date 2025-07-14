@@ -18261,7 +18261,6 @@
         )
 
         func main() {
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
           jsonpatchoperation := []byte(`[{op=replace, path=/timeZone, value=America/Toronto}]`) // []JsonPatchOperation | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
           
@@ -18275,8 +18274,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2025.OrgConfigAPI.PatchOrgConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
-          //resp, r, err := apiClient.V2025.OrgConfigAPI.PatchOrgConfig(context.Background()).XSailPointExperimental(xSailPointExperimental).JsonPatchOperation(jsonPatchOperation).Execute()
+          resp, r, err := apiClient.V2025.OrgConfigAPI.PatchOrgConfig(context.Background()).JsonPatchOperation(jsonPatchOperation).Execute()
+          //resp, r, err := apiClient.V2025.OrgConfigAPI.PatchOrgConfig(context.Background()).JsonPatchOperation(jsonPatchOperation).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `OrgConfigAPI.PatchOrgConfig``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

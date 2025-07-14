@@ -2336,6 +2336,7 @@ func main() {
     sourceId := `2c9180835d191a86015d28455b4a2329` // string | The source id # string | The source id
     correlationconfig := []byte(`{
           "attributeAssignments" : [ {
+            "sequence" : 1,
             "filterString" : "first_name == \"John\"",
             "ignoreCase" : false,
             "complex" : false,
@@ -2344,6 +2345,7 @@ func main() {
             "operation" : "EQ",
             "matchMode" : "ANYWHERE"
           }, {
+            "sequence" : 1,
             "filterString" : "first_name == \"John\"",
             "ignoreCase" : false,
             "complex" : false,

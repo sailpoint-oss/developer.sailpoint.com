@@ -15,6 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'CorrelationConfigAttributeAssignments
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Sequence** | Pointer to **int32** | The sequence of the attribute assignment. | [optional] 
 **Property** | Pointer to **string** | The property of the attribute assignment. | [optional] 
 **Value** | Pointer to **string** | The value of the attribute assignment. | [optional] 
 **Operation** | Pointer to **string** | The operation of the attribute assignment. | [optional] 
@@ -41,6 +42,31 @@ will change when the set of required properties is changed
 NewCorrelationConfigAttributeAssignmentsInnerWithDefaults instantiates a new CorrelationConfigAttributeAssignmentsInner object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetSequence
+
+`func (o *CorrelationConfigAttributeAssignmentsInner) GetSequence() int32`
+
+GetSequence returns the Sequence field if non-nil, zero value otherwise.
+
+### GetSequenceOk
+
+`func (o *CorrelationConfigAttributeAssignmentsInner) GetSequenceOk() (*int32, bool)`
+
+GetSequenceOk returns a tuple with the Sequence field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSequence
+
+`func (o *CorrelationConfigAttributeAssignmentsInner) SetSequence(v int32)`
+
+SetSequence sets Sequence field to given value.
+
+### HasSequence
+
+`func (o *CorrelationConfigAttributeAssignmentsInner) HasSequence() bool`
+
+HasSequence returns a boolean if a field has been set.
 
 ### GetProperty
 

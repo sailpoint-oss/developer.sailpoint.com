@@ -22,11 +22,16 @@ get:
       Refer to [Paginating Results](https://developer.sailpoint.com/idn/api/standard-collection-parameters#paginating-results) for more information about the query parameters you can use to achieve pagination.
   security:
     - userAuth: [sp:workflow:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_SUBADMIN
+    - SOURCE_ADMIN
   parameters:
     - name: id
       in: path
       description: Workflow ID. 
       required: true
+      x-sailpoint-resource-operation-id: listWorkflows
       style: simple
       explode: false
       schema:
@@ -34,7 +39,6 @@ get:
         example: c17bea3a-574d-453c-9e04-4365fbf5af0b
     - $ref: "../../parameters/limit.yaml"
     - $ref: "../../parameters/offset.yaml"
-    - $ref: "../../parameters/count.yaml"
     - in: query
       name: filters
       schema:

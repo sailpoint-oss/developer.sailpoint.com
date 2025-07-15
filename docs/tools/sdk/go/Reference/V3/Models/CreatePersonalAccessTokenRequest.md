@@ -17,7 +17,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | The name of the personal access token (PAT) to be created. Cannot be the same as another PAT owned by the user for whom this PAT is being created. | 
 **Scope** | Pointer to **[]string** | Scopes of the personal  access token. If no scope is specified, the token will be created with the default scope \"sp:scopes:all\". This means the personal access token will have all the rights of the owner who created it. | [optional] 
-**AccessTokenValiditySeconds** | Pointer to **int32** | Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200. | [optional] 
+**AccessTokenValiditySeconds** | Pointer to **NullableInt32** | Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200. | [optional] 
+**ExpirationDate** | Pointer to **NullableTime** | Date and time, down to the millisecond, when this personal access token will expire. If not provided, the token will expire 6 months after its creation date. The value must be a valid date-time string between the current date and 6 months from the creation date. | [optional] 
 
 ## Methods
 
@@ -118,4 +119,49 @@ SetAccessTokenValiditySeconds sets AccessTokenValiditySeconds field to given val
 
 HasAccessTokenValiditySeconds returns a boolean if a field has been set.
 
+### SetAccessTokenValiditySecondsNil
+
+`func (o *CreatePersonalAccessTokenRequest) SetAccessTokenValiditySecondsNil(b bool)`
+
+ SetAccessTokenValiditySecondsNil sets the value for AccessTokenValiditySeconds to be an explicit nil
+
+### UnsetAccessTokenValiditySeconds
+`func (o *CreatePersonalAccessTokenRequest) UnsetAccessTokenValiditySeconds()`
+
+UnsetAccessTokenValiditySeconds ensures that no value is present for AccessTokenValiditySeconds, not even an explicit nil
+### GetExpirationDate
+
+`func (o *CreatePersonalAccessTokenRequest) GetExpirationDate() SailPointTime`
+
+GetExpirationDate returns the ExpirationDate field if non-nil, zero value otherwise.
+
+### GetExpirationDateOk
+
+`func (o *CreatePersonalAccessTokenRequest) GetExpirationDateOk() (*SailPointTime, bool)`
+
+GetExpirationDateOk returns a tuple with the ExpirationDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExpirationDate
+
+`func (o *CreatePersonalAccessTokenRequest) SetExpirationDate(v SailPointTime)`
+
+SetExpirationDate sets ExpirationDate field to given value.
+
+### HasExpirationDate
+
+`func (o *CreatePersonalAccessTokenRequest) HasExpirationDate() bool`
+
+HasExpirationDate returns a boolean if a field has been set.
+
+### SetExpirationDateNil
+
+`func (o *CreatePersonalAccessTokenRequest) SetExpirationDateNil(b bool)`
+
+ SetExpirationDateNil sets the value for ExpirationDate to be an explicit nil
+
+### UnsetExpirationDate
+`func (o *CreatePersonalAccessTokenRequest) UnsetExpirationDate()`
+
+UnsetExpirationDate ensures that no value is present for ExpirationDate, not even an explicit nil
 

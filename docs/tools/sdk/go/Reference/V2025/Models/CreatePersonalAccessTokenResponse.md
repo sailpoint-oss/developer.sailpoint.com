@@ -22,12 +22,13 @@ Name | Type | Description | Notes
 **Owner** | [**PatOwner**](pat-owner) |  | 
 **Created** | **SailPointTime** | The date and time, down to the millisecond, when this personal access token was created. | 
 **AccessTokenValiditySeconds** | **int32** | Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200. | 
+**ExpirationDate** | **SailPointTime** | Date and time, down to the millisecond, when this personal access token will expire. If not provided, the token will expire 6 months after its creation date. The value must be a valid date-time string between the current date and 6 months from the creation date. | 
 
 ## Methods
 
 ### NewCreatePersonalAccessTokenResponse
 
-`func NewCreatePersonalAccessTokenResponse(id string, secret string, scope []string, name string, owner PatOwner, created SailPointTime, accessTokenValiditySeconds int32, ) *CreatePersonalAccessTokenResponse`
+`func NewCreatePersonalAccessTokenResponse(id string, secret string, scope []string, name string, owner PatOwner, created SailPointTime, accessTokenValiditySeconds int32, expirationDate SailPointTime, ) *CreatePersonalAccessTokenResponse`
 
 NewCreatePersonalAccessTokenResponse instantiates a new CreatePersonalAccessTokenResponse object
 This constructor will assign default values to properties that have it defined,
@@ -190,6 +191,26 @@ and a boolean to check if the value has been set.
 `func (o *CreatePersonalAccessTokenResponse) SetAccessTokenValiditySeconds(v int32)`
 
 SetAccessTokenValiditySeconds sets AccessTokenValiditySeconds field to given value.
+
+
+### GetExpirationDate
+
+`func (o *CreatePersonalAccessTokenResponse) GetExpirationDate() SailPointTime`
+
+GetExpirationDate returns the ExpirationDate field if non-nil, zero value otherwise.
+
+### GetExpirationDateOk
+
+`func (o *CreatePersonalAccessTokenResponse) GetExpirationDateOk() (*SailPointTime, bool)`
+
+GetExpirationDateOk returns a tuple with the ExpirationDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExpirationDate
+
+`func (o *CreatePersonalAccessTokenResponse) SetExpirationDate(v SailPointTime)`
+
+SetExpirationDate sets ExpirationDate field to given value.
 
 
 

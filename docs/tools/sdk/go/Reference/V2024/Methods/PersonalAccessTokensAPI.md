@@ -78,7 +78,8 @@ func main() {
     createpersonalaccesstokenrequest := []byte(`{
           "scope" : [ "demo:personal-access-token-scope:first", "demo:personal-access-token-scope:second" ],
           "accessTokenValiditySeconds" : 36900,
-          "name" : "NodeJS Integration"
+          "name" : "NodeJS Integration",
+          "expirationDate" : "2018-01-11T18:45:37.098Z"
         }`) // CreatePersonalAccessTokenRequest | Name and scope of personal access token.
 
     var createPersonalAccessTokenRequest v2024.CreatePersonalAccessTokenRequest

@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **Created** | **SailPointTime** | The date and time, down to the millisecond, when this personal access token was created. | 
 **LastUsed** | Pointer to **NullableTime** | The date and time, down to the millisecond, when this personal access token was last used to generate an access token. This timestamp does not get updated on every PAT usage, but only once a day. This property can be useful for identifying which PATs are no longer actively used and can be removed. | [optional] 
 **Managed** | Pointer to **bool** | If true, this token is managed by the SailPoint platform, and is not visible in the user interface. For example, Workflows will create managed personal access tokens for users who create workflows. | [optional] [default to false]
+**AccessTokenValiditySeconds** | Pointer to **int32** | Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200. | [optional] [default to 43200]
+**ExpirationDate** | Pointer to **SailPointTime** | Date and time, down to the millisecond, when this personal access token will expire. If not provided, the token will expire 6 months after its creation date. The value must be a valid date-time string between the current date and 6 months from the creation date. | [optional] 
 
 ## Methods
 
@@ -211,5 +213,55 @@ SetManaged sets Managed field to given value.
 `func (o *GetPersonalAccessTokenResponse) HasManaged() bool`
 
 HasManaged returns a boolean if a field has been set.
+
+### GetAccessTokenValiditySeconds
+
+`func (o *GetPersonalAccessTokenResponse) GetAccessTokenValiditySeconds() int32`
+
+GetAccessTokenValiditySeconds returns the AccessTokenValiditySeconds field if non-nil, zero value otherwise.
+
+### GetAccessTokenValiditySecondsOk
+
+`func (o *GetPersonalAccessTokenResponse) GetAccessTokenValiditySecondsOk() (*int32, bool)`
+
+GetAccessTokenValiditySecondsOk returns a tuple with the AccessTokenValiditySeconds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessTokenValiditySeconds
+
+`func (o *GetPersonalAccessTokenResponse) SetAccessTokenValiditySeconds(v int32)`
+
+SetAccessTokenValiditySeconds sets AccessTokenValiditySeconds field to given value.
+
+### HasAccessTokenValiditySeconds
+
+`func (o *GetPersonalAccessTokenResponse) HasAccessTokenValiditySeconds() bool`
+
+HasAccessTokenValiditySeconds returns a boolean if a field has been set.
+
+### GetExpirationDate
+
+`func (o *GetPersonalAccessTokenResponse) GetExpirationDate() SailPointTime`
+
+GetExpirationDate returns the ExpirationDate field if non-nil, zero value otherwise.
+
+### GetExpirationDateOk
+
+`func (o *GetPersonalAccessTokenResponse) GetExpirationDateOk() (*SailPointTime, bool)`
+
+GetExpirationDateOk returns a tuple with the ExpirationDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExpirationDate
+
+`func (o *GetPersonalAccessTokenResponse) SetExpirationDate(v SailPointTime)`
+
+SetExpirationDate sets ExpirationDate field to given value.
+
+### HasExpirationDate
+
+`func (o *GetPersonalAccessTokenResponse) HasExpirationDate() bool`
+
+HasExpirationDate returns a boolean if a field has been set.
 
 

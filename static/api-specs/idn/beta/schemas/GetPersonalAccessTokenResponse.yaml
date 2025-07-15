@@ -34,6 +34,19 @@ properties:
     default: false
     example: false
     description: If true, this token is managed by the SailPoint platform, and is not visible in the user interface. For example, Workflows will create managed personal access tokens for users who create workflows.
+  accessTokenValiditySeconds:
+    type: integer
+    format: int32
+    default: 43200
+    example: 36900
+    description: Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200.
+  expirationDate:
+    type: string
+    nullable: true
+    format: 'date-time'
+    default: 6 Months from created date
+    example: '2018-01-11T18:45:37.098Z'
+    description: Date and time, down to the millisecond, when this personal access token will expire. If not provided, the token will expire 6 months after its creation date. The value must be a valid date-time string between the current date and 6 months from the creation date.
 required:
   - id
   - name

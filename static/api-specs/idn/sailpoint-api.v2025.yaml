@@ -437,6 +437,14 @@ tags:
       For example, an administrator can use the pageId forget-username:user-email to set the custom text for the case when users forget their usernames and must enter their emails.
 
       Refer to [Creating Custom Instruction Text](https://documentation.sailpoint.com/saas/help/pwd/pwd_reset.html#creating-custom-instruction-text) for more information about creating custom password instructions.
+  - name: Custom User Levels
+    description: |
+      Use this API to implement custom user level functionality.
+      With this functionality in place, administrators can create custom user levels and configure them for use throughout Identity Security Cloud.
+      
+      Custom user levels allow administrators to create custom user levels that can be used to control access to Identity Security Cloud features and APIs.
+      
+      Refer to [User Levels](https://documentation.sailpoint.com/saas/help/common/users/index.html) for more information about User Levels.
   - name: Data Segmentation
     description: |
       This service is responsible for creating segments that will determine how access is delegated to identities
@@ -1942,6 +1950,14 @@ paths:
     $ref: ./v2025/paths/ai-access-request-recommendations-viewed.yaml
   /ai-access-request-recommendations/viewed-items/bulk-create:
     $ref: ./v2025/paths/ai-access-request-recommendations-viewed-bulk-create.yaml
+  /authorization/custom-user-levels:
+    $ref: ./v2025/paths/custom-user-levels/custom-user-levels.yaml
+  /authorization/custom-user-levels/{id}/publish:
+    $ref: ./v2025/paths/custom-user-levels/custom-user-levels-id-publish.yaml
+  /authorization/custom-user-levels/{id}:
+    $ref: ./v2025/paths/custom-user-levels/custom-user-levels-id.yaml
+  /authorization/authorization-assignable-right-sets:
+    $ref: ./v2025/paths/custom-user-levels/authorization-assignable-right-sets.yaml
   /auth-profiles:
     $ref: ./v2025/paths/auth-profiles.yaml
   /auth-profiles/{id}:

@@ -1,0 +1,26 @@
+type: object
+description: Payload containing details for creating a custom user level.
+properties:
+  name:
+    type: string
+    description: The name of the user level.
+    example: Custom User Level Name
+  description:
+    type: string
+    description: A brief description of the user level.
+    example: This is a description of the custom user level.
+  owner:
+    $ref: '../../../v2025/schemas/BaseReferenceDto.yaml'
+    description: The owner of the UserLevel.
+  rightSets:
+    type: array
+    items:
+      type: string
+    description: A list of rights associated with the user level.
+    example:
+      - idn:ui-right-set-list-read-example
+      - idn:ui-right-set-write-example
+required:
+  - name
+  - description
+  - owner

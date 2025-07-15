@@ -9214,7 +9214,8 @@
         {
           "scope" : [ "demo:personal-access-token-scope:first", "demo:personal-access-token-scope:second" ],
           "accessTokenValiditySeconds" : 36900,
-          "name" : "NodeJS Integration"
+          "name" : "NodeJS Integration",
+          "expirationDate" : "2018-01-11T18:45:37.098Z"
         }
         "@
         
@@ -14477,7 +14478,6 @@
         $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow ID.
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
         $Filters = "status eq "Failed"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **startTime**: *eq, lt, le, gt, ge*  **status**: *eq* (optional)
         
         # List workflow executions
@@ -14486,7 +14486,7 @@
             Get-BetaWorkflowExecutions -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-BetaWorkflowExecutions -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters   
+            # Get-BetaWorkflowExecutions -Id $Id -Limit $Limit -Offset $Offset -Filters $Filters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaWorkflowExecutions"
             Write-Host $_.ErrorDetails

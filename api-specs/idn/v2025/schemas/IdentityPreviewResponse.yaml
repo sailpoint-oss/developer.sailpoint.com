@@ -1,0 +1,24 @@
+type: object
+properties:
+  identity:
+    type: object
+    description: Identity's basic details. 
+    properties:
+      type:
+        type: string 
+        description: Identity's DTO type. 
+        enum: 
+          - IDENTITY
+        example: IDENTITY
+      id:
+        type: string
+        description: Identity ID.
+        example: 2c7180a46faadee4016fb4e018c20642
+      name:
+        type: string
+        description: Identity's display name. 
+        example: Michael Michaels
+  previewAttributes:
+    type: array
+    items:
+      $ref: './IdentityAttributePreview.yaml'

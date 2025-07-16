@@ -1,0 +1,38 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Task identifier
+    example: "ff8081814d977c21014da056804a0af3"
+  name:
+    type: string
+    description: Task name
+    example: "Background Object Terminator c8f030f2-b1a6-4e33-99e8-6935bc18735d"
+  description:
+    type: string
+    description: Task description
+    example: "Generic task for terminating data in the overlay, used by the TerminationService."
+  launcher:
+    type: string
+    description: User or process who launched the task
+    example: "support"
+  completed:
+    type: string
+    format: date-time
+    description: Date time of completion
+    example: "Mon Aug 21 14:57:39 CDT 2023"
+  launched:
+    type: string
+    format: date-time
+    description: Date time when the task was launched
+    example: "Mon Aug 21 14:55:39 CDT 2023"
+  completionStatus:
+    type: string
+    enum:
+      - Success
+      - Warning
+      - Error
+      - Terminated
+      - TempError
+    description: Task result status
+    example: "Success"

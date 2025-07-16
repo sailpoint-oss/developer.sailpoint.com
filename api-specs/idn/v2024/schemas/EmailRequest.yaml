@@ -1,0 +1,23 @@
+type: object
+properties:
+  templateName:
+    type: string
+    description: The name of the email template to be rendered.
+    example: "Cloud Certification Activation"
+  recipientIds:
+    type: array
+    items:
+      type: string
+    description: The Identity ID's of the email recipients.
+    example:
+      - "2c928091638fccc601638fcf023d02ef"
+      - "2c928096641378d801641501bcce0044"
+  variables:
+    type: object
+    description: Variables to pass to the template engine.
+    example:
+      subject: "New access certification"
+      body: "A new access"
+      replyToAddr: "dummy@nowhere.com"
+
+      

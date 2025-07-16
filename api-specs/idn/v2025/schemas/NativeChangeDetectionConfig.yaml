@@ -1,0 +1,43 @@
+type: object
+description: Source configuration information for Native Change Detection that is read and used by account aggregation process.
+properties:
+  enabled:
+    description: A flag indicating if Native Change Detection is enabled for a source.
+    type: boolean
+    example: true
+    default: false
+  operations:
+    type: array
+    description: Operation types for which Native Change Detection is enabled for a source.
+    items:
+      type: string
+      enum:
+        - ACCOUNT_UPDATED
+        - ACCOUNT_CREATED
+        - ACCOUNT_DELETED
+    example: [ACCOUNT_UPDATED, ACCOUNT_DELETED]
+  allEntitlements:
+    description: A flag indicating that all entitlements participate in Native Change Detection.
+    type: boolean
+    example: false
+    default: false
+  allNonEntitlementAttributes:
+    description: A flag indicating that all non-entitlement account attributes participate in Native Change Detection.
+    type: boolean
+    example: false
+    default: false
+  selectedEntitlements:
+    description: If allEntitlements flag is off this field lists entitlements that participate in Native Change Detection.
+    type: array
+    items:
+      type: string
+    example: [memberOf, memberOfSharedMailbox]
+  selectedNonEntitlementAttributes:
+    description: If allNonEntitlementAttributes flag is off this field lists non-entitlement account attributes that participate in Native Change Detection.
+    externalDocs:
+      description: Learn more about account attributes here.
+      url: https://documentation.sailpoint.com/saas/help/accounts/schema.html
+    type: array
+    items:
+      type: string
+    example: [lastName, phoneNumber, objectType, servicePrincipalName]

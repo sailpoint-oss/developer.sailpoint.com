@@ -1,0 +1,22 @@
+type: object
+properties:
+  requestId:
+    type: string
+    nullable: true
+    description: The verificationPollRequest request ID
+    example: 089899f13a8f4da7824996191587bab9
+  status:
+    type: string
+    enum:
+      - PENDING
+      - SUCCESS
+      - FAILED
+      - LOCKOUT
+      - NOT_ENOUGH_DATA
+    description: MFA Authentication status
+    example: SUCCESS
+  error:
+    type: string
+    nullable: true
+    description: Error messages from MFA verification request
+    example: Unable to connect DUO Service during verification

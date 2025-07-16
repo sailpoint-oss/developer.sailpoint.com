@@ -1,0 +1,11 @@
+type : object
+properties:
+  roleId:
+    type: string
+    description: The role IDs.
+    example: "3267e61ef284439cba2dc6cc11cf0941"
+  identityCount:
+    type: integer
+    format: int32
+    description: The assigned identity count.
+    example: 23

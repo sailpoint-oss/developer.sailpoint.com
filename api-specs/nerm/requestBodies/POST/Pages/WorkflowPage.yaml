@@ -1,0 +1,9 @@
+required: true
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        page:
+          type: object
+          $ref: "../../../schemas/POST/Pages/WorkflowPage.yaml"

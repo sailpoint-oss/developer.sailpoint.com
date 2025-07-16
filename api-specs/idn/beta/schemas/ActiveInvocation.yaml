@@ -1,0 +1,18 @@
+type: object
+properties:
+  id:
+    type: string
+    description: Invocation ID
+    example: "bc693f07-e7b6-4553-9626-c25954c58554"
+  created:
+    type: string
+    description: Invocation creation timestamp. String (ISO-8601).
+    example: "2020-03-27T20:42:14.738Z"
+  triggerId:
+    type: string
+    description: Trigger ID
+    example: "idn:access-requested"
+  deadline:
+    type: string
+    description: Invocation deadline timestamp. String (ISO-8601).
+    example: "2020-03-28T20:42:14.738Z"

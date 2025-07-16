@@ -1,0 +1,12 @@
+type: object
+nullable: true
+properties:
+  type:
+    type: string
+    nullable: true
+    description: The type of attribute value
+    example: "STRING"
+  value:
+    type: string
+    description: The attribute value
+    example: "Austin"

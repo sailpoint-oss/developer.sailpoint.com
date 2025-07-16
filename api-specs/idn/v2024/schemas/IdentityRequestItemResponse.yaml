@@ -1,0 +1,43 @@
+type: object
+properties:
+  id:
+    type: string
+    description: the id of identity request id
+  operation:
+    type: string
+    description: the operation of this item (Add/Remove)
+  type:
+    type: string
+    description: the type of item being requested - entitlement, role
+  name:
+    type: string
+    description: the displayable name of the entitlement, role, etc..
+  description:
+    type: string
+    description: the description of item being requested
+  sourceName:
+    type: string
+    description: the name of the source applications of entitlements
+  approverName:
+    type: string
+    description: the name of the approver - possibly null if no approval is required. Should be set even if rejected.
+  approverId:
+    type: string
+    description: the ID of the approver - possibly null if no approval is required
+  approved:
+    type: boolean
+    description: whether the item has been approved or not. False if no approval is required or if rejected is true
+  rejected:
+    type: boolean
+    description: Whether the item has been rejected or not. False if no approval is required of if approved is true
+example:
+  id: 8a80828f643d484f01643e14202e206f
+  operation: Add
+  type: role
+  name: Role-1
+  description: The role descrition
+  sourceName: Source1
+  approverName: John Snow
+  approverId: 8a80828f643d484f01643e14202e2000
+  approved: true
+  rejected: false

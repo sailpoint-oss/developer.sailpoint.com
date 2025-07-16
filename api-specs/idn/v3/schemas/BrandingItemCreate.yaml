@@ -1,0 +1,39 @@
+type: object
+required:
+  - name
+  - productName
+properties:
+  name:
+    type: string
+    description: name of branding item
+    example: "custom-branding-item"
+  productName:
+    type: string
+    description: product name
+    example: "product name"
+    nullable: true
+  actionButtonColor:
+    type: string
+    description: hex value of color for action button
+    example: "0074D9"
+  activeLinkColor:
+    type: string
+    description: hex value of color for link
+    example: "011E69"
+  navigationColor:
+    type: string
+    description: hex value of color for navigation bar
+    example: "011E69"
+  emailFromAddress:
+    type: string
+    description: email from address
+    example: "no-reply@sailpoint.com"
+  loginInformationalMessage:
+    type: string
+    description: login information message
+    example: ""
+  fileStandard:
+    type: string
+    format: binary
+    description: png file with logo
+    example: \x00\x00\x00\x02

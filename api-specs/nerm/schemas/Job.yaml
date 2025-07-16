@@ -1,0 +1,17 @@
+type: object
+properties:
+  info:
+    type: string
+    example: "job has started"
+  job_status:
+    type: object
+    properties:
+      job_id:
+        type: string
+        example: "3ce88e47ad6dba2ddf349d21"
+      status:
+        type: string
+        example: "queued"
+  status:
+    type: int
+    example: 200

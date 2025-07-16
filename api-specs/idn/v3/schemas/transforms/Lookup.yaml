@@ -1,0 +1,23 @@
+title: lookup
+type: object
+required:
+- table
+properties:
+  table:
+    type: object
+    additionalProperties: true
+    description: |
+      This is a JSON object of key-value pairs. The key is the string that will attempt to be matched to the input, and the value is the output string that should be returned if the key is matched
+      
+
+      >**Note** the use of the optional default key value here; if none of the three countries in the above example match the input string, the transform will return "Unknown Region" for the attribute that is mapped to this transform.
+    example: {
+        "USA": "Americas",
+        "FRA": "EMEA",
+        "AUS": "APAC",
+        "default": "Unknown Region"
+    }
+  requiresPeriodicRefresh:
+    $ref: './RequiresPeriodicRefresh.yaml'
+  input:
+    $ref: './input.yaml'

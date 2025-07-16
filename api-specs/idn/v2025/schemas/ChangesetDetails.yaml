@@ -1,0 +1,25 @@
+type: object
+properties:
+  timestamp:
+    type: string
+    description: timestamp
+    example: '2021-01-30T08:30:00Z'
+  changes:
+    type: array
+    description: Change description
+    items:
+      $ref: '../../beta/schemas/Change.yaml'
+    example: '[
+                  {
+                    "op": "replace",
+                    "from": null,
+                    "path": "/attributes/selectorSummary",
+                    "value": "<CompoundFilter>\n  <Filter operation=\"IN\" property=\"name\">\n    <Value>\n      <List>\n        <String>Valentine Fisher</String>\n        <String>Tatianna Swift</String>\n        <String>Tambra Oberbrunner</String>\n        <String>Susanne Sauer</String>\n        <String>Samir Torphy-Roob</String>\n        <String>Quentin Nolan</String>\n        <String>Merlene Terry</String>\n        <String>Lutie Lehner DDS</String>\n        <String>Jaxson Denesik-Price</String>\n        <String>Harvie Strosin MD</String>\n        <String>Mr. Gonzalo Crooks V</String>\n        <String>Firman Prohaska</String>\n        <String>Dave Schneider IV</String>\n        <String>Dr. Collins Bartoletti MD</String>\n        <String>Clabe Halvorson</String>\n        <String>Addyson Stoltenberg MD</String>\n        <String>Alaina Gaylord</String>\n        <String>Alcide Gutmann</String>\n        <String>Brooke Ryan</String>\n        <String>Charleen Farrell DDS</String>\n        <String>Maurine Lueilwitz</String>\n        <String>Lahoma Wuckert</String>\n        <String>Frederick Stark-Hills</String>\n      </List>\n    </Value>\n  </Filter>\n</CompoundFilter>\n"
+                  },
+                  {
+                    "op": "add",
+                    "from": null,
+                    "path": "/attributes/attributes",
+                    "value": "{\"approvalSchemes\":\"none\",\"cloudSelectorType\":\"IDENTITY_LIST\",\"deniedCommentsRequired\":false,\"requestCommentsRequired\":false,\"requestable\":true,\"sysDescriptions\":{\"en_US\":\"matches sages Role-abfd98.\"}}"
+                  }
+                ]'

@@ -1,0 +1,14 @@
+type: object
+properties:
+  date:
+    type: string
+    format: date
+    description: >-
+      The first day of the month for which activity is aggregated.
+    example: '2023-04-21'
+  count:
+    type: number
+    format: float
+    description: >-
+      The average number of days that accounts were active within this source, for the month.
+    example: 10.45

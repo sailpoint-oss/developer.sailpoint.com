@@ -1,0 +1,34 @@
+description: ConnectorRuleValidationResponse
+type: object
+required:
+  - state
+  - details
+properties:
+  state:
+    type: string
+    enum:
+      - OK
+      - ERROR
+    example: ERROR
+  details:
+    type: array
+    items:
+      description: CodeErrorDetail
+      type: object
+      required:
+        - line
+        - column
+        - message
+      properties:
+        line:
+          type: integer
+          description: The line number where the issue occurred
+          example: 2
+        column:
+          type: integer
+          description: the column number where the issue occurred
+          example: 5
+        messsage:
+          type: string
+          description: a description of the issue in the code
+          example: Remove reference to .decrypt(

@@ -1,0 +1,21 @@
+type: object
+properties:
+  id:
+    type: string
+    description: the id of the access item
+  eventType:
+    type: string
+    enum:
+      - ADD
+      - REMOVE
+  displayName:
+    type: string
+    description: the display name of the access item
+  sourceName:
+    type: string
+    description: the source name of the access item    
+example:
+  id: 2c91808c7726345b017726a0a2fb013b
+  eventType: ADD
+  displayName: Test
+  sourceName: Source

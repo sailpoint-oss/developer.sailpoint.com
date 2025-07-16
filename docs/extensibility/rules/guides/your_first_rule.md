@@ -1,7 +1,7 @@
 ---
 id: your-first-rule
 title: Your first rule
-pagination_label: Your irst Rule
+pagination_label: Your First Rule
 sidebar_label: Your First Rule
 sidebar_class_name: yourFirstRule
 keywords: ['rules', 'guides', 'first']

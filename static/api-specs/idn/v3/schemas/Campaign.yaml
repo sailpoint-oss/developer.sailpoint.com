@@ -95,7 +95,6 @@ allOf:
             description: A direct list of identities to include in this campaign. One of `identityIds` or `query` must be set.
             items:
               type: string
-            maxItems: 1000
             example: [0fbe863c063c4c88a35fd7f17e8a3df5]
           accessConstraints:
             type: array

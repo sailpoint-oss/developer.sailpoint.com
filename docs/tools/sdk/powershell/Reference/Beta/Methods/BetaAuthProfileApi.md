@@ -23,9 +23,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaProfileConfig**](#get-profile-config) | **GET** `/auth-profiles/{id}` | Get Auth Profile.
-[**Get-BetaProfileConfigList**](#get-profile-config-list) | **GET** `/auth-profiles` | Get list of Auth Profiles.
-[**Update-BetaProfileConfig**](#patch-profile-config) | **PATCH** `/auth-profiles/{id}` | Patch a specified Auth Profile
+[**Get-BetaProfileConfig**](#get-profile-config) | **GET** `/auth-profiles/{id}` | Get auth profile.
+[**Get-BetaProfileConfigList**](#get-profile-config-list) | **GET** `/auth-profiles` | Get list of auth profiles.
+[**Update-BetaProfileConfig**](#patch-profile-config) | **PATCH** `/auth-profiles/{id}` | Patch a specified auth profile
 
 
 ## get-profile-config
@@ -60,7 +60,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to get.
 
-# Get Auth Profile.
+# Get auth profile.
 
 try {
     Get-BetaProfileConfig -Id $Id 
@@ -103,7 +103,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get list of Auth Profiles.
+# Get list of auth profiles.
 
 try {
     Get-BetaProfileConfigList 
@@ -156,7 +156,7 @@ $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to pa
 }"@ # JsonPatchOperation[] | 
  
 
-# Patch a specified Auth Profile
+# Patch a specified auth profile
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

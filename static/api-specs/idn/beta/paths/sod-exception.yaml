@@ -2,7 +2,7 @@ get:
   operationId: getSodExceptionById
   tags:
     - SOD Exception
-  summary: Get SOD exception by ID
+  summary: Get sod exception by id
   # security:
   #   - oauth2: [API]
   description: >-
@@ -38,7 +38,7 @@ patch:
   operationId: patchExceptionById
   tags:
     - SOD Exception
-  summary: Update SOD exception
+  summary: Update sod exception
   # security:
   #   - oauth2: [API]
   description: >-
@@ -95,7 +95,7 @@ delete:
   operationId: deleteSodExceptionById
   tags:
     - SOD Exception
-  summary: Delete SOD exception by ID
+  summary: Delete sod exception by id
   # security:
   #   - oauth2: [API]
   description: >-

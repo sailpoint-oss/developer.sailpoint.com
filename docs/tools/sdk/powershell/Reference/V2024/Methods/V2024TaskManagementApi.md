@@ -17,11 +17,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2024PendingTaskHeaders**](#get-pending-task-headers) | **HEAD** `/task-status/pending-tasks` | Retrieve Pending Task List Headers
-[**Get-V2024PendingTasks**](#get-pending-tasks) | **GET** `/task-status/pending-tasks` | Retrieve Pending Task Status List
-[**Get-V2024TaskStatus**](#get-task-status) | **GET** `/task-status/{id}` | Get Task Status by ID
-[**Get-V2024TaskStatusList**](#get-task-status-list) | **GET** `/task-status` | Retrieve Task Status List
-[**Update-V2024TaskStatus**](#update-task-status) | **PATCH** `/task-status/{id}` | Update Task Status by ID
+[**Get-V2024PendingTaskHeaders**](#get-pending-task-headers) | **HEAD** `/task-status/pending-tasks` | Retrieve pending task list headers
+[**Get-V2024PendingTasks**](#get-pending-tasks) | **GET** `/task-status/pending-tasks` | Retrieve pending task status list
+[**Get-V2024TaskStatus**](#get-task-status) | **GET** `/task-status/{id}` | Get task status by id
+[**Get-V2024TaskStatusList**](#get-task-status-list) | **GET** `/task-status` | Retrieve task status list
+[**Update-V2024TaskStatus**](#update-task-status) | **PATCH** `/task-status/{id}` | Update task status by id
 
 
 ## get-pending-task-headers
@@ -65,7 +65,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# Retrieve Pending Task List Headers
+# Retrieve pending task list headers
 
 try {
     Get-V2024PendingTaskHeaders -XSailPointExperimental $XSailPointExperimental 
@@ -120,7 +120,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# Retrieve Pending Task Status List
+# Retrieve pending task status list
 
 try {
     Get-V2024PendingTasks -XSailPointExperimental $XSailPointExperimental 
@@ -171,7 +171,7 @@ Code | Description  | Data Type
 $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Task Status by ID
+# Get task status by id
 
 try {
     Get-V2024TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -231,7 +231,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'completionStatus eq "Success"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in*  **type**: *eq, in* (optional)
 $Sorters = "-created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created** (optional)
 
-# Retrieve Task Status List
+# Retrieve task status list
 
 try {
     Get-V2024TaskStatusList -XSailPointExperimental $XSailPointExperimental 
@@ -289,7 +289,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 }"@ # JsonPatchOperation[] | The JSONPatch payload used to update the object.
  
 
-# Update Task Status by ID
+# Update task status by id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

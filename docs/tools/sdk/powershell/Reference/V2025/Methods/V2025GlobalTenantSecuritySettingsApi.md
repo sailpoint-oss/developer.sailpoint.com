@@ -21,14 +21,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-V2025AuthOrgNetworkConfig**](#create-auth-org-network-config) | **POST** `/auth-org/network-config` | Create security network configuration.
-[**Get-V2025AuthOrgLockoutConfig**](#get-auth-org-lockout-config) | **GET** `/auth-org/lockout-config` | Get Auth Org Lockout Configuration.
+[**Get-V2025AuthOrgLockoutConfig**](#get-auth-org-lockout-config) | **GET** `/auth-org/lockout-config` | Get auth org lockout configuration.
 [**Get-V2025AuthOrgNetworkConfig**](#get-auth-org-network-config) | **GET** `/auth-org/network-config` | Get security network configuration.
-[**Get-V2025AuthOrgServiceProviderConfig**](#get-auth-org-service-provider-config) | **GET** `/auth-org/service-provider-config` | Get Service Provider Configuration.
-[**Get-V2025AuthOrgSessionConfig**](#get-auth-org-session-config) | **GET** `/auth-org/session-config` | Get Auth Org Session Configuration.
-[**Update-V2025AuthOrgLockoutConfig**](#patch-auth-org-lockout-config) | **PATCH** `/auth-org/lockout-config` | Update Auth Org Lockout Configuration
+[**Get-V2025AuthOrgServiceProviderConfig**](#get-auth-org-service-provider-config) | **GET** `/auth-org/service-provider-config` | Get service provider configuration.
+[**Get-V2025AuthOrgSessionConfig**](#get-auth-org-session-config) | **GET** `/auth-org/session-config` | Get auth org session configuration.
+[**Update-V2025AuthOrgLockoutConfig**](#patch-auth-org-lockout-config) | **PATCH** `/auth-org/lockout-config` | Update auth org lockout configuration
 [**Update-V2025AuthOrgNetworkConfig**](#patch-auth-org-network-config) | **PATCH** `/auth-org/network-config` | Update security network configuration.
-[**Update-V2025AuthOrgServiceProviderConfig**](#patch-auth-org-service-provider-config) | **PATCH** `/auth-org/service-provider-config` | Update Service Provider Configuration
-[**Update-V2025AuthOrgSessionConfig**](#patch-auth-org-session-config) | **PATCH** `/auth-org/session-config` | Update Auth Org Session Configuration
+[**Update-V2025AuthOrgServiceProviderConfig**](#patch-auth-org-service-provider-config) | **PATCH** `/auth-org/service-provider-config` | Update service provider configuration
+[**Update-V2025AuthOrgSessionConfig**](#patch-auth-org-session-config) | **PATCH** `/auth-org/session-config` | Update auth org session configuration
 
 
 ## create-auth-org-network-config
@@ -112,7 +112,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get Auth Org Lockout Configuration.
+# Get auth org lockout configuration.
 
 try {
     Get-V2025AuthOrgLockoutConfig 
@@ -200,7 +200,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get Service Provider Configuration.
+# Get service provider configuration.
 
 try {
     Get-V2025AuthOrgServiceProviderConfig 
@@ -244,7 +244,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get Auth Org Session Configuration.
+# Get auth org session configuration.
 
 try {
     Get-V2025AuthOrgSessionConfig 
@@ -296,7 +296,7 @@ Code | Description  | Data Type
 }"@ # JsonPatchOperation[] | A list of auth org lockout configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Ensures that the patched Lockout Config conforms to certain logical guidelines, which are:   `1. maximumAttempts >= 1 && maximumAttempts <= 15   2. lockoutDuration >= 5 && lockoutDuration <= 60   3. lockoutWindow >= 5 && lockoutDuration <= 60`
  
 
-# Update Auth Org Lockout Configuration
+# Update auth org lockout configuration
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -401,7 +401,7 @@ Code | Description  | Data Type
 }"@ # JsonPatchOperation[] | A list of auth org service provider configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Note: /federationProtocolDetails/0 is IdpDetails /federationProtocolDetails/1 is SpDetails Ensures that the patched ServiceProviderConfig conforms to certain logical guidelines, which are:   1. Do not add or remove any elements in the federation protocol details in the service provider configuration.   2. Do not modify, add, or delete the service provider details element in the federation protocol details.   3. If this is the first time the patched ServiceProviderConfig enables Remote IDP sign-in, it must also include IDPDetails.   4. If the patch enables Remote IDP sign in, the entityID in the IDPDetails cannot be null. IDPDetails must include an entityID.   5. Any JIT configuration update must be valid.  Just in time configuration update must be valid when enabled. This includes:   - A Source ID   - Source attribute mappings   - Source attribute maps have all the required key values (firstName, lastName, email)
  
 
-# Update Service Provider Configuration
+# Update service provider configuration
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -453,7 +453,7 @@ Code | Description  | Data Type
 }"@ # JsonPatchOperation[] | A list of auth org session configuration update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Ensures that the patched Session Config conforms to certain logical guidelines, which are:   `1. maxSessionTime >= 1 && maxSessionTime <= 10080 (1 week)   2. maxIdleTime >= 1 && maxIdleTime <= 1440 (1 day)   3. maxSessionTime must have a greater duration than maxIdleTime.` 
  
 
-# Update Auth Org Session Configuration
+# Update auth org session configuration
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

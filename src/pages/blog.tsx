@@ -24,14 +24,14 @@ const Blog: React.FC = () => {
   };
 
   return (
-    <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+    <Layout title="Blog" description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main className={styles.main}>
         <BlogBanner />
         <div>
           <div className={styles.mainCard}>
             <div className={styles.contentContainer}>
               <div className={styles.gettingStartedText}>
-                <div className={styles.gettingStartedOne}>Community Blog</div>
+                <div className={styles.gettingStartedOne}>Community blog</div>
                 <div className={styles.gettingStartedThree}>
                   <span>
                     Our community blog is a collection of technical writings

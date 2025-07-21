@@ -27,7 +27,9 @@ Name | Type | Description | Notes
 **email_notification_option** | [**EmailNotificationOption**](email-notification-option) |  | [optional] 
 **account_actions** | [**[]AccountAction**](account-action) |  | [optional] 
 **access_profile_ids** | **[]str** | List of unique access-profile IDs that are associated with the lifecycle state. | [optional] 
-**identity_state** | **str** | The lifecycle state's associated identity state. This field is generally 'null'. | [optional] 
+**identity_state** |  **Enum** [  'ACTIVE',    'INACTIVE_SHORT_TERM',    'INACTIVE_LONG_TERM' ] | The lifecycle state's associated identity state. This field is generally 'null'. | [optional] 
+**access_action_configuration** | [**AccessActionConfiguration**](access-action-configuration) |  | [optional] 
+**priority** | **int** | Priority level used to determine which profile to assign when a user exists in multiple profiles. Lower numeric values have higher priority.  By default, new profiles are assigned the lowest priority. The assigned profile also controls access granted or removed during provisioning based on lifecycle state changes. | [optional] 
 }
 
 ## Example
@@ -52,10 +54,15 @@ email_notification_option=sailpoint.v2025.models.email_notification_option.Email
 account_actions=[
                     sailpoint.v2025.models.account_action.AccountAction(
                         action = 'ENABLE', 
-                        source_ids = [2c918084660f45d6016617daa9210584, 2c918084660f45d6016617daa9210500], )
+                        source_ids = [2c918084660f45d6016617daa9210584, 2c918084660f45d6016617daa9210500], 
+                        exclude_source_ids = [3b551ccf5566478b9b77f37de25303aa], 
+                        all_sources = True, )
                     ],
 access_profile_ids=[2c918084660f45d6016617daa9210584, 2c918084660f45d6016617daa9210500],
-identity_state=''
+identity_state='INACTIVE_LONG_TERM',
+access_action_configuration=sailpoint.v2025.models.access_action_configuration.AccessActionConfiguration(
+                    remove_all_access_enabled = True, ),
+priority=10
 )
 
 ```

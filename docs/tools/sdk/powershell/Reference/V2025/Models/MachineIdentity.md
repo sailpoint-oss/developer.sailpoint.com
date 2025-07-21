@@ -24,6 +24,8 @@ Name | Type | Description | Notes
 **Description** | **String** | Description of machine identity | [optional] 
 **ManuallyEdited** | **Boolean** | Indicates if the machine identity has been manually edited | [optional] [default to $false]
 **Attributes** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | A map of custom machine identity attributes | [optional] 
+**Subtype** | **String** | The subtype value associated to the machine identity | [required]
+**Owners** | [**MachineIdentityDtoOwners**](machine-identity-dto-owners) |  | [optional] 
 
 ## Examples
 
@@ -36,7 +38,9 @@ $MachineIdentity = Initialize-V2025MachineIdentity  -Id id12345 `
  -BusinessApplication ADService `
  -Description  `
  -ManuallyEdited true `
- -Attributes {"Region":"EU"}
+ -Attributes {"Region":"EU"} `
+ -Subtype Application `
+ -Owners null
 ```
 
 - Convert the resource to JSON

@@ -1,7 +1,7 @@
 post:
   tags:
     - Multi-Host Integration
-  summary: Create Sources Within Multi-Host Integration 
+  summary: Create sources within multi-host integration
   description: >-
     This API is used to create sources within Multi-Host Integration. Multi-Host Integration holds similar types of sources.
     
@@ -49,7 +49,7 @@ post:
 get:
   tags:
     - Multi-Host Integration
-  summary: Get Multi-Host Integration By ID
+  summary: Get multi-host integration by id
   description: >-
     Get an existing Multi-Host Integration. 
   
@@ -92,7 +92,7 @@ get:
 delete:
   tags:
     - Multi-Host Integration
-  summary: Delete Multi-Host Integration
+  summary: Delete multi-host integration
   description: >-
     Delete an existing Multi-Host Integration by ID.  
     
@@ -132,7 +132,7 @@ patch:
   operationId: updateMultiHostSources
   tags:
     - Multi-Host Integration
-  summary: Update Multi-Host Integration
+  summary: Update multi-host integration
   description: >-
     Update existing sources within Multi-Host Integration.
     

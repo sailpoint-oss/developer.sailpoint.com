@@ -34,11 +34,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaSegment**](#create-segment) | **POST** `/segments` | Create Segment
-[**Remove-BetaSegment**](#delete-segment) | **DELETE** `/segments/{id}` | Delete Segment by ID
-[**Get-BetaSegment**](#get-segment) | **GET** `/segments/{id}` | Get Segment by ID
-[**Get-BetaSegments**](#list-segments) | **GET** `/segments` | List Segments
-[**Update-BetaSegment**](#patch-segment) | **PATCH** `/segments/{id}` | Update Segment
+[**New-BetaSegment**](#create-segment) | **POST** `/segments` | Create segment
+[**Remove-BetaSegment**](#delete-segment) | **DELETE** `/segments/{id}` | Delete segment by id
+[**Get-BetaSegment**](#get-segment) | **GET** `/segments/{id}` | Get segment by id
+[**Get-BetaSegments**](#list-segments) | **GET** `/segments` | List segments
+[**Update-BetaSegment**](#patch-segment) | **PATCH** `/segments/{id}` | Update segment
 
 
 ## create-segment
@@ -97,7 +97,7 @@ $Segment = @"{
   "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde"
 }"@
 
-# Create Segment
+# Create segment
 
 try {
     $Result = ConvertFrom-JsonToSegment -Json $Segment
@@ -146,7 +146,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to delete.
 
-# Delete Segment by ID
+# Delete segment by id
 
 try {
     Remove-BetaSegment -Id $Id 
@@ -193,7 +193,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The segment ID to retrieve.
 
-# Get Segment by ID
+# Get segment by id
 
 try {
     Get-BetaSegment -Id $Id 
@@ -243,7 +243,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# List Segments
+# List segments
 
 try {
     Get-BetaSegments 
@@ -295,7 +295,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of segment update operat
  $RequestBody = @"[{op=replace, path=/visibilityCriteria, value={expression={operator=AND, children=[{operator=EQUALS, attribute=location, value={type=STRING, value=Philadelphia}}, {operator=EQUALS, attribute=department, value={type=STRING, value=HR}}]}}}]"@ # SystemCollectionsHashtable[] | A list of segment update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * owner * visibilityCriteria * active 
  
 
-# Update Segment
+# Update segment
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody

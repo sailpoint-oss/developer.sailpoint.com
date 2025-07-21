@@ -2,7 +2,7 @@ post:
   operationId: setLifecycleState
   tags:
     - Lifecycle States
-  summary: Set Lifecycle State
+  summary: Set lifecycle state
   description: >-
     Use this API to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile.
   security:

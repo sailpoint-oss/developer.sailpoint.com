@@ -1,6 +1,6 @@
 post:
   operationId: deleteBulkRoles
-  summary: Delete Role(s)
+  summary: Delete role(s)
   tags:
     - Roles
   description: >-

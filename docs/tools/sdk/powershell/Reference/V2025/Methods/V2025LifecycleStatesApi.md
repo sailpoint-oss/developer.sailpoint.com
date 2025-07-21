@@ -55,12 +55,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2025LifecycleState**](#create-lifecycle-state) | **POST** `/identity-profiles/{identity-profile-id}/lifecycle-states` | Create Lifecycle State
-[**Remove-V2025LifecycleState**](#delete-lifecycle-state) | **DELETE** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Delete Lifecycle State
-[**Get-V2025LifecycleState**](#get-lifecycle-state) | **GET** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Get Lifecycle State
-[**Get-V2025LifecycleStates**](#get-lifecycle-states) | **GET** `/identity-profiles/{identity-profile-id}/lifecycle-states` | Lists LifecycleStates
-[**Set-V2025LifecycleState**](#set-lifecycle-state) | **POST** `/identities/{identity-id}/set-lifecycle-state` | Set Lifecycle State
-[**Update-V2025LifecycleStates**](#update-lifecycle-states) | **PATCH** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Update Lifecycle State
+[**New-V2025LifecycleState**](#create-lifecycle-state) | **POST** `/identity-profiles/{identity-profile-id}/lifecycle-states` | Create lifecycle state
+[**Remove-V2025LifecycleState**](#delete-lifecycle-state) | **DELETE** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Delete lifecycle state
+[**Get-V2025LifecycleState**](#get-lifecycle-state) | **GET** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Get lifecycle state
+[**Get-V2025LifecycleStates**](#get-lifecycle-states) | **GET** `/identity-profiles/{identity-profile-id}/lifecycle-states` | Lists lifecyclestates
+[**Set-V2025LifecycleState**](#set-lifecycle-state) | **POST** `/identities/{identity-id}/set-lifecycle-state` | Set lifecycle state
+[**Update-V2025LifecycleStates**](#update-lifecycle-states) | **PATCH** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Update lifecycle state
 
 
 ## create-lifecycle-state
@@ -95,6 +95,9 @@ Code | Description  | Data Type
 ```powershell
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
 $LifecycleState = @"{
+  "accessActionConfiguration" : {
+    "removeAllAccessEnabled" : true
+  },
   "accessProfileIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ],
   "emailNotificationOption" : {
     "notifyManagers" : true,
@@ -103,24 +106,29 @@ $LifecycleState = @"{
     "notifyAllAdmins" : true
   },
   "created" : "2015-05-28T14:07:17Z",
+  "description" : "Lifecycle description",
+  "identityCount" : 42,
+  "priority" : 10,
+  "technicalName" : "Technical Name",
+  "identityState" : "INACTIVE_LONG_TERM",
+  "enabled" : true,
   "name" : "aName",
   "modified" : "2015-05-28T14:07:17Z",
-  "description" : "Lifecycle description",
   "accountActions" : [ {
+    "allSources" : true,
     "action" : "ENABLE",
+    "excludeSourceIds" : [ "3b551ccf5566478b9b77f37de25303aa" ],
     "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
   }, {
+    "allSources" : true,
     "action" : "ENABLE",
+    "excludeSourceIds" : [ "3b551ccf5566478b9b77f37de25303aa" ],
     "sourceIds" : [ "2c918084660f45d6016617daa9210584", "2c918084660f45d6016617daa9210500" ]
   } ],
-  "id" : "id12345",
-  "identityCount" : 42,
-  "technicalName" : "Technical Name",
-  "identityState" : "identityState",
-  "enabled" : true
+  "id" : "id12345"
 }"@
 
-# Create Lifecycle State
+# Create lifecycle state
 
 try {
     $Result = ConvertFrom-JsonToLifecycleState -Json $LifecycleState
@@ -136,7 +144,7 @@ try {
 [[Back to top]](#) 
 
 ## delete-lifecycle-state
-Use this endpoint to delete the lifecycle state by its ID. 
+Use this endpoint to delete the lifecycle state by its ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-lifecycle-state)
 
@@ -169,7 +177,7 @@ Code | Description  | Data Type
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
 $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle state ID.
 
-# Delete Lifecycle State
+# Delete lifecycle state
 
 try {
     Remove-V2025LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId 
@@ -184,7 +192,7 @@ try {
 [[Back to top]](#) 
 
 ## get-lifecycle-state
-Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
+Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-lifecycle-state)
 
@@ -217,7 +225,7 @@ Code | Description  | Data Type
 $IdentityProfileId = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | Identity profile ID.
 $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle state ID.
 
-# Get Lifecycle State
+# Get lifecycle state
 
 try {
     Get-V2025LifecycleState -IdentityProfileId $IdentityProfileId -LifecycleStateId $LifecycleStateId 
@@ -270,7 +278,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Sorters = "created,modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
 
-# Lists LifecycleStates
+# Lists lifecyclestates
 
 try {
     Get-V2025LifecycleStates -IdentityProfileId $IdentityProfileId 
@@ -318,7 +326,7 @@ Code | Description  | Data Type
 $IdentityId = "2c9180857893f1290178944561990364" # String | ID of the identity to update.
 $SetLifecycleStateRequest = @""@
 
-# Set Lifecycle State
+# Set lifecycle state
 
 try {
     $Result = ConvertFrom-JsonToSetLifecycleStateRequest -Json $SetLifecycleStateRequest
@@ -343,7 +351,7 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | IdentityProfileId | **String** | True  | Identity profile ID.
 Path   | LifecycleStateId | **String** | True  | Lifecycle state ID.
- Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
 
 ### Return type
 [**LifecycleState**](../models/lifecycle-state)
@@ -371,10 +379,10 @@ $LifecycleStateId = "ef38f94347e94562b5bb8424a56397d8" # String | Lifecycle stat
   "op" : "replace",
   "path" : "/description",
   "value" : "New description"
-}"@ # JsonPatchOperation[] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
+}"@ # JsonPatchOperation[] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption * accessActionConfiguration * priority 
  
 
-# Update Lifecycle State
+# Update lifecycle state
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

@@ -2,7 +2,7 @@ get:
   operationId: getCampaignReports
   tags:
     - Certification Campaigns
-  summary: Get Campaign Reports
+  summary: Get campaign reports
   description: |
     Use this API to fetch all reports for a certification campaign by campaign ID.
   security:

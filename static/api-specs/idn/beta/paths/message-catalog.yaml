@@ -1,6 +1,6 @@
 get:
   operationId: getMessageCatalogs
-  summary: Get Message catalogs
+  summary: Get message catalogs
   tags:
     - IAI Message Catalogs
   description: >-

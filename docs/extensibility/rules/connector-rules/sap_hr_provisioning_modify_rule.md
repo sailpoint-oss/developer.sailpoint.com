@@ -258,6 +258,6 @@ This rule is used by the SAP HR connector for provisioning of the data.
 </Rule>
 ```
 
-## Attach to Source
+## Attach to source
 
 Refer to [Attaching Connector-Related Rules to Sources](./index.md#sap-hr-provisioning-modify-rule) for details on how to attach your rule to your source.

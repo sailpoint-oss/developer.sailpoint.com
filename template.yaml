@@ -106,6 +106,15 @@ Resources:
               Ref: DeveloperSailpointApiGatewayApiv2
             Auth:
               Authorizer: NONE
+        PerformSailAppsTokenRefresh:
+          Type: HttpApi
+          Properties:
+            Path: /sailapps/refresh
+            Method: POST
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
         GetSailAppsToken:
           Type: HttpApi
           Properties:

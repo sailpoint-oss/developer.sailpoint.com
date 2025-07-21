@@ -14,7 +14,7 @@ tags: ['Transforms', 'Transform Operations']
 
 Use the replace transform to find a given pattern of characters within incoming data and replace all instances of that pattern with alternate values. The transform recognizes standard regex syntax. See the [References](#references) section for more information about regex.
 
-## Transform Structure
+## Transform structure
 
 The replace transform takes a `regex` attribute as an argument to identify which pattern to replace and a `replacement` attribute for the characters to replace the pattern with. The transform also requires the standard `type` and `name` attributes:
 
@@ -51,7 +51,7 @@ Input: "Working with IIQ is fun"
 Output: "Working with Identity Security Cloud is fun"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -75,7 +75,7 @@ Input: "The quick brown fox jumped over 10 lazy dogs"
 Output: "Thequickbrownfoxjumpedoverlazydogs"
 ```
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

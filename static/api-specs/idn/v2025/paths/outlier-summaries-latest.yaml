@@ -2,7 +2,7 @@ get:
   operationId: getLatestIdentityOutlierSnapshots
   tags:
     - IAI Outliers
-  summary: IAI Identity Outliers Latest Summary
+  summary: Iai identity outliers latest summary
   description: >-
     This API returns a most recent snapshot of each outlier type, each containing the number of identities that customer has, the number of outliers, and the type of outlier.
   parameters:

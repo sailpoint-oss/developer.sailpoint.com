@@ -29,21 +29,21 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-custom-connector**](#create-custom-connector) | **POST** `/connectors` | Create Custom Connector
-[**delete-custom-connector**](#delete-custom-connector) | **DELETE** `/connectors/{scriptName}` | Delete Connector by Script Name
-[**get-connector**](#get-connector) | **GET** `/connectors/{scriptName}` | Get Connector by Script Name
-[**get-connector-list**](#get-connector-list) | **GET** `/connectors` | Get Connector List
-[**get-connector-source-config**](#get-connector-source-config) | **GET** `/connectors/{scriptName}/source-config` | Get Connector Source Configuration
-[**get-connector-source-template**](#get-connector-source-template) | **GET** `/connectors/{scriptName}/source-template` | Get Connector Source Template
-[**get-connector-translations**](#get-connector-translations) | **GET** `/connectors/{scriptName}/translations/{locale}` | Get Connector Translations
-[**put-connector-source-config**](#put-connector-source-config) | **PUT** `/connectors/{scriptName}/source-config` | Update Connector Source Configuration
-[**put-connector-source-template**](#put-connector-source-template) | **PUT** `/connectors/{scriptName}/source-template` | Update Connector Source Template
-[**put-connector-translations**](#put-connector-translations) | **PUT** `/connectors/{scriptName}/translations/{locale}` | Update Connector Translations
-[**update-connector**](#update-connector) | **PATCH** `/connectors/{scriptName}` | Update Connector by Script Name
+[**create-custom-connector**](#create-custom-connector) | **POST** `/connectors` | Create custom connector
+[**delete-custom-connector**](#delete-custom-connector) | **DELETE** `/connectors/{scriptName}` | Delete connector by script name
+[**get-connector**](#get-connector) | **GET** `/connectors/{scriptName}` | Get connector by script name
+[**get-connector-list**](#get-connector-list) | **GET** `/connectors` | Get connector list
+[**get-connector-source-config**](#get-connector-source-config) | **GET** `/connectors/{scriptName}/source-config` | Get connector source configuration
+[**get-connector-source-template**](#get-connector-source-template) | **GET** `/connectors/{scriptName}/source-template` | Get connector source template
+[**get-connector-translations**](#get-connector-translations) | **GET** `/connectors/{scriptName}/translations/{locale}` | Get connector translations
+[**put-connector-source-config**](#put-connector-source-config) | **PUT** `/connectors/{scriptName}/source-config` | Update connector source configuration
+[**put-connector-source-template**](#put-connector-source-template) | **PUT** `/connectors/{scriptName}/source-template` | Update connector source template
+[**put-connector-translations**](#put-connector-translations) | **PUT** `/connectors/{scriptName}/translations/{locale}` | Update connector translations
+[**update-connector**](#update-connector) | **PATCH** `/connectors/{scriptName}` | Update connector by script name
 
 
 ## create-custom-connector
-Create Custom Connector
+Create custom connector
 Create custom connector.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-custom-connector)
@@ -93,7 +93,7 @@ with ApiClient(configuration) as api_client:
         }''' # V3CreateConnectorDto | 
 
     try:
-        # Create Custom Connector
+        # Create custom connector
         new_v3_create_connector_dto = V3CreateConnectorDto.from_json(v3_create_connector_dto)
         results = ConnectorsApi(api_client).create_custom_connector(v3_create_connector_dto=new_v3_create_connector_dto)
         # Below is a request that includes all optional parameters
@@ -109,7 +109,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-custom-connector
-Delete Connector by Script Name
+Delete connector by script name
 Delete a custom connector that using its script name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-custom-connector)
@@ -151,7 +151,7 @@ with ApiClient(configuration) as api_client:
     script_name = 'aScriptName' # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
     try:
-        # Delete Connector by Script Name
+        # Delete connector by script name
         
         ConnectorsApi(api_client).delete_custom_connector(script_name=script_name)
         # Below is a request that includes all optional parameters
@@ -165,7 +165,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-connector
-Get Connector by Script Name
+Get connector by script name
 Fetches a connector that using its script name.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector)
@@ -210,7 +210,7 @@ with ApiClient(configuration) as api_client:
     locale = 'de' # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional) # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional)
 
     try:
-        # Get Connector by Script Name
+        # Get connector by script name
         
         results = ConnectorsApi(api_client).get_connector(script_name=script_name)
         # Below is a request that includes all optional parameters
@@ -226,7 +226,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-connector-list
-Get Connector List
+Get connector list
 Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-list)
@@ -277,7 +277,7 @@ with ApiClient(configuration) as api_client:
     locale = 'de' # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional) # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional)
 
     try:
-        # Get Connector List
+        # Get connector list
         
         results = ConnectorsApi(api_client).get_connector_list()
         # Below is a request that includes all optional parameters
@@ -294,7 +294,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-connector-source-config
-Get Connector Source Configuration
+Get connector source configuration
 Fetches a connector's source config using its script name.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-source-config)
@@ -336,7 +336,7 @@ with ApiClient(configuration) as api_client:
     script_name = 'aScriptName' # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
     try:
-        # Get Connector Source Configuration
+        # Get connector source configuration
         
         results = ConnectorsApi(api_client).get_connector_source_config(script_name=script_name)
         # Below is a request that includes all optional parameters
@@ -352,7 +352,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-connector-source-template
-Get Connector Source Template
+Get connector source template
 Fetches a connector's source template using its script name.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-source-template)
@@ -394,7 +394,7 @@ with ApiClient(configuration) as api_client:
     script_name = 'aScriptName' # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation. # str | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
     try:
-        # Get Connector Source Template
+        # Get connector source template
         
         results = ConnectorsApi(api_client).get_connector_source_template(script_name=script_name)
         # Below is a request that includes all optional parameters
@@ -410,7 +410,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-connector-translations
-Get Connector Translations
+Get connector translations
 Fetches a connector's translations using its script name.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-connector-translations)
@@ -454,7 +454,7 @@ with ApiClient(configuration) as api_client:
     locale = 'de' # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\"
 
     try:
-        # Get Connector Translations
+        # Get connector translations
         
         results = ConnectorsApi(api_client).get_connector_translations(script_name=script_name, locale=locale)
         # Below is a request that includes all optional parameters
@@ -470,7 +470,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-connector-source-config
-Update Connector Source Configuration
+Update connector source configuration
 Update a connector's source config using its script name.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/put-connector-source-config)
@@ -515,7 +515,7 @@ with ApiClient(configuration) as api_client:
     file = None # bytearray | connector source config xml file # bytearray | connector source config xml file
 
     try:
-        # Update Connector Source Configuration
+        # Update connector source configuration
         
         results = ConnectorsApi(api_client).put_connector_source_config(script_name=script_name, file=file)
         # Below is a request that includes all optional parameters
@@ -531,7 +531,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-connector-source-template
-Update Connector Source Template
+Update connector source template
 Update a connector's source template using its script name.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/put-connector-source-template)
@@ -576,7 +576,7 @@ with ApiClient(configuration) as api_client:
     file = None # bytearray | connector source template xml file # bytearray | connector source template xml file
 
     try:
-        # Update Connector Source Template
+        # Update connector source template
         
         results = ConnectorsApi(api_client).put_connector_source_template(script_name=script_name, file=file)
         # Below is a request that includes all optional parameters
@@ -592,7 +592,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-connector-translations
-Update Connector Translations
+Update connector translations
 Update a connector's translations using its script name.    
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/put-connector-translations)
@@ -637,7 +637,7 @@ with ApiClient(configuration) as api_client:
     locale = 'de' # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\"
 
     try:
-        # Update Connector Translations
+        # Update connector translations
         
         results = ConnectorsApi(api_client).put_connector_translations(script_name=script_name, locale=locale)
         # Below is a request that includes all optional parameters
@@ -653,7 +653,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-connector
-Update Connector by Script Name
+Update connector by script name
 This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
 The following fields are patchable:
@@ -711,7 +711,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[sailpoint.v3.JsonPatchOperation()]''' # List[JsonPatchOperation] | A list of connector detail update operations 
 
     try:
-        # Update Connector by Script Name
+        # Update connector by script name
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = ConnectorsApi(api_client).update_connector(script_name=script_name, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters

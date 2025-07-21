@@ -24,15 +24,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create-form-definition**](#create-form-definition) | **POST** `/form-definitions` | Creates a form definition.
-[**create-form-definition-dynamic-schema**](#create-form-definition-dynamic-schema) | **POST** `/form-definitions/forms-action-dynamic-schema` | Generate JSON Schema dynamically.
+[**create-form-definition-dynamic-schema**](#create-form-definition-dynamic-schema) | **POST** `/form-definitions/forms-action-dynamic-schema` | Generate json schema dynamically.
 [**create-form-definition-file-request**](#create-form-definition-file-request) | **POST** `/form-definitions/{formDefinitionID}/upload` | Upload new form definition file.
 [**create-form-instance**](#create-form-instance) | **POST** `/form-instances` | Creates a form instance.
 [**delete-form-definition**](#delete-form-definition) | **DELETE** `/form-definitions/{formDefinitionID}` | Deletes a form definition.
 [**export-form-definitions-by-tenant**](#export-form-definitions-by-tenant) | **GET** `/form-definitions/export` | List form definitions by tenant.
-[**get-file-from-s3**](#get-file-from-s3) | **GET** `/form-definitions/{formDefinitionID}/file/{fileID}` | Download definition file by fileId.
+[**get-file-from-s3**](#get-file-from-s3) | **GET** `/form-definitions/{formDefinitionID}/file/{fileID}` | Download definition file by fileid.
 [**get-form-definition-by-key**](#get-form-definition-by-key) | **GET** `/form-definitions/{formDefinitionID}` | Return a form definition.
 [**get-form-instance-by-key**](#get-form-instance-by-key) | **GET** `/form-instances/{formInstanceID}` | Returns a form instance.
-[**get-form-instance-file**](#get-form-instance-file) | **GET** `/form-instances/{formInstanceID}/file/{fileID}` | Download instance file by fileId.
+[**get-form-instance-file**](#get-form-instance-file) | **GET** `/form-instances/{formInstanceID}/file/{fileID}` | Download instance file by fileid.
 [**import-form-definitions**](#import-form-definitions) | **POST** `/form-definitions/import` | Import form definitions from export.
 [**patch-form-definition**](#patch-form-definition) | **PATCH** `/form-definitions/{formDefinitionID}` | Patch a form definition.
 [**patch-form-instance**](#patch-form-instance) | **PATCH** `/form-instances/{formInstanceID}` | Patch a form instance.
@@ -213,7 +213,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## create-form-definition-dynamic-schema
-Generate JSON Schema dynamically.
+Generate json schema dynamically.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-form-definition-dynamic-schema)
@@ -265,7 +265,7 @@ with ApiClient(configuration) as api_client:
         }''' # FormDefinitionDynamicSchemaRequest | Body is the request payload to create a form definition dynamic schema (optional)
 
     try:
-        # Generate JSON Schema dynamically.
+        # Generate json schema dynamically.
         
         results = CustomFormsApi(api_client).create_form_definition_dynamic_schema()
         # Below is a request that includes all optional parameters
@@ -547,7 +547,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-file-from-s3
-Download definition file by fileId.
+Download definition file by fileid.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-file-from-s3)
@@ -592,7 +592,7 @@ with ApiClient(configuration) as api_client:
     file_id = '00000031N0J7R2B57M8YG73J7M.png' # str | FileID  String specifying the hashed name of the uploaded file we are retrieving. # str | FileID  String specifying the hashed name of the uploaded file we are retrieving.
 
     try:
-        # Download definition file by fileId.
+        # Download definition file by fileid.
         
         results = CustomFormsApi(api_client).get_file_from_s3(form_definition_id=form_definition_id, file_id=file_id)
         # Below is a request that includes all optional parameters
@@ -726,7 +726,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-form-instance-file
-Download instance file by fileId.
+Download instance file by fileid.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-form-instance-file)
@@ -771,7 +771,7 @@ with ApiClient(configuration) as api_client:
     file_id = '00000031N0J7R2B57M8YG73J7M.png' # str | FileID  String specifying the hashed name of the uploaded file we are retrieving. # str | FileID  String specifying the hashed name of the uploaded file we are retrieving.
 
     try:
-        # Download instance file by fileId.
+        # Download instance file by fileid.
         
         results = CustomFormsApi(api_client).get_form_instance_file(form_instance_id=form_instance_id, file_id=file_id)
         # Below is a request that includes all optional parameters

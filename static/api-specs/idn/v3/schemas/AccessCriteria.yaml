@@ -16,7 +16,7 @@ properties:
           type: string
           enum:
             - ENTITLEMENT
-          description: Type of the propery to which this reference applies to
+          description: Type of the property to which this reference applies to
           example: ENTITLEMENT
         id:
           type: string

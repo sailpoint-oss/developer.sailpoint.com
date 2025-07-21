@@ -25,14 +25,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-access-model-metadata-attribute**](#get-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes/{key}` | Get Access Model Metadata Attribute
-[**get-access-model-metadata-attribute-value**](#get-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values/{value}` | Get Access Model Metadata Value
-[**list-access-model-metadata-attribute**](#list-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes` | List Access Model Metadata Attributes
-[**list-access-model-metadata-attribute-value**](#list-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values` | List Access Model Metadata Values
+[**get-access-model-metadata-attribute**](#get-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes/{key}` | Get access model metadata attribute
+[**get-access-model-metadata-attribute-value**](#get-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values/{value}` | Get access model metadata value
+[**list-access-model-metadata-attribute**](#list-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes` | List access model metadata attributes
+[**list-access-model-metadata-attribute-value**](#list-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values` | List access model metadata values
 
 
 ## get-access-model-metadata-attribute
-Get Access Model Metadata Attribute
+Get access model metadata attribute
 Get single Access Model Metadata Attribute
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-model-metadata-attribute)
@@ -74,7 +74,7 @@ with ApiClient(configuration) as api_client:
     key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
 
     try:
-        # Get Access Model Metadata Attribute
+        # Get access model metadata attribute
         
         results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute(key=key)
         # Below is a request that includes all optional parameters
@@ -90,7 +90,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-access-model-metadata-attribute-value
-Get Access Model Metadata Value
+Get access model metadata value
 Get single Access Model Metadata Attribute Value
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-access-model-metadata-attribute-value)
@@ -134,7 +134,7 @@ with ApiClient(configuration) as api_client:
     value = 'public' # str | Technical name of the Attribute value. # str | Technical name of the Attribute value.
 
     try:
-        # Get Access Model Metadata Value
+        # Get access model metadata value
         
         results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute_value(key=key, value=value)
         # Below is a request that includes all optional parameters
@@ -150,7 +150,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-access-model-metadata-attribute
-List Access Model Metadata Attributes
+List access model metadata attributes
 Get a list of Access Model Metadata Attributes
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-access-model-metadata-attribute)
@@ -192,7 +192,7 @@ with ApiClient(configuration) as api_client:
     filters = 'name eq \"Privacy\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional)
 
     try:
-        # List Access Model Metadata Attributes
+        # List access model metadata attributes
         
         results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute()
         # Below is a request that includes all optional parameters
@@ -209,7 +209,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-access-model-metadata-attribute-value
-List Access Model Metadata Values
+List access model metadata values
 Get a list of Access Model Metadata Attribute Values
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-access-model-metadata-attribute-value)
@@ -251,7 +251,7 @@ with ApiClient(configuration) as api_client:
     key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
 
     try:
-        # List Access Model Metadata Values
+        # List access model metadata values
         
         results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute_value(key=key)
         # Below is a request that includes all optional parameters

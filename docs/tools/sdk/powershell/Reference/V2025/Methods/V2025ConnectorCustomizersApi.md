@@ -20,12 +20,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2025ConnectorCustomizer**](#create-connector-customizer) | **POST** `/connector-customizers` | Create Connector Customizer
+[**New-V2025ConnectorCustomizer**](#create-connector-customizer) | **POST** `/connector-customizers` | Create connector customizer
 [**New-V2025ConnectorCustomizerVersion**](#create-connector-customizer-version) | **POST** `/connector-customizers/{id}/versions` | Creates a connector customizer version
-[**Remove-V2025ConnectorCustomizer**](#delete-connector-customizer) | **DELETE** `/connector-customizers/{id}` | Delete Connector Customizer
+[**Remove-V2025ConnectorCustomizer**](#delete-connector-customizer) | **DELETE** `/connector-customizers/{id}` | Delete connector customizer
 [**Get-V2025ConnectorCustomizer**](#get-connector-customizer) | **GET** `/connector-customizers/{id}` | Get connector customizer
-[**Get-V2025ConnectorCustomizers**](#list-connector-customizers) | **GET** `/connector-customizers` | List All Connector Customizers
-[**Send-V2025ConnectorCustomizer**](#put-connector-customizer) | **PUT** `/connector-customizers/{id}` | Update Connector Customizer
+[**Get-V2025ConnectorCustomizers**](#list-connector-customizers) | **GET** `/connector-customizers` | List all connector customizers
+[**Send-V2025ConnectorCustomizer**](#put-connector-customizer) | **PUT** `/connector-customizers/{id}` | Update connector customizer
 
 
 ## create-connector-customizer
@@ -61,7 +61,7 @@ $ConnectorCustomizerCreateRequest = @"{
   "name" : "My Custom Connector"
 }"@
 
-# Create Connector Customizer
+# Create connector customizer
 
 try {
     $Result = ConvertFrom-JsonToConnectorCustomizerCreateRequest -Json $ConnectorCustomizerCreateRequest
@@ -154,7 +154,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "b07dc46a-1498-4de8-bfbb-259a68e70c8a" # String | ID of the connector customizer to delete.
 
-# Delete Connector Customizer
+# Delete connector customizer
 
 try {
     Remove-V2025ConnectorCustomizer -Id $Id 
@@ -247,7 +247,7 @@ Code | Description  | Data Type
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 
-# List All Connector Customizers
+# List all connector customizers
 
 try {
     Get-V2025ConnectorCustomizers 
@@ -297,7 +297,7 @@ $ConnectorCustomizerUpdateRequest = @"{
   "name" : "My Custom Connector"
 }"@
 
-# Update Connector Customizer
+# Update connector customizer
 
 try {
     Send-V2025ConnectorCustomizer -Id $Id 

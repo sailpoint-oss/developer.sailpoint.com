@@ -2,7 +2,7 @@ get:
   operationId: getNotificationsTemplateContext
   tags:
   - Notifications
-  summary: Get Notification Template Context
+  summary: Get notification template context
   description: "The notification service maintains metadata to construct the notification\
     \ templates or supply any information during the event propagation. The data-store\
     \ where this information is retrieved is called \"Global Context\" (a.k.a. notification\

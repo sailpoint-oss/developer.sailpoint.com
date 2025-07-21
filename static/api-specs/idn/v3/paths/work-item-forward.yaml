@@ -4,7 +4,7 @@ post:
     - userAuth: [ idn:work-item:update ]
   tags:
     - Work Items
-  summary: Forward a Work Item
+  summary: Forward a work item
   description: >-
     This API forwards a work item to a new owner. Either an admin, or the owning/current user must make this request.
     Accessible to work-item Owner, ORG_ADMIN, REPORT_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, SOURCE_ADMIN, SOURCE_SUBADMIN.

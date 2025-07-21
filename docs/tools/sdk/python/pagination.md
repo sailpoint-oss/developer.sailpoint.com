@@ -1,6 +1,6 @@
 ---
 id: python-sdk-pagination
-title: Paginate Results with The Python SDK
+title: Paginate results with The Python SDK
 pagination_label: Paginate Results
 sidebar_label: Paginate Results
 sidebar_position: 5

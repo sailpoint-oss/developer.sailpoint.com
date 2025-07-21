@@ -95,7 +95,7 @@ npm run dev
 
 To start learning how to use the UI Development Kit and explore its possibilities, refer to [Getting Started](./getting-started.mdx).
 
-## Getting Support
+## Getting support
 
 To get support for the UI Development Kit, please see our GitHub page, https://github.com/sailpoint-oss/ui-development-kit.
 

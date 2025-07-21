@@ -15,15 +15,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**export-outliers-zip**](#export-outliers-zip) | **GET** `/outliers/export` | IAI Identity Outliers Export
-[**get-identity-outlier-snapshots**](#get-identity-outlier-snapshots) | **GET** `/outlier-summaries` | IAI Identity Outliers Summary
-[**get-identity-outliers**](#get-identity-outliers) | **GET** `/outliers` | IAI Get Identity Outliers
-[**get-latest-identity-outlier-snapshots**](#get-latest-identity-outlier-snapshots) | **GET** `/outlier-summaries/latest` | IAI Identity Outliers Latest Summary
+[**export-outliers-zip**](#export-outliers-zip) | **GET** `/outliers/export` | Iai identity outliers export
+[**get-identity-outlier-snapshots**](#get-identity-outlier-snapshots) | **GET** `/outlier-summaries` | Iai identity outliers summary
+[**get-identity-outliers**](#get-identity-outliers) | **GET** `/outliers` | Iai get identity outliers
+[**get-latest-identity-outlier-snapshots**](#get-latest-identity-outlier-snapshots) | **GET** `/outlier-summaries/latest` | Iai identity outliers latest summary
 [**get-outlier-contributing-feature-summary**](#get-outlier-contributing-feature-summary) | **GET** `/outlier-feature-summaries/{outlierFeatureId}` | Get identity outlier contibuting feature summary
 [**get-peer-group-outliers-contributing-features**](#get-peer-group-outliers-contributing-features) | **GET** `/outliers/{outlierId}/contributing-features` | Get identity outlier&#39;s contibuting features
-[**ignore-identity-outliers**](#ignore-identity-outliers) | **POST** `/outliers/ignore` | IAI Identity Outliers Ignore
+[**ignore-identity-outliers**](#ignore-identity-outliers) | **POST** `/outliers/ignore` | Iai identity outliers ignore
 [**list-outliers-contributing-feature-access-items**](#list-outliers-contributing-feature-access-items) | **GET** `/outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items` | Gets a list of access items associated with each identity outlier contributing feature
-[**un-ignore-identity-outliers**](#un-ignore-identity-outliers) | **POST** `/outliers/unignore` | IAI Identity Outliers Unignore
+[**un-ignore-identity-outliers**](#un-ignore-identity-outliers) | **POST** `/outliers/unignore` | Iai identity outliers unignore
 
 
 ## export-outliers-zip
@@ -38,7 +38,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-IAI Identity Outliers Export
+Iai identity outliers export
 This API exports a list of ignored outliers to a CSV as well as list of non-ignored outliers to a CSV. These two CSVs will be zipped and exported.
 
 Columns will include: identityId, type, firstDetectionDate, latestDetectionDate, ignored, & attributes (defined set of identity attributes).
@@ -85,7 +85,7 @@ with ApiClient(configuration) as api_client:
     type = 'LOW_SIMILARITY' # str | Type of the identity outliers snapshot to filter on (optional) # str | Type of the identity outliers snapshot to filter on (optional)
 
     try:
-        # IAI Identity Outliers Export
+        # Iai identity outliers export
         
         results = IAIOutliersApi(api_client).export_outliers_zip(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -112,7 +112,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-IAI Identity Outliers Summary
+Iai identity outliers summary
 This API returns a summary containing the number of identities that customer has, the number of outliers, and the type of outlier.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-outlier-snapshots)
@@ -166,7 +166,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'snapshotDate' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **snapshotDate** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **snapshotDate** (optional)
 
     try:
-        # IAI Identity Outliers Summary
+        # Iai identity outliers summary
         
         results = IAIOutliersApi(api_client).get_identity_outlier_snapshots(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -194,7 +194,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-IAI Get Identity Outliers
+Iai get identity outliers
 This API returns a list of outliers, containing data such as identity ID, outlier type, detection dates, identity attributes, if identity is ignored, and certification information.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-outliers)
@@ -249,7 +249,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'attributes.displayName,firstDetectionDate,-score' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **firstDetectionDate, attributes, score** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **firstDetectionDate, attributes, score** (optional)
 
     try:
-        # IAI Get Identity Outliers
+        # Iai get identity outliers
         
         results = IAIOutliersApi(api_client).get_identity_outliers(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -277,7 +277,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-IAI Identity Outliers Latest Summary
+Iai identity outliers latest summary
 This API returns a most recent snapshot of each outlier type, each containing the number of identities that customer has, the number of outliers, and the type of outlier.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-latest-identity-outlier-snapshots)
@@ -323,7 +323,7 @@ with ApiClient(configuration) as api_client:
     type = 'LOW_SIMILARITY' # str | Type of the identity outliers snapshot to filter on (optional) # str | Type of the identity outliers snapshot to filter on (optional)
 
     try:
-        # IAI Identity Outliers Latest Summary
+        # Iai identity outliers latest summary
         
         results = IAIOutliersApi(api_client).get_latest_identity_outlier_snapshots(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -514,7 +514,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-IAI Identity Outliers Ignore
+Iai identity outliers ignore
 This API receives a list of identity IDs in the request, changes the outliers to be ignored.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/ignore-identity-outliers)
@@ -558,7 +558,7 @@ with ApiClient(configuration) as api_client:
     request_body = '''['request_body_example']''' # List[str] | 
 
     try:
-        # IAI Identity Outliers Ignore
+        # Iai identity outliers ignore
         new_request_body = RequestBody.from_json(request_body)
         IAIOutliersApi(api_client).ignore_identity_outliers(x_sail_point_experimental=x_sail_point_experimental, request_body=new_request_body)
         # Below is a request that includes all optional parameters
@@ -672,7 +672,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-IAI Identity Outliers Unignore
+Iai identity outliers unignore
 This API receives a list of identity IDs in the request, changes the outliers to be un-ignored.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/un-ignore-identity-outliers)
@@ -716,7 +716,7 @@ with ApiClient(configuration) as api_client:
     request_body = '''['request_body_example']''' # List[str] | 
 
     try:
-        # IAI Identity Outliers Unignore
+        # Iai identity outliers unignore
         new_request_body = RequestBody.from_json(request_body)
         IAIOutliersApi(api_client).un_ignore_identity_outliers(x_sail_point_experimental=x_sail_point_experimental, request_body=new_request_body)
         # Below is a request that includes all optional parameters

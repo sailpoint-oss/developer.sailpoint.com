@@ -54,14 +54,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaRole**](#create-role) | **POST** `/roles` | Create a Role
-[**Remove-BetaBulkRoles**](#delete-bulk-roles) | **POST** `/roles/bulk-delete` | Delete Role(s)
-[**Remove-BetaRole**](#delete-role) | **DELETE** `/roles/{id}` | Delete a Role
-[**Get-BetaRole**](#get-role) | **GET** `/roles/{id}` | Get a Role
-[**Get-BetaRoleAssignedIdentities**](#get-role-assigned-identities) | **GET** `/roles/{id}/assigned-identities` | Identities assigned a Role
-[**Get-BetaRoleEntitlements**](#get-role-entitlements) | **GET** `/roles/{id}/entitlements` | List Role&#39;s Entitlements
-[**Get-BetaRoles**](#list-roles) | **GET** `/roles` | List Roles
-[**Update-BetaRole**](#patch-role) | **PATCH** `/roles/{id}` | Patch a specified Role
+[**New-BetaRole**](#create-role) | **POST** `/roles` | Create a role
+[**Remove-BetaBulkRoles**](#delete-bulk-roles) | **POST** `/roles/bulk-delete` | Delete role(s)
+[**Remove-BetaRole**](#delete-role) | **DELETE** `/roles/{id}` | Delete a role
+[**Get-BetaRole**](#get-role) | **GET** `/roles/{id}` | Get a role
+[**Get-BetaRoleAssignedIdentities**](#get-role-assigned-identities) | **GET** `/roles/{id}/assigned-identities` | Identities assigned a role
+[**Get-BetaRoleEntitlements**](#get-role-entitlements) | **GET** `/roles/{id}/entitlements` | List role&#39;s entitlements
+[**Get-BetaRoles**](#list-roles) | **GET** `/roles` | List roles
+[**Update-BetaRole**](#patch-role) | **PATCH** `/roles/{id}` | Patch a specified role
 
 
 ## create-role
@@ -259,7 +259,7 @@ $Role = @"{
   "requestable" : true
 }"@
 
-# Create a Role
+# Create a role
 
 try {
     $Result = ConvertFrom-JsonToRole -Json $Role
@@ -310,7 +310,7 @@ $RoleBulkDeleteRequest = @"{
   "roleIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ]
 }"@
 
-# Delete Role(s)
+# Delete role(s)
 
 try {
     $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
@@ -358,7 +358,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
 
-# Delete a Role
+# Delete a role
 
 try {
     Remove-BetaRole -Id $Id 
@@ -393,6 +393,7 @@ Code | Description  | Data Type
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
@@ -404,7 +405,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
 
-# Get a Role
+# Get a role
 
 try {
     Get-BetaRole -Id $Id 
@@ -459,7 +460,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'name sw Joe' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **aliasName**: *eq, sw*  **email**: *eq, sw*  **name**: *eq, sw, co* (optional)
 $Sorters = "aliasName,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, aliasName, email** (optional)
 
-# Identities assigned a Role
+# Identities assigned a role
 
 try {
     Get-BetaRoleAssignedIdentities -Id $Id 
@@ -514,7 +515,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'attribute eq "memberOf"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in* (optional)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified** (optional)
 
-# List Role's Entitlements
+# List role's entitlements
 
 try {
     Get-BetaRoleEntitlements -Id $Id 
@@ -575,7 +576,7 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 $ForSegmentIds = "0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
 $IncludeUnsegmented = $false # Boolean | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to $true)
 
-# List Roles
+# List roles
 
 try {
     Get-BetaRoles 
@@ -647,7 +648,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
 }"@ # JsonPatchOperation[] | 
  
 
-# Patch a specified Role
+# Patch a specified role
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

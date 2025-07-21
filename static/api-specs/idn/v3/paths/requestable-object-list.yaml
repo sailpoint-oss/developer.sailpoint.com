@@ -2,7 +2,7 @@ get:
   operationId: listRequestableObjects
   tags:
     - Requestable Objects
-  summary: Requestable Objects List
+  summary: Requestable objects list
   security:
     - userAuth: [idn:requestable-objects:read]
   x-sailpoint-userLevels:
@@ -10,6 +10,8 @@ get:
   description: >-
     Get a list of acccess items that can be requested through the [Access Request endpoints](https://developer.sailpoint.com/docs/api/v3/access-requests).
     Access items are marked with `AVAILABLE`, `PENDING` or `ASSIGNED` with respect to the identity provided using `identity-id` query parameter.
+
+    This endpoint only lists roles and access profiles. For gathering requestable entitlements, the [Entitlements List API](https://developer.sailpoint.com/docs/api/v2025/list-entitlements) can be used with the segmented-for-identity parameter.
 
     Any authenticated token can call this endpoint to see their requestable access items.
   parameters:
@@ -33,8 +35,12 @@ get:
       schema:
         type: array
         items:
-          $ref: '../schemas/RequestableObjectType.yaml'
-      example: ROLE,ACCESS_PROFILE
+          type: string
+          enum:
+            - ACCESS_PROFILE
+            - ROLE
+          description: Currently supported requestable object types.
+      example: ACCESS_PROFILE,ROLE
       explode: false
     - in: query
       name: term

@@ -1,0 +1,77 @@
+type: object
+description: It represents a summary of a user level, including its metadata, attributes, and associated properties.
+properties:
+  id:
+    type: string
+    description: The unique identifier of the UserLevel.
+    example: beb02a57-010f-4c29-a6d2-fae9628bda73
+  name:
+    type: string
+    description: The human-readable name of the UserLevel.
+    example: Custom User Level Name
+  description:
+    type: string
+    description: A human-readable description of the UserLevel.
+    example: This is a description of the CustomUserLevel.
+    nullable: true
+  legacyGroup:
+    type: string
+    description: The legacy group associated with the UserLevel, used for backward compatibility for the UserLevel id.
+    example: ORG_ADMIN
+    nullable: true
+  rightSets:
+    type: array
+    items:
+      $ref: './RightSetDTO.yaml'
+    description: List of RightSets associated with the UserLevel.
+  custom:
+    type: boolean
+    description: Indicates whether the UserLevel is custom.
+    default: true
+    example: true
+  adminAssignable:
+    type: boolean
+    description: Indicates whether the UserLevel is admin-assignable.
+    default: true
+    example: true
+  translatedName:
+    type: string
+    description: The translated name of the UserLevel.
+    example: Translated Custom User Level Name
+    nullable: true
+  translatedGrant:
+    type: string
+    description: The translated grant message for the UserLevel.
+    example: Grant Message
+    nullable: true
+  translatedRemove:
+    type: string
+    description: The translated remove message for the UserLevel.
+    example: Remove Message
+    nullable: true
+  owner:
+    $ref: '../../../v2025/schemas/BaseReferenceDto.yaml'
+    description: The owner of the UserLevel.
+  status:
+    type: string
+    enum:
+      - ACTIVE
+      - DRAFT
+    description: The status of the UserLevel.
+    example: Active
+  created:
+    type: string
+    format: date-time
+    description: The creation timestamp of the UserLevel.
+    example: '2023-01-01T12:00:00Z'
+  modified:
+    type: string
+    format: date-time
+    description: The last modification timestamp of the UserLevel.
+    example: '2023-01-02T12:00:00Z'
+  associatedIdentitiesCount:
+    type: integer
+    description: The count of associated identities for the UserLevel.
+    format: int32
+    example: 10
+    nullable: true

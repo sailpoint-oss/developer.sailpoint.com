@@ -53,16 +53,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-lifecycle-state**](#create-lifecycle-state) | **POST** `/identity-profiles/{identity-profile-id}/lifecycle-states` | Create Lifecycle State
-[**delete-lifecycle-state**](#delete-lifecycle-state) | **DELETE** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Delete Lifecycle State
-[**get-lifecycle-state**](#get-lifecycle-state) | **GET** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Get Lifecycle State
-[**get-lifecycle-states**](#get-lifecycle-states) | **GET** `/identity-profiles/{identity-profile-id}/lifecycle-states` | Lists LifecycleStates
-[**set-lifecycle-state**](#set-lifecycle-state) | **POST** `/identities/{identity-id}/set-lifecycle-state` | Set Lifecycle State
-[**update-lifecycle-states**](#update-lifecycle-states) | **PATCH** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Update Lifecycle State
+[**create-lifecycle-state**](#create-lifecycle-state) | **POST** `/identity-profiles/{identity-profile-id}/lifecycle-states` | Create lifecycle state
+[**delete-lifecycle-state**](#delete-lifecycle-state) | **DELETE** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Delete lifecycle state
+[**get-lifecycle-state**](#get-lifecycle-state) | **GET** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Get lifecycle state
+[**get-lifecycle-states**](#get-lifecycle-states) | **GET** `/identity-profiles/{identity-profile-id}/lifecycle-states` | Lists lifecyclestates
+[**set-lifecycle-state**](#set-lifecycle-state) | **POST** `/identities/{identity-id}/set-lifecycle-state` | Set lifecycle state
+[**update-lifecycle-states**](#update-lifecycle-states) | **PATCH** `/identity-profiles/{identity-profile-id}/lifecycle-states/{lifecycle-state-id}` | Update lifecycle state
 
 
 ## create-lifecycle-state
-Create Lifecycle State
+Create lifecycle state
 Use this endpoint to create a lifecycle state.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-lifecycle-state)
@@ -130,7 +130,7 @@ with ApiClient(configuration) as api_client:
         }''' # LifecycleState | Lifecycle state to be created.
 
     try:
-        # Create Lifecycle State
+        # Create lifecycle state
         new_lifecycle_state = LifecycleState.from_json(lifecycle_state)
         results = LifecycleStatesApi(api_client).create_lifecycle_state(identity_profile_id=identity_profile_id, lifecycle_state=new_lifecycle_state)
         # Below is a request that includes all optional parameters
@@ -146,7 +146,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-lifecycle-state
-Delete Lifecycle State
+Delete lifecycle state
 Use this endpoint to delete the lifecycle state by its ID. 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-lifecycle-state)
@@ -191,7 +191,7 @@ with ApiClient(configuration) as api_client:
     lifecycle_state_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Lifecycle state ID. # str | Lifecycle state ID.
 
     try:
-        # Delete Lifecycle State
+        # Delete lifecycle state
         
         results = LifecycleStatesApi(api_client).delete_lifecycle_state(identity_profile_id=identity_profile_id, lifecycle_state_id=lifecycle_state_id)
         # Below is a request that includes all optional parameters
@@ -207,7 +207,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-lifecycle-state
-Get Lifecycle State
+Get lifecycle state
 Use this endpoint to get a lifecycle state by its ID and its associated identity profile ID. 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-lifecycle-state)
@@ -252,7 +252,7 @@ with ApiClient(configuration) as api_client:
     lifecycle_state_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Lifecycle state ID. # str | Lifecycle state ID.
 
     try:
-        # Get Lifecycle State
+        # Get lifecycle state
         
         results = LifecycleStatesApi(api_client).get_lifecycle_state(identity_profile_id=identity_profile_id, lifecycle_state_id=lifecycle_state_id)
         # Below is a request that includes all optional parameters
@@ -268,7 +268,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-lifecycle-states
-Lists LifecycleStates
+Lists lifecyclestates
 Use this endpoint to list all lifecycle states by their associated identity profiles. 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-lifecycle-states)
@@ -318,7 +318,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'created,modified' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
 
     try:
-        # Lists LifecycleStates
+        # Lists lifecyclestates
         
         results = LifecycleStatesApi(api_client).get_lifecycle_states(identity_profile_id=identity_profile_id)
         # Below is a request that includes all optional parameters
@@ -335,7 +335,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## set-lifecycle-state
-Set Lifecycle State
+Set lifecycle state
 Use this API to set/update an identity's lifecycle state to the one provided and update the corresponding identity profile.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/set-lifecycle-state)
@@ -381,7 +381,7 @@ with ApiClient(configuration) as api_client:
     set_lifecycle_state_request = '''sailpoint.v3.SetLifecycleStateRequest()''' # SetLifecycleStateRequest | 
 
     try:
-        # Set Lifecycle State
+        # Set lifecycle state
         new_set_lifecycle_state_request = SetLifecycleStateRequest.from_json(set_lifecycle_state_request)
         results = LifecycleStatesApi(api_client).set_lifecycle_state(identity_id=identity_id, set_lifecycle_state_request=new_set_lifecycle_state_request)
         # Below is a request that includes all optional parameters
@@ -397,7 +397,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-lifecycle-states
-Update Lifecycle State
+Update lifecycle state
 Use this endpoint to update individual lifecycle state fields, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/update-lifecycle-states)
@@ -445,7 +445,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/accessProfileIds, value=[2c918087742bab150174407a80f3125e, 2c918087742bab150174407a80f3124f]}, {op=replace, path=/accountActions, value=[{action=ENABLE, sourceIds=[2c9180846a2f82fb016a481c1b1560c5, 2c9180846a2f82fb016a481c1b1560cc]}, {action=DISABLE, sourceIds=[2c91808869a0c9980169a207258513fb]}]}, {op=replace, path=/emailNotificationOption, value={notifyManagers=true, notifyAllAdmins=false, notifySpecificUsers=false, emailAddressList=[]}}]''' # List[JsonPatchOperation] | A list of lifecycle state update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields can be updated: * enabled * description * accountActions * accessProfileIds * emailNotificationOption 
 
     try:
-        # Update Lifecycle State
+        # Update lifecycle state
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = LifecycleStatesApi(api_client).update_lifecycle_states(identity_profile_id=identity_profile_id, lifecycle_state_id=lifecycle_state_id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters

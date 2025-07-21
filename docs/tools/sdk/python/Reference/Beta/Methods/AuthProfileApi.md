@@ -21,13 +21,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-profile-config**](#get-profile-config) | **GET** `/auth-profiles/{id}` | Get Auth Profile.
-[**get-profile-config-list**](#get-profile-config-list) | **GET** `/auth-profiles` | Get list of Auth Profiles.
-[**patch-profile-config**](#patch-profile-config) | **PATCH** `/auth-profiles/{id}` | Patch a specified Auth Profile
+[**get-profile-config**](#get-profile-config) | **GET** `/auth-profiles/{id}` | Get auth profile.
+[**get-profile-config-list**](#get-profile-config-list) | **GET** `/auth-profiles` | Get list of auth profiles.
+[**patch-profile-config**](#patch-profile-config) | **PATCH** `/auth-profiles/{id}` | Patch a specified auth profile
 
 
 ## get-profile-config
-Get Auth Profile.
+Get auth profile.
 This API returns auth profile information.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-profile-config)
@@ -70,7 +70,7 @@ with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121919ecca' # str | ID of the Auth Profile to get. # str | ID of the Auth Profile to get.
 
     try:
-        # Get Auth Profile.
+        # Get auth profile.
         
         results = AuthProfileApi(api_client).get_profile_config(id=id)
         # Below is a request that includes all optional parameters
@@ -86,7 +86,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-profile-config-list
-Get list of Auth Profiles.
+Get list of auth profiles.
 This API returns a list of auth profiles.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-profile-config-list)
@@ -124,7 +124,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # Get list of Auth Profiles.
+        # Get list of auth profiles.
         
         results = AuthProfileApi(api_client).get_profile_config_list()
         # Below is a request that includes all optional parameters
@@ -141,7 +141,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-profile-config
-Patch a specified Auth Profile
+Patch a specified auth profile
 This API updates an existing Auth Profile. The following fields are patchable:
 **offNetwork**, **untrustedGeography**, **applicationId**, **applicationName**, **type**
 
@@ -187,7 +187,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[sailpoint.beta.JsonPatchOperation()]''' # List[JsonPatchOperation] | 
 
     try:
-        # Patch a specified Auth Profile
+        # Patch a specified auth profile
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = AuthProfileApi(api_client).patch_profile_config(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters

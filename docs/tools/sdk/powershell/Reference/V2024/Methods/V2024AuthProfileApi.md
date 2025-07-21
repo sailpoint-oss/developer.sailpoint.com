@@ -23,9 +23,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2024ProfileConfig**](#get-profile-config) | **GET** `/auth-profiles/{id}` | Get Auth Profile
-[**Get-V2024ProfileConfigList**](#get-profile-config-list) | **GET** `/auth-profiles` | Get list of Auth Profiles
-[**Update-V2024ProfileConfig**](#patch-profile-config) | **PATCH** `/auth-profiles/{id}` | Patch a specified Auth Profile
+[**Get-V2024ProfileConfig**](#get-profile-config) | **GET** `/auth-profiles/{id}` | Get auth profile
+[**Get-V2024ProfileConfigList**](#get-profile-config-list) | **GET** `/auth-profiles` | Get list of auth profiles
+[**Update-V2024ProfileConfig**](#patch-profile-config) | **PATCH** `/auth-profiles/{id}` | Patch a specified auth profile
 
 
 ## get-profile-config
@@ -65,7 +65,7 @@ Code | Description  | Data Type
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Id = "2c91808a7813090a017814121919ecca" # String | ID of the Auth Profile to patch.
 
-# Get Auth Profile
+# Get auth profile
 
 try {
     Get-V2024ProfileConfig -XSailPointExperimental $XSailPointExperimental -Id $Id 
@@ -113,7 +113,7 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get list of Auth Profiles
+# Get list of auth profiles
 
 try {
     Get-V2024ProfileConfigList -XSailPointExperimental $XSailPointExperimental 
@@ -171,7 +171,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 }"@ # JsonPatchOperation[] | 
  
 
-# Patch a specified Auth Profile
+# Patch a specified auth profile
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

@@ -2,11 +2,13 @@ type: object
 properties:
   status:
     type: string
+    nullable: true
     enum: 
       - PENDING 
       - IN_PROGRESS
       - COMPLETED 
       - ERROR
+      - null
     description: |
       Returns the following values indicating the progress or result of the bulk upload job.
       "PENDING" means the job is queued and waiting to be processed.

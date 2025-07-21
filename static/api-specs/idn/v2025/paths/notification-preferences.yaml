@@ -2,7 +2,7 @@ get:
   operationId: listNotificationPreferences
   tags:
   - Notifications
-  summary: List Notification Preferences for tenant.
+  summary: List notification preferences for tenant.
   description: Returns a list of notification preferences for tenant.
   security:
   - userAuth:

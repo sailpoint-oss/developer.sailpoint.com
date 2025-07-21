@@ -30,15 +30,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**cancel-access-request**](#cancel-access-request) | **POST** `/access-requests/cancel` | Cancel Access Request
-[**create-access-request**](#create-access-request) | **POST** `/access-requests` | Submit Access Request
-[**get-access-request-config**](#get-access-request-config) | **GET** `/access-request-config` | Get Access Request Configuration
-[**list-access-request-status**](#list-access-request-status) | **GET** `/access-request-status` | Access Request Status
-[**set-access-request-config**](#set-access-request-config) | **PUT** `/access-request-config` | Update Access Request Configuration
+[**cancel-access-request**](#cancel-access-request) | **POST** `/access-requests/cancel` | Cancel access request
+[**create-access-request**](#create-access-request) | **POST** `/access-requests` | Submit access request
+[**get-access-request-config**](#get-access-request-config) | **GET** `/access-request-config` | Get access request configuration
+[**list-access-request-status**](#list-access-request-status) | **GET** `/access-request-status` | Access request status
+[**set-access-request-config**](#set-access-request-config) | **PUT** `/access-request-config` | Update access request configuration
 
 
 ## cancel-access-request
-Cancel Access Request
+Cancel access request
 This API endpoint cancels a pending access request. An access request can be cancelled only if it has not passed the approval step.
 In addition to users with ORG_ADMIN, any user who originally submitted the access request may cancel it.
 
@@ -85,7 +85,7 @@ with ApiClient(configuration) as api_client:
         }''' # CancelAccessRequest | 
 
     try:
-        # Cancel Access Request
+        # Cancel access request
         new_cancel_access_request = CancelAccessRequest.from_json(cancel_access_request)
         results = AccessRequestsApi(api_client).cancel_access_request(cancel_access_request=new_cancel_access_request)
         # Below is a request that includes all optional parameters
@@ -101,8 +101,12 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## create-access-request
-Submit Access Request
+Submit access request
 Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.
+
+:::info
+The ability to request access using this API is constrained by the Access Request Segments defined in the API token’s user context.
+:::
 
 Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request
 has been submitted to ISC and is queued for processing. Because this endpoint is asynchronous, it doesn't return an error
@@ -111,8 +115,9 @@ if you submit duplicate access requests in quick succession or submit an access 
 It's best practice to check for any existing access requests that reference the same access items before submitting a new access request. This can
 be accomplished by using the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [Pending Access Request Approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) APIs. You can also
 use the [Search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items an identity has before submitting
-an access request to ensure that you aren't requesting access that is already granted. If you use this API to request access that an identity already has, the API will ignore the request. 
-These ignored requests do not display when you use the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) API.
+an access request to ensure that you aren't requesting access that is already granted. If you use this API to request access that an identity already has, 
+without changing the account details or end date information from the existing assignment, 
+the API will cancel the request as a duplicate.
 
 There are two types of access request:
 
@@ -121,19 +126,27 @@ __GRANT_ACCESS__
 * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.  
 * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others.
 * Roles, access profiles and entitlements can be requested.
-* While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.
+* You can specify a `removeDate` to set or alter a sunset date-time on an assignment. The removeDate must be a future date-time, in the UTC timezone. Additionally, if the user already has the access assigned with a sunset date, you can also submit a request without a `removeDate` to request removal of the sunset date and time.
+* If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time.
 * Now supports an alternate field 'requestedForWithRequestedItems' for users to specify account selections while requesting items where they have more than one account on the source.
- 
+
+:::caution
+
+If any entitlements are being requested, then the maximum number of entitlements that can be requested is 25, and the maximum number of identities that can be requested for is 10. If you exceed these limits, the request will fail with a 400 error. If you are not requesting any entitlements, then there are no limits.
+
+:::
+
 __REVOKE_ACCESS__
 * Can only be requested for a single identity at a time.
 * You cannot use an access request to revoke access from an identity if that access has been granted by role membership or by birthright provisioning. 
 * Does not support self request. Only manager can request to revoke access for their directly managed employees.
-* If a `removeDate` is specified, then the access will be removed on that date and time only for roles, access profiles and entitlements.
+* If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time.
 * Roles, access profiles, and entitlements can be requested for revocation.
 * Revoke requests for entitlements are limited to 1 entitlement per access request currently.
-* You can specify a `removeDate` if the access doesn't already have a sunset date. The `removeDate` must be a future date, in the UTC timezone. 
+* You can specify a `removeDate` to add or alter a sunset date and time on an assignment. The `removeDate` must be a future date-time, in the UTC timezone. If the user already has the access assigned with a sunset date and time, the removeDate must be a date-time earlier than the existing sunset date and time. 
 * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone.
-* Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of 'assignmentId' and 'nativeIdentity' fields.
+* Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of 'assignmentId' and 'nativeIdentity' fields. These fields should be used within the 'requestedItems' section for the revoke requests. 
+* Usage of 'requestedForWithRequestedItems' field is not supported for revoke requests.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-access-request)
@@ -202,39 +215,6 @@ with ApiClient(configuration) as api_client:
             "type" : "ACCESS_PROFILE",
             "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
             "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
-          }, {
-            "clientMetadata" : {
-              "requestedAppName" : "test-app",
-              "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
-            },
-            "removeDate" : "2020-07-11T21:23:15Z",
-            "comment" : "Requesting access profile for John Doe",
-            "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE",
-            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
-          }, {
-            "clientMetadata" : {
-              "requestedAppName" : "test-app",
-              "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
-            },
-            "removeDate" : "2020-07-11T21:23:15Z",
-            "comment" : "Requesting access profile for John Doe",
-            "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE",
-            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
-          }, {
-            "clientMetadata" : {
-              "requestedAppName" : "test-app",
-              "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
-            },
-            "removeDate" : "2020-07-11T21:23:15Z",
-            "comment" : "Requesting access profile for John Doe",
-            "id" : "2c9180835d2e5168015d32f890ca1581",
-            "type" : "ACCESS_PROFILE",
-            "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-            "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
           } ],
           "requestedForWithRequestedItems" : [ {
             "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
@@ -265,9 +245,7 @@ with ApiClient(configuration) as api_client:
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             }, {
               "clientMetadata" : {
                 "requestedAppName" : "test-app",
@@ -295,9 +273,7 @@ with ApiClient(configuration) as api_client:
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             } ]
           }, {
             "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
@@ -328,9 +304,7 @@ with ApiClient(configuration) as api_client:
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             }, {
               "clientMetadata" : {
                 "requestedAppName" : "test-app",
@@ -358,15 +332,13 @@ with ApiClient(configuration) as api_client:
               } ],
               "comment" : "Requesting access profile for John Doe",
               "id" : "2c9180835d2e5168015d32f890ca1581",
-              "type" : "ACCESS_PROFILE",
-              "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-              "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+              "type" : "ACCESS_PROFILE"
             } ]
           } ]
         }''' # AccessRequest | 
 
     try:
-        # Submit Access Request
+        # Submit access request
         new_access_request = AccessRequest.from_json(access_request)
         results = AccessRequestsApi(api_client).create_access_request(access_request=new_access_request)
         # Below is a request that includes all optional parameters
@@ -382,7 +354,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-access-request-config
-Get Access Request Configuration
+Get access request configuration
 This endpoint returns the current access-request configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-access-request-config)
@@ -420,7 +392,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # Get Access Request Configuration
+        # Get access request configuration
         
         results = AccessRequestsApi(api_client).get_access_request_config()
         # Below is a request that includes all optional parameters
@@ -436,7 +408,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-access-request-status
-Access Request Status
+Access request status
 Use this API to return a list of access request statuses based on the specified query parameters.
 If an access request was made for access that an identity already has, the API ignores the access request.  These ignored requests do not display in the list of access request statuses.
 Any user with any user level can get the status of their own access requests. A user with ORG_ADMIN is required to call this API to get a list of statuses for other users.
@@ -454,7 +426,7 @@ Param Type | Name | Data Type | Required  | Description
   Query | count | **bool** |   (optional) (default to False) | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored.
   Query | limit | **int** |   (optional) (default to 250) | Max number of results to return.
   Query | offset | **int** |   (optional) | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified.
-  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *in*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
+  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, in, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
   Query | sorters | **str** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name**
   Query | request_state | **str** |   (optional) | Filter the results by the state of the request. The only valid value is *EXECUTING*.
 
@@ -493,12 +465,12 @@ with ApiClient(configuration) as api_client:
     count = False # bool | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to False) # bool | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to False)
     limit = 250 # int | Max number of results to return. (optional) (default to 250) # int | Max number of results to return. (optional) (default to 250)
     offset = 10 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
-    filters = 'accountActivityItemId eq \"2c918086771c86df0177401efcdf54c0\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *in*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *in*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional)
+    filters = 'accountActivityItemId eq \"2c918086771c86df0177401efcdf54c0\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, in, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, in, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional)
     sorters = 'created' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name** (optional)
     request_state = 'request-state=EXECUTING' # str | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional) # str | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
 
     try:
-        # Access Request Status
+        # Access request status
         
         results = AccessRequestsApi(api_client).list_access_request_status()
         # Below is a request that includes all optional parameters
@@ -515,7 +487,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## set-access-request-config
-Update Access Request Configuration
+Update access request configuration
 This endpoint replaces the current access-request configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/set-access-request-config)
@@ -582,7 +554,7 @@ with ApiClient(configuration) as api_client:
         }''' # AccessRequestConfig | 
 
     try:
-        # Update Access Request Configuration
+        # Update access request configuration
         new_access_request_config = AccessRequestConfig.from_json(access_request_config)
         results = AccessRequestsApi(api_client).set_access_request_config(access_request_config=new_access_request_config)
         # Below is a request that includes all optional parameters

@@ -22,14 +22,6 @@ get:
     x-sailpoint-resource-operation-id: listIdentities
     description: Identity ID.
     example: ff8081814d2a8036014d701f3fbf53fa
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   responses:
     '200':
       description: Identity's ownership association details.

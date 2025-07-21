@@ -18,24 +18,24 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Suspend-WorkflowExecution**](#cancel-workflow-execution) | **POST** `/workflow-executions/{id}/cancel` | Cancel Workflow Execution by ID
-[**New-ExternalExecuteWorkflow**](#create-external-execute-workflow) | **POST** `/workflows/execute/external/{id}` | Execute Workflow via External Trigger
-[**New-Workflow**](#create-workflow) | **POST** `/workflows` | Create Workflow
-[**New-WorkflowExternalTrigger**](#create-workflow-external-trigger) | **POST** `/workflows/{id}/external/oauth-clients` | Generate External Trigger OAuth Client
-[**Remove-Workflow**](#delete-workflow) | **DELETE** `/workflows/{id}` | Delete Workflow By Id
-[**Get-Workflow**](#get-workflow) | **GET** `/workflows/{id}` | Get Workflow By Id
-[**Get-WorkflowExecution**](#get-workflow-execution) | **GET** `/workflow-executions/{id}` | Get Workflow Execution
-[**Get-WorkflowExecutionHistory**](#get-workflow-execution-history) | **GET** `/workflow-executions/{id}/history` | Get Workflow Execution History
-[**Get-WorkflowExecutions**](#get-workflow-executions) | **GET** `/workflows/{id}/executions` | List Workflow Executions
-[**Get-CompleteWorkflowLibrary**](#list-complete-workflow-library) | **GET** `/workflow-library` | List Complete Workflow Library
-[**Get-WorkflowLibraryActions**](#list-workflow-library-actions) | **GET** `/workflow-library/actions` | List Workflow Library Actions
-[**Get-WorkflowLibraryOperators**](#list-workflow-library-operators) | **GET** `/workflow-library/operators` | List Workflow Library Operators
-[**Get-WorkflowLibraryTriggers**](#list-workflow-library-triggers) | **GET** `/workflow-library/triggers` | List Workflow Library Triggers
-[**Get-Workflows**](#list-workflows) | **GET** `/workflows` | List Workflows
-[**Update-Workflow**](#patch-workflow) | **PATCH** `/workflows/{id}` | Patch Workflow
-[**Send-Workflow**](#put-workflow) | **PUT** `/workflows/{id}` | Update Workflow
-[**Test-ExternalExecuteWorkflow**](#test-external-execute-workflow) | **POST** `/workflows/execute/external/{id}/test` | Test Workflow via External Trigger
-[**Test-Workflow**](#test-workflow) | **POST** `/workflows/{id}/test` | Test Workflow By Id
+[**Suspend-WorkflowExecution**](#cancel-workflow-execution) | **POST** `/workflow-executions/{id}/cancel` | Cancel workflow execution by id
+[**New-ExternalExecuteWorkflow**](#create-external-execute-workflow) | **POST** `/workflows/execute/external/{id}` | Execute workflow via external trigger
+[**New-Workflow**](#create-workflow) | **POST** `/workflows` | Create workflow
+[**New-WorkflowExternalTrigger**](#create-workflow-external-trigger) | **POST** `/workflows/{id}/external/oauth-clients` | Generate external trigger oauth client
+[**Remove-Workflow**](#delete-workflow) | **DELETE** `/workflows/{id}` | Delete workflow by id
+[**Get-Workflow**](#get-workflow) | **GET** `/workflows/{id}` | Get workflow by id
+[**Get-WorkflowExecution**](#get-workflow-execution) | **GET** `/workflow-executions/{id}` | Get workflow execution
+[**Get-WorkflowExecutionHistory**](#get-workflow-execution-history) | **GET** `/workflow-executions/{id}/history` | Get workflow execution history
+[**Get-WorkflowExecutions**](#get-workflow-executions) | **GET** `/workflows/{id}/executions` | List workflow executions
+[**Get-CompleteWorkflowLibrary**](#list-complete-workflow-library) | **GET** `/workflow-library` | List complete workflow library
+[**Get-WorkflowLibraryActions**](#list-workflow-library-actions) | **GET** `/workflow-library/actions` | List workflow library actions
+[**Get-WorkflowLibraryOperators**](#list-workflow-library-operators) | **GET** `/workflow-library/operators` | List workflow library operators
+[**Get-WorkflowLibraryTriggers**](#list-workflow-library-triggers) | **GET** `/workflow-library/triggers` | List workflow library triggers
+[**Get-Workflows**](#list-workflows) | **GET** `/workflows` | List workflows
+[**Update-Workflow**](#patch-workflow) | **PATCH** `/workflows/{id}` | Patch workflow
+[**Send-Workflow**](#put-workflow) | **PUT** `/workflows/{id}` | Update workflow
+[**Test-ExternalExecuteWorkflow**](#test-external-execute-workflow) | **POST** `/workflows/execute/external/{id}/test` | Test workflow via external trigger
+[**Test-Workflow**](#test-workflow) | **POST** `/workflows/{id}/test` | Test workflow by id
 
 
 ## cancel-workflow-execution
@@ -70,7 +70,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | The workflow execution ID
 
-# Cancel Workflow Execution by ID
+# Cancel workflow execution by id
 
 try {
     Suspend-WorkflowExecution -Id $Id 
@@ -117,7 +117,7 @@ Code | Description  | Data Type
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 $CreateExternalExecuteWorkflowRequest = @""@
 
-# Execute Workflow via External Trigger
+# Execute workflow via external trigger
 
 try {
     New-ExternalExecuteWorkflow -Id $Id 
@@ -162,7 +162,7 @@ Code | Description  | Data Type
 ```powershell
 $CreateWorkflowRequest = @"{name=Send Email, owner={type=IDENTITY, id=2c91808568c529c60168cca6f90c1313, name=William Wilson}, description=Send an email to the identity who's attributes changed., definition={start=Send Email Test, steps={Send Email={actionId=sp:send-email, attributes={body=This is a test, from=sailpoint@sailpoint.com, recipientId.$=$.identity.id, subject=test}, nextStep=success, selectResult=null, type=action}, success={type=success}}}, enabled=false, trigger={type=EVENT, attributes={id=idn:identity-attributes-changed, filter=$.changes[?(@.attribute == 'manager')]}}}"@
 
-# Create Workflow
+# Create workflow
 
 try {
     $Result = ConvertFrom-JsonToCreateWorkflowRequest -Json $CreateWorkflowRequest
@@ -208,7 +208,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 
-# Generate External Trigger OAuth Client
+# Generate external trigger oauth client
 
 try {
     New-WorkflowExternalTrigger -Id $Id 
@@ -253,7 +253,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 
-# Delete Workflow By Id
+# Delete workflow by id
 
 try {
     Remove-Workflow -Id $Id 
@@ -288,6 +288,7 @@ Code | Description  | Data Type
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
@@ -300,7 +301,7 @@ Code | Description  | Data Type
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 $WorkflowMetrics = $false # Boolean | disable workflow metrics (optional) (default to $true)
 
-# Get Workflow By Id
+# Get workflow by id
 
 try {
     Get-Workflow -Id $Id 
@@ -346,7 +347,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow execution ID.
 
-# Get Workflow Execution
+# Get workflow execution
 
 try {
     Get-WorkflowExecution -Id $Id 
@@ -392,7 +393,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execution
 
-# Get Workflow Execution History
+# Get workflow execution history
 
 try {
     Get-WorkflowExecutionHistory -Id $Id 
@@ -427,7 +428,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | Id | **String** | True  | Workflow ID.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq*
 
 ### Return type
@@ -453,16 +453,15 @@ Code | Description  | Data Type
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Workflow ID.
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
-$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'status eq "Failed"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **start_time**: *eq, lt, le, gt, ge*  **status**: *eq* (optional)
 
-# List Workflow Executions
+# List workflow executions
 
 try {
     Get-WorkflowExecutions -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-WorkflowExecutions -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters  
+    # Get-WorkflowExecutions -Id $Id -Limit $Limit -Offset $Offset -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-WorkflowExecutions"
     Write-Host $_.ErrorDetails
@@ -503,7 +502,7 @@ Code | Description  | Data Type
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
-# List Complete Workflow Library
+# List complete workflow library
 
 try {
     Get-CompleteWorkflowLibrary 
@@ -552,7 +551,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Filters = 'id eq "sp:create-campaign"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional)
 
-# List Workflow Library Actions
+# List workflow library actions
 
 try {
     Get-WorkflowLibraryActions 
@@ -595,7 +594,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# List Workflow Library Operators
+# List workflow library operators
 
 try {
     Get-WorkflowLibraryOperators 
@@ -644,7 +643,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Filters = 'id eq "idn:identity-attributes-changed"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq* (optional)
 
-# List Workflow Library Triggers
+# List workflow library triggers
 
 try {
     Get-WorkflowLibraryTriggers 
@@ -695,7 +694,7 @@ $ConnectorInstanceId = "28541fec-bb81-4ad4-88ef-0f7d213adcad" # String | Connect
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
-# List Workflows
+# List workflows
 
 try {
     Get-Workflows 
@@ -747,7 +746,7 @@ $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Workflow
 }"@ # JsonPatchOperation[] | 
  
 
-# Patch Workflow
+# Patch workflow
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -834,7 +833,7 @@ $WorkflowBody = @"{
   "enabled" : false
 }"@
 
-# Update Workflow
+# Update workflow
 
 try {
     $Result = ConvertFrom-JsonToWorkflowBody -Json $WorkflowBody
@@ -882,7 +881,7 @@ Code | Description  | Data Type
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 $TestExternalExecuteWorkflowRequest = @""@
 
-# Test Workflow via External Trigger
+# Test workflow via external trigger
 
 try {
     Test-ExternalExecuteWorkflow -Id $Id 
@@ -940,7 +939,7 @@ Code | Description  | Data Type
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow
 $TestWorkflowRequest = @"{input={identity={id=ee769173319b41d19ccec6cea52f237b, name=john.doe, type=IDENTITY}, changes=[{attribute=department, oldValue=sales, newValue=marketing}, {attribute=manager, oldValue={id=ee769173319b41d19ccec6c235423237b, name=nice.guy, type=IDENTITY}, newValue={id=ee769173319b41d19ccec6c235423236c, name=mean.guy, type=IDENTITY}}, {attribute=email, oldValue=john.doe@hotmail.com, newValue=john.doe@gmail.com}]}}"@
 
-# Test Workflow By Id
+# Test workflow by id
 
 try {
     $Result = ConvertFrom-JsonToTestWorkflowRequest -Json $TestWorkflowRequest

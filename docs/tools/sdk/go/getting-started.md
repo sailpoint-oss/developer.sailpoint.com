@@ -13,7 +13,7 @@ tags: ['SDK', 'Software Development Kit']
 
 Once your SDK is installed and configured, you can start accessing the SDK's different functionalities. This guide will walk through some examples of this functionality. To learn how to install and configure the Golang SDK, refer to [Installation and Configuration](./index.mdx).
 
-### List Transforms
+### List transforms
 
 Create a file in your project called `sdk.go` with the following content:
 

@@ -1,5 +1,5 @@
 post:
-  summary: Access Request Submitted
+  summary: Access request submitted
   operationId: accessRequestSubmittedEvent
   description: >-
     This event trigger fires after an access request is submitted but before the request is approved or denied. 

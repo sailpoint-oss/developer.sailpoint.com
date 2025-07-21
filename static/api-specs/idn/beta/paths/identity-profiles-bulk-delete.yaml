@@ -2,7 +2,7 @@ post:
   operationId: deleteIdentityProfiles
   tags:
     - Identity Profiles
-  summary: Delete Identity Profiles
+  summary: Delete identity profiles
   description: >-
     This deletes multiple Identity Profiles via a list of supplied IDs.
 

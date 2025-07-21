@@ -2,7 +2,7 @@ get:
   operationId: listAccessProfiles
   tags:
     - Access Profiles
-  summary: List Access Profiles
+  summary: List access profiles
   description: >-
     Get a list of access profiles.
 
@@ -124,7 +124,7 @@ post:
   operationId: createAccessProfile
   tags:
     - Access Profiles
-  summary: Create Access Profile
+  summary: Create access profile
   description: >-
     Create an access profile.
 

@@ -19,11 +19,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2024ManagedClusterType**](#create-managed-cluster-type) | **POST** `/managed-cluster-types` | Create new Managed Cluster Type
-[**Remove-V2024ManagedClusterType**](#delete-managed-cluster-type) | **DELETE** `/managed-cluster-types/{id}` | Delete a Managed Cluster Type
-[**Get-V2024ManagedClusterType**](#get-managed-cluster-type) | **GET** `/managed-cluster-types/{id}` | Get a Managed Cluster Type
-[**Get-V2024ManagedClusterTypes**](#get-managed-cluster-types) | **GET** `/managed-cluster-types` | Get Managed Cluster Types
-[**Update-V2024ManagedClusterType**](#update-managed-cluster-type) | **PATCH** `/managed-cluster-types/{id}` | Update a Managed Cluster Type
+[**New-V2024ManagedClusterType**](#create-managed-cluster-type) | **POST** `/managed-cluster-types` | Create new managed cluster type
+[**Remove-V2024ManagedClusterType**](#delete-managed-cluster-type) | **DELETE** `/managed-cluster-types/{id}` | Delete a managed cluster type
+[**Get-V2024ManagedClusterType**](#get-managed-cluster-type) | **GET** `/managed-cluster-types/{id}` | Get a managed cluster type
+[**Get-V2024ManagedClusterTypes**](#get-managed-cluster-types) | **GET** `/managed-cluster-types` | Get managed cluster types
+[**Update-V2024ManagedClusterType**](#update-managed-cluster-type) | **PATCH** `/managed-cluster-types/{id}` | Update a managed cluster type
 
 
 ## create-managed-cluster-type
@@ -66,7 +66,7 @@ $ManagedClusterType = @"{
   "type" : "idn"
 }"@
 
-# Create new Managed Cluster Type
+# Create new managed cluster type
 
 try {
     $Result = ConvertFrom-JsonToManagedClusterType -Json $ManagedClusterType
@@ -113,7 +113,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "aClusterTypeId" # String | The Managed Cluster Type ID
 
-# Delete a Managed Cluster Type
+# Delete a managed cluster type
 
 try {
     Remove-V2024ManagedClusterType -Id $Id 
@@ -160,7 +160,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "aClusterTypeId" # String | The Managed Cluster Type ID
 
-# Get a Managed Cluster Type
+# Get a managed cluster type
 
 try {
     Get-V2024ManagedClusterType -Id $Id 
@@ -215,7 +215,7 @@ $Org = "denali-xyz" # String | Pinned org (or default) (optional)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 
-# Get Managed Cluster Types
+# Get managed cluster types
 
 try {
     Get-V2024ManagedClusterTypes 
@@ -274,7 +274,7 @@ $JsonPatch = @"{
   } ]
 }"@
 
-# Update a Managed Cluster Type
+# Update a managed cluster type
 
 try {
     $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch

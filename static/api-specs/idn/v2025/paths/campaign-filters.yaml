@@ -2,7 +2,7 @@ post:
   operationId: createCampaignFilter
   tags:
     - Certification Campaign Filters
-  summary: Create Campaign Filter
+  summary: Create campaign filter
   description: >-
     Use this API to create a campaign filter based on filter details and criteria.
   security:
@@ -34,7 +34,7 @@ get:
   operationId: listCampaignFilters
   tags:
     - Certification Campaign Filters
-  summary: List Campaign Filters
+  summary: List campaign filters
   description: >-
     Use this API to list all campaign filters. You can reduce scope with standard V3 query parameters.
 

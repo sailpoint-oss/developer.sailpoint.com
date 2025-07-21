@@ -2,7 +2,7 @@ post:
   operationId: completeCampaign
   tags:
     - Certification Campaigns
-  summary: Complete a Campaign
+  summary: Complete a campaign
   description: |
     :::caution
     

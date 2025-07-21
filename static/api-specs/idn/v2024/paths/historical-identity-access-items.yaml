@@ -2,7 +2,7 @@ get:
   operationId: listIdentityAccessItems
   tags:
   - Identity History
-  summary: List Access Items by Identity
+  summary: List access items by identity
   security:
     - userAuth: [ idn:identity-history:read ]
   x-sailpoint-userLevels:

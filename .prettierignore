@@ -19,3 +19,6 @@ coverage
 
 # API Specs
 /static/api-specs
+
+# bundler CPU profile is huge and not meant for formatting
+bundler-cpu-profile.json

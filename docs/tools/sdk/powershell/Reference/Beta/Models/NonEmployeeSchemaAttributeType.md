@@ -21,6 +21,10 @@ tags: ['SDK', 'Software Development Kit', 'NonEmployeeSchemaAttributeType', 'Bet
 
 * `IDENTITY` (value: `"IDENTITY"`)
 
+* `PHONE` (value: `"PHONE"`)
+
+* `EMAIL` (value: `"EMAIL"`)
+
 
 [[Back to top]](#) 
 

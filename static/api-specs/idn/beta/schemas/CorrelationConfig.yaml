@@ -16,6 +16,10 @@ properties:
       type: object
       description: The attribute assignment of the correlation configuration.
       properties:
+        sequence:
+          type: integer
+          description: The sequence of the attribute assignment.
+          example: 1
         property:
           type: string
           description: The property of the attribute assignment.

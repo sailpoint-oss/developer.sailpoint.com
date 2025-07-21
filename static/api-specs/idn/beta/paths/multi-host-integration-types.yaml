@@ -1,7 +1,7 @@
 get:
   tags:
     - Multi-Host Integration
-  summary: List Multi-Host Integration Types
+  summary: List multi-host integration types
   description: >- 
     This API endpoint returns the current list of supported Multi-Host Integration types.  
     

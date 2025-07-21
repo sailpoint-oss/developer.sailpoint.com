@@ -1,6 +1,6 @@
 ---
 id: typescript-sdk-error-handling
-title: Error Handling with The TypeScript SDK
+title: Error handling with The TypeScript SDK
 pagination_label: Error Handling
 sidebar_label: Error Handling
 sidebar_position: 8

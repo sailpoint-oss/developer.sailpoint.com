@@ -21,5 +21,9 @@ Enum representing the type of data a schema attribute accepts.
 
 * `IDENTITY` (value: `'IDENTITY'`)
 
+* `PHONE` (value: `'PHONE'`)
+
+* `EMAIL` (value: `'EMAIL'`)
+
 [[Back to top]](#) 
 

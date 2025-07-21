@@ -1,6 +1,6 @@
 post:
   operationId: searchRolesByFilter
-  summary: Filter Roles by Metadata
+  summary: Filter roles by metadata
   description: >-
     This API returns a list of Role that filter by metadata and filter, it support filter by  both path parameter and
     attribute key and values.

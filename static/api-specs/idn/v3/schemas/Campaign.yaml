@@ -25,7 +25,6 @@ allOf:
             description: Type of the filter
             enum:
               - CAMPAIGN_FILTER
-              - RULE
             example: CAMPAIGN_FILTER
           name:
             type: string

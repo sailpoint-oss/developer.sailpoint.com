@@ -17,7 +17,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-managed-client-status**](#get-managed-client-status) | **GET** `/managed-clients/{id}/status` | Specified Managed Client Status.
+[**get-managed-client-status**](#get-managed-client-status) | **GET** `/managed-clients/{id}/status` | Specified managed client status.
 [**update-managed-client-status**](#update-managed-client-status) | **POST** `/managed-clients/{id}/status` | Handle status request from client
 
 
@@ -25,7 +25,7 @@ Method | HTTP request | Description
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Specified Managed Client Status.
+Specified managed client status.
 Retrieve Managed Client Status by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-managed-client-status)
@@ -71,7 +71,7 @@ with ApiClient(configuration) as api_client:
     type = sailpoint.beta.ManagedClientType() # ManagedClientType | Type of the Managed Client Status to get # ManagedClientType | Type of the Managed Client Status to get
 
     try:
-        # Specified Managed Client Status.
+        # Specified managed client status.
         
         results = ManagedClientsApi(api_client).get_managed_client_status(id=id, type=type)
         # Below is a request that includes all optional parameters

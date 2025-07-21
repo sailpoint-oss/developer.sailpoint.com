@@ -95,6 +95,7 @@ properties:
             List of references to dimensions to which this Role is assigned. This field is only relevant if the Role is dimensional.
     accessModelMetadata:
         $ref: '../gov-attributes/AttributeDTOList.yaml'
+        description: This field must be left null or empty when creating an Role, otherwise a 400 Bad Request error will result.
         example:
           [
               {

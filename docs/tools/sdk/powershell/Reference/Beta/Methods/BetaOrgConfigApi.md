@@ -19,9 +19,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaOrgConfig**](#get-org-config) | **GET** `/org-config` | Get Org configuration settings
+[**Get-BetaOrgConfig**](#get-org-config) | **GET** `/org-config` | Get org configuration settings
 [**Get-BetaValidTimeZones**](#get-valid-time-zones) | **GET** `/org-config/valid-time-zones` | Get list of time zones
-[**Update-BetaOrgConfig**](#patch-org-config) | **PATCH** `/org-config` | Patch an Org configuration property
+[**Update-BetaOrgConfig**](#patch-org-config) | **PATCH** `/org-config` | Patch an org configuration property
 
 
 ## get-org-config
@@ -54,7 +54,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get Org configuration settings
+# Get org configuration settings
 
 try {
     Get-BetaOrgConfig 
@@ -148,7 +148,7 @@ Code | Description  | Data Type
 }"@ # JsonPatchOperation[] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 
-# Patch an Org configuration property
+# Patch an org configuration property
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

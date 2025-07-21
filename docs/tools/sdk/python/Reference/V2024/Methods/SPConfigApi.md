@@ -21,7 +21,7 @@ Method | HTTP request | Description
 [**get-sp-config-import**](#get-sp-config-import) | **GET** `/sp-config/import/{id}/download` | Download import job result
 [**get-sp-config-import-status**](#get-sp-config-import-status) | **GET** `/sp-config/import/{id}` | Get import job status
 [**import-sp-config**](#import-sp-config) | **POST** `/sp-config/import` | Initiates configuration objects import job
-[**list-sp-config-objects**](#list-sp-config-objects) | **GET** `/sp-config/config-objects` | List Config Objects
+[**list-sp-config-objects**](#list-sp-config-objects) | **GET** `/sp-config/config-objects` | List config objects
 
 
 ## export-sp-config
@@ -408,7 +408,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-sp-config-objects
-List Config Objects
+List config objects
 Get a list of object configurations that the tenant export/import service knows.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-sp-config-objects)
@@ -447,7 +447,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # List Config Objects
+        # List config objects
         
         results = SPConfigApi(api_client).list_sp_config_objects()
         # Below is a request that includes all optional parameters

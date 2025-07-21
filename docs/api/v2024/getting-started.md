@@ -23,7 +23,7 @@ This guide is intended to help you quickly make your first API call to SailPoint
 
 To form the proper URL for an API request, you must know your tenant name. To find your tenant name, log into Identity Security Cloud, navigate to Admin, select the Dashboard dropdown, and select Overview. The org name is displayed within the Org Details section of the dashboard. If you do not have admin access, you can still find your tenant name and the API base URL you will use for API calls. To do so, view your session details when you are logged into your Identity Security Cloud instance. Change your URL to the following: `https://{your-Identity Security Cloud-hostname}.com/ui/session`, where `{your-Identity Security Cloud-hostname}` is your company's domain name for accessing Identity Security Cloud. The session detail you want is the `baseUrl`, which has the form of `https://{tenant}.api.identitynow.com`.
 
-## Make Your First API Call
+## Make your first API call
 
 To get started, create a [personal access token](./authentication.md#generate-a-personal-access-token), which can then be used to generate access tokens to authenticate your API calls. To generate a personal access token from Identity Security Cloud, after logging into your Identity Security Cloud instance, do the following:
 

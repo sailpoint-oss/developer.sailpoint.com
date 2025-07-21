@@ -21,13 +21,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-password-org-config**](#create-password-org-config) | **POST** `/password-org-config` | Create Password Org Config
-[**get-password-org-config**](#get-password-org-config) | **GET** `/password-org-config` | Get Password Org Config
-[**put-password-org-config**](#put-password-org-config) | **PUT** `/password-org-config` | Update Password Org Config
+[**create-password-org-config**](#create-password-org-config) | **POST** `/password-org-config` | Create password org config
+[**get-password-org-config**](#get-password-org-config) | **GET** `/password-org-config` | Get password org config
+[**put-password-org-config**](#put-password-org-config) | **PUT** `/password-org-config` | Update password org config
 
 
 ## create-password-org-config
-Create Password Org Config
+Create password org config
 This API creates the password org config. Unspecified fields will use default value.
 To be able to use the custom password instructions, you must set the `customInstructionsEnabled` field to "true".
 Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:write'
@@ -76,7 +76,7 @@ with ApiClient(configuration) as api_client:
         }''' # PasswordOrgConfig | 
 
     try:
-        # Create Password Org Config
+        # Create password org config
         new_password_org_config = PasswordOrgConfig.from_json(password_org_config)
         results = PasswordConfigurationApi(api_client).create_password_org_config(password_org_config=new_password_org_config)
         # Below is a request that includes all optional parameters
@@ -92,7 +92,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-password-org-config
-Get Password Org Config
+Get password org config
 This API returns the password org config . Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:read'
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-password-org-config)
@@ -130,7 +130,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # Get Password Org Config
+        # Get password org config
         
         results = PasswordConfigurationApi(api_client).get_password_org_config()
         # Below is a request that includes all optional parameters
@@ -146,7 +146,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-password-org-config
-Update Password Org Config
+Update password org config
 This API updates the password org config for specified fields. Other fields will keep original value.
 You must set the `customInstructionsEnabled` field to "true" to be able to use custom password instructions. 
 Requires ORG_ADMIN, API role or authorization scope of 'idn:password-org-config:write'
@@ -195,7 +195,7 @@ with ApiClient(configuration) as api_client:
         }''' # PasswordOrgConfig | 
 
     try:
-        # Update Password Org Config
+        # Update password org config
         new_password_org_config = PasswordOrgConfig.from_json(password_org_config)
         results = PasswordConfigurationApi(api_client).put_password_org_config(password_org_config=new_password_org_config)
         # Below is a request that includes all optional parameters

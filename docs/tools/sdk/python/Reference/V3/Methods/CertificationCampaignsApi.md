@@ -80,32 +80,32 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**complete-campaign**](#complete-campaign) | **POST** `/campaigns/{id}/complete` | Complete a Campaign
+[**complete-campaign**](#complete-campaign) | **POST** `/campaigns/{id}/complete` | Complete a campaign
 [**create-campaign**](#create-campaign) | **POST** `/campaigns` | Create a campaign
-[**create-campaign-template**](#create-campaign-template) | **POST** `/campaign-templates` | Create a Campaign Template
-[**delete-campaign-template**](#delete-campaign-template) | **DELETE** `/campaign-templates/{id}` | Delete a Campaign Template
-[**delete-campaign-template-schedule**](#delete-campaign-template-schedule) | **DELETE** `/campaign-templates/{id}/schedule` | Delete Campaign Template Schedule
-[**delete-campaigns**](#delete-campaigns) | **POST** `/campaigns/delete` | Delete Campaigns
-[**get-active-campaigns**](#get-active-campaigns) | **GET** `/campaigns` | List Campaigns
-[**get-campaign**](#get-campaign) | **GET** `/campaigns/{id}` | Get Campaign
-[**get-campaign-reports**](#get-campaign-reports) | **GET** `/campaigns/{id}/reports` | Get Campaign Reports
-[**get-campaign-reports-config**](#get-campaign-reports-config) | **GET** `/campaigns/reports-configuration` | Get Campaign Reports Configuration
-[**get-campaign-template**](#get-campaign-template) | **GET** `/campaign-templates/{id}` | Get a Campaign Template
-[**get-campaign-template-schedule**](#get-campaign-template-schedule) | **GET** `/campaign-templates/{id}/schedule` | Get Campaign Template Schedule
-[**get-campaign-templates**](#get-campaign-templates) | **GET** `/campaign-templates` | List Campaign Templates
-[**move**](#move) | **POST** `/campaigns/{id}/reassign` | Reassign Certifications
-[**patch-campaign-template**](#patch-campaign-template) | **PATCH** `/campaign-templates/{id}` | Update a Campaign Template
-[**set-campaign-reports-config**](#set-campaign-reports-config) | **PUT** `/campaigns/reports-configuration` | Set Campaign Reports Configuration
-[**set-campaign-template-schedule**](#set-campaign-template-schedule) | **PUT** `/campaign-templates/{id}/schedule` | Set Campaign Template Schedule
-[**start-campaign**](#start-campaign) | **POST** `/campaigns/{id}/activate` | Activate a Campaign
-[**start-campaign-remediation-scan**](#start-campaign-remediation-scan) | **POST** `/campaigns/{id}/run-remediation-scan` | Run Campaign Remediation Scan
-[**start-campaign-report**](#start-campaign-report) | **POST** `/campaigns/{id}/run-report/{type}` | Run Campaign Report
-[**start-generate-campaign-template**](#start-generate-campaign-template) | **POST** `/campaign-templates/{id}/generate` | Generate a Campaign from Template
-[**update-campaign**](#update-campaign) | **PATCH** `/campaigns/{id}` | Update a Campaign
+[**create-campaign-template**](#create-campaign-template) | **POST** `/campaign-templates` | Create a campaign template
+[**delete-campaign-template**](#delete-campaign-template) | **DELETE** `/campaign-templates/{id}` | Delete a campaign template
+[**delete-campaign-template-schedule**](#delete-campaign-template-schedule) | **DELETE** `/campaign-templates/{id}/schedule` | Delete campaign template schedule
+[**delete-campaigns**](#delete-campaigns) | **POST** `/campaigns/delete` | Delete campaigns
+[**get-active-campaigns**](#get-active-campaigns) | **GET** `/campaigns` | List campaigns
+[**get-campaign**](#get-campaign) | **GET** `/campaigns/{id}` | Get campaign
+[**get-campaign-reports**](#get-campaign-reports) | **GET** `/campaigns/{id}/reports` | Get campaign reports
+[**get-campaign-reports-config**](#get-campaign-reports-config) | **GET** `/campaigns/reports-configuration` | Get campaign reports configuration
+[**get-campaign-template**](#get-campaign-template) | **GET** `/campaign-templates/{id}` | Get a campaign template
+[**get-campaign-template-schedule**](#get-campaign-template-schedule) | **GET** `/campaign-templates/{id}/schedule` | Get campaign template schedule
+[**get-campaign-templates**](#get-campaign-templates) | **GET** `/campaign-templates` | List campaign templates
+[**move**](#move) | **POST** `/campaigns/{id}/reassign` | Reassign certifications
+[**patch-campaign-template**](#patch-campaign-template) | **PATCH** `/campaign-templates/{id}` | Update a campaign template
+[**set-campaign-reports-config**](#set-campaign-reports-config) | **PUT** `/campaigns/reports-configuration` | Set campaign reports configuration
+[**set-campaign-template-schedule**](#set-campaign-template-schedule) | **PUT** `/campaign-templates/{id}/schedule` | Set campaign template schedule
+[**start-campaign**](#start-campaign) | **POST** `/campaigns/{id}/activate` | Activate a campaign
+[**start-campaign-remediation-scan**](#start-campaign-remediation-scan) | **POST** `/campaigns/{id}/run-remediation-scan` | Run campaign remediation scan
+[**start-campaign-report**](#start-campaign-report) | **POST** `/campaigns/{id}/run-report/{type}` | Run campaign report
+[**start-generate-campaign-template**](#start-generate-campaign-template) | **POST** `/campaign-templates/{id}/generate` | Generate a campaign from template
+[**update-campaign**](#update-campaign) | **PATCH** `/campaigns/{id}` | Update a campaign
 
 
 ## complete-campaign
-Complete a Campaign
+Complete a campaign
 :::caution
 
 This endpoint will run successfully for any campaigns that are **past due**.
@@ -162,7 +162,7 @@ with ApiClient(configuration) as api_client:
         }''' # CampaignCompleteOptions | Optional. Default behavior is for the campaign to auto-approve upon completion, unless autoCompleteAction=REVOKE (optional)
 
     try:
-        # Complete a Campaign
+        # Complete a campaign
         
         results = CertificationCampaignsApi(api_client).complete_campaign(id=id)
         # Below is a request that includes all optional parameters
@@ -345,7 +345,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## create-campaign-template
-Create a Campaign Template
+Create a campaign template
 Use this API to create a certification campaign template based on campaign.
 
 
@@ -511,7 +511,7 @@ with ApiClient(configuration) as api_client:
         }''' # CampaignTemplate | 
 
     try:
-        # Create a Campaign Template
+        # Create a campaign template
         new_campaign_template = CampaignTemplate.from_json(campaign_template)
         results = CertificationCampaignsApi(api_client).create_campaign_template(campaign_template=new_campaign_template)
         # Below is a request that includes all optional parameters
@@ -527,7 +527,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-campaign-template
-Delete a Campaign Template
+Delete a campaign template
 Use this API to delete a certification campaign template by ID.
 
 
@@ -570,7 +570,7 @@ with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | ID of the campaign template being deleted. # str | ID of the campaign template being deleted.
 
     try:
-        # Delete a Campaign Template
+        # Delete a campaign template
         
         CertificationCampaignsApi(api_client).delete_campaign_template(id=id)
         # Below is a request that includes all optional parameters
@@ -584,7 +584,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-campaign-template-schedule
-Delete Campaign Template Schedule
+Delete campaign template schedule
 Use this API to delete the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
 
 
@@ -627,7 +627,7 @@ with ApiClient(configuration) as api_client:
     id = '04bedce387bd47b2ae1f86eb0bb36dee' # str | ID of the campaign template whose schedule is being deleted. # str | ID of the campaign template whose schedule is being deleted.
 
     try:
-        # Delete Campaign Template Schedule
+        # Delete campaign template schedule
         
         CertificationCampaignsApi(api_client).delete_campaign_template_schedule(id=id)
         # Below is a request that includes all optional parameters
@@ -641,7 +641,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-campaigns
-Delete Campaigns
+Delete campaigns
 Use this API to delete certification campaigns whose IDs are specified in the provided list of campaign IDs.
 
 
@@ -687,7 +687,7 @@ with ApiClient(configuration) as api_client:
         }''' # CampaignsDeleteRequest | IDs of the campaigns to delete.
 
     try:
-        # Delete Campaigns
+        # Delete campaigns
         new_campaigns_delete_request = CampaignsDeleteRequest.from_json(campaigns_delete_request)
         results = CertificationCampaignsApi(api_client).delete_campaigns(campaigns_delete_request=new_campaigns_delete_request)
         # Below is a request that includes all optional parameters
@@ -703,7 +703,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-active-campaigns
-List Campaigns
+List campaigns
 Use this API to get a list of campaigns. This API can provide increased level of detail for each campaign for the correct provided query.
 
 
@@ -756,7 +756,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created** (optional)
 
     try:
-        # List Campaigns
+        # List campaigns
         
         results = CertificationCampaignsApi(api_client).get_active_campaigns()
         # Below is a request that includes all optional parameters
@@ -773,7 +773,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-campaign
-Get Campaign
+Get campaign
 Use this API to get information for an existing certification campaign by the campaign's ID.
 
 
@@ -819,7 +819,7 @@ with ApiClient(configuration) as api_client:
     detail = 'FULL' # str | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional) # str | Determines whether slim, or increased level of detail is provided for each campaign in the returned list. Slim is the default behavior. (optional)
 
     try:
-        # Get Campaign
+        # Get campaign
         
         results = CertificationCampaignsApi(api_client).get_campaign(id=id)
         # Below is a request that includes all optional parameters
@@ -835,7 +835,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-campaign-reports
-Get Campaign Reports
+Get campaign reports
 Use this API to fetch all reports for a certification campaign by campaign ID.
 
 
@@ -879,7 +879,7 @@ with ApiClient(configuration) as api_client:
     id = '2c91808571bcfcf80171c23e4b4221fc' # str | ID of the campaign whose reports are being fetched. # str | ID of the campaign whose reports are being fetched.
 
     try:
-        # Get Campaign Reports
+        # Get campaign reports
         
         results = CertificationCampaignsApi(api_client).get_campaign_reports(id=id)
         # Below is a request that includes all optional parameters
@@ -896,7 +896,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-campaign-reports-config
-Get Campaign Reports Configuration
+Get campaign reports configuration
 Use this API to fetch the configuration for certification campaign reports. The configuration includes only one element - identity attributes defined as custom report columns. 
 
 
@@ -935,7 +935,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # Get Campaign Reports Configuration
+        # Get campaign reports configuration
         
         results = CertificationCampaignsApi(api_client).get_campaign_reports_config()
         # Below is a request that includes all optional parameters
@@ -951,7 +951,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-campaign-template
-Get a Campaign Template
+Get a campaign template
 Use this API to fetch a certification campaign template by ID.
 
 
@@ -995,7 +995,7 @@ with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | Requested campaign template's ID. # str | Requested campaign template's ID.
 
     try:
-        # Get a Campaign Template
+        # Get a campaign template
         
         results = CertificationCampaignsApi(api_client).get_campaign_template(id=id)
         # Below is a request that includes all optional parameters
@@ -1011,7 +1011,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-campaign-template-schedule
-Get Campaign Template Schedule
+Get campaign template schedule
 Use this API to get the schedule for a certification campaign template. The API returns a 404 if there is no schedule set.
 
 
@@ -1055,7 +1055,7 @@ with ApiClient(configuration) as api_client:
     id = '04bedce387bd47b2ae1f86eb0bb36dee' # str | ID of the campaign template whose schedule is being fetched. # str | ID of the campaign template whose schedule is being fetched.
 
     try:
-        # Get Campaign Template Schedule
+        # Get campaign template schedule
         
         results = CertificationCampaignsApi(api_client).get_campaign_template_schedule(id=id)
         # Below is a request that includes all optional parameters
@@ -1071,7 +1071,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-campaign-templates
-List Campaign Templates
+List campaign templates
 Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params.
 
 The API returns all campaign templates matching the query parameters. 
@@ -1124,7 +1124,7 @@ with ApiClient(configuration) as api_client:
     filters = 'name eq \"manager template\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, ge, gt, in, le, lt, ne, sw*  **id**: *eq, ge, gt, in, le, lt, ne, sw* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq, ge, gt, in, le, lt, ne, sw*  **id**: *eq, ge, gt, in, le, lt, ne, sw* (optional)
 
     try:
-        # List Campaign Templates
+        # List campaign templates
         
         results = CertificationCampaignsApi(api_client).get_campaign_templates()
         # Below is a request that includes all optional parameters
@@ -1141,7 +1141,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## move
-Reassign Certifications
+Reassign certifications
 This API reassigns the specified certifications from one identity to another.    
 
 
@@ -1195,7 +1195,7 @@ with ApiClient(configuration) as api_client:
         }''' # AdminReviewReassign | 
 
     try:
-        # Reassign Certifications
+        # Reassign certifications
         new_admin_review_reassign = AdminReviewReassign.from_json(admin_review_reassign)
         results = CertificationCampaignsApi(api_client).move(id=id, admin_review_reassign=new_admin_review_reassign)
         # Below is a request that includes all optional parameters
@@ -1211,7 +1211,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-campaign-template
-Update a Campaign Template
+Update a campaign template
 Use this API to update individual fields on a certification campaign template, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 
@@ -1258,7 +1258,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=replace, path=/description, value=Updated description!}, {op=replace, path=/campaign/filter/id, value=ff80818155fe8c080155fe8d925b0316}]''' # List[JsonPatchOperation] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * deadlineDuration * campaign (all fields that are allowed during create) 
 
     try:
-        # Update a Campaign Template
+        # Update a campaign template
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = CertificationCampaignsApi(api_client).patch_campaign_template(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
@@ -1274,7 +1274,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## set-campaign-reports-config
-Set Campaign Reports Configuration
+Set campaign reports configuration
 Use this API to overwrite the configuration for campaign reports. 
 
 
@@ -1319,7 +1319,7 @@ with ApiClient(configuration) as api_client:
         }''' # CampaignReportsConfig | Campaign report configuration.
 
     try:
-        # Set Campaign Reports Configuration
+        # Set campaign reports configuration
         new_campaign_reports_config = CampaignReportsConfig.from_json(campaign_reports_config)
         results = CertificationCampaignsApi(api_client).set_campaign_reports_config(campaign_reports_config=new_campaign_reports_config)
         # Below is a request that includes all optional parameters
@@ -1335,7 +1335,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## set-campaign-template-schedule
-Set Campaign Template Schedule
+Set campaign template schedule
 Use this API to set the schedule for a certification campaign template. If a schedule already exists, the API overwrites it with the new one.
 
 
@@ -1400,7 +1400,7 @@ with ApiClient(configuration) as api_client:
         }''' # Schedule |  (optional)
 
     try:
-        # Set Campaign Template Schedule
+        # Set campaign template schedule
         
         CertificationCampaignsApi(api_client).set_campaign_template_schedule(id=id)
         # Below is a request that includes all optional parameters
@@ -1414,7 +1414,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## start-campaign
-Activate a Campaign
+Activate a campaign
 Use this API to submit a job to activate the certified campaign with the specified ID. The campaign must be staged.
 
 
@@ -1462,7 +1462,7 @@ with ApiClient(configuration) as api_client:
         }''' # ActivateCampaignOptions | Optional. If no timezone is specified, the standard UTC timezone is used (i.e. UTC+00:00). Although this can take any timezone, the intended value is the caller's timezone. The activation time calculated from the given timezone may cause the campaign deadline time to be modified, but it will remain within the original date. The timezone must be in a valid ISO 8601 format. (optional)
 
     try:
-        # Activate a Campaign
+        # Activate a campaign
         
         results = CertificationCampaignsApi(api_client).start_campaign(id=id)
         # Below is a request that includes all optional parameters
@@ -1478,7 +1478,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## start-campaign-remediation-scan
-Run Campaign Remediation Scan
+Run campaign remediation scan
 Use this API to run a remediation scan task for a certification campaign.
 
 
@@ -1521,7 +1521,7 @@ with ApiClient(configuration) as api_client:
     id = '2c91808571bcfcf80171c23e4b4221fc' # str | ID of the campaign the remediation scan is being run for. # str | ID of the campaign the remediation scan is being run for.
 
     try:
-        # Run Campaign Remediation Scan
+        # Run campaign remediation scan
         
         results = CertificationCampaignsApi(api_client).start_campaign_remediation_scan(id=id)
         # Below is a request that includes all optional parameters
@@ -1537,7 +1537,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## start-campaign-report
-Run Campaign Report
+Run campaign report
 Use this API to run a report for a certification campaign.
 
 
@@ -1583,7 +1583,7 @@ with ApiClient(configuration) as api_client:
     type = sailpoint.v3.ReportType() # ReportType | Type of the report to run. # ReportType | Type of the report to run.
 
     try:
-        # Run Campaign Report
+        # Run campaign report
         
         results = CertificationCampaignsApi(api_client).start_campaign_report(id=id, type=type)
         # Below is a request that includes all optional parameters
@@ -1599,7 +1599,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## start-generate-campaign-template
-Generate a Campaign from Template
+Generate a campaign from template
 Use this API to generate a new certification campaign from a campaign template.
 
 The campaign object contained in the template has special formatting applied to its name and description
@@ -1652,7 +1652,7 @@ with ApiClient(configuration) as api_client:
     id = '2c9180835d191a86015d28455b4a2329' # str | ID of the campaign template to use for generation. # str | ID of the campaign template to use for generation.
 
     try:
-        # Generate a Campaign from Template
+        # Generate a campaign from template
         
         results = CertificationCampaignsApi(api_client).start_generate_campaign_template(id=id)
         # Below is a request that includes all optional parameters
@@ -1668,7 +1668,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-campaign
-Update a Campaign
+Update a campaign
 Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 
@@ -1715,7 +1715,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=replace, path=/name, value=This field has been updated!}, {op=copy, from=/name, path=/description}]''' # List[JsonPatchOperation] | A list of campaign update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The fields that can be patched differ based on the status of the campaign.  When the campaign is in the *STAGED* status, you can patch these fields: * name * description * recommendationsEnabled * deadline * emailNotificationEnabled * autoRevokeAllowed  When the campaign is in the *ACTIVE* status, you can patch these fields: * deadline 
 
     try:
-        # Update a Campaign
+        # Update a campaign
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = CertificationCampaignsApi(api_client).update_campaign(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters

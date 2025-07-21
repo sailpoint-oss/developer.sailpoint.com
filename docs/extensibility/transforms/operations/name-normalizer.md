@@ -29,7 +29,7 @@ The normalization logic within the transform handles a wide range of use cases:
   - Convert "Y" to "y"
   - Convert Roman numeral suffixes to all capitalized letters (e.g., "iii" becomes "III")
 
-## Transform Structure
+## Transform structure
 
 The name normalizer transform only requires the transform's `type` and `name` attributes:
 

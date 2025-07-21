@@ -41,27 +41,27 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-sod-policy**](#create-sod-policy) | **POST** `/sod-policies` | Create SOD policy
-[**delete-sod-policy**](#delete-sod-policy) | **DELETE** `/sod-policies/{id}` | Delete SOD policy by ID
-[**delete-sod-policy-schedule**](#delete-sod-policy-schedule) | **DELETE** `/sod-policies/{id}/schedule` | Delete SOD policy schedule
+[**create-sod-policy**](#create-sod-policy) | **POST** `/sod-policies` | Create sod policy
+[**delete-sod-policy**](#delete-sod-policy) | **DELETE** `/sod-policies/{id}` | Delete sod policy by id
+[**delete-sod-policy-schedule**](#delete-sod-policy-schedule) | **DELETE** `/sod-policies/{id}/schedule` | Delete sod policy schedule
 [**get-custom-violation-report**](#get-custom-violation-report) | **GET** `/sod-violation-report/{reportResultId}/download/{fileName}` | Download custom violation report
 [**get-default-violation-report**](#get-default-violation-report) | **GET** `/sod-violation-report/{reportResultId}/download` | Download violation report
 [**get-sod-all-report-run-status**](#get-sod-all-report-run-status) | **GET** `/sod-violation-report` | Get multi-report run task status
-[**get-sod-policy**](#get-sod-policy) | **GET** `/sod-policies/{id}` | Get SOD policy by ID
-[**get-sod-policy-schedule**](#get-sod-policy-schedule) | **GET** `/sod-policies/{id}/schedule` | Get SOD policy schedule
+[**get-sod-policy**](#get-sod-policy) | **GET** `/sod-policies/{id}` | Get sod policy by id
+[**get-sod-policy-schedule**](#get-sod-policy-schedule) | **GET** `/sod-policies/{id}/schedule` | Get sod policy schedule
 [**get-sod-violation-report-run-status**](#get-sod-violation-report-run-status) | **GET** `/sod-policies/sod-violation-report-status/{reportResultId}` | Get violation report run status
-[**get-sod-violation-report-status**](#get-sod-violation-report-status) | **GET** `/sod-policies/{id}/violation-report` | Get SOD violation report status
-[**list-sod-policies**](#list-sod-policies) | **GET** `/sod-policies` | List SOD policies
-[**patch-sod-policy**](#patch-sod-policy) | **PATCH** `/sod-policies/{id}` | Patch SOD policy by ID
-[**put-policy-schedule**](#put-policy-schedule) | **PUT** `/sod-policies/{id}/schedule` | Update SOD Policy schedule
-[**put-sod-policy**](#put-sod-policy) | **PUT** `/sod-policies/{id}` | Update SOD policy by ID
-[**start-evaluate-sod-policy**](#start-evaluate-sod-policy) | **POST** `/sod-policies/{id}/evaluate` | Evaluate one policy by ID
+[**get-sod-violation-report-status**](#get-sod-violation-report-status) | **GET** `/sod-policies/{id}/violation-report` | Get sod violation report status
+[**list-sod-policies**](#list-sod-policies) | **GET** `/sod-policies` | List sod policies
+[**patch-sod-policy**](#patch-sod-policy) | **PATCH** `/sod-policies/{id}` | Patch sod policy by id
+[**put-policy-schedule**](#put-policy-schedule) | **PUT** `/sod-policies/{id}/schedule` | Update sod policy schedule
+[**put-sod-policy**](#put-sod-policy) | **PUT** `/sod-policies/{id}` | Update sod policy by id
+[**start-evaluate-sod-policy**](#start-evaluate-sod-policy) | **POST** `/sod-policies/{id}/evaluate` | Evaluate one policy by id
 [**start-sod-all-policies-for-org**](#start-sod-all-policies-for-org) | **POST** `/sod-violation-report/run` | Runs all policies for org
-[**start-sod-policy**](#start-sod-policy) | **POST** `/sod-policies/{id}/violation-report/run` | Runs SOD policy violation report
+[**start-sod-policy**](#start-sod-policy) | **POST** `/sod-policies/{id}/violation-report/run` | Runs sod policy violation report
 
 
 ## create-sod-policy
-Create SOD policy
+Create sod policy
 This creates both General and Conflicting Access Based policy, with a limit of 50 entitlements for each (left & right) criteria for Conflicting Access Based SOD policy.
 Requires role of ORG_ADMIN.
 
@@ -71,15 +71,15 @@ Requires role of ORG_ADMIN.
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | sod_policy | [**SodPolicy**](../models/sod-policy) | True  | 
+ Body  | sod_policy_request | [**SodPolicyRequest**](../models/sod-policy-request) | True  | 
 
 ### Return type
-[**SodPolicy**](../models/sod-policy)
+[**SodPolicyRead**](../models/sod-policy-read)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-201 | SOD policy created | SodPolicy |  -  |
+201 | SOD policy created | SodPolicyRead |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -95,13 +95,14 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
 from sailpoint.v3.api_client import ApiClient
-from sailpoint.v3.models.sod_policy import SodPolicy
+from sailpoint.v3.models.sod_policy_read import SodPolicyRead
+from sailpoint.v3.models.sod_policy_request import SodPolicyRequest
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
 
 with ApiClient(configuration) as api_client:
-    sod_policy = '''{
+    sod_policy_request = '''{
           "conflictingAccessCriteria" : {
             "leftCriteria" : {
               "name" : "money-in",
@@ -156,14 +157,14 @@ with ApiClient(configuration) as api_client:
           "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
           "state" : "ENFORCED",
           "externalPolicyReference" : "XYZ policy"
-        }''' # SodPolicy | 
+        }''' # SodPolicyRequest | 
 
     try:
-        # Create SOD policy
-        new_sod_policy = SodPolicy.from_json(sod_policy)
-        results = SODPoliciesApi(api_client).create_sod_policy(sod_policy=new_sod_policy)
+        # Create sod policy
+        new_sod_policy_request = SodPolicyRequest.from_json(sod_policy_request)
+        results = SODPoliciesApi(api_client).create_sod_policy(sod_policy_request=new_sod_policy_request)
         # Below is a request that includes all optional parameters
-        # results = SODPoliciesApi(api_client).create_sod_policy(new_sod_policy)
+        # results = SODPoliciesApi(api_client).create_sod_policy(new_sod_policy_request)
         print("The response of SODPoliciesApi->create_sod_policy:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -175,7 +176,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-sod-policy
-Delete SOD policy by ID
+Delete sod policy by id
 This deletes a specified SOD policy.
 Requires role of ORG_ADMIN.
 
@@ -220,7 +221,7 @@ with ApiClient(configuration) as api_client:
     logical = True # bool | Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call. (optional) (default to True) # bool | Indicates whether this is a soft delete (logical true) or a hard delete.  Soft delete marks the policy as deleted and just save it with this status. It could be fully deleted or recovered further.  Hard delete vise versa permanently delete SOD request during this call. (optional) (default to True)
 
     try:
-        # Delete SOD policy by ID
+        # Delete sod policy by id
         
         SODPoliciesApi(api_client).delete_sod_policy(id=id)
         # Below is a request that includes all optional parameters
@@ -234,7 +235,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-sod-policy-schedule
-Delete SOD policy schedule
+Delete sod policy schedule
 This deletes schedule for a specified SOD policy by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/delete-sod-policy-schedule)
@@ -276,7 +277,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the SOD policy the schedule must be deleted for. # str | The ID of the SOD policy the schedule must be deleted for.
 
     try:
-        # Delete SOD policy schedule
+        # Delete sod policy schedule
         
         SODPoliciesApi(api_client).delete_sod_policy_schedule(id=id)
         # Below is a request that includes all optional parameters
@@ -462,7 +463,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-sod-policy
-Get SOD policy by ID
+Get sod policy by id
 This gets specified SOD policy.
 Requires role of ORG_ADMIN.
 
@@ -475,12 +476,12 @@ Param Type | Name | Data Type | Required  | Description
 Path   | id | **str** | True  | The ID of the SOD Policy to retrieve.
 
 ### Return type
-[**SodPolicy**](../models/sod-policy)
+[**SodPolicyRead**](../models/sod-policy-read)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | SOD policy ID. | SodPolicy |  -  |
+200 | SOD policy ID. | SodPolicyRead |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -497,7 +498,7 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
 from sailpoint.v3.api_client import ApiClient
-from sailpoint.v3.models.sod_policy import SodPolicy
+from sailpoint.v3.models.sod_policy_read import SodPolicyRead
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -506,7 +507,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the SOD Policy to retrieve. # str | The ID of the SOD Policy to retrieve.
 
     try:
-        # Get SOD policy by ID
+        # Get sod policy by id
         
         results = SODPoliciesApi(api_client).get_sod_policy(id=id)
         # Below is a request that includes all optional parameters
@@ -522,7 +523,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-sod-policy-schedule
-Get SOD policy schedule
+Get sod policy schedule
 This endpoint gets a specified SOD policy's schedule.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-sod-policy-schedule)
@@ -564,7 +565,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the SOD policy schedule to retrieve. # str | The ID of the SOD policy schedule to retrieve.
 
     try:
-        # Get SOD policy schedule
+        # Get sod policy schedule
         
         results = SODPoliciesApi(api_client).get_sod_policy_schedule(id=id)
         # Below is a request that includes all optional parameters
@@ -639,7 +640,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-sod-violation-report-status
-Get SOD violation report status
+Get sod violation report status
 This gets the status for a violation report run task that has already been invoked.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-sod-violation-report-status)
@@ -682,7 +683,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the violation report to retrieve status for. # str | The ID of the violation report to retrieve status for.
 
     try:
-        # Get SOD violation report status
+        # Get sod violation report status
         
         results = SODPoliciesApi(api_client).get_sod_violation_report_status(id=id)
         # Below is a request that includes all optional parameters
@@ -698,7 +699,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-sod-policies
-List SOD policies
+List sod policies
 This gets list of all SOD policies.
 Requires role of ORG_ADMIN
 
@@ -715,12 +716,12 @@ Param Type | Name | Data Type | Required  | Description
   Query | sorters | **str** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description**
 
 ### Return type
-[**List[SodPolicy]**](../models/sod-policy)
+[**List[SodPolicyRead]**](../models/sod-policy-read)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | List of all SOD policies. | List[SodPolicy] |  -  |
+200 | List of all SOD policies. | List[SodPolicyRead] |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -736,7 +737,7 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
 from sailpoint.v3.api_client import ApiClient
-from sailpoint.v3.models.sod_policy import SodPolicy
+from sailpoint.v3.models.sod_policy_read import SodPolicyRead
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -749,7 +750,7 @@ with ApiClient(configuration) as api_client:
     sorters = 'id,name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, description** (optional)
 
     try:
-        # List SOD policies
+        # List sod policies
         
         results = SODPoliciesApi(api_client).list_sod_policies()
         # Below is a request that includes all optional parameters
@@ -766,7 +767,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-sod-policy
-Patch SOD policy by ID
+Patch sod policy by id
 Allows updating SOD Policy fields other than ["id","created","creatorId","policyQuery","type"] using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 Requires role of ORG_ADMIN.
 This endpoint can only patch CONFLICTING_ACCESS_BASED type policies. Do not use this endpoint to patch general policies - doing so will build an API exception. 
@@ -781,12 +782,12 @@ Path   | id | **str** | True  | The ID of the SOD policy being modified.
  Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
 
 ### Return type
-[**SodPolicy**](../models/sod-policy)
+[**SodPolicyRead**](../models/sod-policy-read)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | Indicates the PATCH operation succeeded, and returns the SOD policy&#39;s new representation. | SodPolicy |  -  |
+200 | Indicates the PATCH operation succeeded, and returns the SOD policy&#39;s new representation. | SodPolicyRead |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -804,7 +805,7 @@ Code | Description  | Data Type | Response headers |
 from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
 from sailpoint.v3.api_client import ApiClient
 from sailpoint.v3.models.json_patch_operation import JsonPatchOperation
-from sailpoint.v3.models.sod_policy import SodPolicy
+from sailpoint.v3.models.sod_policy_read import SodPolicyRead
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
@@ -814,7 +815,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=replace, path=/description, value=Modified description}, {op=replace, path=/conflictingAccessCriteria/leftCriteria/name, value=money-in-modified}, {op=replace, path=/conflictingAccessCriteria/rightCriteria, value={name=money-out-modified, criteriaList=[{type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2}]}}]''' # List[JsonPatchOperation] | A list of SOD Policy update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  The following fields are patchable: * name * description * ownerRef * externalPolicyReference * compensatingControls * correctionAdvice * state * tags * violationOwnerAssignmentConfig * scheduled * conflictingAccessCriteria 
 
     try:
-        # Patch SOD policy by ID
+        # Patch sod policy by id
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = SODPoliciesApi(api_client).patch_sod_policy(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
@@ -830,7 +831,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-policy-schedule
-Update SOD Policy schedule
+Update sod policy schedule
 This updates schedule for a specified SOD policy.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/put-policy-schedule)
@@ -911,7 +912,7 @@ with ApiClient(configuration) as api_client:
         }''' # SodPolicySchedule | 
 
     try:
-        # Update SOD Policy schedule
+        # Update sod policy schedule
         new_sod_policy_schedule = SodPolicySchedule.from_json(sod_policy_schedule)
         results = SODPoliciesApi(api_client).put_policy_schedule(id=id, sod_policy_schedule=new_sod_policy_schedule)
         # Below is a request that includes all optional parameters
@@ -927,7 +928,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-sod-policy
-Update SOD policy by ID
+Update sod policy by id
 This updates a specified SOD policy.
 Requires role of ORG_ADMIN.
 
@@ -938,15 +939,15 @@ Requires role of ORG_ADMIN.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | The ID of the SOD policy to update.
- Body  | sod_policy | [**SodPolicy**](../models/sod-policy) | True  | 
+ Body  | sod_policy_read | [**SodPolicyRead**](../models/sod-policy-read) | True  | 
 
 ### Return type
-[**SodPolicy**](../models/sod-policy)
+[**SodPolicyRead**](../models/sod-policy-read)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | SOD Policy by ID | SodPolicy |  -  |
+200 | SOD Policy by ID | SodPolicyRead |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -963,14 +964,14 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v3.api.sod_policies_api import SODPoliciesApi
 from sailpoint.v3.api_client import ApiClient
-from sailpoint.v3.models.sod_policy import SodPolicy
+from sailpoint.v3.models.sod_policy_read import SodPolicyRead
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The ID of the SOD policy to update. # str | The ID of the SOD policy to update.
-    sod_policy = '''{
+    sod_policy_read = '''{
           "conflictingAccessCriteria" : {
             "leftCriteria" : {
               "name" : "money-in",
@@ -1025,14 +1026,14 @@ with ApiClient(configuration) as api_client:
           "id" : "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde",
           "state" : "ENFORCED",
           "externalPolicyReference" : "XYZ policy"
-        }''' # SodPolicy | 
+        }''' # SodPolicyRead | 
 
     try:
-        # Update SOD policy by ID
-        new_sod_policy = SodPolicy.from_json(sod_policy)
-        results = SODPoliciesApi(api_client).put_sod_policy(id=id, sod_policy=new_sod_policy)
+        # Update sod policy by id
+        new_sod_policy_read = SodPolicyRead.from_json(sod_policy_read)
+        results = SODPoliciesApi(api_client).put_sod_policy(id=id, sod_policy_read=new_sod_policy_read)
         # Below is a request that includes all optional parameters
-        # results = SODPoliciesApi(api_client).put_sod_policy(id, new_sod_policy)
+        # results = SODPoliciesApi(api_client).put_sod_policy(id, new_sod_policy_read)
         print("The response of SODPoliciesApi->put_sod_policy:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -1044,7 +1045,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## start-evaluate-sod-policy
-Evaluate one policy by ID
+Evaluate one policy by id
 Runs the scheduled report for the policy retrieved by passed policy ID.  The report schedule is fetched from the policy retrieved by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/start-evaluate-sod-policy)
@@ -1086,7 +1087,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The SOD policy ID to run. # str | The SOD policy ID to run.
 
     try:
-        # Evaluate one policy by ID
+        # Evaluate one policy by id
         
         results = SODPoliciesApi(api_client).start_evaluate_sod_policy(id=id)
         # Below is a request that includes all optional parameters
@@ -1163,7 +1164,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## start-sod-policy
-Runs SOD policy violation report
+Runs sod policy violation report
 This invokes processing of violation report for given SOD policy. If the policy reports more than 5000 violations, the report returns with violation limit exceeded message.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/start-sod-policy)
@@ -1206,7 +1207,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f943-47e9-4562-b5bb-8424a56397d8' # str | The SOD policy ID to run. # str | The SOD policy ID to run.
 
     try:
-        # Runs SOD policy violation report
+        # Runs sod policy violation report
         
         results = SODPoliciesApi(api_client).start_sod_policy(id=id)
         # Below is a request that includes all optional parameters

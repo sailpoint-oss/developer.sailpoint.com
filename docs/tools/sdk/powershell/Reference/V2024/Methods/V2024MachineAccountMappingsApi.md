@@ -17,9 +17,9 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2024MachineAccountMappings**](#create-machine-account-mappings) | **POST** `/sources/{sourceId}/machine-account-mappings` | Create Machine Account Mappings
-[**Remove-V2024MachineAccountMappings**](#delete-machine-account-mappings) | **DELETE** `/sources/{sourceId}/machine-account-mappings` | Delete Source&#39;s Machine Account Mappings
-[**Get-V2024MachineAccountMappings**](#list-machine-account-mappings) | **GET** `/sources/{sourceId}/machine-account-mappings` | Machine Account Mapping for Source
+[**New-V2024MachineAccountMappings**](#create-machine-account-mappings) | **POST** `/sources/{sourceId}/machine-account-mappings` | Create machine account mappings
+[**Remove-V2024MachineAccountMappings**](#delete-machine-account-mappings) | **DELETE** `/sources/{sourceId}/machine-account-mappings` | Delete source&#39;s machine account mappings
+[**Get-V2024MachineAccountMappings**](#list-machine-account-mappings) | **GET** `/sources/{sourceId}/machine-account-mappings` | Machine account mapping for source
 [**Set-V2024MachineAccountMappings**](#set-machine-account-mappings) | **PUT** `/sources/{sourceId}/machine-mappings` | Update Source&#39;s Machine Account Mappings
 
 
@@ -77,7 +77,7 @@ $AttributeMappings = @"{
   }
 }"@
 
-# Create Machine Account Mappings
+# Create machine account mappings
 
 try {
     $Result = ConvertFrom-JsonToAttributeMappings -Json $AttributeMappings
@@ -125,7 +125,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | source ID.
 
-# Delete Source's Machine Account Mappings
+# Delete source's machine account mappings
 
 try {
     Remove-V2024MachineAccountMappings -Id $Id 
@@ -175,7 +175,7 @@ $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
-# Machine Account Mapping for Source
+# Machine account mapping for source
 
 try {
     Get-V2024MachineAccountMappings -Id $Id 

@@ -2,7 +2,7 @@ get:
   operationId: getCampaign
   tags:
     - Certification Campaigns
-  summary: Get Campaign
+  summary: Get campaign
   description: |
     Use this API to get information for an existing certification campaign by the campaign's ID. Though this endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign).
     
@@ -51,7 +51,7 @@ patch:
   operationId: updateCampaign
   tags:
     - Certification Campaigns
-  summary: Update a Campaign
+  summary: Update a campaign
   description: |
     Use this API to update individual fields on a certification campaign, using the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Though this endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/update-campaign).
 

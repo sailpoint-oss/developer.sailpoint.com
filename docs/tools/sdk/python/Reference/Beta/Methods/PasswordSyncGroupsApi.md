@@ -47,15 +47,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-password-sync-group**](#create-password-sync-group) | **POST** `/password-sync-groups` | Create Password Sync Group
-[**delete-password-sync-group**](#delete-password-sync-group) | **DELETE** `/password-sync-groups/{id}` | Delete Password Sync Group by ID
-[**get-password-sync-group**](#get-password-sync-group) | **GET** `/password-sync-groups/{id}` | Get Password Sync Group by ID
-[**get-password-sync-groups**](#get-password-sync-groups) | **GET** `/password-sync-groups` | Get Password Sync Group List
-[**update-password-sync-group**](#update-password-sync-group) | **PUT** `/password-sync-groups/{id}` | Update Password Sync Group by ID
+[**create-password-sync-group**](#create-password-sync-group) | **POST** `/password-sync-groups` | Create password sync group
+[**delete-password-sync-group**](#delete-password-sync-group) | **DELETE** `/password-sync-groups/{id}` | Delete password sync group by id
+[**get-password-sync-group**](#get-password-sync-group) | **GET** `/password-sync-groups/{id}` | Get password sync group by id
+[**get-password-sync-groups**](#get-password-sync-groups) | **GET** `/password-sync-groups` | Get password sync group list
+[**update-password-sync-group**](#update-password-sync-group) | **PUT** `/password-sync-groups/{id}` | Update password sync group by id
 
 
 ## create-password-sync-group
-Create Password Sync Group
+Create password sync group
 This API creates a password sync group based on the specifications provided.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-password-sync-group)
@@ -104,7 +104,7 @@ with ApiClient(configuration) as api_client:
         }''' # PasswordSyncGroup | 
 
     try:
-        # Create Password Sync Group
+        # Create password sync group
         new_password_sync_group = PasswordSyncGroup.from_json(password_sync_group)
         results = PasswordSyncGroupsApi(api_client).create_password_sync_group(password_sync_group=new_password_sync_group)
         # Below is a request that includes all optional parameters
@@ -120,7 +120,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-password-sync-group
-Delete Password Sync Group by ID
+Delete password sync group by id
 This API deletes the specified password sync group.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-password-sync-group)
@@ -161,7 +161,7 @@ with ApiClient(configuration) as api_client:
     id = '6881f631-3bd5-4213-9c75-8e05cc3e35dd' # str | The ID of password sync group to delete. # str | The ID of password sync group to delete.
 
     try:
-        # Delete Password Sync Group by ID
+        # Delete password sync group by id
         
         PasswordSyncGroupsApi(api_client).delete_password_sync_group(id=id)
         # Below is a request that includes all optional parameters
@@ -175,7 +175,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-password-sync-group
-Get Password Sync Group by ID
+Get password sync group by id
 This API returns the sync group for the specified ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-password-sync-group)
@@ -218,7 +218,7 @@ with ApiClient(configuration) as api_client:
     id = '6881f631-3bd5-4213-9c75-8e05cc3e35dd' # str | The ID of password sync group to retrieve. # str | The ID of password sync group to retrieve.
 
     try:
-        # Get Password Sync Group by ID
+        # Get password sync group by id
         
         results = PasswordSyncGroupsApi(api_client).get_password_sync_group(id=id)
         # Below is a request that includes all optional parameters
@@ -234,7 +234,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-password-sync-groups
-Get Password Sync Group List
+Get password sync group list
 This API returns a list of password sync groups.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-password-sync-groups)
@@ -280,7 +280,7 @@ with ApiClient(configuration) as api_client:
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
     try:
-        # Get Password Sync Group List
+        # Get password sync group list
         
         results = PasswordSyncGroupsApi(api_client).get_password_sync_groups()
         # Below is a request that includes all optional parameters
@@ -297,7 +297,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-password-sync-group
-Update Password Sync Group by ID
+Update password sync group by id
 This API updates the specified password sync group.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-password-sync-group)
@@ -349,7 +349,7 @@ with ApiClient(configuration) as api_client:
         }''' # PasswordSyncGroup | 
 
     try:
-        # Update Password Sync Group by ID
+        # Update password sync group by id
         new_password_sync_group = PasswordSyncGroup.from_json(password_sync_group)
         results = PasswordSyncGroupsApi(api_client).update_password_sync_group(id=id, password_sync_group=new_password_sync_group)
         # Below is a request that includes all optional parameters

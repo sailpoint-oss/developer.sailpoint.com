@@ -1,7 +1,7 @@
 patch:
   tags:
     - Managed Clusters
-  summary: Update a Managed Cluster
+  summary: Update a managed cluster
   description: >-
     Update an existing Managed Cluster.
   operationId: updateManagedCluster
@@ -46,7 +46,7 @@ delete:
   operationId: deleteManagedCluster
   tags:
     - Managed Clusters
-  summary: Delete a Managed Cluster
+  summary: Delete a managed cluster
   description: >-
     Delete an existing Managed Cluster.
   parameters:

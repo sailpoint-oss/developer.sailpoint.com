@@ -58,16 +58,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Complete-BetaTriggerInvocation**](#complete-trigger-invocation) | **POST** `/trigger-invocations/{id}/complete` | Complete Trigger Invocation
-[**New-BetaSubscription**](#create-subscription) | **POST** `/trigger-subscriptions` | Create a Subscription
-[**Remove-BetaSubscription**](#delete-subscription) | **DELETE** `/trigger-subscriptions/{id}` | Delete a Subscription
-[**Get-BetaSubscriptions**](#list-subscriptions) | **GET** `/trigger-subscriptions` | List Subscriptions
-[**Get-BetaTriggerInvocationStatus**](#list-trigger-invocation-status) | **GET** `/trigger-invocations/status` | List Latest Invocation Statuses
-[**Get-BetaTriggers**](#list-triggers) | **GET** `/triggers` | List Triggers
-[**Update-BetaSubscription**](#patch-subscription) | **PATCH** `/trigger-subscriptions/{id}` | Patch a Subscription
-[**Start-BetaTestTriggerInvocation**](#start-test-trigger-invocation) | **POST** `/trigger-invocations/test` | Start a Test Invocation
-[**Test-BetaSubscriptionFilter**](#test-subscription-filter) | **POST** `/trigger-subscriptions/validate-filter` | Validate a Subscription Filter
-[**Update-BetaSubscription**](#update-subscription) | **PUT** `/trigger-subscriptions/{id}` | Update a Subscription
+[**Complete-BetaTriggerInvocation**](#complete-trigger-invocation) | **POST** `/trigger-invocations/{id}/complete` | Complete trigger invocation
+[**New-BetaSubscription**](#create-subscription) | **POST** `/trigger-subscriptions` | Create a subscription
+[**Remove-BetaSubscription**](#delete-subscription) | **DELETE** `/trigger-subscriptions/{id}` | Delete a subscription
+[**Get-BetaSubscriptions**](#list-subscriptions) | **GET** `/trigger-subscriptions` | List subscriptions
+[**Get-BetaTriggerInvocationStatus**](#list-trigger-invocation-status) | **GET** `/trigger-invocations/status` | List latest invocation statuses
+[**Get-BetaTriggers**](#list-triggers) | **GET** `/triggers` | List triggers
+[**Update-BetaSubscription**](#patch-subscription) | **PATCH** `/trigger-subscriptions/{id}` | Patch a subscription
+[**Start-BetaTestTriggerInvocation**](#start-test-trigger-invocation) | **POST** `/trigger-invocations/test` | Start a test invocation
+[**Test-BetaSubscriptionFilter**](#test-subscription-filter) | **POST** `/trigger-subscriptions/validate-filter` | Validate a subscription filter
+[**Update-BetaSubscription**](#update-subscription) | **PUT** `/trigger-subscriptions/{id}` | Update a subscription
 
 
 ## complete-trigger-invocation
@@ -109,7 +109,7 @@ $CompleteInvocation = @"{
   "error" : "Access request is denied."
 }"@
 
-# Complete Trigger Invocation
+# Complete trigger invocation
 
 try {
     $Result = ConvertFrom-JsonToCompleteInvocation -Json $CompleteInvocation
@@ -181,7 +181,7 @@ $SubscriptionPostRequest = @"{
   "enabled" : true
 }"@
 
-# Create a Subscription
+# Create a subscription
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPostRequest -Json $SubscriptionPostRequest
@@ -228,7 +228,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | Subscription ID
 
-# Delete a Subscription
+# Delete a subscription
 
 try {
     Remove-BetaSubscription -Id $Id 
@@ -281,7 +281,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'id eq "12cff757-c0c0-413b-8ad7-2a47956d1e89"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq*  **triggerId**: *eq*  **type**: *eq, le* (optional)
 $Sorters = "triggerName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, triggerName** (optional)
 
-# List Subscriptions
+# List subscriptions
 
 try {
     Get-BetaSubscriptions 
@@ -336,7 +336,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'triggerId eq "idn:access-request-dynamic-approver"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **triggerId**: *eq*  **subscriptionId**: *eq* (optional)
 $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, subscriptionName, created, completed** (optional)
 
-# List Latest Invocation Statuses
+# List latest invocation statuses
 
 try {
     Get-BetaTriggerInvocationStatus 
@@ -389,7 +389,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'id eq "idn:access-request-post-approval"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, ge, le* (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name** (optional)
 
-# List Triggers
+# List triggers
 
 try {
     Get-BetaTriggers 
@@ -440,7 +440,7 @@ $Id = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | ID of the Subscription t
  $SubscriptionPatchRequestInner = @""@ # SubscriptionPatchRequestInner[] | 
  
 
-# Patch a Subscription
+# Patch a subscription
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPatchRequestInner -Json $SubscriptionPatchRequestInner
@@ -496,7 +496,7 @@ $TestInvocation = @"{
   }
 }"@
 
-# Start a Test Invocation
+# Start a test invocation
 
 try {
     $Result = ConvertFrom-JsonToTestInvocation -Json $TestInvocation
@@ -548,7 +548,7 @@ $ValidateFilterInputDto = @"{
   }
 }"@
 
-# Validate a Subscription Filter
+# Validate a subscription filter
 
 try {
     $Result = ConvertFrom-JsonToValidateFilterInputDto -Json $ValidateFilterInputDto
@@ -629,7 +629,7 @@ $SubscriptionPutRequest = @"{
   "enabled" : true
 }"@
 
-# Update a Subscription
+# Update a subscription
 
 try {
     $Result = ConvertFrom-JsonToSubscriptionPutRequest -Json $SubscriptionPutRequest

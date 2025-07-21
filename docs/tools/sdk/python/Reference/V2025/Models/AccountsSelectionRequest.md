@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **requested_for** | **[]str** | A list of Identity IDs for whom the Access is requested. | [required]
 **request_type** | [**AccessRequestType**](access-request-type) |  | [optional] 
-**requested_items** | [**[]AccessRequestItem1**](access-request-item1) |  | [required]
+**requested_items** | [**[]AccessRequestItem**](access-request-item) |  | [required]
 **client_metadata** | **map[string]str** | Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on associated APIs such as /account-activities.   | [optional] 
 }
 
@@ -31,7 +31,7 @@ accounts_selection_request = AccountsSelectionRequest(
 requested_for=2c918084660f45d6016617daa9210584,
 request_type='GRANT_ACCESS',
 requested_items=[
-                    sailpoint.v2025.models.access_request_item_1.AccessRequestItem_1(
+                    sailpoint.v2025.models.access_request_item.AccessRequestItem(
                         type = 'ACCESS_PROFILE', 
                         id = '2c9180835d2e5168015d32f890ca1581', 
                         comment = 'Requesting access profile for John Doe', 

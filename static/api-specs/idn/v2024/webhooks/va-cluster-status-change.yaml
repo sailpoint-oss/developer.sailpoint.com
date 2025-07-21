@@ -1,5 +1,5 @@
 post:
-  summary: VA Cluster Status Change
+  summary: Va cluster status change
   operationId: vaClusterStatusChangeEvent
   description: >-
     This event trigger fires when Identity Security Cloud (ISC) runs a health check on a virtual appliance (VA) cluster, and the cluster's health status is different from the previous health check, such as a change from healthy to unhealthy or the opposite. 

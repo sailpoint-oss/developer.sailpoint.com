@@ -21,16 +21,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-connector-rule**](#create-connector-rule) | **POST** `/connector-rules` | Create Connector Rule
-[**delete-connector-rule**](#delete-connector-rule) | **DELETE** `/connector-rules/{id}` | Delete a Connector-Rule
-[**get-connector-rule**](#get-connector-rule) | **GET** `/connector-rules/{id}` | Connector-Rule by ID
-[**get-connector-rule-list**](#get-connector-rule-list) | **GET** `/connector-rules` | List Connector Rules
-[**update-connector-rule**](#update-connector-rule) | **PUT** `/connector-rules/{id}` | Update a Connector Rule
-[**validate-connector-rule**](#validate-connector-rule) | **POST** `/connector-rules/validate` | Validate Connector Rule
+[**create-connector-rule**](#create-connector-rule) | **POST** `/connector-rules` | Create connector rule
+[**delete-connector-rule**](#delete-connector-rule) | **DELETE** `/connector-rules/{id}` | Delete a connector-rule
+[**get-connector-rule**](#get-connector-rule) | **GET** `/connector-rules/{id}` | Connector-rule by id
+[**get-connector-rule-list**](#get-connector-rule-list) | **GET** `/connector-rules` | List connector rules
+[**update-connector-rule**](#update-connector-rule) | **PUT** `/connector-rules/{id}` | Update a connector rule
+[**validate-connector-rule**](#validate-connector-rule) | **POST** `/connector-rules/validate` | Validate connector rule
 
 
 ## create-connector-rule
-Create Connector Rule
+Create connector rule
 Creates a new connector rule.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -99,7 +99,7 @@ with ApiClient(configuration) as api_client:
         }''' # ConnectorRuleCreateRequest | The connector rule to create
 
     try:
-        # Create Connector Rule
+        # Create connector rule
         new_connector_rule_create_request = ConnectorRuleCreateRequest.from_json(connector_rule_create_request)
         results = ConnectorRuleManagementApi(api_client).create_connector_rule(connector_rule_create_request=new_connector_rule_create_request)
         # Below is a request that includes all optional parameters
@@ -115,7 +115,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-connector-rule
-Delete a Connector-Rule
+Delete a connector-rule
 Deletes the connector rule specified by the given ID.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -158,7 +158,7 @@ with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | ID of the connector rule to delete # str | ID of the connector rule to delete
 
     try:
-        # Delete a Connector-Rule
+        # Delete a connector-rule
         
         ConnectorRuleManagementApi(api_client).delete_connector_rule(id=id)
         # Below is a request that includes all optional parameters
@@ -172,7 +172,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-connector-rule
-Connector-Rule by ID
+Connector-rule by id
 Returns the connector rule specified by ID.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -216,7 +216,7 @@ with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | ID of the connector rule to retrieve # str | ID of the connector rule to retrieve
 
     try:
-        # Connector-Rule by ID
+        # Connector-rule by id
         
         results = ConnectorRuleManagementApi(api_client).get_connector_rule(id=id)
         # Below is a request that includes all optional parameters
@@ -232,7 +232,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-connector-rule-list
-List Connector Rules
+List connector rules
 Returns the list of connector rules.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -271,7 +271,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # List Connector Rules
+        # List connector rules
         
         results = ConnectorRuleManagementApi(api_client).get_connector_rule_list()
         # Below is a request that includes all optional parameters
@@ -288,7 +288,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-connector-rule
-Update a Connector Rule
+Update a connector rule
 Updates an existing connector rule with the one provided in the request body. Note that the fields 'id', 'name', and 'type' are immutable.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -361,7 +361,7 @@ with ApiClient(configuration) as api_client:
         }''' # ConnectorRuleUpdateRequest | The connector rule with updated data (optional)
 
     try:
-        # Update a Connector Rule
+        # Update a connector rule
         
         results = ConnectorRuleManagementApi(api_client).update_connector_rule(id=id)
         # Below is a request that includes all optional parameters
@@ -377,7 +377,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## validate-connector-rule
-Validate Connector Rule
+Validate connector rule
 Returns a list of issues within the code to fix, if any.
 A token with ORG_ADMIN authority is required to call this API.
 
@@ -424,7 +424,7 @@ with ApiClient(configuration) as api_client:
         }''' # SourceCode | The code to validate
 
     try:
-        # Validate Connector Rule
+        # Validate connector rule
         new_source_code = SourceCode.from_json(source_code)
         results = ConnectorRuleManagementApi(api_client).validate_connector_rule(source_code=new_source_code)
         # Below is a request that includes all optional parameters

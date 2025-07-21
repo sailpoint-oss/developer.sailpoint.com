@@ -4,7 +4,7 @@ post:
     - userAuth: [ idn:tag:manage ]
   tags:
     - Tagged Objects
-  summary: Remove Tags from Multiple Objects
+  summary: Remove tags from multiple objects
   description: >-
     This API removes tags from multiple objects.
 

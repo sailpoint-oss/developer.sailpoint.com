@@ -1,6 +1,6 @@
 ---
 id: before-and-after-rule-operations
-title: Before and After Operations on Source Account Rule
+title: Before and after operations on source account Rule
 pagination_label: Before and After Operations
 sidebar_label: Before and After Rule Operations
 sidebar_class_name: beforeAndAfterRuleOperations
@@ -10,7 +10,7 @@ slug: /extensibility/rules/connector-rules/before-and-after-rule-operations
 tags: ['Rules']
 ---
 
-# Before and After Operations on Source Account Rule
+# Before and after operations on source account Rule
 
 ## Overview
 
@@ -42,11 +42,11 @@ The following operations can be performed on a source:
 | Request | SailPoint.Utils.objects.AccountRequest | Reference to the account request provisioning instructions. |
 | Result | SailPoint.Utils.objects.ServiceResult | Reference to the provisioning result that can be manipulated if necessary. |
 
-## Architecture Best Practices
+## Architecture best practices
 
 For supportability, it is recommended that you write these operation rules with only the most basic logic necessary to trigger a PowerShell script and shift the bulk of the downstream events and/or modifications to the PowerShell script itself. This script would reside on the client's servers and can therefore be easily maintained or modified by the client as needed. It also allows the client to implement changes to the PowerShell scripted functionality without requiring code review by SailPoint because the code runs outside of the Identity Security Cloud platform.
 
-## Rule Template
+## Rule template
 
 This example triggers on the BeforeCreate operation. If you want to use another operation, replace `BeforeCreate` in the name and `ConnectorBeforeCreate` in the type with one of the other operations described earlier in the [Overview](#overview) section.
 
@@ -120,7 +120,7 @@ if($enableDebug) {
  </Rule>
 ```
 
-## Powershell Script Template
+## Powershell script template
 
 You can also use the following Powershell script template for each operation in the [Overview](#overview) section. Be sure to update the `$logFile` variable with the operation you use to ensure you are logging to a file with the correct operation name.
 
@@ -226,6 +226,6 @@ if($enableDebug) {
 }
 ```
 
-## Attach to Source
+## Attach to source
 
 Refer to [Attaching Connector-Related Rules to Sources](./index.md#aftercreate-aftermodify-afterdelete-beforecreate-beforemodify-beforedelete-rules) for details on how to attach your rule to your source.

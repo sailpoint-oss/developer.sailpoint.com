@@ -19,13 +19,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-ManagedCluster**](#create-managed-cluster) | **POST** `/managed-clusters` | Create Create Managed Cluster
-[**Remove-ManagedCluster**](#delete-managed-cluster) | **DELETE** `/managed-clusters/{id}` | Delete Managed Cluster
-[**Get-ClientLogConfiguration**](#get-client-log-configuration) | **GET** `/managed-clusters/{id}/log-config` | Get Managed Cluster Log Configuration
-[**Get-ManagedCluster**](#get-managed-cluster) | **GET** `/managed-clusters/{id}` | Get Managed Cluster
-[**Get-ManagedClusters**](#get-managed-clusters) | **GET** `/managed-clusters` | Get Managed Clusters
-[**Send-ClientLogConfiguration**](#put-client-log-configuration) | **PUT** `/managed-clusters/{id}/log-config` | Update Managed Cluster Log Configuration
-[**Update-ManagedCluster**](#update-managed-cluster) | **PATCH** `/managed-clusters/{id}` | Update Managed Cluster
+[**New-ManagedCluster**](#create-managed-cluster) | **POST** `/managed-clusters` | Create create managed cluster
+[**Remove-ManagedCluster**](#delete-managed-cluster) | **DELETE** `/managed-clusters/{id}` | Delete managed cluster
+[**Get-ClientLogConfiguration**](#get-client-log-configuration) | **GET** `/managed-clusters/{id}/log-config` | Get managed cluster log configuration
+[**Get-ManagedCluster**](#get-managed-cluster) | **GET** `/managed-clusters/{id}` | Get managed cluster
+[**Get-ManagedClusters**](#get-managed-clusters) | **GET** `/managed-clusters` | Get managed clusters
+[**Send-ClientLogConfiguration**](#put-client-log-configuration) | **PUT** `/managed-clusters/{id}/log-config` | Update managed cluster log configuration
+[**Update-ManagedCluster**](#update-managed-cluster) | **PATCH** `/managed-clusters/{id}` | Update managed cluster
 
 
 ## create-managed-cluster
@@ -68,7 +68,7 @@ $ManagedClusterRequest = @"{
   "type" : "idn"
 }"@
 
-# Create Create Managed Cluster
+# Create create managed cluster
 
 try {
     $Result = ConvertFrom-JsonToManagedClusterRequest -Json $ManagedClusterRequest
@@ -116,7 +116,7 @@ Code | Description  | Data Type
 $Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
 $RemoveClients = $false # Boolean | Flag to determine the need to delete a cluster with clients. (optional) (default to $false)
 
-# Delete Managed Cluster
+# Delete managed cluster
 
 try {
     Remove-ManagedCluster -Id $Id 
@@ -163,7 +163,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | ID of managed cluster to get log configuration for.
 
-# Get Managed Cluster Log Configuration
+# Get managed cluster log configuration
 
 try {
     Get-ClientLogConfiguration -Id $Id 
@@ -209,7 +209,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
 
-# Get Managed Cluster
+# Get managed cluster
 
 try {
     Get-ManagedCluster -Id $Id 
@@ -260,7 +260,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'operational eq "operation"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **operational**: *eq* (optional)
 
-# Get Managed Clusters
+# Get managed clusters
 
 try {
     Get-ManagedClusters 
@@ -308,7 +308,7 @@ Code | Description  | Data Type
 $Id = "2b838de9-db9b-abcf-e646-d4f274ad4238" # String | ID of the managed cluster to update the log configuration for.
 $PutClientLogConfigurationRequest = @""@
 
-# Update Managed Cluster Log Configuration
+# Update managed cluster log configuration
 
 try {
     $Result = ConvertFrom-JsonToPutClientLogConfigurationRequest -Json $PutClientLogConfigurationRequest
@@ -362,7 +362,7 @@ $Id = "2c9180897de347a2017de8859e8c5039" # String | Managed cluster ID.
 }"@ # JsonPatchOperation[] | JSONPatch payload used to update the object.
  
 
-# Update Managed Cluster
+# Update managed cluster
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

@@ -19,15 +19,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2025OrgConfig**](#get-org-config) | **GET** `/org-config` | Get Org Config Settings
-[**Get-V2025ValidTimeZones**](#get-valid-time-zones) | **GET** `/org-config/valid-time-zones` | Get Valid Time Zones
-[**Update-V2025OrgConfig**](#patch-org-config) | **PATCH** `/org-config` | Patch Org Config
+[**Get-V2025OrgConfig**](#get-org-config) | **GET** `/org-config` | Get org config settings
+[**Get-V2025ValidTimeZones**](#get-valid-time-zones) | **GET** `/org-config/valid-time-zones` | Get valid time zones
+[**Update-V2025OrgConfig**](#patch-org-config) | **PATCH** `/org-config` | Patch org config
 
 
 ## get-org-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Get the current organization's configuration settings, only external accessible properties.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-org-config)
@@ -35,7 +32,6 @@ Get the current organization's configuration settings, only external accessible 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**OrgConfig**](../models/org-config)
@@ -57,15 +53,14 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Org Config Settings
+# Get org config settings
 
 try {
-    Get-V2025OrgConfig -XSailPointExperimental $XSailPointExperimental 
+    Get-V2025OrgConfig 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025OrgConfig -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2025OrgConfig  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025OrgConfig"
     Write-Host $_.ErrorDetails
@@ -113,7 +108,7 @@ $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. 
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# Get Valid Time Zones
+# Get valid time zones
 
 try {
     Get-V2025ValidTimeZones -XSailPointExperimental $XSailPointExperimental 
@@ -128,9 +123,6 @@ try {
 [[Back to top]](#) 
 
 ## patch-org-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Patch the current organization's configuration, using http://jsonpatch.com/ syntax. This is commonly used to changing an organization's time zone.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-org-config)
@@ -138,7 +130,6 @@ Patch the current organization's configuration, using http://jsonpatch.com/ synt
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
 ### Return type
@@ -161,7 +152,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
@@ -169,14 +159,14 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 }"@ # JsonPatchOperation[] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 
-# Patch Org Config
+# Patch org config
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2025OrgConfig -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+    Update-V2025OrgConfig -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2025OrgConfig -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
+    # Update-V2025OrgConfig -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025OrgConfig"
     Write-Host $_.ErrorDetails

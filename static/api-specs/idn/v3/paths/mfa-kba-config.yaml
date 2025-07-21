@@ -2,7 +2,7 @@ get:
   operationId: getMFAKbaConfig
   tags:
     - MFA Configuration
-  summary: Configuration of KBA MFA method
+  summary: Configuration of kba mfa method
   description: >-
     This API returns the KBA configuration for MFA.
   parameters:

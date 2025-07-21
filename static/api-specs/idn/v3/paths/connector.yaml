@@ -2,7 +2,7 @@ get:
   tags:
     - Connectors
   operationId: getConnector
-  summary: Get Connector by Script Name
+  summary: Get connector by script name
   description: >-
     Fetches a connector that using its script name.    
   parameters:
@@ -54,7 +54,7 @@ delete:
   tags:
     - Connectors
   operationId: deleteCustomConnector
-  summary: Delete Connector by Script Name
+  summary: Delete connector by script name
   description: >-
     Delete a custom connector that using its script name.
   parameters:
@@ -94,7 +94,7 @@ patch:
   tags:
     - Connectors
   operationId: updateConnector
-  summary: Update Connector by Script Name
+  summary: Update connector by script name
   description: |
     This API updates a custom connector by script name using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 

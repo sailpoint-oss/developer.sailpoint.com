@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **owner** | [**PatOwner**](pat-owner) |  | [required]
 **created** | **datetime** | The date and time, down to the millisecond, when this personal access token was created. | [required]
 **access_token_validity_seconds** | **int** | Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200. | [required]
+**expiration_date** | **datetime** | Date and time, down to the millisecond, when this personal access token will expire. If not provided, the token will expire 6 months after its creation date. The value must be a valid date-time string between the current date and 6 months from the creation date. | [required]
 }
 
 ## Example
@@ -40,7 +41,8 @@ owner=sailpoint.beta.models.pat_owner.PatOwner(
                     id = '2c9180a46faadee4016fb4e018c20639', 
                     name = 'Support', ),
 created='2017-07-11T18:45:37.098Z',
-access_token_validity_seconds=36900
+access_token_validity_seconds=36900,
+expiration_date='2018-01-11T18:45:37.098Z'
 )
 
 ```

@@ -2,7 +2,7 @@ post:
   operationId: enableAccount
   tags:
     - Accounts
-  summary: Enable Account
+  summary: Enable account
   description: >-
     This API submits a task to enable account and returns the task ID.      
   security:

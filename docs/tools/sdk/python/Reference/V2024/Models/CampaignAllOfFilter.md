@@ -18,7 +18,7 @@ Determines which items will be included in this campaign. The default campaign f
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | The ID of whatever type of filter is being used. | [optional] 
-**type** |  **Enum** [  'CAMPAIGN_FILTER',    'RULE' ] | Type of the filter | [optional] 
+**type** |  **Enum** [  'CAMPAIGN_FILTER' ] | Type of the filter | [optional] 
 **name** | **str** | Name of the filter | [optional] 
 }
 

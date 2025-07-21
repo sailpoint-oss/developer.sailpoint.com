@@ -44,17 +44,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-Account**](#create-account) | **POST** `/accounts` | Create Account
-[**Remove-Account**](#delete-account) | **DELETE** `/accounts/{id}` | Delete Account
-[**Disable-Account**](#disable-account) | **POST** `/accounts/{id}/disable` | Disable Account
-[**Enable-Account**](#enable-account) | **POST** `/accounts/{id}/enable` | Enable Account
-[**Get-Account**](#get-account) | **GET** `/accounts/{id}` | Account Details
-[**Get-AccountEntitlements**](#get-account-entitlements) | **GET** `/accounts/{id}/entitlements` | Account Entitlements
-[**Get-Accounts**](#list-accounts) | **GET** `/accounts` | Accounts List
-[**Send-Account**](#put-account) | **PUT** `/accounts/{id}` | Update Account
-[**Submit-ReloadAccount**](#submit-reload-account) | **POST** `/accounts/{id}/reload` | Reload Account
-[**Unlock-Account**](#unlock-account) | **POST** `/accounts/{id}/unlock` | Unlock Account
-[**Update-Account**](#update-account) | **PATCH** `/accounts/{id}` | Update Account
+[**New-Account**](#create-account) | **POST** `/accounts` | Create account
+[**Remove-Account**](#delete-account) | **DELETE** `/accounts/{id}` | Delete account
+[**Disable-Account**](#disable-account) | **POST** `/accounts/{id}/disable` | Disable account
+[**Enable-Account**](#enable-account) | **POST** `/accounts/{id}/enable` | Enable account
+[**Get-Account**](#get-account) | **GET** `/accounts/{id}` | Account details
+[**Get-AccountEntitlements**](#get-account-entitlements) | **GET** `/accounts/{id}/entitlements` | Account entitlements
+[**Get-Accounts**](#list-accounts) | **GET** `/accounts` | Accounts list
+[**Send-Account**](#put-account) | **PUT** `/accounts/{id}` | Update account
+[**Submit-ReloadAccount**](#submit-reload-account) | **POST** `/accounts/{id}/reload` | Reload account
+[**Unlock-Account**](#unlock-account) | **POST** `/accounts/{id}/unlock` | Unlock account
+[**Update-Account**](#update-account) | **PATCH** `/accounts/{id}` | Update account
 
 
 ## create-account
@@ -108,7 +108,7 @@ $AccountAttributesCreate = @"{
   }
 }"@
 
-# Create Account
+# Create account
 
 try {
     $Result = ConvertFrom-JsonToAccountAttributesCreate -Json $AccountAttributesCreate
@@ -158,7 +158,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 
-# Delete Account
+# Delete account
 
 try {
     Remove-Account -Id $Id 
@@ -209,7 +209,7 @@ $AccountToggleRequest = @"{
   "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
 }"@
 
-# Disable Account
+# Disable account
 
 try {
     $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
@@ -261,7 +261,7 @@ $AccountToggleRequest = @"{
   "externalVerificationId" : "3f9180835d2e5168015d32f890ca1581"
 }"@
 
-# Enable Account
+# Enable account
 
 try {
     $Result = ConvertFrom-JsonToAccountToggleRequest -Json $AccountToggleRequest
@@ -308,7 +308,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Account ID.
 
-# Account Details
+# Account details
 
 try {
     Get-Account -Id $Id 
@@ -360,7 +360,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# Account Entitlements
+# Account entitlements
 
 try {
     Get-AccountEntitlements -Id $Id 
@@ -415,7 +415,7 @@ $DetailLevel = "SLIM" # String | This value determines whether the API provides 
 $Filters = 'identityId eq "2c9180858082150f0180893dbaf44201"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **identityId**: *eq, in, sw*  **name**: *eq, in, sw*  **nativeIdentity**: *eq, in, sw*  **hasEntitlements**: *eq*  **sourceId**: *eq, in, sw*  **uncorrelated**: *eq*  **entitlements**: *eq*  **origin**: *eq, in*  **manuallyCorrelated**: *eq*  **identity.name**: *eq, in, sw*  **identity.correlated**: *eq*  **identity.identityState**: *eq, in*  **source.displayableName**: *eq, in*  **source.authoritative**: *eq*  **source.connectionType**: *eq, in*  **recommendation.method**: *eq, in, isnull*  **created**: *eq, ge, gt, le, lt*  **modified**: *eq, ge, gt, le, lt* (optional)
 $Sorters = "id,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified, sourceId, identityId, nativeIdentity, uuid, manuallyCorrelated, entitlements, origin, identity.name, identity.identityState, identity.correlated, source.displayableName, source.authoritative, source.connectionType** (optional)
 
-# Accounts List
+# Accounts list
 
 try {
     Get-Accounts 
@@ -476,7 +476,7 @@ $AccountAttributes = @"{
   }
 }"@
 
-# Update Account
+# Update account
 
 try {
     $Result = ConvertFrom-JsonToAccountAttributes -Json $AccountAttributes
@@ -523,7 +523,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The account id
 
-# Reload Account
+# Reload account
 
 try {
     Submit-ReloadAccount -Id $Id 
@@ -576,7 +576,7 @@ $AccountUnlockRequest = @"{
   "unlockIDNAccount" : false
 }"@
 
-# Unlock Account
+# Unlock account
 
 try {
     $Result = ConvertFrom-JsonToAccountUnlockRequest -Json $AccountUnlockRequest
@@ -637,7 +637,7 @@ $RequestBody =  # SystemCollectionsHashtable[] | A list of account update operat
  $RequestBody = @"[{op=remove, path=/identityId}]"@ # SystemCollectionsHashtable[] | A list of account update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 
-# Update Account
+# Update account
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody

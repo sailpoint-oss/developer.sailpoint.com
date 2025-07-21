@@ -17,15 +17,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Export-V2025OutliersZip**](#export-outliers-zip) | **GET** `/outliers/export` | IAI Identity Outliers Export
-[**Get-V2025IdentityOutlierSnapshots**](#get-identity-outlier-snapshots) | **GET** `/outlier-summaries` | IAI Identity Outliers Summary
-[**Get-V2025IdentityOutliers**](#get-identity-outliers) | **GET** `/outliers` | IAI Get Identity Outliers
-[**Get-V2025LatestIdentityOutlierSnapshots**](#get-latest-identity-outlier-snapshots) | **GET** `/outlier-summaries/latest` | IAI Identity Outliers Latest Summary
+[**Export-V2025OutliersZip**](#export-outliers-zip) | **GET** `/outliers/export` | Iai identity outliers export
+[**Get-V2025IdentityOutlierSnapshots**](#get-identity-outlier-snapshots) | **GET** `/outlier-summaries` | Iai identity outliers summary
+[**Get-V2025IdentityOutliers**](#get-identity-outliers) | **GET** `/outliers` | Iai get identity outliers
+[**Get-V2025LatestIdentityOutlierSnapshots**](#get-latest-identity-outlier-snapshots) | **GET** `/outlier-summaries/latest` | Iai identity outliers latest summary
 [**Get-V2025OutlierContributingFeatureSummary**](#get-outlier-contributing-feature-summary) | **GET** `/outlier-feature-summaries/{outlierFeatureId}` | Get identity outlier contibuting feature summary
 [**Get-V2025PeerGroupOutliersContributingFeatures**](#get-peer-group-outliers-contributing-features) | **GET** `/outliers/{outlierId}/contributing-features` | Get identity outlier&#39;s contibuting features
-[**Invoke-V2025IgnoreIdentityOutliers**](#ignore-identity-outliers) | **POST** `/outliers/ignore` | IAI Identity Outliers Ignore
+[**Invoke-V2025IgnoreIdentityOutliers**](#ignore-identity-outliers) | **POST** `/outliers/ignore` | Iai identity outliers ignore
 [**Get-V2025OutliersContributingFeatureAccessItems**](#list-outliers-contributing-feature-access-items) | **GET** `/outliers/{outlierId}/feature-details/{contributingFeatureName}/access-items` | Gets a list of access items associated with each identity outlier contributing feature
-[**Invoke-V2025UnIgnoreIdentityOutliers**](#un-ignore-identity-outliers) | **POST** `/outliers/unignore` | IAI Identity Outliers Unignore
+[**Invoke-V2025UnIgnoreIdentityOutliers**](#un-ignore-identity-outliers) | **POST** `/outliers/unignore` | Iai identity outliers unignore
 
 
 ## export-outliers-zip
@@ -67,7 +67,7 @@ Code | Description  | Data Type
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to filter on (optional)
 
-# IAI Identity Outliers Export
+# Iai identity outliers export
 
 try {
     Export-V2025OutliersZip -XSailPointExperimental $XSailPointExperimental 
@@ -126,7 +126,7 @@ $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to fi
 $Filters = 'snapshotDate ge "2022-02-07T20:13:29.356648026Z"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **snapshotDate**: *ge, le* (optional)
 $Sorters = "snapshotDate" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **snapshotDate** (optional)
 
-# IAI Identity Outliers Summary
+# Iai identity outliers summary
 
 try {
     Get-V2025IdentityOutlierSnapshots -XSailPointExperimental $XSailPointExperimental 
@@ -186,7 +186,7 @@ $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to fi
 $Filters = 'attributes.displayName sw "John" and certStatus eq "false"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **attributes**: *eq, sw, co, in*  **firstDetectionDate**: *ge, le*  **certStatus**: *eq*  **ignored**: *eq*  **score**: *ge, le* (optional)
 $Sorters = "attributes.displayName,firstDetectionDate,-score" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **firstDetectionDate, attributes, score** (optional)
 
-# IAI Get Identity Outliers
+# Iai get identity outliers
 
 try {
     Get-V2025IdentityOutliers -XSailPointExperimental $XSailPointExperimental 
@@ -237,7 +237,7 @@ Code | Description  | Data Type
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Type = "LOW_SIMILARITY" # String | Type of the identity outliers snapshot to filter on (optional)
 
-# IAI Identity Outliers Latest Summary
+# Iai identity outliers latest summary
 
 try {
     Get-V2025LatestIdentityOutlierSnapshots -XSailPointExperimental $XSailPointExperimental 
@@ -407,7 +407,7 @@ $RequestBody = "MyRequestBody" # String[] |
  $RequestBody = @""@ # String[] | 
  
 
-# IAI Identity Outliers Ignore
+# Iai identity outliers ignore
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
@@ -526,7 +526,7 @@ $RequestBody = "MyRequestBody" # String[] |
  $RequestBody = @""@ # String[] | 
  
 
-# IAI Identity Outliers Unignore
+# Iai identity outliers unignore
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody

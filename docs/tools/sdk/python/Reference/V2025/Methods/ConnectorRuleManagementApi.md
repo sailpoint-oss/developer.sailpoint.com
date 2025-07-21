@@ -22,16 +22,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-connector-rule**](#create-connector-rule) | **POST** `/connector-rules` | Create Connector Rule
-[**delete-connector-rule**](#delete-connector-rule) | **DELETE** `/connector-rules/{id}` | Delete Connector Rule
-[**get-connector-rule**](#get-connector-rule) | **GET** `/connector-rules/{id}` | Get Connector Rule
-[**get-connector-rule-list**](#get-connector-rule-list) | **GET** `/connector-rules` | List Connector Rules
-[**put-connector-rule**](#put-connector-rule) | **PUT** `/connector-rules/{id}` | Update Connector Rule
-[**test-connector-rule**](#test-connector-rule) | **POST** `/connector-rules/validate` | Validate Connector Rule
+[**create-connector-rule**](#create-connector-rule) | **POST** `/connector-rules` | Create connector rule
+[**delete-connector-rule**](#delete-connector-rule) | **DELETE** `/connector-rules/{id}` | Delete connector rule
+[**get-connector-rule**](#get-connector-rule) | **GET** `/connector-rules/{id}` | Get connector rule
+[**get-connector-rule-list**](#get-connector-rule-list) | **GET** `/connector-rules` | List connector rules
+[**put-connector-rule**](#put-connector-rule) | **PUT** `/connector-rules/{id}` | Update connector rule
+[**test-connector-rule**](#test-connector-rule) | **POST** `/connector-rules/validate` | Validate connector rule
 
 
 ## create-connector-rule
-Create Connector Rule
+Create connector rule
 Create a connector rule from the available types.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-connector-rule)
@@ -99,7 +99,7 @@ with ApiClient(configuration) as api_client:
         }''' # ConnectorRuleCreateRequest | Connector rule to create.
 
     try:
-        # Create Connector Rule
+        # Create connector rule
         new_connector_rule_create_request = ConnectorRuleCreateRequest.from_json(connector_rule_create_request)
         results = ConnectorRuleManagementApi(api_client).create_connector_rule(connector_rule_create_request=new_connector_rule_create_request)
         # Below is a request that includes all optional parameters
@@ -115,7 +115,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-connector-rule
-Delete Connector Rule
+Delete connector rule
 Delete the connector rule for the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-connector-rule)
@@ -157,7 +157,7 @@ with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | ID of the connector rule to delete. # str | ID of the connector rule to delete.
 
     try:
-        # Delete Connector Rule
+        # Delete connector rule
         
         ConnectorRuleManagementApi(api_client).delete_connector_rule(id=id)
         # Below is a request that includes all optional parameters
@@ -171,7 +171,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-connector-rule
-Get Connector Rule
+Get connector rule
 Get a connector rule by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-connector-rule)
@@ -214,7 +214,7 @@ with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | ID of the connector rule to get. # str | ID of the connector rule to get.
 
     try:
-        # Get Connector Rule
+        # Get connector rule
         
         results = ConnectorRuleManagementApi(api_client).get_connector_rule(id=id)
         # Below is a request that includes all optional parameters
@@ -230,7 +230,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-connector-rule-list
-List Connector Rules
+List connector rules
 List existing connector rules.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-connector-rule-list)
@@ -276,7 +276,7 @@ with ApiClient(configuration) as api_client:
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
     try:
-        # List Connector Rules
+        # List connector rules
         
         results = ConnectorRuleManagementApi(api_client).get_connector_rule_list()
         # Below is a request that includes all optional parameters
@@ -293,7 +293,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-connector-rule
-Update Connector Rule
+Update connector rule
 Update an existing connector rule with the one provided in the request body. These fields are immutable: `id`, `name`, `type`
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/put-connector-rule)
@@ -365,7 +365,7 @@ with ApiClient(configuration) as api_client:
         }''' # ConnectorRuleUpdateRequest | Connector rule with updated data. (optional)
 
     try:
-        # Update Connector Rule
+        # Update connector rule
         
         results = ConnectorRuleManagementApi(api_client).put_connector_rule(id=id)
         # Below is a request that includes all optional parameters
@@ -381,7 +381,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## test-connector-rule
-Validate Connector Rule
+Validate connector rule
 Detect issues within the connector rule's code to fix and list them.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/test-connector-rule)
@@ -427,7 +427,7 @@ with ApiClient(configuration) as api_client:
         }''' # SourceCode | Code to validate.
 
     try:
-        # Validate Connector Rule
+        # Validate connector rule
         new_source_code = SourceCode.from_json(source_code)
         results = ConnectorRuleManagementApi(api_client).test_connector_rule(source_code=new_source_code)
         # Below is a request that includes all optional parameters

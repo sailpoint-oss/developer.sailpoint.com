@@ -2,7 +2,7 @@ get:
   operationId: listIdentityAttributes
   tags:
   - Identity Attributes
-  summary: List Identity Attributes
+  summary: List identity attributes
   description: Use this API to get a collection of identity attributes.
   security:
   - userAuth:
@@ -33,14 +33,6 @@ get:
     required: false
     example: false
   - $ref: ../parameters/count.yaml
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   responses:
     '200':
       description: List of identity attributes.
@@ -64,7 +56,7 @@ post:
   operationId: createIdentityAttribute
   tags:
   - Identity Attributes
-  summary: Create Identity Attribute
+  summary: Create identity attribute
   description: Use this API to create a new identity attribute.
   security:
   - userAuth:
@@ -94,12 +86,3 @@ post:
       $ref: ../responses/429.yaml
     '500':
       $ref: ../responses/500.yaml
-  parameters:
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true

@@ -5,7 +5,7 @@ post:
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - APPROVAL_OWNER
-  summary: Approve Access Request Approval
+  summary: Approve access request approval
   tags:
     - Access Request Approvals
   description: >-

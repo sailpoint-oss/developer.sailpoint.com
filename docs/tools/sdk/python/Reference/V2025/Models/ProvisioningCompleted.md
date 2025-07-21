@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 **warnings** | **[]str** | A list of any accumulated warning messages that occurred during provisioning. | [optional] 
 **recipient** | [**ProvisioningCompletedRecipient**](provisioning-completed-recipient) |  | [required]
 **requester** | [**ProvisioningCompletedRequester**](provisioning-completed-requester) |  | [optional] 
-**account_requests** | [**[]ProvisioningCompletedAccountRequestsInner**](provisioning-completed-account-requests-inner) | A list of provisioning instructions to perform on an account-by-account basis. | [required]
+**account_requests** | [**[]ProvisioningCompletedAccountRequestsInner**](provisioning-completed-account-requests-inner) | A list of provisioning instructions to be executed on a per-account basis. The order in which operations are executed may not always be predictable. | [required]
 }
 
 ## Example

@@ -18,12 +18,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-approval**](#get-approval) | **GET** `/generic-approvals/{id}` | Get Approval
-[**get-approvals**](#get-approvals) | **GET** `/generic-approvals` | Get Approvals
+[**get-approval**](#get-approval) | **GET** `/generic-approvals/{id}` | Get approval
+[**get-approvals**](#get-approvals) | **GET** `/generic-approvals` | Get approvals
 
 
 ## get-approval
-Get Approval
+Get approval
 Get a single approval for a given approval ID. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and doesn't include access-request-approvals.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-approval)
@@ -65,7 +65,7 @@ with ApiClient(configuration) as api_client:
     id = '38453251-6be2-5f8f-df93-5ce19e295837' # str | ID of the approval that to be returned. # str | ID of the approval that to be returned.
 
     try:
-        # Get Approval
+        # Get approval
         
         results = ApprovalsApi(api_client).get_approval(id=id)
         # Below is a request that includes all optional parameters
@@ -81,7 +81,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-approvals
-Get Approvals
+Get approvals
 Get a list of approvals, which can be filtered by requester ID, status, or reference type. You can use the "Mine" query parameter to return all approvals for the current approver. This endpoint is for generic approvals, unlike the access-request-approval endpoint, and does not include access-request-approvals. 
 Absence of all query parameters will will default to mine=true.
 
@@ -128,7 +128,7 @@ with ApiClient(configuration) as api_client:
     filters = 'filters=status eq PENDING' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq* (optional)
 
     try:
-        # Get Approvals
+        # Get approvals
         
         results = ApprovalsApi(api_client).get_approvals()
         # Below is a request that includes all optional parameters

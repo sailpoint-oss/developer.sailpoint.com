@@ -54,22 +54,22 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2024Role**](#create-role) | **POST** `/roles` | Create a Role
-[**Remove-V2024BulkRoles**](#delete-bulk-roles) | **POST** `/roles/bulk-delete` | Delete Role(s)
-[**Remove-V2024MetadataFromRoleByKeyAndValue**](#delete-metadata-from-role-by-key-and-value) | **DELETE** `/roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove a Metadata From Role.
-[**Remove-V2024Role**](#delete-role) | **DELETE** `/roles/{id}` | Delete a Role
-[**Get-V2024BulkUpdateStatus**](#get-bulk-update-status) | **GET** `/roles/access-model-metadata/bulk-update` | Get Bulk-Update Statuses
-[**Get-V2024BulkUpdateStatusById**](#get-bulk-update-status-by-id) | **GET** `/roles/access-model-metadata/bulk-update/id` | Get Bulk-Update Status by ID
-[**Get-V2024Role**](#get-role) | **GET** `/roles/{id}` | Get a Role
-[**Get-V2024RoleAssignedIdentities**](#get-role-assigned-identities) | **GET** `/roles/{id}/assigned-identities` | List Identities assigned a Role
-[**Get-V2024RoleEntitlements**](#get-role-entitlements) | **GET** `/roles/{id}/entitlements` | List Role&#39;s Entitlements
-[**Get-V2024Roles**](#list-roles) | **GET** `/roles` | List Roles
-[**Update-V2024Role**](#patch-role) | **PATCH** `/roles/{id}` | Patch a specified Role
-[**Search-V2024RolesByFilter**](#search-roles-by-filter) | **POST** `/roles/filter` | Filter Roles by Metadata
-[**Update-V2024AttributeKeyAndValueToRole**](#update-attribute-key-and-value-to-role) | **POST** `/roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add a Metadata to Role.
-[**Update-V2024RolesMetadataByFilter**](#update-roles-metadata-by-filter) | **POST** `/roles/access-model-metadata/bulk-update/filter` | Bulk-Update Roles&#39; Metadata by Filters
-[**Update-V2024RolesMetadataByIds**](#update-roles-metadata-by-ids) | **POST** `/roles/access-model-metadata/bulk-update/ids` | Bulk-Update Roles&#39; Metadata by ID
-[**Update-V2024RolesMetadataByQuery**](#update-roles-metadata-by-query) | **POST** `/roles/access-model-metadata/bulk-update/query` | Bulk-Update Roles&#39; Metadata by Query
+[**New-V2024Role**](#create-role) | **POST** `/roles` | Create a role
+[**Remove-V2024BulkRoles**](#delete-bulk-roles) | **POST** `/roles/bulk-delete` | Delete role(s)
+[**Remove-V2024MetadataFromRoleByKeyAndValue**](#delete-metadata-from-role-by-key-and-value) | **DELETE** `/roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove a metadata from role.
+[**Remove-V2024Role**](#delete-role) | **DELETE** `/roles/{id}` | Delete a role
+[**Get-V2024BulkUpdateStatus**](#get-bulk-update-status) | **GET** `/roles/access-model-metadata/bulk-update` | Get bulk-update statuses
+[**Get-V2024BulkUpdateStatusById**](#get-bulk-update-status-by-id) | **GET** `/roles/access-model-metadata/bulk-update/id` | Get bulk-update status by id
+[**Get-V2024Role**](#get-role) | **GET** `/roles/{id}` | Get a role
+[**Get-V2024RoleAssignedIdentities**](#get-role-assigned-identities) | **GET** `/roles/{id}/assigned-identities` | List identities assigned a role
+[**Get-V2024RoleEntitlements**](#get-role-entitlements) | **GET** `/roles/{id}/entitlements` | List role&#39;s entitlements
+[**Get-V2024Roles**](#list-roles) | **GET** `/roles` | List roles
+[**Update-V2024Role**](#patch-role) | **PATCH** `/roles/{id}` | Patch a specified role
+[**Search-V2024RolesByFilter**](#search-roles-by-filter) | **POST** `/roles/filter` | Filter roles by metadata
+[**Update-V2024AttributeKeyAndValueToRole**](#update-attribute-key-and-value-to-role) | **POST** `/roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add a metadata to role.
+[**Update-V2024RolesMetadataByFilter**](#update-roles-metadata-by-filter) | **POST** `/roles/access-model-metadata/bulk-update/filter` | Bulk-update roles&#39; metadata by filters
+[**Update-V2024RolesMetadataByIds**](#update-roles-metadata-by-ids) | **POST** `/roles/access-model-metadata/bulk-update/ids` | Bulk-update roles&#39; metadata by id
+[**Update-V2024RolesMetadataByQuery**](#update-roles-metadata-by-query) | **POST** `/roles/access-model-metadata/bulk-update/query` | Bulk-update roles&#39; metadata by query
 
 
 ## create-role
@@ -267,7 +267,7 @@ $Role = @"{
   "requestable" : true
 }"@
 
-# Create a Role
+# Create a role
 
 try {
     $Result = ConvertFrom-JsonToRole -Json $Role
@@ -318,7 +318,7 @@ $RoleBulkDeleteRequest = @"{
   "roleIds" : [ "2c9180847812e0b1017817051919ecca", "2c9180887812e0b201781e129f151816" ]
 }"@
 
-# Delete Role(s)
+# Delete role(s)
 
 try {
     $Result = ConvertFrom-JsonToRoleBulkDeleteRequest -Json $RoleBulkDeleteRequest
@@ -368,7 +368,7 @@ $Id = "2c91808c74ff913f0175097daa9d59cd" # String | The role's id.
 $AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
 $AttributeValue = "public" # String | Technical name of the Attribute Value.
 
-# Remove a Metadata From Role.
+# Remove a metadata from role.
 
 try {
     Remove-V2024MetadataFromRoleByKeyAndValue -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue 
@@ -415,7 +415,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
 
-# Delete a Role
+# Delete a role
 
 try {
     Remove-V2024Role -Id $Id 
@@ -458,7 +458,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get Bulk-Update Statuses
+# Get bulk-update statuses
 
 try {
     Get-V2024BulkUpdateStatus 
@@ -505,7 +505,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "c24359c389374d0fb8585698a2189e3d" # String | The Id of the bulk update task.
 
-# Get Bulk-Update Status by ID
+# Get bulk-update status by id
 
 try {
     Get-V2024BulkUpdateStatusById -Id $Id 
@@ -540,6 +540,7 @@ Code | Description  | Data Type
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
@@ -551,7 +552,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role
 
-# Get a Role
+# Get a role
 
 try {
     Get-V2024Role -Id $Id 
@@ -606,7 +607,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'name sw Joe' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **aliasName**: *eq, sw*  **email**: *eq, sw*  **name**: *eq, sw, co* (optional)
 $Sorters = "aliasName,name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, aliasName, email** (optional)
 
-# List Identities assigned a Role
+# List identities assigned a role
 
 try {
     Get-V2024RoleAssignedIdentities -Id $Id 
@@ -666,7 +667,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'attribute eq "memberOf"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **attribute**: *eq, sw*  **value**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **source.id**: *eq, in* (optional)
 $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified** (optional)
 
-# List Role's Entitlements
+# List role's entitlements
 
 try {
     Get-V2024RoleEntitlements -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -727,7 +728,7 @@ $Sorters = "name,-modified" # String | Sort results using the standard syntax de
 $ForSegmentIds = "0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d" # String | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
 $IncludeUnsegmented = $false # Boolean | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to $true)
 
-# List Roles
+# List roles
 
 try {
     Get-V2024Roles 
@@ -799,7 +800,7 @@ $Id = "2c91808a7813090a017814121e121518" # String | ID of the Role to patch
 }"@ # JsonPatchOperation[] | 
  
 
-# Patch a specified Role
+# Patch a specified role
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -866,7 +867,7 @@ $RoleListFilterDTO = @"{
   "filters" : "dimensional eq false"
 }"@
 
-# Filter Roles by Metadata
+# Filter roles by metadata
 
 try {
     Search-V2024RolesByFilter 
@@ -915,7 +916,7 @@ $Id = "c24359c389374d0fb8585698a2189e3d" # String | The Id of a role
 $AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
 $AttributeValue = "public" # String | Technical name of the Attribute Value.
 
-# Add a Metadata to Role.
+# Add a metadata to role.
 
 try {
     Update-V2024AttributeKeyAndValueToRole -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue 
@@ -971,7 +972,7 @@ $RoleMetadataBulkUpdateByFilterRequest = @"{
   "operation" : "REPLACE"
 }"@
 
-# Bulk-Update Roles' Metadata by Filters
+# Bulk-update roles' metadata by filters
 
 try {
     $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByFilterRequest -Json $RoleMetadataBulkUpdateByFilterRequest
@@ -1028,7 +1029,7 @@ $RoleMetadataBulkUpdateByIdRequest = @"{
   "operation" : "REPLACE"
 }"@
 
-# Bulk-Update Roles' Metadata by ID
+# Bulk-update roles' metadata by id
 
 try {
     $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByIdRequest -Json $RoleMetadataBulkUpdateByIdRequest
@@ -1100,7 +1101,7 @@ $RoleMetadataBulkUpdateByQueryRequest = @"{
   "operation" : "REPLACE"
 }"@
 
-# Bulk-Update Roles' Metadata by Query
+# Bulk-update roles' metadata by query
 
 try {
     $Result = ConvertFrom-JsonToRoleMetadataBulkUpdateByQueryRequest -Json $RoleMetadataBulkUpdateByQueryRequest

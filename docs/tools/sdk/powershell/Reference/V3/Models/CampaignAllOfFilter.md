@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'CampaignAllOfFilter', 'CampaignAllOfF
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | The ID of whatever type of filter is being used. | [optional] 
-**Type** |  **Enum** [  "CAMPAIGN_FILTER",    "RULE" ] | Type of the filter | [optional] 
+**Type** |  **Enum** [  "CAMPAIGN_FILTER" ] | Type of the filter | [optional] 
 **Name** | **String** | Name of the filter | [optional] 
 
 ## Examples

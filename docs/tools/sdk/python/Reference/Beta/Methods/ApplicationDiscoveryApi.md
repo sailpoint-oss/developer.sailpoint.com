@@ -17,15 +17,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-discovered-application-by-id**](#get-discovered-application-by-id) | **GET** `/discovered-applications/{id}` | Get Discovered Application by ID
+[**get-discovered-application-by-id**](#get-discovered-application-by-id) | **GET** `/discovered-applications/{id}` | Get discovered application by id
 [**get-discovered-applications**](#get-discovered-applications) | **GET** `/discovered-applications` | Retrieve discovered applications for tenant
-[**get-manual-discover-applications-csv-template**](#get-manual-discover-applications-csv-template) | **GET** `/manual-discover-applications-template` | Download CSV Template for Discovery
-[**patch-discovered-application-by-id**](#patch-discovered-application-by-id) | **PATCH** `/discovered-applications/{id}` | Patch Discovered Application by ID
-[**send-manual-discover-applications-csv-template**](#send-manual-discover-applications-csv-template) | **POST** `/manual-discover-applications` | Upload CSV to Discover Applications
+[**get-manual-discover-applications-csv-template**](#get-manual-discover-applications-csv-template) | **GET** `/manual-discover-applications-template` | Download csv template for discovery
+[**patch-discovered-application-by-id**](#patch-discovered-application-by-id) | **PATCH** `/discovered-applications/{id}` | Patch discovered application by id
+[**send-manual-discover-applications-csv-template**](#send-manual-discover-applications-csv-template) | **POST** `/manual-discover-applications` | Upload csv to discover applications
 
 
 ## get-discovered-application-by-id
-Get Discovered Application by ID
+Get discovered application by id
 Get the discovered application, along with with its associated sources, based on the provided ID.
 
 
@@ -67,7 +67,7 @@ with ApiClient(configuration) as api_client:
     id = '123e4567-e89b-12d3-a456-426655440000' # str | Discovered application's ID. # str | Discovered application's ID.
 
     try:
-        # Get Discovered Application by ID
+        # Get discovered application by id
         
         ApplicationDiscoveryApi(api_client).get_discovered_application_by_id(id=id)
         # Below is a request that includes all optional parameters
@@ -149,7 +149,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-manual-discover-applications-csv-template
-Download CSV Template for Discovery
+Download csv template for discovery
 Download an example CSV file with two columns `application_name` and `description`.  The CSV file contains a single row with the values 'Example Application' and 'Example Description'.
 
 The downloaded template is specifically designed for use with the `/manual-discover-applications` endpoint.
@@ -190,7 +190,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # Download CSV Template for Discovery
+        # Download csv template for discovery
         
         results = ApplicationDiscoveryApi(api_client).get_manual_discover_applications_csv_template()
         # Below is a request that includes all optional parameters
@@ -206,7 +206,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-discovered-application-by-id
-Patch Discovered Application by ID
+Patch discovered application by id
 Update an existing discovered application by using a limited version of the [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 You can patch these fields: - **associatedSources** - **dismissed**
 
@@ -251,7 +251,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operations = '''[{op=replace, path=/dismissed, value=true}]''' # List[JsonPatchOperations] |  (optional)
 
     try:
-        # Patch Discovered Application by ID
+        # Patch discovered application by id
         
         ApplicationDiscoveryApi(api_client).patch_discovered_application_by_id(id=id)
         # Below is a request that includes all optional parameters
@@ -265,7 +265,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## send-manual-discover-applications-csv-template
-Upload CSV to Discover Applications
+Upload csv to discover applications
 Upload a CSV file with application data for manual correlation to specific ISC connectors. 
 If a suitable ISC connector is unavailable, the system will recommend generic connectors instead.
 
@@ -307,7 +307,7 @@ with ApiClient(configuration) as api_client:
     file = None # bytearray | The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered. # bytearray | The CSV file to upload containing `application_name` and `description` columns. Each row represents an application to be discovered.
 
     try:
-        # Upload CSV to Discover Applications
+        # Upload csv to discover applications
         
         ApplicationDiscoveryApi(api_client).send_manual_discover_applications_csv_template(file=file)
         # Below is a request that includes all optional parameters

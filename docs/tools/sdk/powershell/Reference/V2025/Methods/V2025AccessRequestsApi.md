@@ -32,17 +32,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Approve-V2025BulkAccessRequest**](#approve-bulk-access-request) | **POST** `/access-request-approvals/bulk-approve` | Bulk Approve Access Request
-[**Suspend-V2025AccessRequest**](#cancel-access-request) | **POST** `/access-requests/cancel` | Cancel Access Request
-[**Suspend-V2025AccessRequestInBulk**](#cancel-access-request-in-bulk) | **POST** `/access-requests/bulk-cancel` | Bulk Cancel Access Request
-[**Close-V2025AccessRequest**](#close-access-request) | **POST** `/access-requests/close` | Close Access Request
-[**New-V2025AccessRequest**](#create-access-request) | **POST** `/access-requests` | Submit Access Request
-[**Get-V2025AccessRequestConfig**](#get-access-request-config) | **GET** `/access-request-config` | Get Access Request Configuration
-[**Get-V2025EntitlementDetailsForIdentity**](#get-entitlement-details-for-identity) | **GET** `/access-requests/revocable-objects` | Identity Entitlement Details
-[**Get-V2025AccessRequestStatus**](#list-access-request-status) | **GET** `/access-request-status` | Access Request Status
-[**Get-V2025AdministratorsAccessRequestStatus**](#list-administrators-access-request-status) | **GET** `/access-request-administration` | Access Request Status for Administrators
+[**Approve-V2025BulkAccessRequest**](#approve-bulk-access-request) | **POST** `/access-request-approvals/bulk-approve` | Bulk approve access request
+[**Suspend-V2025AccessRequest**](#cancel-access-request) | **POST** `/access-requests/cancel` | Cancel access request
+[**Suspend-V2025AccessRequestInBulk**](#cancel-access-request-in-bulk) | **POST** `/access-requests/bulk-cancel` | Bulk cancel access request
+[**Close-V2025AccessRequest**](#close-access-request) | **POST** `/access-requests/close` | Close access request
+[**New-V2025AccessRequest**](#create-access-request) | **POST** `/access-requests` | Submit access request
+[**Get-V2025AccessRequestConfig**](#get-access-request-config) | **GET** `/access-request-config` | Get access request configuration
+[**Get-V2025EntitlementDetailsForIdentity**](#get-entitlement-details-for-identity) | **GET** `/revocable-objects` | Identity entitlement details
+[**Get-V2025AccessRequestStatus**](#list-access-request-status) | **GET** `/access-request-status` | Access request status
+[**Get-V2025AdministratorsAccessRequestStatus**](#list-administrators-access-request-status) | **GET** `/access-request-administration` | Access request status for administrators
 [**Invoke-V2025LoadAccountSelections**](#load-account-selections) | **POST** `/access-requests/accounts-selection` | Get accounts selections for identity
-[**Set-V2025AccessRequestConfig**](#set-access-request-config) | **PUT** `/access-request-config` | Update Access Request Configuration
+[**Set-V2025AccessRequestConfig**](#set-access-request-config) | **PUT** `/access-request-config` | Update access request configuration
 
 
 ## approve-bulk-access-request
@@ -80,7 +80,7 @@ $BulkApproveAccessRequest = @"{
   "approvalIds" : [ "2c9180835d2e5168015d32f890ca1581", "2c9180835d2e5168015d32f890ca1582" ]
 }"@
 
-# Bulk Approve Access Request
+# Bulk approve access request
 
 try {
     $Result = ConvertFrom-JsonToBulkApproveAccessRequest -Json $BulkApproveAccessRequest
@@ -131,7 +131,7 @@ $CancelAccessRequest = @"{
   "comment" : "I requested this role by mistake."
 }"@
 
-# Cancel Access Request
+# Cancel access request
 
 try {
     $Result = ConvertFrom-JsonToCancelAccessRequest -Json $CancelAccessRequest
@@ -182,7 +182,7 @@ $BulkCancelAccessRequest = @"{
   "comment" : "I requested this role by mistake."
 }"@
 
-# Bulk Cancel Access Request
+# Bulk cancel access request
 
 try {
     $Result = ConvertFrom-JsonToBulkCancelAccessRequest -Json $BulkCancelAccessRequest
@@ -198,9 +198,6 @@ try {
 [[Back to top]](#) 
 
 ## close-access-request
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This endpoint closes access requests that are stuck in a pending state. It can be used throughout a request's lifecycle even after the approval state, unlike the [Cancel Access Request endpoint](https://developer.sailpoint.com/idn/api/v3/cancel-access-request/).
 
 To find pending access requests with the UI, navigate to Search and use this query: status: Pending AND "Access Request". Use the Column Chooser to select 'Tracking Number', and use the 'Download' button to export a CSV containing the tracking numbers.
@@ -219,7 +216,6 @@ This API triggers the [Provisioning Completed event trigger](https://developer.s
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | CloseAccessRequest | [**CloseAccessRequest**](../models/close-access-request) | True  | 
 
 ### Return type
@@ -241,7 +237,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $CloseAccessRequest = @"{
   "executionStatus" : "Terminated",
   "accessRequestIds" : [ "2c90ad2a70ace7d50170acf22ca90010" ],
@@ -249,14 +244,14 @@ $CloseAccessRequest = @"{
   "message" : "The IdentityNow Administrator manually closed this request."
 }"@
 
-# Close Access Request
+# Close access request
 
 try {
     $Result = ConvertFrom-JsonToCloseAccessRequest -Json $CloseAccessRequest
-    Close-V2025AccessRequest -XSailPointExperimental $XSailPointExperimental -CloseAccessRequest $Result 
+    Close-V2025AccessRequest -CloseAccessRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Close-V2025AccessRequest -XSailPointExperimental $XSailPointExperimental -CloseAccessRequest $Result  
+    # Close-V2025AccessRequest -CloseAccessRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Close-V2025AccessRequest"
     Write-Host $_.ErrorDetails
@@ -267,6 +262,10 @@ try {
 ## create-access-request
 Use this API to submit an access request in Identity Security Cloud (ISC), where it follows any ISC approval processes.
 
+:::info
+The ability to request access using this API is constrained by the Access Request Segments defined in the API token’s user context.
+:::
+
 Access requests are processed asynchronously by ISC. A successful response from this endpoint means that the request
 has been submitted to ISC and is queued for processing. Because this endpoint is asynchronous, it doesn't return an error
 if you submit duplicate access requests in quick succession or submit an access request for access that is already in progress, approved, or rejected.
@@ -274,8 +273,9 @@ if you submit duplicate access requests in quick succession or submit an access 
 It's best practice to check for any existing access requests that reference the same access items before submitting a new access request. This can
 be accomplished by using the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) or the [Pending Access Request Approvals](https://developer.sailpoint.com/idn/api/v3/list-pending-approvals) APIs. You can also
 use the [Search API](https://developer.sailpoint.com/idn/api/v3/search) to check the existing access items an identity has before submitting
-an access request to ensure that you aren't requesting access that is already granted. If you use this API to request access that an identity already has, the API will ignore the request. 
-These ignored requests do not display when you use the [List Access Request Status](https://developer.sailpoint.com/idn/api/v3/list-access-request-status) API.
+an access request to ensure that you aren't requesting access that is already granted. If you use this API to request access that an identity already has, 
+without changing the account details or end date information from the existing assignment, 
+the API will cancel the request as a duplicate.
 
 There are two types of access request:
 
@@ -284,19 +284,27 @@ __GRANT_ACCESS__
 * Supports self request and request on behalf of other users. Refer to the [Get Access Request Configuration](https://developer.sailpoint.com/idn/api/v3/get-access-request-config) endpoint for request configuration options.  
 * Allows any authenticated token (except API) to call this endpoint to request to grant access to themselves. Depending on the configuration, a user can request access for others.
 * Roles, access profiles and entitlements can be requested.
-* While requesting entitlements, maximum of 25 entitlements and 10 recipients are allowed in a request.
+* You can specify a `removeDate` to set or alter a sunset date-time on an assignment. The removeDate must be a future date-time, in the UTC timezone. Additionally, if the user already has the access assigned with a sunset date, you can also submit a request without a `removeDate` to request removal of the sunset date and time.
+* If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time.
 * Now supports an alternate field 'requestedForWithRequestedItems' for users to specify account selections while requesting items where they have more than one account on the source.
- 
+
+:::caution
+
+If any entitlements are being requested, then the maximum number of entitlements that can be requested is 25, and the maximum number of identities that can be requested for is 10. If you exceed these limits, the request will fail with a 400 error. If you are not requesting any entitlements, then there are no limits.
+
+:::
+
 __REVOKE_ACCESS__
 * Can only be requested for a single identity at a time.
 * You cannot use an access request to revoke access from an identity if that access has been granted by role membership or by birthright provisioning. 
 * Does not support self request. Only manager can request to revoke access for their directly managed employees.
-* If a `removeDate` is specified, then the access will be removed on that date and time only for roles, access profiles and entitlements.
+* If a `removeDate` is specified, then the requested role, access profile, or entitlement will be removed on that date and time.
 * Roles, access profiles, and entitlements can be requested for revocation.
 * Revoke requests for entitlements are limited to 1 entitlement per access request currently.
-* You can specify a `removeDate` if the access doesn't already have a sunset date. The `removeDate` must be a future date, in the UTC timezone. 
+* You can specify a `removeDate` to add or alter a sunset date and time on an assignment. The `removeDate` must be a future date-time, in the UTC timezone. If the user already has the access assigned with a sunset date and time, the removeDate must be a date-time earlier than the existing sunset date and time. 
 * Allows a manager to request to revoke access for direct employees. A user with ORG_ADMIN authority can also request to revoke access from anyone.
-* Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of 'assignmentId' and 'nativeIdentity' fields.
+* Now supports REVOKE_ACCESS requests for identities with multiple accounts on a single source, with the help of 'assignmentId' and 'nativeIdentity' fields. These fields should be used within the 'requestedItems' section for the revoke requests. 
+* Usage of 'requestedForWithRequestedItems' field is not supported for revoke requests.
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-access-request)
@@ -340,7 +348,9 @@ $AccessRequest = @"{
     "removeDate" : "2020-07-11T21:23:15Z",
     "comment" : "Requesting access profile for John Doe",
     "id" : "2c9180835d2e5168015d32f890ca1581",
-    "type" : "ACCESS_PROFILE"
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
   }, {
     "clientMetadata" : {
       "requestedAppName" : "test-app",
@@ -349,34 +359,9 @@ $AccessRequest = @"{
     "removeDate" : "2020-07-11T21:23:15Z",
     "comment" : "Requesting access profile for John Doe",
     "id" : "2c9180835d2e5168015d32f890ca1581",
-    "type" : "ACCESS_PROFILE"
-  }, {
-    "clientMetadata" : {
-      "requestedAppName" : "test-app",
-      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
-    },
-    "removeDate" : "2020-07-11T21:23:15Z",
-    "comment" : "Requesting access profile for John Doe",
-    "id" : "2c9180835d2e5168015d32f890ca1581",
-    "type" : "ACCESS_PROFILE"
-  }, {
-    "clientMetadata" : {
-      "requestedAppName" : "test-app",
-      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
-    },
-    "removeDate" : "2020-07-11T21:23:15Z",
-    "comment" : "Requesting access profile for John Doe",
-    "id" : "2c9180835d2e5168015d32f890ca1581",
-    "type" : "ACCESS_PROFILE"
-  }, {
-    "clientMetadata" : {
-      "requestedAppName" : "test-app",
-      "requestedAppId" : "2c91808f7892918f0178b78da4a305a1"
-    },
-    "removeDate" : "2020-07-11T21:23:15Z",
-    "comment" : "Requesting access profile for John Doe",
-    "id" : "2c9180835d2e5168015d32f890ca1581",
-    "type" : "ACCESS_PROFILE"
+    "type" : "ACCESS_PROFILE",
+    "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
+    "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
   } ],
   "requestedForWithRequestedItems" : [ {
     "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
@@ -407,9 +392,7 @@ $AccessRequest = @"{
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
-      "type" : "ACCESS_PROFILE",
-      "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+      "type" : "ACCESS_PROFILE"
     }, {
       "clientMetadata" : {
         "requestedAppName" : "test-app",
@@ -437,9 +420,7 @@ $AccessRequest = @"{
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
-      "type" : "ACCESS_PROFILE",
-      "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+      "type" : "ACCESS_PROFILE"
     } ]
   }, {
     "identityId" : "cb89bc2f1ee6445fbea12224c526ba3a",
@@ -470,9 +451,7 @@ $AccessRequest = @"{
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
-      "type" : "ACCESS_PROFILE",
-      "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+      "type" : "ACCESS_PROFILE"
     }, {
       "clientMetadata" : {
         "requestedAppName" : "test-app",
@@ -500,14 +479,12 @@ $AccessRequest = @"{
       } ],
       "comment" : "Requesting access profile for John Doe",
       "id" : "2c9180835d2e5168015d32f890ca1581",
-      "type" : "ACCESS_PROFILE",
-      "assignmentId" : "ee48a191c00d49bf9264eb0a4fc3a9fc",
-      "nativeIdentity" : "CN=User db3377de14bf,OU=YOURCONTAINER, DC=YOURDOMAIN"
+      "type" : "ACCESS_PROFILE"
     } ]
   } ]
 }"@
 
-# Submit Access Request
+# Submit access request
 
 try {
     $Result = ConvertFrom-JsonToAccessRequest -Json $AccessRequest
@@ -551,7 +528,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get Access Request Configuration
+# Get access request configuration
 
 try {
     Get-V2025AccessRequestConfig 
@@ -604,7 +581,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 $IdentityId = "7025c863c2704ba6beeaedf3cb091573" # String | The identity ID.
 $EntitlementId = "ef38f94347e94562b5bb8424a56397d8" # String | The entitlement ID
 
-# Identity Entitlement Details
+# Identity entitlement details
 
 try {
     Get-V2025EntitlementDetailsForIdentity -XSailPointExperimental $XSailPointExperimental -IdentityId $IdentityId -EntitlementId $EntitlementId 
@@ -635,7 +612,7 @@ Param Type | Name | Data Type | Required  | Description
   Query | Count | **Boolean** |   (optional) (default to $false) | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return.
   Query | Offset | **Int32** |   (optional) | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified.
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *in*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, in, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw*
   Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name**
   Query | RequestState | **String** |   (optional) | Filter the results by the state of the request. The only valid value is *EXECUTING*.
 
@@ -665,11 +642,11 @@ $AssignedTo = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results b
 $Count = $false # Boolean | If this is true, the *X-Total-Count* response header populates with the number of results that would be returned if limit and offset were ignored. (optional) (default to $false)
 $Limit = 100 # Int32 | Max number of results to return. (optional) (default to 250)
 $Offset = 10 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. Defaults to 0 if not specified. (optional)
-$Filters = 'accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *in*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional)
+$Filters = 'accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **accessRequestId**: *eq, in, ge, gt, le, lt, ne, sw*  **accountActivityItemId**: *eq, in, ge, gt, le, lt, ne, isnull, sw*  **created**: *eq, in, ge, gt, le, lt, ne, isnull, sw* (optional)
 $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name** (optional)
 $RequestState = "request-state=EXECUTING" # String | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
 
-# Access Request Status
+# Access request status
 
 try {
     Get-V2025AccessRequestStatus 
@@ -733,7 +710,7 @@ $Filters = 'accountActivityItemId eq "2c918086771c86df0177401efcdf54c0"' # Strin
 $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified, accountActivityItemId, name, accessRequestId** (optional)
 $RequestState = "request-state=EXECUTING" # String | Filter the results by the state of the request. The only valid value is *EXECUTING*. (optional)
 
-# Access Request Status for Administrators
+# Access request status for administrators
 
 try {
     Get-V2025AdministratorsAccessRequestStatus 
@@ -915,14 +892,24 @@ $AccessRequestConfig = @"{
         "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
         "approverType" : "GOVERNANCE_GROUP"
       } ],
+      "reauthorizationRequired" : false,
       "requestCommentRequired" : true
+    },
+    "revocationRequestConfig" : {
+      "approvalSchemes" : [ {
+        "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+        "approverType" : "GOVERNANCE_GROUP"
+      }, {
+        "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+        "approverType" : "GOVERNANCE_GROUP"
+      } ]
     }
   },
   "reauthorizationEnabled" : true,
   "approvalsMustBeExternal" : true
 }"@
 
-# Update Access Request Configuration
+# Update access request configuration
 
 try {
     $Result = ConvertFrom-JsonToAccessRequestConfig -Json $AccessRequestConfig

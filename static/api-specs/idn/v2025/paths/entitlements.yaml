@@ -7,6 +7,8 @@ get:
   - userAuth:
     - idn:entitlement:read
     - idn:entitlement:manage
+  x-sailpoint-userLevels:
+    - Any
   description: 'This API returns a list of entitlements.
 
 
@@ -32,12 +34,11 @@ get:
       type: string
     description: 'If present and not empty, additionally filters Entitlements to those
       which are assigned to the Segment(s) which are visible to the Identity with
-      the specified ID. By convention, the value **me** can stand in for the current
-      user''s Identity ID.
+      the specified ID.
 
       Cannot be specified with the **account-id** or **for-segment-ids** param(s).
       It is also illegal to specify a value that refers to a different user''s Identity.'
-    example: me
+    example: e554098913544630b5985e9042f5e44b
     required: false
   - in: query
     name: for-segment-ids

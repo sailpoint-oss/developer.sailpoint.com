@@ -44,11 +44,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-CampaignFilter**](#create-campaign-filter) | **POST** `/campaign-filters` | Create Campaign Filter
-[**Remove-CampaignFilters**](#delete-campaign-filters) | **POST** `/campaign-filters/delete` | Deletes Campaign Filters
-[**Get-CampaignFilterById**](#get-campaign-filter-by-id) | **GET** `/campaign-filters/{id}` | Get Campaign Filter by ID
-[**Get-CampaignFilters**](#list-campaign-filters) | **GET** `/campaign-filters` | List Campaign Filters
-[**Update-CampaignFilter**](#update-campaign-filter) | **POST** `/campaign-filters/{id}` | Updates a Campaign Filter
+[**New-CampaignFilter**](#create-campaign-filter) | **POST** `/campaign-filters` | Create campaign filter
+[**Remove-CampaignFilters**](#delete-campaign-filters) | **POST** `/campaign-filters/delete` | Deletes campaign filters
+[**Get-CampaignFilterById**](#get-campaign-filter-by-id) | **GET** `/campaign-filters/{id}` | Get campaign filter by id
+[**Get-CampaignFilters**](#list-campaign-filters) | **GET** `/campaign-filters` | List campaign filters
+[**Update-CampaignFilter**](#update-campaign-filter) | **POST** `/campaign-filters/{id}` | Updates a campaign filter
 
 
 ## create-campaign-filter
@@ -99,7 +99,7 @@ $CampaignFilterDetails = @"{
   } ]
 }"@
 
-# Create Campaign Filter
+# Create campaign filter
 
 try {
     $Result = ConvertFrom-JsonToCampaignFilterDetails -Json $CampaignFilterDetails
@@ -148,7 +148,7 @@ $RequestBody = "MyRequestBody" # String[] | A json list of IDs of campaign filte
  $RequestBody = @""@ # String[] | A json list of IDs of campaign filters to delete.
  
 
-# Deletes Campaign Filters
+# Deletes campaign filters
 
 try {
     $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
@@ -195,7 +195,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "e9f9a1397b842fd5a65842087040d3ac" # String | The ID of the campaign filter to be retrieved.
 
-# Get Campaign Filter by ID
+# Get campaign filter by id
 
 try {
     Get-CampaignFilterById -Id $Id 
@@ -244,7 +244,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Start = 0 # Int32 | Start/Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $IncludeSystemFilters = $true # Boolean | If this is true, the API includes system filters in the count and results. Otherwise it excludes them. If no value is provided, the default is true.  (optional) (default to $true)
 
-# List Campaign Filters
+# List campaign filters
 
 try {
     Get-CampaignFilters 
@@ -308,7 +308,7 @@ $CampaignFilterDetails = @"{
   } ]
 }"@
 
-# Updates a Campaign Filter
+# Updates a campaign filter
 
 try {
     $Result = ConvertFrom-JsonToCampaignFilterDetails -Json $CampaignFilterDetails

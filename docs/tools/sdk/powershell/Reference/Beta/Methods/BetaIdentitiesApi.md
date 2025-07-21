@@ -33,15 +33,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Remove-BetaIdentity**](#delete-identity) | **DELETE** `/identities/{id}` | Delete identity
-[**Get-BetaIdentity**](#get-identity) | **GET** `/identities/{id}` | Identity Details
+[**Get-BetaIdentity**](#get-identity) | **GET** `/identities/{id}` | Identity details
 [**Get-BetaIdentityOwnershipDetails**](#get-identity-ownership-details) | **GET** `/identities/{identityId}/ownership` | Get ownership details
 [**Get-BetaRoleAssignment**](#get-role-assignment) | **GET** `/identities/{identityId}/role-assignments/{assignmentId}` | Role assignment details
 [**Get-BetaRoleAssignments**](#get-role-assignments) | **GET** `/identities/{identityId}/role-assignments` | List role assignments
-[**Get-BetaIdentities**](#list-identities) | **GET** `/identities` | List Identities
+[**Get-BetaIdentities**](#list-identities) | **GET** `/identities` | List identities
 [**Reset-BetaIdentity**](#reset-identity) | **POST** `/identities/{identityId}/reset` | Reset an identity
 [**Send-BetaIdentityVerificationAccountToken**](#send-identity-verification-account-token) | **POST** `/identities/{id}/verification/account/send` | Send password reset email
 [**Start-BetaIdentitiesInvite**](#start-identities-invite) | **POST** `/identities/invite` | Invite identities to register
-[**Start-BetaIdentityProcessing**](#start-identity-processing) | **POST** `/identities/process` | Process a list of identityIds
+[**Start-BetaIdentityProcessing**](#start-identity-processing) | **POST** `/identities/process` | Process a list of identityids
 [**Sync-BetahronizeAttributesForIdentity**](#synchronize-attributes-for-identity) | **POST** `/identities/{identityId}/synchronize-attributes` | Attribute synchronization for single identity.
 
 
@@ -123,7 +123,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
 
-# Identity Details
+# Identity details
 
 try {
     Get-BetaIdentity -Id $Id 
@@ -324,7 +324,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
-# List Identities
+# List identities
 
 try {
     Get-BetaIdentities 
@@ -536,7 +536,7 @@ $ProcessIdentitiesRequest = @"{
   "identityIds" : [ "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8", "ef38f94347e94562b5bb8424a56397d8" ]
 }"@
 
-# Process a list of identityIds
+# Process a list of identityids
 
 try {
     $Result = ConvertFrom-JsonToProcessIdentitiesRequest -Json $ProcessIdentitiesRequest

@@ -2,7 +2,7 @@ delete:
   operationId: deleteLifecycleState
   tags:
     - Lifecycle States
-  summary: Lifecycle State Delete
+  summary: Lifecycle state delete
   description: |
     This endpoint deletes a lifecycle state and updates the corresponding Identity Profile.
 

@@ -217,14 +217,30 @@
 @font-face {
   font-family: 'Poppins';
   src: url('../../static/fonts/poppins/Poppins-Regular.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
+}
+
+* {
+  font-family: 'Poppins';
+}
+html {
+  font-family: 'Poppins';
+}
+html * {
+  font-family: 'Poppins';
 }
 
 :root {
   font-family: Poppins !important;
   --doc-sidebar-width: 445px !important;
+}
+
+h1 {
+  font-family: 'Poppins' !important;
+  font-weight: 600 !important;
+  color: var(--ifm-color-primary) !important;
 }
 
 :root {
@@ -237,16 +253,17 @@
   --ifm-color-primary-light: #0038b1;
   --ifm-color-primary-lighter: #003bb9;
   --ifm-color-primary-lightest: #0042d1;
+  --ifm-button-colors: rgba(0, 113, 206, 1);
 
   --ifm-color-secondary: #cc27b0;
   --ifm-color-secondary-dark: rgb(181, 13, 152);
-  --ifm-link-color: #0071cE;
-  --link-color: #0071cE;
+  --ifm-link-color: #0071ce;
+  --link-color: #0071ce;
 
   --terminal-key: rgb(47, 162, 160);
   --terminal-value: rgb(226, 52, 120);
   --terminal-background: #f7f8fa;
-  --mui-link: rgb(4,125,246);
+  --mui-link: rgb(4, 125, 246);
 
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
@@ -290,13 +307,13 @@
 [data-theme='dark'] {
   color: #ffffff;
   --ifm-primary-text-color: #ffffff;
-  --ifm-color-primary: #54C0e8;
+  --ifm-color-primary: #54c0e8;
   --ifm-color-primary-dark: #5ec3ea;
   --ifm-color-primary-darker: #4ebde8;
   --ifm-color-primary-darkest: #1eabe1;
-  --ifm-color-primary-light: #8ed5f0;
-  --ifm-color-primary-lighter: #aee1f4;
-  --ifm-color-primary-lightest: #bee7f6;
+  --ifm-color-primary-light: #d0ebf6;
+  --ifm-color-primary-lighter: #d0ebf6;
+  --ifm-color-primary-lightest: #d0ebf6;
   --ifm-link-color: #7ecfee;
   --link-color: #7ecfee;
 
@@ -306,7 +323,7 @@
   --terminal-key: rgb(247, 247, 240);
   --terminal-value: rgb(255, 110, 191);
   --terminal-background: #282a36;
-  --mui-link: rgb(115,200,235);
+  --mui-link: rgb(115, 200, 235);
 
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --dev-text-color-cobalt: #dae1e9;
@@ -338,17 +355,30 @@
   --main-hero-card-background: #202122;
 }
 
+.openapi-schema__container:hover .openapi-schema__property {
+  color: var(--link-color) !important;
+}
+
 .navbar__link:hover {
-  color: var(--ifm-link-color) !important;
+  color: var(--link-color) !important;
 }
 
 .footer__link-item:hover {
-  color: var(--ifm-link-color) !important;
+  color: var(--link-color) !important;
   text-decoration: underline !important;
 }
 
 .navbar__logo {
   margin-right: 0.5rem;
+}
+
+.cardContainer_S8oU {
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.cardContainer_S8oU:hover {
+  border-color: var(--link-color) !important;
 }
 
 @media only screen and (max-width: 1450px) {
@@ -371,6 +401,23 @@
 
 .menu__link {
   padding-left: 13%;
+}
+
+.menu__link:hover {
+  color: var(--link-color) !important;
+}
+
+.menu__link--active {
+  color: var(--link-color) !important;
+  text-decoration: underline !important;
+}
+
+.navbar__link:hover {
+  color: var(--link-color) !important;
+}
+
+.dropdown__link:hover {
+  color: var(--link-color) !important;
 }
 
 /* Sidebar Method labels */
@@ -423,7 +470,7 @@
 
 .event > .menu__link::before {
   content: 'event';
-  background-color: #8000A8;
+  background-color: #8000a8;
 }
 
 .header-github-link:hover {
@@ -532,6 +579,11 @@ div[class^='announcementBar_'] {
   }
 }
 
+.ace_editor,
+.ace_editor * {
+  font-family: monospace !important;
+}
+
 div[class^='responseTabsContainer_'] {
   max-width: 590px !important;
 }
@@ -620,19 +672,28 @@ div[id^='discourse-comments'] {
 }
 
 li.tabs__item.openapi-tabs__code-item.openapi-tabs__code-item--typescript::after {
-  content: "";
+  content: '';
   width: 24px; /* Adjust image width */
   height: 24px; /* Adjust image height */
   background-image: url('../../static/icons/typescript-svgrepo-com.svg'); /* Replace with your image URL */
   background-size: contain; /* Ensure image fits properly */
   background-repeat: no-repeat;
   z-index: 1; /* Ensure it is above other content */
-  
 }
 
-details ol li a:link, details p a:link {
+details ol li a:link,
+details p a:link {
   text-decoration: underline !important;
   text-decoration-color: var(--link-color) !important;
   color: var(--link-color) !important;
 }
 
+p a:link,
+td a:link {
+  text-decoration: underline !important;
+}
+
+p a:link:hover,
+td a:link:hover {
+  text-decoration: none !important;
+}

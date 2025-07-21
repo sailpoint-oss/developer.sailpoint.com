@@ -26,10 +26,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create-saved-search**](#create-saved-search) | **POST** `/saved-searches` | Create a saved search
-[**delete-saved-search**](#delete-saved-search) | **DELETE** `/saved-searches/{id}` | Delete document by ID
-[**execute-saved-search**](#execute-saved-search) | **POST** `/saved-searches/{id}/execute` | Execute a saved search by ID
-[**get-saved-search**](#get-saved-search) | **GET** `/saved-searches/{id}` | Return saved search by ID
-[**list-saved-searches**](#list-saved-searches) | **GET** `/saved-searches` | A list of Saved Searches
+[**delete-saved-search**](#delete-saved-search) | **DELETE** `/saved-searches/{id}` | Delete document by id
+[**execute-saved-search**](#execute-saved-search) | **POST** `/saved-searches/{id}/execute` | Execute a saved search by id
+[**get-saved-search**](#get-saved-search) | **GET** `/saved-searches/{id}` | Return saved search by id
+[**list-saved-searches**](#list-saved-searches) | **GET** `/saved-searches` | A list of saved searches
 [**put-saved-search**](#put-saved-search) | **PUT** `/saved-searches/{id}` | Updates an existing saved search 
 
 
@@ -94,7 +94,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-saved-search
-Delete document by ID
+Delete document by id
 Deletes the specified saved search.
 
 
@@ -137,7 +137,7 @@ with ApiClient(configuration) as api_client:
     id = '2c91808568c529c60168cca6f90c1313' # str | ID of the requested document. # str | ID of the requested document.
 
     try:
-        # Delete document by ID
+        # Delete document by id
         
         SavedSearchApi(api_client).delete_saved_search(id=id)
         # Below is a request that includes all optional parameters
@@ -151,7 +151,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## execute-saved-search
-Execute a saved search by ID
+Execute a saved search by id
 Executes the specified saved search.
 
 
@@ -207,7 +207,7 @@ with ApiClient(configuration) as api_client:
         }''' # SearchArguments | When saved search execution is triggered by a scheduled search, *scheduleId* will specify the ID of the triggering scheduled search.  If *scheduleId* is not specified (when execution is triggered by a UI test), the *owner* and *recipients* arguments must be provided. 
 
     try:
-        # Execute a saved search by ID
+        # Execute a saved search by id
         new_search_arguments = SearchArguments.from_json(search_arguments)
         SavedSearchApi(api_client).execute_saved_search(id=id, search_arguments=new_search_arguments)
         # Below is a request that includes all optional parameters
@@ -221,7 +221,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-saved-search
-Return saved search by ID
+Return saved search by id
 Returns the specified saved search.
 
 
@@ -265,7 +265,7 @@ with ApiClient(configuration) as api_client:
     id = '2c91808568c529c60168cca6f90c1313' # str | ID of the requested document. # str | ID of the requested document.
 
     try:
-        # Return saved search by ID
+        # Return saved search by id
         
         results = SavedSearchApi(api_client).get_saved_search(id=id)
         # Below is a request that includes all optional parameters
@@ -281,7 +281,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-saved-searches
-A list of Saved Searches
+A list of saved searches
 Returns a list of saved searches.
 
 
@@ -330,7 +330,7 @@ with ApiClient(configuration) as api_client:
     filters = 'owner.id eq \"7a724640-0c17-4ce9-a8c3-4a89738459c8\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **owner.id**: *eq* (optional)
 
     try:
-        # A list of Saved Searches
+        # A list of saved searches
         
         results = SavedSearchApi(api_client).list_saved_searches()
         # Below is a request that includes all optional parameters

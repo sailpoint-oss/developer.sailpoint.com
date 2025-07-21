@@ -1,6 +1,6 @@
 ---
 id: python-sdk-error-handling
-title: Error Handling with The Python SDK
+title: Error handling with The Python SDK
 pagination_label: Error Handling
 sidebar_label: Error Handling
 sidebar_position: 8

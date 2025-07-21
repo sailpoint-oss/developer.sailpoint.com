@@ -15,27 +15,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-identity-attribute**](#create-identity-attribute) | **POST** `/identity-attributes` | Create Identity Attribute
-[**delete-identity-attribute**](#delete-identity-attribute) | **DELETE** `/identity-attributes/{name}` | Delete Identity Attribute
-[**delete-identity-attributes-in-bulk**](#delete-identity-attributes-in-bulk) | **DELETE** `/identity-attributes/bulk-delete` | Bulk delete Identity Attributes
-[**get-identity-attribute**](#get-identity-attribute) | **GET** `/identity-attributes/{name}` | Get Identity Attribute
-[**list-identity-attributes**](#list-identity-attributes) | **GET** `/identity-attributes` | List Identity Attributes
-[**put-identity-attribute**](#put-identity-attribute) | **PUT** `/identity-attributes/{name}` | Update Identity Attribute
+[**create-identity-attribute**](#create-identity-attribute) | **POST** `/identity-attributes` | Create identity attribute
+[**delete-identity-attribute**](#delete-identity-attribute) | **DELETE** `/identity-attributes/{name}` | Delete identity attribute
+[**delete-identity-attributes-in-bulk**](#delete-identity-attributes-in-bulk) | **DELETE** `/identity-attributes/bulk-delete` | Bulk delete identity attributes
+[**get-identity-attribute**](#get-identity-attribute) | **GET** `/identity-attributes/{name}` | Get identity attribute
+[**list-identity-attributes**](#list-identity-attributes) | **GET** `/identity-attributes` | List identity attributes
+[**put-identity-attribute**](#put-identity-attribute) | **PUT** `/identity-attributes/{name}` | Update identity attribute
 
 
 ## create-identity-attribute
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
-Create Identity Attribute
+Create identity attribute
 Use this API to create a new identity attribute.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-identity-attribute)
@@ -44,7 +33,6 @@ Use this API to create a new identity attribute.
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
  Body  | identity_attribute | [**IdentityAttribute**](../models/identity-attribute) | True  | 
 
 ### Return type
@@ -74,10 +62,8 @@ from sailpoint.v2024.models.identity_attribute import IdentityAttribute
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     identity_attribute = '''{
           "standard" : false,
           "system" : false,
@@ -102,11 +88,11 @@ with ApiClient(configuration) as api_client:
         }''' # IdentityAttribute | 
 
     try:
-        # Create Identity Attribute
+        # Create identity attribute
         new_identity_attribute = IdentityAttribute.from_json(identity_attribute)
-        results = IdentityAttributesApi(api_client).create_identity_attribute(x_sail_point_experimental=x_sail_point_experimental, identity_attribute=new_identity_attribute)
+        results = IdentityAttributesApi(api_client).create_identity_attribute(identity_attribute=new_identity_attribute)
         # Below is a request that includes all optional parameters
-        # results = IdentityAttributesApi(api_client).create_identity_attribute(x_sail_point_experimental, new_identity_attribute)
+        # results = IdentityAttributesApi(api_client).create_identity_attribute(new_identity_attribute)
         print("The response of IdentityAttributesApi->create_identity_attribute:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -118,18 +104,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-identity-attribute
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
-Delete Identity Attribute
+Delete identity attribute
 This deletes an identity attribute with the given name.  The `system` and `standard` properties must be set to false before you can delete an identity attribute.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-identity-attribute)
@@ -139,7 +114,6 @@ This deletes an identity attribute with the given name.  The `system` and `stand
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | name | **str** | True  | The attribute's technical name.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
  (empty response body)
@@ -167,18 +141,16 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     name = 'displayName' # str | The attribute's technical name. # str | The attribute's technical name.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Delete Identity Attribute
+        # Delete identity attribute
         
-        IdentityAttributesApi(api_client).delete_identity_attribute(name=name, x_sail_point_experimental=x_sail_point_experimental)
+        IdentityAttributesApi(api_client).delete_identity_attribute(name=name)
         # Below is a request that includes all optional parameters
-        # IdentityAttributesApi(api_client).delete_identity_attribute(name, x_sail_point_experimental)
+        # IdentityAttributesApi(api_client).delete_identity_attribute(name)
     except Exception as e:
         print("Exception when calling IdentityAttributesApi->delete_identity_attribute: %s\n" % e)
 ```
@@ -188,18 +160,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-identity-attributes-in-bulk
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
-Bulk delete Identity Attributes
+Bulk delete identity attributes
 Use this API to bulk delete identity attributes for a given set of names. Attributes that are currently mapped in an identity profile cannot be deleted.  The `system` and `standard` properties must be set to 'false' before you can delete an identity attribute.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-identity-attributes-in-bulk)
@@ -208,7 +169,6 @@ Use this API to bulk delete identity attributes for a given set of names. Attrib
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
  Body  | identity_attribute_names | [**IdentityAttributeNames**](../models/identity-attribute-names) | True  | 
 
 ### Return type
@@ -238,20 +198,18 @@ from sailpoint.v2024.models.identity_attribute_names import IdentityAttributeNam
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     identity_attribute_names = '''{
           "ids" : [ "name", "displayName" ]
         }''' # IdentityAttributeNames | 
 
     try:
-        # Bulk delete Identity Attributes
+        # Bulk delete identity attributes
         new_identity_attribute_names = IdentityAttributeNames.from_json(identity_attribute_names)
-        IdentityAttributesApi(api_client).delete_identity_attributes_in_bulk(x_sail_point_experimental=x_sail_point_experimental, identity_attribute_names=new_identity_attribute_names)
+        IdentityAttributesApi(api_client).delete_identity_attributes_in_bulk(identity_attribute_names=new_identity_attribute_names)
         # Below is a request that includes all optional parameters
-        # IdentityAttributesApi(api_client).delete_identity_attributes_in_bulk(x_sail_point_experimental, new_identity_attribute_names)
+        # IdentityAttributesApi(api_client).delete_identity_attributes_in_bulk(new_identity_attribute_names)
     except Exception as e:
         print("Exception when calling IdentityAttributesApi->delete_identity_attributes_in_bulk: %s\n" % e)
 ```
@@ -261,18 +219,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-identity-attribute
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
-Get Identity Attribute
+Get identity attribute
 This gets an identity attribute for a given technical name.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-identity-attribute)
@@ -282,7 +229,6 @@ This gets an identity attribute for a given technical name.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | name | **str** | True  | The attribute's technical name.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 [**IdentityAttribute**](../models/identity-attribute)
@@ -311,18 +257,16 @@ from sailpoint.v2024.models.identity_attribute import IdentityAttribute
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     name = 'displayName' # str | The attribute's technical name. # str | The attribute's technical name.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Get Identity Attribute
+        # Get identity attribute
         
-        results = IdentityAttributesApi(api_client).get_identity_attribute(name=name, x_sail_point_experimental=x_sail_point_experimental)
+        results = IdentityAttributesApi(api_client).get_identity_attribute(name=name)
         # Below is a request that includes all optional parameters
-        # results = IdentityAttributesApi(api_client).get_identity_attribute(name, x_sail_point_experimental)
+        # results = IdentityAttributesApi(api_client).get_identity_attribute(name)
         print("The response of IdentityAttributesApi->get_identity_attribute:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -334,18 +278,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-identity-attributes
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
-List Identity Attributes
+List identity attributes
 Use this API to get a collection of identity attributes.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-identity-attributes)
@@ -354,7 +287,6 @@ Use this API to get a collection of identity attributes.
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
   Query | include_system | **bool** |   (optional) (default to False) | Include 'system' attributes in the response.
   Query | include_silent | **bool** |   (optional) (default to False) | Include 'silent' attributes in the response.
   Query | searchable_only | **bool** |   (optional) (default to False) | Include only 'searchable' attributes in the response.
@@ -386,21 +318,19 @@ from sailpoint.v2024.models.identity_attribute import IdentityAttribute
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     include_system = False # bool | Include 'system' attributes in the response. (optional) (default to False) # bool | Include 'system' attributes in the response. (optional) (default to False)
     include_silent = False # bool | Include 'silent' attributes in the response. (optional) (default to False) # bool | Include 'silent' attributes in the response. (optional) (default to False)
     searchable_only = False # bool | Include only 'searchable' attributes in the response. (optional) (default to False) # bool | Include only 'searchable' attributes in the response. (optional) (default to False)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
     try:
-        # List Identity Attributes
+        # List identity attributes
         
-        results = IdentityAttributesApi(api_client).list_identity_attributes(x_sail_point_experimental=x_sail_point_experimental)
+        results = IdentityAttributesApi(api_client).list_identity_attributes()
         # Below is a request that includes all optional parameters
-        # results = IdentityAttributesApi(api_client).list_identity_attributes(x_sail_point_experimental, include_system, include_silent, searchable_only, count)
+        # results = IdentityAttributesApi(api_client).list_identity_attributes(include_system, include_silent, searchable_only, count)
         print("The response of IdentityAttributesApi->list_identity_attributes:\n")
         for item in results:
             print(item.model_dump_json(by_alias=True, indent=4))
@@ -413,18 +343,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-identity-attribute
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
-Update Identity Attribute
+Update identity attribute
 This updates an existing identity attribute.  Making an attribute searchable requires that the `system`, `standard`, and `multi` properties be set to false.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-identity-attribute)
@@ -434,7 +353,6 @@ This updates an existing identity attribute.  Making an attribute searchable req
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | name | **str** | True  | The attribute's technical name.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
  Body  | identity_attribute | [**IdentityAttribute**](../models/identity-attribute) | True  | 
 
 ### Return type
@@ -464,11 +382,9 @@ from sailpoint.v2024.models.identity_attribute import IdentityAttribute
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     name = 'displayName' # str | The attribute's technical name. # str | The attribute's technical name.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     identity_attribute = '''{
           "standard" : false,
           "system" : false,
@@ -493,11 +409,11 @@ with ApiClient(configuration) as api_client:
         }''' # IdentityAttribute | 
 
     try:
-        # Update Identity Attribute
+        # Update identity attribute
         new_identity_attribute = IdentityAttribute.from_json(identity_attribute)
-        results = IdentityAttributesApi(api_client).put_identity_attribute(name=name, x_sail_point_experimental=x_sail_point_experimental, identity_attribute=new_identity_attribute)
+        results = IdentityAttributesApi(api_client).put_identity_attribute(name=name, identity_attribute=new_identity_attribute)
         # Below is a request that includes all optional parameters
-        # results = IdentityAttributesApi(api_client).put_identity_attribute(name, x_sail_point_experimental, new_identity_attribute)
+        # results = IdentityAttributesApi(api_client).put_identity_attribute(name, new_identity_attribute)
         print("The response of IdentityAttributesApi->put_identity_attribute:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:

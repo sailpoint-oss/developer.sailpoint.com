@@ -1,6 +1,6 @@
 ---
 id: testing-triggers
-title: Testing Triggers
+title: Testing triggers
 pagination_label: Testing Triggers
 sidebar_label: Testing Triggers
 sidebar_position: 5
@@ -13,7 +13,7 @@ tags: ['Event Triggers']
 
 It is important to test your trigger subscription configuration with your actual subscribing service (not a test site like [webhook.site](https://webhook.site)) before enabling your subscription for production use. Testing subscriptions ensures that your subscribing service can successfully receive events and that you are receiving the correct events based on the filter you have provided. If you're using Visual Studio Code (VSCode), you can use [VSCode Port Forwarding](/docs/extensibility/event-triggers/preparing-subscriber-service#visual-studio-code-port-forwarding) to forward event data from a public URL to your local service to test your subscriber service properly. 
 
-## Sending Test Invocations
+## Sending test invocations
 
 The easiest way to send a test event to your subscribing service is to use the **Test Subscription** command. Go to your subscription in the Event Trigger UI, select **Options** to the right of the subscription, and select **Test Subscription**.
 
@@ -59,7 +59,7 @@ POST `https://{tenant}.api.identitynow.com/beta/trigger-invocations/test`
 
 ## Troubleshooting
 
-### Trigger Service Issues
+### Trigger service issues
 
 If your subscribing service is not receiving your test invocations, you have a couple of options to debug the issue. Start by viewing the activity log for the subscription in the UI to ensure your test events are actually being sent.
 
@@ -71,11 +71,11 @@ Check the **Created** date with the time you sent the test events. If they are b
 
 You can also view the activity log by using the [list latest invocation statuses](/docs/api/beta/list-trigger-invocation-status) endpoint.
 
-### Filter Issues
+### Filter issues
 
 If you do not see your events in the activity log, it may be a filtering issue. If the filter you configured on the subscription is not matching the test event data, no event will be sent. Double check your filter expression with the test payload in a JSONpath editor to ensure the filter is valid and matches your data. See [Filtering Events](./filtering-events.md) for more information.
 
-### Misconfigured Subscription
+### Misconfigured subscription
 
 Double check that your subscription configuration is correct.
 

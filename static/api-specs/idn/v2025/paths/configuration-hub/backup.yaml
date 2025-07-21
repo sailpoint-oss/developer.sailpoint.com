@@ -4,7 +4,7 @@ get:
     - userAuth: [sp:config-backup:read, sp:config-backup:manage]
   tags:
     - Configuration Hub
-  summary: List Backups
+  summary: List backups
   description: >-
     This API gets a list of existing backups for the current tenant.
   parameters:

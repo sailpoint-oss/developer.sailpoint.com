@@ -31,17 +31,17 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-CustomConnector**](#create-custom-connector) | **POST** `/connectors` | Create Custom Connector
-[**Remove-CustomConnector**](#delete-custom-connector) | **DELETE** `/connectors/{scriptName}` | Delete Connector by Script Name
-[**Get-Connector**](#get-connector) | **GET** `/connectors/{scriptName}` | Get Connector by Script Name
-[**Get-ConnectorList**](#get-connector-list) | **GET** `/connectors` | Get Connector List
-[**Get-ConnectorSourceConfig**](#get-connector-source-config) | **GET** `/connectors/{scriptName}/source-config` | Get Connector Source Configuration
-[**Get-ConnectorSourceTemplate**](#get-connector-source-template) | **GET** `/connectors/{scriptName}/source-template` | Get Connector Source Template
-[**Get-ConnectorTranslations**](#get-connector-translations) | **GET** `/connectors/{scriptName}/translations/{locale}` | Get Connector Translations
-[**Send-ConnectorSourceConfig**](#put-connector-source-config) | **PUT** `/connectors/{scriptName}/source-config` | Update Connector Source Configuration
-[**Send-ConnectorSourceTemplate**](#put-connector-source-template) | **PUT** `/connectors/{scriptName}/source-template` | Update Connector Source Template
-[**Send-ConnectorTranslations**](#put-connector-translations) | **PUT** `/connectors/{scriptName}/translations/{locale}` | Update Connector Translations
-[**Update-Connector**](#update-connector) | **PATCH** `/connectors/{scriptName}` | Update Connector by Script Name
+[**New-CustomConnector**](#create-custom-connector) | **POST** `/connectors` | Create custom connector
+[**Remove-CustomConnector**](#delete-custom-connector) | **DELETE** `/connectors/{scriptName}` | Delete connector by script name
+[**Get-Connector**](#get-connector) | **GET** `/connectors/{scriptName}` | Get connector by script name
+[**Get-ConnectorList**](#get-connector-list) | **GET** `/connectors` | Get connector list
+[**Get-ConnectorSourceConfig**](#get-connector-source-config) | **GET** `/connectors/{scriptName}/source-config` | Get connector source configuration
+[**Get-ConnectorSourceTemplate**](#get-connector-source-template) | **GET** `/connectors/{scriptName}/source-template` | Get connector source template
+[**Get-ConnectorTranslations**](#get-connector-translations) | **GET** `/connectors/{scriptName}/translations/{locale}` | Get connector translations
+[**Send-ConnectorSourceConfig**](#put-connector-source-config) | **PUT** `/connectors/{scriptName}/source-config` | Update connector source configuration
+[**Send-ConnectorSourceTemplate**](#put-connector-source-template) | **PUT** `/connectors/{scriptName}/source-template` | Update connector source template
+[**Send-ConnectorTranslations**](#put-connector-translations) | **PUT** `/connectors/{scriptName}/translations/{locale}` | Update connector translations
+[**Update-Connector**](#update-connector) | **PATCH** `/connectors/{scriptName}` | Update connector by script name
 
 
 ## create-custom-connector
@@ -82,7 +82,7 @@ $V3CreateConnectorDto = @"{
   "status" : "RELEASED"
 }"@
 
-# Create Custom Connector
+# Create custom connector
 
 try {
     $Result = ConvertFrom-JsonToV3CreateConnectorDto -Json $V3CreateConnectorDto
@@ -129,7 +129,7 @@ Code | Description  | Data Type
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
-# Delete Connector by Script Name
+# Delete connector by script name
 
 try {
     Remove-CustomConnector -ScriptName $ScriptName 
@@ -177,7 +177,7 @@ Code | Description  | Data Type
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
 
-# Get Connector by Script Name
+# Get connector by script name
 
 try {
     Get-Connector -ScriptName $ScriptName 
@@ -231,7 +231,7 @@ $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *l
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en"" (optional)
 
-# Get Connector List
+# Get connector list
 
 try {
     Get-ConnectorList 
@@ -277,7 +277,7 @@ Code | Description  | Data Type
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
-# Get Connector Source Configuration
+# Get connector source configuration
 
 try {
     Get-ConnectorSourceConfig -ScriptName $ScriptName 
@@ -323,7 +323,7 @@ Code | Description  | Data Type
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 
-# Get Connector Source Template
+# Get connector source template
 
 try {
     Get-ConnectorSourceTemplate -ScriptName $ScriptName 
@@ -371,7 +371,7 @@ Code | Description  | Data Type
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en""
 
-# Get Connector Translations
+# Get connector translations
 
 try {
     Get-ConnectorTranslations -ScriptName $ScriptName -Locale $Locale 
@@ -419,7 +419,7 @@ Code | Description  | Data Type
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 $File =  # System.IO.FileInfo | connector source config xml file
 
-# Update Connector Source Configuration
+# Update connector source configuration
 
 try {
     Send-ConnectorSourceConfig -ScriptName $ScriptName -File $File 
@@ -467,7 +467,7 @@ Code | Description  | Data Type
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. ScriptName is the unique id generated at connector creation.
 $File =  # System.IO.FileInfo | connector source template xml file
 
-# Update Connector Source Template
+# Update connector source template
 
 try {
     Send-ConnectorSourceTemplate -ScriptName $ScriptName -File $File 
@@ -515,7 +515,7 @@ Code | Description  | Data Type
 $ScriptName = "aScriptName" # String | The scriptName value of the connector. Scriptname is the unique id generated at connector creation.
 $Locale = "de" # String | The locale to apply to the config. If no viable locale is given, it will default to ""en""
 
-# Update Connector Translations
+# Update connector translations
 
 try {
     Send-ConnectorTranslations -ScriptName $ScriptName -Locale $Locale 
@@ -580,7 +580,7 @@ $ScriptName = "aScriptName" # String | The scriptName value of the connector. Sc
 }"@ # JsonPatchOperation[] | A list of connector detail update operations 
  
 
-# Update Connector by Script Name
+# Update connector by script name
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation

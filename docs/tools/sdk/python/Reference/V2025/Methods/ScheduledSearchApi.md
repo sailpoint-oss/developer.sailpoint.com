@@ -42,11 +42,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create-scheduled-search**](#create-scheduled-search) | **POST** `/scheduled-searches` | Create a new scheduled search
-[**delete-scheduled-search**](#delete-scheduled-search) | **DELETE** `/scheduled-searches/{id}` | Delete a Scheduled Search
-[**get-scheduled-search**](#get-scheduled-search) | **GET** `/scheduled-searches/{id}` | Get a Scheduled Search
+[**delete-scheduled-search**](#delete-scheduled-search) | **DELETE** `/scheduled-searches/{id}` | Delete a scheduled search
+[**get-scheduled-search**](#get-scheduled-search) | **GET** `/scheduled-searches/{id}` | Get a scheduled search
 [**list-scheduled-search**](#list-scheduled-search) | **GET** `/scheduled-searches` | List scheduled searches
-[**unsubscribe-scheduled-search**](#unsubscribe-scheduled-search) | **POST** `/scheduled-searches/{id}/unsubscribe` | Unsubscribe a recipient from Scheduled Search
-[**update-scheduled-search**](#update-scheduled-search) | **PUT** `/scheduled-searches/{id}` | Update an existing Scheduled Search
+[**unsubscribe-scheduled-search**](#unsubscribe-scheduled-search) | **POST** `/scheduled-searches/{id}/unsubscribe` | Unsubscribe a recipient from scheduled search
+[**update-scheduled-search**](#update-scheduled-search) | **PUT** `/scheduled-searches/{id}` | Update an existing scheduled search
 
 
 ## create-scheduled-search
@@ -111,7 +111,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-scheduled-search
-Delete a Scheduled Search
+Delete a scheduled search
 Deletes the specified scheduled search.
 
 
@@ -154,7 +154,7 @@ with ApiClient(configuration) as api_client:
     id = '2c91808568c529c60168cca6f90c1313' # str | ID of the requested document. # str | ID of the requested document.
 
     try:
-        # Delete a Scheduled Search
+        # Delete a scheduled search
         
         ScheduledSearchApi(api_client).delete_scheduled_search(id=id)
         # Below is a request that includes all optional parameters
@@ -168,7 +168,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-scheduled-search
-Get a Scheduled Search
+Get a scheduled search
 Returns the specified scheduled search.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-scheduled-search)
@@ -211,7 +211,7 @@ with ApiClient(configuration) as api_client:
     id = '2c91808568c529c60168cca6f90c1313' # str | ID of the requested document. # str | ID of the requested document.
 
     try:
-        # Get a Scheduled Search
+        # Get a scheduled search
         
         results = ScheduledSearchApi(api_client).get_scheduled_search(id=id)
         # Below is a request that includes all optional parameters
@@ -294,7 +294,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## unsubscribe-scheduled-search
-Unsubscribe a recipient from Scheduled Search
+Unsubscribe a recipient from scheduled search
 Unsubscribes a recipient from the specified scheduled search.
 
 
@@ -340,7 +340,7 @@ with ApiClient(configuration) as api_client:
         }''' # TypedReference | The recipient to be removed from the scheduled search. 
 
     try:
-        # Unsubscribe a recipient from Scheduled Search
+        # Unsubscribe a recipient from scheduled search
         new_typed_reference = TypedReference.from_json(typed_reference)
         ScheduledSearchApi(api_client).unsubscribe_scheduled_search(id=id, typed_reference=new_typed_reference)
         # Below is a request that includes all optional parameters
@@ -354,7 +354,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-scheduled-search
-Update an existing Scheduled Search
+Update an existing scheduled search
 Updates an existing scheduled search.
 
 
@@ -490,7 +490,7 @@ with ApiClient(configuration) as api_client:
         }''' # ScheduledSearch | The scheduled search to persist.
 
     try:
-        # Update an existing Scheduled Search
+        # Update an existing scheduled search
         new_scheduled_search = ScheduledSearch.from_json(scheduled_search)
         results = ScheduledSearchApi(api_client).update_scheduled_search(id=id, scheduled_search=new_scheduled_search)
         # Below is a request that includes all optional parameters

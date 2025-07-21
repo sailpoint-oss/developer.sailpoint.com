@@ -1,5 +1,5 @@
 post:
-  summary: Campaign Generated
+  summary: Campaign generated
   operationId: campaignGeneratedEvent
   description: >-
     This event trigger fires after a certification campaign has generated and moved into the 'Preview Ready' state but hasn't been activated yet. 

@@ -22,9 +22,9 @@ const HomepageBasics: React.FC<HomepageBasicsProps> = ({ link, title, image, des
   ) : null;
 
   const iconMap: Record<string, JSX.Element> = {
-    discuss: <FontAwesomeIcon icon={faComments} className={styles.docCardIcon} size="3x" />,
-    team: <FontAwesomeIcon icon={faPeopleGroup} className={styles.docCardIcon} size="3x" />,
-    user: <FontAwesomeIcon icon={faUser} className={styles.docCardIcon} size="3x" />,
+    discuss: <FontAwesomeIcon icon={faComments}  style={{fontSize: '3em'}} className={styles.docCardIcon} size="3x" />,
+    team: <FontAwesomeIcon icon={faPeopleGroup} style={{fontSize: '3em'}} className={styles.docCardIcon} size="3x" />,
+    user: <FontAwesomeIcon icon={faUser}  style={{fontSize: '3em'}} className={styles.docCardIcon} size="3x" />,
   };
 
   const icon = image ? iconMap[image] || null : null;

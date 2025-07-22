@@ -699,10 +699,6 @@ td a:link:hover {
   text-decoration: none !important;
 }
 
-.fa-3x {
-  font-size: 3em !important;
-}
-
 .svg-inline--fa {
   font-size: 1.2rem !important;
 }
@@ -715,4 +711,8 @@ td a:link:hover {
 
 .fa-2x {
   font-size: 2em !important;
+}
+
+.fa-3x {
+  font-size: 3em !important;
 }

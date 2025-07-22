@@ -17478,7 +17478,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/task-management#get-pending-task-headers
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -17486,10 +17485,10 @@
         # Retrieve pending task list headers
         
         try {
-            Get-V2025PendingTaskHeaders -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025PendingTaskHeaders 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025PendingTaskHeaders -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit -Count $Count   
+            # Get-V2025PendingTaskHeaders -Offset $Offset -Limit $Limit -Count $Count   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025PendingTaskHeaders"
             Write-Host $_.ErrorDetails
@@ -17500,7 +17499,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/task-management#get-pending-tasks
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -17508,10 +17506,10 @@
         # Retrieve pending task status list
         
         try {
-            Get-V2025PendingTasks -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025PendingTasks 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025PendingTasks -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit -Count $Count   
+            # Get-V2025PendingTasks -Offset $Offset -Limit $Limit -Count $Count   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025PendingTasks"
             Write-Host $_.ErrorDetails
@@ -17523,15 +17521,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/task-management#get-task-status
       source: |
         $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get task status by id
         
         try {
-            Get-V2025TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025TaskStatus -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2025TaskStatus -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025TaskStatus"
             Write-Host $_.ErrorDetails
@@ -17542,7 +17539,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/task-management#get-task-status-list
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -17552,10 +17548,10 @@
         # Retrieve task status list
         
         try {
-            Get-V2025TaskStatusList -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025TaskStatusList 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025TaskStatusList -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+            # Get-V2025TaskStatusList -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025TaskStatusList"
             Write-Host $_.ErrorDetails
@@ -17567,7 +17563,6 @@
       label: SDK_tools/sdk/powershell/v2025/methods/task-management#update-task-status
       source: |
         $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $JsonPatchOperation = @"{
           "op" : "replace",
           "path" : "/description",
@@ -17579,10 +17574,10 @@
         
         try {
             $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-            Update-V2025TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+            Update-V2025TaskStatus -Id $Id -JsonPatchOperation $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2025TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
+            # Update-V2025TaskStatus -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025TaskStatus"
             Write-Host $_.ErrorDetails

@@ -30,14 +30,6 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  stylesheets: [
-    {
-      href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
-      type: 'text/css',
-      integrity: 'sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==',
-      crossorigin: 'anonymous',
-    },
-  ],
 
   scripts: [
     {
@@ -60,7 +52,10 @@ const config: Config = {
           docItemComponent: '@theme/ApiItem', // Derived from docusaurus-theme-openapi
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: [
+            require.resolve('@fortawesome/fontawesome-free/css/all.min.css'),
+            require.resolve('./src/css/custom.css'),
+          ],
         },
       },
     ],

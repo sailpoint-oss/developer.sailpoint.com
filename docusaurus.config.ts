@@ -1,7 +1,7 @@
-import { ThemeConfig } from '@docusaurus/preset-classic';
-import { Config } from '@docusaurus/types';
+import {ThemeConfig} from '@docusaurus/preset-classic';
+import {Config} from '@docusaurus/types';
 import 'dotenv/config';
-import { themes } from 'prism-react-renderer';
+import {themes} from 'prism-react-renderer';
 
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
@@ -30,6 +30,14 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+  stylesheets: [
+    {
+      href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
+      type: 'text/css',
+      integrity: 'sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==',
+      crossorigin: 'anonymous',
+    },
+  ],
 
   scripts: [
     {
@@ -105,7 +113,7 @@ const config: Config = {
       options: {
         securityLevel: 'loose',
         flowchart: {
-          htmlLabels: true,     
+          htmlLabels: true,
         },
         er: {
           layoutDirection: 'RL',

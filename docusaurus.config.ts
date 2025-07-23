@@ -69,7 +69,7 @@ const config: Config = {
       { property: 'og:type',        content: 'website' },
       { property: 'og:title',       content: 'SailPoint Developer Community' },
       { property: 'og:description', content: 'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.' },
-      { property: 'og:image',       content: 'https://developer.sailpoint.com/img/SailPoint-Developer-Community-Lockup.png' },
+      { property: 'og:image',       content: 'https://developer.sailpoint.com/img/SailPoint-Logo-OG.png' },
 
       // Twitter
       { name: 'twitter:card',        content: 'summary_large_image' },
@@ -77,7 +77,7 @@ const config: Config = {
       { name: 'twitter:url',         content: 'https://developer.sailpoint.com' },
       { name: 'twitter:title',       content: 'SailPoint Developer Community' },
       { name: 'twitter:description', content: 'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.' },
-      { name: 'twitter:image',       content: 'https://developer.sailpoint.com/img/SailPoint-Developer-Community-Lockup.png' },
+      { name: 'twitter:image',       content: 'https://developer.sailpoint.com/img/SailPoint-Logo-OG.png' },
     ],
     algolia: {
       appId: 'TB01H1DFAM',

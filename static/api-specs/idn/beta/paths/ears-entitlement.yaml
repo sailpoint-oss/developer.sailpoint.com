@@ -6,7 +6,10 @@ get:
   description: >-
     This API returns an entitlement by its ID.
   security:
-    - userAuth: [idn:entitlement:read, idn:entitlement:manage]
+    - userAuth: [idn:entitlement:read, idn:entitlement:update]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
   parameters:
     - in: path
       name: id
@@ -84,7 +87,7 @@ patch:
 
 
     The following fields are patchable:
-    **requestable**, **privileged**, **segments**, **owner**, **name**, **description**, and **manuallyUpdatedFields**
+    **requestable**, **privileged**, **segments**, **owner**, **name**, **description**, **privilegeOverride/overrideLevel** and **manuallyUpdatedFields**
 
 
     When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be
@@ -93,7 +96,11 @@ patch:
 
     A token with ORG_ADMIN or SOURCE_ADMIN authority is required to call this API.
   security:
-    - userAuth: [idn:entitlement:manage]
+    - userAuth:
+      - idn:entitlement:update
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
   parameters:
     - name: id
       in: path
@@ -212,6 +219,17 @@ patch:
                   "op": "replace",
                   "path": "/name",
                   "value": "entitlement new name"
+                }
+              ]
+          Update the privilegeOverride overrideLevel for an entitlement:
+            description: >-
+              This example shows how to use patch to update an entitlement's name.
+            value:
+              [
+                {
+                  "op": "replace",
+                  "path": "/privilegeOverride/overrideLevel",
+                  "value": "HIGH"
                 }
               ]
   responses:

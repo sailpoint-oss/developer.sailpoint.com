@@ -1,4 +1,5 @@
 type: object
+description: Object for specifying the bulk update request
 properties:
   entitlementIds:
     type: array
@@ -14,6 +15,7 @@ properties:
       ]
   jsonPatch:
     type: array
+    description: List of entitlement ids to update
     items:
       $ref: '../../v3/schemas/JsonPatchOperation.yaml'
     example:
@@ -27,28 +29,13 @@ properties:
           "op": "replace",
           "path": "/requestable",
           "value": false
+        },
+        {
+          "op": "replace",
+          "path": "/privilegeOverride/overrideLevel",
+          "value": "HIGH"
         }
       ]
-example:
-  {
-    "entitlementIds": [
-      "2c91808a7624751a01762f19d665220d",
-      "2c91808a7624751a01762f19d67c220e",
-      "2c91808a7624751a01762f19d692220f"
-    ],
-    "jsonPatch": [
-      {
-        "op": "replace",
-        "path": "/privileged",
-        "value": false
-      },
-      {
-        "op": "replace",
-        "path": "/requestable",
-        "value": false
-      }
-    ]
-  }
 required:
   - entitlementIds
   - jsonPatch

@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './styles.module.css';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSquareCheck, faCalendar } from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faSquareCheck, faCalendar} from '@fortawesome/free-solid-svg-icons';
 
 // Define the props type for the component
 interface AmbassadorData {
@@ -19,7 +19,7 @@ interface AmbassadorCardProps {
   data: AmbassadorData;
 }
 
-const AmbassadorCard: React.FC<AmbassadorCardProps> = ({ data }) => {
+const AmbassadorCard: React.FC<AmbassadorCardProps> = ({data}) => {
   return (
     <Link to={data.link} className={styles.link}>
       <div className={styles.card}>
@@ -36,11 +36,12 @@ const AmbassadorCard: React.FC<AmbassadorCardProps> = ({ data }) => {
 
         <div
           className={styles.bio}
-          dangerouslySetInnerHTML={{ __html: data.bio }} // Render the bio with HTML content
+          dangerouslySetInnerHTML={{__html: data.bio}} // Render the bio with HTML content
         />
 
         <div className={styles.cardData}>
           <FontAwesomeIcon
+            style={{fontSize: '1.25em'}}
             icon={faSquareCheck}
             className={styles.docCardIcon}
             size="lg"
@@ -51,6 +52,7 @@ const AmbassadorCard: React.FC<AmbassadorCardProps> = ({ data }) => {
         </div>
         <div className={styles.cardDataLower}>
           <FontAwesomeIcon
+            style={{fontSize: '1.25em'}}
             icon={faCalendar}
             className={styles.docCardIcon}
             size="lg"

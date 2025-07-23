@@ -37,7 +37,7 @@ const MarketplaceCard: React.FC<MarketplaceCardProps> = ({ post, featured }) => 
     badge = (
       <div className={styles.badgeContainer}>
         <div title="SailPoint Certified" className={styles.cardBadgeCertified}>
-          <FontAwesomeIcon icon={faShield} className={styles.docCardIcon} size="2x" />
+          <FontAwesomeIcon style={{fontSize: '2em'}} icon={faShield} className={styles.docCardIcon} size="2x" />
         </div>
       </div>
     );

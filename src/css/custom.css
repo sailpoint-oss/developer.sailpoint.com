@@ -6,7 +6,7 @@
 
 /* You can override the default Infima variables here. */
 
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+@import '~@fortawesome/fontawesome-svg-core/styles.css';
 
 .ReactModal__Overlay {
   z-index: 9999;
@@ -696,4 +696,30 @@ td a:link {
 p a:link:hover,
 td a:link:hover {
   text-decoration: none !important;
+}
+
+.svg-inline--fa {
+  font-size: 1.2rem !important;
+}
+
+.fa-lg {
+  font-size: 1.25em !important;
+  line-height: 0.05em 1px !important;
+  vertical-align: -0.075em !important;
+}
+
+.fa-2x {
+  font-size: 2em !important;
+}
+
+.fa-3x {
+  font-size: 3em !important;
+}
+
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/webfonts/fa-solid-900.woff2') format('woff2');
 }

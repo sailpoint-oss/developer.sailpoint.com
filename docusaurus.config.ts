@@ -1,7 +1,7 @@
-import { ThemeConfig } from '@docusaurus/preset-classic';
-import { Config } from '@docusaurus/types';
+import {ThemeConfig} from '@docusaurus/preset-classic';
+import {Config} from '@docusaurus/types';
 import 'dotenv/config';
-import { themes } from 'prism-react-renderer';
+import {themes} from 'prism-react-renderer';
 
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
@@ -52,7 +52,10 @@ const config: Config = {
           docItemComponent: '@theme/ApiItem', // Derived from docusaurus-theme-openapi
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: [
+            require.resolve('@fortawesome/fontawesome-free/css/all.min.css'),
+            require.resolve('./src/css/custom.css'),
+          ],
         },
       },
     ],
@@ -105,7 +108,7 @@ const config: Config = {
       options: {
         securityLevel: 'loose',
         flowchart: {
-          htmlLabels: true,     
+          htmlLabels: true,
         },
         er: {
           layoutDirection: 'RL',

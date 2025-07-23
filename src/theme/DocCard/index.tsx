@@ -102,7 +102,7 @@ function CardCategory({
     <CardLayout
       href={href}
       icon={
-        <FontAwesomeIcon icon={faFolderOpen} className={styles.docCardIcon} />
+        <FontAwesomeIcon style={{fontSize: '1.2rem'}} icon={faFolderOpen} className={styles.docCardIcon} />
       }
       title={item.label}
       description={item.description ?? categoryItemsPlural(item.items.length)}

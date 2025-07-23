@@ -50,6 +50,7 @@ function SailApps() {
       <div className={styles.gettingStartedText}>
         <FontAwesomeIcon
           icon={faKey}
+          style={{fontSize: '3rem'}}
           className={styles.docCardIcon}
           size="3x"
         />

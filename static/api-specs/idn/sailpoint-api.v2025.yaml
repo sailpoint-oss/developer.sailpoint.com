@@ -1936,6 +1936,12 @@ paths:
     $ref: ./v2025/paths/access-model-metadata-value-list.yaml
   /access-model-metadata/attributes/{key}/values/{value}:
     $ref: ./v2025/paths/access-model-metadata-value.yaml
+  /access-model-metadata/bulk-update/filter:
+    $ref: ./v2025/paths/access-model-metadata-update-filter.yaml
+  /access-model-metadata/bulk-update/query:
+    $ref: ./v2025/paths/access-model-metadata-update-query.yaml
+  /access-model-metadata/bulk-update/ids:
+    $ref: ./v2025/paths/access-model-metadata-update-ids.yaml
   /access-profiles/bulk-update-requestable:
     $ref: ./v2025/paths/access-profile-bulk-update-requestable.yaml
   /ai-access-request-recommendations:

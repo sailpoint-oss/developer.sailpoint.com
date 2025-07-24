@@ -7,6 +7,8 @@ post:
   security:
   - userAuth:
     - idn:entitlement:update
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
   - name: id
     in: path
@@ -32,14 +34,6 @@ post:
       type: string
     description: Technical name of the Attribute Value.
     example: public
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   responses:
     '200':
       description: OK
@@ -66,6 +60,8 @@ delete:
   security:
   - userAuth:
     - idn:entitlement:delete
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
   - name: id
     in: path
@@ -91,14 +87,6 @@ delete:
       type: string
     description: Technical name of the Attribute Value.
     example: public
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   responses:
     '200':
       description: OK

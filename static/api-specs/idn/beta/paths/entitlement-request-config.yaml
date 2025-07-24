@@ -93,7 +93,7 @@ put:
   description: >-
     This API replaces the entitlement request config for a specified entitlement.
   security:
-    - userAuth: [idn:entitlement:manage]
+    - userAuth: [idn:entitlement:update,idn:entitlement:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
     - SOURCE_SUBADMIN

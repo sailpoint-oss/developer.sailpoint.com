@@ -6,6 +6,8 @@ get:
   operationId: "getAccessModelMetadataAttribute"
   security:
     - userAuth: [ 'idn:access-model-metadata:read' ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - name: "key"
       in: "path"

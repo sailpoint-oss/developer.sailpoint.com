@@ -1984,6 +1984,8 @@ paths:
     $ref: ./v2025/paths/entitlement-access-model-metadata.yaml
   /entitlements/aggregate/sources/{id}:
     $ref: ./v2025/paths/load-entitlements-by-sources.yaml
+  /entitlements/identities/{id}/entitlements:
+    $ref: ./v2025/paths/ears-identity-entitlement.yaml
   /generate-password-reset-token/digit:
     $ref: ./v2025/paths/password-reset-digit-token.yaml
   /historical-identities:

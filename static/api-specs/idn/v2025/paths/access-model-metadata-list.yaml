@@ -7,19 +7,26 @@ get:
   security:
   - userAuth:
     - idn:access-model-metadata:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
   - in: query
     name: filters
     schema:
       type: string
     example: name eq "Privacy"
-    description: 'Filter results using the standard syntax described in [V3 API Standard
+    required: false
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard
       Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
 
 
       Filtering is supported for the following fields and operators:
 
 
+      **key**: *eq*
+      
+      
       **name**: *eq*
 
 
@@ -32,15 +39,22 @@ get:
       **objectTypes**: *eq*
 
 
-      Supported composite operators: *and*'
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
+      **Supported composite operators**: *and*
+  - in: query
+    name: sorters
     schema:
       type: string
-      default: true
-    required: true
+      format: comma-separated
+    description: >-
+      Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+
+      Sorting is supported for the following fields: **name, key**
+    example: name,-key
+    required: false
+  - $ref: ../parameters/offset.yaml
+  - $ref: ../parameters/limit.yaml
+  - $ref: ../parameters/count.yaml
   responses:
     '200':
       description: OK

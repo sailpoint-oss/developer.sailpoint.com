@@ -36,3 +36,5 @@ post:
       $ref: '../../v3/responses/500.yaml'
   security:
     - userAuth: [idn:entitlement:update]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

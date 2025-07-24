@@ -8,6 +8,8 @@ get:
   - userAuth:
     - idn:entitlement:read
     - idn:entitlement:manage
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
   - $ref: ../parameters/limit.yaml
   - $ref: ../parameters/offset.yaml
@@ -75,14 +77,6 @@ get:
     required: false
     style: form
     explode: true
-  - name: X-SailPoint-Experimental
-    in: header
-    description: Use this header to enable this experimental API.
-    example: true
-    schema:
-      type: string
-      default: true
-    required: true
   responses:
     '200':
       description: List of entitlements parents from an entitlement

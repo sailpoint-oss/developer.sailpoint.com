@@ -5,15 +5,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/access-model-metadata#get-access-model-metadata-attribute
       source: |
         $Key = "iscPrivacy" # String | Technical name of the Attribute.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get access model metadata attribute
         
         try {
-            Get-V2025AccessModelMetadataAttribute -Key $Key -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025AccessModelMetadataAttribute -Key $Key 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025AccessModelMetadataAttribute -Key $Key -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2025AccessModelMetadataAttribute -Key $Key   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025AccessModelMetadataAttribute"
             Write-Host $_.ErrorDetails
@@ -26,15 +25,14 @@
       source: |
         $Key = "iscPrivacy" # String | Technical name of the Attribute.
         $Value = "public" # String | Technical name of the Attribute value.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get access model metadata value
         
         try {
-            Get-V2025AccessModelMetadataAttributeValue -Key $Key -Value $Value -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025AccessModelMetadataAttributeValue -Key $Key -Value $Value 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025AccessModelMetadataAttributeValue -Key $Key -Value $Value -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2025AccessModelMetadataAttributeValue -Key $Key -Value $Value   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025AccessModelMetadataAttributeValue"
             Write-Host $_.ErrorDetails
@@ -45,16 +43,19 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/access-model-metadata#list-access-model-metadata-attribute
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-        $Filters = "name eq "Privacy"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional)
+        $Filters = "name eq "Privacy"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  **Supported composite operators**: *and* (optional)
+        $Sorters = "name,-key" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key** (optional)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
         
         # List access model metadata attributes
         
         try {
-            Get-V2025AccessModelMetadataAttribute -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025AccessModelMetadataAttribute 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025AccessModelMetadataAttribute -XSailPointExperimental $XSailPointExperimental -Filters $Filters   
+            # Get-V2025AccessModelMetadataAttribute -Filters $Filters -Sorters $Sorters -Offset $Offset -Limit $Limit -Count $Count   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025AccessModelMetadataAttribute"
             Write-Host $_.ErrorDetails
@@ -66,15 +67,17 @@
       label: SDK_tools/sdk/powershell/v2025/methods/access-model-metadata#list-access-model-metadata-attribute-value
       source: |
         $Key = "iscPrivacy" # String | Technical name of the Attribute.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
         
         # List access model metadata values
         
         try {
-            Get-V2025AccessModelMetadataAttributeValue -Key $Key -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025AccessModelMetadataAttributeValue -Key $Key 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025AccessModelMetadataAttributeValue -Key $Key -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2025AccessModelMetadataAttributeValue -Key $Key -Offset $Offset -Limit $Limit -Count $Count   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025AccessModelMetadataAttributeValue"
             Write-Host $_.ErrorDetails
@@ -5763,15 +5766,14 @@
         $Id = "2c91808c74ff913f0175097daa9d59cd" # String | The entitlement id.
         $AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
         $AttributeValue = "public" # String | Technical name of the Attribute Value.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Add metadata to an entitlement.
         
         try {
-            New-V2025AccessModelMetadataForEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue -XSailPointExperimental $XSailPointExperimental 
+            New-V2025AccessModelMetadataForEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue 
     
             # Below is a request that includes all optional parameters
-            # New-V2025AccessModelMetadataForEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue -XSailPointExperimental $XSailPointExperimental   
+            # New-V2025AccessModelMetadataForEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025AccessModelMetadataForEntitlement"
             Write-Host $_.ErrorDetails
@@ -5785,15 +5787,14 @@
         $Id = "2c91808c74ff913f0175097daa9d59cd" # String | The entitlement id.
         $AttributeKey = "iscPrivacy" # String | Technical name of the Attribute.
         $AttributeValue = "public" # String | Technical name of the Attribute Value.
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Remove metadata from an entitlement.
         
         try {
-            Remove-V2025AccessModelMetadataFromEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue -XSailPointExperimental $XSailPointExperimental 
+            Remove-V2025AccessModelMetadataFromEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2025AccessModelMetadataFromEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue -XSailPointExperimental $XSailPointExperimental   
+            # Remove-V2025AccessModelMetadataFromEntitlement -Id $Id -AttributeKey $AttributeKey -AttributeValue $AttributeValue   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025AccessModelMetadataFromEntitlement"
             Write-Host $_.ErrorDetails
@@ -5805,15 +5806,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/entitlements#get-entitlement
       source: |
         $Id = "2c91808874ff91550175097daaec161c" # String | The entitlement ID
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get an entitlement
         
         try {
-            Get-V2025Entitlement -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025Entitlement -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025Entitlement -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2025Entitlement -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Entitlement"
             Write-Host $_.ErrorDetails
@@ -5825,15 +5825,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/entitlements#get-entitlement-request-config
       source: |
         $Id = "2c91808874ff91550175097daaec161c" # String | Entitlement Id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get entitlement request config
         
         try {
-            Get-V2025EntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025EntitlementRequestConfig -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025EntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Get-V2025EntitlementRequestConfig -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025EntitlementRequestConfig"
             Write-Host $_.ErrorDetails
@@ -5845,16 +5844,15 @@
       label: SDK_tools/sdk/powershell/v2025/methods/entitlements#import-entitlements-by-source
       source: |
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $CsvFile =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
         
         # Aggregate entitlements
         
         try {
-            Import-V2025EntitlementsBySource -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Import-V2025EntitlementsBySource -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Import-V2025EntitlementsBySource -Id $Id -XSailPointExperimental $XSailPointExperimental -CsvFile $CsvFile   
+            # Import-V2025EntitlementsBySource -Id $Id -CsvFile $CsvFile   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2025EntitlementsBySource"
             Write-Host $_.ErrorDetails
@@ -5866,7 +5864,6 @@
       label: SDK_tools/sdk/powershell/v2025/methods/entitlements#list-entitlement-children
       source: |
         $Id = "2c91808874ff91550175097daaec161c" # String | Entitlement Id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -5876,10 +5873,10 @@
         # List of entitlements children
         
         try {
-            Get-V2025EntitlementChildren -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025EntitlementChildren -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025EntitlementChildren -Id $Id -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters   
+            # Get-V2025EntitlementChildren -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025EntitlementChildren"
             Write-Host $_.ErrorDetails
@@ -5891,7 +5888,6 @@
       label: SDK_tools/sdk/powershell/v2025/methods/entitlements#list-entitlement-parents
       source: |
         $Id = "2c91808c74ff913f0175097daa9d59cd" # String | Entitlement Id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -5901,10 +5897,10 @@
         # List of entitlements parents
         
         try {
-            Get-V2025EntitlementParents -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025EntitlementParents -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025EntitlementParents -Id $Id -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters   
+            # Get-V2025EntitlementParents -Id $Id -Limit $Limit -Offset $Offset -Count $Count -Sorters $Sorters -Filters $Filters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025EntitlementParents"
             Write-Host $_.ErrorDetails
@@ -5915,7 +5911,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/entitlements#list-entitlements
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). (optional)
         $SegmentedForIdentity = "e554098913544630b5985e9042f5e44b" # String | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional)
         $ForSegmentIds = "041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649" # String | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s). (optional)
@@ -5929,10 +5924,10 @@
         # Gets a list of entitlements.
         
         try {
-            Get-V2025Entitlements -XSailPointExperimental $XSailPointExperimental 
+            Get-V2025Entitlements 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025Entitlements -XSailPointExperimental $XSailPointExperimental -AccountId $AccountId -SegmentedForIdentity $SegmentedForIdentity -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters -Filters $Filters   
+            # Get-V2025Entitlements -AccountId $AccountId -SegmentedForIdentity $SegmentedForIdentity -ForSegmentIds $ForSegmentIds -IncludeUnsegmented $IncludeUnsegmented -Offset $Offset -Limit $Limit -Count $Count -Sorters $Sorters -Filters $Filters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Entitlements"
             Write-Host $_.ErrorDetails
@@ -5944,7 +5939,6 @@
       label: SDK_tools/sdk/powershell/v2025/methods/entitlements#patch-entitlement
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | ID of the entitlement to patch
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $JsonPatchOperation = @"{
           "op" : "replace",
           "path" : "/description",
@@ -5955,10 +5949,10 @@
         # Patch an entitlement
         
         try {
-            Update-V2025Entitlement -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Update-V2025Entitlement -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Update-V2025Entitlement -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result   
+            # Update-V2025Entitlement -Id $Id -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025Entitlement"
             Write-Host $_.ErrorDetails
@@ -5970,7 +5964,6 @@
       label: SDK_tools/sdk/powershell/v2025/methods/entitlements#put-entitlement-request-config
       source: |
         $Id = "2c91808a7813090a017814121e121518" # String | Entitlement ID
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $EntitlementRequestConfig = @"
         {
           "accessRequestConfig" : {
@@ -6001,10 +5994,10 @@
         
         try {
             $Result = ConvertFrom-JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
-            Send-V2025EntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -EntitlementRequestConfig $Result 
+            Send-V2025EntitlementRequestConfig -Id $Id -EntitlementRequestConfig $Result 
     
             # Below is a request that includes all optional parameters
-            # Send-V2025EntitlementRequestConfig -Id $Id -XSailPointExperimental $XSailPointExperimental -EntitlementRequestConfig $Result   
+            # Send-V2025EntitlementRequestConfig -Id $Id -EntitlementRequestConfig $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025EntitlementRequestConfig"
             Write-Host $_.ErrorDetails
@@ -6016,15 +6009,14 @@
       label: SDK_tools/sdk/powershell/v2025/methods/entitlements#reset-source-entitlements
       source: |
         $Id = "2c91808a7813090a017814121919ecca" # String | ID of source for the entitlement reset
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Reset source entitlements
         
         try {
-            Reset-V2025SourceEntitlements -Id $Id -XSailPointExperimental $XSailPointExperimental 
+            Reset-V2025SourceEntitlements -Id $Id 
     
             # Below is a request that includes all optional parameters
-            # Reset-V2025SourceEntitlements -Id $Id -XSailPointExperimental $XSailPointExperimental   
+            # Reset-V2025SourceEntitlements -Id $Id   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Reset-V2025SourceEntitlements"
             Write-Host $_.ErrorDetails
@@ -6035,7 +6027,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/entitlements#update-entitlements-in-bulk
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $EntitlementBulkUpdateRequest = @"
         {
           "entitlementIds" : [ "2c91808a7624751a01762f19d665220d", "2c91808a7624751a01762f19d67c220e", "2c91808a7624751a01762f19d692220f" ],
@@ -6059,10 +6050,10 @@
         
         try {
             $Result = ConvertFrom-JsonToEntitlementBulkUpdateRequest -Json $EntitlementBulkUpdateRequest
-            Update-V2025EntitlementsInBulk -XSailPointExperimental $XSailPointExperimental -EntitlementBulkUpdateRequest $Result 
+            Update-V2025EntitlementsInBulk -EntitlementBulkUpdateRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Update-V2025EntitlementsInBulk -XSailPointExperimental $XSailPointExperimental -EntitlementBulkUpdateRequest $Result   
+            # Update-V2025EntitlementsInBulk -EntitlementBulkUpdateRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025EntitlementsInBulk"
             Write-Host $_.ErrorDetails
@@ -7947,6 +7938,28 @@
             # Get-V2025RoleAssignments -IdentityId $IdentityId -RoleId $RoleId -RoleName $RoleName   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025RoleAssignments"
+            Write-Host $_.ErrorDetails
+        }
+- path: /entitlements/identities/{id}/entitlements
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/identities#list-entitlements-by-identity
+      source: |
+        $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Identity Id
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        
+        # List of entitlements by identity.
+        
+        try {
+            Get-V2025EntitlementsByIdentity -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025EntitlementsByIdentity -Id $Id -Limit $Limit -Offset $Offset -Count $Count   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025EntitlementsByIdentity"
             Write-Host $_.ErrorDetails
         }
 - path: /identities
@@ -16296,16 +16309,15 @@
       label: SDK_tools/sdk/powershell/v2025/methods/sources#import-entitlements
       source: |
         $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $File =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
         
         # Entitlement aggregation
         
         try {
-            Import-V2025Entitlements -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+            Import-V2025Entitlements -SourceId $SourceId 
     
             # Below is a request that includes all optional parameters
-            # Import-V2025Entitlements -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -File $File   
+            # Import-V2025Entitlements -SourceId $SourceId -File $File   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2025Entitlements"
             Write-Host $_.ErrorDetails

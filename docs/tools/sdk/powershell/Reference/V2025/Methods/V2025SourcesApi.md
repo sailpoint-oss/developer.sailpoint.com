@@ -1646,9 +1646,6 @@ try {
 [[Back to top]](#) 
 
 ## import-entitlements
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Starts an entitlement aggregation on the specified source. 
 If the target source is a delimited file source, then the CSV file needs to be included in the request body. 
 You will also need to set the Content-Type header to `multipart/form-data`.
@@ -1660,7 +1657,6 @@ A token with ORG_ADMIN, SOURCE_ADMIN, or SOURCE_SUBADMIN authority is required t
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | Source Id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
    | File | **System.IO.FileInfo** |   (optional) | The CSV file containing the source entitlements to aggregate.
 
 ### Return type
@@ -1683,16 +1679,15 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $File =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
 
 # Entitlement aggregation
 
 try {
-    Import-V2025Entitlements -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    Import-V2025Entitlements -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Import-V2025Entitlements -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -File $File  
+    # Import-V2025Entitlements -SourceId $SourceId -File $File  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Import-V2025Entitlements"
     Write-Host $_.ErrorDetails

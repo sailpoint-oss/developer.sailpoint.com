@@ -1,13 +1,15 @@
 type: object
+required:
+  - appRoleId
 properties:
-  accessType:
-    type: string
-    example: app
-    description: the access item type. entitlement in this case
   id:
     type: string
     example: 2c918087763e69d901763e72e97f006f
     description: the access item id
+  accessType:
+    type: string
+    example: app
+    description: the access item type. entitlement in this case
   displayName:
     type: string
     example: Display Name
@@ -16,9 +18,11 @@ properties:
     type: string
     example: appName
     description:  the associated source name if it exists
+    nullable: true
   appRoleId:
     type: string
     example: 2c918087763e69d901763e72e97f006f
     description:  the app role id
+    nullable: true
   
   

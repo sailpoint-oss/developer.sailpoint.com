@@ -1,17 +1,68 @@
 type: object
+required:
+  - account
+  - statusChange
 properties:
-  accessRequest:
-    $ref: './AccessRequestResponse.yaml'
-    description: the access request details
-  identityId:
-    type: string
-    example: 8a80828f643d484f01643e14202e206f
-    description: the identity id
   eventType:
     type: string
-    example: AccessRequested
+    example: AccountStatusChanged
     description: the event type
-  dt:
+  identityId:
     type: string
+    description: the identity id
+    example: 8a80828f643d484f01643e14202e206f
+  dateTime:
+    type: string
+    description: the date of event
     example: '2019-03-08T22:37:33.901Z'
-    description: the date of event     
+  account:
+    type: object
+    properties:
+      id:
+        type: string
+        description: the ID of the account in the database
+        example: 2c91808a77ff216301782327a50f09bf
+      nativeIdentity:
+        type: string
+        description: the native identifier of the account
+        example: dr.arden.ogahn.d
+      displayName:
+        type: string
+        description: the display name of the account
+        example: Adam Archer
+      sourceId:
+        type: string
+        description: the ID of the source for this account
+        example: 8a80828f643d484f01643e14202e206f
+      sourceName:
+        type: string
+        description: the name of the source for this account
+        example: JDBC Entitlements Source
+      entitlementCount:
+        type: integer
+        description: the number of entitlements on this account
+        format: int32
+        example: 2
+      accessType:
+        type: string
+        description: this value is always "account"
+        example: account
+  statusChange:
+    type: object
+    properties:
+      previousStatus:
+        type: string
+        description: the previous status of the account
+        enum:
+          - enabled
+          - disabled
+          - locked
+        example: enabled
+      newStatus:
+        type: string
+        description: the new status of the account
+        enum:
+          - enabled
+          - disabled
+          - locked
+        example: disabled

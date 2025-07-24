@@ -1,4 +1,6 @@
 type: object
+required:
+  - accessRequest
 properties:
   accessRequest:
     $ref: './AccessRequestResponse.yaml'
@@ -11,7 +13,7 @@ properties:
     type: string
     example: AccessRequested
     description: the event type
-  dt:
+  dateTime:
     type: string
     example: '2019-03-08T22:37:33.901Z'
     description: the date of event     

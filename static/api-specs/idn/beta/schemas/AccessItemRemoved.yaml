@@ -1,13 +1,15 @@
 type: object
+required:
+  - accessItem
 properties:
   accessItem:
     type: object
-    oneOf:
+    anyOf:
+      - $ref: './AccessItemEntitlementResponse.yaml'
       - $ref: './AccessItemAccessProfileResponse.yaml'
       - $ref: './AccessItemAccountResponse.yaml'
-      - $ref: './AccessItemAppResponse.yaml'
-      - $ref: './AccessItemEntitlementResponse.yaml'
       - $ref: './AccessItemRoleResponse.yaml'
+      - $ref: './AccessItemAppResponse.yaml'
     example:
       id: 8c190e6787aa4ed9a90bd9d5344523fb
       accessType: account
@@ -23,10 +25,20 @@ properties:
     type: string
     description: the event type
     example: AccessItemRemoved
-  dt:
+  dateTime:
     type: string
     description: the date of event
     example: '2019-03-08T22:37:33.901Z'
+  accessItemType:
+    type: string
+    enum:
+      - account
+      - app
+      - entitlement
+      - role
+      - accessProfile
+    description: the access item type
+    example: account
   governanceEvent:
     $ref: './CorrelatedGovernanceEvent.yaml'
     example:

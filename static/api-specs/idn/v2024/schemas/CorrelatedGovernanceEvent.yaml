@@ -1,10 +1,11 @@
 type: object
+nullable: true
 properties:
   name:
     type: string
     description: The name of the governance event, such as the certification name or access request ID.
     example: Manager Certification for Jon Snow
-  dt:
+  dateTime:
     type: string
     description: The date that the certification or access request was completed.
     example: '2019-03-08T22:37:33.901Z'

@@ -24,6 +24,12 @@ get:
     name: type
     schema:
       type: string
+      enum:
+      - account
+      - entitlement
+      - app
+      - accessProfile
+      - role
     required: false
     description: The type of access item for the identity. If not provided, it defaults
       to account
@@ -47,12 +53,12 @@ get:
           schema:
             type: array
             items:
-              oneOf:
+              anyOf:
+              - $ref: ../schemas/AccessItemEntitlementResponse.yaml
               - $ref: ../schemas/AccessItemAccessProfileResponse.yaml
               - $ref: ../schemas/AccessItemAccountResponse.yaml
-              - $ref: ../schemas/AccessItemAppResponse.yaml
-              - $ref: ../schemas/AccessItemEntitlementResponse.yaml
               - $ref: ../schemas/AccessItemRoleResponse.yaml
+              - $ref: ../schemas/AccessItemAppResponse.yaml
           examples:
             Access Profile:
               description: An access profile response

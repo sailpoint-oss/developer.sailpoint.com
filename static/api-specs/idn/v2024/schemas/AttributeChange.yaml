@@ -3,13 +3,12 @@ properties:
   name:
     type: string
     description: the attribute name
+    example: firstname
   previousValue:
     type: string
     description: the old value of attribute
+    example: adam
   newValue:
     type: string
     description: the new value of attribute
-example:
-  name: firstname
-  previousValue: adam
-  newValue: zampa
+    example: zampa

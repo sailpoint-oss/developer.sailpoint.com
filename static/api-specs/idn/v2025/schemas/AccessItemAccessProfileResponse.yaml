@@ -1,53 +1,71 @@
 type: object
 properties:
-  accessType:
-    type: string
-    example: accessProfile
-    description: the access item type. accessProfile in this case
   id:
     type: string
     example: 2c918087763e69d901763e72e97f006f
     description: the access item id
-  name:
+  accessType:
     type: string
-    example: sample
-    description: the access profile name
-  sourceName:
-    type: string
-    example: DataScienceDataset
-    description: the name of the source
-  sourceId:
-    type: string
-    example: 2793o32dwd
-    description: the id of the source
-  description:
-    type: string
-    example: AccessProfile - Workday/Citizenship access
-    description: the description for the access profile
+    example: accessProfile
+    description: the access item type. accessProfile in this case
   displayName:
     type: string
     example: Dr. Arden Rogahn MD
     description: the display name of the identity
+  sourceName:
+    type: string
+    example: DataScienceDataset
+    description: the name of the source
   entitlementCount:
-    type: string
+    type: integer
+    format: int32
     example: 12
-    description: the number of entitlements the access profile will create  
-  appDisplayName:
+    description: the number of entitlements the access profile will create
+  description:
     type: string
-    example: AppName
-    description: the name of
+    example: AccessProfile - Workday/Citizenship access
+    description: the description for the access profile
+    nullable: true
+  sourceId:
+    type: string
+    example: 2793o32dwd
+    description: the id of the source
+  appRefs:
+    type: array
+    items:
+      type: object
+      properties:
+        cloudAppId:
+          type: string
+          example: 8c190e6787aa4ed9a90bd9d5344523fb
+          description: the cloud app id associated with the access profile
+        cloudAppName:
+          type: string
+          example: Sample App
+          description: the cloud app name associated with the access profile
+    example:
+      - cloudAppId: 8c190e6787aa4ed9a90bd9d5344523fb
+        cloudAppName: Sample App
+      - cloudAppId: 2c91808a77ff216301782327a50f09bf
+        cloudAppName: Another App
+    description: the list of app ids associated with the access profile
   removeDate:
     type: string
     example: 2024-07-01T06:00:00.00Z
     description: the date the access profile is no longer assigned to the specified identity
+    nullable: true
   standalone:
     type: boolean
     example: false
     description: indicates whether the access profile is standalone
+    nullable: true
   revocable:
     type: boolean
     example: true
-    description: indicates whether the access profile is
+    description: indicates whether the access profile is revocable
+    nullable: true
 required:
+  - appRefs
   - standalone
   - revocable
+  - entitlementCount

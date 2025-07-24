@@ -1,13 +1,21 @@
 type: object
 properties:
-  accessType:
-    type: string
-    example: entitlement
-    description: the access item type. entitlement in this case
   id:
     type: string
     example: 2c918087763e69d901763e72e97f006f
     description: the access item id
+  accessType:
+    type: string
+    example: entitlement
+    description: the access item type. entitlement in this case
+  displayName:
+    type: string
+    example: Dr. Arden Rogahn MD
+    description: the display name of the identity
+  sourceName:
+    type: string
+    example: DataScienceDataset
+    description: the name of the source
   attribute:
     type: string
     example: groups
@@ -16,39 +24,38 @@ properties:
     type: string
     example: Upward mobility access
     description: the associated value
-  entitlementType:
+  type:
     type: string
-    example: entitlement
+    example: ENTITLEMENT
     description: the type of entitlement
-  sourceName:
-    type: string
-    example: DataScienceDataset
-    description: the name of the source
-  sourceId:
-    type: string
-    example: 2793o32dwd
-    description: the id of the source
   description:
     type: string
     example: Entitlement - Workday/Citizenship access
     description: the description for the entitlment
-  displayName:
+    nullable: true
+  sourceId:
     type: string
-    example: Dr. Arden Rogahn MD
-    description: the display name of the identity
+    example: 2793o32dwd
+    description: the id of the source
   standalone:
     type: boolean
     example: true
     description: indicates whether the entitlement is standalone
+    nullable: true
   privileged:
     type: boolean
     example: false
     description: indicates whether the entitlement is privileged
+    nullable: true
   cloudGoverned:
     type: boolean
     example: true
     description: indicates whether the entitlement is cloud governed
+    nullable: true
 required:
+  - attribute
+  - value
+  - type
   - standalone
   - privileged
   - cloudGoverned

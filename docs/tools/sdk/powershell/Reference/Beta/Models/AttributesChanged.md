@@ -16,19 +16,19 @@ tags: ['SDK', 'Software Development Kit', 'AttributesChanged', 'BetaAttributesCh
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Changes** | [**[]AttributeChange**](attribute-change) |  | [optional] 
+**AttributeChanges** | [**[]AttributeChange**](attribute-change) |  | [required]
 **EventType** | **String** | the event type | [optional] 
 **IdentityId** | **String** | the identity id | [optional] 
-**Dt** | **String** | the date of event | [optional] 
+**DateTime** | **String** | the date of event | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$AttributesChanged = Initialize-BetaAttributesChanged  -Changes null `
- -EventType null `
- -IdentityId null `
- -Dt null
+$AttributesChanged = Initialize-BetaAttributesChanged  -AttributeChanges null `
+ -EventType AttributesChanged `
+ -IdentityId 8a80828f643d484f01643e14202e206f `
+ -DateTime 2019-03-08T22:37:33.901Z
 ```
 
 - Convert the resource to JSON

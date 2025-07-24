@@ -16,19 +16,21 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequested', 'V2024AccessRequest
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessRequest** | [**AccessRequestResponse1**](access-request-response1) |  | [optional] 
-**IdentityId** | **String** | the identity id | [optional] 
 **EventType** | **String** | the event type | [optional] 
-**Dt** | **String** | the date of event | [optional] 
+**IdentityId** | **String** | the identity id | [optional] 
+**DateTime** | **String** | the date of event | [optional] 
+**Account** | [**AccessRequestedAccount**](access-requested-account) |  | [required]
+**StatusChange** | [**AccessRequestedStatusChange**](access-requested-status-change) |  | [required]
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$AccessRequested = Initialize-V2024AccessRequested  -AccessRequest null `
+$AccessRequested = Initialize-V2024AccessRequested  -EventType AccountStatusChanged `
  -IdentityId 8a80828f643d484f01643e14202e206f `
- -EventType AccessRequested `
- -Dt 2019-03-08T22:37:33.901Z
+ -DateTime 2019-03-08T22:37:33.901Z `
+ -Account null `
+ -StatusChange null
 ```
 
 - Convert the resource to JSON

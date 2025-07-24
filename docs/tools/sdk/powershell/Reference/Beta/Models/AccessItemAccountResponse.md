@@ -16,25 +16,25 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemAccountResponse', 'BetaAcce
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessType** | **String** | the access item type. account in this case | [optional] 
 **Id** | **String** | the access item id | [optional] 
-**NativeIdentity** | **String** | the native identifier used to uniquely identify an acccount | [optional] 
-**SourceName** | **String** | the name of the source | [optional] 
-**SourceId** | **String** | the id of the source | [optional] 
-**EntitlementCount** | **String** | the number of entitlements the account will create | [optional] 
+**AccessType** | **String** | the access item type. account in this case | [optional] 
 **DisplayName** | **String** | the display name of the identity | [optional] 
+**SourceName** | **String** | the name of the source | [optional] 
+**NativeIdentity** | **String** | the native identifier used to uniquely identify an acccount | [required]
+**SourceId** | **String** | the id of the source | [optional] 
+**EntitlementCount** | **Int32** | the number of entitlements the account will create | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$AccessItemAccountResponse = Initialize-BetaAccessItemAccountResponse  -AccessType account `
- -Id 2c918087763e69d901763e72e97f006f `
- -NativeIdentity dr.arden.ogahn.d `
+$AccessItemAccountResponse = Initialize-BetaAccessItemAccountResponse  -Id 2c918087763e69d901763e72e97f006f `
+ -AccessType account `
+ -DisplayName Dr. Arden Rogahn MD `
  -SourceName DataScienceDataset `
+ -NativeIdentity dr.arden.ogahn.d `
  -SourceId 2793o32dwd `
- -EntitlementCount 12 `
- -DisplayName Dr. Arden Rogahn MD
+ -EntitlementCount 12
 ```
 
 - Convert the resource to JSON

@@ -16,18 +16,18 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemAppResponse', 'BetaAccessIt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessType** | **String** | the access item type. entitlement in this case | [optional] 
 **Id** | **String** | the access item id | [optional] 
+**AccessType** | **String** | the access item type. entitlement in this case | [optional] 
 **DisplayName** | **String** | the access item display name | [optional] 
 **SourceName** | **String** | the associated source name if it exists | [optional] 
-**AppRoleId** | **String** | the app role id | [optional] 
+**AppRoleId** | **String** | the app role id | [required]
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$AccessItemAppResponse = Initialize-BetaAccessItemAppResponse  -AccessType app `
- -Id 2c918087763e69d901763e72e97f006f `
+$AccessItemAppResponse = Initialize-BetaAccessItemAppResponse  -Id 2c918087763e69d901763e72e97f006f `
+ -AccessType app `
  -DisplayName Display Name `
  -SourceName appName `
  -AppRoleId 2c918087763e69d901763e72e97f006f

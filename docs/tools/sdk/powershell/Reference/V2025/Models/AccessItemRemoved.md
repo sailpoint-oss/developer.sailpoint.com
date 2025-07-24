@@ -16,10 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemRemoved', 'V2025AccessItemR
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessItem** | [**AccessItemAssociatedAccessItem**](access-item-associated-access-item) |  | [optional] 
+**AccessItem** | [**AccessItemAssociatedAccessItem**](access-item-associated-access-item) |  | [required]
 **IdentityId** | **String** | the identity id | [optional] 
 **EventType** | **String** | the event type | [optional] 
-**Dt** | **String** | the date of event | [optional] 
+**DateTime** | **String** | the date of event | [optional] 
+**AccessItemType** |  **Enum** [  "account",    "app",    "entitlement",    "role",    "accessProfile" ] | the access item type | [optional] 
 **GovernanceEvent** | [**CorrelatedGovernanceEvent**](correlated-governance-event) |  | [optional] 
 
 ## Examples
@@ -29,7 +30,8 @@ Name | Type | Description | Notes
 $AccessItemRemoved = Initialize-V2025AccessItemRemoved  -AccessItem null `
  -IdentityId 8c190e6787aa4ed9a90bd9d5344523fb `
  -EventType AccessItemRemoved `
- -Dt 2019-03-08T22:37:33.901Z `
+ -DateTime 2019-03-08T22:37:33.901Z `
+ -AccessItemType account `
  -GovernanceEvent null
 ```
 

@@ -1,16 +1,16 @@
 ---
-id: v2024-account-status-changed-account
-title: AccountStatusChangedAccount
-pagination_label: AccountStatusChangedAccount
-sidebar_label: AccountStatusChangedAccount
+id: v2024-access-requested-account
+title: AccessRequestedAccount
+pagination_label: AccessRequestedAccount
+sidebar_label: AccessRequestedAccount
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'AccountStatusChangedAccount', 'V2024AccountStatusChangedAccount'] 
-slug: /tools/sdk/powershell/v2024/models/account-status-changed-account
-tags: ['SDK', 'Software Development Kit', 'AccountStatusChangedAccount', 'V2024AccountStatusChangedAccount']
+keywords: ['powershell', 'PowerShell', 'sdk', 'AccessRequestedAccount', 'V2024AccessRequestedAccount'] 
+slug: /tools/sdk/powershell/v2024/models/access-requested-account
+tags: ['SDK', 'Software Development Kit', 'AccessRequestedAccount', 'V2024AccessRequestedAccount']
 ---
 
 
-# AccountStatusChangedAccount
+# AccessRequestedAccount
 
 ## Properties
 
@@ -28,18 +28,18 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountStatusChangedAccount = Initialize-V2024AccountStatusChangedAccount  -Id null `
- -NativeIdentity null `
- -DisplayName null `
- -SourceId null `
- -SourceName null `
- -EntitlementCount null `
- -AccessType null
+$AccessRequestedAccount = Initialize-V2024AccessRequestedAccount  -Id 2c91808a77ff216301782327a50f09bf `
+ -NativeIdentity dr.arden.ogahn.d `
+ -DisplayName Adam Archer `
+ -SourceId 8a80828f643d484f01643e14202e206f `
+ -SourceName JDBC Entitlements Source `
+ -EntitlementCount 2 `
+ -AccessType account
 ```
 
 - Convert the resource to JSON
 ```powershell
-$AccountStatusChangedAccount | ConvertTo-JSON
+$AccessRequestedAccount | ConvertTo-JSON
 ```
 
 

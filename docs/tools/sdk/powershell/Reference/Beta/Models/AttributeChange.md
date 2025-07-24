@@ -24,9 +24,9 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeChange = Initialize-BetaAttributeChange  -Name null `
- -PreviousValue null `
- -NewValue null
+$AttributeChange = Initialize-BetaAttributeChange  -Name firstname `
+ -PreviousValue adam `
+ -NewValue zampa
 ```
 
 - Convert the resource to JSON

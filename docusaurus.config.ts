@@ -62,6 +62,26 @@ const config: Config = {
   ],
 
   themeConfig: {
+    image: 'img/SailPoint-Developer-Community-Lockup.png',  // your default OG image
+    metadata: [
+      // HTML
+      { name: 'description', content: 'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.' },
+
+      // Open Graph
+      { property: 'og:url',         content: 'https://developer.sailpoint.com' },
+      { property: 'og:type',        content: 'website' },
+      { property: 'og:title',       content: 'SailPoint Developer Community' },
+      { property: 'og:description', content: 'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.' },
+      { property: 'og:image',       content: 'https://developer.sailpoint.com/img/SailPoint-Logo-OG.png' },
+
+      // Twitter
+      { name: 'twitter:card',        content: 'summary_large_image' },
+      { name: 'twitter:domain',      content: 'developer.sailpoint.com' },
+      { name: 'twitter:url',         content: 'https://developer.sailpoint.com' },
+      { name: 'twitter:title',       content: 'SailPoint Developer Community' },
+      { name: 'twitter:description', content: 'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.' },
+      { name: 'twitter:image',       content: 'https://developer.sailpoint.com/img/SailPoint-Logo-OG.png' },
+    ],
     algolia: {
       appId: 'TB01H1DFAM',
       apiKey: '726952a7a9389c484b6c96808a3e0010',

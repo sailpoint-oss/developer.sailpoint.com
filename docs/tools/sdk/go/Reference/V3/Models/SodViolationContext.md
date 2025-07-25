@@ -15,7 +15,7 @@ tags: ['SDK', 'Software Development Kit', 'SodViolationContext', 'SodViolationCo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Policy** | Pointer to [**SodPolicyDto**](sod-policy-dto) |  | [optional] 
+**Policy** | Pointer to [**SodPolicyDto1**](sod-policy-dto1) |  | [optional] 
 **ConflictingAccessCriteria** | Pointer to [**SodViolationContextConflictingAccessCriteria**](sod-violation-context-conflicting-access-criteria) |  | [optional] 
 
 ## Methods
@@ -39,20 +39,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetPolicy
 
-`func (o *SodViolationContext) GetPolicy() SodPolicyDto`
+`func (o *SodViolationContext) GetPolicy() SodPolicyDto1`
 
 GetPolicy returns the Policy field if non-nil, zero value otherwise.
 
 ### GetPolicyOk
 
-`func (o *SodViolationContext) GetPolicyOk() (*SodPolicyDto, bool)`
+`func (o *SodViolationContext) GetPolicyOk() (*SodPolicyDto1, bool)`
 
 GetPolicyOk returns a tuple with the Policy field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPolicy
 
-`func (o *SodViolationContext) SetPolicy(v SodPolicyDto)`
+`func (o *SodViolationContext) SetPolicy(v SodPolicyDto1)`
 
 SetPolicy sets Policy field to given value.
 

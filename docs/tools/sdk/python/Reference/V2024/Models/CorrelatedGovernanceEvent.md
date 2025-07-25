@@ -17,7 +17,7 @@ tags: ['SDK', 'Software Development Kit', 'CorrelatedGovernanceEvent', 'V2024Cor
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | The name of the governance event, such as the certification name or access request ID. | [optional] 
-**dt** | **str** | The date that the certification or access request was completed. | [optional] 
+**date_time** | **str** | The date that the certification or access request was completed. | [optional] 
 **type** |  **Enum** [  'certification',    'accessRequest' ] | The type of governance event. | [optional] 
 **governance_id** | **str** | The ID of the instance that caused the event - either the certification ID or access request ID. | [optional] 
 **owners** | [**[]CertifierResponse**](certifier-response) | The owners of the governance event (the certifiers or approvers) | [optional] 
@@ -32,7 +32,7 @@ from sailpoint.v2024.models.correlated_governance_event import CorrelatedGoverna
 
 correlated_governance_event = CorrelatedGovernanceEvent(
 name='Manager Certification for Jon Snow',
-dt='2019-03-08T22:37:33.901Z',
+date_time='2019-03-08T22:37:33.901Z',
 type='certification',
 governance_id='2c91808a77ff216301782327a50f09bf',
 owners=[{id=8a80828f643d484f01643e14202e206f, displayName=John Snow}],

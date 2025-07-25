@@ -31,13 +31,13 @@ Name | Type | Description | Notes
 from sailpoint.v2025.models.account_status_changed_account import AccountStatusChangedAccount
 
 account_status_changed_account = AccountStatusChangedAccount(
-id='',
-native_identity='',
-display_name='',
-source_id='',
-source_name='',
-entitlement_count=56,
-access_type=''
+id='2c91808a77ff216301782327a50f09bf',
+native_identity='dr.arden.ogahn.d',
+display_name='Adam Archer',
+source_id='8a80828f643d484f01643e14202e206f',
+source_name='JDBC Entitlements Source',
+entitlement_count=2,
+access_type='account'
 )
 
 ```

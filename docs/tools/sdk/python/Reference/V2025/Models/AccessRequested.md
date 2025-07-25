@@ -16,10 +16,10 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequested', 'V2025AccessRequest
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access_request** | [**AccessRequestResponse1**](access-request-response1) |  | [optional] 
+**access_request** | [**AccessRequestResponse1**](access-request-response1) |  | [required]
 **identity_id** | **str** | the identity id | [optional] 
 **event_type** | **str** | the event type | [optional] 
-**dt** | **str** | the date of event | [optional] 
+**date_time** | **str** | the date of event | [optional] 
 }
 
 ## Example
@@ -34,7 +34,7 @@ access_request=sailpoint.v2025.models.access_request_response_1.AccessRequestRes
                     items = [{operation=Add, accessItemType=role, name=Role-1, decision=APPROVED, description=The role descrition, sourceId=8a80828f643d484f01643e14202e206f, sourceName=Source1, approvalInfos=[{name=John Snow, id=8a80828f643d484f01643e14202e2000, status=Approved}]}], ),
 identity_id='8a80828f643d484f01643e14202e206f',
 event_type='AccessRequested',
-dt='2019-03-08T22:37:33.901Z'
+date_time='2019-03-08T22:37:33.901Z'
 )
 
 ```

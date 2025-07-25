@@ -10,17 +10,15 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
               # Get access model metadata attribute
               
-              results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute(key=key, x_sail_point_experimental=x_sail_point_experimental)
+              results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute(key=key)
               # Below is a request that includes all optional parameters
-              # results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute(key, x_sail_point_experimental)
+              # results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute(key)
               print("The response of AccessModelMetadataApi->get_access_model_metadata_attribute:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -37,18 +35,16 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
           value = 'public' # str | Technical name of the Attribute value. # str | Technical name of the Attribute value.
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
               # Get access model metadata value
               
-              results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute_value(key=key, value=value, x_sail_point_experimental=x_sail_point_experimental)
+              results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute_value(key=key, value=value)
               # Below is a request that includes all optional parameters
-              # results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute_value(key, value, x_sail_point_experimental)
+              # results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute_value(key, value)
               print("The response of AccessModelMetadataApi->get_access_model_metadata_attribute_value:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -65,17 +61,19 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-          filters = 'name eq \"Privacy\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional)
+          filters = 'name eq \"Privacy\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  **Supported composite operators**: *and* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  **Supported composite operators**: *and* (optional)
+          sorters = 'name,-key' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key** (optional)
+          offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+          limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
           try:
               # List access model metadata attributes
               
-              results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute(x_sail_point_experimental=x_sail_point_experimental)
+              results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute()
               # Below is a request that includes all optional parameters
-              # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute(x_sail_point_experimental, filters)
+              # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute(filters, sorters, offset, limit, count)
               print("The response of AccessModelMetadataApi->list_access_model_metadata_attribute:\n")
               for item in results:
                   print(item.model_dump_json(by_alias=True, indent=4))
@@ -93,22 +91,241 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+          offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+          limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
           try:
               # List access model metadata values
               
-              results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute_value(key=key, x_sail_point_experimental=x_sail_point_experimental)
+              results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute_value(key=key)
               # Below is a request that includes all optional parameters
-              # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute_value(key, x_sail_point_experimental)
+              # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute_value(key, offset, limit, count)
               print("The response of AccessModelMetadataApi->list_access_model_metadata_attribute_value:\n")
               for item in results:
                   print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling AccessModelMetadataApi->list_access_model_metadata_attribute_value: %s\n" % e)
+- path: /access-model-metadata/bulk-update/filter
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/access-model-metadata#update-access-model-metadata-by-filter
+      source: |
+        from sailpoint.v2025.api.access_model_metadata_api import AccessModelMetadataApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.access_model_metadata_bulk_update_response import AccessModelMetadataBulkUpdateResponse
+        from sailpoint.v2025.models.entitlement_attribute_bulk_update_filter_request import EntitlementAttributeBulkUpdateFilterRequest
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          entitlement_attribute_bulk_update_filter_request = '''{
+          "values" : [ {
+            "attribute" : "iscFederalClassifications",
+            "values" : [ "topSecret" ]
+          } ],
+          "filters" : "id eq 2c9180867817ac4d017817c491119a20",
+          "replaceScope" : "attribute",
+          "operation" : "add"
+        }''' # EntitlementAttributeBulkUpdateFilterRequest | Attribute metadata bulk update request body.
+          try:
+              # Metadata Attribute update by filter
+              new_entitlement_attribute_bulk_update_filter_request = EntitlementAttributeBulkUpdateFilterRequest.from_json(entitlement_attribute_bulk_update_filter_request)
+              results = AccessModelMetadataApi(api_client).update_access_model_metadata_by_filter(entitlement_attribute_bulk_update_filter_request=new_entitlement_attribute_bulk_update_filter_request)
+              # Below is a request that includes all optional parameters
+              # results = AccessModelMetadataApi(api_client).update_access_model_metadata_by_filter(new_entitlement_attribute_bulk_update_filter_request)
+              print("The response of AccessModelMetadataApi->update_access_model_metadata_by_filter:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling AccessModelMetadataApi->update_access_model_metadata_by_filter: %s\n" % e)
+- path: /access-model-metadata/bulk-update/ids
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/access-model-metadata#update-access-model-metadata-by-ids
+      source: |
+        from sailpoint.v2025.api.access_model_metadata_api import AccessModelMetadataApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.access_model_metadata_bulk_update_response import AccessModelMetadataBulkUpdateResponse
+        from sailpoint.v2025.models.entitlement_attribute_bulk_update_ids_request import EntitlementAttributeBulkUpdateIdsRequest
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          entitlement_attribute_bulk_update_ids_request = '''{
+          "entitlements" : [ "2c9180867817ac4d017817c491119a20", "2c9180867817ac4d017817c491119a21" ],
+          "values" : [ {
+            "attribute" : "iscFederalClassifications",
+            "values" : [ "topSecret" ]
+          } ],
+          "replaceScope" : "attribute",
+          "operation" : "add"
+        }''' # EntitlementAttributeBulkUpdateIdsRequest | Attribute metadata bulk update request body.
+          try:
+              # Metadata Attribute update by ids
+              new_entitlement_attribute_bulk_update_ids_request = EntitlementAttributeBulkUpdateIdsRequest.from_json(entitlement_attribute_bulk_update_ids_request)
+              results = AccessModelMetadataApi(api_client).update_access_model_metadata_by_ids(entitlement_attribute_bulk_update_ids_request=new_entitlement_attribute_bulk_update_ids_request)
+              # Below is a request that includes all optional parameters
+              # results = AccessModelMetadataApi(api_client).update_access_model_metadata_by_ids(new_entitlement_attribute_bulk_update_ids_request)
+              print("The response of AccessModelMetadataApi->update_access_model_metadata_by_ids:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling AccessModelMetadataApi->update_access_model_metadata_by_ids: %s\n" % e)
+- path: /access-model-metadata/bulk-update/query
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/access-model-metadata#update-access-model-metadata-by-query
+      source: |
+        from sailpoint.v2025.api.access_model_metadata_api import AccessModelMetadataApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.access_model_metadata_bulk_update_response import AccessModelMetadataBulkUpdateResponse
+        from sailpoint.v2025.models.entitlement_attribute_bulk_update_query_request import EntitlementAttributeBulkUpdateQueryRequest
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          entitlement_attribute_bulk_update_query_request = '''{
+          "query" : {
+            "queryDsl" : {
+              "match" : {
+                "name" : "john.doe"
+              }
+            },
+            "aggregationType" : "DSL",
+            "aggregationsVersion" : "",
+            "query" : {
+              "query" : "name:a*",
+              "timeZone" : "America/Chicago",
+              "fields" : "[firstName,lastName,email]",
+              "innerHit" : {
+                "query" : "source.name:\\\"Active Directory\\\"",
+                "type" : "access"
+              }
+            },
+            "aggregationsDsl" : { },
+            "sort" : [ "displayName", "+id" ],
+            "filters" : { },
+            "queryVersion" : "",
+            "queryType" : "SAILPOINT",
+            "includeNested" : true,
+            "queryResultFilter" : {
+              "excludes" : [ "stacktrace" ],
+              "includes" : [ "name", "displayName" ]
+            },
+            "indices" : [ "identities" ],
+            "typeAheadQuery" : {
+              "field" : "source.name",
+              "size" : 100,
+              "query" : "Work",
+              "sortByValue" : true,
+              "nestedType" : "access",
+              "sort" : "asc",
+              "maxExpansions" : 10
+            },
+            "textQuery" : {
+              "contains" : true,
+              "terms" : [ "The quick brown fox", "3141592", "7" ],
+              "matchAny" : false,
+              "fields" : [ "displayName", "employeeNumber", "roleCount" ]
+            },
+            "searchAfter" : [ "John Doe", "2c91808375d8e80a0175e1f88a575221" ],
+            "aggregations" : {
+              "filter" : {
+                "field" : "access.type",
+                "name" : "Entitlements",
+                "type" : "TERM",
+                "value" : "ENTITLEMENT"
+              },
+              "bucket" : {
+                "field" : "attributes.city",
+                "size" : 100,
+                "minDocCount" : 2,
+                "name" : "Identity Locations",
+                "type" : "TERMS"
+              },
+              "metric" : {
+                "field" : "@access.name",
+                "name" : "Access Name Count",
+                "type" : "COUNT"
+              },
+              "subAggregation" : {
+                "filter" : {
+                  "field" : "access.type",
+                  "name" : "Entitlements",
+                  "type" : "TERM",
+                  "value" : "ENTITLEMENT"
+                },
+                "bucket" : {
+                  "field" : "attributes.city",
+                  "size" : 100,
+                  "minDocCount" : 2,
+                  "name" : "Identity Locations",
+                  "type" : "TERMS"
+                },
+                "metric" : {
+                  "field" : "@access.name",
+                  "name" : "Access Name Count",
+                  "type" : "COUNT"
+                },
+                "subAggregation" : {
+                  "filter" : {
+                    "field" : "access.type",
+                    "name" : "Entitlements",
+                    "type" : "TERM",
+                    "value" : "ENTITLEMENT"
+                  },
+                  "bucket" : {
+                    "field" : "attributes.city",
+                    "size" : 100,
+                    "minDocCount" : 2,
+                    "name" : "Identity Locations",
+                    "type" : "TERMS"
+                  },
+                  "metric" : {
+                    "field" : "@access.name",
+                    "name" : "Access Name Count",
+                    "type" : "COUNT"
+                  },
+                  "nested" : {
+                    "name" : "id",
+                    "type" : "access"
+                  }
+                },
+                "nested" : {
+                  "name" : "id",
+                  "type" : "access"
+                }
+              },
+              "nested" : {
+                "name" : "id",
+                "type" : "access"
+              }
+            }
+          },
+          "values" : [ {
+            "attribute" : "iscFederalClassifications",
+            "values" : [ "topSecret" ]
+          } ],
+          "replaceScope" : "attribute",
+          "operation" : "add"
+        }''' # EntitlementAttributeBulkUpdateQueryRequest | Attribute metadata bulk update request body.
+          try:
+              # Metadata Attribute update by query
+              new_entitlement_attribute_bulk_update_query_request = EntitlementAttributeBulkUpdateQueryRequest.from_json(entitlement_attribute_bulk_update_query_request)
+              results = AccessModelMetadataApi(api_client).update_access_model_metadata_by_query(entitlement_attribute_bulk_update_query_request=new_entitlement_attribute_bulk_update_query_request)
+              # Below is a request that includes all optional parameters
+              # results = AccessModelMetadataApi(api_client).update_access_model_metadata_by_query(new_entitlement_attribute_bulk_update_query_request)
+              print("The response of AccessModelMetadataApi->update_access_model_metadata_by_query:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling AccessModelMetadataApi->update_access_model_metadata_by_query: %s\n" % e)
 - path: /access-profiles
   method: POST
   xCodeSample:
@@ -6866,19 +7083,17 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = '2c91808c74ff913f0175097daa9d59cd' # str | The entitlement id. # str | The entitlement id.
           attribute_key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
           attribute_value = 'public' # str | Technical name of the Attribute Value. # str | Technical name of the Attribute Value.
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
               # Add metadata to an entitlement.
               
-              results = EntitlementsApi(api_client).create_access_model_metadata_for_entitlement(id=id, attribute_key=attribute_key, attribute_value=attribute_value, x_sail_point_experimental=x_sail_point_experimental)
+              results = EntitlementsApi(api_client).create_access_model_metadata_for_entitlement(id=id, attribute_key=attribute_key, attribute_value=attribute_value)
               # Below is a request that includes all optional parameters
-              # results = EntitlementsApi(api_client).create_access_model_metadata_for_entitlement(id, attribute_key, attribute_value, x_sail_point_experimental)
+              # results = EntitlementsApi(api_client).create_access_model_metadata_for_entitlement(id, attribute_key, attribute_value)
               print("The response of EntitlementsApi->create_access_model_metadata_for_entitlement:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -6894,19 +7109,17 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = '2c91808c74ff913f0175097daa9d59cd' # str | The entitlement id. # str | The entitlement id.
           attribute_key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
           attribute_value = 'public' # str | Technical name of the Attribute Value. # str | Technical name of the Attribute Value.
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
               # Remove metadata from an entitlement.
               
-              EntitlementsApi(api_client).delete_access_model_metadata_from_entitlement(id=id, attribute_key=attribute_key, attribute_value=attribute_value, x_sail_point_experimental=x_sail_point_experimental)
+              EntitlementsApi(api_client).delete_access_model_metadata_from_entitlement(id=id, attribute_key=attribute_key, attribute_value=attribute_value)
               # Below is a request that includes all optional parameters
-              # EntitlementsApi(api_client).delete_access_model_metadata_from_entitlement(id, attribute_key, attribute_value, x_sail_point_experimental)
+              # EntitlementsApi(api_client).delete_access_model_metadata_from_entitlement(id, attribute_key, attribute_value)
           except Exception as e:
               print("Exception when calling EntitlementsApi->delete_access_model_metadata_from_entitlement: %s\n" % e)
 - path: /entitlements/{id}
@@ -6921,17 +7134,15 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = '2c91808874ff91550175097daaec161c' # str | The entitlement ID # str | The entitlement ID
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
               # Get an entitlement
               
-              results = EntitlementsApi(api_client).get_entitlement(id=id, x_sail_point_experimental=x_sail_point_experimental)
+              results = EntitlementsApi(api_client).get_entitlement(id=id)
               # Below is a request that includes all optional parameters
-              # results = EntitlementsApi(api_client).get_entitlement(id, x_sail_point_experimental)
+              # results = EntitlementsApi(api_client).get_entitlement(id)
               print("The response of EntitlementsApi->get_entitlement:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -6948,17 +7159,15 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = '2c91808874ff91550175097daaec161c' # str | Entitlement Id # str | Entitlement Id
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
               # Get entitlement request config
               
-              results = EntitlementsApi(api_client).get_entitlement_request_config(id=id, x_sail_point_experimental=x_sail_point_experimental)
+              results = EntitlementsApi(api_client).get_entitlement_request_config(id=id)
               # Below is a request that includes all optional parameters
-              # results = EntitlementsApi(api_client).get_entitlement_request_config(id, x_sail_point_experimental)
+              # results = EntitlementsApi(api_client).get_entitlement_request_config(id)
               print("The response of EntitlementsApi->get_entitlement_request_config:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -6975,18 +7184,16 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source Id # str | Source Id
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           csv_file = None # bytearray | The CSV file containing the source entitlements to aggregate. (optional) # bytearray | The CSV file containing the source entitlements to aggregate. (optional)
           try:
               # Aggregate entitlements
               
-              results = EntitlementsApi(api_client).import_entitlements_by_source(id=id, x_sail_point_experimental=x_sail_point_experimental)
+              results = EntitlementsApi(api_client).import_entitlements_by_source(id=id)
               # Below is a request that includes all optional parameters
-              # results = EntitlementsApi(api_client).import_entitlements_by_source(id, x_sail_point_experimental, csv_file)
+              # results = EntitlementsApi(api_client).import_entitlements_by_source(id, csv_file)
               print("The response of EntitlementsApi->import_entitlements_by_source:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -7003,11 +7210,9 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = '2c91808874ff91550175097daaec161c' # str | Entitlement Id # str | Entitlement Id
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
           offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -7016,9 +7221,9 @@
           try:
               # List of entitlements children
               
-              results = EntitlementsApi(api_client).list_entitlement_children(id=id, x_sail_point_experimental=x_sail_point_experimental)
+              results = EntitlementsApi(api_client).list_entitlement_children(id=id)
               # Below is a request that includes all optional parameters
-              # results = EntitlementsApi(api_client).list_entitlement_children(id, x_sail_point_experimental, limit, offset, count, sorters, filters)
+              # results = EntitlementsApi(api_client).list_entitlement_children(id, limit, offset, count, sorters, filters)
               print("The response of EntitlementsApi->list_entitlement_children:\n")
               for item in results:
                   print(item.model_dump_json(by_alias=True, indent=4))
@@ -7036,11 +7241,9 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = '2c91808c74ff913f0175097daa9d59cd' # str | Entitlement Id # str | Entitlement Id
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
           offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -7049,9 +7252,9 @@
           try:
               # List of entitlements parents
               
-              results = EntitlementsApi(api_client).list_entitlement_parents(id=id, x_sail_point_experimental=x_sail_point_experimental)
+              results = EntitlementsApi(api_client).list_entitlement_parents(id=id)
               # Below is a request that includes all optional parameters
-              # results = EntitlementsApi(api_client).list_entitlement_parents(id, x_sail_point_experimental, limit, offset, count, sorters, filters)
+              # results = EntitlementsApi(api_client).list_entitlement_parents(id, limit, offset, count, sorters, filters)
               print("The response of EntitlementsApi->list_entitlement_parents:\n")
               for item in results:
                   print(item.model_dump_json(by_alias=True, indent=4))
@@ -7069,10 +7272,8 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           account_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). (optional) # str | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). (optional)
           segmented_for_identity = 'e554098913544630b5985e9042f5e44b' # str | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional) # str | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional)
           for_segment_ids = '041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649' # str | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s). (optional) # str | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s). (optional)
@@ -7085,9 +7286,9 @@
           try:
               # Gets a list of entitlements.
               
-              results = EntitlementsApi(api_client).list_entitlements(x_sail_point_experimental=x_sail_point_experimental)
+              results = EntitlementsApi(api_client).list_entitlements()
               # Below is a request that includes all optional parameters
-              # results = EntitlementsApi(api_client).list_entitlements(x_sail_point_experimental, account_id, segmented_for_identity, for_segment_ids, include_unsegmented, offset, limit, count, sorters, filters)
+              # results = EntitlementsApi(api_client).list_entitlements(account_id, segmented_for_identity, for_segment_ids, include_unsegmented, offset, limit, count, sorters, filters)
               print("The response of EntitlementsApi->list_entitlements:\n")
               for item in results:
                   print(item.model_dump_json(by_alias=True, indent=4))
@@ -7106,18 +7307,16 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = '2c91808a7813090a017814121e121518' # str | ID of the entitlement to patch # str | ID of the entitlement to patch
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           json_patch_operation = '''[{op=replace, path=/requestable, value=true}, {op=replace, path=/privileged, value=true}]''' # List[JsonPatchOperation] |  (optional)
           try:
               # Patch an entitlement
               
-              results = EntitlementsApi(api_client).patch_entitlement(id=id, x_sail_point_experimental=x_sail_point_experimental)
+              results = EntitlementsApi(api_client).patch_entitlement(id=id)
               # Below is a request that includes all optional parameters
-              # results = EntitlementsApi(api_client).patch_entitlement(id, x_sail_point_experimental, new_json_patch_operation)
+              # results = EntitlementsApi(api_client).patch_entitlement(id, new_json_patch_operation)
               print("The response of EntitlementsApi->patch_entitlement:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -7134,11 +7333,9 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = '2c91808a7813090a017814121e121518' # str | Entitlement ID # str | Entitlement ID
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           entitlement_request_config = '''{
           "accessRequestConfig" : {
             "denialCommentRequired" : false,
@@ -7165,9 +7362,9 @@
           try:
               # Replace entitlement request config
               new_entitlement_request_config = EntitlementRequestConfig.from_json(entitlement_request_config)
-              results = EntitlementsApi(api_client).put_entitlement_request_config(id=id, x_sail_point_experimental=x_sail_point_experimental, entitlement_request_config=new_entitlement_request_config)
+              results = EntitlementsApi(api_client).put_entitlement_request_config(id=id, entitlement_request_config=new_entitlement_request_config)
               # Below is a request that includes all optional parameters
-              # results = EntitlementsApi(api_client).put_entitlement_request_config(id, x_sail_point_experimental, new_entitlement_request_config)
+              # results = EntitlementsApi(api_client).put_entitlement_request_config(id, new_entitlement_request_config)
               print("The response of EntitlementsApi->put_entitlement_request_config:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -7184,17 +7381,15 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           id = '2c91808a7813090a017814121919ecca' # str | ID of source for the entitlement reset # str | ID of source for the entitlement reset
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           try:
               # Reset source entitlements
               
-              results = EntitlementsApi(api_client).reset_source_entitlements(id=id, x_sail_point_experimental=x_sail_point_experimental)
+              results = EntitlementsApi(api_client).reset_source_entitlements(id=id)
               # Below is a request that includes all optional parameters
-              # results = EntitlementsApi(api_client).reset_source_entitlements(id, x_sail_point_experimental)
+              # results = EntitlementsApi(api_client).reset_source_entitlements(id)
               print("The response of EntitlementsApi->reset_source_entitlements:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
@@ -7211,10 +7406,8 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           entitlement_bulk_update_request = '''{
           "entitlementIds" : [ "2c91808a7624751a01762f19d665220d", "2c91808a7624751a01762f19d67c220e", "2c91808a7624751a01762f19d692220f" ],
           "jsonPatch" : [ {
@@ -7234,9 +7427,9 @@
           try:
               # Bulk update an entitlement list
               new_entitlement_bulk_update_request = EntitlementBulkUpdateRequest.from_json(entitlement_bulk_update_request)
-              EntitlementsApi(api_client).update_entitlements_in_bulk(x_sail_point_experimental=x_sail_point_experimental, entitlement_bulk_update_request=new_entitlement_bulk_update_request)
+              EntitlementsApi(api_client).update_entitlements_in_bulk(entitlement_bulk_update_request=new_entitlement_bulk_update_request)
               # Below is a request that includes all optional parameters
-              # EntitlementsApi(api_client).update_entitlements_in_bulk(x_sail_point_experimental, new_entitlement_bulk_update_request)
+              # EntitlementsApi(api_client).update_entitlements_in_bulk(new_entitlement_bulk_update_request)
           except Exception as e:
               print("Exception when calling EntitlementsApi->update_entitlements_in_bulk: %s\n" % e)
 - path: /auth-org/network-config
@@ -9573,6 +9766,35 @@
                   print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling IdentitiesApi->get_role_assignments: %s\n" % e)
+- path: /entitlements/identities/{id}/entitlements
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/identities#list-entitlements-by-identity
+      source: |
+        from sailpoint.v2025.api.identities_api import IdentitiesApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.identity_entitlements import IdentityEntitlements
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
+          limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+          count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
+          try:
+              # List of entitlements by identity.
+              
+              results = IdentitiesApi(api_client).list_entitlements_by_identity(id=id)
+              # Below is a request that includes all optional parameters
+              # results = IdentitiesApi(api_client).list_entitlements_by_identity(id, limit, offset, count)
+              print("The response of IdentitiesApi->list_entitlements_by_identity:\n")
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling IdentitiesApi->list_entitlements_by_identity: %s\n" % e)
 - path: /identities
   method: GET
   xCodeSample:
@@ -10055,7 +10277,7 @@
           offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
           try:
-              # Lists all events for the given identity
+              # List identity event history
               
               results = IdentityHistoryApi(api_client).get_historical_identity_events(id=id, x_sail_point_experimental=x_sail_point_experimental)
               # Below is a request that includes all optional parameters
@@ -10225,7 +10447,7 @@
       source: |
         from sailpoint.v2025.api.identity_history_api import IdentityHistoryApi
         from sailpoint.v2025.api_client import ApiClient
-        from sailpoint.v2025.models.list_identity_access_items200_response_inner import ListIdentityAccessItems200ResponseInner
+        from sailpoint.v2025.models.list_identity_snapshot_access_items200_response_inner import ListIdentitySnapshotAccessItems200ResponseInner
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
@@ -11351,7 +11573,56 @@
         with ApiClient(configuration) as api_client:
           id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source ID. # str | Source ID.
           machine_classification_config = '''{
-          "criteria" : "criteria",
+          "criteria" : {
+            "children" : [ {
+              "children" : [ {
+                "children" : [ "children", "children" ],
+                "caseSensitive" : false,
+                "dataType" : "This is the first level of classification criteria",
+                "attribute" : "sAMAccountName",
+                "operation" : "EQUALS",
+                "value" : "SVC"
+              }, {
+                "children" : [ "children", "children" ],
+                "caseSensitive" : false,
+                "dataType" : "This is the first level of classification criteria",
+                "attribute" : "sAMAccountName",
+                "operation" : "EQUALS",
+                "value" : "SVC"
+              } ],
+              "caseSensitive" : false,
+              "dataType" : "dataType",
+              "attribute" : "employeeType",
+              "operation" : "EQUALS",
+              "value" : "SERVICE"
+            }, {
+              "children" : [ {
+                "children" : [ "children", "children" ],
+                "caseSensitive" : false,
+                "dataType" : "This is the first level of classification criteria",
+                "attribute" : "sAMAccountName",
+                "operation" : "EQUALS",
+                "value" : "SVC"
+              }, {
+                "children" : [ "children", "children" ],
+                "caseSensitive" : false,
+                "dataType" : "This is the first level of classification criteria",
+                "attribute" : "sAMAccountName",
+                "operation" : "EQUALS",
+                "value" : "SVC"
+              } ],
+              "caseSensitive" : false,
+              "dataType" : "dataType",
+              "attribute" : "employeeType",
+              "operation" : "EQUALS",
+              "value" : "SERVICE"
+            } ],
+            "caseSensitive" : false,
+            "dataType" : "dataType",
+            "attribute" : "distinguishedName",
+            "operation" : "EQUALS",
+            "value" : "OU=Service Accounts"
+          },
           "created" : "2017-07-11T18:45:37.098Z",
           "modified" : "2018-06-25T20:22:28.104Z",
           "classificationMethod" : "SOURCE",
@@ -19321,18 +19592,16 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
           source_id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source Id # str | Source Id
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
           file = None # bytearray | The CSV file containing the source entitlements to aggregate. (optional) # bytearray | The CSV file containing the source entitlements to aggregate. (optional)
           try:
               # Entitlement aggregation
               
-              results = SourcesApi(api_client).import_entitlements(source_id=source_id, x_sail_point_experimental=x_sail_point_experimental)
+              results = SourcesApi(api_client).import_entitlements(source_id=source_id)
               # Below is a request that includes all optional parameters
-              # results = SourcesApi(api_client).import_entitlements(source_id, x_sail_point_experimental, file)
+              # results = SourcesApi(api_client).import_entitlements(source_id, file)
               print("The response of SourcesApi->import_entitlements:\n")
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:

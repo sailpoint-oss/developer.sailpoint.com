@@ -52,7 +52,7 @@ account_source=sailpoint.v2024.models.source_app_account_source.SourceApp_accoun
                     id = '2c9180827ca885d7017ca8ce28a000eb', 
                     type = 'SOURCE', 
                     name = 'ODS-AD-Source', 
-                    use_for_password_management = False, 
+                    use_for_password_management = True, 
                     password_policies = [{type=PASSWORD_POLICY, id=006a072ecc6647f68bba9f4a4ad34649, name=Password Policy 1}], ),
 owner=sailpoint.v2024.models.base_reference_dto.BaseReferenceDto(
                     type = 'IDENTITY', 

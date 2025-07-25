@@ -16,15 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemEntitlementResponse', 'V202
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access_type** | **str** | the access item type. entitlement in this case | [optional] 
 **id** | **str** | the access item id | [optional] 
-**attribute** | **str** | the entitlement attribute | [optional] 
-**value** | **str** | the associated value | [optional] 
-**entitlement_type** | **str** | the type of entitlement | [optional] 
-**source_name** | **str** | the name of the source | [optional] 
-**source_id** | **str** | the id of the source | [optional] 
-**description** | **str** | the description for the entitlment | [optional] 
+**access_type** | **str** | the access item type. entitlement in this case | [optional] 
 **display_name** | **str** | the display name of the identity | [optional] 
+**source_name** | **str** | the name of the source | [optional] 
+**attribute** | **str** | the entitlement attribute | [required]
+**value** | **str** | the associated value | [required]
+**type** | **str** | the type of entitlement | [required]
+**description** | **str** | the description for the entitlment | [optional] 
+**source_id** | **str** | the id of the source | [optional] 
 **standalone** | **bool** | indicates whether the entitlement is standalone | [required]
 **privileged** | **bool** | indicates whether the entitlement is privileged | [required]
 **cloud_governed** | **bool** | indicates whether the entitlement is cloud governed | [required]
@@ -36,15 +36,15 @@ Name | Type | Description | Notes
 from sailpoint.v2024.models.access_item_entitlement_response import AccessItemEntitlementResponse
 
 access_item_entitlement_response = AccessItemEntitlementResponse(
-access_type='entitlement',
 id='2c918087763e69d901763e72e97f006f',
+access_type='entitlement',
+display_name='Dr. Arden Rogahn MD',
+source_name='DataScienceDataset',
 attribute='groups',
 value='Upward mobility access',
-entitlement_type='entitlement',
-source_name='DataScienceDataset',
-source_id='2793o32dwd',
+type='ENTITLEMENT',
 description='Entitlement - Workday/Citizenship access',
-display_name='Dr. Arden Rogahn MD',
+source_id='2793o32dwd',
 standalone=True,
 privileged=False,
 cloud_governed=True

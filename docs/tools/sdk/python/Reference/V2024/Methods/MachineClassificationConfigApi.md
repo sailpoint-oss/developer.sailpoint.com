@@ -180,7 +180,56 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source ID. # str | Source ID.
     machine_classification_config = '''{
-          "criteria" : "criteria",
+          "criteria" : {
+            "children" : [ {
+              "children" : [ {
+                "children" : [ "children", "children" ],
+                "caseSensitive" : false,
+                "dataType" : "This is the first level of classification criteria",
+                "attribute" : "sAMAccountName",
+                "operation" : "EQUALS",
+                "value" : "SVC"
+              }, {
+                "children" : [ "children", "children" ],
+                "caseSensitive" : false,
+                "dataType" : "This is the first level of classification criteria",
+                "attribute" : "sAMAccountName",
+                "operation" : "EQUALS",
+                "value" : "SVC"
+              } ],
+              "caseSensitive" : false,
+              "dataType" : "dataType",
+              "attribute" : "employeeType",
+              "operation" : "EQUALS",
+              "value" : "SERVICE"
+            }, {
+              "children" : [ {
+                "children" : [ "children", "children" ],
+                "caseSensitive" : false,
+                "dataType" : "This is the first level of classification criteria",
+                "attribute" : "sAMAccountName",
+                "operation" : "EQUALS",
+                "value" : "SVC"
+              }, {
+                "children" : [ "children", "children" ],
+                "caseSensitive" : false,
+                "dataType" : "This is the first level of classification criteria",
+                "attribute" : "sAMAccountName",
+                "operation" : "EQUALS",
+                "value" : "SVC"
+              } ],
+              "caseSensitive" : false,
+              "dataType" : "dataType",
+              "attribute" : "employeeType",
+              "operation" : "EQUALS",
+              "value" : "SERVICE"
+            } ],
+            "caseSensitive" : false,
+            "dataType" : "dataType",
+            "attribute" : "distinguishedName",
+            "operation" : "EQUALS",
+            "value" : "OU=Service Accounts"
+          },
           "created" : "2017-07-11T18:45:37.098Z",
           "modified" : "2018-06-25T20:22:28.104Z",
           "classificationMethod" : "SOURCE",

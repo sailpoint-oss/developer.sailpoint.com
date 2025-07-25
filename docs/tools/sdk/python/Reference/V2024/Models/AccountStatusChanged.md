@@ -18,9 +18,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **event_type** | **str** | the event type | [optional] 
 **identity_id** | **str** | the identity id | [optional] 
-**dt** | **str** | the date of event | [optional] 
-**account** | [**AccountStatusChangedAccount**](account-status-changed-account) |  | [optional] 
-**status_change** | [**AccountStatusChangedStatusChange**](account-status-changed-status-change) |  | [optional] 
+**date_time** | **str** | the date of event | [optional] 
+**account** | [**AccessRequestedAccount**](access-requested-account) |  | [required]
+**status_change** | [**AccessRequestedStatusChange**](access-requested-status-change) |  | [required]
 }
 
 ## Example
@@ -29,20 +29,20 @@ Name | Type | Description | Notes
 from sailpoint.v2024.models.account_status_changed import AccountStatusChanged
 
 account_status_changed = AccountStatusChanged(
-event_type='',
-identity_id='',
-dt='',
-account=sailpoint.v2024.models.account_status_changed_account.AccountStatusChanged_account(
-                    id = '', 
-                    native_identity = '', 
-                    display_name = '', 
-                    source_id = '', 
-                    source_name = '', 
-                    entitlement_count = 56, 
-                    access_type = '', ),
-status_change=sailpoint.v2024.models.account_status_changed_status_change.AccountStatusChanged_statusChange(
+event_type='AccountStatusChanged',
+identity_id='8a80828f643d484f01643e14202e206f',
+date_time='2019-03-08T22:37:33.901Z',
+account=sailpoint.v2024.models.access_requested_account.AccessRequested_account(
+                    id = '2c91808a77ff216301782327a50f09bf', 
+                    native_identity = 'dr.arden.ogahn.d', 
+                    display_name = 'Adam Archer', 
+                    source_id = '8a80828f643d484f01643e14202e206f', 
+                    source_name = 'JDBC Entitlements Source', 
+                    entitlement_count = 2, 
+                    access_type = 'account', ),
+status_change=sailpoint.v2024.models.access_requested_status_change.AccessRequested_statusChange(
                     previous_status = 'enabled', 
-                    new_status = 'enabled', )
+                    new_status = 'disabled', )
 )
 
 ```

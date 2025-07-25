@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'IdentityCertified', 'BetaIdentityCert
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**certification_id** | **str** | the id of the certification item | [optional] 
-**certification_name** | **str** | the certification item name | [optional] 
+**certification_id** | **str** | the id of the certification item | [required]
+**certification_name** | **str** | the certification item name | [required]
 **signed_date** | **str** | the date ceritification was signed | [optional] 
 **certifiers** | [**[]CertifierResponse**](certifier-response) | this field is deprecated and may go away | [optional] 
 **reviewers** | [**[]CertifierResponse**](certifier-response) | The list of identities who review this certification | [optional] 
 **signer** | [**CertifierResponse**](certifier-response) |  | [optional] 
 **event_type** | **str** | the event type | [optional] 
-**dt** | **str** | the date of event | [optional] 
+**date_time** | **str** | the date of event | [optional] 
 }
 
 ## Example
@@ -41,7 +41,7 @@ signer=sailpoint.beta.models.certifier_response.CertifierResponse(
                     id = '8a80828f643d484f01643e14202e206f', 
                     display_name = 'John Snow', ),
 event_type='IdentityCertified',
-dt='2019-03-08T22:37:33.901Z'
+date_time='2019-03-08T22:37:33.901Z'
 )
 
 ```

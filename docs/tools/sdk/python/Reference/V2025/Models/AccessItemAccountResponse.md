@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemAccountResponse', 'V2025Acc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access_type** | **str** | the access item type. account in this case | [optional] 
 **id** | **str** | the access item id | [optional] 
-**native_identity** | **str** | the native identifier used to uniquely identify an acccount | [optional] 
-**source_name** | **str** | the name of the source | [optional] 
-**source_id** | **str** | the id of the source | [optional] 
-**entitlement_count** | **str** | the number of entitlements the account will create | [optional] 
+**access_type** | **str** | the access item type. account in this case | [optional] 
 **display_name** | **str** | the display name of the identity | [optional] 
+**source_name** | **str** | the name of the source | [optional] 
+**native_identity** | **str** | the native identifier used to uniquely identify an acccount | [required]
+**source_id** | **str** | the id of the source | [optional] 
+**entitlement_count** | **int** | the number of entitlements the account will create | [optional] 
 }
 
 ## Example
@@ -31,13 +31,13 @@ Name | Type | Description | Notes
 from sailpoint.v2025.models.access_item_account_response import AccessItemAccountResponse
 
 access_item_account_response = AccessItemAccountResponse(
-access_type='account',
 id='2c918087763e69d901763e72e97f006f',
-native_identity='dr.arden.ogahn.d',
+access_type='account',
+display_name='Dr. Arden Rogahn MD',
 source_name='DataScienceDataset',
+native_identity='dr.arden.ogahn.d',
 source_id='2793o32dwd',
-entitlement_count='12',
-display_name='Dr. Arden Rogahn MD'
+entitlement_count=12
 )
 
 ```

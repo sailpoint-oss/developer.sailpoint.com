@@ -27,7 +27,7 @@ from sailpoint.v2025.models.account_status_changed_status_change import AccountS
 
 account_status_changed_status_change = AccountStatusChangedStatusChange(
 previous_status='enabled',
-new_status='enabled'
+new_status='disabled'
 )
 
 ```

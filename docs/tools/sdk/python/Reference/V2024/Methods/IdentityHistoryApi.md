@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**compare-identity-snapshots**](#compare-identity-snapshots) | **GET** `/historical-identities/{id}/compare` | Gets a difference of count for each access item types for the given identity between 2 snapshots
 [**compare-identity-snapshots-access-type**](#compare-identity-snapshots-access-type) | **GET** `/historical-identities/{id}/compare/{access-type}` | Gets a list of differences of specific accesstype for the given identity between 2 snapshots
 [**get-historical-identity**](#get-historical-identity) | **GET** `/historical-identities/{id}` | Get latest snapshot of identity
-[**get-historical-identity-events**](#get-historical-identity-events) | **GET** `/historical-identities/{id}/events` | Lists all events for the given identity
+[**get-historical-identity-events**](#get-historical-identity-events) | **GET** `/historical-identities/{id}/events` | List identity event history
 [**get-identity-snapshot**](#get-identity-snapshot) | **GET** `/historical-identities/{id}/snapshots/{date}` | Gets an identity snapshot at a given date
 [**get-identity-snapshot-summary**](#get-identity-snapshot-summary) | **GET** `/historical-identities/{id}/snapshot-summary` | Gets the summary for the event count for a specific identity
 [**get-identity-start-date**](#get-identity-start-date) | **GET** `/historical-identities/{id}/start-date` | Gets the start date of the identity
@@ -284,7 +284,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Lists all events for the given identity
+List identity event history
 This method retrieves all access events for the identity Requires authorization scope of 'idn:identity-history:read' 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-historical-identity-events)
@@ -342,7 +342,7 @@ with ApiClient(configuration) as api_client:
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
     try:
-        # Lists all events for the given identity
+        # List identity event history
         
         results = IdentityHistoryApi(api_client).get_historical_identity_events(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -779,12 +779,12 @@ Path   | var_date | **str** | True  | The specified date
   Query | type | **str** |   (optional) | The access item type
 
 ### Return type
-[**List[ListIdentityAccessItems200ResponseInner]**](../models/list-identity-access-items200-response-inner)
+[**List[ListIdentitySnapshotAccessItems200ResponseInner]**](../models/list-identity-snapshot-access-items200-response-inner)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | The identity object. | List[ListIdentityAccessItems200ResponseInner] |  -  |
+200 | The identity object. | List[ListIdentitySnapshotAccessItems200ResponseInner] |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -800,7 +800,7 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.identity_history_api import IdentityHistoryApi
 from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.list_identity_access_items200_response_inner import ListIdentityAccessItems200ResponseInner
+from sailpoint.v2024.models.list_identity_snapshot_access_items200_response_inner import ListIdentitySnapshotAccessItems200ResponseInner
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 

@@ -79,17 +79,6 @@ Method | HTTP request | Description
 
 
 ## create-access-model-metadata-for-entitlement
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Add metadata to an entitlement.
 Add single Access Model Metadata to an entitlement.
 
@@ -102,7 +91,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | id | **str** | True  | The entitlement id.
 Path   | attribute_key | **str** | True  | Technical name of the Attribute.
 Path   | attribute_value | **str** | True  | Technical name of the Attribute Value.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 [**Entitlement**](../models/entitlement)
@@ -130,20 +118,18 @@ from sailpoint.v2024.models.entitlement import Entitlement
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c91808c74ff913f0175097daa9d59cd' # str | The entitlement id. # str | The entitlement id.
     attribute_key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
     attribute_value = 'public' # str | Technical name of the Attribute Value. # str | Technical name of the Attribute Value.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Add metadata to an entitlement.
         
-        results = EntitlementsApi(api_client).create_access_model_metadata_for_entitlement(id=id, attribute_key=attribute_key, attribute_value=attribute_value, x_sail_point_experimental=x_sail_point_experimental)
+        results = EntitlementsApi(api_client).create_access_model_metadata_for_entitlement(id=id, attribute_key=attribute_key, attribute_value=attribute_value)
         # Below is a request that includes all optional parameters
-        # results = EntitlementsApi(api_client).create_access_model_metadata_for_entitlement(id, attribute_key, attribute_value, x_sail_point_experimental)
+        # results = EntitlementsApi(api_client).create_access_model_metadata_for_entitlement(id, attribute_key, attribute_value)
         print("The response of EntitlementsApi->create_access_model_metadata_for_entitlement:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -155,17 +141,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-access-model-metadata-from-entitlement
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Remove metadata from an entitlement.
 Remove single Access Model Metadata from an entitlement.
 
@@ -178,7 +153,6 @@ Param Type | Name | Data Type | Required  | Description
 Path   | id | **str** | True  | The entitlement id.
 Path   | attribute_key | **str** | True  | Technical name of the Attribute.
 Path   | attribute_value | **str** | True  | Technical name of the Attribute Value.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
  (empty response body)
@@ -205,20 +179,18 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c91808c74ff913f0175097daa9d59cd' # str | The entitlement id. # str | The entitlement id.
     attribute_key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
     attribute_value = 'public' # str | Technical name of the Attribute Value. # str | Technical name of the Attribute Value.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Remove metadata from an entitlement.
         
-        EntitlementsApi(api_client).delete_access_model_metadata_from_entitlement(id=id, attribute_key=attribute_key, attribute_value=attribute_value, x_sail_point_experimental=x_sail_point_experimental)
+        EntitlementsApi(api_client).delete_access_model_metadata_from_entitlement(id=id, attribute_key=attribute_key, attribute_value=attribute_value)
         # Below is a request that includes all optional parameters
-        # EntitlementsApi(api_client).delete_access_model_metadata_from_entitlement(id, attribute_key, attribute_value, x_sail_point_experimental)
+        # EntitlementsApi(api_client).delete_access_model_metadata_from_entitlement(id, attribute_key, attribute_value)
     except Exception as e:
         print("Exception when calling EntitlementsApi->delete_access_model_metadata_from_entitlement: %s\n" % e)
 ```
@@ -228,17 +200,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-entitlement
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Get an entitlement
 This API returns an entitlement by its ID.
 
@@ -249,7 +210,6 @@ This API returns an entitlement by its ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | The entitlement ID
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 [**Entitlement**](../models/entitlement)
@@ -278,18 +238,16 @@ from sailpoint.v2024.models.entitlement import Entitlement
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c91808874ff91550175097daaec161c' # str | The entitlement ID # str | The entitlement ID
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get an entitlement
         
-        results = EntitlementsApi(api_client).get_entitlement(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        results = EntitlementsApi(api_client).get_entitlement(id=id)
         # Below is a request that includes all optional parameters
-        # results = EntitlementsApi(api_client).get_entitlement(id, x_sail_point_experimental)
+        # results = EntitlementsApi(api_client).get_entitlement(id)
         print("The response of EntitlementsApi->get_entitlement:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -301,17 +259,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-entitlement-request-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Get entitlement request config
 This API returns the entitlement request config for a specified entitlement.
 
@@ -322,7 +269,6 @@ This API returns the entitlement request config for a specified entitlement.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | Entitlement Id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 [**EntitlementRequestConfig**](../models/entitlement-request-config)
@@ -351,18 +297,16 @@ from sailpoint.v2024.models.entitlement_request_config import EntitlementRequest
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c91808874ff91550175097daaec161c' # str | Entitlement Id # str | Entitlement Id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get entitlement request config
         
-        results = EntitlementsApi(api_client).get_entitlement_request_config(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        results = EntitlementsApi(api_client).get_entitlement_request_config(id=id)
         # Below is a request that includes all optional parameters
-        # results = EntitlementsApi(api_client).get_entitlement_request_config(id, x_sail_point_experimental)
+        # results = EntitlementsApi(api_client).get_entitlement_request_config(id)
         print("The response of EntitlementsApi->get_entitlement_request_config:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -376,17 +320,6 @@ with ApiClient(configuration) as api_client:
 ## import-entitlements-by-source
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
-:::
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
 :::
 Aggregate entitlements
 Starts an entitlement aggregation on the specified source. Though this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/beta/import-entitlements).
@@ -402,7 +335,6 @@ If the target source is a delimited file source, then the CSV file needs to be i
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | Source Id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
    | csv_file | **bytearray** |   (optional) | The CSV file containing the source entitlements to aggregate.
 
 ### Return type
@@ -431,19 +363,17 @@ from sailpoint.v2024.models.load_entitlement_task import LoadEntitlementTask
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Source Id # str | Source Id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     csv_file = None # bytearray | The CSV file containing the source entitlements to aggregate. (optional) # bytearray | The CSV file containing the source entitlements to aggregate. (optional)
 
     try:
         # Aggregate entitlements
         
-        results = EntitlementsApi(api_client).import_entitlements_by_source(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        results = EntitlementsApi(api_client).import_entitlements_by_source(id=id)
         # Below is a request that includes all optional parameters
-        # results = EntitlementsApi(api_client).import_entitlements_by_source(id, x_sail_point_experimental, csv_file)
+        # results = EntitlementsApi(api_client).import_entitlements_by_source(id, csv_file)
         print("The response of EntitlementsApi->import_entitlements_by_source:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -455,17 +385,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-entitlement-children
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 List of entitlements children
 This API returns a list of all child entitlements of a given entitlement.
 
@@ -476,7 +395,6 @@ This API returns a list of all child entitlements of a given entitlement.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | Entitlement Id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
   Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -510,11 +428,9 @@ from sailpoint.v2024.models.entitlement import Entitlement
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c91808874ff91550175097daaec161c' # str | Entitlement Id # str | Entitlement Id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -524,9 +440,9 @@ with ApiClient(configuration) as api_client:
     try:
         # List of entitlements children
         
-        results = EntitlementsApi(api_client).list_entitlement_children(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        results = EntitlementsApi(api_client).list_entitlement_children(id=id)
         # Below is a request that includes all optional parameters
-        # results = EntitlementsApi(api_client).list_entitlement_children(id, x_sail_point_experimental, limit, offset, count, sorters, filters)
+        # results = EntitlementsApi(api_client).list_entitlement_children(id, limit, offset, count, sorters, filters)
         print("The response of EntitlementsApi->list_entitlement_children:\n")
         for item in results:
             print(item.model_dump_json(by_alias=True, indent=4))
@@ -539,17 +455,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-entitlement-parents
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 List of entitlements parents
 This API returns a list of all parent entitlements of a given entitlement.
 
@@ -560,7 +465,6 @@ This API returns a list of all parent entitlements of a given entitlement.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | Entitlement Id
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
   Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -594,11 +498,9 @@ from sailpoint.v2024.models.entitlement import Entitlement
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c91808c74ff913f0175097daa9d59cd' # str | Entitlement Id # str | Entitlement Id
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -608,9 +510,9 @@ with ApiClient(configuration) as api_client:
     try:
         # List of entitlements parents
         
-        results = EntitlementsApi(api_client).list_entitlement_parents(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        results = EntitlementsApi(api_client).list_entitlement_parents(id=id)
         # Below is a request that includes all optional parameters
-        # results = EntitlementsApi(api_client).list_entitlement_parents(id, x_sail_point_experimental, limit, offset, count, sorters, filters)
+        # results = EntitlementsApi(api_client).list_entitlement_parents(id, limit, offset, count, sorters, filters)
         print("The response of EntitlementsApi->list_entitlement_parents:\n")
         for item in results:
             print(item.model_dump_json(by_alias=True, indent=4))
@@ -623,17 +525,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-entitlements
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Gets a list of entitlements.
 This API returns a list of entitlements.
 
@@ -647,7 +538,6 @@ Any authenticated token can call this API.
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
   Query | account_id | **str** |   (optional) | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s).
   Query | segmented_for_identity | **str** |   (optional) | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity.
   Query | for_segment_ids | **str** |   (optional) | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s).
@@ -684,10 +574,8 @@ from sailpoint.v2024.models.entitlement import Entitlement
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     account_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). (optional) # str | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). (optional)
     segmented_for_identity = 'e554098913544630b5985e9042f5e44b' # str | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional) # str | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional)
     for_segment_ids = '041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649' # str | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s). (optional) # str | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s). (optional)
@@ -701,9 +589,9 @@ with ApiClient(configuration) as api_client:
     try:
         # Gets a list of entitlements.
         
-        results = EntitlementsApi(api_client).list_entitlements(x_sail_point_experimental=x_sail_point_experimental)
+        results = EntitlementsApi(api_client).list_entitlements()
         # Below is a request that includes all optional parameters
-        # results = EntitlementsApi(api_client).list_entitlements(x_sail_point_experimental, account_id, segmented_for_identity, for_segment_ids, include_unsegmented, offset, limit, count, sorters, filters)
+        # results = EntitlementsApi(api_client).list_entitlements(account_id, segmented_for_identity, for_segment_ids, include_unsegmented, offset, limit, count, sorters, filters)
         print("The response of EntitlementsApi->list_entitlements:\n")
         for item in results:
             print(item.model_dump_json(by_alias=True, indent=4))
@@ -716,17 +604,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-entitlement
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Patch an entitlement
 This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
@@ -741,7 +618,6 @@ When you're patching owner, only owner type and owner id must be provided. Owner
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | ID of the entitlement to patch
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
  Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) |   (optional) | 
 
 ### Return type
@@ -772,19 +648,17 @@ from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the entitlement to patch # str | ID of the entitlement to patch
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     json_patch_operation = '''[{op=replace, path=/requestable, value=true}, {op=replace, path=/privileged, value=true}]''' # List[JsonPatchOperation] |  (optional)
 
     try:
         # Patch an entitlement
         
-        results = EntitlementsApi(api_client).patch_entitlement(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        results = EntitlementsApi(api_client).patch_entitlement(id=id)
         # Below is a request that includes all optional parameters
-        # results = EntitlementsApi(api_client).patch_entitlement(id, x_sail_point_experimental, new_json_patch_operation)
+        # results = EntitlementsApi(api_client).patch_entitlement(id, new_json_patch_operation)
         print("The response of EntitlementsApi->patch_entitlement:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -796,17 +670,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-entitlement-request-config
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Replace entitlement request config
 This API replaces the entitlement request config for a specified entitlement.
 
@@ -817,7 +680,6 @@ This API replaces the entitlement request config for a specified entitlement.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | Entitlement ID
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
  Body  | entitlement_request_config | [**EntitlementRequestConfig**](../models/entitlement-request-config) | True  | 
 
 ### Return type
@@ -847,11 +709,9 @@ from sailpoint.v2024.models.entitlement_request_config import EntitlementRequest
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | Entitlement ID # str | Entitlement ID
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     entitlement_request_config = '''{
           "accessRequestConfig" : {
             "denialCommentRequired" : false,
@@ -879,9 +739,9 @@ with ApiClient(configuration) as api_client:
     try:
         # Replace entitlement request config
         new_entitlement_request_config = EntitlementRequestConfig.from_json(entitlement_request_config)
-        results = EntitlementsApi(api_client).put_entitlement_request_config(id=id, x_sail_point_experimental=x_sail_point_experimental, entitlement_request_config=new_entitlement_request_config)
+        results = EntitlementsApi(api_client).put_entitlement_request_config(id=id, entitlement_request_config=new_entitlement_request_config)
         # Below is a request that includes all optional parameters
-        # results = EntitlementsApi(api_client).put_entitlement_request_config(id, x_sail_point_experimental, new_entitlement_request_config)
+        # results = EntitlementsApi(api_client).put_entitlement_request_config(id, new_entitlement_request_config)
         print("The response of EntitlementsApi->put_entitlement_request_config:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -893,17 +753,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## reset-source-entitlements
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Reset source entitlements
 Remove all entitlements from a specific source.
 To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Account Aggregation](https://developer.sailpoint.com/docs/api/v2024/import-accounts/) with `disableOptimization` = `true`. 
@@ -915,7 +764,6 @@ To reload the accounts along with the entitlements you removed, you must run an 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | ID of source for the entitlement reset
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 [**EntitlementSourceResetBaseReferenceDto**](../models/entitlement-source-reset-base-reference-dto)
@@ -943,18 +791,16 @@ from sailpoint.v2024.models.entitlement_source_reset_base_reference_dto import E
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121919ecca' # str | ID of source for the entitlement reset # str | ID of source for the entitlement reset
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Reset source entitlements
         
-        results = EntitlementsApi(api_client).reset_source_entitlements(id=id, x_sail_point_experimental=x_sail_point_experimental)
+        results = EntitlementsApi(api_client).reset_source_entitlements(id=id)
         # Below is a request that includes all optional parameters
-        # results = EntitlementsApi(api_client).reset_source_entitlements(id, x_sail_point_experimental)
+        # results = EntitlementsApi(api_client).reset_source_entitlements(id)
         print("The response of EntitlementsApi->reset_source_entitlements:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -966,17 +812,6 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-entitlements-in-bulk
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Bulk update an entitlement list
 This API applies an update to every entitlement of the list.
 
@@ -999,7 +834,6 @@ A token with ORG_ADMIN or API authority is required to call this API.
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
  Body  | entitlement_bulk_update_request | [**EntitlementBulkUpdateRequest**](../models/entitlement-bulk-update-request) | True  | 
 
 ### Return type
@@ -1028,10 +862,8 @@ from sailpoint.v2024.models.entitlement_bulk_update_request import EntitlementBu
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     entitlement_bulk_update_request = '''{
           "entitlementIds" : [ "2c91808a7624751a01762f19d665220d", "2c91808a7624751a01762f19d67c220e", "2c91808a7624751a01762f19d692220f" ],
           "jsonPatch" : [ {
@@ -1052,9 +884,9 @@ with ApiClient(configuration) as api_client:
     try:
         # Bulk update an entitlement list
         new_entitlement_bulk_update_request = EntitlementBulkUpdateRequest.from_json(entitlement_bulk_update_request)
-        EntitlementsApi(api_client).update_entitlements_in_bulk(x_sail_point_experimental=x_sail_point_experimental, entitlement_bulk_update_request=new_entitlement_bulk_update_request)
+        EntitlementsApi(api_client).update_entitlements_in_bulk(entitlement_bulk_update_request=new_entitlement_bulk_update_request)
         # Below is a request that includes all optional parameters
-        # EntitlementsApi(api_client).update_entitlements_in_bulk(x_sail_point_experimental, new_entitlement_bulk_update_request)
+        # EntitlementsApi(api_client).update_entitlements_in_bulk(new_entitlement_bulk_update_request)
     except Exception as e:
         print("Exception when calling EntitlementsApi->update_entitlements_in_bulk: %s\n" % e)
 ```

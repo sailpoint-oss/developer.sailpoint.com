@@ -27,9 +27,9 @@ Name | Type | Description | Notes
 from sailpoint.v2024.models.attribute_change import AttributeChange
 
 attribute_change = AttributeChange(
-name='',
-previous_value='',
-new_value=''
+name='firstname',
+previous_value='adam',
+new_value='zampa'
 )
 
 ```

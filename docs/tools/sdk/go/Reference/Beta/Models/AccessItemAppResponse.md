@@ -15,17 +15,17 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemAppResponse', 'BetaAccessIt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessType** | Pointer to **string** | the access item type. entitlement in this case | [optional] 
 **Id** | Pointer to **string** | the access item id | [optional] 
+**AccessType** | Pointer to **string** | the access item type. entitlement in this case | [optional] 
 **DisplayName** | Pointer to **string** | the access item display name | [optional] 
-**SourceName** | Pointer to **string** | the associated source name if it exists | [optional] 
-**AppRoleId** | Pointer to **string** | the app role id | [optional] 
+**SourceName** | Pointer to **NullableString** | the associated source name if it exists | [optional] 
+**AppRoleId** | **NullableString** | the app role id | 
 
 ## Methods
 
 ### NewAccessItemAppResponse
 
-`func NewAccessItemAppResponse() *AccessItemAppResponse`
+`func NewAccessItemAppResponse(appRoleId NullableString, ) *AccessItemAppResponse`
 
 NewAccessItemAppResponse instantiates a new AccessItemAppResponse object
 This constructor will assign default values to properties that have it defined,
@@ -39,31 +39,6 @@ will change when the set of required properties is changed
 NewAccessItemAppResponseWithDefaults instantiates a new AccessItemAppResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetAccessType
-
-`func (o *AccessItemAppResponse) GetAccessType() string`
-
-GetAccessType returns the AccessType field if non-nil, zero value otherwise.
-
-### GetAccessTypeOk
-
-`func (o *AccessItemAppResponse) GetAccessTypeOk() (*string, bool)`
-
-GetAccessTypeOk returns a tuple with the AccessType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccessType
-
-`func (o *AccessItemAppResponse) SetAccessType(v string)`
-
-SetAccessType sets AccessType field to given value.
-
-### HasAccessType
-
-`func (o *AccessItemAppResponse) HasAccessType() bool`
-
-HasAccessType returns a boolean if a field has been set.
 
 ### GetId
 
@@ -89,6 +64,31 @@ SetId sets Id field to given value.
 `func (o *AccessItemAppResponse) HasId() bool`
 
 HasId returns a boolean if a field has been set.
+
+### GetAccessType
+
+`func (o *AccessItemAppResponse) GetAccessType() string`
+
+GetAccessType returns the AccessType field if non-nil, zero value otherwise.
+
+### GetAccessTypeOk
+
+`func (o *AccessItemAppResponse) GetAccessTypeOk() (*string, bool)`
+
+GetAccessTypeOk returns a tuple with the AccessType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessType
+
+`func (o *AccessItemAppResponse) SetAccessType(v string)`
+
+SetAccessType sets AccessType field to given value.
+
+### HasAccessType
+
+`func (o *AccessItemAppResponse) HasAccessType() bool`
+
+HasAccessType returns a boolean if a field has been set.
 
 ### GetDisplayName
 
@@ -140,6 +140,16 @@ SetSourceName sets SourceName field to given value.
 
 HasSourceName returns a boolean if a field has been set.
 
+### SetSourceNameNil
+
+`func (o *AccessItemAppResponse) SetSourceNameNil(b bool)`
+
+ SetSourceNameNil sets the value for SourceName to be an explicit nil
+
+### UnsetSourceName
+`func (o *AccessItemAppResponse) UnsetSourceName()`
+
+UnsetSourceName ensures that no value is present for SourceName, not even an explicit nil
 ### GetAppRoleId
 
 `func (o *AccessItemAppResponse) GetAppRoleId() string`
@@ -159,10 +169,15 @@ and a boolean to check if the value has been set.
 
 SetAppRoleId sets AppRoleId field to given value.
 
-### HasAppRoleId
 
-`func (o *AccessItemAppResponse) HasAppRoleId() bool`
+### SetAppRoleIdNil
 
-HasAppRoleId returns a boolean if a field has been set.
+`func (o *AccessItemAppResponse) SetAppRoleIdNil(b bool)`
 
+ SetAppRoleIdNil sets the value for AppRoleId to be an explicit nil
+
+### UnsetAppRoleId
+`func (o *AccessItemAppResponse) UnsetAppRoleId()`
+
+UnsetAppRoleId ensures that no value is present for AppRoleId, not even an explicit nil
 

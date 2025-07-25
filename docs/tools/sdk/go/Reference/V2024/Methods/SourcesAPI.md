@@ -2236,17 +2236,6 @@ func main() {
 [[Back to top]](#)
 
 ## import-entitlements
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Entitlement aggregation
 Starts an entitlement aggregation on the specified source. 
 If the target source is a delimited file source, then the CSV file needs to be included in the request body. 
@@ -2271,7 +2260,6 @@ Other parameters are passed through a pointer to a apiImportEntitlementsRequest 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **file** | ***os.File** | The CSV file containing the source entitlements to aggregate. | 
 
 ### Return type
@@ -2299,15 +2287,14 @@ import (
 
 func main() {
     sourceId := `ef38f94347e94562b5bb8424a56397d8` // string | Source Id # string | Source Id
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     file := BINARY_DATA_HERE // *os.File | The CSV file containing the source entitlements to aggregate. (optional) # *os.File | The CSV file containing the source entitlements to aggregate. (optional)
 
     
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2024.SourcesAPI.ImportEntitlements(context.Background(), sourceId).XSailPointExperimental(xSailPointExperimental).Execute()
-	  //resp, r, err := apiClient.V2024.SourcesAPI.ImportEntitlements(context.Background(), sourceId).XSailPointExperimental(xSailPointExperimental).File(file).Execute()
+    resp, r, err := apiClient.V2024.SourcesAPI.ImportEntitlements(context.Background(), sourceId).Execute()
+	  //resp, r, err := apiClient.V2024.SourcesAPI.ImportEntitlements(context.Background(), sourceId).File(file).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `SourcesAPI.ImportEntitlements``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

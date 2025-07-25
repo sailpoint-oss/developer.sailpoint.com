@@ -1,15 +1,15 @@
 ---
-id: v2024-account-status-changed-account
-title: AccountStatusChangedAccount
-pagination_label: AccountStatusChangedAccount
-sidebar_label: AccountStatusChangedAccount
+id: v2024-access-requested-account
+title: AccessRequestedAccount
+pagination_label: AccessRequestedAccount
+sidebar_label: AccessRequestedAccount
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountStatusChangedAccount', 'V2024AccountStatusChangedAccount'] 
-slug: /tools/sdk/go/v2024/models/account-status-changed-account
-tags: ['SDK', 'Software Development Kit', 'AccountStatusChangedAccount', 'V2024AccountStatusChangedAccount']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestedAccount', 'V2024AccessRequestedAccount'] 
+slug: /tools/sdk/go/v2024/models/access-requested-account
+tags: ['SDK', 'Software Development Kit', 'AccessRequestedAccount', 'V2024AccessRequestedAccount']
 ---
 
-# AccountStatusChangedAccount
+# AccessRequestedAccount
 
 ## Properties
 
@@ -25,195 +25,195 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewAccountStatusChangedAccount
+### NewAccessRequestedAccount
 
-`func NewAccountStatusChangedAccount() *AccountStatusChangedAccount`
+`func NewAccessRequestedAccount() *AccessRequestedAccount`
 
-NewAccountStatusChangedAccount instantiates a new AccountStatusChangedAccount object
+NewAccessRequestedAccount instantiates a new AccessRequestedAccount object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewAccountStatusChangedAccountWithDefaults
+### NewAccessRequestedAccountWithDefaults
 
-`func NewAccountStatusChangedAccountWithDefaults() *AccountStatusChangedAccount`
+`func NewAccessRequestedAccountWithDefaults() *AccessRequestedAccount`
 
-NewAccountStatusChangedAccountWithDefaults instantiates a new AccountStatusChangedAccount object
+NewAccessRequestedAccountWithDefaults instantiates a new AccessRequestedAccount object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetId
 
-`func (o *AccountStatusChangedAccount) GetId() string`
+`func (o *AccessRequestedAccount) GetId() string`
 
 GetId returns the Id field if non-nil, zero value otherwise.
 
 ### GetIdOk
 
-`func (o *AccountStatusChangedAccount) GetIdOk() (*string, bool)`
+`func (o *AccessRequestedAccount) GetIdOk() (*string, bool)`
 
 GetIdOk returns a tuple with the Id field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetId
 
-`func (o *AccountStatusChangedAccount) SetId(v string)`
+`func (o *AccessRequestedAccount) SetId(v string)`
 
 SetId sets Id field to given value.
 
 ### HasId
 
-`func (o *AccountStatusChangedAccount) HasId() bool`
+`func (o *AccessRequestedAccount) HasId() bool`
 
 HasId returns a boolean if a field has been set.
 
 ### GetNativeIdentity
 
-`func (o *AccountStatusChangedAccount) GetNativeIdentity() string`
+`func (o *AccessRequestedAccount) GetNativeIdentity() string`
 
 GetNativeIdentity returns the NativeIdentity field if non-nil, zero value otherwise.
 
 ### GetNativeIdentityOk
 
-`func (o *AccountStatusChangedAccount) GetNativeIdentityOk() (*string, bool)`
+`func (o *AccessRequestedAccount) GetNativeIdentityOk() (*string, bool)`
 
 GetNativeIdentityOk returns a tuple with the NativeIdentity field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNativeIdentity
 
-`func (o *AccountStatusChangedAccount) SetNativeIdentity(v string)`
+`func (o *AccessRequestedAccount) SetNativeIdentity(v string)`
 
 SetNativeIdentity sets NativeIdentity field to given value.
 
 ### HasNativeIdentity
 
-`func (o *AccountStatusChangedAccount) HasNativeIdentity() bool`
+`func (o *AccessRequestedAccount) HasNativeIdentity() bool`
 
 HasNativeIdentity returns a boolean if a field has been set.
 
 ### GetDisplayName
 
-`func (o *AccountStatusChangedAccount) GetDisplayName() string`
+`func (o *AccessRequestedAccount) GetDisplayName() string`
 
 GetDisplayName returns the DisplayName field if non-nil, zero value otherwise.
 
 ### GetDisplayNameOk
 
-`func (o *AccountStatusChangedAccount) GetDisplayNameOk() (*string, bool)`
+`func (o *AccessRequestedAccount) GetDisplayNameOk() (*string, bool)`
 
 GetDisplayNameOk returns a tuple with the DisplayName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDisplayName
 
-`func (o *AccountStatusChangedAccount) SetDisplayName(v string)`
+`func (o *AccessRequestedAccount) SetDisplayName(v string)`
 
 SetDisplayName sets DisplayName field to given value.
 
 ### HasDisplayName
 
-`func (o *AccountStatusChangedAccount) HasDisplayName() bool`
+`func (o *AccessRequestedAccount) HasDisplayName() bool`
 
 HasDisplayName returns a boolean if a field has been set.
 
 ### GetSourceId
 
-`func (o *AccountStatusChangedAccount) GetSourceId() string`
+`func (o *AccessRequestedAccount) GetSourceId() string`
 
 GetSourceId returns the SourceId field if non-nil, zero value otherwise.
 
 ### GetSourceIdOk
 
-`func (o *AccountStatusChangedAccount) GetSourceIdOk() (*string, bool)`
+`func (o *AccessRequestedAccount) GetSourceIdOk() (*string, bool)`
 
 GetSourceIdOk returns a tuple with the SourceId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSourceId
 
-`func (o *AccountStatusChangedAccount) SetSourceId(v string)`
+`func (o *AccessRequestedAccount) SetSourceId(v string)`
 
 SetSourceId sets SourceId field to given value.
 
 ### HasSourceId
 
-`func (o *AccountStatusChangedAccount) HasSourceId() bool`
+`func (o *AccessRequestedAccount) HasSourceId() bool`
 
 HasSourceId returns a boolean if a field has been set.
 
 ### GetSourceName
 
-`func (o *AccountStatusChangedAccount) GetSourceName() string`
+`func (o *AccessRequestedAccount) GetSourceName() string`
 
 GetSourceName returns the SourceName field if non-nil, zero value otherwise.
 
 ### GetSourceNameOk
 
-`func (o *AccountStatusChangedAccount) GetSourceNameOk() (*string, bool)`
+`func (o *AccessRequestedAccount) GetSourceNameOk() (*string, bool)`
 
 GetSourceNameOk returns a tuple with the SourceName field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSourceName
 
-`func (o *AccountStatusChangedAccount) SetSourceName(v string)`
+`func (o *AccessRequestedAccount) SetSourceName(v string)`
 
 SetSourceName sets SourceName field to given value.
 
 ### HasSourceName
 
-`func (o *AccountStatusChangedAccount) HasSourceName() bool`
+`func (o *AccessRequestedAccount) HasSourceName() bool`
 
 HasSourceName returns a boolean if a field has been set.
 
 ### GetEntitlementCount
 
-`func (o *AccountStatusChangedAccount) GetEntitlementCount() int32`
+`func (o *AccessRequestedAccount) GetEntitlementCount() int32`
 
 GetEntitlementCount returns the EntitlementCount field if non-nil, zero value otherwise.
 
 ### GetEntitlementCountOk
 
-`func (o *AccountStatusChangedAccount) GetEntitlementCountOk() (*int32, bool)`
+`func (o *AccessRequestedAccount) GetEntitlementCountOk() (*int32, bool)`
 
 GetEntitlementCountOk returns a tuple with the EntitlementCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntitlementCount
 
-`func (o *AccountStatusChangedAccount) SetEntitlementCount(v int32)`
+`func (o *AccessRequestedAccount) SetEntitlementCount(v int32)`
 
 SetEntitlementCount sets EntitlementCount field to given value.
 
 ### HasEntitlementCount
 
-`func (o *AccountStatusChangedAccount) HasEntitlementCount() bool`
+`func (o *AccessRequestedAccount) HasEntitlementCount() bool`
 
 HasEntitlementCount returns a boolean if a field has been set.
 
 ### GetAccessType
 
-`func (o *AccountStatusChangedAccount) GetAccessType() string`
+`func (o *AccessRequestedAccount) GetAccessType() string`
 
 GetAccessType returns the AccessType field if non-nil, zero value otherwise.
 
 ### GetAccessTypeOk
 
-`func (o *AccountStatusChangedAccount) GetAccessTypeOk() (*string, bool)`
+`func (o *AccessRequestedAccount) GetAccessTypeOk() (*string, bool)`
 
 GetAccessTypeOk returns a tuple with the AccessType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAccessType
 
-`func (o *AccountStatusChangedAccount) SetAccessType(v string)`
+`func (o *AccessRequestedAccount) SetAccessType(v string)`
 
 SetAccessType sets AccessType field to given value.
 
 ### HasAccessType
 
-`func (o *AccountStatusChangedAccount) HasAccessType() bool`
+`func (o *AccessRequestedAccount) HasAccessType() bool`
 
 HasAccessType returns a boolean if a field has been set.
 

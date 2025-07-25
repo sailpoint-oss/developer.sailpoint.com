@@ -15,16 +15,16 @@ tags: ['SDK', 'Software Development Kit', 'AttributesChanged', 'BetaAttributesCh
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Changes** | Pointer to [**[]AttributeChange**](attribute-change) |  | [optional] 
+**AttributeChanges** | [**[]AttributeChange**](attribute-change) |  | 
 **EventType** | Pointer to **string** | the event type | [optional] 
 **IdentityId** | Pointer to **string** | the identity id | [optional] 
-**Dt** | Pointer to **string** | the date of event | [optional] 
+**DateTime** | Pointer to **string** | the date of event | [optional] 
 
 ## Methods
 
 ### NewAttributesChanged
 
-`func NewAttributesChanged() *AttributesChanged`
+`func NewAttributesChanged(attributeChanges []AttributeChange, ) *AttributesChanged`
 
 NewAttributesChanged instantiates a new AttributesChanged object
 This constructor will assign default values to properties that have it defined,
@@ -39,30 +39,25 @@ NewAttributesChangedWithDefaults instantiates a new AttributesChanged object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetChanges
+### GetAttributeChanges
 
-`func (o *AttributesChanged) GetChanges() []AttributeChange`
+`func (o *AttributesChanged) GetAttributeChanges() []AttributeChange`
 
-GetChanges returns the Changes field if non-nil, zero value otherwise.
+GetAttributeChanges returns the AttributeChanges field if non-nil, zero value otherwise.
 
-### GetChangesOk
+### GetAttributeChangesOk
 
-`func (o *AttributesChanged) GetChangesOk() (*[]AttributeChange, bool)`
+`func (o *AttributesChanged) GetAttributeChangesOk() (*[]AttributeChange, bool)`
 
-GetChangesOk returns a tuple with the Changes field if it's non-nil, zero value otherwise
+GetAttributeChangesOk returns a tuple with the AttributeChanges field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetChanges
+### SetAttributeChanges
 
-`func (o *AttributesChanged) SetChanges(v []AttributeChange)`
+`func (o *AttributesChanged) SetAttributeChanges(v []AttributeChange)`
 
-SetChanges sets Changes field to given value.
+SetAttributeChanges sets AttributeChanges field to given value.
 
-### HasChanges
-
-`func (o *AttributesChanged) HasChanges() bool`
-
-HasChanges returns a boolean if a field has been set.
 
 ### GetEventType
 
@@ -114,29 +109,29 @@ SetIdentityId sets IdentityId field to given value.
 
 HasIdentityId returns a boolean if a field has been set.
 
-### GetDt
+### GetDateTime
 
-`func (o *AttributesChanged) GetDt() string`
+`func (o *AttributesChanged) GetDateTime() string`
 
-GetDt returns the Dt field if non-nil, zero value otherwise.
+GetDateTime returns the DateTime field if non-nil, zero value otherwise.
 
-### GetDtOk
+### GetDateTimeOk
 
-`func (o *AttributesChanged) GetDtOk() (*string, bool)`
+`func (o *AttributesChanged) GetDateTimeOk() (*string, bool)`
 
-GetDtOk returns a tuple with the Dt field if it's non-nil, zero value otherwise
+GetDateTimeOk returns a tuple with the DateTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDt
+### SetDateTime
 
-`func (o *AttributesChanged) SetDt(v string)`
+`func (o *AttributesChanged) SetDateTime(v string)`
 
-SetDt sets Dt field to given value.
+SetDateTime sets DateTime field to given value.
 
-### HasDt
+### HasDateTime
 
-`func (o *AttributesChanged) HasDt() bool`
+`func (o *AttributesChanged) HasDateTime() bool`
 
-HasDt returns a boolean if a field has been set.
+HasDateTime returns a boolean if a field has been set.
 
 

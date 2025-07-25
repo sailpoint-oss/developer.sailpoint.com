@@ -15,17 +15,18 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemRemoved', 'V2024AccessItemR
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessItem** | Pointer to [**AccessItemAssociatedAccessItem**](access-item-associated-access-item) |  | [optional] 
+**AccessItem** | [**AccessItemAssociatedAccessItem**](access-item-associated-access-item) |  | 
 **IdentityId** | Pointer to **string** | the identity id | [optional] 
 **EventType** | Pointer to **string** | the event type | [optional] 
-**Dt** | Pointer to **string** | the date of event | [optional] 
-**GovernanceEvent** | Pointer to [**CorrelatedGovernanceEvent**](correlated-governance-event) |  | [optional] 
+**DateTime** | Pointer to **string** | the date of event | [optional] 
+**AccessItemType** | Pointer to **string** | the access item type | [optional] 
+**GovernanceEvent** | Pointer to [**NullableCorrelatedGovernanceEvent**](correlated-governance-event) |  | [optional] 
 
 ## Methods
 
 ### NewAccessItemRemoved
 
-`func NewAccessItemRemoved() *AccessItemRemoved`
+`func NewAccessItemRemoved(accessItem AccessItemAssociatedAccessItem, ) *AccessItemRemoved`
 
 NewAccessItemRemoved instantiates a new AccessItemRemoved object
 This constructor will assign default values to properties that have it defined,
@@ -59,11 +60,6 @@ and a boolean to check if the value has been set.
 
 SetAccessItem sets AccessItem field to given value.
 
-### HasAccessItem
-
-`func (o *AccessItemRemoved) HasAccessItem() bool`
-
-HasAccessItem returns a boolean if a field has been set.
 
 ### GetIdentityId
 
@@ -115,30 +111,55 @@ SetEventType sets EventType field to given value.
 
 HasEventType returns a boolean if a field has been set.
 
-### GetDt
+### GetDateTime
 
-`func (o *AccessItemRemoved) GetDt() string`
+`func (o *AccessItemRemoved) GetDateTime() string`
 
-GetDt returns the Dt field if non-nil, zero value otherwise.
+GetDateTime returns the DateTime field if non-nil, zero value otherwise.
 
-### GetDtOk
+### GetDateTimeOk
 
-`func (o *AccessItemRemoved) GetDtOk() (*string, bool)`
+`func (o *AccessItemRemoved) GetDateTimeOk() (*string, bool)`
 
-GetDtOk returns a tuple with the Dt field if it's non-nil, zero value otherwise
+GetDateTimeOk returns a tuple with the DateTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDt
+### SetDateTime
 
-`func (o *AccessItemRemoved) SetDt(v string)`
+`func (o *AccessItemRemoved) SetDateTime(v string)`
 
-SetDt sets Dt field to given value.
+SetDateTime sets DateTime field to given value.
 
-### HasDt
+### HasDateTime
 
-`func (o *AccessItemRemoved) HasDt() bool`
+`func (o *AccessItemRemoved) HasDateTime() bool`
 
-HasDt returns a boolean if a field has been set.
+HasDateTime returns a boolean if a field has been set.
+
+### GetAccessItemType
+
+`func (o *AccessItemRemoved) GetAccessItemType() string`
+
+GetAccessItemType returns the AccessItemType field if non-nil, zero value otherwise.
+
+### GetAccessItemTypeOk
+
+`func (o *AccessItemRemoved) GetAccessItemTypeOk() (*string, bool)`
+
+GetAccessItemTypeOk returns a tuple with the AccessItemType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessItemType
+
+`func (o *AccessItemRemoved) SetAccessItemType(v string)`
+
+SetAccessItemType sets AccessItemType field to given value.
+
+### HasAccessItemType
+
+`func (o *AccessItemRemoved) HasAccessItemType() bool`
+
+HasAccessItemType returns a boolean if a field has been set.
 
 ### GetGovernanceEvent
 
@@ -165,4 +186,14 @@ SetGovernanceEvent sets GovernanceEvent field to given value.
 
 HasGovernanceEvent returns a boolean if a field has been set.
 
+### SetGovernanceEventNil
+
+`func (o *AccessItemRemoved) SetGovernanceEventNil(b bool)`
+
+ SetGovernanceEventNil sets the value for GovernanceEvent to be an explicit nil
+
+### UnsetGovernanceEvent
+`func (o *AccessItemRemoved) UnsetGovernanceEvent()`
+
+UnsetGovernanceEvent ensures that no value is present for GovernanceEvent, not even an explicit nil
 

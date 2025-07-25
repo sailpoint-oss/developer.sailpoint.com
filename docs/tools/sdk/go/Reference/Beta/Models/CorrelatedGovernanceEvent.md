@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CorrelatedGovernanceEvent', 'BetaCorr
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | Pointer to **string** | The name of the governance event, such as the certification name or access request ID. | [optional] 
-**Dt** | Pointer to **string** | The date that the certification or access request was completed. | [optional] 
+**DateTime** | Pointer to **string** | The date that the certification or access request was completed. | [optional] 
 **Type** | Pointer to **string** | The type of governance event. | [optional] 
 **GovernanceId** | Pointer to **string** | The ID of the instance that caused the event - either the certification ID or access request ID. | [optional] 
 **Owners** | Pointer to [**[]CertifierResponse**](certifier-response) | The owners of the governance event (the certifiers or approvers) | [optional] 
@@ -67,30 +67,30 @@ SetName sets Name field to given value.
 
 HasName returns a boolean if a field has been set.
 
-### GetDt
+### GetDateTime
 
-`func (o *CorrelatedGovernanceEvent) GetDt() string`
+`func (o *CorrelatedGovernanceEvent) GetDateTime() string`
 
-GetDt returns the Dt field if non-nil, zero value otherwise.
+GetDateTime returns the DateTime field if non-nil, zero value otherwise.
 
-### GetDtOk
+### GetDateTimeOk
 
-`func (o *CorrelatedGovernanceEvent) GetDtOk() (*string, bool)`
+`func (o *CorrelatedGovernanceEvent) GetDateTimeOk() (*string, bool)`
 
-GetDtOk returns a tuple with the Dt field if it's non-nil, zero value otherwise
+GetDateTimeOk returns a tuple with the DateTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDt
+### SetDateTime
 
-`func (o *CorrelatedGovernanceEvent) SetDt(v string)`
+`func (o *CorrelatedGovernanceEvent) SetDateTime(v string)`
 
-SetDt sets Dt field to given value.
+SetDateTime sets DateTime field to given value.
 
-### HasDt
+### HasDateTime
 
-`func (o *CorrelatedGovernanceEvent) HasDt() bool`
+`func (o *CorrelatedGovernanceEvent) HasDateTime() bool`
 
-HasDt returns a boolean if a field has been set.
+HasDateTime returns a boolean if a field has been set.
 
 ### GetType
 

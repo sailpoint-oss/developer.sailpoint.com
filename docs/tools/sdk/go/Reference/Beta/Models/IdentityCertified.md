@@ -15,20 +15,20 @@ tags: ['SDK', 'Software Development Kit', 'IdentityCertified', 'BetaIdentityCert
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CertificationId** | Pointer to **string** | the id of the certification item | [optional] 
-**CertificationName** | Pointer to **string** | the certification item name | [optional] 
+**CertificationId** | **string** | the id of the certification item | 
+**CertificationName** | **string** | the certification item name | 
 **SignedDate** | Pointer to **string** | the date ceritification was signed | [optional] 
 **Certifiers** | Pointer to [**[]CertifierResponse**](certifier-response) | this field is deprecated and may go away | [optional] 
 **Reviewers** | Pointer to [**[]CertifierResponse**](certifier-response) | The list of identities who review this certification | [optional] 
 **Signer** | Pointer to [**CertifierResponse**](certifier-response) |  | [optional] 
 **EventType** | Pointer to **string** | the event type | [optional] 
-**Dt** | Pointer to **string** | the date of event | [optional] 
+**DateTime** | Pointer to **string** | the date of event | [optional] 
 
 ## Methods
 
 ### NewIdentityCertified
 
-`func NewIdentityCertified() *IdentityCertified`
+`func NewIdentityCertified(certificationId string, certificationName string, ) *IdentityCertified`
 
 NewIdentityCertified instantiates a new IdentityCertified object
 This constructor will assign default values to properties that have it defined,
@@ -62,11 +62,6 @@ and a boolean to check if the value has been set.
 
 SetCertificationId sets CertificationId field to given value.
 
-### HasCertificationId
-
-`func (o *IdentityCertified) HasCertificationId() bool`
-
-HasCertificationId returns a boolean if a field has been set.
 
 ### GetCertificationName
 
@@ -87,11 +82,6 @@ and a boolean to check if the value has been set.
 
 SetCertificationName sets CertificationName field to given value.
 
-### HasCertificationName
-
-`func (o *IdentityCertified) HasCertificationName() bool`
-
-HasCertificationName returns a boolean if a field has been set.
 
 ### GetSignedDate
 
@@ -218,29 +208,29 @@ SetEventType sets EventType field to given value.
 
 HasEventType returns a boolean if a field has been set.
 
-### GetDt
+### GetDateTime
 
-`func (o *IdentityCertified) GetDt() string`
+`func (o *IdentityCertified) GetDateTime() string`
 
-GetDt returns the Dt field if non-nil, zero value otherwise.
+GetDateTime returns the DateTime field if non-nil, zero value otherwise.
 
-### GetDtOk
+### GetDateTimeOk
 
-`func (o *IdentityCertified) GetDtOk() (*string, bool)`
+`func (o *IdentityCertified) GetDateTimeOk() (*string, bool)`
 
-GetDtOk returns a tuple with the Dt field if it's non-nil, zero value otherwise
+GetDateTimeOk returns a tuple with the DateTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDt
+### SetDateTime
 
-`func (o *IdentityCertified) SetDt(v string)`
+`func (o *IdentityCertified) SetDateTime(v string)`
 
-SetDt sets Dt field to given value.
+SetDateTime sets DateTime field to given value.
 
-### HasDt
+### HasDateTime
 
-`func (o *IdentityCertified) HasDt() bool`
+`func (o *IdentityCertified) HasDateTime() bool`
 
-HasDt returns a boolean if a field has been set.
+HasDateTime returns a boolean if a field has been set.
 
 

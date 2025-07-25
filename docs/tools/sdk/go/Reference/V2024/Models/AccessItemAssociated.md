@@ -15,17 +15,18 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemAssociated', 'V2024AccessIt
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessItem** | Pointer to [**AccessItemAssociatedAccessItem**](access-item-associated-access-item) |  | [optional] 
-**IdentityId** | Pointer to **string** | the identity id | [optional] 
 **EventType** | Pointer to **string** | the event type | [optional] 
-**Dt** | Pointer to **string** | the date of event | [optional] 
-**GovernanceEvent** | Pointer to [**CorrelatedGovernanceEvent**](correlated-governance-event) |  | [optional] 
+**DateTime** | Pointer to **string** | the date of event | [optional] 
+**IdentityId** | Pointer to **string** | the identity id | [optional] 
+**AccessItem** | [**AccessItemAssociatedAccessItem**](access-item-associated-access-item) |  | 
+**GovernanceEvent** | [**NullableCorrelatedGovernanceEvent**](correlated-governance-event) |  | 
+**AccessItemType** | Pointer to **string** | the access item type | [optional] 
 
 ## Methods
 
 ### NewAccessItemAssociated
 
-`func NewAccessItemAssociated() *AccessItemAssociated`
+`func NewAccessItemAssociated(accessItem AccessItemAssociatedAccessItem, governanceEvent NullableCorrelatedGovernanceEvent, ) *AccessItemAssociated`
 
 NewAccessItemAssociated instantiates a new AccessItemAssociated object
 This constructor will assign default values to properties that have it defined,
@@ -39,56 +40,6 @@ will change when the set of required properties is changed
 NewAccessItemAssociatedWithDefaults instantiates a new AccessItemAssociated object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetAccessItem
-
-`func (o *AccessItemAssociated) GetAccessItem() AccessItemAssociatedAccessItem`
-
-GetAccessItem returns the AccessItem field if non-nil, zero value otherwise.
-
-### GetAccessItemOk
-
-`func (o *AccessItemAssociated) GetAccessItemOk() (*AccessItemAssociatedAccessItem, bool)`
-
-GetAccessItemOk returns a tuple with the AccessItem field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccessItem
-
-`func (o *AccessItemAssociated) SetAccessItem(v AccessItemAssociatedAccessItem)`
-
-SetAccessItem sets AccessItem field to given value.
-
-### HasAccessItem
-
-`func (o *AccessItemAssociated) HasAccessItem() bool`
-
-HasAccessItem returns a boolean if a field has been set.
-
-### GetIdentityId
-
-`func (o *AccessItemAssociated) GetIdentityId() string`
-
-GetIdentityId returns the IdentityId field if non-nil, zero value otherwise.
-
-### GetIdentityIdOk
-
-`func (o *AccessItemAssociated) GetIdentityIdOk() (*string, bool)`
-
-GetIdentityIdOk returns a tuple with the IdentityId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIdentityId
-
-`func (o *AccessItemAssociated) SetIdentityId(v string)`
-
-SetIdentityId sets IdentityId field to given value.
-
-### HasIdentityId
-
-`func (o *AccessItemAssociated) HasIdentityId() bool`
-
-HasIdentityId returns a boolean if a field has been set.
 
 ### GetEventType
 
@@ -115,30 +66,75 @@ SetEventType sets EventType field to given value.
 
 HasEventType returns a boolean if a field has been set.
 
-### GetDt
+### GetDateTime
 
-`func (o *AccessItemAssociated) GetDt() string`
+`func (o *AccessItemAssociated) GetDateTime() string`
 
-GetDt returns the Dt field if non-nil, zero value otherwise.
+GetDateTime returns the DateTime field if non-nil, zero value otherwise.
 
-### GetDtOk
+### GetDateTimeOk
 
-`func (o *AccessItemAssociated) GetDtOk() (*string, bool)`
+`func (o *AccessItemAssociated) GetDateTimeOk() (*string, bool)`
 
-GetDtOk returns a tuple with the Dt field if it's non-nil, zero value otherwise
+GetDateTimeOk returns a tuple with the DateTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDt
+### SetDateTime
 
-`func (o *AccessItemAssociated) SetDt(v string)`
+`func (o *AccessItemAssociated) SetDateTime(v string)`
 
-SetDt sets Dt field to given value.
+SetDateTime sets DateTime field to given value.
 
-### HasDt
+### HasDateTime
 
-`func (o *AccessItemAssociated) HasDt() bool`
+`func (o *AccessItemAssociated) HasDateTime() bool`
 
-HasDt returns a boolean if a field has been set.
+HasDateTime returns a boolean if a field has been set.
+
+### GetIdentityId
+
+`func (o *AccessItemAssociated) GetIdentityId() string`
+
+GetIdentityId returns the IdentityId field if non-nil, zero value otherwise.
+
+### GetIdentityIdOk
+
+`func (o *AccessItemAssociated) GetIdentityIdOk() (*string, bool)`
+
+GetIdentityIdOk returns a tuple with the IdentityId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIdentityId
+
+`func (o *AccessItemAssociated) SetIdentityId(v string)`
+
+SetIdentityId sets IdentityId field to given value.
+
+### HasIdentityId
+
+`func (o *AccessItemAssociated) HasIdentityId() bool`
+
+HasIdentityId returns a boolean if a field has been set.
+
+### GetAccessItem
+
+`func (o *AccessItemAssociated) GetAccessItem() AccessItemAssociatedAccessItem`
+
+GetAccessItem returns the AccessItem field if non-nil, zero value otherwise.
+
+### GetAccessItemOk
+
+`func (o *AccessItemAssociated) GetAccessItemOk() (*AccessItemAssociatedAccessItem, bool)`
+
+GetAccessItemOk returns a tuple with the AccessItem field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessItem
+
+`func (o *AccessItemAssociated) SetAccessItem(v AccessItemAssociatedAccessItem)`
+
+SetAccessItem sets AccessItem field to given value.
+
 
 ### GetGovernanceEvent
 
@@ -159,10 +155,40 @@ and a boolean to check if the value has been set.
 
 SetGovernanceEvent sets GovernanceEvent field to given value.
 
-### HasGovernanceEvent
 
-`func (o *AccessItemAssociated) HasGovernanceEvent() bool`
+### SetGovernanceEventNil
 
-HasGovernanceEvent returns a boolean if a field has been set.
+`func (o *AccessItemAssociated) SetGovernanceEventNil(b bool)`
+
+ SetGovernanceEventNil sets the value for GovernanceEvent to be an explicit nil
+
+### UnsetGovernanceEvent
+`func (o *AccessItemAssociated) UnsetGovernanceEvent()`
+
+UnsetGovernanceEvent ensures that no value is present for GovernanceEvent, not even an explicit nil
+### GetAccessItemType
+
+`func (o *AccessItemAssociated) GetAccessItemType() string`
+
+GetAccessItemType returns the AccessItemType field if non-nil, zero value otherwise.
+
+### GetAccessItemTypeOk
+
+`func (o *AccessItemAssociated) GetAccessItemTypeOk() (*string, bool)`
+
+GetAccessItemTypeOk returns a tuple with the AccessItemType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessItemType
+
+`func (o *AccessItemAssociated) SetAccessItemType(v string)`
+
+SetAccessItemType sets AccessItemType field to given value.
+
+### HasAccessItemType
+
+`func (o *AccessItemAssociated) HasAccessItemType() bool`
+
+HasAccessItemType returns a boolean if a field has been set.
 
 

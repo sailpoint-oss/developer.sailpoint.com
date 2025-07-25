@@ -15,24 +15,23 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemAccessProfileResponse', 'Be
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessType** | Pointer to **string** | the access item type. accessProfile in this case | [optional] 
 **Id** | Pointer to **string** | the access item id | [optional] 
-**Name** | Pointer to **string** | the access profile name | [optional] 
-**SourceName** | Pointer to **string** | the name of the source | [optional] 
-**SourceId** | Pointer to **string** | the id of the source | [optional] 
-**Description** | Pointer to **string** | the description for the access profile | [optional] 
+**AccessType** | Pointer to **string** | the access item type. accessProfile in this case | [optional] 
 **DisplayName** | Pointer to **string** | the display name of the identity | [optional] 
-**EntitlementCount** | Pointer to **string** | the number of entitlements the access profile will create | [optional] 
-**AppDisplayName** | Pointer to **string** | the name of | [optional] 
-**RemoveDate** | Pointer to **string** | the date the access profile is no longer assigned to the specified identity | [optional] 
-**Standalone** | **bool** | indicates whether the access profile is standalone | 
-**Revocable** | **bool** | indicates whether the access profile is | 
+**SourceName** | Pointer to **string** | the name of the source | [optional] 
+**EntitlementCount** | **int32** | the number of entitlements the access profile will create | 
+**Description** | Pointer to **NullableString** | the description for the access profile | [optional] 
+**SourceId** | Pointer to **string** | the id of the source | [optional] 
+**AppRefs** | [**[]AccessItemAccessProfileResponseAppRefsInner**](access-item-access-profile-response-app-refs-inner) | the list of app ids associated with the access profile | 
+**RemoveDate** | Pointer to **NullableString** | the date the access profile is no longer assigned to the specified identity | [optional] 
+**Standalone** | **NullableBool** | indicates whether the access profile is standalone | 
+**Revocable** | **NullableBool** | indicates whether the access profile is revocable | 
 
 ## Methods
 
 ### NewAccessItemAccessProfileResponse
 
-`func NewAccessItemAccessProfileResponse(standalone bool, revocable bool, ) *AccessItemAccessProfileResponse`
+`func NewAccessItemAccessProfileResponse(entitlementCount int32, appRefs []AccessItemAccessProfileResponseAppRefsInner, standalone NullableBool, revocable NullableBool, ) *AccessItemAccessProfileResponse`
 
 NewAccessItemAccessProfileResponse instantiates a new AccessItemAccessProfileResponse object
 This constructor will assign default values to properties that have it defined,
@@ -46,31 +45,6 @@ will change when the set of required properties is changed
 NewAccessItemAccessProfileResponseWithDefaults instantiates a new AccessItemAccessProfileResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetAccessType
-
-`func (o *AccessItemAccessProfileResponse) GetAccessType() string`
-
-GetAccessType returns the AccessType field if non-nil, zero value otherwise.
-
-### GetAccessTypeOk
-
-`func (o *AccessItemAccessProfileResponse) GetAccessTypeOk() (*string, bool)`
-
-GetAccessTypeOk returns a tuple with the AccessType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccessType
-
-`func (o *AccessItemAccessProfileResponse) SetAccessType(v string)`
-
-SetAccessType sets AccessType field to given value.
-
-### HasAccessType
-
-`func (o *AccessItemAccessProfileResponse) HasAccessType() bool`
-
-HasAccessType returns a boolean if a field has been set.
 
 ### GetId
 
@@ -97,105 +71,30 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
-### GetName
+### GetAccessType
 
-`func (o *AccessItemAccessProfileResponse) GetName() string`
+`func (o *AccessItemAccessProfileResponse) GetAccessType() string`
 
-GetName returns the Name field if non-nil, zero value otherwise.
+GetAccessType returns the AccessType field if non-nil, zero value otherwise.
 
-### GetNameOk
+### GetAccessTypeOk
 
-`func (o *AccessItemAccessProfileResponse) GetNameOk() (*string, bool)`
+`func (o *AccessItemAccessProfileResponse) GetAccessTypeOk() (*string, bool)`
 
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+GetAccessTypeOk returns a tuple with the AccessType field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetName
+### SetAccessType
 
-`func (o *AccessItemAccessProfileResponse) SetName(v string)`
+`func (o *AccessItemAccessProfileResponse) SetAccessType(v string)`
 
-SetName sets Name field to given value.
+SetAccessType sets AccessType field to given value.
 
-### HasName
+### HasAccessType
 
-`func (o *AccessItemAccessProfileResponse) HasName() bool`
+`func (o *AccessItemAccessProfileResponse) HasAccessType() bool`
 
-HasName returns a boolean if a field has been set.
-
-### GetSourceName
-
-`func (o *AccessItemAccessProfileResponse) GetSourceName() string`
-
-GetSourceName returns the SourceName field if non-nil, zero value otherwise.
-
-### GetSourceNameOk
-
-`func (o *AccessItemAccessProfileResponse) GetSourceNameOk() (*string, bool)`
-
-GetSourceNameOk returns a tuple with the SourceName field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSourceName
-
-`func (o *AccessItemAccessProfileResponse) SetSourceName(v string)`
-
-SetSourceName sets SourceName field to given value.
-
-### HasSourceName
-
-`func (o *AccessItemAccessProfileResponse) HasSourceName() bool`
-
-HasSourceName returns a boolean if a field has been set.
-
-### GetSourceId
-
-`func (o *AccessItemAccessProfileResponse) GetSourceId() string`
-
-GetSourceId returns the SourceId field if non-nil, zero value otherwise.
-
-### GetSourceIdOk
-
-`func (o *AccessItemAccessProfileResponse) GetSourceIdOk() (*string, bool)`
-
-GetSourceIdOk returns a tuple with the SourceId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSourceId
-
-`func (o *AccessItemAccessProfileResponse) SetSourceId(v string)`
-
-SetSourceId sets SourceId field to given value.
-
-### HasSourceId
-
-`func (o *AccessItemAccessProfileResponse) HasSourceId() bool`
-
-HasSourceId returns a boolean if a field has been set.
-
-### GetDescription
-
-`func (o *AccessItemAccessProfileResponse) GetDescription() string`
-
-GetDescription returns the Description field if non-nil, zero value otherwise.
-
-### GetDescriptionOk
-
-`func (o *AccessItemAccessProfileResponse) GetDescriptionOk() (*string, bool)`
-
-GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDescription
-
-`func (o *AccessItemAccessProfileResponse) SetDescription(v string)`
-
-SetDescription sets Description field to given value.
-
-### HasDescription
-
-`func (o *AccessItemAccessProfileResponse) HasDescription() bool`
-
-HasDescription returns a boolean if a field has been set.
+HasAccessType returns a boolean if a field has been set.
 
 ### GetDisplayName
 
@@ -222,55 +121,130 @@ SetDisplayName sets DisplayName field to given value.
 
 HasDisplayName returns a boolean if a field has been set.
 
+### GetSourceName
+
+`func (o *AccessItemAccessProfileResponse) GetSourceName() string`
+
+GetSourceName returns the SourceName field if non-nil, zero value otherwise.
+
+### GetSourceNameOk
+
+`func (o *AccessItemAccessProfileResponse) GetSourceNameOk() (*string, bool)`
+
+GetSourceNameOk returns a tuple with the SourceName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceName
+
+`func (o *AccessItemAccessProfileResponse) SetSourceName(v string)`
+
+SetSourceName sets SourceName field to given value.
+
+### HasSourceName
+
+`func (o *AccessItemAccessProfileResponse) HasSourceName() bool`
+
+HasSourceName returns a boolean if a field has been set.
+
 ### GetEntitlementCount
 
-`func (o *AccessItemAccessProfileResponse) GetEntitlementCount() string`
+`func (o *AccessItemAccessProfileResponse) GetEntitlementCount() int32`
 
 GetEntitlementCount returns the EntitlementCount field if non-nil, zero value otherwise.
 
 ### GetEntitlementCountOk
 
-`func (o *AccessItemAccessProfileResponse) GetEntitlementCountOk() (*string, bool)`
+`func (o *AccessItemAccessProfileResponse) GetEntitlementCountOk() (*int32, bool)`
 
 GetEntitlementCountOk returns a tuple with the EntitlementCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetEntitlementCount
 
-`func (o *AccessItemAccessProfileResponse) SetEntitlementCount(v string)`
+`func (o *AccessItemAccessProfileResponse) SetEntitlementCount(v int32)`
 
 SetEntitlementCount sets EntitlementCount field to given value.
 
-### HasEntitlementCount
 
-`func (o *AccessItemAccessProfileResponse) HasEntitlementCount() bool`
+### GetDescription
 
-HasEntitlementCount returns a boolean if a field has been set.
+`func (o *AccessItemAccessProfileResponse) GetDescription() string`
 
-### GetAppDisplayName
+GetDescription returns the Description field if non-nil, zero value otherwise.
 
-`func (o *AccessItemAccessProfileResponse) GetAppDisplayName() string`
+### GetDescriptionOk
 
-GetAppDisplayName returns the AppDisplayName field if non-nil, zero value otherwise.
+`func (o *AccessItemAccessProfileResponse) GetDescriptionOk() (*string, bool)`
 
-### GetAppDisplayNameOk
-
-`func (o *AccessItemAccessProfileResponse) GetAppDisplayNameOk() (*string, bool)`
-
-GetAppDisplayNameOk returns a tuple with the AppDisplayName field if it's non-nil, zero value otherwise
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetAppDisplayName
+### SetDescription
 
-`func (o *AccessItemAccessProfileResponse) SetAppDisplayName(v string)`
+`func (o *AccessItemAccessProfileResponse) SetDescription(v string)`
 
-SetAppDisplayName sets AppDisplayName field to given value.
+SetDescription sets Description field to given value.
 
-### HasAppDisplayName
+### HasDescription
 
-`func (o *AccessItemAccessProfileResponse) HasAppDisplayName() bool`
+`func (o *AccessItemAccessProfileResponse) HasDescription() bool`
 
-HasAppDisplayName returns a boolean if a field has been set.
+HasDescription returns a boolean if a field has been set.
+
+### SetDescriptionNil
+
+`func (o *AccessItemAccessProfileResponse) SetDescriptionNil(b bool)`
+
+ SetDescriptionNil sets the value for Description to be an explicit nil
+
+### UnsetDescription
+`func (o *AccessItemAccessProfileResponse) UnsetDescription()`
+
+UnsetDescription ensures that no value is present for Description, not even an explicit nil
+### GetSourceId
+
+`func (o *AccessItemAccessProfileResponse) GetSourceId() string`
+
+GetSourceId returns the SourceId field if non-nil, zero value otherwise.
+
+### GetSourceIdOk
+
+`func (o *AccessItemAccessProfileResponse) GetSourceIdOk() (*string, bool)`
+
+GetSourceIdOk returns a tuple with the SourceId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSourceId
+
+`func (o *AccessItemAccessProfileResponse) SetSourceId(v string)`
+
+SetSourceId sets SourceId field to given value.
+
+### HasSourceId
+
+`func (o *AccessItemAccessProfileResponse) HasSourceId() bool`
+
+HasSourceId returns a boolean if a field has been set.
+
+### GetAppRefs
+
+`func (o *AccessItemAccessProfileResponse) GetAppRefs() []AccessItemAccessProfileResponseAppRefsInner`
+
+GetAppRefs returns the AppRefs field if non-nil, zero value otherwise.
+
+### GetAppRefsOk
+
+`func (o *AccessItemAccessProfileResponse) GetAppRefsOk() (*[]AccessItemAccessProfileResponseAppRefsInner, bool)`
+
+GetAppRefsOk returns a tuple with the AppRefs field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAppRefs
+
+`func (o *AccessItemAccessProfileResponse) SetAppRefs(v []AccessItemAccessProfileResponseAppRefsInner)`
+
+SetAppRefs sets AppRefs field to given value.
+
 
 ### GetRemoveDate
 
@@ -297,6 +271,16 @@ SetRemoveDate sets RemoveDate field to given value.
 
 HasRemoveDate returns a boolean if a field has been set.
 
+### SetRemoveDateNil
+
+`func (o *AccessItemAccessProfileResponse) SetRemoveDateNil(b bool)`
+
+ SetRemoveDateNil sets the value for RemoveDate to be an explicit nil
+
+### UnsetRemoveDate
+`func (o *AccessItemAccessProfileResponse) UnsetRemoveDate()`
+
+UnsetRemoveDate ensures that no value is present for RemoveDate, not even an explicit nil
 ### GetStandalone
 
 `func (o *AccessItemAccessProfileResponse) GetStandalone() bool`
@@ -317,6 +301,16 @@ and a boolean to check if the value has been set.
 SetStandalone sets Standalone field to given value.
 
 
+### SetStandaloneNil
+
+`func (o *AccessItemAccessProfileResponse) SetStandaloneNil(b bool)`
+
+ SetStandaloneNil sets the value for Standalone to be an explicit nil
+
+### UnsetStandalone
+`func (o *AccessItemAccessProfileResponse) UnsetStandalone()`
+
+UnsetStandalone ensures that no value is present for Standalone, not even an explicit nil
 ### GetRevocable
 
 `func (o *AccessItemAccessProfileResponse) GetRevocable() bool`
@@ -337,4 +331,14 @@ and a boolean to check if the value has been set.
 SetRevocable sets Revocable field to given value.
 
 
+### SetRevocableNil
+
+`func (o *AccessItemAccessProfileResponse) SetRevocableNil(b bool)`
+
+ SetRevocableNil sets the value for Revocable to be an explicit nil
+
+### UnsetRevocable
+`func (o *AccessItemAccessProfileResponse) UnsetRevocable()`
+
+UnsetRevocable ensures that no value is present for Revocable, not even an explicit nil
 

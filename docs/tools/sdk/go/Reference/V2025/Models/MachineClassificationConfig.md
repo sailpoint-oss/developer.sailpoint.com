@@ -15,11 +15,11 @@ tags: ['SDK', 'Software Development Kit', 'MachineClassificationConfig', 'V2025M
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** | Pointer to **bool** | Indicates if the Classification is enabled for a Source | [optional] [default to false]
+**Enabled** | Pointer to **bool** | Indicates whether Classification is enabled for a Source | [optional] [default to false]
 **ClassificationMethod** | Pointer to **string** | Classification Method | [optional] 
-**Criteria** | Pointer to **NullableString** | A classification criteria object | [optional] 
-**Created** | Pointer to **SailPointTime** | Time when the config was created | [optional] 
-**Modified** | Pointer to **NullableTime** | Time when the config was last updated | [optional] 
+**Criteria** | Pointer to [**MachineClassificationCriteriaLevel1**](machine-classification-criteria-level1) |  | [optional] 
+**Created** | Pointer to **SailPointTime** | Date the config was created | [optional] 
+**Modified** | Pointer to **NullableTime** | Date the config was last updated | [optional] 
 
 ## Methods
 
@@ -92,20 +92,20 @@ HasClassificationMethod returns a boolean if a field has been set.
 
 ### GetCriteria
 
-`func (o *MachineClassificationConfig) GetCriteria() string`
+`func (o *MachineClassificationConfig) GetCriteria() MachineClassificationCriteriaLevel1`
 
 GetCriteria returns the Criteria field if non-nil, zero value otherwise.
 
 ### GetCriteriaOk
 
-`func (o *MachineClassificationConfig) GetCriteriaOk() (*string, bool)`
+`func (o *MachineClassificationConfig) GetCriteriaOk() (*MachineClassificationCriteriaLevel1, bool)`
 
 GetCriteriaOk returns a tuple with the Criteria field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCriteria
 
-`func (o *MachineClassificationConfig) SetCriteria(v string)`
+`func (o *MachineClassificationConfig) SetCriteria(v MachineClassificationCriteriaLevel1)`
 
 SetCriteria sets Criteria field to given value.
 
@@ -115,16 +115,6 @@ SetCriteria sets Criteria field to given value.
 
 HasCriteria returns a boolean if a field has been set.
 
-### SetCriteriaNil
-
-`func (o *MachineClassificationConfig) SetCriteriaNil(b bool)`
-
- SetCriteriaNil sets the value for Criteria to be an explicit nil
-
-### UnsetCriteria
-`func (o *MachineClassificationConfig) UnsetCriteria()`
-
-UnsetCriteria ensures that no value is present for Criteria, not even an explicit nil
 ### GetCreated
 
 `func (o *MachineClassificationConfig) GetCreated() SailPointTime`

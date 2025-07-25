@@ -15,27 +15,28 @@ tags: ['SDK', 'Software Development Kit', 'GetHistoricalIdentityEvents200Respons
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessItem** | Pointer to [**AccessItemAssociatedAccessItem**](access-item-associated-access-item) |  | [optional] 
-**IdentityId** | Pointer to **string** | the identity id | [optional] 
-**EventType** | Pointer to **string** | the event type | [optional] 
-**Dt** | Pointer to **string** | the date of event | [optional] 
-**GovernanceEvent** | Pointer to [**CorrelatedGovernanceEvent**](correlated-governance-event) |  | [optional] 
-**Changes** | Pointer to [**[]AttributeChange**](attribute-change) |  | [optional] 
-**AccessRequest** | Pointer to [**AccessRequestResponse1**](access-request-response1) |  | [optional] 
-**CertificationId** | Pointer to **string** | the id of the certification item | [optional] 
-**CertificationName** | Pointer to **string** | the certification item name | [optional] 
+**CertificationId** | **string** | the id of the certification item | 
+**CertificationName** | **string** | the certification item name | 
 **SignedDate** | Pointer to **string** | the date ceritification was signed | [optional] 
 **Certifiers** | Pointer to [**[]CertifierResponse**](certifier-response) | this field is deprecated and may go away | [optional] 
 **Reviewers** | Pointer to [**[]CertifierResponse**](certifier-response) | The list of identities who review this certification | [optional] 
 **Signer** | Pointer to [**CertifierResponse**](certifier-response) |  | [optional] 
-**Account** | Pointer to [**AccountStatusChangedAccount**](account-status-changed-account) |  | [optional] 
-**StatusChange** | Pointer to [**AccountStatusChangedStatusChange**](account-status-changed-status-change) |  | [optional] 
+**EventType** | Pointer to **string** | the event type | [optional] 
+**DateTime** | Pointer to **string** | the date of event | [optional] 
+**IdentityId** | Pointer to **string** | the identity id | [optional] 
+**AccessItem** | [**AccessItemAssociatedAccessItem**](access-item-associated-access-item) |  | 
+**GovernanceEvent** | [**NullableCorrelatedGovernanceEvent**](correlated-governance-event) |  | 
+**AccessItemType** | Pointer to **string** | the access item type | [optional] 
+**AttributeChanges** | [**[]AttributeChange**](attribute-change) |  | 
+**AccessRequest** | [**AccessRequestResponse1**](access-request-response1) |  | 
+**Account** | [**AccountStatusChangedAccount**](account-status-changed-account) |  | 
+**StatusChange** | [**AccountStatusChangedStatusChange**](account-status-changed-status-change) |  | 
 
 ## Methods
 
 ### NewGetHistoricalIdentityEvents200ResponseInner
 
-`func NewGetHistoricalIdentityEvents200ResponseInner() *GetHistoricalIdentityEvents200ResponseInner`
+`func NewGetHistoricalIdentityEvents200ResponseInner(certificationId string, certificationName string, accessItem AccessItemAssociatedAccessItem, governanceEvent NullableCorrelatedGovernanceEvent, attributeChanges []AttributeChange, accessRequest AccessRequestResponse1, account AccountStatusChangedAccount, statusChange AccountStatusChangedStatusChange, ) *GetHistoricalIdentityEvents200ResponseInner`
 
 NewGetHistoricalIdentityEvents200ResponseInner instantiates a new GetHistoricalIdentityEvents200ResponseInner object
 This constructor will assign default values to properties that have it defined,
@@ -49,181 +50,6 @@ will change when the set of required properties is changed
 NewGetHistoricalIdentityEvents200ResponseInnerWithDefaults instantiates a new GetHistoricalIdentityEvents200ResponseInner object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetAccessItem
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) GetAccessItem() AccessItemAssociatedAccessItem`
-
-GetAccessItem returns the AccessItem field if non-nil, zero value otherwise.
-
-### GetAccessItemOk
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) GetAccessItemOk() (*AccessItemAssociatedAccessItem, bool)`
-
-GetAccessItemOk returns a tuple with the AccessItem field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccessItem
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) SetAccessItem(v AccessItemAssociatedAccessItem)`
-
-SetAccessItem sets AccessItem field to given value.
-
-### HasAccessItem
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) HasAccessItem() bool`
-
-HasAccessItem returns a boolean if a field has been set.
-
-### GetIdentityId
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) GetIdentityId() string`
-
-GetIdentityId returns the IdentityId field if non-nil, zero value otherwise.
-
-### GetIdentityIdOk
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) GetIdentityIdOk() (*string, bool)`
-
-GetIdentityIdOk returns a tuple with the IdentityId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIdentityId
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) SetIdentityId(v string)`
-
-SetIdentityId sets IdentityId field to given value.
-
-### HasIdentityId
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) HasIdentityId() bool`
-
-HasIdentityId returns a boolean if a field has been set.
-
-### GetEventType
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) GetEventType() string`
-
-GetEventType returns the EventType field if non-nil, zero value otherwise.
-
-### GetEventTypeOk
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) GetEventTypeOk() (*string, bool)`
-
-GetEventTypeOk returns a tuple with the EventType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetEventType
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) SetEventType(v string)`
-
-SetEventType sets EventType field to given value.
-
-### HasEventType
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) HasEventType() bool`
-
-HasEventType returns a boolean if a field has been set.
-
-### GetDt
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) GetDt() string`
-
-GetDt returns the Dt field if non-nil, zero value otherwise.
-
-### GetDtOk
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) GetDtOk() (*string, bool)`
-
-GetDtOk returns a tuple with the Dt field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDt
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) SetDt(v string)`
-
-SetDt sets Dt field to given value.
-
-### HasDt
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) HasDt() bool`
-
-HasDt returns a boolean if a field has been set.
-
-### GetGovernanceEvent
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) GetGovernanceEvent() CorrelatedGovernanceEvent`
-
-GetGovernanceEvent returns the GovernanceEvent field if non-nil, zero value otherwise.
-
-### GetGovernanceEventOk
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) GetGovernanceEventOk() (*CorrelatedGovernanceEvent, bool)`
-
-GetGovernanceEventOk returns a tuple with the GovernanceEvent field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetGovernanceEvent
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) SetGovernanceEvent(v CorrelatedGovernanceEvent)`
-
-SetGovernanceEvent sets GovernanceEvent field to given value.
-
-### HasGovernanceEvent
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) HasGovernanceEvent() bool`
-
-HasGovernanceEvent returns a boolean if a field has been set.
-
-### GetChanges
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) GetChanges() []AttributeChange`
-
-GetChanges returns the Changes field if non-nil, zero value otherwise.
-
-### GetChangesOk
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) GetChangesOk() (*[]AttributeChange, bool)`
-
-GetChangesOk returns a tuple with the Changes field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetChanges
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) SetChanges(v []AttributeChange)`
-
-SetChanges sets Changes field to given value.
-
-### HasChanges
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) HasChanges() bool`
-
-HasChanges returns a boolean if a field has been set.
-
-### GetAccessRequest
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) GetAccessRequest() AccessRequestResponse1`
-
-GetAccessRequest returns the AccessRequest field if non-nil, zero value otherwise.
-
-### GetAccessRequestOk
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) GetAccessRequestOk() (*AccessRequestResponse1, bool)`
-
-GetAccessRequestOk returns a tuple with the AccessRequest field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccessRequest
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) SetAccessRequest(v AccessRequestResponse1)`
-
-SetAccessRequest sets AccessRequest field to given value.
-
-### HasAccessRequest
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) HasAccessRequest() bool`
-
-HasAccessRequest returns a boolean if a field has been set.
 
 ### GetCertificationId
 
@@ -244,11 +70,6 @@ and a boolean to check if the value has been set.
 
 SetCertificationId sets CertificationId field to given value.
 
-### HasCertificationId
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) HasCertificationId() bool`
-
-HasCertificationId returns a boolean if a field has been set.
 
 ### GetCertificationName
 
@@ -269,11 +90,6 @@ and a boolean to check if the value has been set.
 
 SetCertificationName sets CertificationName field to given value.
 
-### HasCertificationName
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) HasCertificationName() bool`
-
-HasCertificationName returns a boolean if a field has been set.
 
 ### GetSignedDate
 
@@ -375,6 +191,196 @@ SetSigner sets Signer field to given value.
 
 HasSigner returns a boolean if a field has been set.
 
+### GetEventType
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) GetEventType() string`
+
+GetEventType returns the EventType field if non-nil, zero value otherwise.
+
+### GetEventTypeOk
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) GetEventTypeOk() (*string, bool)`
+
+GetEventTypeOk returns a tuple with the EventType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEventType
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) SetEventType(v string)`
+
+SetEventType sets EventType field to given value.
+
+### HasEventType
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) HasEventType() bool`
+
+HasEventType returns a boolean if a field has been set.
+
+### GetDateTime
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) GetDateTime() string`
+
+GetDateTime returns the DateTime field if non-nil, zero value otherwise.
+
+### GetDateTimeOk
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) GetDateTimeOk() (*string, bool)`
+
+GetDateTimeOk returns a tuple with the DateTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDateTime
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) SetDateTime(v string)`
+
+SetDateTime sets DateTime field to given value.
+
+### HasDateTime
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) HasDateTime() bool`
+
+HasDateTime returns a boolean if a field has been set.
+
+### GetIdentityId
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) GetIdentityId() string`
+
+GetIdentityId returns the IdentityId field if non-nil, zero value otherwise.
+
+### GetIdentityIdOk
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) GetIdentityIdOk() (*string, bool)`
+
+GetIdentityIdOk returns a tuple with the IdentityId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIdentityId
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) SetIdentityId(v string)`
+
+SetIdentityId sets IdentityId field to given value.
+
+### HasIdentityId
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) HasIdentityId() bool`
+
+HasIdentityId returns a boolean if a field has been set.
+
+### GetAccessItem
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) GetAccessItem() AccessItemAssociatedAccessItem`
+
+GetAccessItem returns the AccessItem field if non-nil, zero value otherwise.
+
+### GetAccessItemOk
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) GetAccessItemOk() (*AccessItemAssociatedAccessItem, bool)`
+
+GetAccessItemOk returns a tuple with the AccessItem field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessItem
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) SetAccessItem(v AccessItemAssociatedAccessItem)`
+
+SetAccessItem sets AccessItem field to given value.
+
+
+### GetGovernanceEvent
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) GetGovernanceEvent() CorrelatedGovernanceEvent`
+
+GetGovernanceEvent returns the GovernanceEvent field if non-nil, zero value otherwise.
+
+### GetGovernanceEventOk
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) GetGovernanceEventOk() (*CorrelatedGovernanceEvent, bool)`
+
+GetGovernanceEventOk returns a tuple with the GovernanceEvent field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGovernanceEvent
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) SetGovernanceEvent(v CorrelatedGovernanceEvent)`
+
+SetGovernanceEvent sets GovernanceEvent field to given value.
+
+
+### SetGovernanceEventNil
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) SetGovernanceEventNil(b bool)`
+
+ SetGovernanceEventNil sets the value for GovernanceEvent to be an explicit nil
+
+### UnsetGovernanceEvent
+`func (o *GetHistoricalIdentityEvents200ResponseInner) UnsetGovernanceEvent()`
+
+UnsetGovernanceEvent ensures that no value is present for GovernanceEvent, not even an explicit nil
+### GetAccessItemType
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) GetAccessItemType() string`
+
+GetAccessItemType returns the AccessItemType field if non-nil, zero value otherwise.
+
+### GetAccessItemTypeOk
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) GetAccessItemTypeOk() (*string, bool)`
+
+GetAccessItemTypeOk returns a tuple with the AccessItemType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessItemType
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) SetAccessItemType(v string)`
+
+SetAccessItemType sets AccessItemType field to given value.
+
+### HasAccessItemType
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) HasAccessItemType() bool`
+
+HasAccessItemType returns a boolean if a field has been set.
+
+### GetAttributeChanges
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) GetAttributeChanges() []AttributeChange`
+
+GetAttributeChanges returns the AttributeChanges field if non-nil, zero value otherwise.
+
+### GetAttributeChangesOk
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) GetAttributeChangesOk() (*[]AttributeChange, bool)`
+
+GetAttributeChangesOk returns a tuple with the AttributeChanges field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAttributeChanges
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) SetAttributeChanges(v []AttributeChange)`
+
+SetAttributeChanges sets AttributeChanges field to given value.
+
+
+### GetAccessRequest
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) GetAccessRequest() AccessRequestResponse1`
+
+GetAccessRequest returns the AccessRequest field if non-nil, zero value otherwise.
+
+### GetAccessRequestOk
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) GetAccessRequestOk() (*AccessRequestResponse1, bool)`
+
+GetAccessRequestOk returns a tuple with the AccessRequest field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessRequest
+
+`func (o *GetHistoricalIdentityEvents200ResponseInner) SetAccessRequest(v AccessRequestResponse1)`
+
+SetAccessRequest sets AccessRequest field to given value.
+
+
 ### GetAccount
 
 `func (o *GetHistoricalIdentityEvents200ResponseInner) GetAccount() AccountStatusChangedAccount`
@@ -394,11 +400,6 @@ and a boolean to check if the value has been set.
 
 SetAccount sets Account field to given value.
 
-### HasAccount
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) HasAccount() bool`
-
-HasAccount returns a boolean if a field has been set.
 
 ### GetStatusChange
 
@@ -419,10 +420,5 @@ and a boolean to check if the value has been set.
 
 SetStatusChange sets StatusChange field to given value.
 
-### HasStatusChange
-
-`func (o *GetHistoricalIdentityEvents200ResponseInner) HasStatusChange() bool`
-
-HasStatusChange returns a boolean if a field has been set.
 
 

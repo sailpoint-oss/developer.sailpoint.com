@@ -1,15 +1,15 @@
 ---
-id: v2024-account-status-changed-status-change
-title: AccountStatusChangedStatusChange
-pagination_label: AccountStatusChangedStatusChange
-sidebar_label: AccountStatusChangedStatusChange
+id: v2024-access-requested-status-change
+title: AccessRequestedStatusChange
+pagination_label: AccessRequestedStatusChange
+sidebar_label: AccessRequestedStatusChange
 sidebar_class_name: gosdk
-keywords: ['go', 'Golang', 'sdk', 'AccountStatusChangedStatusChange', 'V2024AccountStatusChangedStatusChange'] 
-slug: /tools/sdk/go/v2024/models/account-status-changed-status-change
-tags: ['SDK', 'Software Development Kit', 'AccountStatusChangedStatusChange', 'V2024AccountStatusChangedStatusChange']
+keywords: ['go', 'Golang', 'sdk', 'AccessRequestedStatusChange', 'V2024AccessRequestedStatusChange'] 
+slug: /tools/sdk/go/v2024/models/access-requested-status-change
+tags: ['SDK', 'Software Development Kit', 'AccessRequestedStatusChange', 'V2024AccessRequestedStatusChange']
 ---
 
-# AccountStatusChangedStatusChange
+# AccessRequestedStatusChange
 
 ## Properties
 
@@ -20,70 +20,70 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewAccountStatusChangedStatusChange
+### NewAccessRequestedStatusChange
 
-`func NewAccountStatusChangedStatusChange() *AccountStatusChangedStatusChange`
+`func NewAccessRequestedStatusChange() *AccessRequestedStatusChange`
 
-NewAccountStatusChangedStatusChange instantiates a new AccountStatusChangedStatusChange object
+NewAccessRequestedStatusChange instantiates a new AccessRequestedStatusChange object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewAccountStatusChangedStatusChangeWithDefaults
+### NewAccessRequestedStatusChangeWithDefaults
 
-`func NewAccountStatusChangedStatusChangeWithDefaults() *AccountStatusChangedStatusChange`
+`func NewAccessRequestedStatusChangeWithDefaults() *AccessRequestedStatusChange`
 
-NewAccountStatusChangedStatusChangeWithDefaults instantiates a new AccountStatusChangedStatusChange object
+NewAccessRequestedStatusChangeWithDefaults instantiates a new AccessRequestedStatusChange object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetPreviousStatus
 
-`func (o *AccountStatusChangedStatusChange) GetPreviousStatus() string`
+`func (o *AccessRequestedStatusChange) GetPreviousStatus() string`
 
 GetPreviousStatus returns the PreviousStatus field if non-nil, zero value otherwise.
 
 ### GetPreviousStatusOk
 
-`func (o *AccountStatusChangedStatusChange) GetPreviousStatusOk() (*string, bool)`
+`func (o *AccessRequestedStatusChange) GetPreviousStatusOk() (*string, bool)`
 
 GetPreviousStatusOk returns a tuple with the PreviousStatus field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPreviousStatus
 
-`func (o *AccountStatusChangedStatusChange) SetPreviousStatus(v string)`
+`func (o *AccessRequestedStatusChange) SetPreviousStatus(v string)`
 
 SetPreviousStatus sets PreviousStatus field to given value.
 
 ### HasPreviousStatus
 
-`func (o *AccountStatusChangedStatusChange) HasPreviousStatus() bool`
+`func (o *AccessRequestedStatusChange) HasPreviousStatus() bool`
 
 HasPreviousStatus returns a boolean if a field has been set.
 
 ### GetNewStatus
 
-`func (o *AccountStatusChangedStatusChange) GetNewStatus() string`
+`func (o *AccessRequestedStatusChange) GetNewStatus() string`
 
 GetNewStatus returns the NewStatus field if non-nil, zero value otherwise.
 
 ### GetNewStatusOk
 
-`func (o *AccountStatusChangedStatusChange) GetNewStatusOk() (*string, bool)`
+`func (o *AccessRequestedStatusChange) GetNewStatusOk() (*string, bool)`
 
 GetNewStatusOk returns a tuple with the NewStatus field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNewStatus
 
-`func (o *AccountStatusChangedStatusChange) SetNewStatus(v string)`
+`func (o *AccessRequestedStatusChange) SetNewStatus(v string)`
 
 SetNewStatus sets NewStatus field to given value.
 
 ### HasNewStatus
 
-`func (o *AccountStatusChangedStatusChange) HasNewStatus() bool`
+`func (o *AccessRequestedStatusChange) HasNewStatus() bool`
 
 HasNewStatus returns a boolean if a field has been set.
 

@@ -17,15 +17,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EventType** | Pointer to **string** | the event type | [optional] 
 **IdentityId** | Pointer to **string** | the identity id | [optional] 
-**Dt** | Pointer to **string** | the date of event | [optional] 
-**Account** | Pointer to [**AccountStatusChangedAccount**](account-status-changed-account) |  | [optional] 
-**StatusChange** | Pointer to [**AccountStatusChangedStatusChange**](account-status-changed-status-change) |  | [optional] 
+**DateTime** | Pointer to **string** | the date of event | [optional] 
+**Account** | [**AccessRequestedAccount**](access-requested-account) |  | 
+**StatusChange** | [**AccessRequestedStatusChange**](access-requested-status-change) |  | 
 
 ## Methods
 
 ### NewAccountStatusChanged
 
-`func NewAccountStatusChanged() *AccountStatusChanged`
+`func NewAccountStatusChanged(account AccessRequestedAccount, statusChange AccessRequestedStatusChange, ) *AccountStatusChanged`
 
 NewAccountStatusChanged instantiates a new AccountStatusChanged object
 This constructor will assign default values to properties that have it defined,
@@ -90,79 +90,69 @@ SetIdentityId sets IdentityId field to given value.
 
 HasIdentityId returns a boolean if a field has been set.
 
-### GetDt
+### GetDateTime
 
-`func (o *AccountStatusChanged) GetDt() string`
+`func (o *AccountStatusChanged) GetDateTime() string`
 
-GetDt returns the Dt field if non-nil, zero value otherwise.
+GetDateTime returns the DateTime field if non-nil, zero value otherwise.
 
-### GetDtOk
+### GetDateTimeOk
 
-`func (o *AccountStatusChanged) GetDtOk() (*string, bool)`
+`func (o *AccountStatusChanged) GetDateTimeOk() (*string, bool)`
 
-GetDtOk returns a tuple with the Dt field if it's non-nil, zero value otherwise
+GetDateTimeOk returns a tuple with the DateTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDt
+### SetDateTime
 
-`func (o *AccountStatusChanged) SetDt(v string)`
+`func (o *AccountStatusChanged) SetDateTime(v string)`
 
-SetDt sets Dt field to given value.
+SetDateTime sets DateTime field to given value.
 
-### HasDt
+### HasDateTime
 
-`func (o *AccountStatusChanged) HasDt() bool`
+`func (o *AccountStatusChanged) HasDateTime() bool`
 
-HasDt returns a boolean if a field has been set.
+HasDateTime returns a boolean if a field has been set.
 
 ### GetAccount
 
-`func (o *AccountStatusChanged) GetAccount() AccountStatusChangedAccount`
+`func (o *AccountStatusChanged) GetAccount() AccessRequestedAccount`
 
 GetAccount returns the Account field if non-nil, zero value otherwise.
 
 ### GetAccountOk
 
-`func (o *AccountStatusChanged) GetAccountOk() (*AccountStatusChangedAccount, bool)`
+`func (o *AccountStatusChanged) GetAccountOk() (*AccessRequestedAccount, bool)`
 
 GetAccountOk returns a tuple with the Account field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAccount
 
-`func (o *AccountStatusChanged) SetAccount(v AccountStatusChangedAccount)`
+`func (o *AccountStatusChanged) SetAccount(v AccessRequestedAccount)`
 
 SetAccount sets Account field to given value.
 
-### HasAccount
-
-`func (o *AccountStatusChanged) HasAccount() bool`
-
-HasAccount returns a boolean if a field has been set.
 
 ### GetStatusChange
 
-`func (o *AccountStatusChanged) GetStatusChange() AccountStatusChangedStatusChange`
+`func (o *AccountStatusChanged) GetStatusChange() AccessRequestedStatusChange`
 
 GetStatusChange returns the StatusChange field if non-nil, zero value otherwise.
 
 ### GetStatusChangeOk
 
-`func (o *AccountStatusChanged) GetStatusChangeOk() (*AccountStatusChangedStatusChange, bool)`
+`func (o *AccountStatusChanged) GetStatusChangeOk() (*AccessRequestedStatusChange, bool)`
 
 GetStatusChangeOk returns a tuple with the StatusChange field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatusChange
 
-`func (o *AccountStatusChanged) SetStatusChange(v AccountStatusChangedStatusChange)`
+`func (o *AccountStatusChanged) SetStatusChange(v AccessRequestedStatusChange)`
 
 SetStatusChange sets StatusChange field to given value.
 
-### HasStatusChange
-
-`func (o *AccountStatusChanged) HasStatusChange() bool`
-
-HasStatusChange returns a boolean if a field has been set.
 
 

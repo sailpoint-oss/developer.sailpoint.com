@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**compare-identity-snapshots**](#compare-identity-snapshots) | **Get** `/historical-identities/{id}/compare` | Gets a difference of count for each access item types for the given identity between 2 snapshots
 [**compare-identity-snapshots-access-type**](#compare-identity-snapshots-access-type) | **Get** `/historical-identities/{id}/compare/{access-type}` | Gets a list of differences of specific accesstype for the given identity between 2 snapshots
 [**get-historical-identity**](#get-historical-identity) | **Get** `/historical-identities/{id}` | Get latest snapshot of identity
-[**get-historical-identity-events**](#get-historical-identity-events) | **Get** `/historical-identities/{id}/events` | Lists all events for the given identity
+[**get-historical-identity-events**](#get-historical-identity-events) | **Get** `/historical-identities/{id}/events` | List identity event history
 [**get-identity-snapshot**](#get-identity-snapshot) | **Get** `/historical-identities/{id}/snapshots/{date}` | Gets an identity snapshot at a given date
 [**get-identity-snapshot-summary**](#get-identity-snapshot-summary) | **Get** `/historical-identities/{id}/snapshot-summary` | Gets the summary for the event count for a specific identity
 [**get-identity-start-date**](#get-identity-start-date) | **Get** `/historical-identities/{id}/start-date` | Gets the start date of the identity
@@ -304,7 +304,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Lists all events for the given identity
+List identity event history
 This method retrieves all access events for the identity Requires authorization scope of 'idn:identity-history:read' 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-historical-identity-events)
@@ -846,7 +846,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]ListIdentityAccessItems200ResponseInner**](../models/list-identity-access-items200-response-inner)
+[**[]ListIdentitySnapshotAccessItems200ResponseInner**](../models/list-identity-snapshot-access-items200-response-inner)
 
 ### HTTP request headers
 
@@ -883,7 +883,7 @@ func main() {
 	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityHistoryAPI.ListIdentitySnapshotAccessItems``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListIdentitySnapshotAccessItems`: []ListIdentityAccessItems200ResponseInner
+    // response from `ListIdentitySnapshotAccessItems`: []ListIdentitySnapshotAccessItems200ResponseInner
     fmt.Fprintf(os.Stdout, "Response from `IdentityHistoryAPI.ListIdentitySnapshotAccessItems`: %v\n", resp)
 }
 ```

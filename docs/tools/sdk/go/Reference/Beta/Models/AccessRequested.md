@@ -15,16 +15,16 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequested', 'BetaAccessRequeste
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessRequest** | Pointer to [**AccessRequestResponse1**](access-request-response1) |  | [optional] 
+**AccessRequest** | [**AccessRequestResponse1**](access-request-response1) |  | 
 **IdentityId** | Pointer to **string** | the identity id | [optional] 
 **EventType** | Pointer to **string** | the event type | [optional] 
-**Dt** | Pointer to **string** | the date of event | [optional] 
+**DateTime** | Pointer to **string** | the date of event | [optional] 
 
 ## Methods
 
 ### NewAccessRequested
 
-`func NewAccessRequested() *AccessRequested`
+`func NewAccessRequested(accessRequest AccessRequestResponse1, ) *AccessRequested`
 
 NewAccessRequested instantiates a new AccessRequested object
 This constructor will assign default values to properties that have it defined,
@@ -58,11 +58,6 @@ and a boolean to check if the value has been set.
 
 SetAccessRequest sets AccessRequest field to given value.
 
-### HasAccessRequest
-
-`func (o *AccessRequested) HasAccessRequest() bool`
-
-HasAccessRequest returns a boolean if a field has been set.
 
 ### GetIdentityId
 
@@ -114,29 +109,29 @@ SetEventType sets EventType field to given value.
 
 HasEventType returns a boolean if a field has been set.
 
-### GetDt
+### GetDateTime
 
-`func (o *AccessRequested) GetDt() string`
+`func (o *AccessRequested) GetDateTime() string`
 
-GetDt returns the Dt field if non-nil, zero value otherwise.
+GetDateTime returns the DateTime field if non-nil, zero value otherwise.
 
-### GetDtOk
+### GetDateTimeOk
 
-`func (o *AccessRequested) GetDtOk() (*string, bool)`
+`func (o *AccessRequested) GetDateTimeOk() (*string, bool)`
 
-GetDtOk returns a tuple with the Dt field if it's non-nil, zero value otherwise
+GetDateTimeOk returns a tuple with the DateTime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDt
+### SetDateTime
 
-`func (o *AccessRequested) SetDt(v string)`
+`func (o *AccessRequested) SetDateTime(v string)`
 
-SetDt sets Dt field to given value.
+SetDateTime sets DateTime field to given value.
 
-### HasDt
+### HasDateTime
 
-`func (o *AccessRequested) HasDt() bool`
+`func (o *AccessRequested) HasDateTime() bool`
 
-HasDt returns a boolean if a field has been set.
+HasDateTime returns a boolean if a field has been set.
 
 

@@ -15,11 +15,11 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemRoleResponse', 'V2025Access
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessType** | Pointer to **string** | the access item type. role in this case | [optional] 
 **Id** | Pointer to **string** | the access item id | [optional] 
+**AccessType** | Pointer to **string** | the access item type. role in this case | [optional] 
 **DisplayName** | Pointer to **string** | the role display name | [optional] 
+**SourceName** | Pointer to **NullableString** | the associated source name if it exists | [optional] 
 **Description** | Pointer to **string** | the description for the role | [optional] 
-**SourceName** | Pointer to **string** | the associated source name if it exists | [optional] 
 **RemoveDate** | Pointer to **string** | the date the role is no longer assigned to the specified identity | [optional] 
 **Revocable** | **bool** | indicates whether the role is revocable | 
 
@@ -41,31 +41,6 @@ will change when the set of required properties is changed
 NewAccessItemRoleResponseWithDefaults instantiates a new AccessItemRoleResponse object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetAccessType
-
-`func (o *AccessItemRoleResponse) GetAccessType() string`
-
-GetAccessType returns the AccessType field if non-nil, zero value otherwise.
-
-### GetAccessTypeOk
-
-`func (o *AccessItemRoleResponse) GetAccessTypeOk() (*string, bool)`
-
-GetAccessTypeOk returns a tuple with the AccessType field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccessType
-
-`func (o *AccessItemRoleResponse) SetAccessType(v string)`
-
-SetAccessType sets AccessType field to given value.
-
-### HasAccessType
-
-`func (o *AccessItemRoleResponse) HasAccessType() bool`
-
-HasAccessType returns a boolean if a field has been set.
 
 ### GetId
 
@@ -92,6 +67,31 @@ SetId sets Id field to given value.
 
 HasId returns a boolean if a field has been set.
 
+### GetAccessType
+
+`func (o *AccessItemRoleResponse) GetAccessType() string`
+
+GetAccessType returns the AccessType field if non-nil, zero value otherwise.
+
+### GetAccessTypeOk
+
+`func (o *AccessItemRoleResponse) GetAccessTypeOk() (*string, bool)`
+
+GetAccessTypeOk returns a tuple with the AccessType field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccessType
+
+`func (o *AccessItemRoleResponse) SetAccessType(v string)`
+
+SetAccessType sets AccessType field to given value.
+
+### HasAccessType
+
+`func (o *AccessItemRoleResponse) HasAccessType() bool`
+
+HasAccessType returns a boolean if a field has been set.
+
 ### GetDisplayName
 
 `func (o *AccessItemRoleResponse) GetDisplayName() string`
@@ -117,31 +117,6 @@ SetDisplayName sets DisplayName field to given value.
 
 HasDisplayName returns a boolean if a field has been set.
 
-### GetDescription
-
-`func (o *AccessItemRoleResponse) GetDescription() string`
-
-GetDescription returns the Description field if non-nil, zero value otherwise.
-
-### GetDescriptionOk
-
-`func (o *AccessItemRoleResponse) GetDescriptionOk() (*string, bool)`
-
-GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDescription
-
-`func (o *AccessItemRoleResponse) SetDescription(v string)`
-
-SetDescription sets Description field to given value.
-
-### HasDescription
-
-`func (o *AccessItemRoleResponse) HasDescription() bool`
-
-HasDescription returns a boolean if a field has been set.
-
 ### GetSourceName
 
 `func (o *AccessItemRoleResponse) GetSourceName() string`
@@ -166,6 +141,41 @@ SetSourceName sets SourceName field to given value.
 `func (o *AccessItemRoleResponse) HasSourceName() bool`
 
 HasSourceName returns a boolean if a field has been set.
+
+### SetSourceNameNil
+
+`func (o *AccessItemRoleResponse) SetSourceNameNil(b bool)`
+
+ SetSourceNameNil sets the value for SourceName to be an explicit nil
+
+### UnsetSourceName
+`func (o *AccessItemRoleResponse) UnsetSourceName()`
+
+UnsetSourceName ensures that no value is present for SourceName, not even an explicit nil
+### GetDescription
+
+`func (o *AccessItemRoleResponse) GetDescription() string`
+
+GetDescription returns the Description field if non-nil, zero value otherwise.
+
+### GetDescriptionOk
+
+`func (o *AccessItemRoleResponse) GetDescriptionOk() (*string, bool)`
+
+GetDescriptionOk returns a tuple with the Description field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDescription
+
+`func (o *AccessItemRoleResponse) SetDescription(v string)`
+
+SetDescription sets Description field to given value.
+
+### HasDescription
+
+`func (o *AccessItemRoleResponse) HasDescription() bool`
+
+HasDescription returns a boolean if a field has been set.
 
 ### GetRemoveDate
 

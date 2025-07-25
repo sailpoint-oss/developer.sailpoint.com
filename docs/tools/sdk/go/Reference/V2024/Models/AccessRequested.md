@@ -15,16 +15,17 @@ tags: ['SDK', 'Software Development Kit', 'AccessRequested', 'V2024AccessRequest
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessRequest** | Pointer to [**AccessRequestResponse1**](access-request-response1) |  | [optional] 
-**IdentityId** | Pointer to **string** | the identity id | [optional] 
 **EventType** | Pointer to **string** | the event type | [optional] 
-**Dt** | Pointer to **string** | the date of event | [optional] 
+**IdentityId** | Pointer to **string** | the identity id | [optional] 
+**DateTime** | Pointer to **string** | the date of event | [optional] 
+**Account** | [**AccessRequestedAccount**](access-requested-account) |  | 
+**StatusChange** | [**AccessRequestedStatusChange**](access-requested-status-change) |  | 
 
 ## Methods
 
 ### NewAccessRequested
 
-`func NewAccessRequested() *AccessRequested`
+`func NewAccessRequested(account AccessRequestedAccount, statusChange AccessRequestedStatusChange, ) *AccessRequested`
 
 NewAccessRequested instantiates a new AccessRequested object
 This constructor will assign default values to properties that have it defined,
@@ -38,56 +39,6 @@ will change when the set of required properties is changed
 NewAccessRequestedWithDefaults instantiates a new AccessRequested object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetAccessRequest
-
-`func (o *AccessRequested) GetAccessRequest() AccessRequestResponse1`
-
-GetAccessRequest returns the AccessRequest field if non-nil, zero value otherwise.
-
-### GetAccessRequestOk
-
-`func (o *AccessRequested) GetAccessRequestOk() (*AccessRequestResponse1, bool)`
-
-GetAccessRequestOk returns a tuple with the AccessRequest field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAccessRequest
-
-`func (o *AccessRequested) SetAccessRequest(v AccessRequestResponse1)`
-
-SetAccessRequest sets AccessRequest field to given value.
-
-### HasAccessRequest
-
-`func (o *AccessRequested) HasAccessRequest() bool`
-
-HasAccessRequest returns a boolean if a field has been set.
-
-### GetIdentityId
-
-`func (o *AccessRequested) GetIdentityId() string`
-
-GetIdentityId returns the IdentityId field if non-nil, zero value otherwise.
-
-### GetIdentityIdOk
-
-`func (o *AccessRequested) GetIdentityIdOk() (*string, bool)`
-
-GetIdentityIdOk returns a tuple with the IdentityId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetIdentityId
-
-`func (o *AccessRequested) SetIdentityId(v string)`
-
-SetIdentityId sets IdentityId field to given value.
-
-### HasIdentityId
-
-`func (o *AccessRequested) HasIdentityId() bool`
-
-HasIdentityId returns a boolean if a field has been set.
 
 ### GetEventType
 
@@ -114,29 +65,94 @@ SetEventType sets EventType field to given value.
 
 HasEventType returns a boolean if a field has been set.
 
-### GetDt
+### GetIdentityId
 
-`func (o *AccessRequested) GetDt() string`
+`func (o *AccessRequested) GetIdentityId() string`
 
-GetDt returns the Dt field if non-nil, zero value otherwise.
+GetIdentityId returns the IdentityId field if non-nil, zero value otherwise.
 
-### GetDtOk
+### GetIdentityIdOk
 
-`func (o *AccessRequested) GetDtOk() (*string, bool)`
+`func (o *AccessRequested) GetIdentityIdOk() (*string, bool)`
 
-GetDtOk returns a tuple with the Dt field if it's non-nil, zero value otherwise
+GetIdentityIdOk returns a tuple with the IdentityId field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDt
+### SetIdentityId
 
-`func (o *AccessRequested) SetDt(v string)`
+`func (o *AccessRequested) SetIdentityId(v string)`
 
-SetDt sets Dt field to given value.
+SetIdentityId sets IdentityId field to given value.
 
-### HasDt
+### HasIdentityId
 
-`func (o *AccessRequested) HasDt() bool`
+`func (o *AccessRequested) HasIdentityId() bool`
 
-HasDt returns a boolean if a field has been set.
+HasIdentityId returns a boolean if a field has been set.
+
+### GetDateTime
+
+`func (o *AccessRequested) GetDateTime() string`
+
+GetDateTime returns the DateTime field if non-nil, zero value otherwise.
+
+### GetDateTimeOk
+
+`func (o *AccessRequested) GetDateTimeOk() (*string, bool)`
+
+GetDateTimeOk returns a tuple with the DateTime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDateTime
+
+`func (o *AccessRequested) SetDateTime(v string)`
+
+SetDateTime sets DateTime field to given value.
+
+### HasDateTime
+
+`func (o *AccessRequested) HasDateTime() bool`
+
+HasDateTime returns a boolean if a field has been set.
+
+### GetAccount
+
+`func (o *AccessRequested) GetAccount() AccessRequestedAccount`
+
+GetAccount returns the Account field if non-nil, zero value otherwise.
+
+### GetAccountOk
+
+`func (o *AccessRequested) GetAccountOk() (*AccessRequestedAccount, bool)`
+
+GetAccountOk returns a tuple with the Account field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAccount
+
+`func (o *AccessRequested) SetAccount(v AccessRequestedAccount)`
+
+SetAccount sets Account field to given value.
+
+
+### GetStatusChange
+
+`func (o *AccessRequested) GetStatusChange() AccessRequestedStatusChange`
+
+GetStatusChange returns the StatusChange field if non-nil, zero value otherwise.
+
+### GetStatusChangeOk
+
+`func (o *AccessRequested) GetStatusChangeOk() (*AccessRequestedStatusChange, bool)`
+
+GetStatusChangeOk returns a tuple with the StatusChange field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatusChange
+
+`func (o *AccessRequested) SetStatusChange(v AccessRequestedStatusChange)`
+
+SetStatusChange sets StatusChange field to given value.
+
 
 

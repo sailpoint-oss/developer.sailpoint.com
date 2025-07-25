@@ -1,4 +1,5 @@
 type: object
+title: Auth User
 properties:
   tenant:
     type: string

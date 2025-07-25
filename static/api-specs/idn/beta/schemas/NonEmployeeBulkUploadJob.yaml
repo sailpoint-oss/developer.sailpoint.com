@@ -1,4 +1,5 @@
 type: object
+title: Non Employee Bulk Upload Job
 properties:
   id:
     type: string

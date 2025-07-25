@@ -1,4 +1,5 @@
 type: object
+title: Identity Deleted Event
 properties:
   account:
     type: string

@@ -1,4 +1,5 @@
 type: object
+title: Domain Status Dto
 properties:
   id:
     type: string

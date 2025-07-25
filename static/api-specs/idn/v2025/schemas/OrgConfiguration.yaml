@@ -1,4 +1,5 @@
 type: object
+title: Org Configuration
 properties:
   domain:
     type: string

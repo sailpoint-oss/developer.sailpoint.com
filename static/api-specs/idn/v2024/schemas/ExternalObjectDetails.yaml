@@ -1,4 +1,5 @@
 type: object
+title: External Object Details
 description: Representation of an ingested object. This differs from the internal representation in that we denormalize some of the reference data for UI consumption.
 properties:
   id:

@@ -1,4 +1,5 @@
 type: object
+title: Reviewer
 properties:
   id:
     type: string

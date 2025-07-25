@@ -1,5 +1,6 @@
 description: Mapping of identifiers to Standard Log Level values
 type: object
+title: Log Level Spec
 example: INFO
 additionalProperties:
   default: INFO

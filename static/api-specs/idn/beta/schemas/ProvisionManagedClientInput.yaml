@@ -1,5 +1,6 @@
 description: Provision Managed Client Input
 type: object
+title: Provision Managed Client Input
 required:
   - clusterId
   - type

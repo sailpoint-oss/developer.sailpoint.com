@@ -1,4 +1,5 @@
 type: object
+title: Role Mining Potential Role Edit Entitlements
 properties:
   ids:
     description: The list of entitlement ids to be edited

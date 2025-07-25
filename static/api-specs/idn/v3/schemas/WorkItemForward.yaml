@@ -1,4 +1,5 @@
 type: object
+title: Work Item Forward
 required:
 - targetOwnerId
 - comment

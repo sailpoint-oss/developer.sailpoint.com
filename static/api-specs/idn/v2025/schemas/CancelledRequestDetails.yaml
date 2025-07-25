@@ -1,4 +1,5 @@
 type: object
+title: Cancelled Request Details
 properties:
   comment:
     type: string

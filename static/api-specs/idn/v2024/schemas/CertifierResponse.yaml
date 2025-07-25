@@ -1,4 +1,5 @@
 type: object
+title: Certifier Response
 properties:
   id:
     type: string

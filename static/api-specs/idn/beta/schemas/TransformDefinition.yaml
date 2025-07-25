@@ -1,4 +1,5 @@
 type: object
+title: Transform Definition
 properties:
   type:
     type: string

@@ -1,4 +1,5 @@
 type: object
+title: Data Pipeline
 properties:
   type:
     type: string

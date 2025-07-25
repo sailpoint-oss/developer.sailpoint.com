@@ -1,4 +1,5 @@
 type: object
+title: Team Summary Dto
 properties:
   manager:
     type: object

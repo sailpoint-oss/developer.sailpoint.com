@@ -1,4 +1,5 @@
 type: object
+title: Requested Account Ref
 properties:
   name:
     type: string

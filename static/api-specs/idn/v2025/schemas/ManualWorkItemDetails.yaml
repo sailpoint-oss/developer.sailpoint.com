@@ -1,4 +1,5 @@
 type : object
+title: Manual Work Item Details
 properties:
   forwarded:
     type: boolean

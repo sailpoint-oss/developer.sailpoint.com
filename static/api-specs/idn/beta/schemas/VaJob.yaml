@@ -1,4 +1,5 @@
 type: object
+title: Va Job
 properties:
   uuid:
     type: string

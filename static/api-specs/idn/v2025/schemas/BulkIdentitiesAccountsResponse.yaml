@@ -1,4 +1,5 @@
 type: object
+title: Bulk Identities Accounts Response
 description: Bulk response object.
 properties:
   id:

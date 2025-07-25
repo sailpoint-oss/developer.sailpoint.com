@@ -1,4 +1,5 @@
 type: object
+title: Workflow Execution
 properties:
   id:
     type: string

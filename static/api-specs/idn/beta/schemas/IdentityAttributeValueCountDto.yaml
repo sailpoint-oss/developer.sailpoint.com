@@ -1,4 +1,5 @@
 type: object
+title: Identity Attribute Value Count Dto
 properties:
   attributeValue:
     type: string

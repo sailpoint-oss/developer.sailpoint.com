@@ -1,4 +1,5 @@
 type: object
+title: Complex Role Criterion
 description: >-
   Represents the role's criteria for membership. The 'children' field is recursive to create compound logical
   expressions.

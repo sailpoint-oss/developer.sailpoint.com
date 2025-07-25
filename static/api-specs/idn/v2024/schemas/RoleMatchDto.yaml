@@ -1,4 +1,5 @@
 type: object
+title: Role Match Dto
 properties:
   roleRef:
     $ref: "./BaseReferenceDto.yaml"

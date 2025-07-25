@@ -1,4 +1,5 @@
 type: object
+title: Owner Dto
 description: Owner's identity. 
 properties:
   type:

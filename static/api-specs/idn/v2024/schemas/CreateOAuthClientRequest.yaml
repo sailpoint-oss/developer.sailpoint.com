@@ -1,4 +1,5 @@
 type: object
+title: Create O Auth Client Request
 properties:
   businessName:
     type: string

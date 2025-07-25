@@ -1,4 +1,5 @@
 type: object
+title: Conflicting Access Criteria
 properties:
   leftCriteria:
     $ref: './AccessCriteria.yaml'

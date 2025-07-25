@@ -1,4 +1,5 @@
 type: object
+title: Access Model Metadata
 description: Metadata that describes an access item
 properties:
   key:

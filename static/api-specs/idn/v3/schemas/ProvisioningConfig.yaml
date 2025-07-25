@@ -1,4 +1,5 @@
 type: object
+title: Provisioning Config
 description: Specification of a Service Desk integration provisioning configuration.
 properties:
   universalManager:

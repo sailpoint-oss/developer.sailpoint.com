@@ -1,4 +1,5 @@
 type: object
+title: Access Recommendation Message
 properties:
   interpretation:
     type: string

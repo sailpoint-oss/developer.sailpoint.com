@@ -1,6 +1,7 @@
 # Replaced by ReviewItem.yaml
 # Cannot represent information from a Role Composition Certification Item
 type: object
+title: Access Review Item
 properties:
   accessSummary:
     $ref: "./AccessSummary.yaml"

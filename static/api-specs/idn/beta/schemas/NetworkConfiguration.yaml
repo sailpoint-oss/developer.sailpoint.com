@@ -1,4 +1,5 @@
 type: object
+title: Network Configuration
 properties:
   range:
     type: array

@@ -1,4 +1,5 @@
 type: object
+title: Auth Support Tenant Response
 properties:
   authTenant:
     type: string

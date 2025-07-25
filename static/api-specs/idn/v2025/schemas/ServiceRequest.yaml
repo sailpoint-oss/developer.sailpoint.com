@@ -3,6 +3,7 @@ required:
   - provision
   - checkStatus
 type: object
+title: Service Request
 properties:
   provision:
     description: provisioning details for the service request Service Desk integration

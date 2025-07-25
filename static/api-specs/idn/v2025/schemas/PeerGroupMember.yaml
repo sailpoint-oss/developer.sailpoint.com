@@ -1,4 +1,5 @@
 type: object
+title: Peer Group Member
 properties:
   id:
     type: string

@@ -1,4 +1,5 @@
 type: object
+title: Pat Owner
 description: Personal access token owner's identity. 
 properties:
   type:

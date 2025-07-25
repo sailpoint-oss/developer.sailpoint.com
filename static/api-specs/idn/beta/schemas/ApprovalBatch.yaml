@@ -1,4 +1,5 @@
 type: object
+title: Approval Batch
 properties:
   batchId:
     type: string

@@ -1,4 +1,5 @@
 type: object
+title: Role Mining Session Dto
 properties:
   scope:
     $ref: './RoleMiningSessionScope.yaml'

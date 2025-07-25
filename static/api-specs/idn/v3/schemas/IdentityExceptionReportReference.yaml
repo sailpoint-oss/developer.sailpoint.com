@@ -1,4 +1,5 @@
 type: object
+title: Identity Exception Report Reference
 nullable: true
 properties:
   taskResultId:

@@ -1,4 +1,5 @@
 type: object
+title: Access Item Ref
 properties:
   id:
     type: string

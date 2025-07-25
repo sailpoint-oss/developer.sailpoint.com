@@ -1,4 +1,5 @@
 type : object
+title: Request On Behalf Of Config
 properties:
   allowRequestOnBehalfOfAnyoneByAnyone:
     type: boolean

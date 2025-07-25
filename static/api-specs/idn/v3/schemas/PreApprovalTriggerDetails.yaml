@@ -1,4 +1,5 @@
 type: object
+title: Pre Approval Trigger Details
 properties:
   comment:
     type: string

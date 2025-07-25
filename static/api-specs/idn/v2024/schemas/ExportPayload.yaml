@@ -1,4 +1,5 @@
 type: object
+title: Export Payload
 allOf:
   - $ref: "./ExportOptions.yaml"
 properties:

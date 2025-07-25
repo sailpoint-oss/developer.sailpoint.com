@@ -1,4 +1,5 @@
 type: object
+title: Load Accounts Task
 properties:
   success:
     type: boolean

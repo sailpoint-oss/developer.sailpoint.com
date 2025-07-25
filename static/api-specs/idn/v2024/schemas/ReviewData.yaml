@@ -1,6 +1,7 @@
 # Replaces AccessSummary.yaml
 description: An object holding the entity that is being reviewed
 type: object
+title: Review Data
 properties:
   entity:
     type: object

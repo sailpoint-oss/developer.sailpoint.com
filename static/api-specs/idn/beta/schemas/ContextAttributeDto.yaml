@@ -1,4 +1,5 @@
 type: object
+title: Context Attribute Dto
 properties:
   attribute:
     type: string

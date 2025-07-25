@@ -1,4 +1,5 @@
 type: object
+title: Totp Code Request
 properties:
   totpCode:
     type: string

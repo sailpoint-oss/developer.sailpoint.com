@@ -1,4 +1,5 @@
 type: object
+title: Access Request Identity Metrics
 properties:
   identitiesWithAccess:
     type: integer

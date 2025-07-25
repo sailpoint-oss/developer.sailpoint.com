@@ -1,4 +1,5 @@
 type : object
+title: Role Insights Insight
 properties:
   type:
     type: string

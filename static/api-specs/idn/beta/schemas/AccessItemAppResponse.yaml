@@ -1,4 +1,5 @@
 type: object
+title: Access Item App Response
 required:
   - appRoleId
 properties:

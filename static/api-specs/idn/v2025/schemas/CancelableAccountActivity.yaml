@@ -1,4 +1,5 @@
 type : object
+title: Cancelable Account Activity
 properties:
   id:
     type: string

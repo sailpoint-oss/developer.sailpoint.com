@@ -1,5 +1,6 @@
 description: Represents the search criteria for querying entitlements.
 type: object
+title: Search Criteria
 properties:
   indices:
     type: array

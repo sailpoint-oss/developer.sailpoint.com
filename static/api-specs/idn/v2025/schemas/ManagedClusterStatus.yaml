@@ -1,5 +1,6 @@
 description: Managed Cluster Status
 type: object
+title: Managed Cluster Status
 required:
   - id
   - clientType

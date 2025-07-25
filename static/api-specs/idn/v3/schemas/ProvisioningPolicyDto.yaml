@@ -1,4 +1,5 @@
 type : object
+title: Provisioning Policy Dto
 required:
   - name
 properties:

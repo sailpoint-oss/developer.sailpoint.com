@@ -5,6 +5,7 @@ required:
   - type
   - parameters
 type: object
+title: Task Status Message
 properties:
   type:
     description: Type of the message

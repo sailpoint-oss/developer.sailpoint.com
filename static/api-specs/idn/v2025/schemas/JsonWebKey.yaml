@@ -1,4 +1,5 @@
 type: object
+title: Json Web Key
 properties:
   kid:
     type: string

@@ -1,4 +1,5 @@
 type: object
+title: Recommendation
 properties:
   type:
     type: string

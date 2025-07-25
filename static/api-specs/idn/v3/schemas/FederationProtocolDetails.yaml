@@ -1,4 +1,5 @@
 type: object
+title: Federation Protocol Details
 properties:
   role:
     type: string

@@ -1,4 +1,5 @@
 type: object
+title: Complex Role Criterion Key
 properties:
   type:
     type: string

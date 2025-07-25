@@ -1,4 +1,5 @@
 type: object
+title: Owner
 properties:
   type:
     $ref: '../../v3/schemas/DtoType.yaml'

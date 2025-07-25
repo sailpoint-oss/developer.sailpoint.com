@@ -1,4 +1,5 @@
 type: object
+title: Attr Sync Source
 description: Target source for attribute synchronization. 
 properties:
   type:

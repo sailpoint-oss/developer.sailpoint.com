@@ -2,6 +2,7 @@ description: An object referencing an SOD violation check
 required:
   - requestId
 type: object
+title: Sod Violation Check
 properties:
   requestId:
     description: The id of the original request

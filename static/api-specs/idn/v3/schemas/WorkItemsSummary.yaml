@@ -1,4 +1,5 @@
 type: object
+title: Work Items Summary
 properties:
   open:
     type: integer

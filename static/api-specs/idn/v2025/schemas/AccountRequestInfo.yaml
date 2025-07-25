@@ -1,4 +1,5 @@
 type: object
+title: Account Request Info
 nullable: true
 properties:
   requestedObjectId:

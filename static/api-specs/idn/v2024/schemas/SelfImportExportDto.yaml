@@ -1,4 +1,5 @@
 type: object
+title: Self Import Export Dto
 description: Self block for imported/exported object. 
 properties:
   type:

@@ -1,4 +1,5 @@
 type: object
+title: Access Item Owner Dto
 description: Access item owner's identity. 
 properties:
   type:

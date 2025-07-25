@@ -1,5 +1,6 @@
 description: Configuration information map for Managed Process object
 type: object
+title: Managed Process Configuration
 required:
   - version
   - path

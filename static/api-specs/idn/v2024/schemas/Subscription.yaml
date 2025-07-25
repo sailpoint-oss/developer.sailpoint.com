@@ -1,4 +1,5 @@
 type: object
+title: Subscription
 required:
   - id
   - triggerId

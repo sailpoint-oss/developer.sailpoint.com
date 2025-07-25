@@ -1,4 +1,5 @@
 type : object
+title: Role Mining Potential Role Summary Distribution
 allOf:
   - $ref: ./RoleMiningPotentialRoleSummary.yaml
   - type: object

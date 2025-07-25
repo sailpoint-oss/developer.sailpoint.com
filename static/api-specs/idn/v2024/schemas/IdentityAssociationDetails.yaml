@@ -1,4 +1,5 @@
 type: object
+title: Identity Association Details
 properties:
   message:
     type: string

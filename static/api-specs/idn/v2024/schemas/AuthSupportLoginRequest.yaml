@@ -1,4 +1,5 @@
 type: object
+title: Auth Support Login Request
 properties:
   authTenant:
     type: string

@@ -1,4 +1,5 @@
 type: object
+title: Task Result Response
 properties:
   type:
     type: string

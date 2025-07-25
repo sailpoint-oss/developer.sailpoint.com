@@ -1,4 +1,5 @@
 type: object
+title: Requestable Object Reference
 properties:
   id:
     type: string

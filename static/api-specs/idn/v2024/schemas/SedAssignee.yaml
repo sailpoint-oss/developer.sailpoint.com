@@ -1,5 +1,6 @@
 description: Sed Assignee
 type: object
+title: Sed Assignee
 properties:
   type:
     description: |-

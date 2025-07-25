@@ -1,4 +1,5 @@
 type : object
+title: Iai Data Role Entitlement Identity
 description: An object containing identity and its attributes intended for getting identities that have a given entitlement.
 properties:
   id:

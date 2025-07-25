@@ -1,4 +1,5 @@
 type: object
+title: Scheduled Action
 properties:
   id:
     type: string

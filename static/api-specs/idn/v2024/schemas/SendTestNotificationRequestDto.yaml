@@ -1,4 +1,5 @@
 type: object
+title: Send Test Notification Request Dto
 properties:
   key:
     type: string

@@ -1,4 +1,5 @@
 type: object
+title: Send Token Response
 properties:
   requestId:
     type: string

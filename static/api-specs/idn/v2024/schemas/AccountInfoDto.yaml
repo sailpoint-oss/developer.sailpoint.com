@@ -1,4 +1,5 @@
 type: object
+title: Account Info Dto
 properties:
   nativeIdentity:
     type: string

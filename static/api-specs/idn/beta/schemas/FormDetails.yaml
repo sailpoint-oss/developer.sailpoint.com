@@ -1,4 +1,5 @@
 type: object
+title: Form Details
 nullable: true
 properties:
   id:

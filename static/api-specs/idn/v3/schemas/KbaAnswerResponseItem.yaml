@@ -1,4 +1,5 @@
 type: object
+title: Kba Answer Response Item
 properties:
   id:
     type: string

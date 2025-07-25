@@ -1,5 +1,6 @@
 # Replaces AccessReviewItem.yaml
 type: object
+title: Review Item
 properties:
   id:
     type: string

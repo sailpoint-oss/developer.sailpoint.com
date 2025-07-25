@@ -1,4 +1,5 @@
 type : object
+title: Error Response Dto
 properties:
   detailCode:
     type: string

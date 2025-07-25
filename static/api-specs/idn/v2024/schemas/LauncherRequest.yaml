@@ -1,4 +1,5 @@
 type: object
+title: Launcher Request
 required:
   - name
   - description

@@ -1,5 +1,6 @@
 description: ConnectorRuleCreateRequest
 type: object
+title: Connector Rule Create Request
 required:
   - name
   - type

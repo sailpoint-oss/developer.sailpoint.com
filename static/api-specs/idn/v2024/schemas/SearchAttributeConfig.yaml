@@ -1,4 +1,5 @@
 type: object
+title: Search Attribute Config
 properties:
   name:
     type: string

@@ -1,5 +1,6 @@
 description: Managed Cluster Source
 type: object
+title: Cluster Source
 properties:
   id:
     description: Source ID

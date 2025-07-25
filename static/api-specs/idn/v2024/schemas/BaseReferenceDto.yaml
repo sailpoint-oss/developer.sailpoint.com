@@ -1,4 +1,5 @@
 type: object
+title: Base Reference Dto
 properties:
   type:
     $ref: './DtoType.yaml'

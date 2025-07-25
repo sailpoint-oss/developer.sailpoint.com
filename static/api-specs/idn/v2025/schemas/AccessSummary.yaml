@@ -1,6 +1,7 @@
 # Replaced by ReviewData.yaml
 # Cannot represent information for a Role Composition Certification Item
 type : object
+title: Access Summary
 description: An object holding the access that is being reviewed
 properties:
   access:

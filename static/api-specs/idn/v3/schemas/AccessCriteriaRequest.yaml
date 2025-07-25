@@ -1,4 +1,5 @@
 type: object
+title: Access Criteria Request
 properties:
   name:
     type: string

@@ -1,4 +1,5 @@
 type: object
+title: Children
 properties:
   operator:
     type: string

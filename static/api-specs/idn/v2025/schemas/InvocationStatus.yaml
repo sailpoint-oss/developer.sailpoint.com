@@ -1,4 +1,5 @@
 type: object
+title: Invocation Status
 required:
 - id
 - triggerId

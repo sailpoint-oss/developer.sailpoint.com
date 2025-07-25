@@ -1,4 +1,5 @@
 type: object
+title: Activity Insights
 description: Insights into account activity
 properties:
   accountID:

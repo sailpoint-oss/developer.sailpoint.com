@@ -1,5 +1,6 @@
 description: Account Details
 type: object
+title: Account Details
 properties:
   id:
     description: unique id of this object

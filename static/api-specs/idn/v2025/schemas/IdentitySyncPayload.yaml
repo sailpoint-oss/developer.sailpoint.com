@@ -1,4 +1,5 @@
 type: object
+title: Identity Sync Payload
 properties:
   type:
     type: string

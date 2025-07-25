@@ -1,4 +1,5 @@
 type: object
+title: Certification Reference Dto
 description: Certification for review. 
 properties:
   type:

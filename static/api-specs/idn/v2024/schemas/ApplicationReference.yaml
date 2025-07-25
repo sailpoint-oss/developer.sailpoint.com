@@ -1,4 +1,5 @@
 type: object
+title: Application Reference
 properties:
   id:
     type: string

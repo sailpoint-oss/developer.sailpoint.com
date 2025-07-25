@@ -1,4 +1,5 @@
 type: object
+title: Mfa Reset Request
 properties:
   requestedFor:
     type: string

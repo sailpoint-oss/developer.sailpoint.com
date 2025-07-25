@@ -1,5 +1,6 @@
 description: Sed Batch Request
 type: object
+title: Sed Batch Request
 minProperties: 1
 properties:
   entitlements:

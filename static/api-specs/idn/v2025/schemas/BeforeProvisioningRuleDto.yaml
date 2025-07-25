@@ -1,4 +1,5 @@
 type: object
+title: Before Provisioning Rule Dto
 description: Before Provisioning Rule. 
 properties:
   type:

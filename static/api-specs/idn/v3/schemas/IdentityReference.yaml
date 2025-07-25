@@ -1,4 +1,5 @@
 type: object
+title: Identity Reference
 nullable: true
 description: The manager for the identity.
 properties:

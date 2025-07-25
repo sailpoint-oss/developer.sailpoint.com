@@ -1,4 +1,5 @@
 type: object
+title: Identity Preview
 properties:
   identityId:
     type: string

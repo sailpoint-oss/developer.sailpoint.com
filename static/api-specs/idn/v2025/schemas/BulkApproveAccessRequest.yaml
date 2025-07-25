@@ -1,4 +1,5 @@
 type : object
+title: Bulk Approve Access Request
 description: Request body payload for bulk approve access request endpoint.
 required :
   - approvalIds

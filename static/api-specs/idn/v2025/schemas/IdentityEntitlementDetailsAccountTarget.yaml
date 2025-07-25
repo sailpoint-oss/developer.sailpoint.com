@@ -1,4 +1,5 @@
 type: object
+title: Identity Entitlement Details Account Target
 properties:
   accountId:
     type: string

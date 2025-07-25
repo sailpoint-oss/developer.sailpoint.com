@@ -1,4 +1,5 @@
 type: object
+title: External Object Details Reference
 description:  Describes a reference to instance(s) of another name of object.
 properties:
   type:

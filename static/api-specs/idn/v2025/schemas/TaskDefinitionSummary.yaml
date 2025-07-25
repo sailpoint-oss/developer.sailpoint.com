@@ -7,6 +7,7 @@ required:
   - uniqueName
   - parentName
 type: object
+title: Task Definition Summary
 properties:
   id:
     description: System-generated unique ID of the TaskDefinition

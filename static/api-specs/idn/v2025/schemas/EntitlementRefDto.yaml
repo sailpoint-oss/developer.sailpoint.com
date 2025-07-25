@@ -1,4 +1,5 @@
 type: object
+title: Entitlement Ref Dto
 properties:
   id:
     type: string

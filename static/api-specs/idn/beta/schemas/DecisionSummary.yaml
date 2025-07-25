@@ -1,5 +1,6 @@
 # Replaces IdentityCertDecisionSummary.yaml
 type: object
+title: Decision Summary
 properties:
   type:
     $ref: './CertificationItemType.yaml'

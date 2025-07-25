@@ -1,4 +1,5 @@
 type: object
+title: Access Request Phases
 properties:
   started:
     type: string

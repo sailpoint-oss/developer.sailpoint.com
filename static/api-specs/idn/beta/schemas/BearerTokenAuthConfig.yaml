@@ -1,4 +1,5 @@
 type: object
+title: Bearer Token Auth Config
 properties:
   bearerToken:
     type: string

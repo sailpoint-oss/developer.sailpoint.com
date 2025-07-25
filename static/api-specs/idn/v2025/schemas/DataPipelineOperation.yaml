@@ -1,4 +1,5 @@
 type: object
+title: Data Pipeline Operation
 properties:
   timestamp:
     type: string

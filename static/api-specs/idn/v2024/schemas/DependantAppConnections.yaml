@@ -1,4 +1,5 @@
 type: object
+title: Dependant App Connections
 properties:
     cloudAppId:
         type: string

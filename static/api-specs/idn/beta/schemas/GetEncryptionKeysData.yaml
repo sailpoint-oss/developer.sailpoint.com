@@ -1,4 +1,5 @@
 type: object
+title: Get Encryption Keys Data
 description: Get a Clusters key pair
 required:
   - publicKeyCertificate

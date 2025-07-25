@@ -1,4 +1,5 @@
 type : object
+title: Bulk Cancel Access Request
 description: Request body payload for bulk cancel access request endpoint.
 required :
   - accessRequestIds

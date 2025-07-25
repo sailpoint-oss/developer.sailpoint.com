@@ -1,4 +1,5 @@
 type: object
+title: Identity Ref With Attributes
 properties:
   id:
     type: string

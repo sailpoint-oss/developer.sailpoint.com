@@ -1,4 +1,5 @@
 type: object
+title: Tag Category Dto
 description: Tagged object's category. 
 properties:
   type:

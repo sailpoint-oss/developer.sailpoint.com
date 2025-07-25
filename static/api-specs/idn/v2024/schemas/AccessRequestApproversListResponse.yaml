@@ -1,4 +1,5 @@
 type: object
+title: Access Request Approvers List Response
 properties:
   id:
     type: string

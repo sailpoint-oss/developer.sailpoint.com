@@ -1,4 +1,5 @@
 type : object
+title: Access Constraint
 properties:
   type:
     type: string

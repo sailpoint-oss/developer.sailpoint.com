@@ -1,4 +1,5 @@
 type: object
+title: Dependant Connections Missing Dto
 properties:
     dependencyType:
         type: string

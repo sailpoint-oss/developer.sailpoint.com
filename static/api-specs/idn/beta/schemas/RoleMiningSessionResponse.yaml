@@ -1,4 +1,5 @@
 type: object
+title: Role Mining Session Response
 properties:
   scope:
     $ref: './RoleMiningSessionScope.yaml'

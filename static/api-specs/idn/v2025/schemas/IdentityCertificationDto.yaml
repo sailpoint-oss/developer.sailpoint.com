@@ -1,6 +1,7 @@
 # Has been replaced by CertificationDto.yaml
 # Cannot represent certifications that are part of a Role Composition Campaign
 type: object
+title: Identity Certification Dto
 properties:
   id:
     example: 2c9180835d2e5168015d32f890ca1581

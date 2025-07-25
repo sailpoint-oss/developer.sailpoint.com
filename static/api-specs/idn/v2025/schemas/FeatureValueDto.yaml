@@ -1,4 +1,5 @@
 type: object
+title: Feature Value Dto
 properties:
   feature:
     type: string

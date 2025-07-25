@@ -1,4 +1,5 @@
 type: object
+title: Manager Correlation Mapping
 nullable: true
 properties:
   accountAttributeName:

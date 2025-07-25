@@ -1,6 +1,7 @@
 description: Manual Upgrade Job Response
 nullable: false
 type: object
+title: Cluster Manual Upgrade
 properties:
   jobs:
     description: List of job objects for the upgrade request.

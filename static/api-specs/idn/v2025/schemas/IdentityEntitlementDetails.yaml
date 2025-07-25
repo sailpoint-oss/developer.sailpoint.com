@@ -1,4 +1,5 @@
 type: object
+title: Identity Entitlement Details
 properties:
   identityId:
     type: string

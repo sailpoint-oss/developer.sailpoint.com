@@ -1,4 +1,5 @@
 type: object
+title: Sod Recipient
 description: SOD policy recipient. 
 properties:
   type:

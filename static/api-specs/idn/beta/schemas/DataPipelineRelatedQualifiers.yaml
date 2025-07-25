@@ -1,4 +1,5 @@
 type: object
+title: Data Pipeline Related Qualifiers
 properties:
   sourceQualifier:
     type: string

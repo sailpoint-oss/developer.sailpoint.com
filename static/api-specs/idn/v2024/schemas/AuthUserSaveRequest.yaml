@@ -1,4 +1,5 @@
 type: object
+title: Auth User Save Request
 properties:
   uid:
     type: string

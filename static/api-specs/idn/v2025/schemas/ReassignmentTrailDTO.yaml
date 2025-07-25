@@ -1,4 +1,5 @@
 type: object
+title: Reassignment Trail DTO
 properties:
   previousOwner:
     type: string

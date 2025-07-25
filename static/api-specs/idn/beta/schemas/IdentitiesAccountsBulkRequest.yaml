@@ -1,4 +1,5 @@
 type : object
+title: Identities Accounts Bulk Request
 properties:
   identityIds:
     description: The ids of the identities for which enable/disable accounts.

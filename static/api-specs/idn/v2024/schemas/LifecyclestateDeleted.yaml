@@ -1,4 +1,5 @@
 type: object
+title: Lifecyclestate Deleted
 description: Deleted lifecycle state. 
 properties:
   type:

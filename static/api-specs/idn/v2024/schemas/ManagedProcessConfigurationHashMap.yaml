@@ -1,4 +1,5 @@
 type: object
+title: Managed Process Configuration Hash Map
 properties:
   charon:
     description: ManagedProcess configuration map

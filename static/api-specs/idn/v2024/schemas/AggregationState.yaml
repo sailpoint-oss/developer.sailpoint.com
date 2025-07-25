@@ -1,4 +1,5 @@
 type: object
+title: Aggregation State
 properties:
   start:
     type: string

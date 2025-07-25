@@ -1,4 +1,5 @@
 type: object
+title: Access Granter Auth Support Login Response
 properties:
   accessGranterTenant:
     type: string

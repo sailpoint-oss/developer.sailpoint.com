@@ -1,5 +1,6 @@
 description: Submit Activation Code Input
 type: object
+title: Submit Activation Code Input
 required:
   - code
 properties:

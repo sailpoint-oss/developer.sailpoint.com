@@ -1,4 +1,5 @@
 type: object
+title: Identity Attribute Preview
 properties:
   name:
     type: string

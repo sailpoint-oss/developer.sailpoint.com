@@ -1,4 +1,5 @@
 type: object
+title: Invite Identities Request
 properties:
   ids:
     description: The list of Identities IDs to invite - required when 'uninvited' is false

@@ -1,4 +1,5 @@
 type: object
+title: Access Item Account Response
 required:
   - nativeIdentity
 properties:

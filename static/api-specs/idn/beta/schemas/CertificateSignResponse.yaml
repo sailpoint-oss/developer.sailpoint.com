@@ -1,5 +1,6 @@
 description: Sign Certificate Response
 type: object
+title: Certificate Sign Response
 properties:
   certificate:
     description: Certificate

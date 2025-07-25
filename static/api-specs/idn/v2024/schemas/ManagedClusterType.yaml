@@ -1,5 +1,6 @@
 description: Managed Cluster Type for Cluster upgrade configuration information
 type: object
+title: Managed Cluster Type
 required:
   - type
   - pod

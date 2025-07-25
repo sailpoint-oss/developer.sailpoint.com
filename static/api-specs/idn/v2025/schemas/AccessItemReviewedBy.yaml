@@ -1,4 +1,5 @@
 type: object
+title: Access Item Reviewed By
 description: Identity who reviewed the access item request. 
 properties:
   type:

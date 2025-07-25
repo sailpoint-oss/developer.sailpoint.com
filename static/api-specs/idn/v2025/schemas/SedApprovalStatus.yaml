@@ -1,5 +1,6 @@
 description: SED Approval Status
 type: object
+title: Sed Approval Status
 properties:
   failedReason:
     description: failed reason will be display if status is failed

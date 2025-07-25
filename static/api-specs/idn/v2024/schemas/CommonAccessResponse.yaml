@@ -1,4 +1,5 @@
 type : object
+title: Common Access Response
 properties:
   id:
     type: string

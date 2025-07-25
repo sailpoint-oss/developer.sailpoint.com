@@ -1,4 +1,5 @@
 type: object
+title: Mfa Okta Config
 properties:
   mfaMethod:
     type: string

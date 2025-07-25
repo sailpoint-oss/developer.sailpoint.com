@@ -1,4 +1,5 @@
 type : object
+title: Role Mining Entitlement Ref
 properties:
   id:
     type: string

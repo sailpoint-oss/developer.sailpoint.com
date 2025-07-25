@@ -1,4 +1,5 @@
 type: object
+title: Original Approval Owner Dto
 description: Identity of orginal approval owner. 
 properties:
   type:

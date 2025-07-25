@@ -1,4 +1,5 @@
 type: object
+title: Send Account Verification Request
 properties:
   sourceName:
     description: The source name where identity account password should be reset

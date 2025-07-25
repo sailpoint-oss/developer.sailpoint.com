@@ -1,5 +1,6 @@
 description: ConnectorRuleValidationResponse
 type: object
+title: Connector Rule Validation Response
 required:
   - state
   - details

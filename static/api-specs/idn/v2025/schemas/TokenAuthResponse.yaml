@@ -1,4 +1,5 @@
 type: object
+title: Token Auth Response
 properties:
   status:
     type: string

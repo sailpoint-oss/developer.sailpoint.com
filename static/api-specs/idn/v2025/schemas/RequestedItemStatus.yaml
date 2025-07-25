@@ -1,4 +1,5 @@
 type: object
+title: Requested Item Status
 properties:
   id:
     type: string

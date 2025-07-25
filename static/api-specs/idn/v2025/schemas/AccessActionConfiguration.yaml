@@ -1,4 +1,5 @@
 type : object
+title: Access Action Configuration
 description: This is used for access configuration for a lifecycle state
 properties:
   removeAllAccessEnabled:

@@ -1,4 +1,5 @@
 type: object
+title: Review Items Activity Task
 properties:
   status:
     type: string

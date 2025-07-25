@@ -1,5 +1,6 @@
 description: This configuration is required only when the subscription type is INLINE.
 type: object
+title: Inline Config
 properties:
   error:
     type: string

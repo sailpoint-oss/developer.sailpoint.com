@@ -1,4 +1,5 @@
 type: object
+title: Auth Support Transfer Status Response
 properties:
   tenant:
     type: string

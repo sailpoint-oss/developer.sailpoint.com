@@ -1,4 +1,5 @@
 type: object
+title: Multi Host Sources
 properties:
   id:
     type: string

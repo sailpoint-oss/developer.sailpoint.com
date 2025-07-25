@@ -1,6 +1,7 @@
 description: Client Runtime Logging Configuration
 nullable: true
 type: object
+title: Client Log Configuration
 required:
   - rootLevel
 properties:

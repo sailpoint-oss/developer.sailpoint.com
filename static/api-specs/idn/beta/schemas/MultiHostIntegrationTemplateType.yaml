@@ -3,6 +3,7 @@ required:
   - type
   - scriptName
 type: object
+title: Multi Host Integration Template Type
 properties:
   name:
     description: This is the name of the type.

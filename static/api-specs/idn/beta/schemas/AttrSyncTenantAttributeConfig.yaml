@@ -1,5 +1,6 @@
 
 type: object
+title: Attr Sync Tenant Attribute Config
 description: Specification of tenant attribute sync mapping configuration for an identity attribute
 required:
   - name

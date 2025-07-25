@@ -1,4 +1,5 @@
 type: object
+title: Reassign Reference
 properties:
   id:
     type: string

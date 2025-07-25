@@ -1,4 +1,5 @@
 type: object
+title: Lockout Configuration
 properties:
   maximumAttempts:
     type: integer

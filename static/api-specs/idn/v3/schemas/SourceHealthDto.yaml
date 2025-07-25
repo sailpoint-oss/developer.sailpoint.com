@@ -1,4 +1,5 @@
 type: object
+title: Source Health Dto
 description: Dto for source health data
 properties:
   id:

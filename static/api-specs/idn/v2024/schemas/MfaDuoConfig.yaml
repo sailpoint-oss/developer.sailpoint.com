@@ -1,4 +1,5 @@
 type: object
+title: Mfa Duo Config
 properties:
   mfaMethod:
     type: string

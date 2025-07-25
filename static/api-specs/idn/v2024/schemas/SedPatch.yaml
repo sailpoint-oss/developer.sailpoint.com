@@ -1,5 +1,6 @@
 description: Patch for Suggested Entitlement Description
 type: object
+title: Sed Patch
 properties:
   op:
     description: desired operation

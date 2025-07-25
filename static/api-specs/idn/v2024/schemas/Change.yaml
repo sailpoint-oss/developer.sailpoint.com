@@ -1,4 +1,5 @@
 type: object
+title: Change
 properties:
   op:
     type: string

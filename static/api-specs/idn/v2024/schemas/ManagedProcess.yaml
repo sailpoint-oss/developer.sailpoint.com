@@ -1,5 +1,6 @@
 description: Managed Process for Cluster upgrade configuration information
 type: object
+title: Managed Process
 required:
   - process
   - pod

@@ -1,4 +1,5 @@
 type: object
+title: Org Config
 description: DTO class for OrgConfig data accessible by customer external org admin ("ORG_ADMIN") users
 properties:
     orgName:

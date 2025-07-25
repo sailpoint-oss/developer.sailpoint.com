@@ -1,4 +1,5 @@
 type : object
+title: Outlier
 properties:
   id:
     type: string

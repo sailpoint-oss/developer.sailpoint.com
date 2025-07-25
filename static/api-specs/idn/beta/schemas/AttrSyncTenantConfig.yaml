@@ -1,5 +1,6 @@
 
 type: object
+title: Attr Sync Tenant Config
 description: Specification of attribute sync configuration for a tenant
 required:
   - attributes

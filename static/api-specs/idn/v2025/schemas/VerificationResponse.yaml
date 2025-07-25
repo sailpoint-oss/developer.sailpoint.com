@@ -1,4 +1,5 @@
 type: object
+title: Verification Response
 properties:
   requestId:
     type: string

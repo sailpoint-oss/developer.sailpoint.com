@@ -1,5 +1,6 @@
 description: ConnectorCustomizerVersionCreateResponse
 type: object
+title: Connector Customizer Version Create Response
 nullable: true
 properties:
   customizerID:

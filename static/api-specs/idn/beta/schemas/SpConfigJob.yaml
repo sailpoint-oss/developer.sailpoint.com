@@ -1,4 +1,5 @@
 type: object
+title: Sp Config Job
 properties:
   jobId:
     type: string

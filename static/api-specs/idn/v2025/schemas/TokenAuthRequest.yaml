@@ -1,4 +1,5 @@
 type: object
+title: Token Auth Request
 properties:
   token:
     nullable: false

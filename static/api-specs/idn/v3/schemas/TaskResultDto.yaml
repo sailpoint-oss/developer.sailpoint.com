@@ -1,4 +1,5 @@
 type: object
+title: Task Result Dto
 description: Task result. 
 properties:
   type:

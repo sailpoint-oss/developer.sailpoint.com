@@ -1,4 +1,5 @@
 type : object
+title: Schedule
 properties:
   type:
     type: string

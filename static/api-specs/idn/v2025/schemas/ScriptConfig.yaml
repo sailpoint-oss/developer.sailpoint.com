@@ -1,4 +1,5 @@
 type: object
+title: Script Config
 description: This configuration is required only when the subscription type is SCRIPT.
 properties:
   language:

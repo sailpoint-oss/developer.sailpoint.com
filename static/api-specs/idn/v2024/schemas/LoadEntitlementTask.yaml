@@ -1,4 +1,5 @@
 type: object
+title: Load Entitlement Task
 properties:
   id:
     description: System-generated unique ID of the task this taskStatus represents

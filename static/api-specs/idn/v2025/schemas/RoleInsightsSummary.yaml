@@ -1,4 +1,5 @@
 type : object
+title: Role Insights Summary
 properties:
   numberOfUpdates:
     type: integer

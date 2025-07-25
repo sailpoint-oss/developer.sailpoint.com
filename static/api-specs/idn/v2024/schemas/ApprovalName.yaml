@@ -1,4 +1,5 @@
 type: object
+title: Approval Name
 properties:
   value:
     type: string

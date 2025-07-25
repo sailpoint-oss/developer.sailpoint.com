@@ -1,4 +1,5 @@
 type: object
+title: Access Request Admin Item Status
 properties:
   id:
     type: string

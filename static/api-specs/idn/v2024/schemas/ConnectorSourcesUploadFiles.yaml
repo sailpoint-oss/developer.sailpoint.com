@@ -1,5 +1,6 @@
 description: Connector Sources Upload Files
 type: object
+title: Connector Sources Upload Files
 properties:
   id:
     description: V3 Source Id

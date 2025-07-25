@@ -1,4 +1,5 @@
 type: object
+title: Load Uncorrelated Accounts Task
 properties:
   success:
     type: boolean

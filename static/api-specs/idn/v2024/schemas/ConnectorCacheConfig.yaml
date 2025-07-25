@@ -1,5 +1,6 @@
 description: Validation hashes for Application and Rule objects cached on the CCG.
 type: object
+title: Connector Cache Config
 properties:
   Application:
     type: integer

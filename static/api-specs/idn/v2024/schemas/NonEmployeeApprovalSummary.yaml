@@ -1,4 +1,5 @@
 type: object
+title: Non Employee Approval Summary
 properties:
   approved:
     type: number

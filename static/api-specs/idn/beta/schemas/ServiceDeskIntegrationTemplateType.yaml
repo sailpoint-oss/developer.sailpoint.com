@@ -3,6 +3,7 @@ required:
   - type
   - scriptName
 type: object
+title: Service Desk Integration Template Type
 properties:
   name:
     description: This is the name of the type.

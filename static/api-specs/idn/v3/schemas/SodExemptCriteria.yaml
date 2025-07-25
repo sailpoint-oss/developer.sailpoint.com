@@ -1,5 +1,6 @@
 description: Details of the Entitlement criteria
 type: object
+title: Sod Exempt Criteria
 properties:
   existing:
     type: boolean

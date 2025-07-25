@@ -1,5 +1,6 @@
 description: Sed Batch Record
 type: object
+title: Sed Batch Record
 properties:
   tenantId:
     type: string

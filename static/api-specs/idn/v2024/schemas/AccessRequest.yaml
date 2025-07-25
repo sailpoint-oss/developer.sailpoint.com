@@ -1,4 +1,5 @@
 type : object
+title: Access Request
 properties:
   requestedFor:
     description: A list of Identity IDs for whom the Access is requested. If it's a Revoke request, there can only be one Identity ID.

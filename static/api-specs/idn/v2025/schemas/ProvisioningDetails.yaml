@@ -1,4 +1,5 @@
 type: object
+title: Provisioning Details
 properties:
   orderedSubPhaseReferences:
     type: string

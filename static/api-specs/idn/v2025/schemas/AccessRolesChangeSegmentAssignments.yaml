@@ -1,4 +1,5 @@
 type: object
+title: Access Roles Change Segment Assignments
 description: >-
   A request to make segment assignment changes to multiple roles and access-profiles.
 required:

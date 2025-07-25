@@ -1,4 +1,5 @@
 type: object
+title: Error Message Dto
 properties:
   locale:
     type: string

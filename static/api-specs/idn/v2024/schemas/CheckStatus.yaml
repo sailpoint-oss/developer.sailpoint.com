@@ -1,5 +1,6 @@
 description: A ticket close-loop fulfillment configuration.
 type: object
+title: Check Status
 properties:
   resource:
     description: The resource URL to read a ticket status from the Ticketing System, not including the base URL prefix. This may include query parameters.

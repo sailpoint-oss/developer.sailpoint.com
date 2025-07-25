@@ -1,4 +1,5 @@
 type: object
+title: Event Bridge Config
 properties:
   awsAccount:
     type: string

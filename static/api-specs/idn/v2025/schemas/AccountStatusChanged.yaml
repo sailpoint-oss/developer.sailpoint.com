@@ -1,4 +1,5 @@
 type: object
+title: Account Status Changed
 required:
   - account
   - statusChange

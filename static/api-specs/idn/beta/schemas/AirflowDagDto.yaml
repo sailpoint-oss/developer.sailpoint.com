@@ -1,4 +1,5 @@
 type: object
+title: Airflow Dag Dto
 properties:
   id:
     type: string

@@ -1,4 +1,5 @@
 type: object
+title: Resource Bundle Message
 properties:
   key:
     type: string

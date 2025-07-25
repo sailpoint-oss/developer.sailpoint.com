@@ -1,5 +1,6 @@
 description: Connector File Upload History
 type: object
+title: Connector File Upload History
 properties:
   date:
     description: The date of file being uploaded

@@ -1,4 +1,5 @@
 type: object
+title: Role Mining Session Draft Role Dto
 properties:
   name:
     type: string

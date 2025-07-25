@@ -1,4 +1,5 @@
 type: object
+title: Member Reference
 properties:
   type:
     type: string

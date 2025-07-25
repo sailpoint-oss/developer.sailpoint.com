@@ -1,4 +1,5 @@
 type: object
+title: Translation Message
 properties:
   key:
     type: string

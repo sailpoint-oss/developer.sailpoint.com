@@ -1,4 +1,5 @@
 type: object
+title: Workgroup Member Identities
 description: Identity of workgroup member. 
 properties:
   type:

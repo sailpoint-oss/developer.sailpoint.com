@@ -1,4 +1,5 @@
 type: object
+title: Data Access
 description: DAS data for the entitlement
 nullable: true
 properties:

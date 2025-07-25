@@ -1,4 +1,5 @@
 type: object
+title: Workflow O Auth Client
 properties:
   id:
     type: string

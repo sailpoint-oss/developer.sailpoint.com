@@ -1,4 +1,5 @@
 type: object
+title: Role Target Dto
 properties:
   source:
     $ref: "./BaseReferenceDto.yaml"

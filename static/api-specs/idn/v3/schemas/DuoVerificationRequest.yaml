@@ -1,4 +1,5 @@
 type: object
+title: Duo Verification Request
 properties:
   userId:
     type: string

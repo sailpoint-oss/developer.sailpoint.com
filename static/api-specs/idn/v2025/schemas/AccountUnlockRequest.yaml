@@ -1,5 +1,6 @@
 description: Request used for account unlock
 type: object
+title: Account Unlock Request
 properties:
   externalVerificationId:
     description: If set, an external process validates that the user wants to proceed with this request.

@@ -1,4 +1,5 @@
 type : object
+title: Common Access ID Status
 properties:
   confirmedIds:
     description: List of confirmed common access ids.

@@ -1,4 +1,5 @@
 type: object
+title: Mfa Verification Response
 properties:
   mfaVerified:
     type: boolean

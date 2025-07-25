@@ -3,6 +3,7 @@ required:
   - name
   - attributeName
 type: object
+title: Task Return Details
 properties:
   name:
     description: Display name of the TaskReturnDetails

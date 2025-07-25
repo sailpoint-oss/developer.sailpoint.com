@@ -1,4 +1,5 @@
 type: object
+title: Update Detail
 properties:
   message:
     type: string

@@ -2,6 +2,7 @@ description: This represents sources to be created of same type.
 required:
   - name
 type: object
+title: Multi Host Integrations Create Sources
 properties:
   name:
     type: string

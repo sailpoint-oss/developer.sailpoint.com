@@ -1,4 +1,5 @@
 type : object
+title: Role Insights Identities
 properties:
   id:
     type: string

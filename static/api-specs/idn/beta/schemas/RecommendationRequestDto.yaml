@@ -1,4 +1,5 @@
 type: object
+title: Recommendation Request Dto
 properties:
   requests:
     type: array

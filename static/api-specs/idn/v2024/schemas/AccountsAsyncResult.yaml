@@ -2,6 +2,7 @@ description: Accounts async response containing details on started async process
 required:
   - id
 type: object
+title: Accounts Async Result
 properties:
   id:
     description: id of the task

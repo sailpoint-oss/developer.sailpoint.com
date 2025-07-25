@@ -1,4 +1,5 @@
 type : object
+title: Feature Store Feature Values Response
 properties:
   results:
     type: array

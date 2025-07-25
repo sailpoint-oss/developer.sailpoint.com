@@ -1,4 +1,5 @@
 type : object
+title: Role Insights Entitlement
 properties:
   name:
     type: string

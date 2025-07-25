@@ -1,4 +1,5 @@
 type: object
+title: Work Items Count
 properties:
   count:
     type: integer

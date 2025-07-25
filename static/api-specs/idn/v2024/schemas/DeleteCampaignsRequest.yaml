@@ -1,4 +1,5 @@
 type : object
+title: Delete Campaigns Request
 properties:
   ids:
     description: The ids of the campaigns to delete

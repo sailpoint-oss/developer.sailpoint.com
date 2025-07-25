@@ -1,4 +1,5 @@
 type: object
+title: Bulk Remove Tagged Object
 properties:
   objectRefs:
     type: array

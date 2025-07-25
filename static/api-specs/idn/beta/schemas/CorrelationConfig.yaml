@@ -1,4 +1,5 @@
 type: object
+title: Correlation Config
 description: Source configuration information that is used by correlation process.
 properties:
   id:

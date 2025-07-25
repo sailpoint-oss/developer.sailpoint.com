@@ -1,4 +1,5 @@
 type: object
+title: Identity Summary Response
 properties:
   id:
     type: string

@@ -1,4 +1,5 @@
 type: object
+title: Campaign Filter Details
 description: Campaign Filter Details
 properties:
   id:

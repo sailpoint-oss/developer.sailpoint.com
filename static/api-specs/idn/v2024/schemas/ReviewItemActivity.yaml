@@ -1,4 +1,5 @@
 type: object
+title: Review Item Activity
 properties:
   reviewItemId:
     type: string

@@ -1,4 +1,5 @@
 type: object
+title: Metric Response
 properties:
   name:
     type: string

@@ -1,4 +1,5 @@
 type: object
+title: Basic Auth Config
 properties:
   userName:
     type: string

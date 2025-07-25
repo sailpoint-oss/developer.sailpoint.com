@@ -1,4 +1,5 @@
 type: object
+title: Violation Owner Assignment Config
 properties:
   assignmentRule:
     type: string

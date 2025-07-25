@@ -1,4 +1,5 @@
 type: object
+title: Account Activity
 properties:
   id:
     type: string

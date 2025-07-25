@@ -1,4 +1,5 @@
 type: object
+title: Base Reference Dto
 properties:
   id:
     type: string

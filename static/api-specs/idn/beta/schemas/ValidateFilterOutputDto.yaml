@@ -1,4 +1,5 @@
 type: object
+title: Validate Filter Output Dto
 properties:
   isValid:
     type: boolean

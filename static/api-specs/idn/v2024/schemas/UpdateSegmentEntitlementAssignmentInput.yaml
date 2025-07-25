@@ -1,4 +1,5 @@
 type: object
+title: Update Segment Entitlement Assignment Input
 properties:
   segmentId:
     type: string

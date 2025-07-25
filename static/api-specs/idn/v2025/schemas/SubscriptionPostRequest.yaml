@@ -1,4 +1,5 @@
 type: object
+title: Subscription Post Request
 required:
   - triggerId
   - type

@@ -1,5 +1,6 @@
 description: Suggested Entitlement Description
 type: object
+title: Sed
 properties:
   Name:
     type: string

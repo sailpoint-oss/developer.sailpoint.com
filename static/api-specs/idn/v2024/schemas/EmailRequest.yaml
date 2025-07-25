@@ -1,4 +1,5 @@
 type: object
+title: Email Request
 properties:
   templateName:
     type: string

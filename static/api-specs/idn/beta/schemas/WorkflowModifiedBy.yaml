@@ -1,4 +1,5 @@
 type: object
+title: Workflow Modified By
 properties:
   type:
     type: string

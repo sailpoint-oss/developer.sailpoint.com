@@ -1,4 +1,5 @@
 type: object
+title: Recommendation Response
 properties:
   request:
     $ref: './RecommendationRequest.yaml'

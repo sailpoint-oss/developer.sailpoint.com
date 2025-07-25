@@ -1,4 +1,5 @@
 type : object
+title: Role Mining Potential Role Provision Request
 properties:
   roleName:
     type: string

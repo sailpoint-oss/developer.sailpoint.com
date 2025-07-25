@@ -1,5 +1,6 @@
 description: Request to create Managed Cluster
 type: object
+title: Managed Cluster Request
 required:
   - name
 properties:

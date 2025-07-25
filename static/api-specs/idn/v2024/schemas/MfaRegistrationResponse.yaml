@@ -1,4 +1,5 @@
 type: object
+title: Mfa Registration Response
 properties:
   mfaRegistered:
     type: boolean

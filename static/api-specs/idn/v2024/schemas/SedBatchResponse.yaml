@@ -1,5 +1,6 @@
 description: Sed Batch Response
 type: object
+title: Sed Batch Response
 properties:
   batchId:
     description: BatchId that groups all the ids together

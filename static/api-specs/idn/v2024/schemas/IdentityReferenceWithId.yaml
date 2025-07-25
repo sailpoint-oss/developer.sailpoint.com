@@ -1,4 +1,5 @@
 type: object
+title: Identity Reference With Id
 properties:
     type:
         $ref: './DtoType.yaml'

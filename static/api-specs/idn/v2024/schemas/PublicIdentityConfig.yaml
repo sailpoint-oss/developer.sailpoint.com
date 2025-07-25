@@ -1,4 +1,5 @@
 type : object
+title: Public Identity Config
 description: >-
   Details of up to 5 Identity attributes that will be publicly accessible for all Identities to anyone in the org.
 properties:

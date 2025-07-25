@@ -1,4 +1,5 @@
 type: object
+title: Original Work Item Owner Dto
 description: Identity of original work item owner. 
 properties:
   type:

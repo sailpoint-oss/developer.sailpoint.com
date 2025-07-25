@@ -1,4 +1,5 @@
 type: object
+title: Native Change Detection Config
 description: Source configuration information for Native Change Detection that is read and used by account aggregation process.
 properties:
   enabled:

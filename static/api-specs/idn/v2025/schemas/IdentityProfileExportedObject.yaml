@@ -1,4 +1,5 @@
 type: object
+title: Identity Profile Exported Object
 description: Identity profile exported object.
 properties:
   version:

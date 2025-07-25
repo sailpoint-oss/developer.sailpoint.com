@@ -1,4 +1,5 @@
 type: object
+title: Accounts Selection Request
 properties:
   requestedFor:
     description: A list of Identity IDs for whom the Access is requested.

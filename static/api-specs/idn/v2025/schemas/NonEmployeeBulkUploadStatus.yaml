@@ -1,4 +1,5 @@
 type: object
+title: Non Employee Bulk Upload Status
 properties:
   status:
     type: string

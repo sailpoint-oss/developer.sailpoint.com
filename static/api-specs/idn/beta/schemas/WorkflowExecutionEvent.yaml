@@ -1,4 +1,5 @@
 type: object
+title: Workflow Execution Event
 properties:
   type:
     description: The type of event

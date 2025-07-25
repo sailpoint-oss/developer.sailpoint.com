@@ -1,4 +1,5 @@
 type: object
+title: Source Cluster Dto
 description: Source cluster. 
 properties:
   type:

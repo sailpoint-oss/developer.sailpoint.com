@@ -1,5 +1,6 @@
 description: ConnectorCustomizerResponse
 type: object
+title: Connector Customizer Create Response
 properties:
   id:
     type: string

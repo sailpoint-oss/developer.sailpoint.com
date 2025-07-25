@@ -1,4 +1,5 @@
 type: object
+title: Transform
 description: >-
     The representation of an internally- or customer-defined transform.
 required:

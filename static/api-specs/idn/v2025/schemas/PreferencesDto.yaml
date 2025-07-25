@@ -1,4 +1,5 @@
 type: object
+title: Preferences Dto
 description: >-
   Maps an Identity's attribute key to a list of preferred notification mediums.
 properties:

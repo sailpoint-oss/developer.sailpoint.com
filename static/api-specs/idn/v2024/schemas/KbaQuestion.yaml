@@ -1,5 +1,6 @@
 description: KBA Configuration
 type: object
+title: Kba Question
 properties:
   id:
     type: string

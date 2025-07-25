@@ -1,4 +1,5 @@
 type: object
+title: Entitlement Ref
 description: Entitlement including a specific set of access.
 properties:
   type:

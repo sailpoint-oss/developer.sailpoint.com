@@ -1,4 +1,5 @@
 type: object
+title: Template Teams
 nullable: true
 properties:
   key:

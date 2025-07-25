@@ -1,4 +1,5 @@
 type: object
+title: Approval Status Dto
 properties:
   forwarded:
     type: boolean

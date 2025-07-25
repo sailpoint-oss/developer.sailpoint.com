@@ -1,4 +1,5 @@
 type: object
+title: Identity Profiles Connections
 properties:
   id:
     type: string

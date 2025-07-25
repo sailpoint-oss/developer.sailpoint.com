@@ -1,4 +1,5 @@
 type: object
+title: Source Entitlement Request Config
 description: Entitlement Request Configuration
 properties:
   accessRequestConfig:

@@ -1,4 +1,5 @@
 type: object
+title: Field Details Dto
 properties:
   name:
     type: string

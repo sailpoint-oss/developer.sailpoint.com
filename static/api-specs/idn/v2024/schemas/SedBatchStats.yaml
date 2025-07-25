@@ -1,5 +1,6 @@
 description: Sed Batch Stats
 type: object
+title: Sed Batch Stats
 properties:
   batchComplete:
     description: batch complete

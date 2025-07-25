@@ -3,6 +3,7 @@ required:
   - provision
   - checkStatus
 type: object
+title: Incident
 properties:
   provision:
     description: provisioning details for the incident Service Desk integration

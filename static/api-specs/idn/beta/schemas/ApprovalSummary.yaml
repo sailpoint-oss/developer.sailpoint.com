@@ -1,4 +1,5 @@
 type: object
+title: Approval Summary
 properties:
   pending:
     type: integer

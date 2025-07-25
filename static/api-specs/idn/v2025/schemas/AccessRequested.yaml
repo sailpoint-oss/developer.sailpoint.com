@@ -1,4 +1,5 @@
 type: object
+title: Access Requested
 required:
   - accessRequest
 properties:

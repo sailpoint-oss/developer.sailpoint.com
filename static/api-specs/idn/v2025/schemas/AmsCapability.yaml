@@ -1,4 +1,5 @@
 type: object
+title: Ams Capability
 description: Authorization model capability
 properties:
   id:

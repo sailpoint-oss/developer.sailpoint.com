@@ -1,5 +1,6 @@
 # Replaced by DecisionSummary.yaml
 type : object
+title: Identity Cert Decision Summary
 properties:
   entitlementDecisionsMade:
     type: integer

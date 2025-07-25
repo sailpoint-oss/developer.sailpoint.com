@@ -1,4 +1,5 @@
 type: object
+title: Comment
 nullable: true
 properties:
   commenterId:

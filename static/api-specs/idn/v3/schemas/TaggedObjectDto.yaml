@@ -1,4 +1,5 @@
 type: object
+title: Tagged Object Dto
 properties:
   type:
     type: string

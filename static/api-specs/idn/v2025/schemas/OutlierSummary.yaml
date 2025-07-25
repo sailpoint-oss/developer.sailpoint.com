@@ -1,4 +1,5 @@
 type : object
+title: Outlier Summary
 properties:
   type:
     type: string

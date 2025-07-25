@@ -1,4 +1,5 @@
 type: object
+title: Vendor Connector Mapping
 properties:
   id:
     type: string

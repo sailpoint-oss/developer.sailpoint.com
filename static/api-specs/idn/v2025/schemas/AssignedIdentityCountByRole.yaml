@@ -1,4 +1,5 @@
 type : object
+title: Assigned Identity Count By Role
 properties:
   roleId:
     type: string

@@ -1,4 +1,5 @@
 type: object
+title: Schema
 properties:
   id:
     type: string

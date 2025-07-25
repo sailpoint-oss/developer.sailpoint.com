@@ -1,4 +1,5 @@
 type: object
+title: Cluster Upgrade Data
 description: Upgrade Cluster VA Configuration
 required:
   - id

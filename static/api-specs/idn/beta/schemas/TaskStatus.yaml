@@ -17,6 +17,7 @@ required:
   - percentComplete
   - returns
 type: object
+title: Task Status
 properties:
   id:
     description: System-generated unique ID of the task this TaskStatus represents

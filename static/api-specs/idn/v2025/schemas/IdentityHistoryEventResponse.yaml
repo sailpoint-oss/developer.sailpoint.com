@@ -1,4 +1,5 @@
 type: object
+title: Identity History Event Response
 properties:
   eventType:
     type: string

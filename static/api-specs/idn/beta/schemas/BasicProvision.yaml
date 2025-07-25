@@ -2,6 +2,7 @@ description: This contains the common properties for provisioning of incident, c
 required:
   - request
 type: object
+title: Basic Provision
 properties:
   request:
     description: A request payload attributes map used to create a manual fulfillment ticket to the Ticketing System.

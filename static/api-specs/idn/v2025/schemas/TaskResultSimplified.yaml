@@ -1,4 +1,5 @@
 type: object
+title: Task Result Simplified
 properties:
   id:
     type: string

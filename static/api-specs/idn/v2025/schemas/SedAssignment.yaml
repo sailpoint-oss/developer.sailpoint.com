@@ -1,5 +1,6 @@
 description: Sed Assignment
 type: object
+title: Sed Assignment
 properties:
   assignee:
     $ref: 'SedAssignee.yaml'

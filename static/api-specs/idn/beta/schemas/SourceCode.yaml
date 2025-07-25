@@ -1,5 +1,6 @@
 description: SourceCode
 type: object
+title: Source Code
 required:
   - version
   - script

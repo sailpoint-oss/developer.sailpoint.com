@@ -1,4 +1,5 @@
 type: object
+title: Access Item Access Profile Response
 properties:
   id:
     type: string

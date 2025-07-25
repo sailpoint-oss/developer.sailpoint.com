@@ -1,4 +1,5 @@
 type: object
+title: Role Mining Potential Role Source Usage
 properties:
   id:
     type: string

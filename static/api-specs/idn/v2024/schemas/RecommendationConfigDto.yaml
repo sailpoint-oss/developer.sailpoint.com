@@ -1,4 +1,5 @@
 type: object
+title: Recommendation Config Dto
 properties:
   recommenderFeatures:
     type: array

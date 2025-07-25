@@ -1,4 +1,5 @@
 type: object
+title: Source Dto
 description: Source basic details.
 properties:
   type:

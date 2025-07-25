@@ -1,4 +1,5 @@
 type: object
+title: Entitlement
 properties:
   id:
     type: string

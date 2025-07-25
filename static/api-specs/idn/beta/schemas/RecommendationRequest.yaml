@@ -1,4 +1,5 @@
 type: object
+title: Recommendation Request
 properties:
   identityId:
     type: string

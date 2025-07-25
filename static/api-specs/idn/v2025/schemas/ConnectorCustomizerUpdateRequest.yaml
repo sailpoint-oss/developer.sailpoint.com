@@ -1,4 +1,5 @@
 description: ConnectorCustomizerUpdateRequest
 type: object
+title: Connector Customizer Update Request
 allOf:
   - $ref: './ConnectorCustomizerCreateRequest.yaml'

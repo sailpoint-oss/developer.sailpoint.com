@@ -1,4 +1,5 @@
 type: object
+title: Correlated Governance Event
 nullable: true
 properties:
   name:

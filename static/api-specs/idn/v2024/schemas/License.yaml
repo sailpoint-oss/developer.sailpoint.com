@@ -1,4 +1,5 @@
 type: object
+title: License
 properties:
   licenseId:
     type: string

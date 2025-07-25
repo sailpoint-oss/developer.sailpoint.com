@@ -1,4 +1,5 @@
 type: object
+title: Campaign Reference
 required:
 - id
 - name

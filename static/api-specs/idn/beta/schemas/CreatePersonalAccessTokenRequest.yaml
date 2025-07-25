@@ -1,4 +1,5 @@
 type: object
+title: Create Personal Access Token Request
 description: Object for specifying the name of a personal access token to create
 properties:
   name:

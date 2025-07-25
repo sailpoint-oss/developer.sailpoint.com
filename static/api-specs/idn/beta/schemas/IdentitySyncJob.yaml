@@ -1,4 +1,5 @@
 type: object
+title: Identity Sync Job
 properties:
   id:
     type: string

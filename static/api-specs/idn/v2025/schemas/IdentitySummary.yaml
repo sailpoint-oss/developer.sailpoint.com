@@ -1,5 +1,6 @@
 # Replaced by TargetSummary.yaml
 type: object
+title: Identity Summary
 nullable: true
 properties:
   id:

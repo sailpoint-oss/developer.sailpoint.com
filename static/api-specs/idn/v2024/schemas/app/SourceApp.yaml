@@ -67,7 +67,7 @@ properties:
         type: boolean
         default: false
         description: If the source is used for password management
-        example: ture
+        example: true
       passwordPolicies:
         type: array
         nullable: true

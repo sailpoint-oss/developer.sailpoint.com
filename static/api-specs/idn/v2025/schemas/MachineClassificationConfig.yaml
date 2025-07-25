@@ -4,27 +4,25 @@ allOf:
       enabled:
         type: boolean
         default: false
-        description: Indicates if the Classification is enabled for a Source
+        description: Indicates whether Classification is enabled for a Source
         example: true
       classificationMethod:
         description: Classification Method
         type: string
         enum:
           - SOURCE
+          - CRITERIA
         example: SOURCE
       criteria:
-        type: string
-        nullable: true
-        example: null
-        description: A classification criteria object
+        $ref: './machine/MachineClassificationCriteriaLevel1.yaml'
       created:
         type: string
         format: 'date-time'
         example: '2017-07-11T18:45:37.098Z'
-        description: Time when the config was created
+        description: Date the config was created
       modified:
         type: string
         format: 'date-time'
         example: '2018-06-25T20:22:28.104Z'
-        description: Time when the config was last updated
+        description: Date the config was last updated
         nullable: true

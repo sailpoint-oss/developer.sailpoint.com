@@ -1,0 +1,8 @@
+type: string
+description: Enum list containing types of Reassignment that can be found in the evaluate response.
+enum:
+  - MANUAL_REASSIGNMENT,
+  - AUTOMATIC_REASSIGNMENT,
+  - AUTO_ESCALATION,
+  - SELF_REVIEW_DELEGATION
+example: AUTOMATIC_REASSIGNMENT

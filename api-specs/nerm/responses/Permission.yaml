@@ -1,0 +1,9 @@
+description: Expected response to a valid request
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        permission:
+          type: object
+          $ref: '../schemas/GET/Permission.yaml'

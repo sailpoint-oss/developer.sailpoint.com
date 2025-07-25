@@ -1,0 +1,18 @@
+type: object
+properties:
+  pod:
+    type: string
+    example: pod01-useast1
+    description: Name of the pod.
+  org:
+    type: string
+    example: org-name
+    description: Name of the tenant.
+  _type:
+    $ref: "DocumentType.yaml"
+  type:
+    $ref: "DocumentType.yaml"
+  _version:
+    type: string
+    example: v2
+    description: Version number.

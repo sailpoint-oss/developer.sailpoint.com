@@ -1,0 +1,16 @@
+type: string
+description: Job State
+example: 'INPROGRESS'
+enum:
+  - PENDING
+  - INPROGRESS
+  - FINISHED
+  - GENERAL_ERROR
+  - INVALID_JOB_TYPE
+  - ABORTED
+  - ACKNOWLEDGED_FAILURE
+  - READY
+  - POLL
+  - EXPIRED
+  - PAUSED
+  - SKIPPED

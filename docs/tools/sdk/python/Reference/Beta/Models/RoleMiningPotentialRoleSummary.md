@@ -43,7 +43,7 @@ from sailpoint.beta.models.role_mining_potential_role_summary import RoleMiningP
 role_mining_potential_role_summary = RoleMiningPotentialRoleSummary(
 id='e0cc5d7d-bf7f-4f81-b2af-8885b09d9923',
 name='Potential Role - e0cc5d',
-potential_role_ref=sailpoint.beta.models.role_mining_potential_role_ref.RoleMiningPotentialRoleRef(
+potential_role_ref=sailpoint.beta.models.role_mining_potential_role_ref.Role Mining Potential Role Ref(
                     id = 'e0cc5d7d-bf7f-4f81-b2af-8885b09d9923', 
                     name = 'Potential Role - e0cc5d', ),
 identity_count=25,
@@ -59,13 +59,13 @@ created_by=,
 created_date=datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
 saved=True,
 description='',
-session=sailpoint.beta.models.role_mining_session_parameters_dto.RoleMiningSessionParametersDto(
+session=sailpoint.beta.models.role_mining_session_parameters_dto.Role Mining Session Parameters Dto(
                     id = '9f36f5e5-1e81-4eca-b087-548959d91c71', 
                     name = 'Saved RM Session - 07/10', 
                     min_num_identities_in_potential_role = 20, 
                     prune_threshold = 5, 
                     saved = True, 
-                    scope = sailpoint.beta.models.role_mining_session_scope.RoleMiningSessionScope(
+                    scope = sailpoint.beta.models.role_mining_session_scope.Role Mining Session Scope(
                         identity_ids = [2c918090761a5aac0176215c46a62d58, 2c918090761a5aac01722015c46a62d42], 
                         criteria = 'source.name:DataScienceDataset', 
                         attribute_filter_criteria = {displayName={untranslated=Location: Miami}, ariaLabel={untranslated=Location: Miami}, data={displayName={translateKey=IDN.IDENTITY_ATTRIBUTES.LOCATION}, name=location, operator=EQUALS, values=[Miami]}}, ), 

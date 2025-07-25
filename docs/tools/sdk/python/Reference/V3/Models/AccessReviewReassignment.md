@@ -28,7 +28,7 @@ from sailpoint.v3.models.access_review_reassignment import AccessReviewReassignm
 
 access_review_reassignment = AccessReviewReassignment(
 reassign=[
-                    sailpoint.v3.models.reassign_reference.ReassignReference(
+                    sailpoint.v3.models.reassign_reference.Reassign Reference(
                         id = 'ef38f94347e94562b5bb8424a56397d8', 
                         type = 'ITEM', )
                     ],

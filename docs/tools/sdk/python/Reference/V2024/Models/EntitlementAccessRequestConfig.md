@@ -29,7 +29,7 @@ from sailpoint.v2024.models.entitlement_access_request_config import Entitlement
 
 entitlement_access_request_config = EntitlementAccessRequestConfig(
 approval_schemes=[
-                    sailpoint.v2024.models.entitlement_approval_scheme.EntitlementApprovalScheme(
+                    sailpoint.v2024.models.entitlement_approval_scheme.Entitlement Approval Scheme(
                         approver_type = 'GOVERNANCE_GROUP', 
                         approver_id = 'e3eab852-8315-467f-9de7-70eda97f63c8', )
                     ],

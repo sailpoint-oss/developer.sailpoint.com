@@ -51,7 +51,7 @@ excluded_entitlements=[07a0b4e2, 13b4e2a0],
 freshness=75,
 identity_count=25,
 identity_distribution=[
-                    sailpoint.v2024.models.role_mining_identity_distribution.RoleMiningIdentityDistribution(
+                    sailpoint.v2024.models.role_mining_identity_distribution.Role Mining Identity Distribution(
                         attribute_name = 'department', 
                         distribution = [{attributeValue=NM Tier 3, count=6}], )
                     ],
@@ -61,13 +61,13 @@ provision_state=,
 quality=100,
 role_id='07a0b4e2-7a76-44fa-bd0b-c64654b66519',
 saved=True,
-session=sailpoint.v2024.models.role_mining_session_parameters_dto.RoleMiningSessionParametersDto(
+session=sailpoint.v2024.models.role_mining_session_parameters_dto.Role Mining Session Parameters Dto(
                     id = '9f36f5e5-1e81-4eca-b087-548959d91c71', 
                     name = 'Saved RM Session - 07/10', 
                     min_num_identities_in_potential_role = 20, 
                     prune_threshold = 5, 
                     saved = True, 
-                    scope = sailpoint.v2024.models.role_mining_session_scope.RoleMiningSessionScope(
+                    scope = sailpoint.v2024.models.role_mining_session_scope.Role Mining Session Scope(
                         identity_ids = [2c918090761a5aac0176215c46a62d58, 2c918090761a5aac01722015c46a62d42], 
                         criteria = 'source.name:DataScienceDataset', 
                         attribute_filter_criteria = {displayName={untranslated=Location: Miami}, ariaLabel={untranslated=Location: Miami}, data={displayName={translateKey=IDN.IDENTITY_ATTRIBUTES.LOCATION}, name=location, operator=EQUALS, values=[Miami]}}, ), 

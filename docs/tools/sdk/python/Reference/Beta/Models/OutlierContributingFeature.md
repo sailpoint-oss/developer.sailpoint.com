@@ -39,11 +39,11 @@ value=0.92,
 importance=-0.15,
 display_name='Number of entitlements',
 description='The total number of entitlements belonging to an identity',
-translation_messages=sailpoint.beta.models.outlier_feature_translation.OutlierFeatureTranslation(
-                    display_name = sailpoint.beta.models.translation_message.TranslationMessage(
+translation_messages=sailpoint.beta.models.outlier_feature_translation.Outlier Feature Translation(
+                    display_name = sailpoint.beta.models.translation_message.Translation Message(
                         key = 'recommender-api.V2_WEIGHT_FEATURE_PRODUCT_INTERPRETATION_HIGH', 
                         values = [75, department], ), 
-                    description = sailpoint.beta.models.translation_message.TranslationMessage(
+                    description = sailpoint.beta.models.translation_message.Translation Message(
                         key = 'recommender-api.V2_WEIGHT_FEATURE_PRODUCT_INTERPRETATION_HIGH', 
                         values = [75, department], ), )
 )

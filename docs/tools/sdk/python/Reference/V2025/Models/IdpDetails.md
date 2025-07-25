@@ -45,7 +45,7 @@ authn_context='urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport
 logout_url='https://dev-206445.oktapreview.com/login/signout',
 include_authn_context=False,
 name_id='urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress',
-jit_configuration=sailpoint.v2025.models.jit_configuration.JITConfiguration(
+jit_configuration=sailpoint.v2025.models.jit_configuration.JIT Configuration(
                     enabled = False, 
                     source_id = '2c9180857377ed2901739c12a2da5ac8', 
                     source_attribute_mappings = {firstName=okta.firstName, lastName=okta.lastName, email=okta.email}, ),

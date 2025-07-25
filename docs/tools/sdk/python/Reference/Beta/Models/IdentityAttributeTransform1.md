@@ -28,7 +28,7 @@ from sailpoint.beta.models.identity_attribute_transform1 import IdentityAttribut
 
 identity_attribute_transform1 = IdentityAttributeTransform1(
 identity_attribute_name='email',
-transform_definition=sailpoint.beta.models.transform_definition_1.TransformDefinition_1(
+transform_definition=sailpoint.beta.models.transform_definition.Transform Definition(
                     type = 'accountAttribute', 
                     attributes = {attributeName=e-mail, sourceName=MySource, sourceId=2c9180877a826e68017a8c0b03da1a53}, )
 )

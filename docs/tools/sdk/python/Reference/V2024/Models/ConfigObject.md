@@ -29,7 +29,7 @@ from sailpoint.v2024.models.config_object import ConfigObject
 
 config_object = ConfigObject(
 version=1,
-var_self=sailpoint.v2024.models.self_import_export_dto.SelfImportExportDto(
+var_self=sailpoint.v2024.models.self_import_export_dto.Self Import Export Dto(
                     type = 'SOURCE', 
                     id = '2c9180835d191a86015d28455b4b232a', 
                     name = 'HR Active Directory', ),

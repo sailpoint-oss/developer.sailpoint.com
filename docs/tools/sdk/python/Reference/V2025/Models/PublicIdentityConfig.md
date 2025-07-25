@@ -29,12 +29,12 @@ from sailpoint.v2025.models.public_identity_config import PublicIdentityConfig
 
 public_identity_config = PublicIdentityConfig(
 attributes=[
-                    sailpoint.v2025.models.public_identity_attribute_config.PublicIdentityAttributeConfig(
+                    sailpoint.v2025.models.public_identity_attribute_config.Public Identity Attribute Config(
                         key = 'country', 
                         name = 'Country', )
                     ],
 modified='2018-06-25T20:22:28.104Z',
-modified_by=sailpoint.v2025.models.identity_reference.IdentityReference(
+modified_by=sailpoint.v2025.models.identity_reference.Identity Reference(
                     type = 'IDENTITY', 
                     id = '2c9180a46faadee4016fb4e018c20639', 
                     name = 'Thomas Edison', )

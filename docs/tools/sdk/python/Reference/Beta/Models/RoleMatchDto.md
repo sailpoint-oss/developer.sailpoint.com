@@ -26,11 +26,11 @@ Name | Type | Description | Notes
 from sailpoint.beta.models.role_match_dto import RoleMatchDto
 
 role_match_dto = RoleMatchDto(
-role_ref=sailpoint.beta.models.base_reference_dto_1.BaseReferenceDto_1(
+role_ref=sailpoint.beta.models.base_reference_dto.Base Reference Dto(
                     id = 'ff8081814d977c21014da056804a0af3', 
                     name = 'Github', ),
 matched_attributes=[
-                    sailpoint.beta.models.context_attribute_dto.ContextAttributeDto(
+                    sailpoint.beta.models.context_attribute_dto.Context Attribute Dto(
                         attribute = 'location', 
                         value = Austin, 
                         derived = False, )

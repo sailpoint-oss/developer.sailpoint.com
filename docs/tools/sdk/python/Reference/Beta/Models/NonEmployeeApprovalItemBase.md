@@ -33,7 +33,7 @@ from sailpoint.beta.models.non_employee_approval_item_base import NonEmployeeApp
 
 non_employee_approval_item_base = NonEmployeeApprovalItemBase(
 id='2c1e388b-1e55-4b0a-ab5c-897f1204159c',
-approver=sailpoint.beta.models.identity_reference_with_id.IdentityReferenceWithId(
+approver=sailpoint.beta.models.identity_reference_with_id.Identity Reference With Id(
                     type = 'IDENTITY', 
                     id = '5168015d32f890ca15812c9180835d2e', ),
 account_name='test.account',

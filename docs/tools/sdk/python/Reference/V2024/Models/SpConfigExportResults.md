@@ -35,7 +35,7 @@ version=1,
 timestamp='2021-05-11T22:23:16Z',
 tenant='sample-tenant',
 description='Export Job 1 Test',
-options=sailpoint.v2024.models.export_options_1.ExportOptions_1(
+options=sailpoint.v2024.models.export_options.Export Options(
                     exclude_types = [
                         'SOURCE'
                         ], 
@@ -46,7 +46,7 @@ options=sailpoint.v2024.models.export_options_1.ExportOptions_1(
 objects=[
                     sailpoint.v2024.models.config_object_for_export_and_import.Config Object for Export and Import(
                         version = 1, 
-                        self = sailpoint.v2024.models.self_import_export_dto.SelfImportExportDto(
+                        self = sailpoint.v2024.models.self_import_export_dto.Self Import Export Dto(
                             type = 'SOURCE', 
                             id = '2c9180835d191a86015d28455b4b232a', 
                             name = 'HR Active Directory', ), 

@@ -28,7 +28,7 @@ from sailpoint.beta.models.bulk_tagged_object import BulkTaggedObject
 
 bulk_tagged_object = BulkTaggedObject(
 object_refs=[
-                    sailpoint.beta.models.tagged_object_dto.TaggedObjectDto(
+                    sailpoint.beta.models.tagged_object_dto.Tagged Object Dto(
                         type = 'IDENTITY', 
                         id = '2c91808568c529c60168cca6f90c1313', 
                         name = 'William Wilson', )

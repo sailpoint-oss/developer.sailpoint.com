@@ -37,7 +37,7 @@ created='2023-01-03T21:16:22.432Z',
 modified='2023-01-03T21:16:22.432Z',
 type='Web Service SDIM',
 attributes={ },
-provisioning_config=sailpoint.beta.models.provisioning_config.ProvisioningConfig(
+provisioning_config=sailpoint.beta.models.provisioning_config.Provisioning Config(
                     universal_manager = True, 
                     managed_resource_refs = [{type=SOURCE, id=2c9180855d191c59015d291ceb051111, name=My Source 1}, {type=SOURCE, id=2c9180855d191c59015d291ceb052222, name=My Source 2}], 
                     plan_initializer_script = sailpoint.beta.models.provisioning_config_plan_initializer_script.ProvisioningConfig_planInitializerScript(

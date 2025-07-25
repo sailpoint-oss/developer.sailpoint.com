@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 from sailpoint.v2025.models.complete_invocation_input import CompleteInvocationInput
 
 complete_invocation_input = CompleteInvocationInput(
-localized_error=sailpoint.v2025.models.localized_message.LocalizedMessage(
+localized_error=sailpoint.v2025.models.localized_message.Localized Message(
                     locale = 'An error has occurred!', 
                     message = 'Error has occurred!', ),
 output={approved=false}

@@ -31,7 +31,7 @@ from sailpoint.v2025.models.scope import Scope
 scope = Scope(
 scope='ALL',
 visibility='ALL',
-scope_filter=sailpoint.v2025.models.visibility_criteria.VisibilityCriteria(
+scope_filter=sailpoint.v2025.models.visibility_criteria.Visibility Criteria(
                     expression = sailpoint.v2025.models.expression.Expression(
                         operator = 'EQUALS', 
                         attribute = 'location', 

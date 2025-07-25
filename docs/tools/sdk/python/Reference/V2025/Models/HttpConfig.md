@@ -32,10 +32,10 @@ http_config = HttpConfig(
 url='https://www.example.com',
 http_dispatch_mode='SYNC',
 http_authentication_type='NO_AUTH',
-basic_auth_config=sailpoint.v2025.models.basic_auth_config.BasicAuthConfig(
+basic_auth_config=sailpoint.v2025.models.basic_auth_config.Basic Auth Config(
                     user_name = 'user@example.com', 
                     password = '', ),
-bearer_token_auth_config=sailpoint.v2025.models.bearer_token_auth_config.BearerTokenAuthConfig(
+bearer_token_auth_config=sailpoint.v2025.models.bearer_token_auth_config.Bearer Token Auth Config(
                     bearer_token = '', )
 )
 

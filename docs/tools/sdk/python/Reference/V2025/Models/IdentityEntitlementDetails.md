@@ -29,7 +29,7 @@ from sailpoint.v2025.models.identity_entitlement_details import IdentityEntitlem
 
 identity_entitlement_details = IdentityEntitlementDetails(
 identity_id='5928c61f-3f2e-417a-8d65-f76451e2050a',
-entitlement=sailpoint.v2025.models.identity_entitlement_details_entitlement_dto.IdentityEntitlementDetailsEntitlementDto(
+entitlement=sailpoint.v2025.models.identity_entitlement_details_entitlement_dto.Identity Entitlement Details Entitlement Dto(
                     id = '2c91808874ff91550175097daaec161c', 
                     name = 'LauncherTest2', 
                     created = '2020-10-08T18:33:52.029Z', 
@@ -38,7 +38,7 @@ entitlement=sailpoint.v2025.models.identity_entitlement_details_entitlement_dto.
                     type = 'ENTITLEMENT', 
                     source_id = '2c9180827ca885d7017ca8ce28a000eb', 
                     source_name = 'ODS-AD-Source', 
-                    owner = sailpoint.v2025.models.owner_dto.OwnerDto(
+                    owner = sailpoint.v2025.models.owner_dto.Owner Dto(
                         type = 'IDENTITY', 
                         id = '2c9180a46faadee4016fb4e018c20639', 
                         name = 'Support', ), 

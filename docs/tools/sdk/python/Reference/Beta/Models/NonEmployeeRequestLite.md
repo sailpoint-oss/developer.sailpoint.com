@@ -27,7 +27,7 @@ from sailpoint.beta.models.non_employee_request_lite import NonEmployeeRequestLi
 
 non_employee_request_lite = NonEmployeeRequestLite(
 id='ac10e21c-931c-1ef2-8193-1c51e7ff0003',
-requester=sailpoint.beta.models.identity_reference_with_id.IdentityReferenceWithId(
+requester=sailpoint.beta.models.identity_reference_with_id.Identity Reference With Id(
                     type = 'IDENTITY', 
                     id = '5168015d32f890ca15812c9180835d2e', )
 )

@@ -32,7 +32,7 @@ from sailpoint.v2024.models.common_access_item_response import CommonAccessItemR
 
 common_access_item_response = CommonAccessItemResponse(
 id='',
-access=sailpoint.v2024.models.common_access_item_access.CommonAccessItemAccess(
+access=sailpoint.v2024.models.common_access_item_access.Common Access Item Access(
                     id = '', 
                     type = 'ACCESS_PROFILE', 
                     name = '', 

@@ -43,7 +43,7 @@ description='CN=LauncherTest2,OU=LauncherTestOrg,OU=slpt-automation,DC=TestAutom
 type='ENTITLEMENT',
 source_id='2c9180827ca885d7017ca8ce28a000eb',
 source_name='ODS-AD-Source',
-owner=sailpoint.v2025.models.owner_dto.OwnerDto(
+owner=sailpoint.v2025.models.owner_dto.Owner Dto(
                     type = 'IDENTITY', 
                     id = '2c9180a46faadee4016fb4e018c20639', 
                     name = 'Support', ),

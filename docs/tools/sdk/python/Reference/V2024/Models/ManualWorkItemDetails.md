@@ -42,7 +42,7 @@ current_owner=sailpoint.v2024.models.manual_work_item_details_current_owner.Manu
 modified='2019-08-23T18:52:57.398Z',
 status='PENDING',
 forward_history=[
-                    sailpoint.v2024.models.approval_forward_history.ApprovalForwardHistory(
+                    sailpoint.v2024.models.approval_forward_history.Approval Forward History(
                         old_approver_name = 'Frank Mir', 
                         new_approver_name = 'Al Volta', 
                         comment = 'Forwarding from Frank to Al', 

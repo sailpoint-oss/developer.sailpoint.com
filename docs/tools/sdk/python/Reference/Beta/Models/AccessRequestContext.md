@@ -26,7 +26,7 @@ from sailpoint.beta.models.access_request_context import AccessRequestContext
 
 access_request_context = AccessRequestContext(
 context_attributes=[
-                    sailpoint.beta.models.context_attribute_dto.ContextAttributeDto(
+                    sailpoint.beta.models.context_attribute_dto.Context Attribute Dto(
                         attribute = 'location', 
                         value = Austin, 
                         derived = False, )

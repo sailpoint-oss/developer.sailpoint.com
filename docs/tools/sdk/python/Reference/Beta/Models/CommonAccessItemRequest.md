@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 from sailpoint.beta.models.common_access_item_request import CommonAccessItemRequest
 
 common_access_item_request = CommonAccessItemRequest(
-access=sailpoint.beta.models.common_access_item_access.CommonAccessItemAccess(
+access=sailpoint.beta.models.common_access_item_access.Common Access Item Access(
                     id = '', 
                     type = 'ACCESS_PROFILE', 
                     name = '', 

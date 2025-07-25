@@ -29,7 +29,7 @@ from sailpoint.beta.models.identity_profile_exported_object import IdentityProfi
 
 identity_profile_exported_object = IdentityProfileExportedObject(
 version=1,
-var_self=sailpoint.beta.models.self_import_export_dto.SelfImportExportDto(
+var_self=sailpoint.beta.models.self_import_export_dto.Self Import Export Dto(
                     type = 'SOURCE', 
                     id = '2c9180835d191a86015d28455b4b232a', 
                     name = 'HR Active Directory', ),

@@ -29,7 +29,7 @@ from sailpoint.v2025.models.attributes_changed import AttributesChanged
 
 attributes_changed = AttributesChanged(
 attribute_changes=[
-                    sailpoint.v2025.models.attribute_change.AttributeChange(
+                    sailpoint.v2025.models.attribute_change.Attribute Change(
                         name = 'firstname', 
                         previous_value = 'adam', 
                         new_value = 'zampa', )

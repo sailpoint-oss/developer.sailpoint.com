@@ -30,7 +30,7 @@ from sailpoint.v2025.models.task_status_message import TaskStatusMessage
 
 task_status_message = TaskStatusMessage(
 type='INFO',
-localized_text=sailpoint.v2025.models.localized_message.LocalizedMessage(
+localized_text=sailpoint.v2025.models.localized_message.Localized Message(
                     locale = 'An error has occurred!', 
                     message = 'Error has occurred!', ),
 key='akey',

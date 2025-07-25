@@ -29,7 +29,7 @@ from sailpoint.beta.models.identity_sync_job import IdentitySyncJob
 identity_sync_job = IdentitySyncJob(
 id='0f11f2a4-7c94-4bf3-a2bd-742580fe3bde',
 status='IN_PROGRESS',
-payload=sailpoint.beta.models.identity_sync_payload.IdentitySyncPayload(
+payload=sailpoint.beta.models.identity_sync_payload.Identity Sync Payload(
                     type = 'SYNCHRONIZE_IDENTITY_ATTRIBUTES', 
                     data_json = '{"identityId":"2c918083746f642c01746f990884012a"}', )
 )

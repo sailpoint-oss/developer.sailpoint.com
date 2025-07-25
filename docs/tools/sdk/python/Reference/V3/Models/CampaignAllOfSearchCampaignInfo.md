@@ -40,7 +40,7 @@ reviewer=sailpoint.v3.models.campaign_all_of_search_campaign_info_reviewer.Campa
 query='Search Campaign query description',
 identity_ids=[0fbe863c063c4c88a35fd7f17e8a3df5],
 access_constraints=[
-                    sailpoint.v3.models.access_constraint.AccessConstraint(
+                    sailpoint.v3.models.access_constraint.Access Constraint(
                         type = 'ENTITLEMENT', 
                         ids = [2c90ad2a70ace7d50170acf22ca90010], 
                         operator = 'SELECTED', )

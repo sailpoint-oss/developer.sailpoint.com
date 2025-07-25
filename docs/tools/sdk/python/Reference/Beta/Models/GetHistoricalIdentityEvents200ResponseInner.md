@@ -45,31 +45,31 @@ certification_name='Cert name',
 signed_date='2019-03-08T22:37:33.901Z',
 certifiers=[{id=8a80828f643d484f01643e14202e206f, displayName=John Snow}],
 reviewers=[{id=8a80828f643d484f01643e14202e206f, displayName=John Snow}],
-signer=sailpoint.beta.models.certifier_response.CertifierResponse(
+signer=sailpoint.beta.models.certifier_response.Certifier Response(
                     id = '8a80828f643d484f01643e14202e206f', 
                     display_name = 'John Snow', ),
 event_type='AccountStatusChanged',
 date_time='2019-03-08T22:37:33.901Z',
 identity_id='8a80828f643d484f01643e14202e206f',
 access_item={id=8c190e6787aa4ed9a90bd9d5344523fb, accessType=account, nativeIdentity=127999, sourceName=JDBC Entitlements Source, entitlementCount=0, displayName=Sample Name},
-governance_event=sailpoint.beta.models.correlated_governance_event.CorrelatedGovernanceEvent(
+governance_event=sailpoint.beta.models.correlated_governance_event.Correlated Governance Event(
                     name = 'Manager Certification for Jon Snow', 
                     date_time = '2019-03-08T22:37:33.901Z', 
                     type = 'certification', 
                     governance_id = '2c91808a77ff216301782327a50f09bf', 
                     owners = [{id=8a80828f643d484f01643e14202e206f, displayName=John Snow}], 
                     reviewers = [{id=8a80828f643d484f01643e14202e206f, displayName=John Snow}], 
-                    decision_maker = sailpoint.beta.models.certifier_response.CertifierResponse(
+                    decision_maker = sailpoint.beta.models.certifier_response.Certifier Response(
                         id = '8a80828f643d484f01643e14202e206f', 
                         display_name = 'John Snow', ), ),
 access_item_type='account',
 attribute_changes=[
-                    sailpoint.beta.models.attribute_change.AttributeChange(
+                    sailpoint.beta.models.attribute_change.Attribute Change(
                         name = 'firstname', 
                         previous_value = 'adam', 
                         new_value = 'zampa', )
                     ],
-access_request=sailpoint.beta.models.access_request_response_1.AccessRequestResponse_1(
+access_request=sailpoint.beta.models.access_request_response.Access Request Response(
                     requester_id = '2c91808a77ff216301782327a50f09bf', 
                     requester_name = 'Bing C', 
                     items = [{operation=Add, accessItemType=role, name=Role-1, decision=APPROVED, description=The role descrition, sourceId=8a80828f643d484f01643e14202e206f, sourceName=Source1, approvalInfos=[{name=John Snow, id=8a80828f643d484f01643e14202e2000, status=Approved}]}], ),

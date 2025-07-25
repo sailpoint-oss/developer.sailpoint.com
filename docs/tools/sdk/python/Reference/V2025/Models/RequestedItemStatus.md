@@ -59,7 +59,7 @@ error_messages=[
                     ],
 state='EXECUTING',
 approval_details=[
-                    sailpoint.v2025.models.approval_status_dto.ApprovalStatusDto(
+                    sailpoint.v2025.models.approval_status_dto.Approval Status Dto(
                         forwarded = False, 
                         original_owner = sailpoint.v2025.models.approval_status_dto_original_owner.ApprovalStatusDto_originalOwner(
                             type = 'IDENTITY', 
@@ -70,7 +70,7 @@ approval_details=[
                         status = 'PENDING', 
                         scheme = 'MANAGER', 
                         error_messages = [
-                            sailpoint.v2025.models.error_message_dto.ErrorMessageDto(
+                            sailpoint.v2025.models.error_message_dto.Error Message Dto(
                                 locale = 'en-US', 
                                 locale_origin = 'DEFAULT', 
                                 text = 'The request was syntactically correct but its content is semantically invalid.', )
@@ -80,7 +80,7 @@ approval_details=[
                     ],
 approval_ids=[85f0cf482dd44327b593624c07906c21, fa57e1bfa36f41ee85e33ee59fcbeac5],
 manual_work_item_details=[
-                    sailpoint.v2025.models.manual_work_item_details.ManualWorkItemDetails(
+                    sailpoint.v2025.models.manual_work_item_details.Manual Work Item Details(
                         forwarded = True, 
                         original_owner = sailpoint.v2025.models.manual_work_item_details_original_owner.ManualWorkItemDetails_originalOwner(
                             type = 'IDENTITY', 
@@ -93,7 +93,7 @@ manual_work_item_details=[
                         modified = '2019-08-23T18:52:57.398Z', 
                         status = 'PENDING', 
                         forward_history = [
-                            sailpoint.v2025.models.approval_forward_history.ApprovalForwardHistory(
+                            sailpoint.v2025.models.approval_forward_history.Approval Forward History(
                                 old_approver_name = 'Frank Mir', 
                                 new_approver_name = 'Al Volta', 
                                 comment = 'Forwarding from Frank to Al', 
@@ -106,7 +106,7 @@ account_activity_item_id='2c9180926cbfbddd016cbfc7c3b10010',
 request_type='GRANT_ACCESS',
 modified='2019-08-23T18:52:59.162Z',
 created='2019-08-23T18:40:35.772Z',
-requester=sailpoint.v2025.models.access_item_requester.AccessItemRequester(
+requester=sailpoint.v2025.models.access_item_requester.Access Item Requester(
                     type = 'IDENTITY', 
                     id = '2c7180a46faadee4016fb4e018c20648', 
                     name = 'William Wilson', ),
@@ -119,7 +119,7 @@ sod_violation_context=,
 provisioning_details=,
 pre_approval_trigger_details=,
 access_request_phases=[
-                    sailpoint.v2025.models.access_request_phases.AccessRequestPhases(
+                    sailpoint.v2025.models.access_request_phases.Access Request Phases(
                         started = '2020-07-11T00:00Z', 
                         finished = '2020-07-12T00:00Z', 
                         name = 'APPROVAL_PHASE', 
@@ -133,7 +133,7 @@ cancelable=True,
 access_request_id='2b838de9-db9b-abcf-e646-d4f274ad4238',
 client_metadata={key1=value1, key2=value2},
 requested_accounts=[
-                    sailpoint.v2025.models.requested_account_ref.RequestedAccountRef(
+                    sailpoint.v2025.models.requested_account_ref.Requested Account Ref(
                         name = 'Glen.067da3248e914', 
                         type = 'IDENTITY', 
                         account_uuid = '{fab7119e-004f-4822-9c33-b8d570d6c6a6}', 

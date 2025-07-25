@@ -45,7 +45,7 @@ arm_db='EU',
 arm_sso_url='https://your-arm-sso-url',
 iai_enable_certification_recommendations=True,
 sod_report_configs=[
-                    sailpoint.v2025.models.report_config_dto.ReportConfigDTO(
+                    sailpoint.v2025.models.report_config_dto.Report Config DTO(
                         column_name = 'SOD Business Name', 
                         required = True, 
                         included = False, 

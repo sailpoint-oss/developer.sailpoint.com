@@ -31,7 +31,7 @@ identity=sailpoint.v2025.models.identity_preview_response_identity.IdentityPrevi
                     id = '2c7180a46faadee4016fb4e018c20642', 
                     name = 'Michael Michaels', ),
 preview_attributes=[
-                    sailpoint.v2025.models.identity_attribute_preview.IdentityAttributePreview(
+                    sailpoint.v2025.models.identity_attribute_preview.Identity Attribute Preview(
                         name = 'email', 
                         value = 'email@mail.com', 
                         previous_value = 'oldEmail@mail.com', 

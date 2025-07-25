@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 from sailpoint.v2025.models.tagged_object import TaggedObject
 
 tagged_object = TaggedObject(
-object_ref=sailpoint.v2025.models.tagged_object_dto.TaggedObjectDto(
+object_ref=sailpoint.v2025.models.tagged_object_dto.Tagged Object Dto(
                     type = 'IDENTITY', 
                     id = '2c91808568c529c60168cca6f90c1313', 
                     name = 'William Wilson', ),

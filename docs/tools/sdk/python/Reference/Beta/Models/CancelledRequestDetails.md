@@ -29,7 +29,7 @@ from sailpoint.beta.models.cancelled_request_details import CancelledRequestDeta
 
 cancelled_request_details = CancelledRequestDetails(
 comment='This request must be cancelled.',
-owner=sailpoint.beta.models.owner_dto.OwnerDto(
+owner=sailpoint.beta.models.owner_dto.Owner Dto(
                     type = 'IDENTITY', 
                     id = '2c9180a46faadee4016fb4e018c20639', 
                     name = 'Support', ),

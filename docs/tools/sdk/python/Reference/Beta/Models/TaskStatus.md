@@ -59,23 +59,23 @@ launched='2020-07-11T21:23:15Z',
 completed='2020-07-11T21:23:15Z',
 completion_status='SUCCESS',
 messages=[
-                    sailpoint.beta.models.task_status_message.TaskStatusMessage(
+                    sailpoint.beta.models.task_status_message.Task Status Message(
                         type = 'INFO', 
-                        localized_text = sailpoint.beta.models.localized_message.LocalizedMessage(
+                        localized_text = sailpoint.beta.models.localized_message.Localized Message(
                             locale = 'An error has occurred!', 
                             message = 'Error has occurred!', ), 
                         key = 'akey', 
                         parameters = [{name=value}], )
                     ],
 returns=[
-                    sailpoint.beta.models.task_return_details.TaskReturnDetails(
+                    sailpoint.beta.models.task_return_details.Task Return Details(
                         name = 'label', 
                         attribute_name = 'identityCount', )
                     ],
 attributes={identityCount=0},
 progress='Started',
 percent_complete=100,
-task_definition_summary=sailpoint.beta.models.task_definition_summary.TaskDefinitionSummary(
+task_definition_summary=sailpoint.beta.models.task_definition_summary.Task Definition Summary(
                     id = '2c91808475b4334b0175e1dff64b63c5', 
                     unique_name = 'Cloud Account Aggregation', 
                     description = 'Aggregates from the specified application.', 

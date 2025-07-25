@@ -28,7 +28,7 @@ from sailpoint.v2025.models.campaign_alert import CampaignAlert
 campaign_alert = CampaignAlert(
 level='ERROR',
 localizations=[
-                    sailpoint.v2025.models.error_message_dto.ErrorMessageDto(
+                    sailpoint.v2025.models.error_message_dto.Error Message Dto(
                         locale = 'en-US', 
                         locale_origin = 'DEFAULT', 
                         text = 'The request was syntactically correct but its content is semantically invalid.', )

@@ -52,7 +52,7 @@ description='Create account on source 'AD'',
 state='Finished',
 type='Generic',
 remediation_items=[
-                    sailpoint.v2024.models.remediation_item_details.RemediationItemDetails(
+                    sailpoint.v2024.models.remediation_item_details.Remediation Item Details(
                         id = '2c9180835d2e5168015d32f890ca1581', 
                         target_id = '2c9180835d2e5168015d32f890ca1581', 
                         target_name = 'john.smith', 
@@ -64,7 +64,7 @@ remediation_items=[
                         native_identity = 'jason.smith2', )
                     ],
 approval_items=[
-                    sailpoint.v2024.models.approval_item_details.ApprovalItemDetails(
+                    sailpoint.v2024.models.approval_item_details.Approval Item Details(
                         id = '2c9180835d2e5168015d32f890ca1581', 
                         account = 'john.smith', 
                         application = 'Active Directory', 

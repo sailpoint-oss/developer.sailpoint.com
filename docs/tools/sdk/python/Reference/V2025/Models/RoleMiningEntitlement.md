@@ -33,7 +33,7 @@ Name | Type | Description | Notes
 from sailpoint.v2025.models.role_mining_entitlement import RoleMiningEntitlement
 
 role_mining_entitlement = RoleMiningEntitlement(
-entitlement_ref=sailpoint.v2025.models.role_mining_entitlement_ref.RoleMiningEntitlementRef(
+entitlement_ref=sailpoint.v2025.models.role_mining_entitlement_ref.Role Mining Entitlement Ref(
                     id = '2c91808a7e95e6e0017e96e2086206c8', 
                     name = 'App.entitlement.1', 
                     description = 'Entitlement 1', 

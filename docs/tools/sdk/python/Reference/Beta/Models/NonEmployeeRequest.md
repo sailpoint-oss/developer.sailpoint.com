@@ -54,16 +54,16 @@ last_name='Smith',
 email='william.smith@example.com',
 phone='5125555555',
 manager='jane.doe',
-non_employee_source=sailpoint.beta.models.non_employee_source_lite.NonEmployeeSourceLite(
+non_employee_source=sailpoint.beta.models.non_employee_source_lite.Non Employee Source Lite(
                     id = 'a0303682-5e4a-44f7-bdc2-6ce6112549c1', 
                     source_id = '2c91808568c529c60168cca6f90c1313', 
                     name = 'Retail', 
                     description = 'Source description', ),
 data={description=Auditing},
 approval_items=[
-                    sailpoint.beta.models.non_employee_approval_item_base.NonEmployeeApprovalItemBase(
+                    sailpoint.beta.models.non_employee_approval_item_base.Non Employee Approval Item Base(
                         id = '2c1e388b-1e55-4b0a-ab5c-897f1204159c', 
-                        approver = sailpoint.beta.models.identity_reference_with_id.IdentityReferenceWithId(
+                        approver = sailpoint.beta.models.identity_reference_with_id.Identity Reference With Id(
                             type = 'IDENTITY', 
                             id = '5168015d32f890ca15812c9180835d2e', ), 
                         account_name = 'test.account', 

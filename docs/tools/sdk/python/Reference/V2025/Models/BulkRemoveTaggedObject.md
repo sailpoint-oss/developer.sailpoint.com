@@ -27,7 +27,7 @@ from sailpoint.v2025.models.bulk_remove_tagged_object import BulkRemoveTaggedObj
 
 bulk_remove_tagged_object = BulkRemoveTaggedObject(
 object_refs=[
-                    sailpoint.v2025.models.tagged_object_dto.TaggedObjectDto(
+                    sailpoint.v2025.models.tagged_object_dto.Tagged Object Dto(
                         type = 'IDENTITY', 
                         id = '2c91808568c529c60168cca6f90c1313', 
                         name = 'William Wilson', )

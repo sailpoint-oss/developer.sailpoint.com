@@ -27,21 +27,21 @@ Name | Type | Description | Notes
 from sailpoint.v2025.models.role_assignment_dto_assignment_context import RoleAssignmentDtoAssignmentContext
 
 role_assignment_dto_assignment_context = RoleAssignmentDtoAssignmentContext(
-requested=sailpoint.v2025.models.access_request_context.AccessRequestContext(
+requested=sailpoint.v2025.models.access_request_context.Access Request Context(
                     context_attributes = [
-                        sailpoint.v2025.models.context_attribute_dto.ContextAttributeDto(
+                        sailpoint.v2025.models.context_attribute_dto.Context Attribute Dto(
                             attribute = 'location', 
                             value = Austin, 
                             derived = False, )
                         ], ),
 matched=[
-                    sailpoint.v2025.models.role_match_dto.RoleMatchDto(
-                        role_ref = sailpoint.v2025.models.base_reference_dto.BaseReferenceDto(
+                    sailpoint.v2025.models.role_match_dto.Role Match Dto(
+                        role_ref = sailpoint.v2025.models.base_reference_dto.Base Reference Dto(
                             type = 'IDENTITY', 
                             id = '2c91808568c529c60168cca6f90c1313', 
                             name = 'William Wilson', ), 
                         matched_attributes = [
-                            sailpoint.v2025.models.context_attribute_dto.ContextAttributeDto(
+                            sailpoint.v2025.models.context_attribute_dto.Context Attribute Dto(
                                 attribute = 'location', 
                                 value = Austin, 
                                 derived = False, )

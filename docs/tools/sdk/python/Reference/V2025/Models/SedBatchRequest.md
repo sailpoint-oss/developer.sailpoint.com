@@ -35,7 +35,7 @@ seds=[
                     '016629d1-1d25-463f-97f3-c6686846650'
                     ],
 search_criteria={
-                    'key' : sailpoint.v2025.models.search_criteria.SearchCriteria(
+                    'key' : sailpoint.v2025.models.search_criteria.Search Criteria(
                         indices = [entitlements], 
                         filters = {status={type=TERMS, terms=[active, inactive]}}, 
                         query = sailpoint.v2025.models.search_criteria_query.SearchCriteria_query(), 

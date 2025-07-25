@@ -48,7 +48,7 @@ errors=[
                         details = {details=message details}, )
                     ],
 imported_objects=[
-                    sailpoint.v2025.models.import_object.ImportObject(
+                    sailpoint.v2025.models.import_object.Import Object(
                         type = 'SOURCE', 
                         id = '2c9180835d191a86015d28455b4b232a', 
                         name = 'HR Active Directory', )

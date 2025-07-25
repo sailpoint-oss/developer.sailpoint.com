@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 from sailpoint.v2025.models.approval_comment1 import ApprovalComment1
 
 approval_comment1 = ApprovalComment1(
-author=sailpoint.v2025.models.approval_identity.ApprovalIdentity(
+author=sailpoint.v2025.models.approval_identity.Approval Identity(
                     id = '85d173e7d57e496569df763231d6deb6a', 
                     type = 'IDENTITY', 
                     name = 'John Doe', ),

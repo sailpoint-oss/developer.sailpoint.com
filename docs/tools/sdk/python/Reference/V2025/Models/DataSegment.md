@@ -42,7 +42,7 @@ modified='2020-01-01T00:00Z',
 description='This segment represents xyz',
 scopes=[{scope=ENTITLEMENT, visibility=SELECTION, scopeFilter=null, scopeSelection=[{type=ENTITLEMENT, id=34d73f611449463ea4fdcf02cda0c397}]}],
 member_selection=[{type=IDENTITY, id=29cb6c061da843ea8be4b3125f248f2a}, {type=IDENTITY, id=f7b1b8a35fed4fd4ad2982014e137e19}],
-member_filter=sailpoint.v2025.models.visibility_criteria.VisibilityCriteria(
+member_filter=sailpoint.v2025.models.visibility_criteria.Visibility Criteria(
                     expression = sailpoint.v2025.models.expression.Expression(
                         operator = 'EQUALS', 
                         attribute = 'location', 

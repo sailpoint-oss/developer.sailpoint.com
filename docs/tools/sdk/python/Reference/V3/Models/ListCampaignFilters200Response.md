@@ -27,7 +27,7 @@ from sailpoint.v3.models.list_campaign_filters200_response import ListCampaignFi
 
 list_campaign_filters200_response = ListCampaignFilters200Response(
 items=[
-                    sailpoint.v3.models.campaign_filter_details.CampaignFilterDetails(
+                    sailpoint.v3.models.campaign_filter_details.Campaign Filter Details(
                         id = '5ec18cef39020d6fd7a60ad3970aba61', 
                         name = 'Identity Attribute Campaign Filter', 
                         description = 'Campaign filter to certify data based on an identity attribute's specified property.', 

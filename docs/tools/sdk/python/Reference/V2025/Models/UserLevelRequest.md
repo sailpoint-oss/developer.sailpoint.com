@@ -31,7 +31,7 @@ from sailpoint.v2025.models.user_level_request import UserLevelRequest
 user_level_request = UserLevelRequest(
 name='Custom User Level Name',
 description='This is a description of the custom user level.',
-owner=sailpoint.v2025.models.base_reference_dto.BaseReferenceDto(
+owner=sailpoint.v2025.models.base_reference_dto.Base Reference Dto(
                     type = 'IDENTITY', 
                     id = '2c91808568c529c60168cca6f90c1313', 
                     name = 'William Wilson', ),

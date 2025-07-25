@@ -44,7 +44,7 @@ from sailpoint.v2024.models.approval import Approval
 approval = Approval(
 approval_id='38453251-6be2-5f8f-df93-5ce19e295837',
 approvers=[
-                    sailpoint.v2024.models.approval_identity.ApprovalIdentity(
+                    sailpoint.v2024.models.approval_identity.Approval Identity(
                         id = '85d173e7d57e496569df763231d6deb6a', 
                         type = 'IDENTITY', 
                         name = 'John Doe', )
@@ -52,21 +52,21 @@ approvers=[
 created_date='2023-04-12T23:20:50.52Z',
 type='ENTITLEMENT_DESCRIPTIONS',
 name=[
-                    sailpoint.v2024.models.approval_name.ApprovalName(
+                    sailpoint.v2024.models.approval_name.Approval Name(
                         value = 'Audit DB Access', 
                         locale = 'en_US', )
                     ],
 batch_request={batchId=38453251-6be2-5f8f-df93-5ce19e295837, batchSize=100},
 description=[
-                    sailpoint.v2024.models.approval_description.ApprovalDescription(
+                    sailpoint.v2024.models.approval_description.Approval Description(
                         value = 'This access allows viewing and editing of workflow resource', 
                         locale = 'en_US', )
                     ],
 priority='HIGH',
 requester={id=85d173e7d57e496569df763231d6deb6a, type=IDENTITY, name=John Doe},
 comments=[
-                    sailpoint.v2024.models.approval_comment_1.ApprovalComment_1(
-                        author = sailpoint.v2024.models.approval_identity.ApprovalIdentity(
+                    sailpoint.v2024.models.approval_comment.Approval Comment(
+                        author = sailpoint.v2024.models.approval_identity.Approval Identity(
                             id = '85d173e7d57e496569df763231d6deb6a', 
                             type = 'IDENTITY', 
                             name = 'John Doe', ), 
@@ -74,13 +74,13 @@ comments=[
                         created_date = '2023-04-12T23:20:50.52Z', )
                     ],
 approved_by=[
-                    sailpoint.v2024.models.approval_identity.ApprovalIdentity(
+                    sailpoint.v2024.models.approval_identity.Approval Identity(
                         id = '85d173e7d57e496569df763231d6deb6a', 
                         type = 'IDENTITY', 
                         name = 'John Doe', )
                     ],
 rejected_by=[
-                    sailpoint.v2024.models.approval_identity.ApprovalIdentity(
+                    sailpoint.v2024.models.approval_identity.Approval Identity(
                         id = '85d173e7d57e496569df763231d6deb6a', 
                         type = 'IDENTITY', 
                         name = 'John Doe', )
@@ -90,7 +90,7 @@ approval_criteria='SINGLE',
 status='PENDING',
 additional_attributes='{ "llm_description": "generated description" }',
 reference_data=[
-                    sailpoint.v2024.models.approval_reference.ApprovalReference(
+                    sailpoint.v2024.models.approval_reference.Approval Reference(
                         id = '64012350-8fd9-4f6c-a170-1fe123683899', 
                         type = 'AccessRequestId', )
                     ]

@@ -28,7 +28,7 @@ from sailpoint.beta.models.message_catalog_dto import MessageCatalogDto
 message_catalog_dto = MessageCatalogDto(
 locale='en_US',
 messages=[
-                    sailpoint.beta.models.resource_bundle_message.ResourceBundleMessage(
+                    sailpoint.beta.models.resource_bundle_message.Resource Bundle Message(
                         key = 'recommender-api.V2_WEIGHT_FEATURE_PRODUCT_INTERPRETATION_LOW', 
                         format = '{0,,\"i18n hint: percentage\"}% of identities with the same {1,,\"i18n hint: name of category feature\"} have this access. This information had a low impact on the overall score.', )
                     ]

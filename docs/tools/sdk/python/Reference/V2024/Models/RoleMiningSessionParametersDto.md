@@ -38,7 +38,7 @@ name='Saved RM Session - 07/10',
 min_num_identities_in_potential_role=20,
 prune_threshold=5,
 saved=True,
-scope=sailpoint.v2024.models.role_mining_session_scope.RoleMiningSessionScope(
+scope=sailpoint.v2024.models.role_mining_session_scope.Role Mining Session Scope(
                     identity_ids = [2c918090761a5aac0176215c46a62d58, 2c918090761a5aac01722015c46a62d42], 
                     criteria = 'source.name:DataScienceDataset', 
                     attribute_filter_criteria = {displayName={untranslated=Location: Miami}, ariaLabel={untranslated=Location: Miami}, data={displayName={translateKey=IDN.IDENTITY_ATTRIBUTES.LOCATION}, name=location, operator=EQUALS, values=[Miami]}}, ),

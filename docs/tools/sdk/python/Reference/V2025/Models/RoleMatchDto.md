@@ -26,12 +26,12 @@ Name | Type | Description | Notes
 from sailpoint.v2025.models.role_match_dto import RoleMatchDto
 
 role_match_dto = RoleMatchDto(
-role_ref=sailpoint.v2025.models.base_reference_dto.BaseReferenceDto(
+role_ref=sailpoint.v2025.models.base_reference_dto.Base Reference Dto(
                     type = 'IDENTITY', 
                     id = '2c91808568c529c60168cca6f90c1313', 
                     name = 'William Wilson', ),
 matched_attributes=[
-                    sailpoint.v2025.models.context_attribute_dto.ContextAttributeDto(
+                    sailpoint.v2025.models.context_attribute_dto.Context Attribute Dto(
                         attribute = 'location', 
                         value = Austin, 
                         derived = False, )

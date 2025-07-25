@@ -27,7 +27,7 @@ from sailpoint.beta.models.import_sp_config_request import ImportSpConfigRequest
 
 import_sp_config_request = ImportSpConfigRequest(
 data=bytes(b'blah'),
-options=sailpoint.beta.models.import_options.ImportOptions(
+options=sailpoint.beta.models.import_options.Import Options(
                     exclude_types = [
                         'SOURCE'
                         ], 

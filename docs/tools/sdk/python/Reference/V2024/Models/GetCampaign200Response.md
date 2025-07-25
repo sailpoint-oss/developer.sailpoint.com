@@ -61,10 +61,10 @@ created='2020-03-03T22:15:13.611Z',
 total_certifications=100,
 completed_certifications=10,
 alerts=[
-                    sailpoint.v2024.models.campaign_alert.CampaignAlert(
+                    sailpoint.v2024.models.campaign_alert.Campaign Alert(
                         level = 'ERROR', 
                         localizations = [
-                            sailpoint.v2024.models.error_message_dto.ErrorMessageDto(
+                            sailpoint.v2024.models.error_message_dto.Error Message Dto(
                                 locale = 'en-US', 
                                 locale_origin = 'DEFAULT', 
                                 text = 'The request was syntactically correct but its content is semantically invalid.', )
@@ -88,7 +88,7 @@ search_campaign_info=sailpoint.v2024.models.campaign_all_of_search_campaign_info
                     query = 'Search Campaign query description', 
                     identity_ids = [0fbe863c063c4c88a35fd7f17e8a3df5], 
                     access_constraints = [
-                        sailpoint.v2024.models.access_constraint.AccessConstraint(
+                        sailpoint.v2024.models.access_constraint.Access Constraint(
                             type = 'ENTITLEMENT', 
                             ids = [2c90ad2a70ace7d50170acf22ca90010], 
                             operator = 'SELECTED', )

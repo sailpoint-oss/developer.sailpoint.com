@@ -44,7 +44,7 @@ identity_attributes={
                     'key' : sailpoint.v2025.models.recommender_calculations_identity_attributes_value.RecommenderCalculations_identityAttributes_value(
                         value = '', )
                     },
-feature_values=sailpoint.v2025.models.feature_value_dto.FeatureValueDto(
+feature_values=sailpoint.v2025.models.feature_value_dto.Feature Value Dto(
                     feature = 'department', 
                     numerator = 14, 
                     denominator = 14, )

@@ -27,7 +27,7 @@ from sailpoint.v2024.models.json_patch import JsonPatch
 
 json_patch = JsonPatch(
 operations=[
-                    sailpoint.v2024.models.json_patch_operation.JsonPatchOperation(
+                    sailpoint.v2024.models.json_patch_operation.Json Patch Operation(
                         op = 'replace', 
                         path = '/description', 
                         value = New description, )

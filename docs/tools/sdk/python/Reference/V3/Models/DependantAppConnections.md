@@ -48,7 +48,7 @@ account_source=sailpoint.v3.models.dependant_app_connections_account_source.Depe
 launcher_count=100,
 match_all_account=True,
 owner=[
-                    sailpoint.v3.models.base_reference_dto.BaseReferenceDto(
+                    sailpoint.v3.models.base_reference_dto.Base Reference Dto(
                         type = 'IDENTITY', 
                         id = '2c91808568c529c60168cca6f90c1313', 
                         name = 'William Wilson', )

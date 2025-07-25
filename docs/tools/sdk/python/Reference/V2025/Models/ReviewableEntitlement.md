@@ -46,7 +46,7 @@ id='2c918085718230600171993742c63558',
 name='CN=entitlement.bbb7c650',
 description='Gives read/write access to the company database',
 privileged=False,
-owner=sailpoint.v2025.models.identity_reference_with_name_and_email.IdentityReferenceWithNameAndEmail(
+owner=sailpoint.v2025.models.identity_reference_with_name_and_email.Identity Reference With Name And Email(
                     type = 'IDENTITY', 
                     id = '5168015d32f890ca15812c9180835d2e', 
                     name = 'Alison Ferguso', 
@@ -62,7 +62,7 @@ is_permission=False,
 revocable=True,
 cloud_governed=False,
 contains_data_access=True,
-data_access=sailpoint.v2025.models.data_access.DataAccess(
+data_access=sailpoint.v2025.models.data_access.Data Access(
                     policies = [
                         sailpoint.v2025.models.data_access_policies_inner.DataAccess_policies_inner(
                             value = 'GDPR-20', )
@@ -83,7 +83,7 @@ account=sailpoint.v2025.models.reviewable_entitlement_account.ReviewableEntitlem
                     name = 'Alison Ferguso', 
                     created = '2020-04-20T20:11:05.067Z', 
                     modified = '2020-05-20T18:57:16.987Z', 
-                    activity_insights = sailpoint.v2025.models.activity_insights.ActivityInsights(
+                    activity_insights = sailpoint.v2025.models.activity_insights.Activity Insights(
                         account_id = 'c4ddd5421d8549f0abd309162cafd3b1', 
                         usage_days = 45, 
                         usage_days_state = 'COMPLETE', ), 

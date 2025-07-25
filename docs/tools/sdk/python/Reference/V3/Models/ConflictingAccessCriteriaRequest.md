@@ -26,10 +26,10 @@ Name | Type | Description | Notes
 from sailpoint.v3.models.conflicting_access_criteria_request import ConflictingAccessCriteriaRequest
 
 conflicting_access_criteria_request = ConflictingAccessCriteriaRequest(
-left_criteria=sailpoint.v3.models.access_criteria_request.AccessCriteriaRequest(
+left_criteria=sailpoint.v3.models.access_criteria_request.Access Criteria Request(
                     name = 'money-in', 
                     criteria_list = [{type=ENTITLEMENT, id=2c9180866166b5b0016167c32ef31a66, name=Administrator}, {type=ENTITLEMENT, id=2c9180866166b5b0016167c32ef31a67, name=Administrator}], ),
-right_criteria=sailpoint.v3.models.access_criteria_request.AccessCriteriaRequest(
+right_criteria=sailpoint.v3.models.access_criteria_request.Access Criteria Request(
                     name = 'money-in', 
                     criteria_list = [{type=ENTITLEMENT, id=2c9180866166b5b0016167c32ef31a66, name=Administrator}, {type=ENTITLEMENT, id=2c9180866166b5b0016167c32ef31a67, name=Administrator}], )
 )

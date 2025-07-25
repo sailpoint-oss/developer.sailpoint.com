@@ -32,7 +32,7 @@ access_request = AccessRequest(
 requested_for=2c918084660f45d6016617daa9210584,
 request_type='GRANT_ACCESS',
 requested_items=[
-                    sailpoint.beta.models.access_request_item.AccessRequestItem(
+                    sailpoint.beta.models.access_request_item.Access Request Item(
                         type = 'ACCESS_PROFILE', 
                         id = '2c9180835d2e5168015d32f890ca1581', 
                         comment = 'Requesting access profile for John Doe', 

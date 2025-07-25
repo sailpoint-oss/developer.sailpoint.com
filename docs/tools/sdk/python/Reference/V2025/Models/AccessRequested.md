@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 from sailpoint.v2025.models.access_requested import AccessRequested
 
 access_requested = AccessRequested(
-access_request=sailpoint.v2025.models.access_request_response_1.AccessRequestResponse_1(
+access_request=sailpoint.v2025.models.access_request_response.Access Request Response(
                     requester_id = '2c91808a77ff216301782327a50f09bf', 
                     requester_name = 'Bing C', 
                     items = [{operation=Add, accessItemType=role, name=Role-1, decision=APPROVED, description=The role descrition, sourceId=8a80828f643d484f01643e14202e206f, sourceName=Source1, approvalInfos=[{name=John Snow, id=8a80828f643d484f01643e14202e2000, status=Approved}]}], ),

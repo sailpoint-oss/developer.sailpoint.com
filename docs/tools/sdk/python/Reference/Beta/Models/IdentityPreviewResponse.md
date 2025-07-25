@@ -31,12 +31,12 @@ identity=sailpoint.beta.models.identity_preview_response_identity.IdentityPrevie
                     id = '2c4180a46faadee4016fb4e018c20626', 
                     name = 'Robert Robinson', ),
 preview_attributes=[
-                    sailpoint.beta.models.identity_attribute_preview.IdentityAttributePreview(
+                    sailpoint.beta.models.identity_attribute_preview.Identity Attribute Preview(
                         name = 'email', 
                         value = 'email@mail.com', 
                         previous_value = 'oldEmail@mail.com', 
                         error_messages = [
-                            sailpoint.beta.models.error_message_dto.ErrorMessageDto(
+                            sailpoint.beta.models.error_message_dto.Error Message Dto(
                                 locale = 'en-US', 
                                 locale_origin = 'DEFAULT', 
                                 text = 'The request was syntactically correct but its content is semantically invalid.', )

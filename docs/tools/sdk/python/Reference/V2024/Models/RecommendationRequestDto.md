@@ -30,9 +30,9 @@ from sailpoint.v2024.models.recommendation_request_dto import RecommendationRequ
 
 recommendation_request_dto = RecommendationRequestDto(
 requests=[
-                    sailpoint.v2024.models.recommendation_request.RecommendationRequest(
+                    sailpoint.v2024.models.recommendation_request.Recommendation Request(
                         identity_id = '2c938083633d259901633d25c68c00fa', 
-                        item = sailpoint.v2024.models.access_item_ref.AccessItemRef(
+                        item = sailpoint.v2024.models.access_item_ref.Access Item Ref(
                             id = '2c938083633d259901633d2623ec0375', 
                             type = 'ENTITLEMENT', ), )
                     ],

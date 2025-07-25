@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'MachineClassificationConfig', 'V2025M
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Enabled** | **Boolean** | Indicates if the Classification is enabled for a Source | [optional] [default to $false]
-**ClassificationMethod** |  **Enum** [  "SOURCE" ] | Classification Method | [optional] 
-**Criteria** | **String** | A classification criteria object | [optional] 
-**Created** | **System.DateTime** | Time when the config was created | [optional] 
-**Modified** | **System.DateTime** | Time when the config was last updated | [optional] 
+**Enabled** | **Boolean** | Indicates whether Classification is enabled for a Source | [optional] [default to $false]
+**ClassificationMethod** |  **Enum** [  "SOURCE",    "CRITERIA" ] | Classification Method | [optional] 
+**Criteria** | [**MachineClassificationCriteriaLevel1**](machine-classification-criteria-level1) |  | [optional] 
+**Created** | **System.DateTime** | Date the config was created | [optional] 
+**Modified** | **System.DateTime** | Date the config was last updated | [optional] 
 
 ## Examples
 

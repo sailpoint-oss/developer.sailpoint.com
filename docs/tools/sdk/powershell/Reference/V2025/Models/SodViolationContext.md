@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'SodViolationContext', 'V2025SodViolat
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Policy** | [**SodPolicyDto**](sod-policy-dto) |  | [optional] 
+**Policy** | [**SodPolicyDto1**](sod-policy-dto1) |  | [optional] 
 **ConflictingAccessCriteria** | [**SodViolationContextConflictingAccessCriteria**](sod-violation-context-conflicting-access-criteria) |  | [optional] 
 
 ## Examples

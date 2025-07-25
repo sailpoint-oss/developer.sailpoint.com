@@ -82,6 +82,212 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025AccessModelMetadataAttributeValue"
             Write-Host $_.ErrorDetails
         }
+- path: /access-model-metadata/bulk-update/filter
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/access-model-metadata#update-access-model-metadata-by-filter
+      source: |
+        $EntitlementAttributeBulkUpdateFilterRequest = @"
+        {
+          "values" : [ {
+            "attribute" : "iscFederalClassifications",
+            "values" : [ "topSecret" ]
+          } ],
+          "filters" : "id eq 2c9180867817ac4d017817c491119a20",
+          "replaceScope" : "attribute",
+          "operation" : "add"
+        }
+        "@
+        
+        # Metadata Attribute update by filter
+        
+        try {
+            $Result = ConvertFrom-JsonToEntitlementAttributeBulkUpdateFilterRequest -Json $EntitlementAttributeBulkUpdateFilterRequest
+            Update-V2025AccessModelMetadataByFilter -EntitlementAttributeBulkUpdateFilterRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2025AccessModelMetadataByFilter -EntitlementAttributeBulkUpdateFilterRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025AccessModelMetadataByFilter"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/bulk-update/ids
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/access-model-metadata#update-access-model-metadata-by-ids
+      source: |
+        $EntitlementAttributeBulkUpdateIdsRequest = @"
+        {
+          "entitlements" : [ "2c9180867817ac4d017817c491119a20", "2c9180867817ac4d017817c491119a21" ],
+          "values" : [ {
+            "attribute" : "iscFederalClassifications",
+            "values" : [ "topSecret" ]
+          } ],
+          "replaceScope" : "attribute",
+          "operation" : "add"
+        }
+        "@
+        
+        # Metadata Attribute update by ids
+        
+        try {
+            $Result = ConvertFrom-JsonToEntitlementAttributeBulkUpdateIdsRequest -Json $EntitlementAttributeBulkUpdateIdsRequest
+            Update-V2025AccessModelMetadataByIds -EntitlementAttributeBulkUpdateIdsRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2025AccessModelMetadataByIds -EntitlementAttributeBulkUpdateIdsRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025AccessModelMetadataByIds"
+            Write-Host $_.ErrorDetails
+        }
+- path: /access-model-metadata/bulk-update/query
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/access-model-metadata#update-access-model-metadata-by-query
+      source: |
+        $EntitlementAttributeBulkUpdateQueryRequest = @"
+        {
+          "query" : {
+            "queryDsl" : {
+              "match" : {
+                "name" : "john.doe"
+              }
+            },
+            "aggregationType" : "DSL",
+            "aggregationsVersion" : "",
+            "query" : {
+              "query" : "name:a*",
+              "timeZone" : "America/Chicago",
+              "fields" : "[firstName,lastName,email]",
+              "innerHit" : {
+                "query" : "source.name:\\\"Active Directory\\\"",
+                "type" : "access"
+              }
+            },
+            "aggregationsDsl" : { },
+            "sort" : [ "displayName", "+id" ],
+            "filters" : { },
+            "queryVersion" : "",
+            "queryType" : "SAILPOINT",
+            "includeNested" : true,
+            "queryResultFilter" : {
+              "excludes" : [ "stacktrace" ],
+              "includes" : [ "name", "displayName" ]
+            },
+            "indices" : [ "identities" ],
+            "typeAheadQuery" : {
+              "field" : "source.name",
+              "size" : 100,
+              "query" : "Work",
+              "sortByValue" : true,
+              "nestedType" : "access",
+              "sort" : "asc",
+              "maxExpansions" : 10
+            },
+            "textQuery" : {
+              "contains" : true,
+              "terms" : [ "The quick brown fox", "3141592", "7" ],
+              "matchAny" : false,
+              "fields" : [ "displayName", "employeeNumber", "roleCount" ]
+            },
+            "searchAfter" : [ "John Doe", "2c91808375d8e80a0175e1f88a575221" ],
+            "aggregations" : {
+              "filter" : {
+                "field" : "access.type",
+                "name" : "Entitlements",
+                "type" : "TERM",
+                "value" : "ENTITLEMENT"
+              },
+              "bucket" : {
+                "field" : "attributes.city",
+                "size" : 100,
+                "minDocCount" : 2,
+                "name" : "Identity Locations",
+                "type" : "TERMS"
+              },
+              "metric" : {
+                "field" : "@access.name",
+                "name" : "Access Name Count",
+                "type" : "COUNT"
+              },
+              "subAggregation" : {
+                "filter" : {
+                  "field" : "access.type",
+                  "name" : "Entitlements",
+                  "type" : "TERM",
+                  "value" : "ENTITLEMENT"
+                },
+                "bucket" : {
+                  "field" : "attributes.city",
+                  "size" : 100,
+                  "minDocCount" : 2,
+                  "name" : "Identity Locations",
+                  "type" : "TERMS"
+                },
+                "metric" : {
+                  "field" : "@access.name",
+                  "name" : "Access Name Count",
+                  "type" : "COUNT"
+                },
+                "subAggregation" : {
+                  "filter" : {
+                    "field" : "access.type",
+                    "name" : "Entitlements",
+                    "type" : "TERM",
+                    "value" : "ENTITLEMENT"
+                  },
+                  "bucket" : {
+                    "field" : "attributes.city",
+                    "size" : 100,
+                    "minDocCount" : 2,
+                    "name" : "Identity Locations",
+                    "type" : "TERMS"
+                  },
+                  "metric" : {
+                    "field" : "@access.name",
+                    "name" : "Access Name Count",
+                    "type" : "COUNT"
+                  },
+                  "nested" : {
+                    "name" : "id",
+                    "type" : "access"
+                  }
+                },
+                "nested" : {
+                  "name" : "id",
+                  "type" : "access"
+                }
+              },
+              "nested" : {
+                "name" : "id",
+                "type" : "access"
+              }
+            }
+          },
+          "values" : [ {
+            "attribute" : "iscFederalClassifications",
+            "values" : [ "topSecret" ]
+          } ],
+          "replaceScope" : "attribute",
+          "operation" : "add"
+        }
+        "@
+        
+        # Metadata Attribute update by query
+        
+        try {
+            $Result = ConvertFrom-JsonToEntitlementAttributeBulkUpdateQueryRequest -Json $EntitlementAttributeBulkUpdateQueryRequest
+            Update-V2025AccessModelMetadataByQuery -EntitlementAttributeBulkUpdateQueryRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2025AccessModelMetadataByQuery -EntitlementAttributeBulkUpdateQueryRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025AccessModelMetadataByQuery"
+            Write-Host $_.ErrorDetails
+        }
 - path: /access-profiles
   method: POST
   xCodeSample:
@@ -9498,7 +9704,56 @@
         $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source ID.
         $MachineClassificationConfig = @"
         {
-          "criteria" : "criteria",
+          "criteria" : {
+            "children" : [ {
+              "children" : [ {
+                "children" : [ "children", "children" ],
+                "caseSensitive" : false,
+                "dataType" : "This is the first level of classification criteria",
+                "attribute" : "sAMAccountName",
+                "operation" : "EQUALS",
+                "value" : "SVC"
+              }, {
+                "children" : [ "children", "children" ],
+                "caseSensitive" : false,
+                "dataType" : "This is the first level of classification criteria",
+                "attribute" : "sAMAccountName",
+                "operation" : "EQUALS",
+                "value" : "SVC"
+              } ],
+              "caseSensitive" : false,
+              "dataType" : "dataType",
+              "attribute" : "employeeType",
+              "operation" : "EQUALS",
+              "value" : "SERVICE"
+            }, {
+              "children" : [ {
+                "children" : [ "children", "children" ],
+                "caseSensitive" : false,
+                "dataType" : "This is the first level of classification criteria",
+                "attribute" : "sAMAccountName",
+                "operation" : "EQUALS",
+                "value" : "SVC"
+              }, {
+                "children" : [ "children", "children" ],
+                "caseSensitive" : false,
+                "dataType" : "This is the first level of classification criteria",
+                "attribute" : "sAMAccountName",
+                "operation" : "EQUALS",
+                "value" : "SVC"
+              } ],
+              "caseSensitive" : false,
+              "dataType" : "dataType",
+              "attribute" : "employeeType",
+              "operation" : "EQUALS",
+              "value" : "SERVICE"
+            } ],
+            "caseSensitive" : false,
+            "dataType" : "dataType",
+            "attribute" : "distinguishedName",
+            "operation" : "EQUALS",
+            "value" : "OU=Service Accounts"
+          },
           "created" : "2017-07-11T18:45:37.098Z",
           "modified" : "2018-06-25T20:22:28.104Z",
           "classificationMethod" : "SOURCE",

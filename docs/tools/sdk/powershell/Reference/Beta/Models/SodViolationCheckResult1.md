@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Message** | [**ErrorMessageDto**](error-message-dto) |  | [optional] 
 **ClientMetadata** | **map[string]String** | Arbitrary key-value pairs. They will never be processed by the IdentityNow system but will be returned on completion of the violation check. | [optional] 
 **ViolationContexts** | [**[]SodViolationContext1**](sod-violation-context1) |  | [optional] 
-**ViolatedPolicies** | [**[]SodPolicyDto**](sod-policy-dto) | A list of the Policies that were violated. | [optional] 
+**ViolatedPolicies** | [**[]SodPolicyDto1**](sod-policy-dto1) | A list of the Policies that were violated. | [optional] 
 
 ## Examples
 

@@ -31,6 +31,9 @@ Method | HTTP request | Description
 [**Get-V2025AccessModelMetadataAttributeValue**](#get-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values/{value}` | Get access model metadata value
 [**Get-V2025AccessModelMetadataAttribute**](#list-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes` | List access model metadata attributes
 [**Get-V2025AccessModelMetadataAttributeValue**](#list-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values` | List access model metadata values
+[**Update-V2025AccessModelMetadataByFilter**](#update-access-model-metadata-by-filter) | **POST** `/access-model-metadata/bulk-update/filter` | Metadata Attribute update by filter
+[**Update-V2025AccessModelMetadataByIds**](#update-access-model-metadata-by-ids) | **POST** `/access-model-metadata/bulk-update/ids` | Metadata Attribute update by ids
+[**Update-V2025AccessModelMetadataByQuery**](#update-access-model-metadata-by-query) | **POST** `/access-model-metadata/bulk-update/query` | Metadata Attribute update by query
 
 
 ## get-access-model-metadata-attribute
@@ -224,6 +227,284 @@ try {
     # Get-V2025AccessModelMetadataAttributeValue -Key $Key -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025AccessModelMetadataAttributeValue"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## update-access-model-metadata-by-filter
+Bulk update Access Model Metadata Attribute Values using a filter
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-access-model-metadata-by-filter)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | EntitlementAttributeBulkUpdateFilterRequest | [**EntitlementAttributeBulkUpdateFilterRequest**](../models/entitlement-attribute-bulk-update-filter-request) | True  | Attribute metadata bulk update request body.
+
+### Return type
+[**AccessModelMetadataBulkUpdateResponse**](../models/access-model-metadata-bulk-update-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | OK | AccessModelMetadataBulkUpdateResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$EntitlementAttributeBulkUpdateFilterRequest = @"{
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "filters" : "id eq 2c9180867817ac4d017817c491119a20",
+  "replaceScope" : "attribute",
+  "operation" : "add"
+}"@
+
+# Metadata Attribute update by filter
+
+try {
+    $Result = ConvertFrom-JsonToEntitlementAttributeBulkUpdateFilterRequest -Json $EntitlementAttributeBulkUpdateFilterRequest
+    Update-V2025AccessModelMetadataByFilter -EntitlementAttributeBulkUpdateFilterRequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-V2025AccessModelMetadataByFilter -EntitlementAttributeBulkUpdateFilterRequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025AccessModelMetadataByFilter"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## update-access-model-metadata-by-ids
+Bulk update Access Model Metadata Attribute Values using ids.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-access-model-metadata-by-ids)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | EntitlementAttributeBulkUpdateIdsRequest | [**EntitlementAttributeBulkUpdateIdsRequest**](../models/entitlement-attribute-bulk-update-ids-request) | True  | Attribute metadata bulk update request body.
+
+### Return type
+[**AccessModelMetadataBulkUpdateResponse**](../models/access-model-metadata-bulk-update-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | OK | AccessModelMetadataBulkUpdateResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$EntitlementAttributeBulkUpdateIdsRequest = @"{
+  "entitlements" : [ "2c9180867817ac4d017817c491119a20", "2c9180867817ac4d017817c491119a21" ],
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "replaceScope" : "attribute",
+  "operation" : "add"
+}"@
+
+# Metadata Attribute update by ids
+
+try {
+    $Result = ConvertFrom-JsonToEntitlementAttributeBulkUpdateIdsRequest -Json $EntitlementAttributeBulkUpdateIdsRequest
+    Update-V2025AccessModelMetadataByIds -EntitlementAttributeBulkUpdateIdsRequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-V2025AccessModelMetadataByIds -EntitlementAttributeBulkUpdateIdsRequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025AccessModelMetadataByIds"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## update-access-model-metadata-by-query
+Bulk update Access Model Metadata Attribute Values using a query
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/update-access-model-metadata-by-query)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | EntitlementAttributeBulkUpdateQueryRequest | [**EntitlementAttributeBulkUpdateQueryRequest**](../models/entitlement-attribute-bulk-update-query-request) | True  | Attribute metadata bulk update request body.
+
+### Return type
+[**AccessModelMetadataBulkUpdateResponse**](../models/access-model-metadata-bulk-update-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | OK | AccessModelMetadataBulkUpdateResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$EntitlementAttributeBulkUpdateQueryRequest = @"{
+  "query" : {
+    "queryDsl" : {
+      "match" : {
+        "name" : "john.doe"
+      }
+    },
+    "aggregationType" : "DSL",
+    "aggregationsVersion" : "",
+    "query" : {
+      "query" : "name:a*",
+      "timeZone" : "America/Chicago",
+      "fields" : "[firstName,lastName,email]",
+      "innerHit" : {
+        "query" : "source.name:\\\"Active Directory\\\"",
+        "type" : "access"
+      }
+    },
+    "aggregationsDsl" : { },
+    "sort" : [ "displayName", "+id" ],
+    "filters" : { },
+    "queryVersion" : "",
+    "queryType" : "SAILPOINT",
+    "includeNested" : true,
+    "queryResultFilter" : {
+      "excludes" : [ "stacktrace" ],
+      "includes" : [ "name", "displayName" ]
+    },
+    "indices" : [ "identities" ],
+    "typeAheadQuery" : {
+      "field" : "source.name",
+      "size" : 100,
+      "query" : "Work",
+      "sortByValue" : true,
+      "nestedType" : "access",
+      "sort" : "asc",
+      "maxExpansions" : 10
+    },
+    "textQuery" : {
+      "contains" : true,
+      "terms" : [ "The quick brown fox", "3141592", "7" ],
+      "matchAny" : false,
+      "fields" : [ "displayName", "employeeNumber", "roleCount" ]
+    },
+    "searchAfter" : [ "John Doe", "2c91808375d8e80a0175e1f88a575221" ],
+    "aggregations" : {
+      "filter" : {
+        "field" : "access.type",
+        "name" : "Entitlements",
+        "type" : "TERM",
+        "value" : "ENTITLEMENT"
+      },
+      "bucket" : {
+        "field" : "attributes.city",
+        "size" : 100,
+        "minDocCount" : 2,
+        "name" : "Identity Locations",
+        "type" : "TERMS"
+      },
+      "metric" : {
+        "field" : "@access.name",
+        "name" : "Access Name Count",
+        "type" : "COUNT"
+      },
+      "subAggregation" : {
+        "filter" : {
+          "field" : "access.type",
+          "name" : "Entitlements",
+          "type" : "TERM",
+          "value" : "ENTITLEMENT"
+        },
+        "bucket" : {
+          "field" : "attributes.city",
+          "size" : 100,
+          "minDocCount" : 2,
+          "name" : "Identity Locations",
+          "type" : "TERMS"
+        },
+        "metric" : {
+          "field" : "@access.name",
+          "name" : "Access Name Count",
+          "type" : "COUNT"
+        },
+        "subAggregation" : {
+          "filter" : {
+            "field" : "access.type",
+            "name" : "Entitlements",
+            "type" : "TERM",
+            "value" : "ENTITLEMENT"
+          },
+          "bucket" : {
+            "field" : "attributes.city",
+            "size" : 100,
+            "minDocCount" : 2,
+            "name" : "Identity Locations",
+            "type" : "TERMS"
+          },
+          "metric" : {
+            "field" : "@access.name",
+            "name" : "Access Name Count",
+            "type" : "COUNT"
+          },
+          "nested" : {
+            "name" : "id",
+            "type" : "access"
+          }
+        },
+        "nested" : {
+          "name" : "id",
+          "type" : "access"
+        }
+      },
+      "nested" : {
+        "name" : "id",
+        "type" : "access"
+      }
+    }
+  },
+  "values" : [ {
+    "attribute" : "iscFederalClassifications",
+    "values" : [ "topSecret" ]
+  } ],
+  "replaceScope" : "attribute",
+  "operation" : "add"
+}"@
+
+# Metadata Attribute update by query
+
+try {
+    $Result = ConvertFrom-JsonToEntitlementAttributeBulkUpdateQueryRequest -Json $EntitlementAttributeBulkUpdateQueryRequest
+    Update-V2025AccessModelMetadataByQuery -EntitlementAttributeBulkUpdateQueryRequest $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-V2025AccessModelMetadataByQuery -EntitlementAttributeBulkUpdateQueryRequest $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025AccessModelMetadataByQuery"
     Write-Host $_.ErrorDetails
 }
 ```

@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **Author** | Pointer to [**ApprovalIdentity**](approval-identity) |  | [optional] 
 **Comment** | Pointer to **string** | Comment to be left on an approval | [optional] 
 **CreatedDate** | Pointer to **string** | Date the comment was created | [optional] 
+**CommentId** | Pointer to **string** | ID of the comment | [optional] 
 
 ## Methods
 
@@ -112,5 +113,30 @@ SetCreatedDate sets CreatedDate field to given value.
 `func (o *ApprovalComment1) HasCreatedDate() bool`
 
 HasCreatedDate returns a boolean if a field has been set.
+
+### GetCommentId
+
+`func (o *ApprovalComment1) GetCommentId() string`
+
+GetCommentId returns the CommentId field if non-nil, zero value otherwise.
+
+### GetCommentIdOk
+
+`func (o *ApprovalComment1) GetCommentIdOk() (*string, bool)`
+
+GetCommentIdOk returns a tuple with the CommentId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCommentId
+
+`func (o *ApprovalComment1) SetCommentId(v string)`
+
+SetCommentId sets CommentId field to given value.
+
+### HasCommentId
+
+`func (o *ApprovalComment1) HasCommentId() bool`
+
+HasCommentId returns a boolean if a field has been set.
 
 

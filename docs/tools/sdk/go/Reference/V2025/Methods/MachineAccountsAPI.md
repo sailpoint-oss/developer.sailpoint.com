@@ -15,10 +15,191 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2025*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**create-machine-account-subtype**](#create-machine-account-subtype) | **Post** `/sources/{sourceId}/subtypes` | Create subtype
+[**delete-machine-account-subtype**](#delete-machine-account-subtype) | **Delete** `/sources/{sourceId}/subtypes/{technicalName}` | Delete subtype
 [**get-machine-account**](#get-machine-account) | **Get** `/machine-accounts/{id}` | Machine account details
+[**get-machine-account-subtype-by-id**](#get-machine-account-subtype-by-id) | **Get** `/sources/subtype/{subtypeId}` | Retrieve subtype by subtype id
+[**get-machine-account-subtype-by-technical-name**](#get-machine-account-subtype-by-technical-name) | **Get** `/sources/{sourceId}/subtypes/{technicalName}` | Retrieve subtype by source and technicalName
+[**list-machine-account-subtypes**](#list-machine-account-subtypes) | **Get** `/sources/{sourceId}/subtypes` | Retrieve all subtypes by source
 [**list-machine-accounts**](#list-machine-accounts) | **Get** `/machine-accounts` | Machine accounts list
+[**patch-machine-account-subtype**](#patch-machine-account-subtype) | **Patch** `/sources/{sourceId}/subtypes/{technicalName}` | Patch subtype
 [**update-machine-account**](#update-machine-account) | **Patch** `/machine-accounts/{id}` | Update a machine account
 
+
+## create-machine-account-subtype
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```go
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
+Create subtype
+Create a new machine account subtype for a source.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/create-machine-account-subtype)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**sourceId** | **string** | The ID of the source. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiCreateMachineAccountSubtypeRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **sourceSubtype** | [**SourceSubtype**](../models/source-subtype) |  | 
+
+### Return type
+
+[**SourceSubtype**](../models/source-subtype)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    sourceId := `6d0458373bec4b4b80460992b76016da` // string | The ID of the source. # string | The ID of the source.
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    sourcesubtype := []byte(`{
+          "sourceId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+          "displayName" : "Mr Foo",
+          "created" : "2025-07-28T16:13:42.8013Z",
+          "description" : "fighters",
+          "modified" : "2025-07-28T16:13:42.75085Z",
+          "id" : "43bdd144-4b17-4fce-a744-17c7fd3e717b",
+          "technicalName" : "foo"
+        }`) // SourceSubtype | 
+
+    var sourceSubtype v2025.SourceSubtype
+    if err := json.Unmarshal(sourcesubtype, &sourceSubtype); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.MachineAccountsAPI.CreateMachineAccountSubtype(context.Background(), sourceId).XSailPointExperimental(xSailPointExperimental).SourceSubtype(sourceSubtype).Execute()
+	  //resp, r, err := apiClient.V2025.MachineAccountsAPI.CreateMachineAccountSubtype(context.Background(), sourceId).XSailPointExperimental(xSailPointExperimental).SourceSubtype(sourceSubtype).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.CreateMachineAccountSubtype``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `CreateMachineAccountSubtype`: SourceSubtype
+    fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.CreateMachineAccountSubtype`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
+## delete-machine-account-subtype
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```go
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
+Delete subtype
+Delete a machine account subtype by its ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-machine-account-subtype)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**subtypeId** | **string** | The ID of the machine account subtype. | 
+**technicalName** | **string** | The technical name of the subtype. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteMachineAccountSubtypeRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+
+### Return type
+
+ (empty response body)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    subtypeId := `43bdd144-4b17-4fce-a744-17c7fd3e717b` // string | The ID of the machine account subtype. # string | The ID of the machine account subtype.
+    technicalName := `foo` // string | The technical name of the subtype. # string | The technical name of the subtype.
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    r, err := apiClient.V2025.MachineAccountsAPI.DeleteMachineAccountSubtype(context.Background(), subtypeId, technicalName).XSailPointExperimental(xSailPointExperimental).Execute()
+	  //r, err := apiClient.V2025.MachineAccountsAPI.DeleteMachineAccountSubtype(context.Background(), subtypeId, technicalName).XSailPointExperimental(xSailPointExperimental).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.DeleteMachineAccountSubtype``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
+}
+```
+
+[[Back to top]](#)
 
 ## get-machine-account
 :::warning experimental 
@@ -94,6 +275,256 @@ func main() {
     }
     // response from `GetMachineAccount`: MachineAccount
     fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.GetMachineAccount`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
+## get-machine-account-subtype-by-id
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```go
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
+Retrieve subtype by subtype id
+Get a machine account subtype by its unique ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-machine-account-subtype-by-id)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**subtypeId** | **string** | The ID of the machine account subtype. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMachineAccountSubtypeByIdRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+
+### Return type
+
+[**SourceSubtype**](../models/source-subtype)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    subtypeId := `43bdd144-4b17-4fce-a744-17c7fd3e717b` // string | The ID of the machine account subtype. # string | The ID of the machine account subtype.
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.MachineAccountsAPI.GetMachineAccountSubtypeById(context.Background(), subtypeId).XSailPointExperimental(xSailPointExperimental).Execute()
+	  //resp, r, err := apiClient.V2025.MachineAccountsAPI.GetMachineAccountSubtypeById(context.Background(), subtypeId).XSailPointExperimental(xSailPointExperimental).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.GetMachineAccountSubtypeById``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetMachineAccountSubtypeById`: SourceSubtype
+    fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.GetMachineAccountSubtypeById`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
+## get-machine-account-subtype-by-technical-name
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```go
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
+Retrieve subtype by source and technicalName
+Get a machine account subtype by source ID and technical name.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-machine-account-subtype-by-technical-name)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**sourceId** | **string** | The ID of the source. | 
+**technicalName** | **string** | The technical name of the subtype. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetMachineAccountSubtypeByTechnicalNameRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+
+### Return type
+
+[**SourceSubtype**](../models/source-subtype)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    sourceId := `6d0458373bec4b4b80460992b76016da` // string | The ID of the source. # string | The ID of the source.
+    technicalName := `foo` // string | The technical name of the subtype. # string | The technical name of the subtype.
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.MachineAccountsAPI.GetMachineAccountSubtypeByTechnicalName(context.Background(), sourceId, technicalName).XSailPointExperimental(xSailPointExperimental).Execute()
+	  //resp, r, err := apiClient.V2025.MachineAccountsAPI.GetMachineAccountSubtypeByTechnicalName(context.Background(), sourceId, technicalName).XSailPointExperimental(xSailPointExperimental).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.GetMachineAccountSubtypeByTechnicalName``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetMachineAccountSubtypeByTechnicalName`: SourceSubtype
+    fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.GetMachineAccountSubtypeByTechnicalName`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
+## list-machine-account-subtypes
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```go
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
+Retrieve all subtypes by source
+Get all machine account subtypes for a given source.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/list-machine-account-subtypes)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**sourceId** | **string** | The ID of the source. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListMachineAccountSubtypesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **filters** | **string** | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw* | 
+ **sorters** | **string** | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName** | 
+ **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
+ **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
+ **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+
+### Return type
+
+[**[]SourceSubtype**](../models/source-subtype)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    sourceId := `6d0458373bec4b4b80460992b76016da` // string | The ID of the source. # string | The ID of the source.
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    filters := `identityId eq "2c9180858082150f0180893dbaf44201"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw* (optional)
+    sorters := `displayName` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName** (optional)
+    count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+    limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.MachineAccountsAPI.ListMachineAccountSubtypes(context.Background(), sourceId).XSailPointExperimental(xSailPointExperimental).Execute()
+	  //resp, r, err := apiClient.V2025.MachineAccountsAPI.ListMachineAccountSubtypes(context.Background(), sourceId).XSailPointExperimental(xSailPointExperimental).Filters(filters).Sorters(sorters).Count(count).Limit(limit).Offset(offset).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.ListMachineAccountSubtypes``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListMachineAccountSubtypes`: []SourceSubtype
+    fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.ListMachineAccountSubtypes`: %v\n", resp)
 }
 ```
 
@@ -177,6 +608,104 @@ func main() {
     }
     // response from `ListMachineAccounts`: []MachineAccount
     fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.ListMachineAccounts`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
+## patch-machine-account-subtype
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```go
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
+Patch subtype
+Update fields of a machine account subtype by its ID.
+Patchable fields include: `displayName`, `description`, `technicalName`.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-machine-account-subtype)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**subtypeId** | **string** | The ID of the machine account subtype. | 
+**technicalName** | **string** | The technical name of the subtype. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiPatchMachineAccountSubtypeRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+ **sourceSubtype** | [**SourceSubtype**](../models/source-subtype) |  | 
+
+### Return type
+
+[**SourceSubtype**](../models/source-subtype)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    subtypeId := `43bdd144-4b17-4fce-a744-17c7fd3e717b` // string | The ID of the machine account subtype. # string | The ID of the machine account subtype.
+    technicalName := `foo` // string | The technical name of the subtype. # string | The technical name of the subtype.
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    sourcesubtype := []byte(`{
+          "sourceId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+          "displayName" : "Mr Foo",
+          "created" : "2025-07-28T16:13:42.8013Z",
+          "description" : "fighters",
+          "modified" : "2025-07-28T16:13:42.75085Z",
+          "id" : "43bdd144-4b17-4fce-a744-17c7fd3e717b",
+          "technicalName" : "foo"
+        }`) // SourceSubtype | 
+
+    var sourceSubtype v2025.SourceSubtype
+    if err := json.Unmarshal(sourcesubtype, &sourceSubtype); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.MachineAccountsAPI.PatchMachineAccountSubtype(context.Background(), subtypeId, technicalName).XSailPointExperimental(xSailPointExperimental).SourceSubtype(sourceSubtype).Execute()
+	  //resp, r, err := apiClient.V2025.MachineAccountsAPI.PatchMachineAccountSubtype(context.Background(), subtypeId, technicalName).XSailPointExperimental(xSailPointExperimental).SourceSubtype(sourceSubtype).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `MachineAccountsAPI.PatchMachineAccountSubtype``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `PatchMachineAccountSubtype`: SourceSubtype
+    fmt.Fprintf(os.Stdout, "Response from `MachineAccountsAPI.PatchMachineAccountSubtype`: %v\n", resp)
 }
 ```
 

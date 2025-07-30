@@ -17,6 +17,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Id of the reference object | [optional] 
 **Type** | Pointer to **string** | What reference object does this ID correspond to | [optional] 
+**Name** | Pointer to **string** | Name of the reference object | [optional] 
+**Email** | Pointer to **string** | Email associated with the reference object | [optional] 
+**SerialOrder** | Pointer to **int64** | The serial step of the identity in the approval. For example serialOrder 1 is the first identity to action in an approval request chain. Parallel approvals are set to 0. | [optional] 
 
 ## Methods
 
@@ -86,5 +89,80 @@ SetType sets Type field to given value.
 `func (o *ApprovalReference) HasType() bool`
 
 HasType returns a boolean if a field has been set.
+
+### GetName
+
+`func (o *ApprovalReference) GetName() string`
+
+GetName returns the Name field if non-nil, zero value otherwise.
+
+### GetNameOk
+
+`func (o *ApprovalReference) GetNameOk() (*string, bool)`
+
+GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetName
+
+`func (o *ApprovalReference) SetName(v string)`
+
+SetName sets Name field to given value.
+
+### HasName
+
+`func (o *ApprovalReference) HasName() bool`
+
+HasName returns a boolean if a field has been set.
+
+### GetEmail
+
+`func (o *ApprovalReference) GetEmail() string`
+
+GetEmail returns the Email field if non-nil, zero value otherwise.
+
+### GetEmailOk
+
+`func (o *ApprovalReference) GetEmailOk() (*string, bool)`
+
+GetEmailOk returns a tuple with the Email field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEmail
+
+`func (o *ApprovalReference) SetEmail(v string)`
+
+SetEmail sets Email field to given value.
+
+### HasEmail
+
+`func (o *ApprovalReference) HasEmail() bool`
+
+HasEmail returns a boolean if a field has been set.
+
+### GetSerialOrder
+
+`func (o *ApprovalReference) GetSerialOrder() int64`
+
+GetSerialOrder returns the SerialOrder field if non-nil, zero value otherwise.
+
+### GetSerialOrderOk
+
+`func (o *ApprovalReference) GetSerialOrderOk() (*int64, bool)`
+
+GetSerialOrderOk returns a tuple with the SerialOrder field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSerialOrder
+
+`func (o *ApprovalReference) SetSerialOrder(v int64)`
+
+SetSerialOrder sets SerialOrder field to given value.
+
+### HasSerialOrder
+
+`func (o *ApprovalReference) HasSerialOrder() bool`
+
+HasSerialOrder returns a boolean if a field has been set.
 
 

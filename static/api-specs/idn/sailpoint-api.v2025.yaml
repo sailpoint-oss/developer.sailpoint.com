@@ -2054,6 +2054,12 @@ paths:
     $ref: "./v2025/paths/machine-mappings.yaml"
   /sources/{sourceId}/classify:
     $ref: "./v2025/paths/source-machine-account-classify.yaml"
+  /sources/{sourceId}/subtypes:
+    $ref: "./v2025/paths/source-machine-account-subtypes.yaml"
+  /sources/{sourceId}/subtypes/{technicalName}:
+    $ref: "./v2025/paths/source-machine-account-subtype.yaml"
+  /sources/subtype/{subtypeId}:
+    $ref: "./v2025/paths/source-machine-account-subtype-id.yaml"
   /accounts/{id}/classify:
     $ref: "./v2025/paths/machine-account-classify.yaml"
   /machine-identities:

@@ -1,0 +1,39 @@
+type: object
+required:
+  - technicalName
+  - displayName
+  - description
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Unique identifier for the subtype.
+    example: 43bdd144-4b17-4fce-a744-17c7fd3e717b
+  sourceId:
+    type: string
+    format: uuid
+    description: The ID of the source.
+    example: 6d0458373bec4b4b80460992b76016da
+    readOnly: true
+  technicalName:
+    type: string
+    description: Technical name of the subtype.
+    example: foo
+  displayName:
+    type: string
+    description: Display name of the subtype.
+    example: Mr Foo
+  description:
+    type: string
+    description: Description of the subtype.
+    example: fighters
+  created:
+    type: string
+    format: date-time
+    description: Creation timestamp.
+    example: 2025-07-28T16:13:42.801300Z
+  modified:
+    type: string
+    format: date-time
+    description: Last modified timestamp.
+    example: 2025-07-28T16:13:42.750850Z

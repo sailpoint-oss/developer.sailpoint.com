@@ -2080,6 +2080,40 @@
               # ApplicationDiscoveryApi(api_client).send_manual_discover_applications_csv_template(file)
           except Exception as e:
               print("Exception when calling ApplicationDiscoveryApi->send_manual_discover_applications_csv_template: %s\n" % e)
+- path: /generic-approvals/{id}/approve
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/approvals#approve-approval
+      source: |
+        from sailpoint.v2025.api.approvals_api import ApprovalsApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.approval import Approval
+        from sailpoint.v2025.models.approval_approve_request import ApprovalApproveRequest
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = '38453251-6be2-5f8f-df93-5ce19e295837' # str | Approval ID that correlates to an existing approval request that a user wants to approve # str | Approval ID that correlates to an existing approval request that a user wants to approve
+          approval_approve_request = '''{
+          "comment" : "comment",
+          "additionalAttributes" : {
+            "additionalProp1" : "string",
+            "additionalProp2" : "string",
+            "additionalProp3" : "string"
+          }
+        }''' # ApprovalApproveRequest |  (optional)
+          try:
+              # Post Approvals Approve
+              
+              results = ApprovalsApi(api_client).approve_approval(id=id)
+              # Below is a request that includes all optional parameters
+              # results = ApprovalsApi(api_client).approve_approval(id, new_approval_approve_request)
+              print("The response of ApprovalsApi->approve_approval:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling ApprovalsApi->approve_approval: %s\n" % e)
 - path: /generic-approvals/{id}
   method: GET
   xCodeSample:
@@ -2119,24 +2153,150 @@
         from sailpoint.configuration import Configuration
         configuration = Configuration()
 
-        configuration.experimental = True
 
         with ApiClient(configuration) as api_client:
-          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-          mine = true # bool | Returns the list of approvals for the current caller (optional) # bool | Returns the list of approvals for the current caller (optional)
-          requester_id = '17e633e7d57e481569df76323169deb6a' # str | Returns the list of approvals for a given requester ID (optional) # str | Returns the list of approvals for a given requester ID (optional)
-          filters = 'filters=status eq PENDING' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq* (optional)
+          mine = False # bool | Returns the list of approvals for the current caller. (optional) (default to False) # bool | Returns the list of approvals for the current caller. (optional) (default to False)
+          requester_id = '17e633e7d57e481569df76323169deb6a' # str | Returns the list of approvals for a given requester ID. Must match the calling user's identity ID unless they are an admin. (optional) # str | Returns the list of approvals for a given requester ID. Must match the calling user's identity ID unless they are an admin. (optional)
+          requestee_id = '27e6334g757e481569df76323169db9sc' # str | Returns the list of approvals for a given requesteeId ID. Must match the calling user's identity ID unless they are an admin. (optional) # str | Returns the list of approvals for a given requesteeId ID. Must match the calling user's identity ID unless they are an admin. (optional)
+          approver_id = '37e6334g557e481569df7g2d3169db9sb' # str | Returns the list of approvals for a given approverId ID. Must match the calling user's identity ID unless they are an admin. (optional) # str | Returns the list of approvals for a given approverId ID. Must match the calling user's identity ID unless they are an admin. (optional)
+          count = False # bool | Adds X-Total-Count to the header to give the amount of total approvals returned from the query. (optional) (default to False) # bool | Adds X-Total-Count to the header to give the amount of total approvals returned from the query. (optional) (default to False)
+          count_only = False # bool | Adds X-Total-Count to the header to give the amount of total approvals returned from the query. Only returns the count and no approval objects. (optional) (default to False) # bool | Adds X-Total-Count to the header to give the amount of total approvals returned from the query. Only returns the count and no approval objects. (optional) (default to False)
+          include_comments = False # bool | If set to true in the query, the approval requests returned will include comments. (optional) (default to False) # bool | If set to true in the query, the approval requests returned will include comments. (optional) (default to False)
+          include_approvers = False # bool | If set to true in the query, the approval requests returned will include approvers. (optional) (default to False) # bool | If set to true in the query, the approval requests returned will include approvers. (optional) (default to False)
+          include_batch_info = False # bool | If set to true in the query, the approval requests returned will include batch information. (optional) (default to False) # bool | If set to true in the query, the approval requests returned will include batch information. (optional) (default to False)
+          include_batch_info2 = False # bool | If set to true in the query, the approval requests returned will include batch information. (optional) (default to False) # bool | If set to true in the query, the approval requests returned will include batch information. (optional) (default to False)
+          filters = 'filters=status eq PENDING' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq*  **name**: *eq*  **priority**: *eq*  **type**: *eq*  **medium**: *eq*  **description**: *eq*  **batchId**: *eq*  **approvalId**: *eq*  **tenantId**: *eq*  **createdDate**: *eq*  **dueDate**: *eq*  **completedDate**: *eq*  **search**: *eq*  **referenceId**: *eq*  **referenceName**: *eq*  **requestedTargetType**: *eq*  **requestedTargetRequestType**: *eq*  **requestedTargetId**: *eq*  **modifiedDate**: *eq*  **requesterId**: *eq*  **requesteeId**: *eq*  **approverId**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq*  **name**: *eq*  **priority**: *eq*  **type**: *eq*  **medium**: *eq*  **description**: *eq*  **batchId**: *eq*  **approvalId**: *eq*  **tenantId**: *eq*  **createdDate**: *eq*  **dueDate**: *eq*  **completedDate**: *eq*  **search**: *eq*  **referenceId**: *eq*  **referenceName**: *eq*  **requestedTargetType**: *eq*  **requestedTargetRequestType**: *eq*  **requestedTargetId**: *eq*  **modifiedDate**: *eq*  **requesterId**: *eq*  **requesteeId**: *eq*  **approverId**: *eq* (optional)
+          limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           try:
               # Get approvals
               
-              results = ApprovalsApi(api_client).get_approvals(x_sail_point_experimental=x_sail_point_experimental)
+              results = ApprovalsApi(api_client).get_approvals()
               # Below is a request that includes all optional parameters
-              # results = ApprovalsApi(api_client).get_approvals(x_sail_point_experimental, mine, requester_id, filters)
+              # results = ApprovalsApi(api_client).get_approvals(mine, requester_id, requestee_id, approver_id, count, count_only, include_comments, include_approvers, include_batch_info, include_batch_info2, filters, limit, offset)
               print("The response of ApprovalsApi->get_approvals:\n")
               for item in results:
                   print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling ApprovalsApi->get_approvals: %s\n" % e)
+- path: /generic-approvals/{id}/reject
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/approvals#reject-approval
+      source: |
+        from sailpoint.v2025.api.approvals_api import ApprovalsApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.approval_reject_request import ApprovalRejectRequest
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = '38453251-6be2-5f8f-df93-5ce19e295837' # str | Approval ID that correlates to an existing approval request that a user wants to reject. # str | Approval ID that correlates to an existing approval request that a user wants to reject.
+          approval_reject_request = '''{
+          "comment" : "string"
+        }''' # ApprovalRejectRequest |  (optional)
+          try:
+              # Post Approvals Reject
+              
+              ApprovalsApi(api_client).reject_approval(id=id)
+              # Below is a request that includes all optional parameters
+              # ApprovalsApi(api_client).reject_approval(id, new_approval_reject_request)
+          except Exception as e:
+              print("Exception when calling ApprovalsApi->reject_approval: %s\n" % e)
+- path: /generic-approvals/{id}/attributes
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/approvals#update-approvals-attributes
+      source: |
+        from sailpoint.v2025.api.approvals_api import ApprovalsApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.approval import Approval
+        from sailpoint.v2025.models.approval_attributes_request import ApprovalAttributesRequest
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = '38453251-6be2-5f8f-df93-5ce19e295837' # str | Approval ID that correlates to an existing approval request that a user wants to change the attributes of. # str | Approval ID that correlates to an existing approval request that a user wants to change the attributes of.
+          approval_attributes_request = '''{
+          "removeAttributeKeys" : [ "string" ],
+          "comment" : "comment",
+          "additionalAttributes" : {
+            "additionalProp1" : "string",
+            "additionalProp2" : "string",
+            "additionalProp3" : "string"
+          }
+        }''' # ApprovalAttributesRequest | 
+          try:
+              # Post Approvals Attributes
+              new_approval_attributes_request = ApprovalAttributesRequest.from_json(approval_attributes_request)
+              results = ApprovalsApi(api_client).update_approvals_attributes(id=id, approval_attributes_request=new_approval_attributes_request)
+              # Below is a request that includes all optional parameters
+              # results = ApprovalsApi(api_client).update_approvals_attributes(id, new_approval_attributes_request)
+              print("The response of ApprovalsApi->update_approvals_attributes:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling ApprovalsApi->update_approvals_attributes: %s\n" % e)
+- path: /generic-approvals/{id}/comments
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/approvals#update-approvals-comments
+      source: |
+        from sailpoint.v2025.api.approvals_api import ApprovalsApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.approval import Approval
+        from sailpoint.v2025.models.approval_comments_request import ApprovalCommentsRequest
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = '38453251-6be2-5f8f-df93-5ce19e295837' # str | Approval ID that correlates to an existing approval request that a user wants to add a comment to. # str | Approval ID that correlates to an existing approval request that a user wants to add a comment to.
+          approval_comments_request = '''{
+          "comment" : "Approval comment."
+        }''' # ApprovalCommentsRequest | 
+          try:
+              # Post Approvals Comments
+              new_approval_comments_request = ApprovalCommentsRequest.from_json(approval_comments_request)
+              results = ApprovalsApi(api_client).update_approvals_comments(id=id, approval_comments_request=new_approval_comments_request)
+              # Below is a request that includes all optional parameters
+              # results = ApprovalsApi(api_client).update_approvals_comments(id, new_approval_comments_request)
+              print("The response of ApprovalsApi->update_approvals_comments:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling ApprovalsApi->update_approvals_comments: %s\n" % e)
+- path: /generic-approvals/{id}/reassign
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/approvals#update-approvals-reassign
+      source: |
+        from sailpoint.v2025.api.approvals_api import ApprovalsApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.approval_reassign_request import ApprovalReassignRequest
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+
+        with ApiClient(configuration) as api_client:
+          id = '38453251-6be2-5f8f-df93-5ce19e295837' # str | Approval ID that correlates to an existing approval request that a user wants to reassign. # str | Approval ID that correlates to an existing approval request that a user wants to reassign.
+          approval_reassign_request = '''{
+          "reassignTo" : "152354832eb6f8f539fd738592e19ec5",
+          "comment" : "comment",
+          "reassignFrom" : "384532516be25f8fdf935ce19e295837"
+        }''' # ApprovalReassignRequest | 
+          try:
+              # Post Approvals Reassign
+              new_approval_reassign_request = ApprovalReassignRequest.from_json(approval_reassign_request)
+              ApprovalsApi(api_client).update_approvals_reassign(id=id, approval_reassign_request=new_approval_reassign_request)
+              # Below is a request that includes all optional parameters
+              # ApprovalsApi(api_client).update_approvals_reassign(id, new_approval_reassign_request)
+          except Exception as e:
+              print("Exception when calling ApprovalsApi->update_approvals_reassign: %s\n" % e)
 - path: /source-apps
   method: POST
   xCodeSample:
@@ -11423,6 +11583,67 @@
                   print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling MachineAccountMappingsApi->set_machine_account_mappings: %s\n" % e)
+- path: /sources/{sourceId}/subtypes
+  method: POST
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/machine-accounts#create-machine-account-subtype
+      source: |
+        from sailpoint.v2025.api.machine_accounts_api import MachineAccountsApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.source_subtype import SourceSubtype
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+        configuration.experimental = True
+
+        with ApiClient(configuration) as api_client:
+          source_id = '6d0458373bec4b4b80460992b76016da' # str | The ID of the source. # str | The ID of the source.
+          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+          source_subtype = '''{
+          "sourceId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+          "displayName" : "Mr Foo",
+          "created" : "2025-07-28T16:13:42.8013Z",
+          "description" : "fighters",
+          "modified" : "2025-07-28T16:13:42.75085Z",
+          "id" : "43bdd144-4b17-4fce-a744-17c7fd3e717b",
+          "technicalName" : "foo"
+        }''' # SourceSubtype | 
+          try:
+              # Create subtype
+              new_source_subtype = SourceSubtype.from_json(source_subtype)
+              results = MachineAccountsApi(api_client).create_machine_account_subtype(source_id=source_id, x_sail_point_experimental=x_sail_point_experimental, source_subtype=new_source_subtype)
+              # Below is a request that includes all optional parameters
+              # results = MachineAccountsApi(api_client).create_machine_account_subtype(source_id, x_sail_point_experimental, new_source_subtype)
+              print("The response of MachineAccountsApi->create_machine_account_subtype:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling MachineAccountsApi->create_machine_account_subtype: %s\n" % e)
+- path: /sources/{sourceId}/subtypes/{technicalName}
+  method: DELETE
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/machine-accounts#delete-machine-account-subtype
+      source: |
+        from sailpoint.v2025.api.machine_accounts_api import MachineAccountsApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+        configuration.experimental = True
+
+        with ApiClient(configuration) as api_client:
+          subtype_id = '43bdd144-4b17-4fce-a744-17c7fd3e717b' # str | The ID of the machine account subtype. # str | The ID of the machine account subtype.
+          technical_name = 'foo' # str | The technical name of the subtype. # str | The technical name of the subtype.
+          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+          try:
+              # Delete subtype
+              
+              MachineAccountsApi(api_client).delete_machine_account_subtype(subtype_id=subtype_id, technical_name=technical_name, x_sail_point_experimental=x_sail_point_experimental)
+              # Below is a request that includes all optional parameters
+              # MachineAccountsApi(api_client).delete_machine_account_subtype(subtype_id, technical_name, x_sail_point_experimental)
+          except Exception as e:
+              print("Exception when calling MachineAccountsApi->delete_machine_account_subtype: %s\n" % e)
 - path: /machine-accounts/{id}
   method: GET
   xCodeSample:
@@ -11450,6 +11671,94 @@
               print(results.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling MachineAccountsApi->get_machine_account: %s\n" % e)
+- path: /sources/subtype/{subtypeId}
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/machine-accounts#get-machine-account-subtype-by-id
+      source: |
+        from sailpoint.v2025.api.machine_accounts_api import MachineAccountsApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.source_subtype import SourceSubtype
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+        configuration.experimental = True
+
+        with ApiClient(configuration) as api_client:
+          subtype_id = '43bdd144-4b17-4fce-a744-17c7fd3e717b' # str | The ID of the machine account subtype. # str | The ID of the machine account subtype.
+          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+          try:
+              # Retrieve subtype by subtype id
+              
+              results = MachineAccountsApi(api_client).get_machine_account_subtype_by_id(subtype_id=subtype_id, x_sail_point_experimental=x_sail_point_experimental)
+              # Below is a request that includes all optional parameters
+              # results = MachineAccountsApi(api_client).get_machine_account_subtype_by_id(subtype_id, x_sail_point_experimental)
+              print("The response of MachineAccountsApi->get_machine_account_subtype_by_id:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling MachineAccountsApi->get_machine_account_subtype_by_id: %s\n" % e)
+- path: /sources/{sourceId}/subtypes/{technicalName}
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/machine-accounts#get-machine-account-subtype-by-technical-name
+      source: |
+        from sailpoint.v2025.api.machine_accounts_api import MachineAccountsApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.source_subtype import SourceSubtype
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+        configuration.experimental = True
+
+        with ApiClient(configuration) as api_client:
+          source_id = '6d0458373bec4b4b80460992b76016da' # str | The ID of the source. # str | The ID of the source.
+          technical_name = 'foo' # str | The technical name of the subtype. # str | The technical name of the subtype.
+          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+          try:
+              # Retrieve subtype by source and technicalName
+              
+              results = MachineAccountsApi(api_client).get_machine_account_subtype_by_technical_name(source_id=source_id, technical_name=technical_name, x_sail_point_experimental=x_sail_point_experimental)
+              # Below is a request that includes all optional parameters
+              # results = MachineAccountsApi(api_client).get_machine_account_subtype_by_technical_name(source_id, technical_name, x_sail_point_experimental)
+              print("The response of MachineAccountsApi->get_machine_account_subtype_by_technical_name:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling MachineAccountsApi->get_machine_account_subtype_by_technical_name: %s\n" % e)
+- path: /sources/{sourceId}/subtypes
+  method: GET
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/machine-accounts#list-machine-account-subtypes
+      source: |
+        from sailpoint.v2025.api.machine_accounts_api import MachineAccountsApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.source_subtype import SourceSubtype
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+        configuration.experimental = True
+
+        with ApiClient(configuration) as api_client:
+          source_id = '6d0458373bec4b4b80460992b76016da' # str | The ID of the source. # str | The ID of the source.
+          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+          filters = 'identityId eq \"2c9180858082150f0180893dbaf44201\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw* (optional)
+          sorters = 'displayName' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName** (optional)
+          count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
+          limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+          try:
+              # Retrieve all subtypes by source
+              
+              results = MachineAccountsApi(api_client).list_machine_account_subtypes(source_id=source_id, x_sail_point_experimental=x_sail_point_experimental)
+              # Below is a request that includes all optional parameters
+              # results = MachineAccountsApi(api_client).list_machine_account_subtypes(source_id, x_sail_point_experimental, filters, sorters, count, limit, offset)
+              print("The response of MachineAccountsApi->list_machine_account_subtypes:\n")
+              for item in results:
+                  print(item.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling MachineAccountsApi->list_machine_account_subtypes: %s\n" % e)
 - path: /machine-accounts
   method: GET
   xCodeSample:
@@ -11482,6 +11791,43 @@
                   print(item.model_dump_json(by_alias=True, indent=4))
           except Exception as e:
               print("Exception when calling MachineAccountsApi->list_machine_accounts: %s\n" % e)
+- path: /sources/{sourceId}/subtypes/{technicalName}
+  method: PATCH
+  xCodeSample:
+    - lang: Python
+      label: SDK_tools/sdk/python/v2025/methods/machine-accounts#patch-machine-account-subtype
+      source: |
+        from sailpoint.v2025.api.machine_accounts_api import MachineAccountsApi
+        from sailpoint.v2025.api_client import ApiClient
+        from sailpoint.v2025.models.source_subtype import SourceSubtype
+        from sailpoint.configuration import Configuration
+        configuration = Configuration()
+
+        configuration.experimental = True
+
+        with ApiClient(configuration) as api_client:
+          subtype_id = '43bdd144-4b17-4fce-a744-17c7fd3e717b' # str | The ID of the machine account subtype. # str | The ID of the machine account subtype.
+          technical_name = 'foo' # str | The technical name of the subtype. # str | The technical name of the subtype.
+          x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+          source_subtype = '''{
+          "sourceId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+          "displayName" : "Mr Foo",
+          "created" : "2025-07-28T16:13:42.8013Z",
+          "description" : "fighters",
+          "modified" : "2025-07-28T16:13:42.75085Z",
+          "id" : "43bdd144-4b17-4fce-a744-17c7fd3e717b",
+          "technicalName" : "foo"
+        }''' # SourceSubtype | 
+          try:
+              # Patch subtype
+              new_source_subtype = SourceSubtype.from_json(source_subtype)
+              results = MachineAccountsApi(api_client).patch_machine_account_subtype(subtype_id=subtype_id, technical_name=technical_name, x_sail_point_experimental=x_sail_point_experimental, source_subtype=new_source_subtype)
+              # Below is a request that includes all optional parameters
+              # results = MachineAccountsApi(api_client).patch_machine_account_subtype(subtype_id, technical_name, x_sail_point_experimental, new_source_subtype)
+              print("The response of MachineAccountsApi->patch_machine_account_subtype:\n")
+              print(results.model_dump_json(by_alias=True, indent=4))
+          except Exception as e:
+              print("Exception when calling MachineAccountsApi->patch_machine_account_subtype: %s\n" % e)
 - path: /machine-accounts/{id}
   method: PATCH
   xCodeSample:

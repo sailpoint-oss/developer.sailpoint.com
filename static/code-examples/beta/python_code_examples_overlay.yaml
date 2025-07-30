@@ -1653,59 +1653,6 @@
               # ApplicationDiscoveryApi(api_client).send_manual_discover_applications_csv_template(file)
           except Exception as e:
               print("Exception when calling ApplicationDiscoveryApi->send_manual_discover_applications_csv_template: %s\n" % e)
-- path: /generic-approvals/{id}
-  method: GET
-  xCodeSample:
-    - lang: Python
-      label: SDK_tools/sdk/python/beta/methods/approvals#get-approval
-      source: |
-        from sailpoint.beta.api.approvals_api import ApprovalsApi
-        from sailpoint.beta.api_client import ApiClient
-        from sailpoint.beta.models.approval import Approval
-        from sailpoint.configuration import Configuration
-        configuration = Configuration()
-
-
-        with ApiClient(configuration) as api_client:
-          id = '38453251-6be2-5f8f-df93-5ce19e295837' # str | ID of the approval that to be returned. # str | ID of the approval that to be returned.
-          try:
-              # Get approval
-              
-              results = ApprovalsApi(api_client).get_approval(id=id)
-              # Below is a request that includes all optional parameters
-              # results = ApprovalsApi(api_client).get_approval(id)
-              print("The response of ApprovalsApi->get_approval:\n")
-              print(results.model_dump_json(by_alias=True, indent=4))
-          except Exception as e:
-              print("Exception when calling ApprovalsApi->get_approval: %s\n" % e)
-- path: /generic-approvals
-  method: GET
-  xCodeSample:
-    - lang: Python
-      label: SDK_tools/sdk/python/beta/methods/approvals#get-approvals
-      source: |
-        from sailpoint.beta.api.approvals_api import ApprovalsApi
-        from sailpoint.beta.api_client import ApiClient
-        from sailpoint.beta.models.approval import Approval
-        from sailpoint.configuration import Configuration
-        configuration = Configuration()
-
-
-        with ApiClient(configuration) as api_client:
-          mine = true # bool | Returns the list of approvals for the current caller. (optional) # bool | Returns the list of approvals for the current caller. (optional)
-          requester_id = '17e633e7d57e481569df76323169deb6a' # str | Returns the list of approvals for a given requester ID. (optional) # str | Returns the list of approvals for a given requester ID. (optional)
-          filters = 'filters=status eq PENDING' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **referenceType**: *eq* (optional)
-          try:
-              # Get approvals
-              
-              results = ApprovalsApi(api_client).get_approvals()
-              # Below is a request that includes all optional parameters
-              # results = ApprovalsApi(api_client).get_approvals(mine, requester_id, filters)
-              print("The response of ApprovalsApi->get_approvals:\n")
-              for item in results:
-                  print(item.model_dump_json(by_alias=True, indent=4))
-          except Exception as e:
-              print("Exception when calling ApprovalsApi->get_approvals: %s\n" % e)
 - path: /source-apps
   method: POST
   xCodeSample:

@@ -2,7 +2,7 @@ type: object
 title: Approval Comment
 properties:
   author:
-    $ref: './ApprovalIdentity.yaml'
+    $ref: '../schemas/ApprovalIdentity.yaml'
   comment:
     type: string
     example: Looks good
@@ -11,4 +11,8 @@ properties:
     type: string
     example: 2023-04-12T23:20:50.52Z
     description: Date the comment was created
+  commentId:
+    type: string
+    example: "38453251-6be2-5f8f-df93-5ce19e295837"
+    description: ID of the comment
 description: Comments Object

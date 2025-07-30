@@ -2042,6 +2042,16 @@ paths:
     $ref: ./v2025/paths/approvals.yaml
   /generic-approvals/{id}:
     $ref: ./v2025/paths/approval.yaml
+  /generic-approvals/{id}/approve:
+    $ref: ./v2025/paths/approvals-id-approve.yaml
+  /generic-approvals/{id}/attributes:
+    $ref: ./v2025/paths/approvals-id-attributes.yaml
+  /generic-approvals/{id}/comments:
+    $ref: ./v2025/paths/approvals-id-comments.yaml
+  /generic-approvals/{id}/reassign:
+    $ref: ./v2025/paths/approvals-id-reassign.yaml
+  /generic-approvals/{id}/reject:
+    $ref: ./v2025/paths/approvals-id-reject.yaml
   /machine-accounts:
     $ref: ./v2025/paths/machine-accounts.yaml
   /machine-accounts/{id}:

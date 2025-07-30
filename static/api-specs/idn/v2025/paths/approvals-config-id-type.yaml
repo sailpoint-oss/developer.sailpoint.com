@@ -1,0 +1,104 @@
+get:
+  security:
+  - userAuth: [ sp:approvals:read ]
+  x-sailpoint-userLevels:
+  - APPROVAL_OWNER
+  operationId: getApprovalsConfigIdType
+  tags:
+  - Approvals
+  summary: Get Approval Config Type
+  description: >-
+    Currently this endpoint only supports Entitlement Description Approvals.
+    
+    Retrieves a singular approval configuration that best matches the given configID and configType
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+    description: >-
+      ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid)
+    example: 38453251-6be2-5f8f-df93-5ce19e295837
+    x-sailpoint-resource-operation-id: getApprovals
+  - in: path
+    name: type
+    required: true
+    schema:
+      type: string
+    description: >-
+      The type / scope of the above ID: APPROVAL_REQUEST, ROLE, APPLICATION, ACCESS_PROFILE, ENTITLEMENT, APPROVAL_TYPE, TENANT, SOURCE
+    example: APPROVAL_REQUEST
+    x-sailpoint-resource-operation-id: getApprovals
+  responses:
+    '200':
+      description: Approval object
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ApprovalConfig.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+patch:
+  security:
+  - userAuth: [ sp:approvals:write ]
+  x-sailpoint-userLevels:
+  - ORG_ADMIN
+  operationId: patchApprovalsConfigType
+  tags:
+  - Approvals
+  summary: Patch Approval Config Type
+  description: >-
+    Updates a singular approval configuration that best matches the given configID and configType
+  parameters:
+  - in: path
+    name: id
+    required: true
+    schema:
+      type: string
+    description: >-
+      ID the ID defined by the scope field, this could the approval ID (uuid), specific domain object ID (uuid), approval type (role/application/access_request/entitlement/source), tenant ID (uuid)
+    example: 38453251-6be2-5f8f-df93-5ce19e295837
+    x-sailpoint-resource-operation-id: getApprovals
+  - in: path
+    name: type
+    required: true
+    schema:
+      type: string
+    description: >-
+      The type / scope of the above ID: ROLE, APPLICATION, ACCESS_PROFILE, ENTITLEMENT, APPROVAL_TYPE, TENANT
+    example: ROLE
+    x-sailpoint-resource-operation-id: getApprovals
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/ApprovalConfig.yaml'
+  responses:
+    '200':
+      description: Verified Email Status
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ApprovalConfig.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

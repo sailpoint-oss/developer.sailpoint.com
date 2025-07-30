@@ -2,11 +2,15 @@ get:
   security:
   - userAuth:
     - sp:approvals:read
+  x-sailpoint-userLevels:
+  - APPROVAL_OWNER
   operationId: getApproval
   tags:
   - Approvals
   summary: Get an approval
-  description: Retrieve a single approval for a given approval ID. This endpoint is
+  description: Currently this endpoint only supports Entitlement Description Approvals.
+  
+    Retrieve a single approval for a given approval ID. This endpoint is
     for generic approvals, different than the access-request-approval endpoint and
     does not include access-request-approvals.
   parameters:
@@ -17,11 +21,11 @@ get:
     schema:
       type: string
     description: ID of the approval that is to be returned
-    example: 38453251-6be2-5f8f-df93-5ce19e295837
+    example: "38453251-6be2-5f8f-df93-5ce19e295837"
   - name: X-SailPoint-Experimental
     in: header
     description: Use this header to enable this experimental API.
-    example: true
+    example: "true"
     schema:
       type: string
       default: true

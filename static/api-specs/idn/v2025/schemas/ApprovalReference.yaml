@@ -9,4 +9,18 @@ properties:
     type: string
     example: AccessRequestId
     description: What reference object does this ID correspond to
+  name:
+    type: string
+    example: Access Request
+    description: Name of the reference object
+  email:
+    type: string
+    format: email
+    example: user@example.com
+    description: Email associated with the reference object
+  serialOrder:
+    type: integer
+    example: 0
+    format: int64
+    description: The serial step of the identity in the approval. For example serialOrder 1 is the first identity to action in an approval request chain. Parallel approvals are set to 0.
 description: Reference objects related to the approval

@@ -1,18 +1,74 @@
 type: object
 title: Approval Identity
 properties:
-  id:
+  email:
     type: string
-    example: 85d173e7d57e496569df763231d6deb6a
-    description: The identity ID
+    example: "mail@mail.com"
+    description: Email address.
+  identityID:
+    type: string
+    example: "17e633e7d57e481569df76323169deb6a"
+    description: Identity ID.
+  members:
+    type: array
+    items:
+      type: object
+      properties:
+        email:
+          type: string
+          example: "mail@mail.com"
+          description: Email of the member.
+        id:
+          type: string
+          example: "17e633e7d57e481569df76323169deb6a"
+          description: ID of the member.
+        name:
+          type: string
+          example: "Bob Neil"
+          description: Name of the member.
+        type:
+          type: string
+          example: "IDENTITY"
+          description: Type of the member.
+    description: List of members of a governance group. Will be omitted if the identity is not a governance group.
+  name:
+    type: string
+    example: "Jim Bob"
+    description: Name of the identity.
+  ownerOf:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "string"
+          description: ID of the object that is owned.
+        name:
+          type: string
+          example: "Access Request App"
+          description: Name of the object that is owned.
+        type:
+          type: string
+          example: "APPLICATION"
+          description: Type of the object that is owned.
+    description: List of owned items. For example, will show the items in which a ROLE_OWNER owns. Omitted if not an owner of anything.
+  serialOrder:
+    type: integer
+    example: 0
+    format: int64
+    description: The serial step of the identity in the approval. For example serialOrder 1 is the first identity to action in an approval request chain. Parallel approvals are set to 0.
   type:
     type: string
     enum:
-    - IDENTITY
-    example: IDENTITY
-    description: Indication of what group the identity belongs to. Ie, IDENTITY, GOVERNANCE_GROUP, etc
-  name:
-    type: string
-    example: John Doe
-    description: Name of the identity
-description: Identity Object
+    - "IDENTITY"
+    - "MANAGER_OF"
+    - "GOVERNANCE_GROUP"
+    - "SOURCE_OWNER"
+    - "ROLE_OWNER"
+    - "ACCESS_PROFILE_OWNER"
+    - "ENTITLEMENT_OWNER"
+    - "APPLICATION_OWNER"
+    example: "IDENTITY"
+    description: Type of identity.
+description: Approval Identity Object

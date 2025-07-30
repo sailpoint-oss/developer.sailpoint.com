@@ -1,0 +1,20 @@
+type: object
+properties:
+  comment:
+    type: string
+    description: Comment associated with the reassign request.
+    example: "comment"
+  reassignFrom:
+    type: string
+    description: Identity from which the approval is being reassigned. 
+    
+      If left blank, and the approval is currently assigned to the user calling this endpoint, it will use the calling user's identity.
+    
+      If left blank, and the approval is not currently assigned to the user calling this endpoint, you need to be an admin, which would add the reassignTo as a new approver.
+    example: "384532516be25f8fdf935ce19e295837"
+  reassignTo:
+    type: string
+    description: Identity to which the approval is being reassigned.
+    example: "152354832eb6f8f539fd738592e19ec5"
+description: >-
+  Request body for reassigning an approval request to another identity. This results in that identity being added as an authorized approver.

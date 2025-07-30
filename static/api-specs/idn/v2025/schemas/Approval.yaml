@@ -1,40 +1,74 @@
 type: object
 title: Approval
 properties:
-  approvalId:
+  id:
     type: string
     example: 38453251-6be2-5f8f-df93-5ce19e295837
     description: The Approval ID
+  tenantId:
+    type: string
+    example: 38453251-6be2-5f8f-df93-5ce19e295837
+    description: The Tenant ID of the Approval
+  type:
+    type: string
+    example: ENTITLEMENT_DESCRIPTIONS
+    description: The type of the approval, such as ENTITLEMENT_DESCRIPTIONS, CUSTOM_ACCESS_REQUEST_APPROVAL, GENERIC_APPROVAL
   approvers:
     type: array
     items:
-      $ref: './ApprovalIdentity.yaml'
+      $ref: '../schemas/ApprovalIdentity.yaml'
     description: Object representation of an approver of an approval
   createdDate:
     type: string
     example: 2023-04-12T23:20:50.52Z
     description: Date the approval was created
-  type:
+  dueDate:
     type: string
-    example: ENTITLEMENT_DESCRIPTIONS
-    description: Type of approval
+    example: 2024-05-12T23:10:50.11Z
+    description: Date the approval is due
+  escalationStep:
+    type: string
+    example: 0
+    description: Step in the escalation process. If set to 0, the approval is not escalated. If set to 1, the approval is escalated to the first approver in the escalation chain.
+  serialStep:
+    type: integer
+    example: 0
+    format: int64
+    description: The serial step of the approval in the approval chain. For example, serialStep 1 is the first approval to action in an approval request chain. Parallel approvals are set to 0.
+  isEscalated:
+    type: boolean
+    example: true
+    description: Whether or not the approval has been escalated. Will reset to false when the approval is actioned on.
+    default: false
   name:
     type: array
     items:
-      $ref: './ApprovalName.yaml'
+      $ref: '../schemas/ApprovalName.yaml'
     description: The name of the approval for a given locale
   batchRequest:
     type: object
     description: The name of the approval for a given locale
-    $ref: './ApprovalBatch.yaml'
+    $ref: '../schemas/ApprovalBatch.yaml'
     example:
       batchId: 38453251-6be2-5f8f-df93-5ce19e295837
       batchSize: 100
+  approvalConfig:
+    type: object
+    description: The configuration of the approval, such as the approval criteria and whether it is a parallel or serial approval
+    $ref: '../schemas/ApprovalConfig.yaml'
   description:
     type: array
     items:
-      $ref: './ApprovalDescription.yaml'
+      $ref: '../schemas/ApprovalDescription.yaml'
     description: The description of the approval for a given locale
+  medium:
+    type: string
+    enum:
+    - EMAIL
+    - SLACK
+    - TEAMS
+    example: EMAIL
+    description: Signifies what medium to use when sending notifications (currently only email is utilized)
   priority:
     type: string
     enum:
@@ -46,49 +80,75 @@ properties:
   requester:
     type: object
     description: Object representation of the requester of the approval
-    $ref: './ApprovalIdentity.yaml'
-    example:
-      id: 85d173e7d57e496569df763231d6deb6a
-      type: IDENTITY
-      name: John Doe
+    $ref: '../schemas/ApprovalIdentity.yaml'
+  requestee:
+    type: object
+    description: Object representation of the requestee of the approval
+    $ref: '../schemas/ApprovalIdentity.yaml'
   comments:
     type: array
     items:
-      $ref: './ApprovalComment.yaml'
+      $ref: '../schemas/ApprovalComment.yaml'
     description: Object representation of a comment on the approval
   approvedBy:
     type: array
     items:
-      $ref: './ApprovalIdentity.yaml'
+      $ref: '../schemas/ApprovalIdentityRecord.yaml'
     description: Array of approvers who have approved the approval
   rejectedBy:
     type: array
     items:
-      $ref: './ApprovalIdentity.yaml'
+      $ref: '../schemas/ApprovalIdentityRecord.yaml'
     description: Array of approvers who have rejected the approval
+  assignedTo:
+    type: array
+    items:
+      $ref: '../schemas/ApprovalIdentity.yaml'
+    description: Array of identities that the approval request is currently assigned to/waiting on. For parallel approvals, this is set to all approvers left to approve.
   completedDate:
     type: string
     example: 2023-04-12T23:20:50.52Z
     description: Date the approval was completed
   approvalCriteria:
-    type: string
-    enum:
-    - SINGLE
-    - DOUBLE
-    - TRIPLE
-    - QUARTER
-    - HALF
-    - ALL
-    example: SINGLE
-    description: Criteria that needs to be met for an approval to be marked as approved
-  status:
-    type: string
-    enum:
-    - PENDING
-    - APPROVED
-    - REJECTED
-    example: PENDING
-    description: The current status of the approval
+    type: object
+    properties:
+      type:
+        type: string
+        description: Type of approval criteria, such as SERIAL or PARALLEL
+        example: SERIAL
+      approval:
+        type: object
+        properties:
+          calculationType:
+            type: string
+            enum:
+            - COUNT
+            - PERCENT
+            description: This defines what the field "value" will be used as, either a count or percentage of the total approvers that need to approve
+            example: COUNT
+          value:
+            type: integer
+            format: int64
+            description: The value that needs to be met for the approval criteria
+            example: 70
+        description: Criteria for approval
+      rejection:
+        type: object
+        properties:
+          calculationType:
+            type: string
+            enum:
+            - COUNT
+            - PERCENT
+            description: This defines what the field "value" will be used as, either a count or percentage of the total approvers that need to reject
+            example: COUNT
+          value:
+            type: integer
+            format: int64
+            description: The value that needs to be met for the rejection criteria
+            example: 30
+        description: Criteria for rejection
+    description: Criteria that needs to be met for an approval or rejection
   additionalAttributes:
     type: string
     example: "{ \"llm_description\": \"generated description\" }"
@@ -96,6 +156,31 @@ properties:
   referenceData:
     type: array
     items:
-      $ref: './ApprovalReference.yaml'
+      $ref: '../schemas/ApprovalReference.yaml'
     description: Reference data related to the approval
+  reassignmentHistory:
+    type: array
+    description: History of whom the approval request was assigned to
+    items:
+      $ref: '../schemas/ApprovalReassignmentHistory.yaml'
+  staticAttributes:
+    type: object
+    additionalProperties: { }
+    description: Field that can include any static additional info that may be needed by the service that the approval request originated from
+    example:
+      serviceName: "ApprovalService"
+      requestType: "AccessRequest"
+      metadata:
+        environment: "production"
+        region: "us-east-1"
+  modifiedDate:
+    type: string
+    format: date-time
+    description: Date/time that the approval request was last updated
+    example: "2023-10-01T12:34:56.789Z"
+  requestedTarget:
+    type: array
+    items:
+      $ref: '../schemas/ApprovalRequestedTarget.yaml'
+    description: RequestedTarget used to specify the actual object or target the approval request is for
 description: Approval Object

@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **Author** | [**ApprovalIdentity**](approval-identity) |  | [optional] 
 **Comment** | **String** | Comment to be left on an approval | [optional] 
 **CreatedDate** | **String** | Date the comment was created | [optional] 
+**CommentId** | **String** | ID of the comment | [optional] 
 
 ## Examples
 
@@ -26,7 +27,8 @@ Name | Type | Description | Notes
 ```powershell
 $ApprovalComment1 = Initialize-V2025ApprovalComment1  -Author null `
  -Comment Looks good `
- -CreatedDate 2023-04-12T23:20:50.52Z
+ -CreatedDate 2023-04-12T23:20:50.52Z `
+ -CommentId 38453251-6be2-5f8f-df93-5ce19e295837
 ```
 
 - Convert the resource to JSON

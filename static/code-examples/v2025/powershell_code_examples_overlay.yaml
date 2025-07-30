@@ -9589,6 +9589,59 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2025MachineAccountMappings"
             Write-Host $_.ErrorDetails
         }
+- path: /sources/{sourceId}/subtypes
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/machine-accounts#create-machine-account-subtype
+      source: |
+        $SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $SourceSubtype = @"
+        {
+          "sourceId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+          "displayName" : "Mr Foo",
+          "created" : "2025-07-28T16:13:42.8013Z",
+          "description" : "fighters",
+          "modified" : "2025-07-28T16:13:42.75085Z",
+          "id" : "43bdd144-4b17-4fce-a744-17c7fd3e717b",
+          "technicalName" : "foo"
+        }
+        "@
+        
+        # Create subtype
+        
+        try {
+            $Result = ConvertFrom-JsonToSourceSubtype -Json $SourceSubtype
+            New-V2025MachineAccountSubtype -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -SourceSubtype $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2025MachineAccountSubtype -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -SourceSubtype $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025MachineAccountSubtype"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/subtypes/{technicalName}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/machine-accounts#delete-machine-account-subtype
+      source: |
+        $SubtypeId = "43bdd144-4b17-4fce-a744-17c7fd3e717b" # String | The ID of the machine account subtype.
+        $TechnicalName = "foo" # String | The technical name of the subtype.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Delete subtype
+        
+        try {
+            Remove-V2025MachineAccountSubtype -SubtypeId $SubtypeId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2025MachineAccountSubtype -SubtypeId $SubtypeId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025MachineAccountSubtype"
+            Write-Host $_.ErrorDetails
+        }
 - path: /machine-accounts/{id}
   method: GET
   xCodeSample:
@@ -9607,6 +9660,72 @@
             # Get-V2025MachineAccount -Id $Id -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025MachineAccount"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/subtype/{subtypeId}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/machine-accounts#get-machine-account-subtype-by-id
+      source: |
+        $SubtypeId = "43bdd144-4b17-4fce-a744-17c7fd3e717b" # String | The ID of the machine account subtype.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Retrieve subtype by subtype id
+        
+        try {
+            Get-V2025MachineAccountSubtypeById -SubtypeId $SubtypeId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025MachineAccountSubtypeById -SubtypeId $SubtypeId -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025MachineAccountSubtypeById"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/subtypes/{technicalName}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/machine-accounts#get-machine-account-subtype-by-technical-name
+      source: |
+        $SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
+        $TechnicalName = "foo" # String | The technical name of the subtype.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        
+        # Retrieve subtype by source and technicalName
+        
+        try {
+            Get-V2025MachineAccountSubtypeByTechnicalName -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025MachineAccountSubtypeByTechnicalName -SourceId $SourceId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025MachineAccountSubtypeByTechnicalName"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/subtypes
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/machine-accounts#list-machine-account-subtypes
+      source: |
+        $SourceId = "6d0458373bec4b4b80460992b76016da" # String | The ID of the source.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $Filters = "identityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **displayName**: *eq, sw*  **technicalName**: *eq, sw* (optional)
+        $Sorters = "displayName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **displayName, technicalName** (optional)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        
+        # Retrieve all subtypes by source
+        
+        try {
+            Get-V2025MachineAccountSubtypes -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025MachineAccountSubtypes -SourceId $SourceId -XSailPointExperimental $XSailPointExperimental -Filters $Filters -Sorters $Sorters -Count $Count -Limit $Limit -Offset $Offset   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025MachineAccountSubtypes"
             Write-Host $_.ErrorDetails
         }
 - path: /machine-accounts
@@ -9631,6 +9750,39 @@
             # Get-V2025MachineAccounts -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025MachineAccounts"
+            Write-Host $_.ErrorDetails
+        }
+- path: /sources/{sourceId}/subtypes/{technicalName}
+  method: PATCH
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/machine-accounts#patch-machine-account-subtype
+      source: |
+        $SubtypeId = "43bdd144-4b17-4fce-a744-17c7fd3e717b" # String | The ID of the machine account subtype.
+        $TechnicalName = "foo" # String | The technical name of the subtype.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+        $SourceSubtype = @"
+        {
+          "sourceId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+          "displayName" : "Mr Foo",
+          "created" : "2025-07-28T16:13:42.8013Z",
+          "description" : "fighters",
+          "modified" : "2025-07-28T16:13:42.75085Z",
+          "id" : "43bdd144-4b17-4fce-a744-17c7fd3e717b",
+          "technicalName" : "foo"
+        }
+        "@
+        
+        # Patch subtype
+        
+        try {
+            $Result = ConvertFrom-JsonToSourceSubtype -Json $SourceSubtype
+            Update-V2025MachineAccountSubtype -SubtypeId $SubtypeId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental -SourceSubtype $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Update-V2025MachineAccountSubtype -SubtypeId $SubtypeId -TechnicalName $TechnicalName -XSailPointExperimental $XSailPointExperimental -SourceSubtype $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025MachineAccountSubtype"
             Write-Host $_.ErrorDetails
         }
 - path: /machine-accounts/{id}

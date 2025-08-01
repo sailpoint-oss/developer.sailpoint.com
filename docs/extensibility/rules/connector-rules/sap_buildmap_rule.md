@@ -58,22 +58,17 @@ This rule gathers additional attributes from SAP systems to build accounts. This
   import java.util.HashMap;
 
   // Create initials
-
   String firstName = object.get("FirstName");
   String lastName = object.get("LastName");
 
   String initials = "";
 
-  if ( firstName != null && firstName.length() > 0 ) {
-    char letter = firstName.charAt(0);
-    letter = Character.toUpperCase(letter);
-    initials = letter + ".";
+  if (firstName != null && firstName.length() > 0) {
+    initials += Character.toUpperCase(firstName.charAt(0)) + ".";
   }
 
-  if ( lastName != null && lastName.length() > 0 ) {
-    letter = lastName.charAt(0);
-    letter = Character.toUpperCase(letter);
-    initials += letter + ".";
+  if (lastName != null && lastName.length() > 0) {
+    initials += Character.toUpperCase(lastName.charAt(0)) + ".";
   }
 
   object.put("Initials", initials);

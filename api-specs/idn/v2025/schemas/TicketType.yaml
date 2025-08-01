@@ -1,0 +1,8 @@
+description: ticket type of the Service Desk integration.  Normally the values would be all caps, but they're not for backward compatibility
+type: string
+example: serviceRequest
+enum:
+  - serviceRequest
+  - incident
+  - changeRequest
+  - generic

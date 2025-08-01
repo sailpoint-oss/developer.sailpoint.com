@@ -1,0 +1,21 @@
+title: randomAlphaNumeric
+type: object
+properties:
+  length:
+    type: string
+    description: |
+      This is an integer value specifying the size/number of characters the random string must contain
+      
+      
+      * This value must be a positive number and cannot be blank
+      
+      
+      * If no length is provided, the transform will default to a value of `32`
+      
+      
+      * Due to identity attribute data constraints, the maximum allowable value is `450` characters
+    example: "10"
+  requiresPeriodicRefresh:
+    $ref: './RequiresPeriodicRefresh.yaml'
+  input:
+    $ref: './input.yaml'

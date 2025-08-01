@@ -1,0 +1,33 @@
+get:
+  summary: Get attribute data in bulk
+  operationId: getAttributes
+  description: This endpoint can retrieve attribute data in bulk from Lifecycle or you can search for attributes using parameters
+  tags:
+    - attributes
+  parameters:
+    - $ref: "../parameters/query/query.yaml"
+    - $ref: "../parameters/query/label.yaml"
+    - $ref: "../parameters/query/data_type.yaml"
+    - $ref: "../parameters/query/metadata.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Attributes_Meta.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+post:
+  summary: Create an attribute
+  operationId: createAttribute
+  description: This endpoint can create an attribute
+  tags:
+    - attributes
+  requestBody:
+    $ref: "../requestBodies/POST/Attribute.yaml"
+  responses:
+    '201':
+      $ref: "../responses/Attribute.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

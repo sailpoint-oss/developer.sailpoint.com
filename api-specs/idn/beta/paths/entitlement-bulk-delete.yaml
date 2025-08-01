@@ -1,0 +1,46 @@
+post:
+  operationId: deleteBulkEntitlements
+  tags:
+    - Entitlements
+  summary: Deletes entitlements in bulk
+  description: >-
+    This endpoint initiates a bulk deletion of one or more entitlements.
+
+    When the request is successful, the endpoint returns the bulk delete's task result ID. 
+    To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/internal/entitlements/bulk-delete-status), which will return the task result's status and information. 
+
+    This endpoint can only bulk delete up to a limit of 50 entitlements per request.
+  security:
+    - userAuth: [idn:entitlement:delete]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            ids:
+              type: array
+              items:
+                type: string
+              description: Set of entitlement IDs to be deleted in bulk.
+              example: [ "2c9180867817ac4d017817c491119a20", "2c9180867817ac4d017817c491119a21" ]
+  responses:
+    '201':
+      description: Returns the status of the bulk delete operation.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/gov-entitlement/EntitlementBulkDeleteResponse.yaml'
+    '400':
+      $ref: '../../v3/responses/400.yaml'
+    '401':
+      $ref: '../../v3/responses/401.yaml'
+    '403':
+      $ref: '../../v3/responses/403.yaml'
+    '429':
+      $ref: '../../v3/responses/429.yaml'
+    '500':
+      $ref: '../../v3/responses/500.yaml'

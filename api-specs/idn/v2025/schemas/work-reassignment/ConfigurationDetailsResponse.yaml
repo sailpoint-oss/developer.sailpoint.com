@@ -1,0 +1,19 @@
+type: object
+description: The request body of Reassignment Configuration Details for a specific identity and config type
+properties:
+  configType:
+    $ref: 'ConfigTypeEnum.yaml'
+  targetIdentity:
+    $ref: 'Identity.yaml'
+  startDate:
+    type: string
+    description: The date from which to start reassigning work items
+    format: 'date-time'
+    example: '2022-07-21T11:13:12.345Z'
+  endDate:
+    type: string
+    description: The date from which to stop reassigning work items.  If this is an empty string it indicates a permanent reassignment.
+    format: 'date-time'
+    example: '0001-01-01T00:00:00Z'
+  auditDetails:
+    $ref: 'AuditDetails.yaml'

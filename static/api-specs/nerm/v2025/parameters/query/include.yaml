@@ -1,0 +1,8 @@
+name: include
+in: query
+description: Include related resources body. For example, 'include=delegator,delegate'.
+required: false
+schema:
+  type: string
+  default: ""
+  example: "delegator,delegate"

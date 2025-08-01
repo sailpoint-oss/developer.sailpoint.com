@@ -1,0 +1,32 @@
+---
+get:
+  summary: List delegations
+  description: Returns a list of delegation records, optionally filtered by delegate, delegator, or expiration status.
+  tags:
+    - delegations
+  parameters:
+    - $ref: "../../../nerm/parameters/query/delegate_id.yaml"
+    - $ref: "../../../nerm/parameters/query/delegator_id.yaml"
+    - $ref: "../../../nerm/parameters/query/expired.yaml"
+    - $ref: "../../../nerm/parameters/query/limit.yaml"
+    - $ref: "../../../nerm/parameters/query/offset.yaml"
+    - $ref: "../parameters/query/include.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Delegations.yaml"
+    '500':
+      $ref: "../../../nerm/responses/500.yaml"
+post:
+  summary: Create a delegation
+  description: Create a new delegation record.
+  tags:
+    - delegations
+  requestBody:
+    $ref: "../../../nerm/requestBodies/POST/Delegation.yaml"
+  responses:
+    '201':
+      $ref: "../../../nerm/responses/Delegation.yaml"
+    '404':
+      $ref: "../../../nerm/responses/404.yaml"
+    '500':
+      $ref: "../../../nerm/responses/500.yaml"

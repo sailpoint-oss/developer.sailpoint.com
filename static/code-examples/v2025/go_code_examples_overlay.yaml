@@ -30420,6 +30420,40 @@
           // response from `GetWorkflowExecutionHistory`: []WorkflowExecutionEvent
           fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.GetWorkflowExecutionHistory`: %v\n", resp)
         }
+- path: /workflow-executions/{id}/history-v2
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2025/methods/workflows#get-workflow-execution-history-v2
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := `c17bea3a-574d-453c-9e04-4365fbf5af0b` // string | Id of the workflow execution # string | Id of the workflow execution
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2025.WorkflowsAPI.GetWorkflowExecutionHistoryV2(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2025.WorkflowsAPI.GetWorkflowExecutionHistoryV2(context.Background(), id).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.GetWorkflowExecutionHistoryV2``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetWorkflowExecutionHistoryV2`: WorkflowExecutionHistory
+          fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.GetWorkflowExecutionHistoryV2`: %v\n", resp)
+        }
 - path: /workflows/{id}/executions
   method: Get
   xCodeSample:

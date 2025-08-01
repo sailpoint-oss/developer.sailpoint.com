@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**get-workflow**](#get-workflow) | **Get** `/workflows/{id}` | Get workflow by id
 [**get-workflow-execution**](#get-workflow-execution) | **Get** `/workflow-executions/{id}` | Get workflow execution
 [**get-workflow-execution-history**](#get-workflow-execution-history) | **Get** `/workflow-executions/{id}/history` | Get workflow execution history
+[**get-workflow-execution-history-v2**](#get-workflow-execution-history-v2) | **Get** `/workflow-executions/{id}/history-v2` | Get updated workflow execution history
 [**get-workflow-executions**](#get-workflow-executions) | **Get** `/workflows/{id}/executions` | List workflow executions
 [**list-complete-workflow-library**](#list-complete-workflow-library) | **Get** `/workflow-library` | List complete workflow library
 [**list-workflow-library-actions**](#list-workflow-library-actions) | **Get** `/workflow-library/actions` | List workflow library actions
@@ -560,6 +561,72 @@ func main() {
     }
     // response from `GetWorkflowExecutionHistory`: []WorkflowExecutionEvent
     fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.GetWorkflowExecutionHistory`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
+## get-workflow-execution-history-v2
+Get updated workflow execution history
+Gets a workflow execution history, trigger input, and workflow definition of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-workflow-execution-history-v2)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Id of the workflow execution | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetWorkflowExecutionHistoryV2Request struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**WorkflowExecutionHistory**](../models/workflow-execution-history)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    id := `c17bea3a-574d-453c-9e04-4365fbf5af0b` // string | Id of the workflow execution # string | Id of the workflow execution
+
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.WorkflowsAPI.GetWorkflowExecutionHistoryV2(context.Background(), id).Execute()
+	  //resp, r, err := apiClient.V2025.WorkflowsAPI.GetWorkflowExecutionHistoryV2(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `WorkflowsAPI.GetWorkflowExecutionHistoryV2``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetWorkflowExecutionHistoryV2`: WorkflowExecutionHistory
+    fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.GetWorkflowExecutionHistoryV2`: %v\n", resp)
 }
 ```
 

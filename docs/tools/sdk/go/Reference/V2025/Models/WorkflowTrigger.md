@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'WorkflowTrigger', 'V2025WorkflowTrigg
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** | The trigger type | 
-**DisplayName** | Pointer to **NullableString** |  | [optional] 
+**DisplayName** | Pointer to **NullableString** | The trigger display name | [optional] 
 **Attributes** | **map[string]interface{}** | Workflow Trigger Attributes. | 
 
 ## Methods

@@ -1896,6 +1896,8 @@ paths:
     $ref: ./v2025/paths/workflows/workflow-execution.yaml
   /workflow-executions/{id}/history:
     $ref: ./v2025/paths/workflows/workflow-execution-history.yaml
+  /workflow-executions/{id}/history-v2:
+    $ref: ./v2025/paths/workflows/workflow-execution-history-v2.yaml
   /workflow-executions/{id}/cancel:
     $ref: ./v2025/paths/workflows/workflow-execution-cancel.yaml
   /workflow-library:

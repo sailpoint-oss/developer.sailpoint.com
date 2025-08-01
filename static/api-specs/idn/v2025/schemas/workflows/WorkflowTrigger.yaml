@@ -16,6 +16,7 @@ properties:
   displayName:
     type: string
     nullable: true
+    description: The trigger display name
   attributes:
     nullable: true
     anyOf:

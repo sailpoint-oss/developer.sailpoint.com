@@ -19444,6 +19444,25 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025WorkflowExecutionHistory"
             Write-Host $_.ErrorDetails
         }
+- path: /workflow-executions/{id}/history-v2
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/workflows#get-workflow-execution-history-v2
+      source: |
+        $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execution
+        
+        # Get updated workflow execution history
+        
+        try {
+            Get-V2025WorkflowExecutionHistoryV2 -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025WorkflowExecutionHistoryV2 -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025WorkflowExecutionHistoryV2"
+            Write-Host $_.ErrorDetails
+        }
 - path: /workflows/{id}/executions
   method: GET
   xCodeSample:

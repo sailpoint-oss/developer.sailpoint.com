@@ -26,6 +26,7 @@ Method | HTTP request | Description
 [**Get-V2025Workflow**](#get-workflow) | **GET** `/workflows/{id}` | Get workflow by id
 [**Get-V2025WorkflowExecution**](#get-workflow-execution) | **GET** `/workflow-executions/{id}` | Get workflow execution
 [**Get-V2025WorkflowExecutionHistory**](#get-workflow-execution-history) | **GET** `/workflow-executions/{id}/history` | Get workflow execution history
+[**Get-V2025WorkflowExecutionHistoryV2**](#get-workflow-execution-history-v2) | **GET** `/workflow-executions/{id}/history-v2` | Get updated workflow execution history
 [**Get-V2025WorkflowExecutions**](#get-workflow-executions) | **GET** `/workflows/{id}/executions` | List workflow executions
 [**Get-V2025CompleteWorkflowLibrary**](#list-complete-workflow-library) | **GET** `/workflow-library` | List complete workflow library
 [**Get-V2025WorkflowLibraryActions**](#list-workflow-library-actions) | **GET** `/workflow-library/actions` | List workflow library actions
@@ -400,6 +401,52 @@ try {
     # Get-V2025WorkflowExecutionHistory -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025WorkflowExecutionHistory"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-workflow-execution-history-v2
+Gets a workflow execution history, trigger input, and workflow definition of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-workflow-execution-history-v2)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | Id of the workflow execution
+
+### Return type
+[**WorkflowExecutionHistory**](../models/workflow-execution-history)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | List of workflow workflow definition, execution events, and workflow trigger for the given workflow execution | WorkflowExecutionHistory
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the workflow execution
+
+# Get updated workflow execution history
+
+try {
+    Get-V2025WorkflowExecutionHistoryV2 -Id $Id 
+    
+    # Below is a request that includes all optional parameters
+    # Get-V2025WorkflowExecutionHistoryV2 -Id $Id  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025WorkflowExecutionHistoryV2"
     Write-Host $_.ErrorDetails
 }
 ```

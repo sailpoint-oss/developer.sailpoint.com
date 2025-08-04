@@ -44,7 +44,8 @@ yarn.lock
 /docs/api/v3/*
 /docs/api/beta/*
 /docs/api/iiq
-/docs/api/nerm/*
+/docs/api/nerm/v1/*
+/docs/api/nerm/v2025/*
 /docs/api/v2024/*
 /docs/api/v2025/*
 !/docs/api/nerm/authentication.md

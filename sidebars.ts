@@ -116,6 +116,18 @@ const sidebars: SidebarsConfig = {
       value: versionCrumb(`v2025`),
     },
     {
+      type: 'doc',
+      id: 'api/nerm/v2025/getting-started',
+    },
+    {
+      type: 'doc',
+      id: 'api/nerm/v2025/authentication',
+    },
+    {
+      type: 'doc',
+      id: 'api/nerm/v2025/pagination-metadata-filtering',
+    },
+    {
       type: 'category',
       label: 'NERM v2025 APIs',
       link: {
@@ -142,15 +154,15 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'doc',
-      id: 'api/nerm/getting-started',
+      id: 'api/nerm/v1/getting-started',
     },
     {
       type: 'doc',
-      id: 'api/nerm/authentication',
+      id: 'api/nerm/v1/authentication',
     },
     {
       type: 'doc',
-      id: 'api/nerm/pagination-metadata-filtering',
+      id: 'api/nerm/v1/pagination-metadata-filtering',
     },
     {
       type: 'category',

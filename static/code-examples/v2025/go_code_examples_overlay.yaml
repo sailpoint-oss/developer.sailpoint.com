@@ -30821,8 +30821,6 @@
           // response from `PutTenantConfiguration`: TenantConfigurationResponse
           fmt.Fprintf(os.Stdout, "Response from `WorkReassignmentAPI.PutTenantConfiguration`: %v\n", resp)
         }
-<<<<<<< HEAD
-=======
 - path: /workflow-executions/{id}/cancel
   method: Post
   xCodeSample:
@@ -31533,4 +31531,3 @@
           // response from `TestWorkflow`: TestWorkflow200Response
           fmt.Fprintf(os.Stdout, "Response from `WorkflowsAPI.TestWorkflow`: %v\n", resp)
         }
->>>>>>> main

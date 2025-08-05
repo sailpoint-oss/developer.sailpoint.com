@@ -7,7 +7,7 @@ sidebar_position: 1
 sidebar_class_name: gettingStarted
 keywords: ['getting started']
 description: Start using the NERM APIs.
-slug: /api/nerm/getting-started
+slug: /api/nerm/v1/getting-started
 tags: ['Getting Started']
 ---
 

@@ -7,7 +7,7 @@ sidebar_position: 3
 sidebar_class_name: paginationMetadataFiltering
 keywords: ['pagination metadata filtering']
 description: NERM API pagination, metadata, and filtering.
-slug: /api/nerm/pagination-metadata-filtering
+slug: /api/nerm/v2025/pagination-metadata-filtering
 tags: ['Pagination Metadata Filtering']
 ---
 

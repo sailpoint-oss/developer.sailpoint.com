@@ -17,12 +17,6 @@ tags: ['API Specifications']
 
 The Non-Employee Risk Management (NERM) APIs provide developers with a way to interact with the NERM add-on and extend it. Developers can leverage these APIs to customize their platform experiences and build new solutions and integrations that meet their needs.
 
-```mdx-code-block
-import DocCardList from '@theme/DocCardList';
-import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
-
-<DocCardList items={useCurrentSidebarCategory().items}/>
-```
 
 ## Discuss
 

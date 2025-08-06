@@ -22,6 +22,7 @@ Method | HTTP request | Description
 [**New-V2025ManagedClient**](#create-managed-client) | **POST** `/managed-clients` | Create managed client
 [**Remove-V2025ManagedClient**](#delete-managed-client) | **DELETE** `/managed-clients/{id}` | Delete managed client
 [**Get-V2025ManagedClient**](#get-managed-client) | **GET** `/managed-clients/{id}` | Get managed client
+[**Get-V2025ManagedClientHealthIndicators**](#get-managed-client-health-indicators) | **GET** `/managed-clients/{id}/health-indicators` | Get managed client health indicators
 [**Get-V2025ManagedClientStatus**](#get-managed-client-status) | **GET** `/managed-clients/{id}/status` | Get managed client status
 [**Get-V2025ManagedClients**](#get-managed-clients) | **GET** `/managed-clients` | Get managed clients
 [**Update-V2025ManagedClient**](#update-managed-client) | **PATCH** `/managed-clients/{id}` | Update managed client
@@ -165,6 +166,52 @@ try {
     # Get-V2025ManagedClient -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025ManagedClient"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-managed-client-health-indicators
+Get a managed client's health indicators, using its ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-managed-client-health-indicators)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | Managed client ID to get health indicators for.
+
+### Return type
+[**ManagedClientHealthIndicators**](../models/managed-client-health-indicators)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Response with the managed client health indicators, with the given ID. | ManagedClientHealthIndicators
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID to get health indicators for.
+
+# Get managed client health indicators
+
+try {
+    Get-V2025ManagedClientHealthIndicators -Id $Id 
+    
+    # Below is a request that includes all optional parameters
+    # Get-V2025ManagedClientHealthIndicators -Id $Id  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025ManagedClientHealthIndicators"
     Write-Host $_.ErrorDetails
 }
 ```

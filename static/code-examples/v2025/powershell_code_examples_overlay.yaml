@@ -10268,6 +10268,25 @@
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025ManagedClient"
             Write-Host $_.ErrorDetails
         }
+- path: /managed-clients/{id}/health-indicators
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/managed-clients#get-managed-client-health-indicators
+      source: |
+        $Id = "4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7" # String | Managed client ID to get health indicators for.
+        
+        # Get managed client health indicators
+        
+        try {
+            Get-V2025ManagedClientHealthIndicators -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025ManagedClientHealthIndicators -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025ManagedClientHealthIndicators"
+            Write-Host $_.ErrorDetails
+        }
 - path: /managed-clients/{id}/status
   method: GET
   xCodeSample:

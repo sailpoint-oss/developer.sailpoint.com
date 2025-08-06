@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**create-managed-client**](#create-managed-client) | **Post** `/managed-clients` | Create managed client
 [**delete-managed-client**](#delete-managed-client) | **Delete** `/managed-clients/{id}` | Delete managed client
 [**get-managed-client**](#get-managed-client) | **Get** `/managed-clients/{id}` | Get managed client
+[**get-managed-client-health-indicators**](#get-managed-client-health-indicators) | **Get** `/managed-clients/{id}/health-indicators` | Get managed client health indicators
 [**get-managed-client-status**](#get-managed-client-status) | **Get** `/managed-clients/{id}/status` | Get managed client status
 [**get-managed-clients**](#get-managed-clients) | **Get** `/managed-clients` | Get managed clients
 [**update-managed-client**](#update-managed-client) | **Patch** `/managed-clients/{id}` | Update managed client
@@ -224,6 +225,72 @@ func main() {
     }
     // response from `GetManagedClient`: ManagedClient
     fmt.Fprintf(os.Stdout, "Response from `ManagedClientsAPI.GetManagedClient`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
+## get-managed-client-health-indicators
+Get managed client health indicators
+Get a managed client's health indicators, using its ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-managed-client-health-indicators)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Managed client ID to get health indicators for. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetManagedClientHealthIndicatorsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+### Return type
+
+[**ManagedClientHealthIndicators**](../models/managed-client-health-indicators)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    id := `4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7` // string | Managed client ID to get health indicators for. # string | Managed client ID to get health indicators for.
+
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2025.ManagedClientsAPI.GetManagedClientHealthIndicators(context.Background(), id).Execute()
+	  //resp, r, err := apiClient.V2025.ManagedClientsAPI.GetManagedClientHealthIndicators(context.Background(), id).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `ManagedClientsAPI.GetManagedClientHealthIndicators``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetManagedClientHealthIndicators`: ManagedClientHealthIndicators
+    fmt.Fprintf(os.Stdout, "Response from `ManagedClientsAPI.GetManagedClientHealthIndicators`: %v\n", resp)
 }
 ```
 

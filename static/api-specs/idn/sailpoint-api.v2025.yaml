@@ -1600,6 +1600,8 @@ paths:
     $ref: ./v2025/paths/managed-client.yaml
   /managed-clients/{id}/status:
     $ref: ./v2025/paths/managed-client-status.yaml
+  /managed-clients/{id}/health-indicators:
+    $ref: ./v2025/paths/managed-client-health-indicators.yaml
   /managed-clusters:
     $ref: ./v2025/paths/managed-clusters.yaml
   /managed-clusters/{id}:

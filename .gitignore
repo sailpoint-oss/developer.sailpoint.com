@@ -55,7 +55,7 @@ yarn.lock
 !/docs/api/nerm/v1/pagination-metadata-filtering.md
 !/docs/api/nerm/v1/getting-started.md
 !/docs/api/nerm/v2025/authentication.md
-!/docs/api/nerm/v2025/pagination-metadata-filtering.md
+!/docs/api/nerm/v2025/pagination-filtering.md
 !/docs/api/nerm/v2025/getting-started.md
 
 

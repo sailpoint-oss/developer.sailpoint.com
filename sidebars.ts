@@ -125,7 +125,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'doc',
-      id: 'api/nerm/v2025/pagination-metadata-filtering',
+      id: 'api/nerm/v2025/pagination-filtering',
     },
     {
       type: 'category',

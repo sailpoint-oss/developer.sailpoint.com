@@ -1100,6 +1100,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/access-requests#list-administrators-access-request-status
       source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $RequestedFor = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
         $RequestedBy = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
         $RegardingIdentity = "2c9180877b2b6ea4017b2c545f971429" # String | Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. (optional)
@@ -1114,10 +1115,10 @@
         # Access request status for administrators
         
         try {
-            Get-V2025AdministratorsAccessRequestStatus 
+            Get-V2025AdministratorsAccessRequestStatus -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025AdministratorsAccessRequestStatus -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -AssignedTo $AssignedTo -Count $Count -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters -RequestState $RequestState   
+            # Get-V2025AdministratorsAccessRequestStatus -XSailPointExperimental $XSailPointExperimental -RequestedFor $RequestedFor -RequestedBy $RequestedBy -RegardingIdentity $RegardingIdentity -AssignedTo $AssignedTo -Count $Count -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters -RequestState $RequestState   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025AdministratorsAccessRequestStatus"
             Write-Host $_.ErrorDetails

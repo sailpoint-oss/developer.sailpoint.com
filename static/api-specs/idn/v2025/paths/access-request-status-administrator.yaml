@@ -16,6 +16,14 @@ get:
     the 
     access request statuses
   parameters:
+    - in: header
+      name: X-SailPoint-Experimental
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
     - in: query
       name: requested-for
       schema:

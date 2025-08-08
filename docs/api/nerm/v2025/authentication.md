@@ -7,7 +7,7 @@ sidebar_position: 2
 sidebar_class_name: authentication
 keywords: ['authentication']
 description: Authenticate to the NERM APIs.
-slug: /api/nerm/authentication
+slug: /api/nerm/v2025/authentication
 tags: ['Authentication']
 ---
 

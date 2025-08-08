@@ -20,6 +20,7 @@ Method | HTTP request | Description
 [**create-managed-client**](#create-managed-client) | **POST** `/managed-clients` | Create managed client
 [**delete-managed-client**](#delete-managed-client) | **DELETE** `/managed-clients/{id}` | Delete managed client
 [**get-managed-client**](#get-managed-client) | **GET** `/managed-clients/{id}` | Get managed client
+[**get-managed-client-health-indicators**](#get-managed-client-health-indicators) | **GET** `/managed-clients/{id}/health-indicators` | Get managed client health indicators
 [**get-managed-client-status**](#get-managed-client-status) | **GET** `/managed-clients/{id}/status` | Get managed client status
 [**get-managed-clients**](#get-managed-clients) | **GET** `/managed-clients` | Get managed clients
 [**update-managed-client**](#update-managed-client) | **PATCH** `/managed-clients/{id}` | Update managed client
@@ -198,6 +199,65 @@ with ApiClient(configuration) as api_client:
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ManagedClientsApi->get_managed_client: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## get-managed-client-health-indicators
+Get managed client health indicators
+Get a managed client's health indicators, using its ID.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-managed-client-health-indicators)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | Managed client ID to get health indicators for.
+
+### Return type
+[**ManagedClientHealthIndicators**](../models/managed-client-health-indicators)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | Response with the managed client health indicators, with the given ID. | ManagedClientHealthIndicators |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.v2025.api.managed_clients_api import ManagedClientsApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.v2025.models.managed_client_health_indicators import ManagedClientHealthIndicators
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    id = '4440278c-0ce2-41ee-a0a9-f5cfd5e8d3b7' # str | Managed client ID to get health indicators for. # str | Managed client ID to get health indicators for.
+
+    try:
+        # Get managed client health indicators
+        
+        results = ManagedClientsApi(api_client).get_managed_client_health_indicators(id=id)
+        # Below is a request that includes all optional parameters
+        # results = ManagedClientsApi(api_client).get_managed_client_health_indicators(id)
+        print("The response of ManagedClientsApi->get_managed_client_health_indicators:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ManagedClientsApi->get_managed_client_health_indicators: %s\n" % e)
 ```
 
 

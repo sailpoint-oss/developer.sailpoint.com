@@ -691,6 +691,17 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-administrators-access-request-status
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Access request status for administrators
 Use this API to get access request statuses of all the access requests in the org based on the specified query  parameters.
 Any user with user level ORG_ADMIN or scope idn:access-request-administration:read can access this endpoint to get  the  access request statuses
@@ -701,6 +712,7 @@ Any user with user level ORG_ADMIN or scope idn:access-request-administration:re
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
   Query | requested_for | **str** |   (optional) | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
   Query | requested_by | **str** |   (optional) | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*.
   Query | regarding_identity | **str** |   (optional) | Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*.
@@ -738,8 +750,10 @@ from sailpoint.v2024.models.access_request_admin_item_status import AccessReques
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     requested_for = '2c9180877b2b6ea4017b2c545f971429' # str | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional) # str | Filter the results by the identity the requests were made for. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
     requested_by = '2c9180877b2b6ea4017b2c545f971429' # str | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional) # str | Filter the results by the identity who made the requests. *me* indicates the current user. Mutually exclusive with *regarding-identity*. (optional)
     regarding_identity = '2c9180877b2b6ea4017b2c545f971429' # str | Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. (optional) # str | Filter the results by the specified identity who is either the requester or target of the requests. *me* indicates the current user. Mutually exclusive with *requested-for* and *requested-by*. (optional)
@@ -754,9 +768,9 @@ with ApiClient(configuration) as api_client:
     try:
         # Access request status for administrators
         
-        results = AccessRequestsApi(api_client).list_administrators_access_request_status()
+        results = AccessRequestsApi(api_client).list_administrators_access_request_status(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # results = AccessRequestsApi(api_client).list_administrators_access_request_status(requested_for, requested_by, regarding_identity, assigned_to, count, limit, offset, filters, sorters, request_state)
+        # results = AccessRequestsApi(api_client).list_administrators_access_request_status(x_sail_point_experimental, requested_for, requested_by, regarding_identity, assigned_to, count, limit, offset, filters, sorters, request_state)
         print("The response of AccessRequestsApi->list_administrators_access_request_status:\n")
         for item in results:
             print(item.model_dump_json(by_alias=True, indent=4))

@@ -18,7 +18,7 @@ The trigger that starts the workflow
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** |  **Enum** [  'EVENT',    'EXTERNAL',    'SCHEDULED',    '' ] | The trigger type | [required]
-**display_name** | **str** |  | [optional] 
+**display_name** | **str** | The trigger display name | [optional] 
 **attributes** | [**WorkflowTriggerAttributes**](workflow-trigger-attributes) |  | [required]
 }
 

@@ -49,7 +49,7 @@ import MermaidViewer from '@site/src/components/MermaidViewer';
         varchar RESOURCE_NAME "Human readable name of the resource (if available)"
         varchar RESOURCE_TYPE "Resource type, derived from the cloud API response types"
         varchar RESOURCE_ACCESS_SERVICE "Cloud service associated with the resource"
-        varchar RESOURCE_ACCESS_SOURCE_NAME "ISC source name associated with the resource"
+        varchar RESOURCE_ACCESS_SOURCE_NAME "Identity Security Cloud source name associated with the resource"
     }
     ENTITLEMENT {
         varchar ENTITLEMENT_VALUE "ISC entitlement value associated with the access. Usually the cloud native ID."

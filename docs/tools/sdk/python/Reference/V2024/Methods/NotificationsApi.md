@@ -15,21 +15,21 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-domain-dkim**](#create-domain-dkim) | **POST** `/verified-domains` | Verify domain address via DKIM
-[**create-notification-template**](#create-notification-template) | **POST** `/notification-templates` | Create Notification Template
-[**create-verified-from-address**](#create-verified-from-address) | **POST** `/verified-from-addresses` | Create Verified From Address
-[**delete-notification-templates-in-bulk**](#delete-notification-templates-in-bulk) | **POST** `/notification-templates/bulk-delete` | Bulk Delete Notification Templates
-[**delete-verified-from-address**](#delete-verified-from-address) | **DELETE** `/verified-from-addresses/{id}` | Delete Verified From Address
-[**get-dkim-attributes**](#get-dkim-attributes) | **GET** `/verified-domains` | Get DKIM Attributes
-[**get-mail-from-attributes**](#get-mail-from-attributes) | **GET** `/mail-from-attributes/{identity}` | Get MAIL FROM Attributes
-[**get-notification-template**](#get-notification-template) | **GET** `/notification-templates/{id}` | Get Notification Template By Id
-[**get-notifications-template-context**](#get-notifications-template-context) | **GET** `/notification-template-context` | Get Notification Template Context
-[**list-from-addresses**](#list-from-addresses) | **GET** `/verified-from-addresses` | List From Addresses
-[**list-notification-preferences**](#list-notification-preferences) | **GET** `/notification-preferences/{key}` | List Notification Preferences for tenant.
-[**list-notification-template-defaults**](#list-notification-template-defaults) | **GET** `/notification-template-defaults` | List Notification Template Defaults
-[**list-notification-templates**](#list-notification-templates) | **GET** `/notification-templates` | List Notification Templates
-[**put-mail-from-attributes**](#put-mail-from-attributes) | **PUT** `/mail-from-attributes` | Change MAIL FROM domain
-[**send-test-notification**](#send-test-notification) | **POST** `/send-test-notification` | Send Test Notification
+[**create-domain-dkim**](#create-domain-dkim) | **POST** `/verified-domains` | Verify domain address via dkim
+[**create-notification-template**](#create-notification-template) | **POST** `/notification-templates` | Create notification template
+[**create-verified-from-address**](#create-verified-from-address) | **POST** `/verified-from-addresses` | Create verified from address
+[**delete-notification-templates-in-bulk**](#delete-notification-templates-in-bulk) | **POST** `/notification-templates/bulk-delete` | Bulk delete notification templates
+[**delete-verified-from-address**](#delete-verified-from-address) | **DELETE** `/verified-from-addresses/{id}` | Delete verified from address
+[**get-dkim-attributes**](#get-dkim-attributes) | **GET** `/verified-domains` | Get dkim attributes
+[**get-mail-from-attributes**](#get-mail-from-attributes) | **GET** `/mail-from-attributes/{identity}` | Get mail from attributes
+[**get-notification-template**](#get-notification-template) | **GET** `/notification-templates/{id}` | Get notification template by id
+[**get-notifications-template-context**](#get-notifications-template-context) | **GET** `/notification-template-context` | Get notification template context
+[**list-from-addresses**](#list-from-addresses) | **GET** `/verified-from-addresses` | List from addresses
+[**list-notification-preferences**](#list-notification-preferences) | **GET** `/notification-preferences/{key}` | List notification preferences for tenant.
+[**list-notification-template-defaults**](#list-notification-template-defaults) | **GET** `/notification-template-defaults` | List notification template defaults
+[**list-notification-templates**](#list-notification-templates) | **GET** `/notification-templates` | List notification templates
+[**put-mail-from-attributes**](#put-mail-from-attributes) | **PUT** `/mail-from-attributes` | Change mail from domain
+[**send-test-notification**](#send-test-notification) | **POST** `/send-test-notification` | Send test notification
 
 
 ## create-domain-dkim
@@ -44,7 +44,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Verify domain address via DKIM
+Verify domain address via dkim
 Create a domain to be verified via DKIM (DomainKeys Identified Mail)
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-domain-dkim)
@@ -84,7 +84,7 @@ from sailpoint.v2024.models.domain_status_dto import DomainStatusDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -93,7 +93,7 @@ with ApiClient(configuration) as api_client:
         }''' # DomainAddress | 
 
     try:
-        # Verify domain address via DKIM
+        # Verify domain address via dkim
         new_domain_address = DomainAddress.from_json(domain_address)
         results = NotificationsApi(api_client).create_domain_dkim(x_sail_point_experimental=x_sail_point_experimental, domain_address=new_domain_address)
         # Below is a request that includes all optional parameters
@@ -120,10 +120,11 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Create Notification Template
-This creates a template for your site. 
+Create notification template
+This will update notification templates that are available in your tenant. 
+Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.  
+Modify the fields you want to change and submit the POST request when ready.
 
-You can also use this endpoint to update a template.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-notification-template)
 
@@ -160,7 +161,7 @@ from sailpoint.v2024.models.template_dto import TemplateDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -184,7 +185,7 @@ with ApiClient(configuration) as api_client:
         }''' # TemplateDto | 
 
     try:
-        # Create Notification Template
+        # Create notification template
         new_template_dto = TemplateDto.from_json(template_dto)
         results = NotificationsApi(api_client).create_notification_template(x_sail_point_experimental=x_sail_point_experimental, template_dto=new_template_dto)
         # Below is a request that includes all optional parameters
@@ -211,7 +212,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Create Verified From Address
+Create verified from address
 Create a new sender email address and initiate verification process.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-verified-from-address)
@@ -249,7 +250,7 @@ from sailpoint.v2024.models.email_status_dto import EmailStatusDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -261,7 +262,7 @@ with ApiClient(configuration) as api_client:
         }''' # EmailStatusDto | 
 
     try:
-        # Create Verified From Address
+        # Create verified from address
         new_email_status_dto = EmailStatusDto.from_json(email_status_dto)
         results = NotificationsApi(api_client).create_verified_from_address(x_sail_point_experimental=x_sail_point_experimental, email_status_dto=new_email_status_dto)
         # Below is a request that includes all optional parameters
@@ -288,7 +289,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Bulk Delete Notification Templates
+Bulk delete notification templates
 This lets you bulk delete templates that you previously created for your site. Since this is a beta feature, please contact support to enable usage.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-notification-templates-in-bulk)
@@ -326,14 +327,14 @@ from sailpoint.v2024.models.template_bulk_delete_dto import TemplateBulkDeleteDt
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     template_bulk_delete_dto = '''[sailpoint.v2024.TemplateBulkDeleteDto()]''' # List[TemplateBulkDeleteDto] | 
 
     try:
-        # Bulk Delete Notification Templates
+        # Bulk delete notification templates
         new_template_bulk_delete_dto = TemplateBulkDeleteDto.from_json(template_bulk_delete_dto)
         NotificationsApi(api_client).delete_notification_templates_in_bulk(x_sail_point_experimental=x_sail_point_experimental, template_bulk_delete_dto=new_template_bulk_delete_dto)
         # Below is a request that includes all optional parameters
@@ -358,7 +359,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Delete Verified From Address
+Delete verified from address
 Delete a verified sender email address
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-verified-from-address)
@@ -396,14 +397,14 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'id_example' # str |  # str | 
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Delete Verified From Address
+        # Delete verified from address
         
         NotificationsApi(api_client).delete_verified_from_address(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -428,7 +429,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get DKIM Attributes
+Get dkim attributes
 Retrieve DKIM (DomainKeys Identified Mail) attributes for all your tenants' AWS SES identities. Limits retrieval to 100 identities per call.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-dkim-attributes)
@@ -465,19 +466,20 @@ from sailpoint.v2024.models.dkim_attributes import DkimAttributes
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Get DKIM Attributes
+        # Get dkim attributes
         
         results = NotificationsApi(api_client).get_dkim_attributes(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).get_dkim_attributes(x_sail_point_experimental)
         print("The response of NotificationsApi->get_dkim_attributes:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->get_dkim_attributes: %s\n" % e)
 ```
@@ -498,7 +500,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get MAIL FROM Attributes
+Get mail from attributes
 Retrieve MAIL FROM attributes for a given AWS SES identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-mail-from-attributes)
@@ -536,14 +538,14 @@ from sailpoint.v2024.models.mail_from_attributes import MailFromAttributes
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'bobsmith@sailpoint.com' # str | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status # str | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Get MAIL FROM Attributes
+        # Get mail from attributes
         
         results = NotificationsApi(api_client).get_mail_from_attributes(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -570,7 +572,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Notification Template By Id
+Get notification template by id
 This gets a template that you have modified for your site by Id.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-notification-template)
@@ -592,6 +594,7 @@ Code | Description  | Data Type | Response headers |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
@@ -608,14 +611,14 @@ from sailpoint.v2024.models.template_dto import TemplateDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'c17bea3a-574d-453c-9e04-4365fbf5af0b' # str | Id of the Notification Template # str | Id of the Notification Template
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Get Notification Template By Id
+        # Get notification template by id
         
         results = NotificationsApi(api_client).get_notification_template(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -642,7 +645,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Notification Template Context
+Get notification template context
 The notification service maintains metadata to construct the notification templates or supply any information during the event propagation. The data-store where this information is retrieved is called "Global Context" (a.k.a. notification template context). It defines a set of attributes
  that will be available per tenant (organization).
 
@@ -680,13 +683,13 @@ from sailpoint.v2024.models.notification_template_context import NotificationTem
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Get Notification Template Context
+        # Get notification template context
         
         results = NotificationsApi(api_client).get_notifications_template_context(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -713,7 +716,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List From Addresses
+List from addresses
 Retrieve a list of sender email addresses and their verification statuses
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-from-addresses)
@@ -754,7 +757,7 @@ from sailpoint.v2024.models.email_status_dto import EmailStatusDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -765,13 +768,14 @@ with ApiClient(configuration) as api_client:
     sorters = 'email' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** (optional)
 
     try:
-        # List From Addresses
+        # List from addresses
         
         results = NotificationsApi(api_client).list_from_addresses(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_from_addresses(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of NotificationsApi->list_from_addresses:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->list_from_addresses: %s\n" % e)
 ```
@@ -792,7 +796,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Notification Preferences for tenant.
+List notification preferences for tenant.
 Returns a list of notification preferences for tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-notification-preferences)
@@ -830,13 +834,13 @@ from sailpoint.v2024.models.preferences_dto import PreferencesDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # List Notification Preferences for tenant.
+        # List notification preferences for tenant.
         
         results = NotificationsApi(api_client).list_notification_preferences(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -863,7 +867,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Notification Template Defaults
+List notification template defaults
 This lists the default templates used for notifications, such as emails from IdentityNow.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-notification-template-defaults)
@@ -903,7 +907,7 @@ from sailpoint.v2024.models.template_dto_default import TemplateDtoDefault
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -912,13 +916,14 @@ with ApiClient(configuration) as api_client:
     filters = 'key eq \"cloud_manual_work_item_summary\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
 
     try:
-        # List Notification Template Defaults
+        # List notification template defaults
         
         results = NotificationsApi(api_client).list_notification_template_defaults(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = NotificationsApi(api_client).list_notification_template_defaults(x_sail_point_experimental, limit, offset, filters)
         print("The response of NotificationsApi->list_notification_template_defaults:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->list_notification_template_defaults: %s\n" % e)
 ```
@@ -939,7 +944,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Notification Templates
+List notification templates
 This lists the templates that you have modified for your site.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-notification-templates)
@@ -952,6 +957,7 @@ Param Type | Name | Data Type | Required  | Description
   Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw*
+  Query | sorters | **str** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, medium**
 
 ### Return type
 [**List[TemplateDto]**](../models/template-dto)
@@ -979,22 +985,24 @@ from sailpoint.v2024.models.template_dto import TemplateDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     filters = 'medium eq \"EMAIL\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
+    sorters = 'key, -name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, medium** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, medium** (optional)
 
     try:
-        # List Notification Templates
+        # List notification templates
         
         results = NotificationsApi(api_client).list_notification_templates(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # results = NotificationsApi(api_client).list_notification_templates(x_sail_point_experimental, limit, offset, filters)
+        # results = NotificationsApi(api_client).list_notification_templates(x_sail_point_experimental, limit, offset, filters, sorters)
         print("The response of NotificationsApi->list_notification_templates:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling NotificationsApi->list_notification_templates: %s\n" % e)
 ```
@@ -1015,7 +1023,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Change MAIL FROM domain
+Change mail from domain
 Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller's DNS
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-mail-from-attributes)
@@ -1054,7 +1062,7 @@ from sailpoint.v2024.models.mail_from_attributes_dto import MailFromAttributesDt
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -1064,7 +1072,7 @@ with ApiClient(configuration) as api_client:
         }''' # MailFromAttributesDto | 
 
     try:
-        # Change MAIL FROM domain
+        # Change mail from domain
         new_mail_from_attributes_dto = MailFromAttributesDto.from_json(mail_from_attributes_dto)
         results = NotificationsApi(api_client).put_mail_from_attributes(x_sail_point_experimental=x_sail_point_experimental, mail_from_attributes_dto=new_mail_from_attributes_dto)
         # Below is a request that includes all optional parameters
@@ -1091,7 +1099,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Send Test Notification
+Send test notification
 Send a Test Notification
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/send-test-notification)
@@ -1130,7 +1138,7 @@ from sailpoint.v2024.models.send_test_notification_request_dto import SendTestNo
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -1141,7 +1149,7 @@ with ApiClient(configuration) as api_client:
         }''' # SendTestNotificationRequestDto | 
 
     try:
-        # Send Test Notification
+        # Send test notification
         new_send_test_notification_request_dto = SendTestNotificationRequestDto.from_json(send_test_notification_request_dto)
         NotificationsApi(api_client).send_test_notification(x_sail_point_experimental=x_sail_point_experimental, send_test_notification_request_dto=new_send_test_notification_request_dto)
         # Below is a request that includes all optional parameters

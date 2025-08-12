@@ -46,7 +46,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManagedCluster = Initialize-PSSailpoint.V3ManagedCluster  -Id e1ff7bb24c934240bbf55e1aa39e41c5 `
+$ManagedCluster = Initialize-ManagedCluster  -Id e1ff7bb24c934240bbf55e1aa39e41c5 `
  -Name Managed Cluster Name `
  -Pod megapod-useast1 `
  -Org denali `

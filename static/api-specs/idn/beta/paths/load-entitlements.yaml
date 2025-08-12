@@ -1,7 +1,7 @@
 post:
   tags:
     - Sources
-  summary: Entitlement Aggregation
+  summary: Entitlement aggregation
   operationId: importEntitlements
   description: >-
     Starts an entitlement aggregation on the specified source. 
@@ -49,3 +49,5 @@ post:
       $ref: "../../v3/responses/500.yaml"
   security:
     - userAuth: [ idn:entitlements:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

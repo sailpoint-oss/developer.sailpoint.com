@@ -11,7 +11,7 @@ tags: ['SDK', 'Software Development Kit', 'RoleCriteriaKey', 'V2024RoleCriteriaK
 
 # RoleCriteriaKey
 
-Refers to a specific Identity attribute, Account attibute, or Entitlement used in Role membership criteria
+Refers to a specific Identity attribute, Account attribute, or Entitlement used in Role membership criteria
 
 ## Properties
 

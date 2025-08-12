@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NetworkConfiguration = Initialize-PSSailpoint.V2024NetworkConfiguration  -Range [1.3.7.2, 255.255.255.252/30] `
+$NetworkConfiguration = Initialize-V2024NetworkConfiguration  -Range [1.3.7.2, 255.255.255.252/30] `
  -Geolocation [CA, FR, HT] `
  -Whitelisted true
 ```

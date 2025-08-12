@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessItemRequestedForDto1 = Initialize-PSSailpoint.BetaAccessItemRequestedForDto1  -Type IDENTITY `
+$AccessItemRequestedForDto1 = Initialize-BetaAccessItemRequestedForDto1  -Type IDENTITY `
  -Id 2c4180a46faadee4016fb4e018c20626 `
  -Name Robert Robinson
 ```

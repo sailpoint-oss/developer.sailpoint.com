@@ -38,10 +38,25 @@ jobs:
           role-to-assume: arn:aws:iam::176038645705:role/github-action-role
           role-session-name: deploy-developer-site-infra-to-aws
           aws-region: us-east-1
+          role-duration-seconds: 14400
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Check out repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.21
+
+      - name: build backend
+        run: |
+          ls -la
+          cd ./backend/src/mithrandir
+          npm ci
+          npm run build
 
       - name: setup SAM
         uses: aws-actions/setup-sam@v2
@@ -80,10 +95,17 @@ jobs:
         run: |
           echo "CMS_APP_API_ENDPOINT=$API_GATEWAY_URL" >> .env
           echo ${{ secrets.NPM_FONTAWESOME_CONFIG }} | base64 -d >> .npmrc
-          export NODE_OPTIONS="--max_old_space_size=16384"
+          export NODE_OPTIONS="--max_old_space_size=60000"
           export DOCUSAURUS_IGNORE_SSG_WARNINGS=true
+          export DOCUSAURUS_PERF_LOGGER=true
+          export DOCUSAURUS_SSG_WORKER_THREAD_COUNT=10
+          export DOCUSAURUS_BUNDLER_CPU_PROFILE=true
+          export DOCUSAURUS_SSG_WORKER_THREAD_RECYCLER_MAX_MEMORY=1000000000
+          export 
+
           npm ci 
           npm run gen-api-docs-all
+          npm run sentence-case-all
           npm run build
       # push these files to AWS
       - name: Copy files to the test website with the AWS CLI

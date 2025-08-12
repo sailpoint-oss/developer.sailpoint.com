@@ -1,4 +1,5 @@
 type : object
+title: Account Action
 description: Object for specifying Actions to be performed on a specified list of sources' account.
 properties:
   action:

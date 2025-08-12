@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Trim = Initialize-PSSailpoint.BetaTrim  -RequiresPeriodicRefresh false `
+$Trim = Initialize-BetaTrim  -RequiresPeriodicRefresh false `
  -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```
 

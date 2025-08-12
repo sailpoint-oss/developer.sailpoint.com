@@ -4,7 +4,7 @@ put:
   operationId: putMailFromAttributes
   tags:
   - Notifications
-  summary: Change MAIL FROM domain
+  summary: Change mail from domain
   description: >-
     Change the MAIL FROM domain of an AWS SES email identity and provide the MX and TXT records to be placed in the caller's DNS
   requestBody:

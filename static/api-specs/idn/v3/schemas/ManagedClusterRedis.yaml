@@ -1,5 +1,6 @@
 description: Managed Cluster Redis Configuration
 type: object
+title: Managed Cluster Redis
 properties:
   redisHost:
     description: ManagedCluster redisHost

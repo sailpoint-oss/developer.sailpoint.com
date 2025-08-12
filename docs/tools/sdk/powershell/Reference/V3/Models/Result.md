@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Result = Initialize-PSSailpoint.V3Result  -Status Manual Task Created
+$Result = Initialize-Result  -Status Manual Task Created
 ```
 
 - Convert the resource to JSON

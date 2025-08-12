@@ -18,17 +18,17 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **EventType** | **String** | the event type | [optional] 
 **IdentityId** | **String** | the identity id | [optional] 
-**Dt** | **String** | the date of event | [optional] 
-**Account** | [**AccountStatusChangedAccount**](account-status-changed-account) |  | [optional] 
-**StatusChange** | [**AccountStatusChangedStatusChange**](account-status-changed-status-change) |  | [optional] 
+**DateTime** | **String** | the date of event | [optional] 
+**Account** | [**AccessRequestedAccount**](access-requested-account) |  | [required]
+**StatusChange** | [**AccessRequestedStatusChange**](access-requested-status-change) |  | [required]
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$AccountStatusChanged = Initialize-PSSailpoint.V2024AccountStatusChanged  -EventType null `
- -IdentityId null `
- -Dt null `
+$AccountStatusChanged = Initialize-V2024AccountStatusChanged  -EventType AccountStatusChanged `
+ -IdentityId 8a80828f643d484f01643e14202e206f `
+ -DateTime 2019-03-08T22:37:33.901Z `
  -Account null `
  -StatusChange null
 ```

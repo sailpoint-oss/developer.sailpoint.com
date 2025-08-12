@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SavedSearchName = Initialize-PSSailpoint.V3SavedSearchName  -Name Disabled accounts `
+$SavedSearchName = Initialize-SavedSearchName  -Name Disabled accounts `
  -Description Disabled accounts
 ```
 

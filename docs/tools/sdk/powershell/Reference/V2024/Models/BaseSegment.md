@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BaseSegment = Initialize-PSSailpoint.V2024BaseSegment  -Id b009b6e3-b56d-41d9-8735-cb532ea0b017 `
+$BaseSegment = Initialize-V2024BaseSegment  -Id b009b6e3-b56d-41d9-8735-cb532ea0b017 `
  -Name Test Segment
 ```
 

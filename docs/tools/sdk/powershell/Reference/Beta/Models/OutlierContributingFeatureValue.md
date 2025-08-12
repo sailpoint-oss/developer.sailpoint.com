@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OutlierContributingFeatureValue = Initialize-PSSailpoint.BetaOutlierContributingFeatureValue 
+$OutlierContributingFeatureValue = Initialize-BetaOutlierContributingFeatureValue 
 ```
 
 - Convert the resource to JSON

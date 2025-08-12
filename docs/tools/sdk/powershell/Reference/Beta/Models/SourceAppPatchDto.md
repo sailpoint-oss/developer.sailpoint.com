@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceAppPatchDto = Initialize-PSSailpoint.BetaSourceAppPatchDto  -Id 2c91808874ff91550175097daaec161c `
+$SourceAppPatchDto = Initialize-BetaSourceAppPatchDto  -Id 2c91808874ff91550175097daaec161c `
  -CloudAppId 9854520 `
  -Name my app `
  -Created 2020-10-08T18:33:52.029Z `

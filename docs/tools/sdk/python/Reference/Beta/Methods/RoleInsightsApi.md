@@ -205,7 +205,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_entitlement_changes_identities(insight_id, entitlement_id, has_entitlement, offset, limit, count, sorters, filters)
         print("The response of RoleInsightsApi->get_entitlement_changes_identities:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->get_entitlement_changes_identities: %s\n" % e)
 ```
@@ -327,7 +328,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insights(offset, limit, count, sorters, filters)
         print("The response of RoleInsightsApi->get_role_insights:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insights: %s\n" % e)
 ```
@@ -386,7 +388,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insights_current_entitlements(insight_id, filters)
         print("The response of RoleInsightsApi->get_role_insights_current_entitlements:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insights_current_entitlements: %s\n" % e)
 ```
@@ -447,7 +450,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = RoleInsightsApi(api_client).get_role_insights_entitlements_changes(insight_id, sorters, filters)
         print("The response of RoleInsightsApi->get_role_insights_entitlements_changes:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RoleInsightsApi->get_role_insights_entitlements_changes: %s\n" % e)
 ```

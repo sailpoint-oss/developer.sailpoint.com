@@ -2,7 +2,7 @@ get:
   operationId: listTriggerInvocations
   tags:
     - Triggers
-  summary: List Trigger Invocations
+  summary: List trigger invocations
   description: Get a list of trigger invocations that are currently in progress.
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'

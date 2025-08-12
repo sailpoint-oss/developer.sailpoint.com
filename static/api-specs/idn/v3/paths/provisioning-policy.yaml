@@ -2,7 +2,7 @@ get:
   operationId: getProvisioningPolicy
   tags:
     - Sources
-  summary: Get Provisioning Policy by UsageType
+  summary: Get provisioning policy by usagetype
   description: >-
     This end-point retrieves the ProvisioningPolicy with the specified usage on the specified Source in IdentityNow.
   security:
@@ -68,7 +68,7 @@ put:
   operationId: putProvisioningPolicy
   tags:
     - Sources
-  summary: Update Provisioning Policy by UsageType
+  summary: Update provisioning policy by usagetype
   description: >-
     This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow.
 
@@ -144,7 +144,7 @@ patch:
   operationId: updateProvisioningPolicy
   tags:
     - Sources
-  summary: Partial update of Provisioning Policy
+  summary: Partial update of provisioning policy
   description: >-
     This API selectively updates an existing Provisioning Policy using a JSONPatch payload.
 
@@ -245,7 +245,7 @@ delete:
   operationId: deleteProvisioningPolicy
   tags:
     - Sources
-  summary: Delete Provisioning Policy by UsageType
+  summary: Delete provisioning policy by usagetype
   description: >-
     Deletes the provisioning policy with the specified usage on an application.
   security:

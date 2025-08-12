@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementDocumentAllOfSource = Initialize-PSSailpoint.V2024EntitlementDocumentAllOfSource  -Id 2c91808b6e9e6fb8016eec1a2b6f7b5f `
+$EntitlementDocumentAllOfSource = Initialize-V2024EntitlementDocumentAllOfSource  -Id 2c91808b6e9e6fb8016eec1a2b6f7b5f `
  -Name ODS-HR-Employees `
  -Type SOURCE
 ```

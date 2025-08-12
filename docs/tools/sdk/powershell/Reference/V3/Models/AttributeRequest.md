@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeRequest = Initialize-PSSailpoint.V3AttributeRequest  -Name groups `
+$AttributeRequest = Initialize-AttributeRequest  -Name groups `
  -Op Add `
  -Value null
 ```

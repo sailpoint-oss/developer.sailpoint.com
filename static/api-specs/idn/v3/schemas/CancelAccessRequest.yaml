@@ -1,4 +1,5 @@
 type : object
+title: Cancel Access Request
 description: Request body payload for cancel access request endpoint.
 required:
   - accountActivityId

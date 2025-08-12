@@ -19,14 +19,16 @@ Name | Type | Description | Notes
 **ApprovalSchemes** | [**[]EntitlementApprovalScheme**](entitlement-approval-scheme) | Ordered list of approval steps for the access request. Empty when no approval is required. | [optional] 
 **RequestCommentRequired** | **Boolean** | If the requester must provide a comment during access request. | [optional] [default to $false]
 **DenialCommentRequired** | **Boolean** | If the reviewer must provide a comment when denying the access request. | [optional] [default to $false]
+**ReauthorizationRequired** | **Boolean** | Is Reauthorization Required | [optional] [default to $false]
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$EntitlementAccessRequestConfig = Initialize-PSSailpoint.V2024EntitlementAccessRequestConfig  -ApprovalSchemes null `
+$EntitlementAccessRequestConfig = Initialize-V2024EntitlementAccessRequestConfig  -ApprovalSchemes null `
  -RequestCommentRequired true `
- -DenialCommentRequired false
+ -DenialCommentRequired false `
+ -ReauthorizationRequired false
 ```
 
 - Convert the resource to JSON

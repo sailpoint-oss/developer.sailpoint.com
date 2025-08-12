@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 from sailpoint.beta.models.certification_dto import CertificationDto
 
 certification_dto = CertificationDto(
-campaign_ref=sailpoint.beta.models.campaign_reference.CampaignReference(
+campaign_ref=sailpoint.beta.models.campaign_reference.Campaign Reference(
                     id = 'ef38f94347e94562b5bb8424a56397d8', 
                     name = 'Campaign Name', 
                     type = 'CAMPAIGN', 
@@ -54,7 +54,7 @@ reviewer=sailpoint.beta.models.reviewer.Reviewer(
                     name = 'Michael Michaels', 
                     email = 'reviewer@test.com', ),
 reassignment=sailpoint.beta.models.reassignment.Reassignment(
-                    from = sailpoint.beta.models.certification_reference.CertificationReference(), 
+                    from = sailpoint.beta.models.certification_reference.Certification Reference(), 
                     comment = 'Please review', ),
 has_errors=False,
 error_message='The certification has an error',

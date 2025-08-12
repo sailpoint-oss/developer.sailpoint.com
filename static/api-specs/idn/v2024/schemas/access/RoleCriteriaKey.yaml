@@ -1,6 +1,6 @@
 type: object
 nullable: true
-description: Refers to a specific Identity attribute, Account attibute, or Entitlement used in Role membership criteria
+description: Refers to a specific Identity attribute, Account attribute, or Entitlement used in Role membership criteria
 properties:
     type:
         $ref: './RoleCriteriaKeyType.yaml'

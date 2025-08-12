@@ -2,7 +2,7 @@ get:
   operationId: listFromAddresses
   tags:
     - Notifications
-  summary: List From Addresses
+  summary: List from addresses
   description: >-
     Retrieve a list of sender email addresses and their verification statuses
   parameters:
@@ -55,7 +55,7 @@ post:
   operationId: createVerifiedFromAddress
   tags:
     - Notifications
-  summary: Create Verified From Address
+  summary: Create verified from address
   description: >-
     Create a new sender email address and initiate verification process.
   requestBody:

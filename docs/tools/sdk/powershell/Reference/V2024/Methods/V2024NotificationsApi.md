@@ -17,21 +17,21 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2024DomainDkim**](#create-domain-dkim) | **POST** `/verified-domains` | Verify domain address via DKIM
-[**New-V2024NotificationTemplate**](#create-notification-template) | **POST** `/notification-templates` | Create Notification Template
-[**New-V2024VerifiedFromAddress**](#create-verified-from-address) | **POST** `/verified-from-addresses` | Create Verified From Address
-[**Remove-V2024NotificationTemplatesInBulk**](#delete-notification-templates-in-bulk) | **POST** `/notification-templates/bulk-delete` | Bulk Delete Notification Templates
-[**Remove-V2024VerifiedFromAddress**](#delete-verified-from-address) | **DELETE** `/verified-from-addresses/{id}` | Delete Verified From Address
-[**Get-V2024DkimAttributes**](#get-dkim-attributes) | **GET** `/verified-domains` | Get DKIM Attributes
-[**Get-V2024MailFromAttributes**](#get-mail-from-attributes) | **GET** `/mail-from-attributes/{identity}` | Get MAIL FROM Attributes
-[**Get-V2024NotificationTemplate**](#get-notification-template) | **GET** `/notification-templates/{id}` | Get Notification Template By Id
-[**Get-V2024NotificationsTemplateContext**](#get-notifications-template-context) | **GET** `/notification-template-context` | Get Notification Template Context
-[**Get-V2024FromAddresses**](#list-from-addresses) | **GET** `/verified-from-addresses` | List From Addresses
-[**Get-V2024NotificationPreferences**](#list-notification-preferences) | **GET** `/notification-preferences/{key}` | List Notification Preferences for tenant.
-[**Get-V2024NotificationTemplateDefaults**](#list-notification-template-defaults) | **GET** `/notification-template-defaults` | List Notification Template Defaults
-[**Get-V2024NotificationTemplates**](#list-notification-templates) | **GET** `/notification-templates` | List Notification Templates
-[**Send-V2024MailFromAttributes**](#put-mail-from-attributes) | **PUT** `/mail-from-attributes` | Change MAIL FROM domain
-[**Send-V2024TestNotification**](#send-test-notification) | **POST** `/send-test-notification` | Send Test Notification
+[**New-V2024DomainDkim**](#create-domain-dkim) | **POST** `/verified-domains` | Verify domain address via dkim
+[**New-V2024NotificationTemplate**](#create-notification-template) | **POST** `/notification-templates` | Create notification template
+[**New-V2024VerifiedFromAddress**](#create-verified-from-address) | **POST** `/verified-from-addresses` | Create verified from address
+[**Remove-V2024NotificationTemplatesInBulk**](#delete-notification-templates-in-bulk) | **POST** `/notification-templates/bulk-delete` | Bulk delete notification templates
+[**Remove-V2024VerifiedFromAddress**](#delete-verified-from-address) | **DELETE** `/verified-from-addresses/{id}` | Delete verified from address
+[**Get-V2024DkimAttributes**](#get-dkim-attributes) | **GET** `/verified-domains` | Get dkim attributes
+[**Get-V2024MailFromAttributes**](#get-mail-from-attributes) | **GET** `/mail-from-attributes/{identity}` | Get mail from attributes
+[**Get-V2024NotificationTemplate**](#get-notification-template) | **GET** `/notification-templates/{id}` | Get notification template by id
+[**Get-V2024NotificationsTemplateContext**](#get-notifications-template-context) | **GET** `/notification-template-context` | Get notification template context
+[**Get-V2024FromAddresses**](#list-from-addresses) | **GET** `/verified-from-addresses` | List from addresses
+[**Get-V2024NotificationPreferences**](#list-notification-preferences) | **GET** `/notification-preferences/{key}` | List notification preferences for tenant.
+[**Get-V2024NotificationTemplateDefaults**](#list-notification-template-defaults) | **GET** `/notification-template-defaults` | List notification template defaults
+[**Get-V2024NotificationTemplates**](#list-notification-templates) | **GET** `/notification-templates` | List notification templates
+[**Send-V2024MailFromAttributes**](#put-mail-from-attributes) | **PUT** `/mail-from-attributes` | Change mail from domain
+[**Send-V2024TestNotification**](#send-test-notification) | **POST** `/send-test-notification` | Send test notification
 
 
 ## create-domain-dkim
@@ -73,7 +73,7 @@ $DomainAddress = @"{
   "domain" : "sailpoint.com"
 }"@
 
-# Verify domain address via DKIM
+# Verify domain address via dkim
 
 try {
     $Result = ConvertFrom-JsonToDomainAddress -Json $DomainAddress
@@ -92,9 +92,10 @@ try {
 :::warning experimental 
 This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
 :::
-This creates a template for your site. 
+This will update notification templates that are available in your tenant. 
+Note that you cannot create new templates in your tenant, but you can use this to create custom notifications from existing templates.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.  
+Modify the fields you want to change and submit the POST request when ready.
 
-You can also use this endpoint to update a template.  First, copy the response body from the [get notification template endpoint](https://developer.sailpoint.com/idn/api/beta/get-notification-template) for a template you wish to update and paste it into the request body for this endpoint.   Modify the fields you want to change and submit the POST request when ready.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-notification-template)
 
@@ -143,7 +144,7 @@ $TemplateDto = @"{
   "key" : "cloud_manual_work_item_summary"
 }"@
 
-# Create Notification Template
+# Create notification template
 
 try {
     $Result = ConvertFrom-JsonToTemplateDto -Json $TemplateDto
@@ -199,7 +200,7 @@ $EmailStatusDto = @"{
   "email" : "sender@example.com"
 }"@
 
-# Create Verified From Address
+# Create verified from address
 
 try {
     $Result = ConvertFrom-JsonToEmailStatusDto -Json $EmailStatusDto
@@ -255,7 +256,7 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 }"@ # TemplateBulkDeleteDto[] | 
  
 
-# Bulk Delete Notification Templates
+# Bulk delete notification templates
 
 try {
     $Result = ConvertFrom-JsonToTemplateBulkDeleteDto -Json $TemplateBulkDeleteDto
@@ -307,7 +308,7 @@ Code | Description  | Data Type
 $Id = "MyId" # String | 
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Delete Verified From Address
+# Delete verified from address
 
 try {
     Remove-V2024VerifiedFromAddress -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -355,7 +356,7 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get DKIM Attributes
+# Get dkim attributes
 
 try {
     Get-V2024DkimAttributes -XSailPointExperimental $XSailPointExperimental 
@@ -405,7 +406,7 @@ Code | Description  | Data Type
 $Id = "bobsmith@sailpoint.com" # String | Returns the MX and TXT record to be put in your DNS, as well as the MAIL FROM domain status
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get MAIL FROM Attributes
+# Get mail from attributes
 
 try {
     Get-V2024MailFromAttributes -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -443,6 +444,7 @@ Code | Description  | Data Type
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
 
@@ -455,7 +457,7 @@ Code | Description  | Data Type
 $Id = "c17bea3a-574d-453c-9e04-4365fbf5af0b" # String | Id of the Notification Template
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Notification Template By Id
+# Get notification template by id
 
 try {
     Get-V2024NotificationTemplate -Id $Id -XSailPointExperimental $XSailPointExperimental 
@@ -504,7 +506,7 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Notification Template Context
+# Get notification template context
 
 try {
     Get-V2024NotificationsTemplateContext -XSailPointExperimental $XSailPointExperimental 
@@ -561,7 +563,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'email eq "john.doe@company.com"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **email**: *eq, ge, le, sw* (optional)
 $Sorters = "email" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **email** (optional)
 
-# List From Addresses
+# List from addresses
 
 try {
     Get-V2024FromAddresses -XSailPointExperimental $XSailPointExperimental 
@@ -610,7 +612,7 @@ Code | Description  | Data Type
 ```powershell
 $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# List Notification Preferences for tenant.
+# List notification preferences for tenant.
 
 try {
     Get-V2024NotificationPreferences -XSailPointExperimental $XSailPointExperimental 
@@ -664,7 +666,7 @@ $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Col
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Filters = 'key eq "cloud_manual_work_item_summary"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
 
-# List Notification Template Defaults
+# List notification template defaults
 
 try {
     Get-V2024NotificationTemplateDefaults -XSailPointExperimental $XSailPointExperimental 
@@ -693,6 +695,7 @@ Param Type | Name | Data Type | Required  | Description
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw*
+  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, medium**
 
 ### Return type
 [**TemplateDto[]**](../models/template-dto)
@@ -717,14 +720,15 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Filters = 'medium eq "EMAIL"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq, in, sw*  **medium**: *eq, sw*  **locale**: *eq, sw* (optional)
+$Sorters = "key, -name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **key, name, medium** (optional)
 
-# List Notification Templates
+# List notification templates
 
 try {
     Get-V2024NotificationTemplates -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024NotificationTemplates -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Filters $Filters  
+    # Get-V2024NotificationTemplates -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024NotificationTemplates"
     Write-Host $_.ErrorDetails
@@ -771,7 +775,7 @@ $MailFromAttributesDto = @"{
   "mailFromDomain" : "example.sailpoint.com"
 }"@
 
-# Change MAIL FROM domain
+# Change mail from domain
 
 try {
     $Result = ConvertFrom-JsonToMailFromAttributesDto -Json $MailFromAttributesDto
@@ -827,7 +831,7 @@ $SendTestNotificationRequestDto = @"{
   "key" : "cloud_manual_work_item_summary"
 }"@
 
-# Send Test Notification
+# Send test notification
 
 try {
     $Result = ConvertFrom-JsonToSendTestNotificationRequestDto -Json $SendTestNotificationRequestDto

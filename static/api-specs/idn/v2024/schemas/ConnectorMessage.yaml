@@ -1,4 +1,5 @@
 type: object
+title: Connector Message
 properties:
   application:
     type: string

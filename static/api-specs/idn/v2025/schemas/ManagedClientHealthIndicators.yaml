@@ -1,0 +1,236 @@
+description: Health Indicators for a Managed Client
+type: object
+title: Managed Client Health Indicators
+required:
+  - body
+  - status
+  - type
+  - timestamp
+properties:
+  body:
+    description: Health indicator details from the Managed Client
+    type: object
+    required:
+      - id
+      - clusterId
+      - apiUser
+      - hostname
+      - status
+      - product
+      - platform_version
+      - os_version
+      - os_type
+      - hypervisor
+      - consolidatedHealthIndicatorsStatus
+      - health_indicators
+    properties:
+      alertKey:
+        description: Health indicator alert key
+        readOnly: true
+        nullable: true
+        type: string
+        example: ""
+      id:
+        description: Unique identifier for the health report
+        type: string
+        example: "9fe8f1cc-2fd2-4675-a8cf-af4b43488ca2"
+      clusterId:
+        description: Cluster ID the health report belongs to
+        type: string
+        example: "c2a2139cbc754e42b4279a69ec5f58ec"
+      apiUser:
+        description: API user ID sending the health data
+        type: string
+        example: "9fe8f1cc-2fd2-4675-a8cf-af4b43488ca2"
+      ccg_etag:
+        description: ETag value for CCG version control
+        nullable: true
+        type: string
+        example: "c95e5c4417952dbcc9b4974999ece14e"
+      ccg_pin:
+        description: PIN value for CCG validation
+        nullable: true
+        type: string
+        example: "NONE"
+      cookbook_etag:
+        description: ETag for cookbook version
+        nullable: true
+        type: string
+        example: "3018-master-2ce6ac16-20250717124641-3077-master-a101b5fe-20250722162527"
+      hostname:
+        description: Hostname of the Managed Client
+        type: string
+        example: "Testing1"
+      internal_ip:
+        description: Internal IP address of the Managed Client
+        type: string
+        example: "172.18.54.5"
+      lastSeen:
+        description: Epoch timestamp (in millis) when last seen
+        type: string
+        example: "1754465728720"
+      sinceSeen:
+        description: Seconds since last seen
+        type: string
+        example: "23195"
+      sinceSeenMillis:
+        description: Milliseconds since last seen
+        type: string
+        example: "23195"
+      localDev:
+        description: Indicates if this is a local development instance
+        type: boolean
+        default: false
+        example: false
+      stacktrace:
+        description: Stacktrace associated with any error, if available
+        nullable: true
+        type: string
+      state:
+        description: Optional state value from the client
+        nullable: true
+        type: string
+      status:
+        description: Status of the client at the time of report
+        type: string
+        enum:
+          - NORMAL
+          - UNDEFINED
+          - WARNING
+          - ERROR
+          - FAILED
+        example: "NORMAL"
+      uuid:
+        description: Optional UUID from the client
+        nullable: true
+        type: string
+      product:
+        description: Product type (e.g., idn)
+        type: string
+        example: "idn"
+      va_version:
+        description: VA version installed on the client
+        nullable: true
+        type: string
+      platform_version:
+        description: Version of the platform on which VA is running
+        type: string
+        example: "2"
+      os_version:
+        description: Operating system version
+        type: string
+        example: "4230.2.1"
+      os_type:
+        description: Operating system type
+        type: string
+        example: "flatcar"
+      hypervisor:
+        description: Virtualization platform used
+        type: string
+        example: "vmware"
+      consolidatedHealthIndicatorsStatus:
+        description: Consolidated health indicator status
+        type: string
+        enum:
+          - NORMAL
+          - WARNING
+          - ERROR
+        example: "ERROR"
+      lastNotifiedCcgVersion:
+        description: The last CCG version for which notification was sent
+        type: string
+        example: "1068"
+      deployed_processes:
+        description: Information about deployed processes
+        nullable: true
+        type: string
+      health_indicators:
+        description: Health indicators grouped by category
+        type: object
+        properties:
+          container:
+            $ref: '#/components/schemas/HealthIndicatorCategory'
+          memory:
+            $ref: '#/components/schemas/HealthIndicatorCategory'
+          cpu:
+            $ref: '#/components/schemas/HealthIndicatorCategory'
+
+  status:
+    description: Top-level status of the Managed Client
+    type: string
+    enum:
+      - NORMAL
+      - UNDEFINED
+      - WARNING
+      - ERROR
+      - FAILED
+    example: "NORMAL"
+
+  type:
+    description: Type of the Managed Client
+    type: string
+    enum:
+      - VA
+      - CCG
+    example: "VA"
+
+  timestamp:
+    description: Timestamp when this report was generated
+    type: string
+    format: date-time
+    example: "2025-08-06T07:35:28.722300Z"
+
+components:
+  schemas:
+    HealthIndicatorCategory:
+      description: Health indicator category data with errors and warnings
+      type: object
+      properties:
+        errors:
+          description: List of error events for this category
+          type: array
+          items:
+            $ref: '#/components/schemas/HealthEvent'
+        warnings:
+          description: List of warning events for this category
+          type: array
+          items:
+            $ref: '#/components/schemas/HealthEvent'
+
+    HealthEvent:
+      description: Individual error or warning event
+      type: object
+      properties:
+        detailedMessage:
+          description: Description of the issue
+          type: string
+          example: "CPU utilization is high"
+        uuid:
+          description: Unique identifier for the health event
+          type: string
+          example: "5"
+        url:
+          description: Optional URL associated with the issue
+          type: string
+          nullable: true
+          example: "https://sample.com:80/"
+        timestamp:
+          description: Time when the event occurred
+          type: string
+          format: date-time
+          example: "2025-03-25T14:46:58.605Z"
+        lastNotifiedTimeStamp:
+          description: Last time notification was sent for this issue
+          type: string
+          format: date-time
+          example: "2025-08-06T06:53:22.206956Z"
+        cpuUtilizationPercentage:
+          description: CPU usage percentage
+          type: number
+          nullable: true
+          example: 80
+        freeSpacePercentage:
+          description: Free memory percentage
+          type: number
+          nullable: true
+          example: 8

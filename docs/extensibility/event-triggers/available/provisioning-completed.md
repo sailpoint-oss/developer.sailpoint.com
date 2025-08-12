@@ -24,6 +24,12 @@ Some uses cases for this trigger include the following:
 - Notify an administrator or system that provisioning has been completed.
 - Notify a third party system to trigger another action, like continuing additional provisioning actions or auditing of provisioning activities, for example.
 
+:::warning
+
+Applications should be able to handle provisioning tasks independently, as the order in which operations are executed may not always be predictable.
+
+:::
+
 This is an example input from this trigger:
 
 ```json

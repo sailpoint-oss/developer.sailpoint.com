@@ -3,6 +3,7 @@ required:
   - provision
   - checkStatus
 type: object
+title: Change Request
 properties:
   provision:
     description: provisioning details for the change request Service Desk integration

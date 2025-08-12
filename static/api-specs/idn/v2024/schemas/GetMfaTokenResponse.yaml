@@ -1,4 +1,5 @@
 type: object
+title: Get Mfa Token Response
 properties:
   mfaToken:
     type: string

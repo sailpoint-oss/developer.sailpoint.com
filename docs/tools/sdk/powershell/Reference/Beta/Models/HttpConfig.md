@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$HttpConfig = Initialize-PSSailpoint.BetaHttpConfig  -Url https://www.example.com `
+$HttpConfig = Initialize-BetaHttpConfig  -Url https://www.example.com `
  -HttpDispatchMode null `
  -HttpAuthenticationType null `
  -BasicAuthConfig null `

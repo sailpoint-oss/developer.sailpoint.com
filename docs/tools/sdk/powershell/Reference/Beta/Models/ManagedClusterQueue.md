@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManagedClusterQueue = Initialize-PSSailpoint.BetaManagedClusterQueue  -Name megapod-useast1-denali-lwt-cluster-1533 `
+$ManagedClusterQueue = Initialize-BetaManagedClusterQueue  -Name megapod-useast1-denali-lwt-cluster-1533 `
  -Region us-east-1
 ```
 

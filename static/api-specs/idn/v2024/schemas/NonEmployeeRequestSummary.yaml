@@ -1,4 +1,5 @@
 type: object
+title: Non Employee Request Summary
 properties:
   approved:
     type: number

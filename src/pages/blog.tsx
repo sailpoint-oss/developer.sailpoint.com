@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Layout from '@theme/Layout';
 import BlogBanner from '../components/blog/BlogBanner';
 import styles from './blog.module.css';
@@ -6,32 +6,32 @@ import BlogCards from '../components/blog/BlogCards';
 import BlogSidebar from '../components/blog/BlogSidebar';
 
 const Blog: React.FC = () => {
-  const [filteredProduct, setFilteredProduct] = useState<string[]>(['identity-security-cloud']);
+  const [filteredProduct, setFilteredProduct] = useState<string[]>([
+    'identity-security-cloud',
+  ]);
 
   const handleClick = (data: string) => {
-    setFilteredProduct((prevFilter) => {
-      const updatedFilter = [...prevFilter];
-      const index = updatedFilter.indexOf(data);
+    const tempFilter: string[] = [];
 
-      if (index !== -1) {
-        updatedFilter.splice(index, 1);
-      } else {
-        updatedFilter.push(data);
-      }
+    const index = tempFilter.indexOf(data);
+    if (index !== -1) {
+      tempFilter.splice(index, 1);
+    } else {
+      tempFilter.push(data);
+    }
 
-      return updatedFilter;
-    });
+    setFilteredProduct(tempFilter);
   };
 
   return (
-    <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+    <Layout title="Blog" description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main className={styles.main}>
         <BlogBanner />
         <div>
           <div className={styles.mainCard}>
             <div className={styles.contentContainer}>
               <div className={styles.gettingStartedText}>
-                <div className={styles.gettingStartedOne}>Community Blog</div>
+                <div className={styles.gettingStartedOne}>Community blog</div>
                 <div className={styles.gettingStartedThree}>
                   <span>
                     Our community blog is a collection of technical writings

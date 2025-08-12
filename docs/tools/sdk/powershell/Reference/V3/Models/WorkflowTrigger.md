@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowTrigger = Initialize-PSSailpoint.V3WorkflowTrigger  -Type EVENT `
+$WorkflowTrigger = Initialize-WorkflowTrigger  -Type EVENT `
  -DisplayName null `
  -Attributes null
 ```

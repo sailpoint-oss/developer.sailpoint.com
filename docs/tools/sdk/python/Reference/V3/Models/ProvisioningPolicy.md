@@ -32,7 +32,7 @@ name='example provisioning policy for inactive identities',
 description='this provisioning policy creates access based on an identity going inactive',
 usage_type='CREATE',
 fields=[
-                    sailpoint.v3.models.field_details_dto.FieldDetailsDto(
+                    sailpoint.v3.models.field_details_dto.Field Details Dto(
                         name = 'userName', 
                         transform = {type=rule, attributes={name=Create Unique LDAP Attribute}}, 
                         attributes = {template=${firstname}.${lastname}${uniqueCounter}, cloudMaxUniqueChecks=50, cloudMaxSize=20, cloudRequired=true}, 

@@ -29,11 +29,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-connector-list**](#get-connector-list) | **GET** `/connectors` | Get Connector List
+[**get-connector-list**](#get-connector-list) | **GET** `/connectors` | Get connector list
 
 
 ## get-connector-list
-Get Connector List
+Get connector list
 Fetches list of connectors that have 'RELEASED' status using filtering and pagination.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-connector-list)
@@ -84,13 +84,14 @@ with ApiClient(configuration) as api_client:
     locale = 'de' # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional) # str | The locale to apply to the config. If no viable locale is given, it will default to \"en\" (optional)
 
     try:
-        # Get Connector List
+        # Get connector list
         
         results = ConnectorsApi(api_client).get_connector_list()
         # Below is a request that includes all optional parameters
         # results = ConnectorsApi(api_client).get_connector_list(filters, limit, offset, count, locale)
         print("The response of ConnectorsApi->get_connector_list:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConnectorsApi->get_connector_list: %s\n" % e)
 ```

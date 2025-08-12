@@ -25,12 +25,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-public-identity-config**](#get-public-identity-config) | **GET** `/public-identities-config` | Get Public Identity Config
-[**update-public-identity-config**](#update-public-identity-config) | **PUT** `/public-identities-config` | Update Public Identity Config
+[**get-public-identity-config**](#get-public-identity-config) | **GET** `/public-identities-config` | Get public identity config
+[**update-public-identity-config**](#update-public-identity-config) | **PUT** `/public-identities-config` | Update public identity config
 
 
 ## get-public-identity-config
-Get Public Identity Config
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Get public identity config
 This gets details of public identity config.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-public-identity-config)
@@ -68,7 +71,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # Get Public Identity Config
+        # Get public identity config
         
         results = PublicIdentitiesConfigApi(api_client).get_public_identity_config()
         # Below is a request that includes all optional parameters
@@ -84,7 +87,10 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-public-identity-config
-Update Public Identity Config
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+Update public identity config
 This updates the details of public identity config.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-public-identity-config)
@@ -140,7 +146,7 @@ with ApiClient(configuration) as api_client:
         }''' # PublicIdentityConfig | 
 
     try:
-        # Update Public Identity Config
+        # Update public identity config
         new_public_identity_config = PublicIdentityConfig.from_json(public_identity_config)
         results = PublicIdentitiesConfigApi(api_client).update_public_identity_config(public_identity_config=new_public_identity_config)
         # Below is a request that includes all optional parameters

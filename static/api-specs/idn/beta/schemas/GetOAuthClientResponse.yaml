@@ -1,4 +1,5 @@
 type: object
+title: Get O Auth Client Response
 properties:
   id:
     type: string

@@ -1,4 +1,5 @@
 type: object
+title: Ams Right Set
 description: Authorization model named set of rights
 properties:
   id:

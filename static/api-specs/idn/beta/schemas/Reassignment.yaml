@@ -1,4 +1,5 @@
 type: object
+title: Reassignment
 properties:
   from:
     $ref: './CertificationReference.yaml'

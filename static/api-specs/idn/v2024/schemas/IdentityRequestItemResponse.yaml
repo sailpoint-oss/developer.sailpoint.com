@@ -1,4 +1,5 @@
 type: object
+title: Identity Request Item Response
 properties:
   id:
     type: string

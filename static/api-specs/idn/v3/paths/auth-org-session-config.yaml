@@ -2,7 +2,7 @@ get:
   operationId: getAuthOrgSessionConfig
   tags:
     - Global Tenant Security Settings
-  summary: Get Auth Org Session Configuration.
+  summary: Get auth org session configuration.
   description: >-
     This API returns the details of an org's session auth configuration.
   security:
@@ -30,7 +30,7 @@ patch:
   operationId: patchAuthOrgSessionConfig
   tags:
     - Global Tenant Security Settings
-  summary: Update Auth Org Session Configuration
+  summary: Update auth org session configuration
   description: >-
     This API updates an existing session configuration for an org using PATCH.
   security:

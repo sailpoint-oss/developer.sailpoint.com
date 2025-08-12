@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$NameNormalizer = Initialize-PSSailpoint.BetaNameNormalizer  -RequiresPeriodicRefresh false `
+$NameNormalizer = Initialize-BetaNameNormalizer  -RequiresPeriodicRefresh false `
  -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```
 

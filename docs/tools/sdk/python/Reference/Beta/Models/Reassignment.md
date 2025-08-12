@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 from sailpoint.beta.models.reassignment import Reassignment
 
 reassignment = Reassignment(
-var_from=sailpoint.beta.models.certification_reference.CertificationReference(),
+var_from=sailpoint.beta.models.certification_reference.Certification Reference(),
 comment='Please review'
 )
 

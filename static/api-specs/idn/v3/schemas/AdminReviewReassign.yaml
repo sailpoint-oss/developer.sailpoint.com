@@ -1,4 +1,5 @@
 type: object
+title: Admin Review Reassign
 properties:
   certificationIds:
     description: List of certification IDs to reassign

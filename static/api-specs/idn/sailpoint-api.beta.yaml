@@ -1534,10 +1534,6 @@ paths:
     $ref: './beta/paths/mail-from-attributes.yaml'
   /mail-from-attributes/{identityId}:
     $ref: './beta/paths/mail-from-attribute.yaml'
-  /generic-approvals:
-    $ref: './beta/paths/approvals.yaml'
-  /generic-approvals/{id}:
-    $ref: './beta/paths/approval.yaml'
   /mfa/okta-verify/config:
     $ref: './v3/paths/mfa-okta-config.yaml'
   /mfa/duo-web/config:

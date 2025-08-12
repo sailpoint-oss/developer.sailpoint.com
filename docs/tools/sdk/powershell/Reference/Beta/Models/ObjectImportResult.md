@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ObjectImportResult = Initialize-PSSailpoint.BetaObjectImportResult  -Infos null `
+$ObjectImportResult = Initialize-BetaObjectImportResult  -Infos null `
  -Warnings null `
  -Errors null `
  -ImportedObjects null

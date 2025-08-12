@@ -17,10 +17,10 @@ const navbarConfig = {
       },
       {
         type: 'dropdown',
-        label: 'API Specifications',
+        label: 'API specifications',
         position: 'left',
         items: [
-          { label: 'Identity Security Cloud', to: '/docs/api/v2024' },
+          { label: 'Identity Security Cloud', to: '/docs/api/v2025' },
           { label: 'IdentityIQ', to: '/docs/api/iiq' },
           { label: 'NERM', to: '/docs/api/nerm/v1' },
         ],
@@ -32,6 +32,7 @@ const navbarConfig = {
         items: [
           { label: 'SDKs', to: '/docs/tools/sdk' },
           { label: 'CLI', to: '/docs/tools/cli' },
+          { label: 'Escaping Tool Formatter', to: '/tools/escaping-tool-formatter' },
           { label: 'JSON Path Evaluator', to: '/tools/json-path-evaluator' },
           { label: 'Rule Development Kit', to: '/docs/tools/rule-development-kit' },
           { label: 'UI Development Kit', to: '/docs/tools/ui-development-kit' },
@@ -43,15 +44,15 @@ const navbarConfig = {
         label: 'Community',
         position: 'left',
         items: [
-          { label: 'Developer Forum', to: 'https://developer.sailpoint.com/discuss/' },
-          { label: 'CoLab Marketplace', to: '/colab' },
-          { label: 'Developer Blog', to: '/blog' },
-          { label: 'Ambassador Program', to: '/ambassadors' },
+          { label: 'Developer forum', to: 'https://developer.sailpoint.com/discuss/' },
+          { label: 'CoLab marketplace', to: '/colab' },
+          { label: 'Developer blog', to: '/blog' },
+          { label: 'Ambassador program', to: '/ambassadors' },
         ],
       },
       {
         position: 'left',
-        label: 'Video Library',
+        label: 'Video library',
         to: '/videos',
       },
       {

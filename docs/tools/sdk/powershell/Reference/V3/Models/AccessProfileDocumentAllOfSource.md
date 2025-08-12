@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileDocumentAllOfSource = Initialize-PSSailpoint.V3AccessProfileDocumentAllOfSource  -Id ff8081815757d4fb0157588f3d9d008f `
+$AccessProfileDocumentAllOfSource = Initialize-AccessProfileDocumentAllOfSource  -Id ff8081815757d4fb0157588f3d9d008f `
  -Name Employees
 ```
 

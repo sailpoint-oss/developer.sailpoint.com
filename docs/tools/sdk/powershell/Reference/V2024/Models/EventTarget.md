@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EventTarget = Initialize-PSSailpoint.V2024EventTarget  -Name Carol.Adams
+$EventTarget = Initialize-V2024EventTarget  -Name Carol.Adams
 ```
 
 - Convert the resource to JSON

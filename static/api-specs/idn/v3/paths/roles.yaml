@@ -2,7 +2,7 @@ get:
   operationId: listRoles
   tags:
     - Roles
-  summary: List Roles
+  summary: List roles
   description: >-
     This API returns a list of Roles.
   parameters:
@@ -38,16 +38,19 @@ get:
         **name**: *eq, sw*
         
         
-        **created**: *gt, lt, ge, le*
+        **created**: *gt, ge, le*
 
 
-        **modified**: *gt, lt, ge, le*
+        **modified**: *lt, ge, le*
         
         
         **owner.id**: *eq, in*
         
         
         **requestable**: *eq*
+
+
+        **dimensional**: *eq*
       example: requestable eq false
       required: false
     - in: query
@@ -114,7 +117,7 @@ post:
   operationId: createRole
   tags:
     - Roles
-  summary: Create a Role
+  summary: Create a role
   description: >-
     This API creates a role.
 

@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SearchAggregationSpecification = Initialize-PSSailpoint.V3SearchAggregationSpecification  -Nested null `
+$SearchAggregationSpecification = Initialize-SearchAggregationSpecification  -Nested null `
  -Metric null `
  -VarFilter null `
  -Bucket null `

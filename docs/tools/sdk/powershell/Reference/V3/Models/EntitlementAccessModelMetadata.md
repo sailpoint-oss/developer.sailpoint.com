@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementAccessModelMetadata = Initialize-PSSailpoint.V3EntitlementAccessModelMetadata  -Attributes null
+$EntitlementAccessModelMetadata = Initialize-EntitlementAccessModelMetadata  -Attributes null
 ```
 
 - Convert the resource to JSON

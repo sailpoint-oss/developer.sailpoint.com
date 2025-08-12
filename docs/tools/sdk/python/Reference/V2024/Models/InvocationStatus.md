@@ -40,12 +40,12 @@ subscription_id='0f11f2a4-7c94-4bf3-a2bd-742580fe3bde',
 type='TEST',
 created='2020-03-27T20:40:10.738Z',
 completed='2020-03-27T20:42:14.738Z',
-start_invocation_input=sailpoint.v2024.models.start_invocation_input.StartInvocationInput(
+start_invocation_input=sailpoint.v2024.models.start_invocation_input.Start Invocation Input(
                     trigger_id = 'idn:access-requested', 
                     input = {identityId=201327fda1c44704ac01181e963d463c}, 
                     content_json = {workflowId=1234}, ),
-complete_invocation_input=sailpoint.v2024.models.complete_invocation_input.CompleteInvocationInput(
-                    localized_error = sailpoint.v2024.models.localized_message.LocalizedMessage(
+complete_invocation_input=sailpoint.v2024.models.complete_invocation_input.Complete Invocation Input(
+                    localized_error = sailpoint.v2024.models.localized_message.Localized Message(
                         locale = 'An error has occurred!', 
                         message = 'Error has occurred!', ), 
                     output = {approved=false}, )

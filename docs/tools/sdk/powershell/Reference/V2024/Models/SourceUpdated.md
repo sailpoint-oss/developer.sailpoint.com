@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceUpdated = Initialize-PSSailpoint.V2024SourceUpdated  -Id 2c9180866166b5b0016167c32ef31a66 `
+$SourceUpdated = Initialize-V2024SourceUpdated  -Id 2c9180866166b5b0016167c32ef31a66 `
  -Name Corporate Active Directory `
  -Type DIRECT_CONNECT `
  -Modified 2021-03-29T22:01:50.474Z `

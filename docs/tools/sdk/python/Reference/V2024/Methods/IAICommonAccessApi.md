@@ -71,7 +71,7 @@ from sailpoint.v2024.models.common_access_item_response import CommonAccessItemR
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -156,7 +156,7 @@ from sailpoint.v2024.models.common_access_response import CommonAccessResponse
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -173,7 +173,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IAICommonAccessApi(api_client).get_common_access(x_sail_point_experimental, offset, limit, count, filters, sorters)
         print("The response of IAICommonAccessApi->get_common_access:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IAICommonAccessApi->get_common_access: %s\n" % e)
 ```
@@ -232,7 +233,7 @@ from sailpoint.v2024.models.common_access_id_status import CommonAccessIDStatus
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementRef1 = Initialize-PSSailpoint.V2024EntitlementRef1  -Type ENTITLEMENT `
+$EntitlementRef1 = Initialize-V2024EntitlementRef1  -Type ENTITLEMENT `
  -Id 2c91809773dee32014e13e122092014e `
  -Name CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local
 ```

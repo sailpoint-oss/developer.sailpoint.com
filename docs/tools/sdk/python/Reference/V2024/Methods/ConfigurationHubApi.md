@@ -26,26 +26,30 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-deploy**](#create-deploy) | **POST** `/configuration-hub/deploys` | Create a Deploy
+[**create-deploy**](#create-deploy) | **POST** `/configuration-hub/deploys` | Create a deploy
 [**create-object-mapping**](#create-object-mapping) | **POST** `/configuration-hub/object-mappings/{sourceOrg}` | Creates an object mapping
 [**create-object-mappings**](#create-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-create` | Bulk creates object mappings
-[**create-uploaded-configuration**](#create-uploaded-configuration) | **POST** `/configuration-hub/backups/uploads` | Upload a Configuration
-[**delete-backup**](#delete-backup) | **DELETE** `/configuration-hub/backups/{id}` | Delete a Backup
+[**create-scheduled-action**](#create-scheduled-action) | **POST** `/configuration-hub/scheduled-actions` | Create scheduled action
+[**create-uploaded-configuration**](#create-uploaded-configuration) | **POST** `/configuration-hub/backups/uploads` | Upload a configuration
+[**delete-backup**](#delete-backup) | **DELETE** `/configuration-hub/backups/{id}` | Delete a backup
 [**delete-draft**](#delete-draft) | **DELETE** `/configuration-hub/drafts/{id}` | Delete a draft
 [**delete-object-mapping**](#delete-object-mapping) | **DELETE** `/configuration-hub/object-mappings/{sourceOrg}/{objectMappingId}` | Deletes an object mapping
-[**delete-uploaded-configuration**](#delete-uploaded-configuration) | **DELETE** `/configuration-hub/backups/uploads/{id}` | Delete an Uploaded Configuration
-[**get-deploy**](#get-deploy) | **GET** `/configuration-hub/deploys/{id}` | Get a Deploy
+[**delete-scheduled-action**](#delete-scheduled-action) | **DELETE** `/configuration-hub/scheduled-actions/{id}` | Delete scheduled action
+[**delete-uploaded-configuration**](#delete-uploaded-configuration) | **DELETE** `/configuration-hub/backups/uploads/{id}` | Delete an uploaded configuration
+[**get-deploy**](#get-deploy) | **GET** `/configuration-hub/deploys/{id}` | Get a deploy
 [**get-object-mappings**](#get-object-mappings) | **GET** `/configuration-hub/object-mappings/{sourceOrg}` | Gets list of object mappings
-[**get-uploaded-configuration**](#get-uploaded-configuration) | **GET** `/configuration-hub/backups/uploads/{id}` | Get an Uploaded Configuration
-[**list-backups**](#list-backups) | **GET** `/configuration-hub/backups` | List Backups
-[**list-deploys**](#list-deploys) | **GET** `/configuration-hub/deploys` | List Deploys
-[**list-drafts**](#list-drafts) | **GET** `/configuration-hub/drafts` | List Drafts
-[**list-uploaded-configurations**](#list-uploaded-configurations) | **GET** `/configuration-hub/backups/uploads` | List Uploaded Configurations
+[**get-uploaded-configuration**](#get-uploaded-configuration) | **GET** `/configuration-hub/backups/uploads/{id}` | Get an uploaded configuration
+[**list-backups**](#list-backups) | **GET** `/configuration-hub/backups` | List backups
+[**list-deploys**](#list-deploys) | **GET** `/configuration-hub/deploys` | List deploys
+[**list-drafts**](#list-drafts) | **GET** `/configuration-hub/drafts` | List drafts
+[**list-scheduled-actions**](#list-scheduled-actions) | **GET** `/configuration-hub/scheduled-actions` | List scheduled actions
+[**list-uploaded-configurations**](#list-uploaded-configurations) | **GET** `/configuration-hub/backups/uploads` | List uploaded configurations
 [**update-object-mappings**](#update-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-patch` | Bulk updates object mappings
+[**update-scheduled-action**](#update-scheduled-action) | **PATCH** `/configuration-hub/scheduled-actions/{id}` | Update scheduled action
 
 
 ## create-deploy
-Create a Deploy
+Create a deploy
 This API performs a deploy based on an existing daft.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-deploy)
@@ -90,7 +94,7 @@ with ApiClient(configuration) as api_client:
         }''' # DeployRequest | The deploy request body.
 
     try:
-        # Create a Deploy
+        # Create a deploy
         new_deploy_request = DeployRequest.from_json(deploy_request)
         results = ConfigurationHubApi(api_client).create_deploy(deploy_request=new_deploy_request)
         # Below is a request that includes all optional parameters
@@ -255,8 +259,89 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) 
 
+## create-scheduled-action
+Create scheduled action
+This API creates a new scheduled action for the current tenant.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-scheduled-action)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | scheduled_action_payload | [**ScheduledActionPayload**](../models/scheduled-action-payload) | True  | The scheduled action creation request body.
+
+### Return type
+[**ScheduledActionResponse**](../models/scheduled-action-response)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The created scheduled action. | ScheduledActionResponse |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.scheduled_action_payload import ScheduledActionPayload
+from sailpoint.v2024.models.scheduled_action_response import ScheduledActionResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    scheduled_action_payload = '''{
+          "cronString" : "0 0 12 * * * *",
+          "timeZoneId" : "America/Chicago",
+          "startTime" : "2024-08-16T14:16:58.389Z",
+          "jobType" : "BACKUP",
+          "content" : {
+            "sourceTenant" : "tenant-name",
+            "draftId" : "9012b87d-48ca-439a-868f-2160001da8c3",
+            "name" : "Daily Backup",
+            "backupOptions" : {
+              "includeTypes" : [ "ROLE", "IDENTITY_PROFILE" ],
+              "objectOptions" : {
+                "SOURCE" : {
+                  "includedNames" : [ "Source1", "Source2" ]
+                },
+                "ROLE" : {
+                  "includedNames" : [ "Admin Role", "User Role" ]
+                }
+              }
+            },
+            "sourceBackupId" : "5678b87d-48ca-439a-868f-2160001da8c2"
+          }
+        }''' # ScheduledActionPayload | The scheduled action creation request body.
+
+    try:
+        # Create scheduled action
+        new_scheduled_action_payload = ScheduledActionPayload.from_json(scheduled_action_payload)
+        results = ConfigurationHubApi(api_client).create_scheduled_action(scheduled_action_payload=new_scheduled_action_payload)
+        # Below is a request that includes all optional parameters
+        # results = ConfigurationHubApi(api_client).create_scheduled_action(new_scheduled_action_payload)
+        print("The response of ConfigurationHubApi->create_scheduled_action:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->create_scheduled_action: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
 ## create-uploaded-configuration
-Upload a Configuration
+Upload a configuration
 This API uploads a JSON configuration file into a tenant.
 
 Configuration files can be managed and deployed via Configuration Hub by uploading a json file which contains configuration data. The JSON file should be the same as the one used by our import endpoints. The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.
@@ -304,7 +389,7 @@ with ApiClient(configuration) as api_client:
     name = 'name_example' # str | Name that will be assigned to the uploaded configuration file. # str | Name that will be assigned to the uploaded configuration file.
 
     try:
-        # Upload a Configuration
+        # Upload a configuration
         
         results = ConfigurationHubApi(api_client).create_uploaded_configuration(data=data, name=name)
         # Below is a request that includes all optional parameters
@@ -320,7 +405,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-backup
-Delete a Backup
+Delete a backup
 This API deletes an existing backup for the current tenant.
 
 On success, this endpoint will return an empty response.
@@ -366,7 +451,7 @@ with ApiClient(configuration) as api_client:
     id = '07659d7d-2cce-47c0-9e49-185787ee565a' # str | The id of the backup to delete. # str | The id of the backup to delete.
 
     try:
-        # Delete a Backup
+        # Delete a backup
         
         ConfigurationHubApi(api_client).delete_backup(id=id)
         # Below is a request that includes all optional parameters
@@ -500,8 +585,64 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) 
 
+## delete-scheduled-action
+Delete scheduled action
+This API deletes an existing scheduled action.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-scheduled-action)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | scheduled_action_id | **str** | True  | The ID of the scheduled action.
+
+### Return type
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+204 | No content - indicates the request was successful but there is no content to be returned in the response. |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    scheduled_action_id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | The ID of the scheduled action. # str | The ID of the scheduled action.
+
+    try:
+        # Delete scheduled action
+        
+        ConfigurationHubApi(api_client).delete_scheduled_action(scheduled_action_id=scheduled_action_id)
+        # Below is a request that includes all optional parameters
+        # ConfigurationHubApi(api_client).delete_scheduled_action(scheduled_action_id)
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->delete_scheduled_action: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
 ## delete-uploaded-configuration
-Delete an Uploaded Configuration
+Delete an uploaded configuration
 This API deletes an uploaded configuration based on Id.
 
 On success, this endpoint will return an empty response.
@@ -547,7 +688,7 @@ with ApiClient(configuration) as api_client:
     id = '3d0fe04b-57df-4a46-a83b-8f04b0f9d10b' # str | The id of the uploaded configuration. # str | The id of the uploaded configuration.
 
     try:
-        # Delete an Uploaded Configuration
+        # Delete an uploaded configuration
         
         ConfigurationHubApi(api_client).delete_uploaded_configuration(id=id)
         # Below is a request that includes all optional parameters
@@ -561,7 +702,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-deploy
-Get a Deploy
+Get a deploy
 This API gets an existing deploy for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-deploy)
@@ -604,7 +745,7 @@ with ApiClient(configuration) as api_client:
     id = '3d0fe04b-57df-4a46-a83b-8f04b0f9d10b' # str | The id of the deploy. # str | The id of the deploy.
 
     try:
-        # Get a Deploy
+        # Get a deploy
         
         results = ConfigurationHubApi(api_client).get_deploy(id=id)
         # Below is a request that includes all optional parameters
@@ -672,7 +813,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = ConfigurationHubApi(api_client).get_object_mappings(source_org)
         print("The response of ConfigurationHubApi->get_object_mappings:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConfigurationHubApi->get_object_mappings: %s\n" % e)
 ```
@@ -682,7 +824,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-uploaded-configuration
-Get an Uploaded Configuration
+Get an uploaded configuration
 This API gets an existing uploaded configuration for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-uploaded-configuration)
@@ -725,7 +867,7 @@ with ApiClient(configuration) as api_client:
     id = '3d0fe04b-57df-4a46-a83b-8f04b0f9d10b' # str | The id of the uploaded configuration. # str | The id of the uploaded configuration.
 
     try:
-        # Get an Uploaded Configuration
+        # Get an uploaded configuration
         
         results = ConfigurationHubApi(api_client).get_uploaded_configuration(id=id)
         # Below is a request that includes all optional parameters
@@ -741,7 +883,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-backups
-List Backups
+List backups
 This API gets a list of existing backups for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-backups)
@@ -783,13 +925,14 @@ with ApiClient(configuration) as api_client:
     filters = 'status eq \"COMPLETE\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
 
     try:
-        # List Backups
+        # List backups
         
         results = ConfigurationHubApi(api_client).list_backups()
         # Below is a request that includes all optional parameters
         # results = ConfigurationHubApi(api_client).list_backups(filters)
         print("The response of ConfigurationHubApi->list_backups:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConfigurationHubApi->list_backups: %s\n" % e)
 ```
@@ -799,7 +942,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-deploys
-List Deploys
+List deploys
 This API gets a list of deploys for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-deploys)
@@ -837,7 +980,7 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # List Deploys
+        # List deploys
         
         results = ConfigurationHubApi(api_client).list_deploys()
         # Below is a request that includes all optional parameters
@@ -853,7 +996,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-drafts
-List Drafts
+List drafts
 This API gets a list of existing drafts for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-drafts)
@@ -895,13 +1038,14 @@ with ApiClient(configuration) as api_client:
     filters = 'status eq \"COMPLETE\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq* (optional)
 
     try:
-        # List Drafts
+        # List drafts
         
         results = ConfigurationHubApi(api_client).list_drafts()
         # Below is a request that includes all optional parameters
         # results = ConfigurationHubApi(api_client).list_drafts(filters)
         print("The response of ConfigurationHubApi->list_drafts:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConfigurationHubApi->list_drafts: %s\n" % e)
 ```
@@ -910,8 +1054,63 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) 
 
+## list-scheduled-actions
+List scheduled actions
+This API gets a list of existing scheduled actions for the current tenant.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-scheduled-actions)
+
+### Parameters 
+This endpoint does not need any parameter. 
+
+### Return type
+[**List[ScheduledActionResponse]**](../models/scheduled-action-response)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of existing scheduled actions. | List[ScheduledActionResponse] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.scheduled_action_response import ScheduledActionResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+
+    try:
+        # List scheduled actions
+        
+        results = ConfigurationHubApi(api_client).list_scheduled_actions()
+        # Below is a request that includes all optional parameters
+        # results = ConfigurationHubApi(api_client).list_scheduled_actions()
+        print("The response of ConfigurationHubApi->list_scheduled_actions:\n")
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->list_scheduled_actions: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
 ## list-uploaded-configurations
-List Uploaded Configurations
+List uploaded configurations
 This API gets a list of existing uploaded configurations for the current tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-uploaded-configurations)
@@ -954,13 +1153,14 @@ with ApiClient(configuration) as api_client:
     filters = 'status eq \"COMPLETE\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
 
     try:
-        # List Uploaded Configurations
+        # List uploaded configurations
         
         results = ConfigurationHubApi(api_client).list_uploaded_configurations()
         # Below is a request that includes all optional parameters
         # results = ConfigurationHubApi(api_client).list_uploaded_configurations(filters)
         print("The response of ConfigurationHubApi->list_uploaded_configurations:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConfigurationHubApi->list_uploaded_configurations: %s\n" % e)
 ```
@@ -1041,6 +1241,78 @@ with ApiClient(configuration) as api_client:
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ConfigurationHubApi->update_object_mappings: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## update-scheduled-action
+Update scheduled action
+This API updates an existing scheduled action using JSON Patch format.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-scheduled-action)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | scheduled_action_id | **str** | True  | The ID of the scheduled action.
+ Body  | json_patch | [**JsonPatch**](../models/json-patch) | True  | The JSON Patch document containing the changes to apply to the scheduled action.
+
+### Return type
+[**ScheduledActionResponse**](../models/scheduled-action-response)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | The updated scheduled action. | ScheduledActionResponse |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: application/json-patch+json
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.v2024.api.configuration_hub_api import ConfigurationHubApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.json_patch import JsonPatch
+from sailpoint.v2024.models.scheduled_action_response import ScheduledActionResponse
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    scheduled_action_id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | The ID of the scheduled action. # str | The ID of the scheduled action.
+    json_patch = '''{
+          "operations" : [ {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          }, {
+            "op" : "replace",
+            "path" : "/description",
+            "value" : "New description"
+          } ]
+        }''' # JsonPatch | The JSON Patch document containing the changes to apply to the scheduled action.
+
+    try:
+        # Update scheduled action
+        new_json_patch = JsonPatch.from_json(json_patch)
+        results = ConfigurationHubApi(api_client).update_scheduled_action(scheduled_action_id=scheduled_action_id, json_patch=new_json_patch)
+        # Below is a request that includes all optional parameters
+        # results = ConfigurationHubApi(api_client).update_scheduled_action(scheduled_action_id, new_json_patch)
+        print("The response of ConfigurationHubApi->update_scheduled_action:\n")
+        print(results.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling ConfigurationHubApi->update_scheduled_action: %s\n" % e)
 ```
 
 

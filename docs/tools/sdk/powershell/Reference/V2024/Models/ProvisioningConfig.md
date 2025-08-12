@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ProvisioningConfig = Initialize-PSSailpoint.V2024ProvisioningConfig  -UniversalManager true `
+$ProvisioningConfig = Initialize-V2024ProvisioningConfig  -UniversalManager true `
  -ManagedResourceRefs [{type=SOURCE, id=2c9180855d191c59015d291ceb051111, name=My Source 1}, {type=SOURCE, id=2c9180855d191c59015d291ceb052222, name=My Source 2}] `
  -PlanInitializerScript null `
  -NoProvisioningRequests true `

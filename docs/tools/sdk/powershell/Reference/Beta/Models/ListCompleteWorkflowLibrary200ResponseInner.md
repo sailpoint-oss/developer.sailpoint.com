@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListCompleteWorkflowLibrary200ResponseInner = Initialize-PSSailpoint.BetaListCompleteWorkflowLibrary200ResponseInner  -Id sp:compare-boolean `
+$ListCompleteWorkflowLibrary200ResponseInner = Initialize-BetaListCompleteWorkflowLibrary200ResponseInner  -Id sp:compare-boolean `
  -Name Compare Boolean Values `
  -Type OPERATOR `
  -Description Compare two boolean values and decide what happens based on the result. `

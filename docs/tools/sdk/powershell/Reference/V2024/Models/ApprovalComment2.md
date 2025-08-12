@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalComment2 = Initialize-PSSailpoint.V2024ApprovalComment2  -Comment This request was autoapproved by our automated ETS subscriber. `
+$ApprovalComment2 = Initialize-V2024ApprovalComment2  -Comment This request was autoapproved by our automated ETS subscriber. `
  -Commenter Automated AR Approval `
  -Date 2018-06-25T20:22:28.104Z
 ```

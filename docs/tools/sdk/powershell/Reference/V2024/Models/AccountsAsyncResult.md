@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountsAsyncResult = Initialize-PSSailpoint.V2024AccountsAsyncResult  -Id 2c91808474683da6017468693c260195
+$AccountsAsyncResult = Initialize-V2024AccountsAsyncResult  -Id 2c91808474683da6017468693c260195
 ```
 
 - Convert the resource to JSON

@@ -1,4 +1,5 @@
 type : object
+title: Email Notification Option
 description: This is used for representing email configuration for a lifecycle state
 properties:
   notifyManagers:

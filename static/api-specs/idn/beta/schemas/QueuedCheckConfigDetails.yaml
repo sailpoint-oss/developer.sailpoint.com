@@ -3,6 +3,7 @@ required:
   - provisioningStatusCheckIntervalMinutes
   - provisioningMaxStatusCheckDays
 type: object
+title: Queued Check Config Details
 properties:
   provisioningStatusCheckIntervalMinutes:
     description: Interval in minutes between status checks

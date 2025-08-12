@@ -1,5 +1,6 @@
 description: Sed Approval Request Body
 type: object
+title: Sed Approval
 properties:
   items:
     description: List of SED id's

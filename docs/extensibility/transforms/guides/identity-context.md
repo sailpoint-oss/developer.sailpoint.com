@@ -1,6 +1,6 @@
 ---
 id: identity-context
-title: Identity Attribute Context in Transforms
+title: Identity attribute context in transforms
 pagination_label: Identity Attribute Context
 sidebar_label: Identity Attribute Context
 sidebar_class_name: identityContextTransform
@@ -67,9 +67,9 @@ You must use a `firstValid`. If the identity does not have a manager, `getManage
 }
 ```
 
-### Get manager status of the identity
+### Get managerial status of the identity
 
-This example would get the status of whether or not the identity is currently actually a manager.
+This example would get a boolean response indicating whether the identity is listed as the manager of another identity.
 
 ```json
 {
@@ -107,7 +107,7 @@ To retrieve an attribute from an identity's account in a specific source, by Sou
             {
                 "type": "static",
                 "attributes": {
-                    "value": "$identity.getLinksByAppIdOrName("2c918088814e6a610181686b56977fa8",null\")[0].id"
+                    "value": "$identity.getLinksByAppIdOrName(\"2c918088814e6a610181686b56977fa8\",null)[0].id"
                 }
             },
             null

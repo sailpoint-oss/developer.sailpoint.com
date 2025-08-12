@@ -2,11 +2,13 @@ get:
   operationId: getWorkflow
   tags:
     - Workflows
-  summary: Get Workflow By Id
+  summary: Get workflow by id
   description: >-
     Get a single workflow by id.
   security:
     - userAuth: [sp:workflow:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - name: id
       in: path
@@ -18,6 +20,14 @@ get:
       schema:
         type: string
         example: c17bea3a-574d-453c-9e04-4365fbf5af0b
+    - name: workflowMetrics
+      in: query
+      description: disable workflow metrics
+      required: false
+      schema:
+        type: boolean
+        default: true
+      example: false
   responses:
     '200':
       description: >-
@@ -37,14 +47,16 @@ get:
     '500':
       $ref: '../../v3/responses/500.yaml'
 put:
-  operationId: updateWorkflow
+  operationId: putWorkflow
   tags:
     - Workflows
-  summary: Update Workflow
+  summary: Update workflow
   description: >-
     Perform a full update of a workflow.  The updated workflow object is returned in the response.
   security:
     - userAuth: [sp:workflow:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - name: id
       in: path
@@ -83,11 +95,13 @@ patch:
   operationId: patchWorkflow
   tags:
     - Workflows
-  summary: Patch Workflow
+  summary: Patch workflow
   description: >-
     Partially update an existing Workflow using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
   security:
     - userAuth: [sp:workflow:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - name: id
       in: path
@@ -193,11 +207,13 @@ delete:
   operationId: deleteWorkflow
   tags:
     - Workflows
-  summary: Delete Workflow By Id
+  summary: Delete workflow by id
   description: >-
     Delete a workflow.  **Enabled workflows cannot be deleted**.  They must first be disabled.
   security:
     - userAuth: [sp:workflow:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - name: id
       in: path

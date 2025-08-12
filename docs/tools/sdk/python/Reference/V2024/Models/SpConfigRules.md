@@ -11,7 +11,7 @@ tags: ['SDK', 'Software Development Kit', 'SpConfigRules', 'V2024SpConfigRules']
 
 # SpConfigRules
 
-Rules to be applied to the config object during draft process
+Rules to be applied to the config object during the draft process.
 
 ## Properties
 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **take_from_target_rules** | [**[]SpConfigRule**](sp-config-rule) |  | [optional] 
 **default_rules** | [**[]SpConfigRule**](sp-config-rule) |  | [optional] 
-**editable** | **bool** | Whether this object can be edited | [optional] [default to False]
+**editable** | **bool** | Indicates whether the object can be edited. | [optional] [default to False]
 }
 
 ## Example

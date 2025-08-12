@@ -1,4 +1,5 @@
 type: object
+title: Login Info Response
 properties:
   encryption:
     type: string

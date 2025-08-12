@@ -26,10 +26,10 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceAppAccountSource = Initialize-PSSailpoint.V2024SourceAppAccountSource  -Id 2c9180827ca885d7017ca8ce28a000eb `
+$SourceAppAccountSource = Initialize-V2024SourceAppAccountSource  -Id 2c9180827ca885d7017ca8ce28a000eb `
  -Type SOURCE `
  -Name ODS-AD-Source `
- -UseForPasswordManagement false `
+ -UseForPasswordManagement true `
  -PasswordPolicies [{type=PASSWORD_POLICY, id=006a072ecc6647f68bba9f4a4ad34649, name=Password Policy 1}]
 ```
 

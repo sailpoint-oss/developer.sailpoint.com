@@ -46,6 +46,11 @@ paths:
     $ref: "./paths/consolidation_data_record.yaml"
   /idproxy/identities/{id}:
     $ref: "./paths/consolidation_master_record.yaml"
+  # Delegation
+  /delegations:
+    $ref: "./paths/delegations.yaml"
+  /delegations/{id}:
+    $ref: "./paths/delegation.yaml"
   # Forms
   /forms:
     $ref: "./paths/forms.yaml"
@@ -63,7 +68,7 @@ paths:
   # Identity Proofing Results
   /identity_proofing_results:
     $ref: "./paths/identity_proofing_results.yaml"
-# Isc Accounts
+  # Isc Accounts
   /isc/accounts:
     $ref: "./paths/isc_accounts.yaml"
   /isc/accounts/{id}:

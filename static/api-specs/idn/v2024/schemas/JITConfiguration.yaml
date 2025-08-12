@@ -1,4 +1,5 @@
 type: object
+title: JIT Configuration
 properties:
   enabled:
     type: boolean

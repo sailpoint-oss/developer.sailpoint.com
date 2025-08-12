@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SodPolicyOwnerRef = Initialize-PSSailpoint.V3SodPolicyOwnerRef  -Type IDENTITY `
+$SodPolicyOwnerRef = Initialize-SodPolicyOwnerRef  -Type IDENTITY `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name Support
 ```

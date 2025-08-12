@@ -1,5 +1,6 @@
 
 type: object
+title: Attr Sync Tenant Sync Target
 properties:
   source:
     $ref: '../../v3/schemas/AttrSyncSource.yaml'

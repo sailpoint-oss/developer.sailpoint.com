@@ -16,14 +16,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**compare-identity-snapshots**](#compare-identity-snapshots) | **GET** `/historical-identities/{id}/compare` | Gets a difference of count for each access item types for the given identity between 2 snapshots
-[**compare-identity-snapshots-access-type**](#compare-identity-snapshots-access-type) | **GET** `/historical-identities/{id}/compare/{access-type}` | Gets a list of differences of specific accessType for the given identity between 2 snapshots
+[**compare-identity-snapshots-access-type**](#compare-identity-snapshots-access-type) | **GET** `/historical-identities/{id}/compare/{access-type}` | Gets a list of differences of specific accesstype for the given identity between 2 snapshots
 [**get-historical-identity**](#get-historical-identity) | **GET** `/historical-identities/{id}` | Get latest snapshot of identity
-[**get-historical-identity-events**](#get-historical-identity-events) | **GET** `/historical-identities/{id}/events` | Lists all events for the given identity
+[**get-historical-identity-events**](#get-historical-identity-events) | **GET** `/historical-identities/{id}/events` | List identity event history
 [**get-identity-snapshot**](#get-identity-snapshot) | **GET** `/historical-identities/{id}/snapshots/{date}` | Gets an identity snapshot at a given date
 [**get-identity-snapshot-summary**](#get-identity-snapshot-summary) | **GET** `/historical-identities/{id}/snapshot-summary` | Gets the summary for the event count for a specific identity
 [**get-identity-start-date**](#get-identity-start-date) | **GET** `/historical-identities/{id}/start-date` | Gets the start date of the identity
 [**list-historical-identities**](#list-historical-identities) | **GET** `/historical-identities` | Lists all the identities
-[**list-identity-access-items**](#list-identity-access-items) | **GET** `/historical-identities/{id}/access-items` | List Access Items by Identity
+[**list-identity-access-items**](#list-identity-access-items) | **GET** `/historical-identities/{id}/access-items` | List access items by identity
 [**list-identity-snapshot-access-items**](#list-identity-snapshot-access-items) | **GET** `/historical-identities/{id}/snapshots/{date}/access-items` | Gets the list of identity access items at a given date filterd by item type
 [**list-identity-snapshots**](#list-identity-snapshots) | **GET** `/historical-identities/{id}/snapshots` | Lists all the snapshots for the identity
 
@@ -84,7 +84,7 @@ from sailpoint.v2024.models.identity_compare_response import IdentityCompareResp
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id
@@ -103,7 +103,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityHistoryApi(api_client).compare_identity_snapshots(id, x_sail_point_experimental, snapshot1, snapshot2, access_item_types, limit, offset, count)
         print("The response of IdentityHistoryApi->compare_identity_snapshots:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityHistoryApi->compare_identity_snapshots: %s\n" % e)
 ```
@@ -124,7 +125,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Gets a list of differences of specific accessType for the given identity between 2 snapshots
+Gets a list of differences of specific accesstype for the given identity between 2 snapshots
 This method gets a list of differences of specific accessType for the given identity between 2 snapshots Requires authorization scope of 'idn:identity-history:read' 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/compare-identity-snapshots-access-type)
@@ -169,7 +170,7 @@ from sailpoint.v2024.models.access_item_diff import AccessItemDiff
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id
@@ -183,13 +184,14 @@ with ApiClient(configuration) as api_client:
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
     try:
-        # Gets a list of differences of specific accessType for the given identity between 2 snapshots
+        # Gets a list of differences of specific accesstype for the given identity between 2 snapshots
         
         results = IdentityHistoryApi(api_client).compare_identity_snapshots_access_type(id=id, access_type=access_type, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = IdentityHistoryApi(api_client).compare_identity_snapshots_access_type(id, access_type, x_sail_point_experimental, access_associated, snapshot1, snapshot2, limit, offset, count)
         print("The response of IdentityHistoryApi->compare_identity_snapshots_access_type:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityHistoryApi->compare_identity_snapshots_access_type: %s\n" % e)
 ```
@@ -248,7 +250,7 @@ from sailpoint.v2024.models.identity_history_response import IdentityHistoryResp
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id
@@ -282,7 +284,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Lists all events for the given identity
+List identity event history
 This method retrieves all access events for the identity Requires authorization scope of 'idn:identity-history:read' 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-historical-identity-events)
@@ -327,7 +329,7 @@ from sailpoint.v2024.models.get_historical_identity_events200_response_inner imp
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id
@@ -340,13 +342,14 @@ with ApiClient(configuration) as api_client:
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
     try:
-        # Lists all events for the given identity
+        # List identity event history
         
         results = IdentityHistoryApi(api_client).get_historical_identity_events(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = IdentityHistoryApi(api_client).get_historical_identity_events(id, x_sail_point_experimental, var_from, event_types, access_item_types, limit, offset, count)
         print("The response of IdentityHistoryApi->get_historical_identity_events:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityHistoryApi->get_historical_identity_events: %s\n" % e)
 ```
@@ -406,7 +409,7 @@ from sailpoint.v2024.models.identity_history_response import IdentityHistoryResp
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id
@@ -485,7 +488,7 @@ from sailpoint.v2024.models.metric_response import MetricResponse
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id
@@ -504,7 +507,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityHistoryApi(api_client).get_identity_snapshot_summary(id, x_sail_point_experimental, before, interval, time_zone, limit, offset, count)
         print("The response of IdentityHistoryApi->get_identity_snapshot_summary:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityHistoryApi->get_identity_snapshot_summary: %s\n" % e)
 ```
@@ -562,7 +566,7 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id
@@ -638,7 +642,7 @@ from sailpoint.v2024.models.identity_list_item import IdentityListItem
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -655,7 +659,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityHistoryApi(api_client).list_historical_identities(x_sail_point_experimental, starts_with_query, is_deleted, is_active, limit, offset)
         print("The response of IdentityHistoryApi->list_historical_identities:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityHistoryApi->list_historical_identities: %s\n" % e)
 ```
@@ -676,7 +681,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Access Items by Identity
+List access items by identity
 This method retrieves a list of access item for the identity filtered by the access item type
 
 
@@ -720,7 +725,7 @@ from sailpoint.v2024.models.list_identity_access_items200_response_inner import 
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id
@@ -731,13 +736,14 @@ with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
     try:
-        # List Access Items by Identity
+        # List access items by identity
         
         results = IdentityHistoryApi(api_client).list_identity_access_items(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = IdentityHistoryApi(api_client).list_identity_access_items(id, x_sail_point_experimental, type, limit, count, offset)
         print("The response of IdentityHistoryApi->list_identity_access_items:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityHistoryApi->list_identity_access_items: %s\n" % e)
 ```
@@ -773,12 +779,12 @@ Path   | var_date | **str** | True  | The specified date
   Query | type | **str** |   (optional) | The access item type
 
 ### Return type
-[**List[ListIdentityAccessItems200ResponseInner]**](../models/list-identity-access-items200-response-inner)
+[**List[ListIdentitySnapshotAccessItems200ResponseInner]**](../models/list-identity-snapshot-access-items200-response-inner)
 
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | The identity object. | List[ListIdentityAccessItems200ResponseInner] |  -  |
+200 | The identity object. | List[ListIdentitySnapshotAccessItems200ResponseInner] |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
@@ -794,11 +800,11 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.identity_history_api import IdentityHistoryApi
 from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.list_identity_access_items200_response_inner import ListIdentityAccessItems200ResponseInner
+from sailpoint.v2024.models.list_identity_snapshot_access_items200_response_inner import ListIdentitySnapshotAccessItems200ResponseInner
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id
@@ -813,7 +819,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityHistoryApi(api_client).list_identity_snapshot_access_items(id, var_date, x_sail_point_experimental, type)
         print("The response of IdentityHistoryApi->list_identity_snapshot_access_items:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityHistoryApi->list_identity_snapshot_access_items: %s\n" % e)
 ```
@@ -877,7 +884,7 @@ from sailpoint.v2024.models.identity_snapshot_summary_response import IdentitySn
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '8c190e6787aa4ed9a90bd9d5344523fb' # str | The identity id # str | The identity id
@@ -895,7 +902,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = IdentityHistoryApi(api_client).list_identity_snapshots(id, x_sail_point_experimental, start, interval, limit, offset, count)
         print("The response of IdentityHistoryApi->list_identity_snapshots:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling IdentityHistoryApi->list_identity_snapshots: %s\n" % e)
 ```

@@ -1,19 +1,19 @@
 ---
 id: rule-utility
-title: Using ISCRuleUtil as a Wrapper for Common Rule Operations
+title: Using IdnRuleUtil as a wrapper for common Rule operations
 pagination_label: Identity Security Cloud Rule Utility
 sidebar_label: Identity Security Cloud Rule Utility
 sidebar_position: 4
 sidebar_class_name: ruleUtility
 keywords: ['rule', 'utility']
-description: Using ISCRuleUtil as a Wrapper for Common Rule Operations
+description: Using IdnRuleUtil as a Wrapper for Common Rule Operations
 slug: /extensibility/rules/rule-utility
 tags: ['Rules']
 ---
 
 ## Overview
 
-Use this guide to learn how to configure searchable account attributes within Identity Security Cloud and then leverage them within the ISCRuleUtil wrapper class when searching accounts for attributes such as uniqueness checks. There are also methods in the ISCRuleUtil wrapper class you can use without the additional searchable attributes.
+Use this guide to learn how to configure searchable account attributes within Identity Security Cloud and then leverage them within the IdnRuleUtil wrapper class when searching accounts for attributes such as uniqueness checks. There are also methods in the IdnRuleUtil wrapper class you can use without the additional searchable attributes.
 
 Search attributes allow you to search across accounts and sources to determine whether a specific attribute value is being used in your Identity Security Cloud environment.
 
@@ -25,7 +25,7 @@ There are three critical components involves with working with searchable attrib
 - [Create rules that can be used to query the newly created attribute values](#create-rules-that-can-be-used-to-query-the-newly-created-attribute-values)
 - [Implement rules within the Create Profile section of each source an account is being provisioned for](#implement-rules-within-the-create-profile-section-of-each-source-for-an-acount-is-being-provisioned-for)
 
-## Configuration of Search Attributes within Identity Security Cloud
+## Configuration of search attributes within Identity Security Cloud
 
 When you are planning to implement search attributes, it is important that you consider the way new accounts' values will be generated and which attributes should be used as references.
 
@@ -62,7 +62,7 @@ The following information is necessary to create your search attribute:
 - Display name for the new attribute configuration:
   - `Promoted Email Address`
 
-### Create the New Search Attribute in Identity Security Cloud
+### Create the new search attribute in Identity Security Cloud
 
 To call the APIs for search attributes, you need a personal access token and the name of your tenant to provide with the request. To retrieve a personal access token, see [Personal Access Tokens](../../api/authentication.md#generate-a-personal-access-token). To get the name of your tenant, see [Finding Your Organization Tenant Name](../../api/getting-started.md#find-your-tenant-name)
 
@@ -93,7 +93,7 @@ If this source has already been aggregated before the account search configurati
 
 At this point, the configuration exists to promote attributes on any new/changed account that comes into Identity Security Cloud. These attributes and their associated values are stored for use in custom rules. Each account that exists on either of these sources will now have a new attribute called “promotedEmailAddress”. _The value of this attribute will be the value of `mail` if it is the Active Directory Source or `emailAddress` if it is the Workday source._
 
-## Create Rules that Can Be Used to Query the Newly Created Attribute values
+## Create Rules that can be used to query the newly created attribute values
 
 To access the promoted attribute data mentioned in the above section, you can use library methods that have been implemented to allow access to that data. There are two methods that have been implemented:
 
@@ -160,7 +160,7 @@ Calling the _`idn.attrSearchCountAccounts()`_ method with both example source ID
 
 If _`idn.attrSearchCountAccounts()`_ returns non-zero, it may be useful to determine which identity owns the account(s) containing that value. The _`idn.attrSearchGetIdentityName()`_ method will return that identity name.
 
-## Implement Rules within the Create Profile Section of Each Source for an Acount is Being Provisioned For
+## Implement Rules within the create profile section of each source for an acount is being provisioned for
 
 Create Profile can be found at **Admin** > **Connections** > **Source** > `SourceName` > **Accounts** > **Create Profile**
 
@@ -176,7 +176,7 @@ Call _`idn.attrSearchCountAccounts()`_ to determine whether any other accounts a
 
 In some cases where a non zero value is returned, it may be useful to know which identity owns the account that value belongs to. To find out this information, call _`idn.attrSearchGetIdentityName()`_ to determine the identity in question.
 
-## IdnRuleUtil.java Descriptors
+## IdnRuleUtil.java descriptors
 
 :::caution
 
@@ -519,9 +519,9 @@ String value, String sortAttribute)
     public boolean isUniqueLDAPValue(String identityNameOrId, String applicationNameOrId, String attributeName, String attributeValue)
 ```
 
-## Example Usage
+## Example usage
 
-### Get an Entitlement Description
+### Get an entitlement description
 
 ```java
 //IdnRuleUtil is available in rules as the "idn" variable, which you can use the same way you can currently use context.
@@ -545,14 +545,14 @@ String entitlementDescription = idn.getManagedAttributeDescription(sourceId, att
 boolean exists = idn.accountExistsByNativeIdentity(applicationName, nativeIdentity);
 ```
 
-### Get the Name of the Identity Matching a Specific Account Search Result
+### Get the name of the Identity matching a specific account search result
 
 ```java
 //IdnRuleUtil is available in rules as the "idn" variable, which you can use the same way you can currently use context.
 String identityName = idn.attrSearchGetIdentityName(sourceIdsAsList, attributeName, Operation.Equal, valuesToMatchAsList);
 ```
 
-### Get Multiple Attributes from the First Account Retreived From a Source
+### Get multiple attributes from the first account retreived from a source
 
 ```java
 //IdnRuleUtil is available in rules as the "idn" variable, which you can use the same way you can currently use context.

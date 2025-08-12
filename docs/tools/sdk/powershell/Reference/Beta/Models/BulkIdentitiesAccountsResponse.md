@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BulkIdentitiesAccountsResponse = Initialize-PSSailpoint.BetaBulkIdentitiesAccountsResponse  -Id 2c9180858082150f0180893dbaf553fe `
+$BulkIdentitiesAccountsResponse = Initialize-BetaBulkIdentitiesAccountsResponse  -Id 2c9180858082150f0180893dbaf553fe `
  -StatusCode 404 `
  -Message Referenced identity "2c9180858082150f0180893dbaf553fe" was not found.
 ```

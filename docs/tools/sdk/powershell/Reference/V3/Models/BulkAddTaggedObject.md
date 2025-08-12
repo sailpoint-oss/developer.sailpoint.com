@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BulkAddTaggedObject = Initialize-PSSailpoint.V3BulkAddTaggedObject  -ObjectRefs null `
+$BulkAddTaggedObject = Initialize-BulkAddTaggedObject  -ObjectRefs null `
  -Tags [BU_FINANCE, PCI] `
  -Operation MERGE
 ```

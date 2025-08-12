@@ -2,7 +2,7 @@ post:
   operationId: sendOktaVerifyRequest
   tags:
     - MFA Controller
-  summary: Verifying authentication via Okta method
+  summary: Verifying authentication via okta method
   description: >-
     This API Authenticates the user via Okta-Verify MFA method.
     Request requires a header called 'slpt-forwarding', and it must contain a remote IP Address of caller.

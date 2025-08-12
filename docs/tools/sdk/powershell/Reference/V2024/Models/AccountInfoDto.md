@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountInfoDto = Initialize-PSSailpoint.V2024AccountInfoDto  -NativeIdentity CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com `
+$AccountInfoDto = Initialize-V2024AccountInfoDto  -NativeIdentity CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com `
  -DisplayName Abby.Smith `
  -Uuid {ad9fc391-246d-40af-b248-b6556a2b7c01}
 ```

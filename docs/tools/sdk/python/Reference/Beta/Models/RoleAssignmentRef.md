@@ -27,7 +27,7 @@ from sailpoint.beta.models.role_assignment_ref import RoleAssignmentRef
 
 role_assignment_ref = RoleAssignmentRef(
 id='1cbb0705b38c4226b1334eadd8874086',
-role=sailpoint.beta.models.base_reference_dto_1.BaseReferenceDto_1(
+role=sailpoint.beta.models.base_reference_dto.Base Reference Dto(
                     id = 'ff8081814d977c21014da056804a0af3', 
                     name = 'Github', )
 )

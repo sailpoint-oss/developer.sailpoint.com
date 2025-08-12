@@ -1,4 +1,5 @@
 type: object
+title: Sod Report Result Dto
 description: SOD policy violation report result. 
 properties:
   type:

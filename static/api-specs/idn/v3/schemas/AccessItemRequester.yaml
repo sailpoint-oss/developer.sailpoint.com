@@ -1,4 +1,5 @@
 type: object
+title: Access Item Requester
 description: Access item requester's identity. 
 properties:
   type:

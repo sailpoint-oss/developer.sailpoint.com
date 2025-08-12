@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestPostApproval = Initialize-PSSailpoint.BetaAccessRequestPostApproval  -AccessRequestId 2c91808b6ef1d43e016efba0ce470904 `
+$AccessRequestPostApproval = Initialize-BetaAccessRequestPostApproval  -AccessRequestId 2c91808b6ef1d43e016efba0ce470904 `
  -RequestedFor null `
  -RequestedItemsStatus null `
  -RequestedBy null

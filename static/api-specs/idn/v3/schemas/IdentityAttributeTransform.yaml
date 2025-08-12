@@ -1,4 +1,5 @@
 type: object
+title: Identity Attribute Transform
 description: Transform definition for an identity attribute.
 properties:
   identityAttributeName:

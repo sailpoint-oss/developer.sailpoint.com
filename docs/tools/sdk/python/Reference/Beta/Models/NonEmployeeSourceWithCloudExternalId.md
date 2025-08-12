@@ -39,12 +39,12 @@ source_id='2c91808568c529c60168cca6f90c1313',
 name='Retail',
 description='Source description',
 approvers=[
-                    sailpoint.beta.models.identity_reference_with_id.IdentityReferenceWithId(
+                    sailpoint.beta.models.identity_reference_with_id.Identity Reference With Id(
                         type = 'IDENTITY', 
                         id = '5168015d32f890ca15812c9180835d2e', )
                     ],
 account_managers=[
-                    sailpoint.beta.models.identity_reference_with_id.IdentityReferenceWithId(
+                    sailpoint.beta.models.identity_reference_with_id.Identity Reference With Id(
                         type = 'IDENTITY', 
                         id = '5168015d32f890ca15812c9180835d2e', )
                     ],

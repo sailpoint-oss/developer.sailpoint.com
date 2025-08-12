@@ -17,14 +17,14 @@ tags: ['SDK', 'Software Development Kit', 'CampaignAllOfFilter', 'CampaignAllOfF
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | The ID of whatever type of filter is being used. | [optional] 
-**Type** |  **Enum** [  "CAMPAIGN_FILTER",    "RULE" ] | Type of the filter | [optional] 
+**Type** |  **Enum** [  "CAMPAIGN_FILTER" ] | Type of the filter | [optional] 
 **Name** | **String** | Name of the filter | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$CampaignAllOfFilter = Initialize-PSSailpoint.V3CampaignAllOfFilter  -Id 0fbe863c063c4c88a35fd7f17e8a3df5 `
+$CampaignAllOfFilter = Initialize-CampaignAllOfFilter  -Id 0fbe863c063c4c88a35fd7f17e8a3df5 `
  -Type CAMPAIGN_FILTER `
  -Name Test Filter
 ```

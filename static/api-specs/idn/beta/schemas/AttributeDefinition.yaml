@@ -1,4 +1,5 @@
 type: object
+title: Attribute Definition
 properties:
   name:
     type: string
@@ -7,6 +8,7 @@ properties:
   type:
     $ref: './AttributeDefinitionType.yaml'
   schema:
+    nullable: true
     description: A reference to the schema on the source to the attribute values map to.
     type: object
     properties:

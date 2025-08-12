@@ -1,4 +1,5 @@
 type: object
+title: Identity Ownership Association Details
 properties:
   associationDetails:
     type: array

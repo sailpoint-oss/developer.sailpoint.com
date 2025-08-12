@@ -1,4 +1,5 @@
 type: object
+title: Set Encryption Keys Data
 description: Set a Clusters key pair
 required:
   - publicCertificate

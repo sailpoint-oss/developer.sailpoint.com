@@ -2,12 +2,18 @@ get:
   operationId: getNonEmployeeBulkUploadStatus
   security:
     - userAuth: [idn:nelm:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
   summary: Bulk upload status on source
   description: |
     The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source.
-
+  deprecated: true
+  x-deprecated-description: |
+    This API has been deprecated, please refer to [Obtain the status of bulk upload on the source](https://developer.sailpoint.com/docs/api/v2025/get-non-employee-bulk-upload-status) for latest API.
   parameters:
     - in: path
       example: "2c918085842e69ae018432d22ccb212f"

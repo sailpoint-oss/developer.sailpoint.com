@@ -1,7 +1,7 @@
 post:
   tags:
     - Entitlements
-  summary: Aggregate Entitlements
+  summary: Aggregate entitlements
   deprecated: true
   operationId: importEntitlementsBySource
   description: >-
@@ -50,3 +50,5 @@ post:
       $ref: "../../v3/responses/500.yaml"
   security:
     - userAuth: [ idn:entitlements:manage ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN

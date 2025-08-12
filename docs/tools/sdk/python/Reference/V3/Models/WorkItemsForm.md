@@ -36,7 +36,7 @@ title='Account Selection for John.Doe',
 subtitle='Please select from the following',
 target_user='Jane.Doe',
 sections=[
-                    sailpoint.v3.models.section_details.SectionDetails()
+                    sailpoint.v3.models.section_details.Section Details()
                     ]
 )
 

@@ -18,13 +18,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Op** |  **Enum** [  "remove",    "replace" ] | The operation to be performed | [optional] 
 **Path** | **String** | A string JSON Pointer representing the target path to an element to be affected by the operation | [required]
-**Value** | [**JsonPatchOperationValue**](json-patch-operation-value) |  | [optional] 
+**Value** | [**UpdateMultiHostSourcesRequestInnerValue**](update-multi-host-sources-request-inner-value) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$PatchPotentialRoleRequestInner = Initialize-PSSailpoint.V2024PatchPotentialRoleRequestInner  -Op replace `
+$PatchPotentialRoleRequestInner = Initialize-V2024PatchPotentialRoleRequestInner  -Op replace `
  -Path /description `
  -Value null
 ```

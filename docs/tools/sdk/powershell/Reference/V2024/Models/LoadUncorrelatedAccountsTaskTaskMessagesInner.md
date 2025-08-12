@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LoadUncorrelatedAccountsTaskTaskMessagesInner = Initialize-PSSailpoint.V2024LoadUncorrelatedAccountsTaskTaskMessagesInner  -Type WARN `
+$LoadUncorrelatedAccountsTaskTaskMessagesInner = Initialize-V2024LoadUncorrelatedAccountsTaskTaskMessagesInner  -Type WARN `
  -VarError false `
  -Warning true `
  -Key This correlation failed because the currently running correlation must complete before the next one can start. `

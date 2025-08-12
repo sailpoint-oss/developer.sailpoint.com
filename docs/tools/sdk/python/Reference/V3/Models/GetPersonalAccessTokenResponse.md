@@ -23,6 +23,8 @@ Name | Type | Description | Notes
 **created** | **datetime** | The date and time, down to the millisecond, when this personal access token was created. | [required]
 **last_used** | **datetime** | The date and time, down to the millisecond, when this personal access token was last used to generate an access token. This timestamp does not get updated on every PAT usage, but only once a day. This property can be useful for identifying which PATs are no longer actively used and can be removed. | [optional] 
 **managed** | **bool** | If true, this token is managed by the SailPoint platform, and is not visible in the user interface. For example, Workflows will create managed personal access tokens for users who create workflows. | [optional] [default to False]
+**access_token_validity_seconds** | **int** | Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200. | [optional] [default to 43200]
+**expiration_date** | **datetime** | Date and time, down to the millisecond, when this personal access token will expire. If not provided, the token will expire 6 months after its creation date. The value must be a valid date-time string between the current date and 6 months from the creation date. | [optional] 
 }
 
 ## Example
@@ -34,13 +36,15 @@ get_personal_access_token_response = GetPersonalAccessTokenResponse(
 id='86f1dc6fe8f54414950454cbb11278fa',
 name='NodeJS Integration',
 scope=[demo:personal-access-token-scope:first, demo:personal-access-token-scope:second],
-owner=sailpoint.v3.models.pat_owner.PatOwner(
+owner=sailpoint.v3.models.pat_owner.Pat Owner(
                     type = 'IDENTITY', 
                     id = '2c9180a46faadee4016fb4e018c20639', 
                     name = 'Support', ),
 created='2017-07-11T18:45:37.098Z',
 last_used='2017-07-11T18:45:37.098Z',
-managed=False
+managed=False,
+access_token_validity_seconds=36900,
+expiration_date='2018-01-11T18:45:37.098Z'
 )
 
 ```

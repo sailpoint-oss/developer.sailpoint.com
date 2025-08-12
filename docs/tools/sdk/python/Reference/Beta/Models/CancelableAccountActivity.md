@@ -47,12 +47,12 @@ modified='2018-06-25T20:22:28.104Z',
 completed='2018-10-19T13:49:37.385Z',
 completion_status='SUCCESS',
 type='appRequest',
-requester_identity_summary=sailpoint.beta.models.identity_summary.IdentitySummary(
+requester_identity_summary=sailpoint.beta.models.identity_summary.Identity Summary(
                     id = 'ff80818155fe8c080155fe8d925b0316', 
                     name = 'SailPoint Services', 
                     identity_id = 'c15b9f5cca5a4e9599eaa0e64fa921bd', 
                     completed = True, ),
-target_identity_summary=sailpoint.beta.models.identity_summary.IdentitySummary(
+target_identity_summary=sailpoint.beta.models.identity_summary.Identity Summary(
                     id = 'ff80818155fe8c080155fe8d925b0316', 
                     name = 'SailPoint Services', 
                     identity_id = 'c15b9f5cca5a4e9599eaa0e64fa921bd', 
@@ -62,7 +62,7 @@ warnings=[
                     ''
                     ],
 items=[
-                    sailpoint.beta.models.account_activity_item.AccountActivityItem(
+                    sailpoint.beta.models.account_activity_item.Account Activity Item(
                         id = '48c545831b264409a81befcabb0e3c5a', 
                         name = '48c545831b264409a81befcabb0e3c5a', 
                         requested = '2017-07-11T18:45:37.098Z', 
@@ -73,7 +73,7 @@ items=[
                             commenter_name = 'Adam Kennedy', 
                             body = 'Et quam massa maximus vivamus nisi ut urna tincidunt metus elementum erat.', 
                             date = '2017-07-11T18:45:37.098Z', ), 
-                        reviewer_identity_summary = sailpoint.beta.models.identity_summary.IdentitySummary(
+                        reviewer_identity_summary = sailpoint.beta.models.identity_summary.Identity Summary(
                             id = 'ff80818155fe8c080155fe8d925b0316', 
                             name = 'SailPoint Services', 
                             identity_id = 'c15b9f5cca5a4e9599eaa0e64fa921bd', 
@@ -88,7 +88,7 @@ items=[
                         value = 'Treasury Analyst [AccessProfile-1529010191212]', 
                         native_identity = 'Sandie.Camero', 
                         source_id = '2c91808363ef85290164000587130c0c', 
-                        account_request_info = sailpoint.beta.models.account_request_info.AccountRequestInfo(
+                        account_request_info = sailpoint.beta.models.account_request_info.Account Request Info(
                             requested_object_id = '2c91808563ef85690164001c31140c0c', 
                             requested_object_name = 'Treasury Analyst', 
                             requested_object_type = 'ACCESS_PROFILE', ), 

@@ -18,13 +18,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TakeFromTargetRules** | [**[]SpConfigRule**](sp-config-rule) |  | [optional] 
 **DefaultRules** | [**[]SpConfigRule**](sp-config-rule) |  | [optional] 
-**Editable** | **Boolean** | Whether this object can be edited | [optional] [default to $false]
+**Editable** | **Boolean** | Indicates whether the object can be edited. | [optional] [default to $false]
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$SpConfigRules = Initialize-PSSailpoint.V2024SpConfigRules  -TakeFromTargetRules null `
+$SpConfigRules = Initialize-V2024SpConfigRules  -TakeFromTargetRules null `
  -DefaultRules null `
  -Editable true
 ```

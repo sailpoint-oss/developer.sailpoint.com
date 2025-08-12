@@ -53,16 +53,16 @@ authoritative_source=sailpoint.beta.models.identity_profile_all_of_authoritative
                     name = 'HR Active Directory', ),
 identity_refresh_required=True,
 identity_count=8,
-identity_attribute_config=sailpoint.beta.models.identity_attribute_config.IdentityAttributeConfig(
+identity_attribute_config=sailpoint.beta.models.identity_attribute_config.Identity Attribute Config(
                     enabled = True, 
                     attribute_transforms = [
-                        sailpoint.beta.models.identity_attribute_transform.IdentityAttributeTransform(
+                        sailpoint.beta.models.identity_attribute_transform.Identity Attribute Transform(
                             identity_attribute_name = 'email', 
-                            transform_definition = sailpoint.beta.models.transform_definition.TransformDefinition(
+                            transform_definition = sailpoint.beta.models.transform_definition.Transform Definition(
                                 type = 'accountAttribute', 
                                 attributes = {attributeName=e-mail, sourceName=MySource, sourceId=2c9180877a826e68017a8c0b03da1a53}, ), )
                         ], ),
-identity_exception_report_reference=sailpoint.beta.models.identity_exception_report_reference.IdentityExceptionReportReference(
+identity_exception_report_reference=sailpoint.beta.models.identity_exception_report_reference.Identity Exception Report Reference(
                     task_result_id = '', 
                     report_name = 'My annual report', ),
 has_time_based_attr=True

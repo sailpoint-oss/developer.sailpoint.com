@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowModifiedBy = Initialize-PSSailpoint.V3WorkflowModifiedBy  -Type IDENTITY `
+$WorkflowModifiedBy = Initialize-WorkflowModifiedBy  -Type IDENTITY `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name Thomas Edison
 ```

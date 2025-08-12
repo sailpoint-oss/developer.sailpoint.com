@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LauncherRequest = Initialize-PSSailpoint.BetaLauncherRequest  -Name Group Create `
+$LauncherRequest = Initialize-BetaLauncherRequest  -Name Group Create `
  -Description Create a new Active Directory Group `
  -Type INTERACTIVE_PROCESS `
  -Disabled false `

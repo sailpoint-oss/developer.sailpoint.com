@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleAssignmentDto = Initialize-PSSailpoint.V2024RoleAssignmentDto  -Id 1cbb0705b38c4226b1334eadd8874086 `
+$RoleAssignmentDto = Initialize-V2024RoleAssignmentDto  -Id 1cbb0705b38c4226b1334eadd8874086 `
  -Role null `
  -Comments I'm a new Engineer and need this role to do my work `
  -AssignmentSource UI `

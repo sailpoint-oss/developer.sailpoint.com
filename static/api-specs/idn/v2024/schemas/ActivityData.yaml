@@ -1,4 +1,5 @@
 type: object
+title: Activity Data
 properties:
   source:
     $ref: './ActivityDataSource.yaml'

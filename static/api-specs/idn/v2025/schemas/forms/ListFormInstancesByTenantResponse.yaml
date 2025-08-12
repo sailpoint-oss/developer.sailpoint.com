@@ -1,0 +1,15 @@
+type: object
+properties:
+  count:
+    description: Count number of Results
+    type: integer
+    format: int64
+    example: 1
+    x-go-name: Count
+  results:
+    description: Results holds a list of FormInstanceResponse items
+    type: array
+    items:
+      $ref: './FormInstanceResponse.yaml'
+    x-go-name: Results
+x-go-package: github.com/sailpoint/sp-forms/domain

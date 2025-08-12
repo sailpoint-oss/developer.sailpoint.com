@@ -1,4 +1,5 @@
 type: object
+title: Access Request Response
 properties:
   requesterId:
     type: string

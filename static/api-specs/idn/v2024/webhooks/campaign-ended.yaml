@@ -1,5 +1,5 @@
 post:
-  summary: Campaign Ended
+  summary: Campaign ended
   operationId: campaignEndedEvent
   description: >-
     This event trigger fires after a certification campaign ends.

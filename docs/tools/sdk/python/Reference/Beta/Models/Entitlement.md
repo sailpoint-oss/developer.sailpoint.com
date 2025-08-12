@@ -60,7 +60,7 @@ source=sailpoint.beta.models.entitlement_source.Entitlement_source(
                     name = 'ODS-AD-Source', ),
 owner=,
 direct_permissions=[
-                    sailpoint.beta.models.permission_dto.PermissionDto(
+                    sailpoint.beta.models.permission_dto.Permission DTO(
                         rights = [
                             'SELECT'
                             ], 

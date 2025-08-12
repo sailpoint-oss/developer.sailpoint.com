@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileBulkUpdateRequestInner = Initialize-PSSailpoint.V2024AccessProfileBulkUpdateRequestInner  -Id 464ae7bf-791e-49fd-b746-06a2e4a8 `
+$AccessProfileBulkUpdateRequestInner = Initialize-V2024AccessProfileBulkUpdateRequestInner  -Id 464ae7bf-791e-49fd-b746-06a2e4a8 `
  -Requestable false
 ```
 

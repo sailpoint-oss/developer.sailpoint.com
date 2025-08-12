@@ -1,4 +1,5 @@
 type: object
+title: Remediation Item Details
 properties:
   id:
     type: string

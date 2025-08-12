@@ -22,18 +22,23 @@
 }
 
 a[id^='jsonpathDocumentationLink'] {
-  color: var(--mui-link) !important;
+  color: var(--link-color) !important;
+  text-decoration: underline !important;
+}
+
+a[id^='jsonpathDocumentationLink']:hover {
+  text-decoration: none!important;
 }
 
 li[class^='MuiButtonBase-root'] {
-  color: var(--text-color);
+  color: var(--ifm-primary-text-color);
 }
 div[class^='MuiFormControl-root'] {
-  color: var(--text-color);
+  color: var(--ifm-primary-text-color);
 }
 div[id^='terminal-font-size-select'],
 div[id^='implementation-dropdown-select'] {
-  color: var(--text-color);
+  color: var(--ifm-primary-text-color);
 }
 
 input[id^='outlined-basic-jsonpath-input'],
@@ -42,7 +47,7 @@ select[id^='terminal-font-size-select'],
 label[id^='terminal-font-size-label'],
 select[id^='implementation-dropdown-select'],
 label[id^='implementation-dropdown-label'] {
-  color: var(--text-color);
+  color: var(--ifm-primary-text-color);
 }
 input[id^='outlined-basic-jsonpath-input'],
 div[id^='terminal-font-size-select'],
@@ -76,4 +81,16 @@ div [id^='jsonpathalert'] {
 
 .actionBar button {
   min-width: 100px;
+}
+
+.runButton {
+  color: var(--ifm-button-colors) !important;
+  border: 1px solid var(--ifm-button-colors) !important;
+  background-color: var(--dropdown-background) !important;
+}
+
+.runButton:hover {
+  background-color: var(--ifm-button-colors) !important;
+  color: var(--text-on-primary) !important;
+  border: 1px solid var(--ifm-button-colors) !important;
 }

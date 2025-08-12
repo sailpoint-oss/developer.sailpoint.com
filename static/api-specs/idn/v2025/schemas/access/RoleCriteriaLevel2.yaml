@@ -1,0 +1,27 @@
+type: object
+nullable: true
+description: Defines STANDARD type Role membership
+properties:
+    operation:
+        $ref: './RoleCriteriaOperation.yaml'
+    key:
+        $ref: './RoleCriteriaKey.yaml'
+    stringValue:
+        type: string
+        nullable: true
+        description: >-
+            String value to test the Identity attribute, Account attribute, or Entitlement specified in the key w/r/t
+            the specified operation. If this criteria is a leaf node, that is, if the operation is one of
+            EQUALS, NOT_EQUALS, CONTAINS, STARTS_WITH, or ENDS_WITH, this field is required. Otherwise, specifying it
+            is an error.
+        example: "carlee.cert1c9f9b6fd@mailinator.com"
+    children:
+        type: array
+        items:
+            $ref: './RoleCriteriaLevel3.yaml'
+        nullable: true
+        description: >-
+            Array of child criteria. Required if the operation is AND or OR, otherwise it must be left null. A maximum
+            of three levels of criteria are supported, including leaf nodes. Additionally, AND nodes can only be
+            children or OR nodes and vice-versa.
+            

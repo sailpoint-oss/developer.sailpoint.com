@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clients
-  summary: Get Managed Clients
+  summary: Get managed clients
   description: >-
     List managed clients.
   operationId: getManagedClients
@@ -53,12 +53,13 @@ get:
       $ref: '../responses/500.yaml'
   security:
     - userAuth: [idn:remote-client:read, idn:remote-client:manage]
+    - applicationAuth: [idn:remote-client:read, idn:remote-client:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
 post:
   tags:
     - Managed Clients
-  summary: Create Managed Client
+  summary: Create managed client
   description: >-
     Create a new managed client.
 

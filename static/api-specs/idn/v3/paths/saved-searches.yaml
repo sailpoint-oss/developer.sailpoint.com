@@ -40,7 +40,7 @@ get:
     - Saved Search
   description: |
     Returns a list of saved searches.
-  summary: A list of Saved Searches
+  summary: A list of saved searches
   operationId: listSavedSearches
   parameters:
   - $ref: '../parameters/offset.yaml'

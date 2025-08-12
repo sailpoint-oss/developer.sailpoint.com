@@ -27,7 +27,7 @@ from sailpoint.v2024.models.role_assignment_ref import RoleAssignmentRef
 
 role_assignment_ref = RoleAssignmentRef(
 id='1cbb0705b38c4226b1334eadd8874086',
-role=sailpoint.v2024.models.base_reference_dto.BaseReferenceDto(
+role=sailpoint.v2024.models.base_reference_dto.Base Reference Dto(
                     type = 'IDENTITY', 
                     id = '2c91808568c529c60168cca6f90c1313', 
                     name = 'William Wilson', )

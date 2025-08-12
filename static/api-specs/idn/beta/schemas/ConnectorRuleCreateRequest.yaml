@@ -1,5 +1,6 @@
 description: ConnectorRuleCreateRequest
 type: object
+title: Connector Rule Create Request
 required:
   - name
   - type
@@ -39,6 +40,7 @@ properties:
       - SuccessFactorsOperationProvisioning
       - WebServiceAfterOperationRule
       - WebServiceBeforeOperationRule
+      - ResourceObjectCustomization
     description: the type of rule
     example: BuildMap
   signature:

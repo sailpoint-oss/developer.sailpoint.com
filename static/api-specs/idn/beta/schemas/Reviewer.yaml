@@ -1,5 +1,6 @@
 description: Details of the reviewer for a certification.
 type: object
+title: Reviewer
 required:
 - type
 - id

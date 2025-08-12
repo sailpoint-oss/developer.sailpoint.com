@@ -35,8 +35,8 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Start-V2024PredictSodViolations**](#start-predict-sod-violations) | **POST** `/sod-violations/predict` | Predict SOD violations for identity.
-[**Start-V2024ViolationCheck**](#start-violation-check) | **POST** `/sod-violations/check` | Check SOD violations
+[**Start-V2024PredictSodViolations**](#start-predict-sod-violations) | **POST** `/sod-violations/predict` | Predict sod violations for identity.
+[**Start-V2024ViolationCheck**](#start-violation-check) | **POST** `/sod-violations/check` | Check sod violations
 
 
 ## start-predict-sod-violations
@@ -82,7 +82,7 @@ $IdentityWithNewAccess = @"{
   } ]
 }"@
 
-# Predict SOD violations for identity.
+# Predict sod violations for identity.
 
 try {
     $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
@@ -129,7 +129,7 @@ Code | Description  | Data Type
 ```powershell
 $IdentityWithNewAccess1 = @"{identityId=2c91808568c529c60168cca6f90c1313, accessRefs=[{type=ENTITLEMENT, id=2c918087682f9a86016839c050861ab1, name=CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local}, {type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2, name=CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local}], clientMetadata={additionalProp1=string, additionalProp2=string, additionalProp3=string}}"@
 
-# Check SOD violations
+# Check sod violations
 
 try {
     $Result = ConvertFrom-JsonToIdentityWithNewAccess1 -Json $IdentityWithNewAccess1

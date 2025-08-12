@@ -54,7 +54,7 @@ created='2017-07-11T18:45:37.098Z',
 modified='2018-07-25T20:22:28.104Z',
 request_created='2017-07-11T18:45:35.098Z',
 request_type='GRANT_ACCESS',
-requester=sailpoint.v2024.models.access_item_requester.AccessItemRequester(
+requester=sailpoint.v2024.models.access_item_requester.Access Item Requester(
                     type = 'IDENTITY', 
                     id = '2c7180a46faadee4016fb4e018c20648', 
                     name = 'William Wilson', ),
@@ -62,15 +62,15 @@ requested_for=sailpoint.v2024.models.requested_item_status_requested_for.Request
                     type = 'IDENTITY', 
                     id = '2c9180835d191a86015d28455b4b232a', 
                     name = 'William Wilson', ),
-reviewed_by=sailpoint.v2024.models.access_item_reviewed_by.AccessItemReviewedBy(
+reviewed_by=sailpoint.v2024.models.access_item_reviewed_by.Access Item Reviewed By(
                     type = 'IDENTITY', 
                     id = '2c3780a46faadee4016fb4e018c20652', 
                     name = 'Allen Albertson', ),
-owner=sailpoint.v2024.models.owner_dto.OwnerDto(
+owner=sailpoint.v2024.models.owner_dto.Owner Dto(
                     type = 'IDENTITY', 
                     id = '2c9180a46faadee4016fb4e018c20639', 
                     name = 'Support', ),
-requested_object=sailpoint.v2024.models.requestable_object_reference.RequestableObjectReference(
+requested_object=sailpoint.v2024.models.requestable_object_reference.Requestable Object Reference(
                     id = '2c9180835d2e5168015d32f890ca1581', 
                     name = 'Applied Research Access', 
                     description = 'Access to research information, lab results, and schematics', 
@@ -78,7 +78,7 @@ requested_object=sailpoint.v2024.models.requestable_object_reference.Requestable
 requester_comment=,
 reviewer_comment=,
 previous_reviewers_comments=[
-                    sailpoint.v2024.models.comment_dto.CommentDto(
+                    sailpoint.v2024.models.comment_dto.Comment Dto(
                         comment = 'This is a comment.', 
                         created = '2017-07-11T18:45:37.098Z', 
                         author = sailpoint.v2024.models.comment_dto_author.CommentDto_author(
@@ -87,7 +87,7 @@ previous_reviewers_comments=[
                             name = 'john.doe', ), )
                     ],
 forward_history=[
-                    sailpoint.v2024.models.approval_forward_history.ApprovalForwardHistory(
+                    sailpoint.v2024.models.approval_forward_history.Approval Forward History(
                         old_approver_name = 'Frank Mir', 
                         new_approver_name = 'Al Volta', 
                         comment = 'Forwarding from Frank to Al', 
@@ -100,25 +100,25 @@ state='APPROVED',
 remove_date='2020-07-11T00:00Z',
 remove_date_update_requested=True,
 current_remove_date='2020-07-11T00:00Z',
-sod_violation_context=sailpoint.v2024.models.sod_violation_context_check_completed.SodViolationContextCheckCompleted(
+sod_violation_context=sailpoint.v2024.models.sod_violation_context_check_completed.Sod Violation Context Check Completed(
                     state = 'SUCCESS', 
                     uuid = 'f73d16e9-a038-46c5-b217-1246e15fdbdd', 
-                    violation_check_result = sailpoint.v2024.models.sod_violation_check_result.SodViolationCheckResult(
-                        message = sailpoint.v2024.models.error_message_dto.ErrorMessageDto(
+                    violation_check_result = sailpoint.v2024.models.sod_violation_check_result.Sod Violation Check Result(
+                        message = sailpoint.v2024.models.error_message_dto.Error Message Dto(
                             locale = 'en-US', 
                             locale_origin = 'DEFAULT', 
                             text = 'The request was syntactically correct but its content is semantically invalid.', ), 
                         client_metadata = {requestedAppName=test-app, requestedAppId=2c91808f7892918f0178b78da4a305a1}, 
                         violation_contexts = [
-                            sailpoint.v2024.models.sod_violation_context.SodViolationContext(
-                                policy = sailpoint.v2024.models.sod_policy_dto.SodPolicyDto(
+                            sailpoint.v2024.models.sod_violation_context.Sod Violation Context(
+                                policy = sailpoint.v2024.models.sod_policy_dto.Sod Policy Dto(
                                     type = 'SOD_POLICY', 
                                     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde', 
                                     name = 'Business SOD Policy', ), 
                                 conflicting_access_criteria = sailpoint.v2024.models.sod_violation_context_conflicting_access_criteria.SodViolationContext_conflictingAccessCriteria(
                                     left_criteria = sailpoint.v2024.models.sod_violation_context_conflicting_access_criteria_left_criteria.SodViolationContext_conflictingAccessCriteria_leftCriteria(
                                         criteria_list = [
-                                            sailpoint.v2024.models.sod_exempt_criteria.SodExemptCriteria(
+                                            sailpoint.v2024.models.sod_exempt_criteria.Sod Exempt Criteria(
                                                 existing = True, 
                                                 type = 'IDENTITY', 
                                                 id = '2c918085771e9d3301773b3cb66f6398', 
@@ -127,7 +127,7 @@ sod_violation_context=sailpoint.v2024.models.sod_violation_context_check_complet
                                     right_criteria = sailpoint.v2024.models.sod_violation_context_conflicting_access_criteria_left_criteria.SodViolationContext_conflictingAccessCriteria_leftCriteria(), ), )
                             ], 
                         violated_policies = [
-                            sailpoint.v2024.models.sod_policy_dto.SodPolicyDto(
+                            sailpoint.v2024.models.sod_policy_dto.Sod Policy Dto(
                                 id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde', 
                                 name = 'Business SOD Policy', )
                             ], ), ),
@@ -138,7 +138,7 @@ pre_approval_trigger_result=sailpoint.v2024.models.completed_approval_pre_approv
                     date = '2022-06-07T19:18:40.748Z', ),
 client_metadata={requestedAppName=test-app, requestedAppId=2c91808f7892918f0178b78da4a305a1},
 requested_accounts=[
-                    sailpoint.v2024.models.requested_account_ref.RequestedAccountRef(
+                    sailpoint.v2024.models.requested_account_ref.Requested Account Ref(
                         name = 'Glen.067da3248e914', 
                         type = 'IDENTITY', 
                         account_uuid = '{fab7119e-004f-4822-9c33-b8d570d6c6a6}', 

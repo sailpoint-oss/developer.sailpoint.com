@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$PasswordStatus = Initialize-PSSailpoint.BetaPasswordStatus  -RequestId 089899f13a8f4da7824996191587bab9 `
+$PasswordStatus = Initialize-BetaPasswordStatus  -RequestId 089899f13a8f4da7824996191587bab9 `
  -State null `
  -Errors null `
  -SourceIds null

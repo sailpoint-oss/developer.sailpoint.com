@@ -1,4 +1,5 @@
 type: object
+title: Base Common Dto
 required:
   - name
 properties:

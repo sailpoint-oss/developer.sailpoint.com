@@ -29,7 +29,7 @@ from sailpoint.beta.models.sod_violation_context1_conflicting_access_criteria im
 sod_violation_context1_conflicting_access_criteria = SodViolationContext1ConflictingAccessCriteria(
 left_criteria=sailpoint.beta.models.sod_violation_context_1_conflicting_access_criteria_left_criteria.SodViolationContext_1_conflictingAccessCriteria_leftCriteria(
                     criteria_list = [
-                        sailpoint.beta.models.sod_exempt_criteria_1.SodExemptCriteria_1(
+                        sailpoint.beta.models.sod_exempt_criteria.Sod Exempt Criteria(
                             existing = True, 
                             type = 'IDENTITY', 
                             id = '2c918085771e9d3301773b3cb66f6398', 
@@ -37,7 +37,7 @@ left_criteria=sailpoint.beta.models.sod_violation_context_1_conflicting_access_c
                         ], ),
 right_criteria=sailpoint.beta.models.sod_violation_context_1_conflicting_access_criteria_left_criteria.SodViolationContext_1_conflictingAccessCriteria_leftCriteria(
                     criteria_list = [
-                        sailpoint.beta.models.sod_exempt_criteria_1.SodExemptCriteria_1(
+                        sailpoint.beta.models.sod_exempt_criteria.Sod Exempt Criteria(
                             existing = True, 
                             type = 'IDENTITY', 
                             id = '2c918085771e9d3301773b3cb66f6398', 

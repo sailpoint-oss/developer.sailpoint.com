@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListFormDefinitionsByTenantResponse = Initialize-PSSailpoint.BetaListFormDefinitionsByTenantResponse  -Count 1 `
+$ListFormDefinitionsByTenantResponse = Initialize-BetaListFormDefinitionsByTenantResponse  -Count 1 `
  -Results null
 ```
 

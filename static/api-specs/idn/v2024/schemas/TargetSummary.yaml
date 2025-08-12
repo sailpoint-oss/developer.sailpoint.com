@@ -1,6 +1,7 @@
 # Replaces IdentitySummary.yaml
 description: The entity being targeted by a certification.
 type: object
+title: Target Summary
 properties:
   targetType:
     type: string

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleListFilterDTOAmmKeyValuesInner = Initialize-PSSailpoint.V2024RoleListFilterDTOAmmKeyValuesInner  -Attribute iscFederalClassifications `
+$RoleListFilterDTOAmmKeyValuesInner = Initialize-V2024RoleListFilterDTOAmmKeyValuesInner  -Attribute iscFederalClassifications `
  -Values [secret]
 ```
 

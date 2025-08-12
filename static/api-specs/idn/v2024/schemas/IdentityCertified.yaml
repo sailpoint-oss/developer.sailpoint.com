@@ -1,4 +1,8 @@
 type: object
+title: Identity Certified
+required:
+  - certificationId
+  - certificationName
 properties:
   certificationId:
     type: string
@@ -38,7 +42,7 @@ properties:
     type: string
     description: the event type
     example: IdentityCertified
-  dt:
+  dateTime:
     type: string
     description: the date of event
     example: '2019-03-08T22:37:33.901Z'

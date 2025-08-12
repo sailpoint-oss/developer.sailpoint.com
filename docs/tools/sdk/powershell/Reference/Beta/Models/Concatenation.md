@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Concatenation = Initialize-PSSailpoint.BetaConcatenation  -Values [John,  , Smith] `
+$Concatenation = Initialize-BetaConcatenation  -Values [John,  , Smith] `
  -RequiresPeriodicRefresh false `
  -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```

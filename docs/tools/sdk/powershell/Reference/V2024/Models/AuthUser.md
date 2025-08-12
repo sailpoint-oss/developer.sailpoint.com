@@ -39,7 +39,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AuthUser = Initialize-PSSailpoint.V2024AuthUser  -Tenant test-tenant `
+$AuthUser = Initialize-V2024AuthUser  -Tenant test-tenant `
  -Id 2c91808458ae7a4f0158b1bbf8af0628 `
  -Uid will.smith `
  -VarProfile 2c91808458ae7a4f0158b1bbf8af0756 `

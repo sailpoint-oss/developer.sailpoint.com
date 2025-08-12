@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$FormElementValidationsSet = Initialize-PSSailpoint.BetaFormElementValidationsSet  -ValidationType REQUIRED
+$FormElementValidationsSet = Initialize-BetaFormElementValidationsSet  -ValidationType REQUIRED
 ```
 
 - Convert the resource to JSON

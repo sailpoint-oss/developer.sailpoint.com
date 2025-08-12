@@ -52,10 +52,10 @@ created='2020-03-03T22:15:13.611Z',
 total_certifications=100,
 completed_certifications=10,
 alerts=[
-                    sailpoint.v2024.models.campaign_alert.CampaignAlert(
+                    sailpoint.v2024.models.campaign_alert.Campaign Alert(
                         level = 'ERROR', 
                         localizations = [
-                            sailpoint.v2024.models.error_message_dto.ErrorMessageDto(
+                            sailpoint.v2024.models.error_message_dto.Error Message Dto(
                                 locale = 'en-US', 
                                 locale_origin = 'DEFAULT', 
                                 text = 'The request was syntactically correct but its content is semantically invalid.', )

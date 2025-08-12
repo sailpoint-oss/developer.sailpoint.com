@@ -41,15 +41,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2024ServiceDeskIntegration**](#create-service-desk-integration) | **POST** `/service-desk-integrations` | Create new Service Desk integration
-[**Remove-V2024ServiceDeskIntegration**](#delete-service-desk-integration) | **DELETE** `/service-desk-integrations/{id}` | Delete a Service Desk integration
-[**Get-V2024ServiceDeskIntegration**](#get-service-desk-integration) | **GET** `/service-desk-integrations/{id}` | Get a Service Desk integration
-[**Get-V2024ServiceDeskIntegrationTemplate**](#get-service-desk-integration-template) | **GET** `/service-desk-integrations/templates/{scriptName}` | Service Desk integration template by scriptName
-[**Get-V2024ServiceDeskIntegrationTypes**](#get-service-desk-integration-types) | **GET** `/service-desk-integrations/types` | List Service Desk integration types
-[**Get-V2024ServiceDeskIntegrations**](#get-service-desk-integrations) | **GET** `/service-desk-integrations` | List existing Service Desk integrations
+[**New-V2024ServiceDeskIntegration**](#create-service-desk-integration) | **POST** `/service-desk-integrations` | Create new service desk integration
+[**Remove-V2024ServiceDeskIntegration**](#delete-service-desk-integration) | **DELETE** `/service-desk-integrations/{id}` | Delete a service desk integration
+[**Get-V2024ServiceDeskIntegration**](#get-service-desk-integration) | **GET** `/service-desk-integrations/{id}` | Get a service desk integration
+[**Get-V2024ServiceDeskIntegrationTemplate**](#get-service-desk-integration-template) | **GET** `/service-desk-integrations/templates/{scriptName}` | Service desk integration template by scriptname
+[**Get-V2024ServiceDeskIntegrationTypes**](#get-service-desk-integration-types) | **GET** `/service-desk-integrations/types` | List service desk integration types
+[**Get-V2024ServiceDeskIntegrations**](#get-service-desk-integrations) | **GET** `/service-desk-integrations` | List existing service desk integrations
 [**Get-V2024StatusCheckDetails**](#get-status-check-details) | **GET** `/service-desk-integrations/status-check-configuration` | Get the time check configuration
-[**Update-V2024ServiceDeskIntegration**](#patch-service-desk-integration) | **PATCH** `/service-desk-integrations/{id}` | Patch a Service Desk Integration
-[**Send-V2024ServiceDeskIntegration**](#put-service-desk-integration) | **PUT** `/service-desk-integrations/{id}` | Update a Service Desk integration
+[**Update-V2024ServiceDeskIntegration**](#patch-service-desk-integration) | **PATCH** `/service-desk-integrations/{id}` | Patch a service desk integration
+[**Send-V2024ServiceDeskIntegration**](#put-service-desk-integration) | **PUT** `/service-desk-integrations/{id}` | Update a service desk integration
 [**Update-V2024StatusCheckDetails**](#update-status-check-details) | **PUT** `/service-desk-integrations/status-check-configuration` | Update the time check configuration
 
 
@@ -118,7 +118,7 @@ $ServiceDeskIntegrationDto = @"{
   "beforeProvisioningRule" : ""
 }"@
 
-# Create new Service Desk integration
+# Create new service desk integration
 
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto
@@ -165,7 +165,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "anId" # String | ID of Service Desk integration to delete
 
-# Delete a Service Desk integration
+# Delete a service desk integration
 
 try {
     Remove-V2024ServiceDeskIntegration -Id $Id 
@@ -211,7 +211,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "anId" # String | ID of the Service Desk integration to get
 
-# Get a Service Desk integration
+# Get a service desk integration
 
 try {
     Get-V2024ServiceDeskIntegration -Id $Id 
@@ -257,7 +257,7 @@ Code | Description  | Data Type
 ```powershell
 $ScriptName = "aScriptName" # String | The scriptName value of the Service Desk integration template to get
 
-# Service Desk integration template by scriptName
+# Service desk integration template by scriptname
 
 try {
     Get-V2024ServiceDeskIntegrationTemplate -ScriptName $ScriptName 
@@ -301,7 +301,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# List Service Desk integration types
+# List service desk integration types
 
 try {
     Get-V2024ServiceDeskIntegrationTypes 
@@ -355,7 +355,7 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 $Filters = 'name eq "John Doe"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq*  **type**: *eq, in*  **cluster**: *eq, in* (optional)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# List existing Service Desk integrations
+# List existing service desk integrations
 
 try {
     Get-V2024ServiceDeskIntegrations 
@@ -422,7 +422,7 @@ Update an existing Service Desk integration by ID with a PATCH request.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the Service Desk integration to update
- Body  | PatchServiceDeskIntegrationRequest | [**PatchServiceDeskIntegrationRequest**](../models/patch-service-desk-integration-request) | True  | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+ Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
 
 ### Return type
 [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
@@ -445,16 +445,21 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "anId" # String | ID of the Service Desk integration to update
-$PatchServiceDeskIntegrationRequest = @""@
+ $JsonPatchOperation = @"{
+  "op" : "replace",
+  "path" : "/description",
+  "value" : "New description"
+}"@ # JsonPatchOperation[] | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+ 
 
-# Patch a Service Desk Integration
+# Patch a service desk integration
 
 try {
-    $Result = ConvertFrom-JsonToPatchServiceDeskIntegrationRequest -Json $PatchServiceDeskIntegrationRequest
-    Update-V2024ServiceDeskIntegration -Id $Id -PatchServiceDeskIntegrationRequest $Result 
+    $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
+    Update-V2024ServiceDeskIntegration -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024ServiceDeskIntegration -Id $Id -PatchServiceDeskIntegrationRequest $Result  
+    # Update-V2024ServiceDeskIntegration -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ServiceDeskIntegration"
     Write-Host $_.ErrorDetails
@@ -529,7 +534,7 @@ $ServiceDeskIntegrationDto = @"{
   "beforeProvisioningRule" : ""
 }"@
 
-# Update a Service Desk integration
+# Update a service desk integration
 
 try {
     $Result = ConvertFrom-JsonToServiceDeskIntegrationDto -Json $ServiceDeskIntegrationDto

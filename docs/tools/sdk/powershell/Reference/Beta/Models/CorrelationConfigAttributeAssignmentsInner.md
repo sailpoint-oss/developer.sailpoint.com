@@ -16,6 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'CorrelationConfigAttributeAssignments
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Sequence** | **Int32** | The sequence of the attribute assignment. | [optional] 
 **Property** | **String** | The property of the attribute assignment. | [optional] 
 **Value** | **String** | The value of the attribute assignment. | [optional] 
 **Operation** |  **Enum** [  "EQ" ] | The operation of the attribute assignment. | [optional] 
@@ -28,7 +29,8 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CorrelationConfigAttributeAssignmentsInner = Initialize-PSSailpoint.BetaCorrelationConfigAttributeAssignmentsInner  -Property first_name `
+$CorrelationConfigAttributeAssignmentsInner = Initialize-BetaCorrelationConfigAttributeAssignmentsInner  -Sequence 1 `
+ -Property first_name `
  -Value firstName `
  -Operation EQ `
  -Complex false `

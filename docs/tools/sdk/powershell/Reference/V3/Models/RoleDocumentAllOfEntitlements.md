@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleDocumentAllOfEntitlements = Initialize-PSSailpoint.V3RoleDocumentAllOfEntitlements  -HasPermissions false `
+$RoleDocumentAllOfEntitlements = Initialize-RoleDocumentAllOfEntitlements  -HasPermissions false `
  -Description Cloud engineering `
  -Attribute memberOf `
  -Value CN=Cloud Engineering,DC=sailpoint,DC=COM `

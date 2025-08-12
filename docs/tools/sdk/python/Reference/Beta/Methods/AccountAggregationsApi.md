@@ -25,11 +25,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-account-aggregation-status**](#get-account-aggregation-status) | **GET** `/account-aggregations/{id}/status` | In-progress Account Aggregation status
+[**get-account-aggregation-status**](#get-account-aggregation-status) | **GET** `/account-aggregations/{id}/status` | In-progress account aggregation status
 
 
 ## get-account-aggregation-status
-In-progress Account Aggregation status
+In-progress account aggregation status
 This API returns the status of an *in-progress* account aggregation, along with the total number of **NEW**, **CHANGED** and **DELETED** accounts found since the previous aggregation, and the number of those accounts that have been processed so far.
 
 Accounts that have not changed since the previous aggregation are not included in **totalAccounts** and **processedAccounts** counts returned by this API. This is distinct from **Accounts Scanned** shown in the Aggregation UI, which indicates total accounts scanned regardless of whether they changed or not.
@@ -79,7 +79,7 @@ with ApiClient(configuration) as api_client:
     id = '2c91808477a6b0c60177a81146b8110b' # str | The account aggregation id # str | The account aggregation id
 
     try:
-        # In-progress Account Aggregation status
+        # In-progress account aggregation status
         
         results = AccountAggregationsApi(api_client).get_account_aggregation_status(id=id)
         # Below is a request that includes all optional parameters

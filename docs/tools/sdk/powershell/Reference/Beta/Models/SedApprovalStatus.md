@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SedApprovalStatus = Initialize-PSSailpoint.BetaSedApprovalStatus  -FailedReason invalid status `
+$SedApprovalStatus = Initialize-BetaSedApprovalStatus  -FailedReason invalid status `
  -Id 016629d1-1d25-463f-97f3-0c6686846650 `
  -Status SUCCESS
 ```

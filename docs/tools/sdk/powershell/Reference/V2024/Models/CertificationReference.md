@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CertificationReference = Initialize-PSSailpoint.V2024CertificationReference  -Id ef38f94347e94562b5bb8424a56397d8 `
+$CertificationReference = Initialize-V2024CertificationReference  -Id ef38f94347e94562b5bb8424a56397d8 `
  -Name Certification Name `
  -Type CERTIFICATION `
  -Reviewer null

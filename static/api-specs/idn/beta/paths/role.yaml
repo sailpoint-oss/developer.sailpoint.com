@@ -2,7 +2,7 @@ get:
   operationId: getRole
   tags:
     - Roles
-  summary: Get a Role
+  summary: Get a role
   description: >-
     This API returns a Role by its ID.
     
@@ -32,6 +32,8 @@ get:
       $ref: '../../v3/responses/401.yaml'
     '403':
       $ref: '../../v3/responses/403.yaml'
+    '404':
+      $ref: '../../v3/responses/404.yaml'
     '429':
       $ref: '../../v3/responses/429.yaml'
     '500':
@@ -47,7 +49,7 @@ patch:
   operationId: patchRole
   tags:
     - Roles
-  summary: Patch a specified Role
+  summary: Patch a specified role
   description: >-
     This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
@@ -292,7 +294,7 @@ delete:
   operationId: deleteRole
   tags:
     - Roles
-  summary: Delete a Role
+  summary: Delete a role
   description: >-
     This API deletes a Role by its ID.
 

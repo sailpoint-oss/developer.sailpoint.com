@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CloseAccessRequest = Initialize-PSSailpoint.V2024CloseAccessRequest  -AccessRequestIds [2c90ad2a70ace7d50170acf22ca90010] `
+$CloseAccessRequest = Initialize-V2024CloseAccessRequest  -AccessRequestIds [2c90ad2a70ace7d50170acf22ca90010] `
  -Message The IdentityNow Administrator manually closed this request. `
  -ExecutionStatus Terminated `
  -CompletionStatus Failure

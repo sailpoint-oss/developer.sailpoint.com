@@ -11,7 +11,7 @@ tags: ['SDK', 'Software Development Kit', 'ProvisioningCriteriaOperation', 'V202
 
 # ProvisioningCriteriaOperation
 
-Supported operations on ProvisioningCriteria
+Supported operations on `ProvisioningCriteria`.
 
 ## Enum
 

@@ -1,4 +1,5 @@
 type : object
+title: Review Recommendation
 properties:
   recommendation:
     type: string

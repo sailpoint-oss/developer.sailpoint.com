@@ -1,4 +1,5 @@
 type: object
+title: Multi Policy Request
 properties:
   filteredPolicyList:
     type: array

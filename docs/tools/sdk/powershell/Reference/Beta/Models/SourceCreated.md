@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceCreated = Initialize-PSSailpoint.BetaSourceCreated  -Id 2c9180866166b5b0016167c32ef31a66 `
+$SourceCreated = Initialize-BetaSourceCreated  -Id 2c9180866166b5b0016167c32ef31a66 `
  -Name Test source `
  -Type DIRECT_CONNECT `
  -Created 2021-03-29T22:01:50.474Z `

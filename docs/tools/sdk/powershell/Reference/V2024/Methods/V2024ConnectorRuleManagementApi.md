@@ -24,18 +24,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2024ConnectorRule**](#create-connector-rule) | **POST** `/connector-rules` | Create Connector Rule
-[**Remove-V2024ConnectorRule**](#delete-connector-rule) | **DELETE** `/connector-rules/{id}` | Delete Connector Rule
-[**Get-V2024ConnectorRule**](#get-connector-rule) | **GET** `/connector-rules/{id}` | Get Connector Rule
-[**Get-V2024ConnectorRuleList**](#get-connector-rule-list) | **GET** `/connector-rules` | List Connector Rules
-[**Send-V2024ConnectorRule**](#put-connector-rule) | **PUT** `/connector-rules/{id}` | Update Connector Rule
-[**Test-V2024ConnectorRule**](#test-connector-rule) | **POST** `/connector-rules/validate` | Validate Connector Rule
+[**New-V2024ConnectorRule**](#create-connector-rule) | **POST** `/connector-rules` | Create connector rule
+[**Remove-V2024ConnectorRule**](#delete-connector-rule) | **DELETE** `/connector-rules/{id}` | Delete connector rule
+[**Get-V2024ConnectorRule**](#get-connector-rule) | **GET** `/connector-rules/{id}` | Get connector rule
+[**Get-V2024ConnectorRuleList**](#get-connector-rule-list) | **GET** `/connector-rules` | List connector rules
+[**Send-V2024ConnectorRule**](#put-connector-rule) | **PUT** `/connector-rules/{id}` | Update connector rule
+[**Test-V2024ConnectorRule**](#test-connector-rule) | **POST** `/connector-rules/validate` | Validate connector rule
 
 
 ## create-connector-rule
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Create a connector rule from the available types.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-connector-rule)
@@ -43,7 +40,6 @@ Create a connector rule from the available types.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | ConnectorRuleCreateRequest | [**ConnectorRuleCreateRequest**](../models/connector-rule-create-request) | True  | Connector rule to create.
 
 ### Return type
@@ -65,7 +61,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $ConnectorRuleCreateRequest = @"{
   "sourceCode" : {
     "version" : "1.0",
@@ -93,14 +88,14 @@ $ConnectorRuleCreateRequest = @"{
   "type" : "BuildMap"
 }"@
 
-# Create Connector Rule
+# Create connector rule
 
 try {
     $Result = ConvertFrom-JsonToConnectorRuleCreateRequest -Json $ConnectorRuleCreateRequest
-    New-V2024ConnectorRule -XSailPointExperimental $XSailPointExperimental -ConnectorRuleCreateRequest $Result 
+    New-V2024ConnectorRule -ConnectorRuleCreateRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024ConnectorRule -XSailPointExperimental $XSailPointExperimental -ConnectorRuleCreateRequest $Result  
+    # New-V2024ConnectorRule -ConnectorRuleCreateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ConnectorRule"
     Write-Host $_.ErrorDetails
@@ -109,9 +104,6 @@ try {
 [[Back to top]](#) 
 
 ## delete-connector-rule
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Delete the connector rule for the given ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-connector-rule)
@@ -120,7 +112,6 @@ Delete the connector rule for the given ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the connector rule to delete.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
  (empty response body)
@@ -143,15 +134,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to delete.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Delete Connector Rule
+# Delete connector rule
 
 try {
-    Remove-V2024ConnectorRule -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Remove-V2024ConnectorRule -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2024ConnectorRule -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Remove-V2024ConnectorRule -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024ConnectorRule"
     Write-Host $_.ErrorDetails
@@ -160,9 +150,6 @@ try {
 [[Back to top]](#) 
 
 ## get-connector-rule
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Get a connector rule by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-connector-rule)
@@ -171,7 +158,6 @@ Get a connector rule by ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the connector rule to get.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**ConnectorRuleResponse**](../models/connector-rule-response)
@@ -194,15 +180,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to get.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Connector Rule
+# Get connector rule
 
 try {
-    Get-V2024ConnectorRule -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ConnectorRule -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ConnectorRule -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024ConnectorRule -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ConnectorRule"
     Write-Host $_.ErrorDetails
@@ -211,9 +196,6 @@ try {
 [[Back to top]](#) 
 
 ## get-connector-rule-list
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 List existing connector rules.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-connector-rule-list)
@@ -221,7 +203,6 @@ List existing connector rules.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Limit | **Int32** |   (optional) (default to 50) | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -245,18 +226,17 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Limit = 50 # Int32 | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# List Connector Rules
+# List connector rules
 
 try {
-    Get-V2024ConnectorRuleList -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024ConnectorRuleList 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024ConnectorRuleList -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count  
+    # Get-V2024ConnectorRuleList -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ConnectorRuleList"
     Write-Host $_.ErrorDetails
@@ -265,9 +245,6 @@ try {
 [[Back to top]](#) 
 
 ## put-connector-rule
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Update an existing connector rule with the one provided in the request body. These fields are immutable: `id`, `name`, `type`
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-connector-rule)
@@ -276,7 +253,6 @@ Update an existing connector rule with the one provided in the request body. The
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | ID of the connector rule to update.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | ConnectorRuleUpdateRequest | [**ConnectorRuleUpdateRequest**](../models/connector-rule-update-request) |   (optional) | Connector rule with updated data.
 
 ### Return type
@@ -300,7 +276,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "8c190e6787aa4ed9a90bd9d5344523fb" # String | ID of the connector rule to update.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $ConnectorRuleUpdateRequest = @"{
   "sourceCode" : {
     "version" : "1.0",
@@ -329,13 +304,13 @@ $ConnectorRuleUpdateRequest = @"{
   "type" : "BuildMap"
 }"@
 
-# Update Connector Rule
+# Update connector rule
 
 try {
-    Send-V2024ConnectorRule -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Send-V2024ConnectorRule -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Send-V2024ConnectorRule -Id $Id -XSailPointExperimental $XSailPointExperimental -ConnectorRuleUpdateRequest $Result  
+    # Send-V2024ConnectorRule -Id $Id -ConnectorRuleUpdateRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2024ConnectorRule"
     Write-Host $_.ErrorDetails
@@ -344,9 +319,6 @@ try {
 [[Back to top]](#) 
 
 ## test-connector-rule
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Detect issues within the connector rule's code to fix and list them.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/test-connector-rule)
@@ -354,7 +326,6 @@ Detect issues within the connector rule's code to fix and list them.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | SourceCode | [**SourceCode**](../models/source-code) | True  | Code to validate.
 
 ### Return type
@@ -376,20 +347,19 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $SourceCode = @"{
   "version" : "1.0",
   "script" : "return \"Mr. \" + firstName;"
 }"@
 
-# Validate Connector Rule
+# Validate connector rule
 
 try {
     $Result = ConvertFrom-JsonToSourceCode -Json $SourceCode
-    Test-V2024ConnectorRule -XSailPointExperimental $XSailPointExperimental -SourceCode $Result 
+    Test-V2024ConnectorRule -SourceCode $Result 
     
     # Below is a request that includes all optional parameters
-    # Test-V2024ConnectorRule -XSailPointExperimental $XSailPointExperimental -SourceCode $Result  
+    # Test-V2024ConnectorRule -SourceCode $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Test-V2024ConnectorRule"
     Write-Host $_.ErrorDetails

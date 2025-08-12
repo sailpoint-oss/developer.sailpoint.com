@@ -2,6 +2,7 @@ description: >-
   Represents the IdentityNow as Service Provider Configuration
   allowing customers to log into IDN via an Identity Provider
 type: object
+title: Service Provider Configuration
 properties:
   enabled:
     description: This determines whether or not the SAML authentication flow is enabled for an org
@@ -29,7 +30,7 @@ properties:
       provider and a customer's SailPoint instance (i.e., the service provider).
     type: array
     items:
-      oneOf:
+      anyOf:
         - $ref: 'IdpDetails.yaml'
         - $ref: 'SpDetails.yaml'
     example: [

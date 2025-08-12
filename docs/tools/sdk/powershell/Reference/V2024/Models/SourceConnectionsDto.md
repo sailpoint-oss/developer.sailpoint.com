@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceConnectionsDto = Initialize-PSSailpoint.V2024SourceConnectionsDto  -IdentityProfiles null `
+$SourceConnectionsDto = Initialize-V2024SourceConnectionsDto  -IdentityProfiles null `
  -CredentialProfiles null `
  -SourceAttributes null `
  -MappingProfiles [ODS-AD-Profile, ODS-Profile2] `

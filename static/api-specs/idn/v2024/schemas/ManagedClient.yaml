@@ -1,5 +1,6 @@
 description: Managed Client
 type: object
+title: Managed Client
 required:
   - clientId
   - clusterId
@@ -19,9 +20,11 @@ properties:
     type: string
     example: "CLIENT_STATUS_NOT_CONFIGURED"
   apiGatewayBaseUrl:
+    description: apiGatewayBaseUrl for the Managed client
     nullable: true
     type: string
   cookbook:
+    description: cookbook id for the Managed client
     nullable: true
     type: string 
   ccId:
@@ -144,3 +147,21 @@ properties:
       - DRAFT
     example:
       PROVISIONED
+  healthIndicators:
+    description: The health indicators of the ManagedClient
+    type: object
+    nullable: true
+    example : '{
+      "network": {
+      "errors": [],
+      "warnings": []
+      },
+      "memory": {
+      "errors": [],
+      "warnings": []
+      },
+      "cpu": {
+      "errors": [],
+      "warnings": []
+      }
+    }'

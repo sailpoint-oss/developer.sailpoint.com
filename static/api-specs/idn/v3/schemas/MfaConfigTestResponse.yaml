@@ -1,5 +1,6 @@
 description: Response model for configuration test of a given MFA method
 type: object
+title: Mfa Config Test Response
 properties:
   state:
     type: string

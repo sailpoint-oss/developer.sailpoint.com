@@ -36,7 +36,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CreateOAuthClientRequest = Initialize-PSSailpoint.BetaCreateOAuthClientRequest  -BusinessName Acme-Solar `
+$CreateOAuthClientRequest = Initialize-BetaCreateOAuthClientRequest  -BusinessName Acme-Solar `
  -HomepageUrl http://localhost:12345 `
  -Name Demo API Client `
  -Description An API client used for the authorization_code, refresh_token, and client_credentials flows `

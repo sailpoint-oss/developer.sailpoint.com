@@ -31,7 +31,7 @@ const Workflows: React.FC = () => {
   };
 
   return (
-    <Layout description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
+    <Layout title="Workflows" description="The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.">
       <main>
         <MarketplaceBanner />
         <div className={styles.container}>

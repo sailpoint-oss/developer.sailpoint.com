@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMiningPotentialRoleProvisionRequest = Initialize-PSSailpoint.BetaRoleMiningPotentialRoleProvisionRequest  -RoleName Finance - Accounting `
+$RoleMiningPotentialRoleProvisionRequest = Initialize-BetaRoleMiningPotentialRoleProvisionRequest  -RoleName Finance - Accounting `
  -RoleDescription General access for accounting department `
  -OwnerId 2b568c65bc3c4c57a43bd97e3a8e41 `
  -IncludeIdentities true `

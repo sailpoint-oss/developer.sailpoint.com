@@ -20,12 +20,12 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-auth-user**](#get-auth-user) | **GET** `/auth-users/{id}` | Auth User Details
-[**patch-auth-user**](#patch-auth-user) | **PATCH** `/auth-users/{id}` | Auth User Update
+[**get-auth-user**](#get-auth-user) | **GET** `/auth-users/{id}` | Auth user details
+[**patch-auth-user**](#patch-auth-user) | **PATCH** `/auth-users/{id}` | Auth user update
 
 
 ## get-auth-user
-Auth User Details
+Auth user details
 Return the specified user's authentication system details.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-auth-user)
@@ -68,7 +68,7 @@ with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity ID # str | Identity ID
 
     try:
-        # Auth User Details
+        # Auth user details
         
         results = AuthUsersApi(api_client).get_auth_user(id=id)
         # Below is a request that includes all optional parameters
@@ -84,7 +84,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-auth-user
-Auth User Update
+Auth user update
 Use a PATCH request to update an existing user in the authentication system.
 Use this endpoint to modify these fields: 
   * `capabilities`
@@ -134,7 +134,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=replace, path=/capabilities, value=[ORG_ADMIN]}]''' # List[JsonPatchOperation] | A list of auth user update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
     try:
-        # Auth User Update
+        # Auth user update
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = AuthUsersApi(api_client).patch_auth_user(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters

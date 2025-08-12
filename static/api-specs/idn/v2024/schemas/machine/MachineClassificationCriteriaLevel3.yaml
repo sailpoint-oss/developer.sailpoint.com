@@ -1,0 +1,29 @@
+type: object
+properties:
+  operation:
+    $ref: './MachineClassificationCriteriaOperation.yaml'
+  caseSensitive:
+    type: boolean
+    description: Indicates whether or not case matters when evaluating the criteria
+    example: false
+    default: false
+  dataType:
+    type: string
+    description: The data type of the attribute being evaluated
+    nullable: true
+    example: 'This is the first level of classification criteria'
+  attribute:
+    type: string
+    description: The attribute to evaluate in the classification criteria
+    nullable: true
+    example: sAMAccountName
+  value:
+    type: string
+    description: The value to compare against the attribute in the classification criteria
+    nullable: true
+    example: SVC
+  children:
+    type: array
+    description: An array of child classification criteria objects
+    nullable: true
+    example: null

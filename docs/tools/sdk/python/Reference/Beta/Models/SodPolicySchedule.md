@@ -45,7 +45,7 @@ schedule=sailpoint.beta.models.schedule_1.Schedule_1(
                     expiration = '2018-06-25T20:22:28.104Z', 
                     time_zone_id = 'America/Chicago', ),
 recipients=[
-                    sailpoint.beta.models.sod_recipient.SodRecipient(
+                    sailpoint.beta.models.sod_recipient.Sod Recipient(
                         type = 'IDENTITY', 
                         id = '2c7180a46faadee4016fb4e018c20642', 
                         name = 'Michael Michaels', )

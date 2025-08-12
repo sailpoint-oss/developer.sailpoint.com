@@ -1,5 +1,6 @@
 # Replaces IdentityCertificationDto.yaml
 type: object
+title: Certification Dto
 required:
 - campaignRef
 - completed

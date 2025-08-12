@@ -27,15 +27,15 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-BetaFormDefinition**](#create-form-definition) | **POST** `/form-definitions` | Creates a form definition.
 [**New-BetaFormDefinitionByTemplate**](#create-form-definition-by-template) | **POST** `/form-definitions/template` | Create a form definition by template.
-[**New-BetaFormDefinitionDynamicSchema**](#create-form-definition-dynamic-schema) | **POST** `/form-definitions/forms-action-dynamic-schema` | Generate JSON Schema dynamically.
+[**New-BetaFormDefinitionDynamicSchema**](#create-form-definition-dynamic-schema) | **POST** `/form-definitions/forms-action-dynamic-schema` | Generate json schema dynamically.
 [**New-BetaFormDefinitionFileRequest**](#create-form-definition-file-request) | **POST** `/form-definitions/{formDefinitionID}/upload` | Upload new form definition file.
 [**New-BetaFormInstance**](#create-form-instance) | **POST** `/form-instances` | Creates a form instance.
 [**Remove-BetaFormDefinition**](#delete-form-definition) | **DELETE** `/form-definitions/{formDefinitionID}` | Deletes a form definition.
 [**Export-BetaFormDefinitionsByTenant**](#export-form-definitions-by-tenant) | **GET** `/form-definitions/export` | List form definitions by tenant.
-[**Get-BetaFileFromS3**](#get-file-from-s3) | **GET** `/form-definitions/{formDefinitionID}/file/{fileID}` | Download definition file by fileId.
+[**Get-BetaFileFromS3**](#get-file-from-s3) | **GET** `/form-definitions/{formDefinitionID}/file/{fileID}` | Download definition file by fileid.
 [**Get-BetaFormDefinitionByKey**](#get-form-definition-by-key) | **GET** `/form-definitions/{formDefinitionID}` | Return a form definition.
 [**Get-BetaFormInstanceByKey**](#get-form-instance-by-key) | **GET** `/form-instances/{formInstanceID}` | Returns a form instance.
-[**Get-BetaFormInstanceFile**](#get-form-instance-file) | **GET** `/form-instances/{formInstanceID}/file/{fileID}` | Download instance file by fileId.
+[**Get-BetaFormInstanceFile**](#get-form-instance-file) | **GET** `/form-instances/{formInstanceID}/file/{fileID}` | Download instance file by fileid.
 [**Import-BetaFormDefinitions**](#import-form-definitions) | **POST** `/form-definitions/import` | Import form definitions from export.
 [**Update-BetaFormDefinition**](#patch-form-definition) | **PATCH** `/form-definitions/{formDefinitionID}` | Patch a form definition.
 [**Update-BetaFormInstance**](#patch-form-instance) | **PATCH** `/form-instances/{formInstanceID}` | Patch a form instance.
@@ -396,7 +396,7 @@ $Body = @"{
   "versionNumber" : 1
 }"@
 
-# Generate JSON Schema dynamically.
+# Generate json schema dynamically.
 
 try {
     New-BetaFormDefinitionDynamicSchema 
@@ -658,7 +658,7 @@ Code | Description  | Data Type
 $FormDefinitionID = "00000000-0000-0000-0000-000000000000" # String | FormDefinitionID  Form definition ID
 $FileID = "00000031N0J7R2B57M8YG73J7M.png" # String | FileID  String specifying the hashed name of the uploaded file we are retrieving.
 
-# Download definition file by fileId.
+# Download definition file by fileid.
 
 try {
     Get-BetaFileFromS3 -FormDefinitionID $FormDefinitionID -FileID $FileID 
@@ -799,7 +799,7 @@ Code | Description  | Data Type
 $FormInstanceID = "00000000-0000-0000-0000-000000000000" # String | FormInstanceID  Form instance ID
 $FileID = "00000031N0J7R2B57M8YG73J7M.png" # String | FileID  String specifying the hashed name of the uploaded file we are retrieving.
 
-# Download instance file by fileId.
+# Download instance file by fileid.
 
 try {
     Get-BetaFormInstanceFile -FormInstanceID $FormInstanceID -FileID $FileID 

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Lookup = Initialize-PSSailpoint.V2024Lookup  -Table {USA=Americas, FRA=EMEA, AUS=APAC, default=Unknown Region} `
+$Lookup = Initialize-V2024Lookup  -Table {USA=Americas, FRA=EMEA, AUS=APAC, default=Unknown Region} `
  -RequiresPeriodicRefresh false `
  -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}
 ```

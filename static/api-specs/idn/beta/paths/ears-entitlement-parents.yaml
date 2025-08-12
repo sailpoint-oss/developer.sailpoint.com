@@ -7,6 +7,8 @@ get:
     This API returns a list of all parent entitlements of a given entitlement.
   security:
       - userAuth: [idn:entitlement:read, idn:entitlement:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   parameters:
     - $ref: '../../v3/parameters/limit.yaml'
     - $ref: '../../v3/parameters/offset.yaml'

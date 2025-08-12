@@ -1,11 +1,14 @@
 get:
   operationId: listCompletedApprovals
-  summary: Completed Access Request Approvals List
+  summary: Completed access request approvals list
   tags:
     - Access Request Approvals
   description: >-
     This endpoint returns list of completed approvals. See *owner-id* query
     parameter below for authorization info.
+  security:
+  - userAuth:
+    - idn:access-request-approvals:read
   parameters:
     - in: query
       name: owner-id

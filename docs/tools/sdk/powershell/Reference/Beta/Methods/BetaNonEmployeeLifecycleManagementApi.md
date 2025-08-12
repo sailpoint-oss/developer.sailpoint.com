@@ -48,41 +48,44 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Approve-BetaNonEmployeeRequest**](#approve-non-employee-request) | **POST** `/non-employee-approvals/{id}/approve` | Approve a Non-Employee Request
-[**New-BetaNonEmployeeRecord**](#create-non-employee-record) | **POST** `/non-employee-records` | Create Non-Employee Record
-[**New-BetaNonEmployeeRequest**](#create-non-employee-request) | **POST** `/non-employee-requests` | Create Non-Employee Request
-[**New-BetaNonEmployeeSource**](#create-non-employee-source) | **POST** `/non-employee-sources` | Create Non-Employee Source
-[**New-BetaNonEmployeeSourceSchemaAttributes**](#create-non-employee-source-schema-attributes) | **POST** `/non-employee-sources/{sourceId}/schema-attributes` | Create Non-Employee Source Schema Attribute
-[**Remove-BetaNonEmployeeRecord**](#delete-non-employee-record) | **DELETE** `/non-employee-records/{id}` | Delete Non-Employee Record
-[**Remove-BetaNonEmployeeRecordInBulk**](#delete-non-employee-record-in-bulk) | **POST** `/non-employee-records/bulk-delete` | Delete Multiple Non-Employee Records
-[**Remove-BetaNonEmployeeRequest**](#delete-non-employee-request) | **DELETE** `/non-employee-requests/{id}` | Delete Non-Employee Request
-[**Remove-BetaNonEmployeeSchemaAttribute**](#delete-non-employee-schema-attribute) | **DELETE** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Delete Non-Employee Source&#39;s Schema Attribute
-[**Remove-BetaNonEmployeeSource**](#delete-non-employee-source) | **DELETE** `/non-employee-sources/{sourceId}` | Delete Non-Employee Source
+[**Approve-BetaNonEmployeeRequest**](#approve-non-employee-request) | **POST** `/non-employee-approvals/{id}/approve` | Approve a non-employee request
+[**New-BetaNonEmployeeRecord**](#create-non-employee-record) | **POST** `/non-employee-records` | Create non-employee record
+[**New-BetaNonEmployeeRequest**](#create-non-employee-request) | **POST** `/non-employee-requests` | Create non-employee request
+[**New-BetaNonEmployeeSource**](#create-non-employee-source) | **POST** `/non-employee-sources` | Create non-employee source
+[**New-BetaNonEmployeeSourceSchemaAttributes**](#create-non-employee-source-schema-attributes) | **POST** `/non-employee-sources/{sourceId}/schema-attributes` | Create non-employee source schema attribute
+[**Remove-BetaNonEmployeeRecord**](#delete-non-employee-record) | **DELETE** `/non-employee-records/{id}` | Delete non-employee record
+[**Remove-BetaNonEmployeeRecordInBulk**](#delete-non-employee-record-in-bulk) | **POST** `/non-employee-records/bulk-delete` | Delete multiple non-employee records
+[**Remove-BetaNonEmployeeRequest**](#delete-non-employee-request) | **DELETE** `/non-employee-requests/{id}` | Delete non-employee request
+[**Remove-BetaNonEmployeeSchemaAttribute**](#delete-non-employee-schema-attribute) | **DELETE** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Delete non-employee source&#39;s schema attribute
+[**Remove-BetaNonEmployeeSource**](#delete-non-employee-source) | **DELETE** `/non-employee-sources/{sourceId}` | Delete non-employee source
 [**Remove-BetaNonEmployeeSourceSchemaAttributes**](#delete-non-employee-source-schema-attributes) | **DELETE** `/non-employee-sources/{sourceId}/schema-attributes` | Delete all custom schema attributes
-[**Export-BetaNonEmployeeRecords**](#export-non-employee-records) | **GET** `/non-employee-sources/{id}/non-employees/download` | Exports Non-Employee Records to CSV
-[**Export-BetaNonEmployeeSourceSchemaTemplate**](#export-non-employee-source-schema-template) | **GET** `/non-employee-sources/{id}/schema-attributes-template/download` | Exports Source Schema Template
-[**Get-BetaNonEmployeeApproval**](#get-non-employee-approval) | **GET** `/non-employee-approvals/{id}` | Get a non-employee approval item detail
-[**Get-BetaNonEmployeeApprovalSummary**](#get-non-employee-approval-summary) | **GET** `/non-employee-approvals/summary/{requested-for}` | Get Summary of Non-Employee Approval Requests
+[**Get-BetaNonEmployeeApproval**](#get-non-employee-approval) | **GET** `/non-employee-approvals/{id}` | A non-employee approval item detail
+[**Get-BetaNonEmployeeApprovalSummary**](#get-non-employee-approval-summary) | **GET** `/non-employee-approvals/summary/{requested-for}` | Summary of non-employee approval requests
 [**Get-BetaNonEmployeeBulkUploadStatus**](#get-non-employee-bulk-upload-status) | **GET** `/non-employee-sources/{id}/non-employee-bulk-upload/status` | Bulk upload status on source
-[**Get-BetaNonEmployeeRecord**](#get-non-employee-record) | **GET** `/non-employee-records/{id}` | Get a Non-Employee Record
-[**Get-BetaNonEmployeeRequest**](#get-non-employee-request) | **GET** `/non-employee-requests/{id}` | Get a Non-Employee Request
-[**Get-BetaNonEmployeeRequestSummary**](#get-non-employee-request-summary) | **GET** `/non-employee-requests/summary/{requested-for}` | Get Summary of Non-Employee Requests
-[**Get-BetaNonEmployeeSchemaAttribute**](#get-non-employee-schema-attribute) | **GET** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Get Schema Attribute Non-Employee Source
-[**Get-BetaNonEmployeeSource**](#get-non-employee-source) | **GET** `/non-employee-sources/{sourceId}` | Get a Non-Employee Source
-[**Get-BetaNonEmployeeSourceSchemaAttributes**](#get-non-employee-source-schema-attributes) | **GET** `/non-employee-sources/{sourceId}/schema-attributes` | List Schema Attributes Non-Employee Source
-[**Import-BetaNonEmployeeRecordsInBulk**](#import-non-employee-records-in-bulk) | **POST** `/non-employee-sources/{id}/non-employee-bulk-upload` | Imports, or Updates, Non-Employee Records
-[**Get-BetaNonEmployeeApproval**](#list-non-employee-approval) | **GET** `/non-employee-approvals` | Get List of Non-Employee Approval Requests
-[**Get-BetaNonEmployeeRecords**](#list-non-employee-records) | **GET** `/non-employee-records` | List Non-Employee Records
-[**Get-BetaNonEmployeeRequests**](#list-non-employee-requests) | **GET** `/non-employee-requests` | List Non-Employee Requests
-[**Get-BetaNonEmployeeSources**](#list-non-employee-sources) | **GET** `/non-employee-sources` | List Non-Employee Sources
-[**Update-BetaNonEmployeeRecord**](#patch-non-employee-record) | **PATCH** `/non-employee-records/{id}` | Patch Non-Employee Record
-[**Update-BetaNonEmployeeSchemaAttribute**](#patch-non-employee-schema-attribute) | **PATCH** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Patch Non-Employee Source&#39;s Schema Attribute
-[**Update-BetaNonEmployeeSource**](#patch-non-employee-source) | **PATCH** `/non-employee-sources/{sourceId}` | Patch a Non-Employee Source
-[**Deny-BetaNonEmployeeRequest**](#reject-non-employee-request) | **POST** `/non-employee-approvals/{id}/reject` | Reject a Non-Employee Request
-[**Update-BetaNonEmployeeRecord**](#update-non-employee-record) | **PUT** `/non-employee-records/{id}` | Update Non-Employee Record
+[**Get-BetaNonEmployeeExportRecords**](#get-non-employee-export-records) | **GET** `/non-employee-sources/{id}/non-employees/download` | Exports non-employee records to csv
+[**Get-BetaNonEmployeeExportSourceSchemaTemplate**](#get-non-employee-export-source-schema-template) | **GET** `/non-employee-sources/{id}/schema-attributes-template/download` | Exports source schema template
+[**Get-BetaNonEmployeeRecord**](#get-non-employee-record) | **GET** `/non-employee-records/{id}` | Get a non-employee record
+[**Get-BetaNonEmployeeRequest**](#get-non-employee-request) | **GET** `/non-employee-requests/{id}` | Get a non-employee request
+[**Get-BetaNonEmployeeRequestSummary**](#get-non-employee-request-summary) | **GET** `/non-employee-requests/summary/{requested-for}` | Get summary of non-employee requests
+[**Get-BetaNonEmployeeSchemaAttribute**](#get-non-employee-schema-attribute) | **GET** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Get schema attribute non-employee source
+[**Get-BetaNonEmployeeSource**](#get-non-employee-source) | **GET** `/non-employee-sources/{sourceId}` | Get a non-employee source
+[**Get-BetaNonEmployeeSourceSchemaAttributes**](#get-non-employee-source-schema-attributes) | **GET** `/non-employee-sources/{sourceId}/schema-attributes` | List schema attributes non-employee source
+[**Import-BetaNonEmployeeRecordsInBulk**](#import-non-employee-records-in-bulk) | **POST** `/non-employee-sources/{id}/non-employee-bulk-upload` | Imports, or updates, non-employee records
+[**Get-BetaNonEmployeeApproval**](#list-non-employee-approval) | **GET** `/non-employee-approvals` | List of non-employee approval requests
+[**Get-BetaNonEmployeeRecords**](#list-non-employee-records) | **GET** `/non-employee-records` | List non-employee records
+[**Get-BetaNonEmployeeRequests**](#list-non-employee-requests) | **GET** `/non-employee-requests` | List non-employee requests
+[**Get-BetaNonEmployeeSources**](#list-non-employee-sources) | **GET** `/non-employee-sources` | List non-employee sources
+[**Update-BetaNonEmployeeRecord**](#patch-non-employee-record) | **PATCH** `/non-employee-records/{id}` | Patch non-employee record
+[**Update-BetaNonEmployeeSchemaAttribute**](#patch-non-employee-schema-attribute) | **PATCH** `/non-employee-sources/{sourceId}/schema-attributes/{attributeId}` | Patch non-employee source&#39;s schema attribute
+[**Update-BetaNonEmployeeSource**](#patch-non-employee-source) | **PATCH** `/non-employee-sources/{sourceId}` | Patch a non-employee source
+[**Send-BetaNonEmployeeRecord**](#put-non-employee-record) | **PUT** `/non-employee-records/{id}` | Update non-employee record
+[**Deny-BetaNonEmployeeRequest**](#reject-non-employee-request) | **POST** `/non-employee-approvals/{id}/reject` | Reject a non-employee request
 
 
 ## approve-non-employee-request
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Approves a non-employee approval request and notifies the next approver.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/approve-non-employee-request)
@@ -112,12 +115,12 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$Id = "MyId" # String | Non-Employee approval item id (UUID)
+$Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee approval item id (UUID)
 $NonEmployeeApprovalDecision = @"{
   "comment" : "comment"
 }"@
 
-# Approve a Non-Employee Request
+# Approve a non-employee request
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeApprovalDecision -Json $NonEmployeeApprovalDecision
@@ -133,6 +136,9 @@ try {
 [[Back to top]](#) 
 
 ## create-non-employee-record
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This request will create a non-employee record.
 Request will require the following security scope:
 'idn:nesr:create'
@@ -178,7 +184,7 @@ $NonEmployeeRequestBody = @"{
   "startDate" : "2020-03-24T00:00:00-05:00"
 }"@
 
-# Create Non-Employee Record
+# Create non-employee record
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
@@ -194,6 +200,9 @@ try {
 [[Back to top]](#) 
 
 ## create-non-employee-request
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This request will create a non-employee request and notify the approver
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-request)
@@ -237,7 +246,7 @@ $NonEmployeeRequestBody = @"{
   "startDate" : "2020-03-24T00:00:00-05:00"
 }"@
 
-# Create Non-Employee Request
+# Create non-employee request
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
@@ -253,6 +262,9 @@ try {
 [[Back to top]](#) 
 
 ## create-non-employee-source
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Create a non-employee source.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-source)
@@ -308,7 +320,7 @@ $NonEmployeeSourceRequestBody = @"{
   } ]
 }"@
 
-# Create Non-Employee Source
+# Create non-employee source
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeSourceRequestBody -Json $NonEmployeeSourceRequestBody
@@ -324,6 +336,9 @@ try {
 [[Back to top]](#) 
 
 ## create-non-employee-source-schema-attributes
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API creates a new schema attribute for Non-Employee Source. The schema technical name must be unique in the source. Attempts to create a schema attribute with an existing name will result in a "400.1.409 Reference conflict" response. At most, 10 custom attributes can be created per schema. Attempts to create more than 10 will result in a "400.1.4 Limit violation" response.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-non-employee-source-schema-attributes)
@@ -363,7 +378,7 @@ $NonEmployeeSchemaAttributeBody = @"{
   "required" : true
 }"@
 
-# Create Non-Employee Source Schema Attribute
+# Create non-employee source schema attribute
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeSchemaAttributeBody -Json $NonEmployeeSchemaAttributeBody
@@ -379,6 +394,9 @@ try {
 [[Back to top]](#) 
 
 ## delete-non-employee-record
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This request will delete a non-employee record.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-record)
@@ -409,7 +427,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee record id (UUID)
 
-# Delete Non-Employee Record
+# Delete non-employee record
 
 try {
     Remove-BetaNonEmployeeRecord -Id $Id 
@@ -424,6 +442,9 @@ try {
 [[Back to top]](#) 
 
 ## delete-non-employee-record-in-bulk
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This request will delete multiple non-employee records based on the non-employee ids provided.
 Request will require the following scope:
 'idn:nesr:delete'
@@ -456,7 +477,7 @@ Code | Description  | Data Type
 ```powershell
 $DeleteNonEmployeeRecordInBulkRequest = @""@
 
-# Delete Multiple Non-Employee Records
+# Delete multiple non-employee records
 
 try {
     $Result = ConvertFrom-JsonToDeleteNonEmployeeRecordInBulkRequest -Json $DeleteNonEmployeeRecordInBulkRequest
@@ -472,6 +493,9 @@ try {
 [[Back to top]](#) 
 
 ## delete-non-employee-request
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This request will delete a non-employee request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-request)
@@ -503,7 +527,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee request id in the UUID format
 
-# Delete Non-Employee Request
+# Delete non-employee request
 
 try {
     Remove-BetaNonEmployeeRequest -Id $Id 
@@ -518,6 +542,9 @@ try {
 [[Back to top]](#) 
 
 ## delete-non-employee-schema-attribute
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This end-point deletes a specific schema attribute for a non-employee source.
 
 
@@ -551,7 +578,7 @@ Code | Description  | Data Type
 $AttributeId = "2c91808b6ef1d43e016efba0ce470904" # String | The Schema Attribute Id (UUID)
 $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
 
-# Delete Non-Employee Source's Schema Attribute
+# Delete non-employee source's schema attribute
 
 try {
     Remove-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId 
@@ -566,6 +593,9 @@ try {
 [[Back to top]](#) 
 
 ## delete-non-employee-source
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This request will delete a non-employee source.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-source)
@@ -596,7 +626,7 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | Source Id
 
-# Delete Non-Employee Source
+# Delete non-employee source
 
 try {
     Remove-BetaNonEmployeeSource -SourceId $SourceId 
@@ -611,6 +641,9 @@ try {
 [[Back to top]](#) 
 
 ## delete-non-employee-source-schema-attributes
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This end-point deletes all custom schema attributes for a non-employee source.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/delete-non-employee-source-schema-attributes)
@@ -655,101 +688,10 @@ try {
 ```
 [[Back to top]](#) 
 
-## export-non-employee-records
-This requests a CSV download for all non-employees from a provided source.
-
-[API Spec](https://developer.sailpoint.com/docs/api/beta/export-non-employee-records)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | Source Id (UUID)
-
-### Return type
- (empty response body)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-200 | Exported CSV | 
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
-
-### Example
-```powershell
-$Id = "2c918085842e69ae018432d22ccb212f" # String | Source Id (UUID)
-
-# Exports Non-Employee Records to CSV
-
-try {
-    Export-BetaNonEmployeeRecords -Id $Id 
-    
-    # Below is a request that includes all optional parameters
-    # Export-BetaNonEmployeeRecords -Id $Id  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-BetaNonEmployeeRecords"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
-## export-non-employee-source-schema-template
-This requests a download for the Source Schema Template for a provided source.
-Request will require the following security scope:
-idn:nesr:read'
-
-[API Spec](https://developer.sailpoint.com/docs/api/beta/export-non-employee-source-schema-template)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | Source Id (UUID)
-
-### Return type
- (empty response body)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-200 | Exported Source Schema Template | 
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: Not defined
-- **Accept**: text/csv, application/json
-
-### Example
-```powershell
-$Id = "2c918085842e69ae018432d22ccb212f" # String | Source Id (UUID)
-
-# Exports Source Schema Template
-
-try {
-    Export-BetaNonEmployeeSourceSchemaTemplate -Id $Id 
-    
-    # Below is a request that includes all optional parameters
-    # Export-BetaNonEmployeeSourceSchemaTemplate -Id $Id  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Export-BetaNonEmployeeSourceSchemaTemplate"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
 ## get-non-employee-approval
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Approves a non-employee approval request and notifies the next approver.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-approval)
@@ -782,7 +724,7 @@ Code | Description  | Data Type
 $Id = "ac10d20a-841e-1e7d-8184-32d2e22c0179" # String | Non-Employee approval item id (UUID)
 $IncludeDetail = "include-detail=false" # String | The object nonEmployeeRequest will not be included detail when set to false. *Default value is true* (optional)
 
-# Get a non-employee approval item detail
+# A non-employee approval item detail
 
 try {
     Get-BetaNonEmployeeApproval -Id $Id 
@@ -797,6 +739,9 @@ try {
 [[Back to top]](#) 
 
 ## get-non-employee-approval-summary
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This request will retrieve a summary of non-employee approval requests. There are two contextual uses for the `requested-for` path parameter: 1. The current user is the Org Admin, in which case he or she may request a summary of all non-employee approval requests assigned to a particular approver by passing in that approver's id. 2. The current user is an approver, in which case "me" should be provided as the `requested-for` value. This will provide the approver with a summary of the approval items assigned to him or her.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-approval-summary)
@@ -827,7 +772,7 @@ Code | Description  | Data Type
 ```powershell
 $RequestedFor = "ac10d20a-841e-1e7d-8184-32d2e22c0179" # String | The identity (UUID) of the approver for whom for whom the summary is being retrieved. Use ""me"" instead to indicate the current user.
 
-# Get Summary of Non-Employee Approval Requests
+# Summary of non-employee approval requests
 
 try {
     Get-BetaNonEmployeeApprovalSummary -RequestedFor $RequestedFor 
@@ -842,6 +787,9 @@ try {
 [[Back to top]](#) 
 
 ## get-non-employee-bulk-upload-status
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 The nonEmployeeBulkUploadStatus API returns the status of the newest bulk upload job for the specified source.
 
 
@@ -887,7 +835,110 @@ try {
 ```
 [[Back to top]](#) 
 
+## get-non-employee-export-records
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+This requests a CSV download for all non-employees from a provided source.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-export-records)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | Source Id (UUID)
+
+### Return type
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Exported CSV | 
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: text/csv, application/json
+
+### Example
+```powershell
+$Id = "2c918085842e69ae018432d22ccb212f" # String | Source Id (UUID)
+
+# Exports non-employee records to csv
+
+try {
+    Get-BetaNonEmployeeExportRecords -Id $Id 
+    
+    # Below is a request that includes all optional parameters
+    # Get-BetaNonEmployeeExportRecords -Id $Id  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeExportRecords"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## get-non-employee-export-source-schema-template
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+This requests a download for the Source Schema Template for a provided source.
+Request will require the following security scope:
+idn:nesr:read'
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-export-source-schema-template)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | Source Id (UUID)
+
+### Return type
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Exported Source Schema Template | 
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: text/csv, application/json
+
+### Example
+```powershell
+$Id = "2c918085842e69ae018432d22ccb212f" # String | Source Id (UUID)
+
+# Exports source schema template
+
+try {
+    Get-BetaNonEmployeeExportSourceSchemaTemplate -Id $Id 
+    
+    # Below is a request that includes all optional parameters
+    # Get-BetaNonEmployeeExportSourceSchemaTemplate -Id $Id  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeExportSourceSchemaTemplate"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## get-non-employee-record
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This gets a non-employee record.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-record)
@@ -918,7 +969,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee record id (UUID)
 
-# Get a Non-Employee Record
+# Get a non-employee record
 
 try {
     Get-BetaNonEmployeeRecord -Id $Id 
@@ -933,6 +984,9 @@ try {
 [[Back to top]](#) 
 
 ## get-non-employee-request
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This gets a non-employee request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-request)
@@ -964,7 +1018,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee request id (UUID)
 
-# Get a Non-Employee Request
+# Get a non-employee request
 
 try {
     Get-BetaNonEmployeeRequest -Id $Id 
@@ -979,6 +1033,9 @@ try {
 [[Back to top]](#) 
 
 ## get-non-employee-request-summary
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This request will retrieve a summary of non-employee requests. There are two contextual uses for the `requested-for` path parameter: 1. The current user is the Org Admin, in which case he or she may request a summary of all non-employee approval requests assigned to a particular account manager by passing in that manager's id. 2. The current user is an account manager, in which case "me" should be provided as the `requested-for` value. This will provide the user with a summary of the non-employee requests in the source(s) he or she manages.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-request-summary)
@@ -1009,7 +1066,7 @@ Code | Description  | Data Type
 ```powershell
 $RequestedFor = "ac10d20a-841e-1e7d-8184-32d2e22c0179" # String | The identity (UUID) of the non-employee account manager for whom the summary is being retrieved. Use ""me"" instead to indicate the current user.
 
-# Get Summary of Non-Employee Requests
+# Get summary of non-employee requests
 
 try {
     Get-BetaNonEmployeeRequestSummary -RequestedFor $RequestedFor 
@@ -1024,6 +1081,9 @@ try {
 [[Back to top]](#) 
 
 ## get-non-employee-schema-attribute
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API gets a schema attribute by Id for the specified Non-Employee SourceId.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-schema-attribute)
@@ -1056,7 +1116,7 @@ Code | Description  | Data Type
 $AttributeId = "2c918085842e69ae018432d22ccb212f" # String | The Schema Attribute Id (UUID)
 $SourceId = "2c918085842e69ae018432d22ccb212f" # String | The Source id
 
-# Get Schema Attribute Non-Employee Source
+# Get schema attribute non-employee source
 
 try {
     Get-BetaNonEmployeeSchemaAttribute -AttributeId $AttributeId -SourceId $SourceId 
@@ -1071,6 +1131,9 @@ try {
 [[Back to top]](#) 
 
 ## get-non-employee-source
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This gets a non-employee source.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-source)
@@ -1101,7 +1164,7 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c91808b7c28b350017c2a2ec5790aa1" # String | Source Id
 
-# Get a Non-Employee Source
+# Get a non-employee source
 
 try {
     Get-BetaNonEmployeeSource -SourceId $SourceId 
@@ -1116,6 +1179,9 @@ try {
 [[Back to top]](#) 
 
 ## get-non-employee-source-schema-attributes
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This API gets the list of schema attributes for the specified Non-Employee SourceId. There are 8 mandatory attributes added to each new Non-Employee Source automatically. Additionaly, user can add up to 10 custom attributes. This interface returns all the mandatory attributes followed by any custom attributes. At most, a total of 18 attributes will be returned.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-non-employee-source-schema-attributes)
@@ -1124,6 +1190,8 @@ This API gets the list of schema attributes for the specified Non-Employee Sourc
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | SourceId | **String** | True  | The Source id
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**NonEmployeeSchemaAttribute[]**](../models/non-employee-schema-attribute)
@@ -1146,14 +1214,16 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $SourceId = "2c918085842e69ae018432d22ccb212f" # String | The Source id
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
-# List Schema Attributes Non-Employee Source
+# List schema attributes non-employee source
 
 try {
     Get-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId 
     
     # Below is a request that includes all optional parameters
-    # Get-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId  
+    # Get-BetaNonEmployeeSourceSchemaAttributes -SourceId $SourceId -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-BetaNonEmployeeSourceSchemaAttributes"
     Write-Host $_.ErrorDetails
@@ -1162,6 +1232,9 @@ try {
 [[Back to top]](#) 
 
 ## import-non-employee-records-in-bulk
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This post will import, or update, Non-Employee records found in the CSV.
 Request will need the following security scope:
 'idn:nesr:create'
@@ -1197,7 +1270,7 @@ Code | Description  | Data Type
 $Id = "e136567de87e4d029e60b3c3c55db56d" # String | Source Id (UUID)
 $Data =  # System.IO.FileInfo | 
 
-# Imports, or Updates, Non-Employee Records
+# Imports, or updates, non-employee records
 
 try {
     Import-BetaNonEmployeeRecordsInBulk -Id $Id -Data $Data 
@@ -1212,6 +1285,9 @@ try {
 [[Back to top]](#) 
 
 ## list-non-employee-approval
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This gets a list of non-employee approval requests.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-approval)
@@ -1252,7 +1328,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'approvalStatus eq "PENDING"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **approvalStatus**: *eq* (optional)
 $Sorters = "created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
 
-# Get List of Non-Employee Approval Requests
+# List of non-employee approval requests
 
 try {
     Get-BetaNonEmployeeApproval 
@@ -1267,6 +1343,9 @@ try {
 [[Back to top]](#) 
 
 ## list-non-employee-records
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This gets a list of non-employee records.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-records)
@@ -1305,7 +1384,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Sorters = "accountName,sourceId" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, accountName, sourceId, manager, firstName, lastName, email, phone, startDate, endDate, created, modified** (optional)
 $Filters = 'sourceId eq "2c91808568c529c60168cca6f90c1313"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq* (optional)
 
-# List Non-Employee Records
+# List non-employee records
 
 try {
     Get-BetaNonEmployeeRecords 
@@ -1320,6 +1399,9 @@ try {
 [[Back to top]](#) 
 
 ## list-non-employee-requests
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This gets a list of non-employee requests.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/list-non-employee-requests)
@@ -1360,7 +1442,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Sorters = "approvalStatus,firstName" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, approvalStatus, firstName, lastName, email, phone, accountName, startDate, endDate** (optional)
 $Filters = 'sourceId eq "2c91808568c529c60168cca6f90c1313"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **sourceId**: *eq* (optional)
 
-# List Non-Employee Requests
+# List non-employee requests
 
 try {
     Get-BetaNonEmployeeRequests -RequestedFor $RequestedFor 
@@ -1375,6 +1457,9 @@ try {
 [[Back to top]](#) 
 
 ## list-non-employee-sources
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 Get a list of non-employee sources. There are two contextual uses for the `requested-for` path parameter: 
   1. If the user has the role context of `idn:nesr:read`, he or she may request a list sources assigned to a particular account manager by passing in that manager's `id`.
   2. If the current user is an account manager, the user should provide 'me' as the `requested-for` value. Doing so provide the user with a list of the sources he or she owns.
@@ -1417,7 +1502,7 @@ $RequestedFor = "me" # String | Identity the request was made for. Use 'me' to i
 $NonEmployeeCount = $false # Boolean | Flag that determines whether the API will return a non-employee count associated with the source. (optional) (default to $false)
 $Sorters = "name,created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, sourceId** (optional)
 
-# List Non-Employee Sources
+# List non-employee sources
 
 try {
     Get-BetaNonEmployeeSources 
@@ -1432,6 +1517,9 @@ try {
 [[Back to top]](#) 
 
 ## patch-non-employee-record
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This request will patch a non-employee record.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-non-employee-record)
@@ -1470,7 +1558,7 @@ $Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-employee record id (UUID
 }"@ # JsonPatchOperation[] | A list of non-employee update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. Attributes are restricted by user type. Owner of source can update end date. Organization admins can update all available fields.
  
 
-# Patch Non-Employee Record
+# Patch non-employee record
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -1486,6 +1574,9 @@ try {
 [[Back to top]](#) 
 
 ## patch-non-employee-schema-attribute
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This end-point patches a specific schema attribute for a non-employee SourceId.
 
 
@@ -1527,7 +1618,7 @@ $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | The Source id
 }"@ # JsonPatchOperation[] | A list of schema attribute update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard. The following properties are allowed for update ':' 'label', 'helpText', 'placeholder', 'required'.
  
 
-# Patch Non-Employee Source's Schema Attribute
+# Patch non-employee source's schema attribute
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -1543,6 +1634,9 @@ try {
 [[Back to top]](#) 
 
 ## patch-non-employee-source
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 patch a non-employee source. (Partial Update)  Patchable field: **name, description, approvers, accountManagers**
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/patch-non-employee-source)
@@ -1580,7 +1674,7 @@ $SourceId = "2c91808b6ef1d43e016efba0ce470904" # String | Source Id
 }"@ # JsonPatchOperation[] | A list of non-employee source update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
  
 
-# Patch a Non-Employee Source
+# Patch a non-employee source
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
@@ -1595,60 +1689,13 @@ try {
 ```
 [[Back to top]](#) 
 
-## reject-non-employee-request
-This endpoint will reject an approval item request and notify user.
-
-[API Spec](https://developer.sailpoint.com/docs/api/beta/reject-non-employee-request)
-
-### Parameters 
-Param Type | Name | Data Type | Required  | Description
-------------- | ------------- | ------------- | ------------- | ------------- 
-Path   | Id | **String** | True  | Non-Employee approval item id (UUID)
- Body  | NonEmployeeRejectApprovalDecision | [**NonEmployeeRejectApprovalDecision**](../models/non-employee-reject-approval-decision) | True  | 
-
-### Return type
-[**NonEmployeeApprovalItem**](../models/non-employee-approval-item)
-
-### Responses
-Code | Description  | Data Type
-------------- | ------------- | -------------
-200 | Non-Employee approval item object. | NonEmployeeApprovalItem
-400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
-401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
-403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
-429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
-500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
-
-### HTTP request headers
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### Example
-```powershell
-$Id = "MyId" # String | Non-Employee approval item id (UUID)
-$NonEmployeeRejectApprovalDecision = @"{
-  "comment" : "comment"
-}"@
-
-# Reject a Non-Employee Request
-
-try {
-    $Result = ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
-    Deny-BetaNonEmployeeRequest -Id $Id -NonEmployeeRejectApprovalDecision $Result 
-    
-    # Below is a request that includes all optional parameters
-    # Deny-BetaNonEmployeeRequest -Id $Id -NonEmployeeRejectApprovalDecision $Result  
-} catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-BetaNonEmployeeRequest"
-    Write-Host $_.ErrorDetails
-}
-```
-[[Back to top]](#) 
-
-## update-non-employee-record
+## put-non-employee-record
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
 This request will update a non-employee record.
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/update-non-employee-record)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/put-non-employee-record)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
@@ -1692,16 +1739,69 @@ $NonEmployeeRequestBody = @"{
   "startDate" : "2020-03-24T00:00:00-05:00"
 }"@
 
-# Update Non-Employee Record
+# Update non-employee record
 
 try {
     $Result = ConvertFrom-JsonToNonEmployeeRequestBody -Json $NonEmployeeRequestBody
-    Update-BetaNonEmployeeRecord -Id $Id -NonEmployeeRequestBody $Result 
+    Send-BetaNonEmployeeRecord -Id $Id -NonEmployeeRequestBody $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-BetaNonEmployeeRecord -Id $Id -NonEmployeeRequestBody $Result  
+    # Send-BetaNonEmployeeRecord -Id $Id -NonEmployeeRequestBody $Result  
 } catch {
-    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-BetaNonEmployeeRecord"
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-BetaNonEmployeeRecord"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## reject-non-employee-request
+:::caution deprecated 
+This endpoint has been deprecated and may be replaced or removed in future versions of the API.
+:::
+This endpoint will reject an approval item request and notify user.
+
+[API Spec](https://developer.sailpoint.com/docs/api/beta/reject-non-employee-request)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | Id | **String** | True  | Non-Employee approval item id (UUID)
+ Body  | NonEmployeeRejectApprovalDecision | [**NonEmployeeRejectApprovalDecision**](../models/non-employee-reject-approval-decision) | True  | 
+
+### Return type
+[**NonEmployeeApprovalItem**](../models/non-employee-approval-item)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | Non-Employee approval item object. | NonEmployeeApprovalItem
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessModelMetadataAttribute429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$Id = "2c91808b6ef1d43e016efba0ce470904" # String | Non-Employee approval item id (UUID)
+$NonEmployeeRejectApprovalDecision = @"{
+  "comment" : "comment"
+}"@
+
+# Reject a non-employee request
+
+try {
+    $Result = ConvertFrom-JsonToNonEmployeeRejectApprovalDecision -Json $NonEmployeeRejectApprovalDecision
+    Deny-BetaNonEmployeeRequest -Id $Id -NonEmployeeRejectApprovalDecision $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Deny-BetaNonEmployeeRequest -Id $Id -NonEmployeeRejectApprovalDecision $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Deny-BetaNonEmployeeRequest"
     Write-Host $_.ErrorDetails
 }
 ```

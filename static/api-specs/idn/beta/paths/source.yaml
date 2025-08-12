@@ -4,7 +4,7 @@ get:
     - userAuth: [ idn:sources:read ]
   tags:
     - Sources
-  summary: Get Source by ID
+  summary: Get source by id
   description: >-
     Use this API to get a source by a specified ID in Identity Security Cloud (ISC).
 
@@ -43,7 +43,7 @@ put:
     - userAuth: [ idn:sources:manage ]
   tags:
     - Sources
-  summary: Update Source (Full)
+  summary: Update source (full)
   description: |
     Use this API to update a source in Identity Security Cloud (ISC), using a full object representation. This means that when you use this API, it completely replaces the existing source configuration.
 
@@ -101,7 +101,7 @@ patch:
     - userAuth: [ idn:sources:manage ]
   tags:
     - Sources
-  summary: Update Source (Partial)
+  summary: Update source (partial)
   description: |
     Use this API to partially update a source in Identity Security Cloud (ISC), using a list of patch operations according to the
     [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
@@ -255,7 +255,7 @@ delete:
   operationId: delete
   tags:
     - Sources
-  summary: Delete Source by ID
+  summary: Delete source by id
   description: >-
     Use this API to delete a specific source in Identity Security Cloud (ISC).
 
@@ -296,7 +296,7 @@ delete:
                 example: null
           examples:
             deleteSource: 
-              summary: Response returned when a source is being deleted. 
+              summary: Response returned when a source is being deleted.
               value: {"type": "TASK_RESULT", "id": "2c91808779ecf55b0179f720942f181a", "name": null}
     '400':
       $ref: '../../v3/responses/400.yaml'

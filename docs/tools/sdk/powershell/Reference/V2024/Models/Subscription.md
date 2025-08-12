@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Subscription = Initialize-PSSailpoint.V2024Subscription  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
+$Subscription = Initialize-V2024Subscription  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -Name Access request subscription `
  -Description Access requested to site xyz `
  -TriggerId idn:access-request-post-approval `

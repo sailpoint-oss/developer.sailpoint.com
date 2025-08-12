@@ -1,16 +1,21 @@
 get:
-  operationId: exportNonEmployeeSourceSchemaTemplate
+  operationId: getNonEmployeeExportSourceSchemaTemplate
   security:
     - userAuth: [idn:nelm:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
-  summary: Exports Source Schema Template
+  summary: Exports source schema template
   description: >-
     This requests a download for the Source Schema Template for a provided source.
 
     Request will require the following security scope:
 
     idn:nesr:read'
+  deprecated: true
   parameters:
     - in: path
       example: "2c918085842e69ae018432d22ccb212f"

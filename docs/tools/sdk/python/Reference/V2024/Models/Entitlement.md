@@ -58,7 +58,7 @@ owner=sailpoint.v2024.models.entitlement_owner.Entitlement_owner(
 manually_updated_fields={DISPLAY_NAME=true, DESCRIPTION=true},
 access_model_metadata=sailpoint.v2024.models.entitlement_access_model_metadata.Entitlement_accessModelMetadata(
                     attributes = [
-                        sailpoint.v2024.models.access_model_metadata.AccessModelMetadata(
+                        sailpoint.v2024.models.access_model_metadata.Access Model Metadata(
                             key = 'iscCsp', 
                             name = 'CSP', 
                             multiselect = True, 
@@ -84,7 +84,7 @@ source=sailpoint.v2024.models.entitlement_source.Entitlement_source(
 attributes={fieldName=fieldValue},
 segments=[f7b1b8a3-5fed-4fd4-ad29-82014e137e19, 29cb6c06-1da8-43ea-8be4-b3125f248f2a],
 direct_permissions=[
-                    sailpoint.v2024.models.permission_dto.PermissionDto(
+                    sailpoint.v2024.models.permission_dto.Permission DTO(
                         rights = [
                             'SELECT'
                             ], 

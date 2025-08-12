@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ObjectMappingRequest = Initialize-PSSailpoint.V3ObjectMappingRequest  -ObjectType IDENTITY `
+$ObjectMappingRequest = Initialize-ObjectMappingRequest  -ObjectType IDENTITY `
  -JsonPath $.name `
  -SourceValue My Governance Group Name `
  -TargetValue My New Governance Group Name `

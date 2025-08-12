@@ -1,4 +1,5 @@
 type: object
+title: Service Desk Source
 description: Source for Service Desk integration template. 
 properties:
   type:

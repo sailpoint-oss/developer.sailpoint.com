@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AppAllOfAccount = Initialize-PSSailpoint.V3AppAllOfAccount  -Id 2c9180837dfe6949017e21f3d8cd6d49 `
+$AppAllOfAccount = Initialize-AppAllOfAccount  -Id 2c9180837dfe6949017e21f3d8cd6d49 `
  -AccountId CN=Carol Adams,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=sailpointdemo,DC=com
 ```
 

@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManagedClusterKeyPair = Initialize-PSSailpoint.BetaManagedClusterKeyPair  -PublicKey -----BEGIN PUBLIC KEY-----******-----END PUBLIC KEY----- `
+$ManagedClusterKeyPair = Initialize-BetaManagedClusterKeyPair  -PublicKey -----BEGIN PUBLIC KEY-----******-----END PUBLIC KEY----- `
  -PublicKeyThumbprint 6CMlaJIV44-xJxcB3CJBjDUUn54 `
  -PublicKeyCertificate -----BEGIN CERTIFICATE-----****-----END CERTIFICATE-----
 ```

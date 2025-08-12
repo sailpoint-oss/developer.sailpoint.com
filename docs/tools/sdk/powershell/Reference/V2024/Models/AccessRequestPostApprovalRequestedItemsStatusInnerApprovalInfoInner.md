@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner = Initialize-PSSailpoint.V2024AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner  -ApprovalComment This access looks good.  Approved. `
+$AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner = Initialize-V2024AccessRequestPostApprovalRequestedItemsStatusInnerApprovalInfoInner  -ApprovalComment This access looks good.  Approved. `
  -ApprovalDecision APPROVED `
  -ApproverName Stephen.Austin `
  -Approver null

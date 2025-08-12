@@ -29,7 +29,7 @@ tags: ['SDK', 'Software Development Kit', 'WorkItemTypeManualWorkItems', 'V2024W
 
 * `Form` (value: `"Form"`)
 
-* `PolicyVioloation` (value: `"PolicyVioloation"`)
+* `PolicyViolation` (value: `"PolicyViolation"`)
 
 * `Challenge` (value: `"Challenge"`)
 

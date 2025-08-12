@@ -11,25 +11,25 @@ tags: ['SDK', 'Software Development Kit', 'AccessProfile', 'AccessProfile']
 
 # AccessProfile
 
-Access Profile
+Access profile.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** | The ID of the Access Profile | [optional] [readonly] 
-**name** | **str** | Name of the Access Profile | [required]
-**description** | **str** | Information about the Access Profile | [optional] 
-**created** | **datetime** | Date the Access Profile was created | [optional] [readonly] 
-**modified** | **datetime** | Date the Access Profile was last modified. | [optional] [readonly] 
-**enabled** | **bool** | Whether the Access Profile is enabled. If the Access Profile is enabled then you must include at least one Entitlement. | [optional] [default to False]
+**id** | **str** | Access profile ID. | [optional] [readonly] 
+**name** | **str** | Access profile name. | [required]
+**description** | **str** | Access profile description. | [optional] 
+**created** | **datetime** | Date and time when the access profile was created. | [optional] [readonly] 
+**modified** | **datetime** | Date and time when the access profile was last modified. | [optional] [readonly] 
+**enabled** | **bool** | Indicates whether the access profile is enabled. If it's enabled, you must include at least one entitlement. | [optional] [default to False]
 **owner** | [**OwnerReference**](owner-reference) |  | [required]
 **source** | [**AccessProfileSourceRef**](access-profile-source-ref) |  | [required]
-**entitlements** | [**[]EntitlementRef**](entitlement-ref) | A list of entitlements associated with the Access Profile. If enabled is false this is allowed to be empty otherwise it needs to contain at least one Entitlement. | [optional] 
-**requestable** | **bool** | Whether the Access Profile is requestable via access request. Currently, making an Access Profile non-requestable is only supported  for customers enabled with the new Request Center. Otherwise, attempting to create an Access Profile with a value  **false** in this field results in a 400 error. | [optional] [default to True]
+**entitlements** | [**[]EntitlementRef**](entitlement-ref) | List of entitlements associated with the access profile. If `enabled` is false, this can be empty. Otherwise, it must contain at least one entitlement. | [optional] 
+**requestable** | **bool** | Indicates whether the access profile is requestable by access request. Currently, making an access profile non-requestable is only supported  for customers enabled with the new Request Center. Otherwise, attempting to create an access profile with a value  **false** in this field results in a 400 error. | [optional] [default to True]
 **access_request_config** | [**Requestability**](requestability) |  | [optional] 
 **revocation_request_config** | [**Revocability**](revocability) |  | [optional] 
-**segments** | **[]str** | List of IDs of segments, if any, to which this Access Profile is assigned. | [optional] 
+**segments** | **[]str** | List of segment IDs, if any, that the access profile is assigned to. | [optional] 
 **provisioning_criteria** | [**ProvisioningCriteriaLevel1**](provisioning-criteria-level1) |  | [optional] 
 }
 
@@ -63,6 +63,7 @@ requestable=True,
 access_request_config=sailpoint.v3.models.requestability.Requestability(
                     comments_required = True, 
                     denial_comments_required = True, 
+                    reauthorization_required = True, 
                     approval_schemes = [
                         sailpoint.v3.models.access_profile_approval_scheme.AccessProfileApprovalScheme(
                             approver_type = 'GOVERNANCE_GROUP', 

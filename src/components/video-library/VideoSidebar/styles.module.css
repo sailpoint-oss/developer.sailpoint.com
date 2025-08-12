@@ -56,7 +56,7 @@
   ); /* Dropdown background color */ /* Text color */
   padding: 5px 15px; /* Padding inside the dropdown button */
   border: 0.5px solid #cccccc; /* Border around the dropdown */
-  border-radius: 5px; /* Rounded corners */
+  border-radius: .25rem;; /* Rounded corners */
   cursor: pointer; /* Change mouse cursor to indicate it's clickable */
   position: relative; /* To position the arrow icon correctly */
   display: inline-block; /* To keep the button's block behavior */
@@ -93,7 +93,7 @@
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 25;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: .25rem;;
 }
 
 .dropdownContainer .dropdownContent label {

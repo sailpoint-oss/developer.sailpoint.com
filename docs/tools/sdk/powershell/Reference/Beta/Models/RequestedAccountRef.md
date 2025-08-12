@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestedAccountRef = Initialize-PSSailpoint.BetaRequestedAccountRef  -Name Glen.067da3248e914 `
+$RequestedAccountRef = Initialize-BetaRequestedAccountRef  -Name Glen.067da3248e914 `
  -Type null `
  -AccountUuid {fab7119e-004f-4822-9c33-b8d570d6c6a6} `
  -AccountId CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local `

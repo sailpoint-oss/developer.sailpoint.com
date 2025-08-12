@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AuditDetails = Initialize-PSSailpoint.BetaAuditDetails  -Created 2022-07-21T11:13:12.345Z `
+$AuditDetails = Initialize-BetaAuditDetails  -Created 2022-07-21T11:13:12.345Z `
  -CreatedBy null `
  -Modified 2022-07-21T11:13:12.345Z `
  -ModifiedBy null

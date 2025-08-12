@@ -1,4 +1,5 @@
 type: object
+title: Sod Policy Dto
 description: SOD policy. 
 properties:
   type:

@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$TestWorkflowRequest = Initialize-PSSailpoint.V2024TestWorkflowRequest  -VarInput null
+$TestWorkflowRequest = Initialize-V2024TestWorkflowRequest  -VarInput null
 ```
 
 - Convert the resource to JSON

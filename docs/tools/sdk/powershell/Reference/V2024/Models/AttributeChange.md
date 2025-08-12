@@ -24,9 +24,9 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttributeChange = Initialize-PSSailpoint.V2024AttributeChange  -Name null `
- -PreviousValue null `
- -NewValue null
+$AttributeChange = Initialize-V2024AttributeChange  -Name firstname `
+ -PreviousValue adam `
+ -NewValue zampa
 ```
 
 - Convert the resource to JSON

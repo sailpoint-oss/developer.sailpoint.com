@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityDocumentAllOfSource = Initialize-PSSailpoint.V3IdentityDocumentAllOfSource  -Id 2c91808b6e9e6fb8016eec1a2b6f7b5f `
+$IdentityDocumentAllOfSource = Initialize-IdentityDocumentAllOfSource  -Id 2c91808b6e9e6fb8016eec1a2b6f7b5f `
  -Name ODS-HR-Employees
 ```
 

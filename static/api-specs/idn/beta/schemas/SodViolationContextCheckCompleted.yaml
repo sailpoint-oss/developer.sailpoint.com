@@ -1,5 +1,6 @@
 description: An object referencing a completed SOD violation check
 type: object
+title: Sod Violation Context Check Completed
 nullable: true
 properties:
   state:

@@ -27,13 +27,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2024AccountAggregationStatus**](#get-account-aggregation-status) | **GET** `/account-aggregations/{id}/status` | In-progress Account Aggregation status
+[**Get-V2024AccountAggregationStatus**](#get-account-aggregation-status) | **GET** `/account-aggregations/{id}/status` | In-progress account aggregation status
 
 
 ## get-account-aggregation-status
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This API returns the status of an *in-progress* account aggregation, along with the total number of **NEW**, **CHANGED** and **DELETED** accounts found since the previous aggregation, and the number of those accounts that have been processed so far.
 
 Accounts that have not changed since the previous aggregation are not included in **totalAccounts** and **processedAccounts** counts returned by this API. This is distinct from **Accounts Scanned** shown in the Aggregation UI, which indicates total accounts scanned regardless of whether they changed or not.
@@ -49,7 +46,6 @@ required to call this API.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The account aggregation id
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**AccountAggregationStatus**](../models/account-aggregation-status)
@@ -58,6 +54,7 @@ Path   | Id | **String** | True  | The account aggregation id
 Code | Description  | Data Type
 ------------- | ------------- | -------------
 200 | An account aggregation status object | AccountAggregationStatus
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
 404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
@@ -71,15 +68,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "2c91808477a6b0c60177a81146b8110b" # String | The account aggregation id
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# In-progress Account Aggregation status
+# In-progress account aggregation status
 
 try {
-    Get-V2024AccountAggregationStatus -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccountAggregationStatus -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccountAggregationStatus -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024AccountAggregationStatus -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccountAggregationStatus"
     Write-Host $_.ErrorDetails

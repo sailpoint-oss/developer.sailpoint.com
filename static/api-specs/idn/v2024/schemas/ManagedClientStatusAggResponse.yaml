@@ -1,5 +1,6 @@
 description: Managed Client Status
 type: object
+title: Managed Client Status Agg Response
 required:
   - body
   - status

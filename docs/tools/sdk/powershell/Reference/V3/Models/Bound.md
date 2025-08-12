@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Bound = Initialize-PSSailpoint.V3Bound  -Value 1 `
+$Bound = Initialize-Bound  -Value 1 `
  -Inclusive false
 ```
 

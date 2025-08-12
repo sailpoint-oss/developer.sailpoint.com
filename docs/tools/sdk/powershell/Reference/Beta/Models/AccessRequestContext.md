@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessRequestContext = Initialize-PSSailpoint.BetaAccessRequestContext  -ContextAttributes null
+$AccessRequestContext = Initialize-BetaAccessRequestContext  -ContextAttributes null
 ```
 
 - Convert the resource to JSON

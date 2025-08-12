@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceAccountCreated = Initialize-PSSailpoint.BetaSourceAccountCreated  -Uuid b7264868-7201-415f-9118-b581d431c688 `
+$SourceAccountCreated = Initialize-BetaSourceAccountCreated  -Uuid b7264868-7201-415f-9118-b581d431c688 `
  -Id ee769173319b41d19ccec35ba52f237b `
  -NativeIdentifier E009 `
  -SourceId 2c918082814e693601816e09471b29b6 `

@@ -1,0 +1,43 @@
+---
+id: v2025-role-insights-entitlement
+title: RoleInsightsEntitlement
+pagination_label: RoleInsightsEntitlement
+sidebar_label: RoleInsightsEntitlement
+sidebar_class_name: pythonsdk
+keywords: ['python', 'Python', 'sdk', 'RoleInsightsEntitlement', 'V2025RoleInsightsEntitlement'] 
+slug: /tools/sdk/python/v2025/models/role-insights-entitlement
+tags: ['SDK', 'Software Development Kit', 'RoleInsightsEntitlement', 'V2025RoleInsightsEntitlement']
+---
+
+# RoleInsightsEntitlement
+
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | **str** | Name of the entitlement | [optional] 
+**id** | **str** | Id of the entitlement | [optional] 
+**description** | **str** | Description for the entitlement | [optional] 
+**source** | **str** | Source or the application for the entitlement | [optional] 
+**attribute** | **str** | Attribute for the entitlement | [optional] 
+**value** | **str** | Attribute value for the entitlement | [optional] 
+}
+
+## Example
+
+```python
+from sailpoint.v2025.models.role_insights_entitlement import RoleInsightsEntitlement
+
+role_insights_entitlement = RoleInsightsEntitlement(
+name='Administrator',
+id='8c190e67-87aa-4ed9-a90b-d9d5344523fb',
+description='Full administrative access to IdentityNow',
+source='IdentityNow',
+attribute='assignedGroups',
+value='ORG_ADMIN'
+)
+
+```
+[[Back to top]](#) 
+

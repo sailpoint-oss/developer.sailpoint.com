@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConfigObject = Initialize-PSSailpoint.V2024ConfigObject  -Version 1 `
+$ConfigObject = Initialize-V2024ConfigObject  -Version 1 `
  -Self null `
  -Object null
 ```

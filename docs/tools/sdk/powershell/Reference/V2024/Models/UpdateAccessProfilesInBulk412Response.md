@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$UpdateAccessProfilesInBulk412Response = Initialize-PSSailpoint.V2024UpdateAccessProfilesInBulk412Response  -Message  API/Feature not enabled for your organization.
+$UpdateAccessProfilesInBulk412Response = Initialize-V2024UpdateAccessProfilesInBulk412Response  -Message  API/Feature not enabled for your organization.
 ```
 
 - Convert the resource to JSON

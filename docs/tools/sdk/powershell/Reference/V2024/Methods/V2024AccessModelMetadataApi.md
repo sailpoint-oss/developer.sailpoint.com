@@ -27,16 +27,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2024AccessModelMetadataAttribute**](#get-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes/{key}` | Get Access Model Metadata Attribute
-[**Get-V2024AccessModelMetadataAttributeValue**](#get-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values/{value}` | Get Access Model Metadata Value
-[**Get-V2024AccessModelMetadataAttribute**](#list-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes` | List Access Model Metadata Attributes
-[**Get-V2024AccessModelMetadataAttributeValue**](#list-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values` | List Access Model Metadata Values
+[**Get-V2024AccessModelMetadataAttribute**](#get-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes/{key}` | Get access model metadata attribute
+[**Get-V2024AccessModelMetadataAttributeValue**](#get-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values/{value}` | Get access model metadata value
+[**Get-V2024AccessModelMetadataAttribute**](#list-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes` | List access model metadata attributes
+[**Get-V2024AccessModelMetadataAttributeValue**](#list-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values` | List access model metadata values
 
 
 ## get-access-model-metadata-attribute
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Get single Access Model Metadata Attribute
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-model-metadata-attribute)
@@ -45,7 +42,6 @@ Get single Access Model Metadata Attribute
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Key | **String** | True  | Technical name of the Attribute.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**AttributeDTO**](../models/attribute-dto)
@@ -67,15 +63,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Key = "iscPrivacy" # String | Technical name of the Attribute.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Access Model Metadata Attribute
+# Get access model metadata attribute
 
 try {
-    Get-V2024AccessModelMetadataAttribute -Key $Key -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessModelMetadataAttribute -Key $Key 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessModelMetadataAttribute -Key $Key -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024AccessModelMetadataAttribute -Key $Key  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessModelMetadataAttribute"
     Write-Host $_.ErrorDetails
@@ -84,9 +79,6 @@ try {
 [[Back to top]](#) 
 
 ## get-access-model-metadata-attribute-value
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Get single Access Model Metadata Attribute Value
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-model-metadata-attribute-value)
@@ -96,7 +88,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Key | **String** | True  | Technical name of the Attribute.
 Path   | Value | **String** | True  | Technical name of the Attribute value.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**AttributeValueDTO**](../models/attribute-value-dto)
@@ -119,15 +110,14 @@ Code | Description  | Data Type
 ```powershell
 $Key = "iscPrivacy" # String | Technical name of the Attribute.
 $Value = "public" # String | Technical name of the Attribute value.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Access Model Metadata Value
+# Get access model metadata value
 
 try {
-    Get-V2024AccessModelMetadataAttributeValue -Key $Key -Value $Value -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessModelMetadataAttributeValue -Key $Key -Value $Value 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessModelMetadataAttributeValue -Key $Key -Value $Value -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024AccessModelMetadataAttributeValue -Key $Key -Value $Value  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessModelMetadataAttributeValue"
     Write-Host $_.ErrorDetails
@@ -136,9 +126,6 @@ try {
 [[Back to top]](#) 
 
 ## list-access-model-metadata-attribute
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Get a list of Access Model Metadata Attributes
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-access-model-metadata-attribute)
@@ -146,8 +133,11 @@ Get a list of Access Model Metadata Attributes
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
-  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and*
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  **Supported composite operators**: *and*
+  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key**
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**AttributeDTO[]**](../models/attribute-dto)
@@ -168,16 +158,19 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
-$Filters = 'name eq "Privacy"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional)
+$Filters = 'name eq "Privacy"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  **Supported composite operators**: *and* (optional)
+$Sorters = "name,-key" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key** (optional)
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# List Access Model Metadata Attributes
+# List access model metadata attributes
 
 try {
-    Get-V2024AccessModelMetadataAttribute -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessModelMetadataAttribute 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessModelMetadataAttribute -XSailPointExperimental $XSailPointExperimental -Filters $Filters  
+    # Get-V2024AccessModelMetadataAttribute -Filters $Filters -Sorters $Sorters -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessModelMetadataAttribute"
     Write-Host $_.ErrorDetails
@@ -186,9 +179,6 @@ try {
 [[Back to top]](#) 
 
 ## list-access-model-metadata-attribute-value
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Get a list of Access Model Metadata Attribute Values
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-access-model-metadata-attribute-value)
@@ -197,7 +187,9 @@ Get a list of Access Model Metadata Attribute Values
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Key | **String** | True  | Technical name of the Attribute.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
+  Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**AttributeValueDTO[]**](../models/attribute-value-dto)
@@ -219,15 +211,17 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Key = "iscPrivacy" # String | Technical name of the Attribute.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
+$Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+$Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+$Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# List Access Model Metadata Values
+# List access model metadata values
 
 try {
-    Get-V2024AccessModelMetadataAttributeValue -Key $Key -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024AccessModelMetadataAttributeValue -Key $Key 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024AccessModelMetadataAttributeValue -Key $Key -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024AccessModelMetadataAttributeValue -Key $Key -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024AccessModelMetadataAttributeValue"
     Write-Host $_.ErrorDetails

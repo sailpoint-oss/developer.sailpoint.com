@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$DateCompareSecondDate = Initialize-PSSailpoint.V2024DateCompareSecondDate  -SourceName Workday `
+$DateCompareSecondDate = Initialize-V2024DateCompareSecondDate  -SourceName Workday `
  -AttributeName DEPARTMENT `
  -AccountSortAttribute created `
  -AccountSortDescending false `

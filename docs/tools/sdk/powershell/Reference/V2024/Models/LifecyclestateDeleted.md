@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'LifecyclestateDeleted', 'V2024Lifecyc
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  **Enum** [  "LIFECYCLE_STATE" ] | Deleted lifecycle state's DTO type. | [optional] 
+**Type** |  **Enum** [  "LIFECYCLE_STATE",    "TASK_RESULT" ] | Deleted lifecycle state's DTO type. | [optional] 
 **Id** | **String** | Deleted lifecycle state ID. | [optional] 
 **Name** | **String** | Deleted lifecycle state's display name. | [optional] 
 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LifecyclestateDeleted = Initialize-PSSailpoint.V2024LifecyclestateDeleted  -Type LIFECYCLE_STATE `
+$LifecyclestateDeleted = Initialize-V2024LifecyclestateDeleted  -Type LIFECYCLE_STATE `
  -Id 12345 `
  -Name Contractor Lifecycle
 ```

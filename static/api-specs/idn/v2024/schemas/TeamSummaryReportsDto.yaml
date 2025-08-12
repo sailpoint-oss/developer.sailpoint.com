@@ -1,4 +1,5 @@
 type: object
+title: Team Summary Reports Dto
 properties:
   direct:
     type: integer

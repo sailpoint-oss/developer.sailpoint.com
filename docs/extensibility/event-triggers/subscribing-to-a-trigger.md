@@ -1,6 +1,6 @@
 ---
 id: subscribing-to-trigger
-title: Subscribing to a Trigger
+title: Subscribing to a trigger
 pagination_label: Subscribing to a Trigger
 sidebar_label: Subscribing to a Trigger
 sidebar_position: 3
@@ -11,17 +11,17 @@ slug: /extensibility/event-triggers/subscribing-to-trigger
 tags: ['Event Triggers']
 ---
 
-## View the Available Triggers
+## View the available triggers
 
 SailPoint is continuously developing new event triggers to satisfy different use cases. Some of these triggers are considered **early access** and are only available in an ISC tenant upon request. To see a list of available event triggers in your tenant, go to the **Event Triggers** tab in the **Admin** section of Identity Security Cloud. The first page is a list of your tenant's available event triggers. You can select each trigger to learn more about its type, what causes it to fire, and what the payload will look like.
 
 ![Available triggers](./img/available-triggers.png)
 
-## Subscribe to a Trigger from the UI
+## Subscribe to a trigger from the UI
 
 Usually, you will subscribe to event triggers using the user interface in ISC. Refer to [subscribing to event triggers](https://documentation.sailpoint.com/saas/help/common/event_triggers.html#subscribing-to-event-triggers) to learn how to subscribe to an event trigger through the ISC UI.
 
-## Subscribe to a Trigger from the API
+## Subscribe to a trigger from the API
 
 Sometimes, you may need to use the API to subscribe to event triggers. This can occur when you want to programatically subscribe/unsubscribe from event triggers in a custom application or no-code solution that does not have a native integration with SailPoint.
 

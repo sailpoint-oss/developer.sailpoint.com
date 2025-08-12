@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$BaseAccessOwner = Initialize-PSSailpoint.V2024BaseAccessOwner  -Type IDENTITY `
+$BaseAccessOwner = Initialize-V2024BaseAccessOwner  -Type IDENTITY `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name Support `
  -Email cloud-support@sailpoint.com

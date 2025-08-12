@@ -1,6 +1,6 @@
 ---
 id: account-attribute
-title: Account Attribute
+title: Account attribute
 pagination_label: Account Attribute
 sidebar_label: Account Attribute
 sidebar_class_name: accountAttribute
@@ -22,7 +22,7 @@ Use the account attribute transform to look up an account for a particular sourc
 
 :::
 
-## Transform Structure
+## Transform structure
 
 The account attribute transform's configuration can take several attributes as inputs. The following example shows a fully configured transform with all required and optional attributes.
 
@@ -97,7 +97,7 @@ You cannot use `accountFilter` here because WORKER_STATUS\_\_c is not a searchab
 
 :::
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {
@@ -130,7 +130,7 @@ When you are mapping values like a username, focus on primary accounts from a pa
 
 :::
 
-**Transform Request Body**:
+**Transform request body**:
 
 ```json
 {

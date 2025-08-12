@@ -7,7 +7,7 @@ enum:
   - Approval
   - ViolationReview
   - Form
-  - PolicyVioloation
+  - PolicyViolation
   - Challenge
   - ImpactAnalysis
   - Signoff

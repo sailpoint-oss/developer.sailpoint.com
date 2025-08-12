@@ -1,4 +1,5 @@
 type: object
+title: Identity Attribute Config
 properties:
   enabled:
     type: boolean

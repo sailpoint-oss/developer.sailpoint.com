@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | the name of the rule | [required]
 **description** | **str** | a description of the rule's purpose | [optional] 
-**type** |  **Enum** [  'BuildMap',    'ConnectorAfterCreate',    'ConnectorAfterDelete',    'ConnectorAfterModify',    'ConnectorBeforeCreate',    'ConnectorBeforeDelete',    'ConnectorBeforeModify',    'JDBCBuildMap',    'JDBCOperationProvisioning',    'JDBCProvision',    'PeopleSoftHRMSBuildMap',    'PeopleSoftHRMSOperationProvisioning',    'PeopleSoftHRMSProvision',    'RACFPermissionCustomization',    'ResourceObjectCustomization',    'SAPBuildMap',    'SapHrManagerRule',    'SapHrOperationProvisioning',    'SapHrProvision',    'SuccessFactorsOperationProvisioning',    'WebServiceAfterOperationRule',    'WebServiceBeforeOperationRule' ] | the type of rule | [required]
+**type** |  **Enum** [  'BuildMap',    'ConnectorAfterCreate',    'ConnectorAfterDelete',    'ConnectorAfterModify',    'ConnectorBeforeCreate',    'ConnectorBeforeDelete',    'ConnectorBeforeModify',    'JDBCBuildMap',    'JDBCOperationProvisioning',    'JDBCProvision',    'PeopleSoftHRMSBuildMap',    'PeopleSoftHRMSOperationProvisioning',    'PeopleSoftHRMSProvision',    'RACFPermissionCustomization',    'ResourceObjectCustomization',    'SAPBuildMap',    'SapHrManagerRule',    'SapHrOperationProvisioning',    'SapHrProvision',    'SuccessFactorsOperationProvisioning',    'WebServiceAfterOperationRule',    'WebServiceBeforeOperationRule',    'ResourceObjectCustomization' ] | the type of rule | [required]
 **signature** | [**ConnectorRuleCreateRequestSignature**](connector-rule-create-request-signature) |  | [optional] 
 **source_code** | [**SourceCode**](source-code) |  | [required]
 **attributes** | **object** | a map of string to objects | [optional] 
@@ -45,7 +45,7 @@ signature=sailpoint.v2024.models.connector_rule_create_request_signature.Connect
                         name = 'firstName', 
                         description = 'the first name of the identity', 
                         type = 'String', ), ),
-source_code=sailpoint.v2024.models.source_code.SourceCode(
+source_code=sailpoint.v2024.models.source_code.Source Code(
                     version = '1.0', 
                     script = 'return "Mr. " + firstName;', ),
 attributes={}

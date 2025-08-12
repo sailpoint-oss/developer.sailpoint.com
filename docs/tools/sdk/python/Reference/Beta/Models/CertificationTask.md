@@ -37,7 +37,7 @@ target_type='CAMPAIGN',
 target_id='2c918086719eec070171a7e3355a834c',
 status='QUEUED',
 errors=[
-                    sailpoint.beta.models.error_message_dto.ErrorMessageDto(
+                    sailpoint.beta.models.error_message_dto.Error Message Dto(
                         locale = 'en-US', 
                         locale_origin = 'DEFAULT', 
                         text = 'The request was syntactically correct but its content is semantically invalid.', )

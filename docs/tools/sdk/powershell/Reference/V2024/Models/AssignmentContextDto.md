@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AssignmentContextDto = Initialize-PSSailpoint.V2024AssignmentContextDto  -Requested null `
+$AssignmentContextDto = Initialize-V2024AssignmentContextDto  -Requested null `
  -Matched null `
  -ComputedDate Wed Feb 14 10:58:42
 ```

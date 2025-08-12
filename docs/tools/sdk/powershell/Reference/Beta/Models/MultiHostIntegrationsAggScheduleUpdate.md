@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MultiHostIntegrationsAggScheduleUpdate = Initialize-PSSailpoint.BetaMultiHostIntegrationsAggScheduleUpdate  -MultihostId 004091cb79b04636b88662afa50a4456 `
+$MultiHostIntegrationsAggScheduleUpdate = Initialize-BetaMultiHostIntegrationsAggScheduleUpdate  -MultihostId 004091cb79b04636b88662afa50a4456 `
  -AggregationGrpId 004091cb79b04636b88662afa50a4448 `
  -AggregationGrpName Multi-Host Integration aggregation group name `
  -AggregationCronSchedule 0 0 0 * * ? `

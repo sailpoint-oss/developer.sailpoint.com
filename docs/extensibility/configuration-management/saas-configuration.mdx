@@ -1,6 +1,6 @@
 ---
 id: saas-configuration
-title: SaaS Configuration
+title: SaaS configuration
 pagination_label: SaaS Configuration
 sidebar_position: 4
 sidebar_class_name: saasConfiguration
@@ -24,7 +24,7 @@ For more details around how to manage configurations, refer to [SailPoint SaaS C
 
 This document is intended for technically proficient administrators, implementers, integrators or even developers. No coding experience is necessary, but being able to understand JSON data structures and make REST API web-service calls is necessary to fully understand this guide.
 
-## Supported Objects
+## Supported objects
 
 A SailPoint tenant configuration comprises various objects and their details, such as an organization's different identity profiles, roles, certification campaigns, and more. 
 You can use the SaaS Configuration APIs to exclude objects from the imports and exports. 
@@ -78,7 +78,7 @@ Source passwords, secret token or other sensitive data is not exported. Those ne
 
 **Rule Import and Export -** Rules can be exported from one tenant and imported into another. Cloud rules have already been reviewed and installed in other tenants, and connector rules do not require a rule review. During the import and export process, rules cannot be changed in the migration process because these are validated by the usage of `jwsHeader` and `jwsSignature` in the object.
 
-## Exporting Configurations
+## Exporting configurations
 
 ### Prerequisites
 
@@ -96,7 +96,7 @@ Source passwords, secret token or other sensitive data is not exported. Those ne
 5. **Get Export Results** - Once the status is `COMPLETE`, download the export results by calling `GET /beta/sp-config/export/{id}/download` where the `{id}` is the `jobId`.
 6. **Response with Export Results** - In response, the export process will produce a set of JSON objects you can download as an export result set. These will reflect the objects that were selected in the export options earlier.
 
-## Importing Configurations
+## Importing configurations
 
 ### Prerequisites
 
@@ -120,7 +120,7 @@ You cannot import Non-Employee sources.
 
 :::
 
-## API Reference Guide
+## API reference guide
 
 | **Description**     | **REST API Endpoint**                     |
 | :------------------ | :----------------------------------------- |
@@ -132,12 +132,11 @@ You cannot import Non-Employee sources.
 | Import Status       | `GET /beta/sp-config/import/{id}`          |
 | Import Results      | `GET /beta/sp-config/import/{id}/download` |
 
-### List Configuration Objects
+### List configuration objects
 
 **Description**
 
-[This endpoint](https://developer.sailpoint.com/docs/api/beta/list-sp-config-objects) gets the list of object configurations known to the tenant export/import service. 
-Object configurations containing "importUrl" and "exportUrl" are available for export/import.
+[This endpoint](https://developer.sailpoint.com/docs/api/beta/list-sp-config-objects) gets the list of object configurations the tenant export/import service knows. 
 
 <Tabs>
   <TabItem value="request" label="Request" default>
@@ -237,7 +236,7 @@ Content-Type: application/json
   </TabItem>
 </Tabs>
 
-### Export Objects
+### Export objects
 
 **Description**
 
@@ -319,7 +318,7 @@ You can only use the `includedIds` and `includedNames` filters when you're expor
 
 :::
 
-### Export Status
+### Export status
 
 **Description**
 
@@ -360,7 +359,7 @@ Content-Type: application/json
   </TabItem>
 </Tabs>
 
-### Export Results
+### Export results
 
 **Description**
 
@@ -524,7 +523,7 @@ Content-Type: application/json
   </TabItem>
 </Tabs>
 
-### Import Objects
+### Import objects
 
 **Description**
 

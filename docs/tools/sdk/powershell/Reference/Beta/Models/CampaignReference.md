@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CampaignReference = Initialize-PSSailpoint.BetaCampaignReference  -Id ef38f94347e94562b5bb8424a56397d8 `
+$CampaignReference = Initialize-BetaCampaignReference  -Id ef38f94347e94562b5bb8424a56397d8 `
  -Name Campaign Name `
  -Type CAMPAIGN `
  -CampaignType MANAGER `

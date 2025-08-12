@@ -410,6 +410,7 @@ function ParamsItem({ param, ...rest }: Props) {
     useEffect(() => {
       async function fetchAvailableUrl() {
         const baseUrls = [
+          `https://developer.sailpoint.com/docs/api/v2025/${camelToKebab(operationId)}`,
           `https://developer.sailpoint.com/docs/api/v2024/${camelToKebab(operationId)}`,
           `https://developer.sailpoint.com/docs/api/v3/${camelToKebab(operationId)}`,
           `https://developer.sailpoint.com/docs/api/beta/${camelToKebab(operationId)}`,

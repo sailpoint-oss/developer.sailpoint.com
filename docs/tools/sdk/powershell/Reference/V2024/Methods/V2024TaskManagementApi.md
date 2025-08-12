@@ -17,17 +17,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2024PendingTaskHeaders**](#get-pending-task-headers) | **HEAD** `/task-status/pending-tasks` | Retrieve Pending Task List Headers
-[**Get-V2024PendingTasks**](#get-pending-tasks) | **GET** `/task-status/pending-tasks` | Retrieve Pending Task Status List
-[**Get-V2024TaskStatus**](#get-task-status) | **GET** `/task-status/{id}` | Get Task Status by ID
-[**Get-V2024TaskStatusList**](#get-task-status-list) | **GET** `/task-status` | Retrieve Task Status List
-[**Update-V2024TaskStatus**](#update-task-status) | **PATCH** `/task-status/{id}` | Update Task Status by ID
+[**Get-V2024PendingTaskHeaders**](#get-pending-task-headers) | **HEAD** `/task-status/pending-tasks` | Retrieve pending task list headers
+[**Get-V2024PendingTasks**](#get-pending-tasks) | **GET** `/task-status/pending-tasks` | Retrieve pending task status list
+[**Get-V2024TaskStatus**](#get-task-status) | **GET** `/task-status/{id}` | Get task status by id
+[**Get-V2024TaskStatusList**](#get-task-status-list) | **GET** `/task-status` | Retrieve task status list
+[**Update-V2024TaskStatus**](#update-task-status) | **PATCH** `/task-status/{id}` | Update task status by id
 
 
 ## get-pending-task-headers
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Responds with headers only for list of task statuses for pending tasks.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-pending-task-headers)
@@ -35,7 +32,6 @@ Responds with headers only for list of task statuses for pending tasks.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -60,18 +56,17 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# Retrieve Pending Task List Headers
+# Retrieve pending task list headers
 
 try {
-    Get-V2024PendingTaskHeaders -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PendingTaskHeaders 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024PendingTaskHeaders -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit -Count $Count  
+    # Get-V2024PendingTaskHeaders -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024PendingTaskHeaders"
     Write-Host $_.ErrorDetails
@@ -80,9 +75,6 @@ try {
 [[Back to top]](#) 
 
 ## get-pending-tasks
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Retrieve a list of statuses for pending tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-pending-tasks)
@@ -90,7 +82,6 @@ Retrieve a list of statuses for pending tasks. Types of tasks include account an
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -115,18 +106,17 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# Retrieve Pending Task Status List
+# Retrieve pending task status list
 
 try {
-    Get-V2024PendingTasks -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024PendingTasks 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024PendingTasks -XSailPointExperimental $XSailPointExperimental -Offset $Offset -Limit $Limit -Count $Count  
+    # Get-V2024PendingTasks -Offset $Offset -Limit $Limit -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024PendingTasks"
     Write-Host $_.ErrorDetails
@@ -135,9 +125,6 @@ try {
 [[Back to top]](#) 
 
 ## get-task-status
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Get task status by task ID. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-task-status)
@@ -146,7 +133,6 @@ Get task status by task ID. Types of tasks include account and entitlement aggre
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Task ID.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**TaskStatus**](../models/task-status)
@@ -169,15 +155,14 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
-# Get Task Status by ID
+# Get task status by id
 
 try {
-    Get-V2024TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024TaskStatus -Id $Id 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental  
+    # Get-V2024TaskStatus -Id $Id  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024TaskStatus"
     Write-Host $_.ErrorDetails
@@ -186,9 +171,6 @@ try {
 [[Back to top]](#) 
 
 ## get-task-status-list
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Use this endpoint to get a list of statuses for **completed** tasks. Types of tasks include account and entitlement aggregation and other general background processing tasks.  Data for tasks older than 90 days will not be returned. To get a list of statuses for **in-progress** tasks, please use the [retrieve pending task status list](https://developer.sailpoint.com/docs/api/v2024/get-pending-tasks) endpoint.
 
 
@@ -197,7 +179,6 @@ Use this endpoint to get a list of statuses for **completed** tasks. Types of ta
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -224,20 +205,19 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $Filters = 'completionStatus eq "Success"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **sourceId**: *eq, in*  **completionStatus**: *eq, in*  **type**: *eq, in* (optional)
 $Sorters = "-created" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created** (optional)
 
-# Retrieve Task Status List
+# Retrieve task status list
 
 try {
-    Get-V2024TaskStatusList -XSailPointExperimental $XSailPointExperimental 
+    Get-V2024TaskStatusList 
     
     # Below is a request that includes all optional parameters
-    # Get-V2024TaskStatusList -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
+    # Get-V2024TaskStatusList -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024TaskStatusList"
     Write-Host $_.ErrorDetails
@@ -246,9 +226,6 @@ try {
 [[Back to top]](#) 
 
 ## update-task-status
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 Update a current task status by task ID. Use this API to clear a pending task by updating the completionStatus and completed attributes.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-task-status)
@@ -257,7 +234,6 @@ Update a current task status by task ID. Use this API to clear a pending task by
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | Task ID.
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | JsonPatchOperation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | The JSONPatch payload used to update the object.
 
 ### Return type
@@ -281,7 +257,6 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "00eebcf881994e419d72e757fd30dc0e" # String | Task ID.
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
  $JsonPatchOperation = @"{
   "op" : "replace",
   "path" : "/description",
@@ -289,14 +264,14 @@ $XSailPointExperimental = "true" # String | Use this header to enable this exper
 }"@ # JsonPatchOperation[] | The JSONPatch payload used to update the object.
  
 
-# Update Task Status by ID
+# Update task status by id
 
 try {
     $Result = ConvertFrom-JsonToJsonPatchOperation -Json $JsonPatchOperation
-    Update-V2024TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result 
+    Update-V2024TaskStatus -Id $Id -JsonPatchOperation $Result 
     
     # Below is a request that includes all optional parameters
-    # Update-V2024TaskStatus -Id $Id -XSailPointExperimental $XSailPointExperimental -JsonPatchOperation $Result  
+    # Update-V2024TaskStatus -Id $Id -JsonPatchOperation $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024TaskStatus"
     Write-Host $_.ErrorDetails

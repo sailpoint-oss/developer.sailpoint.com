@@ -11,7 +11,7 @@ slug: /tools/rule-development-kit
 tags: ['RDK']
 ---
 
-## Start Using the Rule Development Kit
+## Start using the Rule Development Kit
 
 The SailPoint Rule Development Kit (RDK) is a project you can use to develop rules more quickly and easily.
 
@@ -27,7 +27,7 @@ Learn how to use the SailPoint RDK in this guide.
 
 ## Requirements
 
-- [Java 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)
+- [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 - [Apache Maven 3.9.3+](https://maven.apache.org/install.html)
   - [Mac OS installation guide](https://www.appsdeveloperblog.com/how-to-install-maven-on-mac-os/)
   - [Windows installation guide](https://phoenixnap.com/kb/install-maven-windows)
@@ -613,7 +613,7 @@ When your test runs, you will see the output of your logs. These logs can help w
 [INFO] ------------------------------------------------------------------------
 ```
 
-## Getting Support
+## Getting support
 
 To get support for the Rule Development Kit, please see our GitHub page, https://github.com/sailpoint-oss/rule-development-kit.
 

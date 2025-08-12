@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$V3CreateConnectorDto = Initialize-PSSailpoint.V3V3CreateConnectorDto  -Name custom connector `
+$V3CreateConnectorDto = Initialize-V3CreateConnectorDto  -Name custom connector `
  -Type custom connector type `
  -ClassName sailpoint.connector.OpenConnectorAdapter `
  -DirectConnect true `

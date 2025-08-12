@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$OwnerReferenceSegments = Initialize-PSSailpoint.V3OwnerReferenceSegments  -Type IDENTITY `
+$OwnerReferenceSegments = Initialize-OwnerReferenceSegments  -Type IDENTITY `
  -Id 2c9180a46faadee4016fb4e018c20639 `
  -Name support
 ```

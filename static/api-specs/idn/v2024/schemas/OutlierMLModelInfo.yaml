@@ -1,4 +1,5 @@
 type: object
+title: Outlier ML Model Info
 properties:
   trainingTimestamp:
     type: string

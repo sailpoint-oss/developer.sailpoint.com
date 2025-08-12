@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentitiesReportArguments = Initialize-PSSailpoint.V3IdentitiesReportArguments  -CorrelatedOnly true
+$IdentitiesReportArguments = Initialize-IdentitiesReportArguments  -CorrelatedOnly true
 ```
 
 - Convert the resource to JSON

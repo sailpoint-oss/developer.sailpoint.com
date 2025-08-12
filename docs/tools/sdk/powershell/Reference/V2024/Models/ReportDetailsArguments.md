@@ -30,7 +30,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ReportDetailsArguments = Initialize-PSSailpoint.V2024ReportDetailsArguments  -Application 2c9180897eSourceIde781782f705b9 `
+$ReportDetailsArguments = Initialize-V2024ReportDetailsArguments  -Application 2c9180897eSourceIde781782f705b9 `
  -SourceName Active Directory `
  -CorrelatedOnly true `
  -AuthoritativeSource 1234sourceId5678902 `

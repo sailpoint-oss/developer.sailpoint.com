@@ -67,14 +67,14 @@ Method | HTTP request | Description
 [**create-access-model-metadata-for-entitlement**](#create-access-model-metadata-for-entitlement) | **POST** `/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add metadata to an entitlement.
 [**delete-access-model-metadata-from-entitlement**](#delete-access-model-metadata-from-entitlement) | **DELETE** `/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove metadata from an entitlement.
 [**get-entitlement**](#get-entitlement) | **GET** `/entitlements/{id}` | Get an entitlement
-[**get-entitlement-request-config**](#get-entitlement-request-config) | **GET** `/entitlements/{id}/entitlement-request-config` | Get Entitlement Request Config
-[**import-entitlements-by-source**](#import-entitlements-by-source) | **POST** `/entitlements/aggregate/sources/{id}` | Aggregate Entitlements
+[**get-entitlement-request-config**](#get-entitlement-request-config) | **GET** `/entitlements/{id}/entitlement-request-config` | Get entitlement request config
+[**import-entitlements-by-source**](#import-entitlements-by-source) | **POST** `/entitlements/aggregate/sources/{id}` | Aggregate entitlements
 [**list-entitlement-children**](#list-entitlement-children) | **GET** `/entitlements/{id}/children` | List of entitlements children
 [**list-entitlement-parents**](#list-entitlement-parents) | **GET** `/entitlements/{id}/parents` | List of entitlements parents
 [**list-entitlements**](#list-entitlements) | **GET** `/entitlements` | Gets a list of entitlements.
 [**patch-entitlement**](#patch-entitlement) | **PATCH** `/entitlements/{id}` | Patch an entitlement
-[**put-entitlement-request-config**](#put-entitlement-request-config) | **PUT** `/entitlements/{id}/entitlement-request-config` | Replace Entitlement Request Config
-[**reset-source-entitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{sourceId}` | Reset Source Entitlements
+[**put-entitlement-request-config**](#put-entitlement-request-config) | **PUT** `/entitlements/{id}/entitlement-request-config` | Replace entitlement request config
+[**reset-source-entitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{sourceId}` | Reset source entitlements
 [**update-entitlements-in-bulk**](#update-entitlements-in-bulk) | **POST** `/entitlements/bulk-update` | Bulk update an entitlement list
 
 
@@ -259,7 +259,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-entitlement-request-config
-Get Entitlement Request Config
+Get entitlement request config
 This API returns the entitlement request config for a specified entitlement.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/get-entitlement-request-config)
@@ -302,7 +302,7 @@ with ApiClient(configuration) as api_client:
     id = '2c91808874ff91550175097daaec161c' # str | Entitlement Id # str | Entitlement Id
 
     try:
-        # Get Entitlement Request Config
+        # Get entitlement request config
         
         results = EntitlementsApi(api_client).get_entitlement_request_config(id=id)
         # Below is a request that includes all optional parameters
@@ -321,7 +321,7 @@ with ApiClient(configuration) as api_client:
 :::caution deprecated 
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
-Aggregate Entitlements
+Aggregate entitlements
 Starts an entitlement aggregation on the specified source. Though this endpoint has been deprecated, you can find its Beta equivalent [here](https://developer.sailpoint.com/docs/api/beta/import-entitlements).
 
 If the target source is a direct connection, then the request body must be empty. You will also need to make sure the Content-Type header is not set. If you set the Content-Type header without specifying a body, then you will receive a 500 error.
@@ -369,7 +369,7 @@ with ApiClient(configuration) as api_client:
     csv_file = None # bytearray | The CSV file containing the source entitlements to aggregate. (optional) # bytearray | The CSV file containing the source entitlements to aggregate. (optional)
 
     try:
-        # Aggregate Entitlements
+        # Aggregate entitlements
         
         results = EntitlementsApi(api_client).import_entitlements_by_source(id=id)
         # Below is a request that includes all optional parameters
@@ -444,7 +444,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = EntitlementsApi(api_client).list_entitlement_children(id, limit, offset, count, sorters, filters)
         print("The response of EntitlementsApi->list_entitlement_children:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling EntitlementsApi->list_entitlement_children: %s\n" % e)
 ```
@@ -513,7 +514,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = EntitlementsApi(api_client).list_entitlement_parents(id, limit, offset, count, sorters, filters)
         print("The response of EntitlementsApi->list_entitlement_parents:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling EntitlementsApi->list_entitlement_parents: %s\n" % e)
 ```
@@ -537,7 +539,7 @@ Any authenticated token can call this API.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
   Query | account_id | **str** |   (optional) | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). This parameter is deprecated. Please use [Account Entitlements API](https://developer.sailpoint.com/apis/beta/#operation/getAccountEntitlements) to get account entitlements.
-  Query | segmented_for_identity | **str** |   (optional) | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. By convention, the value **me** can stand in for the current user's Identity ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity.
+  Query | segmented_for_identity | **str** |   (optional) | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID.  Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity.
   Query | for_segment_ids | **str** |   (optional) | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s).
   Query | include_unsegmented | **bool** |   (optional) (default to True) | Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented=false** results in an error.
   Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -575,7 +577,7 @@ configuration = Configuration()
 
 with ApiClient(configuration) as api_client:
     account_id = 'ef38f94347e94562b5bb8424a56397d8' # str | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). This parameter is deprecated. Please use [Account Entitlements API](https://developer.sailpoint.com/apis/beta/#operation/getAccountEntitlements) to get account entitlements. (optional) # str | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). This parameter is deprecated. Please use [Account Entitlements API](https://developer.sailpoint.com/apis/beta/#operation/getAccountEntitlements) to get account entitlements. (optional)
-    segmented_for_identity = 'me' # str | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. By convention, the value **me** can stand in for the current user's Identity ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional) # str | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. By convention, the value **me** can stand in for the current user's Identity ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional)
+    segmented_for_identity = 'e554098913544630b5985e9042f5e44b' # str | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID.  Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional) # str | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID.  Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional)
     for_segment_ids = '041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649' # str | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s). (optional) # str | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s). (optional)
     include_unsegmented = True # bool | Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented=false** results in an error. (optional) (default to True) # bool | Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented=false** results in an error. (optional) (default to True)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -591,7 +593,8 @@ with ApiClient(configuration) as api_client:
         # Below is a request that includes all optional parameters
         # results = EntitlementsApi(api_client).list_entitlements(account_id, segmented_for_identity, for_segment_ids, include_unsegmented, offset, limit, count, sorters, filters)
         print("The response of EntitlementsApi->list_entitlements:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling EntitlementsApi->list_entitlements: %s\n" % e)
 ```
@@ -604,7 +607,7 @@ with ApiClient(configuration) as api_client:
 Patch an entitlement
 This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
-The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**, **name**, **description**, and **manuallyUpdatedFields**
+The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**, **name**, **description**, **privilegeOverride/overrideLevel** and **manuallyUpdatedFields**
 
 When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
 
@@ -669,7 +672,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-entitlement-request-config
-Replace Entitlement Request Config
+Replace entitlement request config
 This API replaces the entitlement request config for a specified entitlement.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-entitlement-request-config)
@@ -721,12 +724,22 @@ with ApiClient(configuration) as api_client:
               "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
               "approverType" : "GOVERNANCE_GROUP"
             } ],
+            "reauthorizationRequired" : false,
             "requestCommentRequired" : true
+          },
+          "revocationRequestConfig" : {
+            "approvalSchemes" : [ {
+              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+              "approverType" : "GOVERNANCE_GROUP"
+            }, {
+              "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+              "approverType" : "GOVERNANCE_GROUP"
+            } ]
           }
         }''' # EntitlementRequestConfig | 
 
     try:
-        # Replace Entitlement Request Config
+        # Replace entitlement request config
         new_entitlement_request_config = EntitlementRequestConfig.from_json(entitlement_request_config)
         results = EntitlementsApi(api_client).put_entitlement_request_config(id=id, entitlement_request_config=new_entitlement_request_config)
         # Below is a request that includes all optional parameters
@@ -742,7 +755,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## reset-source-entitlements
-Reset Source Entitlements
+Reset source entitlements
 Remove all entitlements from a specific source.
 To reload the accounts along with the entitlements you removed, you must run an unoptimized aggregation.  To do so, use [Import Accounts](https://developer.sailpoint.com/docs/api/beta/import-accounts/) with `disableOptimization` = `true`. 
 
@@ -785,7 +798,7 @@ with ApiClient(configuration) as api_client:
     source_id = '2c91808a7813090a017814121919ecca' # str | ID of source for the entitlement reset # str | ID of source for the entitlement reset
 
     try:
-        # Reset Source Entitlements
+        # Reset source entitlements
         
         results = EntitlementsApi(api_client).reset_source_entitlements(source_id=source_id)
         # Below is a request that includes all optional parameters
@@ -808,11 +821,11 @@ This API applies an update to every entitlement of the list.
 The number of entitlements to update is limited to 50 items maximum.
 
 
-The JsonPatch update follows the [JSON
-Patch](https://tools.ietf.org/html/rfc6902) standard. allowed operations :
-`**{ "op": "replace", "path": "/privileged", "value": boolean }**  **{ "op":
-"replace", "path": "/requestable","value": boolean }**`
-
+The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+examples of allowed operations :
+`**{ "op": "replace", "path": "/privileged", "value": boolean }**`
+`**{ "op": "replace", "path": "/requestable","value": boolean }**`
+`**{ "op": "replace", "path": "/privilegeOverride/overrideLevel","value": string }**`
 
 A token with ORG_ADMIN or API authority is required to call this API.
 
@@ -863,6 +876,10 @@ with ApiClient(configuration) as api_client:
             "op" : "replace",
             "path" : "/requestable",
             "value" : false
+          }, {
+            "op" : "replace",
+            "path" : "/privilegeOverride/overrideLevel",
+            "value" : "HIGH"
           } ]
         }''' # EntitlementBulkUpdateRequest | 
 

@@ -33,13 +33,12 @@ Name | Type | Description | Notes
 **ViolationOwnerAssignmentConfig** | [**ViolationOwnerAssignmentConfig**](violation-owner-assignment-config) |  | [optional] 
 **Scheduled** | **Boolean** | defines whether a policy has been scheduled or not | [optional] [default to $false]
 **Type** |  **Enum** [  "GENERAL",    "CONFLICTING_ACCESS_BASED" ] | whether a policy is query based or conflicting access based | [optional] [default to "GENERAL"]
-**ConflictingAccessCriteria** | [**SodPolicyConflictingAccessCriteria**](sod-policy-conflicting-access-criteria) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$SodPolicy = Initialize-PSSailpoint.V3SodPolicy  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
+$SodPolicy = Initialize-SodPolicy  -Id 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -Name policy-xyz `
  -Created 2020-01-01T00:00Z `
  -Modified 2020-01-01T00:00Z `
@@ -55,8 +54,7 @@ $SodPolicy = Initialize-PSSailpoint.V3SodPolicy  -Id 0f11f2a4-7c94-4bf3-a2bd-742
  -ModifierId 0f11f2a4-7c94-4bf3-a2bd-742580fe3bde `
  -ViolationOwnerAssignmentConfig null `
  -Scheduled true `
- -Type GENERAL `
- -ConflictingAccessCriteria null
+ -Type GENERAL
 ```
 
 - Convert the resource to JSON

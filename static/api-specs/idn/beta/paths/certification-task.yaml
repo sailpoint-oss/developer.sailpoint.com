@@ -3,7 +3,7 @@ get:
   tags:
     - Certifications
     - Certification Campaigns
-  summary: Certification Task by ID
+  summary: Certification task by id
   deprecated: true
   description: >-
     This API returns the certification task for the specified ID. A token with ORG_ADMIN or CERT_ADMIN authority is

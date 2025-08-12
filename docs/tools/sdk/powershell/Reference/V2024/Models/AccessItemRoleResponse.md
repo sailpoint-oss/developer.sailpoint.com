@@ -16,11 +16,11 @@ tags: ['SDK', 'Software Development Kit', 'AccessItemRoleResponse', 'V2024Access
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccessType** | **String** | the access item type. role in this case | [optional] 
 **Id** | **String** | the access item id | [optional] 
+**AccessType** | **String** | the access item type. role in this case | [optional] 
 **DisplayName** | **String** | the role display name | [optional] 
-**Description** | **String** | the description for the role | [optional] 
 **SourceName** | **String** | the associated source name if it exists | [optional] 
+**Description** | **String** | the description for the role | [optional] 
 **RemoveDate** | **String** | the date the role is no longer assigned to the specified identity | [optional] 
 **Revocable** | **Boolean** | indicates whether the role is revocable | [required]
 
@@ -28,11 +28,11 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessItemRoleResponse = Initialize-PSSailpoint.V2024AccessItemRoleResponse  -AccessType role `
- -Id 2c918087763e69d901763e72e97f006f `
+$AccessItemRoleResponse = Initialize-V2024AccessItemRoleResponse  -Id 2c918087763e69d901763e72e97f006f `
+ -AccessType role `
  -DisplayName sample `
- -Description Role - Workday/Citizenship access `
  -SourceName Source Name `
+ -Description Role - Workday/Citizenship access `
  -RemoveDate 2024-07-01T06:00:00.00Z `
  -Revocable true
 ```

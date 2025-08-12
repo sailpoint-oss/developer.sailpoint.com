@@ -25,15 +25,15 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-reassignment-configuration**](#create-reassignment-configuration) | **POST** `/reassignment-configurations` | Create a Reassignment Configuration
-[**delete-reassignment-configuration**](#delete-reassignment-configuration) | **DELETE** `/reassignment-configurations/{identityId}/{configType}` | Delete Reassignment Configuration
-[**get-evaluate-reassignment-configuration**](#get-evaluate-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}/evaluate/{configType}` | Evaluate Reassignment Configuration
-[**get-reassignment-config-types**](#get-reassignment-config-types) | **GET** `/reassignment-configurations/types` | List Reassignment Config Types
-[**get-reassignment-configuration**](#get-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}` | Get Reassignment Configuration
-[**get-tenant-config-configuration**](#get-tenant-config-configuration) | **GET** `/reassignment-configurations/tenant-config` | Get Tenant-wide Reassignment Configuration settings
-[**list-reassignment-configurations**](#list-reassignment-configurations) | **GET** `/reassignment-configurations` | List Reassignment Configurations
-[**put-reassignment-config**](#put-reassignment-config) | **PUT** `/reassignment-configurations/{identityId}` | Update Reassignment Configuration
-[**put-tenant-configuration**](#put-tenant-configuration) | **PUT** `/reassignment-configurations/tenant-config` | Update Tenant-wide Reassignment Configuration settings
+[**create-reassignment-configuration**](#create-reassignment-configuration) | **POST** `/reassignment-configurations` | Create a reassignment configuration
+[**delete-reassignment-configuration**](#delete-reassignment-configuration) | **DELETE** `/reassignment-configurations/{identityId}/{configType}` | Delete reassignment configuration
+[**get-evaluate-reassignment-configuration**](#get-evaluate-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}/evaluate/{configType}` | Evaluate reassignment configuration
+[**get-reassignment-config-types**](#get-reassignment-config-types) | **GET** `/reassignment-configurations/types` | List reassignment config types
+[**get-reassignment-configuration**](#get-reassignment-configuration) | **GET** `/reassignment-configurations/{identityId}` | Get reassignment configuration
+[**get-tenant-config-configuration**](#get-tenant-config-configuration) | **GET** `/reassignment-configurations/tenant-config` | Get tenant-wide reassignment configuration settings
+[**list-reassignment-configurations**](#list-reassignment-configurations) | **GET** `/reassignment-configurations` | List reassignment configurations
+[**put-reassignment-config**](#put-reassignment-config) | **PUT** `/reassignment-configurations/{identityId}` | Update reassignment configuration
+[**put-tenant-configuration**](#put-tenant-configuration) | **PUT** `/reassignment-configurations/tenant-config` | Update tenant-wide reassignment configuration settings
 
 
 ## create-reassignment-configuration
@@ -48,7 +48,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Create a Reassignment Configuration
+Create a reassignment configuration
 Creates a new Reassignment Configuration for the specified identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-reassignment-configuration)
@@ -87,7 +87,7 @@ from sailpoint.v2024.models.configuration_item_response import ConfigurationItem
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -100,7 +100,7 @@ with ApiClient(configuration) as api_client:
         }''' # ConfigurationItemRequest | 
 
     try:
-        # Create a Reassignment Configuration
+        # Create a reassignment configuration
         new_configuration_item_request = ConfigurationItemRequest.from_json(configuration_item_request)
         results = WorkReassignmentApi(api_client).create_reassignment_configuration(x_sail_point_experimental=x_sail_point_experimental, configuration_item_request=new_configuration_item_request)
         # Below is a request that includes all optional parameters
@@ -127,7 +127,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Delete Reassignment Configuration
+Delete reassignment configuration
 Deletes a single reassignment configuration for the specified identity
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-reassignment-configuration)
@@ -166,7 +166,7 @@ from sailpoint.v2024.models.config_type_enum import ConfigTypeEnum
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     identity_id = '2c91808781a71ddb0181b9090b5c504e' # str | unique identity id # str | unique identity id
@@ -174,7 +174,7 @@ with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Delete Reassignment Configuration
+        # Delete reassignment configuration
         
         WorkReassignmentApi(api_client).delete_reassignment_configuration(identity_id=identity_id, config_type=config_type, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -199,7 +199,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Evaluate Reassignment Configuration
+Evaluate reassignment configuration
 Evaluates the Reassignment Configuration for an `Identity` to determine if work items for the specified type should be reassigned. If a valid Reassignment Configuration is found for the identity & work type, then a lookup is initiated which recursively fetches the Reassignment Configuration for the next `TargetIdentity` until no more results are found or a max depth of 5. That lookup trail is provided in the response and the final reassigned identity in the lookup list is returned as the `reassignToId` property. If no Reassignment Configuration is found for the specified identity & config type then the requested Identity ID will be used as the `reassignToId` value and the lookupTrail node will be empty.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-evaluate-reassignment-configuration)
@@ -240,7 +240,7 @@ from sailpoint.v2024.models.evaluate_response import EvaluateResponse
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     identity_id = '2c91808781a71ddb0181b9090b5c504e' # str | unique identity id # str | unique identity id
@@ -249,13 +249,14 @@ with ApiClient(configuration) as api_client:
     exclusion_filters = '''['SELF_REVIEW_DELEGATION']''' # List[str] | Exclusion filters that disable parts of the reassignment evaluation. Possible values are listed below: - `SELF_REVIEW_DELEGATION`: This will exclude delegations of self-review reassignments (optional)
 
     try:
-        # Evaluate Reassignment Configuration
+        # Evaluate reassignment configuration
         
         results = WorkReassignmentApi(api_client).get_evaluate_reassignment_configuration(identity_id=identity_id, config_type=config_type, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = WorkReassignmentApi(api_client).get_evaluate_reassignment_configuration(identity_id, config_type, x_sail_point_experimental, exclusion_filters)
         print("The response of WorkReassignmentApi->get_evaluate_reassignment_configuration:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkReassignmentApi->get_evaluate_reassignment_configuration: %s\n" % e)
 ```
@@ -276,7 +277,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Reassignment Config Types
+List reassignment config types
 Gets a collection of types which are available in the Reassignment Configuration UI.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-reassignment-config-types)
@@ -313,19 +314,20 @@ from sailpoint.v2024.models.config_type import ConfigType
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # List Reassignment Config Types
+        # List reassignment config types
         
         results = WorkReassignmentApi(api_client).get_reassignment_config_types(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = WorkReassignmentApi(api_client).get_reassignment_config_types(x_sail_point_experimental)
         print("The response of WorkReassignmentApi->get_reassignment_config_types:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkReassignmentApi->get_reassignment_config_types: %s\n" % e)
 ```
@@ -346,7 +348,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Reassignment Configuration
+Get reassignment configuration
 Gets the Reassignment Configuration for an identity.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-reassignment-configuration)
@@ -385,14 +387,14 @@ from sailpoint.v2024.models.configuration_response import ConfigurationResponse
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     identity_id = '2c91808781a71ddb0181b9090b5c504f' # str | unique identity id # str | unique identity id
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Get Reassignment Configuration
+        # Get reassignment configuration
         
         results = WorkReassignmentApi(api_client).get_reassignment_configuration(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -419,7 +421,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Get Tenant-wide Reassignment Configuration settings
+Get tenant-wide reassignment configuration settings
 Gets the global Reassignment Configuration settings for the requestor's tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-tenant-config-configuration)
@@ -457,13 +459,13 @@ from sailpoint.v2024.models.tenant_configuration_response import TenantConfigura
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Get Tenant-wide Reassignment Configuration settings
+        # Get tenant-wide reassignment configuration settings
         
         results = WorkReassignmentApi(api_client).get_tenant_config_configuration(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -490,7 +492,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Reassignment Configurations
+List reassignment configurations
 Gets all Reassignment configuration for the current org.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-reassignment-configurations)
@@ -528,19 +530,20 @@ from sailpoint.v2024.models.configuration_response import ConfigurationResponse
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # List Reassignment Configurations
+        # List reassignment configurations
         
         results = WorkReassignmentApi(api_client).list_reassignment_configurations(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = WorkReassignmentApi(api_client).list_reassignment_configurations(x_sail_point_experimental)
         print("The response of WorkReassignmentApi->list_reassignment_configurations:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling WorkReassignmentApi->list_reassignment_configurations: %s\n" % e)
 ```
@@ -561,7 +564,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Update Reassignment Configuration
+Update reassignment configuration
 Replaces existing Reassignment configuration for an identity with the newly provided configuration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-reassignment-config)
@@ -601,7 +604,7 @@ from sailpoint.v2024.models.configuration_item_response import ConfigurationItem
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     identity_id = '2c91808781a71ddb0181b9090b5c504e' # str | unique identity id # str | unique identity id
@@ -615,7 +618,7 @@ with ApiClient(configuration) as api_client:
         }''' # ConfigurationItemRequest | 
 
     try:
-        # Update Reassignment Configuration
+        # Update reassignment configuration
         new_configuration_item_request = ConfigurationItemRequest.from_json(configuration_item_request)
         results = WorkReassignmentApi(api_client).put_reassignment_config(identity_id=identity_id, x_sail_point_experimental=x_sail_point_experimental, configuration_item_request=new_configuration_item_request)
         # Below is a request that includes all optional parameters
@@ -642,7 +645,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Update Tenant-wide Reassignment Configuration settings
+Update tenant-wide reassignment configuration settings
 Replaces existing Tenant-wide Reassignment Configuration settings with the newly provided settings.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-tenant-configuration)
@@ -681,7 +684,7 @@ from sailpoint.v2024.models.tenant_configuration_response import TenantConfigura
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -692,7 +695,7 @@ with ApiClient(configuration) as api_client:
         }''' # TenantConfigurationRequest | 
 
     try:
-        # Update Tenant-wide Reassignment Configuration settings
+        # Update tenant-wide reassignment configuration settings
         new_tenant_configuration_request = TenantConfigurationRequest.from_json(tenant_configuration_request)
         results = WorkReassignmentApi(api_client).put_tenant_configuration(x_sail_point_experimental=x_sail_point_experimental, tenant_configuration_request=new_tenant_configuration_request)
         # Below is a request that includes all optional parameters

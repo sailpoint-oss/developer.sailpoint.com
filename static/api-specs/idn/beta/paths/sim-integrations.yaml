@@ -1,7 +1,7 @@
 put:
   tags:
     - SIM Integrations
-  summary: Update an existing SIM integration
+  summary: Update an existing sim integration
   description: Update an existing SIM integration.  A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
   operationId: putSIMIntegration
   requestBody:
@@ -45,7 +45,7 @@ put:
 get:
   tags:
     - SIM Integrations
-  summary: Get a SIM integration details.
+  summary: Get a sim integration details.
   description: Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
   operationId: getSIMIntegration
   parameters:
@@ -82,7 +82,7 @@ get:
 delete:
   tags:
     - SIM Integrations
-  summary: Delete a SIM integration
+  summary: Delete a sim integration
   description: Get the details of a SIM integration. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
   operationId: deleteSIMIntegration
   parameters:
@@ -115,7 +115,7 @@ delete:
 patch:
   tags:
     - SIM Integrations
-  summary: Patch a SIM attribute.
+  summary: Patch a sim attribute.
   description: Patch a SIM attribute given a JsonPatch object. A token with Org Admin or Service Desk Admin authority is required to access this endpoint.
   operationId: patchSIMAttributes
   requestBody:

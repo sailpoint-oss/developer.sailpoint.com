@@ -17,7 +17,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-V2024Recommendations**](#get-recommendations) | **POST** `/recommendations/request` | Returns Recommendation Based on Object
+[**Get-V2024Recommendations**](#get-recommendations) | **POST** `/recommendations/request` | Returns recommendation based on object
 [**Get-V2024RecommendationsConfig**](#get-recommendations-config) | **GET** `/recommendations/config` | Get certification recommendation config values
 [**Update-V2024RecommendationsConfig**](#update-recommendations-config) | **PUT** `/recommendations/config` | Update certification recommendation config values
 
@@ -76,7 +76,7 @@ $RecommendationRequestDto = @"{
   "includeDebugInformation" : true
 }"@
 
-# Returns Recommendation Based on Object
+# Returns recommendation based on object
 
 try {
     $Result = ConvertFrom-JsonToRecommendationRequestDto -Json $RecommendationRequestDto

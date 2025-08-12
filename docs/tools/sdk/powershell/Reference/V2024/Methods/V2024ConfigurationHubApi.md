@@ -28,22 +28,26 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-V2024Deploy**](#create-deploy) | **POST** `/configuration-hub/deploys` | Create a Deploy
+[**New-V2024Deploy**](#create-deploy) | **POST** `/configuration-hub/deploys` | Create a deploy
 [**New-V2024ObjectMapping**](#create-object-mapping) | **POST** `/configuration-hub/object-mappings/{sourceOrg}` | Creates an object mapping
 [**New-V2024ObjectMappings**](#create-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-create` | Bulk creates object mappings
-[**New-V2024UploadedConfiguration**](#create-uploaded-configuration) | **POST** `/configuration-hub/backups/uploads` | Upload a Configuration
-[**Remove-V2024Backup**](#delete-backup) | **DELETE** `/configuration-hub/backups/{id}` | Delete a Backup
+[**New-V2024ScheduledAction**](#create-scheduled-action) | **POST** `/configuration-hub/scheduled-actions` | Create scheduled action
+[**New-V2024UploadedConfiguration**](#create-uploaded-configuration) | **POST** `/configuration-hub/backups/uploads` | Upload a configuration
+[**Remove-V2024Backup**](#delete-backup) | **DELETE** `/configuration-hub/backups/{id}` | Delete a backup
 [**Remove-V2024Draft**](#delete-draft) | **DELETE** `/configuration-hub/drafts/{id}` | Delete a draft
 [**Remove-V2024ObjectMapping**](#delete-object-mapping) | **DELETE** `/configuration-hub/object-mappings/{sourceOrg}/{objectMappingId}` | Deletes an object mapping
-[**Remove-V2024UploadedConfiguration**](#delete-uploaded-configuration) | **DELETE** `/configuration-hub/backups/uploads/{id}` | Delete an Uploaded Configuration
-[**Get-V2024Deploy**](#get-deploy) | **GET** `/configuration-hub/deploys/{id}` | Get a Deploy
+[**Remove-V2024ScheduledAction**](#delete-scheduled-action) | **DELETE** `/configuration-hub/scheduled-actions/{id}` | Delete scheduled action
+[**Remove-V2024UploadedConfiguration**](#delete-uploaded-configuration) | **DELETE** `/configuration-hub/backups/uploads/{id}` | Delete an uploaded configuration
+[**Get-V2024Deploy**](#get-deploy) | **GET** `/configuration-hub/deploys/{id}` | Get a deploy
 [**Get-V2024ObjectMappings**](#get-object-mappings) | **GET** `/configuration-hub/object-mappings/{sourceOrg}` | Gets list of object mappings
-[**Get-V2024UploadedConfiguration**](#get-uploaded-configuration) | **GET** `/configuration-hub/backups/uploads/{id}` | Get an Uploaded Configuration
-[**Get-V2024Backups**](#list-backups) | **GET** `/configuration-hub/backups` | List Backups
-[**Get-V2024Deploys**](#list-deploys) | **GET** `/configuration-hub/deploys` | List Deploys
-[**Get-V2024Drafts**](#list-drafts) | **GET** `/configuration-hub/drafts` | List Drafts
-[**Get-V2024UploadedConfigurations**](#list-uploaded-configurations) | **GET** `/configuration-hub/backups/uploads` | List Uploaded Configurations
+[**Get-V2024UploadedConfiguration**](#get-uploaded-configuration) | **GET** `/configuration-hub/backups/uploads/{id}` | Get an uploaded configuration
+[**Get-V2024Backups**](#list-backups) | **GET** `/configuration-hub/backups` | List backups
+[**Get-V2024Deploys**](#list-deploys) | **GET** `/configuration-hub/deploys` | List deploys
+[**Get-V2024Drafts**](#list-drafts) | **GET** `/configuration-hub/drafts` | List drafts
+[**Get-V2024ScheduledActions**](#list-scheduled-actions) | **GET** `/configuration-hub/scheduled-actions` | List scheduled actions
+[**Get-V2024UploadedConfigurations**](#list-uploaded-configurations) | **GET** `/configuration-hub/backups/uploads` | List uploaded configurations
 [**Update-V2024ObjectMappings**](#update-object-mappings) | **POST** `/configuration-hub/object-mappings/{sourceOrg}/bulk-patch` | Bulk updates object mappings
+[**Update-V2024ScheduledAction**](#update-scheduled-action) | **PATCH** `/configuration-hub/scheduled-actions/{id}` | Update scheduled action
 
 
 ## create-deploy
@@ -79,7 +83,7 @@ $DeployRequest = @"{
   "draftId" : "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b"
 }"@
 
-# Create a Deploy
+# Create a deploy
 
 try {
     $Result = ConvertFrom-JsonToDeployRequest -Json $DeployRequest
@@ -218,6 +222,74 @@ try {
 ```
 [[Back to top]](#) 
 
+## create-scheduled-action
+This API creates a new scheduled action for the current tenant.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/create-scheduled-action)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+ Body  | ScheduledActionPayload | [**ScheduledActionPayload**](../models/scheduled-action-payload) | True  | The scheduled action creation request body.
+
+### Return type
+[**ScheduledActionResponse**](../models/scheduled-action-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The created scheduled action. | ScheduledActionResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$ScheduledActionPayload = @"{
+  "cronString" : "0 0 12 * * * *",
+  "timeZoneId" : "America/Chicago",
+  "startTime" : "2024-08-16T14:16:58.389Z",
+  "jobType" : "BACKUP",
+  "content" : {
+    "sourceTenant" : "tenant-name",
+    "draftId" : "9012b87d-48ca-439a-868f-2160001da8c3",
+    "name" : "Daily Backup",
+    "backupOptions" : {
+      "includeTypes" : [ "ROLE", "IDENTITY_PROFILE" ],
+      "objectOptions" : {
+        "SOURCE" : {
+          "includedNames" : [ "Source1", "Source2" ]
+        },
+        "ROLE" : {
+          "includedNames" : [ "Admin Role", "User Role" ]
+        }
+      }
+    },
+    "sourceBackupId" : "5678b87d-48ca-439a-868f-2160001da8c2"
+  }
+}"@
+
+# Create scheduled action
+
+try {
+    $Result = ConvertFrom-JsonToScheduledActionPayload -Json $ScheduledActionPayload
+    New-V2024ScheduledAction -ScheduledActionPayload $Result 
+    
+    # Below is a request that includes all optional parameters
+    # New-V2024ScheduledAction -ScheduledActionPayload $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024ScheduledAction"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## create-uploaded-configuration
 This API uploads a JSON configuration file into a tenant.
 
@@ -255,7 +327,7 @@ Code | Description  | Data Type
 $Data =  # System.IO.FileInfo | JSON file containing the objects to be imported.
 $Name = "MyName" # String | Name that will be assigned to the uploaded configuration file.
 
-# Upload a Configuration
+# Upload a configuration
 
 try {
     New-V2024UploadedConfiguration -Data $Data -Name $Name 
@@ -305,7 +377,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "07659d7d-2cce-47c0-9e49-185787ee565a" # String | The id of the backup to delete.
 
-# Delete a Backup
+# Delete a backup
 
 try {
     Remove-V2024Backup -Id $Id 
@@ -420,6 +492,52 @@ try {
 ```
 [[Back to top]](#) 
 
+## delete-scheduled-action
+This API deletes an existing scheduled action.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-scheduled-action)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | ScheduledActionId | **String** | True  | The ID of the scheduled action.
+
+### Return type
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+204 | No content - indicates the request was successful but there is no content to be returned in the response. | 
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+$ScheduledActionId = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | The ID of the scheduled action.
+
+# Delete scheduled action
+
+try {
+    Remove-V2024ScheduledAction -ScheduledActionId $ScheduledActionId 
+    
+    # Below is a request that includes all optional parameters
+    # Remove-V2024ScheduledAction -ScheduledActionId $ScheduledActionId  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2024ScheduledAction"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
 ## delete-uploaded-configuration
 This API deletes an uploaded configuration based on Id.
 
@@ -456,7 +574,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded configuration.
 
-# Delete an Uploaded Configuration
+# Delete an uploaded configuration
 
 try {
     Remove-V2024UploadedConfiguration -Id $Id 
@@ -502,7 +620,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the deploy.
 
-# Get a Deploy
+# Get a deploy
 
 try {
     Get-V2024Deploy -Id $Id 
@@ -597,7 +715,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "3d0fe04b-57df-4a46-a83b-8f04b0f9d10b" # String | The id of the uploaded configuration.
 
-# Get an Uploaded Configuration
+# Get an uploaded configuration
 
 try {
     Get-V2024UploadedConfiguration -Id $Id 
@@ -642,7 +760,7 @@ Code | Description  | Data Type
 ```powershell
 $Filters = 'status eq "COMPLETE"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
 
-# List Backups
+# List backups
 
 try {
     Get-V2024Backups 
@@ -685,7 +803,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# List Deploys
+# List deploys
 
 try {
     Get-V2024Deploys 
@@ -730,7 +848,7 @@ Code | Description  | Data Type
 ```powershell
 $Filters = 'status eq "COMPLETE"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq*  **approvalStatus**: *eq* (optional)
 
-# List Drafts
+# List drafts
 
 try {
     Get-V2024Drafts 
@@ -739,6 +857,49 @@ try {
     # Get-V2024Drafts -Filters $Filters  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024Drafts"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## list-scheduled-actions
+This API gets a list of existing scheduled actions for the current tenant.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-scheduled-actions)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+
+### Return type
+[**ScheduledActionResponse[]**](../models/scheduled-action-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | List of existing scheduled actions. | ScheduledActionResponse[]
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+```powershell
+
+# List scheduled actions
+
+try {
+    Get-V2024ScheduledActions 
+    
+    # Below is a request that includes all optional parameters
+    # Get-V2024ScheduledActions  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2024ScheduledActions"
     Write-Host $_.ErrorDetails
 }
 ```
@@ -776,7 +937,7 @@ Code | Description  | Data Type
 ```powershell
 $Filters = 'status eq "COMPLETE"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **status**: *eq* (optional)
 
-# List Uploaded Configurations
+# List uploaded configurations
 
 try {
     Get-V2024UploadedConfigurations 
@@ -850,6 +1011,65 @@ try {
     # Update-V2024ObjectMappings -SourceOrg $SourceOrg -ObjectMappingBulkPatchRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ObjectMappings"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## update-scheduled-action
+This API updates an existing scheduled action using JSON Patch format.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/update-scheduled-action)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | ScheduledActionId | **String** | True  | The ID of the scheduled action.
+ Body  | JsonPatch | [**JsonPatch**](../models/json-patch) | True  | The JSON Patch document containing the changes to apply to the scheduled action.
+
+### Return type
+[**ScheduledActionResponse**](../models/scheduled-action-response)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | The updated scheduled action. | ScheduledActionResponse
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json-patch+json
+- **Accept**: application/json
+
+### Example
+```powershell
+$ScheduledActionId = "0f11f2a4-7c94-4bf3-a2bd-742580fe3bde" # String | The ID of the scheduled action.
+$JsonPatch = @"{
+  "operations" : [ {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  }, {
+    "op" : "replace",
+    "path" : "/description",
+    "value" : "New description"
+  } ]
+}"@
+
+# Update scheduled action
+
+try {
+    $Result = ConvertFrom-JsonToJsonPatch -Json $JsonPatch
+    Update-V2024ScheduledAction -ScheduledActionId $ScheduledActionId -JsonPatch $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Update-V2024ScheduledAction -ScheduledActionId $ScheduledActionId -JsonPatch $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2024ScheduledAction"
     Write-Host $_.ErrorDetails
 }
 ```

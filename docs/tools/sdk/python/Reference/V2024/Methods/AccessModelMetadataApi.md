@@ -25,25 +25,14 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get-access-model-metadata-attribute**](#get-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes/{key}` | Get Access Model Metadata Attribute
-[**get-access-model-metadata-attribute-value**](#get-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values/{value}` | Get Access Model Metadata Value
-[**list-access-model-metadata-attribute**](#list-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes` | List Access Model Metadata Attributes
-[**list-access-model-metadata-attribute-value**](#list-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values` | List Access Model Metadata Values
+[**get-access-model-metadata-attribute**](#get-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes/{key}` | Get access model metadata attribute
+[**get-access-model-metadata-attribute-value**](#get-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values/{value}` | Get access model metadata value
+[**list-access-model-metadata-attribute**](#list-access-model-metadata-attribute) | **GET** `/access-model-metadata/attributes` | List access model metadata attributes
+[**list-access-model-metadata-attribute-value**](#list-access-model-metadata-attribute-value) | **GET** `/access-model-metadata/attributes/{key}/values` | List access model metadata values
 
 
 ## get-access-model-metadata-attribute
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
-Get Access Model Metadata Attribute
+Get access model metadata attribute
 Get single Access Model Metadata Attribute
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-model-metadata-attribute)
@@ -53,7 +42,6 @@ Get single Access Model Metadata Attribute
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | key | **str** | True  | Technical name of the Attribute.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 [**AttributeDTO**](../models/attribute-dto)
@@ -81,18 +69,16 @@ from sailpoint.v2024.models.attribute_dto import AttributeDTO
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Get Access Model Metadata Attribute
+        # Get access model metadata attribute
         
-        results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute(key=key, x_sail_point_experimental=x_sail_point_experimental)
+        results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute(key=key)
         # Below is a request that includes all optional parameters
-        # results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute(key, x_sail_point_experimental)
+        # results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute(key)
         print("The response of AccessModelMetadataApi->get_access_model_metadata_attribute:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -104,18 +90,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-access-model-metadata-attribute-value
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
-Get Access Model Metadata Value
+Get access model metadata value
 Get single Access Model Metadata Attribute Value
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-access-model-metadata-attribute-value)
@@ -126,7 +101,6 @@ Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | key | **str** | True  | Technical name of the Attribute.
 Path   | value | **str** | True  | Technical name of the Attribute value.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 [**AttributeValueDTO**](../models/attribute-value-dto)
@@ -154,19 +128,17 @@ from sailpoint.v2024.models.attribute_value_dto import AttributeValueDTO
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
     value = 'public' # str | Technical name of the Attribute value. # str | Technical name of the Attribute value.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Get Access Model Metadata Value
+        # Get access model metadata value
         
-        results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute_value(key=key, value=value, x_sail_point_experimental=x_sail_point_experimental)
+        results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute_value(key=key, value=value)
         # Below is a request that includes all optional parameters
-        # results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute_value(key, value, x_sail_point_experimental)
+        # results = AccessModelMetadataApi(api_client).get_access_model_metadata_attribute_value(key, value)
         print("The response of AccessModelMetadataApi->get_access_model_metadata_attribute_value:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -178,18 +150,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-access-model-metadata-attribute
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
-List Access Model Metadata Attributes
+List access model metadata attributes
 Get a list of Access Model Metadata Attributes
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-access-model-metadata-attribute)
@@ -198,8 +159,11 @@ Get a list of Access Model Metadata Attributes
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
-  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and*
+  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  **Supported composite operators**: *and*
+  Query | sorters | **str** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key**
+  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**List[AttributeDTO]**](../models/attribute-dto)
@@ -227,20 +191,23 @@ from sailpoint.v2024.models.attribute_dto import AttributeDTO
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    filters = 'name eq \"Privacy\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  Supported composite operators: *and* (optional)
+    filters = 'name eq \"Privacy\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  **Supported composite operators**: *and* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **key**: *eq*  **name**: *eq*  **type**: *eq*  **status**: *eq*  **objectTypes**: *eq*  **Supported composite operators**: *and* (optional)
+    sorters = 'name,-key' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, key** (optional)
+    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
     try:
-        # List Access Model Metadata Attributes
+        # List access model metadata attributes
         
-        results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute(x_sail_point_experimental=x_sail_point_experimental)
+        results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute()
         # Below is a request that includes all optional parameters
-        # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute(x_sail_point_experimental, filters)
+        # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute(filters, sorters, offset, limit, count)
         print("The response of AccessModelMetadataApi->list_access_model_metadata_attribute:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessModelMetadataApi->list_access_model_metadata_attribute: %s\n" % e)
 ```
@@ -250,18 +217,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-access-model-metadata-attribute-value
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```python
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
-List Access Model Metadata Values
+List access model metadata values
 Get a list of Access Model Metadata Attribute Values
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-access-model-metadata-attribute-value)
@@ -271,7 +227,9 @@ Get a list of Access Model Metadata Attribute Values
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | key | **str** | True  | Technical name of the Attribute.
-   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
+  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
 ### Return type
 [**List[AttributeValueDTO]**](../models/attribute-value-dto)
@@ -299,20 +257,22 @@ from sailpoint.v2024.models.attribute_value_dto import AttributeValueDTO
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
 
 with ApiClient(configuration) as api_client:
     key = 'iscPrivacy' # str | Technical name of the Attribute. # str | Technical name of the Attribute.
-    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
+    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
     try:
-        # List Access Model Metadata Values
+        # List access model metadata values
         
-        results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute_value(key=key, x_sail_point_experimental=x_sail_point_experimental)
+        results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute_value(key=key)
         # Below is a request that includes all optional parameters
-        # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute_value(key, x_sail_point_experimental)
+        # results = AccessModelMetadataApi(api_client).list_access_model_metadata_attribute_value(key, offset, limit, count)
         print("The response of AccessModelMetadataApi->list_access_model_metadata_attribute_value:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessModelMetadataApi->list_access_model_metadata_attribute_value: %s\n" % e)
 ```

@@ -24,7 +24,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-Transform**](#create-transform) | **POST** `/transforms` | Create transform
 [**Remove-Transform**](#delete-transform) | **DELETE** `/transforms/{id}` | Delete a transform
-[**Get-Transform**](#get-transform) | **GET** `/transforms/{id}` | Transform by ID
+[**Get-Transform**](#get-transform) | **GET** `/transforms/{id}` | Transform by id
 [**Get-Transforms**](#list-transforms) | **GET** `/transforms` | List transforms
 [**Update-Transform**](#update-transform) | **PUT** `/transforms/{id}` | Update a transform
 
@@ -174,7 +174,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to retrieve
 
-# Transform by ID
+# Transform by id
 
 try {
     Get-Transform -Id $Id 

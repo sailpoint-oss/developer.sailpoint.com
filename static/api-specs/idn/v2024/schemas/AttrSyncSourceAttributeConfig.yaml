@@ -1,5 +1,6 @@
 
 type: object
+title: Attr Sync Source Attribute Config
 description: Specification of source attribute sync mapping configuration for an identity attribute
 required:
   - name

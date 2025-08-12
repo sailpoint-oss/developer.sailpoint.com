@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EventActor = Initialize-PSSailpoint.V3EventActor  -Name System
+$EventActor = Initialize-EventActor  -Name System
 ```
 
 - Convert the resource to JSON

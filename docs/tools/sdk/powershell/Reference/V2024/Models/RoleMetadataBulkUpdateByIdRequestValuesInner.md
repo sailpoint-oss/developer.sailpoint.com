@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RoleMetadataBulkUpdateByIdRequestValuesInner = Initialize-PSSailpoint.V2024RoleMetadataBulkUpdateByIdRequestValuesInner  -Attribute iscFederalClassifications `
+$RoleMetadataBulkUpdateByIdRequestValuesInner = Initialize-V2024RoleMetadataBulkUpdateByIdRequestValuesInner  -Attribute iscFederalClassifications `
  -Values [secret]
 ```
 

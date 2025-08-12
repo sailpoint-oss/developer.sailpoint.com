@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ExceptionAccessCriteria = Initialize-PSSailpoint.V2024ExceptionAccessCriteria  -LeftCriteria null `
+$ExceptionAccessCriteria = Initialize-V2024ExceptionAccessCriteria  -LeftCriteria null `
  -RightCriteria null
 ```
 

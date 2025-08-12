@@ -1,4 +1,5 @@
 type: object
+title: Okta Verification Request
 properties:
   userId:
     type: string

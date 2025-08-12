@@ -44,13 +44,13 @@ enabled=True,
 technical_name='Technical Name',
 description='Lifecycle description',
 identity_count=42,
-email_notification_option=sailpoint.v3.models.email_notification_option.EmailNotificationOption(
+email_notification_option=sailpoint.v3.models.email_notification_option.Email Notification Option(
                     notify_managers = True, 
                     notify_all_admins = True, 
                     notify_specific_users = True, 
                     email_address_list = [test@test.com, test2@test.com], ),
 account_actions=[
-                    sailpoint.v3.models.account_action.AccountAction(
+                    sailpoint.v3.models.account_action.Account Action(
                         action = 'ENABLE', 
                         source_ids = [2c918084660f45d6016617daa9210584, 2c918084660f45d6016617daa9210500], )
                     ],

@@ -26,10 +26,10 @@ from sailpoint.beta.models.recommendation_response_dto import RecommendationResp
 
 recommendation_response_dto = RecommendationResponseDto(
 response=[
-                    sailpoint.beta.models.recommendation_response.RecommendationResponse(
-                        request = sailpoint.beta.models.recommendation_request.RecommendationRequest(
+                    sailpoint.beta.models.recommendation_response.Recommendation Response(
+                        request = sailpoint.beta.models.recommendation_request.Recommendation Request(
                             identity_id = '2c938083633d259901633d25c68c00fa', 
-                            item = sailpoint.beta.models.access_item_ref.AccessItemRef(
+                            item = sailpoint.beta.models.access_item_ref.Access Item Ref(
                                 id = '2c938083633d259901633d2623ec0375', 
                                 type = 'ENTITLEMENT', ), ), 
                         recommendation = 'true', 
@@ -48,7 +48,7 @@ response=[
                                 'key' : sailpoint.beta.models.recommender_calculations_identity_attributes_value.RecommenderCalculations_identityAttributes_value(
                                     value = '', )
                                 }, 
-                            feature_values = sailpoint.beta.models.feature_value_dto.FeatureValueDto(
+                            feature_values = sailpoint.beta.models.feature_value_dto.Feature Value Dto(
                                 feature = 'department', 
                                 numerator = 14, 
                                 denominator = 14, ), ), )

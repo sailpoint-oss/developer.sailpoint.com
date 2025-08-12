@@ -2,10 +2,12 @@ get:
   operationId: getHistoricalIdentityEvents
   tags:
     - Identity History
-  summary: Lists all events for the given identity
+  summary: List identity event history
   description: >-
     This method retrieves all access events for the identity
     Requires authorization scope of 'idn:identity-history:read' 
+  security:
+    - userAuth: [idn:identity-history:read]
   parameters:
     - in: path
       name: id
@@ -19,6 +21,7 @@ get:
       name: from
       schema:
         type: string
+      required: false
       description: The optional instant until which access events are returned
       example: '2024-03-01T13:00:00Z'
     - in: query
@@ -27,6 +30,7 @@ get:
         type: array
         items:
           type: string
+      required: false
       description: An optional list of event types to return.  If null or empty, all events are returned
       example:
         - AccessAddedEvent
@@ -37,6 +41,7 @@ get:
         type: array
         items:
           type: string
+      required: false
       description: >- 
         An optional list of access item types (app, account, entitlement, etc...) to return.  
         If null or empty, all access items types are returned
@@ -55,13 +60,12 @@ get:
             type: array
             items:
               anyOf:
-                - $ref: '../schemas/AccessItemAssociated.yaml'
-                - $ref: '../schemas/AccessItemRemoved.yaml'
-                - $ref: '../schemas/AttributesChanged.yaml'
-                - $ref: '../schemas/AccessRequested.yaml'
-                - $ref: '../schemas/IdentityCertified.yaml'
-                - $ref: '../schemas/AccountStatusChanged.yaml'
-
+              - $ref: ../schemas/IdentityCertified.yaml
+              - $ref: ../schemas/AccessItemAssociated.yaml
+              - $ref: ../schemas/AccessItemRemoved.yaml
+              - $ref: ../schemas/AttributesChanged.yaml
+              - $ref: ../schemas/AccessRequested.yaml
+              - $ref: ../schemas/AccountStatusChanged.yaml
           examples:
             AccessItemAssociated:
               description: An Access item associated event

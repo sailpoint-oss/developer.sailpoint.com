@@ -1,4 +1,5 @@
 type: object
+title: Object Export Import Options
 properties:
   includedIds:
     description: Object ids to be included in an import or export.

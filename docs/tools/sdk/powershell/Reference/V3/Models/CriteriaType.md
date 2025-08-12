@@ -35,6 +35,8 @@ tags: ['SDK', 'Software Development Kit', 'CriteriaType', 'CriteriaType']
 
 * `INVALID_CERTIFIABLE_ENTITY` (value: `"INVALID_CERTIFIABLE_ENTITY"`)
 
+* `INVALID_CERTIFIABLE_BUNDLE` (value: `"INVALID_CERTIFIABLE_BUNDLE"`)
+
 
 [[Back to top]](#) 
 

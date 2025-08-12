@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$LoadAccountsTaskTaskMessagesInner = Initialize-PSSailpoint.BetaLoadAccountsTaskTaskMessagesInner  -Type WARN `
+$LoadAccountsTaskTaskMessagesInner = Initialize-BetaLoadAccountsTaskTaskMessagesInner  -Type WARN `
  -VarError false `
  -Warning true `
  -Key This aggregation failed because the currently running aggregation must complete before the next one can start. `

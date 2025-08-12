@@ -49,20 +49,21 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-access-profile**](#create-access-profile) | **POST** `/access-profiles` | Create Access Profile
-[**delete-access-profile**](#delete-access-profile) | **DELETE** `/access-profiles/{id}` | Delete the specified Access Profile
-[**delete-access-profiles-in-bulk**](#delete-access-profiles-in-bulk) | **POST** `/access-profiles/bulk-delete` | Delete Access Profile(s)
-[**get-access-profile**](#get-access-profile) | **GET** `/access-profiles/{id}` | Get an Access Profile
-[**get-access-profile-entitlements**](#get-access-profile-entitlements) | **GET** `/access-profiles/{id}/entitlements` | List Access Profile&#39;s Entitlements
-[**list-access-profiles**](#list-access-profiles) | **GET** `/access-profiles` | List Access Profiles
-[**patch-access-profile**](#patch-access-profile) | **PATCH** `/access-profiles/{id}` | Patch a specified Access Profile
+[**create-access-profile**](#create-access-profile) | **POST** `/access-profiles` | Create access profile
+[**delete-access-profile**](#delete-access-profile) | **DELETE** `/access-profiles/{id}` | Delete the specified access profile
+[**delete-access-profiles-in-bulk**](#delete-access-profiles-in-bulk) | **POST** `/access-profiles/bulk-delete` | Delete access profile(s)
+[**get-access-profile**](#get-access-profile) | **GET** `/access-profiles/{id}` | Get an access profile
+[**get-access-profile-entitlements**](#get-access-profile-entitlements) | **GET** `/access-profiles/{id}/entitlements` | List access profile&#39;s entitlements
+[**list-access-profiles**](#list-access-profiles) | **GET** `/access-profiles` | List access profiles
+[**patch-access-profile**](#patch-access-profile) | **PATCH** `/access-profiles/{id}` | Patch a specified access profile
 
 
 ## create-access-profile
-Create Access Profile
+Create access profile
 Create an access profile.
-A user with only ROLE_SUBADMIN or SOURCE_SUBADMIN authority must be associated with the access profile's source.
+A user with `ROLE_SUBADMIN` or `SOURCE_SUBADMIN` authority must be associated with the access profile's source.
 The maximum supported length for the description field is 2000 characters. Longer descriptions will be preserved for existing access profiles.  However, any new access profiles as well as any updates to existing descriptions are limited to 2000 characters.
+>**Note:** To use this endpoint, you need all the listed scopes.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/create-access-profile)
 
@@ -135,6 +136,7 @@ with ApiClient(configuration) as api_client:
           "segments" : [ "f7b1b8a3-5fed-4fd4-ad29-82014e137e19", "29cb6c06-1da8-43ea-8be4-b3125f248f2a" ],
           "accessRequestConfig" : {
             "commentsRequired" : true,
+            "reauthorizationRequired" : true,
             "approvalSchemes" : [ {
               "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
               "approverType" : "GOVERNANCE_GROUP"
@@ -187,7 +189,7 @@ with ApiClient(configuration) as api_client:
         }''' # AccessProfile | 
 
     try:
-        # Create Access Profile
+        # Create access profile
         new_access_profile = AccessProfile.from_json(access_profile)
         results = AccessProfilesApi(api_client).create_access_profile(access_profile=new_access_profile)
         # Below is a request that includes all optional parameters
@@ -203,7 +205,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-access-profile
-Delete the specified Access Profile
+Delete the specified access profile
 This API deletes an existing Access Profile.
 
 The Access Profile must not be in use, for example, Access Profile can not be deleted if they belong to an Application, Life Cycle State or a Role. If it is, a 400 error is returned.
@@ -248,7 +250,7 @@ with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121919ecca' # str | ID of the Access Profile to delete # str | ID of the Access Profile to delete
 
     try:
-        # Delete the specified Access Profile
+        # Delete the specified access profile
         
         AccessProfilesApi(api_client).delete_access_profile(id=id)
         # Below is a request that includes all optional parameters
@@ -262,7 +264,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-access-profiles-in-bulk
-Delete Access Profile(s)
+Delete access profile(s)
 This endpoint initiates a bulk deletion of one or more access profiles.
 When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 access profiles per request. 
@@ -313,7 +315,7 @@ with ApiClient(configuration) as api_client:
         }''' # AccessProfileBulkDeleteRequest | 
 
     try:
-        # Delete Access Profile(s)
+        # Delete access profile(s)
         new_access_profile_bulk_delete_request = AccessProfileBulkDeleteRequest.from_json(access_profile_bulk_delete_request)
         results = AccessProfilesApi(api_client).delete_access_profiles_in_bulk(access_profile_bulk_delete_request=new_access_profile_bulk_delete_request)
         # Below is a request that includes all optional parameters
@@ -329,7 +331,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-access-profile
-Get an Access Profile
+Get an access profile
 This API returns an Access Profile by its ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/get-access-profile)
@@ -371,7 +373,7 @@ with ApiClient(configuration) as api_client:
     id = '2c9180837ca6693d017ca8d097500149' # str | ID of the Access Profile # str | ID of the Access Profile
 
     try:
-        # Get an Access Profile
+        # Get an access profile
         
         results = AccessProfilesApi(api_client).get_access_profile(id=id)
         # Below is a request that includes all optional parameters
@@ -387,7 +389,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-access-profile-entitlements
-List Access Profile's Entitlements
+List access profile's entitlements
 Use this API to get a list of an access profile's entitlements. 
 A SOURCE_SUBADMIN user must have access to the source associated with the specified access profile.
 >**Note:** When you filter for access profiles that have the '+' symbol in their names, the response is blank. 
@@ -441,13 +443,14 @@ with ApiClient(configuration) as api_client:
     sorters = 'name,-modified' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified** (optional)
 
     try:
-        # List Access Profile's Entitlements
+        # List access profile's entitlements
         
         results = AccessProfilesApi(api_client).get_access_profile_entitlements(id=id)
         # Below is a request that includes all optional parameters
         # results = AccessProfilesApi(api_client).get_access_profile_entitlements(id, limit, offset, count, filters, sorters)
         print("The response of AccessProfilesApi->get_access_profile_entitlements:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessProfilesApi->get_access_profile_entitlements: %s\n" % e)
 ```
@@ -457,8 +460,8 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-access-profiles
-List Access Profiles
-Get a list of access profiles.
+List access profiles
+Get a list of access profiles. 
 >**Note:** When you filter for access profiles that have the '+' symbol in their names, the response is blank. 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v3/list-access-profiles)
@@ -471,7 +474,7 @@ Param Type | Name | Data Type | Required  | Description
   Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*  Filtering is not supported for access profiles and entitlements that have the '+' symbol in their names. 
+  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*  Filtering is not supported for access profiles and entitlements that have the '+' symbol in their names. 
   Query | sorters | **str** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
   Query | for_segment_ids | **str** |   (optional) | Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error.
   Query | include_unsegmented | **bool** |   (optional) (default to True) | Indicates whether the response list should contain unsegmented access profiles. If `for-segment-ids` is absent or empty, specifying *include-unsegmented* as `false` results in an error.
@@ -508,19 +511,20 @@ with ApiClient(configuration) as api_client:
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-    filters = 'name eq \"SailPoint Support\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*  Filtering is not supported for access profiles and entitlements that have the '+' symbol in their names.  (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*  Filtering is not supported for access profiles and entitlements that have the '+' symbol in their names.  (optional)
+    filters = 'name eq \"SailPoint Support\"' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*  Filtering is not supported for access profiles and entitlements that have the '+' symbol in their names.  (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **source.id**: *eq, in*  Supported composite operators are *and, or*  Filtering is not supported for access profiles and entitlements that have the '+' symbol in their names.  (optional)
     sorters = 'name,-modified' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
     for_segment_ids = '0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d' # str | Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional) # str | Filters access profiles to only those assigned to the segment(s) with the specified IDs. If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
     include_unsegmented = True # bool | Indicates whether the response list should contain unsegmented access profiles. If `for-segment-ids` is absent or empty, specifying *include-unsegmented* as `false` results in an error. (optional) (default to True) # bool | Indicates whether the response list should contain unsegmented access profiles. If `for-segment-ids` is absent or empty, specifying *include-unsegmented* as `false` results in an error. (optional) (default to True)
 
     try:
-        # List Access Profiles
+        # List access profiles
         
         results = AccessProfilesApi(api_client).list_access_profiles()
         # Below is a request that includes all optional parameters
         # results = AccessProfilesApi(api_client).list_access_profiles(for_subadmin, limit, offset, count, filters, sorters, for_segment_ids, include_unsegmented)
         print("The response of AccessProfilesApi->list_access_profiles:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling AccessProfilesApi->list_access_profiles: %s\n" % e)
 ```
@@ -530,7 +534,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-access-profile
-Patch a specified Access Profile
+Patch a specified access profile
 This API updates an existing Access Profile. The following fields are patchable:
 
 **name**
@@ -604,7 +608,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=add, path=/entitlements, value=[{id=2c9180857725c14301772a93bb77242d, type=ENTITLEMENT, name=AD User Group}]}]''' # List[JsonPatchOperation] | 
 
     try:
-        # Patch a specified Access Profile
+        # Patch a specified access profile
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = AccessProfilesApi(api_client).patch_access_profile(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters

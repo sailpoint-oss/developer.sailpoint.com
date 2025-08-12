@@ -1,11 +1,9 @@
 import React from 'react';
 import type {ReactNode} from 'react';
-import clsx from 'clsx';
 import styles from './styles.module.css';
-import Link from '@docusaurus/Link';
 import HomepageCard from '../HomepageCard';
 
-export default function HomepageGettingStarted(): ReactNode {  
+export default function HomepageGettingStarted(): JSX.Element {
   return (
     <div>
       <div className={styles.mainCard}>
@@ -19,22 +17,22 @@ export default function HomepageGettingStarted(): ReactNode {
             </div>
             <div className={styles.gettingStartedThree}>
               Jump into our{' '}
-              <span className={styles.bold}>Get Started Guides</span> for more
+              <span className={styles.bold}>Get started Guides</span> for more
               information.
             </div>
           </div>
           <div className={styles.gridContainer}>
             <HomepageCard
               link="/docs"
-              title="Get Started with Identity Security Cloud"
+              title="Get started with Identity Security Cloud"
               image="/homepage/SailPointIdentitySecurityCloud.svg"
-              product={null}
+              product="isc"
             />
             <HomepageCard
               link="https://documentation.sailpoint.com/identityiq/help/iiqlandingpage.html"
-              title="Get Started with IdentityIQ"
+              title="Get started with IdentityIQ"
               image="/homepage/IdentityIQ.svg"
-              product={null}
+              product="iiq"
             />
           </div>
         </div>
@@ -46,10 +44,9 @@ export default function HomepageGettingStarted(): ReactNode {
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
+            allowFullScreen></iframe>
         </div>
       </div>
     </div>
   );
-};
+}

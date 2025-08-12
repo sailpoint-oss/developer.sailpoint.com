@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessItemRef = Initialize-PSSailpoint.BetaAccessItemRef  -Id 2c938083633d259901633d2623ec0375 `
+$AccessItemRef = Initialize-BetaAccessItemRef  -Id 2c938083633d259901633d2623ec0375 `
  -Type ENTITLEMENT
 ```
 

@@ -52,26 +52,26 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-role**](#create-role) | **POST** `/roles` | Create a Role
-[**delete-bulk-roles**](#delete-bulk-roles) | **POST** `/roles/bulk-delete` | Delete Role(s)
-[**delete-metadata-from-role-by-key-and-value**](#delete-metadata-from-role-by-key-and-value) | **DELETE** `/roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove a Metadata From Role.
-[**delete-role**](#delete-role) | **DELETE** `/roles/{id}` | Delete a Role
-[**get-bulk-update-status**](#get-bulk-update-status) | **GET** `/roles/access-model-metadata/bulk-update` | Get Bulk-Update Statuses
-[**get-bulk-update-status-by-id**](#get-bulk-update-status-by-id) | **GET** `/roles/access-model-metadata/bulk-update/id` | Get Bulk-Update Status by ID
-[**get-role**](#get-role) | **GET** `/roles/{id}` | Get a Role
-[**get-role-assigned-identities**](#get-role-assigned-identities) | **GET** `/roles/{id}/assigned-identities` | List Identities assigned a Role
-[**get-role-entitlements**](#get-role-entitlements) | **GET** `/roles/{id}/entitlements` | List Role&#39;s Entitlements
-[**list-roles**](#list-roles) | **GET** `/roles` | List Roles
-[**patch-role**](#patch-role) | **PATCH** `/roles/{id}` | Patch a specified Role
-[**search-roles-by-filter**](#search-roles-by-filter) | **POST** `/roles/filter` | Filter Roles by Metadata
-[**update-attribute-key-and-value-to-role**](#update-attribute-key-and-value-to-role) | **POST** `/roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add a Metadata to Role.
-[**update-roles-metadata-by-filter**](#update-roles-metadata-by-filter) | **POST** `/roles/access-model-metadata/bulk-update/filter` | Bulk-Update Roles&#39; Metadata by Filters
-[**update-roles-metadata-by-ids**](#update-roles-metadata-by-ids) | **POST** `/roles/access-model-metadata/bulk-update/ids` | Bulk-Update Roles&#39; Metadata by ID
-[**update-roles-metadata-by-query**](#update-roles-metadata-by-query) | **POST** `/roles/access-model-metadata/bulk-update/query` | Bulk-Update Roles&#39; Metadata by Query
+[**create-role**](#create-role) | **POST** `/roles` | Create a role
+[**delete-bulk-roles**](#delete-bulk-roles) | **POST** `/roles/bulk-delete` | Delete role(s)
+[**delete-metadata-from-role-by-key-and-value**](#delete-metadata-from-role-by-key-and-value) | **DELETE** `/roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove a metadata from role.
+[**delete-role**](#delete-role) | **DELETE** `/roles/{id}` | Delete a role
+[**get-bulk-update-status**](#get-bulk-update-status) | **GET** `/roles/access-model-metadata/bulk-update` | Get bulk-update statuses
+[**get-bulk-update-status-by-id**](#get-bulk-update-status-by-id) | **GET** `/roles/access-model-metadata/bulk-update/id` | Get bulk-update status by id
+[**get-role**](#get-role) | **GET** `/roles/{id}` | Get a role
+[**get-role-assigned-identities**](#get-role-assigned-identities) | **GET** `/roles/{id}/assigned-identities` | List identities assigned a role
+[**get-role-entitlements**](#get-role-entitlements) | **GET** `/roles/{id}/entitlements` | List role&#39;s entitlements
+[**list-roles**](#list-roles) | **GET** `/roles` | List roles
+[**patch-role**](#patch-role) | **PATCH** `/roles/{id}` | Patch a specified role
+[**search-roles-by-filter**](#search-roles-by-filter) | **POST** `/roles/filter` | Filter roles by metadata
+[**update-attribute-key-and-value-to-role**](#update-attribute-key-and-value-to-role) | **POST** `/roles/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add a metadata to role.
+[**update-roles-metadata-by-filter**](#update-roles-metadata-by-filter) | **POST** `/roles/access-model-metadata/bulk-update/filter` | Bulk-update roles&#39; metadata by filters
+[**update-roles-metadata-by-ids**](#update-roles-metadata-by-ids) | **POST** `/roles/access-model-metadata/bulk-update/ids` | Bulk-update roles&#39; metadata by id
+[**update-roles-metadata-by-query**](#update-roles-metadata-by-query) | **POST** `/roles/access-model-metadata/bulk-update/query` | Bulk-update roles&#39; metadata by query
 
 
 ## create-role
-Create a Role
+Create a role
 This API creates a role.
 
 You must have a token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority to call this API. 
@@ -235,6 +235,7 @@ with ApiClient(configuration) as api_client:
           },
           "accessRequestConfig" : {
             "commentsRequired" : true,
+            "reauthorizationRequired" : true,
             "approvalSchemes" : [ {
               "approverId" : "46c79819-a69f-49a2-becb-12c971ae66c6",
               "approverType" : "GOVERNANCE_GROUP"
@@ -276,7 +277,7 @@ with ApiClient(configuration) as api_client:
         }''' # Role | 
 
     try:
-        # Create a Role
+        # Create a role
         new_role = Role.from_json(role)
         results = RolesApi(api_client).create_role(role=new_role)
         # Below is a request that includes all optional parameters
@@ -292,7 +293,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-bulk-roles
-Delete Role(s)
+Delete role(s)
 This endpoint initiates a bulk deletion of one or more roles.
 When the request is successful, the endpoint returns the bulk delete's task result ID.  To follow the task, you can use [Get Task Status by ID](https://developer.sailpoint.com/docs/api/beta/get-task-status), which will return the task result's status and information. 
 This endpoint can only bulk delete up to a limit of 50 roles per request. 
@@ -340,7 +341,7 @@ with ApiClient(configuration) as api_client:
         }''' # RoleBulkDeleteRequest | 
 
     try:
-        # Delete Role(s)
+        # Delete role(s)
         new_role_bulk_delete_request = RoleBulkDeleteRequest.from_json(role_bulk_delete_request)
         results = RolesApi(api_client).delete_bulk_roles(role_bulk_delete_request=new_role_bulk_delete_request)
         # Below is a request that includes all optional parameters
@@ -356,7 +357,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-metadata-from-role-by-key-and-value
-Remove a Metadata From Role.
+Remove a metadata from role.
 This API initialize a request to remove a single Access Model Metadata from a role by attribute key and value. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-metadata-from-role-by-key-and-value)
@@ -401,7 +402,7 @@ with ApiClient(configuration) as api_client:
     attribute_value = 'public' # str | Technical name of the Attribute Value. # str | Technical name of the Attribute Value.
 
     try:
-        # Remove a Metadata From Role.
+        # Remove a metadata from role.
         
         RolesApi(api_client).delete_metadata_from_role_by_key_and_value(id=id, attribute_key=attribute_key, attribute_value=attribute_value)
         # Below is a request that includes all optional parameters
@@ -415,7 +416,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-role
-Delete a Role
+Delete a role
 This API deletes a Role by its ID.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
@@ -458,7 +459,7 @@ with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the Role # str | ID of the Role
 
     try:
-        # Delete a Role
+        # Delete a role
         
         RolesApi(api_client).delete_role(id=id)
         # Below is a request that includes all optional parameters
@@ -472,7 +473,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-bulk-update-status
-Get Bulk-Update Statuses
+Get bulk-update statuses
 This API returns a list of all unfinished bulk update process status of the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-bulk-update-status)
@@ -510,13 +511,14 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # Get Bulk-Update Statuses
+        # Get bulk-update statuses
         
         results = RolesApi(api_client).get_bulk_update_status()
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).get_bulk_update_status()
         print("The response of RolesApi->get_bulk_update_status:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RolesApi->get_bulk_update_status: %s\n" % e)
 ```
@@ -526,7 +528,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-bulk-update-status-by-id
-Get Bulk-Update Status by ID
+Get bulk-update status by id
 
 This API initial a request for one bulk update's status by bulk update Id returns the status of the bulk update process.
 A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. 
@@ -570,7 +572,7 @@ with ApiClient(configuration) as api_client:
     id = 'c24359c389374d0fb8585698a2189e3d' # str | The Id of the bulk update task. # str | The Id of the bulk update task.
 
     try:
-        # Get Bulk-Update Status by ID
+        # Get bulk-update status by id
         
         results = RolesApi(api_client).get_bulk_update_status_by_id(id=id)
         # Below is a request that includes all optional parameters
@@ -586,7 +588,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-role
-Get a Role
+Get a role
 This API returns a Role by its ID.
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API. In addition, a token with ROLE_SUBADMIN authority may only call this API if all Access Profiles included in the Role are associated to Sources with management workgroups of which the ROLE_SUBADMIN is a member.
 
@@ -608,6 +610,7 @@ Code | Description  | Data Type | Response headers |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
 429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
 500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
 
@@ -629,7 +632,7 @@ with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121e121518' # str | ID of the Role # str | ID of the Role
 
     try:
-        # Get a Role
+        # Get a role
         
         results = RolesApi(api_client).get_role(id=id)
         # Below is a request that includes all optional parameters
@@ -645,7 +648,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-role-assigned-identities
-List Identities assigned a Role
+List identities assigned a role
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-assigned-identities)
@@ -697,13 +700,14 @@ with ApiClient(configuration) as api_client:
     sorters = 'aliasName,name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, aliasName, email** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, aliasName, email** (optional)
 
     try:
-        # List Identities assigned a Role
+        # List identities assigned a role
         
         results = RolesApi(api_client).get_role_assigned_identities(id=id)
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).get_role_assigned_identities(id, limit, offset, count, filters, sorters)
         print("The response of RolesApi->get_role_assigned_identities:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RolesApi->get_role_assigned_identities: %s\n" % e)
 ```
@@ -724,7 +728,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Role's Entitlements
+List role's entitlements
 Get a list of entitlements associated with a specified role.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-role-entitlements)
@@ -767,7 +771,7 @@ from sailpoint.v2024.models.entitlement import Entitlement
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '2c91808a7813090a017814121919ecca' # str | Containing role's ID. # str | Containing role's ID.
@@ -779,13 +783,14 @@ with ApiClient(configuration) as api_client:
     sorters = 'name,-modified' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, attribute, value, created, modified** (optional)
 
     try:
-        # List Role's Entitlements
+        # List role's entitlements
         
         results = RolesApi(api_client).get_role_entitlements(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).get_role_entitlements(id, x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of RolesApi->get_role_entitlements:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RolesApi->get_role_entitlements: %s\n" % e)
 ```
@@ -795,7 +800,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-roles
-List Roles
+List roles
 This API returns a list of Roles.
 
 A token with API, ORG_ADMIN, ROLE_ADMIN, or ROLE_SUBADMIN authority is required to call this API.
@@ -810,7 +815,7 @@ Param Type | Name | Data Type | Required  | Description
   Query | limit | **int** |   (optional) (default to 50) | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
-  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*
+  Query | filters | **str** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **dimensional**: *eq*
   Query | sorters | **str** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified**
   Query | for_segment_ids | **str** |   (optional) | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error.
   Query | include_unsegmented | **bool** |   (optional) (default to True) | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error.
@@ -847,19 +852,20 @@ with ApiClient(configuration) as api_client:
     limit = 50 # int | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50) # int | Note that for this API the maximum value for limit is 50. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 50)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
-    filters = 'requestable eq false' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, lt, ge, le*  **modified**: *gt, lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq* (optional)
+    filters = 'requestable eq false' # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **dimensional**: *eq* (optional) # str | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, sw*  **created**: *gt, ge, le*  **modified**: *lt, ge, le*  **owner.id**: *eq, in*  **requestable**: *eq*  **dimensional**: *eq* (optional)
     sorters = 'name,-modified' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, created, modified** (optional)
     for_segment_ids = '0b5c9f25-83c6-4762-9073-e38f7bb2ae26,2e8d8180-24bc-4d21-91c6-7affdb473b0d' # str | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. (optional) # str | If present and not empty, additionally filters Roles to those which are assigned to the Segment(s) with the specified IDs.  If segmentation is currently unavailable, specifying this parameter results in an error. (optional)
     include_unsegmented = True # bool | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to True) # bool | Whether or not the response list should contain unsegmented Roles. If *for-segment-ids* is absent or empty, specifying *include-unsegmented* as false results in an error. (optional) (default to True)
 
     try:
-        # List Roles
+        # List roles
         
         results = RolesApi(api_client).list_roles()
         # Below is a request that includes all optional parameters
         # results = RolesApi(api_client).list_roles(for_subadmin, limit, offset, count, filters, sorters, for_segment_ids, include_unsegmented)
         print("The response of RolesApi->list_roles:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling RolesApi->list_roles: %s\n" % e)
 ```
@@ -869,7 +875,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-role
-Patch a specified Role
+Patch a specified role
 This API updates an existing role using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
 The following fields are patchable:
@@ -934,7 +940,7 @@ with ApiClient(configuration) as api_client:
     json_patch_operation = '''[{op=replace, path=/requestable, value=true}, {op=replace, path=/enabled, value=true}]''' # List[JsonPatchOperation] | 
 
     try:
-        # Patch a specified Role
+        # Patch a specified role
         new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
         results = RolesApi(api_client).patch_role(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
@@ -950,7 +956,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## search-roles-by-filter
-Filter Roles by Metadata
+Filter roles by metadata
 This API returns a list of Role that filter by metadata and filter, it support filter by  both path parameter and attribute key and values.
 A token with API, ORG_ADMIN, ROLE_ADMIN, ROLE_SUBADMIN, HELPDESK, CERT_ADMIN, REPORT_ADMIN or SOURCE_ADMIN  authority is required to call this API. 
 
@@ -1014,7 +1020,7 @@ with ApiClient(configuration) as api_client:
         }''' # RoleListFilterDTO |  (optional)
 
     try:
-        # Filter Roles by Metadata
+        # Filter roles by metadata
         
         results = RolesApi(api_client).search_roles_by_filter()
         # Below is a request that includes all optional parameters
@@ -1030,7 +1036,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-attribute-key-and-value-to-role
-Add a Metadata to Role.
+Add a metadata to role.
 This API initialize a request to add a single Access Model Metadata to a role by attribute key and attribute value. A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API. The maximum number of attributes in one role is 25. Custom metadata update, including ADD and REPLACE need suit licensed.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/update-attribute-key-and-value-to-role)
@@ -1076,7 +1082,7 @@ with ApiClient(configuration) as api_client:
     attribute_value = 'public' # str | Technical name of the Attribute Value. # str | Technical name of the Attribute Value.
 
     try:
-        # Add a Metadata to Role.
+        # Add a metadata to role.
         
         results = RolesApi(api_client).update_attribute_key_and_value_to_role(id=id, attribute_key=attribute_key, attribute_value=attribute_value)
         # Below is a request that includes all optional parameters
@@ -1092,7 +1098,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-roles-metadata-by-filter
-Bulk-Update Roles' Metadata by Filters
+Bulk-update roles' metadata by filters
 This API initiates a bulk update of metadata for one or more Roles by filter.
 A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
 The maximum metadata value count for a single role is 25.
@@ -1146,7 +1152,7 @@ with ApiClient(configuration) as api_client:
         }''' # RoleMetadataBulkUpdateByFilterRequest | 
 
     try:
-        # Bulk-Update Roles' Metadata by Filters
+        # Bulk-update roles' metadata by filters
         new_role_metadata_bulk_update_by_filter_request = RoleMetadataBulkUpdateByFilterRequest.from_json(role_metadata_bulk_update_by_filter_request)
         results = RolesApi(api_client).update_roles_metadata_by_filter(role_metadata_bulk_update_by_filter_request=new_role_metadata_bulk_update_by_filter_request)
         # Below is a request that includes all optional parameters
@@ -1162,7 +1168,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-roles-metadata-by-ids
-Bulk-Update Roles' Metadata by ID
+Bulk-update roles' metadata by id
 This API initiates a bulk update of metadata for one or more Roles by a list of Role Ids.
 A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
 The maximum role count in a single update request is 3000. The maximum metadata value count for a single role is 25.
@@ -1216,7 +1222,7 @@ with ApiClient(configuration) as api_client:
         }''' # RoleMetadataBulkUpdateByIdRequest | 
 
     try:
-        # Bulk-Update Roles' Metadata by ID
+        # Bulk-update roles' metadata by id
         new_role_metadata_bulk_update_by_id_request = RoleMetadataBulkUpdateByIdRequest.from_json(role_metadata_bulk_update_by_id_request)
         results = RolesApi(api_client).update_roles_metadata_by_ids(role_metadata_bulk_update_by_id_request=new_role_metadata_bulk_update_by_id_request)
         # Below is a request that includes all optional parameters
@@ -1232,7 +1238,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## update-roles-metadata-by-query
-Bulk-Update Roles' Metadata by Query
+Bulk-update roles' metadata by query
 This API initiates a bulk update of metadata for one or more Roles by query.
 A token with ORG_ADMIN, ROLE_ADMIN ROLE_SUBADMIN authority is required to call this API.
 The maximum metadata value count for a single role is 25.
@@ -1301,7 +1307,7 @@ with ApiClient(configuration) as api_client:
         }''' # RoleMetadataBulkUpdateByQueryRequest | 
 
     try:
-        # Bulk-Update Roles' Metadata by Query
+        # Bulk-update roles' metadata by query
         new_role_metadata_bulk_update_by_query_request = RoleMetadataBulkUpdateByQueryRequest.from_json(role_metadata_bulk_update_by_query_request)
         results = RolesApi(api_client).update_roles_metadata_by_query(role_metadata_bulk_update_by_query_request=new_role_metadata_bulk_update_by_query_request)
         # Below is a request that includes all optional parameters

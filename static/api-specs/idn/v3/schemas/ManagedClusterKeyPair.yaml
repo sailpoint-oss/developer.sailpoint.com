@@ -1,5 +1,6 @@
 description: Managed Cluster key pair for Cluster
 type: object
+title: Managed Cluster Key Pair
 properties:
   publicKey:
     nullable: true

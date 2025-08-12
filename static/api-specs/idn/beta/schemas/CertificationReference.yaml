@@ -1,5 +1,6 @@
 description: Previous certification. 
 type: object
+title: Certification Reference
 allOf:
 - $ref: '../../v3/schemas/CertificationReferenceDto.yaml'
 - type: object

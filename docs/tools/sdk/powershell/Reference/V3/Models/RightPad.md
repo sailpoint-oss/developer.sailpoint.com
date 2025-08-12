@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RightPad = Initialize-PSSailpoint.V3RightPad  -Length 4 `
+$RightPad = Initialize-RightPad  -Length 4 `
  -Padding 0 `
  -RequiresPeriodicRefresh false `
  -VarInput {type=accountAttribute, attributes={attributeName=first_name, sourceName=Source}}

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceSyncPayload = Initialize-PSSailpoint.V2024SourceSyncPayload  -Type SYNCHRONIZE_SOURCE_ATTRIBUTES `
+$SourceSyncPayload = Initialize-V2024SourceSyncPayload  -Type SYNCHRONIZE_SOURCE_ATTRIBUTES `
  -DataJson {"sourceId":"2c918083746f642c01746f990884012a"}
 ```
 

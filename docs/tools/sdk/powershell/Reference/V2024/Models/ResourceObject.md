@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ResourceObject = Initialize-PSSailpoint.V2024ResourceObject  -Instance null `
+$ResourceObject = Initialize-V2024ResourceObject  -Instance null `
  -Identity CN=Aaron Carr,OU=test1,DC=test2,DC=test `
  -Uuid {abf7bd9b-68b4-4d21-9b70-870c58ebf844} `
  -PreviousIdentity null `

@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 **AutoRevokeAllowed** | **Boolean** | Allows auto revoke for this campaign | [optional] [default to $false]
 **RecommendationsEnabled** | **Boolean** | Enables IAI for this campaign. Accepts true even if the IAI product feature is off. If IAI is turned off then campaigns generated from this template will indicate false. The real value will then be returned if IAI is ever enabled for the org in the future.  | [optional] [default to $false]
 **Status** |  **Enum** [  "PENDING",    "STAGED",    "CANCELING",    "ACTIVATING",    "ACTIVE",    "COMPLETING",    "COMPLETED",    "ERROR",    "ARCHIVED" ] | The campaign's current status. | [optional] [readonly] 
-**CorrelatedStatus** |  **Enum** [  "CORRELATED",    "UNCORRELATED" ] | The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source). | [optional] 
+**CorrelatedStatus** |  **Enum** [  "CORRELATED",    "UNCORRELATED" ] | The correlatedStatus of the campaign. Only SOURCE_OWNER campaigns can be Uncorrelated. An Uncorrelated certification campaign only includes Uncorrelated identities (An identity is uncorrelated if it has no accounts on an authoritative source).  | [optional] 
 **Created** | **System.DateTime** | Created time of the campaign | [optional] [readonly] 
 **TotalCertifications** | **Int32** | The total number of certifications in this campaign. | [optional] [readonly] 
 **CompletedCertifications** | **Int32** | The number of completed certifications in this campaign. | [optional] [readonly] 
@@ -44,7 +44,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$GetActiveCampaigns200ResponseInner = Initialize-PSSailpoint.BetaGetActiveCampaigns200ResponseInner  -Id 2c9079b270a266a60170a2779fcb0007 `
+$GetActiveCampaigns200ResponseInner = Initialize-BetaGetActiveCampaigns200ResponseInner  -Id 2c9079b270a266a60170a2779fcb0007 `
  -Name Manager Campaign `
  -Description Everyone needs to be reviewed by their manager `
  -Deadline 2020-03-15T10:00:01.456Z `

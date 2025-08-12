@@ -1,4 +1,5 @@
 type: object
+title: Workflow Creator Dto
 description: Workflow creator's identity. 
 properties:
   type:

@@ -17,7 +17,7 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-BetaTenant**](#get-tenant) | **GET** `/tenant` | Get Tenant Information.
+[**Get-BetaTenant**](#get-tenant) | **GET** `/tenant` | Get tenant information.
 
 
 ## get-tenant
@@ -50,7 +50,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get Tenant Information.
+# Get tenant information.
 
 try {
     Get-BetaTenant 

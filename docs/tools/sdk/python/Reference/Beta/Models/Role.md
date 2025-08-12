@@ -89,6 +89,7 @@ requestable=True,
 access_request_config=sailpoint.beta.models.requestability_for_role.RequestabilityForRole(
                     comments_required = True, 
                     denial_comments_required = True, 
+                    reauthorization_required = True, 
                     approval_schemes = [
                         sailpoint.beta.models.approval_scheme_for_role.ApprovalSchemeForRole(
                             approver_type = 'GOVERNANCE_GROUP', 

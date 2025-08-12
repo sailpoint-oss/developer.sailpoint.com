@@ -13,6 +13,7 @@ required:
   - messageScope
   - payloadType
 type: object
+title: Task Invocation
 properties:
   taskDefinitionId:
     description: Unique ID of the TaskDefinition to use to invoke the task

@@ -19,13 +19,13 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-vendor-connector-mapping**](#create-vendor-connector-mapping) | **POST** `/vendor-connector-mappings` | Create Vendor Connector Mapping
-[**delete-vendor-connector-mapping**](#delete-vendor-connector-mapping) | **DELETE** `/vendor-connector-mappings` | Delete Vendor Connector Mapping
-[**get-vendor-connector-mappings**](#get-vendor-connector-mappings) | **GET** `/vendor-connector-mappings` | List Vendor Connector Mappings
+[**create-vendor-connector-mapping**](#create-vendor-connector-mapping) | **POST** `/vendor-connector-mappings` | Create vendor connector mapping
+[**delete-vendor-connector-mapping**](#delete-vendor-connector-mapping) | **DELETE** `/vendor-connector-mappings` | Delete vendor connector mapping
+[**get-vendor-connector-mappings**](#get-vendor-connector-mappings) | **GET** `/vendor-connector-mappings` | List vendor connector mappings
 
 
 ## create-vendor-connector-mapping
-Create Vendor Connector Mapping
+Create vendor connector mapping
 Create a new mapping between a SaaS vendor and an ISC connector to establish correlation paths.
 
 
@@ -91,7 +91,7 @@ with ApiClient(configuration) as api_client:
         }''' # VendorConnectorMapping | 
 
     try:
-        # Create Vendor Connector Mapping
+        # Create vendor connector mapping
         new_vendor_connector_mapping = VendorConnectorMapping.from_json(vendor_connector_mapping)
         results = VendorConnectorMappingsApi(api_client).create_vendor_connector_mapping(vendor_connector_mapping=new_vendor_connector_mapping)
         # Below is a request that includes all optional parameters
@@ -107,7 +107,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-vendor-connector-mapping
-Delete Vendor Connector Mapping
+Delete vendor connector mapping
 Soft delete a mapping between a SaaS vendor and an ISC connector, removing the established correlation.
 
 
@@ -174,7 +174,7 @@ with ApiClient(configuration) as api_client:
         }''' # VendorConnectorMapping | 
 
     try:
-        # Delete Vendor Connector Mapping
+        # Delete vendor connector mapping
         new_vendor_connector_mapping = VendorConnectorMapping.from_json(vendor_connector_mapping)
         results = VendorConnectorMappingsApi(api_client).delete_vendor_connector_mapping(vendor_connector_mapping=new_vendor_connector_mapping)
         # Below is a request that includes all optional parameters
@@ -190,7 +190,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-vendor-connector-mappings
-List Vendor Connector Mappings
+List vendor connector mappings
 Get a list of mappings between SaaS vendors and ISC connectors, detailing the connections established for correlation.
 
 
@@ -230,13 +230,14 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # List Vendor Connector Mappings
+        # List vendor connector mappings
         
         results = VendorConnectorMappingsApi(api_client).get_vendor_connector_mappings()
         # Below is a request that includes all optional parameters
         # results = VendorConnectorMappingsApi(api_client).get_vendor_connector_mappings()
         print("The response of VendorConnectorMappingsApi->get_vendor_connector_mappings:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling VendorConnectorMappingsApi->get_vendor_connector_mappings: %s\n" % e)
 ```

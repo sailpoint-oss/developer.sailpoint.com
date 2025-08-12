@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConditionRule = Initialize-PSSailpoint.V2024ConditionRule  -SourceType ELEMENT `
+$ConditionRule = Initialize-V2024ConditionRule  -SourceType ELEMENT `
  -Source department `
  -Operator EQ `
  -ValueType STRING `

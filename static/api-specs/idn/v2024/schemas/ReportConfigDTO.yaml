@@ -1,4 +1,5 @@
 type: object
+title: Report Config DTO
 properties:
   columnName:
     type: string

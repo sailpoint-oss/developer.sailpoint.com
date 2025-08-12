@@ -74,7 +74,7 @@
 .ambassadorPurposeImage {
   width: 40%;
   box-shadow: var(--dev-card-selected);
-  border-radius: 40px;
+  border-radius: 0.25em;
   margin: 50px 50px 50px 0px;
 }
 
@@ -95,9 +95,9 @@
   cursor: pointer;
   top: -2px;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-  background-color: #c552ae10;
-  color: #cc27b0;
-  background-color: var(--dev-button-hover);
+  background-color: var(--ifm-color-secondary-dark);
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .button {
@@ -117,15 +117,16 @@
   opacity: 1;
 
   box-shadow: 0px 20px 60px #00000015;
-  border: 2px solid #df61ca;
-  border-radius: 5px;
+  border: 1px solid transparent;
+  border-radius: .25rem;
   transition: all 0.3s;
+  background-color: var(--ifm-color-secondary);
 }
 
 .link {
-  color: #df61ca;
+  color: #ffffff;;
 }
 .link:hover {
-  color: #df61ca;
+  color: #ffffff;
   text-decoration: none;
 }

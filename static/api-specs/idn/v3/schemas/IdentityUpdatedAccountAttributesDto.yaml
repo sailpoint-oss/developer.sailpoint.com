@@ -1,4 +1,5 @@
 type: object
+title: Identity Updated Account Attributes Dto
 description: The identity whose account attributes were updated. 
 properties:
   type:

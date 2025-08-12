@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$WorkflowAllOfCreator = Initialize-PSSailpoint.V2024WorkflowAllOfCreator  -Type IDENTITY `
+$WorkflowAllOfCreator = Initialize-V2024WorkflowAllOfCreator  -Type IDENTITY `
  -Id 2c7180a46faadee4016fb4e018c20642 `
  -Name Michael Michaels
 ```

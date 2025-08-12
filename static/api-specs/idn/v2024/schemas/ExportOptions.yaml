@@ -1,4 +1,5 @@
 type: object
+title: Export Options
 properties:
   excludeTypes:
     description: Object type names to be excluded from an sp-config export command.

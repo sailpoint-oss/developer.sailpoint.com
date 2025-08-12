@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MultiHostIntegrationTemplateType = Initialize-PSSailpoint.BetaMultiHostIntegrationTemplateType  -Name aName `
+$MultiHostIntegrationTemplateType = Initialize-BetaMultiHostIntegrationTemplateType  -Name aName `
  -Type aType `
  -ScriptName aScriptName
 ```

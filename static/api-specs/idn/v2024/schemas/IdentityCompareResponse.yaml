@@ -1,4 +1,5 @@
 type : object
+title: Identity Compare Response
 properties:
   accessItemDiff:
     type: object

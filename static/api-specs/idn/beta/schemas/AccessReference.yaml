@@ -1,4 +1,5 @@
 type: object
+title: Access Reference
 properties:
   id:
     type: string

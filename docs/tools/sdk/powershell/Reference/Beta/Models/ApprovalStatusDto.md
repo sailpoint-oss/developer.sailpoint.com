@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalStatusDto = Initialize-PSSailpoint.BetaApprovalStatusDto  -ApprovalId 2c9180877b2b6ea4017b2c545f971429 `
+$ApprovalStatusDto = Initialize-BetaApprovalStatusDto  -ApprovalId 2c9180877b2b6ea4017b2c545f971429 `
  -Forwarded false `
  -OriginalOwner null `
  -CurrentOwner null `

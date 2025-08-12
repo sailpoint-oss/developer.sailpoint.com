@@ -1,4 +1,5 @@
 type: object
+title: Complete Invocation Input
 properties:
   localizedError:
     $ref: './LocalizedMessage.yaml'

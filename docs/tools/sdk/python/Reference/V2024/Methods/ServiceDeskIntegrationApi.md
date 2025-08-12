@@ -39,20 +39,20 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-service-desk-integration**](#create-service-desk-integration) | **POST** `/service-desk-integrations` | Create new Service Desk integration
-[**delete-service-desk-integration**](#delete-service-desk-integration) | **DELETE** `/service-desk-integrations/{id}` | Delete a Service Desk integration
-[**get-service-desk-integration**](#get-service-desk-integration) | **GET** `/service-desk-integrations/{id}` | Get a Service Desk integration
-[**get-service-desk-integration-template**](#get-service-desk-integration-template) | **GET** `/service-desk-integrations/templates/{scriptName}` | Service Desk integration template by scriptName
-[**get-service-desk-integration-types**](#get-service-desk-integration-types) | **GET** `/service-desk-integrations/types` | List Service Desk integration types
-[**get-service-desk-integrations**](#get-service-desk-integrations) | **GET** `/service-desk-integrations` | List existing Service Desk integrations
+[**create-service-desk-integration**](#create-service-desk-integration) | **POST** `/service-desk-integrations` | Create new service desk integration
+[**delete-service-desk-integration**](#delete-service-desk-integration) | **DELETE** `/service-desk-integrations/{id}` | Delete a service desk integration
+[**get-service-desk-integration**](#get-service-desk-integration) | **GET** `/service-desk-integrations/{id}` | Get a service desk integration
+[**get-service-desk-integration-template**](#get-service-desk-integration-template) | **GET** `/service-desk-integrations/templates/{scriptName}` | Service desk integration template by scriptname
+[**get-service-desk-integration-types**](#get-service-desk-integration-types) | **GET** `/service-desk-integrations/types` | List service desk integration types
+[**get-service-desk-integrations**](#get-service-desk-integrations) | **GET** `/service-desk-integrations` | List existing service desk integrations
 [**get-status-check-details**](#get-status-check-details) | **GET** `/service-desk-integrations/status-check-configuration` | Get the time check configuration
-[**patch-service-desk-integration**](#patch-service-desk-integration) | **PATCH** `/service-desk-integrations/{id}` | Patch a Service Desk Integration
-[**put-service-desk-integration**](#put-service-desk-integration) | **PUT** `/service-desk-integrations/{id}` | Update a Service Desk integration
+[**patch-service-desk-integration**](#patch-service-desk-integration) | **PATCH** `/service-desk-integrations/{id}` | Patch a service desk integration
+[**put-service-desk-integration**](#put-service-desk-integration) | **PUT** `/service-desk-integrations/{id}` | Update a service desk integration
 [**update-status-check-details**](#update-status-check-details) | **PUT** `/service-desk-integrations/status-check-configuration` | Update the time check configuration
 
 
 ## create-service-desk-integration
-Create new Service Desk integration
+Create new service desk integration
 Create a new Service Desk integration.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/create-service-desk-integration)
@@ -128,7 +128,7 @@ with ApiClient(configuration) as api_client:
         }''' # ServiceDeskIntegrationDto | The specifics of a new integration to create
 
     try:
-        # Create new Service Desk integration
+        # Create new service desk integration
         new_service_desk_integration_dto = ServiceDeskIntegrationDto.from_json(service_desk_integration_dto)
         results = ServiceDeskIntegrationApi(api_client).create_service_desk_integration(service_desk_integration_dto=new_service_desk_integration_dto)
         # Below is a request that includes all optional parameters
@@ -144,7 +144,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-service-desk-integration
-Delete a Service Desk integration
+Delete a service desk integration
 Delete an existing Service Desk integration by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-service-desk-integration)
@@ -186,7 +186,7 @@ with ApiClient(configuration) as api_client:
     id = 'anId' # str | ID of Service Desk integration to delete # str | ID of Service Desk integration to delete
 
     try:
-        # Delete a Service Desk integration
+        # Delete a service desk integration
         
         ServiceDeskIntegrationApi(api_client).delete_service_desk_integration(id=id)
         # Below is a request that includes all optional parameters
@@ -200,7 +200,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-service-desk-integration
-Get a Service Desk integration
+Get a service desk integration
 Get an existing Service Desk integration by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-service-desk-integration)
@@ -243,7 +243,7 @@ with ApiClient(configuration) as api_client:
     id = 'anId' # str | ID of the Service Desk integration to get # str | ID of the Service Desk integration to get
 
     try:
-        # Get a Service Desk integration
+        # Get a service desk integration
         
         results = ServiceDeskIntegrationApi(api_client).get_service_desk_integration(id=id)
         # Below is a request that includes all optional parameters
@@ -259,7 +259,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-service-desk-integration-template
-Service Desk integration template by scriptName
+Service desk integration template by scriptname
 This API endpoint returns an existing Service Desk integration template by scriptName.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-service-desk-integration-template)
@@ -302,7 +302,7 @@ with ApiClient(configuration) as api_client:
     script_name = 'aScriptName' # str | The scriptName value of the Service Desk integration template to get # str | The scriptName value of the Service Desk integration template to get
 
     try:
-        # Service Desk integration template by scriptName
+        # Service desk integration template by scriptname
         
         results = ServiceDeskIntegrationApi(api_client).get_service_desk_integration_template(script_name=script_name)
         # Below is a request that includes all optional parameters
@@ -318,7 +318,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-service-desk-integration-types
-List Service Desk integration types
+List service desk integration types
 This API endpoint returns the current list of supported Service Desk integration types.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-service-desk-integration-types)
@@ -357,13 +357,14 @@ configuration = Configuration()
 with ApiClient(configuration) as api_client:
 
     try:
-        # List Service Desk integration types
+        # List service desk integration types
         
         results = ServiceDeskIntegrationApi(api_client).get_service_desk_integration_types()
         # Below is a request that includes all optional parameters
         # results = ServiceDeskIntegrationApi(api_client).get_service_desk_integration_types()
         print("The response of ServiceDeskIntegrationApi->get_service_desk_integration_types:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->get_service_desk_integration_types: %s\n" % e)
 ```
@@ -373,7 +374,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-service-desk-integrations
-List existing Service Desk integrations
+List existing service desk integrations
 Get a list of Service Desk integration objects.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-service-desk-integrations)
@@ -424,13 +425,14 @@ with ApiClient(configuration) as api_client:
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
 
     try:
-        # List existing Service Desk integrations
+        # List existing service desk integrations
         
         results = ServiceDeskIntegrationApi(api_client).get_service_desk_integrations()
         # Below is a request that includes all optional parameters
         # results = ServiceDeskIntegrationApi(api_client).get_service_desk_integrations(offset, limit, sorters, filters, count)
         print("The response of ServiceDeskIntegrationApi->get_service_desk_integrations:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling ServiceDeskIntegrationApi->get_service_desk_integrations: %s\n" % e)
 ```
@@ -495,7 +497,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## patch-service-desk-integration
-Patch a Service Desk Integration
+Patch a service desk integration
 Update an existing Service Desk integration by ID with a PATCH request.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/patch-service-desk-integration)
@@ -505,7 +507,7 @@ Update an existing Service Desk integration by ID with a PATCH request.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | ID of the Service Desk integration to update
- Body  | patch_service_desk_integration_request | [**PatchServiceDeskIntegrationRequest**](../models/patch-service-desk-integration-request) | True  | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+ Body  | json_patch_operation | [**[]JsonPatchOperation**](../models/json-patch-operation) | True  | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
 
 ### Return type
 [**ServiceDeskIntegrationDto**](../models/service-desk-integration-dto)
@@ -530,7 +532,7 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2024.api.service_desk_integration_api import ServiceDeskIntegrationApi
 from sailpoint.v2024.api_client import ApiClient
-from sailpoint.v2024.models.patch_service_desk_integration_request import PatchServiceDeskIntegrationRequest
+from sailpoint.v2024.models.json_patch_operation import JsonPatchOperation
 from sailpoint.v2024.models.service_desk_integration_dto import ServiceDeskIntegrationDto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
@@ -538,14 +540,14 @@ configuration = Configuration()
 
 with ApiClient(configuration) as api_client:
     id = 'anId' # str | ID of the Service Desk integration to update # str | ID of the Service Desk integration to update
-    patch_service_desk_integration_request = '''sailpoint.v2024.PatchServiceDeskIntegrationRequest()''' # PatchServiceDeskIntegrationRequest | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
+    json_patch_operation = '''[sailpoint.v2024.JsonPatchOperation()]''' # List[JsonPatchOperation] | A list of SDIM update operations according to the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.  Only `replace` operations are accepted by this endpoint.  A 403 Forbidden Error indicates that a PATCH operation was attempted that is not allowed. 
 
     try:
-        # Patch a Service Desk Integration
-        new_patch_service_desk_integration_request = PatchServiceDeskIntegrationRequest.from_json(patch_service_desk_integration_request)
-        results = ServiceDeskIntegrationApi(api_client).patch_service_desk_integration(id=id, patch_service_desk_integration_request=new_patch_service_desk_integration_request)
+        # Patch a service desk integration
+        new_json_patch_operation = JsonPatchOperation.from_json(json_patch_operation)
+        results = ServiceDeskIntegrationApi(api_client).patch_service_desk_integration(id=id, json_patch_operation=new_json_patch_operation)
         # Below is a request that includes all optional parameters
-        # results = ServiceDeskIntegrationApi(api_client).patch_service_desk_integration(id, new_patch_service_desk_integration_request)
+        # results = ServiceDeskIntegrationApi(api_client).patch_service_desk_integration(id, new_json_patch_operation)
         print("The response of ServiceDeskIntegrationApi->patch_service_desk_integration:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -557,7 +559,7 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## put-service-desk-integration
-Update a Service Desk integration
+Update a service desk integration
 Update an existing Service Desk integration by ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/put-service-desk-integration)
@@ -635,7 +637,7 @@ with ApiClient(configuration) as api_client:
         }''' # ServiceDeskIntegrationDto | The specifics of the integration to update
 
     try:
-        # Update a Service Desk integration
+        # Update a service desk integration
         new_service_desk_integration_dto = ServiceDeskIntegrationDto.from_json(service_desk_integration_dto)
         results = ServiceDeskIntegrationApi(api_client).put_service_desk_integration(id=id, service_desk_integration_dto=new_service_desk_integration_dto)
         # Below is a request that includes all optional parameters

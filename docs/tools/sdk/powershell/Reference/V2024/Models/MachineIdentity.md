@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MachineIdentity = Initialize-PSSailpoint.V2024MachineIdentity  -Id id12345 `
+$MachineIdentity = Initialize-V2024MachineIdentity  -Id id12345 `
  -Name aName `
  -Created 2015-05-28T14:07:17Z `
  -Modified 2015-05-28T14:07:17Z `

@@ -69,14 +69,14 @@ Method | HTTP request | Description
 [**New-BetaAccessModelMetadataForEntitlement**](#create-access-model-metadata-for-entitlement) | **POST** `/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Add metadata to an entitlement.
 [**Remove-BetaAccessModelMetadataFromEntitlement**](#delete-access-model-metadata-from-entitlement) | **DELETE** `/entitlements/{id}/access-model-metadata/{attributeKey}/values/{attributeValue}` | Remove metadata from an entitlement.
 [**Get-BetaEntitlement**](#get-entitlement) | **GET** `/entitlements/{id}` | Get an entitlement
-[**Get-BetaEntitlementRequestConfig**](#get-entitlement-request-config) | **GET** `/entitlements/{id}/entitlement-request-config` | Get Entitlement Request Config
-[**Import-BetaEntitlementsBySource**](#import-entitlements-by-source) | **POST** `/entitlements/aggregate/sources/{id}` | Aggregate Entitlements
+[**Get-BetaEntitlementRequestConfig**](#get-entitlement-request-config) | **GET** `/entitlements/{id}/entitlement-request-config` | Get entitlement request config
+[**Import-BetaEntitlementsBySource**](#import-entitlements-by-source) | **POST** `/entitlements/aggregate/sources/{id}` | Aggregate entitlements
 [**Get-BetaEntitlementChildren**](#list-entitlement-children) | **GET** `/entitlements/{id}/children` | List of entitlements children
 [**Get-BetaEntitlementParents**](#list-entitlement-parents) | **GET** `/entitlements/{id}/parents` | List of entitlements parents
 [**Get-BetaEntitlements**](#list-entitlements) | **GET** `/entitlements` | Gets a list of entitlements.
 [**Update-BetaEntitlement**](#patch-entitlement) | **PATCH** `/entitlements/{id}` | Patch an entitlement
-[**Send-BetaEntitlementRequestConfig**](#put-entitlement-request-config) | **PUT** `/entitlements/{id}/entitlement-request-config` | Replace Entitlement Request Config
-[**Reset-BetaSourceEntitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{sourceId}` | Reset Source Entitlements
+[**Send-BetaEntitlementRequestConfig**](#put-entitlement-request-config) | **PUT** `/entitlements/{id}/entitlement-request-config` | Replace entitlement request config
+[**Reset-BetaSourceEntitlements**](#reset-source-entitlements) | **POST** `/entitlements/reset/sources/{sourceId}` | Reset source entitlements
 [**Update-BetaEntitlementsInBulk**](#update-entitlements-in-bulk) | **POST** `/entitlements/bulk-update` | Bulk update an entitlement list
 
 
@@ -256,7 +256,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2c91808874ff91550175097daaec161c" # String | Entitlement Id
 
-# Get Entitlement Request Config
+# Get entitlement request config
 
 try {
     Get-BetaEntitlementRequestConfig -Id $Id 
@@ -310,7 +310,7 @@ Code | Description  | Data Type
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | Source Id
 $CsvFile =  # System.IO.FileInfo | The CSV file containing the source entitlements to aggregate. (optional)
 
-# Aggregate Entitlements
+# Aggregate entitlements
 
 try {
     Import-BetaEntitlementsBySource -Id $Id 
@@ -449,7 +449,7 @@ Any authenticated token can call this API.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
   Query | AccountId | **String** |   (optional) | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). This parameter is deprecated. Please use [Account Entitlements API](https://developer.sailpoint.com/apis/beta/#operation/getAccountEntitlements) to get account entitlements.
-  Query | SegmentedForIdentity | **String** |   (optional) | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. By convention, the value **me** can stand in for the current user's Identity ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity.
+  Query | SegmentedForIdentity | **String** |   (optional) | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID.  Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity.
   Query | ForSegmentIds | **String** |   (optional) | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s).
   Query | IncludeUnsegmented | **Boolean** |   (optional) (default to $true) | Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented=false** results in an error.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -478,7 +478,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $AccountId = "ef38f94347e94562b5bb8424a56397d8" # String | The account ID. If specified, returns only entitlements associated with the given Account. Cannot be specified with the **filters**, **segmented-for-identity**, **for-segment-ids**, or **include-unsegmented** param(s). This parameter is deprecated. Please use [Account Entitlements API](https://developer.sailpoint.com/apis/beta/#operation/getAccountEntitlements) to get account entitlements. (optional)
-$SegmentedForIdentity = "me" # String | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID. By convention, the value **me** can stand in for the current user's Identity ID. Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional)
+$SegmentedForIdentity = "e554098913544630b5985e9042f5e44b" # String | If present and not empty, additionally filters Entitlements to those which are assigned to the Segment(s) which are visible to the Identity with the specified ID.  Cannot be specified with the **account-id** or **for-segment-ids** param(s). It is also illegal to specify a value that refers to a different user's Identity. (optional)
 $ForSegmentIds = "041727d4-7d95-4779-b891-93cf41e98249,a378c9fa-bae5-494c-804e-a1e30f69f649" # String | If present and not empty, additionally filters Access Profiles to those which are assigned to the Segment(s) with the specified IDs. Cannot be specified with the **account-id** or **segmented-for-identity** param(s). (optional)
 $IncludeUnsegmented = $true # Boolean | Whether or not the response list should contain unsegmented Entitlements. If **for-segment-ids** and **segmented-for-identity** are both absent or empty, specifying **include-unsegmented=false** results in an error. (optional) (default to $true)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -504,7 +504,7 @@ try {
 ## patch-entitlement
 This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
-The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**, **name**, **description**, and **manuallyUpdatedFields**
+The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**, **name**, **description**, **privilegeOverride/overrideLevel** and **manuallyUpdatedFields**
 
 When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
 
@@ -602,11 +602,21 @@ $EntitlementRequestConfig = @"{
       "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
       "approverType" : "GOVERNANCE_GROUP"
     } ],
+    "reauthorizationRequired" : false,
     "requestCommentRequired" : true
+  },
+  "revocationRequestConfig" : {
+    "approvalSchemes" : [ {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    }, {
+      "approverId" : "e3eab852-8315-467f-9de7-70eda97f63c8",
+      "approverType" : "GOVERNANCE_GROUP"
+    } ]
   }
 }"@
 
-# Replace Entitlement Request Config
+# Replace entitlement request config
 
 try {
     $Result = ConvertFrom-JsonToEntitlementRequestConfig -Json $EntitlementRequestConfig
@@ -653,7 +663,7 @@ Code | Description  | Data Type
 ```powershell
 $SourceId = "2c91808a7813090a017814121919ecca" # String | ID of source for the entitlement reset
 
-# Reset Source Entitlements
+# Reset source entitlements
 
 try {
     Reset-BetaSourceEntitlements -SourceId $SourceId 
@@ -674,11 +684,11 @@ This API applies an update to every entitlement of the list.
 The number of entitlements to update is limited to 50 items maximum.
 
 
-The JsonPatch update follows the [JSON
-Patch](https://tools.ietf.org/html/rfc6902) standard. allowed operations :
-`**{ "op": "replace", "path": "/privileged", "value": boolean }**  **{ "op":
-"replace", "path": "/requestable","value": boolean }**`
-
+The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+examples of allowed operations :
+`**{ "op": "replace", "path": "/privileged", "value": boolean }**`
+`**{ "op": "replace", "path": "/requestable","value": boolean }**`
+`**{ "op": "replace", "path": "/privilegeOverride/overrideLevel","value": string }**`
 
 A token with ORG_ADMIN or API authority is required to call this API.
 
@@ -719,6 +729,10 @@ $EntitlementBulkUpdateRequest = @"{
     "op" : "replace",
     "path" : "/requestable",
     "value" : false
+  }, {
+    "op" : "replace",
+    "path" : "/privilegeOverride/overrideLevel",
+    "value" : "HIGH"
   } ]
 }"@
 

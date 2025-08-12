@@ -1,4 +1,5 @@
 type : object
+title: Role Mining Potential Role Export Request
 properties:
   minEntitlementPopularity:
     type: integer

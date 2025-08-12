@@ -18,13 +18,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Op** |  **Enum** [  "add",    "remove",    "replace",    "move",    "copy",    "test" ] | The operation to be performed | [required]
 **Path** | **String** | A string JSON Pointer representing the target path to an element to be affected by the operation | [required]
-**Value** | [**JsonPatchOperationValue**](json-patch-operation-value) |  | [optional] 
+**Value** | [**UpdateMultiHostSourcesRequestInnerValue**](update-multi-host-sources-request-inner-value) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$JsonPatchOperation = Initialize-PSSailpoint.V2024JsonPatchOperation  -Op replace `
+$JsonPatchOperation = Initialize-V2024JsonPatchOperation  -Op replace `
  -Path /description `
  -Value null
 ```

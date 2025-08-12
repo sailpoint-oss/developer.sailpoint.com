@@ -1,4 +1,5 @@
 type: object
+title: Access Recommendation
 properties:
   access:
     $ref: './AccessReference.yaml'

@@ -52,7 +52,7 @@ description='Create account on source 'AD'',
 state='Pending',
 type='Generic',
 remediation_items=[
-                    sailpoint.beta.models.remediation_item_details.RemediationItemDetails(
+                    sailpoint.beta.models.remediation_item_details.Remediation Item Details(
                         id = '2c9180835d2e5168015d32f890ca1581', 
                         target_id = '2c9180835d2e5168015d32f890ca1581', 
                         target_name = 'john.smith', 
@@ -64,7 +64,7 @@ remediation_items=[
                         native_identity = 'jason.smith2', )
                     ],
 approval_items=[
-                    sailpoint.beta.models.approval_item_details.ApprovalItemDetails(
+                    sailpoint.beta.models.approval_item_details.Approval Item Details(
                         id = '2c9180835d2e5168015d32f890ca1581', 
                         account = 'john.smith', 
                         application = 'Active Directory', 
@@ -77,14 +77,14 @@ name='Account Create',
 completed='2018-10-19T13:49:37.385Z',
 num_items=19,
 errors=[The work item ID that was specified was not found.],
-form=sailpoint.beta.models.form_details.FormDetails(
+form=sailpoint.beta.models.form_details.Form Details(
                     id = '2c9180835d2e5168015d32f890ca1581', 
                     name = 'AccountSelection Form', 
                     title = 'Account Selection for John.Doe', 
                     subtitle = 'Please select from the following', 
                     target_user = 'Jane.Doe', 
                     sections = [
-                        sailpoint.beta.models.section_details.SectionDetails()
+                        sailpoint.beta.models.section_details.Section Details()
                         ], )
 )
 

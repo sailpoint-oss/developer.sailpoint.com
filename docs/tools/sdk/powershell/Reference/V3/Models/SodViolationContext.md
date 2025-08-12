@@ -16,14 +16,14 @@ tags: ['SDK', 'Software Development Kit', 'SodViolationContext', 'SodViolationCo
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Policy** | [**SodPolicyDto**](sod-policy-dto) |  | [optional] 
+**Policy** | [**SodPolicyDto1**](sod-policy-dto1) |  | [optional] 
 **ConflictingAccessCriteria** | [**SodViolationContextConflictingAccessCriteria**](sod-violation-context-conflicting-access-criteria) |  | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$SodViolationContext = Initialize-PSSailpoint.V3SodViolationContext  -Policy null `
+$SodViolationContext = Initialize-SodViolationContext  -Policy null `
  -ConflictingAccessCriteria null
 ```
 

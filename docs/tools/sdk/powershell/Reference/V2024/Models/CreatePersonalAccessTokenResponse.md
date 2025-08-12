@@ -23,18 +23,20 @@ Name | Type | Description | Notes
 **Owner** | [**PatOwner**](pat-owner) |  | [required]
 **Created** | **System.DateTime** | The date and time, down to the millisecond, when this personal access token was created. | [required]
 **AccessTokenValiditySeconds** | **Int32** | Number of seconds an access token is valid when generated using this Personal Access Token. If no value is specified, the token will be created with the default value of 43200. | [required]
+**ExpirationDate** | **System.DateTime** | Date and time, down to the millisecond, when this personal access token will expire. If not provided, the token will expire 6 months after its creation date. The value must be a valid date-time string between the current date and 6 months from the creation date. | [required]
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$CreatePersonalAccessTokenResponse = Initialize-PSSailpoint.V2024CreatePersonalAccessTokenResponse  -Id 86f1dc6fe8f54414950454cbb11278fa `
+$CreatePersonalAccessTokenResponse = Initialize-V2024CreatePersonalAccessTokenResponse  -Id 86f1dc6fe8f54414950454cbb11278fa `
  -Secret 1d1bef2b9f426383447f64f69349fc7cac176042578d205c256ba3f37c59adb9 `
  -Scope [demo:personal-access-token-scope:first, demo:personal-access-token-scope:second] `
  -Name NodeJS Integration `
  -Owner null `
  -Created 2017-07-11T18:45:37.098Z `
- -AccessTokenValiditySeconds 36900
+ -AccessTokenValiditySeconds 36900 `
+ -ExpirationDate 2018-01-11T18:45:37.098Z
 ```
 
 - Convert the resource to JSON

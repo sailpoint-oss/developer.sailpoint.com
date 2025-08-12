@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$IdentityProfileAllOfAuthoritativeSource = Initialize-PSSailpoint.V2024IdentityProfileAllOfAuthoritativeSource  -Type SOURCE `
+$IdentityProfileAllOfAuthoritativeSource = Initialize-V2024IdentityProfileAllOfAuthoritativeSource  -Type SOURCE `
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name HR Active Directory
 ```

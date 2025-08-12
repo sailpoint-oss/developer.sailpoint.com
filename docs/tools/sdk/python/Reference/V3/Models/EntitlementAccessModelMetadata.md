@@ -27,7 +27,7 @@ from sailpoint.v3.models.entitlement_access_model_metadata import EntitlementAcc
 
 entitlement_access_model_metadata = EntitlementAccessModelMetadata(
 attributes=[
-                    sailpoint.v3.models.access_model_metadata.AccessModelMetadata(
+                    sailpoint.v3.models.access_model_metadata.Access Model Metadata(
                         key = 'iscCsp', 
                         name = 'CSP', 
                         multiselect = True, 

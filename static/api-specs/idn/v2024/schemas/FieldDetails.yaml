@@ -1,4 +1,5 @@
 type: object
+title: Field Details
 allOf:
   - $ref: 'FormItemDetails.yaml'
   - type: object

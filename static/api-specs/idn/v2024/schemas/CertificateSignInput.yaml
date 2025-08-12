@@ -1,5 +1,6 @@
 description: Sign Certificate Request
 type: object
+title: Certificate Sign Input
 properties:
   certificateSigningRequest:
     description: The certificate signing request (CSR)

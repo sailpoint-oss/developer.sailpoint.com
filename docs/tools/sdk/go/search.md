@@ -31,7 +31,7 @@ func getSearchResults(ctx context.Context, apiClient *sailpoint.APIClient) {
  }
    `)
  search.UnmarshalJSON(searchString)
- resp, r, err := sailpoint.PaginateSearchApi(ctx, apiClient, *search, 0, 10, 10000)
+ resp, r, err := sailpoint.PaginateSearchAPI(ctx, apiClient, *search, 0, 10, 10000)
  if err != nil {
   fmt.Fprintf(os.Stderr, "Error when calling `PaginateSearchApi``: %v\n", err)
   fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -80,7 +80,7 @@ In this example, the `"identities"` string represents an unmarshalled JSON. Chan
 The search example includes the syntax you can use to paginate search results. Edit this line to configure the search result pagination:
 
 ```go
-resp, r, err := sailpoint.PaginateSearchApi(ctx, apiClient, *search, 0, 10, 10000)
+resp, r, err := sailpoint.PaginateSearchAPI(ctx, apiClient, *search, 0, 10, 10000)
 ```
 
 The first value refers to the `initialOffset`, the starting number for the results, the second refers to the `increment`, the number of records per page, and the third refers to the `limit`, the last record that can be returned.

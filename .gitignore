@@ -1,5 +1,5 @@
 # Dependencies
-/node_modules
+node_modules
 
 # Production
 /build
@@ -8,6 +8,8 @@
 # Generated files
 .docusaurus
 .cache-loader
+
+bundler-cpu-profile.json
 
 # Misc
 .DS_Store
@@ -36,15 +38,25 @@ yarn.lock
 /static/code-examples/v3/merged_code_examples.yaml
 /static/code-examples/v2024/v2024.yaml
 /static/code-examples/v2024/merged_code_examples.yaml
+/static/code-examples/v2025/v2025.yaml
+/static/code-examples/v2025/merged_code_examples.yaml
 
 /docs/api/v3/*
 /docs/api/beta/*
 /docs/api/iiq
-/docs/api/nerm/*
+/docs/api/nerm/v1/*
+/docs/api/nerm/v2025/*
 /docs/api/v2024/*
+/docs/api/v2025/*
 !/docs/api/nerm/authentication.md
 !/docs/api/nerm/pagination-metadata-filtering.md
 !/docs/api/nerm/getting-started.md
+!/docs/api/nerm/v1/authentication.md
+!/docs/api/nerm/v1/pagination-metadata-filtering.md
+!/docs/api/nerm/v1/getting-started.md
+!/docs/api/nerm/v2025/authentication.md
+!/docs/api/nerm/v2025/pagination-filtering.md
+!/docs/api/nerm/v2025/getting-started.md
 
 
 !/docs/api/beta/getting-started.md
@@ -73,6 +85,15 @@ yarn.lock
 !/docs/api/v2024/rate-limit.md
 !/docs/api/v2024/postman-collections.md
 !/docs/api/v2024/patch-requests.md
+
+!/docs/api/v2025/getting-started.md
+!/docs/api/v2025/authentication.md
+!/docs/api/v2025/authorization.md
+!/docs/api/v2025/api-versioning-strategy.md
+!/docs/api/v2025/standard-collection-parameters.md
+!/docs/api/v2025/rate-limit.md
+!/docs/api/v2025/postman-collections.md
+!/docs/api/v2025/patch-requests.md
 
 #Alogolia env file
 /algolia/.env

@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EventBridgeConfig = Initialize-PSSailpoint.BetaEventBridgeConfig  -AwsAccount 123456789012 `
+$EventBridgeConfig = Initialize-BetaEventBridgeConfig  -AwsAccount 123456789012 `
  -AwsRegion us-west-1
 ```
 

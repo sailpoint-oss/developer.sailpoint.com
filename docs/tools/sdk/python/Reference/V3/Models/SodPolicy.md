@@ -33,7 +33,6 @@ Name | Type | Description | Notes
 **violation_owner_assignment_config** | [**ViolationOwnerAssignmentConfig**](violation-owner-assignment-config) |  | [optional] 
 **scheduled** | **bool** | defines whether a policy has been scheduled or not | [optional] [default to False]
 **type** |  **Enum** [  'GENERAL',    'CONFLICTING_ACCESS_BASED' ] | whether a policy is query based or conflicting access based | [optional] [default to 'GENERAL']
-**conflicting_access_criteria** | [**SodPolicyConflictingAccessCriteria**](sod-policy-conflicting-access-criteria) |  | [optional] 
 }
 
 ## Example
@@ -59,15 +58,14 @@ state='ENFORCED',
 tags=[TAG1, TAG2],
 creator_id='0f11f2a4-7c94-4bf3-a2bd-742580fe3bde',
 modifier_id='0f11f2a4-7c94-4bf3-a2bd-742580fe3bde',
-violation_owner_assignment_config=sailpoint.v3.models.violation_owner_assignment_config.ViolationOwnerAssignmentConfig(
+violation_owner_assignment_config=sailpoint.v3.models.violation_owner_assignment_config.Violation Owner Assignment Config(
                     assignment_rule = 'MANAGER', 
                     owner_ref = sailpoint.v3.models.violation_owner_assignment_config_owner_ref.ViolationOwnerAssignmentConfig_ownerRef(
                         type = 'IDENTITY', 
                         id = '2c9180a46faadee4016fb4e018c20639', 
                         name = 'Support', ), ),
 scheduled=True,
-type='GENERAL',
-conflicting_access_criteria=
+type='GENERAL'
 )
 
 ```

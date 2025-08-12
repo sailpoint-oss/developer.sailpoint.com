@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalForwardHistory = Initialize-PSSailpoint.V2024ApprovalForwardHistory  -OldApproverName Frank Mir `
+$ApprovalForwardHistory = Initialize-V2024ApprovalForwardHistory  -OldApproverName Frank Mir `
  -NewApproverName Al Volta `
  -Comment Forwarding from Frank to Al `
  -Modified 2019-08-23T18:52:57.398Z `

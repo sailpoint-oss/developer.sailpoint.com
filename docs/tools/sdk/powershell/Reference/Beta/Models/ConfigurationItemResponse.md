@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ConfigurationItemResponse = Initialize-PSSailpoint.BetaConfigurationItemResponse  -Identity null `
+$ConfigurationItemResponse = Initialize-BetaConfigurationItemResponse  -Identity null `
  -ConfigDetails null
 ```
 

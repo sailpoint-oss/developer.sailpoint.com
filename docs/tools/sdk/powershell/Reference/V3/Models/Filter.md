@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ModelFilter = Initialize-PSSailpoint.V3ModelFilter  -Type null `
+$ModelFilter = Initialize-ModelFilter  -Type null `
  -Range null `
  -Terms null `
  -Exclude false

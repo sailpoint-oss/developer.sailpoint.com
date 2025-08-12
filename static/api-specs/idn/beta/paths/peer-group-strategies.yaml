@@ -2,7 +2,7 @@ get:
   operationId: getPeerGroupOutliers
   tags:
     - IAI Peer Group Strategies
-  summary: Identity Outliers List
+  summary: Identity outliers list
   deprecated: true
   description: >-
     -- Deprecated : See 'IAI Outliers'

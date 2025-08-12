@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SessionConfiguration = Initialize-PSSailpoint.V3SessionConfiguration  -MaxIdleTime 15 `
+$SessionConfiguration = Initialize-SessionConfiguration  -MaxIdleTime 15 `
  -RememberMe true `
  -MaxSessionTime 45
 ```

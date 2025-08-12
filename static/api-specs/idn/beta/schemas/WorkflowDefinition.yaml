@@ -1,4 +1,5 @@
 type: object
+title: Workflow Definition
 description: The map of steps that the workflow will execute.
 properties:
   start:

@@ -17,6 +17,7 @@ The attribute assignment of the correlation configuration.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**sequence** | **int** | The sequence of the attribute assignment. | [optional] 
 **var_property** | **str** | The property of the attribute assignment. | [optional] 
 **value** | **str** | The value of the attribute assignment. | [optional] 
 **operation** |  **Enum** [  'EQ' ] | The operation of the attribute assignment. | [optional] 
@@ -32,6 +33,7 @@ Name | Type | Description | Notes
 from sailpoint.beta.models.correlation_config_attribute_assignments_inner import CorrelationConfigAttributeAssignmentsInner
 
 correlation_config_attribute_assignments_inner = CorrelationConfigAttributeAssignmentsInner(
+sequence=1,
 var_property='first_name',
 value='firstName',
 operation='EQ',

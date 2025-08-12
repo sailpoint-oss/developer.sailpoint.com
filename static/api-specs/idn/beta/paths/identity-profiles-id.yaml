@@ -2,7 +2,7 @@ delete:
   operationId: deleteIdentityProfile
   tags:
     - Identity Profiles
-  summary: Delete an Identity Profile
+  summary: Delete an identity profile
   description: >-
     This API endpoint deletes an Identity Profile based on its ID.
 
@@ -47,7 +47,7 @@ patch:
   operationId: updateIdentityProfile
   tags:
     - Identity Profiles
-  summary: Update the Identity Profile
+  summary: Update the identity profile
   description: >-
     This update the specified Identity Profile.
 

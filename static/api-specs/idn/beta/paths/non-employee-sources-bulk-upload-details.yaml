@@ -1,16 +1,21 @@
 get:
-  operationId: nonEmployeeBulkUploadDetails
+  operationId: getNonEmployeeBulkUploadDetails
   security:
     - userAuth: [idn:nelm:read]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - SOURCE_ADMIN
+    - SOURCE_SUBADMIN
   tags:
     - Non-Employee Lifecycle Management
-  summary: Details of bulk upload job on source
+  summary: Bulk-upload details a source
   description: |
     This API returns the details of the newest bulk upload job for the specified source.
 
     A token with idn:nesr:read authority is required to call this API.
 
     This is for internal use only.
+  deprecated: true
   parameters:
     - in: path
       example: "2c918085842e69ae018432d22ccb212f"

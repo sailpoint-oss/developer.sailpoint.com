@@ -1,4 +1,5 @@
 type: object
+title: Access Request Recommendation Action Item Response Dto
 properties:
   identityId:
     type: string

@@ -41,7 +41,7 @@ name='Create Certification Campaign',
 type='ACTION',
 description='Generates a certification campaign.',
 form_fields=[
-                    sailpoint.beta.models.workflow_library_form_fields.WorkflowLibraryFormFields(
+                    sailpoint.beta.models.workflow_library_form_fields.Workflow Library Form Fields(
                         description = 'First value to compare', 
                         help_text = 'The name to give to this certification campaign.', 
                         label = 'Campaign Name', 

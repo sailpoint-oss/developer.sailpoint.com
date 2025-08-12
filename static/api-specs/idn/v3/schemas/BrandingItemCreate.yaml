@@ -1,4 +1,5 @@
 type: object
+title: Branding Item Create
 required:
   - name
   - productName

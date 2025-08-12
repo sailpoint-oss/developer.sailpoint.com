@@ -16,15 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'AccessProfileSourceRef', 'V2024Access
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **String** | The ID of the Source with with which the Access Profile is associated | [optional] 
-**Type** |  **Enum** [  "SOURCE" ] | The type of the Source, will always be SOURCE | [optional] 
-**Name** | **String** | The display name of the associated Source | [optional] 
+**Id** | **String** | ID of the source the access profile is associated with. | [optional] 
+**Type** |  **Enum** [  "SOURCE" ] | Source's DTO type. | [optional] 
+**Name** | **String** | Source name. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$AccessProfileSourceRef = Initialize-PSSailpoint.V2024AccessProfileSourceRef  -Id 2c91809773dee3610173fdb0b6061ef4 `
+$AccessProfileSourceRef = Initialize-V2024AccessProfileSourceRef  -Id 2c91809773dee3610173fdb0b6061ef4 `
  -Type SOURCE `
  -Name ODS-AD-SOURCE
 ```

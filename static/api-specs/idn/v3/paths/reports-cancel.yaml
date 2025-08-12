@@ -4,7 +4,7 @@ post:
   description: >-
     Cancels a running report.
   operationId: cancelReport
-  summary: "Cancel Report"
+  summary: "Cancel report"
   security:
     - userAuth: [sp:report:delete]
   parameters:

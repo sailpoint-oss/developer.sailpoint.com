@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SourceAppCreateDtoAccountSource = Initialize-PSSailpoint.BetaSourceAppCreateDtoAccountSource  -Id 2c9180827ca885d7017ca8ce28a000eb `
+$SourceAppCreateDtoAccountSource = Initialize-BetaSourceAppCreateDtoAccountSource  -Id 2c9180827ca885d7017ca8ce28a000eb `
  -Type SOURCE `
  -Name ODS-AD-Source
 ```

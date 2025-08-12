@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$UserAppSource = Initialize-PSSailpoint.BetaUserAppSource  -Id 9870808a7190d06e01719938fcd20792 `
+$UserAppSource = Initialize-BetaUserAppSource  -Id 9870808a7190d06e01719938fcd20792 `
  -Type SOURCE `
  -Name test-source
 ```

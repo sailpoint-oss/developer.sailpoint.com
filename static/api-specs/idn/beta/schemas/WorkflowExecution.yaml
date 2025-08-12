@@ -1,4 +1,5 @@
 type: object
+title: Workflow Execution
 properties:
   id:
     type: string
@@ -29,6 +30,7 @@ properties:
     - "Completed"
     - "Failed"
     - "Canceled"
+    - "Queued"
     - "Running"
     example: "Completed"
     

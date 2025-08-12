@@ -1,8 +1,10 @@
 type : object
+title: Provisioning Policy Dto
 required:
   - name
 properties:
   name:
+    nullable: true
     type: string
     description: the provisioning policy name
     example: example provisioning policy for inactive identities

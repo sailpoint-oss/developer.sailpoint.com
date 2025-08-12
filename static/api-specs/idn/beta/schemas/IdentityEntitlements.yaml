@@ -1,4 +1,5 @@
 type: object
+title: Identity Entitlements
 properties:
   objectRef:
     $ref: '../../v3/schemas/TaggedObjectDto.yaml'

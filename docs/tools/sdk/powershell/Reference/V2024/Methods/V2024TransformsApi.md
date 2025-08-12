@@ -24,7 +24,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**New-V2024Transform**](#create-transform) | **POST** `/transforms` | Create transform
 [**Remove-V2024Transform**](#delete-transform) | **DELETE** `/transforms/{id}` | Delete a transform
-[**Get-V2024Transform**](#get-transform) | **GET** `/transforms/{id}` | Transform by ID
+[**Get-V2024Transform**](#get-transform) | **GET** `/transforms/{id}` | Transform by id
 [**Get-V2024Transforms**](#list-transforms) | **GET** `/transforms` | List transforms
 [**Update-V2024Transform**](#update-transform) | **PUT** `/transforms/{id}` | Update a transform
 
@@ -174,7 +174,7 @@ Code | Description  | Data Type
 ```powershell
 $Id = "2cd78adghjkja34jh2b1hkjhasuecd" # String | ID of the transform to retrieve
 
-# Transform by ID
+# Transform by id
 
 try {
     Get-V2024Transform -Id $Id 

@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessModelMetadata = Initialize-PSSailpoint.V3AccessModelMetadata  -Key iscCsp `
+$AccessModelMetadata = Initialize-AccessModelMetadata  -Key iscCsp `
  -Name CSP `
  -Multiselect true `
  -Status active `

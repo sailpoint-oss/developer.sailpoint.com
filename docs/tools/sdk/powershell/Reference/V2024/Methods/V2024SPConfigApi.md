@@ -23,7 +23,7 @@ Method | HTTP request | Description
 [**Get-V2024SpConfigImport**](#get-sp-config-import) | **GET** `/sp-config/import/{id}/download` | Download import job result
 [**Get-V2024SpConfigImportStatus**](#get-sp-config-import-status) | **GET** `/sp-config/import/{id}` | Get import job status
 [**Import-V2024SpConfig**](#import-sp-config) | **POST** `/sp-config/import` | Initiates configuration objects import job
-[**Get-V2024SpConfigObjects**](#list-sp-config-objects) | **GET** `/sp-config/config-objects` | Get config object details
+[**Get-V2024SpConfigObjects**](#list-sp-config-objects) | **GET** `/sp-config/config-objects` | List config objects
 
 
 ## export-sp-config
@@ -331,7 +331,7 @@ try {
 [[Back to top]](#) 
 
 ## list-sp-config-objects
-This gets the list of object configurations which are known to the tenant export/import service. Object configurations that contain "importUrl" and "exportUrl" are available for export/import.
+Get a list of object configurations that the tenant export/import service knows.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-sp-config-objects)
 
@@ -360,7 +360,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# Get config object details
+# List config objects
 
 try {
     Get-V2024SpConfigObjects 

@@ -383,6 +383,11 @@ tags:
       - Upload configurations and manage object mappings between tenants.
       
       Refer to [Using the SailPoint Configuration Hub](https://documentation.sailpoint.com/saas/help/confighub/config_hub.html) for more information about Configuration Hub.
+  - name: Connector Customizers
+    description: |
+      Saas Connectivity Customizers are cloud-based connector customizers. The customizers allow you to customize the out of the box connectors in a similar way to how you can use rules to customize VA (virtual appliance) based connectors.
+      
+      Use these APIs to implement connector customizers functionality.
   - name: Connector Rule Management
     description: |
       Use this API to implement connector rule management functionality. 
@@ -593,12 +598,20 @@ tags:
       Refer to [Moving Identities into Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html#moving-identities-into-lifecycle-states) for more information about these different lifecycle state statuses. 
 
       Refer to [Setting Up Lifecycle States](https://documentation.sailpoint.com/saas/help/provisioning/lifecycle.html) for more information about lifecycle states.
+  - name: Machine Account Classify
+  - name: Machine Account Mappings
   - name: Machine Accounts
+  - name: Machine Classification Config
   - name: Machine Identities
+  - name: Machine Mapping Metadata
   - name: Managed Clients
     description: |
       Use this API to implement managed client functionality. 
       With this functionality in place, administrators can modify and delete existing managed clients, create new ones, and view and make changes to their log configurations. 
+  - name: Managed Cluster Types
+    description: |
+      Use this API to implement managed cluster types functionality. 
+      With this functionality in place, administrators can modify and delete existing managed cluster types and create new ones.
   - name: Managed Clusters
     description: |
       Use this API to implement managed cluster functionality. 
@@ -613,6 +626,11 @@ tags:
     description: Configure and test multifactor authentication (MFA) methods
   - name: MFA Controller
     description: This API used for multifactor authentication functionality belong to gov-multi-auth service. This controller allow you to verify authentication by specified method
+  - name: Multi-Host Integration
+    description: |
+      Use this API to build a Multi-Host Integration.
+      Multi-Host Integration will help customers to configure and manage similar type of target system in Identity Security Cloud.
+      In Identity Security Cloud, administrators can create a Multi-Host Integration by going to Admin > Connections > Multi-Host Sources and selecting 'Create.'
   - name: Non-Employee Lifecycle Management
     description: |
       Use this API to implement non-employee lifecycle management functionality. 
@@ -1179,6 +1197,10 @@ tags:
   - name: Task Management
   - name: Tenant
     description: API for reading tenant details.
+  - name: Tenant Context
+    description: |
+      The purpose of this API is to manage key-value pairs specific to a tenant's context, enabling dynamic configuration and personalized settings per tenant.
+      Context key-value pairs will consist of common terms and acronyms used within your organization.
   - name: Transforms
     description: |
       The purpose of this API is to expose functionality for the manipulation of Transform objects.
@@ -1270,7 +1292,13 @@ tags:
       Refer to [Work Reassignment](https://documentation.sailpoint.com/saas/help/users/work_reassignment.html) for more information about this topic.
   - name: Workflows
     description: |
-      Workflows allow administrators to create custom automation scripts directly within Identity Security Cloud.  These automation scripts respond to [event triggers](https://developer.sailpoint.com/docs/extensibility/event-triggers/#how-to-get-started-with-event-triggers) and perform a series of actions to perform tasks that are either too cumbersome or not available in the Identity Security Cloud UI.  Workflows can be configured via a graphical user interface within Identity Security Cloud, or by creating and uploading a JSON formatted script to the Workflow service.  The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
+      Workflows allow administrators to create custom automation scripts directly within Identity Security Cloud.  
+      These automation scripts respond to [event triggers](https://developer.sailpoint.com/docs/extensibility/event-triggers/#how-to-get-started-with-event-triggers) and 
+      perform a series of actions to perform tasks that are either too cumbersome or not available in the Identity Security Cloud UI.  
+      
+      Workflows can be configured via a graphical user interface within Identity Security Cloud, or by creating and uploading a JSON formatted script to the Workflow service.  
+      
+      The Workflows API collection provides the necessary functionality to create, manage, and test your workflows via REST.
 x-webhooks:
   AccessRequestDecision:
     $ref: './v2024/webhooks/access-request-decision.yaml'
@@ -1335,8 +1363,12 @@ paths:
     $ref: ./v2024/paths/access-requests.yaml
   /access-requests/cancel:
     $ref: ./v2024/paths/access-request-cancel.yaml
+  /access-requests/close:
+    $ref: ./v2024/paths/access-request-close.yaml
   /access-requests/bulk-cancel:
     $ref: ./v2024/paths/bulk-cancel-access-request.yaml
+  /access-requests/accounts-selection:
+    $ref: ./v2024/paths/access-requests-accounts-selection.yaml
   /access-request-config:
     $ref: ./v2024/paths/access-request-config.yaml
   /access-request-status:
@@ -1373,12 +1405,22 @@ paths:
     $ref: ./v2024/paths/accounts-id-disable.yaml
   /accounts/{id}/unlock:
     $ref: ./v2024/paths/accounts-id-unlock.yaml
+  /accounts/{id}/remove:
+    $ref: ./v2024/paths/remove-account.yaml
   /account-activities:
     $ref: ./v2024/paths/account-activity-list.yaml
   /account-activities/{id}:
     $ref: ./v2024/paths/account-activity-get-one.yaml
+  /account-aggregations/{id}/status:
+    $ref: ./v2024/paths/account-aggregation-status.yaml
   /auth-org/network-config:
     $ref: ./v2024/paths/auth-org-network-config.yaml
+  /auth-org/lockout-config:
+    $ref: "./v2024/paths/auth-org-lockout-config.yaml"
+  /auth-org/service-provider-config:
+    $ref: "./v2024/paths/auth-org-service-provider-config.yaml"
+  /auth-org/session-config:
+    $ref: "./v2024/paths/auth-org-session-config.yaml"
   /auth-users/{id}:
     $ref: ./v2024/paths/auth-user.yaml
   /brandings:
@@ -1449,6 +1491,12 @@ paths:
     $ref: ./v2024/paths/certification-task.yaml
   /certification-tasks:
     $ref: ./v2024/paths/certification-tasks.yaml
+  /connector-customizers:
+    $ref: ./v2024/paths/connector-customizers.yaml
+  /connector-customizers/{id}:
+    $ref: ./v2024/paths/connector-customizers-id.yaml
+  /connector-customizers/{id}/versions:
+    $ref: ./v2024/paths/connector-customizers-versions.yaml
   /configuration-hub/object-mappings/{sourceOrg}:
     $ref: ./v2024/paths/configuration-hub/object-mapping.yaml
   /configuration-hub/object-mappings/{sourceOrg}/{objectMappingId}:
@@ -1457,6 +1505,10 @@ paths:
     $ref: ./v2024/paths/configuration-hub/object-mapping-bulk-create.yaml
   /configuration-hub/object-mappings/{sourceOrg}/bulk-patch:
     $ref: ./v2024/paths/configuration-hub/object-mapping-bulk-update.yaml
+  /configuration-hub/scheduled-actions:
+    $ref: ./v2024/paths/configuration-hub/scheduled-actions.yaml
+  /configuration-hub/scheduled-actions/{id}:
+    $ref: ./v2024/paths/configuration-hub/scheduled-actions-id.yaml
   /configuration-hub/backups/uploads:
     $ref: ./v2024/paths/configuration-hub/backup-uploads.yaml
   /configuration-hub/backups/uploads/{id}:
@@ -1485,6 +1537,12 @@ paths:
     $ref: ./v2024/paths/connectors-source-template.yaml
   /connectors/{scriptName}/correlation-config:
     $ref: ./v2024/paths/connectors-correlation-config.yaml
+  /connector-rules:
+    $ref: ./v2024/paths/connector-rules.yaml
+  /connector-rules/{id}:
+    $ref: ./v2024/paths/connector-rule.yaml
+  /connector-rules/validate:
+    $ref: ./v2024/paths/connector-rule-validate.yaml
   /data-segments/membership/{identityId}:
     $ref: "./v2024/paths/data-segment-membership.yaml"
   /data-segments/user-enabled/{identityId}:
@@ -1493,6 +1551,26 @@ paths:
     $ref: "./v2024/paths/data-segment.yaml"
   /data-segments:
     $ref: "./v2024/paths/data-segments.yaml"
+  /identities:
+    $ref: ./v2024/paths/identities.yaml
+  /identities/{id}:
+    $ref: ./v2024/paths/identity.yaml
+  /identities-accounts/{id}/enable:
+    $ref: ./v2024/paths/identity-accounts-id-enable.yaml
+  /identities-accounts/{id}/disable:
+    $ref: ./v2024/paths/identity-accounts-id-disable.yaml
+  /identities-accounts/enable:
+    $ref: ./v2024/paths/identities-accounts-enable.yaml
+  /identities-accounts/disable:
+    $ref: ./v2024/paths/identities-accounts-disable.yaml
+  /identities/{identityId}/ownership:
+    $ref: ./v2024/paths/identity-ownership.yaml
+  /identities/{id}/reset:
+    $ref: ./v2024/paths/identity-reset.yaml
+  /identities/{identityId}/role-assignments:
+    $ref: ./v2024/paths/identities-role-assignments.yaml
+  /identities/{identityId}/role-assignments/{assignmentId}:
+    $ref: ./v2024/paths/identities-role-assignment.yaml
   /identities/{identity-id}/set-lifecycle-state:
     $ref: ./v2024/paths/identity-set-lifecycle-state.yaml
   /identity-profiles/{identity-profile-id}/lifecycle-states:
@@ -1527,6 +1605,10 @@ paths:
     $ref: './v2024/paths/managed-cluster-log-config.yaml'
   /managed-clusters/{id}/manualUpgrade:
     $ref: './v2024/paths/managed-cluster-manualUpgrade.yaml'
+  /managed-cluster-types:
+    $ref: ./v2024/paths/managed-cluster-types.yaml
+  /managed-cluster-types/{id}:
+    $ref: ./v2024/paths/managed-cluster-types-path.yaml
   /mfa/okta-verify/config:
     $ref: ./v2024/paths/mfa-okta-config.yaml
   /mfa/duo-web/config:
@@ -1537,6 +1619,24 @@ paths:
     $ref: ./v2024/paths/mfa-kba-config-answers.yaml
   /mfa/{method}/test:
     $ref: ./v2024/paths/mfa-config-test.yaml
+  /multihosts:
+    $ref: './v2024/paths/multi-host-integration.yaml'
+  /multihosts/types:
+    $ref: './v2024/paths/multi-host-integration-types.yaml'
+  /multihosts/{multihostId}:
+    $ref: './v2024/paths/multi-host-integrations.yaml'
+  /multihosts/{multihostId}/sources/testConnection:
+    $ref: './v2024/paths/multi-host-integration-test-connection.yaml'
+  /multihosts/{multihostId}/sources/{sourceId}/testConnection:
+    $ref: './v2024/paths/multi-host-integration-test-connection-source.yaml'
+  /multihosts/{multihostId}/sources:
+    $ref: './v2024/paths/multi-host-integration-list-sources.yaml'
+  /multihosts/{multiHostId}/sources/errors:
+    $ref: './v2024/paths/multi-host-integration-sources-creation-error.yaml'
+  /multihosts/{multihostId}/acctAggregationGroups:
+    $ref: './v2024/paths/multi-host-integration-get-acct-agg-groups.yaml'
+  /multihosts/{multiHostId}/entitlementAggregationGroups:
+    $ref: './v2024/paths/multi-host-integration-get-entitlement-agg-groups.yaml'
   /non-employee-records:
     $ref: ./v2024/paths/non-employee-records.yaml
   /non-employee-records/{id}:
@@ -1725,6 +1825,24 @@ paths:
     $ref: ./v2024/paths/correlation-config.yaml
   /sources/{sourceId}/password-policies:
     $ref: ./v2024/paths/sources-policy-holders.yaml
+  /sources/{sourceId}/connector/check-connection:
+    $ref: ./v2024/paths/source-connector-check-connection.yaml
+  /sources/{sourceId}/connector/peek-resource-objects:
+    $ref: ./v2024/paths/source-connector-peek-resource-objects.yaml
+  /sources/{sourceId}/connector/ping-cluster:
+    $ref: ./v2024/paths/source-connector-ping-cluster.yaml
+  /sources/{sourceId}/connector/test-configuration:
+    $ref: ./v2024/paths/source-connector-test-configuration.yaml
+  /sources/{id}/connectors/source-config:
+    $ref: ./v2024/paths/source-connectors-source-config.yaml
+  /sources/{sourceId}/native-change-detection-config:
+    $ref: ./v2024/paths/native-change-detection-config.yaml
+  /sources/{id}/remove-accounts:
+    $ref: ./v2024/paths/remove-accounts.yaml
+  /sources/{id}/load-accounts:
+    $ref: ./v2024/paths/load-accounts.yaml
+  /sources/{id}/load-uncorrelated-accounts:
+    $ref: ./v2024/paths/load-uncorrelated-accounts.yaml
   /tagged-objects:
     $ref: ./v2024/paths/tagged-objects.yaml
   /tagged-objects/{type}:
@@ -1803,8 +1921,8 @@ paths:
     $ref: ./v2024/paths/searchAttributeConfig.yaml
   /accounts/search-attribute-config/{name}:
     $ref: ./v2024/paths/searchAttributeConfig-get-patch-delete.yaml
-  
-  # V2024 Public Preview Endpoints (Requires: X-SailPoint-Experimental header)  
+
+  # V2024 Public Preview Endpoints (Requires: X-SailPoint-Experimental header)
   /access-model-metadata/attributes:
     $ref: ./v2024/paths/access-model-metadata-list.yaml
   /access-model-metadata/attributes/{key}:
@@ -1815,8 +1933,6 @@ paths:
     $ref: ./v2024/paths/access-model-metadata-value.yaml
   /access-profiles/bulk-update-requestable:
     $ref: ./v2024/paths/access-profile-bulk-update-requestable.yaml
-  /access-requests/close:
-    $ref: ./v2024/paths/access-request-close.yaml
   /ai-access-request-recommendations:
     $ref: ./v2024/paths/ai-access-request-recommendations.yaml
   /ai-access-request-recommendations/config:
@@ -1829,28 +1945,10 @@ paths:
     $ref: ./v2024/paths/ai-access-request-recommendations-viewed.yaml
   /ai-access-request-recommendations/viewed-items/bulk-create:
     $ref: ./v2024/paths/ai-access-request-recommendations-viewed-bulk-create.yaml
-  /accounts/{id}/remove:
-    $ref: ./v2024/paths/remove-account.yaml
-  /identities-accounts/{id}/enable:
-    $ref: ./v2024/paths/identity-accounts-id-enable.yaml
-  /identities-accounts/{id}/disable:
-    $ref: ./v2024/paths/identity-accounts-id-disable.yaml
-  /identities-accounts/enable:
-    $ref: ./v2024/paths/identities-accounts-enable.yaml
-  /identities-accounts/disable:
-    $ref: ./v2024/paths/identities-accounts-disable.yaml
-  /account-aggregations/{id}/status:
-    $ref: ./v2024/paths/account-aggregation-status.yaml
   /auth-profiles:
     $ref: ./v2024/paths/auth-profiles.yaml
   /auth-profiles/{id}:
     $ref: ./v2024/paths/auth-profile.yaml
-  /connector-rules:
-    $ref: ./v2024/paths/connector-rules.yaml
-  /connector-rules/{id}:
-    $ref: ./v2024/paths/connector-rule.yaml
-  /connector-rules/validate:
-    $ref: ./v2024/paths/connector-rule-validate.yaml
   /custom-password-instructions:
     $ref: ./v2024/paths/custom-password-instructions.yaml
   /custom-password-instructions/{pageId}:
@@ -1903,24 +2001,12 @@ paths:
     $ref: ./v2024/paths/historical-identity-compare-type.yaml
   /identities/{identityId}/synchronize-attributes:
     $ref: ./v2024/paths/identity-synchronize-attributes.yaml
-  /identities/{identityId}/ownership:
-    $ref: ./v2024/paths/identity-ownership.yaml
-  /identities:
-    $ref: ./v2024/paths/identities.yaml
-  /identities/{id}:
-    $ref: ./v2024/paths/identity.yaml
   /identities/invite:
     $ref: ./v2024/paths/identities-invite.yaml
   /identities/{id}/verification/account/send:
     $ref: ./v2024/paths/identity-send-account-verification.yaml
   /identities/process:
     $ref: ./v2024/paths/identities-process.yaml
-  /identities/{id}/reset:
-    $ref: ./v2024/paths/identity-reset.yaml
-  /identities/{identityId}/role-assignments:
-    $ref: ./v2024/paths/identities-role-assignments.yaml
-  /identities/{identityId}/role-assignments/{assignmentId}:
-    $ref: ./v2024/paths/identities-role-assignment.yaml
   /identity-attributes:
     $ref: ./v2024/paths/identity-attributes.yaml
   /identity-attributes/{name}:
@@ -1939,6 +2025,14 @@ paths:
     $ref: ./v2024/paths/machine-accounts.yaml
   /machine-accounts/{id}:
     $ref: ./v2024/paths/machine-account.yaml
+  /sources/{sourceId}/machine-classification-config:
+    $ref: "./v2024/paths/machine-classification-config.yaml"
+  /sources/{sourceId}/machine-account-mappings:
+    $ref: "./v2024/paths/machine-account-mapping.yaml"
+  /sources/{sourceId}/machine-mappings:
+    $ref: "./v2024/paths/machine-mappings.yaml"
+  /accounts/{id}/classify:
+    $ref: "./v2024/paths/machine-account-classify.yaml"
   /machine-identities:
     $ref: ./v2024/paths/machine-identities.yaml
   /machine-identities/{id}:
@@ -2081,28 +2175,12 @@ paths:
     $ref: ./v2024/paths/sp-config-objects.yaml
   /sources/{id}/attribute-sync-config:
     $ref: ./v2024/paths/attr-sync-config-source.yaml
-  /sources/{sourceId}/connector/check-connection:
-    $ref: ./v2024/paths/source-connector-check-connection.yaml
-  /sources/{sourceId}/connector/peek-resource-objects:
-    $ref: ./v2024/paths/source-connector-peek-resource-objects.yaml
-  /sources/{sourceId}/connector/ping-cluster:
-    $ref: ./v2024/paths/source-connector-ping-cluster.yaml
-  /sources/{sourceId}/connector/test-configuration:
-    $ref: ./v2024/paths/source-connector-test-configuration.yaml
-  /sources/{id}/connectors/source-config:
-    $ref: ./v2024/paths/source-connectors-source-config.yaml
-  /sources/{sourceId}/native-change-detection-config:
-    $ref: ./v2024/paths/native-change-detection-config.yaml
-  /sources/{id}/remove-accounts:
-    $ref: ./v2024/paths/remove-accounts.yaml
   /sources/{id}/synchronize-attributes:
     $ref: ./v2024/paths/source-synchronize-attributes.yaml
   /sources/{id}/entitlement-request-config:
     $ref: ./v2024/paths/sources-entitlement-request-config.yaml
-  /sources/{id}/load-accounts:
-    $ref: ./v2024/paths/load-accounts.yaml
-  /sources/{id}/load-uncorrelated-accounts:
-    $ref: ./v2024/paths/load-uncorrelated-accounts.yaml
+  /sources/{sourceId}/load-entitlements:
+    $ref: ./v2024/paths/load-entitlements.yaml
   /task-status/{id}:
     $ref: ./v2024/paths/task-status.yaml
   /task-status:
@@ -2111,6 +2189,8 @@ paths:
     $ref: ./v2024/paths/task-status-pending.yaml
   /tenant:
     $ref: ./v2024/paths/tenant.yaml
+  /tenant-context:
+    $ref: ./v2024/paths/tenant-context.yaml
   /triggers:
     $ref: ./v2024/paths/triggers.yaml
   /trigger-subscriptions:

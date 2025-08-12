@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 from sailpoint.v3.models.reassignment import Reassignment
 
 reassignment = Reassignment(
-var_from=sailpoint.v3.models.certification_reference.CertificationReference(
+var_from=sailpoint.v3.models.certification_reference.Certification Reference(
                     id = 'ef38f94347e94562b5bb8424a56397d8', 
                     name = 'Certification Name', 
                     type = 'CERTIFICATION', 

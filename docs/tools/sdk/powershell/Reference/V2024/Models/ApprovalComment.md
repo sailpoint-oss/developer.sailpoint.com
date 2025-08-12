@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ApprovalComment = Initialize-PSSailpoint.V2024ApprovalComment  -Comment Approval comment `
+$ApprovalComment = Initialize-V2024ApprovalComment  -Comment Approval comment `
  -Timestamp 2021-05-11T22:23:16Z `
  -User user.name `
  -Id 549bf881-1ac4-4a64-9acf-6014e8a3a887 `

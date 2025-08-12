@@ -35,5 +35,7 @@ Type of the criteria in the filter. The `COMPOSITE` filter can contain multiple 
 
 * `INVALID_CERTIFIABLE_ENTITY` (value: `'INVALID_CERTIFIABLE_ENTITY'`)
 
+* `INVALID_CERTIFIABLE_BUNDLE` (value: `'INVALID_CERTIFIABLE_BUNDLE'`)
+
 [[Back to top]](#) 
 

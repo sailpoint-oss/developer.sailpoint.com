@@ -1,4 +1,5 @@
 type: object
+title: Visibility Criteria
 properties:
   expression:
     $ref: './Expression.yaml'

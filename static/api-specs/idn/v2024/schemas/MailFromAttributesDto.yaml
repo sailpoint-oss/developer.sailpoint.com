@@ -1,4 +1,5 @@
 type: object
+title: Mail From Attributes Dto
 properties:
   identity:
     type: string

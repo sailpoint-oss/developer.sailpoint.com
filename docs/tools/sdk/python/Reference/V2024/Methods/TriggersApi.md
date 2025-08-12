@@ -56,16 +56,16 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**complete-trigger-invocation**](#complete-trigger-invocation) | **POST** `/trigger-invocations/{id}/complete` | Complete Trigger Invocation
-[**create-subscription**](#create-subscription) | **POST** `/trigger-subscriptions` | Create a Subscription
-[**delete-subscription**](#delete-subscription) | **DELETE** `/trigger-subscriptions/{id}` | Delete a Subscription
-[**list-subscriptions**](#list-subscriptions) | **GET** `/trigger-subscriptions` | List Subscriptions
-[**list-trigger-invocation-status**](#list-trigger-invocation-status) | **GET** `/trigger-invocations/status` | List Latest Invocation Statuses
-[**list-triggers**](#list-triggers) | **GET** `/triggers` | List Triggers
-[**patch-subscription**](#patch-subscription) | **PATCH** `/trigger-subscriptions/{id}` | Patch a Subscription
-[**start-test-trigger-invocation**](#start-test-trigger-invocation) | **POST** `/trigger-invocations/test` | Start a Test Invocation
-[**test-subscription-filter**](#test-subscription-filter) | **POST** `/trigger-subscriptions/validate-filter` | Validate a Subscription Filter
-[**update-subscription**](#update-subscription) | **PUT** `/trigger-subscriptions/{id}` | Update a Subscription
+[**complete-trigger-invocation**](#complete-trigger-invocation) | **POST** `/trigger-invocations/{id}/complete` | Complete trigger invocation
+[**create-subscription**](#create-subscription) | **POST** `/trigger-subscriptions` | Create a subscription
+[**delete-subscription**](#delete-subscription) | **DELETE** `/trigger-subscriptions/{id}` | Delete a subscription
+[**list-subscriptions**](#list-subscriptions) | **GET** `/trigger-subscriptions` | List subscriptions
+[**list-trigger-invocation-status**](#list-trigger-invocation-status) | **GET** `/trigger-invocations/status` | List latest invocation statuses
+[**list-triggers**](#list-triggers) | **GET** `/triggers` | List triggers
+[**patch-subscription**](#patch-subscription) | **PATCH** `/trigger-subscriptions/{id}` | Patch a subscription
+[**start-test-trigger-invocation**](#start-test-trigger-invocation) | **POST** `/trigger-invocations/test` | Start a test invocation
+[**test-subscription-filter**](#test-subscription-filter) | **POST** `/trigger-subscriptions/validate-filter` | Validate a subscription filter
+[**update-subscription**](#update-subscription) | **PUT** `/trigger-subscriptions/{id}` | Update a subscription
 
 
 ## complete-trigger-invocation
@@ -80,7 +80,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Complete Trigger Invocation
+Complete trigger invocation
 Completes an invocation to a REQUEST_RESPONSE type trigger.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/complete-trigger-invocation)
@@ -119,7 +119,7 @@ from sailpoint.v2024.models.complete_invocation import CompleteInvocation
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | The ID of the invocation to complete. # str | The ID of the invocation to complete.
@@ -133,7 +133,7 @@ with ApiClient(configuration) as api_client:
         }''' # CompleteInvocation | 
 
     try:
-        # Complete Trigger Invocation
+        # Complete trigger invocation
         new_complete_invocation = CompleteInvocation.from_json(complete_invocation)
         TriggersApi(api_client).complete_trigger_invocation(id=id, x_sail_point_experimental=x_sail_point_experimental, complete_invocation=new_complete_invocation)
         # Below is a request that includes all optional parameters
@@ -158,7 +158,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Create a Subscription
+Create a subscription
 This API creates a new subscription to a trigger and defines trigger invocation details. The type of subscription determines which config object is required:
 * HTTP subscriptions require httpConfig
 * EventBridge subscriptions require eventBridgeConfig
@@ -199,7 +199,7 @@ from sailpoint.v2024.models.subscription_post_request import SubscriptionPostReq
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -230,7 +230,7 @@ with ApiClient(configuration) as api_client:
         }''' # SubscriptionPostRequest | 
 
     try:
-        # Create a Subscription
+        # Create a subscription
         new_subscription_post_request = SubscriptionPostRequest.from_json(subscription_post_request)
         results = TriggersApi(api_client).create_subscription(x_sail_point_experimental=x_sail_point_experimental, subscription_post_request=new_subscription_post_request)
         # Below is a request that includes all optional parameters
@@ -257,7 +257,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Delete a Subscription
+Delete a subscription
 Deletes an existing subscription to a trigger.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/delete-subscription)
@@ -295,14 +295,14 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | Subscription ID # str | Subscription ID
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Delete a Subscription
+        # Delete a subscription
         
         TriggersApi(api_client).delete_subscription(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -327,7 +327,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Subscriptions
+List subscriptions
 Gets a list of all trigger subscriptions.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-subscriptions)
@@ -369,7 +369,7 @@ from sailpoint.v2024.models.subscription import Subscription
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -380,13 +380,14 @@ with ApiClient(configuration) as api_client:
     sorters = 'triggerName' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, triggerName** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, triggerName** (optional)
 
     try:
-        # List Subscriptions
+        # List subscriptions
         
         results = TriggersApi(api_client).list_subscriptions(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).list_subscriptions(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of TriggersApi->list_subscriptions:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TriggersApi->list_subscriptions: %s\n" % e)
 ```
@@ -407,7 +408,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Latest Invocation Statuses
+List latest invocation statuses
 Gets a list of latest invocation statuses.
 Statuses of successful invocations are available for up to 24 hours. Statuses of failed invocations are available for up to 48 hours.
 This endpoint may only fetch up to 2000 invocations, and should not be treated as a representation of the full history of invocations.
@@ -451,7 +452,7 @@ from sailpoint.v2024.models.invocation_status import InvocationStatus
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -462,13 +463,14 @@ with ApiClient(configuration) as api_client:
     sorters = 'created' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, subscriptionName, created, completed** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **triggerId, subscriptionName, created, completed** (optional)
 
     try:
-        # List Latest Invocation Statuses
+        # List latest invocation statuses
         
         results = TriggersApi(api_client).list_trigger_invocation_status(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).list_trigger_invocation_status(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of TriggersApi->list_trigger_invocation_status:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TriggersApi->list_trigger_invocation_status: %s\n" % e)
 ```
@@ -489,7 +491,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Triggers
+List triggers
 Gets a list of triggers that are available in the tenant.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-triggers)
@@ -531,7 +533,7 @@ from sailpoint.v2024.models.trigger import Trigger
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -542,13 +544,14 @@ with ApiClient(configuration) as api_client:
     sorters = 'name' # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name** (optional) # str | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name** (optional)
 
     try:
-        # List Triggers
+        # List triggers
         
         results = TriggersApi(api_client).list_triggers(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).list_triggers(x_sail_point_experimental, limit, offset, count, filters, sorters)
         print("The response of TriggersApi->list_triggers:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TriggersApi->list_triggers: %s\n" % e)
 ```
@@ -569,7 +572,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Patch a Subscription
+Patch a subscription
 This API updates a trigger subscription in IdentityNow, using a set of instructions to modify a subscription partially. The following fields are patchable:
 
 **name**, **description**, **enabled**, **type**, **filter**, **responseDeadline**, **httpConfig**, **eventBridgeConfig**, **workflowConfig**
@@ -612,7 +615,7 @@ from sailpoint.v2024.models.subscription_patch_request_inner import Subscription
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | ID of the Subscription to patch # str | ID of the Subscription to patch
@@ -620,7 +623,7 @@ with ApiClient(configuration) as api_client:
     subscription_patch_request_inner = '''[sailpoint.v2024.SubscriptionPatchRequestInner()]''' # List[SubscriptionPatchRequestInner] | 
 
     try:
-        # Patch a Subscription
+        # Patch a subscription
         new_subscription_patch_request_inner = SubscriptionPatchRequestInner.from_json(subscription_patch_request_inner)
         results = TriggersApi(api_client).patch_subscription(id=id, x_sail_point_experimental=x_sail_point_experimental, subscription_patch_request_inner=new_subscription_patch_request_inner)
         # Below is a request that includes all optional parameters
@@ -647,7 +650,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Start a Test Invocation
+Start a test invocation
 Initiate a test event for all subscribers of the specified event trigger.  If there are no subscribers to the specified trigger in the tenant, then no test event will be sent.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/start-test-trigger-invocation)
@@ -687,7 +690,7 @@ from sailpoint.v2024.models.test_invocation import TestInvocation
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -703,13 +706,14 @@ with ApiClient(configuration) as api_client:
         }''' # TestInvocation | 
 
     try:
-        # Start a Test Invocation
+        # Start a test invocation
         new_test_invocation = TestInvocation.from_json(test_invocation)
         results = TriggersApi(api_client).start_test_trigger_invocation(x_sail_point_experimental=x_sail_point_experimental, test_invocation=new_test_invocation)
         # Below is a request that includes all optional parameters
         # results = TriggersApi(api_client).start_test_trigger_invocation(x_sail_point_experimental, new_test_invocation)
         print("The response of TriggersApi->start_test_trigger_invocation:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling TriggersApi->start_test_trigger_invocation: %s\n" % e)
 ```
@@ -730,7 +734,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Validate a Subscription Filter
+Validate a subscription filter
 Validates a JSONPath filter expression against a provided mock input.
 Request requires a security scope of: 
 
@@ -770,7 +774,7 @@ from sailpoint.v2024.models.validate_filter_output_dto import ValidateFilterOutp
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -782,7 +786,7 @@ with ApiClient(configuration) as api_client:
         }''' # ValidateFilterInputDto | 
 
     try:
-        # Validate a Subscription Filter
+        # Validate a subscription filter
         new_validate_filter_input_dto = ValidateFilterInputDto.from_json(validate_filter_input_dto)
         results = TriggersApi(api_client).test_subscription_filter(x_sail_point_experimental=x_sail_point_experimental, validate_filter_input_dto=new_validate_filter_input_dto)
         # Below is a request that includes all optional parameters
@@ -809,7 +813,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Update a Subscription
+Update a subscription
 This API updates a trigger subscription in IdentityNow, using a full object representation. In other words, the existing
   Subscription is completely replaced. The following fields are immutable:
 
@@ -859,7 +863,7 @@ from sailpoint.v2024.models.subscription_put_request import SubscriptionPutReque
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = '0f11f2a4-7c94-4bf3-a2bd-742580fe3bde' # str | Subscription ID # str | Subscription ID
@@ -890,7 +894,7 @@ with ApiClient(configuration) as api_client:
         }''' # SubscriptionPutRequest | 
 
     try:
-        # Update a Subscription
+        # Update a subscription
         new_subscription_put_request = SubscriptionPutRequest.from_json(subscription_put_request)
         results = TriggersApi(api_client).update_subscription(id=id, x_sail_point_experimental=x_sail_point_experimental, subscription_put_request=new_subscription_put_request)
         # Below is a request that includes all optional parameters

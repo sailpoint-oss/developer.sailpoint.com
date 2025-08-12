@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ListAccessProfiles429Response = Initialize-PSSailpoint.V3ListAccessProfiles429Response  -Message  Rate Limit Exceeded 
+$ListAccessProfiles429Response = Initialize-ListAccessProfiles429Response  -Message  Rate Limit Exceeded 
 ```
 
 - Convert the resource to JSON

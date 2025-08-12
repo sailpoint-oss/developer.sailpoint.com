@@ -72,7 +72,7 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     object_type = 'application' # str | Object type. Available options ['application'] # str | Object type. Available options ['application']
@@ -146,7 +146,7 @@ from sailpoint.v2024.models.set_icon200_response import SetIcon200Response
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     object_type = 'application' # str | Object type. Available options ['application'] # str | Object type. Available options ['application']

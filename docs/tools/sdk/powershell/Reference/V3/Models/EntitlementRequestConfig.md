@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$EntitlementRequestConfig = Initialize-PSSailpoint.V3EntitlementRequestConfig  -AllowEntitlementRequest true `
+$EntitlementRequestConfig = Initialize-EntitlementRequestConfig  -AllowEntitlementRequest true `
  -RequestCommentsRequired false `
  -DeniedCommentsRequired false `
  -GrantRequestApprovalSchemes entitlementOwner, sourceOwner, manager, workgroup:2c918084660f45d6016617daa9210584

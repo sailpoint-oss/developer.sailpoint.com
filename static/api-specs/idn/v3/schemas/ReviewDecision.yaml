@@ -1,4 +1,5 @@
 type : object
+title: Review Decision
 properties:
   id:
     type: string

@@ -29,7 +29,7 @@ The type of the work item
 
 * `FORM` (value: `'Form'`)
 
-* `POLICYVIOLOATION` (value: `'PolicyVioloation'`)
+* `POLICYVIOLATION` (value: `'PolicyViolation'`)
 
 * `CHALLENGE` (value: `'Challenge'`)
 

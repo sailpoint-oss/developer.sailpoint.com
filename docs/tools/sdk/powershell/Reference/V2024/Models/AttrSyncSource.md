@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AttrSyncSource = Initialize-PSSailpoint.V2024AttrSyncSource  -Type SOURCE `
+$AttrSyncSource = Initialize-V2024AttrSyncSource  -Type SOURCE `
  -Id 2c9180835d191a86015d28455b4b232a `
  -Name HR Active Directory
 ```

@@ -32,7 +32,7 @@ from sailpoint.v2024.models.source_connections_dto import SourceConnectionsDto
 
 source_connections_dto = SourceConnectionsDto(
 identity_profiles=[
-                    sailpoint.v2024.models.identity_profiles_connections.IdentityProfilesConnections(
+                    sailpoint.v2024.models.identity_profiles_connections.Identity Profiles Connections(
                         id = '76cfddb62818416f816bc494410f46c4', 
                         name = 'ODS-Identity-Profile', 
                         identity_count = 100, )
@@ -46,7 +46,7 @@ source_attributes=[
 mapping_profiles=[ODS-AD-Profile, ODS-Profile2],
 dependent_custom_transforms=[{id=61190eae-290b-4335-aeb8-7335f1fd99cb, name=Split Transform, type=split, attributes={delimiter=-, index=1, input={attributes={sourceName=Example CSV Source, attributeName=last_name}, type=accountAttribute}}, internal=false}],
 dependent_apps=[
-                    sailpoint.v2024.models.dependant_app_connections.DependantAppConnections(
+                    sailpoint.v2024.models.dependant_app_connections.Dependant App Connections(
                         cloud_app_id = '9e3cdd80edf84f119327df8bbd5bb5ac', 
                         description = 'This is a Sailpoint application', 
                         enabled = True, 
@@ -62,7 +62,7 @@ dependent_apps=[
                         launcher_count = 100, 
                         match_all_account = True, 
                         owner = [
-                            sailpoint.v2024.models.base_reference_dto.BaseReferenceDto(
+                            sailpoint.v2024.models.base_reference_dto.Base Reference Dto(
                                 type = 'IDENTITY', 
                                 id = '2c91808568c529c60168cca6f90c1313', 
                                 name = 'William Wilson', )
@@ -70,7 +70,7 @@ dependent_apps=[
                         app_center_enabled = False, )
                     ],
 missing_dependents=[
-                    sailpoint.v2024.models.dependant_connections_missing_dto.DependantConnectionsMissingDto(
+                    sailpoint.v2024.models.dependant_connections_missing_dto.Dependant Connections Missing Dto(
                         dependency_type = 'dependantApps', 
                         reason = 'If there was an error retrieving any dependencies, it would lbe listed here', )
                     ]

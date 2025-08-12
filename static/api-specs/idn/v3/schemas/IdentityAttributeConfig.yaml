@@ -1,4 +1,5 @@
 type: object
+title: Identity Attribute Config
 description: Defines all the identity attribute mapping configurations.
   This defines how to generate or collect data for each identity attributes in identity refresh process.
 properties:

@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$RequestableObject = Initialize-PSSailpoint.BetaRequestableObject  -Id 2c9180835d2e5168015d32f890ca1581 `
+$RequestableObject = Initialize-BetaRequestableObject  -Id 2c9180835d2e5168015d32f890ca1581 `
  -Name Applied Research Access `
  -Created 2017-07-11T18:45:37.098Z `
  -Modified 2018-06-25T20:22:28.104Z `

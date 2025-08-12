@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SearchExportReportArguments = Initialize-PSSailpoint.V2024SearchExportReportArguments  -Indices [entitlements] `
+$SearchExportReportArguments = Initialize-V2024SearchExportReportArguments  -Indices [entitlements] `
  -Query name:a* `
  -Columns displayName,firstName,lastName,email,created,attributes.cloudLifecycleState `
  -Sort [displayName, +id]

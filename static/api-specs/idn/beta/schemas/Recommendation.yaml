@@ -1,4 +1,5 @@
 type: object
+title: Recommendation
 nullable: true
 properties:
   type:

@@ -90,7 +90,7 @@ SailPoint is working to define scopes for every endpoint, but you may encounter 
 
 ## Assigning Scopes with the UI
 
-When you create a PAT in the UI, you can apply scopes to the token. More information on how to do this will be added in the near future.
+When you generate a PAT with the UI, a list of scopes available to you will display in the window. To apply the desired scopes to your PAT, toggle them on before you select 'Create'. To learn more about generating a PAT and assigning scopes, refer to [Managing API Keys and Personal Access Tokens](https://documentation.sailpoint.com/saas/help/common/api_keys.html).
 
 ## Assigning Scopes with the API
 

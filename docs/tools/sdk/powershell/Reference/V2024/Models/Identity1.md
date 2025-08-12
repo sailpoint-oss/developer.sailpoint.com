@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Identity1 = Initialize-PSSailpoint.V2024Identity1  -Id 2c91808380aa05580180aaaaf1940410 `
+$Identity1 = Initialize-V2024Identity1  -Id 2c91808380aa05580180aaaaf1940410 `
  -Name William Wilson
 ```
 

@@ -1,4 +1,5 @@
 type: object
+title: Auth Support User Eligibility Response
 properties:
   authSupportUserEligible:
     type: boolean

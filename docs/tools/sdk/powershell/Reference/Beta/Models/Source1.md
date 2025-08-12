@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$Source1 = Initialize-PSSailpoint.BetaSource1  -Type rule `
+$Source1 = Initialize-BetaSource1  -Type rule `
  -Properties {ruleType=IdentityAttribute, ruleName=Cloud Promote Identity Attribute}
 ```
 

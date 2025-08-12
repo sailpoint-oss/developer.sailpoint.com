@@ -1,5 +1,6 @@
 description: Managed Clients Status Bodies for UI Consumption
 type: object
+title: Client Status Body
 properties:
   id:
     type: string

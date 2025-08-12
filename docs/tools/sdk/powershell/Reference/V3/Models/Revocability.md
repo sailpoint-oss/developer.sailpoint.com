@@ -16,13 +16,13 @@ tags: ['SDK', 'Software Development Kit', 'Revocability', 'Revocability']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApprovalSchemes** | [**[]AccessProfileApprovalScheme**](access-profile-approval-scheme) | List describing the steps in approving the revocation request | [optional] 
+**ApprovalSchemes** | [**[]AccessProfileApprovalScheme**](access-profile-approval-scheme) | List describing the steps involved in approving the revocation request. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$Revocability = Initialize-PSSailpoint.V3Revocability  -ApprovalSchemes null
+$Revocability = Initialize-Revocability  -ApprovalSchemes null
 ```
 
 - Convert the resource to JSON

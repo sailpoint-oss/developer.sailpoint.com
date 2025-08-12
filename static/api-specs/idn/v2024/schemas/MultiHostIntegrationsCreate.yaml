@@ -1,4 +1,5 @@
 type: object
+title: Multi Host Integrations Create
 properties:
     name:
       type: string

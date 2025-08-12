@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$SavedSearchDetailFilters = Initialize-PSSailpoint.V2024SavedSearchDetailFilters  -Type null `
+$SavedSearchDetailFilters = Initialize-V2024SavedSearchDetailFilters  -Type null `
  -Range null `
  -Terms null `
  -Exclude false

@@ -2,7 +2,7 @@ get:
   operationId: listWorkflowLibraryOperators
   tags:
     - Workflows
-  summary: List Workflow Library Operators
+  summary: List workflow library operators
   description: >-
     This lists the workflow operators available to you
   security:

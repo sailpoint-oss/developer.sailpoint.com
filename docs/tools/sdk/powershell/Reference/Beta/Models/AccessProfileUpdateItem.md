@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessProfileUpdateItem = Initialize-PSSailpoint.BetaAccessProfileUpdateItem  -Id 2c7180a46faadee4016fb4e018c20642 `
+$AccessProfileUpdateItem = Initialize-BetaAccessProfileUpdateItem  -Id 2c7180a46faadee4016fb4e018c20642 `
  -Requestable false `
  -Status 201 `
  -Description 

@@ -1,7 +1,7 @@
+import {ThemeConfig} from '@docusaurus/preset-classic';
+import {Config} from '@docusaurus/types';
 import 'dotenv/config';
-import { Config } from '@docusaurus/types';
-import { ThemeConfig } from '@docusaurus/preset-classic';
-import { themes } from 'prism-react-renderer';
+import {themes} from 'prism-react-renderer';
 
 const lightCodeTheme = themes.github;
 const darkCodeTheme = themes.dracula;
@@ -14,14 +14,8 @@ const baseUrl = '/';
 
 const config: Config = {
   future: {
-    experimental_faster: {
-      swcJsLoader: true,
-      swcJsMinimizer: true,
-      swcHtmlMinimizer: true,
-      lightningCssMinimizer: true,
-      rspackBundler: true,
-      mdxCrossCompilerCache: true,
-    },
+    v4: true,
+    experimental_faster: true,
   },
   title: 'SailPoint Developer Community',
   tagline:
@@ -29,8 +23,8 @@ const config: Config = {
   url: 'https://developer.sailpoint.com',
   baseUrl,
   favicon: 'img/SailPoint-Logo-Icon.ico',
-  // onBrokenLinks: 'throw',
-  // onBrokenMarkdownLinks: 'throw',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'throw',
   onDuplicateRoutes: 'throw',
   i18n: {
     defaultLocale: 'en',
@@ -58,13 +52,36 @@ const config: Config = {
           docItemComponent: '@theme/ApiItem', // Derived from docusaurus-theme-openapi
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: [
+            require.resolve('@fortawesome/fontawesome-free/css/all.min.css'),
+            require.resolve('./src/css/custom.css'),
+          ],
         },
       },
     ],
   ],
 
   themeConfig: {
+    image: 'img/SailPoint-Developer-Community-Lockup.png',  // your default OG image
+    metadata: [
+      // HTML
+      { name: 'description', content: 'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.' },
+
+      // Open Graph
+      { property: 'og:url',         content: 'https://developer.sailpoint.com' },
+      { property: 'og:type',        content: 'website' },
+      { property: 'og:title',       content: 'SailPoint Developer Community' },
+      { property: 'og:description', content: 'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.' },
+      { property: 'og:image',       content: 'https://developer.sailpoint.com/img/SailPoint-Logo-OG.png' },
+
+      // Twitter
+      { name: 'twitter:card',        content: 'summary_large_image' },
+      { name: 'twitter:domain',      content: 'developer.sailpoint.com' },
+      { name: 'twitter:url',         content: 'https://developer.sailpoint.com' },
+      { name: 'twitter:title',       content: 'SailPoint Developer Community' },
+      { name: 'twitter:description', content: 'The SailPoint Developer Community has everything you need to build, extend, and automate scalable identity solutions.' },
+      { name: 'twitter:image',       content: 'https://developer.sailpoint.com/img/SailPoint-Logo-OG.png' },
+    ],
     algolia: {
       appId: 'TB01H1DFAM',
       apiKey: '726952a7a9389c484b6c96808a3e0010',
@@ -109,6 +126,10 @@ const config: Config = {
     },
     mermaid: {
       options: {
+        securityLevel: 'loose',
+        flowchart: {
+          htmlLabels: true,
+        },
         er: {
           layoutDirection: 'RL',
         },

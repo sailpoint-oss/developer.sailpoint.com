@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$ManagedClusterAttributes = Initialize-PSSailpoint.V2024ManagedClusterAttributes  -Queue null `
+$ManagedClusterAttributes = Initialize-V2024ManagedClusterAttributes  -Queue null `
  -Keystore /u3+7QAAAAIAAAABAAAAAQAvL3Byb3h5LWNsdXN0ZXIvMmM5MTgwODc3Yjg3MW
 ```
 

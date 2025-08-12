@@ -1,7 +1,7 @@
 get:
   tags:
     - Managed Clusters
-  summary: Get Managed Clusters
+  summary: Get managed clusters
   description: List current organization's managed clusters, based on request context.
   operationId: getManagedClusters
   parameters:
@@ -20,6 +20,15 @@ get:
 
 
         **operational**: *eq*
+        
+        
+        **name**: *eq*
+        
+        
+        **type**: *eq*
+        
+        
+        **status**: *eq*
       required: false
       example: operational eq "operation"
   responses:
@@ -43,12 +52,13 @@ get:
       $ref: '../responses/500.yaml'
   security:
     - userAuth: [idn:remote-client:read, idn:remote-client:manage]
+    - applicationAuth: [idn:remote-client:read, idn:remote-client:manage]
   x-sailpoint-userLevels:
     - ORG_ADMIN
 post:
   tags:
     - Managed Clusters
-  summary: Create Create Managed Cluster
+  summary: Create create managed cluster
   description: >-
     Create a new Managed Cluster.
 

@@ -2,7 +2,7 @@ get:
   tags:
     - Suggested Entitlement Description
   operationId: listSeds
-  summary: List Suggested Entitlement Descriptions
+  summary: List suggested entitlement descriptions
   description: 'List of Suggested Entitlement Descriptions (SED)
   
   
@@ -144,7 +144,7 @@ patch:
   tags:
     - Suggested Entitlement Description
   operationId: patchSed
-  summary: Patch Suggested Entitlement Description
+  summary: Patch suggested entitlement description
   description: Patch Suggested Entitlement Description
   parameters:
     - description: id is sed id

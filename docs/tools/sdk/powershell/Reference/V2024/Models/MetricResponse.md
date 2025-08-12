@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$MetricResponse = Initialize-PSSailpoint.V2024MetricResponse  -Name null `
+$MetricResponse = Initialize-V2024MetricResponse  -Name null `
  -Value null
 ```
 

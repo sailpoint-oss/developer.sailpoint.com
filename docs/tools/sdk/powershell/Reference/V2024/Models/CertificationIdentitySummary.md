@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$CertificationIdentitySummary = Initialize-PSSailpoint.V2024CertificationIdentitySummary  -Id 2c91808772a504f50172a9540e501ba7 `
+$CertificationIdentitySummary = Initialize-V2024CertificationIdentitySummary  -Id 2c91808772a504f50172a9540e501ba7 `
  -Name Alison Ferguso `
  -IdentityId 2c9180857182306001719937377a33de `
  -Completed true

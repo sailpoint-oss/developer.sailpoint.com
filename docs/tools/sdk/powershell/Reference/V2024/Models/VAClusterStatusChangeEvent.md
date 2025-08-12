@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$VAClusterStatusChangeEvent = Initialize-PSSailpoint.V2024VAClusterStatusChangeEvent  -Created 2020-06-29T22:01:50.474Z `
+$VAClusterStatusChangeEvent = Initialize-V2024VAClusterStatusChangeEvent  -Created 2020-06-29T22:01:50.474Z `
  -Type CLUSTER `
  -Application null `
  -HealthCheckResult null `

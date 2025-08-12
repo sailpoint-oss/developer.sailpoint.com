@@ -20,19 +20,19 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**New-BetaMultiHostIntegration**](#create-multi-host-integration) | **POST** `/multihosts` | Create Multi-Host Integration
-[**New-BetaSourcesWithinMultiHost**](#create-sources-within-multi-host) | **POST** `/multihosts/{multihostId}` | Create Sources Within Multi-Host Integration
-[**Remove-BetaMultiHost**](#delete-multi-host) | **DELETE** `/multihosts/{multihostId}` | Delete Multi-Host Integration
-[**Get-BetaAcctAggregationGroups**](#get-acct-aggregation-groups) | **GET** `/multihosts/{multihostId}/acctAggregationGroups` | Get Account Aggregation Groups Within Multi-Host Integration ID
-[**Get-BetaEntitlementAggregationGroups**](#get-entitlement-aggregation-groups) | **GET** `/multihosts/{multiHostId}/entitlementAggregationGroups` | Get Entitlement Aggregation Groups Within Multi-Host Integration ID
-[**Get-BetaMultiHostIntegrations**](#get-multi-host-integrations) | **GET** `/multihosts/{multihostId}` | Get Multi-Host Integration By ID
-[**Get-BetaMultiHostIntegrationsList**](#get-multi-host-integrations-list) | **GET** `/multihosts` | List All Existing Multi-Host Integrations
-[**Get-BetaMultiHostSourceCreationErrors**](#get-multi-host-source-creation-errors) | **GET** `/multihosts/{multiHostId}/sources/errors` | List Multi-Host Source Creation Errors
-[**Get-BetaMultihostIntegrationTypes**](#get-multihost-integration-types) | **GET** `/multihosts/types` | List Multi-Host Integration Types
-[**Get-BetaSourcesWithinMultiHost**](#get-sources-within-multi-host) | **GET** `/multihosts/{multihostId}/sources` | List Sources Within Multi-Host Integration
-[**Test-BetaConnectionMultiHostSources**](#test-connection-multi-host-sources) | **POST** `/multihosts/{multihostId}/sources/testConnection` | Test Configuration For Multi-Host Integration
-[**Test-BetaSourceConnectionMultihost**](#test-source-connection-multihost) | **GET** `/multihosts/{multihostId}/sources/{sourceId}/testConnection` | Test Configuration For Multi-Host Integration&#39;s Single Source
-[**Update-BetaMultiHostSources**](#update-multi-host-sources) | **PATCH** `/multihosts/{multihostId}` | Update Multi-Host Integration
+[**New-BetaMultiHostIntegration**](#create-multi-host-integration) | **POST** `/multihosts` | Create multi-host integration
+[**New-BetaSourcesWithinMultiHost**](#create-sources-within-multi-host) | **POST** `/multihosts/{multihostId}` | Create sources within multi-host integration
+[**Remove-BetaMultiHost**](#delete-multi-host) | **DELETE** `/multihosts/{multihostId}` | Delete multi-host integration
+[**Get-BetaAcctAggregationGroups**](#get-acct-aggregation-groups) | **GET** `/multihosts/{multihostId}/acctAggregationGroups` | Get account aggregation groups within multi-host integration id
+[**Get-BetaEntitlementAggregationGroups**](#get-entitlement-aggregation-groups) | **GET** `/multihosts/{multiHostId}/entitlementAggregationGroups` | Get entitlement aggregation groups within multi-host integration id
+[**Get-BetaMultiHostIntegrations**](#get-multi-host-integrations) | **GET** `/multihosts/{multihostId}` | Get multi-host integration by id
+[**Get-BetaMultiHostIntegrationsList**](#get-multi-host-integrations-list) | **GET** `/multihosts` | List all existing multi-host integrations
+[**Get-BetaMultiHostSourceCreationErrors**](#get-multi-host-source-creation-errors) | **GET** `/multihosts/{multiHostId}/sources/errors` | List multi-host source creation errors
+[**Get-BetaMultihostIntegrationTypes**](#get-multihost-integration-types) | **GET** `/multihosts/types` | List multi-host integration types
+[**Get-BetaSourcesWithinMultiHost**](#get-sources-within-multi-host) | **GET** `/multihosts/{multihostId}/sources` | List sources within multi-host integration
+[**Test-BetaConnectionMultiHostSources**](#test-connection-multi-host-sources) | **POST** `/multihosts/{multihostId}/sources/testConnection` | Test configuration for multi-host integration
+[**Test-BetaSourceConnectionMultihost**](#test-source-connection-multihost) | **GET** `/multihosts/{multihostId}/sources/{sourceId}/testConnection` | Test configuration for multi-host integration&#39;s single source
+[**Update-BetaMultiHostSources**](#update-multi-host-sources) | **PATCH** `/multihosts/{multihostId}` | Update multi-host integration
 
 
 ## create-multi-host-integration
@@ -94,7 +94,7 @@ $MultiHostIntegrationsCreate = @"{
   "modified" : "2024-01-23T18:08:50.897Z"
 }"@
 
-# Create Multi-Host Integration
+# Create multi-host integration
 
 try {
     $Result = ConvertFrom-JsonToMultiHostIntegrationsCreate -Json $MultiHostIntegrationsCreate
@@ -157,7 +157,7 @@ $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Hos
 }"@ # MultiHostIntegrationsCreateSources[] | The specifics of the sources to create within Multi-Host Integration.
  
 
-# Create Sources Within Multi-Host Integration
+# Create sources within multi-host integration
 
 try {
     $Result = ConvertFrom-JsonToMultiHostIntegrationsCreateSources -Json $MultiHostIntegrationsCreateSources
@@ -206,7 +206,7 @@ Code | Description  | Data Type
 ```powershell
 $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of Multi-Host Integration to delete.
 
-# Delete Multi-Host Integration
+# Delete multi-host integration
 
 try {
     Remove-BetaMultiHost -MultihostId $MultihostId 
@@ -254,7 +254,7 @@ Code | Description  | Data Type
 ```powershell
 $MultihostId = "aMultiHostId" # String | ID of the Multi-Host Integration to update
 
-# Get Account Aggregation Groups Within Multi-Host Integration ID
+# Get account aggregation groups within multi-host integration id
 
 try {
     Get-BetaAcctAggregationGroups -MultihostId $MultihostId 
@@ -302,7 +302,7 @@ Code | Description  | Data Type
 ```powershell
 $MultiHostId = "aMultiHostId" # String | ID of the Multi-Host Integration to update
 
-# Get Entitlement Aggregation Groups Within Multi-Host Integration ID
+# Get entitlement aggregation groups within multi-host integration id
 
 try {
     Get-BetaEntitlementAggregationGroups -MultiHostId $MultiHostId 
@@ -350,7 +350,7 @@ Code | Description  | Data Type
 ```powershell
 $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration.
 
-# Get Multi-Host Integration By ID
+# Get multi-host integration by id
 
 try {
     Get-BetaMultiHostIntegrations -MultihostId $MultihostId 
@@ -408,7 +408,7 @@ $Filters = 'id eq 2c91808b6ef1d43e016efba0ce470904' # String | Filter results us
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 $ForSubadmin = "5168015d32f890ca15812c9180835d2e" # String | If provided, filters the returned list according to what is visible to the indicated ROLE_SUBADMIN Identity or SOURCE_SUBADMIN identity.  The value of the parameter is either an Identity ID, or the special value **me**, which is shorthand for the calling Identity's ID.  A 400 Bad Request error is returned if the **for-subadmin** parameter is specified for an Identity that is not a subadmin. (optional)
 
-# List All Existing Multi-Host Integrations
+# List all existing multi-host integrations
 
 try {
     Get-BetaMultiHostIntegrationsList 
@@ -456,7 +456,7 @@ Code | Description  | Data Type
 ```powershell
 $MultiHostId = "004091cb79b04636b88662afa50a4440" # String | ID of the Multi-Host Integration
 
-# List Multi-Host Source Creation Errors
+# List multi-host source creation errors
 
 try {
     Get-BetaMultiHostSourceCreationErrors -MultiHostId $MultiHostId 
@@ -502,7 +502,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 
-# List Multi-Host Integration Types
+# List multi-host integration types
 
 try {
     Get-BetaMultihostIntegrationTypes 
@@ -560,7 +560,7 @@ $Sorters = "name" # String | Sort results using the standard syntax described in
 $Filters = 'id eq 2c91808b6ef1d43e016efba0ce470904' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *in* (optional)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
 
-# List Sources Within Multi-Host Integration
+# List sources within multi-host integration
 
 try {
     Get-BetaSourcesWithinMultiHost -MultihostId $MultihostId 
@@ -608,7 +608,7 @@ Code | Description  | Data Type
 ```powershell
 $MultihostId = "2c91808568c529c60168cca6f90c1324" # String | ID of the Multi-Host Integration
 
-# Test Configuration For Multi-Host Integration
+# Test configuration for multi-host integration
 
 try {
     Test-BetaConnectionMultiHostSources -MultihostId $MultihostId 
@@ -658,7 +658,7 @@ Code | Description  | Data Type
 $MultihostId = "2c91808568c529c60168cca6f90c1326" # String | ID of the Multi-Host Integration
 $SourceId = "2c91808568c529f60168cca6f90c1324" # String | ID of the source within the Multi-Host Integration
 
-# Test Configuration For Multi-Host Integration's Single Source
+# Test configuration for multi-host integration's single source
 
 try {
     Test-BetaSourceConnectionMultihost -MultihostId $MultihostId -SourceId $SourceId 
@@ -709,7 +709,7 @@ $MultihostId = "anId" # String | ID of the Multi-Host Integration to update.
  $UpdateMultiHostSourcesRequestInner = @"[{op=add, path=/description, value=MDK Multi-Host Integration 222 description}]"@ # UpdateMultiHostSourcesRequestInner[] | This endpoint allows you to update a Multi-Host Integration. 
  
 
-# Update Multi-Host Integration
+# Update multi-host integration
 
 try {
     $Result = ConvertFrom-JsonToUpdateMultiHostSourcesRequestInner -Json $UpdateMultiHostSourcesRequestInner

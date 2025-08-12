@@ -31,10 +31,10 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v3*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**Get-IdentityAccessSummaries**](#get-identity-access-summaries) | **GET** `/certifications/{id}/access-summaries/{type}` | Access Summaries
-[**Get-IdentityDecisionSummary**](#get-identity-decision-summary) | **GET** `/certifications/{id}/decision-summary` | Summary of Certification Decisions
-[**Get-IdentitySummaries**](#get-identity-summaries) | **GET** `/certifications/{id}/identity-summaries` | Identity Summaries for Campaign Certification
-[**Get-IdentitySummary**](#get-identity-summary) | **GET** `/certifications/{id}/identity-summaries/{identitySummaryId}` | Summary for Identity
+[**Get-IdentityAccessSummaries**](#get-identity-access-summaries) | **GET** `/certifications/{id}/access-summaries/{type}` | Access summaries
+[**Get-IdentityDecisionSummary**](#get-identity-decision-summary) | **GET** `/certifications/{id}/decision-summary` | Summary of certification decisions
+[**Get-IdentitySummaries**](#get-identity-summaries) | **GET** `/certifications/{id}/identity-summaries` | Identity summaries for campaign certification
+[**Get-IdentitySummary**](#get-identity-summary) | **GET** `/certifications/{id}/identity-summaries/{identitySummaryId}` | Summary for identity
 
 
 ## get-identity-access-summaries
@@ -81,7 +81,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'access.id eq "ef38f94347e94562b5bb8424a56397d8"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **completed**: *eq, ne*  **access.id**: *eq, in*  **access.name**: *eq, sw*  **entitlement.sourceName**: *eq, sw*  **accessProfile.sourceName**: *eq, sw* (optional)
 $Sorters = "access.name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **access.name** (optional)
 
-# Access Summaries
+# Access summaries
 
 try {
     Get-IdentityAccessSummaries -Id $Id -Type $Type 
@@ -129,7 +129,7 @@ Code | Description  | Data Type
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The certification ID
 $Filters = 'identitySummary.id eq "ef38f94347e94562b5bb8424a56397d8"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **identitySummary.id**: *eq, in* (optional)
 
-# Summary of Certification Decisions
+# Summary of certification decisions
 
 try {
     Get-IdentityDecisionSummary -Id $Id 
@@ -185,7 +185,7 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 $Filters = 'id eq "ef38f94347e94562b5bb8424a56397d8"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **completed**: *eq, ne*  **name**: *eq, sw* (optional)
 $Sorters = "name" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name** (optional)
 
-# Identity Summaries for Campaign Certification
+# Identity summaries for campaign certification
 
 try {
     Get-IdentitySummaries -Id $Id 
@@ -233,7 +233,7 @@ Code | Description  | Data Type
 $Id = "ef38f94347e94562b5bb8424a56397d8" # String | The identity campaign certification ID
 $IdentitySummaryId = "2c91808772a504f50172a9540e501ba8" # String | The identity summary ID
 
-# Summary for Identity
+# Summary for identity
 
 try {
     Get-IdentitySummary -Id $Id -IdentitySummaryId $IdentitySummaryId 

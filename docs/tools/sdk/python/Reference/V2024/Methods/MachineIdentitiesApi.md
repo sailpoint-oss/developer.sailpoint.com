@@ -15,11 +15,11 @@ All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create-machine-identity**](#create-machine-identity) | **POST** `/machine-identities` | Create Machine Identities
+[**create-machine-identity**](#create-machine-identity) | **POST** `/machine-identities` | Create machine identities
 [**delete-machine-identity**](#delete-machine-identity) | **DELETE** `/machine-identities/{id}` | Delete machine identity
-[**get-machine-identity**](#get-machine-identity) | **GET** `/machine-identities/{id}` | Machine Identity Details
-[**list-machine-identities**](#list-machine-identities) | **GET** `/machine-identities` | List Machine Identities
-[**update-machine-identity**](#update-machine-identity) | **PATCH** `/machine-identities/{id}` | Update a Machine Identity
+[**get-machine-identity**](#get-machine-identity) | **GET** `/machine-identities/{id}` | Machine identity details
+[**list-machine-identities**](#list-machine-identities) | **GET** `/machine-identities` | List machine identities
+[**update-machine-identity**](#update-machine-identity) | **PATCH** `/machine-identities/{id}` | Update a machine identity
 
 
 ## create-machine-identity
@@ -34,7 +34,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Create Machine Identities
+Create machine identities
 Use this API to create a machine identity.
 The maximum supported length for the description field is 2000 characters.
 
@@ -74,7 +74,7 @@ from sailpoint.v2024.models.machine_identity import MachineIdentity
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -90,7 +90,7 @@ with ApiClient(configuration) as api_client:
         }''' # MachineIdentity | 
 
     try:
-        # Create Machine Identities
+        # Create machine identities
         new_machine_identity = MachineIdentity.from_json(machine_identity)
         results = MachineIdentitiesApi(api_client).create_machine_identity(x_sail_point_experimental=x_sail_point_experimental, machine_identity=new_machine_identity)
         # Below is a request that includes all optional parameters
@@ -155,7 +155,7 @@ from sailpoint.v2024.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Machine Identity ID # str | Machine Identity ID
@@ -187,7 +187,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Machine Identity Details
+Machine identity details
 This API returns a single machine identity using the Machine Identity ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/get-machine-identity)
@@ -226,14 +226,14 @@ from sailpoint.v2024.models.machine_identity import MachineIdentity
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Machine Identity ID # str | Machine Identity ID
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
-        # Machine Identity Details
+        # Machine identity details
         
         results = MachineIdentitiesApi(api_client).get_machine_identity(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
@@ -260,7 +260,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-List Machine Identities
+List machine identities
 This API returns a list of machine identities.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/list-machine-identities)
@@ -303,7 +303,7 @@ from sailpoint.v2024.models.machine_identity import MachineIdentity
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
@@ -314,13 +314,14 @@ with ApiClient(configuration) as api_client:
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
     try:
-        # List Machine Identities
+        # List machine identities
         
         results = MachineIdentitiesApi(api_client).list_machine_identities(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
         # results = MachineIdentitiesApi(api_client).list_machine_identities(x_sail_point_experimental, filters, sorters, count, limit, offset)
         print("The response of MachineIdentitiesApi->list_machine_identities:\n")
-        print(results.model_dump_json(by_alias=True, indent=4))
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
         print("Exception when calling MachineIdentitiesApi->list_machine_identities: %s\n" % e)
 ```
@@ -341,7 +342,7 @@ This API is currently in an experimental state. The API is subject to change bas
    configuration.experimental = True
  ```
 :::
-Update a Machine Identity
+Update a machine identity
 Use this API to update machine identity details.
 
 
@@ -382,15 +383,15 @@ from sailpoint.v2024.models.machine_identity import MachineIdentity
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
-configuration.experimental = true
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'ef38f94347e94562b5bb8424a56397d8' # str | Machine Identity ID. # str | Machine Identity ID.
     x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
-    request_body = '''{Add machine identity attribute={value=[{op=add, path=/attributes/securityRisk, value=medium}]}, Replace machine identity attribute={value=[{op=replace, path=/attributes/securityRisk, value=medium}]}, Remove machine identity attribute={value=[{op=remove, path=/attributes/securityRisk}]}}''' # List[object] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
+    request_body = '''[{op=add, path=/attributes/securityRisk, value=medium}]''' # List[object] | A JSON of updated values [JSON Patch](https://tools.ietf.org/html/rfc6902) standard.
 
     try:
-        # Update a Machine Identity
+        # Update a machine identity
         new_request_body = RequestBody.from_json(request_body)
         results = MachineIdentitiesApi(api_client).update_machine_identity(id=id, x_sail_point_experimental=x_sail_point_experimental, request_body=new_request_body)
         # Below is a request that includes all optional parameters

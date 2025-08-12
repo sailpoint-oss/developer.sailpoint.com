@@ -31,13 +31,13 @@ error_response_dto = ErrorResponseDto(
 detail_code='400.1 Bad Request Content',
 tracking_id='e7eab60924f64aa284175b9fa3309599',
 messages=[
-                    sailpoint.beta.models.error_message_dto.ErrorMessageDto(
+                    sailpoint.beta.models.error_message_dto.Error Message Dto(
                         locale = 'en-US', 
                         locale_origin = 'DEFAULT', 
                         text = 'The request was syntactically correct but its content is semantically invalid.', )
                     ],
 causes=[
-                    sailpoint.beta.models.error_message_dto.ErrorMessageDto(
+                    sailpoint.beta.models.error_message_dto.Error Message Dto(
                         locale = 'en-US', 
                         locale_origin = 'DEFAULT', 
                         text = 'The request was syntactically correct but its content is semantically invalid.', )

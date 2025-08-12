@@ -1,4 +1,5 @@
 type: object
+title: Certification Identity Summary
 properties:
   id:
     type: string

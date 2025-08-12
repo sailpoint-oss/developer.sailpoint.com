@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$V3ConnectorDto = Initialize-PSSailpoint.V3V3ConnectorDto  -Name name `
+$V3ConnectorDto = Initialize-V3ConnectorDto  -Name name `
  -Type ServiceNow `
  -ScriptName servicenow `
  -ClassName sailpoint.connector.OpenConnectorAdapter `

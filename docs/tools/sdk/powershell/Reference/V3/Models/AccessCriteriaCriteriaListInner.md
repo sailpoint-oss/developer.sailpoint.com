@@ -16,7 +16,7 @@ tags: ['SDK', 'Software Development Kit', 'AccessCriteriaCriteriaListInner', 'Ac
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** |  **Enum** [  "ENTITLEMENT" ] | Type of the propery to which this reference applies to | [optional] 
+**Type** |  **Enum** [  "ENTITLEMENT" ] | Type of the property to which this reference applies to | [optional] 
 **Id** | **String** | ID of the object to which this reference applies to | [optional] 
 **Name** | **String** | Human-readable display name of the object to which this reference applies to | [optional] 
 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccessCriteriaCriteriaListInner = Initialize-PSSailpoint.V3AccessCriteriaCriteriaListInner  -Type ENTITLEMENT `
+$AccessCriteriaCriteriaListInner = Initialize-AccessCriteriaCriteriaListInner  -Type ENTITLEMENT `
  -Id 2c91808568c529c60168cca6f90c1313 `
  -Name Administrator
 ```

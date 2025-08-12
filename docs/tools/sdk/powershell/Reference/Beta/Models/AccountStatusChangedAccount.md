@@ -28,13 +28,13 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AccountStatusChangedAccount = Initialize-PSSailpoint.BetaAccountStatusChangedAccount  -Id null `
- -NativeIdentity null `
- -DisplayName null `
- -SourceId null `
- -SourceName null `
- -EntitlementCount null `
- -AccessType null
+$AccountStatusChangedAccount = Initialize-BetaAccountStatusChangedAccount  -Id 2c91808a77ff216301782327a50f09bf `
+ -NativeIdentity dr.arden.ogahn.d `
+ -DisplayName Adam Archer `
+ -SourceId 8a80828f643d484f01643e14202e206f `
+ -SourceName JDBC Entitlements Source `
+ -EntitlementCount 2 `
+ -AccessType account
 ```
 
 - Convert the resource to JSON

@@ -1,4 +1,5 @@
 type: object
+title: Assignment Context Dto
 properties:
   requested:
     $ref: "./AccessRequestContext.yaml"

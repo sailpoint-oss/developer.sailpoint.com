@@ -28,7 +28,7 @@ from sailpoint.v2024.models.review_reassign import ReviewReassign
 
 review_reassign = ReviewReassign(
 reassign=[
-                    sailpoint.v2024.models.reassign_reference.ReassignReference(
+                    sailpoint.v2024.models.reassign_reference.Reassign Reference(
                         id = 'ef38f94347e94562b5bb8424a56397d8', 
                         type = 'ITEM', )
                     ],

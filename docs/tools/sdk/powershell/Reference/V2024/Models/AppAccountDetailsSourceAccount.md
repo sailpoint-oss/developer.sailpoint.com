@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 - Prepare the resource
 ```powershell
-$AppAccountDetailsSourceAccount = Initialize-PSSailpoint.V2024AppAccountDetailsSourceAccount  -Id fbf4f72280304f1a8bc808fc2a3bcf7b `
+$AppAccountDetailsSourceAccount = Initialize-V2024AppAccountDetailsSourceAccount  -Id fbf4f72280304f1a8bc808fc2a3bcf7b `
  -NativeIdentity CN=Abby Smith,OU=Austin,OU=Americas,OU=Demo,DC=seri,DC=acme,DC=com `
  -DisplayName Abby Smith `
  -SourceId 10efa58ea3954883b52bf74f489ce8f9 `

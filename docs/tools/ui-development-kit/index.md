@@ -86,7 +86,7 @@ To run and develop the project locally, follow these steps:
 1. In the root of the project run this command to install dependencies:
 
 ```bash
-npm run setup
+npm install
 ```
 
 2. To start the application, run this command:

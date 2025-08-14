@@ -859,6 +859,17 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## load-account-selections
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Get accounts selections for identity
 Use this API to fetch account information for an identity against the items in an access request.
 
@@ -871,6 +882,7 @@ Used to fetch accountSelection for the AccessRequest prior to submitting for asy
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
  Body  | accounts_selection_request | [**AccountsSelectionRequest**](../models/accounts-selection-request) | True  | 
 
 ### Return type
@@ -900,8 +912,10 @@ from sailpoint.v2025.models.accounts_selection_response import AccountsSelection
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     accounts_selection_request = '''{
           "requestedFor" : "2c918084660f45d6016617daa9210584",
           "clientMetadata" : {
@@ -970,9 +984,9 @@ with ApiClient(configuration) as api_client:
     try:
         # Get accounts selections for identity
         new_accounts_selection_request = AccountsSelectionRequest.from_json(accounts_selection_request)
-        results = AccessRequestsApi(api_client).load_account_selections(accounts_selection_request=new_accounts_selection_request)
+        results = AccessRequestsApi(api_client).load_account_selections(x_sail_point_experimental=x_sail_point_experimental, accounts_selection_request=new_accounts_selection_request)
         # Below is a request that includes all optional parameters
-        # results = AccessRequestsApi(api_client).load_account_selections(new_accounts_selection_request)
+        # results = AccessRequestsApi(api_client).load_account_selections(x_sail_point_experimental, new_accounts_selection_request)
         print("The response of AccessRequestsApi->load_account_selections:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:

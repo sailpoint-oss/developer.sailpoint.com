@@ -35,6 +35,7 @@ Method | HTTP request | Description
 [**get-identity-ownership-details**](#get-identity-ownership-details) | **GET** `/identities/{identityId}/ownership` | Get ownership details
 [**get-role-assignment**](#get-role-assignment) | **GET** `/identities/{identityId}/role-assignments/{assignmentId}` | Role assignment details
 [**get-role-assignments**](#get-role-assignments) | **GET** `/identities/{identityId}/role-assignments` | List role assignments
+[**list-entitlements-by-identity**](#list-entitlements-by-identity) | **GET** `/entitlements/identities/{id}/entitlements` | List of entitlements by identity.
 [**list-identities**](#list-identities) | **GET** `/identities` | List identities
 [**reset-identity**](#reset-identity) | **POST** `/identities/{id}/reset` | Reset an identity
 [**send-identity-verification-account-token**](#send-identity-verification-account-token) | **POST** `/identities/{id}/verification/account/send` | Send password reset email
@@ -344,6 +345,72 @@ with ApiClient(configuration) as api_client:
 
 [[Back to top]](#) 
 
+## list-entitlements-by-identity
+List of entitlements by identity.
+The API returns a list of all entitlements assigned to an identity, either directly or through the role or access profile. A token with ORG_ADMIN or API authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-entitlements-by-identity)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | id | **str** | True  | Identity Id
+  Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+  Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
+
+### Return type
+[**List[IdentityEntitlements]**](../models/identity-entitlements)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | List of all Entitlements for given Identity | List[IdentityEntitlements] |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.v2024.api.identities_api import IdentitiesApi
+from sailpoint.v2024.api_client import ApiClient
+from sailpoint.v2024.models.identity_entitlements import IdentityEntitlements
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    id = 'ef38f94347e94562b5bb8424a56397d8' # str | Identity Id # str | Identity Id
+    limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
+
+    try:
+        # List of entitlements by identity.
+        
+        results = IdentitiesApi(api_client).list_entitlements_by_identity(id=id)
+        # Below is a request that includes all optional parameters
+        # results = IdentitiesApi(api_client).list_entitlements_by_identity(id, limit, offset, count)
+        print("The response of IdentitiesApi->list_entitlements_by_identity:\n")
+        for item in results:
+            print(item.model_dump_json(by_alias=True, indent=4))
+    except Exception as e:
+        print("Exception when calling IdentitiesApi->list_entitlements_by_identity: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
 ## list-identities
 List identities
 This API returns a list of identities.
@@ -547,6 +614,17 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## start-identities-invite
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Invite identities to register
 This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.
 
@@ -561,6 +639,7 @@ The executed task status can be checked by Task Management > [Get task status by
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
  Body  | invite_identities_request | [**InviteIdentitiesRequest**](../models/invite-identities-request) | True  | 
 
 ### Return type
@@ -591,8 +670,10 @@ from sailpoint.v2024.models.task_status import TaskStatus
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     invite_identities_request = '''{
           "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
           "uninvited" : false
@@ -601,9 +682,9 @@ with ApiClient(configuration) as api_client:
     try:
         # Invite identities to register
         new_invite_identities_request = InviteIdentitiesRequest.from_json(invite_identities_request)
-        results = IdentitiesApi(api_client).start_identities_invite(invite_identities_request=new_invite_identities_request)
+        results = IdentitiesApi(api_client).start_identities_invite(x_sail_point_experimental=x_sail_point_experimental, invite_identities_request=new_invite_identities_request)
         # Below is a request that includes all optional parameters
-        # results = IdentitiesApi(api_client).start_identities_invite(new_invite_identities_request)
+        # results = IdentitiesApi(api_client).start_identities_invite(x_sail_point_experimental, new_invite_identities_request)
         print("The response of IdentitiesApi->start_identities_invite:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:

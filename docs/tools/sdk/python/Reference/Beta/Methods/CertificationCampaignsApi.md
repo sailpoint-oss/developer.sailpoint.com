@@ -206,7 +206,7 @@ Param Type | Name | Data Type | Required  | Description
 ### Responses
 Code | Description  | Data Type | Response headers |
 ------------- | ------------- | ------------- |------------------|
-200 | This response indicates that the requested campaign was successfully created, and the API returns its representation. | Campaign |  -  |
+202 | This response indicates that the requested campaign has been successfully accepted into the system, and its representation is returned by the API. | Campaign |  -  |
 400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
 401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessModelMetadataAttribute401Response |  -  |
 403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |

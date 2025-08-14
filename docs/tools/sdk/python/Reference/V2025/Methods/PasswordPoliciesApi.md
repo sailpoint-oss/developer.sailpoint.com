@@ -31,6 +31,17 @@ Method | HTTP request | Description
 
 
 ## create-password-policy
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Create password policy
 This API creates the specified password policy.
 
@@ -40,6 +51,7 @@ This API creates the specified password policy.
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
  Body  | password_policy_v3_dto | [**PasswordPolicyV3Dto**](../models/password-policy-v3-dto) | True  | 
 
 ### Return type
@@ -69,8 +81,10 @@ from sailpoint.v2025.models.password_policy_v3_dto import PasswordPolicyV3Dto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     password_policy_v3_dto = '''{
           "validateAgainstAccountName" : true,
           "minLength" : 8,
@@ -108,9 +122,9 @@ with ApiClient(configuration) as api_client:
     try:
         # Create password policy
         new_password_policy_v3_dto = PasswordPolicyV3Dto.from_json(password_policy_v3_dto)
-        results = PasswordPoliciesApi(api_client).create_password_policy(password_policy_v3_dto=new_password_policy_v3_dto)
+        results = PasswordPoliciesApi(api_client).create_password_policy(x_sail_point_experimental=x_sail_point_experimental, password_policy_v3_dto=new_password_policy_v3_dto)
         # Below is a request that includes all optional parameters
-        # results = PasswordPoliciesApi(api_client).create_password_policy(new_password_policy_v3_dto)
+        # results = PasswordPoliciesApi(api_client).create_password_policy(x_sail_point_experimental, new_password_policy_v3_dto)
         print("The response of PasswordPoliciesApi->create_password_policy:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -122,6 +136,17 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## delete-password-policy
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Delete password policy by id
 This API deletes the specified password policy.
 
@@ -132,6 +157,7 @@ This API deletes the specified password policy.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | The ID of password policy to delete.
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
  (empty response body)
@@ -159,16 +185,18 @@ from sailpoint.v2025.api_client import ApiClient
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'ff808081838d9e9d01838da6a03e0002' # str | The ID of password policy to delete. # str | The ID of password policy to delete.
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Delete password policy by id
         
-        PasswordPoliciesApi(api_client).delete_password_policy(id=id)
+        PasswordPoliciesApi(api_client).delete_password_policy(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # PasswordPoliciesApi(api_client).delete_password_policy(id)
+        # PasswordPoliciesApi(api_client).delete_password_policy(id, x_sail_point_experimental)
     except Exception as e:
         print("Exception when calling PasswordPoliciesApi->delete_password_policy: %s\n" % e)
 ```
@@ -178,6 +206,17 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## get-password-policy-by-id
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Get password policy by id
 This API returns the password policy for the specified ID.
 
@@ -188,6 +227,7 @@ This API returns the password policy for the specified ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | The ID of password policy to retrieve.
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
 
 ### Return type
 [**PasswordPolicyV3Dto**](../models/password-policy-v3-dto)
@@ -216,16 +256,18 @@ from sailpoint.v2025.models.password_policy_v3_dto import PasswordPolicyV3Dto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'ff808081838d9e9d01838da6a03e0005' # str | The ID of password policy to retrieve. # str | The ID of password policy to retrieve.
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
 
     try:
         # Get password policy by id
         
-        results = PasswordPoliciesApi(api_client).get_password_policy_by_id(id=id)
+        results = PasswordPoliciesApi(api_client).get_password_policy_by_id(id=id, x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # results = PasswordPoliciesApi(api_client).get_password_policy_by_id(id)
+        # results = PasswordPoliciesApi(api_client).get_password_policy_by_id(id, x_sail_point_experimental)
         print("The response of PasswordPoliciesApi->get_password_policy_by_id:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:
@@ -237,6 +279,17 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## list-password-policies
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 List password policies
 This gets list of all Password Policies.
 Requires role of ORG_ADMIN
@@ -247,6 +300,7 @@ Requires role of ORG_ADMIN
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
   Query | limit | **int** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | offset | **int** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | count | **bool** |   (optional) (default to False) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -277,8 +331,10 @@ from sailpoint.v2025.models.password_policy_v3_dto import PasswordPolicyV3Dto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     limit = 250 # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset = 0 # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count = False # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to False)
@@ -286,9 +342,9 @@ with ApiClient(configuration) as api_client:
     try:
         # List password policies
         
-        results = PasswordPoliciesApi(api_client).list_password_policies()
+        results = PasswordPoliciesApi(api_client).list_password_policies(x_sail_point_experimental=x_sail_point_experimental)
         # Below is a request that includes all optional parameters
-        # results = PasswordPoliciesApi(api_client).list_password_policies(limit, offset, count)
+        # results = PasswordPoliciesApi(api_client).list_password_policies(x_sail_point_experimental, limit, offset, count)
         print("The response of PasswordPoliciesApi->list_password_policies:\n")
         for item in results:
             print(item.model_dump_json(by_alias=True, indent=4))
@@ -301,6 +357,17 @@ with ApiClient(configuration) as api_client:
 [[Back to top]](#) 
 
 ## set-password-policy
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```python
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Update password policy by id
 This API updates the specified password policy.
 
@@ -311,6 +378,7 @@ This API updates the specified password policy.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | id | **str** | True  | The ID of password policy to update.
+   | x_sail_point_experimental | **str** | True  (default to 'true') | Use this header to enable this experimental API.
  Body  | password_policy_v3_dto | [**PasswordPolicyV3Dto**](../models/password-policy-v3-dto) | True  | 
 
 ### Return type
@@ -340,9 +408,11 @@ from sailpoint.v2025.models.password_policy_v3_dto import PasswordPolicyV3Dto
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
+configuration.experimental = True
 
 with ApiClient(configuration) as api_client:
     id = 'ff808081838d9e9d01838da6a03e0007' # str | The ID of password policy to update. # str | The ID of password policy to update.
+    x_sail_point_experimental = 'true' # str | Use this header to enable this experimental API. (default to 'true') # str | Use this header to enable this experimental API. (default to 'true')
     password_policy_v3_dto = '''{
           "validateAgainstAccountName" : true,
           "minLength" : 8,
@@ -380,9 +450,9 @@ with ApiClient(configuration) as api_client:
     try:
         # Update password policy by id
         new_password_policy_v3_dto = PasswordPolicyV3Dto.from_json(password_policy_v3_dto)
-        results = PasswordPoliciesApi(api_client).set_password_policy(id=id, password_policy_v3_dto=new_password_policy_v3_dto)
+        results = PasswordPoliciesApi(api_client).set_password_policy(id=id, x_sail_point_experimental=x_sail_point_experimental, password_policy_v3_dto=new_password_policy_v3_dto)
         # Below is a request that includes all optional parameters
-        # results = PasswordPoliciesApi(api_client).set_password_policy(id, new_password_policy_v3_dto)
+        # results = PasswordPoliciesApi(api_client).set_password_policy(id, x_sail_point_experimental, new_password_policy_v3_dto)
         print("The response of PasswordPoliciesApi->set_password_policy:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:

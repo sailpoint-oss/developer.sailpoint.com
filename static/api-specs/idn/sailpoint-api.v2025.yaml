@@ -1594,6 +1594,12 @@ paths:
     $ref: ./v2025/paths/identity-profile-default-config.yaml
   /identity-profiles/{identity-profile-id}/process-identities:
     $ref: ./v2025/paths/identity-profile-process-identities.yaml
+  /launchers:
+    $ref: "./v2025/paths/launchers.yaml"
+  /launchers/{launcherID}:
+    $ref: "./v2025/paths/launcher.yaml"
+  /launchers/{launcherID}/launch:
+    $ref: "./v2025/paths/launcher-launch.yaml"
   /managed-clients:
     $ref: ./v2025/paths/managed-clients.yaml
   /managed-clients/{id}:
@@ -1860,6 +1866,10 @@ paths:
     $ref: ./v2025/paths/bulk-add-tagged-objects.yaml
   /tagged-objects/bulk-remove:
     $ref: ./v2025/paths/bulk-remove-tagged-objects.yaml
+  /tags:
+    $ref: "./v2025/paths/tags.yaml"
+  /tags/{id}:
+    $ref: "./v2025/paths/tag.yaml"
   /transforms:
     $ref: ./v2025/paths/transforms.yaml
   /transforms/{id}:

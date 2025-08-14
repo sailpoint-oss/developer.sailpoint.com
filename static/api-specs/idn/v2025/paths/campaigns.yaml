@@ -113,8 +113,8 @@ post:
           Machine Account:
             $ref: '../schemas/campaign/examples/CreateCampaignMachineAccount.yaml'
   responses:
-    '200':
-      description: This response indicates that the requested campaign was successfully created, and the API returns its representation.
+    '202':
+      description: This response indicates that the requested campaign has been successfully accepted into the system, and its representation is returned by the API.
       content:
         application/json:
           schema:

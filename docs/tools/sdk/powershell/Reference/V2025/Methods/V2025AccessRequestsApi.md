@@ -730,6 +730,9 @@ try {
 [[Back to top]](#) 
 
 ## load-account-selections
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 Use this API to fetch account information for an identity against the items in an access request.
 
 Used to fetch accountSelection for the AccessRequest prior to submitting for async processing.
@@ -740,6 +743,7 @@ Used to fetch accountSelection for the AccessRequest prior to submitting for asy
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | AccountsSelectionRequest | [**AccountsSelectionRequest**](../models/accounts-selection-request) | True  | 
 
 ### Return type
@@ -761,6 +765,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $AccountsSelectionRequest = @"{
   "requestedFor" : "2c918084660f45d6016617daa9210584",
   "clientMetadata" : {
@@ -830,10 +835,10 @@ $AccountsSelectionRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToAccountsSelectionRequest -Json $AccountsSelectionRequest
-    Invoke-V2025LoadAccountSelections -AccountsSelectionRequest $Result 
+    Invoke-V2025LoadAccountSelections -XSailPointExperimental $XSailPointExperimental -AccountsSelectionRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Invoke-V2025LoadAccountSelections -AccountsSelectionRequest $Result  
+    # Invoke-V2025LoadAccountSelections -XSailPointExperimental $XSailPointExperimental -AccountsSelectionRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2025LoadAccountSelections"
     Write-Host $_.ErrorDetails

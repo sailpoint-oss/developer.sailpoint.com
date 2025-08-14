@@ -33,6 +33,9 @@ Method | HTTP request | Description
 
 
 ## create-password-policy
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API creates the specified password policy.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/create-password-policy)
@@ -40,6 +43,7 @@ This API creates the specified password policy.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | PasswordPolicyV3Dto | [**PasswordPolicyV3Dto**](../models/password-policy-v3-dto) | True  | 
 
 ### Return type
@@ -62,6 +66,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $PasswordPolicyV3Dto = @"{
   "validateAgainstAccountName" : true,
   "minLength" : 8,
@@ -100,10 +105,10 @@ $PasswordPolicyV3Dto = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-    New-V2025PasswordPolicy -PasswordPolicyV3Dto $Result 
+    New-V2025PasswordPolicy -XSailPointExperimental $XSailPointExperimental -PasswordPolicyV3Dto $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2025PasswordPolicy -PasswordPolicyV3Dto $Result  
+    # New-V2025PasswordPolicy -XSailPointExperimental $XSailPointExperimental -PasswordPolicyV3Dto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025PasswordPolicy"
     Write-Host $_.ErrorDetails
@@ -112,6 +117,9 @@ try {
 [[Back to top]](#) 
 
 ## delete-password-policy
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API deletes the specified password policy.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-password-policy)
@@ -120,6 +128,7 @@ This API deletes the specified password policy.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of password policy to delete.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
  (empty response body)
@@ -142,14 +151,15 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ff808081838d9e9d01838da6a03e0002" # String | The ID of password policy to delete.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Delete password policy by id
 
 try {
-    Remove-V2025PasswordPolicy -Id $Id 
+    Remove-V2025PasswordPolicy -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Remove-V2025PasswordPolicy -Id $Id  
+    # Remove-V2025PasswordPolicy -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025PasswordPolicy"
     Write-Host $_.ErrorDetails
@@ -158,6 +168,9 @@ try {
 [[Back to top]](#) 
 
 ## get-password-policy-by-id
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API returns the password policy for the specified ID.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-password-policy-by-id)
@@ -166,6 +179,7 @@ This API returns the password policy for the specified ID.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of password policy to retrieve.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
 
 ### Return type
 [**PasswordPolicyV3Dto**](../models/password-policy-v3-dto)
@@ -188,14 +202,15 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ff808081838d9e9d01838da6a03e0005" # String | The ID of password policy to retrieve.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 
 # Get password policy by id
 
 try {
-    Get-V2025PasswordPolicyById -Id $Id 
+    Get-V2025PasswordPolicyById -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025PasswordPolicyById -Id $Id  
+    # Get-V2025PasswordPolicyById -Id $Id -XSailPointExperimental $XSailPointExperimental  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025PasswordPolicyById"
     Write-Host $_.ErrorDetails
@@ -204,6 +219,9 @@ try {
 [[Back to top]](#) 
 
 ## list-password-policies
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This gets list of all Password Policies.
 Requires role of ORG_ADMIN
 
@@ -212,6 +230,7 @@ Requires role of ORG_ADMIN
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Count | **Boolean** |   (optional) (default to $false) | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
@@ -235,6 +254,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -242,10 +262,10 @@ $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* respon
 # List password policies
 
 try {
-    Get-V2025PasswordPolicies 
+    Get-V2025PasswordPolicies -XSailPointExperimental $XSailPointExperimental 
     
     # Below is a request that includes all optional parameters
-    # Get-V2025PasswordPolicies -Limit $Limit -Offset $Offset -Count $Count  
+    # Get-V2025PasswordPolicies -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025PasswordPolicies"
     Write-Host $_.ErrorDetails
@@ -254,6 +274,9 @@ try {
 [[Back to top]](#) 
 
 ## set-password-policy
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API updates the specified password policy.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/set-password-policy)
@@ -262,6 +285,7 @@ This API updates the specified password policy.
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
 Path   | Id | **String** | True  | The ID of password policy to update.
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | PasswordPolicyV3Dto | [**PasswordPolicyV3Dto**](../models/password-policy-v3-dto) | True  | 
 
 ### Return type
@@ -285,6 +309,7 @@ Code | Description  | Data Type
 ### Example
 ```powershell
 $Id = "ff808081838d9e9d01838da6a03e0007" # String | The ID of password policy to update.
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $PasswordPolicyV3Dto = @"{
   "validateAgainstAccountName" : true,
   "minLength" : 8,
@@ -323,10 +348,10 @@ $PasswordPolicyV3Dto = @"{
 
 try {
     $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-    Set-V2025PasswordPolicy -Id $Id -PasswordPolicyV3Dto $Result 
+    Set-V2025PasswordPolicy -Id $Id -XSailPointExperimental $XSailPointExperimental -PasswordPolicyV3Dto $Result 
     
     # Below is a request that includes all optional parameters
-    # Set-V2025PasswordPolicy -Id $Id -PasswordPolicyV3Dto $Result  
+    # Set-V2025PasswordPolicy -Id $Id -XSailPointExperimental $XSailPointExperimental -PasswordPolicyV3Dto $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2025PasswordPolicy"
     Write-Host $_.ErrorDetails

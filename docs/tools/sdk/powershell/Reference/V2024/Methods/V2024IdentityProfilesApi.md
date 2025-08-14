@@ -287,9 +287,6 @@ try {
 [[Back to top]](#) 
 
 ## generate-identity-preview
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
 This generates a non-persisted IdentityDetails object that will represent as the preview of the identities attribute when the given policy''s attribute config is applied.
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2024/generate-identity-preview)
@@ -297,7 +294,6 @@ This generates a non-persisted IdentityDetails object that will represent as the
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | IdentityPreviewRequest | [**IdentityPreviewRequest**](../models/identity-preview-request) | True  | Identity Preview request body.
 
 ### Return type
@@ -319,7 +315,6 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $IdentityPreviewRequest = @"{
   "identityId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
   "identityAttributeConfig" : {
@@ -352,10 +347,10 @@ $IdentityPreviewRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
-    New-V2024IdentityPreview -XSailPointExperimental $XSailPointExperimental -IdentityPreviewRequest $Result 
+    New-V2024IdentityPreview -IdentityPreviewRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # New-V2024IdentityPreview -XSailPointExperimental $XSailPointExperimental -IdentityPreviewRequest $Result  
+    # New-V2024IdentityPreview -IdentityPreviewRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2024IdentityPreview"
     Write-Host $_.ErrorDetails

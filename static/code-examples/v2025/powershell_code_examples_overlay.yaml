@@ -1129,6 +1129,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/access-requests#load-account-selections
       source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $AccountsSelectionRequest = @"
         {
           "requestedFor" : "2c918084660f45d6016617daa9210584",
@@ -1200,10 +1201,10 @@
         
         try {
             $Result = ConvertFrom-JsonToAccountsSelectionRequest -Json $AccountsSelectionRequest
-            Invoke-V2025LoadAccountSelections -AccountsSelectionRequest $Result 
+            Invoke-V2025LoadAccountSelections -XSailPointExperimental $XSailPointExperimental -AccountsSelectionRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Invoke-V2025LoadAccountSelections -AccountsSelectionRequest $Result   
+            # Invoke-V2025LoadAccountSelections -XSailPointExperimental $XSailPointExperimental -AccountsSelectionRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Invoke-V2025LoadAccountSelections"
             Write-Host $_.ErrorDetails
@@ -8390,6 +8391,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/identities#start-identities-invite
       source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $InviteIdentitiesRequest = @"
         {
           "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
@@ -8401,10 +8403,10 @@
         
         try {
             $Result = ConvertFrom-JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
-            Start-V2025IdentitiesInvite -InviteIdentitiesRequest $Result 
+            Start-V2025IdentitiesInvite -XSailPointExperimental $XSailPointExperimental -InviteIdentitiesRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # Start-V2025IdentitiesInvite -InviteIdentitiesRequest $Result   
+            # Start-V2025IdentitiesInvite -XSailPointExperimental $XSailPointExperimental -InviteIdentitiesRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2025IdentitiesInvite"
             Write-Host $_.ErrorDetails
@@ -9032,7 +9034,6 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/identity-profiles#generate-identity-preview
       source: |
-        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $IdentityPreviewRequest = @"
         {
           "identityId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
@@ -9067,10 +9068,10 @@
         
         try {
             $Result = ConvertFrom-JsonToIdentityPreviewRequest -Json $IdentityPreviewRequest
-            New-V2025IdentityPreview -XSailPointExperimental $XSailPointExperimental -IdentityPreviewRequest $Result 
+            New-V2025IdentityPreview -IdentityPreviewRequest $Result 
     
             # Below is a request that includes all optional parameters
-            # New-V2025IdentityPreview -XSailPointExperimental $XSailPointExperimental -IdentityPreviewRequest $Result   
+            # New-V2025IdentityPreview -IdentityPreviewRequest $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025IdentityPreview"
             Write-Host $_.ErrorDetails
@@ -9261,6 +9262,149 @@
             # Update-V2025IdentityProfile -IdentityProfileId $IdentityProfileId -JsonPatchOperation $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Update-V2025IdentityProfile"
+            Write-Host $_.ErrorDetails
+        }
+- path: /launchers
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/launchers#create-launcher
+      source: |
+        $LauncherRequest = @"
+        {
+          "reference" : {
+            "id" : "2fd6ff94-2081-4d29-acbc-83a0a2f744a5",
+            "type" : "WORKFLOW"
+          },
+          "name" : "Group Create",
+          "description" : "Create a new Active Directory Group",
+          "disabled" : false,
+          "type" : "INTERACTIVE_PROCESS",
+          "config" : "{\"workflowId\" : \"6b42d9be-61b6-46af-827e-ea29ba8aa3d9\"}"
+        }
+        "@
+        
+        # Create launcher
+        
+        try {
+            $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
+            New-V2025Launcher -LauncherRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2025Launcher -LauncherRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025Launcher"
+            Write-Host $_.ErrorDetails
+        }
+- path: /launchers/{launcherID}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/launchers#delete-launcher
+      source: |
+        $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be deleted
+        
+        # Delete launcher
+        
+        try {
+            Remove-V2025Launcher -LauncherID $LauncherID 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2025Launcher -LauncherID $LauncherID   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025Launcher"
+            Write-Host $_.ErrorDetails
+        }
+- path: /launchers/{launcherID}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/launchers#get-launcher
+      source: |
+        $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be retrieved
+        
+        # Get launcher by id
+        
+        try {
+            Get-V2025Launcher -LauncherID $LauncherID 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025Launcher -LauncherID $LauncherID   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Launcher"
+            Write-Host $_.ErrorDetails
+        }
+- path: /launchers
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/launchers#get-launchers
+      source: |
+        $Filters = "disabled eq "true"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw* (optional)
+        $Next = "eyJuZXh0IjoxMjN9Cg==" # String | Pagination marker (optional)
+        $Limit = 42 # Int32 | Number of Launchers to return (optional) (default to 10)
+        
+        # List all launchers for tenant
+        
+        try {
+            Get-V2025Launchers 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025Launchers -Filters $Filters -Next $Next -Limit $Limit   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Launchers"
+            Write-Host $_.ErrorDetails
+        }
+- path: /launchers/{launcherID}
+  method: PUT
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/launchers#put-launcher
+      source: |
+        $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be replaced
+        $LauncherRequest = @"
+        {
+          "reference" : {
+            "id" : "2fd6ff94-2081-4d29-acbc-83a0a2f744a5",
+            "type" : "WORKFLOW"
+          },
+          "name" : "Group Create",
+          "description" : "Create a new Active Directory Group",
+          "disabled" : false,
+          "type" : "INTERACTIVE_PROCESS",
+          "config" : "{\"workflowId\" : \"6b42d9be-61b6-46af-827e-ea29ba8aa3d9\"}"
+        }
+        "@
+        
+        # Replace launcher
+        
+        try {
+            $Result = ConvertFrom-JsonToLauncherRequest -Json $LauncherRequest
+            Send-V2025Launcher -LauncherID $LauncherID -LauncherRequest $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Send-V2025Launcher -LauncherID $LauncherID -LauncherRequest $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Send-V2025Launcher"
+            Write-Host $_.ErrorDetails
+        }
+- path: /launchers/{launcherID}/launch
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/launchers#start-launcher
+      source: |
+        $LauncherID = "e3012408-8b61-4564-ad41-c5ec131c325b" # String | ID of the Launcher to be launched
+        
+        # Launch a launcher
+        
+        try {
+            Start-V2025Launcher -LauncherID $LauncherID 
+    
+            # Below is a request that includes all optional parameters
+            # Start-V2025Launcher -LauncherID $LauncherID   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2025Launcher"
             Write-Host $_.ErrorDetails
         }
 - path: /identity-profiles/{identity-profile-id}/lifecycle-states
@@ -12476,6 +12620,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/password-policies#create-password-policy
       source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $PasswordPolicyV3Dto = @"
         {
           "validateAgainstAccountName" : true,
@@ -12516,10 +12661,10 @@
         
         try {
             $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-            New-V2025PasswordPolicy -PasswordPolicyV3Dto $Result 
+            New-V2025PasswordPolicy -XSailPointExperimental $XSailPointExperimental -PasswordPolicyV3Dto $Result 
     
             # Below is a request that includes all optional parameters
-            # New-V2025PasswordPolicy -PasswordPolicyV3Dto $Result   
+            # New-V2025PasswordPolicy -XSailPointExperimental $XSailPointExperimental -PasswordPolicyV3Dto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025PasswordPolicy"
             Write-Host $_.ErrorDetails
@@ -12531,14 +12676,15 @@
       label: SDK_tools/sdk/powershell/v2025/methods/password-policies#delete-password-policy
       source: |
         $Id = "ff808081838d9e9d01838da6a03e0002" # String | The ID of password policy to delete.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Delete password policy by id
         
         try {
-            Remove-V2025PasswordPolicy -Id $Id 
+            Remove-V2025PasswordPolicy -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Remove-V2025PasswordPolicy -Id $Id   
+            # Remove-V2025PasswordPolicy -Id $Id -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025PasswordPolicy"
             Write-Host $_.ErrorDetails
@@ -12550,14 +12696,15 @@
       label: SDK_tools/sdk/powershell/v2025/methods/password-policies#get-password-policy-by-id
       source: |
         $Id = "ff808081838d9e9d01838da6a03e0005" # String | The ID of password policy to retrieve.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         
         # Get password policy by id
         
         try {
-            Get-V2025PasswordPolicyById -Id $Id 
+            Get-V2025PasswordPolicyById -Id $Id -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025PasswordPolicyById -Id $Id   
+            # Get-V2025PasswordPolicyById -Id $Id -XSailPointExperimental $XSailPointExperimental   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025PasswordPolicyById"
             Write-Host $_.ErrorDetails
@@ -12568,6 +12715,7 @@
     - lang: PowerShell
       label: SDK_tools/sdk/powershell/v2025/methods/password-policies#list-password-policies
       source: |
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
@@ -12575,10 +12723,10 @@
         # List password policies
         
         try {
-            Get-V2025PasswordPolicies 
+            Get-V2025PasswordPolicies -XSailPointExperimental $XSailPointExperimental 
     
             # Below is a request that includes all optional parameters
-            # Get-V2025PasswordPolicies -Limit $Limit -Offset $Offset -Count $Count   
+            # Get-V2025PasswordPolicies -XSailPointExperimental $XSailPointExperimental -Limit $Limit -Offset $Offset -Count $Count   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025PasswordPolicies"
             Write-Host $_.ErrorDetails
@@ -12590,6 +12738,7 @@
       label: SDK_tools/sdk/powershell/v2025/methods/password-policies#set-password-policy
       source: |
         $Id = "ff808081838d9e9d01838da6a03e0007" # String | The ID of password policy to update.
+        $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $PasswordPolicyV3Dto = @"
         {
           "validateAgainstAccountName" : true,
@@ -12630,10 +12779,10 @@
         
         try {
             $Result = ConvertFrom-JsonToPasswordPolicyV3Dto -Json $PasswordPolicyV3Dto
-            Set-V2025PasswordPolicy -Id $Id -PasswordPolicyV3Dto $Result 
+            Set-V2025PasswordPolicy -Id $Id -XSailPointExperimental $XSailPointExperimental -PasswordPolicyV3Dto $Result 
     
             # Below is a request that includes all optional parameters
-            # Set-V2025PasswordPolicy -Id $Id -PasswordPolicyV3Dto $Result   
+            # Set-V2025PasswordPolicy -Id $Id -XSailPointExperimental $XSailPointExperimental -PasswordPolicyV3Dto $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2025PasswordPolicy"
             Write-Host $_.ErrorDetails
@@ -18058,6 +18207,103 @@
             # Set-V2025TagsToManyObjects -BulkAddTaggedObject $Result   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Set-V2025TagsToManyObjects"
+            Write-Host $_.ErrorDetails
+        }
+- path: /tags
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/tags#create-tag
+      source: |
+        $Tag = @"
+        {
+          "created" : "2022-05-04T14:48:49Z",
+          "tagCategoryRefs" : [ {
+            "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
+            "id" : "2c91809773dee32014e13e122092014e",
+            "type" : "ENTITLEMENT"
+          }, {
+            "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
+            "id" : "2c91809773dee32014e13e122092014e",
+            "type" : "ENTITLEMENT"
+          } ],
+          "name" : "PCI",
+          "modified" : "2022-07-14T16:31:11Z",
+          "id" : "449ecdc0-d4ff-4341-acf6-92f6f7ce604f"
+        }
+        "@
+        
+        # Create tag
+        
+        try {
+            $Result = ConvertFrom-JsonToTag -Json $Tag
+            New-V2025Tag -Tag $Result 
+    
+            # Below is a request that includes all optional parameters
+            # New-V2025Tag -Tag $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling New-V2025Tag"
+            Write-Host $_.ErrorDetails
+        }
+- path: /tags/{id}
+  method: DELETE
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/tags#delete-tag-by-id
+      source: |
+        $Id = "329d96cf-3bdb-40a9-988a-b5037ab89022" # String | The ID of the object reference to delete.
+        
+        # Delete tag
+        
+        try {
+            Remove-V2025TagById -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2025TagById -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025TagById"
+            Write-Host $_.ErrorDetails
+        }
+- path: /tags/{id}
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/tags#get-tag-by-id
+      source: |
+        $Id = "329d96cf-3bdb-40a9-988a-b5037ab89022" # String | The ID of the object reference to retrieve.
+        
+        # Get tag by id
+        
+        try {
+            Get-V2025TagById -Id $Id 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025TagById -Id $Id   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025TagById"
+            Write-Host $_.ErrorDetails
+        }
+- path: /tags
+  method: GET
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/tags#list-tags
+      source: |
+        $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+        $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+        $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
+        $Filters = "id eq "27462f54-61c7-4140-b5da-d5dbe27fc6db"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw* (optional)
+        $Sorters = "name,-modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified** (optional)
+        
+        # List tags
+        
+        try {
+            Get-V2025Tags 
+    
+            # Below is a request that includes all optional parameters
+            # Get-V2025Tags -Limit $Limit -Offset $Offset -Count $Count -Filters $Filters -Sorters $Sorters   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-V2025Tags"
             Write-Host $_.ErrorDetails
         }
 - path: /task-status/pending-tasks

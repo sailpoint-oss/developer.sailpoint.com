@@ -501,6 +501,9 @@ try {
 [[Back to top]](#) 
 
 ## start-identities-invite
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
 This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.
 
 This task will send an invitation email only for unregistered identities.
@@ -513,6 +516,7 @@ The executed task status can be checked by Task Management > [Get task status by
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
+   | XSailPointExperimental | **String** | True  (default to "true") | Use this header to enable this experimental API.
  Body  | InviteIdentitiesRequest | [**InviteIdentitiesRequest**](../models/invite-identities-request) | True  | 
 
 ### Return type
@@ -535,6 +539,7 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
+$XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
 $InviteIdentitiesRequest = @"{
   "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
   "uninvited" : false
@@ -544,10 +549,10 @@ $InviteIdentitiesRequest = @"{
 
 try {
     $Result = ConvertFrom-JsonToInviteIdentitiesRequest -Json $InviteIdentitiesRequest
-    Start-V2025IdentitiesInvite -InviteIdentitiesRequest $Result 
+    Start-V2025IdentitiesInvite -XSailPointExperimental $XSailPointExperimental -InviteIdentitiesRequest $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-V2025IdentitiesInvite -InviteIdentitiesRequest $Result  
+    # Start-V2025IdentitiesInvite -XSailPointExperimental $XSailPointExperimental -InviteIdentitiesRequest $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2025IdentitiesInvite"
     Write-Host $_.ErrorDetails

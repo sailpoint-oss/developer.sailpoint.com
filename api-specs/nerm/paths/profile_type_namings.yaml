@@ -1,0 +1,35 @@
+get:
+  summary: Get profile type namings
+  operationId: getProfileTypeNamings
+  description: Get naming configurations for profile types
+  tags:
+    - profile types
+  parameters:
+    - $ref: "../parameters/query/query.yaml"
+    - $ref: "../parameters/query/name.yaml"
+    - $ref: "../parameters/query/archived.yaml"
+    - $ref: "../parameters/query/metadata.yaml"
+  responses:
+    '200':
+      $ref: "../responses/ProfileTypesNaming.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '404':
+      $ref: "../responses/404.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+post:
+  summary: Create new profile type naming
+  operationId: submitProfileTypeNaming
+  description: Creates a new profile type naming
+  tags:
+    - profile types
+  requestBody:
+    $ref: "../requestBodies/POST/ProfileTypeNaming.yaml"
+  responses:
+    '200':
+      $ref: "../responses/ProfileTypeNaming.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

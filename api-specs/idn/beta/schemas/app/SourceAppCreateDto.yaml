@@ -1,0 +1,39 @@
+type: object
+required:
+  - name
+  - description
+  - accountSource
+properties:
+  name:
+    type: string
+    description: The source app name
+    example: "my app"
+  description:
+    type: string
+    nullable: false
+    description: The description of the source app
+    example: "the source app for engineers"
+  matchAllAccounts:
+    type: boolean
+    default: false
+    description: True if the source app match all accounts
+    example: true
+  accountSource:
+    type: object
+    required:
+      - id
+    properties:
+      id:
+        type: string
+        nullable: false
+        description: The source ID
+        example: 2c9180827ca885d7017ca8ce28a000eb
+      type:
+        type: string
+        description: The source type, will always be "SOURCE"
+        example: SOURCE
+      name:
+        type: string
+        description: The source name
+        example: ODS-AD-Source
+

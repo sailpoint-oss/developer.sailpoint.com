@@ -1,0 +1,23 @@
+type: object
+properties:
+  id:
+    type: string
+    format: uuid
+    readOnly: true
+  uid:
+    type: string
+    minLength: 32
+    maxLength: 32
+    readOnly: true
+  user_id:
+    type: string
+    format: uuid
+  profile_id:
+    type: string
+    format: uuid
+  ne_attribute_id:
+    type: string
+    format: uuid
+  relationship_type:
+    type: string
+    enum: [owner, contributor]

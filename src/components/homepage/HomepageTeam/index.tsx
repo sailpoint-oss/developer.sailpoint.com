@@ -14,11 +14,11 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   {
-    link: 'https://developer.sailpoint.com/discuss/u/colin_mckibben/summary',
-    name: 'Colin McKibben',
-    title: ['Manager', 'Developer Relations'],
+    link: 'https://developer.sailpoint.com/discuss/u/taylor_wingfield/summary',
+    name: 'Taylor Wingfield',
+    title: ['Interim Manager', 'Developer Relations'],
     expertise: 'Identity Security Cloud'.toUpperCase(),
-    image: '/homepage/colin-mckibben.png',
+    image: '/homepage/taylor-wingfield.jpeg',
   },
   {
     link: 'https://developer.sailpoint.com/discuss/u/tyler_mairose/summary',
@@ -26,20 +26,6 @@ const teamMembers: TeamMember[] = [
     title: ['Developer Advocate'],
     expertise: 'Identity Security Cloud'.toUpperCase(),
     image: '/homepage/tyler-mairose.png',
-  },
-  {
-    link: 'https://developer.sailpoint.com/discuss/u/christina_gagnon/summary',
-    name: 'Christina Gagnon',
-    title: ['Developer Advocate'],
-    expertise: 'Identity Security Cloud'.toUpperCase(),
-    image: '/homepage/christina-gagnon.png',
-  },
-  {
-    link: 'https://developer.sailpoint.com/discuss/u/jthaytko/summary',
-    name: 'James Haytko',
-    title: ['Technical Writer'],
-    expertise: 'DEVELOPER DOCUMENTATION',
-    image: '/homepage/james-haytko.png',
   },
   {
     link: 'https://developer.sailpoint.com/discuss/u/philip-ellis/summary',

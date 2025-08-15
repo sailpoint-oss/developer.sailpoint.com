@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start --port=4200",
+    "start": "docusaurus start --port=4201",
     "build": "docusaurus build",
     "build:rspack:trace": "DOCUSAURUS_RSPACK_TRACE=true DOCUSAURUS_DISABLE_LAST_UPDATE=true DOCUSAURUS_EXIT_AFTER_BUNDLING=true npm run build",
     "build:profile:bundling": "samply record -- DOCUSAURUS_EXIT_AFTER_BUNDLING=true node --perf-prof --perf-basic-prof --interpreted-frames-native-stack ./node_modules/@docusaurus/core/bin/docusaurus.mjs build",

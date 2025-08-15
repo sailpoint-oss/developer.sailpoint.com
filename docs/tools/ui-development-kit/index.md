@@ -19,15 +19,23 @@ The UI Development Kit provides you with a framework you can use to build your o
 
 Read this guide to learn how to use the SailPoint UI Development Kit.
 
-<div className="text--center">
+<!-- <div className="text--center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bloIVw1-NzU?si=m7SRpu62WSciyiOr" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-</div>
+</div> -->
 
 ## Requirements
 
 These are the requirements to use the UI Development Kit:
 
 - **Node**: To learn how to download Node and set it up, go [here](https://nodejs.org/en/download).
+
+- **Angular**: To learn how to install Angular and set it up, go [here](https://angular.dev/installation).
+
+- **TypeScript**. You can use `npm` to install TypeScript globally. This means that you can use the `tsc` command anywhere in your terminal. To do so, run this command:
+
+```bash
+npm install -g typescript
+```
 
 - **Your ISC tenant name**. To learn how to find it, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The SDK will use this tenant name to connect to your ISC instance.
 
@@ -43,36 +51,32 @@ git clone git@github.com:sailpoint-oss/ui-development-kit.git
 
 ## Project structure
 
-This project is built on [Svelte-Kit](https://kit.svelte.dev/) and ultimately builds an [Electron](https://www.electronjs.org/) application.
+This project is built on [Angular](https://angular.dev/) and ultimately builds an [Electron](https://www.electronjs.org/) application.
 
 Setting up the project is simple. The environment and application building process are configured so you can start creating custom UIs immediately. However, it is still helpful to understand the project structure.
 
-Most of your activity will involve the `src` folder, such as adding new pages, routes, and sidebar items. You can learn more about these processes in [Getting Started](./getting-started.mdx).
+Most of your activity will involve the `projects/sailpoint-components` folder, such as adding new components and css styles. You can learn more about these processes in [Getting Started](./getting-started.mdx).
 
-This is the project structure:
+This is the basic project structure:
 
 ```bash
 .
-├── electron-builder.yaml
-├── electron.vite.config.ts
-├── package-lock.json
+├── projects/
+│   └── sailpoint-components/
+│       └── src/
+│           ├── package.json
+│           └── All shared custom components will live here
+├── src/
+│   └── app/
+│       ├── app.component.html
+│       ├── app.component.scss
+│       ├── app.component.spec.ts
+│       ├── app.component.ts
+│       ├── app.module.ts
+│       └── app.routes.ts
 ├── package.json
-├── postcss.config.cjs
-├── src
-│   ├── app.d.ts
-│   ├── app.html
-│   ├── app.postcss
-│   ├── error.html
-│   ├── hooks.server.ts
-│   ├── lib
-│   ├── main
-│   ├── preload
-│   └── routes
-├── svelte.config.js
-├── tailwind.config.ts
-├── tsconfig.json
-├── vite.config.js
-└── yarn.lock
+├── angular.json
+└── electron-builder.json
 ```
 
 ## Run the application for local development
@@ -88,7 +92,7 @@ npm install
 2. To start the application, run this command:
 
 ```bash
-npm run dev
+npm run start
 ```
 
 ## Get started

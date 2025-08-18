@@ -45,6 +45,6 @@ With both SaaS connectivity and traditional VA connectivity in place, you can ha
 
 ## Connectivity encryption
 
-Any direct connectors that specify a virtual appliance (VA) use [Zero Knowledge Encryption](https://community.sailpoint.com/t5/Lighthouse/Protecting-Sensitive-Data-with-Zero-Knowledge-Encryption/ta-p/79657?attachment-id=452) schemes with an RSA 2048-bit asymmetric key pair: there is a private key on the VA for decryption and a public key in the cloud (as part of the VA cluster) for encryption. You can read more about SailPoint's *Zero Knowledge Encryption* [here](../saas-connectivity/zero-knowledge-encryption.md).
+Any direct connectors that specify a virtual appliance (VA) use Zero Knowledge Encryption schemes with an RSA 2048-bit asymmetric key pair: there is a private key on the VA for decryption and a public key in the cloud (as part of the VA cluster) for encryption. You can read more about SailPoint's *Zero Knowledge Encryption* [here](../saas-connectivity/zero-knowledge-encryption.md).
 
 SaaS connectors cannot operate the same way because they do not communicate through VA clusters. Despite this, SaaS connectors can still leverage the asymmetric key pair scheme — the key pair simply resides in the cloud instead of on the VA. The key pair is only accessible to the Connectivity service and is managed to SailPoint standards for credential storage. Whenever you are storing secret data, use the `secret` or `secrettextarea` field types.

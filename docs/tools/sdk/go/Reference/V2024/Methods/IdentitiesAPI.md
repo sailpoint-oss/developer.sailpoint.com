@@ -35,6 +35,7 @@ Method | HTTP request | Description
 [**get-identity-ownership-details**](#get-identity-ownership-details) | **Get** `/identities/{identityId}/ownership` | Get ownership details
 [**get-role-assignment**](#get-role-assignment) | **Get** `/identities/{identityId}/role-assignments/{assignmentId}` | Role assignment details
 [**get-role-assignments**](#get-role-assignments) | **Get** `/identities/{identityId}/role-assignments` | List role assignments
+[**list-entitlements-by-identity**](#list-entitlements-by-identity) | **Get** `/entitlements/identities/{id}/entitlements` | List of entitlements by identity.
 [**list-identities**](#list-identities) | **Get** `/identities` | List identities
 [**reset-identity**](#reset-identity) | **Post** `/identities/{id}/reset` | Reset an identity
 [**send-identity-verification-account-token**](#send-identity-verification-account-token) | **Post** `/identities/{id}/verification/account/send` | Send password reset email
@@ -381,6 +382,78 @@ func main() {
 
 [[Back to top]](#)
 
+## list-entitlements-by-identity
+List of entitlements by identity.
+The API returns a list of all entitlements assigned to an identity, either directly or through the role or access profile. A token with ORG_ADMIN or API authority is required to call this API.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/list-entitlements-by-identity)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string** | Identity Id | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListEntitlementsByIdentityRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
+ **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
+ **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
+
+### Return type
+
+[**[]IdentityEntitlements**](../models/identity-entitlements)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    id := `ef38f94347e94562b5bb8424a56397d8` // string | Identity Id # string | Identity Id
+    limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+    offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+    count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.IdentitiesAPI.ListEntitlementsByIdentity(context.Background(), id).Execute()
+	  //resp, r, err := apiClient.V2024.IdentitiesAPI.ListEntitlementsByIdentity(context.Background(), id).Limit(limit).Offset(offset).Count(count).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.ListEntitlementsByIdentity``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListEntitlementsByIdentity`: []IdentityEntitlements
+    fmt.Fprintf(os.Stdout, "Response from `IdentitiesAPI.ListEntitlementsByIdentity`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
 ## list-identities
 List identities
 This API returns a list of identities.
@@ -608,6 +681,17 @@ func main() {
 [[Back to top]](#)
 
 ## start-identities-invite
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```go
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Invite identities to register
 This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.
 
@@ -629,6 +713,7 @@ Other parameters are passed through a pointer to a apiStartIdentitiesInviteReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **inviteIdentitiesRequest** | [**InviteIdentitiesRequest**](../models/invite-identities-request) |  | 
 
 ### Return type
@@ -655,6 +740,7 @@ import (
 )
 
 func main() {
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     inviteidentitiesrequest := []byte(`{
           "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
           "uninvited" : false
@@ -669,8 +755,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2024.IdentitiesAPI.StartIdentitiesInvite(context.Background()).InviteIdentitiesRequest(inviteIdentitiesRequest).Execute()
-	  //resp, r, err := apiClient.V2024.IdentitiesAPI.StartIdentitiesInvite(context.Background()).InviteIdentitiesRequest(inviteIdentitiesRequest).Execute()
+    resp, r, err := apiClient.V2024.IdentitiesAPI.StartIdentitiesInvite(context.Background()).XSailPointExperimental(xSailPointExperimental).InviteIdentitiesRequest(inviteIdentitiesRequest).Execute()
+	  //resp, r, err := apiClient.V2024.IdentitiesAPI.StartIdentitiesInvite(context.Background()).XSailPointExperimental(xSailPointExperimental).InviteIdentitiesRequest(inviteIdentitiesRequest).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.StartIdentitiesInvite``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -36,6 +36,7 @@ Method | HTTP request | Description
 [**close-access-request**](#close-access-request) | **Post** `/access-requests/close` | Close access request
 [**create-access-request**](#create-access-request) | **Post** `/access-requests` | Submit access request
 [**get-access-request-config**](#get-access-request-config) | **Get** `/access-request-config` | Get access request configuration
+[**get-entitlement-details-for-identity**](#get-entitlement-details-for-identity) | **Get** `/revocable-objects` | Identity entitlement details
 [**list-access-request-status**](#list-access-request-status) | **Get** `/access-request-status` | Access request status
 [**list-administrators-access-request-status**](#list-administrators-access-request-status) | **Get** `/access-request-administration` | Access request status for administrators
 [**load-account-selections**](#load-account-selections) | **Post** `/access-requests/accounts-selection` | Get accounts selections for identity
@@ -655,6 +656,88 @@ func main() {
 
 [[Back to top]](#)
 
+## get-entitlement-details-for-identity
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```go
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
+Identity entitlement details
+Use this API to return the details for a entitlement on an identity including specific data relating to remove date and the ability to revoke the identity.
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-entitlement-details-for-identity)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**identityId** | **string** | The identity ID. | 
+**entitlementId** | **string** | The entitlement ID | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetEntitlementDetailsForIdentityRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
+
+
+
+### Return type
+
+[**IdentityEntitlementDetails**](../models/identity-entitlement-details)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  
+    
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+    identityId := `7025c863c2704ba6beeaedf3cb091573` // string | The identity ID. # string | The identity ID.
+    entitlementId := `ef38f94347e94562b5bb8424a56397d8` // string | The entitlement ID # string | The entitlement ID
+
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    resp, r, err := apiClient.V2024.AccessRequestsAPI.GetEntitlementDetailsForIdentity(context.Background(), identityId, entitlementId).XSailPointExperimental(xSailPointExperimental).Execute()
+	  //resp, r, err := apiClient.V2024.AccessRequestsAPI.GetEntitlementDetailsForIdentity(context.Background(), identityId, entitlementId).XSailPointExperimental(xSailPointExperimental).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestsAPI.GetEntitlementDetailsForIdentity``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetEntitlementDetailsForIdentity`: IdentityEntitlementDetails
+    fmt.Fprintf(os.Stdout, "Response from `AccessRequestsAPI.GetEntitlementDetailsForIdentity`: %v\n", resp)
+}
+```
+
+[[Back to top]](#)
+
 ## list-access-request-status
 Access request status
 Use this API to return a list of access request statuses based on the specified query parameters.
@@ -832,6 +915,17 @@ func main() {
 [[Back to top]](#)
 
 ## load-account-selections
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```go
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Get accounts selections for identity
 Use this API to fetch account information for an identity against the items in an access request.
 
@@ -851,6 +945,7 @@ Other parameters are passed through a pointer to a apiLoadAccountSelectionsReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **accountsSelectionRequest** | [**AccountsSelectionRequest**](../models/accounts-selection-request) |  | 
 
 ### Return type
@@ -877,6 +972,7 @@ import (
 )
 
 func main() {
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     accountsselectionrequest := []byte(`{
           "requestedFor" : "2c918084660f45d6016617daa9210584",
           "clientMetadata" : {
@@ -951,8 +1047,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2024.AccessRequestsAPI.LoadAccountSelections(context.Background()).AccountsSelectionRequest(accountsSelectionRequest).Execute()
-	  //resp, r, err := apiClient.V2024.AccessRequestsAPI.LoadAccountSelections(context.Background()).AccountsSelectionRequest(accountsSelectionRequest).Execute()
+    resp, r, err := apiClient.V2024.AccessRequestsAPI.LoadAccountSelections(context.Background()).XSailPointExperimental(xSailPointExperimental).AccountsSelectionRequest(accountsSelectionRequest).Execute()
+	  //resp, r, err := apiClient.V2024.AccessRequestsAPI.LoadAccountSelections(context.Background()).XSailPointExperimental(xSailPointExperimental).AccountsSelectionRequest(accountsSelectionRequest).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestsAPI.LoadAccountSelections``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

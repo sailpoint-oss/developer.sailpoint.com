@@ -362,17 +362,6 @@ func main() {
 [[Back to top]](#)
 
 ## generate-identity-preview
-:::warning experimental 
-This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
-:::
-:::tip setting x-sailpoint-experimental header
- on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
- Example:
- ```go
-   configuration = Configuration()
-   configuration.experimental = True
- ```
-:::
 Generate identity profile preview
 This generates a non-persisted IdentityDetails object that will represent as the preview of the identities attribute when the given policy''s attribute config is applied.
 
@@ -389,7 +378,6 @@ Other parameters are passed through a pointer to a apiGenerateIdentityPreviewReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **identityPreviewRequest** | [**IdentityPreviewRequest**](../models/identity-preview-request) | Identity Preview request body. | 
 
 ### Return type
@@ -416,7 +404,6 @@ import (
 )
 
 func main() {
-    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     identitypreviewrequest := []byte(`{
           "identityId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
           "identityAttributeConfig" : {
@@ -454,8 +441,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2024.IdentityProfilesAPI.GenerateIdentityPreview(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityPreviewRequest(identityPreviewRequest).Execute()
-	  //resp, r, err := apiClient.V2024.IdentityProfilesAPI.GenerateIdentityPreview(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityPreviewRequest(identityPreviewRequest).Execute()
+    resp, r, err := apiClient.V2024.IdentityProfilesAPI.GenerateIdentityPreview(context.Background()).IdentityPreviewRequest(identityPreviewRequest).Execute()
+	  //resp, r, err := apiClient.V2024.IdentityProfilesAPI.GenerateIdentityPreview(context.Background()).IdentityPreviewRequest(identityPreviewRequest).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.GenerateIdentityPreview``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

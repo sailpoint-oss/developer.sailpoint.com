@@ -31,6 +31,17 @@ Method | HTTP request | Description
 
 
 ## create-password-policy
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```go
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Create password policy
 This API creates the specified password policy.
 
@@ -47,6 +58,7 @@ Other parameters are passed through a pointer to a apiCreatePasswordPolicyReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **passwordPolicyV3Dto** | [**PasswordPolicyV3Dto**](../models/password-policy-v3-dto) |  | 
 
 ### Return type
@@ -73,6 +85,7 @@ import (
 )
 
 func main() {
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     passwordpolicyv3dto := []byte(`{
           "validateAgainstAccountName" : true,
           "minLength" : 8,
@@ -116,8 +129,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2025.PasswordPoliciesAPI.CreatePasswordPolicy(context.Background()).PasswordPolicyV3Dto(passwordPolicyV3Dto).Execute()
-	  //resp, r, err := apiClient.V2025.PasswordPoliciesAPI.CreatePasswordPolicy(context.Background()).PasswordPolicyV3Dto(passwordPolicyV3Dto).Execute()
+    resp, r, err := apiClient.V2025.PasswordPoliciesAPI.CreatePasswordPolicy(context.Background()).XSailPointExperimental(xSailPointExperimental).PasswordPolicyV3Dto(passwordPolicyV3Dto).Execute()
+	  //resp, r, err := apiClient.V2025.PasswordPoliciesAPI.CreatePasswordPolicy(context.Background()).XSailPointExperimental(xSailPointExperimental).PasswordPolicyV3Dto(passwordPolicyV3Dto).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `PasswordPoliciesAPI.CreatePasswordPolicy``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -130,6 +143,17 @@ func main() {
 [[Back to top]](#)
 
 ## delete-password-policy
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```go
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Delete password policy by id
 This API deletes the specified password policy.
 
@@ -151,6 +175,7 @@ Other parameters are passed through a pointer to a apiDeletePasswordPolicyReques
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
 
@@ -177,13 +202,14 @@ import (
 
 func main() {
     id := `ff808081838d9e9d01838da6a03e0002` // string | The ID of password policy to delete. # string | The ID of password policy to delete.
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
     
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    r, err := apiClient.V2025.PasswordPoliciesAPI.DeletePasswordPolicy(context.Background(), id).Execute()
-	  //r, err := apiClient.V2025.PasswordPoliciesAPI.DeletePasswordPolicy(context.Background(), id).Execute()
+    r, err := apiClient.V2025.PasswordPoliciesAPI.DeletePasswordPolicy(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	  //r, err := apiClient.V2025.PasswordPoliciesAPI.DeletePasswordPolicy(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `PasswordPoliciesAPI.DeletePasswordPolicy``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -195,6 +221,17 @@ func main() {
 [[Back to top]](#)
 
 ## get-password-policy-by-id
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```go
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Get password policy by id
 This API returns the password policy for the specified ID.
 
@@ -216,6 +253,7 @@ Other parameters are passed through a pointer to a apiGetPasswordPolicyByIdReque
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
 
 ### Return type
 
@@ -242,13 +280,14 @@ import (
 
 func main() {
     id := `ff808081838d9e9d01838da6a03e0005` // string | The ID of password policy to retrieve. # string | The ID of password policy to retrieve.
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
 
     
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2025.PasswordPoliciesAPI.GetPasswordPolicyById(context.Background(), id).Execute()
-	  //resp, r, err := apiClient.V2025.PasswordPoliciesAPI.GetPasswordPolicyById(context.Background(), id).Execute()
+    resp, r, err := apiClient.V2025.PasswordPoliciesAPI.GetPasswordPolicyById(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
+	  //resp, r, err := apiClient.V2025.PasswordPoliciesAPI.GetPasswordPolicyById(context.Background(), id).XSailPointExperimental(xSailPointExperimental).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `PasswordPoliciesAPI.GetPasswordPolicyById``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -261,6 +300,17 @@ func main() {
 [[Back to top]](#)
 
 ## list-password-policies
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```go
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 List password policies
 This gets list of all Password Policies.
 Requires role of ORG_ADMIN
@@ -278,6 +328,7 @@ Other parameters are passed through a pointer to a apiListPasswordPoliciesReques
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **limit** | **int32** | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 250]
  **offset** | **int32** | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to 0]
  **count** | **bool** | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count&#x3D;true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. | [default to false]
@@ -306,6 +357,7 @@ import (
 )
 
 func main() {
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
     offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
     count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
@@ -314,8 +366,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2025.PasswordPoliciesAPI.ListPasswordPolicies(context.Background()).Execute()
-	  //resp, r, err := apiClient.V2025.PasswordPoliciesAPI.ListPasswordPolicies(context.Background()).Limit(limit).Offset(offset).Count(count).Execute()
+    resp, r, err := apiClient.V2025.PasswordPoliciesAPI.ListPasswordPolicies(context.Background()).XSailPointExperimental(xSailPointExperimental).Execute()
+	  //resp, r, err := apiClient.V2025.PasswordPoliciesAPI.ListPasswordPolicies(context.Background()).XSailPointExperimental(xSailPointExperimental).Limit(limit).Offset(offset).Count(count).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `PasswordPoliciesAPI.ListPasswordPolicies``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -328,6 +380,17 @@ func main() {
 [[Back to top]](#)
 
 ## set-password-policy
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```go
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Update password policy by id
 This API updates the specified password policy.
 
@@ -349,6 +412,7 @@ Other parameters are passed through a pointer to a apiSetPasswordPolicyRequest s
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **passwordPolicyV3Dto** | [**PasswordPolicyV3Dto**](../models/password-policy-v3-dto) |  | 
 
 ### Return type
@@ -376,6 +440,7 @@ import (
 
 func main() {
     id := `ff808081838d9e9d01838da6a03e0007` // string | The ID of password policy to update. # string | The ID of password policy to update.
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     passwordpolicyv3dto := []byte(`{
           "validateAgainstAccountName" : true,
           "minLength" : 8,
@@ -419,8 +484,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2025.PasswordPoliciesAPI.SetPasswordPolicy(context.Background(), id).PasswordPolicyV3Dto(passwordPolicyV3Dto).Execute()
-	  //resp, r, err := apiClient.V2025.PasswordPoliciesAPI.SetPasswordPolicy(context.Background(), id).PasswordPolicyV3Dto(passwordPolicyV3Dto).Execute()
+    resp, r, err := apiClient.V2025.PasswordPoliciesAPI.SetPasswordPolicy(context.Background(), id).XSailPointExperimental(xSailPointExperimental).PasswordPolicyV3Dto(passwordPolicyV3Dto).Execute()
+	  //resp, r, err := apiClient.V2025.PasswordPoliciesAPI.SetPasswordPolicy(context.Background(), id).XSailPointExperimental(xSailPointExperimental).PasswordPolicyV3Dto(passwordPolicyV3Dto).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `PasswordPoliciesAPI.SetPasswordPolicy``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -915,6 +915,17 @@ func main() {
 [[Back to top]](#)
 
 ## load-account-selections
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```go
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Get accounts selections for identity
 Use this API to fetch account information for an identity against the items in an access request.
 
@@ -934,6 +945,7 @@ Other parameters are passed through a pointer to a apiLoadAccountSelectionsReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **accountsSelectionRequest** | [**AccountsSelectionRequest**](../models/accounts-selection-request) |  | 
 
 ### Return type
@@ -960,6 +972,7 @@ import (
 )
 
 func main() {
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     accountsselectionrequest := []byte(`{
           "requestedFor" : "2c918084660f45d6016617daa9210584",
           "clientMetadata" : {
@@ -1034,8 +1047,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2025.AccessRequestsAPI.LoadAccountSelections(context.Background()).AccountsSelectionRequest(accountsSelectionRequest).Execute()
-	  //resp, r, err := apiClient.V2025.AccessRequestsAPI.LoadAccountSelections(context.Background()).AccountsSelectionRequest(accountsSelectionRequest).Execute()
+    resp, r, err := apiClient.V2025.AccessRequestsAPI.LoadAccountSelections(context.Background()).XSailPointExperimental(xSailPointExperimental).AccountsSelectionRequest(accountsSelectionRequest).Execute()
+	  //resp, r, err := apiClient.V2025.AccessRequestsAPI.LoadAccountSelections(context.Background()).XSailPointExperimental(xSailPointExperimental).AccountsSelectionRequest(accountsSelectionRequest).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestsAPI.LoadAccountSelections``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

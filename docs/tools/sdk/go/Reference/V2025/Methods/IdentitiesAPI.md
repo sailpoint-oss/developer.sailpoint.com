@@ -694,6 +694,17 @@ func main() {
 [[Back to top]](#)
 
 ## start-identities-invite
+:::warning experimental 
+This API is currently in an experimental state. The API is subject to change based on feedback and further testing. You must include the X-SailPoint-Experimental header and set it to `true` to use this endpoint.
+:::
+:::tip setting x-sailpoint-experimental header
+ on the configuration object you can set the `x-sailpoint-experimental` header to `true' to enable all experimantl endpoints within the SDK.
+ Example:
+ ```go
+   configuration = Configuration()
+   configuration.experimental = True
+ ```
+:::
 Invite identities to register
 This API submits a task for inviting given identities via email to complete registration. The invitation email will include the link. After selecting the link an identity will be able to set up password and log in into the system. Invitations expire after 7 days. By default invitations send to the work identity email. It can be changed in Admin > Identities > Identity Profiles by selecting corresponding profile and editing Invitation Options.
 
@@ -715,6 +726,7 @@ Other parameters are passed through a pointer to a apiStartIdentitiesInviteReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **xSailPointExperimental** | **string** | Use this header to enable this experimental API. | [default to &quot;true&quot;]
  **inviteIdentitiesRequest** | [**InviteIdentitiesRequest**](../models/invite-identities-request) |  | 
 
 ### Return type
@@ -741,6 +753,7 @@ import (
 )
 
 func main() {
+    xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
     inviteidentitiesrequest := []byte(`{
           "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
           "uninvited" : false
@@ -755,8 +768,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V2025.IdentitiesAPI.StartIdentitiesInvite(context.Background()).InviteIdentitiesRequest(inviteIdentitiesRequest).Execute()
-	  //resp, r, err := apiClient.V2025.IdentitiesAPI.StartIdentitiesInvite(context.Background()).InviteIdentitiesRequest(inviteIdentitiesRequest).Execute()
+    resp, r, err := apiClient.V2025.IdentitiesAPI.StartIdentitiesInvite(context.Background()).XSailPointExperimental(xSailPointExperimental).InviteIdentitiesRequest(inviteIdentitiesRequest).Execute()
+	  //resp, r, err := apiClient.V2025.IdentitiesAPI.StartIdentitiesInvite(context.Background()).XSailPointExperimental(xSailPointExperimental).InviteIdentitiesRequest(inviteIdentitiesRequest).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.StartIdentitiesInvite``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

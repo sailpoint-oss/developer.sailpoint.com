@@ -1256,6 +1256,42 @@
           // response from `GetAccessRequestConfig`: AccessRequestConfig
           fmt.Fprintf(os.Stdout, "Response from `AccessRequestsAPI.GetAccessRequestConfig`: %v\n", resp)
         }
+- path: /revocable-objects
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2024/methods/access-requests#get-entitlement-details-for-identity
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
+          identityId := `7025c863c2704ba6beeaedf3cb091573` // string | The identity ID. # string | The identity ID.
+          entitlementId := `ef38f94347e94562b5bb8424a56397d8` // string | The entitlement ID # string | The entitlement ID
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2024.AccessRequestsAPI.GetEntitlementDetailsForIdentity(context.Background(), identityId, entitlementId).XSailPointExperimental(xSailPointExperimental).Execute()
+          //resp, r, err := apiClient.V2024.AccessRequestsAPI.GetEntitlementDetailsForIdentity(context.Background(), identityId, entitlementId).XSailPointExperimental(xSailPointExperimental).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestsAPI.GetEntitlementDetailsForIdentity``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetEntitlementDetailsForIdentity`: IdentityEntitlementDetails
+          fmt.Fprintf(os.Stdout, "Response from `AccessRequestsAPI.GetEntitlementDetailsForIdentity`: %v\n", resp)
+        }
 - path: /access-request-status
   method: Get
   xCodeSample:
@@ -1361,6 +1397,7 @@
         )
 
         func main() {
+          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
            accountsselectionrequest := []byte(`{
           "requestedFor" : "2c918084660f45d6016617daa9210584",
           "clientMetadata" : {
@@ -1437,8 +1474,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.AccessRequestsAPI.LoadAccountSelections(context.Background()).AccountsSelectionRequest(accountsSelectionRequest).Execute()
-          //resp, r, err := apiClient.V2024.AccessRequestsAPI.LoadAccountSelections(context.Background()).AccountsSelectionRequest(accountsSelectionRequest).Execute()
+          resp, r, err := apiClient.V2024.AccessRequestsAPI.LoadAccountSelections(context.Background()).XSailPointExperimental(xSailPointExperimental).AccountsSelectionRequest(accountsSelectionRequest).Execute()
+          //resp, r, err := apiClient.V2024.AccessRequestsAPI.LoadAccountSelections(context.Background()).XSailPointExperimental(xSailPointExperimental).AccountsSelectionRequest(accountsSelectionRequest).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `AccessRequestsAPI.LoadAccountSelections``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -12160,6 +12197,43 @@
           // response from `GetRoleAssignments`: []GetRoleAssignments200ResponseInner
           fmt.Fprintf(os.Stdout, "Response from `IdentitiesAPI.GetRoleAssignments`: %v\n", resp)
         }
+- path: /entitlements/identities/{id}/entitlements
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2024/methods/identities#list-entitlements-by-identity
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := `ef38f94347e94562b5bb8424a56397d8` // string | Identity Id # string | Identity Id
+          limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+          count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2024.IdentitiesAPI.ListEntitlementsByIdentity(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2024.IdentitiesAPI.ListEntitlementsByIdentity(context.Background(), id).Limit(limit).Offset(offset).Count(count).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.ListEntitlementsByIdentity``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `ListEntitlementsByIdentity`: []IdentityEntitlements
+          fmt.Fprintf(os.Stdout, "Response from `IdentitiesAPI.ListEntitlementsByIdentity`: %v\n", resp)
+        }
 - path: /identities
   method: Get
   xCodeSample:
@@ -12292,6 +12366,7 @@
         )
 
         func main() {
+          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
            inviteidentitiesrequest := []byte(`{
           "ids" : [ "2b568c65bc3c4c57a43bd97e3a8e55", "2c9180867769897d01776ed5f125512f" ],
           "uninvited" : false
@@ -12308,8 +12383,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.IdentitiesAPI.StartIdentitiesInvite(context.Background()).InviteIdentitiesRequest(inviteIdentitiesRequest).Execute()
-          //resp, r, err := apiClient.V2024.IdentitiesAPI.StartIdentitiesInvite(context.Background()).InviteIdentitiesRequest(inviteIdentitiesRequest).Execute()
+          resp, r, err := apiClient.V2024.IdentitiesAPI.StartIdentitiesInvite(context.Background()).XSailPointExperimental(xSailPointExperimental).InviteIdentitiesRequest(inviteIdentitiesRequest).Execute()
+          //resp, r, err := apiClient.V2024.IdentitiesAPI.StartIdentitiesInvite(context.Background()).XSailPointExperimental(xSailPointExperimental).InviteIdentitiesRequest(inviteIdentitiesRequest).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `IdentitiesAPI.StartIdentitiesInvite``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -13305,7 +13380,6 @@
         )
 
         func main() {
-          xSailPointExperimental := `true` // string | Use this header to enable this experimental API. (default to "true") # string | Use this header to enable this experimental API. (default to "true")
            identitypreviewrequest := []byte(`{
           "identityId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
           "identityAttributeConfig" : {
@@ -13345,8 +13419,8 @@
 
           configuration := sailpoint.NewDefaultConfiguration()
           apiClient := sailpoint.NewAPIClient(configuration)
-          resp, r, err := apiClient.V2024.IdentityProfilesAPI.GenerateIdentityPreview(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityPreviewRequest(identityPreviewRequest).Execute()
-          //resp, r, err := apiClient.V2024.IdentityProfilesAPI.GenerateIdentityPreview(context.Background()).XSailPointExperimental(xSailPointExperimental).IdentityPreviewRequest(identityPreviewRequest).Execute()
+          resp, r, err := apiClient.V2024.IdentityProfilesAPI.GenerateIdentityPreview(context.Background()).IdentityPreviewRequest(identityPreviewRequest).Execute()
+          //resp, r, err := apiClient.V2024.IdentityProfilesAPI.GenerateIdentityPreview(context.Background()).IdentityPreviewRequest(identityPreviewRequest).Execute()
           if err != nil {
             fmt.Fprintf(os.Stderr, "Error when calling `IdentityProfilesAPI.GenerateIdentityPreview``: %v\n", err)
             fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -13575,6 +13649,243 @@
           // response from `UpdateIdentityProfile`: IdentityProfile
           fmt.Fprintf(os.Stdout, "Response from `IdentityProfilesAPI.UpdateIdentityProfile`: %v\n", resp)
         }
+- path: /launchers
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2024/methods/launchers#create-launcher
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+           launcherrequest := []byte(`{
+          "reference" : {
+            "id" : "2fd6ff94-2081-4d29-acbc-83a0a2f744a5",
+            "type" : "WORKFLOW"
+          },
+          "name" : "Group Create",
+          "description" : "Create a new Active Directory Group",
+          "disabled" : false,
+          "type" : "INTERACTIVE_PROCESS",
+          "config" : "{\"workflowId\" : \"6b42d9be-61b6-46af-827e-ea29ba8aa3d9\"}"
+        }`) // LauncherRequest | Payload to create a Launcher
+
+          
+          var launcherRequest v2024.LauncherRequest
+          if err := json.Unmarshal(launcherrequest, &launcherRequest); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2024.LaunchersAPI.CreateLauncher(context.Background()).LauncherRequest(launcherRequest).Execute()
+          //resp, r, err := apiClient.V2024.LaunchersAPI.CreateLauncher(context.Background()).LauncherRequest(launcherRequest).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `LaunchersAPI.CreateLauncher``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `CreateLauncher`: Launcher
+          fmt.Fprintf(os.Stdout, "Response from `LaunchersAPI.CreateLauncher`: %v\n", resp)
+        }
+- path: /launchers/{launcherID}
+  method: Delete
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2024/methods/launchers#delete-launcher
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          launcherID := `e3012408-8b61-4564-ad41-c5ec131c325b` // string | ID of the Launcher to be deleted # string | ID of the Launcher to be deleted
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          r, err := apiClient.V2024.LaunchersAPI.DeleteLauncher(context.Background(), launcherID).Execute()
+          //r, err := apiClient.V2024.LaunchersAPI.DeleteLauncher(context.Background(), launcherID).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `LaunchersAPI.DeleteLauncher``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+        }
+- path: /launchers/{launcherID}
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2024/methods/launchers#get-launcher
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          launcherID := `e3012408-8b61-4564-ad41-c5ec131c325b` // string | ID of the Launcher to be retrieved # string | ID of the Launcher to be retrieved
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2024.LaunchersAPI.GetLauncher(context.Background(), launcherID).Execute()
+          //resp, r, err := apiClient.V2024.LaunchersAPI.GetLauncher(context.Background(), launcherID).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `LaunchersAPI.GetLauncher``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetLauncher`: Launcher
+          fmt.Fprintf(os.Stdout, "Response from `LaunchersAPI.GetLauncher`: %v\n", resp)
+        }
+- path: /launchers
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2024/methods/launchers#get-launchers
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          filters := `disabled eq "true"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **description**: *sw*  **disabled**: *eq*  **name**: *sw* (optional)
+          next := `eyJuZXh0IjoxMjN9Cg==` // string | Pagination marker (optional) # string | Pagination marker (optional)
+          limit := 42 // int32 | Number of Launchers to return (optional) (default to 10) # int32 | Number of Launchers to return (optional) (default to 10)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2024.LaunchersAPI.GetLaunchers(context.Background()).Execute()
+          //resp, r, err := apiClient.V2024.LaunchersAPI.GetLaunchers(context.Background()).Filters(filters).Next(next).Limit(limit).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `LaunchersAPI.GetLaunchers``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetLaunchers`: GetLaunchers200Response
+          fmt.Fprintf(os.Stdout, "Response from `LaunchersAPI.GetLaunchers`: %v\n", resp)
+        }
+- path: /launchers/{launcherID}
+  method: Put
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2024/methods/launchers#put-launcher
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          launcherID := `e3012408-8b61-4564-ad41-c5ec131c325b` // string | ID of the Launcher to be replaced # string | ID of the Launcher to be replaced
+           launcherrequest := []byte(`{
+          "reference" : {
+            "id" : "2fd6ff94-2081-4d29-acbc-83a0a2f744a5",
+            "type" : "WORKFLOW"
+          },
+          "name" : "Group Create",
+          "description" : "Create a new Active Directory Group",
+          "disabled" : false,
+          "type" : "INTERACTIVE_PROCESS",
+          "config" : "{\"workflowId\" : \"6b42d9be-61b6-46af-827e-ea29ba8aa3d9\"}"
+        }`) // LauncherRequest | Payload to replace Launcher
+
+          
+          var launcherRequest v2024.LauncherRequest
+          if err := json.Unmarshal(launcherrequest, &launcherRequest); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2024.LaunchersAPI.PutLauncher(context.Background(), launcherID).LauncherRequest(launcherRequest).Execute()
+          //resp, r, err := apiClient.V2024.LaunchersAPI.PutLauncher(context.Background(), launcherID).LauncherRequest(launcherRequest).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `LaunchersAPI.PutLauncher``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `PutLauncher`: Launcher
+          fmt.Fprintf(os.Stdout, "Response from `LaunchersAPI.PutLauncher`: %v\n", resp)
+        }
+- path: /launchers/{launcherID}/launch
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2024/methods/launchers#start-launcher
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          launcherID := `e3012408-8b61-4564-ad41-c5ec131c325b` // string | ID of the Launcher to be launched # string | ID of the Launcher to be launched
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2024.LaunchersAPI.StartLauncher(context.Background(), launcherID).Execute()
+          //resp, r, err := apiClient.V2024.LaunchersAPI.StartLauncher(context.Background(), launcherID).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `LaunchersAPI.StartLauncher``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `StartLauncher`: StartLauncher200Response
+          fmt.Fprintf(os.Stdout, "Response from `LaunchersAPI.StartLauncher`: %v\n", resp)
+        }
 - path: /identity-profiles/{identity-profile-id}/lifecycle-states
   method: Post
   xCodeSample:
@@ -13732,7 +14043,7 @@
           limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
           offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
           count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
-          sorters := `created,modified` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **created, modified** (optional)
+          sorters := `created,modified` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, priority, created, modified** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **name, priority, created, modified** (optional)
 
           
 
@@ -26946,6 +27257,165 @@
           }
           // response from `SetTagsToManyObjects`: []BulkTaggedObjectResponse
           fmt.Fprintf(os.Stdout, "Response from `TaggedObjectsAPI.SetTagsToManyObjects`: %v\n", resp)
+        }
+- path: /tags
+  method: Post
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2024/methods/tags#create-tag
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+             "encoding/json"
+            "time"
+            v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+           tag := []byte(`{
+          "created" : "2022-05-04T14:48:49Z",
+          "tagCategoryRefs" : [ {
+            "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
+            "id" : "2c91809773dee32014e13e122092014e",
+            "type" : "ENTITLEMENT"
+          }, {
+            "name" : "CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local",
+            "id" : "2c91809773dee32014e13e122092014e",
+            "type" : "ENTITLEMENT"
+          } ],
+          "name" : "PCI",
+          "modified" : "2022-07-14T16:31:11Z",
+          "id" : "449ecdc0-d4ff-4341-acf6-92f6f7ce604f"
+        }`) // Tag | 
+
+          
+          var tag v2024.Tag
+          if err := json.Unmarshal(tag, &tag); err != nil {
+            fmt.Println("Error:", err)
+            return
+          }
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2024.TagsAPI.CreateTag(context.Background()).Tag(tag).Execute()
+          //resp, r, err := apiClient.V2024.TagsAPI.CreateTag(context.Background()).Tag(tag).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `TagsAPI.CreateTag``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `CreateTag`: Tag
+          fmt.Fprintf(os.Stdout, "Response from `TagsAPI.CreateTag`: %v\n", resp)
+        }
+- path: /tags/{id}
+  method: Delete
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2024/methods/tags#delete-tag-by-id
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := `329d96cf-3bdb-40a9-988a-b5037ab89022` // string | The ID of the object reference to delete. # string | The ID of the object reference to delete.
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          r, err := apiClient.V2024.TagsAPI.DeleteTagById(context.Background(), id).Execute()
+          //r, err := apiClient.V2024.TagsAPI.DeleteTagById(context.Background(), id).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `TagsAPI.DeleteTagById``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+        }
+- path: /tags/{id}
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2024/methods/tags#get-tag-by-id
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          id := `329d96cf-3bdb-40a9-988a-b5037ab89022` // string | The ID of the object reference to retrieve. # string | The ID of the object reference to retrieve.
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2024.TagsAPI.GetTagById(context.Background(), id).Execute()
+          //resp, r, err := apiClient.V2024.TagsAPI.GetTagById(context.Background(), id).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `TagsAPI.GetTagById``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `GetTagById`: Tag
+          fmt.Fprintf(os.Stdout, "Response from `TagsAPI.GetTagById`: %v\n", resp)
+        }
+- path: /tags
+  method: Get
+  xCodeSample:
+    - lang: Go
+      label: SDK_tools/sdk/go/v2024/methods/tags#list-tags
+      source: |
+        package main
+
+        import (
+          "context"
+          "fmt"
+          "os"
+            
+            v2024 "github.com/sailpoint-oss/golang-sdk/v2/api_v2024"
+          sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+        )
+
+        func main() {
+          limit := 250 // int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250) # int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
+          offset := 0 // int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0) # int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
+          count := true // bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false) # bool | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to false)
+          filters := `id eq "27462f54-61c7-4140-b5da-d5dbe27fc6db"` // string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw* (optional) # string | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in*  **name**: *eq, in, sw* (optional)
+          sorters := `name,-modified` // string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified** (optional) # string | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **id, name, created, modified** (optional)
+
+          
+
+
+          configuration := sailpoint.NewDefaultConfiguration()
+          apiClient := sailpoint.NewAPIClient(configuration)
+          resp, r, err := apiClient.V2024.TagsAPI.ListTags(context.Background()).Execute()
+          //resp, r, err := apiClient.V2024.TagsAPI.ListTags(context.Background()).Limit(limit).Offset(offset).Count(count).Filters(filters).Sorters(sorters).Execute()
+          if err != nil {
+            fmt.Fprintf(os.Stderr, "Error when calling `TagsAPI.ListTags``: %v\n", err)
+            fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+          }
+          // response from `ListTags`: []Tag
+          fmt.Fprintf(os.Stdout, "Response from `TagsAPI.ListTags`: %v\n", resp)
         }
 - path: /task-status/pending-tasks
   method: Head

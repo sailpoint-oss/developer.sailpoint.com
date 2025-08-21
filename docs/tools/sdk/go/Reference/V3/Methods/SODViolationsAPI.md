@@ -84,12 +84,10 @@ func main() {
           "identityId" : "2c91808568c529c60168cca6f90c1313",
           "accessRefs" : [ {
             "type" : "ENTITLEMENT",
-            "id" : "2c918087682f9a86016839c050861ab1",
-            "name" : "CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local"
+            "id" : "2c918087682f9a86016839c050861ab1"
           }, {
             "type" : "ENTITLEMENT",
-            "id" : "2c918087682f9a86016839c0509c1ab2",
-            "name" : "CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local"
+            "id" : "2c918087682f9a86016839c0509c1ab2"
           } ]
         }`) // IdentityWithNewAccess | 
 
@@ -132,7 +130,7 @@ Other parameters are passed through a pointer to a apiStartViolationCheckRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identityWithNewAccess1** | [**IdentityWithNewAccess1**](../models/identity-with-new-access1) |  | 
+ **identityWithNewAccess** | [**IdentityWithNewAccess**](../models/identity-with-new-access) |  | 
 
 ### Return type
 
@@ -158,10 +156,19 @@ import (
 )
 
 func main() {
-    identitywithnewaccess1 := []byte(`{identityId=2c91808568c529c60168cca6f90c1313, accessRefs=[{type=ENTITLEMENT, id=2c918087682f9a86016839c050861ab1, name=CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local}, {type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2, name=CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local}], clientMetadata={additionalProp1=string, additionalProp2=string, additionalProp3=string}}`) // IdentityWithNewAccess1 | 
+    identitywithnewaccess := []byte(`{
+          "identityId" : "2c91808568c529c60168cca6f90c1313",
+          "accessRefs" : [ {
+            "type" : "ENTITLEMENT",
+            "id" : "2c918087682f9a86016839c050861ab1"
+          }, {
+            "type" : "ENTITLEMENT",
+            "id" : "2c918087682f9a86016839c0509c1ab2"
+          } ]
+        }`) // IdentityWithNewAccess | 
 
-    var identityWithNewAccess1 v3.IdentityWithNewAccess1
-    if err := json.Unmarshal(identitywithnewaccess1, &identityWithNewAccess1); err != nil {
+    var identityWithNewAccess v3.IdentityWithNewAccess
+    if err := json.Unmarshal(identitywithnewaccess, &identityWithNewAccess); err != nil {
       fmt.Println("Error:", err)
       return
     }
@@ -169,8 +176,8 @@ func main() {
 
     configuration := sailpoint.NewDefaultConfiguration()
     apiClient := sailpoint.NewAPIClient(configuration)
-    resp, r, err := apiClient.V3.SODViolationsAPI.StartViolationCheck(context.Background()).IdentityWithNewAccess1(identityWithNewAccess1).Execute()
-	  //resp, r, err := apiClient.V3.SODViolationsAPI.StartViolationCheck(context.Background()).IdentityWithNewAccess1(identityWithNewAccess1).Execute()
+    resp, r, err := apiClient.V3.SODViolationsAPI.StartViolationCheck(context.Background()).IdentityWithNewAccess(identityWithNewAccess).Execute()
+	  //resp, r, err := apiClient.V3.SODViolationsAPI.StartViolationCheck(context.Background()).IdentityWithNewAccess(identityWithNewAccess).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `SODViolationsAPI.StartViolationCheck``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

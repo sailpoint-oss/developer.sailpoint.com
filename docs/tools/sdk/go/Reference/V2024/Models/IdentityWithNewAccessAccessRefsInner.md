@@ -17,7 +17,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | Pointer to **string** | Entitlement's DTO type. | [optional] 
 **Id** | Pointer to **string** | Entitlement's ID. | [optional] 
-**Name** | Pointer to **string** | Entitlement's display name. | [optional] 
 
 ## Methods
 
@@ -87,30 +86,5 @@ SetId sets Id field to given value.
 `func (o *IdentityWithNewAccessAccessRefsInner) HasId() bool`
 
 HasId returns a boolean if a field has been set.
-
-### GetName
-
-`func (o *IdentityWithNewAccessAccessRefsInner) GetName() string`
-
-GetName returns the Name field if non-nil, zero value otherwise.
-
-### GetNameOk
-
-`func (o *IdentityWithNewAccessAccessRefsInner) GetNameOk() (*string, bool)`
-
-GetNameOk returns a tuple with the Name field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetName
-
-`func (o *IdentityWithNewAccessAccessRefsInner) SetName(v string)`
-
-SetName sets Name field to given value.
-
-### HasName
-
-`func (o *IdentityWithNewAccessAccessRefsInner) HasName() bool`
-
-HasName returns a boolean if a field has been set.
 
 

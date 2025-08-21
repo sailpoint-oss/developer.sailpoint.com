@@ -27,13 +27,14 @@ Name | Type | Description | Notes
 **Redis** | Pointer to [**ManagedClusterRedis**](managed-cluster-redis) |  | [optional] 
 **ClientType** | [**NullableManagedClientType**](managed-client-type) |  | 
 **CcgVersion** | **string** | CCG version used by the ManagedCluster | 
-**PinnedConfig** | Pointer to **bool** | boolean flag indiacting whether or not the cluster configuration is pinned | [optional] [default to false]
+**PinnedConfig** | Pointer to **bool** | boolean flag indicating whether or not the cluster configuration is pinned | [optional] [default to false]
 **LogConfiguration** | Pointer to [**NullableClientLogConfiguration**](client-log-configuration) |  | [optional] 
 **Operational** | Pointer to **bool** | Whether or not the cluster is operational or not | [optional] [default to false]
 **Status** | Pointer to **string** | Cluster status | [optional] 
 **PublicKeyCertificate** | Pointer to **NullableString** | Public key certificate | [optional] 
 **PublicKeyThumbprint** | Pointer to **NullableString** | Public key thumbprint | [optional] 
 **PublicKey** | Pointer to **NullableString** | Public key | [optional] 
+**EncryptionConfiguration** | Pointer to [**ManagedClusterEncryptionConfig**](managed-cluster-encryption-config) |  | [optional] 
 **AlertKey** | Pointer to **string** | Key describing any immediate cluster alerts | [optional] 
 **ClientIds** | Pointer to **[]string** | List of clients in a cluster | [optional] 
 **ServiceCount** | Pointer to **int32** | Number of services bound to a cluster | [optional] [default to 0]
@@ -570,6 +571,31 @@ HasPublicKey returns a boolean if a field has been set.
 `func (o *ManagedCluster) UnsetPublicKey()`
 
 UnsetPublicKey ensures that no value is present for PublicKey, not even an explicit nil
+### GetEncryptionConfiguration
+
+`func (o *ManagedCluster) GetEncryptionConfiguration() ManagedClusterEncryptionConfig`
+
+GetEncryptionConfiguration returns the EncryptionConfiguration field if non-nil, zero value otherwise.
+
+### GetEncryptionConfigurationOk
+
+`func (o *ManagedCluster) GetEncryptionConfigurationOk() (*ManagedClusterEncryptionConfig, bool)`
+
+GetEncryptionConfigurationOk returns a tuple with the EncryptionConfiguration field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEncryptionConfiguration
+
+`func (o *ManagedCluster) SetEncryptionConfiguration(v ManagedClusterEncryptionConfig)`
+
+SetEncryptionConfiguration sets EncryptionConfiguration field to given value.
+
+### HasEncryptionConfiguration
+
+`func (o *ManagedCluster) HasEncryptionConfiguration() bool`
+
+HasEncryptionConfiguration returns a boolean if a field has been set.
+
 ### GetAlertKey
 
 `func (o *ManagedCluster) GetAlertKey() string`

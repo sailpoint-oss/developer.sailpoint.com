@@ -29,13 +29,14 @@ Name | Type | Description | Notes
 **redis** | [**ManagedClusterRedis**](managed-cluster-redis) |  | [optional] 
 **client_type** | [**ManagedClientType**](managed-client-type) |  | [required]
 **ccg_version** | **str** | CCG version used by the ManagedCluster | [required]
-**pinned_config** | **bool** | boolean flag indiacting whether or not the cluster configuration is pinned | [optional] [default to False]
+**pinned_config** | **bool** | boolean flag indicating whether or not the cluster configuration is pinned | [optional] [default to False]
 **log_configuration** | [**ClientLogConfiguration**](client-log-configuration) |  | [optional] 
 **operational** | **bool** | Whether or not the cluster is operational or not | [optional] [default to False]
 **status** |  **Enum** [  'CONFIGURING',    'FAILED',    'NO_CLIENTS',    'NORMAL',    'WARNING' ] | Cluster status | [optional] 
 **public_key_certificate** | **str** | Public key certificate | [optional] 
 **public_key_thumbprint** | **str** | Public key thumbprint | [optional] 
 **public_key** | **str** | Public key | [optional] 
+**encryption_configuration** | [**ManagedClusterEncryptionConfig**](managed-cluster-encryption-config) |  | [optional] 
 **alert_key** | **str** | Key describing any immediate cluster alerts | [optional] 
 **client_ids** | **[]str** | List of clients in a cluster | [optional] 
 **service_count** | **int** | Number of services bound to a cluster | [optional] [default to 0]
@@ -89,6 +90,8 @@ status='NORMAL',
 public_key_certificate='-----BEGIN CERTIFICATE-----TCCAb2gAwIBAgIBADANBgkqhkiG9w0BAQsFADAuMQ0wCwYDVQQD-----END CERTIFICATE-----',
 public_key_thumbprint='obc6pLiulGbtZ',
 public_key='-----BEGIN PUBLIC KEY-----jANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3WgnsxP52MDgBTfHR+5n4-----END PUBLIC KEY-----',
+encryption_configuration=sailpoint.v2024.models.managed_cluster_encryption_configuration.Managed Cluster Encryption Configuration(
+                    format = 'V3', ),
 alert_key='LIMITED_RESOURCES',
 client_ids=[1244, 1245],
 service_count=6,

@@ -83,12 +83,10 @@ with ApiClient(configuration) as api_client:
           "identityId" : "2c91808568c529c60168cca6f90c1313",
           "accessRefs" : [ {
             "type" : "ENTITLEMENT",
-            "id" : "2c918087682f9a86016839c050861ab1",
-            "name" : "CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local"
+            "id" : "2c918087682f9a86016839c050861ab1"
           }, {
             "type" : "ENTITLEMENT",
-            "id" : "2c918087682f9a86016839c0509c1ab2",
-            "name" : "CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local"
+            "id" : "2c918087682f9a86016839c0509c1ab2"
           } ]
         }''' # IdentityWithNewAccess | 
 
@@ -118,7 +116,7 @@ This API initiates a SOD policy verification asynchronously.
 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | identity_with_new_access1 | [**IdentityWithNewAccess1**](../models/identity-with-new-access1) | True  | 
+ Body  | identity_with_new_access | [**IdentityWithNewAccess**](../models/identity-with-new-access) | True  | 
 
 ### Return type
 [**SodViolationCheck**](../models/sod-violation-check)
@@ -143,21 +141,30 @@ Code | Description  | Data Type | Response headers |
 ```python
 from sailpoint.v2025.api.sod_violations_api import SODViolationsApi
 from sailpoint.v2025.api_client import ApiClient
-from sailpoint.v2025.models.identity_with_new_access1 import IdentityWithNewAccess1
+from sailpoint.v2025.models.identity_with_new_access import IdentityWithNewAccess
 from sailpoint.v2025.models.sod_violation_check import SodViolationCheck
 from sailpoint.configuration import Configuration
 configuration = Configuration()
 
 
 with ApiClient(configuration) as api_client:
-    identity_with_new_access1 = '''{identityId=2c91808568c529c60168cca6f90c1313, accessRefs=[{type=ENTITLEMENT, id=2c918087682f9a86016839c050861ab1, name=CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local}, {type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2, name=CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local}], clientMetadata={additionalProp1=string, additionalProp2=string, additionalProp3=string}}''' # IdentityWithNewAccess1 | 
+    identity_with_new_access = '''{
+          "identityId" : "2c91808568c529c60168cca6f90c1313",
+          "accessRefs" : [ {
+            "type" : "ENTITLEMENT",
+            "id" : "2c918087682f9a86016839c050861ab1"
+          }, {
+            "type" : "ENTITLEMENT",
+            "id" : "2c918087682f9a86016839c0509c1ab2"
+          } ]
+        }''' # IdentityWithNewAccess | 
 
     try:
         # Check sod violations
-        new_identity_with_new_access1 = IdentityWithNewAccess1.from_json(identity_with_new_access1)
-        results = SODViolationsApi(api_client).start_violation_check(identity_with_new_access1=new_identity_with_new_access1)
+        new_identity_with_new_access = IdentityWithNewAccess.from_json(identity_with_new_access)
+        results = SODViolationsApi(api_client).start_violation_check(identity_with_new_access=new_identity_with_new_access)
         # Below is a request that includes all optional parameters
-        # results = SODViolationsApi(api_client).start_violation_check(new_identity_with_new_access1)
+        # results = SODViolationsApi(api_client).start_violation_check(new_identity_with_new_access)
         print("The response of SODViolationsApi->start_violation_check:\n")
         print(results.model_dump_json(by_alias=True, indent=4))
     except Exception as e:

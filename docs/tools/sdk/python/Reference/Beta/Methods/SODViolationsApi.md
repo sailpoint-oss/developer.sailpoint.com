@@ -87,12 +87,10 @@ with ApiClient(configuration) as api_client:
           "identityId" : "2c91808568c529c60168cca6f90c1313",
           "accessRefs" : [ {
             "type" : "ENTITLEMENT",
-            "id" : "2c918087682f9a86016839c050861ab1",
-            "name" : "CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local"
+            "id" : "2c918087682f9a86016839c050861ab1"
           }, {
             "type" : "ENTITLEMENT",
-            "id" : "2c918087682f9a86016839c0509c1ab2",
-            "name" : "CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local"
+            "id" : "2c918087682f9a86016839c0509c1ab2"
           } ]
         }''' # IdentityWithNewAccess | 
 

@@ -33,7 +33,7 @@ properties:
     example: Director
   status:
     type: string
-    enum: [Active, Disabled]
+    enum: [Active, Pending, Disabled]
     description: Status of the user
     example: Active
   login:

@@ -28,7 +28,7 @@ properties:
     example: my_user_title
   status:
     type: string
-    enum: [Active, Disabled]
+    enum: [Active, Pending, Disabled]
     required: true
     description: The user status
     example: Active

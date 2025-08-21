@@ -9,7 +9,7 @@ get:
     - $ref: "../parameters/query/name.yaml"
     - $ref: "../parameters/query/login.yaml"
     - $ref: "../parameters/query/title.yaml"
-    - $ref: "../parameters/query/status.yaml"
+    - $ref: "../parameters/query/user_status.yaml"
     - $ref: "../parameters/query/email.yaml"
     - $ref: "../parameters/query/metadata.yaml"
   responses:

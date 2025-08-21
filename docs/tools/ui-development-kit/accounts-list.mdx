@@ -90,7 +90,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { SailPointSDKService } from '../sailpoint-sdk.service';
+import { AccountV2025 } from 'sailpoint-api-client';
 
 @Component({
   selector: 'app-accounts',
@@ -102,12 +105,17 @@ import { SailPointSDKService } from '../sailpoint-sdk.service';
     MatIconModule,
     MatTableModule,
     MatToolbarModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule
   ],
   templateUrl: './accounts.component.html',
   styleUrl: './accounts.component.scss',
 })
 export class AccountsComponent implements OnInit {
   title = 'Accounts';
+  loading = true;
+  accounts: AccountV2025[] = [];
+  displayedColumns: string[] = ['id', 'name', 'nativeIdentity', 'sourceId', 'disabled', 'locked', 'actions'];
 
   constructor(private sdk: SailPointSDKService) {}
 
@@ -117,14 +125,23 @@ export class AccountsComponent implements OnInit {
   }
 
   private async loadAccounts() {
+    this.loading = true;
     try {
-      const accounts = await this.sdk.listAccounts();
-      console.log('Loaded accounts:', accounts);
+      const response = await this.sdk.listAccounts();
+      this.accounts = response.data as AccountV2025[];
+      console.log('Loaded accounts:', this.accounts);
     } catch (error) {
       console.error('Error loading accounts:', error);
+    } finally {
+      this.loading = false;
     }
   }
+
+  viewAccount(account: AccountV2025): void {
+    console.log('Viewing account:', account);
+  }
 }
+
 
 ```
 
@@ -132,106 +149,98 @@ Return to your accounts list page. In the electron app, click View -> Toggle Dev
 
 Now that you have your account data, you need to display the data. You can add a table to the UI and display your results.
 
-To do so, add this code to `src/routes/accounts/account-list/+page.svelte`:
+To do so, add this code to `\accounts\accounts.component.html`:
 
 <details>
 
 <summary>Show code</summary>
 
 ```html
-<script lang="ts">
-	import Progress from '$lib/Components/Progress.svelte';
-	import {
-		TriggerCodeModal,
-		formatDate
-	} from '$lib/Utils.js';
-	import { getModalStore } from '@skeletonlabs/skeleton';
+<div class="accounts-container">
+  <mat-toolbar color="primary">
+    <mat-icon>account_box</mat-icon>
+    <span class="toolbar-title">{{ title }}</span>
+  </mat-toolbar>
 
-	export let data;
+  <div class="content">
+    <!-- Loading spinner -->
+    <div *ngIf="loading" class="spinner-container">
+      <mat-spinner diameter="75"></mat-spinner>
+    </div>
 
-	const modalStore = getModalStore();
+    <div *ngIf="!loading" class="table-container">
+      <!-- Accounts table -->
+      <table mat-table [dataSource]="accounts" class="mat-elevation-z8" *ngIf="accounts.length">
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let account">{{ account.id }}</td>
+        </ng-container>
 
-</script>
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let account">{{ account.name || '-' }}</td>
+        </ng-container>
 
-<div class="flex justify-center flex-col align-middle gap-2">
-	<div class="card p-4">
-		<p class="text-2xl text-center">List of all accounts</p> <!-- Page title -->
-	</div>
-	{#await data.accountData}
-		<div class="grid h-full place-content-center p-8">
-			<Progress width="w-[100px]" />
-		</div>
-	{:then accountData}
-    <!-- If there is no account data show a message to the user -->
-		{#if accountData.length === 0} 
-			<div class="card p-4">
-				<p class=" text-center text-success-500">No Accounts found</p>
-			</div>
-		{:else}
-			<div class="table-container">
-				<table class="table">
-					<thead class="table-head"> <!-- Table headers -->
-						<th> Name </th>
-						<th> Native Identity </th>
-						<th> Source </th>
-						<th> Created </th>
-						<th> Modified </th>
-						<th> Authoritative </th>
-						<th> Features </th>
-						<th> Has Entitlements </th>
-						<th></th>
-					</thead>
-					<tbody class="table-body">
-						{#each accountData as account} <!-- Create a table row for each account -->
-							<tr>
-								<td>
-									{account.name}
-								</td>
-								<td>
-									{account.nativeIdentity}
-								</td>
-								<td>
-									{account.sourceName}
-								</td>
-								<td>
-									{formatDate(account.created)}
-								</td>
-								<td>
-									{formatDate(account.modified)}
-								</td>
-								<td>
-									{account.authoritative}
-								</td>
-								<td>
-									{account.features}
-								</td>
-								<td>
-									{account.hasEntitlements}
-								</td>
-								<td>
-									<div class="flex flex-col justify-center gap-1">
-                                        <!-- Trigger code modal view to see raw account data -->
-										<button
-											on:click={() => TriggerCodeModal(account, modalStore)}
-											class="btn btn-sm variant-filled-primary text-sm !text-white"
-										>
-											View
-										</button>
-									</div>
-								</td>
-							</tr>
-						{/each}
-					</tbody>
-				</table>
-			</div>
-		{/if}
-	{/await}
+        <!-- Native Identity Column -->
+        <ng-container matColumnDef="nativeIdentity">
+          <th mat-header-cell *matHeaderCellDef>Native Identity</th>
+          <td mat-cell *matCellDef="let account">{{ account.nativeIdentity || '-' }}</td>
+        </ng-container>
+
+        <!-- Source ID Column -->
+        <ng-container matColumnDef="sourceId">
+          <th mat-header-cell *matHeaderCellDef>Source</th>
+          <td mat-cell *matCellDef="let account">{{ account.sourceId || '-' }}</td>
+        </ng-container>
+
+        <!-- Disabled Column -->
+        <ng-container matColumnDef="disabled">
+          <th mat-header-cell *matHeaderCellDef>Disabled</th>
+          <td mat-cell *matCellDef="let account">
+            <mat-icon *ngIf="account.disabled">check_circle</mat-icon>
+            <mat-icon *ngIf="!account.disabled">cancel</mat-icon>
+          </td>
+        </ng-container>
+
+        <!-- Locked Column -->
+        <ng-container matColumnDef="locked">
+          <th mat-header-cell *matHeaderCellDef>Locked</th>
+          <td mat-cell *matCellDef="let account">
+            <mat-icon *ngIf="account.locked">lock</mat-icon>
+            <mat-icon *ngIf="!account.locked">lock_open</mat-icon>
+          </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let account">
+            <button mat-button color="primary" (click)="viewAccount(account)">
+              <mat-icon>visibility</mat-icon> View
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <!-- No data message -->
+      <div *ngIf="accounts.length === 0" class="no-data-message">
+        No accounts found.
+      </div>
+    </div>
+  </div>
 </div>
+
+
 ```
 
 </details>
 
-Save the `+page.svelte` file and return to the accounts list page. You will see up to 250 accounts in the table.
+Save the `\accounts\accounts.component.html` file and return to the accounts list page. You will see up to 250 accounts in the table.
 
 ## Pagination
 
@@ -246,378 +255,744 @@ import TabItem from '@theme/TabItem';
 import Tabs from '@theme/Tabs';
 
 <Tabs>
-<TabItem value="accounts_page" label="account-list/+page.svelte" default>
+<TabItem value="accounts_page" label="\accounts\accounts.component.html" default>
 
 ```html
-<script lang="ts">
-	// highlight-next-line
-	import Paginator from '$lib/Components/Paginator.svelte';
-    import Progress from '$lib/Components/Progress.svelte';
-	import {
-		TriggerCodeModal,
-		formatDate,
-		// highlight-start
-        createOnPageChange,
-        createOnAmountChange
-		// highlight-end
-	} from '$lib/Utils.js';
-	import { getModalStore } from '@skeletonlabs/skeleton';
+<div class="accounts-container">
+  <mat-toolbar color="primary">
+    <mat-icon>account_box</mat-icon>
+    <span class="toolbar-title">{{ title }}</span>
+  </mat-toolbar>
 
-	export let data;
+  <div class="content">
+    <!-- Loading spinner -->
+    <div *ngIf="loading" class="spinner-container">
+      <mat-spinner diameter="75"></mat-spinner>
+    </div>
 
-	const modalStore = getModalStore();
+    <div *ngIf="!loading" class="table-container">
+      <!-- Accounts table -->
+      <table mat-table [dataSource]="accounts" class="mat-elevation-z8" *ngIf="accounts.length">
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let account">{{ account.id }}</td>
+        </ng-container>
 
-	// highlight-start
-    $: onPageChange = createOnPageChange(
-		{ ...data.params, filters: '', sorters: ''},
-		'/accounts/account-list'
-	);
-	$: onAmountChange = createOnAmountChange(
-		{ ...data.params, filters: '', sorters: ''},
-		'/accounts/account-list'
-	);
-	// highlight-end
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let account">{{ account.name || '-' }}</td>
+        </ng-container>
 
-</script>
+        <!-- Native Identity Column -->
+        <ng-container matColumnDef="nativeIdentity">
+          <th mat-header-cell *matHeaderCellDef>Native Identity</th>
+          <td mat-cell *matCellDef="let account">{{ account.nativeIdentity || '-' }}</td>
+        </ng-container>
 
-<div class="flex justify-center flex-col align-middle gap-2">
-	<div class="card p-4">
-		<p class="text-2xl text-center">List of all accounts</p>
-	</div>
-	{#await data.accountData}
-		<div class="grid h-full place-content-center p-8">
-			<Progress width="w-[100px]" />
-		</div>
-	{:then accountData}
-	<!-- highlight-start -->
-        {#await data.totalCount then totalCount}
-            {#if totalCount > 250 || Number(data.params.limit) < totalCount}
-                <div class="card p-4">
-                    <Paginator
-                        {onAmountChange}
-                        {onPageChange}
-                        settings={{
-                            page: Number(data.params.page),
-                            limit: Number(data.params.limit),
-                            size: totalCount,
-                            amounts: [5, 10, 50, 100, 250]
-                        }}
-                        {totalCount}
-                    />
-                </div>
-            {/if}
-        {/await}
-		<!-- highlight-end -->
-		{#if accountData.length === 0}
-			<div class="card p-4">
-				<p class=" text-center text-success-500">No Accounts found</p>
-			</div>
-		{:else}
-			<div class="table-container">
-				<table class="table">
-					<thead class="table-head">
-						<th> Name </th>
-						<th> Native Identity </th>
-						<th> Source </th>
-						<th> Created </th>
-						<th> Modified </th>
-						<th> Authoritative </th>
-						<th> Features </th>
-						<th> Has Entitlements </th>
-						<th></th>
-					</thead>
-					<tbody class="table-body">
-						{#each accountData as account}
-							<tr>
-								<td>
-									{account.name}
-								</td>
-								<td>
-									{account.nativeIdentity}
-								</td>
-								<td>
-									{account.sourceName}
-								</td>
-								<td>
-									{formatDate(account.created)}
-								</td>
-								<td>
-									{formatDate(account.modified)}
-								</td>
-								<td>
-									{account.authoritative}
-								</td>
-								<td>
-									{account.features}
-								</td>
-								<td>
-									{account.hasEntitlements}
-								</td>
-								<td>
-									<div class="flex flex-col justify-center gap-1">
-										<button
-											on:click={() => TriggerCodeModal(account, modalStore)}
-											class="btn btn-sm variant-filled-primary text-sm !text-white"
-										>
-											View
-										</button>
-									</div>
-								</td>
-							</tr>
-						{/each}
-					</tbody>
-				</table>
-			</div>
-		{/if}
-	{/await}
+        <!-- Source ID Column -->
+        <ng-container matColumnDef="sourceId">
+          <th mat-header-cell *matHeaderCellDef>Source</th>
+          <td mat-cell *matCellDef="let account">{{ account.sourceId || '-' }}</td>
+        </ng-container>
+
+        <!-- Disabled Column -->
+        <ng-container matColumnDef="disabled">
+          <th mat-header-cell *matHeaderCellDef>Disabled</th>
+          <td mat-cell *matCellDef="let account">
+            <mat-icon *ngIf="account.disabled">check_circle</mat-icon>
+            <mat-icon *ngIf="!account.disabled">cancel</mat-icon>
+          </td>
+        </ng-container>
+
+        <!-- Locked Column -->
+        <ng-container matColumnDef="locked">
+          <th mat-header-cell *matHeaderCellDef>Locked</th>
+          <td mat-cell *matCellDef="let account">
+            <mat-icon *ngIf="account.locked">lock</mat-icon>
+            <mat-icon *ngIf="!account.locked">lock_open</mat-icon>
+          </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let account">
+            <button mat-button color="primary" (click)="viewAccount(account)">
+              <mat-icon>visibility</mat-icon> View
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <!-- Paginator -->
+      <mat-paginator
+        [length]="totalCount"
+        [pageSize]="pageSize"
+        [pageIndex]="pageIndex"
+        [pageSizeOptions]="[5, 10, 25, 100, 250]"
+        (page)="onPageChange($event)"
+        showFirstLastButtons
+        aria-label="Select page of accounts">
+      </mat-paginator>
+
+      <!-- No data message -->
+      <div *ngIf="accounts.length === 0" class="no-data-message">
+        No accounts found.
+      </div>
+    </div>
+  </div>
 </div>
+
 ```
 
 </TabItem>
-<TabItem value="accounts_list_server" label="accounts-list/+page.server.ts">
+<TabItem value="accounts_list_server" label="\accounts\accounts.component.ts">
 
 ```typescript
-import { createConfiguration } from '$lib/sailpoint/sdk.js';
-// highlight-next-line
-import { getLimit, getPage } from '$lib/Utils.js';
-import type { Account } from 'sailpoint-api-client';
-import { AccountsApi } from 'sailpoint-api-client';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { SailPointSDKService } from '../sailpoint-sdk.service';
+import { AccountV2025 } from 'sailpoint-api-client';
 
-export const load = async ({ url, locals }) => {
-    const config = createConfiguration(locals.session!.baseUrl, locals.idnSession!.access_token);
-	const api = new AccountsApi(config);
+@Component({
+  selector: 'app-accounts',
+  standalone: true,
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule
+  ],
+  templateUrl: './accounts.component.html',
+  styleUrl: './accounts.component.scss',
+})
+export class AccountsComponent implements OnInit {
+  title = 'Accounts';
+  loading = true;
+  accounts: AccountV2025[] = [];
+  displayedColumns: string[] = ['id', 'name', 'nativeIdentity', 'sourceId', 'disabled', 'locked', 'actions'];
+  
+  // Pagination settings
+  pageSize = 10;
+  pageIndex = 0;
+  totalCount = 0;
 
-	// highlight-start
-    const page = getPage(url);
-	const limit = getLimit(url);
-	// highlight-end
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-	// highlight-next-line
-    const reportResp = api.listAccounts({count: true, limit: Number(limit), offset: Number(page) * Number(limit)});
+  constructor(private sdk: SailPointSDKService) {}
 
-	const totalCount = new Promise<number>((resolve) => {
-		reportResp.then((response) => {
-			resolve(response.headers['x-total-count']);
-		});
-	});
+  ngOnInit() {
+    // Load initial data
+    void this.loadAccounts();
+  }
 
-	const accountData = new Promise<Account[]>((resolve) => {
-		reportResp.then((response) => {
-			resolve(response.data);
-		});
-	});
+  async loadAccounts() {
+    // Setup request for paged account results
+    const request = {
+      offset: this.pageIndex * this.pageSize,
+      limit: this.pageSize,
+      count: true,
+      sorters: undefined,
+      filters: undefined
+    };
 
-	// highlight-next-line
-	return { accountData, totalCount, params: {page, limit}};
-};
+    this.loading = true;
+    try {
+      const response = await this.sdk.listAccounts(request);
+      this.accounts = response.data;
+      
+      // Get total count from headers if available
+      let count: number | undefined;
+      if (response.headers && typeof (response.headers as any).get === 'function') {
+        const headerValue = (response.headers as any).get('X-Total-Count');
+        count = headerValue ? Number(headerValue) : undefined;
+      } else if (response.headers && typeof (response.headers as any)['x-total-count'] !== 'undefined') {
+        count = Number((response.headers as any)['x-total-count']);
+      }
+      
+      this.totalCount = count ?? 250; // Default to 250 if count not available
+      console.log('Loaded accounts:', this.accounts);
+    } catch (error) {
+      console.error('Error loading accounts:', error);
+    } finally {
+      this.loading = false;
+    }
+  }
+
+  // Handle page change events
+  onPageChange(event: PageEvent) {
+    this.pageSize = event.pageSize;
+    this.pageIndex = event.pageIndex;
+    void this.loadAccounts();
+  }
+
+  viewAccount(account: AccountV2025): void {
+    console.log('Viewing account:', account);
+  }
+}
+
 
 ```
 
 </TabItem>
 </Tabs>
 
-Return to the accounts list page. You will see the paginator at the top of the page. You can now paginate through the accounts in your tenant.
+Return to the accounts list page. You will see the paginator at the bottom of the page. You can now paginate through the accounts in your tenant.
+
+
+## Vewing Details
+
+In this step we will create a detail view to see the raw json object that represents the underlying data.
+
+To do this, we will implement the already existing `viewAccount` method to use the `GenericDialogComponent` that comes with the UI Development Kit. The only thing to change here is just to implement the method as seen below:
+
+
+
+```typescript
+  viewAccount(account: AccountV2025): void {
+    // Format account details as JSON string with indentation
+    const details = JSON.stringify(account, null, 2);
+    
+    // Open dialog with account details
+    this.dialog.open(GenericDialogComponent, {
+      minWidth: '800px',
+      data: {
+        title: `Account Details: ${account.name || account.nativeIdentity || account.id}`,
+        message: details
+      }
+    });
+  }
+```
+
+Note that we also need to add the dialog to the constructor:
+
+```typescript
+  constructor(private sdk: SailPointSDKService) {}
+```
+
+And also add the imports:
+
+```
+import { MatDialog } from '@angular/material/dialog';
+import { GenericDialogComponent } from '../generic-dialog/generic-dialog.component';
+```
 
 ## Sort and filter
 
-To better view and organize the data displayed in your accounts list page, you may want to implement sorting and filtering. 
-Sorting is the process of organizing the data. You may want to provide users with a way to sort the data in ascending or descending alphabetical order based on the account name, for example. 
-Filtering is the process of limiting the displayed data based on specified details. You may want to provide users with a way to filter the data to only include accounts associated with one source, for example. 
+The last part of the page we may want to implement would be sorting and filtering. 
+With this implementation, the `this.filterForm.valueChanges` event and `onSortChange` event will cause the page to reload the accounts with the new sort or filter applied.
 
-To implement sorting and filtering, add the following highlighted code. It allows you to sort and filter the accounts in your tenant:
-
-With this implementation, once a user types in a filter or sorter and clicks the 'Go' button, the UI Development Kit calls the `onCreateGo` function and reloads the page with the new sorters and filters.
-
-On the server side, the kit uses the `getFilters` and `getSorters` functions to get the filters and sorters from the URL. 
-The kit then passes these functions to the [List Accounts endpoint](https://developer.sailpoint.com/docs/api/v3/list-accounts) to filter and sort the accounts.
+The completed component and all code can be seen below:
 
 <Tabs>
-<TabItem value="accounts_page" label="account-list/+page.svelte" default>
+<TabItem value="accounts_page" label="\accounts\accounts.component.html" default>
 
-```typescript
-<script lang="ts">
-    import Paginator from '$lib/Components/Paginator.svelte';
-    import Progress from '$lib/Components/Progress.svelte';
-    import {
-        TriggerCodeModal,
-        formatDate,
-        createOnPageChange,
-        createOnAmountChange,
-		// highlight-next-line
-        createOnGo
-    } from '$lib/Utils.js';
-    import { getModalStore } from '@skeletonlabs/skeleton';
+```html
+<div class="accounts-container">
+  <mat-toolbar color="primary">
+    <mat-icon>account_box</mat-icon>
+    <span class="toolbar-title">{{ title }}</span>
+  </mat-toolbar>
 
-    export let data;
-
-    const modalStore = getModalStore();
-
-    $: onPageChange = createOnPageChange(
-        { ...data.params, filters, sorters},
-        '/accounts/account-list'
-    );
-    $: onAmountChange = createOnAmountChange(
-        { ...data.params, filters, sorters},
-        '/accounts/account-list'
-    );
-	// highlight-start
-    $: onGo = createOnGo(
-		{ ...data.params, filters, sorters },
-		'/accounts/account-list'
-	);
-
-    let filters = data.params.filters || '';
-	let sorters = data.params.sorters || '';
-	// highlight-end
-</script>
-
-<div class="flex justify-center flex-col align-middle gap-2">
-    <div class="card p-4">
-        <p class="text-2xl text-center">List of all accounts</p>
-    </div>
-    {#await data.accountData}
-        <div class="grid h-full place-content-center p-8">
-            <Progress width="w-[100px]" />
+  <div class="content">
+    <!-- Filter panel -->
+    <div class="filter-panel mat-elevation-z1">
+      <form [formGroup]="filterForm">
+        <div class="filter-row">
+          <mat-form-field class="filter-field">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Filter by name" formControlName="name">
+          </mat-form-field>
+          
+          <mat-form-field class="filter-field">
+            <mat-label>Source ID</mat-label>
+            <input matInput placeholder="Filter by source ID" formControlName="sourceId">
+          </mat-form-field>
+          
+          <mat-form-field class="filter-field">
+            <mat-label>Correlated</mat-label>
+            <mat-select formControlName="correlated">
+              <mat-option *ngFor="let option of correlatedOptions" [value]="option.value">
+                {{option.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+          <button mat-stroked-button color="primary" (click)="resetFilters()">
+            <mat-icon>clear</mat-icon> Clear
+          </button>
         </div>
-    {:then accountData}
-        {#await data.totalCount then totalCount}
-            {#if totalCount > 250 || Number(data.params.limit) < totalCount}
-                <div class="card p-4">
-                    <Paginator
-                        {onAmountChange}
-						// highlight-next-line
-                        {onGo}
-                        {onPageChange}
-                        settings={{
-                            page: Number(data.params.page),
-                            limit: Number(data.params.limit),
-                            size: totalCount,
-                            amounts: [5, 10, 50, 100, 250]
-                        }}
-						// highlight-start
-                        bind:sorters
-                        bind:filters
-						// highlight-end
-                        {totalCount}
-                    />
-                </div>
-            {/if}
-        {/await}
-        {#if accountData.length === 0}
-            <div class="card p-4">
-                <p class=" text-center text-success-500">No Accounts found</p>
-            </div>
-        {:else}
-            <div class="table-container">
-                <table class="table">
-                    <thead class="table-head">
-                        <th> Name </th>
-                        <th> Native Identity </th>
-                        <th> Source </th>
-                        <th> Created </th>
-                        <th> Modified </th>
-                        <th> Authoritative </th>
-                        <th> Features </th>
-                        <th> Has Entitlements </th>
-                        <th></th>
-                    </thead>
-                    <tbody class="table-body">
-                        {#each accountData as account}
-                            <tr>
-                                <td>
-                                    {account.name}
-                                </td>
-                                <td>
-                                    {account.nativeIdentity}
-                                </td>
-                                <td>
-                                    {account.sourceName}
-                                </td>
-                                <td>
-                                    {formatDate(account.created)}
-                                </td>
-                                <td>
-                                    {formatDate(account.modified)}
-                                </td>
-                                <td>
-                                    {account.authoritative}
-                                </td>
-                                <td>
-                                    {account.features}
-                                </td>
-                                <td>
-                                    {account.hasEntitlements}
-                                </td>
-                                <td>
-                                    <div class="flex flex-col justify-center gap-1">
-                                        <button
-                                            on:click={() => TriggerCodeModal(account, modalStore)}
-                                            class="btn btn-sm variant-filled-primary text-sm !text-white"
-                                        >
-                                            View
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-                        {/each}
-                    </tbody>
-                </table>
-            </div>
-        {/if}
-    {/await}
+      </form>
+    </div>
+    
+    <!-- Loading spinner -->
+    <div *ngIf="loading" class="spinner-container">
+      <mat-spinner diameter="75"></mat-spinner>
+    </div>
+
+    <div *ngIf="!loading" class="table-container">
+      <!-- Accounts table -->
+      <table mat-table [dataSource]="accounts" matSort [matSortActive]="sortActive" 
+             [matSortDirection]="sortDirection" (matSortChange)="onSortChange($event)" 
+             class="mat-elevation-z8" *ngIf="accounts.length">
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+          <td mat-cell *matCellDef="let account">{{ account.id }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+          <td mat-cell *matCellDef="let account">{{ account.name || '-' }}</td>
+        </ng-container>
+
+        <!-- Native Identity Column -->
+        <ng-container matColumnDef="nativeIdentity">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Native Identity</th>
+          <td mat-cell *matCellDef="let account">{{ account.nativeIdentity || '-' }}</td>
+        </ng-container>
+
+        <!-- Source ID Column -->
+        <ng-container matColumnDef="sourceId">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Source</th>
+          <td mat-cell *matCellDef="let account">{{ account.sourceId || '-' }}</td>
+        </ng-container>
+
+        <!-- Disabled Column -->
+        <ng-container matColumnDef="disabled">
+          <th mat-header-cell *matHeaderCellDef>Disabled</th>
+          <td mat-cell *matCellDef="let account">
+            <mat-icon *ngIf="account.disabled">check_circle</mat-icon>
+            <mat-icon *ngIf="!account.disabled">cancel</mat-icon>
+          </td>
+        </ng-container>
+
+        <!-- Locked Column -->
+        <ng-container matColumnDef="locked">
+          <th mat-header-cell *matHeaderCellDef>Locked</th>
+          <td mat-cell *matCellDef="let account">
+            <mat-icon *ngIf="account.locked">lock</mat-icon>
+            <mat-icon *ngIf="!account.locked">lock_open</mat-icon>
+          </td>
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let account">
+            <button mat-button color="primary" (click)="viewAccount(account)">
+              <mat-icon>visibility</mat-icon> View
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <!-- Paginator -->
+      <mat-paginator
+        [length]="totalCount"
+        [pageSize]="pageSize"
+        [pageIndex]="pageIndex"
+        [pageSizeOptions]="[5, 10, 25, 100, 250]"
+        (page)="onPageChange($event)"
+        showFirstLastButtons
+        aria-label="Select page of accounts">
+      </mat-paginator>
+
+      <!-- No data message -->
+      <div *ngIf="accounts.length === 0" class="no-data-message">
+        No accounts found.
+      </div>
+    </div>
+  </div>
 </div>
+
+
 ```
 
 </TabItem>
-<TabItem value="accounts_list_server" label="accounts-list/+page.server.ts">
+<TabItem value="accounts_list_ts" label="\accounts\accounts.component.ts">
 
 ```typescript
-import { createConfiguration } from '$lib/sailpoint/sdk.js';
-// highlight-next-line
-import { getFilters, getLimit, getPage, getSorters } from '$lib/Utils.js';
-import type { Account } from 'sailpoint-api-client';
-import { AccountsApi } from 'sailpoint-api-client';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort, MatSortModule, Sort, SortDirection } from '@angular/material/sort';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDialog } from '@angular/material/dialog';
+import { GenericDialogComponent } from '../generic-dialog/generic-dialog.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { SailPointSDKService } from '../sailpoint-sdk.service';
+import { AccountV2025 } from 'sailpoint-api-client';
 
-export const load = async ({ url, locals }) => {
-    const config = createConfiguration(locals.session!.baseUrl, locals.idnSession!.access_token);
-    const api = new AccountsApi(config);
+@Component({
+  selector: 'app-accounts',
+  standalone: true,
+  imports: [
+    CommonModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule,
+    MatSortModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    GenericDialogComponent
+  ],
+  templateUrl: './accounts.component.html',
+  styleUrl: './accounts.component.scss',
+})
+export class AccountsComponent implements OnInit {
+  title = 'Accounts';
+  loading = true;
+  accounts: AccountV2025[] = [];
+  error = false;
+  errorMessage = '';
+  displayedColumns: string[] = ['id', 'name', 'nativeIdentity', 'sourceId', 'disabled', 'locked', 'actions'];
 
-    const page = getPage(url);
-    const limit = getLimit(url);
-	// highlight-start
-    const sorters = getSorters(url);
-    const filters = getFilters(url);
-	// highlight-end
+  // Sort settings
+  sortActive = 'name';
+  sortDirection: SortDirection = 'asc';
 
-	// highlight-next-line
-    const reportResp = api.listAccounts({count: true, sorters: sorters, filters: filters, limit: Number(limit), offset: Number(page) * Number(limit)});
+  // Filter form
+  filterForm = new FormGroup({
+    name: new FormControl(''),
+    sourceId: new FormControl(''),
+    correlated: new FormControl('')
+  });
 
-    const totalCount = new Promise<number>((resolve) => {
-        reportResp.then((response) => {
-            resolve(response.headers['x-total-count']);
-        });
+  // Filter options
+  correlatedOptions = [
+    { value: '', label: 'All' },
+    { value: 'true', label: 'Correlated' },
+    { value: 'false', label: 'Uncorrelated' }
+  ];
+  
+  // Pagination settings
+  pageSize = 10;
+  pageIndex = 0;
+  totalCount = 0;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  constructor(private sdk: SailPointSDKService, private dialog: MatDialog) {}
+
+  ngOnInit() {
+    // Load initial data
+    void this.loadAccounts();
+
+    // Subscribe to filter changes
+    this.filterForm.valueChanges.subscribe(() => {
+      this.pageIndex = 0; // Reset to first page on filter change
+      void this.loadAccounts();
     });
+  }
 
-    const accountData = new Promise<Account[]>((resolve) => {
-        reportResp.then((response) => {
-            resolve(response.data);
-        });
+  async loadAccounts() {
+    // Setup request for paged account results
+    const request = {
+      offset: this.pageIndex * this.pageSize,
+      limit: this.pageSize,
+      count: true,
+      sorters: this.buildSorters(),
+      filters: this.buildFilters()
+    };
+
+    this.loading = true;
+    this.error = false;
+    this.errorMessage = '';
+    
+    try {
+      const response = await this.sdk.listAccounts(request);
+      if (response.status !== 200) {
+        throw new Error(`Failed to load accounts: ${response.statusText}`);
+      }
+      this.accounts = response.data;
+      
+      // Get total count from headers if available
+      let count: number | undefined;
+      if (response.headers && typeof (response.headers as any).get === 'function') {
+        const headerValue = (response.headers as any).get('X-Total-Count');
+        count = headerValue ? Number(headerValue) : undefined;
+      } else if (response.headers && typeof (response.headers as any)['x-total-count'] !== 'undefined') {
+        count = Number((response.headers as any)['x-total-count']);
+      }
+      
+      this.totalCount = count ?? 250; // Default to 250 if count not available
+    } catch (error) {
+      console.error('Error loading accounts:', error);
+      this.error = true;
+      this.errorMessage = error instanceof Error ? error.message : String(error);
+      this.accounts = [];
+    } finally {
+      this.loading = false;
+    }
+  }
+
+  // Handle page change events
+  onPageChange(event: PageEvent) {
+    this.pageSize = event.pageSize;
+    this.pageIndex = event.pageIndex;
+    void this.loadAccounts();
+  }
+
+  // Handle sort changes
+  onSortChange(event: Sort) {
+    this.sortActive = event.active;
+    this.sortDirection = event.direction as SortDirection;
+    void this.loadAccounts();
+  }
+
+  // Reset filters
+  resetFilters() {
+    this.filterForm.reset({
+      name: '',
+      sourceId: '',
+      correlated: ''
     });
+  }
 
-	// highlight-next-line
-    return { accountData, totalCount, params: {page, limit, sorters, filters}};
-};
+  // Build sorters string for API request
+  buildSorters(): string | undefined {
+    if (!this.sortActive || this.sortDirection === '') {
+      return undefined;
+    }
+    // For descending order, prefix column name with minus sign
+    return this.sortDirection === 'desc' ? `-${this.sortActive}` : this.sortActive;
+  }
+
+  // Build filters string for API request
+  buildFilters(): string | undefined {
+    const filters: string[] = [];
+    const formValues = this.filterForm.value;
+    
+    if (formValues.name) {
+      filters.push(`name sw "${formValues.name}"`); 
+    }
+    
+    if (formValues.sourceId) {
+      filters.push(`sourceId eq "${formValues.sourceId}"`); 
+    }
+    
+    if (formValues.correlated) {
+      filters.push(`identity.correlated eq ${formValues.correlated}`);
+    }
+    
+    return filters.length > 0 ? filters.join(' and ') : undefined;
+  }
+
+  viewAccount(account: AccountV2025): void {
+      // Format account details as JSON string with indentation
+      const details = JSON.stringify(account, null, 2);
+      
+      // Open dialog with account details
+      this.dialog.open(GenericDialogComponent, {
+        minWidth: '800px',
+        data: {
+          title: `Account Details: ${account.name || account.nativeIdentity || account.id}`,
+          message: details
+      }
+    });
+  }
+}
+
+
+
+```
+
+</TabItem>
+
+<TabItem value="accounts_list_css" label="\accounts\accounts.component.css">
+
+```css
+.accounts-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.toolbar-title {
+  margin-left: 16px;
+}
+
+.content {
+  padding: 24px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.filter-panel {
+  margin-bottom: 20px;
+  padding: 16px;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.filter-field {
+  flex: 1;
+  min-width: 200px;
+}
+
+:host-context(.dark-theme) .filter-panel {
+  background-color: #333;
+}
+
+mat-card {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+mat-card-actions {
+  display: flex;
+  gap: 8px;
+  padding: 16px;
+}
+
+mat-card-actions button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+::ng-deep mat-spinner circle {
+  stroke: #0033a1; /* teal-like custom color */
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center; // horizontal centering
+  align-items: center; // vertical centering
+  border: none;
+  height: 75vh; // takes full viewport height (adjust as needed)
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sortable {
+  cursor: pointer;
+}
+
+.sortable:hover {
+  background-color: #f3f3f3;
+}
+
+.sort-icon {
+  margin-left: 6px;
+  font-size: 0.95rem;
+  color: black;
+
+  // Highlight active sort
+  &.active {
+    color: #415364;
+    font-weight: bold;
+  }
+}
+td.mat-cell,
+th.mat-header-cell {
+  vertical-align: middle;
+}
+
+td.mat-cell:last-child,
+th.mat-header-cell:last-child {
+  text-align: center;
+}
+
+#viewIdentity,
+#attibuteDetails,
+#managerDetails {
+  padding: 8px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 55px;
+}
+
+#attibuteDetails,
+#managerDetails {
+  width: 125px;
+}
+
+:host {
+  /* Dark mode overrides */
+
+  :host-context(.dark-theme) .sortable:hover {
+    background-color: #2c2c2c; /* Darker hover background */
+  }
+
+  :host-context(.dark-theme) .sort-icon {
+    margin-left: 6px;
+    font-size: 0.95rem;
+    color: #ffffff;
+
+    // Highlight active sort
+    &.active {
+      color: #ffffff;
+      font-weight: bold;
+    }
+  }
+}
 ```
 
 </TabItem>
 </Tabs>
+
+
+
 
 ## Error handling
 
 You have now implemented a new page that lists all the accounts in your tenant, and you can now paginate, sort and filter the accounts in your tenant. 
 
-Ideally, everything in your custom UIs will work smoothly, but you will likely encounter errors at some point when you're implementing a page. If you provide an invalid filter or sorter, the list accounts endpoint will return a 400 error, for example. 
-You can handle this error by adding a `try catch` block to the server side of the accounts list page.
+Ideally, everything in your custom UIs will work smoothly, but you will likely encounter errors at some point when you're implementing a page. For example, if you provide an invalid filter or sorter, the list accounts endpoint will return a 400 error. 
+You can see that there is a `try catch` block on the loadAccounts method that currently shows a console.log error but a custom message could be implemented to notify the user of a problem. This is not covered in this part of the tutorial, but with angular, presenting the user about an error is quite trivial.
 
 To learn more about handling errors in your UI, refer to [Error Handling](./error-handling). 
 

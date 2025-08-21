@@ -46,7 +46,7 @@ The first step to setting up the UI Development Kit is to clone the project from
 To clone the project, you can run this command:
 
 ```bash
-git clone git@github.com:sailpoint-oss/ui-development-kit.git
+git clone https://github.com/sailpoint-oss/ui-development-kit.git
 ```
 
 ## Project structure

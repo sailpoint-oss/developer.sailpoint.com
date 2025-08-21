@@ -28,13 +28,14 @@ Name | Type | Description | Notes
 **Redis** | [**ManagedClusterRedis**](managed-cluster-redis) |  | [optional] 
 **ClientType** | [**ManagedClientType**](managed-client-type) |  | [required]
 **CcgVersion** | **String** | CCG version used by the ManagedCluster | [required]
-**PinnedConfig** | **Boolean** | boolean flag indiacting whether or not the cluster configuration is pinned | [optional] [default to $false]
+**PinnedConfig** | **Boolean** | boolean flag indicating whether or not the cluster configuration is pinned | [optional] [default to $false]
 **LogConfiguration** | [**ClientLogConfiguration**](client-log-configuration) |  | [optional] 
 **Operational** | **Boolean** | Whether or not the cluster is operational or not | [optional] [default to $false]
 **Status** |  **Enum** [  "CONFIGURING",    "FAILED",    "NO_CLIENTS",    "NORMAL",    "WARNING" ] | Cluster status | [optional] 
 **PublicKeyCertificate** | **String** | Public key certificate | [optional] 
 **PublicKeyThumbprint** | **String** | Public key thumbprint | [optional] 
 **PublicKey** | **String** | Public key | [optional] 
+**EncryptionConfiguration** | [**ManagedClusterEncryptionConfig**](managed-cluster-encryption-config) |  | [optional] 
 **AlertKey** | **String** | Key describing any immediate cluster alerts | [optional] 
 **ClientIds** | **[]String** | List of clients in a cluster | [optional] 
 **ServiceCount** | **Int32** | Number of services bound to a cluster | [optional] [default to 0]
@@ -65,6 +66,7 @@ $ManagedCluster = Initialize-ManagedCluster  -Id e1ff7bb24c934240bbf55e1aa39e41c
  -PublicKeyCertificate -----BEGIN CERTIFICATE-----TCCAb2gAwIBAgIBADANBgkqhkiG9w0BAQsFADAuMQ0wCwYDVQQD-----END CERTIFICATE----- `
  -PublicKeyThumbprint obc6pLiulGbtZ `
  -PublicKey -----BEGIN PUBLIC KEY-----jANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3WgnsxP52MDgBTfHR+5n4-----END PUBLIC KEY----- `
+ -EncryptionConfiguration null `
  -AlertKey LIMITED_RESOURCES `
  -ClientIds [1244, 1245] `
  -ServiceCount 6 `

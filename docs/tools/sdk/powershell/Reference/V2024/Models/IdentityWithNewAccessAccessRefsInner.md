@@ -18,15 +18,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** |  **Enum** [  "ENTITLEMENT" ] | Entitlement's DTO type. | [optional] 
 **Id** | **String** | Entitlement's ID. | [optional] 
-**Name** | **String** | Entitlement's display name. | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $IdentityWithNewAccessAccessRefsInner = Initialize-V2024IdentityWithNewAccessAccessRefsInner  -Type ENTITLEMENT `
- -Id 2c91809773dee32014e13e122092014e `
- -Name CN=entitlement.490efde5,OU=OrgCo,OU=ServiceDept,DC=HQAD,DC=local
+ -Id 2c91809773dee32014e13e122092014e
 ```
 
 - Convert the resource to JSON

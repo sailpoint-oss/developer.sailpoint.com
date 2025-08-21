@@ -73,12 +73,10 @@ $IdentityWithNewAccess = @"{
   "identityId" : "2c91808568c529c60168cca6f90c1313",
   "accessRefs" : [ {
     "type" : "ENTITLEMENT",
-    "id" : "2c918087682f9a86016839c050861ab1",
-    "name" : "CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local"
+    "id" : "2c918087682f9a86016839c050861ab1"
   }, {
     "type" : "ENTITLEMENT",
-    "id" : "2c918087682f9a86016839c0509c1ab2",
-    "name" : "CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local"
+    "id" : "2c918087682f9a86016839c0509c1ab2"
   } ]
 }"@
 
@@ -105,7 +103,7 @@ This API initiates a SOD policy verification asynchronously.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
- Body  | IdentityWithNewAccess1 | [**IdentityWithNewAccess1**](../models/identity-with-new-access1) | True  | 
+ Body  | IdentityWithNewAccess | [**IdentityWithNewAccess**](../models/identity-with-new-access) | True  | 
 
 ### Return type
 [**SodViolationCheck**](../models/sod-violation-check)
@@ -127,16 +125,25 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$IdentityWithNewAccess1 = @"{identityId=2c91808568c529c60168cca6f90c1313, accessRefs=[{type=ENTITLEMENT, id=2c918087682f9a86016839c050861ab1, name=CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local}, {type=ENTITLEMENT, id=2c918087682f9a86016839c0509c1ab2, name=CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local}], clientMetadata={additionalProp1=string, additionalProp2=string, additionalProp3=string}}"@
+$IdentityWithNewAccess = @"{
+  "identityId" : "2c91808568c529c60168cca6f90c1313",
+  "accessRefs" : [ {
+    "type" : "ENTITLEMENT",
+    "id" : "2c918087682f9a86016839c050861ab1"
+  }, {
+    "type" : "ENTITLEMENT",
+    "id" : "2c918087682f9a86016839c0509c1ab2"
+  } ]
+}"@
 
 # Check sod violations
 
 try {
-    $Result = ConvertFrom-JsonToIdentityWithNewAccess1 -Json $IdentityWithNewAccess1
-    Start-V2024ViolationCheck -IdentityWithNewAccess1 $Result 
+    $Result = ConvertFrom-JsonToIdentityWithNewAccess -Json $IdentityWithNewAccess
+    Start-V2024ViolationCheck -IdentityWithNewAccess $Result 
     
     # Below is a request that includes all optional parameters
-    # Start-V2024ViolationCheck -IdentityWithNewAccess1 $Result  
+    # Start-V2024ViolationCheck -IdentityWithNewAccess $Result  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Start-V2024ViolationCheck"
     Write-Host $_.ErrorDetails

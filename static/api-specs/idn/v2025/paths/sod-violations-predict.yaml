@@ -23,13 +23,11 @@ post:
             "accessRefs": [
               {
                 "type": "ENTITLEMENT",
-                "id": "2c918087682f9a86016839c050861ab1",
-                "name": "CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local"
+                "id": "2c918087682f9a86016839c050861ab1"
               },
               {
                 "type": "ENTITLEMENT",
-                "id": "2c918087682f9a86016839c0509c1ab2",
-                "name": "CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local"
+                "id": "2c918087682f9a86016839c0509c1ab2"
               }
             ]
           }

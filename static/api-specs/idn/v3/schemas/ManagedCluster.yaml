@@ -57,7 +57,7 @@ properties:
     type: string
     example: v01
   pinnedConfig:
-    description: boolean flag indiacting whether or not the cluster configuration is pinned
+    description: boolean flag indicating whether or not the cluster configuration is pinned
     type: boolean
     default: false
     example: false
@@ -98,6 +98,8 @@ properties:
     description: Public key
     type: string
     example: -----BEGIN PUBLIC KEY-----jANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3WgnsxP52MDgBTfHR+5n4-----END PUBLIC KEY-----
+  encryptionConfiguration:
+    $ref: './ManagedClusterEncryptionConfig.yaml'
   alertKey:
     description: Key describing any immediate cluster alerts
     type: string

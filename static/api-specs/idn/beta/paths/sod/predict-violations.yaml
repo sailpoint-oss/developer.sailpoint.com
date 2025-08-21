@@ -6,6 +6,8 @@ post:
   deprecated: true
   security:
     - userAuth: [ idn:sod-violation:read ]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
   description: >-
     This API is used to check if granting some additional accesses would cause the subject to be in violation of any SOD policies.
     Returns the violations that would be caused.
@@ -25,13 +27,11 @@ post:
             "accessRefs": [
               {
                 "type": "ENTITLEMENT",
-                "id": "2c918087682f9a86016839c050861ab1",
-                "name": "CN=Information Access,OU=test,OU=test-service,DC=TestAD,DC=local"
+                "id": "2c918087682f9a86016839c050861ab1"
               },
               {
                 "type": "ENTITLEMENT",
-                "id": "2c918087682f9a86016839c0509c1ab2",
-                "name": "CN=Information Technology,OU=test,OU=test-service,DC=TestAD,DC=local"
+                "id": "2c918087682f9a86016839c0509c1ab2"
               }
             ]
           }

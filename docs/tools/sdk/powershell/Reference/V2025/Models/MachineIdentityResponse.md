@@ -1,16 +1,16 @@
 ---
-id: v2025-machine-identity
-title: MachineIdentity
-pagination_label: MachineIdentity
-sidebar_label: MachineIdentity
+id: v2025-machine-identity-response
+title: MachineIdentityResponse
+pagination_label: MachineIdentityResponse
+sidebar_label: MachineIdentityResponse
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MachineIdentity', 'V2025MachineIdentity'] 
-slug: /tools/sdk/powershell/v2025/models/machine-identity
-tags: ['SDK', 'Software Development Kit', 'MachineIdentity', 'V2025MachineIdentity']
+keywords: ['powershell', 'PowerShell', 'sdk', 'MachineIdentityResponse', 'V2025MachineIdentityResponse'] 
+slug: /tools/sdk/powershell/v2025/models/machine-identity-response
+tags: ['SDK', 'Software Development Kit', 'MachineIdentityResponse', 'V2025MachineIdentityResponse']
 ---
 
 
-# MachineIdentity
+# MachineIdentityResponse
 
 ## Properties
 
@@ -28,12 +28,17 @@ Name | Type | Description | Notes
 **SourceId** | **String** | The source id associated to the machine identity | [optional] 
 **Uuid** | **String** | The UUID associated to the machine identity directly aggregated from a source | [optional] 
 **NativeIdentity** | **String** | The native identity associated to the machine identity directly aggregated from a source | [optional] 
+**ManuallyEdited** | **Boolean** | Indicates if the machine identity has been manually edited | [optional] [default to $false]
+**ManuallyCreated** | **Boolean** | Indicates if the machine identity has been manually created | [optional] [default to $false]
+**Source** | [**SystemCollectionsHashtable**]https://learn.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=net-9.0 | The source of the machine identity | [optional] 
+**DatasetId** | **String** | The dataset id associated to the source in which the identity was retrieved from | [optional] 
+**UserEntitlements** | [**[]MachineIdentityResponseUserEntitlements**](machine-identity-response-user-entitlements) | The user entitlements associated to the machine identity | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$MachineIdentity = Initialize-V2025MachineIdentity  -Id id12345 `
+$MachineIdentityResponse = Initialize-V2025MachineIdentityResponse  -Id id12345 `
  -Name aName `
  -Created 2015-05-28T14:07:17Z `
  -Modified 2015-05-28T14:07:17Z `
@@ -44,12 +49,17 @@ $MachineIdentity = Initialize-V2025MachineIdentity  -Id id12345 `
  -Owners null `
  -SourceId 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa `
  -Uuid f5dd23fe-3414-42b7-bb1c-869400ad7a10 `
- -NativeIdentity abc:123:dddd
+ -NativeIdentity abc:123:dddd `
+ -ManuallyEdited true `
+ -ManuallyCreated true `
+ -Source null `
+ -DatasetId 8886e5e3-63d0-462f-a195-d98da885b8dc `
+ -UserEntitlements null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$MachineIdentity | ConvertTo-JSON
+$MachineIdentityResponse | ConvertTo-JSON
 ```
 
 

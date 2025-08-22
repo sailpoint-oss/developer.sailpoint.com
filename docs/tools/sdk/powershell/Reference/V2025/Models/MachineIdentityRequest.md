@@ -1,16 +1,16 @@
 ---
-id: v2025-machine-identity
-title: MachineIdentity
-pagination_label: MachineIdentity
-sidebar_label: MachineIdentity
+id: v2025-machine-identity-request
+title: MachineIdentityRequest
+pagination_label: MachineIdentityRequest
+sidebar_label: MachineIdentityRequest
 sidebar_class_name: powershellsdk
-keywords: ['powershell', 'PowerShell', 'sdk', 'MachineIdentity', 'V2025MachineIdentity'] 
-slug: /tools/sdk/powershell/v2025/models/machine-identity
-tags: ['SDK', 'Software Development Kit', 'MachineIdentity', 'V2025MachineIdentity']
+keywords: ['powershell', 'PowerShell', 'sdk', 'MachineIdentityRequest', 'V2025MachineIdentityRequest'] 
+slug: /tools/sdk/powershell/v2025/models/machine-identity-request
+tags: ['SDK', 'Software Development Kit', 'MachineIdentityRequest', 'V2025MachineIdentityRequest']
 ---
 
 
-# MachineIdentity
+# MachineIdentityRequest
 
 ## Properties
 
@@ -28,12 +28,13 @@ Name | Type | Description | Notes
 **SourceId** | **String** | The source id associated to the machine identity | [optional] 
 **Uuid** | **String** | The UUID associated to the machine identity directly aggregated from a source | [optional] 
 **NativeIdentity** | **String** | The native identity associated to the machine identity directly aggregated from a source | [optional] 
+**UserEntitlements** | [**[]MachineIdentityRequestUserEntitlements**](machine-identity-request-user-entitlements) | The user entitlements associated to the machine identity | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
-$MachineIdentity = Initialize-V2025MachineIdentity  -Id id12345 `
+$MachineIdentityRequest = Initialize-V2025MachineIdentityRequest  -Id id12345 `
  -Name aName `
  -Created 2015-05-28T14:07:17Z `
  -Modified 2015-05-28T14:07:17Z `
@@ -44,12 +45,13 @@ $MachineIdentity = Initialize-V2025MachineIdentity  -Id id12345 `
  -Owners null `
  -SourceId 6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa `
  -Uuid f5dd23fe-3414-42b7-bb1c-869400ad7a10 `
- -NativeIdentity abc:123:dddd
+ -NativeIdentity abc:123:dddd `
+ -UserEntitlements null
 ```
 
 - Convert the resource to JSON
 ```powershell
-$MachineIdentity | ConvertTo-JSON
+$MachineIdentityRequest | ConvertTo-JSON
 ```
 
 

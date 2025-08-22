@@ -36,7 +36,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: "../schemas/MachineIdentity.yaml"
+            $ref: "../schemas/MachineIdentityResponse.yaml"
     "400":
       $ref: "../responses/400.yaml"
     "401":
@@ -110,7 +110,7 @@ patch:
       content:
         application/json:
           schema:
-            $ref: "../schemas/MachineIdentity.yaml"
+            $ref: "../schemas/MachineIdentityResponse.yaml"
     "400":
       $ref: "../responses/400.yaml"
     "401":

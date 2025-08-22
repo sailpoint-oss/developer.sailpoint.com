@@ -59,7 +59,20 @@ get:
         **owners.secondaryIdentity.id**: *eq, in, sw*
 
 
-        **owners.secondaryIdentity.name**: *eq, in, isnull, pr*'
+        **owners.secondaryIdentity.name**: *eq, in, isnull, pr*
+            
+                     
+        **source.name**: *eq, in, sw*
+        
+        
+        **source.id**: *eq, in*
+        
+        
+        **entitlement.id**: *eq, in*
+        
+        
+        **entitlement.name**: *eq, in, sw*'
+
     - in: query
       name: sorters
       schema:
@@ -70,7 +83,7 @@ get:
         Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
        
         
-        Sorting is supported for the following fields: **businessApplication, name**
+        Sorting is supported for the following fields: **businessApplication, name, source.name**
       example: businessApplication
     - name: X-SailPoint-Experimental
       in: header
@@ -91,7 +104,7 @@ get:
           schema:
             type: array
             items:
-              $ref: "../schemas/MachineIdentity.yaml"
+              $ref: "../schemas/MachineIdentityResponse.yaml"
     "400":
       $ref: "../responses/400.yaml"
     "401":
@@ -123,14 +136,14 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../schemas/MachineIdentity.yaml'
+          $ref: '../schemas/MachineIdentityRequest.yaml'
   responses:
     '200':
       description: Machine Identity created.
       content:
         application/json:
           schema:
-            $ref: '../schemas/MachineIdentity.yaml'
+            $ref: '../schemas/MachineIdentityResponse.yaml'
     '400':
       $ref: '../responses/400.yaml'
     '401':

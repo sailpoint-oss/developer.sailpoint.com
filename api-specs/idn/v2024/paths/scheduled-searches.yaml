@@ -1,0 +1,239 @@
+post:
+  tags:
+    - Scheduled Search
+  description: |
+    Creates a new scheduled search.
+  summary: Create a new scheduled search
+  operationId: createScheduledSearch
+  requestBody:
+    description: The scheduled search to persist.
+    content:
+      application/json:
+        schema:
+          allOf:
+          - $ref: '../schemas/search/scheduled/ScheduledSearchName.yaml'
+          - $ref: '../schemas/search/scheduled/SearchSchedule.yaml'
+        examples:
+          Daily Search:
+            description: A search that executes each day at a 9 AM
+            value:
+              {
+                "savedSearchId": "9c620e13-cd33-4804-a13d-403bd7bcdbad",
+                "schedule": {
+                    "type": "DAILY",
+                    "hours": {
+                        "type": "LIST",
+                        "values": [
+                            "9"
+                        ]
+                    }
+                },
+                "recipients": [
+                    {
+                        "type": "IDENTITY",
+                        "id": "2c9180867624cbd7017642d8c8c81f67"
+                    }
+                ]
+              }
+          Weekly Search:
+            description: A search that executes each week on select days and times
+            value:
+              {
+                "savedSearchId": "9c620e13-cd33-4804-a13d-403bd7bcdbad",
+                "schedule": {
+                    "type": "WEEKLY",
+                    "days": {
+                      "type": "LIST",
+                      "values": [
+                        "MON",
+                        "TUE",
+                        "WED",
+                        "THU",
+                        "FRI",
+                        "SAT",
+                        "SUN"
+                      ]
+                    },
+                    "hours": {
+                        "type": "LIST",
+                        "values": [
+                            "9"
+                        ]
+                    }
+                },
+                "recipients": [
+                    {
+                        "type": "IDENTITY",
+                        "id": "2c9180867624cbd7017642d8c8c81f67"
+                    }
+                ]
+              }
+          Monthly Search:
+            description: A search that executes each month on select days and times
+            value:
+              {
+                "savedSearchId": "9c620e13-cd33-4804-a13d-403bd7bcdbad",
+                "schedule": {
+                    "type": "MONTHLY",
+                    "days": {
+                      "type": "LIST",
+                      "values": [
+                        "1",
+                        "7",
+                        "14",
+                        "L"
+                      ]
+                    },
+                    "hours": {
+                        "type": "LIST",
+                        "values": [
+                            "9"
+                        ]
+                    }
+                },
+                "recipients": [
+                    {
+                        "type": "IDENTITY",
+                        "id": "2c9180867624cbd7017642d8c8c81f67"
+                    }
+                ]
+              }
+          Annual Search:
+            description: A search that executes each year on the defined months, days, and times.
+            value:
+              {
+                "savedSearchId": "9c620e13-cd33-4804-a13d-403bd7bcdbad",
+                "schedule": {
+                  "type": "ANNUALLY",
+                  "months": {
+                    "type": "LIST",
+                    "values": [
+                      "1"
+                    ],
+                    "interval": 3
+                  },
+                  "days": {
+                    "type": "LIST",
+                    "values": [
+                      "1",
+                      "7",
+                      "14",
+                      "L"
+                    ]
+                  },
+                  "hours": {
+                    "type": "LIST",
+                    "values": [
+                      "9"
+                    ]
+                  }
+                },
+                "recipients": [
+                    {
+                        "type": "IDENTITY",
+                        "id": "2c9180867624cbd7017642d8c8c81f67"
+                    }
+                ]
+              }
+          Calendar Search:
+            description: A search that executes on specific calendar days
+            value:
+              {
+                "savedSearchId": "9c620e13-cd33-4804-a13d-403bd7bcdbad",
+                "schedule": {
+                    "type": "CALENDAR",
+                    "days": {
+                        "type": "LIST",
+                        "values": [
+                            "2023-01-22",
+                            "2023-02-22"
+                        ]
+                    },
+                    "hours": {
+                        "type": "LIST",
+                        "values": [
+                            "9"
+                        ]
+                    }
+                },
+                "recipients": [
+                    {
+                        "type": "IDENTITY",
+                        "id": "2c9180867624cbd7017642d8c8c81f67"
+                    }
+                ]
+              }
+    required: true
+  responses:
+    '201':
+      description: The persisted scheduled search.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/search/scheduled/ScheduledSearch.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+get:
+  tags:
+    - Scheduled Search
+  description: |
+    Returns a list of scheduled searches.
+  summary: List scheduled searches
+  operationId: listScheduledSearch
+  parameters:
+  - $ref: '../parameters/offset.yaml'
+  - $ref: '../parameters/limit.yaml'
+  - $ref: '../parameters/count.yaml'
+  - name: filters
+    in: query
+    schema:
+      type: string
+    description: >-
+      Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+
+      Filtering is supported for the following fields and operators:
+
+
+      **owner.id**: *eq*
+
+
+      **savedSearchId**: *eq*
+    example: savedSearchId eq "6cc0945d-9eeb-4948-9033-72d066e1153e"
+  responses:
+    '200':
+      description: The list of requested scheduled searches.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schemas/search/scheduled/ScheduledSearch.yaml'
+      headers:
+        X-Total-Count:
+          description: The total result count (returned only if the *count* parameter is specified as *true*).
+          schema:
+            type: integer
+          example: 5
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

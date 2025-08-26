@@ -6,7 +6,7 @@ import {
   PutCommand,
   UpdateCommand,
 } from '@aws-sdk/lib-dynamodb';
-import {createCipheriv, randomBytes, randomUUID} from 'crypto';
+import {publicEncrypt, constants, randomUUID} from 'crypto';
 import {Hono} from 'hono';
 import {handle} from 'hono/aws-lambda';
 import {HTTPException} from 'hono/http-exception';
@@ -184,19 +184,17 @@ async function exchangeRefreshToken(
   return tokenExchangeData;
 }
 
-function encryptToken(tokenData: any, encryptionKey: string) {
-  const iv = randomBytes(16);
-  const encryptionKeyBuffer = Buffer.from(encryptionKey, 'hex');
-  const cipher = createCipheriv('aes-256-cbc', encryptionKeyBuffer, iv);
+function encryptToken(tokenData: any, publicKey: string) {
+  const cypherText = publicEncrypt(
+    {
+      key: publicKey, 
+      padding: constants.RSA_PKCS1_OAEP_PADDING,
+      oaepHash: 'sha256',
+    },
 
-  let encryptedToken = cipher.update(
-    JSON.stringify(tokenData),
-    'utf8',
-    'hex',
-  );
-  encryptedToken += cipher.final('hex');
-
-  return iv.toString('hex') + ':' + encryptedToken;
+    Buffer.from(JSON.stringify(tokenData), 'utf8')
+  )
+  return cypherText.toString('base64');
 }
 
 async function storeEncryptedToken(uuid: string, encryptedToken: string) {
@@ -227,13 +225,13 @@ app.post('/Prod/sailapps/uuid', async (c) => {
 
   const body = await c.req.json();
   const baseURL = await validateApiUrl(body.apiBaseURL, body.tenant);
+  const publicKey = body.publicKey;
   const authInfo = await getAuthInfo(baseURL);
 
   const uuid = randomUUID();
-  const encryptionKey = randomBytes(32).toString('hex');
   const objectToPut = await storeAuthData(uuid, baseURL);
 
-  const state = {id: uuid, encryptionKey};
+  const state = {id: uuid, publicKey};
   const authURL = new URL(authInfo.authorizeEndpoint);
 
   authURL.searchParams.set('client_id', validatedClientId);
@@ -245,7 +243,6 @@ app.post('/Prod/sailapps/uuid', async (c) => {
   authURL.searchParams.set('state', btoa(JSON.stringify(state)));
 
   return c.json({
-    encryptionKey,
     authURL: authURL.toString(),
     ...objectToPut,
   });
@@ -267,7 +264,7 @@ app.post('/Prod/sailapps/code', async (c) => {
     body = await c.req.json();
   }
 
-  const {id: uuid, encryptionKey} = JSON.parse(atob(state));
+  const {id: uuid, publicKey} = JSON.parse(atob(state));
   const tableData = await getStoredData(uuid);
 
   if (!tableData.baseURL) {
@@ -280,7 +277,7 @@ app.post('/Prod/sailapps/code', async (c) => {
     body?.dev === true ? validatedDevRedirectUrl : validatedRedirectUrl,
   );
 
-  const encryptedToken = encryptToken(tokenData, encryptionKey);
+  const encryptedToken = encryptToken(tokenData, publicKey);
   await storeEncryptedToken(uuid, encryptedToken);
 
   return c.json({message: 'Token added successfully'}, 200);

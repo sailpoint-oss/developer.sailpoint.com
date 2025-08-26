@@ -2078,6 +2078,8 @@ paths:
     $ref: "./v2025/paths/machine-mappings.yaml"
   /sources/{sourceId}/classify:
     $ref: "./v2025/paths/source-machine-account-classify.yaml"
+  /sources/{sourceId}/aggregate-agents:
+    $ref: "./v2025/paths/aggregate-agents.yaml"
   /sources/{sourceId}/subtypes:
     $ref: "./v2025/paths/source-machine-account-subtypes.yaml"
   /sources/{sourceId}/subtypes/{technicalName}:
@@ -2090,6 +2092,8 @@ paths:
     $ref: ./v2025/paths/machine-identities.yaml
   /machine-identities/{id}:
     $ref: ./v2025/paths/machine-identity.yaml
+  /machine-identity-user-entitlements:
+    $ref: ./v2025/paths/machine-identity-user-entitlements.yaml
   /notification-template-defaults:
     $ref: ./v2025/paths/notification-template-defaults.yaml
   /notification-templates:

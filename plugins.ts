@@ -55,7 +55,7 @@ const pluginConfig = [
           specPath: 'static/api-specs/idn/sailpoint-api.v3.yaml',
           outputDir: 'docs/api/v3',
           downloadUrl:
-            'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/dereferenced/deref-sailpoint-api.v3.yaml',
+            'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.v3.yaml',
           sidebarOptions: {
             groupPathsBy: 'tag',
             categoryLinkSource: 'tag',
@@ -66,7 +66,7 @@ const pluginConfig = [
           specPath: 'static/api-specs/idn/sailpoint-api.beta.yaml',
           outputDir: 'docs/api/beta',
           downloadUrl:
-            'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/dereferenced/deref-sailpoint-api.beta.yaml',
+            'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.beta.yaml',
           sidebarOptions: {
             groupPathsBy: 'tag',
             categoryLinkSource: 'tag',
@@ -130,7 +130,7 @@ const pluginConfig = [
           version: 'v2025',
           label: 'v2025',
           downloadUrl:
-            'https://raw.githubusercontent.com/sailpoint-oss/api-specs/refs/heads/main/dereferenced/deref-sailpoint-api.v2025.yaml',
+            'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.v2025.yaml',
           baseUrl: '/docs/api/v2025',
           template: 'api.mustache',
           markdownGenerators: {
@@ -141,7 +141,7 @@ const pluginConfig = [
               specPath: 'static/code-examples/v2024/v2024.yaml',
               outputDir: 'docs/api/v2024',
               downloadUrl:
-                'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/dereferenced/deref-sailpoint-api.v2024.yaml',
+                'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.v2024.yaml',
               label: 'v2024',
               baseUrl: '/docs/api/v2024',
             },
@@ -149,7 +149,7 @@ const pluginConfig = [
               specPath: 'static/code-examples/v3/v3.yaml',
               outputDir: 'docs/api/v3',
               downloadUrl:
-                'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/dereferenced/deref-sailpoint-api.v3.yaml',
+                'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.v3.yaml',
               label: 'v3',
               baseUrl: '/docs/api/v3',
             },
@@ -157,7 +157,7 @@ const pluginConfig = [
               specPath: 'static/code-examples/beta/beta.yaml',
               outputDir: 'docs/api/beta',
               downloadUrl:
-                'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/dereferenced/deref-sailpoint-api.beta.yaml',
+                'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.beta.yaml',
               label: 'Beta',
               baseUrl: '/docs/api/beta',
             },
@@ -198,7 +198,7 @@ const pluginConfig = [
           specPath: 'static/api-specs/nerm/v2025/v2025.yaml',
           outputDir: 'docs/api/nerm/v2025',
           downloadUrl:
-            'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/dereferenced/deref-sailpoint-api.nerm.v2025.yaml',
+            'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.nerm.v2025.yaml',
           baseUrl: '/docs/api/nerm/v2025',
           sidebarOptions: {
             groupPathsBy: 'tag',
@@ -212,7 +212,7 @@ const pluginConfig = [
               outputDir: 'docs/api/nerm/v1',
               baseUrl: '/docs/api/nerm/v1',
               downloadUrl:
-                'https://raw.githubusercontent.com/sailpoint-oss/api-specs/main/dereferenced/deref-sailpoint-api.nerm.v1.yaml',
+                'https://github.com/sailpoint-oss/api-specs/releases/latest/download/deref-sailpoint-api.nerm.yaml',
             },
           },
         },

@@ -1,0 +1,78 @@
+openapi: 3.0.1
+info:
+  title: Identity Security Cloud v2026 API
+  description: Use these APIs to interact with the Identity Security Cloud platform
+    to achieve repeatable, automated processes with greater scalability. We encourage
+    you to join the SailPoint Developer Community forum at https://developer.sailpoint.com/discuss
+    to connect with other developers using our APIs.
+  termsOfService: https://developer.sailpoint.com/discuss/tos
+  contact:
+    name: Developer Relations
+    url: https://developer.sailpoint.com/discuss/api-help
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  version: v2026
+servers:
+- url: https://{tenant}.api.identitynow.com/v2026
+  description: This is the production API server.
+  variables:
+    tenant:
+      default: sailpoint
+      description: This is the name of your tenant, typically your company's name.
+- url: https://{apiUrl}/v2026
+  description: This is the v2026 API server.
+  variables:
+    apiUrl:
+      default: sailpoint.api.identitynow.com
+      description: This is the api url of your tenant
+tags:
+   - name: Task Management
+paths:
+  /task-status/{id}:
+    $ref: ./v2026/paths/task-status.yaml
+  /task-status:
+    $ref: ./v2026/paths/task-status-list.yaml
+  /task-status/pending-tasks:
+    $ref: ./v2026/paths/task-status-pending.yaml
+security:
+- userAuth:
+  - "sp:scopes:all"
+components:
+  securitySchemes:
+    userAuth:
+      type: oauth2
+      x-displayName: Personal Access Token
+      description: |
+        OAuth2 Bearer token (JWT) generated using either a [personal access token (PAT)](https://developer.sailpoint.com/docs/api/authentication/#generate-a-personal-access-token) or through the [authorization code flow](https://developer.sailpoint.com/docs/api/authentication/#request-access-token-with-authorization-code-grant-flow).
+
+        Personal access tokens are associated with a user in Identity Security Cloud and relies on the user's [user level](https://documentation.sailpoint.com/saas/help/common/users/index.html) (ex. Admin, Helpdesk, etc.) to determine a base level of access.
+        
+        See [Identity Security Cloud REST API Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information.
+      flows:
+        clientCredentials:
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes:
+            "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"
+        authorizationCode:
+          authorizationUrl: https://tenant.login.sailpoint.com/oauth/authorize
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes:
+            "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"
+    applicationAuth:
+      type: oauth2
+      x-displayName: Client Credentials
+      description: |
+        OAuth2 Bearer token (JWT) generated using [client credentials flow](https://developer.sailpoint.com/docs/api/authentication/#request-access-token-with-client-credentials-grant-flow).
+
+        Client credentials refers to tokens that are not associated with a user in Identity Security Cloud.
+
+        See [Identity Security Cloud REST API Authentication](https://developer.sailpoint.com/docs/api/authentication/) for more information.
+      flows:
+        clientCredentials:
+          tokenUrl: https://tenant.api.identitynow.com/oauth/token
+          scopes:
+            "sp:scopes:default": "default scope"
+            "sp:scopes:all": "access to all scopes"

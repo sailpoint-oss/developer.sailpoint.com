@@ -329,6 +329,7 @@ import Tabs from '@theme/Tabs';
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
 
+  // highlight-start
       <!-- Paginator -->
       <mat-paginator
         [length]="totalCount"
@@ -339,6 +340,7 @@ import Tabs from '@theme/Tabs';
         showFirstLastButtons
         aria-label="Select page of accounts">
       </mat-paginator>
+  // highlight-end
 
       <!-- No data message -->
       <div *ngIf="accounts.length === 0" class="no-data-message">
@@ -355,6 +357,7 @@ import Tabs from '@theme/Tabs';
 
 ```typescript
 import { CommonModule } from '@angular/common';
+// highlight-next-line
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -362,6 +365,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+// highlight-next-line
 import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { SailPointSDKService } from '../sailpoint-sdk.service';
 import { AccountV2025 } from 'sailpoint-api-client';
@@ -388,12 +392,17 @@ export class AccountsComponent implements OnInit {
   accounts: AccountV2025[] = [];
   displayedColumns: string[] = ['id', 'name', 'nativeIdentity', 'sourceId', 'disabled', 'locked', 'actions'];
   
+  // highlight-start
+
   // Pagination settings
   pageSize = 10;
   pageIndex = 0;
   totalCount = 0;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  // highlight-end
+
 
   constructor(private sdk: SailPointSDKService) {}
 
@@ -403,6 +412,7 @@ export class AccountsComponent implements OnInit {
   }
 
   async loadAccounts() {
+    // highlight-start
     // Setup request for paged account results
     const request = {
       offset: this.pageIndex * this.pageSize,
@@ -428,6 +438,7 @@ export class AccountsComponent implements OnInit {
       
       this.totalCount = count ?? 250; // Default to 250 if count not available
       console.log('Loaded accounts:', this.accounts);
+    // highlight-end
     } catch (error) {
       console.error('Error loading accounts:', error);
     } finally {
@@ -435,12 +446,14 @@ export class AccountsComponent implements OnInit {
     }
   }
 
+  // highlight-start
   // Handle page change events
   onPageChange(event: PageEvent) {
     this.pageSize = event.pageSize;
     this.pageIndex = event.pageIndex;
     void this.loadAccounts();
   }
+  // highlight-end
 
   viewAccount(account: AccountV2025): void {
     console.log('Viewing account:', account);
@@ -483,12 +496,12 @@ To do this, we will implement the already existing `viewAccount` method to use t
 Note that we also need to add the dialog to the constructor:
 
 ```typescript
-  constructor(private sdk: SailPointSDKService) {}
+constructor(private sdk: SailPointSDKService, private dialog: MatDialog) {}
 ```
 
 And also add the imports:
 
-```
+```typescript
 import { MatDialog } from '@angular/material/dialog';
 import { GenericDialogComponent } from '../generic-dialog/generic-dialog.component';
 ```

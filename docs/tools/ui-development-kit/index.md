@@ -37,7 +37,7 @@ These are the requirements to use the UI Development Kit:
 npm install -g typescript
 ```
 
-- **Your ISC tenant name**. To learn how to find it, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The SDK will use this tenant name to connect to your ISC instance.
+- **Your ISC tenant name**. To learn how to find it, refer to [Getting Started](/docs/api/getting-started#find-your-tenant-name). The UI Development Kit will use this tenant name to connect to your ISC instance.
 
 ## Clone the project
 

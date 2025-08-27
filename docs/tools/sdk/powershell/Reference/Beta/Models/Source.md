@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Id** | **String** | Source ID. | [optional] [readonly] 
 **Name** | **String** | Source's human-readable name. | [required]
 **Description** | **String** | Source's human-readable description. | [optional] 
-**Owner** | [**MultiHostIntegrationsOwner**](multi-host-integrations-owner) |  | [required]
+**Owner** | [**SourceOwner**](source-owner) |  | [required]
 **Cluster** | [**MultiHostIntegrationsCluster**](multi-host-integrations-cluster) |  | [optional] 
 **AccountCorrelationConfig** | [**MultiHostSourcesAccountCorrelationConfig**](multi-host-sources-account-correlation-config) |  | [optional] 
 **AccountCorrelationRule** | [**MultiHostSourcesAccountCorrelationRule**](multi-host-sources-account-correlation-rule) |  | [optional] 

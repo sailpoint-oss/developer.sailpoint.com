@@ -153,14 +153,14 @@ $MachineClassificationConfig = @"{
       "children" : [ {
         "children" : [ "children", "children" ],
         "caseSensitive" : false,
-        "dataType" : "This is the first level of classification criteria",
+        "dataType" : "dataType",
         "attribute" : "sAMAccountName",
         "operation" : "EQUALS",
         "value" : "SVC"
       }, {
         "children" : [ "children", "children" ],
         "caseSensitive" : false,
-        "dataType" : "This is the first level of classification criteria",
+        "dataType" : "dataType",
         "attribute" : "sAMAccountName",
         "operation" : "EQUALS",
         "value" : "SVC"
@@ -174,14 +174,14 @@ $MachineClassificationConfig = @"{
       "children" : [ {
         "children" : [ "children", "children" ],
         "caseSensitive" : false,
-        "dataType" : "This is the first level of classification criteria",
+        "dataType" : "dataType",
         "attribute" : "sAMAccountName",
         "operation" : "EQUALS",
         "value" : "SVC"
       }, {
         "children" : [ "children", "children" ],
         "caseSensitive" : false,
-        "dataType" : "This is the first level of classification criteria",
+        "dataType" : "dataType",
         "attribute" : "sAMAccountName",
         "operation" : "EQUALS",
         "value" : "SVC"

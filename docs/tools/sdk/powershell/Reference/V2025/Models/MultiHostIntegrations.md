@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **Id** | **String** | Multi-Host Integration ID. | [required][readonly] 
 **Name** | **String** | Multi-Host Integration's human-readable name. | [required]
 **Description** | **String** | Multi-Host Integration's human-readable description. | [required]
-**Owner** | [**SourceOwner**](source-owner) |  | [required]
+**Owner** | [**MultiHostIntegrationsOwner**](multi-host-integrations-owner) |  | [required]
 **Cluster** | [**SourceCluster**](source-cluster) |  | [optional] 
 **AccountCorrelationConfig** | [**SourceAccountCorrelationConfig**](source-account-correlation-config) |  | [optional] 
 **AccountCorrelationRule** | [**SourceAccountCorrelationRule**](source-account-correlation-rule) |  | [optional] 

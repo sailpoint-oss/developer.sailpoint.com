@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 ```powershell
 $MachineClassificationCriteriaLevel3 = Initialize-V2024MachineClassificationCriteriaLevel3  -Operation null `
  -CaseSensitive false `
- -DataType This is the first level of classification criteria `
+ -DataType null `
  -Attribute sAMAccountName `
  -Value SVC `
  -Children null

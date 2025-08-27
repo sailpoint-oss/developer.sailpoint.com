@@ -277,7 +277,7 @@ app.post('/Prod/sailapps/code', async (c) => {
     body?.dev === true ? validatedDevRedirectUrl : validatedRedirectUrl,
   );
 
-  const encryptedToken = encryptToken(tokenData, publicKey);
+  const encryptedToken = encryptToken(tokenData, atob(publicKey));
   await storeEncryptedToken(uuid, encryptedToken);
 
   return c.json({message: 'Token added successfully'}, 200);

@@ -1,8 +1,6 @@
 import React from 'react';
-import clsx from 'clsx';
-import styles from './styles.module.css';
-import Link from '@docusaurus/Link';
 import TeamCard from '../TeamCard';
+import styles from './styles.module.css';
 
 interface TeamMember {
   link: string;
@@ -35,11 +33,11 @@ const teamMembers: TeamMember[] = [
     image: '/homepage/phil-ellis.png',
   },
   {
-    link: 'https://developer.sailpoint.com/discuss/u/Darrell/summary',
-    name: 'Darrell Thobe',
-    title: ['Software Engineer'],
-    expertise: 'DEVELOPER TOOLS',
-    image: '/homepage/darrell-thobe.png',
+    link: 'https://developer.sailpoint.com/discuss/u/dnandrist/summary',
+    name: 'Danielle Andrist',
+    title: ['Developer Community', 'Program Manager'],
+    expertise: 'COMMUNITY',
+    image: '/homepage/danielle-andrist.jpg',
   },
   {
     link: 'https://developer.sailpoint.com/discuss/u/lukehagar/summary',

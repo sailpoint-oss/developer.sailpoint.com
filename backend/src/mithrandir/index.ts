@@ -6,7 +6,7 @@ import {
   PutCommand,
   UpdateCommand,
 } from '@aws-sdk/lib-dynamodb';
-import {randomBytes, createCipheriv, publicEncrypt, constants, randomUUID} from 'crypto';
+import {randomBytes, createCipheriv, createDecipheriv, publicEncrypt, privateDecrypt, constants, randomUUID} from 'crypto';
 import {Hono} from 'hono';
 import {handle} from 'hono/aws-lambda';
 import {HTTPException} from 'hono/http-exception';
@@ -222,6 +222,57 @@ function encryptToken(tokenData: any, publicKey: string) {
   return JSON.stringify(result);
 }
 
+function decryptToken(encryptedTokenData: string, privateKey: string) {
+  try {
+    const tokenData = JSON.parse(encryptedTokenData);
+    
+    // Check token format version
+    if (tokenData.version !== '1.0') {
+      throw new Error('Unsupported token format version');
+    }
+    
+    // Verify the encryption algorithms used
+    if (tokenData.algorithm?.symmetric !== 'AES-256-GCM' || 
+        tokenData.algorithm?.asymmetric !== 'RSA-OAEP-SHA256') {
+      throw new Error('Unsupported encryption algorithm');
+    }
+
+    // Extract required data
+    const { ciphertext, encryptedKey, iv, authTag } = tokenData.data;
+    if (!ciphertext || !encryptedKey || !iv || !authTag) {
+      throw new Error('Invalid encrypted token format');
+    }
+
+    // Decrypt the symmetric key with the private key
+    const encryptedSymmetricKey = Buffer.from(encryptedKey, 'base64');
+    const symmetricKey = privateDecrypt(
+      {
+        key: privateKey,
+        padding: constants.RSA_PKCS1_OAEP_PADDING,
+        oaepHash: 'sha256',
+      },
+      encryptedSymmetricKey
+    );
+
+    // Decrypt the data with the symmetric key
+    const decipher = createDecipheriv(
+      'aes-256-gcm', 
+      symmetricKey, 
+      Buffer.from(iv, 'base64')
+    );
+    
+    decipher.setAuthTag(Buffer.from(authTag, 'base64'));
+    
+    let decryptedData = decipher.update(ciphertext, 'base64', 'utf8');
+    decryptedData += decipher.final('utf8');
+    
+    return JSON.parse(decryptedData);
+  } catch (error) {
+    console.error('Token decryption failed:', error);
+    throw new Error('Failed to decrypt token');
+  }
+}
+
 async function storeEncryptedToken(uuid: string, encryptedToken: string) {
   try {
     await ddbDocClient.send(
@@ -309,7 +360,7 @@ app.post('/Prod/sailapps/code', async (c) => {
 });
 
 // Retrieve stored token
-app.get('/Prod/sailapps/uuid/:uuid', async (c) => {
+app.get('/Prod/sailapps/token/:uuid', async (c) => {
   const uuid = c.req.param('uuid');
   if (!uuid) {
     throw new HTTPException(400, {message: 'UUID not provided'});
@@ -347,6 +398,64 @@ app.post('/Prod/sailapps/refresh', async (c) => {
       throw error;
     }
     throw new HTTPException(500, {message: 'Internal server error'});
+  }
+});
+
+// Decrypt token endpoint
+app.post('/Prod/sailapps/decrypt', async (c) => {
+  if (c.req.header('Content-Type') !== 'application/json') {
+    throw new HTTPException(400, {
+      message: 'Content-Type must be application/json',
+    });
+  }
+
+  const body = await c.req.json();
+  
+  // Validate required fields
+  if (!body.privateKey) {
+    throw new HTTPException(400, {message: 'privateKey is required'});
+  }
+  
+  if (!body.encryptedToken) {
+    throw new HTTPException(400, {message: 'encryptedToken is required'});
+  }
+
+  try {
+    // If UUID is provided, get the encrypted token from the database
+    let tokenInfo;
+    if (body.uuid) {
+      const data = await getStoredData(body.uuid);
+      if (!data.tokenInfo) {
+        throw new HTTPException(400, {message: 'Token not found for the provided UUID'});
+      }
+      tokenInfo = data.tokenInfo;
+    } else {
+      // Otherwise use the provided encrypted token directly
+      tokenInfo = body.encryptedToken;
+    }
+
+    // Decode the private key if it's base64-encoded
+    const privateKey = body.isBase64Encoded ? 
+      atob(body.privateKey) : body.privateKey;
+    
+    // Decrypt the token
+    const decryptedToken = decryptToken(tokenInfo, privateKey);
+    
+    return c.json({
+      token: decryptedToken,
+      tokenInfo: {
+        expiresAt: decryptedToken.expires_in ? 
+          new Date(Date.now() + decryptedToken.expires_in * 1000).toISOString() : 
+          undefined,
+        tokenType: decryptedToken.token_type || 'Bearer'
+      }
+    }, 200);
+  } catch (error) {
+    console.error('Token decryption error:', error);
+    if (error instanceof HTTPException) {
+      throw error;
+    }
+    throw new HTTPException(400, {message: 'Failed to decrypt token'});
   }
 });
 

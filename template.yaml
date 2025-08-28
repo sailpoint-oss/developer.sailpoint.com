@@ -118,8 +118,17 @@ Resources:
         GetSailAppsToken:
           Type: HttpApi
           Properties:
-            Path: /sailapps/uuid/{uuid}
+            Path: /sailapps/token/{uuid}
             Method: GET
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
+        PerformSailAppsTokenDecryption:
+          Type: HttpApi
+          Properties:
+            Path: /sailapps/decrypt
+            Method: POST
             ApiId:
               Ref: DeveloperSailpointApiGatewayApiv2
             Auth:

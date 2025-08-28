@@ -187,6 +187,7 @@ const SAMPLE_TEMPLATE = `#macro(renderProvisioningPhaseIST $phases)
 
 ## Usage Example:
 #renderProvisioningPhaseIST($accessRequestPhases)
+
 `;
 
 const LS_KEYS = {

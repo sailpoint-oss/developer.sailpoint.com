@@ -265,6 +265,7 @@ app.post('/Prod/sailapps/code', async (c) => {
   }
 
   const {id: uuid, publicKey} = JSON.parse(atob(state));
+  console.log('publicKey '+ publicKey);
   const tableData = await getStoredData(uuid);
 
   if (!tableData.baseURL) {

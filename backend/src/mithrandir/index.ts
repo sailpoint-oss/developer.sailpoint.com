@@ -6,7 +6,7 @@ import {
   PutCommand,
   UpdateCommand,
 } from '@aws-sdk/lib-dynamodb';
-import {publicEncrypt, constants, randomUUID} from 'crypto';
+import {randomBytes, createCipheriv, publicEncrypt, constants, randomUUID} from 'crypto';
 import {Hono} from 'hono';
 import {handle} from 'hono/aws-lambda';
 import {HTTPException} from 'hono/http-exception';
@@ -185,16 +185,36 @@ async function exchangeRefreshToken(
 }
 
 function encryptToken(tokenData: any, publicKey: string) {
-  const cypherText = publicEncrypt(
+  // Convert token data to string
+  const tokenString = JSON.stringify(tokenData);
+
+  // Generate a random symmetric key
+  const symmetricKey = randomBytes(32); // 256 bits
+  
+  // Encrypt the data with AES
+  const iv = randomBytes(16);
+  const cipher = createCipheriv('aes-256-cbc', symmetricKey, iv);
+  let encryptedData = cipher.update(tokenString, 'utf8', 'base64');
+  encryptedData += cipher.final('base64');
+
+  // Encrypt the symmetric key with RSA
+  const encryptedSymmetricKey = publicEncrypt(
     {
-      key: publicKey, 
+      key: publicKey,
       padding: constants.RSA_PKCS1_OAEP_PADDING,
       oaepHash: 'sha256',
     },
+    symmetricKey
+  );
 
-    Buffer.from(JSON.stringify(tokenData), 'utf8')
-  )
-  return cypherText.toString('base64');
+  // Combine everything
+  const result = {
+    encryptedData,
+    encryptedSymmetricKey: encryptedSymmetricKey.toString('base64'),
+    iv: iv.toString('base64')
+  };
+
+  return JSON.stringify(result);
 }
 
 async function storeEncryptedToken(uuid: string, encryptedToken: string) {

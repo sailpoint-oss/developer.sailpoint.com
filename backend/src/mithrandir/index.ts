@@ -185,17 +185,15 @@ async function exchangeRefreshToken(
 }
 
 function encryptToken(tokenData: any, publicKey: string) {
-  // Convert token data to string
   const tokenString = JSON.stringify(tokenData);
-
-  // Generate a random symmetric key
   const symmetricKey = randomBytes(32); // 256 bits
   
-  // Encrypt the data with AES
-  const iv = randomBytes(16);
-  const cipher = createCipheriv('aes-256-cbc', symmetricKey, iv);
+  // Encrypt the data with AES-GCM
+  const iv = randomBytes(12); 
+  const cipher = createCipheriv('aes-256-gcm', symmetricKey, iv);
   let encryptedData = cipher.update(tokenString, 'utf8', 'base64');
   encryptedData += cipher.final('base64');
+  const authTag = cipher.getAuthTag().toString('base64');
 
   // Encrypt the symmetric key with RSA
   const encryptedSymmetricKey = publicEncrypt(
@@ -207,11 +205,18 @@ function encryptToken(tokenData: any, publicKey: string) {
     symmetricKey
   );
 
-  // Combine everything
   const result = {
-    encryptedData,
-    encryptedSymmetricKey: encryptedSymmetricKey.toString('base64'),
-    iv: iv.toString('base64')
+    version: '1.0',
+    algorithm: {
+      symmetric: 'AES-256-GCM',
+      asymmetric: 'RSA-OAEP-SHA256'
+    },
+    data: {
+      ciphertext: encryptedData,
+      encryptedKey: encryptedSymmetricKey.toString('base64'),
+      iv: iv.toString('base64'),
+      authTag: authTag
+    }
   };
 
   return JSON.stringify(result);
@@ -285,7 +290,6 @@ app.post('/Prod/sailapps/code', async (c) => {
   }
 
   const {id: uuid, publicKey} = JSON.parse(atob(state));
-  console.log('publicKey '+ publicKey);
   const tableData = await getStoredData(uuid);
 
   if (!tableData.baseURL) {

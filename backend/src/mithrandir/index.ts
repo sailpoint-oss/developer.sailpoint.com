@@ -6,7 +6,7 @@ import {
   PutCommand,
   UpdateCommand,
 } from '@aws-sdk/lib-dynamodb';
-import {randomBytes, createCipheriv, createDecipheriv, publicEncrypt, privateDecrypt, constants, randomUUID} from 'crypto';
+import {randomBytes, createCipheriv, createDecipheriv, publicEncrypt, privateDecrypt, constants, randomUUID, generateKeyPairSync} from 'crypto';
 import {Hono} from 'hono';
 import {handle} from 'hono/aws-lambda';
 import {HTTPException} from 'hono/http-exception';
@@ -222,6 +222,40 @@ function encryptToken(tokenData: any, publicKey: string) {
   return JSON.stringify(result);
 }
 
+function generateRsaKeyPair(modulusLength = 2048) {
+  try {
+    // Generate the key pair
+    const { publicKey, privateKey } = generateKeyPairSync('rsa', {
+      modulusLength,  // Key size in bits
+      publicKeyEncoding: {
+        type: 'spki',     // SubjectPublicKeyInfo
+        format: 'pem'     // PEM format
+      },
+      privateKeyEncoding: {
+        type: 'pkcs8',    // Private key in PKCS#8 format
+        format: 'pem'     // PEM format
+      }
+    });
+    
+    return {
+      publicKey,
+      privateKey,
+      // Also return base64 encoded versions for ease of use
+      publicKeyBase64: btoa(publicKey),
+      privateKeyBase64: btoa(privateKey),
+      algorithm: 'RSA',
+      modulusLength,
+      format: {
+        public: 'spki/pem',
+        private: 'pkcs8/pem'
+      }
+    };
+  } catch (error) {
+    console.error('Key pair generation failed:', error);
+    throw new Error('Failed to generate key pair');
+  }
+}
+
 function decryptToken(encryptedTokenData: string, privateKey: string) {
   try {
     const tokenData = JSON.parse(encryptedTokenData);
@@ -292,7 +326,7 @@ async function storeEncryptedToken(uuid: string, encryptedToken: string) {
 }
 
 // Retrieve a UUID, generate a random encryption key, and return the auth URL
-app.post('/Prod/sailapps/uuid', async (c) => {
+app.post('/Prod/sailapps/auth', async (c) => {
   if (c.req.header('Content-Type') !== 'application/json') {
     throw new HTTPException(400, {
       message: 'Content-Type must be application/json',
@@ -325,7 +359,7 @@ app.post('/Prod/sailapps/uuid', async (c) => {
 });
 
 // Exchange the code for a token
-app.post('/Prod/sailapps/code', async (c) => {  
+app.post('/Prod/sailapps/auth/code', async (c) => {  
   const {state, code} = c.req.query();
 
   if (!code) {
@@ -360,7 +394,7 @@ app.post('/Prod/sailapps/code', async (c) => {
 });
 
 // Retrieve stored token
-app.get('/Prod/sailapps/token/:uuid', async (c) => {
+app.get('/Prod/sailapps/auth/token/:uuid', async (c) => {
   const uuid = c.req.param('uuid');
   if (!uuid) {
     throw new HTTPException(400, {message: 'UUID not provided'});
@@ -375,7 +409,7 @@ app.get('/Prod/sailapps/token/:uuid', async (c) => {
 });
 
 // Refresh token endpoint
-app.post('/Prod/sailapps/refresh', async (c) => {
+app.post('/Prod/sailapps/auth/refresh', async (c) => {
   if (c.req.header('Content-Type') !== 'application/json') {
     throw new HTTPException(400, {
       message: 'Content-Type must be application/json',
@@ -402,7 +436,7 @@ app.post('/Prod/sailapps/refresh', async (c) => {
 });
 
 // Decrypt token endpoint
-app.post('/Prod/sailapps/decrypt', async (c) => {
+app.post('/Prod/sailapps/auth/token/decrypt', async (c) => {
   if (c.req.header('Content-Type') !== 'application/json') {
     throw new HTTPException(400, {
       message: 'Content-Type must be application/json',
@@ -456,6 +490,50 @@ app.post('/Prod/sailapps/decrypt', async (c) => {
       throw error;
     }
     throw new HTTPException(400, {message: 'Failed to decrypt token'});
+  }
+});
+
+// Generate RSA key pair endpoint
+app.post('/Prod/sailapps/auth/keypair', async (c) => {
+  try {
+    // Parse body if it exists
+    let keySize = 2048; // Default key size
+    
+    if (c.req.header('Content-Type') === 'application/json') {
+      try {
+        const body = await c.req.json();
+        // Allow requesting a different key size, with validation
+        if (body.keySize) {
+          const requestedSize = parseInt(body.keySize, 10);
+          // Only allow common RSA key sizes for security
+          const allowedSizes = [2048, 3072, 4096];
+          if (allowedSizes.includes(requestedSize)) {
+            keySize = requestedSize;
+          } else {
+            throw new HTTPException(400, {
+              message: `Invalid key size. Allowed values: ${allowedSizes.join(', ')}`,
+            });
+          }
+        }
+      } catch (err) {
+        // If JSON parsing fails, just use default key size
+        console.warn('Failed to parse JSON body, using default key size');
+      }
+    }
+    
+    // Generate the key pair
+    const keyPair = generateRsaKeyPair(keySize);
+    
+    return c.json({
+      message: `Successfully generated ${keySize}-bit RSA key pair`,
+      ...keyPair
+    }, 200);
+  } catch (error) {
+    console.error('Key pair generation error:', error);
+    if (error instanceof HTTPException) {
+      throw error;
+    }
+    throw new HTTPException(500, {message: 'Failed to generate key pair'});
   }
 });
 

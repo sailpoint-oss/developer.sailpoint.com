@@ -1,0 +1,403 @@
+openapi: 3.0.3
+info:
+  title: SailPoint Authentication API
+  description: API for secure authentication with SailPoint using asymmetric encryption
+  version: 1.0.0
+  contact:
+    name: SailPoint Developer Relations
+    url: https://developer.sailpoint.com
+servers:
+  - url: https://api.example.com/Prod
+    description: Production server
+paths:
+  /sailapps/auth/keypair:
+    post:
+      summary: Generate RSA key pair
+      description: Generates a new RSA key pair for secure authentication
+      operationId: generateKeyPair
+      tags:
+        - Keys
+      requestBody:
+        description: Optional key size configuration
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KeyPairRequest'
+      responses:
+        '200':
+          description: Successfully generated key pair
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KeyPairResponse'
+        '400':
+          description: Bad request - invalid key size
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /sailapps/auth:
+    post:
+      summary: Initiate authentication
+      description: Starts the authentication flow with tenant info and public key
+      operationId: initiateAuth
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthRequest'
+      responses:
+        '200':
+          description: Authentication initiated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '400':
+          description: Bad request - missing or invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /sailapps/auth/code:
+    post:
+      summary: Exchange authorization code for token
+      description: Exchanges an OAuth authorization code for an access token
+      operationId: exchangeCode
+      tags:
+        - Authentication
+      parameters:
+        - name: code
+          in: query
+          description: The authorization code from the OAuth provider
+          required: true
+          schema:
+            type: string
+        - name: state
+          in: query
+          description: The state parameter containing the UUID and public key
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dev:
+                  type: boolean
+                  description: Whether to use the development redirect URL
+      responses:
+        '200':
+          description: Token exchange successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Token added successfully
+        '400':
+          description: Bad request - missing code or state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /sailapps/auth/token/{uuid}:
+    get:
+      summary: Retrieve encrypted token
+      description: Retrieves the encrypted token for a specific UUID
+      operationId: getToken
+      tags:
+        - Tokens
+      parameters:
+        - name: uuid
+          in: path
+          description: The UUID of the stored token
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Token retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+        '400':
+          description: Bad request - token not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /sailapps/auth/token/decrypt:
+    post:
+      summary: Decrypt token
+      description: Decrypts an encrypted token using the provided private key
+      operationId: decryptToken
+      tags:
+        - Tokens
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DecryptRequest'
+      responses:
+        '200':
+          description: Token decrypted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DecryptResponse'
+        '400':
+          description: Bad request - invalid private key or token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /sailapps/auth/refresh:
+    post:
+      summary: Refresh token
+      description: Exchanges a refresh token for a new access token
+      operationId: refreshToken
+      tags:
+        - Tokens
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequest'
+      responses:
+        '200':
+          description: Token refreshed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenData'
+        '400':
+          description: Bad request - invalid refresh token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    KeyPairRequest:
+      type: object
+      properties:
+        keySize:
+          type: integer
+          description: The RSA key size in bits
+          enum: [2048, 3072, 4096]
+          default: 2048
+          example: 2048
+
+    KeyPairResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Successfully generated 2048-bit RSA key pair
+        publicKey:
+          type: string
+          description: The public key in PEM format
+          example: "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkq...\n-----END PUBLIC KEY-----"
+        privateKey:
+          type: string
+          description: The private key in PEM format
+          example: "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkq...\n-----END PRIVATE KEY-----"
+        publicKeyBase64:
+          type: string
+          description: The public key in Base64 format
+          example: "LS0tLS1CRUdJTiBQVUJM..."
+        privateKeyBase64:
+          type: string
+          description: The private key in Base64 format
+          example: "LS0tLS1CRUdJTiBQUklW..."
+        algorithm:
+          type: string
+          example: RSA
+        modulusLength:
+          type: integer
+          example: 2048
+        format:
+          type: object
+          properties:
+            public:
+              type: string
+              example: spki/pem
+            private:
+              type: string
+              example: pkcs8/pem
+
+    AuthRequest:
+      type: object
+      required:
+        - publicKey
+      properties:
+        tenant:
+          type: string
+          description: The SailPoint tenant name
+          example: acme-corp
+        apiBaseURL:
+          type: string
+          description: The base URL for the SailPoint API
+          example: https://acme-corp.api.identitynow.com
+        publicKey:
+          type: string
+          description: The Base64-encoded public key
+          example: "LS0tLS1CRUdJTiBQVUJM..."
+        dev:
+          type: boolean
+          description: Whether to use development mode
+          default: false
+
+    AuthResponse:
+      type: object
+      properties:
+        authURL:
+          type: string
+          description: The URL to redirect the user to for authentication
+          example: https://acme-corp.identitynow.com/oauth/authorize?client_id=...
+        id:
+          type: string
+          format: uuid
+          description: The UUID for retrieving the token later
+          example: 12345678-90ab-cdef-1234-567890abcdef
+        baseURL:
+          type: string
+          description: The base URL for the SailPoint API
+          example: https://acme-corp.api.identitynow.com
+
+    TokenResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: The UUID of the token
+          example: 12345678-90ab-cdef-1234-567890abcdef
+        baseURL:
+          type: string
+          description: The base URL for the SailPoint API
+          example: https://acme-corp.api.identitynow.com
+        tokenInfo:
+          type: string
+          description: The encrypted token data
+          example: "{\"version\":\"1.0\",\"algorithm\":{\"symmetric\":\"AES-256-GCM\",\"asymmetric\":\"RSA-OAEP-SHA256\"},\"data\":{\"ciphertext\":\"...\",\"encryptedKey\":\"...\",\"iv\":\"...\",\"authTag\":\"...\"}}"
+
+    DecryptRequest:
+      type: object
+      required:
+        - privateKey
+      properties:
+        privateKey:
+          type: string
+          description: The private key in PEM or Base64 format
+          example: "LS0tLS1CRUdJTiBQUklW..."
+        isBase64Encoded:
+          type: boolean
+          description: Whether the private key is Base64-encoded
+          default: true
+        uuid:
+          type: string
+          format: uuid
+          description: The UUID to retrieve the token from the database
+          example: 12345678-90ab-cdef-1234-567890abcdef
+        encryptedToken:
+          type: string
+          description: The encrypted token data if not using UUID
+          example: "{\"version\":\"1.0\",\"algorithm\":{\"symmetric\":\"AES-256-GCM\",\"asymmetric\":\"RSA-OAEP-SHA256\"},\"data\":{\"ciphertext\":\"...\",\"encryptedKey\":\"...\",\"iv\":\"...\",\"authTag\":\"...\"}}"
+
+    DecryptResponse:
+      type: object
+      properties:
+        token:
+          $ref: '#/components/schemas/TokenData'
+        tokenInfo:
+          type: object
+          properties:
+            expiresAt:
+              type: string
+              format: date-time
+              description: When the token expires
+              example: 2023-09-30T15:30:45.123Z
+            tokenType:
+              type: string
+              example: Bearer
+
+    RefreshRequest:
+      type: object
+      required:
+        - refreshToken
+      properties:
+        refreshToken:
+          type: string
+          description: The refresh token
+          example: def502...
+        tenant:
+          type: string
+          description: The SailPoint tenant name
+          example: acme-corp
+        apiBaseURL:
+          type: string
+          description: The base URL for the SailPoint API
+          example: https://acme-corp.api.identitynow.com
+
+    TokenData:
+      type: object
+      properties:
+        access_token:
+          type: string
+          description: The OAuth access token
+          example: eyJhbGciOiJIUzI1NiIs...
+        token_type:
+          type: string
+          description: The token type
+          example: Bearer
+        refresh_token:
+          type: string
+          description: The refresh token
+          example: def502...
+        expires_in:
+          type: integer
+          description: Seconds until the token expires
+          example: 3600
+        scope:
+          type: string
+          description: The token scope
+          example: read write
+
+    Error:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Error message
+          example: Invalid key size. Allowed values: 2048, 3072, 4096

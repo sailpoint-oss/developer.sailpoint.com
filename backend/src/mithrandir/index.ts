@@ -360,18 +360,19 @@ app.post('/Prod/sailapps/auth', async (c) => {
 
 // Exchange the code for a token
 app.post('/Prod/sailapps/auth/code', async (c) => {  
-  const {state, code} = c.req.query();
+  let body;
+  if (c.req.raw.body) {
+    body = await c.req.json();
+  }
 
+  const code = body?.code;
+  const state = body?.state;
+  
   if (!code) {
     throw new HTTPException(400, {message: 'Code not provided'});
   }
   if (!state) {
     throw new HTTPException(400, {message: 'State not provided'});
-  }
-
-  let body;
-  if (c.req.raw.body) {
-    body = await c.req.json();
   }
 
   const {id: uuid, publicKey} = JSON.parse(atob(state));

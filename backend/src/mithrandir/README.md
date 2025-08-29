@@ -77,7 +77,16 @@ Open the `authURL` from the previous response in a browser. The user will be pro
 
 This endpoint is automatically called by our web application after the user completes authentication.
 
-**Endpoint:** `POST /Prod/sailapps/auth/code?code={code}&state={state}`
+**Endpoint:** `POST /Prod/sailapps/auth/code`
+
+**Request:**
+```json
+{
+  "code": "4/0AQlEd8yZgFjQXDhE...",
+  "state": "eyJpZCI6IjEyMzQ1Njc4LTkwYWItY2RlZi0xMjM0LTU2Nzg5MGFiY2RlZiIsInB1YmxpY0tleSI6IkxTMHRMUzFDUlVkSlRpQlFWVUpNSUMuLi4ifQ==",
+  "dev": false  // Optional: Set to true for development environment
+}
+```
 
 > **Note:** As an application developer, you do not need to call this endpoint directly. It's handled automatically when the user completes authentication.
 

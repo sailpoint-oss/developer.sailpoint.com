@@ -1,5 +1,5 @@
 export async function sendCode(gatewayUrl: string, code: string, state: string) {
-  const url = new URL(`${gatewayUrl}sailapps/code`);
+  const url = new URL(`${gatewayUrl}sailapps/auth/code`);
   url.searchParams.set('state', state);
   url.searchParams.set('code', code);
   try {

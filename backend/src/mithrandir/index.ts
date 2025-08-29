@@ -6,7 +6,7 @@ import {
   PutCommand,
   UpdateCommand,
 } from '@aws-sdk/lib-dynamodb';
-import {createCipheriv, randomBytes, randomUUID} from 'crypto';
+import {randomBytes, createCipheriv, createDecipheriv, publicEncrypt, privateDecrypt, constants, randomUUID, generateKeyPairSync} from 'crypto';
 import {Hono} from 'hono';
 import {handle} from 'hono/aws-lambda';
 import {HTTPException} from 'hono/http-exception';
@@ -184,19 +184,127 @@ async function exchangeRefreshToken(
   return tokenExchangeData;
 }
 
-function encryptToken(tokenData: any, encryptionKey: string) {
-  const iv = randomBytes(16);
-  const encryptionKeyBuffer = Buffer.from(encryptionKey, 'hex');
-  const cipher = createCipheriv('aes-256-cbc', encryptionKeyBuffer, iv);
+function encryptToken(tokenData: any, publicKey: string) {
+  const tokenString = JSON.stringify(tokenData);
+  const symmetricKey = randomBytes(32); // 256 bits
+  
+  // Encrypt the data with AES-GCM
+  const iv = randomBytes(12); 
+  const cipher = createCipheriv('aes-256-gcm', symmetricKey, iv);
+  let encryptedData = cipher.update(tokenString, 'utf8', 'base64');
+  encryptedData += cipher.final('base64');
+  const authTag = cipher.getAuthTag().toString('base64');
 
-  let encryptedToken = cipher.update(
-    JSON.stringify(tokenData),
-    'utf8',
-    'hex',
+  // Encrypt the symmetric key with RSA
+  const encryptedSymmetricKey = publicEncrypt(
+    {
+      key: publicKey,
+      padding: constants.RSA_PKCS1_OAEP_PADDING,
+      oaepHash: 'sha256',
+    },
+    symmetricKey
   );
-  encryptedToken += cipher.final('hex');
 
-  return iv.toString('hex') + ':' + encryptedToken;
+  const result = {
+    version: '1.0',
+    algorithm: {
+      symmetric: 'AES-256-GCM',
+      asymmetric: 'RSA-OAEP-SHA256'
+    },
+    data: {
+      ciphertext: encryptedData,
+      encryptedKey: encryptedSymmetricKey.toString('base64'),
+      iv: iv.toString('base64'),
+      authTag: authTag
+    }
+  };
+
+  return JSON.stringify(result);
+}
+
+function generateRsaKeyPair(modulusLength = 2048) {
+  try {
+    // Generate the key pair
+    const { publicKey, privateKey } = generateKeyPairSync('rsa', {
+      modulusLength,  // Key size in bits
+      publicKeyEncoding: {
+        type: 'spki',     // SubjectPublicKeyInfo
+        format: 'pem'     // PEM format
+      },
+      privateKeyEncoding: {
+        type: 'pkcs8',    // Private key in PKCS#8 format
+        format: 'pem'     // PEM format
+      }
+    });
+    
+    return {
+      publicKey,
+      privateKey,
+      // Also return base64 encoded versions for ease of use
+      publicKeyBase64: btoa(publicKey),
+      privateKeyBase64: btoa(privateKey),
+      algorithm: 'RSA',
+      modulusLength,
+      format: {
+        public: 'spki/pem',
+        private: 'pkcs8/pem'
+      }
+    };
+  } catch (error) {
+    console.error('Key pair generation failed:', error);
+    throw new Error('Failed to generate key pair');
+  }
+}
+
+function decryptToken(encryptedTokenData: string, privateKey: string) {
+  try {
+    const tokenData = JSON.parse(encryptedTokenData);
+    
+    // Check token format version
+    if (tokenData.version !== '1.0') {
+      throw new Error('Unsupported token format version');
+    }
+    
+    // Verify the encryption algorithms used
+    if (tokenData.algorithm?.symmetric !== 'AES-256-GCM' || 
+        tokenData.algorithm?.asymmetric !== 'RSA-OAEP-SHA256') {
+      throw new Error('Unsupported encryption algorithm');
+    }
+
+    // Extract required data
+    const { ciphertext, encryptedKey, iv, authTag } = tokenData.data;
+    if (!ciphertext || !encryptedKey || !iv || !authTag) {
+      throw new Error('Invalid encrypted token format');
+    }
+
+    // Decrypt the symmetric key with the private key
+    const encryptedSymmetricKey = Buffer.from(encryptedKey, 'base64');
+    const symmetricKey = privateDecrypt(
+      {
+        key: privateKey,
+        padding: constants.RSA_PKCS1_OAEP_PADDING,
+        oaepHash: 'sha256',
+      },
+      encryptedSymmetricKey
+    );
+
+    // Decrypt the data with the symmetric key
+    const decipher = createDecipheriv(
+      'aes-256-gcm', 
+      symmetricKey, 
+      Buffer.from(iv, 'base64')
+    );
+    
+    decipher.setAuthTag(Buffer.from(authTag, 'base64'));
+    
+    let decryptedData = decipher.update(ciphertext, 'base64', 'utf8');
+    decryptedData += decipher.final('utf8');
+    
+    return JSON.parse(decryptedData);
+  } catch (error) {
+    console.error('Token decryption failed:', error);
+    throw new Error('Failed to decrypt token');
+  }
 }
 
 async function storeEncryptedToken(uuid: string, encryptedToken: string) {
@@ -218,7 +326,7 @@ async function storeEncryptedToken(uuid: string, encryptedToken: string) {
 }
 
 // Retrieve a UUID, generate a random encryption key, and return the auth URL
-app.post('/Prod/sailapps/uuid', async (c) => {
+app.post('/Prod/sailapps/auth', async (c) => {
   if (c.req.header('Content-Type') !== 'application/json') {
     throw new HTTPException(400, {
       message: 'Content-Type must be application/json',
@@ -227,13 +335,13 @@ app.post('/Prod/sailapps/uuid', async (c) => {
 
   const body = await c.req.json();
   const baseURL = await validateApiUrl(body.apiBaseURL, body.tenant);
+  const publicKey = body.publicKey;
   const authInfo = await getAuthInfo(baseURL);
 
   const uuid = randomUUID();
-  const encryptionKey = randomBytes(32).toString('hex');
   const objectToPut = await storeAuthData(uuid, baseURL);
 
-  const state = {id: uuid, encryptionKey};
+  const state = {id: uuid, publicKey};
   const authURL = new URL(authInfo.authorizeEndpoint);
 
   authURL.searchParams.set('client_id', validatedClientId);
@@ -245,14 +353,13 @@ app.post('/Prod/sailapps/uuid', async (c) => {
   authURL.searchParams.set('state', btoa(JSON.stringify(state)));
 
   return c.json({
-    encryptionKey,
     authURL: authURL.toString(),
     ...objectToPut,
   });
 });
 
 // Exchange the code for a token
-app.post('/Prod/sailapps/code', async (c) => {  
+app.post('/Prod/sailapps/auth/code', async (c) => {  
   const {state, code} = c.req.query();
 
   if (!code) {
@@ -267,7 +374,7 @@ app.post('/Prod/sailapps/code', async (c) => {
     body = await c.req.json();
   }
 
-  const {id: uuid, encryptionKey} = JSON.parse(atob(state));
+  const {id: uuid, publicKey} = JSON.parse(atob(state));
   const tableData = await getStoredData(uuid);
 
   if (!tableData.baseURL) {
@@ -280,14 +387,14 @@ app.post('/Prod/sailapps/code', async (c) => {
     body?.dev === true ? validatedDevRedirectUrl : validatedRedirectUrl,
   );
 
-  const encryptedToken = encryptToken(tokenData, encryptionKey);
+  const encryptedToken = encryptToken(tokenData, atob(publicKey));
   await storeEncryptedToken(uuid, encryptedToken);
 
   return c.json({message: 'Token added successfully'}, 200);
 });
 
 // Retrieve stored token
-app.get('/Prod/sailapps/uuid/:uuid', async (c) => {
+app.get('/Prod/sailapps/auth/token/:uuid', async (c) => {
   const uuid = c.req.param('uuid');
   if (!uuid) {
     throw new HTTPException(400, {message: 'UUID not provided'});
@@ -302,7 +409,7 @@ app.get('/Prod/sailapps/uuid/:uuid', async (c) => {
 });
 
 // Refresh token endpoint
-app.post('/Prod/sailapps/refresh', async (c) => {
+app.post('/Prod/sailapps/auth/refresh', async (c) => {
   if (c.req.header('Content-Type') !== 'application/json') {
     throw new HTTPException(400, {
       message: 'Content-Type must be application/json',
@@ -325,6 +432,86 @@ app.post('/Prod/sailapps/refresh', async (c) => {
       throw error;
     }
     throw new HTTPException(500, {message: 'Internal server error'});
+  }
+});
+
+// Decrypt token endpoint
+app.post('/Prod/sailapps/auth/token/decrypt', async (c) => {
+  if (c.req.header('Content-Type') !== 'application/json') {
+    throw new HTTPException(400, {
+      message: 'Content-Type must be application/json',
+    });
+  }
+
+  const body = await c.req.json();
+  
+  // Validate required fields
+  if (!body.privateKey) {
+    throw new HTTPException(400, {message: 'privateKey is required'});
+  }
+  
+  if (!body.encryptedToken) {
+    throw new HTTPException(400, {message: 'encryptedToken is required'});
+  }
+
+  try {
+    // If UUID is provided, get the encrypted token from the database
+    let tokenInfo;
+    if (body.uuid) {
+      const data = await getStoredData(body.uuid);
+      if (!data.tokenInfo) {
+        throw new HTTPException(400, {message: 'Token not found for the provided UUID'});
+      }
+      tokenInfo = data.tokenInfo;
+    } else {
+      // Otherwise use the provided encrypted token directly
+      tokenInfo = body.encryptedToken;
+    }
+
+    // Decode the private key if it's base64-encoded
+    const privateKey = body.isBase64Encoded ? 
+      atob(body.privateKey) : body.privateKey;
+    
+    // Decrypt the token
+    const decryptedToken = decryptToken(tokenInfo, privateKey);
+    
+    return c.json({
+      token: decryptedToken,
+      tokenInfo: {
+        expiresAt: decryptedToken.expires_in ? 
+          new Date(Date.now() + decryptedToken.expires_in * 1000).toISOString() : 
+          undefined,
+        tokenType: decryptedToken.token_type || 'Bearer'
+      }
+    }, 200);
+  } catch (error) {
+    console.error('Token decryption error:', error);
+    if (error instanceof HTTPException) {
+      throw error;
+    }
+    throw new HTTPException(400, {message: 'Failed to decrypt token'});
+  }
+});
+
+// Generate RSA key pair endpoint
+app.post('/Prod/sailapps/auth/keypair', async (c) => {
+  try {
+    // Parse body if it exists
+    let keySize = 2048; // Default key size
+    
+    // Generate the key pair
+    const keyPair = generateRsaKeyPair(keySize);
+    
+    return c.json({
+      message: `Successfully generated ${keySize}-bit RSA key pair`,
+      ...keyPair
+    }, 200);
+  } catch (error) {
+    console.error('Key pair generation error:', error);
+    if (error instanceof HTTPException) {
+      throw error;
+    }
+    throw new HTTPException(500, {message: 'Failed to generate key pair'});
   }
 });
 

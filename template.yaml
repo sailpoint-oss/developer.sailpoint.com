@@ -88,10 +88,10 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Events:
-        GenerateSailAppsUuid:
+        GenerateSailAppsAuth:
           Type: HttpApi
           Properties:
-            Path: /sailapps/uuid
+            Path: /sailapps/auth
             Method: POST
             ApiId:
               Ref: DeveloperSailpointApiGatewayApiv2
@@ -100,16 +100,7 @@ Resources:
         PerformSailAppsCodeExchange:
           Type: HttpApi
           Properties:
-            Path: /sailapps/code
-            Method: POST
-            ApiId:
-              Ref: DeveloperSailpointApiGatewayApiv2
-            Auth:
-              Authorizer: NONE
-        PerformSailAppsTokenRefresh:
-          Type: HttpApi
-          Properties:
-            Path: /sailapps/refresh
+            Path: /sailapps/auth/code
             Method: POST
             ApiId:
               Ref: DeveloperSailpointApiGatewayApiv2
@@ -118,8 +109,35 @@ Resources:
         GetSailAppsToken:
           Type: HttpApi
           Properties:
-            Path: /sailapps/uuid/{uuid}
+            Path: /sailapps/auth/token/{uuid}
             Method: GET
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
+        PerformSailAppsTokenRefresh:
+          Type: HttpApi
+          Properties:
+            Path: /sailapps/auth/refresh
+            Method: POST
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
+        PerformSailAppsTokenDecryption:
+          Type: HttpApi
+          Properties:
+            Path: /sailapps/auth/token/decrypt
+            Method: POST
+            ApiId:
+              Ref: DeveloperSailpointApiGatewayApiv2
+            Auth:
+              Authorizer: NONE
+        GenerateKeyPair:
+          Type: HttpApi
+          Properties:
+            Path: /sailapps/auth/keypair
+            Method: POST
             ApiId:
               Ref: DeveloperSailpointApiGatewayApiv2
             Auth:

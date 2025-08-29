@@ -60,7 +60,7 @@ Once your authentication is configured, you can add the MCP server to Claude Cod
 - Full URL would be: `https://acme.api.identitynow.com/v2025/access-requests/mcp`
 
 ```bash
-claude mcp add-json sailpoint-mcp '{"type":"stdio","command":"npx","args":["mcp-remote@latest","https://adi-01.api.cloud.sailpoint.com/v2025/access-requests/mcp","--header","Authorization: Bearer ${AUTH_TOKEN}"]}'
+claude mcp add-json sailpoint-mcp '{"type":"stdio","command":"npx","args":["mcp-remote@latest","https://[tenant].api.cloud.sailpoint.com/v2025/access-requests/mcp","--header","Authorization: Bearer ${AUTH_TOKEN}"]}'
 ```
 
 ### Using the --scope Flag
@@ -79,7 +79,7 @@ Let's break down the base command:
   - `"command": "npx"` - Uses npx to run the MCP remote package
   - `"args": [...]` - Array of arguments passed to the npx command:
     - `"mcp-remote@latest"` - The MCP remote package (always uses latest version)
-    - `"https://adi-01.api.cloud.sailpoint.com/v2025/access-requests/mcp"` - Your MCP server endpoint
+    - `"https://[tenant].api.cloud.sailpoint.com/v2025/access-requests/mcp"` - Your MCP server endpoint
     - `"--debug"` - Enables debug logging for troubleshooting
     - `"--header"` - Specifies a custom header for authentication
     - `"Authorization: Bearer ${AUTH_TOKEN}"` - The authorization header using your environment variable

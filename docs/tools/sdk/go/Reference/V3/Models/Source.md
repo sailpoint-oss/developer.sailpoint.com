@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** | Source ID. | [optional] [readonly] 
 **Name** | **string** | Source's human-readable name. | 
 **Description** | Pointer to **string** | Source's human-readable description. | [optional] 
-**Owner** | [**SourceOwner**](source-owner) |  | 
+**Owner** | [**NullableSourceOwner**](source-owner) |  | 
 **Cluster** | Pointer to [**NullableSourceCluster**](source-cluster) |  | [optional] 
 **AccountCorrelationConfig** | Pointer to [**NullableSourceAccountCorrelationConfig**](source-account-correlation-config) |  | [optional] 
 **AccountCorrelationRule** | Pointer to [**NullableSourceAccountCorrelationRule**](source-account-correlation-rule) |  | [optional] 
@@ -51,7 +51,7 @@ Name | Type | Description | Notes
 
 ### NewSource
 
-`func NewSource(name string, owner SourceOwner, connector string, ) *Source`
+`func NewSource(name string, owner NullableSourceOwner, connector string, ) *Source`
 
 NewSource instantiates a new Source object
 This constructor will assign default values to properties that have it defined,
@@ -156,6 +156,16 @@ and a boolean to check if the value has been set.
 SetOwner sets Owner field to given value.
 
 
+### SetOwnerNil
+
+`func (o *Source) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *Source) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetCluster
 
 `func (o *Source) GetCluster() SourceCluster`

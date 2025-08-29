@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | Multi-Host Integration's human-readable name. | 
 **Description** | **string** | Multi-Host Integration's human-readable description. | 
-**Owner** | [**SourceOwner**](source-owner) |  | 
+**Owner** | [**MultiHostIntegrationsOwner**](multi-host-integrations-owner) |  | 
 **Cluster** | Pointer to [**NullableSourceCluster**](source-cluster) |  | [optional] 
 **Connector** | **string** | Connector script name. | 
 **ConnectorAttributes** | Pointer to **map[string]interface{}** | Multi-Host Integration specific configuration. User can add any number of additional attributes. e.g. maxSourcesPerAggGroup, maxAllowedSources etc. | [optional] 
@@ -29,7 +29,7 @@ Name | Type | Description | Notes
 
 ### NewMultiHostIntegrationsCreate
 
-`func NewMultiHostIntegrationsCreate(name string, description string, owner SourceOwner, connector string, ) *MultiHostIntegrationsCreate`
+`func NewMultiHostIntegrationsCreate(name string, description string, owner MultiHostIntegrationsOwner, connector string, ) *MultiHostIntegrationsCreate`
 
 NewMultiHostIntegrationsCreate instantiates a new MultiHostIntegrationsCreate object
 This constructor will assign default values to properties that have it defined,
@@ -86,20 +86,20 @@ SetDescription sets Description field to given value.
 
 ### GetOwner
 
-`func (o *MultiHostIntegrationsCreate) GetOwner() SourceOwner`
+`func (o *MultiHostIntegrationsCreate) GetOwner() MultiHostIntegrationsOwner`
 
 GetOwner returns the Owner field if non-nil, zero value otherwise.
 
 ### GetOwnerOk
 
-`func (o *MultiHostIntegrationsCreate) GetOwnerOk() (*SourceOwner, bool)`
+`func (o *MultiHostIntegrationsCreate) GetOwnerOk() (*MultiHostIntegrationsOwner, bool)`
 
 GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOwner
 
-`func (o *MultiHostIntegrationsCreate) SetOwner(v SourceOwner)`
+`func (o *MultiHostIntegrationsCreate) SetOwner(v MultiHostIntegrationsOwner)`
 
 SetOwner sets Owner field to given value.
 

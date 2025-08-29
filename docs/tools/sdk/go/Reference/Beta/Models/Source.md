@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Id** | Pointer to **string** | Source ID. | [optional] [readonly] 
 **Name** | **string** | Source's human-readable name. | 
 **Description** | Pointer to **string** | Source's human-readable description. | [optional] 
-**Owner** | [**MultiHostIntegrationsOwner**](multi-host-integrations-owner) |  | 
+**Owner** | [**NullableSourceOwner**](source-owner) |  | 
 **Cluster** | Pointer to [**NullableMultiHostIntegrationsCluster**](multi-host-integrations-cluster) |  | [optional] 
 **AccountCorrelationConfig** | Pointer to [**NullableMultiHostSourcesAccountCorrelationConfig**](multi-host-sources-account-correlation-config) |  | [optional] 
 **AccountCorrelationRule** | Pointer to [**NullableMultiHostSourcesAccountCorrelationRule**](multi-host-sources-account-correlation-rule) |  | [optional] 
@@ -51,7 +51,7 @@ Name | Type | Description | Notes
 
 ### NewSource
 
-`func NewSource(name string, owner MultiHostIntegrationsOwner, connector string, ) *Source`
+`func NewSource(name string, owner NullableSourceOwner, connector string, ) *Source`
 
 NewSource instantiates a new Source object
 This constructor will assign default values to properties that have it defined,
@@ -138,24 +138,34 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetOwner
 
-`func (o *Source) GetOwner() MultiHostIntegrationsOwner`
+`func (o *Source) GetOwner() SourceOwner`
 
 GetOwner returns the Owner field if non-nil, zero value otherwise.
 
 ### GetOwnerOk
 
-`func (o *Source) GetOwnerOk() (*MultiHostIntegrationsOwner, bool)`
+`func (o *Source) GetOwnerOk() (*SourceOwner, bool)`
 
 GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOwner
 
-`func (o *Source) SetOwner(v MultiHostIntegrationsOwner)`
+`func (o *Source) SetOwner(v SourceOwner)`
 
 SetOwner sets Owner field to given value.
 
 
+### SetOwnerNil
+
+`func (o *Source) SetOwnerNil(b bool)`
+
+ SetOwnerNil sets the value for Owner to be an explicit nil
+
+### UnsetOwner
+`func (o *Source) UnsetOwner()`
+
+UnsetOwner ensures that no value is present for Owner, not even an explicit nil
 ### GetCluster
 
 `func (o *Source) GetCluster() MultiHostIntegrationsCluster`

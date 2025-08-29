@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **Id** | **string** | Source ID. | [readonly] 
 **Name** | **string** | Source's human-readable name. | 
 **Description** | Pointer to **string** | Source's human-readable description. | [optional] 
-**Owner** | [**SourceOwner**](source-owner) |  | 
+**Owner** | [**MultiHostIntegrationsOwner**](multi-host-integrations-owner) |  | 
 **Cluster** | Pointer to [**NullableSourceCluster**](source-cluster) |  | [optional] 
 **AccountCorrelationConfig** | Pointer to [**NullableSourceAccountCorrelationConfig**](source-account-correlation-config) |  | [optional] 
 **AccountCorrelationRule** | Pointer to [**NullableSourceAccountCorrelationRule**](source-account-correlation-rule) |  | [optional] 
@@ -51,7 +51,7 @@ Name | Type | Description | Notes
 
 ### NewMultiHostSources
 
-`func NewMultiHostSources(id string, name string, owner SourceOwner, connector string, connectorName string, ) *MultiHostSources`
+`func NewMultiHostSources(id string, name string, owner MultiHostIntegrationsOwner, connector string, connectorName string, ) *MultiHostSources`
 
 NewMultiHostSources instantiates a new MultiHostSources object
 This constructor will assign default values to properties that have it defined,
@@ -133,20 +133,20 @@ HasDescription returns a boolean if a field has been set.
 
 ### GetOwner
 
-`func (o *MultiHostSources) GetOwner() SourceOwner`
+`func (o *MultiHostSources) GetOwner() MultiHostIntegrationsOwner`
 
 GetOwner returns the Owner field if non-nil, zero value otherwise.
 
 ### GetOwnerOk
 
-`func (o *MultiHostSources) GetOwnerOk() (*SourceOwner, bool)`
+`func (o *MultiHostSources) GetOwnerOk() (*MultiHostIntegrationsOwner, bool)`
 
 GetOwnerOk returns a tuple with the Owner field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetOwner
 
-`func (o *MultiHostSources) SetOwner(v SourceOwner)`
+`func (o *MultiHostSources) SetOwner(v MultiHostIntegrationsOwner)`
 
 SetOwner sets Owner field to given value.
 

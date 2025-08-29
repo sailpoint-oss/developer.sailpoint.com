@@ -17,7 +17,7 @@ This guide will walk you through the process of connecting the SailPoint MCP ser
 
 Before you begin, ensure you have the following:
 
-- Claude Code installed and configured on your system
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) installed and configured on your system
 - Node.js and npm installed (required for the `npx` command)
 - Access credentials for your MCP server
 - Basic familiarity with command line operations
@@ -112,6 +112,6 @@ If the connection is successful, you should see `sailpoint-mcp` listed among you
 
 ## **Try it out!**
 
-You can now ask Claude Code things like "What can I request access to?” or “What is the status of my access request?” or “Cancel access request XYZ”
+You can now ask Claude Code questions like "What can I request access to?” or “What is the status of my access request?” or “Cancel access request XYZ”
 
 For more information about the tools, refer to the [SailPoint MCP tool documentation](../available-tools.mdx).

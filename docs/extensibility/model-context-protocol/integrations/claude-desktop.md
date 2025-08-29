@@ -85,6 +85,6 @@ Copy and paste the following snippet.
 
 ## **Try it out!**
 
-You can now ask Claude things like "What can I request access to?” or “What is the status of my access request?” or “Cancel access request XYZ”
+You can now ask Claude questions like "What can I request access to?” or “What is the status of my access request?” or “Cancel access request XYZ”
 
 For more information about the tools, refer to the [SailPoint MCP tool documentation](../available-tools.mdx).

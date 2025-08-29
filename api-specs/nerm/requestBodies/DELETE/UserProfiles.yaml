@@ -1,0 +1,14 @@
+required: true
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        user_profiles:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                format: uuid

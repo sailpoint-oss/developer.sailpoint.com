@@ -1,0 +1,53 @@
+get:
+  summary: Find profile type naming
+  operationId: getProfileTypeNamingById
+  description: Find profile type naming by id
+  tags:
+    - profile types
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/ProfileTypeNaming.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '404':
+      $ref: "../responses/404.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+patch:
+  summary: Update a profile type naming
+  operationId: patchProfileTypeNamingById
+  description: Update a profile type naming by id
+  tags:
+    - profile types
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  requestBody:
+    $ref: "../requestBodies/PATCH/ProfileTypeNaming.yaml"
+  responses:
+    '200':
+      $ref: "../responses/ProfileTypeNaming.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '404':
+      $ref: "../responses/404.yaml"
+    '500':
+      $ref: "../responses/500.yaml"
+delete:
+  summary: Delete profile type naming
+  operationId: deleteProfileTypeNamingById
+  description: Delete a profile type naming.
+  tags:
+    - profile types
+  parameters:
+    - $ref: "../parameters/path/id.yaml"
+  responses:
+    '200':
+      $ref: "../responses/Info.yaml"
+    '400':
+      $ref: "../responses/400.yaml"
+    '404':
+      $ref: "../responses/404.yaml"
+    '500':
+      $ref: "../responses/500.yaml"

@@ -1,0 +1,32 @@
+get:
+  security:
+    - userAuth: [idn:sod-violation:read]
+  operationId: getSodAllReportRunStatus
+  tags:
+    - SOD Policies
+  summary: Get multi-report run task status
+  description: >-
+    This endpoint gets the status for a violation report for all policy run.
+  responses:
+    '200':
+      description: Status of the violation report run task for all policy run.
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/ReportResultReference.yaml'
+          example: {
+            "status": "SUCCESS",
+            "type": "REPORT_RESULT",
+            "id": "37b3b32a-f394-46f8-acad-b5223969fa68",
+            "name": "Multi Query Report"
+          }
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

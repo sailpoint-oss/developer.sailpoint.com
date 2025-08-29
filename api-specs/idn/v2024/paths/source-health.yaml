@@ -1,0 +1,39 @@
+get:
+  operationId: getSourceHealth
+  security:
+    - userAuth: [ idn:sources:read ]
+  tags:
+    - Sources
+  summary: Fetches source health by id
+  description: >-
+    This endpoint fetches source health by source's id
+
+  parameters:
+    - in: path
+      name: sourceId
+      required: true
+      x-sailpoint-resource-operation-id: listSources
+      schema:
+        type: string
+      description: The Source id.
+      example: 2c9180835d191a86015d28455b4a2329
+  responses:
+    '200':
+      description: >-
+        Fetched source health successfully
+      content:
+        application/json:
+          schema:
+            $ref: '../schemas/SourceHealthDto.yaml'
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'

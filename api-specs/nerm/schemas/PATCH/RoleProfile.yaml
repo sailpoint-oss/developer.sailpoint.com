@@ -1,0 +1,8 @@
+type: object
+properties:
+  role_id:
+    type: string
+    format: uuid
+  profile_id:
+    type: string
+    format: uuid

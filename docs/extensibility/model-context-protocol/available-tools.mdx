@@ -102,7 +102,7 @@ Create a new access request in the SailPoint Request Center for a single request
 |-----------|------|----------|-------------|
 | `id` | string | Yes | ID of the item to request access for |
 | `type` | string | Yes | Type of access request item (`ROLE`, `ENTITLEMENT`, or `ACCESS_PROFILE`) |
-| `accounts` | array | Conditional | Selected accounts for the request (required if account selection is required) |
+| `accounts` | array | Conditional | A mapping of sourceId to nativeIdentifier to select accounts to use when creating the access request. If account selection is required, a single, valid nativeIdentifier must be specified for each sourceId. If no nativeIdentifier is found for the source, pass only the sourceId. |
 
 ##### accounts Array Structure
 
@@ -181,7 +181,7 @@ Cancel a specific access request by ID.
 | `comment` | string | No | Optional comment for the cancellation |
 
 :::note Auto-generated Comments
-The system automatically adds "Canceled by AI on behalf of the user [identity name]" as a comment, either standalone or appended to any provided comment.
+The system automatically adds "Canceled by AI on behalf of the user adam.archer" as a comment, either standalone or appended to any provided comment.
 :::
 
 #### Response

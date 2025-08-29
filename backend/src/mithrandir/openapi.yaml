@@ -400,4 +400,4 @@ components:
         message:
           type: string
           description: Error message
-          example: Invalid key size. Allowed values: 2048, 3072, 4096
+          example: Invalid key size. Allowed values 2048, 3072, 4096

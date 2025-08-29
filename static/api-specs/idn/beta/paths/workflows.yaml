@@ -167,20 +167,34 @@ get:
         format: int32
         minimum: 0
         default: 0
-    - name: triggerId
-      in: query
-      description: Trigger ID
-      required: false
+    - in: query
+      name: filters
       schema:
         type: string
-        example: "idn:identity-created"
-    - name: connectorInstanceId
-      in: query
-      description: Connector Instance ID
+      example: enabled eq true and triggerId eq "abc123"
+      description: |-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+
+        Filtering is supported for the following fields and operators:
+
+        **enabled**: *eq*      
+        
+        **connectorInstanceId**: *eq*
+        
+        **triggerId**: *eq*
+
       required: false
+    - in: query
+      name: sorters
       schema:
         type: string
-        example: "28541fec-bb81-4ad4-88ef-0f7d213adcad"
+        format: comma-separated
+      description: |-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+
+        Sorting is supported for the following fields: **modified, name**
+      example: modified
+      required: false
   responses:
     '200':
       description: >-

@@ -665,8 +665,8 @@ List all workflows in the tenant.
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description
 ------------- | ------------- | ------------- | ------------- | ------------- 
-  Query | TriggerId | **String** |   (optional) | Trigger ID
-  Query | ConnectorInstanceId | **String** |   (optional) | Connector Instance ID
+  Query | Filters | **String** |   (optional) | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **enabled**: *eq*        **connectorInstanceId**: *eq*  **triggerId**: *eq*
+  Query | Sorters | **String** |   (optional) | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **modified, name**
   Query | Limit | **Int32** |   (optional) (default to 250) | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
   Query | Offset | **Int32** |   (optional) (default to 0) | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information.
 
@@ -689,8 +689,8 @@ Code | Description  | Data Type
 
 ### Example
 ```powershell
-$TriggerId = "idn:identity-created" # String | Trigger ID (optional)
-$ConnectorInstanceId = "28541fec-bb81-4ad4-88ef-0f7d213adcad" # String | Connector Instance ID (optional)
+$Filters = 'enabled eq true and triggerId eq "abc123"' # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **enabled**: *eq*        **connectorInstanceId**: *eq*  **triggerId**: *eq* (optional)
+$Sorters = "modified" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **modified, name** (optional)
 $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
 $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
 
@@ -700,7 +700,7 @@ try {
     Get-Workflows 
     
     # Below is a request that includes all optional parameters
-    # Get-Workflows -TriggerId $TriggerId -ConnectorInstanceId $ConnectorInstanceId -Limit $Limit -Offset $Offset  
+    # Get-Workflows -Filters $Filters -Sorters $Sorters -Limit $Limit -Offset $Offset  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Get-Workflows"
     Write-Host $_.ErrorDetails

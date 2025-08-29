@@ -20,9 +20,7 @@ If you don't have an existing RSA key pair, you can generate one using this endp
 
 **Request:**
 ```json
-{
-  "keySize": 2048  // Optional: 2048 (default), 3072, or 4096
-}
+{}
 ```
 
 **Response:**

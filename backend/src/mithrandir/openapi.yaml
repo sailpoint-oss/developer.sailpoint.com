@@ -19,10 +19,6 @@ paths:
         - Keys
       requestBody:
         description: Optional key size configuration
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/KeyPairRequest'
       responses:
         '200':
           description: Successfully generated key pair
@@ -30,12 +26,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/KeyPairResponse'
-        '400':
-          description: Bad request - invalid key size
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
         '500':
           description: Internal server error
           content:
@@ -208,15 +198,6 @@ paths:
 
 components:
   schemas:
-    KeyPairRequest:
-      type: object
-      properties:
-        keySize:
-          type: integer
-          description: The RSA key size in bits
-          enum: [2048, 3072, 4096]
-          default: 2048
-          example: 2048
 
     KeyPairResponse:
       type: object
@@ -400,4 +381,4 @@ components:
         message:
           type: string
           description: Error message
-          example: Invalid key size. Allowed values 2048, 3072, 4096
+          example: Invalid request parameters

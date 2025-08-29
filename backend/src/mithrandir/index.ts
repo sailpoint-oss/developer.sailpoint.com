@@ -499,28 +499,6 @@ app.post('/Prod/sailapps/auth/keypair', async (c) => {
     // Parse body if it exists
     let keySize = 2048; // Default key size
     
-    if (c.req.header('Content-Type') === 'application/json') {
-      try {
-        const body = await c.req.json();
-        // Allow requesting a different key size, with validation
-        if (body.keySize) {
-          const requestedSize = parseInt(body.keySize, 10);
-          // Only allow common RSA key sizes for security
-          const allowedSizes = [2048, 3072, 4096];
-          if (allowedSizes.includes(requestedSize)) {
-            keySize = requestedSize;
-          } else {
-            throw new HTTPException(400, {
-              message: `Invalid key size. Allowed values: ${allowedSizes.join(', ')}`,
-            });
-          }
-        }
-      } catch (err) {
-        // If JSON parsing fails, just use default key size
-        console.warn('Failed to parse JSON body, using default key size');
-      }
-    }
-    
     // Generate the key pair
     const keyPair = generateRsaKeyPair(keySize);
     

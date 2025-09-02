@@ -10,14 +10,15 @@ get:
     - $ref: "../parameters/query/login.yaml"
     - $ref: "../parameters/query/title.yaml"
     - $ref: "../parameters/query/user_status.yaml"
+    - $ref: "../parameters/query/user_type.yaml"
     - $ref: "../parameters/query/email.yaml"
     - $ref: "../parameters/query/metadata.yaml"
   responses:
-    '200':
+    "200":
       $ref: "../responses/Users_Meta.yaml"
-    '400':
+    "400":
       $ref: "../responses/400.yaml"
-    '500':
+    "500":
       $ref: "../responses/500.yaml"
 post:
   summary: Create multiple new users
@@ -28,11 +29,11 @@ post:
   requestBody:
     $ref: "../requestBodies/POST/Users.yaml"
   responses:
-    '200':
+    "200":
       $ref: "../responses/UsersJob.yaml"
-    '400':
+    "400":
       $ref: "../responses/400.yaml"
-    '500':
+    "500":
       $ref: "../responses/500.yaml"
 patch:
   summary: Update multiple users
@@ -43,9 +44,9 @@ patch:
   requestBody:
     $ref: "../requestBodies/PATCH/Users.yaml"
   responses:
-    '200':
+    "200":
       $ref: "../responses/UsersJob.yaml"
-    '400':
+    "400":
       $ref: "../responses/400.yaml"
-    '500':
+    "500":
       $ref: "../responses/500.yaml"

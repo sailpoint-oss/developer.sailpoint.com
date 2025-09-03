@@ -46,6 +46,13 @@ const teamMembers: TeamMember[] = [
     expertise: 'DEVELOPER TOOLS',
     image: '/homepage/lukehagar.png',
   },
+    {
+    link: 'https://developer.sailpoint.com/discuss/u/austin_grimes/summary',
+    name: 'Austin Grimes',
+    title: ['Community Evangelist'],
+    expertise: 'COMMUNITY',
+    image: '/homepage/austin-grimes.png',
+  },
 ];
 
 const HomepageTeam: React.FC = () => {

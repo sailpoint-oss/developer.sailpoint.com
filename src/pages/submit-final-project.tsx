@@ -1,10 +1,17 @@
 import confetti from 'canvas-confetti';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 export default function SubmitFinalProject() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [celebrating, setCelebrating] = useState(false);
+  const [dimensions, setDimensions] = useState<{ width: number; height: number } | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setDimensions({ width: window.innerWidth, height: window.innerHeight });
+    }
+  }, []);
 
   function randomInRange(min: number, max: number) {
     return Math.random() * (max - min) + min;
@@ -68,20 +75,22 @@ export default function SubmitFinalProject() {
         overflow: 'hidden',
       }}
     >
-      <canvas
-        ref={canvasRef}
-        style={{
-          position: 'fixed',
-          pointerEvents: 'none',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          zIndex: 1000,
-        }}
-        width={window.innerWidth}
-        height={window.innerHeight}
-      />
+      {dimensions && (
+        <canvas
+          ref={canvasRef}
+          style={{
+            position: 'fixed',
+            pointerEvents: 'none',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            zIndex: 1000,
+          }}
+          width={dimensions.width}
+          height={dimensions.height}
+        />
+      )}
       <audio ref={audioRef} src="/files/crowd-cheers.mp3" preload="auto" />
       {celebrating ? (
         <h1 style={{ fontSize: '2.5rem', marginBottom: '2rem', color: '#fff', textShadow: '0 2px 16px #0033a1' }}>

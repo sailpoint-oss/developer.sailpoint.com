@@ -1644,6 +1644,8 @@ paths:
     $ref: './v2025/paths/multi-host-integration-list-sources.yaml'
   /multihosts/{multiHostId}/sources/errors:
     $ref: './v2025/paths/multi-host-integration-sources-creation-error.yaml'
+  /multihosts/{multiHostId}/sources/bulk-delete:
+    $ref: './v2025/paths/multi-host-integration-sources-bulk-delete.yaml'
   /multihosts/{multihostId}/acctAggregationGroups:
     $ref: './v2025/paths/multi-host-integration-get-acct-agg-groups.yaml'
   /multihosts/{multiHostId}/entitlementAggregationGroups:

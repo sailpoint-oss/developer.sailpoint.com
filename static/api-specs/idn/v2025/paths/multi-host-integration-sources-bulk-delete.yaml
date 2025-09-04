@@ -1,0 +1,49 @@
+post:
+  tags:
+    - Multi-Host Integration
+  operationId: deleteMultiHostSources
+  summary: Delete sources within multi-host integration
+  description: >-
+    This endpoint performs bulk sources delete within Multi-Host Integration via a list of supplied IDs.
+    
+    
+    The following rights are required to access this endpoint: idn:multihosts:delete, idn:sources:delete
+  parameters:
+    - name: multiHostId
+      in: path
+      description: ID of the Multi-Host Integration
+      required: true
+      x-sailpoint-resource-operation-id: getMultiHostIntegrations
+      style: simple
+      explode: false
+      schema:
+        type: string
+        example: 004091cb79b04636b88662afa50a4440
+  requestBody:
+    description: The delete bulk sources within multi-host integration request body
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/MultiHostIntegrationBulkSourcesDelete.yaml'
+    
+  responses:
+    "200":
+      description: OK. Returned if the request was successfully accepted into the system.
+    '400':
+      $ref: '../responses/400.yaml'
+    '401':
+      $ref: '../responses/401.yaml'
+    '403':
+      $ref: '../responses/403.yaml'
+    '404':
+      $ref: '../responses/404.yaml'
+    '429':
+      $ref: '../responses/429.yaml'
+    '500':
+      $ref: '../responses/500.yaml'
+  security:
+    - userAuth: [idn:multihosts-admin:manage]
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+    - MULTIHOSTS_ADMIN

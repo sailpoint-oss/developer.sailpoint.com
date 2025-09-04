@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**create-multi-host-integration**](#create-multi-host-integration) | **Post** `/multihosts` | Create multi-host integration
 [**create-sources-within-multi-host**](#create-sources-within-multi-host) | **Post** `/multihosts/{multihostId}` | Create sources within multi-host integration
 [**delete-multi-host**](#delete-multi-host) | **Delete** `/multihosts/{multihostId}` | Delete multi-host integration
+[**delete-multi-host-sources**](#delete-multi-host-sources) | **Post** `/multihosts/{multiHostId}/sources/bulk-delete` | Delete sources within multi-host integration
 [**get-acct-aggregation-groups**](#get-acct-aggregation-groups) | **Get** `/multihosts/{multihostId}/acctAggregationGroups` | List account-aggregation-groups by multi-host id
 [**get-entitlement-aggregation-groups**](#get-entitlement-aggregation-groups) | **Get** `/multihosts/{multiHostId}/entitlementAggregationGroups` | List entitlement-aggregation-groups by integration id
 [**get-multi-host-integrations**](#get-multi-host-integrations) | **Get** `/multihosts/{multihostId}` | Get multi-host integration by id
@@ -260,6 +261,80 @@ func main() {
 	  //r, err := apiClient.V2025.MultiHostIntegrationAPI.DeleteMultiHost(context.Background(), multihostId).Execute()
     if err != nil {
 	    fmt.Fprintf(os.Stderr, "Error when calling `MultiHostIntegrationAPI.DeleteMultiHost``: %v\n", err)
+	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    
+}
+```
+
+[[Back to top]](#)
+
+## delete-multi-host-sources
+Delete sources within multi-host integration
+This endpoint performs bulk sources delete within Multi-Host Integration via a list of supplied IDs.
+
+The following rights are required to access this endpoint: idn:multihosts:delete, idn:sources:delete
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-multi-host-sources)
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**multiHostId** | **string** | ID of the Multi-Host Integration | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiDeleteMultiHostSourcesRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **requestBody** | **[]string** | The delete bulk sources within multi-host integration request body | 
+
+### Return type
+
+ (empty response body)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"os"
+  "encoding/json"
+    v2025 "github.com/sailpoint-oss/golang-sdk/v2/api_v2025"
+	sailpoint "github.com/sailpoint-oss/golang-sdk/v2"
+)
+
+func main() {
+    multiHostId := `004091cb79b04636b88662afa50a4440` // string | ID of the Multi-Host Integration # string | ID of the Multi-Host Integration
+    requestbody := []byte(``) // []string | The delete bulk sources within multi-host integration request body
+
+    var requestBody []v2025.RequestBody
+    if err := json.Unmarshal(requestbody, &requestBody); err != nil {
+      fmt.Println("Error:", err)
+      return
+    }
+    
+
+    configuration := sailpoint.NewDefaultConfiguration()
+    apiClient := sailpoint.NewAPIClient(configuration)
+    r, err := apiClient.V2025.MultiHostIntegrationAPI.DeleteMultiHostSources(context.Background(), multiHostId).RequestBody(requestBody).Execute()
+	  //r, err := apiClient.V2025.MultiHostIntegrationAPI.DeleteMultiHostSources(context.Background(), multiHostId).RequestBody(requestBody).Execute()
+    if err != nil {
+	    fmt.Fprintf(os.Stderr, "Error when calling `MultiHostIntegrationAPI.DeleteMultiHostSources``: %v\n", err)
 	    fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
     

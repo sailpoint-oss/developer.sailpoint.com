@@ -1,0 +1,42 @@
+description: List of discovered applications with their respective associated sources
+value:
+  - id: "6f672248-2dac-4cf5-9531-fca0719cbb4a"
+    name: "Example App"
+    discoverySource: "csv"
+    discoveredVendor: "Example Vendor"
+    description: "An application for managing examples."
+    recommendedConnectors: ["ConnectorA", "ConnectorB"]
+    discoveredAt: "2023-07-01T12:00:00Z"
+    createdAt: "2024-06-01T12:00:00Z"
+    status: "ACTIVE"
+    associatedSources: ["e0cc5d7d-bf7f-4f81-b2af-8885b09d9923"]
+  - id: "b3a3a704-6a45-45ee-a501-bbc332388222"
+    name: "Sample Tracker"
+    discoverySource: "Okta SaaS"
+    discoveredVendor: "Sample Vendor"
+    description: "A tool for monitoring and managing samples."
+    recommendedConnectors: ["ConnectorC", "ConnectorD"]
+    discoveredAt: "2023-08-15T08:00:00Z"
+    createdAt: "2024-05-20T08:00:00Z"
+    status: "ACTIVE"
+    associatedSources: ["a3b159f2-5f09-43c9-b40e-a6f317aa5b8f", "e0cc5d7d-bf7f-4f81-b2af-8885b09d9923"]
+  - id: "1d070458-faed-4a6c-8990-918ad70a06ee"
+    name: "Demo Manager"
+    discoverySource: "Okta SaaS"
+    discoveredVendor: "Demo Provider"
+    description: "Software to demonstrate basic functionalities."
+    recommendedConnectors: ["ConnectorE", "ConnectorF"]
+    discoveredAt: "2023-09-10T15:00:00Z"
+    createdAt: "2024-07-03T15:00:00Z"
+    status: "ACTIVE"
+    associatedSources: ["4e2d7605-833f-4c34-8d03-5b2c7d2f4f66", "f9b7e2ce-aced-4117-a95f-4ffad8b33989", "a3b159f2-5f09-43c9-b40e-a6f317aa5b8f"]
+  - id: "9be7c5a5-9f37-46ba-965a-e5b9453472c6"
+    name: "Task Organizer"
+    discoverySource: "Manual Entry"
+    discoveredVendor: "Organizer Solutions"
+    description: "An application designed to help teams manage tasks and projects efficiently."
+    recommendedConnectors: [ "ConnectorG", "ConnectorH" ]
+    discoveredAt: "2023-10-05T14:00:00Z"
+    createdAt: "2024-08-01T14:00:00Z"
+    status: "ACTIVE"
+    associatedSources: []

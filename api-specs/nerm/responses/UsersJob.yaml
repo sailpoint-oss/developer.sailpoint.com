@@ -1,0 +1,7 @@
+description: Expected response to a valid request
+content:
+  application/json:
+    schema:
+      oneOf:
+        - $ref: '../schemas/GET/Users.yaml'
+        - $ref: '../schemas/Job.yaml'

@@ -1,0 +1,16 @@
+type: object
+properties:
+  uid:
+    type: string
+    description: The user-specified identifier for the record
+    example: first_text_body
+  type:
+    type: string
+    enum: [FormHeading, LargeHeading, MediumHeading, SmallHeading, Paragraph, HtmlContainer, Owner, RequestProgressBar]
+    required: true
+    description: The type of content on the page.
+    example: MediumHeading
+  content:
+    type: string
+    description: The text content to present in this page content record.
+    example: Lorem Ipsum yadda yaddda bing bang.

@@ -1,0 +1,14 @@
+type: object
+description: The definition of an Identity according to the Reassignment Configuration service
+properties:
+  reassignedToId:
+    type: string
+    description: The ID of the Identity who work is reassigned to
+    example: 869320b6b6f34a169b6178b1a865e66f
+  reassignedFromId:
+    type: string
+    description: The ID of the Identity who work is reassigned from
+    example: 51948a8f306a4e7a9a6f8f5d032fa59e
+  reassignmentType:
+    description: Reassignment type
+    $ref: 'ReassignmentTypeEnum.yaml'

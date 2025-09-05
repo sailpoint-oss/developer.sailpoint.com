@@ -1,0 +1,37 @@
+get:
+  summary: Get access model metadata attribute
+  description: Get single Access Model Metadata Attribute
+  tags:
+  - Access Model Metadata
+  operationId: getAccessModelMetadataAttribute
+  security:
+  - userAuth:
+    - idn:access-model-metadata:read
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  parameters:
+  - name: key
+    in: path
+    required: true
+    x-sailpoint-resource-operation-id: listAccessModelMetadataAttribute
+    schema:
+      type: string
+    description: Technical name of the Attribute.
+    example: iscPrivacy
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: ../schemas/gov-attributes/AttributeDTO.yaml
+    '400':
+      $ref: ../responses/400.yaml
+    '401':
+      $ref: ../responses/401.yaml
+    '403':
+      $ref: ../responses/403.yaml
+    '429':
+      $ref: ../responses/429.yaml
+    '500':
+      $ref: ../responses/500.yaml

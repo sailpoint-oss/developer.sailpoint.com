@@ -375,10 +375,12 @@ h1 {
 .cardContainer_S8oU {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  transition: transform 0.2s ease-in-out;
 }
 
 .cardContainer_S8oU:hover {
   border-color: var(--link-color) !important;
+  transform: scale(1.02);
 }
 
 @media only screen and (max-width: 1450px) {
@@ -389,6 +391,12 @@ h1 {
 @media only screen and (max-width: 1043px) {
   .navbar__item {
     padding: 4px 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu__link {
+    padding-left: 8%;
   }
 }
 

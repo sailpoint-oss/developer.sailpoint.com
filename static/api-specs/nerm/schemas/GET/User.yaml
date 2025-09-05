@@ -38,9 +38,9 @@ properties:
     description: Status of the user
     example: Active
   login:
-    type: string 
+    type: string
     description: The login
-    example: myLogin 
+    example: myLogin
   last_login:
     type: string
     format: date-time
@@ -65,3 +65,7 @@ properties:
     type: string
     description: Group strings configured on the customer's Active Directory configuration, provided by the IDP at the moment on authentication.
     example: Admin_group, Developer_group
+  sailpoint_identity_id:
+    type: string
+    description: The identity ID of the user in ISC
+    example: 9496f8d6ddab49c0bef1e9ee6f1b835a

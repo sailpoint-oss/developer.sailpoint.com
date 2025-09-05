@@ -80,7 +80,8 @@
     "react-live": "^4.0.0",
     "react-markdown": "^8.0.7",
     "react-spinners": "^0.13.8",
-    "react-tabs": "^4.3.0"
+    "react-tabs": "^4.3.0",
+    "velocityjs": "^2.1.5"
   },
   "overrides": {
     "@rspack/core": "npm:@rspack-canary/core@1.3.11-canary-c7684ae9-20250514100056",

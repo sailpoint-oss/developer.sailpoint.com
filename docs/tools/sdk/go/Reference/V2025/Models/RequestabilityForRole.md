@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **DenialCommentsRequired** | Pointer to **NullableBool** | Whether an approver must provide comments when denying the request | [optional] [default to false]
 **ReauthorizationRequired** | Pointer to **NullableBool** | Indicates whether reauthorization is required for the request. | [optional] [default to false]
 **ApprovalSchemes** | Pointer to [**[]ApprovalSchemeForRole**](approval-scheme-for-role) | List describing the steps in approving the request | [optional] 
+**DimensionSchema** | Pointer to [**DimensionSchema**](dimension-schema) |  | [optional] 
 
 ## Methods
 
@@ -168,5 +169,30 @@ SetApprovalSchemes sets ApprovalSchemes field to given value.
 `func (o *RequestabilityForRole) HasApprovalSchemes() bool`
 
 HasApprovalSchemes returns a boolean if a field has been set.
+
+### GetDimensionSchema
+
+`func (o *RequestabilityForRole) GetDimensionSchema() DimensionSchema`
+
+GetDimensionSchema returns the DimensionSchema field if non-nil, zero value otherwise.
+
+### GetDimensionSchemaOk
+
+`func (o *RequestabilityForRole) GetDimensionSchemaOk() (*DimensionSchema, bool)`
+
+GetDimensionSchemaOk returns a tuple with the DimensionSchema field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDimensionSchema
+
+`func (o *RequestabilityForRole) SetDimensionSchema(v DimensionSchema)`
+
+SetDimensionSchema sets DimensionSchema field to given value.
+
+### HasDimensionSchema
+
+`func (o *RequestabilityForRole) HasDimensionSchema() bool`
+
+HasDimensionSchema returns a boolean if a field has been set.
 
 

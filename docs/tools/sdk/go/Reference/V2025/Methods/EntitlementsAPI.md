@@ -908,7 +908,6 @@ The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc690
 examples of allowed operations :
 `**{ "op": "replace", "path": "/privileged", "value": boolean }**`
 `**{ "op": "replace", "path": "/requestable","value": boolean }**`
-`**{ "op": "replace", "path": "/privilegeOverride/overrideLevel","value": string }**`
 
 A token with ORG_ADMIN or API authority is required to call this API.
 
@@ -962,10 +961,6 @@ func main() {
             "op" : "replace",
             "path" : "/requestable",
             "value" : false
-          }, {
-            "op" : "replace",
-            "path" : "/privilegeOverride/overrideLevel",
-            "value" : "HIGH"
           } ]
         }`) // EntitlementBulkUpdateRequest | 
 

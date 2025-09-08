@@ -23,4 +23,5 @@ properties:
     description: List describing the steps in approving the request
     items:
       $ref: './ApprovalSchemeForRole.yaml'
-
+  dimensionSchema:
+    $ref: './DimensionSchema.yaml'

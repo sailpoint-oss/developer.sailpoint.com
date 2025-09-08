@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **DenialCommentsRequired** | **Boolean** | Whether an approver must provide comments when denying the request | [optional] [default to $false]
 **ReauthorizationRequired** | **Boolean** | Indicates whether reauthorization is required for the request. | [optional] [default to $false]
 **ApprovalSchemes** | [**[]ApprovalSchemeForRole**](approval-scheme-for-role) | List describing the steps in approving the request | [optional] 
+**DimensionSchema** | [**DimensionSchema**](dimension-schema) |  | [optional] 
 
 ## Examples
 
@@ -28,7 +29,8 @@ Name | Type | Description | Notes
 $RequestabilityForRole = Initialize-V2025RequestabilityForRole  -CommentsRequired true `
  -DenialCommentsRequired true `
  -ReauthorizationRequired true `
- -ApprovalSchemes null
+ -ApprovalSchemes null `
+ -DimensionSchema null
 ```
 
 - Convert the resource to JSON

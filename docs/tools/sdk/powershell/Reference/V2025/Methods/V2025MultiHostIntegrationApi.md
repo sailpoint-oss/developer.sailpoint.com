@@ -23,6 +23,7 @@ Method | HTTP request | Description
 [**New-V2025MultiHostIntegration**](#create-multi-host-integration) | **POST** `/multihosts` | Create multi-host integration
 [**New-V2025SourcesWithinMultiHost**](#create-sources-within-multi-host) | **POST** `/multihosts/{multihostId}` | Create sources within multi-host integration
 [**Remove-V2025MultiHost**](#delete-multi-host) | **DELETE** `/multihosts/{multihostId}` | Delete multi-host integration
+[**Remove-V2025MultiHostSources**](#delete-multi-host-sources) | **POST** `/multihosts/{multiHostId}/sources/bulk-delete` | Delete sources within multi-host integration
 [**Get-V2025AcctAggregationGroups**](#get-acct-aggregation-groups) | **GET** `/multihosts/{multihostId}/acctAggregationGroups` | List account-aggregation-groups by multi-host id
 [**Get-V2025EntitlementAggregationGroups**](#get-entitlement-aggregation-groups) | **GET** `/multihosts/{multiHostId}/entitlementAggregationGroups` | List entitlement-aggregation-groups by integration id
 [**Get-V2025MultiHostIntegrations**](#get-multi-host-integrations) | **GET** `/multihosts/{multihostId}` | Get multi-host integration by id
@@ -215,6 +216,59 @@ try {
     # Remove-V2025MultiHost -MultihostId $MultihostId  
 } catch {
     Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025MultiHost"
+    Write-Host $_.ErrorDetails
+}
+```
+[[Back to top]](#) 
+
+## delete-multi-host-sources
+This endpoint performs bulk sources delete within Multi-Host Integration via a list of supplied IDs.
+
+The following rights are required to access this endpoint: idn:multihosts:delete, idn:sources:delete
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-multi-host-sources)
+
+### Parameters 
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | MultiHostId | **String** | True  | ID of the Multi-Host Integration
+ Body  | RequestBody | **[]String** | True  | The delete bulk sources within multi-host integration request body
+
+### Return type
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type
+------------- | ------------- | -------------
+200 | OK. Returned if the request was successfully accepted into the system. | 
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto
+
+### HTTP request headers
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### Example
+```powershell
+$MultiHostId = "004091cb79b04636b88662afa50a4440" # String | ID of the Multi-Host Integration
+$RequestBody = "MyRequestBody" # String[] | The delete bulk sources within multi-host integration request body
+ $RequestBody = @""@ # String[] | The delete bulk sources within multi-host integration request body
+ 
+
+# Delete sources within multi-host integration
+
+try {
+    $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+    Remove-V2025MultiHostSources -MultiHostId $MultiHostId -RequestBody $Result 
+    
+    # Below is a request that includes all optional parameters
+    # Remove-V2025MultiHostSources -MultiHostId $MultiHostId -RequestBody $Result  
+} catch {
+    Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025MultiHostSources"
     Write-Host $_.ErrorDetails
 }
 ```

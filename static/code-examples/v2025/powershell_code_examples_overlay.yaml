@@ -10317,7 +10317,7 @@
       source: |
         $XSailPointExperimental = "true" # String | Use this header to enable this experimental API. (default to "true")
         $Filters = "identityId eq "2c9180858082150f0180893dbaf44201"" # String | Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)  Filtering is supported for the following fields and operators:  **id**: *eq, in, sw*  **displayName**: *eq, in, sw*  **cisIdentityId**: *eq, in, sw*  **businessApplication**: *eq, in, sw*  **attributes**: *eq*  **manuallyEdited**: *eq*  **subtype**: *eq, in*  **owners.primaryIdentity.id**: *eq, in, sw*  **owners.primaryIdentity.name**: *eq, in, isnull, pr*  **owners.secondaryIdentity.id**: *eq, in, sw*  **owners.secondaryIdentity.name**: *eq, in, isnull, pr*  **source.name**: *eq, in, sw*  **source.id**: *eq, in*  **entitlement.id**: *eq, in*  **entitlement.name**: *eq, in, sw* (optional)
-        $Sorters = "businessApplication" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **businessApplication, name, source.name** (optional)
+        $Sorters = "businessApplication" # String | Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)  Sorting is supported for the following fields: **businessApplication, name, owners.primaryIdentity.name, source.name, created, modified** (optional)
         $Count = $true # Boolean | If *true* it will populate the *X-Total-Count* response header with the number of results that would be returned if *limit* and *offset* were ignored.  Since requesting a total count can have a performance impact, it is recommended not to send **count=true** if that value will not be used.  See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to $false)
         $Limit = 250 # Int32 | Max number of results to return. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 250)
         $Offset = 0 # Int32 | Offset into the full result set. Usually specified with *limit* to paginate through the results. See [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters) for more information. (optional) (default to 0)
@@ -10955,6 +10955,29 @@
             # Remove-V2025MultiHost -MultihostId $MultihostId   
         } catch {
             Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025MultiHost"
+            Write-Host $_.ErrorDetails
+        }
+- path: /multihosts/{multiHostId}/sources/bulk-delete
+  method: POST
+  xCodeSample:
+    - lang: PowerShell
+      label: SDK_tools/sdk/powershell/v2025/methods/multi-host-integration#delete-multi-host-sources
+      source: |
+        $MultiHostId = "004091cb79b04636b88662afa50a4440" # String | ID of the Multi-Host Integration
+        $RequestBody = "MyRequestBody" # String[] | The delete bulk sources within multi-host integration request body
+        $RequestBody = @""@ 
+        
+        
+        # Delete sources within multi-host integration
+        
+        try {
+            $Result = ConvertFrom-JsonToRequestBody -Json $RequestBody
+            Remove-V2025MultiHostSources -MultiHostId $MultiHostId -RequestBody $Result 
+    
+            # Below is a request that includes all optional parameters
+            # Remove-V2025MultiHostSources -MultiHostId $MultiHostId -RequestBody $Result   
+        } catch {
+            Write-Host $_.Exception.Response.StatusCode.value__ "Exception occurred when calling Remove-V2025MultiHostSources"
             Write-Host $_.ErrorDetails
         }
 - path: /multihosts/{multihostId}/acctAggregationGroups
@@ -13572,6 +13595,17 @@
             "type" : "IDENTITY_LIST"
           },
           "accessRequestConfig" : {
+            "dimensionSchema" : {
+              "dimensionAttributes" : [ {
+                "displayName" : "City",
+                "name" : "city",
+                "derived" : true
+              }, {
+                "displayName" : "City",
+                "name" : "city",
+                "derived" : true
+              } ]
+            },
             "commentsRequired" : true,
             "reauthorizationRequired" : true,
             "approvalSchemes" : [ {

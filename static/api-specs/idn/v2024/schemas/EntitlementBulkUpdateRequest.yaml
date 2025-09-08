@@ -29,11 +29,6 @@ properties:
           "op": "replace",
           "path": "/requestable",
           "value": false
-        },
-        {
-          "op": "replace",
-          "path": "/privilegeOverride/overrideLevel",
-          "value": "HIGH"
         }
       ]
 required:

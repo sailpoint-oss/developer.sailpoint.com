@@ -44,7 +44,7 @@ const config: Config = {
       {
         docs: {
           editUrl:
-            'https://github.com/sailpoint-oss/developer-community-site/edit/main/',
+            'https://github.com/sailpoint-oss/developer.sailpoint.com/edit/main/',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           sidebarCollapsible: true,

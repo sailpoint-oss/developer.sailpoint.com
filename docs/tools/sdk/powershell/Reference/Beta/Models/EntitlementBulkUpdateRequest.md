@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 - Prepare the resource
 ```powershell
 $EntitlementBulkUpdateRequest = Initialize-BetaEntitlementBulkUpdateRequest  -EntitlementIds [2c91808a7624751a01762f19d665220d, 2c91808a7624751a01762f19d67c220e, 2c91808a7624751a01762f19d692220f] `
- -JsonPatch [{op=replace, path=/privileged, value=false}, {op=replace, path=/requestable, value=false}, {op=replace, path=/privilegeOverride/overrideLevel, value=HIGH}]
+ -JsonPatch [{op=replace, path=/privileged, value=false}, {op=replace, path=/requestable, value=false}]
 ```
 
 - Convert the resource to JSON

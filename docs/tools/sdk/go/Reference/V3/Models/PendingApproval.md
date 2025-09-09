@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **SodViolationContext** | Pointer to [**NullableSodViolationContextCheckCompleted**](sod-violation-context-check-completed) |  | [optional] 
 **ClientMetadata** | Pointer to **map[string]string** | Arbitrary key-value pairs, if any were included in the corresponding access request item | [optional] 
 **RequestedAccounts** | Pointer to [**[]RequestedAccountRef**](requested-account-ref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
+**PrivilegeLevel** | Pointer to **NullableString** | The privilege level of the requested access item, if applicable. | [optional] 
 
 ## Methods
 
@@ -647,4 +648,39 @@ HasRequestedAccounts returns a boolean if a field has been set.
 `func (o *PendingApproval) UnsetRequestedAccounts()`
 
 UnsetRequestedAccounts ensures that no value is present for RequestedAccounts, not even an explicit nil
+### GetPrivilegeLevel
+
+`func (o *PendingApproval) GetPrivilegeLevel() string`
+
+GetPrivilegeLevel returns the PrivilegeLevel field if non-nil, zero value otherwise.
+
+### GetPrivilegeLevelOk
+
+`func (o *PendingApproval) GetPrivilegeLevelOk() (*string, bool)`
+
+GetPrivilegeLevelOk returns a tuple with the PrivilegeLevel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrivilegeLevel
+
+`func (o *PendingApproval) SetPrivilegeLevel(v string)`
+
+SetPrivilegeLevel sets PrivilegeLevel field to given value.
+
+### HasPrivilegeLevel
+
+`func (o *PendingApproval) HasPrivilegeLevel() bool`
+
+HasPrivilegeLevel returns a boolean if a field has been set.
+
+### SetPrivilegeLevelNil
+
+`func (o *PendingApproval) SetPrivilegeLevelNil(b bool)`
+
+ SetPrivilegeLevelNil sets the value for PrivilegeLevel to be an explicit nil
+
+### UnsetPrivilegeLevel
+`func (o *PendingApproval) UnsetPrivilegeLevel()`
+
+UnsetPrivilegeLevel ensures that no value is present for PrivilegeLevel, not even an explicit nil
 

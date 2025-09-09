@@ -6,7 +6,7 @@ get:
   description: This API returns list of Governance Groups
   parameters:
   - $ref: ../../parameters/offset.yaml
-  - $ref: ../../parameters/limit50.yaml
+  - $ref: ../../parameters/limit.yaml
   - $ref: ../../parameters/count.yaml
   - in: query
     name: filters

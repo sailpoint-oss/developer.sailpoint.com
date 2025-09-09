@@ -40,6 +40,7 @@ Name | Type | Description | Notes
 **pre_approval_trigger_result** | [**CompletedApprovalPreApprovalTriggerResult**](completed-approval-pre-approval-trigger-result) |  | [optional] 
 **client_metadata** | **map[string]str** | Arbitrary key-value pairs provided during the request. | [optional] 
 **requested_accounts** | [**[]RequestedAccountRef**](requested-account-ref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
+**privilege_level** | **str** | The privilege level of the requested access item, if applicable. | [optional] 
 }
 
 ## Example
@@ -156,7 +157,8 @@ requested_accounts=[
                         account_uuid = '{fab7119e-004f-4822-9c33-b8d570d6c6a6}', 
                         account_id = 'CN=Glen 067da3248e914,OU=YOUROU,OU=org-data-service,DC=YOURDC,DC=local', 
                         source_name = 'Multi Account AD source name', )
-                    ]
+                    ],
+privilege_level='High'
 )
 
 ```

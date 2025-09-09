@@ -1,0 +1,14 @@
+{
+  "name": "crawler",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "^1.2.21"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "linkinator": "^6.1.4",
+    "octokit": "^5.0.3"
+  }
+}

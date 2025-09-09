@@ -11,98 +11,25 @@ permissions:
 
 jobs:
   link-check:
-    if: >
-      ${{ github.event.issue.pull_request && contains(github.event.comment.body, 'Visit the preview URL for this PR [HERE](') }}
+    if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
-      - name: Extract preview URL from comment
-        id: extract
-        uses: actions/github-script@v8
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          script: |
-            const body = context.payload.comment?.body || '';
-            const match = body.match(/\[HERE\]\((https?:\/\/[^\s\)]+)\)/i);
-            if (!match) {
-              core.setFailed('No preview URL found in the comment.');
-              return;
-            }
-            core.setOutput('url', match[1]);
+          bun-version: latest
 
-      - name: Post scan started comment
-        id: start_comment
-        uses: actions/github-script@v8
-        with:
-          script: |
-            const issue_number = context.issue.number;
-            const url = `${{ steps.extract.outputs.url }}`;
-            const body = [
-              `🔎 Starting link crawl with linkinator...`,
-              '',
-              `Target: ${url}`,
-              '',
-              '_This comment will be updated with results once the crawl completes._'
-            ].join('\n');
-            const { data: comment } = await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number,
-              body
-            });
-            core.setOutput('comment_id', comment.id);
+      - name: Install Dependencies
+        working-directory: scripts
+        run: bun install
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Run Linkinator
-        id: linkinator
-        shell: bash
-        run: |
-          set -e
-          URL="${{ steps.extract.outputs.url }}"
-          # Run linkinator recursively; do not fail the job even if broken links are found
-          npx --yes linkinator "$URL" --recurse --retry --timeout 15000 --verbosity ERROR --format JSON > linkinator.json || true
-          echo "Saved results to linkinator.json"
-
-      - name: Build Markdown report
-        id: build_report
-        shell: bash
-        run: |
-          total=$(jq '.links | length' linkinator.json)
-          broken=$(jq '[.links[] | select(.state=="BROKEN")] | length' linkinator.json)
-          passed=$(jq -r '.passed' linkinator.json)
-          {
-            echo "✅ Link crawl completed for ${{ steps.extract.outputs.url }}"
-            echo ""
-            echo "- Total links scanned: ${total}"
-            echo "- Broken links: ${broken}"
-            echo "- Passed: ${passed}"
-            echo ""
-            if [ "${broken}" -gt 0 ]; then
-              echo "### Broken links"
-              echo ""
-              echo "| Status | URL | Parent |"
-              echo "| --- | --- | --- |"
-              jq -r '.links[] | select(.state=="BROKEN") | "| \(.status) | \(.url) | \(.parent // "-") |"' linkinator.json
-              echo ""
-            else
-              echo "No broken links detected."
-              echo ""
-            fi
-          } > report.md
-
-      - name: Update comment with results
-        uses: actions/github-script@v8
-        with:
-          script: |
-            const fs = require('fs');
-            const body = fs.readFileSync('report.md', 'utf8');
-            await github.rest.issues.updateComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              comment_id: ${{ steps.start_comment.outputs.comment_id }},
-              body
-            });
+      - name: Run preview link check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        working-directory: scripts
+        run: bun run crawl.js
 
 

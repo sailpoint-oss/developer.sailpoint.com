@@ -1,6 +1,6 @@
 ---
 id: vs-code-setup
-title: Setup MCP with Visual Studio Code
+title: Set Up MCP with Visual Studio Code
 pagination_label: VS Code
 sidebar_label: VS Code
 sidebar_position: 3
@@ -12,6 +12,10 @@ tags: ['MCP', 'VS Code']
 ---
 
 This guide will walk you through configuring Visual Studio Code to connect with the SailPoint Model Context Protocol (MCP) Server using the `mcp.json` configuration file.
+
+:::warning
+Before configuring this integration, please confirm with your organization's administrator whether the integration is allowed with this AI provider. SailPoint does not bear any responsibility in this regard.
+:::
 
 ## Prerequisites
 
@@ -67,16 +71,16 @@ This setting allows VS Code to discover and connect to MCP servers defined in yo
 }
 ```
 
-**Replace `[tenant]` with your actual tenant name.** For example:
+**Replace `[tenant]` with your tenant name.** For example:
 
 - If your SailPoint URL is `https://acme.identitynow.com`, use `acme`
 - Full URL would be: `https://acme.api.identitynow.com/v2025/access-requests/mcp`
 
 ## Step 3: Connect to the MCP Server
 
-1. Open the Command Palette again.
+1. Open the Command Palette.
 2. Search for and select `MCP: Open User Configuration`
-3. Click start above the configuration for "SailPoint MCP".
+3. Select `Start` above the configuration for "SailPoint MCP".
     ![vs code mcp](../img/vs-code-mcp-json.png)
 4. When prompted, enter your authentication token.
 
@@ -84,11 +88,11 @@ This setting allows VS Code to discover and connect to MCP servers defined in yo
 
 Once connected, you should be able to interact with the SailPoint MCP Server directly from VS Code.
 
-Begin a new vs code chat and click on the tools icon
+Begin a new VS Code chat and select the Tools icon.
 
 ![vs code chat](../img/vs-code-chat.png)
 
-This will bring up the tools menu, you should see the SailPoint MCP Server and the available tools listed:
+This will bring up the Tools menu. You should see the SailPoint MCP Server and the available tools listed:
 
 ![vs code tools](../img/vs-code-tools.png)
 

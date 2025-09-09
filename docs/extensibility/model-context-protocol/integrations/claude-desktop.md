@@ -1,6 +1,6 @@
 ---
 id: claude-desktop-setup
-title: Setup MCP with Claude Desktop
+title: Set Up MCP with Claude Desktop
 pagination_label: Claude Desktop
 sidebar_label: Claude Desktop
 sidebar_position: 1
@@ -13,6 +13,10 @@ tags: ['MCP', 'Claude Desktop']
 
 This guide will walk you through the process of connecting the SailPoint MCP server using Claude Desktop.
 
+:::warning
+Before configuring this integration, please confirm with your organization's administrator whether the integration is allowed with this AI provider. SailPoint does not bear any responsibility in this regard.
+:::
+
 ## Prerequisites
 
 Before you begin, ensure you have the following:
@@ -22,29 +26,29 @@ Before you begin, ensure you have the following:
 
 ## Step 1: Open claude desktop
 
-Open Claude Desktop and click through the normal setup. You will then be presented with the following screen:
+Open Claude Desktop and complete the normal setup. You will then be presented with the following screen:
 
 ![Claude Desktop](../img/claude-desktop.png)
 
 ## Step 2: Open claude desktop developer settings
 
-Click `Claude` in your menu bar, then click `Settings`
+Select `Claude` in your menu bar, select `Settings`
 
 ![Claude Developer Settings](../img/claude-desktop-settings.jpg)
 
-Then click on `Developer`
+Then select `Developer`
 
 ![Claude Developer](../img/claude-developer.png)
 
-Finally click on `edit config`
+Finally, select `edit config`
 
 ![Claude Config](../img/claude-edit-config.png)
 
-This will take you to the claude desktop config file in your filesystem `claude_desktop_config.json`. Open this file in your preferred editor.
+This will take you to the Claude Desktop config file in your filesystem `claude_desktop_config.json`. Open this file in your preferred editor.
 
 Copy and paste the following snippet.
 
-**Replace `[tenant]` with your actual tenant name.** For example:
+**Replace `[tenant]` with your tenant name.** For example:
 
 - If your SailPoint URL is `https://acme.identitynow.com`, use `acme`
 - Full URL would be: `https://acme.api.identitynow.com/v2025/access-requests/mcp`
@@ -71,15 +75,15 @@ Copy and paste the following snippet.
 }
 ```
 
-## **Restart Claude and check for MCP tools**
+## **Restart claude and check for MCP tools**
 
-1. Quit Claude, then **re-launch** Claude, this is required to pick up the new config
+1. This is required to pick up the new config
 
-2. Click the Tools button at the bottom of the new chat UI. You will see SailPoint MCP among the tools listed:
+2. Select the Tools icon at the bottom of the new chat UI. You will see SailPoint MCP among the tools listed:
 
     ![Claude Tools](../img/claude-tools.png)
 
-3. Ensure all four tools are enabled like so:
+3. Ensure all four tools are enabled:
 
     ![Claude Tool Details](../img/claude-tool-details.png)
 

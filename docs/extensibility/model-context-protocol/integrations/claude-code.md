@@ -1,6 +1,6 @@
 ---
 id: claude-code-setup
-title: Setup MCP with Claude Code
+title: Set Up MCP with Claude Code
 pagination_label: Claude Code
 sidebar_label: Claude Code
 sidebar_position: 2
@@ -12,6 +12,10 @@ tags: ['MCP', 'Claude Code', 'CLI']
 ---
 
 This guide will walk you through the process of connecting the SailPoint MCP server using Claude Code.
+
+:::warning
+Before configuring this integration, please confirm with your organization's administrator whether the integration is allowed with this AI provider. SailPoint does not bear any responsibility in this regard.
+:::
 
 ## Prerequisites
 
@@ -54,7 +58,7 @@ To make the environment variable persistent across sessions, add it to your shel
 
 Once your authentication is configured, you can add the MCP server to Claude Code using the following command:
 
-**Replace `[tenant]` with your actual tenant name.** For example:
+**Replace `[tenant]` with your tenant name.** For example:
 
 - If your SailPoint URL is `https://acme.identitynow.com`, use `acme`
 - Full URL would be: `https://acme.api.identitynow.com/v2025/access-requests/mcp`
@@ -104,7 +108,7 @@ Once the session starts, use the MCP command to connect to your server:
 
 Claude will attempt to establish a connection to all configured MCP servers. Upon successful connection, you can:
 
-- Browse the available tools and their descriptions
+- Browse the tools and their descriptions
 - Verify that your `sailpoint-mcp` server appears in the configured servers list
 - Test the server's functionality
 

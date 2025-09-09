@@ -13,7 +13,7 @@ tags: ['MCP']
 
 ## Overview
 
-The SailPoint Model Context Protocol (MCP) Server enables seamless integration between GenAI applications (like Claude desktop, n8n) and SailPoint’s identity security cloud. Through natural language interactions, users can:
+The SailPoint Model Context Protocol (MCP) Server enables seamless integration between GenAI applications like Claude Desktop and n8n, and SailPoint Identity Security Cloud. Through natural language interactions, users can:
 
 * Search for requestable items (roles, entitlements, access profiles) using natural language (English or not)
 * Create access requests through guided AI interactions
@@ -22,11 +22,11 @@ The SailPoint Model Context Protocol (MCP) Server enables seamless integration b
 
 SailPoint MCP Server enables a fundamental shift in how users interact with identity and access management systems—moving from complex UIs to intuitive, AI-powered conversations.
 
-Click [here](https://modelcontextprotocol.io/docs/getting-started/intro) for more information about Model Context Protocol.
+Refer to the official [Model Context Protocol (MCP) documentation](https://modelcontextprotocol.io/docs/getting-started/intro) to learn more about MCP.
 
 ## Getting started
 
-To start learning how to use the SailPoint MCP Server and explore its possibilities, refer to [Getting Started](./getting-started.mdx).
+To learn how to use the SailPoint MCP Server and explore its possibilities, refer to [Getting Started](./getting-started.mdx).
 
 ## Discuss
 

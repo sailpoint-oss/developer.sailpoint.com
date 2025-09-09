@@ -1,6 +1,6 @@
 ---
 id: cursor-setup
-title: Setup MCP with Cursor
+title: Set Up MCP with Cursor
 pagination_label: Cursor
 sidebar_label: Cursor
 sidebar_position: 3
@@ -12,6 +12,10 @@ tags: ['MCP', 'Cursor']
 ---
 
 This guide will walk you through configuring Cursor to connect with the SailPoint Model Context Protocol (MCP) Server using the `mcp.json` configuration file.
+
+:::warning
+Before configuring this integration, please confirm with your organization's administrator whether the integration is allowed with this AI provider. SailPoint does not bear any responsibility in this regard.
+:::
 
 ## Prerequisites
 
@@ -25,7 +29,7 @@ Cursor allows for deep links into its configuration. By clicking the button belo
 
 [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=SailPoint%20MCP&config=ewogICAgImNvbW1hbmQiOiAibnB4IiwKICAgICJlbnYiOiB7CiAgICAgICAgIkFVVEhfVE9LRU4iOiAieW91cl9hdXRoX3Rva2VuX2hlcmUiCiAgICB9LAogICAgImFyZ3MiOiBbCiAgICAgICAgIm1jcC1yZW1vdGVAbGF0ZXN0IiwKICAgICAgICAiaHR0cHM6Ly9bdGVuYW50XS5hcGkuY2xvdWQuc2FpbHBvaW50LmNvbS92MjAyNS9hY2Nlc3MtcmVxdWVzdHMvbWNwIiwKICAgICAgICAiLS1kZWJ1ZyIsCiAgICAgICAgIi0taGVhZGVyIiwKICAgICAgICAiQXV0aG9yaXphdGlvbjogQmVhcmVyICR7QVVUSF9UT0tFTn0iCiAgICBdCn0=)
 
-Once in Cursor, you will see that it asks you to install the SailPoint MCP server. Click install to continue.
+Once in Cursor, following the prompt to install the SailPoint MCP server and select install to continue.
 
 ![cursor install](../img/cursor-install.png)
 

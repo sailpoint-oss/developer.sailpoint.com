@@ -25,7 +25,7 @@ The SailPoint MCP (Model Context Protocol) Server enables AI applications to int
 Before you begin, ensure you have:
 
 - **Access to a SailPoint tenant** with API access enabled
-- **Valid authentication credentials** - see our [Authentication documentation](../../api/v2025/authentication.md) for details
+- **Valid authentication credentials** - refer to our [Authentication documentation](../../api/v2025/authentication.md) for details
 - **Internet connection** for accessing the web-based MCP Inspector
 - **Modern web browser** (Chrome, Firefox, Safari, or Edge)
 
@@ -40,8 +40,8 @@ npx @modelcontextprotocol/inspector
 ```
 
 **What happens next:**
-- If this is your first time running the command, npm will ask to install the package - type `y` to confirm
-- Your default web browser will automatically open to the MCP Inspector interface
+- If this is your first time running the command, npm will ask to install the package - enter `y` to confirm
+- Your default web browser will automatically open the MCP Inspector interface
 
 ![MCP Inspector](./img/mcp-inspector.png)
 
@@ -49,7 +49,7 @@ npx @modelcontextprotocol/inspector
 
 ### Set the Transport Type
 
-In the MCP Inspector sidebar, locate the **Transport Type** dropdown and select `Streamable HTTP`.
+In the MCP Inspector sidebar, locate the **Transport Type** dropdown menu and select `Streamable HTTP`.
 
 ### Enter Your Server URL
 
@@ -75,7 +75,7 @@ You'll need a valid SailPoint API access token. If you don't have one yet:
 
 ### Configure Authentication in MCP Inspector
 
-1. Click on the **"Authentication"** tab in the MCP Inspector
+1. Select the **Authentication** tab in the MCP Inspector
 2. Set the following values:
    - **Header Name**: `Authorization`
    - **Bearer Token**: Paste your access token (without the "Bearer " prefix)
@@ -83,7 +83,7 @@ You'll need a valid SailPoint API access token. If you don't have one yet:
 
 ### Connect to the Server
 
-Click the **"Connect"** button to establish the connection.
+Select **Connect** to establish the connection.
 
 **Success indicators:**
 - The connection status should show as "Connected"
@@ -96,25 +96,20 @@ Click the **"Connect"** button to establish the connection.
 
 ### List Available Tools
 
-Click the **"List Tools"** button to retrieve all available MCP tools from the SailPoint server.
+Select **List Tools** to retrieve available MCP tools from the SailPoint server.
 
-**If successful, you should see:**
+**If successful, you will see:**
 - A list of available tools with descriptions
 - Tool names, parameters, and usage information
 - No error messages or timeouts
 
-![Available Tools](./img/mcp-tools.png)
-
-The SailPoint MCP server currently provides four core tools, with additional tools being added regularly to expand functionality.
-
+The SailPoint MCP server currently provides four core tools.
 
 ## Test the connection by listing the available tools
 
-Click `List Tools` to see the available tools. If the connection is successful, you will see a list of tools like this:
+Select `List Tools` to see the available tools. If the connection is successful, you will see a list of tools:
 
 ![Available Tools](./img/mcp-tools.png)
-
-The SailPoint MCP server provides four tools today and is expected to grow in the future.
 
 ## Next Steps
 

@@ -42,6 +42,7 @@ Name | Type | Description | Notes
 **AccessRequestId** | **String** | This is the account activity id. | [optional] 
 **ClientMetadata** | **map[string]String** | Arbitrary key-value pairs, if any were included in the corresponding access request | [optional] 
 **RequestedAccounts** | [**[]RequestedAccountRef**](requested-account-ref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
+**PrivilegeLevel** | **String** | The privilege level of the requested access item, if applicable. | [optional] 
 
 ## Examples
 
@@ -72,7 +73,8 @@ $RequestedItemStatus = Initialize-RequestedItemStatus  -Id 2c9180926cbfbddd016cb
  -Cancelable true `
  -AccessRequestId 2b838de9-db9b-abcf-e646-d4f274ad4238 `
  -ClientMetadata {key1=value1, key2=value2} `
- -RequestedAccounts null
+ -RequestedAccounts null `
+ -PrivilegeLevel High
 ```
 
 - Convert the resource to JSON

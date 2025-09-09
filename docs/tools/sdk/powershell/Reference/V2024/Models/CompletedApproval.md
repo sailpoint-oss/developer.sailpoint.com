@@ -40,6 +40,7 @@ Name | Type | Description | Notes
 **PreApprovalTriggerResult** | [**CompletedApprovalPreApprovalTriggerResult**](completed-approval-pre-approval-trigger-result) |  | [optional] 
 **ClientMetadata** | **map[string]String** | Arbitrary key-value pairs provided during the request. | [optional] 
 **RequestedAccounts** | [**[]RequestedAccountRef**](requested-account-ref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
+**PrivilegeLevel** | **String** | The privilege level of the requested access item, if applicable. | [optional] 
 
 ## Examples
 
@@ -68,7 +69,8 @@ $CompletedApproval = Initialize-V2024CompletedApproval  -Id id12345 `
  -SodViolationContext null `
  -PreApprovalTriggerResult null `
  -ClientMetadata {requestedAppName=test-app, requestedAppId=2c91808f7892918f0178b78da4a305a1} `
- -RequestedAccounts null
+ -RequestedAccounts null `
+ -PrivilegeLevel High
 ```
 
 - Convert the resource to JSON

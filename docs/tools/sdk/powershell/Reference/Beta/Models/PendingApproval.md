@@ -37,6 +37,7 @@ Name | Type | Description | Notes
 **SodViolationContext** | [**SodViolationContextCheckCompleted1**](sod-violation-context-check-completed1) |  | [optional] 
 **ClientMetadata** | **map[string]String** | Arbitrary key-value pairs, if any were included in the corresponding access request item | [optional] 
 **RequestedAccounts** | [**[]RequestedAccountRef**](requested-account-ref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
+**PrivilegeLevel** | **String** | The privilege level of the requested access item, if applicable. | [optional] 
 
 ## Examples
 
@@ -62,7 +63,8 @@ $PendingApproval = Initialize-BetaPendingApproval  -Id 2c9180835d2e5168015d32f89
  -CurrentRemoveDate 2020-07-11T00:00Z `
  -SodViolationContext null `
  -ClientMetadata {customKey1=custom value 1, customKey2=custom value 2} `
- -RequestedAccounts null
+ -RequestedAccounts null `
+ -PrivilegeLevel High
 ```
 
 - Convert the resource to JSON

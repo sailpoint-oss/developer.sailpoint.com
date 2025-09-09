@@ -41,6 +41,7 @@ Name | Type | Description | Notes
 **AccessRequestId** | Pointer to **string** | This is the account activity id. | [optional] 
 **ClientMetadata** | Pointer to **map[string]string** | Arbitrary key-value pairs, if any were included in the corresponding access request | [optional] 
 **RequestedAccounts** | Pointer to [**[]RequestedAccountRef**](requested-account-ref) | The accounts selected by the user for the access to be provisioned on, in case they have multiple accounts on one or more sources. | [optional] 
+**PrivilegeLevel** | Pointer to **NullableString** | The privilege level of the requested access item, if applicable. | [optional] 
 
 ## Methods
 
@@ -841,4 +842,39 @@ HasRequestedAccounts returns a boolean if a field has been set.
 `func (o *RequestedItemStatus) UnsetRequestedAccounts()`
 
 UnsetRequestedAccounts ensures that no value is present for RequestedAccounts, not even an explicit nil
+### GetPrivilegeLevel
+
+`func (o *RequestedItemStatus) GetPrivilegeLevel() string`
+
+GetPrivilegeLevel returns the PrivilegeLevel field if non-nil, zero value otherwise.
+
+### GetPrivilegeLevelOk
+
+`func (o *RequestedItemStatus) GetPrivilegeLevelOk() (*string, bool)`
+
+GetPrivilegeLevelOk returns a tuple with the PrivilegeLevel field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetPrivilegeLevel
+
+`func (o *RequestedItemStatus) SetPrivilegeLevel(v string)`
+
+SetPrivilegeLevel sets PrivilegeLevel field to given value.
+
+### HasPrivilegeLevel
+
+`func (o *RequestedItemStatus) HasPrivilegeLevel() bool`
+
+HasPrivilegeLevel returns a boolean if a field has been set.
+
+### SetPrivilegeLevelNil
+
+`func (o *RequestedItemStatus) SetPrivilegeLevelNil(b bool)`
+
+ SetPrivilegeLevelNil sets the value for PrivilegeLevel to be an explicit nil
+
+### UnsetPrivilegeLevel
+`func (o *RequestedItemStatus) UnsetPrivilegeLevel()`
+
+UnsetPrivilegeLevel ensures that no value is present for PrivilegeLevel, not even an explicit nil
 

@@ -1,15 +1,15 @@
 ---
-id: v2025-machine-identity
-title: MachineIdentity
-pagination_label: MachineIdentity
-sidebar_label: MachineIdentity
+id: v2025-machine-identity-request
+title: MachineIdentityRequest
+pagination_label: MachineIdentityRequest
+sidebar_label: MachineIdentityRequest
 sidebar_class_name: pythonsdk
-keywords: ['python', 'Python', 'sdk', 'MachineIdentity', 'V2025MachineIdentity'] 
-slug: /tools/sdk/python/v2025/models/machine-identity
-tags: ['SDK', 'Software Development Kit', 'MachineIdentity', 'V2025MachineIdentity']
+keywords: ['python', 'Python', 'sdk', 'MachineIdentityRequest', 'V2025MachineIdentityRequest'] 
+slug: /tools/sdk/python/v2025/models/machine-identity-request
+tags: ['SDK', 'Software Development Kit', 'MachineIdentityRequest', 'V2025MachineIdentityRequest']
 ---
 
-# MachineIdentity
+# MachineIdentityRequest
 
 
 ## Properties
@@ -28,14 +28,15 @@ Name | Type | Description | Notes
 **source_id** | **str** | The source id associated to the machine identity | [optional] 
 **uuid** | **str** | The UUID associated to the machine identity directly aggregated from a source | [optional] 
 **native_identity** | **str** | The native identity associated to the machine identity directly aggregated from a source | [optional] 
+**user_entitlements** | [**[]MachineIdentityRequestUserEntitlements**](machine-identity-request-user-entitlements) | The user entitlements associated to the machine identity | [optional] 
 }
 
 ## Example
 
 ```python
-from sailpoint.v2025.models.machine_identity import MachineIdentity
+from sailpoint.v2025.models.machine_identity_request import MachineIdentityRequest
 
-machine_identity = MachineIdentity(
+machine_identity_request = MachineIdentityRequest(
 id='id12345',
 name='aName',
 created='2015-05-28T14:07:17Z',
@@ -54,7 +55,12 @@ owners=sailpoint.v2025.models.machine_identity_dto_owners.MachineIdentityDto_own
                         ], ),
 source_id='6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa',
 uuid='f5dd23fe-3414-42b7-bb1c-869400ad7a10',
-native_identity='abc:123:dddd'
+native_identity='abc:123:dddd',
+user_entitlements=[
+                    sailpoint.v2025.models.machine_identity_request_user_entitlements.Machine_Identity_Request_userEntitlements(
+                        entitlement_id = '6d28b7c1-620c-49c6-b6d5-cbf81eb4b5fa', 
+                        source_id = '5898b7c1-620c-49c6-cccc-cbf81eb4bddd', )
+                    ]
 )
 
 ```

@@ -185,14 +185,14 @@ with ApiClient(configuration) as api_client:
               "children" : [ {
                 "children" : [ "children", "children" ],
                 "caseSensitive" : false,
-                "dataType" : "This is the first level of classification criteria",
+                "dataType" : "dataType",
                 "attribute" : "sAMAccountName",
                 "operation" : "EQUALS",
                 "value" : "SVC"
               }, {
                 "children" : [ "children", "children" ],
                 "caseSensitive" : false,
-                "dataType" : "This is the first level of classification criteria",
+                "dataType" : "dataType",
                 "attribute" : "sAMAccountName",
                 "operation" : "EQUALS",
                 "value" : "SVC"
@@ -206,14 +206,14 @@ with ApiClient(configuration) as api_client:
               "children" : [ {
                 "children" : [ "children", "children" ],
                 "caseSensitive" : false,
-                "dataType" : "This is the first level of classification criteria",
+                "dataType" : "dataType",
                 "attribute" : "sAMAccountName",
                 "operation" : "EQUALS",
                 "value" : "SVC"
               }, {
                 "children" : [ "children", "children" ],
                 "caseSensitive" : false,
-                "dataType" : "This is the first level of classification criteria",
+                "dataType" : "dataType",
                 "attribute" : "sAMAccountName",
                 "operation" : "EQUALS",
                 "value" : "SVC"

@@ -234,6 +234,17 @@ with ApiClient(configuration) as api_client:
             "type" : "IDENTITY_LIST"
           },
           "accessRequestConfig" : {
+            "dimensionSchema" : {
+              "dimensionAttributes" : [ {
+                "displayName" : "City",
+                "name" : "city",
+                "derived" : true
+              }, {
+                "displayName" : "City",
+                "name" : "city",
+                "derived" : true
+              } ]
+            },
             "commentsRequired" : true,
             "reauthorizationRequired" : true,
             "approvalSchemes" : [ {

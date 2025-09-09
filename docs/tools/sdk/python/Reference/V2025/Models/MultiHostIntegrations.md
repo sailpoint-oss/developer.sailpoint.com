@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **id** | **str** | Multi-Host Integration ID. | [required][readonly] 
 **name** | **str** | Multi-Host Integration's human-readable name. | [required]
 **description** | **str** | Multi-Host Integration's human-readable description. | [required]
-**owner** | [**SourceOwner**](source-owner) |  | [required]
+**owner** | [**MultiHostIntegrationsOwner**](multi-host-integrations-owner) |  | [required]
 **cluster** | [**SourceCluster**](source-cluster) |  | [optional] 
 **account_correlation_config** | [**SourceAccountCorrelationConfig**](source-account-correlation-config) |  | [optional] 
 **account_correlation_rule** | [**SourceAccountCorrelationRule**](source-account-correlation-rule) |  | [optional] 
@@ -59,7 +59,7 @@ multi_host_integrations = MultiHostIntegrations(
 id='2c91808568c529c60168cca6f90c1324',
 name='My Multi-Host Integration',
 description='This is a Multi-Host Integration.',
-owner=sailpoint.v2025.models.source_owner.Source_owner(
+owner=sailpoint.v2025.models.multi_host_integrations_owner.MultiHostIntegrations_owner(
                     type = 'IDENTITY', 
                     id = '2c91808568c529c60168cca6f90c1313', 
                     name = 'MyName', ),

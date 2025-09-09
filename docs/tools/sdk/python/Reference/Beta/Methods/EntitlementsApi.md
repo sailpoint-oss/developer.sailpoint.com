@@ -607,7 +607,7 @@ with ApiClient(configuration) as api_client:
 Patch an entitlement
 This API updates an existing entitlement using [JSON Patch](https://tools.ietf.org/html/rfc6902) syntax.
 
-The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**, **name**, **description**, **privilegeOverride/overrideLevel** and **manuallyUpdatedFields**
+The following fields are patchable: **requestable**, **privileged**, **segments**, **owner**, **name**, **description** and **manuallyUpdatedFields**
 
 When you're patching owner, only owner type and owner id must be provided. Owner name is optional, and it won't be modified. If the owner name is provided, it should correspond to the real name. The only owner type currently supported is IDENTITY.
 
@@ -825,7 +825,6 @@ The JsonPatch update follows the [JSON Patch](https://tools.ietf.org/html/rfc690
 examples of allowed operations :
 `**{ "op": "replace", "path": "/privileged", "value": boolean }**`
 `**{ "op": "replace", "path": "/requestable","value": boolean }**`
-`**{ "op": "replace", "path": "/privilegeOverride/overrideLevel","value": string }**`
 
 A token with ORG_ADMIN or API authority is required to call this API.
 
@@ -876,10 +875,6 @@ with ApiClient(configuration) as api_client:
             "op" : "replace",
             "path" : "/requestable",
             "value" : false
-          }, {
-            "op" : "replace",
-            "path" : "/privilegeOverride/overrideLevel",
-            "value" : "HIGH"
           } ]
         }''' # EntitlementBulkUpdateRequest | 
 

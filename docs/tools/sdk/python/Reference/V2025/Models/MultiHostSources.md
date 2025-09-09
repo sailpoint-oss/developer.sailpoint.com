@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 **id** | **str** | Source ID. | [required][readonly] 
 **name** | **str** | Source's human-readable name. | [required]
 **description** | **str** | Source's human-readable description. | [optional] 
-**owner** | [**SourceOwner**](source-owner) |  | [required]
+**owner** | [**MultiHostIntegrationsOwner**](multi-host-integrations-owner) |  | [required]
 **cluster** | [**SourceCluster**](source-cluster) |  | [optional] 
 **account_correlation_config** | [**SourceAccountCorrelationConfig**](source-account-correlation-config) |  | [optional] 
 **account_correlation_rule** | [**SourceAccountCorrelationRule**](source-account-correlation-rule) |  | [optional] 
@@ -58,7 +58,7 @@ multi_host_sources = MultiHostSources(
 id='2c91808568c529c60168cca6f90c1324',
 name='My Source',
 description='This is the Source.',
-owner=sailpoint.v2025.models.source_owner.Source_owner(
+owner=sailpoint.v2025.models.multi_host_integrations_owner.MultiHostIntegrations_owner(
                     type = 'IDENTITY', 
                     id = '2c91808568c529c60168cca6f90c1313', 
                     name = 'MyName', ),

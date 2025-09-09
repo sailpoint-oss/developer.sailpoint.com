@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Multi-Host Integration's human-readable name. | [required]
 **description** | **str** | Multi-Host Integration's human-readable description. | [required]
-**owner** | [**SourceOwner**](source-owner) |  | [required]
+**owner** | [**MultiHostIntegrationsOwner**](multi-host-integrations-owner) |  | [required]
 **cluster** | [**SourceCluster**](source-cluster) |  | [optional] 
 **connector** | **str** | Connector script name. | [required]
 **connector_attributes** | **map[string]object** | Multi-Host Integration specific configuration. User can add any number of additional attributes. e.g. maxSourcesPerAggGroup, maxAllowedSources etc. | [optional] 
@@ -35,7 +35,7 @@ from sailpoint.v2024.models.multi_host_integrations_create import MultiHostInteg
 multi_host_integrations_create = MultiHostIntegrationsCreate(
 name='My Multi-Host Integration',
 description='This is the Multi-Host Integration.',
-owner=sailpoint.v2024.models.source_owner.Source_owner(
+owner=sailpoint.v2024.models.multi_host_integrations_owner.MultiHostIntegrations_owner(
                     type = 'IDENTITY', 
                     id = '2c91808568c529c60168cca6f90c1313', 
                     name = 'MyName', ),

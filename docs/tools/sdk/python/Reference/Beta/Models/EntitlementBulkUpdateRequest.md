@@ -28,7 +28,7 @@ from sailpoint.beta.models.entitlement_bulk_update_request import EntitlementBul
 
 entitlement_bulk_update_request = EntitlementBulkUpdateRequest(
 entitlement_ids=[2c91808a7624751a01762f19d665220d, 2c91808a7624751a01762f19d67c220e, 2c91808a7624751a01762f19d692220f],
-json_patch=[{op=replace, path=/privileged, value=false}, {op=replace, path=/requestable, value=false}, {op=replace, path=/privilegeOverride/overrideLevel, value=HIGH}]
+json_patch=[{op=replace, path=/privileged, value=false}, {op=replace, path=/requestable, value=false}]
 )
 
 ```

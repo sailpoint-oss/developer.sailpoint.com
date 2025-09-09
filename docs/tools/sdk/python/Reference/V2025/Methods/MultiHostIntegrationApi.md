@@ -21,6 +21,7 @@ Method | HTTP request | Description
 [**create-multi-host-integration**](#create-multi-host-integration) | **POST** `/multihosts` | Create multi-host integration
 [**create-sources-within-multi-host**](#create-sources-within-multi-host) | **POST** `/multihosts/{multihostId}` | Create sources within multi-host integration
 [**delete-multi-host**](#delete-multi-host) | **DELETE** `/multihosts/{multihostId}` | Delete multi-host integration
+[**delete-multi-host-sources**](#delete-multi-host-sources) | **POST** `/multihosts/{multiHostId}/sources/bulk-delete` | Delete sources within multi-host integration
 [**get-acct-aggregation-groups**](#get-acct-aggregation-groups) | **GET** `/multihosts/{multihostId}/acctAggregationGroups` | List account-aggregation-groups by multi-host id
 [**get-entitlement-aggregation-groups**](#get-entitlement-aggregation-groups) | **GET** `/multihosts/{multiHostId}/entitlementAggregationGroups` | List entitlement-aggregation-groups by integration id
 [**get-multi-host-integrations**](#get-multi-host-integrations) | **GET** `/multihosts/{multihostId}` | Get multi-host integration by id
@@ -233,6 +234,66 @@ with ApiClient(configuration) as api_client:
         # MultiHostIntegrationApi(api_client).delete_multi_host(multihost_id)
     except Exception as e:
         print("Exception when calling MultiHostIntegrationApi->delete_multi_host: %s\n" % e)
+```
+
+
+
+[[Back to top]](#) 
+
+## delete-multi-host-sources
+Delete sources within multi-host integration
+This endpoint performs bulk sources delete within Multi-Host Integration via a list of supplied IDs.
+
+The following rights are required to access this endpoint: idn:multihosts:delete, idn:sources:delete
+
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/delete-multi-host-sources)
+
+### Parameters 
+
+Param Type | Name | Data Type | Required  | Description
+------------- | ------------- | ------------- | ------------- | ------------- 
+Path   | multi_host_id | **str** | True  | ID of the Multi-Host Integration
+ Body  | request_body | **[]str** | True  | The delete bulk sources within multi-host integration request body
+
+### Return type
+ (empty response body)
+
+### Responses
+Code | Description  | Data Type | Response headers |
+------------- | ------------- | ------------- |------------------|
+200 | OK. Returned if the request was successfully accepted into the system. |  |  -  |
+400 | Client Error - Returned if the request body is invalid. | ErrorResponseDto |  -  |
+401 | Unauthorized - Returned if there is no authorization header, or if the JWT token is expired. | ListAccessProfiles401Response |  -  |
+403 | Forbidden - Returned if the user you are running as, doesn&#39;t have access to this end-point. | ErrorResponseDto |  -  |
+404 | Not Found - returned if the request URL refers to a resource or object that does not exist | ErrorResponseDto |  -  |
+429 | Too Many Requests - Returned in response to too many requests in a given period of time - rate limited. The Retry-After header in the response includes how long to wait before trying again. | ListAccessProfiles429Response |  -  |
+500 | Internal Server Error - Returned if there is an unexpected error. | ErrorResponseDto |  -  |
+
+### HTTP request headers
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### Example
+
+```python
+from sailpoint.v2025.api.multi_host_integration_api import MultiHostIntegrationApi
+from sailpoint.v2025.api_client import ApiClient
+from sailpoint.configuration import Configuration
+configuration = Configuration()
+
+
+with ApiClient(configuration) as api_client:
+    multi_host_id = '004091cb79b04636b88662afa50a4440' # str | ID of the Multi-Host Integration # str | ID of the Multi-Host Integration
+    request_body = '''['request_body_example']''' # List[str] | The delete bulk sources within multi-host integration request body
+
+    try:
+        # Delete sources within multi-host integration
+        new_request_body = RequestBody.from_json(request_body)
+        MultiHostIntegrationApi(api_client).delete_multi_host_sources(multi_host_id=multi_host_id, request_body=new_request_body)
+        # Below is a request that includes all optional parameters
+        # MultiHostIntegrationApi(api_client).delete_multi_host_sources(multi_host_id, new_request_body)
+    except Exception as e:
+        print("Exception when calling MultiHostIntegrationApi->delete_multi_host_sources: %s\n" % e)
 ```
 
 

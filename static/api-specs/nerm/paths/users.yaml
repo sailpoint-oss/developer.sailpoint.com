@@ -13,6 +13,7 @@ get:
     - $ref: "../parameters/query/user_type.yaml"
     - $ref: "../parameters/query/email.yaml"
     - $ref: "../parameters/query/metadata.yaml"
+    - $ref: "../parameters/query/sailpoint_identity_id.yaml"
   responses:
     "200":
       $ref: "../responses/Users_Meta.yaml"

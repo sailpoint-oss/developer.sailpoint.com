@@ -14,3 +14,6 @@ jobs:
       - uses: JustinBeckwith/linkinator-action@v1
         with:
           paths: docs/**/*.md
+          markdown: true
+          linksToSkip: ^(?!https:\/\/)
+          

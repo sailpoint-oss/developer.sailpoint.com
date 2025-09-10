@@ -13,6 +13,16 @@ export default function SubmitFinalProject() {
     }
   }, []);
 
+    useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (!celebrating && (e.code === 'Enter' || e.code === 'Space')) {
+        handleCelebrate();
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [celebrating]);
+
   function randomInRange(min: number, max: number) {
     return Math.random() * (max - min) + min;
   }

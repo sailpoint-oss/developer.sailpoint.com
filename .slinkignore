@@ -1,0 +1,9 @@
+{
+  "ignoreURLs": [
+    "https://sailpoint.api.identitynow.com/beta",
+    "https://sailpoint.api.identitynow.com/v3",
+    "https://sailpoint.api.identitynow.com/v2024",
+    "https://sailpoint.api.identitynow.com/v2025",
+    "https://sailpoint.api.identitynow.com/v2026",
+  ]
+}

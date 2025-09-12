@@ -1,0 +1,19 @@
+type: object
+nullable: true
+description: >-
+        When present, specifies that the Role is to be granted to Identities which either satisfy specific criteria or
+        which are members of a given list of Identities.
+properties:
+    type:
+        $ref: './RoleMembershipSelectorType.yaml'
+    criteria:
+        $ref: './RoleCriteriaLevel1.yaml'
+        nullable: true
+    identities:
+        type: array
+        items:
+            $ref: './RoleMembershipIdentity.yaml'
+        nullable: true
+        description: >-
+            Defines role membership as being exclusive to the specified Identities, when type is
+            IDENTITY_LIST.

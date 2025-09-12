@@ -1,0 +1,6 @@
+type: string
+description: The Type of Cluster
+example: 'idn'
+enum:
+  - idn
+  - iai

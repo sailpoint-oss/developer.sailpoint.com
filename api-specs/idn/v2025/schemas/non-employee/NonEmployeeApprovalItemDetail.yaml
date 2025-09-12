@@ -1,0 +1,7 @@
+allOf:
+  - $ref: './NonEmployeeApprovalItemBase.yaml'
+  - type: object
+    properties:
+      nonEmployeeRequest:
+        $ref: './NonEmployeeRequestWithoutApprovalItem.yaml'
+        description: Non-Employee request associated to this approval

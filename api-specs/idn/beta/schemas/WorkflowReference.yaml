@@ -1,0 +1,12 @@
+type: object
+title: Workflow Reference
+properties:
+  type:
+    type: string
+    description: Workflow Reference Type.
+  id:
+    type: string
+    description: Workflow Reference Id.
+  name:
+    type: string
+    description: Workflow Reference Name.

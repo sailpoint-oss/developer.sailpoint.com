@@ -1,0 +1,9 @@
+name: uid
+in: body
+description: Object unique identifier set by user
+required: false
+schema:
+  example: "object_uid"
+  type: string
+  minLength: 32
+  maxLength: 32

@@ -1,0 +1,57 @@
+type: object
+properties:
+  workflow_id:
+    type: string
+    format: uuid
+    description: The workflow id.
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  requester_id:
+    type: string
+    format: uuid
+    description: The requester's id.
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  requester_type:
+    type: string
+    enum: [User, NeprofileUser, NeaccessUser]
+    description: The requester type.
+    example: User
+  profile_id:
+    type: string
+    format: uuid
+    description: The profile this workflow session will be working with. Only Applicable for Update workflows
+    example: 33f072dd-13b4-41e1-8ea0-16f2a59b57c8
+  profile_ids:
+    type: array
+    items:
+      type: string
+      format: uuid
+    description: The profiles this workflow session will be working with. Only Applicable for Batch workflows
+    example: 59ed1cb6-9977-4965-9bfe-f2bcc242523e, 89ed1cb6-9977-4965-9bfe-f2bcc242523e
+  status:
+    type: string
+    enum: [api_request_sent, approved, assigned, attempting_to_start_workflow, AUTH-STATUS1, AUTH-STATUS2, AUTH-STATUS3, AUTH-STATUS4, AUTH-STATUS5, AUTH-STATUS6, AUTH-STATUS7, AUTH-STATUS8, AUTH-STATUS9, auto_assigned, batch_completed, checking_for_duplicates, closed, completed, courion_add, courion_extend, courion_terminate, courion_update, duplicates_resolved, failed, fulfilled, invitation_sent, ldap_provided, new, non_employee_created, non_employee_updated, notified, pending_approval, pending_assignment, pending_courion_add, pending_courion_extend, pending_courion_terminate, pending_courion_update, pending_creation, pending_fulfillment, pending_ldap, pending_notification, pending_profile_select, pending_request, pending_review, pending_status_change, pending_stored_procedure, pending_trigger, pending_update, processing, profile_check_complete, profiles_selected, rejected, requested, reviewed, soap_request_sent, started_workflow, status_changed, stored_procedure, un_assigned, waiting_on_workflow, workflow_changed]
+    example: completed
+    description: The status of the workflow session.
+  attributes:
+    type: object
+    additionalProperties:
+      type: string
+    description: The attributes asscoiated with the workflow session.
+    example:
+      text_attribute_uid: static text
+      date_attribute_uid: 01/15/2020
+      profile_select_attribute_uid: 79ed1cb6-9977-4965-9bfe-f2bcc242523e
+      multiple_profile_select_attribute_uid: 59ed1cb6-9977-4965-9bfe-f2bcc242523e, 89ed1cb6-9977-4965-9bfe-f2bcc242523e
+      profile_search_attribute_uid: 79ed1cb6-9977-4965-9bfe-f2bcc242523e
+      multiple_profile_search_attribute_uid: 59ed1cb6-9977-4965-9bfe-f2bcc242523e, 89ed1cb6-9977-4965-9bfe-f2bcc242523e
+      contributor_select_attribute_uid: 49ed1cb6-9977-4965-9bfe-f2bcc2425244
+      contributor_search_attribute_uid: 49ed1cb6-9977-4965-9bfe-f2bcc2425244
+      multiple_contributor_search_attribute_uid: 59ed1cb6-9977-4965-9bfe-f2bcc242523e, 89ed1cb6-9977-4965-9bfe-f2bcc242523e
+      owner_select_attribute_uid: 79ed1cb6-9977-4965-9bfe-f2bcc242523e
+      owner_search_attribute_uid: 79ed1cb6-9977-4965-9bfe-f2bcc242523e
+      dropdown_attribute_uid: yes, no
+      tags_attribute_uid: yes, no
+      checkbox_attribute_uid: yes, no
+      text_area_uid: static text
+      radio_attribute_uid: yes, no
+      

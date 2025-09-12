@@ -5,6 +5,7 @@ import {
   GetCommand,
   PutCommand,
   UpdateCommand,
+  DeleteCommand,
 } from '@aws-sdk/lib-dynamodb';
 import {randomBytes, createCipheriv, createDecipheriv, publicEncrypt, privateDecrypt, constants, randomUUID, generateKeyPairSync} from 'crypto';
 import {Hono} from 'hono';
@@ -102,7 +103,9 @@ async function getAuthInfo(baseURL: string) {
 
 async function storeAuthData(uuid: string, baseURL: string) {
   try {
-    const objectToPut = {id: uuid, baseURL};
+    // TTL 5 minutes
+    const ttl = Math.floor(Date.now() / 1000) + 300;
+    const objectToPut = {id: uuid, baseURL, ttl};
     await ddbDocClient.send(
       new PutCommand({TableName: validatedTableName, Item: objectToPut}),
     );
@@ -125,6 +128,16 @@ async function getStoredData(uuid: string) {
   } catch (err) {
     console.error('Error retrieving item:', err);
     throw new HTTPException(400, {message: 'Error retrieving data'});
+  }
+}
+
+async function deleteStoredData(uuid: string) {
+  try {
+    await ddbDocClient.send(
+      new DeleteCommand({TableName: validatedTableName, Key: {id: uuid}}),
+    );
+  } catch (err) {
+    console.error('Error deleting item:', err);
   }
 }
 
@@ -309,13 +322,19 @@ function decryptToken(encryptedTokenData: string, privateKey: string) {
 
 async function storeEncryptedToken(uuid: string, encryptedToken: string) {
   try {
+    // TTL 5 minutes
+    const ttl = Math.floor(Date.now() / 1000) + 300;
     await ddbDocClient.send(
       new UpdateCommand({
         TableName: validatedTableName,
         Key: {id: uuid},
-        UpdateExpression: 'set tokenInfo = :tokenInfo',
+        UpdateExpression: 'set tokenInfo = :tokenInfo, #ttl = :ttl',
+        ExpressionAttributeNames: {
+          '#ttl': 'ttl',
+        },
         ExpressionAttributeValues: {
           ':tokenInfo': encryptedToken,
+          ':ttl': ttl,
         },
       }),
     );
@@ -405,6 +424,8 @@ app.get('/Prod/sailapps/auth/token/:uuid', async (c) => {
   if (!data.tokenInfo) {
     throw new HTTPException(400, {message: 'Token not found'});
   }
+
+  await deleteStoredData(uuid);
 
   return c.json(data, 200);
 });

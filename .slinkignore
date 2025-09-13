@@ -5,5 +5,8 @@
     "https://sailpoint.api.identitynow.com/v2024",
     "https://sailpoint.api.identitynow.com/v2025",
     "https://sailpoint.api.identitynow.com/v2026",
+  ],
+  "ignorePaths": [
+    "package-lock.json",
   ]
 }

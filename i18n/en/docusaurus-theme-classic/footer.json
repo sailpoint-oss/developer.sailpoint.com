@@ -85,7 +85,7 @@
   },
   "link.item.label.Terms & Conditions": {
     "message": "Terms & Conditions",
-    "description": "The label of footer link with label=Terms & Conditions linking to https://developet.sailpoint.com"
+    "description": "The label of footer link with label=Terms & Conditions linking to https://developer.sailpoint.com"
   },
   "copyright": {
     "message": "Copyright © 2025 SailPoint Technologies, Inc. All Rights Reserved.",

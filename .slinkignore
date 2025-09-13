@@ -8,6 +8,7 @@
     "https://sailpoint.api.identitynow.com/v2026"
   ],
   "ignorePaths": [
-    "package-lock.json"
+    "package-lock.json",
+    "node_modules"
   ]
 }

@@ -159,6 +159,10 @@ Resources:
           AUTH_TOKENS_TABLE: !Ref SailAppsAuth
           # Make DynamoDB endpoint accessible as environment variable from function code during execution
           ENDPOINT_OVERRIDE: ""
+          # OAuth configuration
+          OAUTH_CLIENT_ID: sailpoint-cli
+          OAUTH_DEV_REDIRECT_URL: http://localhost:4200/sailapps
+          OAUTH_REDIRECT_URL: https://developer.sailpoint.com/sailapps
   JSONPathGoFunction:
     Type: AWS::Serverless::Function
     Metadata:
@@ -242,14 +246,20 @@ Resources:
         ReadCapacityUnits: 20
         WriteCapacityUnits: 2
   SailAppsAuth:
-    Type: AWS::Serverless::SimpleTable
+    Type: AWS::DynamoDB::Table
     Properties:
-      PrimaryKey:
-        Name: id
-        Type: String
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
       ProvisionedThroughput:
         ReadCapacityUnits: 20
         WriteCapacityUnits: 2
+      TimeToLiveSpecification:
+        AttributeName: ttl
+        Enabled: true
   # S3 Bucket to host single page app website
   DeveloperSailpointWebSiteBucket:
     Type: "AWS::S3::Bucket"

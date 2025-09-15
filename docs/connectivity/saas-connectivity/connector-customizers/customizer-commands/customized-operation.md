@@ -11,7 +11,7 @@ tags: ['Connectivity', 'Connector Command']
 
 ## Overview
 
-The customized operation customizer is a special customizer that can be embedded anywhere in the code and then called with the customizer. Because this customizer is not bound to a before or after operation, in order to be implemented, the identifier needs to be known to properly call it. This identifier should be available in the connector documentation. 
+The customized operation customizer is a special customizer that can be embedded anywhere in the code and then called with the customizer. Because this customizer is not bound to a before or after operation, the identifier needs to be known to properly call it. This identifier should be available in the connector documentation. 
 
 ## Implementation in Customizer
 
@@ -26,7 +26,7 @@ Use this logic to implement the code:
 
 ## Implementation in Connector
 
-Anywhere in the code for the connector, you can add the line as shown below. The first parameter is the identifier and the `input` object can be any object that is mutated and returned. 
+You can add the following JavaScript anywhere in the code. The first parameter is the identifier, and the 'input' object can be any object that is mutated and returned. 
 
 ```javascript
 const response = await context.customizedOperation('Operation Identifier', input);

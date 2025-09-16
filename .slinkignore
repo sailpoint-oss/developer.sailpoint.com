@@ -30,7 +30,7 @@
     "*ajaxorg*"
   ],
   "ignorePaths": [
-    "static/rule-java-docs/jquery/*",
+    "static/rule-java-docs/*",
     "static/api-specs/*",
     "package-lock.json",
     "node_modules",

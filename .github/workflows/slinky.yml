@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ main ]
 
+concurrency:
+  group: 'slinky'
+  cancel-in-progress: true
+
 jobs:
   slinky:
     runs-on: ubuntu-latest

@@ -102,7 +102,7 @@ tags:
       In My Team on the Identity Security Cloud Home, managers can submit requests to revoke their team members' access. 
       They can use the My Requests tab under Request Center to track and/or cancel the requests.
 
-      Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/requesting_access.html) for more information about access requests.
+      Refer to [Requesting Access](https://documentation.sailpoint.com/saas/user-help/requests/) for more information about access requests.
   - name: Account Activities
     description: |
       Use this API to implement account activity tracking functionality.

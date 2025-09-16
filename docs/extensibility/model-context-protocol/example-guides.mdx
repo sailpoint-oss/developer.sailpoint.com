@@ -1,0 +1,458 @@
+---
+id: mcp-example-guides
+title: Example Guides
+pagination_label: MCP - Example Guides
+sidebar_label: MCP Example Guides
+sidebar_position: 4
+sidebar_class_name: mcp
+keywords: ['mcp']
+description: SailPoint's MCP Server Tools
+slug: /extensibility/mcp-example-guides
+tags: ['MCP']
+---
+
+Example MPC tool payloads for basic to advanced use cases.
+
+## Basic: access request, no account selection required
+
+### list-requestable tool - finding items to request
+With optional query term `docusign`:
+```
+{
+  "method": "tools/call",
+  "params": {
+    "name": "list-requestable",
+    "arguments": {
+      "query": "docusign"
+    },
+    "_meta": {
+      "progressToken": 5
+    }
+  }
+}
+```
+With no query term:
+```
+{
+  "method": "tools/call",
+  "params": {
+    "name": "list-requestable",
+    "arguments": {},
+    "_meta": {
+      "progressToken": 6
+    }
+  }
+}
+```
+
+Example results:
+```
+{
+  "requestableObjects": [
+    {
+      "id": "313391df970a4d04abee5f0aac7827b5",
+      "type": "ACCESS_PROFILE",
+      "name": "QA_AccessProfile1",
+      "accounts": [
+        {
+          "sourceId": "c988514fe00348d293187e98de19924b",
+          "sourceName": "QaDocuSign"
+        }
+      ],
+      "accountSelectionRequired": false
+    },
+    {
+      "id": "d4db05e1e1a44d5983aded3501ac132a",
+      "type": "ACCESS_PROFILE",
+      "name": "QA_AccessProfile2",
+      "accounts": [
+        {
+          "sourceId": "c988514fe00348d293187e98de19924b",
+          "sourceName": "QaDocuSign"
+        }
+      ],
+      "accountSelectionRequired": false
+    },
+    {
+      "id": "894eaafd5aa24dfba113e60ebcace88d",
+      "type": "ENTITLEMENT",
+      "name": "QA_Group1",
+      "accounts": [
+        {
+          "sourceId": "c988514fe00348d293187e98de19924b",
+          "sourceName": "QaDocuSign"
+        }
+      ],
+      "accountSelectionRequired": false
+    },
+    {
+      "id": "4f1bb3fb61884c12b852e5413e524047",
+      "type": "ENTITLEMENT",
+      "name": "QA_Group2",
+      "accounts": [
+        {
+          "sourceId": "c988514fe00348d293187e98de19924b",
+          "sourceName": "QaDocuSign"
+        }
+      ],
+      "accountSelectionRequired": false
+    },
+    {
+      "id": "683616954e30427bb112aace2c8f71bb",
+      "type": "ENTITLEMENT",
+      "name": "QA_Group3",
+      "accounts": [
+        {
+          "sourceId": "c988514fe00348d293187e98de19924b",
+          "sourceName": "QaDocuSign"
+        }
+      ],
+      "accountSelectionRequired": false
+    },
+    {
+      "id": "1684f1a2fdb94fdf94bb0b84956e62d7",
+      "type": "ENTITLEMENT",
+      "name": "QA_Group4",
+      "accounts": [
+        {
+          "sourceId": "c988514fe00348d293187e98de19924b",
+          "sourceName": "QaDocuSign"
+        }
+      ],
+      "accountSelectionRequired": false
+    },
+    {
+      "id": "0ece3904a73443d8a418357fc5d57611",
+      "type": "ROLE",
+      "name": "QA_Role1",
+      "accounts": [
+        {
+          "sourceId": "c988514fe00348d293187e98de19924b",
+          "sourceName": "QaDocuSign"
+        }
+      ],
+      "accountSelectionRequired": false
+    },
+    {
+      "id": "211eab6fd20c473aa8610414a1abba62",
+      "type": "ROLE",
+      "name": "QA_Role2",
+      "accounts": [
+        {
+          "sourceId": "c988514fe00348d293187e98de19924b",
+          "sourceName": "QaDocuSign"
+        }
+      ],
+      "accountSelectionRequired": false
+    }
+  ],
+  "accessItemsWithError": null,
+  "resultsCount": 8,
+  "totalCount": 8
+}
+```
+
+### create-access-request
+We will make a request for the first item returned in the `list-requestable` tool.
+```
+    {
+      "id": "313391df970a4d04abee5f0aac7827b5",
+      "type": "ACCESS_PROFILE",
+      "name": "QA_AccessProfile1",
+      "accounts": [
+        {
+          "sourceId": "c988514fe00348d293187e98de19924b",
+          "sourceName": "QaDocuSign"
+        }
+      ],
+      "accountSelectionRequired": false
+    }
+```
+We can see that this item has `"accountSelectionRequired": false` so we do not need to provide account selections when
+making the access request.
+
+Example tool call:
+```
+{
+  "method": "tools/call",
+  "params": {
+    "name": "create-access-request",
+    "arguments": {
+      "accounts": [],
+      "id": "313391df970a4d04abee5f0aac7827b5",
+      "type": "ACCESS_PROFILE"
+    },
+    "_meta": {
+      "progressToken": 8
+    }
+  }
+}
+```
+
+Example results:
+```
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"status\": \"success\", \"accessRequestId\": \"09b33e230faf48ab9f81b7f8243f5944\"}"
+    }
+  ]
+}
+```
+
+## Intermediate: access request, account selection required, single source
+Some identities might have multiple accounts configured for a single identity. If so, the output of the `list-requestable` tool
+will tell us that account selection is required. We will need the results of the `list-requestable` tool output to use the `create-access-request` tool and make the appropriate account selections.
+
+
+### list-requestable output, account selection required
+```
+{
+  "requestableObjects": [
+    {
+      "id": "1e60f364c6a7488c9da58767b99d9f91",
+      "type": "ACCESS_PROFILE",
+      "name": "Docusign",
+      "accounts": [
+        {
+          "sourceId": "d557aca6b2b34d8bafcb967bad2eb362",
+          "sourceName": "Docusign SaaS",
+          "accountsOnSource": [
+            {
+              "nativeIdentity": "4a5c3db6-93d6-4e60-aeb8-6b619b39d2a2",
+              "accountName": "Adam Archer"
+            },
+            {
+              "nativeIdentity": "31d111b0-344e-49d0-909f-5c6ed56c63cc",
+              "accountName": "Support"
+            }
+          ]
+        }
+      ],
+      "accountSelectionRequired": true
+    }
+  ],
+  "accessItemsWithError": null,
+  "resultsCount": 1,
+  "totalCount": 1
+}
+```
+
+In this response, we can see `"accountSelectionRequired": true` and now we have an `account` field populated
+with a source `Docusign SaaS` and a list of accounts on the source `accountsOnSource`. We will need to provide
+one of those accounts when requesting access. The account provided will be granted access when the
+request is processed or approved.
+
+### create-access-request with account selection on a single source
+Here we provide the `account` argument with the `sourceID` found from the `list-requestable` output and a `nativeIdentifier`
+from the selected account. Names are provided in the `list-requestable` output for readability, but only
+IDs are needed when creating the access request.
+
+```
+{
+  "method": "tools/call",
+  "params": {
+    "name": "create-access-request",
+    "arguments": {
+      "accounts": [
+        {
+          "nativeIdentifier": "4a5c3db6-93d6-4e60-aeb8-6b619b39d2a2",
+          "sourceID": "d557aca6b2b34d8bafcb967bad2eb362"
+        }
+      ],
+      "id": "1e60f364c6a7488c9da58767b99d9f91",
+      "type": "ACCESS_PROFILE"
+    },
+    "_meta": {
+      "progressToken": 11
+    }
+  }
+}
+```
+
+## Advanced: access request, account selection required, multiple sources
+This applies only when requesting access to a `ROLE`. Other types, `ENTITLEMENTS` or `ACCESS_PROFILES` will never have
+multiple sources. If a `ROLE` has multiple sources, but account selection is NOT required, then the `create-access-request`
+tool can be called like in the [basic example](#basic-access-request-no-account-selection-required).
+
+### list requestable output, account selection required, multiple sources
+```
+{
+  "requestableObjects": [
+    {
+      "id": "96de174222334904af51c44d291f062d",
+      "type": "ROLE",
+      "name": "multi_role2",
+      "accounts": [
+        {
+          "sourceId": "1f0b717b629c4f68acad1dddbdc37636",
+          "sourceName": "multi_source_3",
+          "accountsOnSource": [
+            {
+              "nativeIdentity": "adam33.archer33",
+              "accountName": "adam33.archer33"
+            },
+            {
+              "nativeIdentity": "adam31.archer31",
+              "accountName": "adam31.archer31"
+            },
+            {
+              "nativeIdentity": "adam32.archer32",
+              "accountName": "adam32.archer32"
+            }
+          ]
+        },
+        {
+          "sourceId": "0526a35ae98840a5b8b81942cd2042ec",
+          "sourceName": "multi_source_4",
+          "accountsOnSource": [
+            {
+              "nativeIdentity": "adam34.archer34",
+              "accountName": "adam34.archer34"
+            },
+            {
+              "nativeIdentity": "adam35.archer35",
+              "accountName": "adam35.archer35"
+            },
+            {
+              "nativeIdentity": "adam36.archer36",
+              "accountName": "adam36.archer36"
+            }
+          ]
+        }
+      ],
+      "accountSelectionRequired": true
+    }
+  ],
+  "accessItemsWithError": null,
+  "resultsCount": 1,
+  "totalCount": 1
+}
+```
+
+Here we can see that the `accounts` object contains two sources: `multi_source_3` and `multi_source_4` and that the identity
+has multiple accounts on each of those sources.
+
+### create-access-request with account selection on multiple sources
+```
+{
+  "method": "tools/call",
+  "params": {
+    "name": "create-access-request",
+    "arguments": {
+      "accounts": [
+        {
+          "nativeIdentifier": "adam33.archer33",
+          "sourceID": "1f0b717b629c4f68acad1dddbdc37636"
+        },
+        {
+          "sourceID": "0526a35ae98840a5b8b81942cd2042ec",
+          "nativeIdentifier": "adam34.archer34"
+        }
+      ],
+      "id": "96de174222334904af51c44d291f062d",
+      "type": "ROLE"
+    },
+    "_meta": {
+      "progressToken": 15
+    }
+  }
+}
+```
+In `accounts`, we provided two items, one for each source found in the `list-requestable` output. Each item contains
+the source ID and native identifier of the selected account. The accounts provided are the accounts that will
+get access when the request is processed or approved.
+
+## Advanced: access request, account selection required, multiple sources, 0 to many accounts
+The most complicated example is requesting access to a `ROLE` with many sources that have different account selection needs. 
+For example, the role has three sources. In source 1, the identity has exactly one account.
+In source 2, the identity has two (or more) accounts. In source 3, the identity has no accounts yet, which occurs 
+when the identity is requesting access to something that they have never accessed and don't already have an account provisioned.
+
+### list requestable output, account selection required, multiple sources, 0 to many accounts
+```
+{
+  "requestableObjects": [
+    {
+      "id": "9dedea914e1c4de49cfc787c6586b7f0",
+      "type": "ROLE",
+      "name": "multi_role",
+      "accounts": [
+        {
+          "sourceId": "1f0b717b629c4f68acad1dddbdc37636",
+          "sourceName": "multi_source_3",
+          "accountsOnSource": [
+            {
+              "nativeIdentity": "adam33.archer33",
+              "accountName": "adam33.archer33"
+            },
+            {
+              "nativeIdentity": "adam31.archer31",
+              "accountName": "adam31.archer31"
+            },
+            {
+              "nativeIdentity": "adam32.archer32",
+              "accountName": "adam32.archer32"
+            }
+          ]
+        },
+        {
+          "sourceId": "c6443c52141e4878aff5c0507e3db09b",
+          "sourceName": "multi_source_1"
+        },
+        {
+          "sourceId": "cf49453f8b184c6dacfd9acfe621e1ff",
+          "sourceName": "multi_source_2",
+          "accountsOnSource": [
+            {
+              "nativeIdentity": "adam2.archer2",
+              "accountName": "adam2.archer2"
+            }
+          ]
+        }
+      ],
+      "accountSelectionRequired": true
+    }
+  ],
+  "accessItemsWithError": null,
+  "resultsCount": 1,
+  "totalCount": 1
+}
+```
+Here we can see that the role, `multi-role`, has three sources: `multi_source_1`, `multi_source_2`, and `multi_source_3`.
+The identity does not yet have an account on `multi_source_1`. The user has exactly one account on `multi_source_2`. The
+user has three accounts on `multi_source_3`.
+
+### create-access-request with account selection on multiple sources, 0 to many accounts
+```
+{
+  "method": "tools/call",
+  "params": {
+    "name": "create-access-request",
+    "arguments": {
+      "accounts": [
+        {
+          "nativeIdentifier": "adam33.archer33",
+          "sourceID": "1f0b717b629c4f68acad1dddbdc37636"
+        },
+        {
+          "sourceID": "c6443c52141e4878aff5c0507e3db09b"
+        },
+        {
+          "sourceID": "cf49453f8b184c6dacfd9acfe621e1ff",
+          "nativeIdentifier": "adam2.archer2"
+        }
+      ],
+      "id": "9dedea914e1c4de49cfc787c6586b7f0",
+      "type": "ROLE"
+    },
+    "_meta": {
+      "progressToken": 18
+    }
+  }
+}
+```
+Here we have selected the `adam33.archer33` account for `multi_source_3`. We have provided no account native identifier for `multi_source_2`
+because the identity doesn't have an account created yet. We have provided the only account native identifier for source
+`multi_source_2` because the identity had only one account.

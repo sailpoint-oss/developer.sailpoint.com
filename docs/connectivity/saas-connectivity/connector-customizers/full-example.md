@@ -158,6 +158,10 @@ export const connectorCustomizer = async () => {
             logger.info(`Running after source data read first query record key: ${output[0].key}`)
             return output
         })
+        .customizedOperation('Operation Identifier', async (context: Context, input: any) => {
+        logger.info(`Running customized code.`)
+        return input
+        })
 }
 
 ```

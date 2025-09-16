@@ -11,9 +11,11 @@
     "https://sailpoint.api.identitynow.com/v2024",
     "https://sailpoint.api.identitynow.com/v2025",
     "https://sailpoint.api.identitynow.com/v2026",
+    "https://files.accessiq.sailpoint.com/network/REGION/FILENAME",
     "*.xsd",
     "*my-org*",
     "*mycompany*",
+    "*identitysoon*",
     "*sample*",
     "*some-org*",
     "*some*",
@@ -25,6 +27,7 @@
     "*ajaxorg*"
   ],
   "ignorePaths": [
+    "static/rule-java-docs/jquery/jszip*",
     "static/api-specs/*",
     "package-lock.json",
     "node_modules",

@@ -1,0 +1,213 @@
+---
+id: mcp-available-tools
+title: Available Tools
+pagination_label: MCP - Available Tools
+sidebar_label: Available Tools
+sidebar_position: 3
+sidebar_class_name: mcp
+keywords: ['mcp']
+description: SailPoint's MCP Server Tools
+slug: /extensibility/mcp-available-tools
+tags: ['MCP']
+---
+
+The SailPoint MCP Server provides integration with SailPoint's Request Center, enabling automated access management through four core tools.
+
+## Overview
+
+This server supports the following operations:
+- Search for requestable access items
+- Create access requests
+- View access request status
+- Cancel pending access requests
+
+---
+
+## Tools
+
+### list-requestable
+
+Search for requestable objects (roles, entitlements, access profiles) in the SailPoint Request Center and list the available accounts for each.
+
+:::warning Limitations
+Tool results are limited to 25 items per call, but a total count is provided so that the tool can be re-tried with a more refined query.
+:::
+
+#### Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `query` | string | No | Search term to filter by name and description |
+
+#### Response
+
+```json
+{
+  "results": [
+    {
+      "id": "string",
+      "type": "string", 
+      "name": "string",
+      "accountSelectionRequired": "boolean",
+      "accounts": [
+        {
+          "sourceId": "string",
+          "sourceName": "string", 
+          "accountsOnSource": [
+            {
+              "nativeIdentity": "string",
+              "accountName": "string"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "accessItemsWithError": [
+    {
+      "accessItem": "object",
+      "errorMessage": "string"
+    }
+  ],
+  "resultsCount": "number",
+  "totalCount": "number"
+}
+```
+
+#### Response Fields
+
+- **id**: Unique identifier of the requestable object
+- **type**: Type of the requestable object  
+- **name**: Name of the requestable object
+- **accountSelectionRequired**: Whether account selection is required
+- **accounts**: List of accounts grouped by source system
+  - **sourceId**: Unique identifier of the source system
+  - **sourceName**: Name of the source system  
+  - **accountsOnSource**: Accounts associated with the source
+    - **nativeIdentity**: Native identity in the source system
+    - **accountName**: Name of the account
+- **accessItemsWithError**: Items that couldn't be resolved due to misconfiguration
+- **resultsCount**: Count of results returned (max 25)
+- **totalCount**: Total count matching the search query
+
+---
+
+### create-access-request
+
+Create a new access request in the SailPoint Request Center for a single requestable item.
+
+#### Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `id` | string | Yes | ID of the item to request access for |
+| `type` | string | Yes | Type of access request item (`ROLE`, `ENTITLEMENT`, or `ACCESS_PROFILE`) |
+| `accounts` | array | Conditional | A mapping of sourceId to nativeIdentifier to select accounts to use when creating the access request. If account selection is required, a single, valid nativeIdentifier must be specified for each sourceId. If no nativeIdentifier is found for the source, pass only the sourceId. |
+
+##### accounts Array Structure
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `sourceID` | string | Yes | Unique identifier of the source system |
+| `nativeIdentifier` | string | No | Native identity of the user in the target system |
+
+#### Response
+
+```json
+{
+  "status": "success|error",
+  "accessRequestId": "string",
+  "errorMessage": "string"
+}
+```
+
+---
+
+### view-access-requests
+
+Retrieve the status of access requests in the SailPoint Request Center.
+
+:::warning Limitations
+Search is limited to 100 access requests, sorted by most recent first.
+:::
+
+#### Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `accessRequestId` | string | No | Access request ID to filter by |
+
+#### Response
+
+```json
+{
+  "requests": [
+    {
+      "accessRequestId": "string",
+      "name": "string",
+      "type": "string", 
+      "description": "string",
+      "state": "string",
+      "modified": "timestamp",
+      "created": "timestamp",
+      "status": "string"
+    }
+  ]
+}
+```
+
+#### Response Fields
+
+- **accessRequestId**: Unique identifier of the access request
+- **name**: Name of the requestable object
+- **type**: Type of the requestable object
+- **description**: Description of the requestable object  
+- **state**: Current state of the access request
+- **modified**: Timestamp of last modification
+- **created**: Timestamp of creation
+- **status**: Current status of the access request
+
+---
+
+### cancel-access-request
+
+Cancel a specific access request by ID.
+
+#### Parameters
+
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `accessRequestId` | string | Yes | ID of the access request to cancel |
+| `comment` | string | No | Optional comment for the cancellation |
+
+:::note Auto-generated Comments
+The system automatically adds "Canceled by AI on behalf of the user adam.archer" as a comment, either standalone or appended to any provided comment.
+:::
+
+#### Response
+
+```json
+{
+  "status": "success|error",
+  "errorMessage": "string"
+}
+```
+
+---
+
+## Error Handling
+
+All tools return a consistent error structure when operations fail:
+
+```json
+{
+  "status": "error",
+  "errorMessage": "Description of the error"
+}
+```
+
+Common error scenarios include:
+- Invalid or missing required parameters
+- Access denied to requested resources
+- Network connectivity issues
+- Misconfigured requestable objects

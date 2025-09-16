@@ -36,9 +36,14 @@ function SailApps() {
 
     setIsSending(true);
     try {
-      await sendCode(siteConfig.customFields.CMS_APP_API_ENDPOINT, authCode, state);
-      setIsConfirmed(true);
-      setSendResult('Your application can now access your data, you can close this window');
+      const result = await sendCode(siteConfig.customFields.CMS_APP_API_ENDPOINT, authCode, state);
+      // Check if the response indicates success
+      if (result && result.message === 'Token added successfully') {
+        setIsConfirmed(true);
+        setSendResult('Your application can now access your data, you can close this window');
+      } else {
+        setSendResult('Authentication failed: Unexpected response from server');
+      }
     } catch (error) {
       setSendResult(`Error sending authentication: ${error.message}`);
     }

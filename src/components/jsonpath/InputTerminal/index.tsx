@@ -14,8 +14,7 @@ if (typeof ace !== 'undefined' && ace.config) {
   ace.config.setModuleUrl(
     'ace/mode/json_worker',
     new URL(
-      'ace-builds/src-noconflict/worker-json.js',
-      'https://ajaxorg.github.io/',
+      'ace-builds/src-noconflict/worker-json.js'
     ).toString(),
   );
 }

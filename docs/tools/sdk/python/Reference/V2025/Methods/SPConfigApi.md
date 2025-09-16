@@ -27,7 +27,7 @@ Method | HTTP request | Description
 ## export-sp-config
 Initiates configuration objects export job
 This post will export objects from the tenant to a JSON configuration file.
-For more information about the object types that currently support export functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
+For more information about the object types that currently support export functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects).
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/export-sp-config)
 
@@ -275,7 +275,7 @@ Get import job status
 'This gets the status of the import job identified by the `id` parameter.
 
  For more information about the object types that currently support import functionality,
- refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).'
+ refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects).'
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/get-sp-config-import-status)
@@ -344,7 +344,7 @@ using the `/sp-config/export/{exportJobId}/download` endpoint.
 
 You cannot currently import from the Non-Employee Lifecycle Management (NELM) source. You cannot use this endpoint to back up or store NELM data. 
 
-For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
+For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects).
 
 
 [API Spec](https://developer.sailpoint.com/docs/api/v2025/import-sp-config)

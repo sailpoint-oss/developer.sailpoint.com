@@ -10,7 +10,7 @@ get:
   description: >-
     This gets the status of the import job identified by the `id` parameter.
 
-    For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects).
+    For more information about the object types that currently support import functionality, refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects).
   parameters:
     - in: path
       name: id

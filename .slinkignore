@@ -11,6 +11,7 @@
     "https://sailpoint.api.identitynow.com/v2024",
     "https://sailpoint.api.identitynow.com/v2025",
     "https://sailpoint.api.identitynow.com/v2026",
+    "https://files.accessiq.sailpoint.com/network/REGION/FILENAME",
     "*.xsd",
     "*my-org*",
     "*mycompany*",

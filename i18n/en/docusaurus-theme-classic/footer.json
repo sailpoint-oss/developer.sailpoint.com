@@ -55,10 +55,6 @@
     "message": "Contact Our Team",
     "description": "The label of footer link with label=Contact Our Team linking to https://developer.sailpoint.com/discuss/new-message?groupname=developer_relations"
   },
-  "link.item.label.Engineering Blog": {
-    "message": "Engineering Blog",
-    "description": "The label of footer link with label=Engineering Blog linking to https://medium.com/sailpointtechblog"
-  },
   "link.item.label.GitHub": {
     "message": "GitHub",
     "description": "The label of footer link with label=GitHub linking to https://github.com/sailpoint-oss"

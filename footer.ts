@@ -40,7 +40,6 @@ const footerConfig = {
       {
         title: 'More',
         items: [
-          { label: 'Engineering blog', href: 'https://medium.com/sailpointtechblog' },
           { label: 'GitHub', href: 'https://github.com/sailpoint-oss' },
           { label: 'Twitter', href: 'https://twitter.com/sailpoint' },
         ],

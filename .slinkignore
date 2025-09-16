@@ -22,7 +22,7 @@
     "*tenant.*"
   ],
   "ignorePaths": [
-    "static*",
+    "static/api-specs/*",
     "package-lock.json",
     "node_modules",
     "*pom.xml",

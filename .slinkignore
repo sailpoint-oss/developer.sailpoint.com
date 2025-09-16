@@ -22,6 +22,7 @@
     "*tenant.*"
   ],
   "ignorePaths": [
+    "static*",
     "package-lock.json",
     "node_modules",
     "*pom.xml",

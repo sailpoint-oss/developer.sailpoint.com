@@ -27,7 +27,8 @@
     "*tenant.*",
     "*www.unicode.org*",
     "*devtunnels*",
-    "*ajaxorg*"
+    "*ajaxorg*",
+    "*d1vrqvoe9hgpx0*"
   ],
   "ignorePaths": [
     "static/rule-java-docs/*",

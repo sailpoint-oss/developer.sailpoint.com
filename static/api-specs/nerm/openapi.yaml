@@ -54,9 +54,9 @@ paths:
   # Forms
   /forms:
     $ref: "./paths/forms.yaml"
-  /form/{id}:
+  /forms/{id}:
     $ref: "./paths/forms_id.yaml"
-  /form/{uid}:
+  /forms/{uid}:
     $ref: "./paths/forms_uid.yaml"
   # Form Attributes
   /form_attributes:

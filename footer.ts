@@ -22,7 +22,7 @@ const footerConfig = {
           },
           { 
             label: 'Get certified', 
-            href: 'https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003042/true/xxemptyxx/' 
+            href: 'https://university.sailpoint.com/page/professional-certifications-and-knowledge-credentials' 
           },
         ],
       },

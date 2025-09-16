@@ -37,7 +37,7 @@
   },
   "link.item.label.Get Certified": {
     "message": "Get Certified",
-    "description": "The label of footer link with label=Get Certified linking to https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003042/true/xxemptyxx/"
+    "description": "The label of footer link with label=Get Certified linking to https://university.sailpoint.com/page/professional-certifications-and-knowledge-credentials"
   },
   "link.item.label.Build A Plugin": {
     "message": "Build A Plugin",

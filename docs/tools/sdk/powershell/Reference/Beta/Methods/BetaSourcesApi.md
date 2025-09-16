@@ -122,7 +122,7 @@ Method | HTTP request | Description
 ## create-provisioning-policy
 This API generates a create policy/template based on field value transforms. This API is intended for use when setting up JDBC Provisioning type sources, but it will also work on other source types.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
-Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
+Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/create-provisioning-policy)
 
@@ -1821,7 +1821,7 @@ try {
 ## put-provisioning-policy
 This end-point updates the provisioning policy with the specified usage on the specified source in IdentityNow.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
-Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
+Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/put-provisioning-policy)
 
@@ -2445,7 +2445,7 @@ try {
 ## update-provisioning-policy
 This API selectively updates an existing Provisioning Policy using a JSONPatch payload.
 Transforms can be used in the provisioning policy to create a new attribute that you only need during provisioning.
-Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/idn/docs/transforms/guides/transforms-in-provisioning-policies) for more information.
+Refer to [Transforms in Provisioning Policies](https://developer.sailpoint.com/docs/extensibility/transforms/guides/transforms-in-provisioning-policies) for more information.
 
 [API Spec](https://developer.sailpoint.com/docs/api/beta/update-provisioning-policy)
 

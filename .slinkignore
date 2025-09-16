@@ -9,7 +9,8 @@
     "https://sailpoint.api.identitynow.com/v3",
     "https://sailpoint.api.identitynow.com/v2024",
     "https://sailpoint.api.identitynow.com/v2025",
-    "https://sailpoint.api.identitynow.com/v2026"
+    "https://sailpoint.api.identitynow.com/v2026",
+    "*.xsd"
   ],
   "ignorePaths": [
     "package-lock.json",

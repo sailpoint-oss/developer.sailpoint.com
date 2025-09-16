@@ -26,7 +26,7 @@
     "*ajaxorg*"
   ],
   "ignorePaths": [
-    "static/rule-java-docs/jquery/jszip-utils/*",
+    "static/rule-java-docs/jquery/jszip*",
     "static/api-specs/*",
     "package-lock.json",
     "node_modules",

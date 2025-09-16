@@ -19,7 +19,10 @@
     "*some*",
     "*tenant-name*",
     "*tenant.api*",
-    "*tenant.*"
+    "*tenant.*",
+    "*www.unicode.org*",
+    "*devtunnels*",
+    "*ajaxorg*"
   ],
   "ignorePaths": [
     "static/api-specs/*",

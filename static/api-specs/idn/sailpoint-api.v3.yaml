@@ -171,7 +171,7 @@ tags:
 
       Administrators can select the source account to view its attributes, entitlements, and the last time the account's password was changed.
 
-      Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/user_access.html#managing-user-accounts) for more information about accounts.
+      Refer to [Managing User Accounts](https://documentation.sailpoint.com/saas/help/common/users/) for more information about accounts.
   - name: Application Discovery
     description: |
       Use this API to implement application discovery functionality. 

@@ -1,6 +1,8 @@
 {
   "ignoreURLs": [
     "*acme*",
+    "*example*",
+    "*ns.adobe.com*",
     "https://sailpoint.api.identitynow.com/beta",
     "https://sailpoint.api.identitynow.com/v3",
     "https://sailpoint.api.identitynow.com/v2024",
@@ -9,6 +11,8 @@
   ],
   "ignorePaths": [
     "package-lock.json",
-    "node_modules"
+    "node_modules",
+    "*pom.xml",
+    "*.svg"
   ]
 }

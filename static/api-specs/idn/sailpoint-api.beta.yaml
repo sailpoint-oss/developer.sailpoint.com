@@ -282,7 +282,7 @@ tags:
 
       The end of a certification campaign is determined by its deadline, its completion status, or by an administrator's decision.
 
-      For more information about certifications and certification campaigns, refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html).
+      For more information about certifications and certification campaigns, refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certs/reviewing/index.html).
   - name: Certifications
     description: |
       Use this API to implement certification functionality.

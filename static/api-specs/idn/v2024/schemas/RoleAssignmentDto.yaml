@@ -82,6 +82,12 @@ properties:
       $ref: "./RoleTargetDto.yaml"
   removeDate:
     type: string
+    format: date-time
     nullable: true
     description: "Date that the assignment will be removed"
-    example: "Wed Feb 14 10:58:42"
+    example: '2026-07-11T18:45:37.098Z'
+  addedDate:
+    type: string
+    format: date-time
+    description: "Date that the assignment was added"
+    example: '2025-07-11T18:45:37.098Z'

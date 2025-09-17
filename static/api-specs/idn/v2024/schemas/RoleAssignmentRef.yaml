@@ -12,3 +12,8 @@ properties:
       id: "e7697a1e96d04db1ac7b0f4544915d2c"
       type: "ROLE"
       name: "Engineer"
+  addedDate:
+    type: string
+    format: date-time
+    description: "Date that the assignment was added"
+    example: '2025-07-11T18:45:37.098Z'

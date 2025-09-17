@@ -24,7 +24,8 @@ Name | Type | Description | Notes
 **assigned_dimensions** | [**[]BaseReferenceDto**](base-reference-dto) | Dimensions assigned related to this role | [optional] 
 **assignment_context** | [**RoleAssignmentDtoAssignmentContext**](role-assignment-dto-assignment-context) |  | [optional] 
 **account_targets** | [**[]RoleTargetDto**](role-target-dto) |  | [optional] 
-**remove_date** | **str** | Date that the assignment will be removed | [optional] 
+**remove_date** | **datetime** | Date that the assignment will be removed | [optional] 
+**added_date** | **datetime** | Date that the assignment was added | [optional] 
 }
 
 ## Example
@@ -58,7 +59,8 @@ account_targets=[
                             uuid = '{ad9fc391-246d-40af-b248-b6556a2b7c01}', ), 
                         role_name = 'Marketing', )
                     ],
-remove_date='Wed Feb 14 10:58:42'
+remove_date='2026-07-11T18:45:37.098Z',
+added_date='2025-07-11T18:45:37.098Z'
 )
 
 ```

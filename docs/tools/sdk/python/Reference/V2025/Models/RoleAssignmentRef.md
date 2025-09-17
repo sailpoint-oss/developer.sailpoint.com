@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Assignment Id | [optional] 
 **role** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
+**added_date** | **datetime** | Date that the assignment was added | [optional] 
 }
 
 ## Example
@@ -30,7 +31,8 @@ id='1cbb0705b38c4226b1334eadd8874086',
 role=sailpoint.v2025.models.base_reference_dto.Base Reference Dto(
                     type = 'IDENTITY', 
                     id = '2c91808568c529c60168cca6f90c1313', 
-                    name = 'William Wilson', )
+                    name = 'William Wilson', ),
+added_date='2025-07-11T18:45:37.098Z'
 )
 
 ```

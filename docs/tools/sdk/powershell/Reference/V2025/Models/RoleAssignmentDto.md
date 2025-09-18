@@ -24,7 +24,8 @@ Name | Type | Description | Notes
 **AssignedDimensions** | [**[]BaseReferenceDto**](base-reference-dto) | Dimensions assigned related to this role | [optional] 
 **AssignmentContext** | [**RoleAssignmentDtoAssignmentContext**](role-assignment-dto-assignment-context) |  | [optional] 
 **AccountTargets** | [**[]RoleTargetDto**](role-target-dto) |  | [optional] 
-**RemoveDate** | **String** | Date that the assignment will be removed | [optional] 
+**RemoveDate** | **System.DateTime** | Date that the assignment will be removed | [optional] 
+**AddedDate** | **System.DateTime** | Date that the assignment was added | [optional] 
 
 ## Examples
 
@@ -38,7 +39,8 @@ $RoleAssignmentDto = Initialize-V2025RoleAssignmentDto  -Id 1cbb0705b38c4226b133
  -AssignedDimensions [{id=1acc8ffe5fcf457090de28bee2af36ee, type=DIMENSION, name=Northeast region}] `
  -AssignmentContext null `
  -AccountTargets null `
- -RemoveDate Wed Feb 14 10:58:42
+ -RemoveDate 2026-07-11T18:45:37.098Z `
+ -AddedDate 2025-07-11T18:45:37.098Z
 ```
 
 - Convert the resource to JSON

@@ -18,13 +18,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **String** | Assignment Id | [optional] 
 **Role** | [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
+**AddedDate** | **System.DateTime** | Date that the assignment was added | [optional] 
 
 ## Examples
 
 - Prepare the resource
 ```powershell
 $RoleAssignmentRef = Initialize-V2024RoleAssignmentRef  -Id 1cbb0705b38c4226b1334eadd8874086 `
- -Role null
+ -Role null `
+ -AddedDate 2025-07-11T18:45:37.098Z
 ```
 
 - Convert the resource to JSON

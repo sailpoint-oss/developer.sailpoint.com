@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Assignment Id | [optional] 
 **Role** | Pointer to [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
+**AddedDate** | Pointer to **SailPointTime** | Date that the assignment was added | [optional] 
 
 ## Methods
 
@@ -86,5 +87,30 @@ SetRole sets Role field to given value.
 `func (o *RoleAssignmentRef) HasRole() bool`
 
 HasRole returns a boolean if a field has been set.
+
+### GetAddedDate
+
+`func (o *RoleAssignmentRef) GetAddedDate() SailPointTime`
+
+GetAddedDate returns the AddedDate field if non-nil, zero value otherwise.
+
+### GetAddedDateOk
+
+`func (o *RoleAssignmentRef) GetAddedDateOk() (*SailPointTime, bool)`
+
+GetAddedDateOk returns a tuple with the AddedDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAddedDate
+
+`func (o *RoleAssignmentRef) SetAddedDate(v SailPointTime)`
+
+SetAddedDate sets AddedDate field to given value.
+
+### HasAddedDate
+
+`func (o *RoleAssignmentRef) HasAddedDate() bool`
+
+HasAddedDate returns a boolean if a field has been set.
 
 

@@ -17,13 +17,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Assignment Id | [optional] 
 **Role** | Pointer to [**BaseReferenceDto**](base-reference-dto) |  | [optional] 
+**AddedDate** | Pointer to **SailPointTime** | Date that the assignment was added | [optional] 
 **Comments** | Pointer to **NullableString** | Comments added by the user when the assignment was made | [optional] 
 **AssignmentSource** | Pointer to **string** | Source describing how this assignment was made | [optional] 
 **Assigner** | Pointer to [**RoleAssignmentDtoAssigner**](role-assignment-dto-assigner) |  | [optional] 
 **AssignedDimensions** | Pointer to [**[]BaseReferenceDto**](base-reference-dto) | Dimensions assigned related to this role | [optional] 
 **AssignmentContext** | Pointer to [**RoleAssignmentDtoAssignmentContext**](role-assignment-dto-assignment-context) |  | [optional] 
 **AccountTargets** | Pointer to [**[]RoleTargetDto**](role-target-dto) |  | [optional] 
-**RemoveDate** | Pointer to **NullableString** | Date that the assignment will be removed | [optional] 
+**RemoveDate** | Pointer to **NullableTime** | Date that the assignment will be removed | [optional] 
 
 ## Methods
 
@@ -93,6 +94,31 @@ SetRole sets Role field to given value.
 `func (o *GetRoleAssignments200ResponseInner) HasRole() bool`
 
 HasRole returns a boolean if a field has been set.
+
+### GetAddedDate
+
+`func (o *GetRoleAssignments200ResponseInner) GetAddedDate() SailPointTime`
+
+GetAddedDate returns the AddedDate field if non-nil, zero value otherwise.
+
+### GetAddedDateOk
+
+`func (o *GetRoleAssignments200ResponseInner) GetAddedDateOk() (*SailPointTime, bool)`
+
+GetAddedDateOk returns a tuple with the AddedDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAddedDate
+
+`func (o *GetRoleAssignments200ResponseInner) SetAddedDate(v SailPointTime)`
+
+SetAddedDate sets AddedDate field to given value.
+
+### HasAddedDate
+
+`func (o *GetRoleAssignments200ResponseInner) HasAddedDate() bool`
+
+HasAddedDate returns a boolean if a field has been set.
 
 ### GetComments
 
@@ -256,20 +282,20 @@ HasAccountTargets returns a boolean if a field has been set.
 
 ### GetRemoveDate
 
-`func (o *GetRoleAssignments200ResponseInner) GetRemoveDate() string`
+`func (o *GetRoleAssignments200ResponseInner) GetRemoveDate() SailPointTime`
 
 GetRemoveDate returns the RemoveDate field if non-nil, zero value otherwise.
 
 ### GetRemoveDateOk
 
-`func (o *GetRoleAssignments200ResponseInner) GetRemoveDateOk() (*string, bool)`
+`func (o *GetRoleAssignments200ResponseInner) GetRemoveDateOk() (*SailPointTime, bool)`
 
 GetRemoveDateOk returns a tuple with the RemoveDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRemoveDate
 
-`func (o *GetRoleAssignments200ResponseInner) SetRemoveDate(v string)`
+`func (o *GetRoleAssignments200ResponseInner) SetRemoveDate(v SailPointTime)`
 
 SetRemoveDate sets RemoveDate field to given value.
 

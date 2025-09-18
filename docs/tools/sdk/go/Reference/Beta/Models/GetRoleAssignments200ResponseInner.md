@@ -16,14 +16,15 @@ tags: ['SDK', 'Software Development Kit', 'GetRoleAssignments200ResponseInner', 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | Pointer to **string** | Assignment Id | [optional] 
-**Role** | Pointer to [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
-**Comments** | Pointer to **string** | Comments added by the user when the assignment was made | [optional] 
+**Role** | Pointer to [**BaseRoleReferenceDto**](base-role-reference-dto) |  | [optional] 
+**AddedDate** | Pointer to **SailPointTime** | Date that the assignment was added | [optional] 
+**Comments** | Pointer to **NullableString** | Comments added by the user when the assignment was made | [optional] 
 **AssignmentSource** | Pointer to **string** | Source describing how this assignment was made | [optional] 
-**Assigner** | Pointer to [**BaseReferenceDto1**](base-reference-dto1) |  | [optional] 
+**Assigner** | Pointer to [**RoleAssignmentDtoAssigner**](role-assignment-dto-assigner) |  | [optional] 
 **AssignedDimensions** | Pointer to [**[]BaseReferenceDto1**](base-reference-dto1) | Dimensions assigned related to this role | [optional] 
-**AssignmentContext** | Pointer to [**AssignmentContextDto**](assignment-context-dto) |  | [optional] 
+**AssignmentContext** | Pointer to [**RoleAssignmentDtoAssignmentContext**](role-assignment-dto-assignment-context) |  | [optional] 
 **AccountTargets** | Pointer to [**[]RoleTargetDto**](role-target-dto) |  | [optional] 
-**RemoveDate** | Pointer to **string** | Date that the assignment will be removed | [optional] 
+**RemoveDate** | Pointer to **NullableTime** | Date that the assignment will be removed | [optional] 
 
 ## Methods
 
@@ -71,20 +72,20 @@ HasId returns a boolean if a field has been set.
 
 ### GetRole
 
-`func (o *GetRoleAssignments200ResponseInner) GetRole() BaseReferenceDto1`
+`func (o *GetRoleAssignments200ResponseInner) GetRole() BaseRoleReferenceDto`
 
 GetRole returns the Role field if non-nil, zero value otherwise.
 
 ### GetRoleOk
 
-`func (o *GetRoleAssignments200ResponseInner) GetRoleOk() (*BaseReferenceDto1, bool)`
+`func (o *GetRoleAssignments200ResponseInner) GetRoleOk() (*BaseRoleReferenceDto, bool)`
 
 GetRoleOk returns a tuple with the Role field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRole
 
-`func (o *GetRoleAssignments200ResponseInner) SetRole(v BaseReferenceDto1)`
+`func (o *GetRoleAssignments200ResponseInner) SetRole(v BaseRoleReferenceDto)`
 
 SetRole sets Role field to given value.
 
@@ -93,6 +94,31 @@ SetRole sets Role field to given value.
 `func (o *GetRoleAssignments200ResponseInner) HasRole() bool`
 
 HasRole returns a boolean if a field has been set.
+
+### GetAddedDate
+
+`func (o *GetRoleAssignments200ResponseInner) GetAddedDate() SailPointTime`
+
+GetAddedDate returns the AddedDate field if non-nil, zero value otherwise.
+
+### GetAddedDateOk
+
+`func (o *GetRoleAssignments200ResponseInner) GetAddedDateOk() (*SailPointTime, bool)`
+
+GetAddedDateOk returns a tuple with the AddedDate field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAddedDate
+
+`func (o *GetRoleAssignments200ResponseInner) SetAddedDate(v SailPointTime)`
+
+SetAddedDate sets AddedDate field to given value.
+
+### HasAddedDate
+
+`func (o *GetRoleAssignments200ResponseInner) HasAddedDate() bool`
+
+HasAddedDate returns a boolean if a field has been set.
 
 ### GetComments
 
@@ -119,6 +145,16 @@ SetComments sets Comments field to given value.
 
 HasComments returns a boolean if a field has been set.
 
+### SetCommentsNil
+
+`func (o *GetRoleAssignments200ResponseInner) SetCommentsNil(b bool)`
+
+ SetCommentsNil sets the value for Comments to be an explicit nil
+
+### UnsetComments
+`func (o *GetRoleAssignments200ResponseInner) UnsetComments()`
+
+UnsetComments ensures that no value is present for Comments, not even an explicit nil
 ### GetAssignmentSource
 
 `func (o *GetRoleAssignments200ResponseInner) GetAssignmentSource() string`
@@ -146,20 +182,20 @@ HasAssignmentSource returns a boolean if a field has been set.
 
 ### GetAssigner
 
-`func (o *GetRoleAssignments200ResponseInner) GetAssigner() BaseReferenceDto1`
+`func (o *GetRoleAssignments200ResponseInner) GetAssigner() RoleAssignmentDtoAssigner`
 
 GetAssigner returns the Assigner field if non-nil, zero value otherwise.
 
 ### GetAssignerOk
 
-`func (o *GetRoleAssignments200ResponseInner) GetAssignerOk() (*BaseReferenceDto1, bool)`
+`func (o *GetRoleAssignments200ResponseInner) GetAssignerOk() (*RoleAssignmentDtoAssigner, bool)`
 
 GetAssignerOk returns a tuple with the Assigner field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAssigner
 
-`func (o *GetRoleAssignments200ResponseInner) SetAssigner(v BaseReferenceDto1)`
+`func (o *GetRoleAssignments200ResponseInner) SetAssigner(v RoleAssignmentDtoAssigner)`
 
 SetAssigner sets Assigner field to given value.
 
@@ -196,20 +232,20 @@ HasAssignedDimensions returns a boolean if a field has been set.
 
 ### GetAssignmentContext
 
-`func (o *GetRoleAssignments200ResponseInner) GetAssignmentContext() AssignmentContextDto`
+`func (o *GetRoleAssignments200ResponseInner) GetAssignmentContext() RoleAssignmentDtoAssignmentContext`
 
 GetAssignmentContext returns the AssignmentContext field if non-nil, zero value otherwise.
 
 ### GetAssignmentContextOk
 
-`func (o *GetRoleAssignments200ResponseInner) GetAssignmentContextOk() (*AssignmentContextDto, bool)`
+`func (o *GetRoleAssignments200ResponseInner) GetAssignmentContextOk() (*RoleAssignmentDtoAssignmentContext, bool)`
 
 GetAssignmentContextOk returns a tuple with the AssignmentContext field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAssignmentContext
 
-`func (o *GetRoleAssignments200ResponseInner) SetAssignmentContext(v AssignmentContextDto)`
+`func (o *GetRoleAssignments200ResponseInner) SetAssignmentContext(v RoleAssignmentDtoAssignmentContext)`
 
 SetAssignmentContext sets AssignmentContext field to given value.
 
@@ -246,20 +282,20 @@ HasAccountTargets returns a boolean if a field has been set.
 
 ### GetRemoveDate
 
-`func (o *GetRoleAssignments200ResponseInner) GetRemoveDate() string`
+`func (o *GetRoleAssignments200ResponseInner) GetRemoveDate() SailPointTime`
 
 GetRemoveDate returns the RemoveDate field if non-nil, zero value otherwise.
 
 ### GetRemoveDateOk
 
-`func (o *GetRoleAssignments200ResponseInner) GetRemoveDateOk() (*string, bool)`
+`func (o *GetRoleAssignments200ResponseInner) GetRemoveDateOk() (*SailPointTime, bool)`
 
 GetRemoveDateOk returns a tuple with the RemoveDate field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRemoveDate
 
-`func (o *GetRoleAssignments200ResponseInner) SetRemoveDate(v string)`
+`func (o *GetRoleAssignments200ResponseInner) SetRemoveDate(v SailPointTime)`
 
 SetRemoveDate sets RemoveDate field to given value.
 
@@ -269,4 +305,14 @@ SetRemoveDate sets RemoveDate field to given value.
 
 HasRemoveDate returns a boolean if a field has been set.
 
+### SetRemoveDateNil
+
+`func (o *GetRoleAssignments200ResponseInner) SetRemoveDateNil(b bool)`
+
+ SetRemoveDateNil sets the value for RemoveDate to be an explicit nil
+
+### UnsetRemoveDate
+`func (o *GetRoleAssignments200ResponseInner) UnsetRemoveDate()`
+
+UnsetRemoveDate ensures that no value is present for RemoveDate, not even an explicit nil
 

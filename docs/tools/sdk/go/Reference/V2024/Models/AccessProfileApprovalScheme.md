@@ -15,8 +15,8 @@ tags: ['SDK', 'Software Development Kit', 'AccessProfileApprovalScheme', 'V2024A
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApproverType** | Pointer to **string** | Describes the individual or group that is responsible for an approval step. These are the possible values: **APP_OWNER**: The owner of the Application  **OWNER**: Owner of the associated Access Profile or Role  **SOURCE_OWNER**: Owner of the Source associated with an Access Profile  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field | [optional] 
-**ApproverId** | Pointer to **NullableString** | Specific approver ID. Only use this when the `approverType` is `GOVERNANCE_GROUP`. | [optional] 
+**ApproverType** | Pointer to **string** | Describes the individual or group that is responsible for an approval step. These are the possible values: **APP_OWNER**: The owner of the Application  **OWNER**: Owner of the associated Access Profile or Role  **SOURCE_OWNER**: Owner of the Source associated with an Access Profile  **MANAGER**: Manager of the Identity making the request  **GOVERNANCE_GROUP**: A Governance Group, the ID of which is specified by the **approverId** field  **WORKFLOW**: A Workflow, the ID of which is specified by the **approverId** field. Workflow is exclusive to other types of approvals and License required.  | [optional] 
+**ApproverId** | Pointer to **NullableString** | Id of the specific approver, used when approverType is GOVERNANCE_GROUP or WORKFLOW. | [optional] 
 
 ## Methods
 

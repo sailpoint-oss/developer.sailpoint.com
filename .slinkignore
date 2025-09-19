@@ -1,6 +1,7 @@
 {
   "ignoreURLs": [
     "*acme*",
+    "*cursor*",
     "*example*",
     "*your-tenant*",
     "*ns.adobe.com*",

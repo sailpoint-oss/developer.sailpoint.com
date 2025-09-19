@@ -49,7 +49,7 @@
   },
   "link.item.label.Submit an Idea": {
     "message": "Submit an Idea",
-    "description": "The label of footer link with label=Submit an Idea linking to https://developer-sailpoint.ideas.aha.io/"
+    "description": "The label of footer link with label=Submit an Idea linking to https://ideas.sailpoint.com/"
   },
   "link.item.label.Contact Our Team": {
     "message": "Contact Our Team",

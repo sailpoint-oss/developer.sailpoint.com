@@ -1,5 +1,6 @@
 {
   "ignoreURLs": [
+    "*$",
     "*acme*",
     "*cursor*",
     "*example*",
@@ -13,11 +14,6 @@
     "https://sailpoint.api.identitynow.com/v2024",
     "https://sailpoint.api.identitynow.com/v2025",
     "https://sailpoint.api.identitynow.com/v2026",
-    "https://sailpoint.api.identitynow.com/beta$",
-    "https://sailpoint.api.identitynow.com/v3$",
-    "https://sailpoint.api.identitynow.com/v2024$",
-    "https://sailpoint.api.identitynow.com/v2025$",
-    "https://sailpoint.api.identitynow.com/v2026$",
     "https://files.accessiq.sailpoint.com/network/REGION/FILENAME",
     "https://community.sailpoint.com",
     "https://raw.githubusercontent.com/sailpoint-oss/sailpoint-cli/refs/heads/main/assets/img/vhs/Sail.gif?raw=true",

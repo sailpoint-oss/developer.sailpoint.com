@@ -31,11 +31,11 @@
     "*d1vrqvoe9hgpx0*"
   ],
   "ignorePaths": [
-    "static/rule-java-docs/*",
-    "static/api-specs/*",
+    "static/rule-java-docs/**",
+    "static/api-specs/**",
     "package-lock.json",
     "node_modules",
-    "*pom.xml",
-    "*.svg"
+    "**/*pom.xml",
+    "**/*.svg"
   ]
 }

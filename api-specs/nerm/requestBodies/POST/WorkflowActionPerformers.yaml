@@ -1,0 +1,9 @@
+required: true
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        workflow_action_performers:
+          type: object
+          $ref: "../../schemas/POST/WorkflowActionPerformers.yaml"

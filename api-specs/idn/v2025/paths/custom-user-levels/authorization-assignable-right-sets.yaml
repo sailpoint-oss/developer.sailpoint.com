@@ -1,0 +1,124 @@
+get:
+  tags:
+    - Custom User Levels
+  summary: List all uiAssignable right sets
+  description: Retrieves a list of authorization assignable right sets for the tenant.
+  operationId: listAllAuthorizationRightSets
+  x-sailpoint-userLevels:
+    - ORG_ADMIN
+  security:
+    - userAuth: [ idn:user-level:manage ]
+  parameters:
+    - name: X-SailPoint-Experimental
+      in: header
+      description: Use this header to enable this experimental API.
+      example: true
+      schema:
+        type: string
+        default: true
+      required: true
+    - name: filters
+      in: query
+      schema:
+        type: string
+      description: >-
+        Filter results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#filtering-results)
+        
+        
+        Filtering is supported for the following fields and operators:
+        
+        
+        **category**: *eq*
+      example: category eq "identity"
+      required: false
+    - name: sorters
+      in: query
+      schema:
+        type: string
+      description: >-
+        Sort results using the standard syntax described in [V3 API Standard Collection Parameters](https://developer.sailpoint.com/idn/api/standard-collection-parameters#sorting-results)
+        
+        
+        Sorting is supported for the following fields: **id, name, category**
+      example: name, -id, -category
+      required: false
+    - $ref: '../../../v2025/parameters/limit.yaml'
+    - $ref: '../../../v2025/parameters/offset.yaml'
+
+  responses:
+    '200':
+      description: Successfully retrieved the list of authorization assignable right sets.
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../../schemas/ams/HierarchicalRightSet.yaml'
+          example:
+            [
+              {
+                "id": "idn:ui-identity-management-read",
+                "name": "Identity Read Only",
+                "description": "Read only access for Identity Management.",
+                "category": "identity",
+                "nestedConfig": {
+                  "ancestorId": "idn:ui-identity-management-read",
+                  "depth": 0,
+                  "parentId": null,
+                  "childrenIds": [
+                    "idn:ui-identity-details-page-accounts-read",
+                    "idn:ui-identity-access-page-read",
+                  ]
+                },
+                "children": [
+                  {
+                    "id": "idn:ui-identity-details-page-accounts-read",
+                    "name": "Identity Accounts",
+                    "description": "Read only access for identity accounts.",
+                    "category": "identity",
+                    "nestedConfig": {
+                      "ancestorId": "idn:ui-identity-management-read",
+                      "depth": 1,
+                      "parentId": "idn:ui-identity-management-read",
+                      "childrenIds": [ ]
+                    },
+                    "children": [ ]
+                  },
+                  {
+                    "id": "idn:ui-identity-access-page-read",
+                    "name": "Identity Access",
+                    "description": "Read only access for identities' entitlements, roles, and access profiles.",
+                    "category": "identity",
+                    "nestedConfig": {
+                      "ancestorId": "idn:ui-identity-management-read",
+                      "depth": 1,
+                      "parentId": "idn:ui-identity-management-read",
+                      "childrenIds": [ ]
+                    },
+                    "children": [ ]
+                  }
+                ]
+              }
+            ]
+      headers:
+        X-Total-Count:
+          description: Total number of root level right sets.
+          schema:
+            type: integer
+          example: 10
+        accept-language:
+          description: The locale to use for translations for the response
+          schema:
+            type: string
+    '400':
+      $ref: '../../responses/400.yaml'
+    '401':
+      $ref: '../../responses/401.yaml'
+    '403':
+      $ref: '../../responses/403.yaml'
+    '404':
+      $ref: '../../responses/404.yaml'
+    '429':
+      $ref: '../../responses/429.yaml'
+    '500':
+      $ref: '../../responses/500.yaml'

@@ -127,7 +127,7 @@ The `workflow` command makes it easy to create, manage, and test workflows from 
 
   The updated workflow will be located in the file path you specified.
 
-  This command uses the [Update workflow endpoint](https://developer.sailpoint.com/docs/api/beta/update-workflow).
+  This command uses the [Update workflow endpoint](https://developer.sailpoint.com/docs/api/beta/put-workflow).
 
   ### File path
 

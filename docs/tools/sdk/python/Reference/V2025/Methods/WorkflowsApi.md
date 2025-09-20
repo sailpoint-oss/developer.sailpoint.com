@@ -507,7 +507,7 @@ with ApiClient(configuration) as api_client:
 Get updated workflow execution history
 Gets a workflow execution history, trigger input, and workflow definition of a single workflow execution.  Workflow executions are available for up to 90 days before being archived.  If you attempt to access a workflow execution that has been archived, you will receive a 404 Not Found.
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-workflow-execution-history-v2)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/get-workflow-execution-history-v-2)
 
 ### Parameters 
 

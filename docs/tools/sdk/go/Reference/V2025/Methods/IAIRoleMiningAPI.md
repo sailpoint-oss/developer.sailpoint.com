@@ -2001,7 +2001,7 @@ The following fields can be modified:
 >**NOTE: All other fields cannot be modified.**
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-potential-role-0)
+[API Spec](https://developer.sailpoint.com/docs/api/v2025/patch-potential-role)
 
 ### Path Parameters
 

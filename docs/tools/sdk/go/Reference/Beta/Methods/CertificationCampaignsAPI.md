@@ -1218,7 +1218,7 @@ func main() {
 This endpoint has been deprecated and may be replaced or removed in future versions of the API.
 :::
 List campaign templates
-Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/list-campaign-templates).
+Use this API to get a list of all campaign templates. Scope can be reduced through standard V3 query params. Though this Beta endpoint has been deprecated, you can find its V3 equivalent [here](https://developer.sailpoint.com/docs/api/v3/get-campaign-templates).
 
 The endpoint returns all campaign templates matching the query parameters.
 

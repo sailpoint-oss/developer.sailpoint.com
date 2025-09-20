@@ -23,7 +23,7 @@ Refer to [Identity Security Cloud Connectors](https://documentation.sailpoint.co
 
 Refer to [SaaS Connectivity](https://developer.sailpoint.com/docs/connectivity/saas-connectivity) for more information about the SaaS custom connectors that do not need VAs (virtual appliances) to communicate with their sources.
 
-Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/managing_sources.html) for more information about using connectors in Identity Security Cloud.
+Refer to [Managing Sources](https://documentation.sailpoint.com/saas/help/sources/index.html) for more information about using connectors in Identity Security Cloud.
  
 All URIs are relative to *https://sailpoint.api.identitynow.com/beta*
 

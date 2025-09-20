@@ -9,7 +9,7 @@ const footerConfig = {
           { label: 'Build a SaaS connector', to: 'docs/connectivity/saas-connectivity' },
           { 
             label: 'Get certified', 
-            href: 'https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003041/true/xxemptyxx/' 
+            href: 'https://university.sailpoint.com/page/professional-certifications-and-knowledge-credentials' 
           },
         ],
       },
@@ -22,7 +22,7 @@ const footerConfig = {
           },
           { 
             label: 'Get certified', 
-            href: 'https://university.sailpoint.com/Saba/Web_spf/NA10P1PRD075/guest/categorydetail/categ000000000003042/true/xxemptyxx/' 
+            href: 'https://university.sailpoint.com/page/professional-certifications-and-knowledge-credentials' 
           },
         ],
       },
@@ -40,7 +40,6 @@ const footerConfig = {
       {
         title: 'More',
         items: [
-          { label: 'Engineering blog', href: 'https://medium.com/sailpointtechblog' },
           { label: 'GitHub', href: 'https://github.com/sailpoint-oss' },
           { label: 'Twitter', href: 'https://twitter.com/sailpoint' },
         ],

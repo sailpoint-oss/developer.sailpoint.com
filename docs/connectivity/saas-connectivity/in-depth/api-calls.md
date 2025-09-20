@@ -11,7 +11,7 @@ slug: /connectivity/saas-connectivity/in-depth/api-calls
 tags: ['Connectivity']
 ---
 
-Calling API endpoints sequentially for hundreds or thousands of accounts is slow. If several API calls are required to build a user’s account, then it is recommended that you use asynchronous functions to speed up this task. Asynchronous functions allow your program to execute several commands at once, which is especially important for high latency commands like calling API endpoints - each call to an endpoint can take anywhere from several milliseconds to several seconds. The following code snippet from [discourse-client.ts](https://github.com/sailpoint-oss/discourse-connector-2/blob/main/Discourse/src/discourse-client.ts) shows how you can use asynchronous functions to quickly build a list of account profiles for your source’s users:
+Calling API endpoints sequentially for hundreds or thousands of accounts is slow. If several API calls are required to build a user’s account, then it is recommended that you use asynchronous functions to speed up this task. Asynchronous functions allow your program to execute several commands at once, which is especially important for high latency commands like calling API endpoints - each call to an endpoint can take anywhere from several milliseconds to several seconds. The following code snippet from [discourse-client.ts](https://github.com/sailpoint-oss/saas-conn-discourse/blob/main/src/discourse-client.ts) shows how you can use asynchronous functions to quickly build a list of account profiles for your source’s users:
 
 ```javascript
 async getUsers(): Promise<User[]> {

@@ -17,7 +17,7 @@ If you want to prepopulate a field in the connector spec configuration with an i
 ```json
 "sourceConfigInitialValues": {
     // Note that the key `airtableURL` is also the key of the item the initial value is provided for
-    "airtableURL": "https://api.airtable.com/v0"
+    "airtableURL": "https://api.airtable.example.com/v0"
 },
 "sourceConfig": [
     {

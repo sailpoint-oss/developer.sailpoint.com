@@ -720,7 +720,7 @@ with ApiClient(configuration) as api_client:
 Download definition file by fileid.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/beta/get-file-from-s3)
+[API Spec](https://developer.sailpoint.com/docs/api/beta/get-file-from-s-3)
 
 ### Parameters 
 

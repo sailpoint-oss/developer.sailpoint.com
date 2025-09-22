@@ -74,7 +74,7 @@ In this situation, the certification campaign completes once all the remediation
 
 The end of a certification campaign is determined by its deadline, its completion status, or by an administrator&#39;s decision. 
 
-For more information about certifications and certification campaigns, refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certifications.html).
+For more information about certifications and certification campaigns, refer to [Certifications](https://documentation.sailpoint.com/saas/user-help/certs/reviewing/index.html).
  
 All URIs are relative to *https://sailpoint.api.identitynow.com/v2024*
 

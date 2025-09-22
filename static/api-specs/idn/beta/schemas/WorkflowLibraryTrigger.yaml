@@ -41,7 +41,7 @@ properties:
     nullable: true
     externalDocs:
       description: List of triggers and their input schemas
-      url: https://developer.sailpoint.com/idn/docs/event-triggers/available
+      url: https://developer.sailpoint.com/docs/extensibility/event-triggers/available
     example: 
       {
         "changes": [

@@ -470,7 +470,7 @@ try {
 ## get-file-from-s3
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-file-from-s3)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-file-from-s-3)
 
 ### Parameters 
 Param Type | Name | Data Type | Required  | Description

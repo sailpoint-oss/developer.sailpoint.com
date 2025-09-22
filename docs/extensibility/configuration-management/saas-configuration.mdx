@@ -322,7 +322,7 @@ You can only use the `includedIds` and `includedNames` filters when you're expor
 
 **Description**
 
-[This endpoint](https://developer.sailpoint.com/docs/api/beta/export-sp-config-job-status) gets the status of the export job identified by its `id` parameter.
+[This endpoint](https://developer.sailpoint.com/docs/api/beta/get-sp-config-export-status) gets the status of the export job identified by its `id` parameter.
 
 This request requires one of the following security scopes: 
 
@@ -363,7 +363,7 @@ Content-Type: application/json
 
 **Description**
 
-[This endpoint](https://developer.sailpoint.com/docs/api/beta/export-sp-config-download) gets the export job's resulting export file by using the requested `id` and downloads it to a file.
+[This endpoint](https://developer.sailpoint.com/docs/api/beta/get-sp-config-export) gets the export job's resulting export file by using the requested `id` and downloads it to a file.
 
 This request requires one of the following security scopes:
 
@@ -583,7 +583,7 @@ Example: POST /beta/sp-config/import?preview=true
 
 **Description**
 
-[This endpoint](https://developer.sailpoint.com/docs/api/beta/import-sp-config-job-status) gets the status of the import job identified by its `id` parameter. 
+[This endpoint](https://developer.sailpoint.com/docs/api/beta/get-sp-config-import-status) gets the status of the import job identified by its `id` parameter. 
 
 This request requires the following security scope: 
 
@@ -624,7 +624,7 @@ Content-Type: application/json
 
 **Description**
 
-[This endpoint](https://developer.sailpoint.com/docs/api/beta/import-sp-config-download) gets the import job's resulting import file by using the requested `id` and downloads the file. 
+[This endpoint](https://developer.sailpoint.com/docs/api/beta/get-sp-config-import) gets the import job's resulting import file by using the requested `id` and downloads the file. 
 The downloaded file will contain the import job's results, including any associated error, warning or informational messages.
 
 This request requires the following security scope:

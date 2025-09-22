@@ -80,7 +80,7 @@ post:
     The object types supported by upload configuration file functionality are the same as the ones supported by our regular backup functionality.
     
     
-    Refer to [SaaS Configuration](https://developer.sailpoint.com/idn/docs/saas-configuration/#supported-objects) for more information about supported objects.
+    Refer to [SaaS Configuration](https://developer.sailpoint.com/docs/extensibility/configuration-management/saas-configuration#supported-objects) for more information about supported objects.
   requestBody:
     description: |
       The body will consist of "data" which should contain the json file and name wish should be the name you want to assign to the uploaded file"

@@ -5,10 +5,11 @@ properties:
   action:
     example: ENABLE
     type: string
-    description: Describes if action will be enabled or disabled
+    description: Describes if action will be enable, disable or delete.
     enum:
       - ENABLE
       - DISABLE
+      - DELETE
   sourceIds:
     type: array
     items:

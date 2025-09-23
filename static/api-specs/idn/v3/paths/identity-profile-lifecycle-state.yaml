@@ -110,6 +110,12 @@ patch:
               - "action": "DISABLE"
                 "sourceIds":
                   - "2c91808869a0c9980169a207258513fb"
+              - "action": "DELETE"
+                "sourceIds":
+                  - "3c9180846a2f82fb016a481c1b1560c5"
+                  - "8n9180846a2f82fb016a481c1b1560cc"
+                "excludeSourceIds": null
+                allSources: false
           - op: "replace"
             path: "/emailNotificationOption"
             value:

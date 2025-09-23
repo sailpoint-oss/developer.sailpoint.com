@@ -49,9 +49,11 @@ email_notification_option=sailpoint.beta.models.email_notification_option.Email 
                     notify_specific_users = True, 
                     email_address_list = [test@test.com, test2@test.com], ),
 account_actions=[
-                    sailpoint.beta.models.account_action.Account Action(
+                    sailpoint.beta.models.account_action.AccountAction(
                         action = 'ENABLE', 
-                        source_ids = [2c918084660f45d6016617daa9210584, 2c918084660f45d6016617daa9210500], )
+                        source_ids = [2c918084660f45d6016617daa9210584, 2c918084660f45d6016617daa9210500], 
+                        exclude_source_ids = [3b551ccf5566478b9b77f37de25303aa], 
+                        all_sources = True, )
                     ],
 access_profile_ids=[2c918084660f45d6016617daa9210584, 2c918084660f45d6016617daa9210500]
 )

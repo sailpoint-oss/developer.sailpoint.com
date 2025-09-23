@@ -17,7 +17,7 @@ Object for specifying Actions to be performed on a specified list of sources' ac
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**action** |  **Enum** [  'ENABLE',    'DISABLE' ] | Describes if action will be enabled or disabled | [optional] 
+**action** |  **Enum** [  'ENABLE',    'DISABLE',    'DELETE' ] | Describes if action will be enable, disable or delete. | [optional] 
 **source_ids** | **[]str** | List of unique source IDs. The sources must have the ENABLE feature or flat file source. See \"/sources\" endpoint for source features. | [optional] 
 }
 

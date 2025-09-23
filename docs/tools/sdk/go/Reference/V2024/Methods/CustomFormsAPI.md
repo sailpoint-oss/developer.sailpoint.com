@@ -573,7 +573,7 @@ func main() {
 Download definition file by fileid.
 
 
-[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-file-from-s-3)
+[API Spec](https://developer.sailpoint.com/docs/api/v2024/get-file-from-s3)
 
 ### Path Parameters
 

@@ -15,8 +15,10 @@ tags: ['SDK', 'Software Development Kit', 'AccountAction', 'BetaAccountAction']
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Action** | Pointer to **string** | Describes if action will be enabled or disabled | [optional] 
-**SourceIds** | Pointer to **[]string** | List of source IDs. The sources must have the ENABLE feature or flat file source. See \"/sources\" endpoint for source features. | [optional] 
+**Action** | Pointer to **string** | Describes if action will be enable, disable or delete. | [optional] 
+**SourceIds** | Pointer to **[]string** | A unique list of specific source IDs to apply the action to. The sources must have the ENABLE feature or flat file source. Required if allSources is not true. Must not be provided if allSources is true. Cannot be used together with excludeSourceIds See \"/sources\" endpoint for source features. | [optional] 
+**ExcludeSourceIds** | Pointer to **[]string** | A list of source IDs to exclude from the action. Cannot be used together with sourceIds. | [optional] 
+**AllSources** | Pointer to **bool** | If true, the action applies to all available sources. If true, sourceIds must not be provided. If false or not set, sourceIds is required. | [optional] [default to false]
 
 ## Methods
 
@@ -86,5 +88,75 @@ SetSourceIds sets SourceIds field to given value.
 `func (o *AccountAction) HasSourceIds() bool`
 
 HasSourceIds returns a boolean if a field has been set.
+
+### SetSourceIdsNil
+
+`func (o *AccountAction) SetSourceIdsNil(b bool)`
+
+ SetSourceIdsNil sets the value for SourceIds to be an explicit nil
+
+### UnsetSourceIds
+`func (o *AccountAction) UnsetSourceIds()`
+
+UnsetSourceIds ensures that no value is present for SourceIds, not even an explicit nil
+### GetExcludeSourceIds
+
+`func (o *AccountAction) GetExcludeSourceIds() []string`
+
+GetExcludeSourceIds returns the ExcludeSourceIds field if non-nil, zero value otherwise.
+
+### GetExcludeSourceIdsOk
+
+`func (o *AccountAction) GetExcludeSourceIdsOk() (*[]string, bool)`
+
+GetExcludeSourceIdsOk returns a tuple with the ExcludeSourceIds field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeSourceIds
+
+`func (o *AccountAction) SetExcludeSourceIds(v []string)`
+
+SetExcludeSourceIds sets ExcludeSourceIds field to given value.
+
+### HasExcludeSourceIds
+
+`func (o *AccountAction) HasExcludeSourceIds() bool`
+
+HasExcludeSourceIds returns a boolean if a field has been set.
+
+### SetExcludeSourceIdsNil
+
+`func (o *AccountAction) SetExcludeSourceIdsNil(b bool)`
+
+ SetExcludeSourceIdsNil sets the value for ExcludeSourceIds to be an explicit nil
+
+### UnsetExcludeSourceIds
+`func (o *AccountAction) UnsetExcludeSourceIds()`
+
+UnsetExcludeSourceIds ensures that no value is present for ExcludeSourceIds, not even an explicit nil
+### GetAllSources
+
+`func (o *AccountAction) GetAllSources() bool`
+
+GetAllSources returns the AllSources field if non-nil, zero value otherwise.
+
+### GetAllSourcesOk
+
+`func (o *AccountAction) GetAllSourcesOk() (*bool, bool)`
+
+GetAllSourcesOk returns a tuple with the AllSources field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAllSources
+
+`func (o *AccountAction) SetAllSources(v bool)`
+
+SetAllSources sets AllSources field to given value.
+
+### HasAllSources
+
+`func (o *AccountAction) HasAllSources() bool`
+
+HasAllSources returns a boolean if a field has been set.
 
 
